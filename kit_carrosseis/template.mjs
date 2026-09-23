@@ -18,7 +18,8 @@ export function renderCarrossel(c) {
     return { n: String(i + 1).padStart(2, '0'), text: m ? m[1] : t, note: m ? m[2] : '' };
   });
   const dense = itens.length >= 7 || itens.filter(i => i.note).length >= 2;
-  const topGap = dense ? 60 : 110, ruleGap = dense ? 40 : 60, rowPad = dense ? 9 : 13;
+  const extra = itens.length >= 8;
+  const topGap = extra ? 36 : dense ? 60 : 110, ruleGap = extra ? 28 : dense ? 40 : 60, rowPad = extra ? 6 : dense ? 9 : 13;
   const handle = `@CONSTITUCIONAL<b style="font-weight:700">GABARITADO</b>`;
   const bebas = `font-family:'Bebas Neue',sans-serif`;
 
@@ -53,7 +54,7 @@ export function renderCarrossel(c) {
       <div style="display:flex;flex-direction:column;gap:18px">
         <div style="display:flex;align-items:baseline;gap:22px">
           <span style="${bebas};font-size:44px;color:#8DC63F">01</span>
-          <span style="${bebas};font-size:92px;line-height:.9;color:${T.cardHead}">Endereçamento</span>
+          <span style="${bebas};font-size:92px;line-height:.9;color:${T.cardHead}">${esc(c.bloco1 || 'Endereçamento')}</span>
         </div>
         <div style="font-size:34px;line-height:1.4;padding-left:66px;max-width:860px;text-wrap:pretty">${esc(c.enderecamento)}</div>
       </div>

@@ -31,8 +31,8 @@ Para gerar só um: `node render.mjs habeas-data`
 - `id`: nome da pasta de saída (sem espaços ou acentos).
 - `titulo`: uma linha por item. Títulos longos devem ser quebrados em 2 linhas. O tamanho da fonte se ajusta sozinho.
 - `tema`: `"escuro"` (slide 2 verde, slide 3 claro) ou `"claro"` (invertido).
-- `topicos`: o texto entre parênteses no fim de um tópico vira uma observação menor abaixo dele. Com 7 ou mais tópicos, o espaçamento fica mais compacto sozinho.
-- Opcionais: `kicker` (padrão "Estrutura de Peças"), `ctaTitulo`, `ctaSub`, `fotoAltura` (em px; use quando a foto for mais baixa que 1000 px).
+- `topicos`: o texto entre parênteses no fim de um tópico vira uma observação menor abaixo dele. Com 7 ou mais tópicos, o espaçamento fica mais compacto sozinho (e ainda mais com 8 ou mais).
+- Opcionais: `kicker` (padrão "Estrutura de Peças"), `bloco1` (título do 1º bloco; padrão "Endereçamento"), `ctaTitulo`, `ctaSub`, `fotoAltura` (em px; use quando a foto for mais baixa que 1000 px).
 
 ## Usando com o Claude Code
 Abra a pasta no Claude Code e peça, por exemplo:

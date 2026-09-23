@@ -1,7 +1,9 @@
 [
   {
     "id": "habeas-data",
-    "titulo": ["Habeas Data"],
+    "titulo": [
+      "Habeas Data"
+    ],
     "foto": "foto-1.png",
     "tema": "escuro",
     "enderecamento": "Art. 20, I, Lei 9.507/97 – GPS+M",
@@ -19,7 +21,9 @@
   },
   {
     "id": "adi-por-omissao",
-    "titulo": ["ADI por Omissão"],
+    "titulo": [
+      "ADI por Omissão"
+    ],
     "foto": "foto-2.png",
     "fotoAltura": 960,
     "tema": "escuro",
@@ -37,7 +41,10 @@
   },
   {
     "id": "mandado-de-injuncao",
-    "titulo": ["Mandado de", "Injunção"],
+    "titulo": [
+      "Mandado de",
+      "Injunção"
+    ],
     "foto": "foto-3.png",
     "fotoAltura": 860,
     "tema": "claro",
@@ -51,5 +58,450 @@
       "Dos Pedidos"
     ],
     "valor": "Valor da Causa"
+  },
+  {
+    "id": "habeas-corpus",
+    "titulo": [
+      "Habeas Corpus"
+    ],
+    "foto": "foto-1.png",
+    "tema": "escuro",
+    "enderecamento": "Arts. 102, I, “c” e “i”, 105, I, “c”, 108, I, “d” e 125, §1º, CF/88 – GPS+M",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Dos Fatos",
+      "Do Cabimento (art. 5º, LXVIII, CF/88 e arts. 647 a 664, CPP)",
+      "Da Legitimidade das Partes (ação de caráter universal, art. 654, CPP)",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 300, CPC c/c arts. 649 e 660, §2º, CPP)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "mandado-de-seguranca",
+    "titulo": [
+      "Mandado de",
+      "Segurança"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "claro",
+    "enderecamento": "Arts. 102, I, d; 105, I, b; 108, I, c; 109, VIII e 125, §1º, CF/88 – GPS+M",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Dos Fatos",
+      "Do Cabimento (art. 5º, LXIX, CF/88)",
+      "Da Legitimidade das Partes",
+      "Da Tempestividade (120 dias – art. 23, Lei 12.016/09)",
+      "Da Prova Pré-Constituída",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 7º, III, Lei 12.016/09)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "acao-popular",
+    "titulo": [
+      "Ação Popular"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "escuro",
+    "enderecamento": "Juízo de 1º grau – sem foro por prerrogativa (arts. 109, I, e 102, I, “n” e “f”, CF/88)",
+    "qualificacao": "Qualificação (título de eleitor nº...) e identificação da peça",
+    "topicos": [
+      "Dos Fatos",
+      "Do Cabimento (art. 5º, LXXIII, CF/88 e Lei 4.717/65)",
+      "Da Legitimidade das Partes (ativo: cidadão; passivo: litisconsórcio necessário)",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 300, CPC c/c art. 5º, §4º, Lei 4.717/65)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "procedimento-comum",
+    "titulo": [
+      "Procedimento",
+      "Comum"
+    ],
+    "foto": "foto-1.png",
+    "tema": "claro",
+    "enderecamento": "Juízo de 1º grau – sem foro por prerrogativa (arts. 109, I, e 125, §1º, CF/88)",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Dos Fatos",
+      "Da Gratuidade da Justiça (se couber)",
+      "Do Cabimento (art. 319, CPC)",
+      "Da Legitimidade das Partes",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 300, CPC)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "acao-civil-publica",
+    "titulo": [
+      "Ação Civil",
+      "Pública"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "escuro",
+    "enderecamento": "Juízo de 1º grau – sem foro por prerrogativa (art. 109, I, CF/88)",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Dos Fatos",
+      "Da Gratuidade da Justiça (se couber)",
+      "Do Cabimento (art. 1º, Lei 7.347/85)",
+      "Da Legitimidade das Partes",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 12, Lei 7.347/85)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "contestacao",
+    "titulo": [
+      "Contestação"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "claro",
+    "enderecamento": "Ao juízo onde foi ajuizada a petição inicial",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Síntese dos Fatos",
+      "Das Preliminares (art. 337, CPC)",
+      "Da Legitimidade das Partes",
+      "Da Fundamentação Jurídica (art. 5º, LV, CF/88 + arts. 335 e 336, CPC)",
+      "Da Reconvenção (art. 343, CPC – se solicitada)",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "aime",
+    "titulo": [
+      "AIME"
+    ],
+    "foto": "foto-1.png",
+    "tema": "escuro",
+    "enderecamento": "Zona Eleitoral (Prefeito e Vereador), TRE (Governador e Deputados) ou TSE (Presidente)",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Síntese dos Fatos",
+      "Da Tempestividade (art. 14, §10, CF/88)",
+      "Da Prova Pré-Constituída (art. 14, §10, CF/88)",
+      "Da Fundamentação Jurídica (art. 14, §§10 e 11, CF/88 + arts. 2º e 3º, LC 64/90)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "parecer-juridico",
+    "titulo": [
+      "Parecer",
+      "Jurídico"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "claro",
+    "enderecamento": "Aquele que contratou o advogado",
+    "qualificacao": "Ementa (frases curtas que contemplam o caso)",
+    "topicos": [
+      "Introdução (do que se trata o parecer)",
+      "Da Fundamentação Jurídica",
+      "Conclusão (a opinião do advogado)"
+    ],
+    "valor": "SMJ, este é o Parecer",
+    "bloco1": "Interessado"
+  },
+  {
+    "id": "adi",
+    "titulo": [
+      "ADI"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "escuro",
+    "enderecamento": "Exmº. Sr. Ministro Presidente do Supremo Tribunal Federal",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Do Objeto da Ação (art. 102, I, a, CF/88)",
+      "Da Legitimidade Ativa (art. 103, CF/88 e art. 2º, Lei 9.868/99)",
+      "Da Fundamentação Jurídica (indicar se é inconstitucionalidade material ou formal)",
+      "Da Medida Cautelar (art. 300, CPC c/c arts. 10 a 12, Lei 9.868/99)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "adc",
+    "titulo": [
+      "ADC"
+    ],
+    "foto": "foto-1.png",
+    "tema": "claro",
+    "enderecamento": "Exmº. Sr. Ministro Presidente do Supremo Tribunal Federal",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Do Objeto da Ação (art. 102, I, a, CF/88)",
+      "Da Legitimidade Ativa (art. 103, CF/88 e art. 2º, Lei 9.868/99)",
+      "Da Relevante Controvérsia Judicial (art. 14, III, Lei 9.868/99)",
+      "Da Fundamentação Jurídica",
+      "Da Medida Cautelar (art. 300, CPC c/c art. 21, Lei 9.868/99)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "adpf",
+    "titulo": [
+      "ADPF"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "escuro",
+    "enderecamento": "Exmº. Sr. Ministro Presidente do Supremo Tribunal Federal",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Do Objeto da Ação (art. 102, §1º, CF/88 e art. 1º, p.u., Lei 9.882/99)",
+      "Da Legitimidade Ativa (art. 103, CF/88 e art. 2º, Lei 9.882/99)",
+      "Do Cabimento (art. 4º, §1º, Lei 9.882/99)",
+      "Da Fundamentação Jurídica",
+      "Da Medida Cautelar (art. 300, CPC c/c art. 5º, §3º, Lei 9.882/99)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "representacao-de-inconstitucionalidade",
+    "titulo": [
+      "Representação de",
+      "Inconstitucionalidade"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "claro",
+    "enderecamento": "Exmº. Sr. Desembargador Presidente do Tribunal de Justiça de ...",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Do Objeto da Ação (art. 125, §1º, CF/88 e Lei 9.868/99)",
+      "Da Legitimidade Ativa (a Constituição Estadual irá dispor)",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 300, CPC c/c arts. 10 a 12, Lei 9.868/99)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "reclamacao-constitucional",
+    "titulo": [
+      "Reclamação",
+      "Constitucional"
+    ],
+    "foto": "foto-1.png",
+    "tema": "escuro",
+    "enderecamento": "Ao STF (art. 102, I, “l”, CF/88) ou ao STJ (art. 105, I, “f”, CF/88)",
+    "qualificacao": "Qualificação e identificação da peça",
+    "topicos": [
+      "Do Objeto da Ação",
+      "Da Legitimidade Ativa",
+      "Da Fundamentação Jurídica",
+      "Da Tutela de Urgência (art. 300, CPC)",
+      "Dos Pedidos"
+    ],
+    "valor": "Valor da Causa"
+  },
+  {
+    "id": "apelacao",
+    "titulo": [
+      "Apelação"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "claro",
+    "enderecamento": "Interposição: ao juízo a quo · Razões: ao Tribunal competente",
+    "qualificacao": "Qualificação e identificação da peça (art. 1.009, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento (art. 1.009, CPC)",
+      "Do Preparo (art. 1.007, CPC) ou Gratuidade",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "recurso-ordinario-constitucional",
+    "titulo": [
+      "Recurso Ordinário",
+      "Constitucional"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "escuro",
+    "enderecamento": "Interposição: ao juízo recorrido · Razões: ao STF ou STJ",
+    "qualificacao": "Qualificação e identificação da peça (arts. 1.027 e 1.028, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento",
+      "Do Preparo (art. 1.007, CPC) ou Gratuidade",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "recurso-extraordinario",
+    "titulo": [
+      "Recurso",
+      "Extraordinário"
+    ],
+    "foto": "foto-1.png",
+    "tema": "claro",
+    "enderecamento": "Interposição: ao juízo recorrido · Razões: ao Ministro Presidente do STF",
+    "qualificacao": "Qualificação e identificação da peça (art. 102, III, CF/88)",
+    "topicos": [
+      "Da Tempestividade (15 dias – art. 1.003, §5º)",
+      "Do Cabimento",
+      "Do Preparo ou Gratuidade da Justiça",
+      "Do Prequestionamento (Súmula 282, STF)",
+      "Da Repercussão Geral (art. 1.035, CPC)",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "recurso-especial",
+    "titulo": [
+      "Recurso",
+      "Especial"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "escuro",
+    "enderecamento": "Interposição: ao juízo recorrido · Razões: ao Ministro Presidente do STJ",
+    "qualificacao": "Qualificação e identificação da peça (art. 105, III, CF/88)",
+    "topicos": [
+      "Da Tempestividade (15 dias – art. 1.003, §5º)",
+      "Do Cabimento",
+      "Do Preparo ou Gratuidade da Justiça",
+      "Do Prequestionamento (Súmula 282, STF)",
+      "Da Relevância (art. 105, §2º, CF/88)",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "contrarrazoes",
+    "titulo": [
+      "Contrarrazões"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "claro",
+    "enderecamento": "Interposição: ao juízo a quo · Razões: ao Tribunal competente",
+    "qualificacao": "Qualificação e apresentação das contrarrazões",
+    "topicos": [
+      "Da Tempestividade (de acordo com o recurso)",
+      "Síntese Fática",
+      "Do Mérito – Razões pela manutenção da decisão",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "agravo-de-instrumento",
+    "titulo": [
+      "Agravo de",
+      "Instrumento"
+    ],
+    "foto": "foto-1.png",
+    "tema": "escuro",
+    "enderecamento": "Interposição: ao juízo a quo · Razões: ao juízo ad quem",
+    "qualificacao": "Qualificação e identificação da peça (art. 1.015, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento (art. 1.015, CPC)",
+      "Do Preparo (art. 1.007, CPC) ou Gratuidade",
+      "Da Documentação (art. 1.017, I, CPC)",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "agravo-interno",
+    "titulo": [
+      "Agravo",
+      "Interno"
+    ],
+    "foto": "foto-2.png",
+    "fotoAltura": 960,
+    "tema": "claro",
+    "enderecamento": "Interposição: ao juízo recorrido · Razões: à Câmara do Tribunal",
+    "qualificacao": "Qualificação e identificação da peça (art. 1.021, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento (art. 1.021, CPC)",
+      "Do Preparo (art. 1.007, CPC) ou Gratuidade",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "agravo-em-re-resp",
+    "titulo": [
+      "Agravo em",
+      "RE / REsp"
+    ],
+    "foto": "foto-3.png",
+    "fotoAltura": 860,
+    "tema": "escuro",
+    "enderecamento": "Interposição: ao juízo recorrido · Razões: ao Tribunal Superior",
+    "qualificacao": "Qualificação e identificação da peça (art. 1.042, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento (art. 1.042, CPC)",
+      "Do Preparo (art. 1.007, CPC) ou Gratuidade",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
+  },
+  {
+    "id": "embargos-de-declaracao",
+    "titulo": [
+      "Embargos de",
+      "Declaração"
+    ],
+    "foto": "foto-1.png",
+    "tema": "claro",
+    "enderecamento": "Ao juízo prolator da decisão embargada",
+    "qualificacao": "Qualificação e identificação da peça (art. 1.022, CPC)",
+    "topicos": [
+      "Da Tempestividade (art. 1.023, CPC)",
+      "Do Cabimento (art. 1.022, CPC)",
+      "Síntese Fática",
+      "Da Omissão, Obscuridade ou Contradição",
+      "Dos Pedidos"
+    ],
+    "valor": "Termos em que, pede deferimento"
   }
 ]
