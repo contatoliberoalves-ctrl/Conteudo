@@ -54,7 +54,8 @@ Variáveis opcionais do `render.mjs`: `CHROMIUM_PATH` (usar um Chromium já inst
 - `render.mjs`: gera os PNGs (Playwright)
 - `dados.json`: conteúdo dos carrosséis
 - `molde.json`: nome e descrição do molde na galeria
-- `fotos/`: fotos das capas
+- `fotos/`: fotos das capas. Os recortes `.jpg` das fotos pessoais **não vão para o git** (o repositório é público): os originais ficam no Google Drive do dono e `recortar_fotos.py <pasta-dos-originais>` recria os recortes.
+- `recortar_fotos.py`: recorte de cada foto para a capa (posição do rosto por foto)
 - `assets/logo.png`: selo Constitucional Gabaritado
 
 Obs.: as fotos e o logo incluídos foram recortados das artes originais. Troque pelos arquivos em alta resolução para ter mais nitidez.
