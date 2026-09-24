@@ -1,6 +1,7 @@
 # Recorta as fotos originais (de câmera) para as capas: 1224x1200 (proporção 1020:1000),
 # rosto a ~30% da altura, orientação EXIF corrigida. As fotos ficam fora do git (repositório público).
 # Uso: python3 recortar_fotos.py <pasta-com-os-originais>   -> grava em fotos/<nome>.jpg
+# Outros moldes importam C e recortar() daqui, com outro tamanho de saída.
 # Requer Pillow. Para uma foto nova, acrescente em C: nome do arquivo sem extensão ->
 # (x do rosto, y do rosto, largura do recorte), em frações da foto já na orientação certa.
 import os
@@ -21,24 +22,31 @@ C={
 'ÉTICA-24':(.66,.39,.45),'ÉTICA-25':(.50,.32,.5),'ÉTICA-27':(.50,.38,.7),'ÉTICA-31':(.47,.44,.7),'ÉTICA-4':(.50,.34,.8),'ÉTICA-9':(.41,.40,.7),
 }
 
-PROPORCAO = 1000 / 1020
-origem = Path(sys.argv[1])
-destino = Path(__file__).resolve().parent / 'fotos'
-arquivos = {unicodedata.normalize('NFC', f.stem): f for f in origem.iterdir() if f.suffix.lower() in ('.jpg', '.jpeg', '.png')}
-for nome, (fx, fy, w) in C.items():
-    if nome not in arquivos:
-        print('  ! não encontrada:', nome)
-        continue
-    im = ImageOps.exif_transpose(Image.open(arquivos[nome])).convert('RGB')
-    W, H = im.size
-    cw = w * W
-    ch = cw * PROPORCAO
-    if ch > H:
-        ch = H
-        cw = ch / PROPORCAO
-    left = min(max(fx * W - cw / 2, 0), W - cw)
-    top = min(max(fy * H - 0.30 * ch, 0), H - ch)
-    recorte = im.crop((round(left), round(top), round(left + cw), round(top + ch))).resize((1224, 1200), Image.LANCZOS)
-    saida = destino / (nome.lower().replace('é', 'e') + '.jpg')
-    recorte.save(saida, quality=86, optimize=True, progressive=True)
-    print('✓', saida.name)
+
+def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30):
+    """Recorta cada foto de C em largura x altura, com o rosto a rosto_y da altura."""
+    proporcao = altura / largura
+    origem, destino = Path(origem), Path(destino)
+    destino.mkdir(parents=True, exist_ok=True)
+    arquivos = {unicodedata.normalize('NFC', f.stem): f for f in origem.iterdir() if f.suffix.lower() in ('.jpg', '.jpeg', '.png')}
+    for nome, (fx, fy, w) in C.items():
+        if nome not in arquivos:
+            print('  ! não encontrada:', nome)
+            continue
+        im = ImageOps.exif_transpose(Image.open(arquivos[nome])).convert('RGB')
+        W, H = im.size
+        cw = w * W
+        ch = cw * proporcao
+        if ch > H:
+            ch = H
+            cw = ch / proporcao
+        left = min(max(fx * W - cw / 2, 0), W - cw)
+        top = min(max(fy * H - rosto_y * ch, 0), H - ch)
+        recorte = im.crop((round(left), round(top), round(left + cw), round(top + ch))).resize((largura, altura), Image.LANCZOS)
+        saida = destino / (nome.lower().replace('é', 'e') + '.jpg')
+        recorte.save(saida, quality=86, optimize=True, progressive=True)
+        print('✓', saida.name)
+
+
+if __name__ == '__main__':
+    recortar(sys.argv[1], Path(__file__).resolve().parent / 'fotos')

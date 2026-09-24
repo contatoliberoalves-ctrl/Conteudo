@@ -21,6 +21,12 @@ def jpeg(origem, destino, largura, qualidade=82):
     im.save(destino, 'JPEG', quality=qualidade, optimize=True, progressive=True)
 
 
+def titulo(c):
+    """Nome do post na galeria: "titulo" (molde Estrutura de Peças) ou "destaque" (Carrossel Explicativo)."""
+    t = c.get('titulo') or c.get('destaque') or c['id']
+    return ' '.join(t) if isinstance(t, list) else t
+
+
 moldes = []
 for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     meta_arq = pasta / 'molde.json'
@@ -42,7 +48,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
         jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
         posts.append({
             'id': c['id'],
-            'titulo': ' '.join(c.get('titulo', [c['id']])),
+            'titulo': titulo(c),
             'tema': c.get('tema', ''),
             'topicos': len(c.get('topicos', [])),
             'painel': f'{base}-painel.jpg',
