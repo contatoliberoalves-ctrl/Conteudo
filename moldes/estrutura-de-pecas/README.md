@@ -40,6 +40,10 @@ Abra a pasta no Claude Code e peça, por exemplo:
 
 Ele só preenche o JSON e roda o script, sem mexer no visual, por isso gasta poucos créditos. Para mudar o design, edite `template.mjs` (todo o layout está nele).
 
+A skill `molde-estrutura-de-pecas` (em `.claude/skills/`) já ensina esse passo a passo ao Claude.
+
+Variáveis opcionais do `render.mjs`: `CHROMIUM_PATH` (usar um Chromium já instalado) e `RENDER_PROXY` (proxy para baixar as fontes do Google).
+
 ## Tokens do design
 - Verde escuro: `#3A4A44` · Verde-limão (destaque): `#8DC63F` · Fundo da capa: `#141412` · Off-white: `#F4F3EE`
 - Fontes: Bebas Neue (títulos) + Poppins 300/500/600/700 (textos), via Google Fonts. É preciso estar conectado à internet ao gerar.
@@ -49,6 +53,7 @@ Ele só preenche o JSON e roda o script, sem mexer no visual, por isso gasta pou
 - `template.mjs`: modelo visual
 - `render.mjs`: gera os PNGs (Playwright)
 - `dados.json`: conteúdo dos carrosséis
+- `molde.json`: nome e descrição do molde na galeria
 - `fotos/`: fotos das capas
 - `assets/logo.png`: selo Constitucional Gabaritado
 

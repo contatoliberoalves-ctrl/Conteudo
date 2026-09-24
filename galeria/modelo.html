@@ -1,0 +1,236 @@
+<title>Galeria de Moldes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#3A4A44; --lima:#8DC63F; --lima-ink:#4E7A17;
+  --bg:#F4F3EE; --surface:#FFFFFF; --ink:#22302B; --muted:#5E6B66; --line:rgba(58,74,68,.14);
+  --chip:#E8E9E1; --shadow:0 1px 2px rgba(20,20,18,.06),0 8px 24px rgba(20,20,18,.06);
+  --display:'Bebas Neue','Oswald','Arial Narrow',Impact,sans-serif;
+  --body:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark; --bg:#141412; --surface:#1D201E; --ink:#EEF0EA; --muted:#9BA69F; --line:rgba(238,240,234,.12);
+  --chip:#262A27; --lima-ink:#8DC63F; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark; --bg:#141412; --surface:#1D201E; --ink:#EEF0EA; --muted:#9BA69F; --line:rgba(238,240,234,.12);
+  --chip:#262A27; --lima-ink:#8DC63F; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:clamp(16px,4vw,48px);padding-block:32px 72px}
+.wrap{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;margin:0;text-wrap:balance}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--lima);outline-offset:2px}
+
+/* Cabeçalho */
+.topo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.perfil{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.perfil b{font-weight:600;color:var(--ink)}
+h1{font-size:clamp(52px,9vw,104px);line-height:.88;margin-top:8px}
+h1 span{color:var(--lima)}
+.numeros{display:flex;gap:28px;font-variant-numeric:tabular-nums}
+.numeros div{display:flex;flex-direction:column}
+.numeros strong{font-family:var(--display);font-weight:400;font-size:40px;line-height:1}
+.numeros span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Seletor de moldes */
+.moldes{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.molde-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:18px;background:var(--surface);border:2px solid transparent;box-shadow:var(--shadow)}
+.molde-btn[aria-pressed="true"]{border-color:var(--lima)}
+.molde-btn img{width:100%;aspect-ratio:12/5;object-fit:cover;border-radius:10px;background:var(--chip)}
+.molde-btn strong{font-family:var(--display);font-weight:400;font-size:28px;line-height:1}
+.molde-btn small{color:var(--muted);font-size:13px}
+.novo{cursor:default;background:transparent;border:2px dashed var(--line);box-shadow:none;justify-content:center;min-height:180px}
+.novo p{margin:0;color:var(--muted);font-size:13px}
+
+/* Molde ativo */
+.molde{display:flex;flex-direction:column;gap:22px}
+.molde-cab{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 40px;align-items:start}
+@media (max-width:820px){.molde-cab{grid-template-columns:1fr}}
+.molde-cab h2{font-size:clamp(40px,6vw,64px);line-height:.95}
+.formato{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--lima-ink)}
+.formato::before{content:"";width:28px;height:3px;background:var(--lima)}
+.molde-cab p{margin:10px 0 0;color:var(--muted);max-width:60ch}
+.pedido{background:var(--verde);color:#EEF0EA;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.pedido span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lima)}
+.pedido code{font-family:var(--body);font-size:14px;line-height:1.5;background:rgba(255,255,255,.07);border-radius:10px;padding:10px 12px;user-select:all;overflow-wrap:anywhere}
+.pedido button{align-self:flex-start;cursor:pointer;background:var(--lima);color:#141412;border:0;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600}
+.barra{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.busca{flex:1 1 260px;max-width:420px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px}
+.busca input{all:unset;flex:1;min-width:0;font-size:14px}
+.busca input::placeholder{color:var(--muted)}
+.filtros{display:flex;gap:6px;flex-wrap:wrap}
+.filtros button{cursor:pointer;border:1px solid var(--line);background:transparent;border-radius:999px;padding:6px 14px;font-size:13px}
+.filtros button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.contagem{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* Grade de posts */
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
+@media (max-width:420px){.grade{grid-template-columns:1fr}}
+.post{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:12px}
+.post .thumb{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:12/5;background:var(--chip)}
+.post img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.post:hover img,.post:focus-visible img{transform:scale(1.025)}
+.post .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 33.2%,rgba(0,0,0,.25) 33.3%,transparent 33.5%,transparent 66.5%,rgba(0,0,0,.25) 66.6%,transparent 66.8%)}
+.post .info{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.post strong{font-family:var(--display);font-weight:400;font-size:26px;line-height:1}
+.post small{font-size:12px;color:var(--muted);white-space:nowrap}
+.vazio{padding:40px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:18px}
+
+/* Visualizador */
+dialog{border:0;padding:0;background:rgba(12,13,12,.97);max-width:none;max-height:none;width:100%;height:100%;color:#EEF0EA}
+dialog::backdrop{background:rgba(12,13,12,.92)}
+.visor{height:100%;display:flex;flex-direction:column;gap:16px;padding:calc(16px + env(safe-area-inset-top,0px)) clamp(16px,3vw,40px) calc(16px + env(safe-area-inset-bottom,0px))}
+.visor-cab{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.visor-cab h3{font-size:clamp(28px,4vw,44px);line-height:1}
+.visor-cab small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lima)}
+.acoes{display:flex;gap:8px}
+.acoes button{cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid rgba(238,240,234,.25);background:rgba(238,240,234,.06);font-size:20px;line-height:1;display:grid;place-items:center}
+.acoes button:hover{background:rgba(238,240,234,.16)}
+.slides{flex:1;min-height:0;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;justify-content:safe center}
+.slides figure{margin:0;flex:0 0 auto;width:min(calc((100vw - 2*clamp(16px,3vw,40px) - 24px)/3),calc((100dvh - 200px)*.8));scroll-snap-align:center;display:flex;flex-direction:column;gap:8px}
+@media (max-width:760px){.slides figure{width:min(82vw,calc((100dvh - 220px)*.8))}}
+.slides img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;background:#222}
+.slides figcaption{font-size:12px;color:#9BA69F;text-align:center}
+.visor-rodape{font-size:12px;color:#9BA69F;text-align:center}
+@media (prefers-reduced-motion:reduce){.post img{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="topo">
+    <div>
+      <div class="perfil">@constitucional<b>gabaritado</b></div>
+      <h1>Galeria de <span>moldes</span></h1>
+    </div>
+    <div class="numeros" id="numeros"></div>
+  </header>
+
+  <section aria-label="Moldes" class="moldes" id="moldes"></section>
+
+  <section class="molde" id="molde"></section>
+</div>
+
+<dialog id="visor" aria-label="Visualizar carrossel">
+  <div class="visor">
+    <div class="visor-cab">
+      <div><small id="v-molde"></small><h3 id="v-titulo"></h3></div>
+      <div class="acoes">
+        <button id="v-ant" aria-label="Post anterior">←</button>
+        <button id="v-prox" aria-label="Próximo post">→</button>
+        <button id="v-fechar" aria-label="Fechar">✕</button>
+      </div>
+    </div>
+    <div class="slides" id="v-slides"></div>
+    <div class="visor-rodape">Arquivos em alta (PNG 1080×1350) na pasta <span id="v-pasta"></span> do repositório · ← → para navegar · Esc para fechar</div>
+  </div>
+</dialog>
+
+<script>
+const MOLDES = /*__DADOS__*/[];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+const ler = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+
+let ativo = MOLDES.find(m => m.id === ler('molde')) || MOLDES[0];
+let filtroTema = 'todos', termo = '', lista = [], atual = 0;
+
+const totalPosts = MOLDES.reduce((n, m) => n + m.posts.length, 0);
+const totalSlides = MOLDES.reduce((n, m) => n + m.posts.reduce((k, p) => k + p.slides.length, 0), 0);
+$('#numeros').innerHTML = [[MOLDES.length, MOLDES.length === 1 ? 'molde' : 'moldes'], [totalPosts, 'posts'], [totalSlides, 'slides']]
+  .map(([n, r]) => `<div><strong>${n}</strong><span>${r}</span></div>`).join('');
+
+function desenharMoldes() {
+  $('#moldes').innerHTML = MOLDES.map(m => `
+    <button class="molde-btn" data-id="${esc(m.id)}" aria-pressed="${m === ativo}">
+      ${m.posts[0] ? `<img src="${esc(m.posts[0].painel)}" alt="" loading="lazy">` : ''}
+      <strong>${esc(m.nome)}</strong>
+      <small>${esc(m.formato)} · ${m.posts.length} posts</small>
+    </button>`).join('') + `
+    <div class="molde-btn novo" role="note">
+      <strong>+ Novo molde</strong>
+      <p>Envie o novo molde (zip ou imagens de referência) no chat do Claude. Ele vira uma pasta em <code>moldes/</code>, ganha uma skill própria e aparece aqui.</p>
+    </div>`;
+  document.querySelectorAll('.molde-btn[data-id]').forEach(b => b.onclick = () => {
+    ativo = MOLDES.find(m => m.id === b.dataset.id); guardar('molde', ativo.id);
+    filtroTema = 'todos'; termo = ''; desenharMoldes(); desenharMolde();
+  });
+}
+
+function desenharMolde() {
+  const m = ativo;
+  if (!m) { $('#molde').innerHTML = '<div class="vazio">Nenhum molde encontrado.</div>'; return; }
+  const temas = [...new Set(m.posts.map(p => p.tema).filter(Boolean))];
+  $('#molde').innerHTML = `
+    <div class="molde-cab">
+      <div>
+        <span class="formato">${esc(m.formato)}</span>
+        <h2>${esc(m.nome)}</h2>
+        <p>${esc(m.descricao || '')}</p>
+      </div>
+      <div class="pedido">
+        <span>Como pedir novos posts neste molde</span>
+        <code id="pedido-txt">${esc(m.pedido || '')}[liste as peças ou cole o conteúdo]</code>
+        <button id="copiar">Copiar pedido</button>
+      </div>
+    </div>
+    <div class="barra">
+      <label class="busca"><span aria-hidden="true">⌕</span><input id="busca" type="search" placeholder="Buscar post…" aria-label="Buscar post" value="${esc(termo)}"></label>
+      ${temas.length > 1 ? `<div class="filtros" role="group" aria-label="Filtrar por tema">${['todos', ...temas].map(t =>
+        `<button data-tema="${esc(t)}" aria-pressed="${t === filtroTema}">${t === 'todos' ? 'Todos' : 'Tema ' + esc(t)}</button>`).join('')}</div>` : ''}
+      <span class="contagem" id="contagem"></span>
+    </div>
+    <div class="grade" id="grade"></div>`;
+  $('#busca').oninput = e => { termo = e.target.value; desenharGrade(); };
+  document.querySelectorAll('[data-tema]').forEach(b => b.onclick = () => {
+    filtroTema = b.dataset.tema;
+    document.querySelectorAll('[data-tema]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    desenharGrade();
+  });
+  $('#copiar').onclick = async e => {
+    const txt = $('#pedido-txt').textContent;
+    try { await navigator.clipboard.writeText(txt); e.target.textContent = 'Copiado'; }
+    catch (err) { const r = document.createRange(); r.selectNodeContents($('#pedido-txt')); getSelection().removeAllRanges(); getSelection().addRange(r); e.target.textContent = 'Selecionado: copie com Ctrl+C'; }
+    setTimeout(() => e.target.textContent = 'Copiar pedido', 2200);
+  };
+  desenharGrade();
+}
+
+const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+function desenharGrade() {
+  const q = semAcento(termo.trim());
+  lista = ativo.posts.filter(p => (filtroTema === 'todos' || p.tema === filtroTema) && (!q || semAcento(p.titulo + ' ' + p.id).includes(q)));
+  $('#contagem').textContent = `${lista.length} de ${ativo.posts.length} posts`;
+  $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
+    <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
+      <div class="thumb"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
+      <div class="info"><strong>${esc(p.titulo)}</strong><small>${p.slides.length} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
+    </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
+  document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
+}
+
+function abrir(i) {
+  atual = (i + lista.length) % lista.length;
+  const p = lista[atual];
+  $('#v-molde').textContent = ativo.nome + ` · ${atual + 1} de ${lista.length}`;
+  $('#v-titulo').textContent = p.titulo;
+  $('#v-pasta').textContent = `moldes/${ativo.id}/saida/${p.id}/`;
+  $('#v-slides').innerHTML = p.slides.map((s, k) => `<figure><img src="${esc(s)}" alt="${esc(p.titulo)}, slide ${k + 1}"><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
+  $('#v-slides').scrollLeft = 0;
+  if (!$('#visor').open) $('#visor').showModal();
+}
+$('#v-fechar').onclick = () => $('#visor').close();
+$('#v-ant').onclick = () => abrir(atual - 1);
+$('#v-prox').onclick = () => abrir(atual + 1);
+$('#visor').addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') { e.preventDefault(); abrir(atual - 1); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); abrir(atual + 1); }
+});
+$('#visor').addEventListener('click', e => { if (e.target.classList.contains('visor') || e.target.id === 'v-slides') $('#visor').close(); });
+
+desenharMoldes();
+desenharMolde();
+</script>

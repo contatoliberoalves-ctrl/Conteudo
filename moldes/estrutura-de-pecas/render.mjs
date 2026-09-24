@@ -11,7 +11,11 @@ const filtro = process.argv[2];
 const buildDir = path.join(root, 'build');
 fs.mkdirSync(buildDir, { recursive: true });
 
-const browser = await chromium.launch();
+// Opcional: CHROMIUM_PATH (navegador já instalado) e RENDER_PROXY (proxy para baixar as fontes).
+const launch = {};
+if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
+if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
+const browser = await chromium.launch(launch);
 const page = await browser.newPage({ viewport: { width: 3240, height: 1350 } });
 
 for (const c of dados) {
