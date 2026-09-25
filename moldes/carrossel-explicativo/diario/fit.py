@@ -11,7 +11,7 @@ def salvar(P):
     antes = {c['id']: c for c in todos}
     for i, c in enumerate(P):
         k = len(D) + i
-        c.setdefault('capa', antes.get(c['id'], {}).get('capa') or 'BECDFA'[(k + k // 6) % 6])
+        c.setdefault('capa', antes.get(c['id'], {}).get('capa') or 'BCDFA'[(k + k // 5) % 5])
         c.setdefault('estilo', antes.get(c['id'], {}).get('estilo') or ['caderno', 'noturno', 'classico'][k % 3])
     json.dump(D + P, open(M + 'dados.json', 'w'), ensure_ascii=False, indent=2); open(M + 'dados.json', 'a').write('\n')
 P = json.load(open('diario_posts.json'))

@@ -60,7 +60,7 @@ const linhasDe = c => lista(c.destaque).map(l => l.toUpperCase());
 // Tamanho do destaque limitado pela largura e pela altura disponível.
 const tamanho = (linhas, max, min, largura, altura) => Math.max(min, Math.min(caber(linhas, max, min, largura), Math.floor(altura / (linhas.length * 0.9))));
 
-// ——— Capas ——— (campo "capa": A a F; todas usam os mesmos campos: etiqueta, apoio, destaque, subtitulo, elemento)
+// ——— Capas ——— (campo "capa": A, B, C, D ou F; todas usam os mesmos campos: etiqueta, apoio, destaque, subtitulo, elemento)
 
 // A · Marca-texto: foto em tela cheia, destaque no marca-texto verde.
 function capaA(c) {
@@ -137,30 +137,10 @@ function capaD(c) {
   ${handle('rgba(255,255,255,.85)', 'bottom:56px')}`;
 }
 
-// E · Tipográfica: fundo verde, título gigante e a foto num círculo.
-function capaE(c) {
-  const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = tamanho(d, 280, 110, 888, 470);
-  const x = 560, y = 790, r = 420;
-  return `
-  ${caixaFoto(c, x, y, r, r, 0.38)}
-  <div style="position:absolute;left:${x}px;top:${y}px;width:${r}px;height:${r}px;overflow:hidden"><div style="position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 400px ${COR.verde};border:12px solid ${COR.claro}"></div></div>
-  <div data-bloco style="position:absolute;left:96px;right:96px;top:110px;height:650px;display:flex;flex-direction:column;justify-content:flex-end;gap:22px">
-    ${c.etiqueta ? `<span style="align-self:flex-start;background:${COR.claro};color:${COR.base};padding:12px 24px;border-radius:999px;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
-    ${apoio ? `<div style="font-size:42px;font-weight:500;color:#fff;margin-top:auto">${esc(apoio)}</div>` : ''}
-    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.88;color:#fff">${d.map((l, i) => `<span style="color:${i === d.length - 1 ? COR.claro : '#fff'}">${esc(l)}</span>`).join('<br>')}</div>
-  </div>
-  <div style="position:absolute;left:96px;top:${y + 20}px;width:${x - 140}px;display:flex;flex-direction:column;gap:26px">
-    ${c.subtitulo ? `<div style="font-size:34px;font-weight:500;line-height:1.3;color:rgba(255,255,255,.9)">${esc(c.subtitulo)}</div>` : ''}
-    <div style="${bebas};font-size:72px;line-height:1;color:${COR.claro}">ARRASTA →</div>
-  </div>
-  <div style="position:absolute;left:96px;bottom:64px;font-size:24px;font-weight:500;letter-spacing:1px;color:rgba(255,255,255,.8)">${HANDLE}</div>`;
-}
-
 // F · Manchete: página de jornal, título em preto e a foto como imagem da matéria.
 function capaF(c) {
   const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = tamanho(d, 200, 90, 888, 440 - (apoio ? 60 : 0));
+  const tam = tamanho(d, 340, 90, 888, 440 - (apoio ? 60 : 0));
   const x = 96, y = 740, w = 888, h = 460;
   return `
   <div style="position:absolute;left:96px;right:96px;top:70px;height:8px;background:${COR.base}"></div>
@@ -177,7 +157,7 @@ function capaF(c) {
   <div style="position:absolute;left:96px;right:96px;top:${y + h + 16}px;display:flex;justify-content:space-between;font-size:22px;color:${COR.texto}"><i>${esc(c.subtitulo || '')}</i><span style="font-weight:600">${HANDLE}</span></div>`;
 }
 
-const CAPAS = { A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, COR.gelo], D: [capaD, COR.base], E: [capaE, COR.verde], F: [capaF, '#f3f1ea'] };
+const CAPAS = { A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, COR.gelo], D: [capaD, COR.base], F: [capaF, '#f3f1ea'] };
 
 function conteudo(s, k, estilo) {
   const fundo = s.fundo || RITMO[k % RITMO.length];

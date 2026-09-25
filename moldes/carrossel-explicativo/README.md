@@ -1,6 +1,6 @@
 # Carrossel Explicativo (@constitucionalgabaritado)
 
-Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **capa** com foto (6 layouts) → **4 ou 5 slides de conteúdo** → **CTA**. O visual está em `template.mjs`; o conteúdo vem de `dados.json`.
+Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **capa** com foto (5 layouts) → **4 ou 5 slides de conteúdo** → **CTA**. O visual está em `template.mjs`; o conteúdo vem de `dados.json`.
 
 ## Como usar
 1. Node.js 18+ e `npm run setup` (1ª vez).
@@ -29,19 +29,18 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
 ```
 
 ### Variações (para o feed não parecer repetido)
-- `capa`: layout da capa, todos com os mesmos campos (etiqueta, apoio, destaque, subtitulo, elemento):
+- `capa`: layout da capa (A, B, C, D ou F; a antiga E, tipográfica, foi retirada a pedido do autor), todos com os mesmos campos (etiqueta, apoio, destaque, subtitulo, elemento):
   - `A` Marca-texto: foto em tela cheia, destaque no marca-texto verde (o original).
   - `B` Revista: foto no alto, faixa clara embaixo com o título em verde.
   - `C` Moldura: fundo claro pontilhado, foto emoldurada com sombra verde, etiqueta numa fita, título grifado.
   - `D` Balão: foto em tela cheia e o título num balão de fala branco.
-  - `E` Tipográfica: fundo verde, título gigante (última linha em verde-claro) e a foto num círculo.
   - `F` Manchete: página de jornal, título em preto e a foto como imagem da matéria.
 - `estilo`: visual dos slides de conteúdo e do CTA:
   - `classico`: gelo e verde (o original).
   - `caderno`: papel pautado com margem verde e títulos grifados; os slides "verde" viram verde-claro; CTA branco sobre verde-claro.
   - `noturno`: fundo quase preto com moldura fina verde-clara; os slides "verde" viram gelo; CTA escuro.
-- Regra: **nunca repita a capa do post anterior nem o estilo dos dois anteriores**. Os 44 posts atuais seguem o rodízio capas B, E, C, D, F, A (deslocando uma posição a cada volta) e estilos caderno, noturno, clássico.
-- Nas capas B, C, E e F o título tem área fixa: o render diminui o destaque até caber e avisa se nem assim couber.
+- Regra: **nunca repita a capa do post anterior nem o estilo dos dois anteriores**. Rodízio automático (posts novos do Diário): capas B, C, D, F, A e estilos caderno, noturno, clássico.
+- Nas capas B, C e F o título tem área fixa: o render diminui o destaque até caber e avisa se nem assim couber.
 
 ### Capa
 - `etiqueta`: pílula branca (ex.: "2ª Fase OAB", "Controle de constitucionalidade").
