@@ -10,6 +10,9 @@ Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma 
 ## Fotos
 O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os originais ficam no Google Drive dele e cada molde tem um script que recria os recortes (ex.: `moldes/estrutura-de-pecas/recortar_fotos.py`). Numa sessão nova sem as fotos, peça o link da pasta do Drive.
 
+## Materiais-base
+`materiais/README.md` lista o conteúdo do autor já recebido (estruturas, competências, guia, Diário Constitucional…) e os temas de cada um. Os arquivos em si não ficam no repositório: peça-os ao usuário quando for escrever um post a partir deles.
+
 ## Galeria
 Publicada em https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq — sempre atualize **esse mesmo link** (Artifact com `url`), nunca crie outro.
 
