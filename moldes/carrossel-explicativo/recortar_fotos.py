@@ -11,4 +11,4 @@ base = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(base)
 
 if __name__ == '__main__':
-    base.recortar(sys.argv[1], aqui / 'fotos', largura=1080, altura=1350, rosto_y=0.24)
+    base.recortar(sys.argv[1], aqui / 'fotos', largura=1080, altura=1350, rosto_y=0.24, caixa=(1080, 1350))

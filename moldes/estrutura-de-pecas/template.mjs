@@ -1,6 +1,17 @@
 // Modelo visual do carrossel "Estrutura de Peças" — gera um painel 3240×1350 (3 slides de 1080×1350).
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+// Posição da foto da capa. Sem `fotoAjuste`: o recorte preenche a caixa. Com `fotoAjuste`
+// {dx, dy, z}: usa a foto com margem (fotos/fontes/) movida dx/dy px e ampliada z vezes a partir do
+// centro da caixa — a mesma conta do editor de capa da galeria (galeria/modelo.html).
+function fotoNaCaixa(c, x0, y0, W, H, estiloRecorte) {
+  const f = c._fonte, a = c.fotoAjuste;
+  if (!f || !a) return `<img data-foto src="${c.foto}" style="${estiloRecorte}">`;
+  const z = a.z || 1, cx = x0 + W / 2, cy = y0 + H / 2;
+  const left = cx + (x0 - f.ox - cx) * z + (a.dx || 0), top = cy + (y0 - f.oy - cy) * z + (a.dy || 0);
+  return `<img data-foto src="${f.src}" style="position:absolute;left:${left - x0}px;top:${top - y0}px;width:${f.w * z}px;height:${f.h * z}px;max-width:none">`;
+}
+
 export function renderCarrossel(c) {
   const light = c.tema === 'claro';
   const T = {
@@ -30,8 +41,10 @@ export function renderCarrossel(c) {
   <div style="position:absolute;left:2160px;top:0;width:1080px;height:1350px;background-image:repeating-radial-gradient(circle at 80% 30%,transparent 0 38px,${T.s3Line} 38px 40px);opacity:.5"></div>
 
   <!-- SLIDE 1: capa -->
-  <div style="position:absolute;left:0;top:0;width:1080px;height:1350px;background:#141412;overflow:hidden">
-    <img src="${c.foto}" style="position:absolute;left:0;top:0;width:1020px;height:${c.fotoAltura || 1000}px;object-fit:cover;object-position:center top;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%)">
+  <div id="slide-1" style="position:absolute;left:0;top:0;width:1080px;height:1350px;background:#141412;overflow:hidden">
+    <div data-foto style="position:absolute;left:0;top:0;width:1020px;height:${c.fotoAltura || 1000}px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%)">
+      ${fotoNaCaixa(c, 0, 0, 1020, c.fotoAltura || 1000, `position:absolute;left:0;top:0;width:1020px;height:${c.fotoAltura || 1000}px;object-fit:cover;object-position:center top`)}
+    </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,18,.15) 0%,rgba(20,20,18,0) 30%,rgba(20,20,18,.55) 50%,#141412 66%)"></div>
     <div style="position:absolute;left:84px;right:120px;bottom:190px;display:flex;flex-direction:column;gap:20px">
       <div style="display:flex;align-items:center;gap:18px">

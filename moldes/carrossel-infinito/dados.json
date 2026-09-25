@@ -1,0 +1,109 @@
+[
+  {
+    "id": "remedios-constitucionais",
+    "name": "Remédios constitucionais",
+    "tema": "Remédios constitucionais (art. 5º, LXVIII a LXXIII)",
+    "seams": [1, 3],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      { "type": "cover", "bg": "dark", "align": "flex-start", "kicker": "OAB 2ª fase", "pre": "Os 5", "title": "Remédios constitucionais", "hl": "Art. 5º, LXVIII a LXXIII", "sub": "O que cada um protege e quando usar, sem enrolação." },
+      { "type": "list", "bg": "light", "kicker": "Conceito", "title": "Cada um protege uma coisa", "items": [
+        { "n": "HC", "t": "**Liberdade de locomoção** (LXVIII)" },
+        { "n": "MS", "t": "**Direito líquido e certo** não amparado por HC ou HD (LXIX)" },
+        { "n": "MI", "t": "**Falta de norma regulamentadora** que inviabiliza um direito (LXXI)" },
+        { "n": "HD", "t": "**Informações pessoais** em bancos de dados (LXXII)" },
+        { "n": "AP", "t": "**Patrimônio público**, moralidade, meio ambiente e patrimônio histórico e cultural (LXXIII)" }
+      ] },
+      { "type": "item", "bg": "mint", "num": "01", "ref": "Art. 5º, LXIX", "title": "Mandado de segurança", "rows": [
+        { "k": "Protege", "v": "Direito líquido e certo, provado de plano" },
+        { "k": "Contra", "v": "Ilegalidade ou abuso de poder de autoridade pública" },
+        { "k": "Prazo", "v": "120 dias da ciência do ato (Lei 12.016/09, art. 23)" }
+      ], "tip": "o MS é residual. Se o caso é de HC ou HD, não cabe MS." },
+      { "type": "item", "bg": "dark", "num": "02", "ref": "Art. 5º, LXXIII", "title": "Ação popular", "rows": [
+        { "k": "Quem", "v": "Qualquer cidadão (eleitor)" },
+        { "k": "Objeto", "v": "Anular ato lesivo ao patrimônio público, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural" },
+        { "k": "Custas", "v": "Isento, salvo comprovada má-fé" }
+      ], "tip": "pessoa jurídica não pode propor ação popular (Súmula 365 do STF)." },
+      { "type": "compare", "bg": "light", "kicker": "Não confunda", "title": "MI x ADO", "cols": [
+        { "title": "Mandado de injunção", "items": ["Art. 5º, LXXI", "Controle difuso, caso concreto", "Proposto por quem é prejudicado pela falta da norma"] },
+        { "title": "ADO", "items": ["Art. 103, § 2º", "Controle concentrado, no STF", "Só os legitimados do art. 103"] }
+      ] },
+      { "type": "cta", "bg": "mint", "summary": [
+        { "k": "HC", "v": "liberdade de locomoção" },
+        { "k": "MS", "v": "direito líquido e certo" },
+        { "k": "MI", "v": "falta de norma" },
+        { "k": "HD", "v": "dados pessoais" },
+        { "k": "AP", "v": "patrimônio público" }
+      ], "title": "Salva pra revisar", "body": "E manda pra quem vai fazer a 2ª fase com você." }
+    ]
+  },
+  {
+    "id": "controle-concentrado",
+    "name": "Controle concentrado",
+    "tema": "ADI, ADC, ADO e ADPF",
+    "seams": [2, 4],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      { "type": "cover", "bg": "light", "align": "flex-start", "kicker": "Controle de constitucionalidade", "pre": "As 4 ações do", "title": "Controle concentrado", "hl": "ADI · ADC · ADO · ADPF", "sub": "Objeto e fundamento de cada uma, direto ao ponto." },
+      { "type": "text", "bg": "dark", "kicker": "Conceito", "title": "Quem julga?", "lead": "O STF, originariamente.", "body": "É controle abstrato: discute-se a lei em tese, sem caso concreto. ADI e ADC estão no art. 102, I, “a”; a ADO, no art. 103, § 2º; a ADPF, no art. 102, § 1º.", "box": "ADI e ADC: eficácia contra todos e efeito vinculante (art. 102, § 2º)." },
+      { "type": "item", "bg": "mint", "num": "01", "ref": "Art. 102, I, “a”", "title": "ADI", "rows": [
+        { "k": "Objeto", "v": "Lei ou ato normativo federal ou estadual" },
+        { "k": "Pedido", "v": "Declaração de inconstitucionalidade" }
+      ], "tip": "lei municipal não é objeto de ADI no STF. O caminho é a ADPF." },
+      { "type": "item", "bg": "light", "num": "02", "ref": "Art. 102, I, “a”", "title": "ADC", "rows": [
+        { "k": "Objeto", "v": "Lei ou ato normativo federal" },
+        { "k": "Requisito", "v": "Relevante controvérsia judicial (Lei 9.868/99, art. 14, III)" }
+      ], "tip": "não cabe ADC de lei estadual: só federal." },
+      { "type": "compare", "bg": "dark", "kicker": "Não confunda", "title": "ADO x ADPF", "cols": [
+        { "title": "ADO · art. 103, § 2º", "items": ["Omissão que impede a efetividade de norma constitucional", "Dá ciência ao Poder competente", "Órgão administrativo: 30 dias"] },
+        { "title": "ADPF · art. 102, § 1º", "items": ["Descumprimento de preceito fundamental", "Subsidiária (Lei 9.882/99, art. 4º, § 1º)", "Cabe contra lei municipal e anterior à CF/88"] }
+      ] },
+      { "type": "cta", "bg": "mint", "summary": [
+        { "k": "ADI", "v": "lei federal ou estadual" },
+        { "k": "ADC", "v": "só lei federal" },
+        { "k": "ADO", "v": "omissão" },
+        { "k": "ADPF", "v": "subsidiária" }
+      ], "title": "Salva e revisa", "body": "Comenta qual dessas mais te confunde." }
+    ]
+  },
+  {
+    "id": "legitimados-art-103",
+    "name": "Legitimados do art. 103",
+    "tema": "Quem pode propor ADI, ADC, ADO e ADPF",
+    "seams": [1, 3],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "bar",
+    "slides": [
+      { "type": "cover", "bg": "dark", "align": "flex-start", "kicker": "Controle concentrado", "pre": "Quem pode propor", "title": "ADI, ADC, ADO e ADPF?", "hl": "Art. 103 da CF/88", "sub": "São 9 legitimados, e só alguns precisam de pertinência temática." },
+      { "type": "mnemo", "bg": "mint", "kicker": "Macete", "word": "3 · 3 · 3", "cols": "1fr", "rows": [
+        { "l": "3", "t": "**Pessoas**: Presidente da República, Governador e PGR" },
+        { "l": "3", "t": "**Mesas**: do Senado, da Câmara e da Assembleia Legislativa (ou Câmara Legislativa do DF)" },
+        { "l": "3", "t": "**Entidades**: Conselho Federal da OAB, partido político e confederação sindical ou entidade de classe nacional" }
+      ] },
+      { "type": "list", "bg": "light", "kicker": "Legitimados universais", "title": "Não provam interesse", "items": [
+        { "n": "I", "t": "Presidente da República" },
+        { "n": "II", "t": "Mesa do Senado Federal" },
+        { "n": "III", "t": "Mesa da Câmara dos Deputados" },
+        { "n": "VI", "t": "Procurador-Geral da República" },
+        { "n": "VII", "t": "Conselho Federal da OAB" },
+        { "n": "VIII", "t": "Partido político com representação no Congresso" }
+      ] },
+      { "type": "text", "bg": "dark", "kicker": "Legitimados especiais", "title": "Pertinência temática", "lead": "Precisam mostrar que a norma atinge seus interesses:", "body": "Mesa de Assembleia Legislativa ou da Câmara Legislativa do DF (IV), Governador de Estado ou do DF (V) e confederação sindical ou entidade de classe de âmbito nacional (IX).", "box": "Sem ligação entre a norma e as finalidades do autor, a ação não é conhecida." },
+      { "type": "item", "bg": "mint", "num": "VIII", "ref": "Art. 103, VIII", "title": "Partido político", "rows": [
+        { "k": "Requisito", "v": "Representação no Congresso Nacional" },
+        { "k": "Momento", "v": "Aferida na propositura: perder a bancada depois não prejudica a ação" },
+        { "k": "Quem assina", "v": "O diretório nacional" }
+      ], "tip": "diretório estadual ou municipal não tem legitimidade." },
+      { "type": "cta", "bg": "light", "summary": [
+        { "k": "3", "v": "pessoas" },
+        { "k": "3", "v": "mesas" },
+        { "k": "3", "v": "entidades" }
+      ], "title": "Salva o macete", "body": "E envia pra quem sempre esquece um legitimado." }
+    ]
+  }
+]

@@ -96,6 +96,23 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 .slides .quadro{display:block;width:100%;aspect-ratio:4/5;border-radius:8px;background-color:#222;background-repeat:no-repeat}
 .slides figcaption{font-size:12px;color:#9BA69F;text-align:center}
 .visor-rodape{font-size:12px;color:#9BA69F;text-align:center}
+.ferramentas{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ferramentas button,.ed-botoes button{cursor:pointer;border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:rgba(238,240,234,.06);color:#EEF0EA}
+.ferramentas button:hover,.ed-botoes button:hover{background:rgba(238,240,234,.16)}
+.ferramentas button.primario,.ed-botoes button.primario{background:var(--lima);border-color:var(--lima);color:#141412}
+.ferramentas button:disabled,.ed-botoes button:disabled{opacity:.5;cursor:progress}
+.status{font-size:13px;color:#C9D2CC;min-height:1.2em}
+.chip{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--lima);color:#141412;font-size:11px;font-weight:600;vertical-align:middle;font-family:var(--body);letter-spacing:0}
+.editor{flex:1;min-height:0;display:grid;grid-template-columns:auto minmax(240px,340px);gap:28px;align-items:center;justify-content:center}
+.editor canvas{height:min(calc(100dvh - 230px),calc((100vw - 460px)*1.25));width:auto;aspect-ratio:4/5;border-radius:10px;background:#222;display:block;max-width:100%}
+@media (max-width:760px){.editor{grid-template-columns:1fr;overflow-y:auto;align-content:start}.editor canvas{height:auto;width:100%}}
+.ed-painel{display:flex;flex-direction:column;gap:18px;color:#EEF0EA}
+.ed-painel h4{margin:0;font-family:var(--display);font-weight:400;font-size:28px;line-height:1}
+.ed-painel p{margin:0;font-size:13px;color:#C9D2CC;line-height:1.5}
+.ed-painel label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:500}
+.ed-painel label span{display:flex;justify-content:space-between;font-variant-numeric:tabular-nums}
+.ed-painel input[type=range]{width:100%;accent-color:var(--lima)}
+.ed-botoes{display:flex;flex-wrap:wrap;gap:8px}
 @media (prefers-reduced-motion:reduce){.post img{transition:none}}
 </style>
 
@@ -123,11 +140,36 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
         <button id="v-fechar" aria-label="Fechar">✕</button>
       </div>
     </div>
+    <div class="ferramentas">
+      <button id="v-baixar" class="primario" hidden>Baixar carrossel (.zip)</button>
+      <button id="v-editar" hidden>Editar capa</button>
+      <span class="status" id="v-status" role="status"></span>
+    </div>
     <div class="slides" id="v-slides"></div>
-    <div class="visor-rodape">Arquivos em alta (PNG 1080×1350) na pasta <span id="v-pasta"></span> do repositório · ← → para navegar · Esc para fechar</div>
+    <div class="editor" id="v-editor" hidden>
+      <canvas id="ed-canvas" width="1080" height="1350" aria-label="Prévia da capa"></canvas>
+      <div class="ed-painel">
+        <h4>Ajustar a foto da capa</h4>
+        <p>Mova e amplie a foto por baixo do texto até o rosto ficar livre. A prévia é exatamente a capa final.</p>
+        <label for="ed-y"><span>Subir ↔ descer <b id="ed-y-v"></b></span><input type="range" id="ed-y" min="-600" max="600" step="5"></label>
+        <label for="ed-x"><span>Esquerda ↔ direita <b id="ed-x-v"></b></span><input type="range" id="ed-x" min="-500" max="500" step="5"></label>
+        <label for="ed-z"><span>Zoom <b id="ed-z-v"></b></span><input type="range" id="ed-z" min="50" max="180" step="1"></label>
+        <div class="ed-botoes">
+          <button id="ed-salvar" class="primario">Salvar ajuste</button>
+          <button id="ed-baixar">Baixar capa (.png)</button>
+          <button id="ed-original">Voltar ao original</button>
+          <button id="ed-apagar" hidden>Apagar ajuste salvo</button>
+          <button id="ed-fechar">Voltar aos slides</button>
+        </div>
+        <p class="status" id="ed-status" role="status"></p>
+        <p>O ajuste salvo fica guardado aqui na galeria e já entra no “Baixar carrossel”. Para gravar de vez no molde, peça ao Claude: “aplica os ajustes da galeria”.</p>
+      </div>
+    </div>
+    <div class="visor-rodape">← → para navegar · Esc para fechar</div>
   </div>
 </dialog>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 const MOLDES = /*__DADOS__*/[];
 const $ = s => document.querySelector(s);
@@ -207,7 +249,7 @@ function desenharGrade() {
   $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
     <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
       <div class="thumb${p.n >= 3 ? ' tres' : ''}" style="aspect-ratio:${Math.min(p.n, 3) * 4}/5"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
-      <div class="info"><strong>${esc(p.titulo)}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
+      <div class="info"><strong>${esc(p.titulo)}${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
     </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
 }
@@ -217,7 +259,7 @@ function abrir(i) {
   const p = lista[atual];
   $('#v-molde').textContent = ativo.nome + ` · ${atual + 1} de ${lista.length}`;
   $('#v-titulo').textContent = p.titulo;
-  $('#v-pasta').textContent = `moldes/${ativo.id}/saida/${p.id}/`;
+  fecharEditor(); $('#v-status').textContent = ''; atualizarFerramentas();
   // Cada slide é um recorte da tira com todos os slides do post.
   $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
@@ -227,10 +269,121 @@ $('#v-fechar').onclick = () => $('#visor').close();
 $('#v-ant').onclick = () => abrir(atual - 1);
 $('#v-prox').onclick = () => abrir(atual + 1);
 $('#visor').addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
   if (e.key === 'ArrowLeft') { e.preventDefault(); abrir(atual - 1); }
   if (e.key === 'ArrowRight') { e.preventDefault(); abrir(atual + 1); }
 });
 $('#visor').addEventListener('click', e => { if (e.target.classList.contains('visor') || e.target.id === 'v-slides') $('#visor').close(); });
+
+// ---------- Download e editor de capa ----------
+// downloads: entrega o .zip/.png para o visitante salvar. db: coleção "ajustes" com a posição da foto
+// salva no editor (doc "<molde>__<post>": {dx, dy, z}); o Claude lê essa coleção para gravar no molde.
+let DL = null, DB = null, AJ = {};
+const chave = p => `${ativo.id}__${p.id}`;
+const postAtual = () => lista[atual];
+(async () => {
+  try { DL = await window.claude?.use?.('downloads'); } catch (e) { DL = null; }
+  atualizarFerramentas();
+  try { DB = await window.claude?.use?.('db'); } catch (e) { DB = null; }
+  if (DB) DB.collection('ajustes').onSnapshot(snap => {
+    AJ = {}; snap.docs.forEach(d => { if (d.exists) AJ[d.id] = d.data(); });
+    desenharGrade(); atualizarFerramentas();
+  }, () => { DB = null; atualizarFerramentas(); });
+})();
+
+function atualizarFerramentas() {
+  const p = postAtual(); if (!p) return;
+  $('#v-baixar').hidden = !DL;
+  $('#v-editar').hidden = !(p.editor && p.editor.img);
+  $('#ed-salvar').hidden = !DB; $('#ed-baixar').hidden = !DL;
+  $('#ed-apagar').hidden = !(DB && AJ[chave(p)]);
+}
+
+const carregar = src => new Promise((ok, erro) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => erro(new Error('imagem')); i.src = src; });
+const paraBlob = (canvas, tipo = 'image/png') => new Promise(ok => canvas.toBlob(ok, tipo));
+const ajusteDe = p => { const a = AJ[chave(p)] || p.editor?.ajuste; return a ? { dx: +a.dx || 0, dy: +a.dy || 0, z: +a.z || 1 } : null; };
+
+// Mesma conta de fotoNaCaixa() nos templates dos moldes.
+function desenharCapa(ctx, e, sprite, a) {
+  const [x0, y0, W, H] = e.caixa, z = a.z, cx = x0 + W / 2, cy = y0 + H / 2;
+  const left = cx + (x0 - e.ox - cx) * z + a.dx, top = cy + (y0 - e.oy - cy) * z + a.dy;
+  ctx.fillStyle = e.fundo; ctx.fillRect(0, 0, 1080, 1350);
+  const cx2 = document.createElement('canvas'); cx2.width = W; cx2.height = H;
+  const c2 = cx2.getContext('2d'); c2.imageSmoothingQuality = 'high';
+  c2.drawImage(sprite, 1080, 0, e.fw, e.fh, left - x0, top - y0, e.fw * z, e.fh * z);
+  if (e.mascara) {
+    const g = c2.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#000'); g.addColorStop(.8, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    c2.globalCompositeOperation = 'destination-in'; c2.fillStyle = g; c2.fillRect(0, 0, W, H);
+  }
+  ctx.drawImage(cx2, x0, y0);
+  ctx.drawImage(sprite, 0, 0, 1080, 1350, 0, 0, 1080, 1350);
+  return left <= x0 + 1 && top <= y0 + 1 && left + e.fw * z >= x0 + W - 1 && top + e.fh * z >= y0 + H - 1;
+}
+
+async function salvarArquivo(nome, blob, status) {
+  try { await DL.save({ filename: nome, data: blob }); status.textContent = 'Pronto: ' + nome; }
+  catch (err) { status.textContent = err?.code === 'declined' ? 'Download cancelado.' : 'Não foi possível baixar nesta tela.'; }
+}
+
+$('#v-baixar').onclick = async ev => {
+  const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget;
+  if (!window.JSZip) { st.textContent = 'Não foi possível montar o .zip nesta tela.'; return; }
+  bt.disabled = true; st.textContent = 'Montando o .zip…';
+  try {
+    const tira = await carregar(p.tira), zip = new JSZip();
+    const cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; const ctx = cv.getContext('2d');
+    const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
+    const sprite = usarEditor ? await carregar(p.editor.img) : null;
+    for (let k = 0; k < p.n; k++) {
+      if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
+      else ctx.drawImage(tira, k * 1080, 0, 1080, 1350, 0, 0, 1080, 1350);
+      zip.file(`${String(k + 1).padStart(2, '0')}.png`, await paraBlob(cv));
+    }
+    await salvarArquivo(`${p.id}.zip`, await zip.generateAsync({ type: 'blob' }), st);
+  } catch (err) { st.textContent = 'Não foi possível montar o .zip: ' + (err.message || err); }
+  bt.disabled = false;
+};
+
+let ED = null;
+function valores() { return { dx: +$('#ed-x').value, dy: +$('#ed-y').value, z: +$('#ed-z').value / 100 }; }
+function mostrarValores(a) {
+  $('#ed-x-v').textContent = (a.dx > 0 ? '+' : '') + a.dx + ' px'; $('#ed-y-v').textContent = (a.dy > 0 ? '+' : '') + a.dy + ' px';
+  $('#ed-z-v').textContent = Math.round(a.z * 100) + '%';
+}
+function redesenhar() {
+  if (!ED) return; const a = valores(); mostrarValores(a);
+  const cobre = desenharCapa($('#ed-canvas').getContext('2d'), ED.p.editor, ED.sprite, a);
+  $('#ed-status').textContent = cobre ? '' : 'Atenção: a foto não cobre toda a caixa (aparece fundo escuro). Aumente o zoom ou mova de volta.';
+}
+function porValores(a) { $('#ed-x').value = a.dx; $('#ed-y').value = a.dy; $('#ed-z').value = Math.round(a.z * 100); redesenhar(); }
+['#ed-x', '#ed-y', '#ed-z'].forEach(id => $(id).addEventListener('input', () => requestAnimationFrame(redesenhar)));
+
+$('#v-editar').onclick = async () => {
+  const p = postAtual(); $('#v-status').textContent = 'Abrindo o editor…';
+  try { ED = { p, sprite: await carregar(p.editor.img) }; }
+  catch (e) { $('#v-status').textContent = 'Não foi possível abrir o editor desta capa.'; return; }
+  $('#v-status').textContent = ''; $('#v-slides').hidden = true; $('#v-editor').hidden = false;
+  porValores(ajusteDe(p) || { dx: 0, dy: 0, z: 1 });
+};
+function fecharEditor() { ED = null; $('#v-editor').hidden = true; $('#v-slides').hidden = false; $('#ed-status').textContent = ''; }
+$('#ed-fechar').onclick = fecharEditor;
+$('#ed-original').onclick = () => porValores({ dx: 0, dy: 0, z: 1 });
+$('#ed-salvar').onclick = async () => {
+  if (!ED || !DB) return; const a = valores(), st = $('#ed-status');
+  try {
+    await DB.doc('ajustes/' + chave(ED.p)).set({ molde: ativo.id, post: ED.p.id, ...a, salvoEm: new Date().toISOString() });
+    st.textContent = 'Ajuste salvo.';
+  } catch (e) { st.textContent = 'Não foi possível salvar (sem permissão de edição nesta galeria?).'; }
+};
+$('#ed-apagar').onclick = async () => {
+  if (!ED || !DB) return;
+  try { await DB.doc('ajustes/' + chave(ED.p)).delete(); $('#ed-status').textContent = 'Ajuste apagado.'; porValores(ED.p.editor.ajuste || { dx: 0, dy: 0, z: 1 }); }
+  catch (e) { $('#ed-status').textContent = 'Não foi possível apagar.'; }
+};
+$('#ed-baixar').onclick = async () => {
+  if (!ED || !DL) return;
+  await salvarArquivo(`${ED.p.id}-capa.png`, await paraBlob($('#ed-canvas')), $('#ed-status'));
+};
 
 desenharMoldes();
 desenharMolde();

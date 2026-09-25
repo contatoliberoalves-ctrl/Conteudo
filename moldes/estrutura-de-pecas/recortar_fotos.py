@@ -4,6 +4,7 @@
 # Outros moldes importam C e recortar() daqui, com outro tamanho de saída.
 # Requer Pillow. Para uma foto nova, acrescente em C: nome do arquivo sem extensão ->
 # (x do rosto, y do rosto, largura do recorte), em frações da foto já na orientação certa.
+import json
 import os
 import re
 import sys
@@ -38,8 +39,15 @@ def slug(nome):
     return re.sub(r'[^a-z0-9]+', '-', sem_acento.lower()).strip('-')
 
 
-def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30):
-    """Recorta cada foto de C em largura x altura, com o rosto a rosto_y da altura."""
+def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30, caixa=(1020, 1000), margem=1.8):
+    """Recorta cada foto de C em largura x altura, com o rosto a rosto_y da altura.
+
+    Também grava fotos/fontes/<nome>.jpg: a mesma foto com margem em volta (janela `margem` vezes
+    maior, na escala da caixa da capa, `caixa` = largura x altura em px no slide) e fotos/fontes.json
+    com o tamanho da fonte e onde o recorte fica dentro dela (ox, oy). O editor de capa da galeria e o
+    campo `fotoAjuste` do dados.json usam isso para mover/ampliar a foto sem sair do quadro."""
+    fontes, meta = Path(destino) / 'fontes', {}
+    fontes.mkdir(parents=True, exist_ok=True)
     proporcao = altura / largura
     origem, destino = Path(origem), Path(destino)
     destino.mkdir(parents=True, exist_ok=True)
@@ -60,7 +68,18 @@ def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30):
         recorte = im.crop((round(left), round(top), round(left + cw), round(top + ch))).resize((largura, altura), Image.LANCZOS)
         saida = destino / (slug(nome) + '.jpg')
         recorte.save(saida, quality=86, optimize=True, progressive=True)
+        # fonte com margem, na escala da caixa (1 px da fonte = 1 px do slide)
+        esc = caixa[0] / cw
+        ew, eh = min(W, cw * margem), min(H, ch * margem)
+        el = min(max(left + cw / 2 - ew / 2, 0), W - ew)
+        et = min(max(top + ch / 2 - eh / 2, 0), H - eh)
+        fw, fh = round(ew * esc), round(eh * esc)
+        im.crop((round(el), round(et), round(el + ew), round(et + eh))).resize((fw, fh), Image.LANCZOS) \
+          .save(fontes / saida.name, quality=84, optimize=True, progressive=True)
+        meta[saida.stem] = {'w': fw, 'h': fh, 'ox': round((left - el) * esc), 'oy': round((top - et) * esc)}
         print('✓', saida.name)
+    antigo = json.loads((Path(destino) / 'fontes.json').read_text()) if (Path(destino) / 'fontes.json').exists() else {}
+    (Path(destino) / 'fontes.json').write_text(json.dumps({**antigo, **meta}, indent=1, sort_keys=True))
 
 
 if __name__ == '__main__':

@@ -25,12 +25,23 @@ function handle(cor, posicao) {
   return `<div style="position:absolute;left:0;right:0;${posicao};text-align:center;font-size:24px;font-weight:500;letter-spacing:1px;color:${cor}">${HANDLE}</div>`;
 }
 
+// Posição da foto da capa. Sem `fotoAjuste`: o recorte preenche a caixa. Com `fotoAjuste`
+// {dx, dy, z}: usa a foto com margem (fotos/fontes/) movida dx/dy px e ampliada z vezes a partir do
+// centro da caixa — a mesma conta do editor de capa da galeria (galeria/modelo.html).
+function fotoNaCaixa(c, x0, y0, W, H, estiloRecorte) {
+  const f = c._fonte, a = c.fotoAjuste;
+  if (!f || !a) return `<img data-foto src="${c.foto}" style="${estiloRecorte}">`;
+  const z = a.z || 1, cx = x0 + W / 2, cy = y0 + H / 2;
+  const left = cx + (x0 - f.ox - cx) * z + (a.dx || 0), top = cy + (y0 - f.oy - cy) * z + (a.dy || 0);
+  return `<img data-foto src="${f.src}" style="position:absolute;left:${left - x0}px;top:${top - y0}px;width:${f.w * z}px;height:${f.h * z}px;max-width:none">`;
+}
+
 function capa(c) {
   const destaque = lista(c.destaque).map(l => l.toUpperCase());
   const tam = caber(destaque, 300, 120, 836);
   const apoio = lista(c.apoio);
   return `
-  <img src="${esc(c.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(c.fotoPos || 'center top')}">
+  <div data-foto style="position:absolute;inset:0;overflow:hidden">${fotoNaCaixa(c, 0, 0, 1080, 1350, `position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(c.fotoPos || 'center top')}`)}</div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,31,30,0) 45%,rgba(28,31,30,.85) 68%,${COR.base} 82%)"></div>
   ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
   <div data-bloco style="position:absolute;left:96px;right:96px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
