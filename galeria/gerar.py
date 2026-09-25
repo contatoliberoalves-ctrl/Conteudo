@@ -1,4 +1,5 @@
 # Monta a galeria de moldes a partir de moldes/*/ (molde.json + dados.json + saida/<id>/*.png).
+# Por post publica 2 imagens: <id>-painel.jpg (miniatura) e <id>-slides.jpg (todos os slides).
 # Uso: python3 galeria/gerar.py   -> gera galeria/dist/index.html e as imagens em galeria/dist/img/
 # Requer Pillow (pip install pillow). Rode antes o "npm run gerar" de cada molde.
 import json
@@ -42,8 +43,13 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             print(f'  ! {pasta.name}/{c["id"]}: sem imagens em saida/, pulando')
             continue
         base = f'img/{pasta.name}/{c["id"]}'
-        for s in slides:
-            jpeg(s, dist / f'{base}-{s.stem}.jpg', 1080)
+        # Uma tira com todos os slides lado a lado (720x900 cada): 1 arquivo por post no visualizador,
+        # para caber no limite de arquivos da página publicada.
+        tira = Image.new('RGB', (720 * len(slides), 900))
+        for k, s in enumerate(slides):
+            tira.paste(Image.open(s).convert('RGB').resize((720, 900), Image.LANCZOS), (720 * k, 0))
+        (dist / base).parent.mkdir(parents=True, exist_ok=True)
+        tira.save(dist / f'{base}-slides.jpg', 'JPEG', quality=80, optimize=True, progressive=True)
         painel = saida / 'painel.png'
         jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
         posts.append({
@@ -52,7 +58,8 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             'tema': c.get('tema', ''),
             'topicos': len(c.get('topicos', [])),
             'painel': f'{base}-painel.jpg',
-            'slides': [f'{base}-{s.stem}.jpg' for s in slides],
+            'tira': f'{base}-slides.jpg',
+            'n': len(slides),
         })
     meta['posts'] = posts
     moldes.append(meta)

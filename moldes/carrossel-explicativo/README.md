@@ -41,6 +41,10 @@ Cada slide aceita, nesta ordem na tela: `titulo` (curto, Bebas), `texto` (parág
 - `figura` (opcional): PNG sem fundo encostado na borda oposta ao texto.
 - Automático: fundos na ordem claro, claro, verde, verde, claro; alinhamento alternando esquerda/direita. Para mudar num slide: `"fundo": "claro" | "verde"` e `"alinhamento": "esquerda" | "direita"`. `"barra": false` tira a barrinha de acento.
 
+- Questões: `alternativas` (itens com A, B, C…), `afirmativas` (itens com I, II, III…), `textoMeio` (parágrafo entre as duas), `inicio` (continua a contagem quando a lista vem de um slide anterior).
+- `"compacto": true`: letra e espaçamentos menores para slides cheios (texto 42px, listas 34px).
+- `gabarito` (no post, não no slide): vira `saida/<id>/gabarito.txt`.
+
 ### CTA
 `cta.pergunta`, `cta.chamada` e `cta.cartao` (`"escuro"`, padrão, ou `"branco"`).
 

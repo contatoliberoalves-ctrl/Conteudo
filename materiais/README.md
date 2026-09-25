@@ -12,7 +12,9 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 | Artigos de Reprodução Obrigatória (PDF) | O que são + lista de artigos | Feito: `reproducao-obrigatoria` |
 | Guia de Identificação + 7 Peças (Google Doc) | Dicas gerais (grifos, exclusão, palavras-chave, clipes) e 7 peças comentadas | Feitos 9 carrosséis; faltam ACP, MS, ROC, Procedimento Comum |
 | Meu Constitucional Diário (docx) | Dias 01–40: explicação, tabela e questão autoral com gabarito | Carrossel Explicativo (1 dia = 1 carrossel) |
-| Meu Diário Constitucional – Esboço (docx) | Dias 31–55 no formato Dica de ouro · Explicação · Tabelinha · Questão · Gabarito | Carrossel Explicativo; a questão pode virar slide de "responda nos comentários" |
+| Meu Diário Constitucional – Esboço (docx) | Dias 31–60 no formato Dica de ouro · Explicação · Tabelinha · Questão · Gabarito | Carrossel Explicativo; feitos os 30 carrosséis `diario-31…60` (Dica de ouro, Explicação, Tabelinha, Questão, Alternativas; gabarito em `saida/<id>/gabarito.txt`) |
+| 70 Dicas – Peças de Constitucional (docx) | 70 dicas curtas, cada uma com a peça a que se refere (HC, Controle, RE, Reclamação, MS, MI, AP…) | Carrossel de dicas por peça, ou "X dicas de Y" |
+| Dicas de Revisão – 2ª fase OAB 42 (docx) | 329 dicas numeradas com tema (Processo Legislativo, Controle, CPI, MP, Direitos Fundamentais…) e o Exame em que caiu (I a XXXII, CESPE) | Carrosséis "Já caiu!" por tema ou por exame |
 
 ## Meu Constitucional Diário — temas (dias 01–40)
 - Dia 01 — Eficácia das Normas Constitucionais
@@ -56,7 +58,7 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 - Dia 39 — Mutação Constitucional
 - Dia 40 — Emendas Avulsas
 
-## Meu Diário Constitucional (Esboço) — temas (dias 31–55)
+## Meu Diário Constitucional (Esboço) — temas (dias 31–60)
 - Dia 31 — Administração Pública
 - Dia 32 — Ingresso no Serviço Público
 - Dia 33 — Dos Direitos e Deveres dos Servidores Públicos
@@ -70,6 +72,7 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 - Dia 41 — Inelegibilidade Reflexa
 - Dia 42 — Do Prefeito Itinerante
 - Dia 43 — Das Normas de Reprodução Obrigatória
+- Dia 44 — Do Quinto Constitucional (no arquivo, o título está dentro do gabarito do dia 43)
 - Dia 45 — Projeto de Emenda à Constituição
 - Dia 46 — Mutação Constitucional
 - Dia 47 — Emendas Avulsas
@@ -81,5 +84,10 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 - Dia 53 — Da necessidade de manifestação do AGU
 - Dia 54 — Do Rol de Legitimados Ativos das Ações de Controle Estaduais
 - Dia 55 — Das Medidas Provisórias
+- Dia 56 — Das Súmulas Vinculantes
+- Dia 57 — Contrabando Legislativo
+- Dia 58 — Dos Tribunais de Contas da União
+- Dia 59 — Princípio da Reserva de Plenário
+- Dia 60 — Da Ordem Econômica e Social
 
 Os dias 31–40 aparecem nos dois arquivos com temas parecidos e numeração diferente (o Esboço reorganiza e amplia). Quando o pedido citar um dia, confirme de qual arquivo.

@@ -17,6 +17,7 @@ Pasta: `moldes/carrossel-explicativo/`. O visual está em `template.mjs` e **nã
    - No máximo um `marca` (texto gigante translúcido) ou uma `figura` por slide, coerente com o conteúdo (ex.: número da lei, sigla, prazo).
    - Não defina `fundo`/`alinhamento` a menos que o usuário peça: o ritmo automático já segue o modelo.
    - **Foto:** use um recorte de `fotos/` que ainda não esteja em uso neste molde. O repositório é **público**: fotos nunca vão para o git. Se `fotos/` estiver vazia, peça o link da pasta do Google Drive, baixe os originais (conector do Drive: `download_file_content` salva o base64 em arquivo; decodifique) e rode `python3 recortar_fotos.py <pasta>`. Foto nova: acrescente a posição do rosto em `C` de `moldes/estrutura-de-pecas/recortar_fotos.py` (vale para os dois moldes).
+   - **Questões:** enunciado num slide (`texto`, `afirmativas`), alternativas no seguinte (`alternativas`, sem título, `barra: false`), ambos `compacto: true`; gabarito no campo `gabarito` do post. Posts do Diário Constitucional: use o gerador em `moldes/carrossel-explicativo/diario/`.
 3. Gere: `cd moldes/carrossel-explicativo && npm install` (1ª vez) e `node render.mjs <id>`.
    - No ambiente em nuvem do Claude Code: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>`.
 4. Se o script imprimir `!` com um aviso, ajuste (divida o slide ou encurte o destaque) e gere de novo. Depois abra os PNGs da capa e do slide mais cheio para conferir.

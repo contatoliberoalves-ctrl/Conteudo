@@ -18,7 +18,7 @@ Publicada em https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq — sempre atuali
 
 1. Gere os PNGs dos moldes que mudaram.
 2. `pip install pillow` (se preciso) e `python3 galeria/gerar.py` → `galeria/dist/index.html` + `galeria/dist/img/**.jpg`.
-3. Publique `galeria/dist/index.html` com `root: galeria/dist` e `files` = lista de todos os `img/**/*.jpg`.
+3. Publique `galeria/dist/index.html` com `root: galeria/dist` e `files` = lista de todos os `img/**/*.jpg` (2 por post: `-painel.jpg` e `-slides.jpg`). A página aceita no máximo 255 arquivos por versão; arquivos que saírem da galeria precisam ser removidos com `null` no `files`.
 
 ## Ambiente em nuvem do Claude Code
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:

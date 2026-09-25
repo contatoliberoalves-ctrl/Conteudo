@@ -27,7 +27,7 @@ function handle(cor, posicao) {
 
 function capa(c) {
   const destaque = lista(c.destaque).map(l => l.toUpperCase());
-  const tam = caber(destaque, 300, 150, 836);
+  const tam = caber(destaque, 300, 120, 836);
   const apoio = lista(c.apoio);
   return `
   <img src="${esc(c.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(c.fotoPos || 'center top')}">
@@ -35,11 +35,11 @@ function capa(c) {
   ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
   <div data-bloco style="position:absolute;left:96px;right:96px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
     ${c.etiqueta ? `<span style="background:#fff;color:${COR.verde};padding:12px 24px;border-radius:999px;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
-    ${apoio.length ? `<div style="${bebas};font-size:${caber(apoio, 112, 90)}px;line-height:.9;color:#fff;margin-top:6px">${apoio.map(esc).join('<br>')}</div>` : ''}
+    ${apoio.length ? `<div style="${bebas};font-size:${caber(apoio, 112, 90)}px;line-height:.9;color:#fff;margin-top:6px;text-shadow:0 2px 18px rgba(20,22,21,.55)">${apoio.map(esc).join('<br>')}</div>` : ''}
     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:4px">
       ${destaque.map(l => `<span style="display:inline-block;${bebas};font-size:${tam}px;line-height:.9;color:${COR.base};background:${COR.claro};padding:16px 26px 0;border-radius:10px;transform:rotate(-2deg)">${esc(l)}</span>`).join('')}
     </div>
-    ${c.subtitulo ? `<div style="display:flex;flex-direction:column;gap:18px;margin-top:10px"><span style="width:96px;height:6px;background:${COR.claro}"></span><span style="font-size:52px;font-weight:500;line-height:1.2;color:#fff;text-wrap:pretty">${esc(c.subtitulo)}</span></div>` : ''}
+    ${c.subtitulo ? `<div style="display:flex;flex-direction:column;gap:18px;margin-top:10px"><span style="width:96px;height:6px;background:${COR.claro}"></span><span style="font-size:52px;font-weight:500;line-height:1.2;color:#fff;text-wrap:pretty;text-shadow:0 2px 14px rgba(20,22,21,.55)">${esc(c.subtitulo)}</span></div>` : ''}
   </div>
   ${handle('rgba(255,255,255,.85)', 'bottom:64px')}`;
 }
@@ -54,13 +54,19 @@ function conteudo(s, k) {
   const titulo = lista(s.titulo).map(l => l.toUpperCase());
   const alinhar = direita ? 'text-align:right;align-items:flex-end' : 'text-align:left;align-items:flex-start';
   const linha = direita ? 'row-reverse' : 'row';
-  const itens = (arr, marcador) => `<div style="display:flex;flex-direction:column;gap:34px;width:100%;${alinhar}">${arr.map((t, i) =>
+  // "compacto": true encolhe texto e espaçamentos para slides mais cheios (questões, tabelas longas).
+  const cp = !!s.compacto;
+  const itens = (arr, marcador) => `<div style="display:flex;flex-direction:column;gap:${cp ? 22 : 34}px;width:100%;${alinhar}">${arr.map((t, i) =>
     `<div style="display:flex;flex-direction:${linha};gap:24px;align-items:flex-start;max-width:888px">
       ${marcador(i)}
-      <span style="font-size:38px;line-height:1.4;color:${T.txt};text-wrap:pretty">${rico(t, T.negrito)}</span></div>`).join('')}</div>`;
+      <span style="font-size:${cp ? 34 : 38}px;line-height:${cp ? 1.35 : 1.4};color:${T.txt};text-wrap:pretty">${rico(t, T.negrito)}</span></div>`).join('')}</div>`;
   const quadrado = () => `<span style="flex:0 0 18px;width:18px;height:18px;border-radius:4px;background:${T.acento};margin-top:17px"></span>`;
-  const numero = i => `<span style="flex:0 0 auto;${bebas};font-size:64px;line-height:.9;color:${escuro ? COR.claro : COR.verde};min-width:44px;margin-top:2px">${String(i + 1).padStart(2, '0')}</span>`;
-  const paragrafos = arr => arr.map(p => `<p style="margin:0;font-size:46px;line-height:1.4;color:${T.txt};max-width:888px;text-wrap:pretty">${rico(p, T.negrito)}</p>`).join('');
+  const rotulo = texto => `<span style="flex:0 0 auto;${bebas};font-size:64px;line-height:.9;color:${escuro ? COR.claro : COR.verde};min-width:44px;margin-top:2px">${texto}</span>`;
+  const numero = i => rotulo(String(i + 1).padStart(2, '0'));
+  // "inicio": continua a contagem de letras/romanos quando a lista segue de um slide anterior.
+  const letra = i => rotulo('ABCDEFGH'[i + (s.inicio || 0)]);
+  const romano = i => rotulo(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i + (s.inicio || 0)]);
+  const paragrafos = arr => arr.map(p => `<p style="margin:0;font-size:${cp ? 42 : 46}px;line-height:${cp ? 1.35 : 1.4};color:${T.txt};max-width:888px;text-wrap:pretty">${rico(p, T.negrito)}</p>`).join('');
 
   return {
     bg: T.bg,
@@ -68,12 +74,15 @@ function conteudo(s, k) {
   ${s.marca ? `<div style="position:absolute;${direita ? 'left:-40px' : 'right:-40px'};bottom:40px;${bebas};font-size:300px;line-height:.8;white-space:nowrap;color:${T.marca}">${esc(s.marca)}</div>` : ''}
   ${s.figura ? `<img src="${esc(s.figura)}" style="position:absolute;${direita ? 'left:-60px' : 'right:-60px'};bottom:80px;height:560px;object-fit:contain">` : ''}
   ${handle(T.handle, 'top:64px')}
-  <div data-bloco style="position:absolute;left:96px;right:96px;top:150px;bottom:130px;display:flex;flex-direction:column;justify-content:center;gap:40px;${alinhar}">
+  <div data-bloco style="position:absolute;left:96px;right:96px;top:${cp ? 130 : 150}px;bottom:${cp ? 110 : 130}px;display:flex;flex-direction:column;justify-content:center;gap:${cp ? 28 : 40}px;${alinhar}">
     ${s.barra === false ? '' : `<span style="width:80px;height:6px;background:${T.acento};flex:0 0 auto"></span>`}
-    ${titulo.length ? `<div style="${bebas};font-size:${caber(titulo, 200, 110)}px;line-height:.88;color:${T.tit}">${titulo.map(esc).join('<br>')}</div>` : ''}
+    ${titulo.length ? `<div style="${bebas};font-size:${caber(titulo, cp ? 150 : 200, 110)}px;line-height:.88;color:${T.tit}">${titulo.map(esc).join('<br>')}</div>` : ''}
     ${paragrafos(lista(s.texto))}
     ${s.lista ? itens(s.lista, quadrado) : ''}
     ${s.numerada ? itens(s.numerada, numero) : ''}
+    ${s.afirmativas ? itens(s.afirmativas, romano) : ''}
+    ${paragrafos(lista(s.textoMeio))}
+    ${s.alternativas ? itens(s.alternativas, letra) : ''}
     ${paragrafos(lista(s.textoFinal))}
   </div>`,
   };

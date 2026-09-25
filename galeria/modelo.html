@@ -93,7 +93,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 .slides{flex:1;min-height:0;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:center;justify-content:safe center}
 .slides figure{margin:0;flex:0 0 auto;width:min(calc((100vw - 2*clamp(16px,3vw,40px) - 24px)/3),calc((100dvh - 200px)*.8));scroll-snap-align:center;display:flex;flex-direction:column;gap:8px}
 @media (max-width:760px){.slides figure{width:min(82vw,calc((100dvh - 220px)*.8))}}
-.slides img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;background:#222}
+.slides .quadro{display:block;width:100%;aspect-ratio:4/5;border-radius:8px;background-color:#222;background-repeat:no-repeat}
 .slides figcaption{font-size:12px;color:#9BA69F;text-align:center}
 .visor-rodape{font-size:12px;color:#9BA69F;text-align:center}
 @media (prefers-reduced-motion:reduce){.post img{transition:none}}
@@ -139,7 +139,7 @@ let ativo = MOLDES.find(m => m.id === ler('molde')) || MOLDES[0];
 let filtroTema = 'todos', termo = '', lista = [], atual = 0;
 
 const totalPosts = MOLDES.reduce((n, m) => n + m.posts.length, 0);
-const totalSlides = MOLDES.reduce((n, m) => n + m.posts.reduce((k, p) => k + p.slides.length, 0), 0);
+const totalSlides = MOLDES.reduce((n, m) => n + m.posts.reduce((k, p) => k + p.n, 0), 0);
 $('#numeros').innerHTML = [[MOLDES.length, MOLDES.length === 1 ? 'molde' : 'moldes'], [totalPosts, 'posts'], [totalSlides, 'slides']]
   .map(([n, r]) => `<div><strong>${n}</strong><span>${r}</span></div>`).join('');
 
@@ -207,7 +207,7 @@ function desenharGrade() {
   $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
     <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
       <div class="thumb"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
-      <div class="info"><strong>${esc(p.titulo)}</strong><small>${p.slides.length} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
+      <div class="info"><strong>${esc(p.titulo)}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
     </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
 }
@@ -218,7 +218,8 @@ function abrir(i) {
   $('#v-molde').textContent = ativo.nome + ` · ${atual + 1} de ${lista.length}`;
   $('#v-titulo').textContent = p.titulo;
   $('#v-pasta').textContent = `moldes/${ativo.id}/saida/${p.id}/`;
-  $('#v-slides').innerHTML = p.slides.map((s, k) => `<figure><img src="${esc(s)}" alt="${esc(p.titulo)}, slide ${k + 1}"><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
+  // Cada slide é um recorte da tira com todos os slides do post.
+  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
   if (!$('#visor').open) $('#visor').showModal();
 }
