@@ -152,9 +152,12 @@ for i, n in enumerate(sorted(CAPA)):
     tab = [dict(t, _tipo='tab', alinhamento='esquerda') for t in tab if t.get('lista')][:aj.get('tab_max', 0 if aj.get('q3') else 1)]
     for t in tab:
         if not t.get('titulo'): t['titulo'] = 'Tabelinha'
-        t['lista'] = t['lista'][:aj.get('tab_itens', 8)]
+        t['lista'] = t['lista'][:aj.get('tab_itens', 12)]
+    if aj.get('tab_split') and tab:  # tabela inteira em 2 slides, no lugar da explicação
+        t0 = tab[0]; h = (len(t0['lista']) + 1) // 2
+        tab = [dict(t0, lista=t0['lista'][:h]), dict(t0, lista=t0['lista'][h:])]
     livre = 5 - 1 - len(q_slides) - len(tab)
-    while livre < 1 and tab: tab.pop(); livre += 1
+    while livre < 0 and tab: tab.pop(); livre += 1
     expl = [limpa(x) for x in d['explicacao']]
     if 'expl_idx' in aj: expl = [expl[k] for k in aj['expl_idx']]
     ex = pacotes(expl, aj.get('expl_limite', 430))[:livre]

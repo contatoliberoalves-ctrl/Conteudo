@@ -626,45 +626,47 @@
         "marca": "DIA 31"
       },
       {
-        "titulo": "Explicação",
-        "_tipo": "exp",
-        "texto": [
-          "A administração Pública, ou também chamada de gestão pública, é um conjunto de órgãos, serviços, agentes e entidades estatais que buscam gerir as necessidades de toda uma sociedade, garantindo saúde, segurança, educação etc."
-        ]
-      },
-      {
         "titulo": "Tabelinha",
         "lista": [
           "**Legalidade:** Trata-se da necessidade dos atos da administração pública cumprirem os ditames da legislação pátria.",
           "**Impessoalidade:** A administração pública deve observar o tratamento igualitário entre os cidadãos, sem discriminações.",
-          "**Moralidade:** Os atos públicos devem observar os padrões éticos.",
-          "**Publicidade:** É necessário que os atos sejam públicos, para que a população tenha conhecimento dos gastos com o nosso patrimônio. O sigilo será uma exceção, quando estivermos diante de casos de segurança nacional e outras situações descritas em lei."
+          "**Moralidade:** Os atos públicos devem observar os padrões éticos."
         ],
         "_tipo": "tab",
-        "compacto": true,
-        "alinhamento": "esquerda"
+        "alinhamento": "esquerda",
+        "compacto": true
+      },
+      {
+        "titulo": "Tabelinha",
+        "lista": [
+          "**Publicidade:** É necessário que os atos sejam públicos, para que a população tenha conhecimento dos gastos com o nosso patrimônio. O sigilo será uma exceção, quando estivermos diante de casos de segurança nacional e outras situações descritas em lei.",
+          "**Eficiência:** Deve-se buscar a boa gestão administrativa, exercendo o melhor serviço, mas também buscando preservar o patrimônio público, a fim de evitar desperdícios."
+        ],
+        "_tipo": "tab",
+        "alinhamento": "esquerda",
+        "compacto": true
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "titulo": "Questão",
         "texto": [
           "(Autoral) João, cidadão do Município Alfa, percebeu que o portal da transparência do referido município estava desatualizado desde o ano de 2020, preocupado com a falta de informação a respeito dos gastos públicos, requereu administrativamente que o Município prestasse contas a população dos gastos dos dois últimos anos, valendo-se do princípio constitucional da publicidade. Neste sentido, assinale a alternativa que melhor descreve este princípio:"
-        ],
-        "alinhamento": "esquerda"
+        ]
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "alternativas": [
           "O gestor público deverá agir com o objetivo de alcançar os melhores resultados para a coletividade, garantindo a aplicação da lei de forma célere.",
           "A administração pública é exercida através de seus agentes, logo, estes não poderão utilizar de suas opiniões pessoais enquanto atuantes do poder público, devendo tratar os cidadãos igualmente.",
           "O poder público deve atuar com transparência, independente da situação, motivo pelo qual a população deve ter informações dos seus gastos e decisões.",
           "Todos têm direito a receber dos órgãos públicos informações de seu interesse particular, ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado."
-        ],
-        "alinhamento": "esquerda"
+        ]
       }
     ],
     "cta": {
@@ -822,43 +824,46 @@
         "marca": "DIA 34"
       },
       {
-        "titulo": "Explicação",
-        "_tipo": "exp",
-        "texto": [
-          "O Poder Legislativo, exercendo sua função típica, será responsável por legislar, elaborando normas genéricas e abstratas com força coercitiva, bem como fiscalizar a atividade contábil do executivo. Excepcionalmente, exercendo sua função atípica, realizará atividades executivas e judiciais."
-        ]
-      },
-      {
         "titulo": "Sessões legislativas do congresso nacional",
         "lista": [
           "**Ordinária:** O Congresso Nacional reunir-se-á, anualmente, na Capital Federal, de 2 de fevereiro a 17 de julho e de 1º de agosto a 22 de dezembro.",
           "**Extraordinária:** A convocação extraordinária do Congresso Nacional será feita pelo Presidente do Senado Federal, em caso de decretação de estado de defesa ou de intervenção federal, de pedido de autorização para a decretação de estado de sítio e para o compromisso e a posse do Presidente e do Vice-Presidente da República; ou pelo Presidente da República, pelos Presidentes da Câmara dos Deputados e do Senado Federal ou a requerimento da maioria dos membros de ambas as Casas, em caso de urgência ou interesse público relevante, em todas as hipóteses deste inciso com a aprovação da maioria absoluta de cada uma das Casas do Congresso Nacional;"
         ],
         "_tipo": "tab",
-        "compacto": true,
-        "alinhamento": "esquerda"
+        "alinhamento": "esquerda",
+        "compacto": true
+      },
+      {
+        "titulo": "Sessões legislativas do congresso nacional",
+        "lista": [
+          "**Preparatória:** Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente;",
+          "**Conjunta:** A Câmara dos Deputados e o Senado Federal reunir-se-ão em sessão conjunta para inaugurar a sessão legislativa, elaborar o regimento comum e regular a criação de serviços comuns às duas Casas, receber o compromisso do Presidente e do Vice-Presidente da República e conhecer do veto e deliberar sobre ele."
+        ],
+        "_tipo": "tab",
+        "alinhamento": "esquerda",
+        "compacto": true
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "titulo": "Questão",
         "texto": [
           "O projeto de lei ordinária deverá ser aprovado por maioria simples, podendo ser proposto pelo presidente da República, deputados, senadores, Supremo Tribunal Federal (STF), tribunais superiores e procurador-geral da República, bem como pelos cidadãos, desde que seja subscrito por, no mínimo, 1% do eleitorado do país, distribuído pelo menos por cinco estados, com não menos de 0,3% dos eleitores de cada um deles. A respeito do processo legislativo, é correto afirmar:"
-        ],
-        "alinhamento": "esquerda"
+        ]
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "alternativas": [
           "A discussão e votação dos projetos de lei de iniciativa do Presidente da República, do Supremo Tribunal Federal e dos Tribunais Superiores terão início na Câmara dos Deputados.",
           "O congresso Nacional é unicameral, formado pela Câmara dos Deputados, desempenhando o papel de casa iniciadora e revisora do processo legislativo.",
           "O congresso Nacional é bicameral, possuindo duas casas, sendo elas a Câmara dos Deputados e o Senado Federal. O senado federal será sempre a casa iniciadora e a câmara dos deputados será a casa revisora.",
           "O congresso Nacional é bicameral, possuindo duas casas, sendo elas a Câmara dos Deputados e o Senado Federal. O senado federal será sempre a casa revisora e a câmara dos deputados será a casa iniciadora."
-        ],
-        "alinhamento": "esquerda"
+        ]
       }
     ],
     "cta": {
@@ -2196,47 +2201,49 @@
         "marca": "DIA 55"
       },
       {
-        "titulo": "Explicação",
-        "_tipo": "exp",
-        "texto": [
-          "As Medidas Provisórias são atos normativos expedidos pelo Presidente da República, diante de uma situação de urgência e relevância, precisando ser devidamente regulamentada. Elas terão força de lei pelo período de 60 (sessenta) dias, devendo submetê-las de imediato ao Congresso Nacional."
-        ]
-      },
-      {
         "titulo": "Matérias que são vedadas na edição de medidas provisórias",
         "lista": [
           "Nacionalidade, cidadania, direitos políticos, partidos políticos e direito eleitoral.",
           "Direito penal, processual penal e processual civil.",
           "Organização do Poder Judiciário e do Ministério Público, a carreira e a garantia de seus membros.",
-          "Planos plurianuais, diretrizes orçamentárias, orçamento e créditos adicionais e suplementares.",
-          "Que vise a detenção ou sequestro de bens, de poupança popular ou qualquer outro ativo financeiro.",
-          "Reservada a lei complementar"
+          "Planos plurianuais, diretrizes orçamentárias, orçamento e créditos adicionais e suplementares."
         ],
         "_tipo": "tab",
-        "compacto": true,
-        "alinhamento": "esquerda"
+        "alinhamento": "esquerda",
+        "compacto": true
+      },
+      {
+        "titulo": "Matérias que são vedadas na edição de medidas provisórias",
+        "lista": [
+          "Que vise a detenção ou sequestro de bens, de poupança popular ou qualquer outro ativo financeiro.",
+          "Reservada a lei complementar",
+          "Já disciplinada em projeto de lei aprovado pelo Congresso Nacional e pendente de sanção ou veto do Presidente da República."
+        ],
+        "_tipo": "tab",
+        "alinhamento": "esquerda",
+        "compacto": true
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "titulo": "Questão",
         "texto": [
           "(Autoral) Assinale a alternativa INCORRETA:"
-        ],
-        "alinhamento": "esquerda"
+        ]
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "alternativas": [
           "É vedada a edição de medidas provisórias sobre matéria relativa à organização do Poder Judiciário.",
           "Prorrogar-se-á uma única vez por igual período a vigência de medida provisória que, no prazo de sessenta dias, contado de sua publicação, não tiver a sua votação encerrada nas duas Casas do Congresso Nacional.",
           "Não é permitida a reedição, na mesma sessão legislativa, de medida provisória que tenha sido rejeitada ou que tenha perdido sua eficácia por decurso de prazo.",
           "As medidas provisórias terão sua votação iniciada no Senado Federal."
-        ],
-        "alinhamento": "esquerda"
+        ]
       }
     ],
     "cta": {
@@ -2264,46 +2271,48 @@
         "marca": "DIA 56"
       },
       {
-        "titulo": "Explicação",
-        "_tipo": "exp",
-        "texto": [
-          "O Supremo Tribunal Federal poderá, de ofício ou por provocação, mediante decisão de dois terços dos seus membros, após reiteradas decisões sobre matéria constitucional, aprovar súmula que, a partir de sua publicação na imprensa oficial, terá efeito vinculante.",
-          "Portanto, as súmulas vinculantes têm por objetivo principal a uniformização jurisprudencial, evitando insegurança jurídica."
-        ]
-      },
-      {
         "titulo": "Destaca-se algumas súmulas vinculantes",
         "lista": [
           "Súmula Vinculante n° 2. É inconstitucional a lei ou ato normativo estadual ou distrital que disponha sobre sistemas de consórcios e sorteios, inclusive bingos e loterias.",
           "Súmula Vinculante n° 5. A falta de defesa técnica por advogado no processo administrativo disciplinar não ofende a Constituição.",
-          "Súmula Vinculante n° 6. Não viola a Constituição o estabelecimento de remuneração inferior ao salário mínimo para as praças prestadoras de serviço militar inicial.",
-          "Súmula Vinculante n° 21. É inconstitucional a exigência de depósito ou arrolamento prévios de dinheiro ou bens para admissibilidade de recurso administrativo."
+          "Súmula Vinculante n° 6. Não viola a Constituição o estabelecimento de remuneração inferior ao salário mínimo para as praças prestadoras de serviço militar inicial."
         ],
         "_tipo": "tab",
-        "compacto": true,
-        "alinhamento": "esquerda"
+        "alinhamento": "esquerda",
+        "compacto": true
+      },
+      {
+        "titulo": "Destaca-se algumas súmulas vinculantes",
+        "lista": [
+          "Súmula Vinculante n° 21. É inconstitucional a exigência de depósito ou arrolamento prévios de dinheiro ou bens para admissibilidade de recurso administrativo.",
+          "Súmula Vinculante n° 25. É ilícita a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito.",
+          "Súmula Vinculante n° 38. É competente o Município para fixar o horário de funcionamento de estabelecimento comercial."
+        ],
+        "_tipo": "tab",
+        "alinhamento": "esquerda",
+        "compacto": true
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "titulo": "Questão",
         "texto": [
           "(Autoral) O Supremo Tribunal Federal poderá, de ofício ou por provocação, mediante decisão de dois terços dos seus membros, após reiteradas decisões sobre matéria constitucional, aprovar súmula que, a partir de sua publicação na imprensa oficial, terá efeito vinculante. Sendo assim, assinale a opção que corretamente dispõe acerca das súmulas vinculantes:"
-        ],
-        "alinhamento": "esquerda"
+        ]
       },
       {
         "_tipo": "q",
         "barra": false,
         "compacto": true,
+        "alinhamento": "esquerda",
         "alternativas": [
           "O Poder Legislativo não poderá editar lei com conteúdo idêntico ao que foi declarado inconstitucional através de súmulas vinculantes.",
           "O efeito vinculante das referidas súmulas atinge a administração pública direta e indireta.",
           "Em razão da segurança jurídica, o STF apenas poderá cancelar uma súmula vinculante mediante provocação.",
           "A edição, revisão ou cancelamento das súmulas vinculantes serão realizadas pelo Senado Federal."
-        ],
-        "alinhamento": "esquerda"
+        ]
       }
     ],
     "cta": {
