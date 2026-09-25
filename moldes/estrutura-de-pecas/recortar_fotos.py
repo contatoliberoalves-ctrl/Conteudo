@@ -5,6 +5,7 @@
 # Requer Pillow. Para uma foto nova, acrescente em C: nome do arquivo sem extensão ->
 # (x do rosto, y do rosto, largura do recorte), em frações da foto já na orientação certa.
 import os
+import re
 import sys
 import unicodedata
 from pathlib import Path
@@ -20,7 +21,21 @@ C={
 'DSC08925':(.48,.22,.75),'DSC08928':(.49,.24,.75),
 'ÉTICA-13':(.36,.34,.8),'ÉTICA-14':(.35,.34,.8),'ÉTICA-17':(.44,.24,.85),'ÉTICA-22':(.48,.30,.5),'ÉTICA-23':(.50,.35,.5),
 'ÉTICA-24':(.66,.39,.45),'ÉTICA-25':(.50,.32,.5),'ÉTICA-27':(.50,.38,.7),'ÉTICA-31':(.47,.44,.7),'ÉTICA-4':(.50,.34,.8),'ÉTICA-9':(.41,.40,.7),
+'IMG_3156':(.50,.35,.85),'IMG_3159':(.50,.33,.85),'IMG_3160':(.50,.35,.85),'IMG_3161':(.50,.35,.85),
+'IMG_5366':(.47,.31,.85),'IMG_5372':(.50,.33,.85),
+'WhatsApp Image 2026-09-25 at 09.35.13 (1)':(.50,.39,.35),'WhatsApp Image 2026-09-25 at 09.35.13 (2)':(.46,.33,.6),
+'WhatsApp Image 2026-09-25 at 09.35.13':(.55,.37,.55),'WhatsApp Image 2026-09-25 at 09.35.14 (1)':(.50,.27,.7),
+'WhatsApp Image 2026-09-25 at 09.35.14 (2)':(.41,.50,.6),
+'_-0207':(.46,.17,.6),'_-0211':(.47,.25,.6),'_-0322':(.53,.35,.8),'_-0341':(.52,.27,.55),'_-0357':(.45,.27,.55),
+'_-0458':(.51,.31,.8),'_-0465':(.48,.29,.8),'_-0467':(.44,.31,.8),'_-0547':(.45,.33,.8),'_-0557':(.50,.26,.8),
+'_-0558':(.47,.31,.6),'_-0561':(.48,.26,.75),'_-1534':(.48,.29,.75),'_-1539':(.51,.34,.8),
 }
+
+
+def slug(nome):
+    """Nome do recorte: minúsculo, sem acento, só letras/números e hífens (ex.: "ÉTICA-13" -> "etica-13")."""
+    sem_acento = unicodedata.normalize('NFD', nome).encode('ascii', 'ignore').decode()
+    return re.sub(r'[^a-z0-9]+', '-', sem_acento.lower()).strip('-')
 
 
 def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30):
@@ -43,7 +58,7 @@ def recortar(origem, destino, largura=1224, altura=1200, rosto_y=0.30):
         left = min(max(fx * W - cw / 2, 0), W - cw)
         top = min(max(fy * H - rosto_y * ch, 0), H - ch)
         recorte = im.crop((round(left), round(top), round(left + cw), round(top + ch))).resize((largura, altura), Image.LANCZOS)
-        saida = destino / (nome.lower().replace('é', 'e') + '.jpg')
+        saida = destino / (slug(nome) + '.jpg')
         recorte.save(saida, quality=86, optimize=True, progressive=True)
         print('✓', saida.name)
 
