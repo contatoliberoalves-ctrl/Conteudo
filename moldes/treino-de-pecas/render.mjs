@@ -1,6 +1,6 @@
 // Uso: node render.mjs          -> gera todos os carrosséis de dados.json
 //      node render.mjs <id>     -> gera só um (pelo "id")
-// Saída: saida/<id>/1.png (capa), 2.png (enunciado), painel.png (os dois lado a lado) e gabarito.txt.
+// Saída: saida/<id>/1.png (capa), 2.png (enunciado; com "quebra", 2.png e 3.png), painel.png (todos lado a lado) e gabarito.txt.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -31,22 +31,26 @@ for (const c of dados) {
 
   // Enunciado: reduz a fonte de 0,5 em 0,5 px até caber (mínimo 18px no Treino e 30px no Autoral).
   const minimo = c.tipo === 'autoral' ? 30 : 18;
+  // Enunciado: reduz a fonte (a mesma em todos os slides de texto) de 0,5 em 0,5 px até caber.
   const avisos = await page.evaluate(minimo => {
     const out = [];
-    const s2 = document.getElementById('slide-2');
-    const coluna = s2.lastElementChild;
-    const texto = s2.querySelector('[data-texto]');
-    let px = parseFloat(texto.style.fontSize);
-    while (coluna.scrollHeight > coluna.clientHeight && px > minimo) { px -= 0.5; texto.style.fontSize = px + 'px'; }
-    if (coluna.scrollHeight > coluna.clientHeight) out.push(`slide 2: o enunciado não cabe nem com ${minimo}px (passa ${coluna.scrollHeight - coluna.clientHeight}px)`);
-    else if (px < parseFloat(texto.dataset.base || px)) out.push(`slide 2: fonte reduzida para ${px}px`);
-    texto.dataset.final = px;
+    const textos = [...document.querySelectorAll('[data-texto]')];
+    const estoura = () => textos.some(t => { const col = t.closest('[id^="slide-"]').lastElementChild; return col.scrollHeight > col.clientHeight; });
+    let px = parseFloat(textos[0].style.fontSize);
+    const base = px;
+    while (estoura() && px > minimo) { px -= 0.5; textos.forEach(t => (t.style.fontSize = px + 'px')); }
+    textos.forEach(t => {
+      const col = t.closest('[id^="slide-"]').lastElementChild;
+      if (col.scrollHeight > col.clientHeight) out.push(`${t.closest('[id^="slide-"]').id.replace('-', ' ')}: o enunciado não cabe nem com ${minimo}px (passa ${col.scrollHeight - col.clientHeight}px)`);
+    });
+    if (px < base) out.push(`slide 2: fonte reduzida para ${px}px`);
+    textos[0].dataset.final = px;
     // Capa: título não pode passar da largura
     const t = document.querySelector('#slide-1 [data-titulo]');
     if (t && t.scrollWidth > t.clientWidth + 2) out.push(`slide 1: título passa ${t.scrollWidth - t.clientWidth}px da largura`);
     return out;
   }, minimo);
-  const fonte = await page.evaluate(() => document.querySelector('#slide-2 [data-texto]').dataset.final);
+  const fonte = await page.evaluate(() => document.querySelector('[data-texto]').dataset.final);
 
   const outDir = path.join(root, 'saida', c.id);
   fs.rmSync(outDir, { recursive: true, force: true });

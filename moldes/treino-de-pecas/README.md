@@ -23,6 +23,7 @@ Carrossel de **2 slides** (1080×1350) para treinar a identificação da peça: 
 - `capa`: `"A"` (Editorial) ou `"B"` (Folha de prova).
 - `enunciado`: texto copiado **sem alterações**, um item por parágrafo. `*Alfa*` vira itálico, `**…**` vira negrito.
 - `comando`: frase do comando final (sai em negrito; no Treino vem separada por um filete). `valor` só no Treino.
+- `quebra` (opcional, só no Treino): quando o enunciado não cabe num slide nem com 18px, divide os parágrafos em dois slides de enunciado — `enunciado[0:quebra]` no slide 2 (fecha com "CONTINUA →") e o resto + comando no slide 3. A fonte volta a começar em 24px.
 - `gabarito`: não aparece no slide; vai para `gabarito.txt` (legenda ou primeiro comentário).
 
 ## Regras do modelo

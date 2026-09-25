@@ -158,7 +158,7 @@ section{position:relative;flex:none;width:${W}px;height:${H}px;overflow:hidden}
 .kicker{display:flex;align-items:center;gap:16px;font:600 24px Poppins;letter-spacing:4px;text-transform:uppercase}
 .kicker i{display:block;width:48px;height:3px;flex:none}
 h1,.num,.hl,.cartao span,.letras span,h2{font-family:Antonio,sans-serif;font-weight:700;text-transform:uppercase;line-height:.96}
-h1{overflow-wrap:normal}
+h1{overflow-wrap:normal;line-height:1.02}
 .pre{font:300 44px Poppins;line-height:1.2}
 .hl{display:inline-block;padding:10px 20px 8px;line-height:1}
 .sub{font-size:34px;line-height:1.4;max-width:640px;text-wrap:pretty}

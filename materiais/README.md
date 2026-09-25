@@ -91,3 +91,27 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 - Dia 60 — Da Ordem Econômica e Social
 
 Os dias 31–40 aparecem nos dois arquivos com temas parecidos e numeração diferente (o Esboço reorganiza e amplia). Quando o pedido citar um dia, confirme de qual arquivo.
+
+## Provas da 2ª fase da OAB (Direito Constitucional), exames 32 a 46
+
+Pasta do Drive: https://drive.google.com/drive/folders/17HzpWVw_sd-jBa7gL6TEf5U_L2Vo9xsX (cadernos de prova e gabaritos/padrões de resposta da FGV; há também um PDF de 26 MB com os exames 1 a 31, grande demais para o conector baixar). Cada caderno traz a peça prático-profissional e 4 questões discursivas.
+
+| Exame | Peça (gabarito da FGV) | Post |
+|---|---|---|
+| 32º | Reclamação constitucional (súmula vinculante, art. 103-A, § 3º) | `treino-de-pecas/exame-32-reclamacao` |
+| 33º | ADC (Mesa do Senado) | `exame-33-adc` |
+| 34º | Mandado de segurança | `exame-34-mandado-de-seguranca` |
+| 35º | ADI (lei estadual; partido político) | `exame-35-adi` |
+| 36º | ADI (lei estadual; partido só com senadores) | `exame-36-adi` |
+| 37º | Ação popular | `exame-37-acao-popular` |
+| 38º | Mandado de injunção coletivo | `exame-38-mandado-de-injuncao-coletivo` |
+| 39º | Mandado de segurança coletivo | `exame-39-mandado-de-seguranca-coletivo` |
+| 40º | ADI (lei federal; Mesa de Assembleia) | `exame-40-adi` |
+| 41º | ADC | `exame-41-adc` |
+| 42º | Reclamação constitucional | `exame-42-reclamacao` |
+| 43º | Mandado de segurança | `exame-43-mandado-de-seguranca` |
+| 44º | Ação popular | `exame-44-acao-popular` |
+| 45º | Mandado de segurança | `exame-45-mandado-de-seguranca` |
+| 46º | ADPF (lei estadual de 1984) | `exame-46-adpf` |
+
+Os enunciados das peças foram copiados sem alteração para `moldes/treino-de-pecas/dados.json` (extração com PyMuPDF, que preserva as palavras; o pypdf quebra palavras nesses PDFs). As questões discursivas ainda não viraram posts: para usá-las, baixe o caderno do exame e o gabarito correspondentes.

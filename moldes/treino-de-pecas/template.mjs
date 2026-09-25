@@ -1,4 +1,4 @@
-// Modelo visual do "Treino de Peças": 2 slides (capa + enunciado), 1080×1350 cada.
+// Modelo visual do "Treino de Peças": capa + enunciado (2 slides, ou 3 com "quebra"), 1080×1350 cada.
 // tipo "treino" (verde/claro, enunciado longo da OAB) ou "autoral" (preto, caso curto); capa "A" (Editorial) ou "B" (Folha de prova).
 import { createRequire } from 'node:module';
 // Hifenização em português (hífens invisíveis \u00AD): o Chromium não hifeniza pt-BR sozinho em todo sistema.
@@ -67,24 +67,26 @@ function capaB(c, autoral) {
   };
 }
 
-// Enunciado longo, estilo OAB (tipo "treino").
-function enunciadoTreino(c) {
-  const comando = c.comando ? `<div style="border-top:2px solid #E3E6E1;padding-top:12px"><b>${rico(c.comando)}</b>${c.valor ? ` ${esc(c.valor)}` : ''}</div>` : '';
+// Enunciado longo, estilo OAB (tipo "treino"). Com "quebra", o enunciado segue em mais de um slide:
+// paras = parágrafos deste slide, ultimo = se é o slide que fecha com o comando e "QUAL É A PEÇA?".
+function enunciadoTreino(c, paras = lista(c.enunciado), n = 2, total = 2, ultimo = true) {
+  const base = total > 2 ? 24 : 19;
+  const comando = ultimo && c.comando ? `<div style="border-top:2px solid #E3E6E1;padding-top:12px"><b>${rico(c.comando)}</b>${c.valor ? ` ${esc(c.valor)}` : ''}</div>` : '';
   return {
     bg: COR.verde,
     html: `<div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:60px 56px">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:0 8px">${handle(22, COR.off)}<span style="font-size:20px;font-weight:500;letter-spacing:3px;color:${COR.off}">02 / 02</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:0 8px">${handle(22, COR.off)}<span style="font-size:20px;font-weight:500;letter-spacing:3px;color:${COR.off}">0${n} / 0${total}</span></div>
       <div style="margin-top:34px;background:${COR.cartao};border-radius:24px;padding:36px 40px;display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;align-items:center;gap:18px">
           <span style="${F.slab};font-size:19px;letter-spacing:3px;background:${COR.lima};color:${COR.cartao};padding:9px 16px 11px;border-radius:6px">ENUNCIADO</span>
           <span style="flex:1;height:2px;background:${COR.verde};opacity:.15"></span>
         </div>
-        <div data-texto lang="pt-BR" style="font-size:19px;line-height:1.42;color:${COR.corpo};text-align:justify;hyphens:auto;display:flex;flex-direction:column;gap:12px">
-          ${lista(c.enunciado).map(p => `<p style="margin:0">${rico(p)}</p>`).join('')}
+        <div data-texto data-base="${base}" lang="pt-BR" style="font-size:${base}px;line-height:1.42;color:${COR.corpo};text-align:justify;hyphens:auto;display:flex;flex-direction:column;gap:12px">
+          ${paras.map(p => `<p style="margin:0">${rico(p)}</p>`).join('')}
           ${comando}
         </div>
       </div>
-      <div style="margin-top:auto;padding-top:30px;text-align:center;${F.anton};font-size:92px;line-height:1;color:${COR.off}">QUAL É A PEÇA?</div>
+      <div style="margin-top:auto;padding-top:30px;text-align:center;${F.anton};font-size:92px;line-height:1;color:${COR.off}">${ultimo ? 'QUAL É A PEÇA?' : 'CONTINUA →'}</div>
     </div>`,
   };
 }
@@ -112,8 +114,12 @@ function casoAutoral(c) {
 export function renderCarrossel(c) {
   const autoral = c.tipo === 'autoral';
   const capa = (c.capa === 'B' ? capaB : capaA)(c, autoral);
-  const s2 = autoral ? casoAutoral(c) : enunciadoTreino(c);
-  const slides = [capa, s2];
+  let slides;
+  if (autoral) slides = [capa, casoAutoral(c)];
+  else if (c.quebra) {  // enunciado longo demais para um slide: parágrafos [0, quebra) no 2º, o resto no 3º
+    const ps = lista(c.enunciado);
+    slides = [capa, enunciadoTreino(c, ps.slice(0, c.quebra), 2, 3, false), enunciadoTreino(c, ps.slice(c.quebra), 3, 3, true)];
+  } else slides = [capa, enunciadoTreino(c)];
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Alfa+Slab+One&family=Anton&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif}</style></head><body>
