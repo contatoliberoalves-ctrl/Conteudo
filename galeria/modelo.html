@@ -310,7 +310,7 @@ function desenharCapa(ctx, e, sprite, a) {
   ctx.fillStyle = e.fundo; ctx.fillRect(0, 0, 1080, 1350);
   const cx2 = document.createElement('canvas'); cx2.width = W; cx2.height = H;
   const c2 = cx2.getContext('2d'); c2.imageSmoothingQuality = 'high';
-  c2.drawImage(sprite, 1080, 0, e.fw, e.fh, left - x0, top - y0, e.fw * z, e.fh * z);
+  c2.drawImage(sprite, 1080, 0, e.sw || e.fw, e.sh || e.fh, left - x0, top - y0, e.fw * z, e.fh * z);  // sw/sh: tamanho da foto no sprite; fw/fh: na escala da caixa
   if (e.mascara) {
     const g = c2.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#000'); g.addColorStop(.8, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)');
     c2.globalCompositeOperation = 'destination-in'; c2.fillStyle = g; c2.fillRect(0, 0, W, H);
@@ -353,7 +353,7 @@ function mostrarValores(a) {
 function redesenhar() {
   if (!ED) return; const a = valores(); mostrarValores(a);
   const cobre = desenharCapa($('#ed-canvas').getContext('2d'), ED.p.editor, ED.sprite, a);
-  $('#ed-status').textContent = cobre ? '' : 'Atenção: a foto não cobre toda a caixa (aparece fundo escuro). Aumente o zoom ou mova de volta.';
+  $('#ed-status').textContent = cobre ? '' : 'Atenção: a foto não cobre toda a caixa (aparece o fundo). Aumente o zoom ou mova de volta.';
 }
 function porValores(a) { $('#ed-x').value = a.dx; $('#ed-y').value = a.dy; $('#ed-z').value = Math.round(a.z * 100); redesenhar(); }
 ['#ed-x', '#ed-y', '#ed-z'].forEach(id => $(id).addEventListener('input', () => requestAnimationFrame(redesenhar)));

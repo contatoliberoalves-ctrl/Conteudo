@@ -5,7 +5,14 @@ M = str(__import__('pathlib').Path(__file__).resolve().parents[1]) + '/'
 env = dict(os.environ, CHROMIUM_PATH='/opt/pw-browsers/chromium', RENDER_PROXY=os.environ['HTTPS_PROXY'])
 cortes = {}
 def salvar(P):
-    D = [c for c in json.load(open(M + 'dados.json')) if not c['id'].startswith('diario-')]
+    todos = json.load(open(M + 'dados.json'))
+    D = [c for c in todos if not c['id'].startswith('diario-')]
+    # Mantém a capa/estilo já escolhidos para cada post (variação do feed); posts novos seguem o rodízio.
+    antes = {c['id']: c for c in todos}
+    for i, c in enumerate(P):
+        k = len(D) + i
+        c.setdefault('capa', antes.get(c['id'], {}).get('capa') or 'BECDFA'[(k + k // 6) % 6])
+        c.setdefault('estilo', antes.get(c['id'], {}).get('estilo') or ['caderno', 'noturno', 'classico'][k % 3])
     json.dump(D + P, open(M + 'dados.json', 'w'), ensure_ascii=False, indent=2); open(M + 'dados.json', 'a').write('\n')
 P = json.load(open('diario_posts.json'))
 pend = [c['id'] for c in P]

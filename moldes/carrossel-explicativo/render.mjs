@@ -4,7 +4,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
-import { renderCarrossel } from './template.mjs';
+import { renderCarrossel, geometriaFonte } from './template.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
@@ -34,12 +34,29 @@ for (const c of dados) {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(300);
 
+  // Capas com área fixa para o título: reduz o destaque de 4 em 4 px até os elementos caberem na área.
+  await page.evaluate(() => {
+    window.estouraCapa = b => {
+      const r = b.getBoundingClientRect();
+      return [...b.children].filter(e => getComputedStyle(e).position !== 'absolute').some(e => { const q = e.getBoundingClientRect(); return q.top < r.top - 2 || q.bottom > r.bottom + 2 || e.scrollWidth > e.clientWidth + 2 || q.width > r.width + 2; });
+    };
+    const b = document.querySelector('#slide-1 [data-bloco]'), d = b && b.querySelector('[data-destaque]');
+    if (!d || b.hasAttribute('data-rosto')) return;
+    let px = parseFloat(d.style.fontSize);
+    while (window.estouraCapa(b) && px > 80) { px -= 4; d.style.fontSize = px + 'px'; }
+  });
+
   // Texto que não cabe: bloco de conteúdo transbordando ou capa subindo sobre o rosto.
   const avisos = await page.evaluate(() => [...document.querySelectorAll('[id^=slide-]')].flatMap((s, i) => {
     const b = s.querySelector('[data-bloco]');
     if (!b) return [];
     const r = b.getBoundingClientRect();
-    if (i === 0) return r.top < 420 ? [`slide 1: texto da capa sobe até y=${Math.round(r.top)} e cobre o rosto (encurte o destaque ou o subtítulo)`] : [];
+    if (i === 0) {
+      const out = [];
+      if (b.hasAttribute('data-rosto') && r.top < 420) out.push(`slide 1: texto da capa sobe até y=${Math.round(r.top)} e cobre o rosto (encurte o destaque ou o subtítulo)`);
+      if (!b.hasAttribute('data-rosto') && window.estouraCapa(b)) out.push('slide 1: o título não cabe na capa (encurte o destaque, o apoio ou o subtítulo)');
+      return out;
+    }
     if (b.scrollHeight > b.clientHeight + 2) return [`slide ${i + 1}: conteúdo passa ${b.scrollHeight - b.clientHeight}px do espaço (divida em dois slides ou encurte)`];
     return [];
   }));
@@ -51,6 +68,18 @@ for (const c of dados) {
     await page.screenshot({ path: path.join(outDir, `${i + 1}.png`), clip: { x: i * 1080, y: 0, width: 1080, height: 1350 } });
   }
   await page.screenshot({ path: path.join(outDir, 'painel.png'), clip: { x: 0, y: 0, width: Math.min(total, 3) * 1080, height: 1350 } });
+  // Geometria da foto da capa para o editor da galeria (galeria/gerar.py): caixa, cor de fundo e a foto
+  // com margem já na escala da caixa (fw, fh, ox, oy).
+  const capaInfo = await page.evaluate(() => {
+    const s1 = document.getElementById('slide-1'), f = s1.querySelector('[data-caixa]');
+    return f && { caixa: f.dataset.caixa.split(',').map(Number), foco: f.dataset.foco ? Number(f.dataset.foco) : null, fundo: getComputedStyle(s1).backgroundColor };
+  });
+  const fonte = fonteDe(c.foto);
+  if (capaInfo) {
+    const [, , W, H] = capaInfo.caixa;
+    const geo = fonte ? geometriaFonte(fonte, W, H, capaInfo.foco) : {};
+    fs.writeFileSync(path.join(outDir, 'capa.json'), JSON.stringify({ capa: c.capa || 'A', estilo: c.estilo || 'classico', ...capaInfo, ...geo }) + '\n');
+  }
   // Camada de texto da capa (foto escondida, fundo transparente) para o editor de capa da galeria.
   await page.evaluate(() => {
     document.getElementById('painel').style.background = 'transparent';

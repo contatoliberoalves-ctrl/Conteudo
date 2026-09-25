@@ -1,6 +1,6 @@
 # Carrossel Explicativo (@constitucionalgabaritado)
 
-Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **capa** com foto em tela cheia → **4 ou 5 slides de conteúdo** → **CTA**. O visual está em `template.mjs`; o conteúdo vem de `dados.json`.
+Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **capa** com foto (6 layouts) → **4 ou 5 slides de conteúdo** → **CTA**. O visual está em `template.mjs`; o conteúdo vem de `dados.json`.
 
 ## Como usar
 1. Node.js 18+ e `npm run setup` (1ª vez).
@@ -12,6 +12,8 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
 ```json
 {
   "id": "mandado-de-seguranca",
+  "capa": "B",
+  "estilo": "caderno",
   "etiqueta": "2ª Fase OAB",
   "apoio": "Estrutura do",
   "destaque": ["Mandado de", "Segurança"],
@@ -26,12 +28,27 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
 }
 ```
 
+### Variações (para o feed não parecer repetido)
+- `capa`: layout da capa, todos com os mesmos campos (etiqueta, apoio, destaque, subtitulo, elemento):
+  - `A` Marca-texto: foto em tela cheia, destaque no marca-texto verde (o original).
+  - `B` Revista: foto no alto, faixa clara embaixo com o título em verde.
+  - `C` Moldura: fundo claro pontilhado, foto emoldurada com sombra verde, etiqueta numa fita, título grifado.
+  - `D` Balão: foto em tela cheia e o título num balão de fala branco.
+  - `E` Tipográfica: fundo verde, título gigante (última linha em verde-claro) e a foto num círculo.
+  - `F` Manchete: página de jornal, título em preto e a foto como imagem da matéria.
+- `estilo`: visual dos slides de conteúdo e do CTA:
+  - `classico`: gelo e verde (o original).
+  - `caderno`: papel pautado com margem verde e títulos grifados; os slides "verde" viram verde-claro; CTA branco sobre verde-claro.
+  - `noturno`: fundo quase preto com moldura fina verde-clara; os slides "verde" viram gelo; CTA escuro.
+- Regra: **nunca repita a capa do post anterior nem o estilo dos dois anteriores**. Os 44 posts atuais seguem o rodízio capas B, E, C, D, F, A (deslocando uma posição a cada volta) e estilos caderno, noturno, clássico.
+- Nas capas B, C, E e F o título tem área fixa: o render diminui o destaque até caber e avisa se nem assim couber.
+
 ### Capa
 - `etiqueta`: pílula branca (ex.: "2ª Fase OAB", "Controle de constitucionalidade").
 - `apoio`: linha em Bebas branca acima do destaque (texto ou lista de linhas).
 - `destaque`: palavra-chave no marca-texto verde. Texto ou lista de linhas (quebre títulos longos em 2). O tamanho se ajusta à largura.
 - `subtitulo` (opcional): traço verde + frase em Poppins.
-- `foto`: arquivo em `fotos/`. `fotoPos` (opcional) muda o `object-position`.
+- `foto`: arquivo em `fotos/`. Cada capa posiciona o rosto sozinha; para acertar à mão, use o editor de capa da galeria (vira `fotoAjuste`).
 - `elemento` (opcional): um detalhe temático em Bebas verde no canto superior direito (ex.: "z z Z").
 
 ### Slides de conteúdo (`slides`, 4 ou 5)
@@ -46,7 +63,7 @@ Cada slide aceita, nesta ordem na tela: `titulo` (curto, Bebas), `texto` (parág
 - `gabarito` (no post, não no slide): vira `saida/<id>/gabarito.txt`.
 
 ### CTA
-`cta.pergunta`, `cta.chamada` e `cta.cartao` (`"escuro"`, padrão, ou `"branco"`).
+`cta.pergunta`, `cta.chamada`. O fundo e o cartão vêm do `estilo`; no `classico` dá para trocar com `cta.cartao` (`"escuro"` ou `"branco"`) e `cta.fundo`.
 
 ## Regras do modelo
 - Texto do conteúdo usado **literalmente**: só distribuir entre slides e marcar negritos.

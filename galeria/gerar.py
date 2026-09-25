@@ -64,7 +64,16 @@ def editor(pasta, c, saida):
         pendentes.append(nome)
         reg = None
     caixa, fundo, mascara = CAIXAS[pasta.name]
-    return {'img': '/_blob/' + reg['id'] if reg else None, 'fw': f['w'], 'fh': f['h'], 'ox': f['ox'], 'oy': f['oy'],
+    geo = {'fw': f['w'], 'fh': f['h'], 'ox': f['ox'], 'oy': f['oy']}
+    # Capas com a foto numa caixa menor (Carrossel Explicativo, capas B a F): o render grava em
+    # saida/<id>/capa.json a caixa, o fundo e a foto com margem já na escala da caixa.
+    capa_arq = saida / 'capa.json'
+    if capa_arq.exists():
+        k = json.loads(capa_arq.read_text())
+        if k.get('caixa') and 'fw' in k:
+            caixa, fundo, mascara = k['caixa'], k['fundo'], False
+            geo = {x: k[x] for x in ('fw', 'fh', 'ox', 'oy')}
+    return {'img': '/_blob/' + reg['id'] if reg else None, 'sw': f['w'], 'sh': f['h'], **geo,
             'caixa': caixa, 'fundo': fundo, 'mascara': mascara, 'ajuste': c.get('fotoAjuste')}
 
 
