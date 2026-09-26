@@ -775,5 +775,215 @@
         "botao": "Comenta aqui!"
       }
     ]
+  },
+  {
+    "id": "perdido-em-marte",
+    "titulo": "Perdido na 2ª fase (em Marte)",
+    "tema": "Primeiros passos na 2ª fase da OAB",
+    "inspiracao": "Perdido na segunda fase da OAB (jul/2023)",
+    "pontes": [
+      {
+        "img": "ringed_planet.png",
+        "entre": 2,
+        "y": 860,
+        "tam": 320,
+        "rot": -10
+      },
+      {
+        "img": "rocket.png",
+        "entre": 4,
+        "y": 230,
+        "tam": 320,
+        "rot": 30
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "imagem": "ia-astronauta-marte.jpg",
+        "promptIA": "a lone astronaut standing on red Mars sand dunes, looking at the horizon, small earth in the dark blue sky, vast empty landscape, vertical composition, astronaut in the upper half of the frame",
+        "semente": 21,
+        "objeto": {
+          "img": "telescope.png",
+          "onde": "canto",
+          "tam": 340,
+          "rot": -8
+        },
+        "pre": "Passou na 1ª fase e se sentiu",
+        "titulo": [
+          "Perdido em",
+          "[[Marte]]?"
+        ],
+        "texto": [
+          "Calma: dá pra voltar pra casa (e passar na 2ª fase)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Missão: 2ª fase",
+        "titulo": [
+          "Passei.",
+          "E agora?"
+        ],
+        "palavra": "MARTE",
+        "texto": [
+          "Esse deve ser o sentimento de 11 em cada 10 oabeiros depois do resultado.",
+          "A 2ª fase é outro planeta: prova aberta e **uma matéria só**, estudada a fundo."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Plano de sobrevivência",
+        "titulo": [
+          "5 passos"
+        ],
+        "corpo": 36,
+        "itens": [
+          "**Adaptação:** mudam a cobrança e o jeito de estudar",
+          "**Ansiedade sob controle:** peça por peça, um dia de cada vez",
+          "**Nada de decorar:** o Vade Mecum vai com você",
+          "**Prioridades:** o tempo não é enorme nem curto, é o necessário",
+          "**Método:** aula, material de apoio, simulado e MUITO treino"
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "fundoImagem": "ia-astronauta-livro.jpg",
+        "promptIA": "an astronaut floating in deep space holding an open thick law book, soft blue light, stars in the background, calm and hopeful mood",
+        "semente": 5,
+        "kicker": "Respira",
+        "titulo": [
+          "Não precisa",
+          "decorar."
+        ],
+        "sub": "O Vade Mecum é o seu tanque de oxigênio."
+      },
+      {
+        "tipo": "balao",
+        "tema": "light",
+        "texto": [
+          "Houston, a gente não tem um problema.",
+          "A gente tem **estratégia**."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "etica-22.jpg",
+        "titulo": [
+          "Pronto pra decolar?"
+        ],
+        "texto": "Manda pra quem acabou de passar na 1ª fase.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "desincompatibilizacao",
+    "titulo": "Desincompatibilização: que nome grego é esse?",
+    "tema": "Desincompatibilização dos chefes do Executivo (art. 14, § 6º)",
+    "inspiracao": "Desincompatibilização: Que nome grego é esse? (jan/2024)",
+    "pontes": [
+      {
+        "img": "scroll.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "ballot_box_with_ballot.png",
+        "entre": 4,
+        "y": 230,
+        "tam": 320,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "imagem": "ia-busto-grego.jpg",
+        "promptIA": "a white marble bust of an ancient greek philosopher with a puzzled expression, raised eyebrow, dramatic blue studio lighting, dark navy background, museum sculpture, head in the upper half of the frame",
+        "semente": 12,
+        "objeto": {
+          "img": "classical_building.png",
+          "onde": "canto",
+          "tam": 340,
+          "rot": 6
+        },
+        "pre": "Desincompatibilização:",
+        "titulo": [
+          "Que nome",
+          "[[grego]] é esse?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Calma",
+        "titulo": [
+          "Parece grego,",
+          "mas é fácil"
+        ],
+        "texto": [
+          "O nome assusta, mas o procedimento é simples e pode cair na sua prova de Constitucional.",
+          "É o afastamento que o **chefe do Executivo** precisa fazer para disputar **outro cargo**."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "Art. 14, § 6º",
+        "titulo": [
+          "A regra"
+        ],
+        "citacao": "Para concorrerem a outros cargos, o Presidente da República, os Governadores de Estado e do Distrito Federal e os Prefeitos devem renunciar aos respectivos mandatos até seis meses antes do pleito.",
+        "traducao": "Traduzindo: quer **outro cargo**? **Renuncia 6 meses antes.**"
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Quem precisa?",
+        "titulo": [
+          "Executivo x Legislativo"
+        ],
+        "itens": [
+          "**Presidente, Governador e Prefeito:** renunciam 6 meses antes",
+          "**Deputados, Senadores e Vereadores:** concorrem sem renunciar",
+          "**Reeleição** para o mesmo cargo: não precisa renunciar"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "fundoImagem": "ia-templo-urna.jpg",
+        "promptIA": "ancient greek temple columns at blue hour with a modern ballot box on the marble steps, dramatic sky, cinematic, wide angle",
+        "semente": 3,
+        "kicker": "Na vida real",
+        "titulo": [
+          "De Caruaru a",
+          "Pernambuco"
+        ],
+        "texto": [
+          "Raquel Lyra era prefeita de Caruaru e **renunciou** para concorrer ao governo do Estado.",
+          "Deu certo: ela se tornou a **primeira mulher** a governar Pernambuco."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "etica-23.jpg",
+        "titulo": [
+          "Ficou mais fácil?"
+        ],
+        "texto": "Encaminha pro amigo que ainda acha que isso é grego.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]

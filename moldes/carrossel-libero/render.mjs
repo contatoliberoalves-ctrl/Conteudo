@@ -26,10 +26,18 @@ const browser = await chromium.launch(launch);
 let problemas = 0;
 for (const c of dados) {
   if (filtro && c.id !== filtro) continue;
+  // Imagens de imagens/ (banco ou IA) ainda não geradas: o slide sai sem elas, com aviso.
+  const pendentes = [];
+  c.slides = c.slides.map(s => {
+    const s2 = { ...s };
+    for (const k of ['imagem', 'fundoImagem']) if (s2[k] && !fs.existsSync(path.join(root, 'imagens', s2[k]))) { pendentes.push(s2[k]); delete s2[k]; }
+    return s2;
+  });
   const fotos = {}, faltando = [];
   for (const s of c.slides) if (s.foto) { const f = acharFoto(s.foto); if (f) fotos[s.foto] = 'file://' + f; else faltando.push(s.foto); }
   const { html, total, avisos } = renderCarrossel({ ...c, _fotos: fotos });
   faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/)`));
+  pendentes.forEach(f => avisos.push(`imagem pendente: imagens/${f} (gere com python3 gerar_imagens_ia.py ou coloque o arquivo)`));
   const htmlPath = path.join(buildDir, `${c.id}.html`);
   fs.writeFileSync(htmlPath, html);
   const page = await browser.newPage({ viewport: { width: total * 1080, height: 1350 } });

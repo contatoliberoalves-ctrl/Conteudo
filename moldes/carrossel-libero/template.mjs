@@ -190,8 +190,10 @@ export function renderCarrossel(c) {
 <style>*{box-sizing:border-box}body{margin:0;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}</style></head><body>
 <div id="painel" style="position:relative;width:${n * 1080}px;height:1350px">
 ${slides.map((s, i) => {
-    const telaCheia = s.tipo === 'capa' && (s.foto || (s.imagem && s.imagemModo !== 'cartao'));
+    const telaCheia = (s.tipo === 'capa' && (s.foto || (s.imagem && s.imagemModo !== 'cartao'))) || s.fundoImagem;
     const t = TEMAS[telaCheia ? 'dark' : s.tema] || TEMAS.blue;
+    // "fundoImagem" (slides internos): imagem em tela cheia atrás do texto, com véu azul e escurecida.
+    const fundoImg = s.fundoImagem && s.tipo !== 'capa' ? `<img src="../imagens/${esc(s.fundoImagem)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.imagemPos || 'center')}"><div style="position:absolute;inset:0;background:${COR.azul};opacity:.25;mix-blend-mode:multiply"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,39,.55) 0%,rgba(18,26,39,.72) 55%,rgba(18,26,39,.9) 100%)"></div>` : '';
     const tipo = TIPOS[s.tipo] || TIPOS.texto;
     // Obstáculos deste slide: o próprio objeto e a metade das pontes que cai nele.
     const obst = [];
@@ -206,7 +208,7 @@ ${slides.map((s, i) => {
     const html = tipo(s, t, c);
     RESERVA = { esq: 0, dir: 0, topo: 150, base: 190 };
     return `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:1350px;overflow:hidden;background:${t.bg}">
-  ${fundoTexto(s, t)}${aneis(s)}${html}${obj}${s.tipo === 'capa' ? '' : rodape(t, i + 1, n)}${textura(t)}</div>`;
+  ${fundoImg}${fundoTexto(s, t)}${aneis(s)}${html}${obj}${s.tipo === 'capa' ? '' : rodape(t, i + 1, n)}${textura(t)}</div>`;
   }).join('\n')}
 ${pontes.map(p => { const w = p.tam || 360; return objetoHtml({ ...p, tam: w }, p.entre * 1080 - w / 2, p.y ?? 470); }).join('')}
 </div></body></html>`;
