@@ -28,6 +28,10 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 
 `imagens/` guarda fotos de domínio público (CC0 ou Public Domain Mark), com os créditos em `imagens/CREDITOS.md`. Elas podem ir para o git porque não são fotos pessoais. Para buscar: `python3 buscar_imagens.py "termo em inglês" [n] [fonte]` gera uma prancha em `build/busca/` para escolher. A melhor fonte é `rawpixel` (fotos profissionais e gravuras antigas, verticais), e o script já baixa a versão sem marca d'água. Prepare a escolhida em 1080×1350 com `python3 buscar_imagens.py --preparar build/busca/<arquivo>.jpg imagens/<nome>.jpg`.
 
+## Imagens de IA
+
+`imagens/ia-*` são imagens geradas por IA (ChatGPT/Gemini pelo autor, ou `gerar_imagens_ia.py` com FLUX e `HF_TOKEN`). Elas **não vão para o git** (`.gitignore`): algumas trazem o rosto do autor, como o busto grego. Os originais ficam com o autor. Numa sessão nova, peça as imagens e salve-as em `imagens/` com o nome do `dados.json`. Os prompts ficam no campo `promptIA` de cada slide.
+
 ## Objetos 3D
 
 `assets/` tem objetos 3D com fundo transparente (Fluent Emoji da Microsoft, licença MIT em `assets/LICENSE-fluentui-emoji.txt`; ampliados para 512px). Para baixar mais: `https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/<Nome>/3D/<nome>_3d.png` (nome do emoji em inglês, ex.: `Alarm clock` / `alarm_clock_3d.png`).
