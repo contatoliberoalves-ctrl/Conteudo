@@ -530,5 +530,695 @@
         "body": "E envia pra quem sempre esquece um legitimado."
       }
     ]
+  },
+  {
+    "id": "nacionalidade",
+    "name": "Nacionalidade",
+    "tema": "Brasileiro nato x naturalizado (art. 12)",
+    "seams": [
+      1,
+      4
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "kicker": "Direito Constitucional",
+        "pre": "Nato ou naturalizado?",
+        "title": "Nacionalidade",
+        "hl": "Art. 12 da CF/88",
+        "sub": "Quem é nato, quem é naturalizado e o que muda entre eles."
+      },
+      {
+        "type": "compare",
+        "bg": "light",
+        "kicker": "Conceito",
+        "title": "Nato x naturalizado",
+        "cols": [
+          {
+            "title": "Natos · art. 12, I",
+            "items": [
+              "Nasceu no Brasil, salvo pais estrangeiros a serviço do seu país",
+              "Nasceu fora, filho de brasileiro a serviço do Brasil",
+              "Nasceu fora, filho de brasileiro, com registro ou opção"
+            ]
+          },
+          {
+            "title": "Naturalizados · art. 12, II",
+            "items": [
+              "Países de língua portuguesa: 1 ano de residência e idoneidade moral",
+              "Demais: mais de 15 anos de residência e sem condenação penal"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "mnemo",
+        "bg": "mint",
+        "kicker": "Privativos de nato · art. 12, § 3º",
+        "word": "MP3.COM",
+        "cols": "1fr",
+        "rows": [
+          {
+            "l": "M",
+            "t": "Ministro do STF"
+          },
+          {
+            "l": "P",
+            "t": "Presidente e Vice-Presidente da República"
+          },
+          {
+            "l": "P",
+            "t": "Presidente da Câmara dos Deputados"
+          },
+          {
+            "l": "P",
+            "t": "Presidente do Senado Federal"
+          },
+          {
+            "l": "C",
+            "t": "Carreira diplomática"
+          },
+          {
+            "l": "O",
+            "t": "Oficial das Forças Armadas"
+          },
+          {
+            "l": "M",
+            "t": "Ministro de Estado da Defesa"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "LI",
+        "ref": "Art. 5º, LI e LII",
+        "title": "Extradição",
+        "rows": [
+          {
+            "k": "Nato",
+            "v": "Nunca é extraditado"
+          },
+          {
+            "k": "Naturalizado",
+            "v": "Só por crime comum anterior à naturalização ou tráfico de drogas comprovado"
+          },
+          {
+            "k": "Estrangeiro",
+            "v": "Nunca por crime político ou de opinião"
+          }
+        ],
+        "tip": "quem julga o pedido de extradição é o STF (art. 102, I, “g”)."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Art. 12, § 2º",
+        "title": "Sem distinção",
+        "lead": "A lei não pode diferenciar natos e naturalizados.",
+        "body": "Só a própria Constituição pode, como nos cargos privativos e na extradição.",
+        "box": "Na prova: distinção criada por lei, e não pela CF, é inconstitucional."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Nato",
+            "v": "art. 12, I"
+          },
+          {
+            "k": "Naturalizado",
+            "v": "art. 12, II"
+          },
+          {
+            "k": "MP3.COM",
+            "v": "cargos privativos"
+          },
+          {
+            "k": "Extradição",
+            "v": "art. 5º, LI"
+          }
+        ],
+        "title": "Salva pra revisar",
+        "body": "E marca quem confunde nato com naturalizado."
+      }
+    ]
+  },
+  {
+    "id": "direitos-politicos",
+    "name": "Direitos políticos",
+    "tema": "Idade mínima, alistamento, perda e suspensão (arts. 14 e 15)",
+    "seams": [
+      2,
+      4
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "bar",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "kicker": "Direitos políticos",
+        "pre": "Quem pode ser votado?",
+        "title": "Idade mínima",
+        "hl": "Art. 14, § 3º, VI",
+        "sub": "As idades que a banca adora cobrar, mais perda e suspensão."
+      },
+      {
+        "type": "list",
+        "bg": "dark",
+        "kicker": "Condição de elegibilidade",
+        "title": "Idade por cargo",
+        "items": [
+          {
+            "n": "35",
+            "t": "**Presidente**, Vice-Presidente e **Senador**"
+          },
+          {
+            "n": "30",
+            "t": "**Governador** e Vice-Governador"
+          },
+          {
+            "n": "21",
+            "t": "**Deputados**, Prefeito, Vice-Prefeito e juiz de paz"
+          },
+          {
+            "n": "18",
+            "t": "**Vereador**"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "mint",
+        "kicker": "Alistamento e voto · art. 14, §§ 1º e 2º",
+        "title": "Obrigatório x facultativo",
+        "cols": [
+          {
+            "title": "Obrigatório",
+            "items": [
+              "Maiores de 18 anos",
+              "Não se alistam: estrangeiros e conscritos no serviço militar obrigatório"
+            ]
+          },
+          {
+            "title": "Facultativo",
+            "items": [
+              "Analfabetos",
+              "Maiores de 70 anos",
+              "Entre 16 e 18 anos"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Art. 15",
+        "title": "Cassação? Nunca.",
+        "lead": "A CF proíbe a cassação de direitos políticos.",
+        "body": "Só cabe perda ou suspensão nos casos do art. 15: cancelamento da naturalização, incapacidade civil absoluta, condenação criminal transitada em julgado, recusa de obrigação a todos imposta e improbidade."
+      },
+      {
+        "type": "compare",
+        "bg": "dark",
+        "kicker": "Não confunda",
+        "title": "Perda x suspensão",
+        "cols": [
+          {
+            "title": "Perda",
+            "items": [
+              "Cancelamento da naturalização por sentença transitada em julgado (I)",
+              "Recusa de obrigação a todos imposta (IV), para parte da doutrina"
+            ]
+          },
+          {
+            "title": "Suspensão",
+            "items": [
+              "Incapacidade civil absoluta (II)",
+              "Condenação criminal, enquanto durarem os efeitos (III)",
+              "Improbidade administrativa (V)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "35",
+            "v": "Presidente e Senador"
+          },
+          {
+            "k": "30",
+            "v": "Governador"
+          },
+          {
+            "k": "21",
+            "v": "Deputado e Prefeito"
+          },
+          {
+            "k": "18",
+            "v": "Vereador"
+          }
+        ],
+        "title": "Salva e revisa",
+        "body": "Envia pra quem vai fazer a 2ª fase com você."
+      }
+    ]
+  },
+  {
+    "id": "competencias-legislativas",
+    "name": "Competências legislativas",
+    "tema": "Privativa (art. 22), concorrente (art. 24) e municipal (art. 30)",
+    "seams": [
+      2,
+      5
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "mint",
+        "align": "flex-start",
+        "kicker": "Organização do Estado",
+        "pre": "Quem legisla sobre o quê?",
+        "title": "Competências legislativas",
+        "hl": "Arts. 22, 24 e 30",
+        "sub": "União, Estados e Municípios, com dois macetes."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Conceito",
+        "title": "Privativa x concorrente",
+        "lead": "Privativa (art. 22):",
+        "body": "só a União legisla, mas lei complementar pode autorizar os Estados em questões específicas. **Concorrente (art. 24):** a União faz as normas gerais e os Estados suplementam."
+      },
+      {
+        "type": "mnemo",
+        "bg": "light",
+        "kicker": "Privativa da União · art. 22, I",
+        "word": "CAPACETE DE PM",
+        "cols": "1fr 1fr",
+        "rows": [
+          {
+            "l": "C",
+            "t": "Civil"
+          },
+          {
+            "l": "A",
+            "t": "Agrário"
+          },
+          {
+            "l": "P",
+            "t": "Penal"
+          },
+          {
+            "l": "A",
+            "t": "Aeronáutico"
+          },
+          {
+            "l": "C",
+            "t": "Comercial"
+          },
+          {
+            "l": "E",
+            "t": "Eleitoral"
+          },
+          {
+            "l": "T",
+            "t": "Trabalho"
+          },
+          {
+            "l": "E",
+            "t": "Espacial"
+          },
+          {
+            "l": "P",
+            "t": "Processual"
+          },
+          {
+            "l": "M",
+            "t": "Marítimo"
+          }
+        ]
+      },
+      {
+        "type": "mnemo",
+        "bg": "mint",
+        "kicker": "Concorrente · art. 24, I e II",
+        "word": "PUFETO",
+        "cols": "1fr 1fr",
+        "rows": [
+          {
+            "l": "P",
+            "t": "Penitenciário"
+          },
+          {
+            "l": "U",
+            "t": "Urbanístico"
+          },
+          {
+            "l": "F",
+            "t": "Financeiro"
+          },
+          {
+            "l": "E",
+            "t": "Econômico"
+          },
+          {
+            "l": "T",
+            "t": "Tributário"
+          },
+          {
+            "l": "O",
+            "t": "Orçamento"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "dark",
+        "kicker": "Art. 24, §§ 1º a 4º",
+        "title": "Como funciona",
+        "items": [
+          {
+            "n": "1",
+            "t": "A União edita **normas gerais**"
+          },
+          {
+            "n": "2",
+            "t": "Os Estados **suplementam**"
+          },
+          {
+            "n": "3",
+            "t": "Sem lei federal, o Estado tem **competência plena**"
+          },
+          {
+            "n": "4",
+            "t": "Lei federal posterior **suspende a eficácia** da estadual no que for contrária"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "30",
+        "ref": "Art. 30, I e II",
+        "title": "Municípios",
+        "rows": [
+          {
+            "k": "Legislam",
+            "v": "Sobre assuntos de interesse local"
+          },
+          {
+            "k": "Suplementam",
+            "v": "A legislação federal e estadual, no que couber"
+          },
+          {
+            "k": "Exemplo",
+            "v": "Horário do comércio local (Súmula Vinculante 38)"
+          }
+        ],
+        "tip": "horário de atendimento bancário é da União (Súmula 19 do STJ)."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Capacete de PM",
+            "v": "art. 22"
+          },
+          {
+            "k": "PUFETO",
+            "v": "art. 24"
+          },
+          {
+            "k": "Interesse local",
+            "v": "art. 30"
+          }
+        ],
+        "title": "Salva os macetes",
+        "body": "Comenta qual competência mais te pega na prova."
+      }
+    ]
+  },
+  {
+    "id": "intervencao-federal",
+    "name": "Intervenção federal",
+    "tema": "Hipóteses, iniciativa e controle (arts. 34 a 36)",
+    "seams": [
+      1,
+      3
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "disc",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "kicker": "Organização do Estado",
+        "pre": "Quando a União pode",
+        "title": "Intervir nos Estados",
+        "hl": "Arts. 34 a 36 da CF/88",
+        "sub": "Hipóteses, quem provoca e quem controla."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Regra",
+        "title": "Exceção, não regra",
+        "lead": "A União não intervirá nos Estados nem no DF,",
+        "body": "salvo nas hipóteses do art. 34. Quem decreta e executa a intervenção é o **Presidente da República** (art. 84, X)."
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "Art. 34",
+        "title": "Hipóteses",
+        "items": [
+          {
+            "n": "I·II",
+            "t": "Manter a **integridade nacional** e repelir **invasão**"
+          },
+          {
+            "n": "III",
+            "t": "Pôr termo a grave comprometimento da **ordem pública**"
+          },
+          {
+            "n": "IV",
+            "t": "Garantir o livre exercício dos **Poderes**"
+          },
+          {
+            "n": "V",
+            "t": "Reorganizar as **finanças** da unidade"
+          },
+          {
+            "n": "VI",
+            "t": "Prover a execução de **lei federal ou decisão judicial**"
+          },
+          {
+            "n": "VII",
+            "t": "Assegurar os **princípios sensíveis**"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "dark",
+        "kicker": "Art. 36",
+        "title": "Quem provoca?",
+        "cols": [
+          {
+            "title": "Solicitação ou requisição",
+            "items": [
+              "Poder coacto ou impedido solicita (inciso IV)",
+              "Coação contra o Judiciário: requisição do STF",
+              "Ordem judicial descumprida: requisição do STF, STJ ou TSE"
+            ]
+          },
+          {
+            "title": "Representação do PGR",
+            "items": [
+              "Princípios sensíveis e recusa à execução de lei federal",
+              "Julgada pelo STF: é a ADI interventiva"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "24H",
+        "ref": "Art. 36, §§ 1º e 3º",
+        "title": "Controle político",
+        "rows": [
+          {
+            "k": "Regra",
+            "v": "O decreto vai ao Congresso Nacional em 24 horas"
+          },
+          {
+            "k": "Dispensa",
+            "v": "Art. 34, VI e VII, se bastar suspender o ato impugnado"
+          },
+          {
+            "k": "Emendas",
+            "v": "A CF não pode ser emendada durante a intervenção (art. 60, § 1º)"
+          }
+        ],
+        "tip": "a União não intervém em Município de Estado; quem intervém é o Estado (art. 35)."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Decreta",
+            "v": "Presidente"
+          },
+          {
+            "k": "Controla",
+            "v": "Congresso, em 24 h"
+          },
+          {
+            "k": "Sensíveis",
+            "v": "ADI interventiva"
+          }
+        ],
+        "title": "Salva pra revisar",
+        "body": "Envia pra quem está estudando organização do Estado."
+      }
+    ]
+  },
+  {
+    "id": "estado-de-defesa-x-sitio",
+    "name": "Estado de defesa x sítio",
+    "tema": "Estado de defesa e estado de sítio (arts. 136 a 139)",
+    "seams": [
+      2,
+      4
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "kicker": "Defesa do Estado",
+        "pre": "Não confunda estado de",
+        "title": "Defesa x sítio",
+        "hl": "Arts. 136 a 139",
+        "sub": "Quem decreta, quem autoriza e por quanto tempo."
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "01",
+        "ref": "Art. 136",
+        "title": "Estado de defesa",
+        "rows": [
+          {
+            "k": "Quando",
+            "v": "Ordem pública ou paz social ameaçadas, em locais restritos, ou calamidade de grandes proporções"
+          },
+          {
+            "k": "Prazo",
+            "v": "Até 30 dias, prorrogável uma vez"
+          },
+          {
+            "k": "Controle",
+            "v": "Decreto vai ao CN em 24 horas; o CN decide em 10 dias"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "mint",
+        "num": "02",
+        "ref": "Art. 137",
+        "title": "Estado de sítio",
+        "rows": [
+          {
+            "k": "Quando",
+            "v": "Comoção grave nacional, ineficácia do estado de defesa, guerra ou agressão estrangeira"
+          },
+          {
+            "k": "Prazo",
+            "v": "30 dias por vez ou enquanto durar a guerra"
+          },
+          {
+            "k": "Controle",
+            "v": "Autorização prévia do CN, por maioria absoluta"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "light",
+        "kicker": "A diferença que cai",
+        "title": "Antes ou depois?",
+        "cols": [
+          {
+            "title": "Estado de defesa",
+            "items": [
+              "O Presidente decreta e o CN aprecia depois",
+              "Locais restritos e determinados"
+            ]
+          },
+          {
+            "title": "Estado de sítio",
+            "items": [
+              "O CN autoriza antes do decreto",
+              "O decreto indica as áreas abrangidas (art. 138)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Nos dois",
+        "title": "Pontos em comum",
+        "lead": "O Presidente ouve o Conselho da República e o Conselho de Defesa Nacional,",
+        "body": "mas a opinião deles não vincula. E a CF não pode ser emendada durante estado de defesa ou de sítio (art. 60, § 1º)."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Defesa",
+            "v": "controle posterior"
+          },
+          {
+            "k": "Sítio",
+            "v": "autorização prévia"
+          },
+          {
+            "k": "Prazo",
+            "v": "30 dias"
+          }
+        ],
+        "title": "Salva e compartilha",
+        "body": "Comenta: defesa ou sítio, qual mais te confunde?"
+      }
+    ]
   }
 ]

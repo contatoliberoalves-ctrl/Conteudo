@@ -168,7 +168,7 @@ mark{background:none;color:inherit;font-weight:700}
 .caixa{padding:28px 32px;border-radius:20px;font-size:31px;line-height:1.45;text-wrap:pretty}
 .cab{display:flex;align-items:baseline;gap:28px}
 .num{font-size:180px;line-height:.8}
-.linhas{display:grid;grid-template-columns:190px 1fr;gap:18px 24px;font-size:32px;line-height:1.35}
+.linhas{display:grid;grid-template-columns:max-content 1fr;gap:18px 24px;font-size:32px;line-height:1.35}
 .linhas b{font-weight:600}
 .lista{display:flex;flex-direction:column;gap:16px}
 .cartao{display:flex;align-items:center;gap:28px;padding:16px 30px;border-radius:20px}
