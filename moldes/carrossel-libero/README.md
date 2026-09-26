@@ -15,7 +15,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 
 | tipo | campos |
 |---|---|
-| `capa` | `pre` (pergunta ou pré-título), `titulo` (linhas), `foto` (opcional: foto inteira com degradê e texto embaixo; sem foto, a capa é tipográfica e centralizada), `texto` (opcional, só na capa sem foto) |
+| `capa` | `pre` (pergunta ou pré-título), `titulo` (linhas), `foto` (opcional: foto do autor em tela cheia, com degradê e texto embaixo), `imagem` (opcional: foto de banco de imagens em `imagens/`, num cartão com moldura branca no alto; `imagemPos` muda o enquadramento), `texto` (opcional, só na capa sem `foto`). Sem `foto` nem `imagem`, a capa é só tipográfica. |
 | `texto` | `titulo`, `texto` (parágrafos), `palavra` (palavra-chave vertical na borda; lista = 2 colunas), `palavraLado` (`"esquerda"` ou `"direita"`), `corpo` (px) |
 | `impacto` | `titulo` (frase no bloco sólido), `sub` (subtítulo de 60px) |
 | `lei` | `titulo`, `citacao` (texto da lei, **literal**), `traducao` |
@@ -23,6 +23,10 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
 | `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita) |
+
+## Fotos de banco de imagens
+
+`imagens/` guarda fotos de domínio público (CC0 ou Public Domain Mark), com os créditos em `imagens/CREDITOS.md`. Elas podem ir para o git porque não são fotos pessoais. Para buscar: `python3 buscar_imagens.py "termo em inglês"` gera uma prancha em `build/busca/` para escolher. As do Flickr têm até 1024px: use no cartão da capa (`imagem`), não em tela cheia.
 
 ## Objetos 3D
 

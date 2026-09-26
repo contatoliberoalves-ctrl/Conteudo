@@ -111,10 +111,17 @@ const TIPOS = {
           ${titulo(s, { ...TEMAS.dark, caixa: COR.azul }, 180, 860)}
         </div>${tag}`;
     }
-    return `${area(`${kicker(s.kicker, t)}
+    // Capa com "imagem" (foto de banco de imagens, em imagens/): cartão com moldura branca no alto e o
+    // título embaixo. Fotos de até ~1024px não aguentam a tela cheia, mas ficam nítidas no cartão.
+    let cartao = '';
+    if (s.imagem) {
+      cartao = `<div data-foto style="position:absolute;left:150px;top:110px;width:780px;height:560px;background:#fff;padding:18px;transform:rotate(-2deg);box-shadow:0 30px 60px rgba(8,16,40,.35);z-index:2"><img src="../imagens/${esc(s.imagem)}" style="display:block;width:100%;height:100%;object-fit:cover;object-position:${esc(s.imagemPos || 'center')}"></div>`;
+      RESERVA = { ...RESERVA, topo: Math.max(RESERVA.topo, 730) };
+    }
+    return `${cartao}${area(`${kicker(s.kicker, t)}
       ${s.pre ? `<div style="font-size:56px;font-weight:600;line-height:1.1;color:${t.txt}">${rico(s.pre, t)}</div>` : ''}
       ${titulo(s, t, 190, 860)}
-      ${s.texto ? corpo(s, t, 40) : ''}`, 110, 110, ';align-items:center;text-align:center')}${tag}`;
+      ${s.texto ? corpo(s, t, 40) : ''}`, 110, 110, `;align-items:center;text-align:center${s.imagem ? ';gap:16px' : ''}`)}${tag}`;
   },
   texto(s, t) {
     const [pv, larg, lado] = palavraVertical(s, t);
