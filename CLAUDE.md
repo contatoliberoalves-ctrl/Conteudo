@@ -1,6 +1,6 @@
 # Conteúdo @constitucionalgabaritado (e @liberofilho, Eduarda Caraciolo)
 
-Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português. Quase todos os moldes são do @constitucionalgabaritado; o `carrossel-libero` é do perfil pessoal @liberofilho e o `carrossel-eduarda` é da Eduarda Caraciolo, Advogada · Direito Civil e ECA (o campo `perfil` do `molde.json` diz de quem é cada molde).
+Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português. Quase todos os moldes são do @constitucionalgabaritado; o `carrossel-libero` é do perfil pessoal @liberofilho e o `carrossel-eduarda` e o `carrossel-eduarda-moderno` são da Eduarda Caraciolo, Advogada · Direito Civil e ECA (o campo `perfil` do `molde.json` diz de quem é cada molde).
 
 ## Estrutura
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).

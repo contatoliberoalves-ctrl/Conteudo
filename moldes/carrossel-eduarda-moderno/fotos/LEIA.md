@@ -1,0 +1,1 @@
+Fotos da Eduarda (fora do git: repositório público). O render procura aqui e depois em ../carrossel-eduarda/fotos/. Nomes usados no dados.json: eduarda-cta.jpg (vertical, capas 1b/1c e CTAs), eduarda-horizontal.jpg (CTA 1a) e avatar.jpg (assinatura e CTA 1b). Sem a foto, sai um painel com "EC" no lugar e o render avisa.

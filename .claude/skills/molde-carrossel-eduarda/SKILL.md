@@ -38,3 +38,5 @@ Pasta: `moldes/carrossel-eduarda/`. O visual está em `template.mjs` e **não de
 ## Revisão de conteúdo
 
 Os textos são jurídicos: mantenha artigos e gabaritos exatamente como no material do usuário. Se algo parecer errado, corrija só com certeza e **avise o usuário** listando cada ajuste.
+
+Para o visual moderno do kit (direções 1a Editorial, 1b Blocos e 1c Noir), use o molde **Carrossel Eduarda Moderno** (`moldes/carrossel-eduarda-moderno/`, skill `molde-carrossel-eduarda-moderno`).
