@@ -1,6 +1,6 @@
-# Conteúdo @constitucionalgabaritado
+# Conteúdo @constitucionalgabaritado (e @liberofilho)
 
-Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português.
+Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português. Quase todos os moldes são do @constitucionalgabaritado; o `carrossel-libero` é do perfil pessoal @liberofilho (o campo `perfil` do `molde.json` diz de quem é cada molde).
 
 ## Estrutura
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).

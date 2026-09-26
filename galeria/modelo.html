@@ -190,7 +190,7 @@ function desenharMoldes() {
     <button class="molde-btn" data-id="${esc(m.id)}" aria-pressed="${m === ativo}">
       ${m.posts[0] ? `<img src="${esc(m.posts[0].painel)}" alt="" loading="lazy">` : ''}
       <strong>${esc(m.nome)}</strong>
-      <small>${esc(m.formato)} · ${m.posts.length} posts</small>
+      <small>${m.perfil && m.perfil !== '@constitucionalgabaritado' ? `<b>${esc(m.perfil)}</b> · ` : ''}${esc(m.formato)} · ${m.posts.length} posts</small>
     </button>`).join('') + `
     <div class="molde-btn novo" role="note">
       <strong>+ Novo molde</strong>
@@ -209,7 +209,7 @@ function desenharMolde() {
   $('#molde').innerHTML = `
     <div class="molde-cab">
       <div>
-        <span class="formato">${esc(m.formato)}</span>
+        <span class="formato">${esc(m.perfil || '')} · ${esc(m.formato)}</span>
         <h2>${esc(m.nome)}</h2>
         <p>${esc(m.descricao || '')}</p>
       </div>
