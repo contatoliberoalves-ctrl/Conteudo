@@ -1,6 +1,6 @@
-# Conteúdo @constitucionalgabaritado (e @liberofilho)
+# Conteúdo @constitucionalgabaritado (e @liberofilho, Eduarda Caraciolo)
 
-Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português. Quase todos os moldes são do @constitucionalgabaritado; o `carrossel-libero` é do perfil pessoal @liberofilho (o campo `perfil` do `molde.json` diz de quem é cada molde).
+Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma do projeto: português. Quase todos os moldes são do @constitucionalgabaritado; o `carrossel-libero` é do perfil pessoal @liberofilho e o `carrossel-eduarda` é da Eduarda Caraciolo, Advogada · Direito Civil e ECA (o campo `perfil` do `molde.json` diz de quem é cada molde).
 
 ## Estrutura
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).
@@ -20,6 +20,8 @@ Publicada em https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq — sempre atuali
 2. `pip install pillow` (se preciso) e `python3 galeria/gerar.py` → `galeria/dist/index.html`, `galeria/dist/img/**` (2 por post: `-painel.jpg` e `-slides.webp`) e `galeria/dist/editor/*.webp` (editor de capa).
 3. Publique `galeria/dist/index.html` com `root: galeria/dist`, `capabilities: {assets: {}, db: {}, downloads: true}` e `files` = todos os `img/**/*-painel.jpg` e `img/**/*-slides.webp`. No máximo 255 arquivos por versão; arquivos que saírem da galeria são removidos com `null` no `files`.
 4. Se `galeria/dist/editor/pendentes.txt` não estiver vazio: envie esses arquivos como assets (Artifact `publish` com `url`, `asset: true`, `file_paths`, até 25 por chamada), anote nome → `{id, sha1}` em `galeria/ativos.json`, rode `gerar.py` de novo e republique.
+
+Numa sessão nova, só os moldes gerados nela têm `saida/`, e o `gerar.py` deixa os outros de fora. Nesse caso, leia a galeria publicada (Artifact `read`), junte ao `const MOLDES` do `dist/index.html` as entradas publicadas dos moldes que não foram gerados e publique só as imagens novas no `files` (as que já estão publicadas continuam lá).
 
 A página baixa cada carrossel em .zip e tem um editor de capa (mover/zoom da foto por baixo do texto). O ajuste salvo fica no banco da página, coleção `ajustes` (doc `<molde>__<post>` com `molde, post, dx, dy, z`). Quando o usuário pedir para **aplicar os ajustes da galeria**: leia a coleção com `ArtifactData` (list `ajustes`), grave `"fotoAjuste": {"dx", "dy", "z"}` no post do `dados.json`, gere o post de novo, atualize a galeria e apague os docs aplicados.
 

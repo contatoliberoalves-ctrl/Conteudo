@@ -87,7 +87,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     posts = []
     for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         saida = pasta / 'saida' / c['id']
-        slides = sorted(saida.glob('[0-9].png'), key=lambda p: int(p.stem))
+        slides = sorted((p for p in saida.glob('*.png') if p.stem.isdigit()), key=lambda p: int(p.stem))
         if not slides:
             print(f'  ! {pasta.name}/{c["id"]}: sem imagens em saida/, pulando')
             continue

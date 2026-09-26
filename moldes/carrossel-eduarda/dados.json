@@ -1,0 +1,78 @@
+[
+  {
+    "id": "5-erros-2a-fase",
+    "titulo": "5 erros que te afastam da aprovação",
+    "slides": [
+      { "modelo": "L01", "numero": "5", "titulo": "5 erros que te afastam da aprovação na 2ª fase", "destaque": "E como corrigir cada um deles.", "foto": "eduarda-recorte.png" },
+      { "modelo": "L14", "numero": 1, "titulo": "Estudar só pela teoria", "itens": ["Ler doutrina ajuda a entender o conteúdo.", "Mas a prova cobra **redação de peça**: treine escrevendo desde a primeira semana."] },
+      { "modelo": "L14", "numero": 2, "titulo": "Não dominar o Vade Mecum", "itens": ["Na prova, ele é seu principal aliado.", "Treine a **localização dos artigos** até virar hábito."] },
+      { "modelo": "L14", "numero": 3, "titulo": "Ignorar o espelho da FGV", "itens": ["O espelho mostra exatamente o que pontua.", "Compare sua resposta com ele e **corrija os pontos perdidos**."] },
+      { "modelo": "L14", "numero": 4, "titulo": "Deixar simulados para o fim", "itens": ["Simulado não é só avaliação, é treino.", "Quanto antes você testar, **mais tempo terá para ajustar**."] },
+      { "modelo": "L14", "numero": 5, "titulo": "Estudar sem cronograma", "itens": ["Sem plano, você estuda o que gosta, não o que cai.", "Siga **metas semanais** com os temas mais cobrados."] },
+      { "modelo": "L16", "titulo": "Aprovação na 2ª fase é método, não sorte.", "texto": "Quer estudar com cronograma, correções e simulados? Vem para o VDE Civil.", "botao": "Comenta “VDE” que te mando o link", "foto": "eduarda-cta.jpg" }
+    ]
+  },
+  {
+    "id": "desafio-2-questoes",
+    "titulo": "Você acertaria essas 2 questões?",
+    "slides": [
+      { "modelo": "L02", "sobretitulo": "Desafio · Direito Civil", "titulo": "Você acertaria essas", "palavra": "2 questões?", "selo": "Teste rápido" },
+      { "modelo": "L10", "numero": 1, "tema": "Resp. civil", "enunciado": "Sabrina, ao conduzir seu veículo por uma avenida movimentada, em velocidade acima da permitida e utilizando o telefone celular, perdeu o controle do automóvel e colidiu com o veículo de terceiro, causando danos materiais e lesões leves ao condutor. Após o acidente, Sabrina alegou que não teve intenção de causar o acidente e, por isso, não poderia ser responsabilizada civilmente.", "comando": "Diante desse cenário, assinale a afirmativa correta.", "alternativas": ["Sabrina não deverá indenizar, pois a responsabilidade civil exige a intenção de causar o dano.", "Sabrina somente será responsabilizada se comprovada a prática de crime de trânsito.", "Sabrina deverá indenizar, pois sua conduta caracteriza culpa, suficiente para gerar responsabilidade civil.", "A responsabilidade civil de Sabrina depende de prévia condenação na esfera penal."] },
+      { "modelo": "L10", "numero": 2, "tema": "Contratos", "enunciado": "Selena adquiriu um imóvel de alto padrão de determinada construtora. Após a celebração do contrato e a imissão na posse, verificou a existência de graves problemas estruturais, os quais haviam sido deliberadamente omitidos pela vendedora no momento da negociação. Diante disso, Selena pretende adotar as medidas cabíveis para desfazer o negócio.", "comando": "Sobre a situação narrada, assinale a afirmativa correta.", "alternativas": ["O contrato celebrado é inexistente, pois houve vício na manifestação de vontade.", "O contrato é nulo de pleno direito, não admitindo convalidação.", "O contrato é anulável, desde que demonstrado que o dolo foi essencial para a celebração do negócio.", "O contrato permanece plenamente válido, sendo irrelevante a conduta da vendedora."] },
+      { "modelo": "L12", "pergunta": "Me conta nos comentários: se fosse na prova, qual seria seu gabarito?", "complemento": "Não vale colar, hein!?" },
+      { "modelo": "L11", "itens": [
+        { "questao": 1, "letra": "C", "texto": "A responsabilidade civil subjetiva exige culpa (negligência, imprudência ou imperícia), e não dolo. Sabrina agiu com imprudência, o que gera o dever de indenizar." },
+        { "questao": 2, "letra": "C", "texto": "O dolo essencial (determinante) torna o negócio jurídico anulável." }
+      ] },
+      { "modelo": "L07", "etiqueta": "Dica de prova:", "texto": "Em peças de responsabilidade civil, fundamente sempre com os **arts. 186 e 927 do CC**. É o tipo de detalhe que o espelho da FGV pontua." },
+      { "modelo": "L13", "titulo": "Quer mais questões assim?", "texto": "Baixe o material gratuito que eu fiz pra você:" }
+    ]
+  },
+  {
+    "id": "sucessoes-succession",
+    "titulo": "Sucessões com Succession",
+    "slides": [
+      { "modelo": "D01", "sobretitulo": "Sucessões com", "titulo": "Succession", "subtitulo": "Se Logan Roy morresse no Brasil, quem ficaria com a herança?" },
+      { "modelo": "D02", "titulo": "Logan Roy ==morreu==", "subtitulo": "Quem herda primeiro?", "texto": "No Direito Civil brasileiro existe uma **ordem de vocação hereditária**. Ela funciona como uma fila: quem está na frente exclui quem está atrás.", "etapas": ["Descendentes", "Ascendentes", "Cônjuge / companheiro"], "obs": "Obs: ressalvado o direito de concorrência com cônjuge" },
+      { "modelo": "D03", "titulo": "Herdeiros ==necessários==", "texto": "São aqueles que possuem proteção especial da lei.", "tabelaTitulo": "No caso dos Roy:", "linhas": ["Connor", "Kendall", "Roman", "Shiv"], "rodape": "Todos são filhos de Logan, inclusive Connor, do primeiro casamento. Por isso, são herdeiros necessários." },
+      { "modelo": "D04", "numero": "50%", "legenda": "do patrimônio", "palavra": "Legítima", "texto": "É a parte reservada por lei aos herdeiros necessários." },
+      { "modelo": "D05", "titulo": "Logan poderia deixar tudo para ==Kendall?==", "texto": "Não. A lei protege os **herdeiros necessários**. Metade do patrimônio deve ser reservada para eles. Apenas os outros 50% podem ser livremente destinados por testamento.", "colunas": [{ "valor": "50%", "rotulo": "Legítima" }, { "valor": "50%", "rotulo": "Disponível" }] },
+      { "modelo": "D06", "titulo": "E se não existissem ==filhos?==", "texto": "Aí a herança seguiria para os ascendentes.", "fluxo": { "inicio": "Sem filhos", "meioRotulo": "Herança segue para", "meio": "Ascendentes", "fim": ["Pai", "Mãe"] }, "nota": "Na ausência deles, o cônjuge pode herdar sozinho." },
+      { "modelo": "D07", "titulo": "Se os ==Roy== fossem do ==Brasil…==", "texto": "Connor, Kendall, Roman e Shiv seriam herdeiros **necessários**. Logan **não** poderia simplesmente excluí-los da herança.", "itens": [{ "icone": "coracao", "texto": "Direito das ==Sucessões== não precisa ser complicado." }, { "icone": "salvar", "texto": "==Salve== este post para revisar antes da prova." }] }
+    ]
+  },
+  {
+    "id": "indice-remissivo",
+    "titulo": "Como achar qualquer artigo no Vade Mecum",
+    "slides": [
+      { "modelo": "L02", "sobretitulo": "Dica rápida · 2ª fase", "titulo": "Como achar qualquer artigo no", "palavra": "Vade Mecum", "selo": "Salve para a prova" },
+      { "modelo": "L04", "titulo": "Comece pelo índice remissivo.", "texto": "Procure a palavra-chave do caso (ex.: usucapião, alimentos). O índice aponta o artigo e a lei. Depois, **confira os artigos vizinhos**: a resposta costuma estar no mesmo capítulo.", "destaque": "**Treine isso todo dia** e você ganha minutos preciosos na prova." },
+      { "modelo": "L12", "pergunta": "Você já usa o índice remissivo nos seus estudos?", "complemento": "Me conta nos comentários!" }
+    ]
+  },
+  {
+    "id": "vde-repescagem",
+    "titulo": "Tentou a 2ª fase e não deu?",
+    "slides": [
+      { "modelo": "L01", "titulo": "Tentou a 2ª fase e não deu?", "destaque": "O VDE Repescagem pode te ajudar a virar esse jogo.", "foto": "eduarda-recorte.png" },
+      { "modelo": "L05", "titulo": "Na turma de repescagem você conta com:", "itens": ["**Encontros exclusivos** da turma", "**Acompanhamento direto** comigo e com a equipe", "**10 simulados inéditos** com correções individualizadas", "**Materiais completos**: mapas mentais, PDFs e esqueletos de peças"] },
+      { "modelo": "L16", "titulo": "Se a 2ª fase não deu certo da primeira vez, isso não define sua aprovação.", "texto": "Se você quer tentar novamente com apoio e método, vem para o VDE Repescagem em Civil.", "botao": "Comenta “VDE” que te mando o link", "foto": "eduarda-cta.jpg" }
+    ]
+  },
+  {
+    "id": "atrasou-o-cronograma",
+    "titulo": "O que fazer se atrasar o cronograma",
+    "slides": [
+      { "modelo": "L02", "sobretitulo": "2ª fase OAB · Civil", "titulo": "O que fazer se atrasar o", "palavra": "Cronograma", "selo": "O guia completo!" },
+      { "modelo": "L03", "titulo": "Atrasou o cronograma da 2ª fase? Calma. ==Ainda dá tempo!==", "texto": "Se você se deu conta de que está uns dias (ou semanas) atrasado com os estudos… respira fundo. Essa não é a hora de se culpar. **É a hora de reorganizar.**" },
+      { "modelo": "L04", "titulo": "Ainda tem bastante chão até a prova.", "texto": "É normal sair um pouco do plano inicial. Muita gente começa empolgada, mas a vida acontece: trabalho, imprevistos, cansaço, fim de ano hehe… **você não está sozinho nisso.**", "destaque": "O importante é lembrar que **ainda dá tempo** de ajustar a rota com tranquilidade." },
+      { "modelo": "L05", "titulo": "Como se organizar a partir de agora?", "itens": ["Se o **atraso foi leve**, você pode redistribuir o conteúdo perdido ao longo da semana, diluindo aos poucos.", "Se o **atraso for maior**, talvez seja necessário adicionar uma meta extra em alguns dias. Exige um pouco mais de esforço, sim, mas é totalmente viável."] },
+      { "modelo": "L06", "titulo": "Mas e se eu não conseguir fazer tudo?", "texto": ["Você não precisa ser perfeito. O foco deve ser na **qualidade dos estudos**, não em seguir um cronograma rígido a qualquer custo.", "Se tiver que adaptar, adapte com inteligência: priorize os temas mais cobrados, estude as peças, faça os simulados."] },
+      { "modelo": "L08", "titulo": "Priorize o que mais cai", "marcaTexto": "Contratos, Responsabilidade Civil, Família e Sucessões aparecem com frequência.", "texto": "Organize a semana começando por esses temas e deixe o restante para as revisões.", "legendaImagem": "objeto recortado (ex: Vade Mecum)" },
+      { "modelo": "L09", "titulo": "Alto índice de aprovação", "texto": "**Direito Civil é a segunda disciplina que mais aprova na OAB**, segundo levantamento da própria FGV.", "fonte": "Fonte: FGV." },
+      { "modelo": "L15", "titulo": "Caiu na peça:" },
+      { "modelo": "L07", "etiqueta": "Ah, e outra coisa:", "texto": "Se estiver em dúvida sobre como reorganizar o cronograma, fala com a gente na plataforma! Nosso time tá aqui pra te orientar e te ajudar a ser **aprovado(a)**." },
+      { "modelo": "L16", "titulo": "Atrasou? Reorganize e siga em frente.", "texto": "Quer um cronograma pronto e acompanhamento de perto? Vem para o VDE Civil.", "botao": "Comenta “VDE” que te mando o link", "foto": "eduarda-cta.jpg" }
+    ]
+  }
+]

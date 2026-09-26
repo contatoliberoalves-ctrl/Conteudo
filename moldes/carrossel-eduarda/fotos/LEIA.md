@@ -1,0 +1,1 @@
+Fotos da Eduarda (fora do git: repositório público). Nomes usados no dados.json: eduarda-recorte.png (capa L01, recorte com fundo transparente), eduarda-cta.jpg (CTA L16) e avatar.jpg (assinatura; sem ele sai um círculo rosé com "EC").
