@@ -102,19 +102,24 @@ const TIPOS = {
   capa(s, t, c) {
     const tag = `<div style="position:absolute;left:110px;bottom:72px;background:${t === TEMAS.blue ? COR.navyFundo : COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:110px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${s.foto ? '#fff' : t.txt};z-index:4">Arraste →</div>`;
-    if (s.foto) {
-      return `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
+    // Fundo em tela cheia: foto do autor ("foto") ou foto de banco ("imagem", salvo imagemModo "cartao").
+    // A foto de banco ganha um véu azul da paleta para "ornar" com o perfil.
+    const telaCheia = s.foto ? foto(c, s.foto) : s.imagem && s.imagemModo !== 'cartao' ? `../imagens/${esc(s.imagem)}` : null;
+    if (telaCheia) {
+      return `<img data-foto src="${telaCheia}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.imagemPos || 'center top')}">
+        ${s.foto ? '' : `<div style="position:absolute;inset:0;background:${COR.azul};opacity:.22;mix-blend-mode:multiply"></div><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,57,168,.45) 0%,rgba(18,26,39,0) 28%)"></div>`}
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,39,0) 30%,rgba(18,26,39,.82) 62%,#121A27 92%)"></div>
         <div data-area data-rosto style="position:absolute;left:110px;right:110px;bottom:190px;display:flex;flex-direction:column;gap:22px;z-index:3">
           ${kicker(s.kicker, TEMAS.dark)}
           ${s.pre ? `<div style="font-size:52px;font-weight:600;line-height:1.1;color:#fff">${rico(s.pre, TEMAS.dark)}</div>` : ''}
           ${titulo(s, { ...TEMAS.dark, caixa: COR.azul }, 180, 860)}
+          ${s.texto ? corpo(s, TEMAS.dark, 40) : ''}
         </div>${tag}`;
     }
     // Capa com "imagem" (foto de banco de imagens, em imagens/): cartão com moldura branca no alto e o
     // título embaixo. Fotos de até ~1024px não aguentam a tela cheia, mas ficam nítidas no cartão.
     let cartao = '';
-    if (s.imagem) {
+    if (s.imagem && s.imagemModo === 'cartao') {
       cartao = `<div data-foto style="position:absolute;left:150px;top:110px;width:780px;height:560px;background:#fff;padding:18px;transform:rotate(-2deg);box-shadow:0 30px 60px rgba(8,16,40,.35);z-index:2"><img src="../imagens/${esc(s.imagem)}" style="display:block;width:100%;height:100%;object-fit:cover;object-position:${esc(s.imagemPos || 'center')}"></div>`;
       RESERVA = { ...RESERVA, topo: Math.max(RESERVA.topo, 730) };
     }
@@ -185,7 +190,8 @@ export function renderCarrossel(c) {
 <style>*{box-sizing:border-box}body{margin:0;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}</style></head><body>
 <div id="painel" style="position:relative;width:${n * 1080}px;height:1350px">
 ${slides.map((s, i) => {
-    const t = TEMAS[s.tipo === 'capa' && s.foto ? 'dark' : s.tema] || TEMAS.blue;
+    const telaCheia = s.tipo === 'capa' && (s.foto || (s.imagem && s.imagemModo !== 'cartao'));
+    const t = TEMAS[telaCheia ? 'dark' : s.tema] || TEMAS.blue;
     const tipo = TIPOS[s.tipo] || TIPOS.texto;
     // Obstáculos deste slide: o próprio objeto e a metade das pontes que cai nele.
     const obst = [];
