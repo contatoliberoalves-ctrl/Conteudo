@@ -39,4 +39,4 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 - No carrossel: `"pontes": [{"img": "chicken.png", "entre": 2, "y": 860, "tam": 340, "rot": -6}]`. O objeto fica metade no slide 2 e metade no 3, ligando os dois.
 - A área de texto encolhe sozinha para não encostar nos objetos. Use 1 ou 2 pontes por carrossel, alternando em cima e embaixo.
 
-A capa não tem rodapé. Os demais slides mostram "@liberofilho" e o contador "03 / 09".
+A capa não tem rodapé. Os demais slides mostram só "@liberofilho", sem contador de páginas (pedido do autor).

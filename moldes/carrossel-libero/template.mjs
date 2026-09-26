@@ -37,9 +37,10 @@ const corpo = (s, t, px = 42) => lista(s.texto).map(p => `<p data-corpo style="m
 function textura(t) {
   return `<div style="position:absolute;inset:0;pointer-events:none;background-image:${RUIDO};opacity:${t.escuro ? .55 : .5};mix-blend-mode:${t.escuro ? 'overlay' : 'multiply'};z-index:5"></div>`;
 }
-function rodape(t, i, n) {
+// Rodapé só com o perfil: o autor pediu para tirar o contador de páginas ("03 / 09").
+function rodape(t) {
   const st = `position:absolute;bottom:72px;font-size:26px;font-weight:600;letter-spacing:.08em;color:${t.txt};z-index:4`;
-  return `<div style="${st};left:110px">${PERFIL}</div><div style="${st};right:110px">${pad2(i)} / ${pad2(n)}</div>`;
+  return `<div style="${st};left:110px">${PERFIL}</div>`;
 }
 function fundoTexto(s, t) {
   if (!s.fundoTexto) return '';
@@ -208,7 +209,7 @@ ${slides.map((s, i) => {
     const html = tipo(s, t, c);
     RESERVA = { esq: 0, dir: 0, topo: 150, base: 190 };
     return `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:1350px;overflow:hidden;background:${t.bg}">
-  ${fundoImg}${fundoTexto(s, t)}${aneis(s)}${html}${obj}${s.tipo === 'capa' ? '' : rodape(t, i + 1, n)}${textura(t)}</div>`;
+  ${fundoImg}${fundoTexto(s, t)}${aneis(s)}${html}${obj}${s.tipo === 'capa' ? '' : rodape(t)}${textura(t)}</div>`;
   }).join('\n')}
 ${pontes.map(p => { const w = p.tam || 360; return objetoHtml({ ...p, tam: w }, p.entre * 1080 - w / 2, p.y ?? 470); }).join('')}
 </div></body></html>`;
