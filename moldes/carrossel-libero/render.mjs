@@ -60,7 +60,11 @@ for (const c of dados) {
       while (estoura(a) && cp > 32) { cp -= 1; corpo.forEach(e => (e.style.fontSize = cp + 'px')); }
       if (estoura(a)) out.push(`slide ${n}: o texto não cabe (encurte ou divida o slide)`);
       // Texto (linha a linha) contra fotos e anéis, com 24px de folga, e contra o rodapé.
-      const evitar = [...s.querySelectorAll('[data-foto]:not(img), [data-anel]')].map(e => e.getBoundingClientRect());
+      // Obstáculos: os do próprio slide (recortados na borda dele) e as pontes (objetos do painel).
+      const sr = s.getBoundingClientRect();
+      const corta = q => ({ left: Math.max(q.left, sr.left), right: Math.min(q.right, sr.right), top: Math.max(q.top, sr.top), bottom: Math.min(q.bottom, sr.bottom) });
+      const evitar = [...[...s.querySelectorAll('[data-foto]:not(img), [data-anel], [data-objeto]')].map(e => corta(e.getBoundingClientRect())),
+        ...[...document.querySelectorAll('#painel > [data-objeto]')].map(e => e.getBoundingClientRect())].filter(q => q.right > q.left && q.bottom > q.top);
       const w = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
       let no, perto = 0, baixo = 0;
       while ((no = w.nextNode())) {
@@ -71,7 +75,7 @@ for (const c of dados) {
           if (q.bottom > 1350 - 130) baixo++;
         }
       }
-      if (perto) out.push(`slide ${n}: ${perto} linha(s) de texto encostando na foto ou nos anéis`);
+      if (perto) out.push(`slide ${n}: ${perto} linha(s) de texto encostando na foto, nos anéis ou num objeto`);
       if (baixo) out.push(`slide ${n}: texto encostando no rodapé`);
       if (a.hasAttribute('data-rosto') && a.getBoundingClientRect().top < 560) out.push(`slide ${n}: o texto da capa sobe até o rosto (encurte o título)`);
     });

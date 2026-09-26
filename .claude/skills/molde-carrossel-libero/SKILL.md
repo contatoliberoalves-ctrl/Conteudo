@@ -17,6 +17,8 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
    4. `cta`: pergunta para comentar, seguir ou enviar, com `botao` e, se houver, `foto` (polaroide).
    - **Texto do usuário como veio**: só corrija erros de digitação. Sem texto do usuário, escreva no tom do perfil (didático, bem-humorado, falando com "você") e cite artigos com exatidão. Em `citacao`, copie a lei literalmente.
    - Alterne os fundos, nunca 3 iguais seguidos. Destaque de 1 a 3 trechos por slide com `**...**`.
+   - **Objetos 3D** (`assets/`, fundo transparente): use 1 `objeto` na capa (canto) e 1 ou 2 `pontes` atravessando a divisa entre slides, ligados ao tema (lupa para investigação, balança para justiça, galinha para a Fuga das Galinhas…). Para baixar outros, veja "Objetos 3D" no README. Bancos de fotos (Unsplash, Pexels, Pixabay, Wikimedia) estão bloqueados pela rede deste ambiente. O Fluent Emoji (GitHub raw) funciona.
+   - Posts inspirados nos antigos do autor (roteiros "CRIATIVOS - INSTA PESSOAL", 2023–2024): mantenha as analogias e bordões dele ("meu patrão", "Oi?", "hahaha") e registre a origem em `inspiracao`.
    - Fotos: use as do autor (`fotos/` do molde ou `../carrossel-explicativo/fotos/`). O repositório é **público**: fotos nunca vão para o git. Uma foto de objeto (PNG sem fundo) pode ser pedida ao usuário. Nunca desenhe ilustrações.
 3. Gere: `cd moldes/carrossel-libero && node render.mjs <id>`. No ambiente em nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>`.
 4. O script precisa terminar com ✓. Se avisar que o texto não cabe ou encosta em algo, encurte ou divida o slide. Confira os PNGs.

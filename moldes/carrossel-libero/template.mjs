@@ -65,7 +65,38 @@ function palavraVertical(s, t) {
 // Foto: arquivo resolvido pelo render (c._fotos[nome] = caminho).
 const foto = (c, nome) => (c._fotos || {})[nome] || nome;
 
-const area = (html, esq = 110, dir = 110, extra = '') => `<div data-area style="position:absolute;left:${esq}px;right:${dir}px;top:150px;bottom:190px;display:flex;flex-direction:column;justify-content:center;gap:32px;z-index:3${extra}">${html}</div>`;
+// Objetos 3D (assets/, PNG sem fundo): "objeto" dentro de um slide e "pontes" atravessando a divisa
+// entre dois slides. A área de texto do slide encolhe sozinha para não encostar neles (RESERVA).
+let RESERVA = { esq: 0, dir: 0, topo: 150, base: 190 };
+function reservar(obstaculos) {
+  const r = { esq: 0, dir: 0, topo: 150, base: 190 };
+  for (const o of obstaculos) {
+    // Caixa do objeto girado (rot em graus) + 40px de folga.
+    const g = Math.abs(o.rot || 0) * Math.PI / 180, e = (o.w * (Math.abs(Math.cos(g)) + Math.abs(Math.sin(g))) - o.w) / 2;
+    const [x1, y1, x2, y2] = [o.x - e - 40, o.y - e - 40, o.x + o.w + e + 40, o.y + o.h + e + 40];
+    const a = { l: Math.max(110, r.esq), t: r.topo, r: 1080 - Math.max(110, r.dir), b: 1350 - r.base };
+    if (x2 <= a.l || x1 >= a.r || y2 <= a.t || y1 >= a.b) continue;
+    // Escolhe o corte que deixa a maior área: pela direita, esquerda, cima ou baixo.
+    const op = [
+      ['dir', 1080 - x1, (x1 - a.l) * (a.b - a.t)], ['esq', x2, (a.r - x2) * (a.b - a.t)],
+      ['topo', y2, (a.r - a.l) * (a.b - y2)], ['base', 1350 - y1, (a.r - a.l) * (y1 - a.t)],
+    ].sort((m, n) => n[2] - m[2])[0];
+    r[op[0]] = Math.max(r[op[0]], op[1]);
+  }
+  return r;
+}
+const objetoHtml = (o, x, y) => `<div data-objeto style="position:absolute;left:${x}px;top:${y}px;width:${o.tam || 400}px;height:${o.tam || 400}px;transform:rotate(${o.rot || 0}deg);z-index:4;pointer-events:none"><img src="../assets/${esc(o.img)}" style="width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(8,16,40,.35))"></div>`;
+// Posição do "objeto" de um slide: canto (sai pelo canto superior), lado (meio da borda) ou x/y livres.
+function posObjeto(o) {
+  const w = o.tam || 400;
+  if (o.x != null) return [o.x, o.y ?? 400];
+  const dir = o.lado !== 'esquerda';
+  if (o.onde === 'lado') return [dir ? 1080 - w + 90 : -90, o.y ?? 470];
+  if (o.onde === 'baixo') return [dir ? 1080 - w + 60 : -60, 1350 - w + 40];
+  return [dir ? 1080 - w + 70 : -70, -50];
+}
+
+const area = (html, esq = 110, dir = 110, extra = '') => `<div data-area style="position:absolute;left:${Math.max(esq, RESERVA.esq)}px;right:${Math.max(dir, RESERVA.dir)}px;top:${RESERVA.topo}px;bottom:${RESERVA.base}px;display:flex;flex-direction:column;justify-content:center;gap:32px;z-index:3${extra}">${html}</div>`;
 
 const TIPOS = {
   capa(s, t, c) {
@@ -107,7 +138,7 @@ const TIPOS = {
   lista(s, t) {
     const romano = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
     const itens = lista(s.itens).map((it, i) => `<div style="display:flex;gap:28px;align-items:baseline;padding:0 0 22px;border-bottom:2px solid ${t.linha}">
-        <span style="flex:none;min-width:48px;font-size:28px;font-weight:800;color:${t.num}">${s.marcador === 'romano' ? romano[i] : pad2(i + 1)}</span>
+        <span style="flex:none;min-width:48px;font-size:28px;font-weight:800;color:${t.num}">${(k => s.marcador === 'romano' ? romano[k] : s.marcador === 'letra' ? 'abcdefghij'[k] + ')' : pad2(k + 1))(i + (s.inicio || 0))}</span>
         <span data-corpo style="font-size:${s.corpo || 40}px;font-weight:500;line-height:1.3;color:${t.txt}">${rico(it, t)}</span></div>`).join('');
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}<div style="display:flex;flex-direction:column;gap:22px">${itens}</div>`);
   },
@@ -127,7 +158,7 @@ const TIPOS = {
   cta(s, t, c) {
     const [bg, fg] = t === TEMAS.blue ? [COR.off, COR.azul] : [COR.azul, '#fff'];
     const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:cover;object-position:center top"></div>` : '';
-    return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}
+    return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, s.foto ? 96 : 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}
       ${s.botao ? `<span style="align-self:flex-start;background:${bg};color:${fg};border-radius:40px 40px 40px 0;padding:22px 40px;font-size:36px;font-weight:800;white-space:nowrap">${esc(s.botao)}</span>` : ''}`, 110, s.foto ? 490 : 110)}`;
   },
 };
@@ -136,6 +167,8 @@ export function renderCarrossel(c) {
   const slides = lista(c.slides);
   const n = slides.length;
   const avisos = [];
+  const pontes = lista(c.pontes);
+  pontes.forEach(p => { if (!(p.entre >= 1 && p.entre < n)) avisos.push(`ponte "${p.img}": "entre" deve ser de 1 a ${n - 1}`); });
   slides.forEach((s, i) => {
     if (i >= 2 && s.tema === slides[i - 1].tema && s.tema === slides[i - 2].tema) avisos.push(`slides ${i - 1} a ${i + 1}: três fundos "${s.tema}" seguidos`);
     if (!TEMAS[s.tema]) avisos.push(`slide ${i + 1}: tema "${s.tema}" não existe (use blue, light ou dark)`);
@@ -145,11 +178,24 @@ export function renderCarrossel(c) {
 <style>*{box-sizing:border-box}body{margin:0;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}</style></head><body>
 <div id="painel" style="position:relative;width:${n * 1080}px;height:1350px">
 ${slides.map((s, i) => {
-    const t = TEMAS[s.tema] || TEMAS.blue;
+    const t = TEMAS[s.tipo === 'capa' && s.foto ? 'dark' : s.tema] || TEMAS.blue;
     const tipo = TIPOS[s.tipo] || TIPOS.texto;
+    // Obstáculos deste slide: o próprio objeto e a metade das pontes que cai nele.
+    const obst = [];
+    let obj = '';
+    if (s.objeto) { const [x, y] = posObjeto(s.objeto), w = s.objeto.tam || 400; obst.push({ x, y, w, h: w, rot: s.objeto.rot }); obj = objetoHtml(s.objeto, x, y); }
+    for (const p of pontes) {
+      const w = p.tam || 360, y = p.y ?? 470;
+      if (p.entre === i + 1) obst.push({ x: 1080 - w / 2, y, w, h: w, rot: p.rot });
+      if (p.entre === i) obst.push({ x: -w / 2, y, w, h: w, rot: p.rot });
+    }
+    RESERVA = reservar(obst);
+    const html = tipo(s, t, c);
+    RESERVA = { esq: 0, dir: 0, topo: 150, base: 190 };
     return `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:1350px;overflow:hidden;background:${t.bg}">
-  ${fundoTexto(s, t)}${aneis(s)}${tipo(s, t, c)}${s.tipo === 'capa' ? '' : rodape(t, i + 1, n)}${textura(t)}</div>`;
+  ${fundoTexto(s, t)}${aneis(s)}${html}${obj}${s.tipo === 'capa' ? '' : rodape(t, i + 1, n)}${textura(t)}</div>`;
   }).join('\n')}
+${pontes.map(p => { const w = p.tam || 360; return objetoHtml({ ...p, tam: w }, p.entre * 1080 - w / 2, p.y ?? 470); }).join('')}
 </div></body></html>`;
   return { html, total: n, avisos };
 }

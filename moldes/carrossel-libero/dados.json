@@ -168,5 +168,604 @@
         "botao": "Seguir @liberofilho"
       }
     ]
+  },
+  {
+    "id": "cpi-fofoqueiros",
+    "titulo": "CPI: a reunião de fofoqueiros",
+    "tema": "CPI: criação e poderes (art. 58, § 3º)",
+    "inspiracao": "CPI é igual uma reunião de fofoqueiros (jul/2023)",
+    "pontes": [
+      {
+        "img": "speech_balloon.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "magnifying_glass_tilted_left.png",
+        "entre": 4,
+        "y": 230,
+        "tam": 320,
+        "rot": 12
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "objeto": {
+          "img": "magnifying_glass_tilted_left.png",
+          "onde": "canto",
+          "tam": 380,
+          "rot": -10
+        },
+        "pre": "Sabe aquela",
+        "titulo": [
+          "reunião de",
+          "[[fofoqueiros]]?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Brincadeira à parte",
+        "titulo": [
+          "É a CPI"
+        ],
+        "palavra": "CPI",
+        "texto": [
+          "Falam, falam, investigam e descobrem os podres. A diferença é que a CPI faz isso **com poder de juiz**.",
+          "E, claro, ela tem um papel MUITO importante na política brasileira."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "Art. 58, § 3º",
+        "titulo": [
+          "Como nasce"
+        ],
+        "corpo": 32,
+        "citacao": "As comissões parlamentares de inquérito, que terão poderes de investigação próprios das autoridades judiciais, além de outros previstos nos regimentos das respectivas Casas, serão criadas pela Câmara dos Deputados e pelo Senado Federal, em conjunto ou separadamente, mediante requerimento de um terço de seus membros, para a apuração de fato determinado e por prazo certo.",
+        "traducao": "Traduzindo: **1/3 das assinaturas**, **fato determinado** e **prazo certo**."
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "O que a fofoca pode",
+        "titulo": [
+          "Pode"
+        ],
+        "itens": [
+          "Ouvir testemunhas e investigados",
+          "Quebrar sigilo **bancário, fiscal e de dados**, com decisão fundamentada",
+          "Requisitar documentos e informações"
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Só o juiz pode (reserva de jurisdição)",
+        "titulo": [
+          "Não pode"
+        ],
+        "itens": [
+          "Decretar **prisão**, salvo em flagrante",
+          "Autorizar **interceptação telefônica**",
+          "Determinar **busca e apreensão** em domicílio",
+          "Decretar **indisponibilidade de bens**"
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "E no fim da treta?",
+        "titulo": [
+          "Relatório."
+        ],
+        "sub": "As conclusões vão pro Ministério Público."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Gostou desse estilo?"
+        ],
+        "texto": "Comenta aqui e manda pro amigo fofoqueiro que vai fazer a OAB.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "robo-na-oab",
+    "titulo": "Preciso ser um robô pra passar na OAB?",
+    "tema": "Mentalidade: a OAB não cobra perfeição",
+    "inspiracao": "Preciso ser um robô pra passar na OAB? (jan/2024)",
+    "pontes": [
+      {
+        "img": "brain.png",
+        "entre": 2,
+        "y": 900,
+        "tam": 300,
+        "rot": 8
+      },
+      {
+        "img": "graduation_cap.png",
+        "entre": 5,
+        "y": 230,
+        "tam": 320,
+        "rot": -10
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "objeto": {
+          "img": "robot.png",
+          "onde": "canto",
+          "tam": 420,
+          "rot": 8
+        },
+        "pre": "Preciso ser um",
+        "titulo": [
+          "[[robô]] pra",
+          "passar na OAB?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Pensa comigo",
+        "titulo": [
+          "Nem a máquina",
+          "gabaritou"
+        ],
+        "texto": [
+          "Saiu nos jornais que o ChatGPT passou na 1ª fase da OAB de 2022, com **48 pontos de 80**.",
+          "A inteligência artificial mais famosa do mundo, com a internet inteira de base, **não chegou nem perto dos 80**."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "E você aí",
+        "titulo": [
+          "Querendo ser",
+          "perfeito?"
+        ],
+        "sub": "Nem a OAB compra perfeição."
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Quanto a OAB cobra",
+        "titulo": [
+          "A conta real"
+        ],
+        "itens": [
+          "1ª fase: **40 acertos** de 80",
+          "2ª fase: nota **6,0** de 10",
+          "Gabaritar: **ninguém precisa**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Não é carta branca",
+        "titulo": [
+          "Estratégia,",
+          "não perfeição"
+        ],
+        "texto": [
+          "Se esforce, estude, tenha disciplina. Mas se cobre de forma **saudável** e se sacrifique de forma **sábia**.",
+          "Você não é um robô. E, mesmo que fosse, provavelmente teria imperfeições."
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "blue",
+        "texto": [
+          "Estude como gente: com estratégia, pausa e **muito treino**."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "dsc08914.jpg",
+        "titulo": [
+          "Você é gente, não máquina"
+        ],
+        "texto": "Marca aquele amigo que acha que precisa gabaritar.",
+        "botao": "Comente #EuAcredito"
+      }
+    ]
+  },
+  {
+    "id": "fuga-das-galinhas",
+    "titulo": "O que a Fuga das Galinhas ensina sobre a 2ª fase",
+    "tema": "Estudo para a 2ª fase: medo, soberba, organização, método e apoio",
+    "inspiracao": "O que a Fuga das Galinhas ensina sobre a 2ª fase da OAB? (dez/2023)",
+    "pontes": [
+      {
+        "img": "chicken.png",
+        "entre": 1,
+        "y": 820,
+        "tam": 360,
+        "rot": -6
+      },
+      {
+        "img": "hatching_chick.png",
+        "entre": 4,
+        "y": 240,
+        "tam": 300,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "pre": "O que a",
+        "titulo": [
+          "Fuga das",
+          "[[galinhas]]"
+        ],
+        "texto": [
+          "ensina sobre a 2ª fase da OAB?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Plano de fuga",
+        "titulo": [
+          "Toda fuga",
+          "tem plano"
+        ],
+        "texto": [
+          "No filme, as galinhas só escapam quando param de correr em círculos e **montam um plano**.",
+          "Na 2ª fase é igual: sem plano, você só fica ciscando."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Lições 1 e 2",
+        "titulo": [
+          "Medo e soberba"
+        ],
+        "itens": [
+          "**Gerencie o medo:** a 2ª fase não é bicho de sete cabeças. Acalme o coração e encare uma etapa por vez.",
+          "**Deixe a soberba:** ela é mais fácil que a 1ª fase, mas não deixa de ser um desafio."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Lições 3 e 4",
+        "titulo": [
+          "Organização e método"
+        ],
+        "inicio": 2,
+        "itens": [
+          "**Organize** o que, como e quando estudar, com metas diárias.",
+          "**Siga um método comprovado:** aula, leitura e muito, MUITO treino."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "Lição 5",
+        "titulo": [
+          "Ninguém foge",
+          "sozinho."
+        ],
+        "sub": "Conte com colegas e mentores."
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "dsc08680.jpg",
+        "titulo": [
+          "Qual lição faltava pra você?"
+        ],
+        "texto": "Me conta aqui nos comentários.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "tribunal-da-matematica",
+    "titulo": "Tribunal de Contas: o tribunal da matemática?",
+    "tema": "Tribunal de Contas da União (arts. 70 a 73)",
+    "inspiracao": "Tribunal de Contas: o Tribunal da matemática? (jan/2024)",
+    "pontes": [
+      {
+        "img": "money_bag.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "balance_scale.png",
+        "entre": 4,
+        "y": 230,
+        "tam": 320,
+        "rot": 6
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "light",
+        "objeto": {
+          "img": "abacus.png",
+          "onde": "canto",
+          "tam": 400,
+          "rot": -8
+        },
+        "pre": "Tribunal de Contas:",
+        "titulo": [
+          "o tribunal da",
+          "[[matemática]]?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Nome enganoso",
+        "titulo": [
+          "Não é do",
+          "Judiciário"
+        ],
+        "palavra": "CONTAS",
+        "texto": [
+          "Apesar do nome, o Tribunal de Contas **não integra o Poder Judiciário**. Oi?",
+          "É isso mesmo, meu patrão: ele **auxilia o Congresso Nacional** no controle externo das contas públicas (art. 71)."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "Art. 70",
+        "titulo": [
+          "O que se fiscaliza"
+        ],
+        "corpo": 32,
+        "citacao": "A fiscalização contábil, financeira, orçamentária, operacional e patrimonial da União e das entidades da administração direta e indireta, quanto à legalidade, legitimidade, economicidade, aplicação das subvenções e renúncia de receitas, será exercida pelo Congresso Nacional, mediante controle externo, e pelo sistema de controle interno de cada Poder.",
+        "traducao": "Traduzindo: quem fiscaliza é o Congresso, **com o auxílio do TCU**."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Quem entra na conta",
+        "titulo": [
+          "Quem é fiscalizado"
+        ],
+        "itens": [
+          "A administração **direta**",
+          "A administração **indireta**",
+          "Até **particulares** que usem dinheiro público (art. 70, parágrafo único)"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Pegadinha de prova",
+        "titulo": [
+          "Decisão que",
+          "vira título"
+        ],
+        "texto": [
+          "Decisão do TCU que imputa **débito ou multa** tem eficácia de **título executivo** (art. 71, § 3º).",
+          "E, pra fechar a conta: o TCU tem **9 ministros** (art. 73)."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "dsc08712.jpg",
+        "titulo": [
+          "Salva pra reler depois"
+        ],
+        "texto": "Esse tema tem tudo pra cair na OAB de novo.",
+        "botao": "Comente #DICA"
+      }
+    ]
+  },
+  {
+    "id": "pena-de-morte",
+    "titulo": "A pena de morte não é proibida no Brasil?",
+    "tema": "Penas vedadas (art. 5º, XLVII) e a exceção da guerra declarada",
+    "inspiracao": "A pena de morte NÃO é proibida no Brasil? (nov/2023)",
+    "pontes": [
+      {
+        "img": "crossed_swords.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 320,
+        "rot": -6
+      },
+      {
+        "img": "scroll.png",
+        "entre": 3,
+        "y": 230,
+        "tam": 300,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "objeto": {
+          "img": "prohibited.png",
+          "onde": "canto",
+          "tam": 380,
+          "rot": 0
+        },
+        "pre": "A pena de morte",
+        "titulo": [
+          "[[não]] é proibida",
+          "no Brasil?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Calma",
+        "titulo": [
+          "Quase",
+          "sempre é"
+        ],
+        "texto": [
+          "A Constituição proíbe a pena de morte... **com uma exceção**.",
+          "E é justamente essa exceção que a banca adora cobrar."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "Art. 5º, XLVII",
+        "titulo": [
+          "A exceção"
+        ],
+        "citacao": "não haverá penas: a) de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX;",
+        "traducao": "Traduzindo: só em **guerra declarada** pelo Presidente, com autorização ou referendo do **Congresso Nacional**."
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Art. 5º, XLVII",
+        "titulo": [
+          "Também não há"
+        ],
+        "marcador": "letra",
+        "inicio": 1,
+        "itens": [
+          "Pena de caráter **perpétuo**",
+          "**Trabalhos forçados**",
+          "**Banimento**",
+          "Penas **cruéis**"
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "E por emenda?",
+        "titulo": [
+          "Não dá."
+        ],
+        "sub": "É cláusula pétrea (art. 60, § 4º, IV)."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "foto": "etica-9.jpg",
+        "titulo": [
+          "Sabia dessa exceção?"
+        ],
+        "texto": "Comenta aqui e manda pra quem vai fazer a OAB.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "fernando-de-noronha",
+    "titulo": "Fernando de Noronha é um território federal?",
+    "tema": "Territórios federais (art. 18, § 2º) e ADCT, art. 15",
+    "inspiracao": "Fernando de Noronha é um Território Federal? (jul/2023)",
+    "pontes": [
+      {
+        "img": "sunglasses.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 300,
+        "rot": -10
+      },
+      {
+        "img": "classical_building.png",
+        "entre": 4,
+        "y": 230,
+        "tam": 300,
+        "rot": 6
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "objeto": {
+          "img": "desert_island.png",
+          "onde": "canto",
+          "tam": 420,
+          "rot": 0
+        },
+        "pre": "Fernando de Noronha é um",
+        "titulo": [
+          "território",
+          "[[federal]]?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Antes de tudo",
+        "titulo": [
+          "O que é",
+          "território?"
+        ],
+        "texto": [
+          "Território federal é uma área administrada pela **União**. Ele **não é ente da federação**: integra a própria União (art. 18, § 2º).",
+          "Criar, transformar em Estado ou reintegrar ao Estado de origem depende de **lei complementar**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Um pouco de história",
+        "titulo": [
+          "1942"
+        ],
+        "palavra": "GUERRA",
+        "texto": [
+          "Em plena 2ª Guerra Mundial, o arquipélago virou território federal por causa da sua **localização estratégica**.",
+          "Mas a história tratou de mudar isso."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "ADCT, art. 15",
+        "titulo": [
+          "A virada de 1988"
+        ],
+        "citacao": "Fica extinto o Território Federal de Fernando de Noronha, sendo sua área reincorporada ao Estado de Pernambuco.",
+        "traducao": "Traduzindo: hoje Noronha é de **Pernambuco**, e não da União."
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "E hoje?",
+        "titulo": [
+          "Nenhum."
+        ],
+        "sub": "Não há territórios federais, mas a CF permite criar."
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "dsc08928.jpg",
+        "titulo": [
+          "Você já sabia?"
+        ],
+        "texto": "Me conta aqui e salva pra revisar.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]

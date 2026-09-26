@@ -115,3 +115,8 @@ Pasta do Drive: https://drive.google.com/drive/folders/17HzpWVw_sd-jBa7gL6TEf5U_
 | 46º | ADPF (lei estadual de 1984) | `exame-46-adpf` |
 
 Os enunciados das peças foram copiados sem alteração para `moldes/treino-de-pecas/dados.json` (extração com PyMuPDF, que preserva as palavras; o pypdf quebra palavras nesses PDFs). As questões discursivas ainda não viraram posts: para usá-las, baixe o caderno do exame e o gabarito correspondentes.
+
+## Criativos do Instagram pessoal (@liberofilho), 2023–2024
+
+Dois .docx ("CRIATIVOS - INSTA PESSOAL" e "2024_CRIATIVOS - INSTA PESSOAL") com os roteiros página a página dos posts de jun/2023 a jan/2024 e a imagem pensada para cada capa. Os temas misturam Constitucional, Ética e mentalidade de estudo, com analogias de cultura pop: Fuga das Galinhas, Barbie, Vasco, Jogos Vorazes, Einstein, ChatGPT, "CPI é reunião de fofoqueiros" e "Tribunal da matemática".
+Já viraram posts novos no `carrossel-libero`, cada um com o campo `inspiracao`: CPI, robô/ChatGPT, Fuga das Galinhas, Tribunal de Contas, pena de morte e Fernando de Noronha. Ainda sem post: Barbie, Vasco, Einstein, Jogos Vorazes, pensamento acelerado, desincompatibilização, mandato tampão, vício de iniciativa, medida provisória, Território Federal x Estado, reclamação, cigarros, estrangeiro de passagem, filho de brasileiro no exterior e Habeas Corpus x multa.
