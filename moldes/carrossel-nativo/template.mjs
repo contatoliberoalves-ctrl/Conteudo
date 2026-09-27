@@ -5,8 +5,8 @@
 // Slide: { foto, fotoPos, escurecer, blocos: [{ texto, cor, tam, y, largura }], print: { img, y, largura, raio } }
 //   texto  — "\n" quebra a linha; **negrito** não muda nada (o nativo é todo em negrito).
 //   cor    — preto, branco, bege, marrom, rosa, lilas, verde, menta, ciano, noite (ver CORES).
-//   tam    — corpo do texto em px (padrão 60); y — topo do bloco em px (0–1440) ou "topo", "meio", "base".
-//   largura— largura máxima do texto em px (padrão 900); o bloco fica centralizado.
+//   tam    — corpo do texto em px (padrão 80; encolhe sozinho se uma linha não couber); y — topo do bloco em px (0–1440) ou "topo", "meio", "base".
+//   largura— largura máxima do texto em px (padrão 1000); o bloco fica centralizado.
 const CORES = {
   preto: ['#000000', '#FFFFFF'], branco: ['#FFFFFF', '#000000'],
   bege: ['#E3B48A', '#272119'], marrom: ['#5A4636', '#FFFFFF'], rosa: ['#C56A7C', '#FFF1F4'],
@@ -20,10 +20,10 @@ const FONTE = "'Figtree','Noto Color Emoji',sans-serif";
 
 function bloco(b) {
   const [bg, fg] = CORES[b.cor] || CORES.preto;
-  const tam = b.tam || 60, y = typeof b.y === 'number' ? b.y : POS[b.y] ?? POS.meio;
+  const tam = b.tam || 80, y = typeof b.y === 'number' ? b.y : POS[b.y] ?? POS.meio;
   const linhas = esc(b.texto).replace(/\*\*(.+?)\*\*/g, '$1').split('\n');
   return `<div data-bloco style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;z-index:3">
-    <div style="max-width:${b.largura || 900}px;text-align:center;font-family:${FONTE};font-weight:800;font-size:${tam}px;line-height:1.32;letter-spacing:-.005em">
+    <div style="max-width:${b.largura || 1000}px;text-align:center;font-family:${FONTE};font-weight:800;font-size:${tam}px;line-height:1.32;letter-spacing:-.005em">
       ${linhas.map(l => `<span style="background:${bg};color:${fg};padding:.16em .48em .2em;border-radius:.34em;box-decoration-break:clone;-webkit-box-decoration-break:clone">${l}</span>`).join('<br>')}
     </div></div>`;
 }
@@ -44,7 +44,7 @@ ${slides.map((s, i) => {
     return `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:${H}px;overflow:hidden;background:#222">
   ${foto ? `<img data-foto src="${foto}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.fotoPos || 'center')}">` : ''}
   ${s.escurecer ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,${s.escurecer})"></div>` : ''}
-  ${prSrc ? `<img src="${prSrc}" style="position:absolute;left:50%;top:${typeof pr.y === 'number' ? pr.y : POS[pr.y] ?? 420}px;transform:translateX(-50%);width:${pr.largura || 820}px;border-radius:${pr.raio ?? 26}px;box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:2">` : ''}
+  ${prSrc ? `<img data-print src="${prSrc}" style="position:absolute;left:50%;top:${typeof pr.y === 'number' ? pr.y : POS[pr.y] ?? 420}px;transform:translateX(-50%);width:${pr.largura || 820}px;border-radius:${pr.raio ?? 26}px;box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:2">` : ''}
   ${lista(s.blocos).map(bloco).join('')}
 </div>`;
   }).join('\n')}

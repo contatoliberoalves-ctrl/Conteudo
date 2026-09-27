@@ -27,7 +27,7 @@ Blocos:
 - `texto`: a frase; `\n` quebra a linha onde você quiser (senão quebra sozinho na largura).
 - `cor`: `preto` (padrão), `branco`, `bege`, `marrom`, `rosa`, `lilas`, `verde`, `menta`, `ciano`, `noite` (fundo escuro com letra ciano).
 - `y`: topo do bloco em px (0 a 1440) ou `topo`, `meio`, `base`.
-- `tam`: tamanho da letra em px (padrão 60; textos longos ficam bons com 46–52).
-- `largura`: largura máxima da frase (padrão 900).
+- `tam`: tamanho da letra em px (padrão 80, como nos exemplos do Insta; textos longos ficam bons com 55–68). Se uma linha não couber, o render diminui a letra sozinho, e blocos (ou o print) que se encostarem são afastados automaticamente.
+- `largura`: largura máxima da frase (padrão 1000).
 
 O render avisa se um bloco sair da tela ou encostar em outro.

@@ -32,6 +32,23 @@ for (const c of dados) {
   await page.goto('file://' + htmlPath);
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(400);
+  // Cada linha do texto é um balão: se uma não couber na largura e quebrar, diminui a fonte do bloco.
+  await page.evaluate(() => document.querySelectorAll('[data-bloco] > div').forEach(d => {
+    let t = parseFloat(d.style.fontSize);
+    while (t > 30 && [...d.querySelectorAll('span')].some(s => s.getClientRects().length > 1)) d.style.fontSize = (t -= 2) + 'px';
+  }));
+  // Blocos (e o print) que passaram a se encostar (fonte maior) descem; se o último sair por baixo, o grupo sobe.
+  await page.evaluate(() => document.querySelectorAll('[id^="slide-"]').forEach(s => {
+    const bs = [...s.querySelectorAll('[data-bloco],[data-print]')].sort((a, b) => a.offsetTop - b.offsetTop);
+    const alt = b => b.offsetHeight;
+    for (let k = 1; k < bs.length; k++) {
+      const min = bs[k - 1].offsetTop + alt(bs[k - 1]) + 24;
+      if (bs[k].offsetTop < min) bs[k].style.top = min + 'px';
+    }
+    const ult = bs[bs.length - 1];
+    const sobra = ult ? ult.offsetTop + alt(ult) - (s.offsetHeight - 70) : 0;
+    if (sobra > 0) bs.forEach(b => { b.style.top = Math.max(60, b.offsetTop - sobra) + 'px'; });
+  }));
   const checagem = await page.evaluate(() => {
     const out = [];
     document.querySelectorAll('[id^="slide-"]').forEach((s, i) => {

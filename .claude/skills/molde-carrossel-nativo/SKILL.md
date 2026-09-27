@@ -11,6 +11,7 @@ Pasta: `moldes/carrossel-nativo/`. O visual está em `template.mjs` e **não dev
 
 1. Leia `moldes/carrossel-nativo/README.md` e o carrossel de exemplo em `dados.json`.
 2. Fotos: salve as que o usuário mandar em `moldes/carrossel-nativo/fotos/` (fora do git, o repositório é público) com nomes curtos. **Olhe cada foto** antes de posicionar o texto: as frases não podem cobrir o rosto dele nem o ponto principal da paisagem. Use `fotoPos` para enquadrar.
+   As fotos de viagem do autor (Roma, Florença, Paris, Milão, Como…) ficam numa pasta do Google Drive dele: numa sessão nova, peça o link (não o grave no repositório), liste os IDs com `search_files` (`parentId = '<pasta>'`) num arquivo do scratchpad e rode `python3 moldes/carrossel-nativo/baixar_fotos.py ids.txt` → `fotos/viagem-NN.jpg` (nomes usados nos posts de exemplo).
 3. Monte os slides como nos posts dele:
    - Capa: 1 bloco de destaque (cor: `bege`, `lilas`, `rosa` ou `menta`) + 1 bloco curto `branco` (o "título" do post), perto da base ou no meio.
    - Miolo: título curto em `preto` (ou `branco`) no alto e a explicação em `branco` embaixo; exemplos em `marrom`; prints de material com `print` e uma frase acima e outra abaixo.
