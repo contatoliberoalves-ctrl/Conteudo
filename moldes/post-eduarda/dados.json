@@ -1,0 +1,49 @@
+[
+  {
+    "id": "frase-peca-boa",
+    "titulo": "Peça boa não se decora · frase",
+    "layout": "frase",
+    "cor": "salvia",
+    "alinhar": "esquerda",
+    "frase": "peça boa\nnão se\ndecora,",
+    "fim": "se treina :)",
+    "ts": 185,
+    "fimEscala": 1.05
+  },
+  {
+    "id": "frase-revisao-aprova",
+    "titulo": "Revisão que se repete · frase com fotos",
+    "layout": "frase",
+    "cor": "nevoa",
+    "frase": "revisão que\nse repete,",
+    "fotos": [
+      "lendo-oculos.jpg",
+      "notebook-sofa.jpg"
+    ],
+    "fotosPos": [
+      "center 25%",
+      "center 20%"
+    ],
+    "fim": "aprova"
+  },
+  {
+    "id": "convite-pensao",
+    "titulo": "Dúvidas sobre pensão · convite",
+    "layout": "convite",
+    "manchete": "Tá com dúvida sobre\n{pensão alimentícia}?",
+    "texto": "Separei as perguntas que eu mais recebo sobre pensão, com respostas **sem juridiquês**.",
+    "palavra": "PENSÃO",
+    "oque": "o material",
+    "fundo": "direito",
+    "conversa": [
+      {
+        "de": "ela",
+        "texto": "Oi, Eduarda! Comentei PENSÃO 🙋‍♀️"
+      },
+      {
+        "de": "eu",
+        "texto": "Oii! Já te mandei no direct 💌"
+      }
+    ]
+  }
+]
