@@ -142,6 +142,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
     </div>
     <div class="ferramentas">
       <button id="v-baixar" class="primario" hidden>Baixar carrossel (.zip)</button>
+      <button id="v-drive" hidden>Enviar pro Drive</button>
       <button id="v-editar" hidden>Editar capa</button>
       <span class="status" id="v-status" role="status"></span>
     </div>
@@ -294,13 +295,14 @@ const postAtual = () => lista[atual];
 function atualizarFerramentas() {
   const p = postAtual(); if (!p) return;
   $('#v-baixar').hidden = !DL;
+  $('#v-drive').hidden = !MCP;
   $('#v-editar').hidden = !(p.editor && p.editor.img);
   $('#ed-salvar').hidden = !DB; $('#ed-baixar').hidden = !DL;
   $('#ed-apagar').hidden = !(DB && AJ[chave(p)]);
 }
 
 const carregar = src => new Promise((ok, erro) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => erro(new Error('imagem')); i.src = src; });
-const paraBlob = (canvas, tipo = 'image/png') => new Promise(ok => canvas.toBlob(ok, tipo));
+const paraBlob = (canvas, tipo = 'image/png', q) => new Promise(ok => canvas.toBlob(ok, tipo, q));
 const ajusteDe = p => { const a = AJ[chave(p)] || p.editor?.ajuste; return a ? { dx: +a.dx || 0, dy: +a.dy || 0, z: +a.z || 1 } : null; };
 
 // Mesma conta de fotoNaCaixa() nos templates dos moldes.
@@ -325,22 +327,96 @@ async function salvarArquivo(nome, blob, status) {
   catch (err) { status.textContent = err?.code === 'declined' ? 'Download cancelado.' : 'Não foi possível baixar nesta tela.'; }
 }
 
+// Desenha os slides do post um a um (a capa com o ajuste salvo no editor, se houver) e entrega cada um a `fn`.
+async function cadaSlide(p, fn) {
+  const tira = await carregar(p.tira);
+  const cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; const ctx = cv.getContext('2d');
+  const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
+  const sprite = usarEditor ? await carregar(p.editor.img) : null;
+  for (let k = 0; k < p.n; k++) {
+    if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
+    else ctx.drawImage(tira, k * 1080, 0, 1080, 1350, 0, 0, 1080, 1350);
+    await fn(cv, k);
+  }
+}
+const nomeSlide = (k, ext = 'png') => `${String(k + 1).padStart(2, '0')}.${ext}`;
+
 $('#v-baixar').onclick = async ev => {
   const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget;
   if (!window.JSZip) { st.textContent = 'Não foi possível montar o .zip nesta tela.'; return; }
   bt.disabled = true; st.textContent = 'Montando o .zip…';
   try {
-    const tira = await carregar(p.tira), zip = new JSZip();
-    const cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; const ctx = cv.getContext('2d');
-    const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
-    const sprite = usarEditor ? await carregar(p.editor.img) : null;
-    for (let k = 0; k < p.n; k++) {
-      if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
-      else ctx.drawImage(tira, k * 1080, 0, 1080, 1350, 0, 0, 1080, 1350);
-      zip.file(`${String(k + 1).padStart(2, '0')}.png`, await paraBlob(cv));
-    }
+    const zip = new JSZip();
+    await cadaSlide(p, async (cv, k) => zip.file(nomeSlide(k), await paraBlob(cv)));
     await salvarArquivo(`${p.id}.zip`, await zip.generateAsync({ type: 'blob' }), st);
   } catch (err) { st.textContent = 'Não foi possível montar o .zip: ' + (err.message || err); }
+  bt.disabled = false;
+};
+
+// ---------- Enviar pro Google Drive ----------
+// mcp: usa o conector Google Drive de quem está vendo. Estrutura no Drive:
+// "Carrosséis Instagram" / <nome do molde> / <título do carrossel> / 01.png, 02.png…
+// Reenviar o mesmo carrossel manda os slides antigos da pasta para a lixeira e sobe os novos.
+const DRIVE = 'Google Drive', RAIZ = 'Carrosséis Instagram', PASTA = 'application/vnd.google-apps.folder';
+let MCP = null, ARQ_MCP = false;
+const pastas = {};
+(async () => {
+  try { MCP = await window.claude?.use?.('mcp'); } catch (e) { MCP = null; }
+  if (MCP) { try { ARQ_MCP = !!(await MCP.listTools()).fileArgs; } catch (e) { ARQ_MCP = false; } }
+  atualizarFerramentas();
+})();
+const aspas = s => String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+const semBarra = s => String(s).replace(/[\/\\]/g, '-').trim();
+async function drive(tool, input) { return (await MCP.callTool(DRIVE, tool, input, { cache: false })).payload || {}; }
+async function pastaDentro(titulo, pai) {
+  const k = (pai || '') + '/' + titulo;
+  if (pastas[k]) return pastas[k];
+  const q = `title = '${aspas(titulo)}' and mimeType = '${PASTA}'` + (pai ? ` and parentId = '${pai}'` : ` and owner = 'me'`);
+  const achou = ((await drive('search_files', { query: q, excludeContentSnippets: true, pageSize: 5 })).files || [])[0];
+  const f = achou || await drive('create_file', { title: titulo, contentMimeType: PASTA, ...(pai ? { parentId: pai } : {}) });
+  if (!f.id) throw Object.assign(new Error('o Drive não devolveu a pasta criada'), { code: 'tool_error' });
+  return (pastas[k] = f);
+}
+function base64(blob) {
+  return new Promise((ok, erro) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(',')[1]); r.onerror = erro; r.readAsDataURL(blob); });
+}
+// Com fileArgs o PNG vai inteiro; sem, a chamada tem limite de 1 MiB e o slide vai em JPEG (qualidade alta).
+async function conteudoSlide(cv, k) {
+  if (ARQ_MCP) return { title: nomeSlide(k), contentMimeType: 'image/png', base64Content: { $file: { data: await paraBlob(cv), name: nomeSlide(k), type: 'image/png' } } };
+  for (const q of [0.95, 0.9, 0.85, 0.8]) {
+    const b64 = await base64(await paraBlob(cv, 'image/jpeg', q));
+    if (b64.length < 900000) return { title: nomeSlide(k, 'jpg'), contentMimeType: 'image/jpeg', base64Content: b64 };
+  }
+  throw Object.assign(new Error('slide grande demais para enviar'), { code: 'bad_request' });
+}
+function erroDrive(err) {
+  switch (err?.code) {
+    case 'needs_reauth': return 'Reconecte o Google Drive em claude.ai → Configurações → Conectores e tente de novo.';
+    case 'server_not_connected': case 'server_not_found': return 'Adicione o Google Drive em claude.ai → Configurações → Conectores para enviar daqui.';
+    case 'selection_required': return 'Há mais de um Google Drive conectado: escolha qual usar no aviso do Claude e tente de novo.';
+    case 'not_in_manifest': case 'not_granted': return 'O acesso ao Google Drive não foi liberado para esta página.';
+    case 'blocked_by_policy': case 'approval_required': return 'A sua organização bloqueou o envio para o Drive por aqui.';
+    case 'server_unavailable': case 'upstream_error': return 'O Google Drive não respondeu. Confira a pasta antes de tentar de novo (parte pode ter subido).';
+    case 'capability_disabled': case 'capability_removed': return 'Esta tela não consegue falar com o Drive.';
+    default: return 'Não foi possível enviar pro Drive: ' + (err?.message || err);
+  }
+}
+$('#v-drive').onclick = async ev => {
+  const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget, molde = ativo;
+  bt.disabled = true; st.textContent = 'Preparando as pastas no Drive…';
+  try {
+    const raiz = await pastaDentro(RAIZ);
+    const pm = await pastaDentro(semBarra(molde.nome), raiz.id);
+    const pc = await pastaDentro(semBarra(p.titulo), pm.id);
+    const antigos = (await drive('search_files', { query: `parentId = '${pc.id}'`, excludeContentSnippets: true, pageSize: 50 })).files || [];
+    for (const f of antigos) if (f.mimeType !== PASTA) await drive('trash_file', { fileId: f.id });
+    await cadaSlide(p, async (cv, k) => {
+      st.textContent = `Enviando slide ${k + 1} de ${p.n}…`;
+      await MCP.callTool(DRIVE, 'create_file', { ...(await conteudoSlide(cv, k)), parentId: pc.id, disableConversionToGoogleType: true });
+    });
+    const url = pc.viewUrl || `https://drive.google.com/drive/folders/${pc.id}`;
+    st.innerHTML = `Enviado: ${esc(RAIZ)} / ${esc(semBarra(molde.nome))} / ${esc(semBarra(p.titulo))} · <a href="${esc(url)}" target="_blank" rel="noopener">abrir a pasta</a>`;
+  } catch (err) { st.textContent = erroDrive(err); }
   bt.disabled = false;
 };
 
