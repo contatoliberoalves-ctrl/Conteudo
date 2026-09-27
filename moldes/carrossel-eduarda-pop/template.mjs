@@ -7,6 +7,8 @@
 //   "studio" (moderno)      fundo branco (ou rosa-escuro), títulos em serifa, etiquetas em pílula, enfeite de morcegos opcional
 //   "scrap"  (descontraído) papel branco, grotesca pesada minúscula, balões de fala, estrelas, papel rasgado, legenda sobre foto
 //   "blocos" (descontraído) fundo de uma cor da paleta por slide, título em faixas, pílulas brancas, foto embaixo
+//   "chique"  (profissional) editorial em rosa vivo, tom "framboesa" ou "fucsia": muito branco, serifa, fios finos, comparativo
+// Tipo "capaFoto" (em qualquer estilo): foto dela sem filtro e o título por cima em faixas brancas.
 // Marcação no texto: **negrito**, *palavra em cursiva*, ==caixa de destaque==, {cor}, \n quebra a linha.
 
 const ARROBA = '@eduardacaraciolo';
@@ -34,10 +36,13 @@ function fmt(t, m = {}) {
 
 // ---------- imagens ----------
 function img(ctx, nome, { pos = 'center', estilo = '' } = {}) {
-  const src = nome && ctx.imgs[nome];
-  // Véu rosa (soft-light) para as fotos ornarem com a paleta.
+  const src = nome && ctx.imgs[nome], sl = ctx.slide || {};
+  // fotoCrua: foto como veio (fotos dela nas capas com foto e fotos de artistas). Sem isso, véu rosa para ornar com a paleta.
+  if (src && (sl.fotoCrua || sl.tipo === 'capaFoto')) return `<div data-foto style="position:relative;width:100%;height:100%;${estilo}"><img src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:${esc(pos)};display:block"></div>`;
   if (src) return `<div data-foto style="position:relative;width:100%;height:100%;${estilo}"><img src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:${esc(pos)};display:block;filter:saturate(.85)"><div style="position:absolute;inset:0;background:${C.pink};mix-blend-mode:color;opacity:.16"></div><div style="position:absolute;inset:0;background:${C.claro};mix-blend-mode:soft-light;opacity:.6"></div></div>`;
   if (nome) ctx.faltando.add(nome);
+  // Sem arquivo: espaço marcado para a foto, com a sugestão (fotoSugestao) de qual imagem colocar.
+  if (sl.fotoSugestao) return `<div data-foto style="width:100%;height:100%;background:linear-gradient(160deg,${C.blush},${C.claro});display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:230px;gap:18px;${estilo}"><svg width="110" height="90" viewBox="0 0 110 90" fill="none" stroke="${C.escuro}" stroke-width="4"><rect x="4" y="18" width="102" height="68" rx="14"/><circle cx="55" cy="52" r="20"/><path d="M36 18 L44 5 H66 L74 18"/></svg><div style="${TIGHT};font-weight:800;font-size:26px;letter-spacing:.14em;color:${C.escuro}">FOTO AQUI</div><div style="${TIGHT};font-weight:500;font-size:28px;color:${C.escuro};max-width:760px;text-align:center;line-height:1.25">${esc(sl.fotoSugestao)}</div><div style="${TIGHT};font-size:22px;color:${C.escuro};opacity:.8">arquivo: fotos/${esc(nome)}</div></div>`;
   return `<div data-foto style="width:100%;height:100%;background:linear-gradient(160deg,${C.claro},${C.pessego});display:flex;align-items:center;justify-content:center;${estilo}"><span style="${SERIF};font-size:150px;color:#fff">EC</span></div>`;
 }
 
@@ -364,7 +369,105 @@ BLOCOS.capa = BLOCOS.dica = BLOCOS.lista = BLOCOS.cta = BLOCOS.texto = function 
   </div>`;
 };
 
-const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS };
+// ================= CAPA COM FOTO (todos os estilos) =================
+// Foto dela inteira, sem véu nem filtro, e o texto por cima em blocos brancos (legível sem escurecer a foto).
+// Campos: foto, fotoPos, kicker, titulo (\n = nova faixa), texto, y ("base" padrão, "topo", "meio" ou px).
+function capaFoto(s, ctx, c) {
+  const t = TONS[c.tom] || { bg: C.escuro, dark: C.escuro, light: C.blush, cur: C.pink };
+  const y = typeof s.y === 'number' ? s.y : null;
+  const lugar = y != null ? `top:${y}px` : s.y === 'topo' ? 'top:170px' : s.y === 'meio' ? 'top:520px' : 'bottom:150px';
+  const faixa = l => `<span style="background:#fff;color:${t.dark};padding:.02em .26em .06em;border-radius:.16em;${CLONE}">${fmt(l, { i: t.cur, cursiva: 1.1, b: 'font-weight:900' })}</span>`;
+  return `<div style="position:absolute;inset:0;background:${t.bg}">${img(ctx, s.foto, { pos: s.fotoPos || 'center' })}
+    ${topo('#fff', 52).replace('z-index:6', 'z-index:6;text-shadow:0 1px 8px rgba(0,0,0,.35)')}
+    <div data-area style="position:absolute;left:70px;right:70px;${lugar};display:flex;flex-direction:column;align-items:${s.alinhar === 'esquerda' ? 'flex-start' : 'center'};gap:22px;z-index:3">
+      ${s.kicker ? pilula(fmt(s.kicker), t.bg, '#fff', 'font-size:26px;padding:10px 30px;text-transform:uppercase;letter-spacing:.1em') : ''}
+      <div data-titulo style="${TIGHT};font-weight:800;font-size:${s.ts || 84}px;line-height:1.16;letter-spacing:-.045em;text-align:${s.alinhar === 'esquerda' ? 'left' : 'center'}">${String(s.titulo || '').split('\n').map(faixa).join('<br>')}</div>
+      ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:600;font-size:30px;line-height:1.2;letter-spacing:-.02em;color:#fff;background:${t.bg};border-radius:999px;padding:12px 30px;text-align:center">${fmt(s.texto, { i: '#fff' })}</div>` : ''}
+    </div></div>`;
+}
+
+// ================= CHIQUE =================
+// Editorial em rosa vivo (sem cor apagada): tom "framboesa" ou "fucsia" (campo "tom" do post).
+// Muito branco, serifa grande, fios finos, uma página cheia de cor na capa e no fim.
+const TONS = {
+  framboesa: { bg: '#C8175D', dark: '#7A0E38', light: '#FDE6EF', cur: '#F7A8C6' },
+  fucsia: { bg: '#EE2A8A', dark: '#850F4C', light: '#FFEAF4', cur: '#FFC0DD' },
+};
+const qM = t => ({ i: t.bg, cursiva: 1.18, acc: `color:${t.bg}`, b: `font-weight:800;color:${t.dark}`, hl: `background:${t.light};padding:0 .12em` });
+const qTit = (x, px, cor, m, al = 'left') => `<div data-titulo style="${SERIF};font-size:${px}px;line-height:1.02;letter-spacing:-.025em;color:${cor};text-align:${al}">${fmt(x, m)}</div>`;
+const qCorpo = (x, px, cor, m, al = 'left') => `<div data-corpo style="${TIGHT};font-weight:400;font-size:${px}px;line-height:1.38;letter-spacing:-.01em;color:${cor};text-align:${al}">${fmt(x, m)}</div>`;
+const qKicker = (x, cor) => `<div style="${TIGHT};font-weight:700;font-size:22px;letter-spacing:.22em;text-transform:uppercase;color:${cor}">${esc(x)}</div>`;
+const qMoldura = cor => `<div style="position:absolute;inset:36px;border:1.5px solid ${cor};pointer-events:none"></div>`;
+const qRodape = (cor, n) => `<div style="position:absolute;left:80px;right:80px;bottom:62px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:20px;letter-spacing:.14em;color:${cor};z-index:6"><span style="font-weight:600">${ARROBA.toUpperCase()}</span><span style="flex:1;height:1px;background:${cor};margin:0 24px;opacity:.5"></span><span style="font-weight:800">${n}</span></div>`;
+const tom = c => TONS[c.tom] || TONS.framboesa;
+
+const CHIQUE = {
+  capa(s, ctx, c) {
+    const t = tom(c), m = { ...qM(t), i: t.cur, b: 'font-weight:800;color:#fff' };
+    return `<div style="position:absolute;inset:0;background:${t.bg}">${qMoldura('rgba(255,255,255,.55)')}${topo('#fff', 70)}
+      <div data-area style="position:absolute;left:100px;right:100px;top:190px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+        ${s.kicker ? qKicker(s.kicker, '#fff') : ''}
+        <div style="width:120px;height:3px;background:#fff"></div>
+        ${qTit(s.titulo, s.ts || 132, '#fff', m)}
+        ${s.texto ? `<div style="max-width:720px">${qCorpo(s.texto, 34, '#fff', m)}</div>` : ''}
+      </div>${qRodape('#fff', 'ARRASTA →')}</div>`;
+  },
+  texto(s, ctx, c) {
+    const t = tom(c), m = qM(t);
+    return `<div style="position:absolute;inset:0;background:#fff">${qMoldura(t.bg)}${topo(t.dark, 70)}
+      <div data-area style="position:absolute;left:110px;right:110px;top:190px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+        ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
+        ${qTit(s.titulo, s.ts || 96, t.dark, m)}
+        <div style="width:90px;height:3px;background:${t.bg}"></div>
+        ${s.texto ? qCorpo(s.texto, 34, t.dark, m) : ''}
+      </div>${qRodape(t.dark, s.pagina || '')}</div>`;
+  },
+  lista(s, ctx, c) {
+    const t = tom(c), m = qM(t);
+    return `<div style="position:absolute;inset:0;background:#fff">${qMoldura(t.bg)}${topo(t.dark, 70)}
+      <div data-area style="position:absolute;left:110px;right:110px;top:180px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:36px">
+        ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
+        ${qTit(s.titulo, s.ts || 84, t.dark, m)}
+        <div style="border-top:1.5px solid ${t.bg}">
+          ${lista(s.itens).map((x, i) => `<div style="display:flex;gap:30px;align-items:baseline;padding:22px 0;border-bottom:1.5px solid ${t.light}"><span style="${SERIF};font-size:44px;color:${t.bg};width:50px;flex:none">${i + 1}</span>${qCorpo(x, 31, t.dark, m)}</div>`).join('')}
+        </div>
+      </div>${qRodape(t.dark, s.pagina || '')}</div>`;
+  },
+  // Comparativo em 2 colunas: esquerda (fundo claro) x direita (fundo de cor).
+  compara(s, ctx, c) {
+    const t = tom(c), m = qM(t), [a, b] = lista(s.colunas);
+    const col = (k, forte) => `<div style="flex:1;background:${forte ? t.bg : t.light};padding:40px 36px;display:flex;flex-direction:column;gap:22px">
+      <div style="${SERIF};font-size:52px;line-height:1;color:${forte ? '#fff' : t.dark}">${esc(k?.titulo || '')}</div>
+      ${lista(k?.itens).map(x => `<div style="border-top:1px solid ${forte ? 'rgba(255,255,255,.5)' : t.bg + '55'};padding-top:16px">${qCorpo(x, 27, forte ? '#fff' : t.dark, forte ? { ...m, b: 'font-weight:800;color:#fff' } : m)}</div>`).join('')}</div>`;
+    return `<div style="position:absolute;inset:0;background:#fff">${topo(t.dark, 70)}
+      <div data-area style="position:absolute;left:80px;right:80px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+        ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
+        ${qTit(s.titulo, s.ts || 80, t.dark, m)}
+        <div style="display:flex;gap:18px">${col(a, false)}${col(b, true)}</div>
+      </div>${qRodape(t.dark, s.pagina || '')}</div>`;
+  },
+  destaque(s, ctx, c) {
+    const t = tom(c), m = qM(t);
+    return `<div style="position:absolute;inset:0;background:${t.light}">${qMoldura(t.bg)}${topo(t.dark, 70)}
+      <div data-area style="position:absolute;left:120px;right:120px;top:200px;bottom:190px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:30px">
+        <div style="${SERIF};font-size:200px;line-height:.6;color:${t.bg}">“</div>
+        ${qTit(s.titulo, s.ts || 88, t.dark, m, 'center')}
+        ${s.texto ? qCorpo(s.texto, 30, t.dark, m, 'center') : ''}
+      </div>${qRodape(t.dark, s.pagina || '')}</div>`;
+  },
+  cta(s, ctx, c) {
+    const t = tom(c), m = { ...qM(t), i: t.cur, b: 'font-weight:800;color:#fff' };
+    return `<div style="position:absolute;inset:0;background:${t.bg}">${qMoldura('rgba(255,255,255,.55)')}${topo('#fff', 70)}
+      <div data-area style="position:absolute;left:110px;right:110px;top:200px;bottom:190px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:40px">
+        ${s.kicker ? qKicker(s.kicker, '#fff') : ''}
+        ${qTit(s.titulo, s.ts || 112, '#fff', m, 'center')}
+        ${s.texto ? qCorpo(s.texto, 33, '#fff', m, 'center') : ''}
+        ${s.botao ? pilula(fmt(s.botao), '#fff', t.bg, 'font-size:30px;padding:16px 46px;letter-spacing:.06em;text-transform:uppercase') : ''}
+      </div>${qRodape('#fff', '')}</div>`;
+  },
+};
+
+const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE };
 
 export function renderCarrossel(c) {
   const estilo = ESTILOS[c.estilo] || TREND;
@@ -373,7 +476,8 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = estilo[s.tipo];
+    const f = s.tipo === 'capaFoto' ? capaFoto : estilo[s.tipo];
+    ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };
     return `<div id="slide-${i + 1}" style="position:absolute;left:${i * W}px;top:0;width:${W}px;height:${H}px;overflow:hidden">${f(s, ctx, c)}</div>`;

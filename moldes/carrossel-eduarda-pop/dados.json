@@ -1,5 +1,327 @@
 [
   {
+    "id": "testamento-capa-foto",
+    "titulo": "Testamento não é coisa de rico · capa com foto",
+    "estilo": "studio",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-trevi.jpg",
+        "fotoPos": "center 35%",
+        "kicker": "Planejamento sucessório",
+        "titulo": "Testamento não é\ncoisa de *rico*",
+        "texto": "5 coisas que você precisa saber"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Quem pode fazer?",
+        "titulo": "a partir dos *16 anos*",
+        "texto": "Toda pessoa capaz pode fazer testamento, e os maiores de 16 anos também podem (art. 1.860, parágrafo único, CC)."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Tem filhos, pais ou cônjuge?",
+        "titulo": "então você dispõe de *metade*",
+        "texto": "A outra metade é a legítima: fica garantida aos herdeiros necessários, que são descendentes, ascendentes e cônjuge (arts. 1.789 e 1.845, CC)."
+      },
+      {
+        "tipo": "lista",
+        "titulo": "Os 3 testamentos *comuns*",
+        "itens": [
+          "**público**: feito no cartório, pelo tabelião",
+          "**cerrado**: você escreve e o tabelião aprova e lacra",
+          "**particular**: escrito por você e lido para 3 testemunhas"
+        ],
+        "texto": "(art. 1.862, CC)"
+      },
+      {
+        "tipo": "texto",
+        "fundo": "rosa",
+        "kicker": "Mudou de ideia?",
+        "titulo": "dá pra *revogar*",
+        "texto": "O testamento pode ser revogado do mesmo modo e pela mesma forma como pode ser feito (art. 1.969, CC)."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Quer planejar isso com calma?",
+        "titulo": "me chama no *direct*",
+        "texto": "Te explico qual formato faz sentido pra você.",
+        "botao": "Link na bio"
+      }
+    ]
+  },
+  {
+    "id": "adocao-mito-verdade-capa-foto",
+    "titulo": "Adoção: mito ou verdade? · capa com foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-joinha.jpg",
+        "fotoPos": "center 30%",
+        "kicker": "ECA",
+        "titulo": "Adoção:\n*mito* ou verdade?",
+        "texto": "5 frases que eu mais escuto"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "“Solteiro não pode adotar.”",
+        "titulo": "==Mito==",
+        "caixa": "Podem adotar os maiores de 18 anos, independentemente do estado civil (art. 42, ECA)."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "“Precisa ser 16 anos mais velho que a criança.”",
+        "titulo": "==Verdade==",
+        "caixa": "O adotante deve ser, pelo menos, **16 anos mais velho** que o adotando (art. 42, § 3º, ECA).",
+        "destaque": true
+      },
+      {
+        "tipo": "texto",
+        "kicker": "“A avó pode adotar o neto.”",
+        "titulo": "==Mito==",
+        "caixa": "Não podem adotar os **ascendentes** e os **irmãos** do adotando (art. 42, § 1º, ECA)."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "“Depois de adotar, dá pra desfazer.”",
+        "titulo": "==Mito==",
+        "caixa": "A adoção é **irrevogável** (art. 39, § 1º, ECA).",
+        "destaque": true
+      },
+      {
+        "tipo": "texto",
+        "kicker": "“O filho adotivo tem os mesmos direitos.”",
+        "titulo": "==Verdade==",
+        "caixa": "A adoção dá a condição de filho, com os mesmos direitos e deveres, inclusive na **herança** (art. 41, ECA)."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "E aí?",
+        "titulo": "Quantas você ==acertou==?",
+        "texto": "Conta aqui nos comentários 👇",
+        "botao": "Salvar ✦"
+      }
+    ]
+  },
+  {
+    "id": "uniao-estavel-casamento-chique",
+    "titulo": "União estável ou casamento? · chique framboesa",
+    "estilo": "chique",
+    "tom": "framboesa",
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Direito de Família",
+        "titulo": "União estável\nou *casamento*?",
+        "texto": "O que muda de verdade entre os dois."
+      },
+      {
+        "tipo": "texto",
+        "pagina": "01",
+        "kicker": "Pra começar",
+        "titulo": "A união estável *não precisa* de papel",
+        "texto": "Basta a convivência pública, contínua e duradoura, com o objetivo de constituir família (art. 1.723, CC). O contrato ou a escritura só ajudam a provar."
+      },
+      {
+        "tipo": "compara",
+        "pagina": "02",
+        "kicker": "Lado a lado",
+        "titulo": "O que *muda* entre eles",
+        "colunas": [
+          {
+            "titulo": "União estável",
+            "itens": [
+              "nasce da convivência, sem cerimônia",
+              "pode ser registrada em cartório, mas não é obrigatório",
+              "termina com a **dissolução** da união"
+            ]
+          },
+          {
+            "titulo": "Casamento",
+            "itens": [
+              "nasce na celebração, no cartório",
+              "muda o estado civil pra **casado(a)**",
+              "termina com o **divórcio**"
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "destaque",
+        "pagina": "03",
+        "titulo": "Sem contrato, o regime é o da *comunhão parcial*",
+        "texto": "Nos dois casos (arts. 1.640 e 1.725, CC)."
+      },
+      {
+        "tipo": "texto",
+        "pagina": "04",
+        "kicker": "E na herança?",
+        "titulo": "Companheiro e cônjuge têm os *mesmos* direitos",
+        "texto": "O STF igualou os dois na sucessão ao declarar inconstitucional o art. 1.790 do Código Civil (RE 878.694)."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Ficou em dúvida sobre a sua situação?",
+        "titulo": "Vamos *conversar*",
+        "texto": "Me chama no direct.",
+        "botao": "Link na bio"
+      }
+    ]
+  },
+  {
+    "id": "inventario-cartorio-chique",
+    "titulo": "Inventário no cartório · chique fúcsia",
+    "estilo": "chique",
+    "tom": "fucsia",
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Sucessões",
+        "titulo": "Inventário no *cartório*: quando pode?",
+        "texto": "Mais rápido que o judicial, mas com regras."
+      },
+      {
+        "tipo": "lista",
+        "pagina": "01",
+        "kicker": "A regra do CPC (art. 610)",
+        "titulo": "O que precisa pra fazer por *escritura*",
+        "itens": [
+          "herdeiros **maiores e capazes**",
+          "todos **de acordo** com a partilha",
+          "**advogado** acompanhando as partes",
+          "sem testamento, ou com o testamento já registrado na Justiça"
+        ]
+      },
+      {
+        "tipo": "destaque",
+        "pagina": "02",
+        "titulo": "Tem herdeiro menor? Desde 2024 também pode, com *regras especiais*",
+        "texto": "Resolução 571/2024 do CNJ."
+      },
+      {
+        "tipo": "texto",
+        "pagina": "03",
+        "kicker": "Prazo",
+        "titulo": "Abra em até *2 meses*",
+        "texto": "O inventário deve ser aberto em 2 meses a contar da morte (art. 611, CPC). O atraso pode gerar multa no imposto (ITCMD), conforme a lei de cada estado."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Perdeu alguém e não sabe por onde começar?",
+        "titulo": "Eu te *ajudo*",
+        "texto": "Me chama no direct.",
+        "botao": "Link na bio"
+      }
+    ]
+  },
+  {
+    "id": "divorcio-pop-legenda",
+    "titulo": "4 coisas que nunca se faz num divórcio · pop (foto + frase)",
+    "estilo": "scrap",
+    "slides": [
+      {
+        "tipo": "legenda",
+        "foto": "pop-divorcio-1.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "diva pop ou personagem de série com cara de deboche",
+        "texto": "**4 coisas que você NUNCA**\n**deve fazer num divórcio**",
+        "y": "meio",
+        "tam": 60,
+        "emojis": [
+          "💅",
+          "💔"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-divorcio-2.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "personagem saindo de casa com a mala",
+        "texto": "**Sumir de casa por 2 anos,**\nem alguns casos, o ex pode pedir\nusucapião da sua parte do imóvel\n(art. 1.240-A, CC)."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-divorcio-3.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "vilã de série com cara de fofoca",
+        "texto": "**Falar mal do pai ou da mãe pro filho,**\nisso é exemplo de alienação parental\n(art. 2º, Lei 12.318/2010)."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-divorcio-4.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "cantora pop chocada",
+        "texto": "**Parar de pagar a pensão por conta própria,**\na dívida continua e pode\nlevar à prisão civil (art. 528, § 3º, CPC)."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-divorcio-5.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "personagem escondendo alguma coisa",
+        "texto": "**Esconder bens na partilha,**\nos bens sonegados podem ser\ndivididos depois, na sobrepartilha\n(art. 669, CPC)."
+      },
+      {
+        "tipo": "pergunta",
+        "titulo": "qual desses te *chocou* mais?",
+        "texto": "Conta aqui nos comentários 👇"
+      }
+    ]
+  },
+  {
+    "id": "red-flags-pop-legenda",
+    "titulo": "Red flags jurídicas num relacionamento · pop (foto + frase)",
+    "estilo": "scrap",
+    "slides": [
+      {
+        "tipo": "legenda",
+        "foto": "pop-redflag-1.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "casal de série brigando ou cantora revirando os olhos",
+        "texto": "**Red flags jurídicas**\n**num relacionamento** 🚩",
+        "y": "meio",
+        "tam": 60,
+        "emojis": [
+          "🚩",
+          "🙄"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-redflag-2.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "casal de série se mudando junto",
+        "texto": "**Morar junto sem contrato,**\na união estável existe sem papel\ne o regime é o da comunhão parcial\n(art. 1.725, CC)."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-redflag-3.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "cena de casamento de série",
+        "texto": "**Casar sem escolher o regime,**\nsem pacto antenupcial, vale\na comunhão parcial (art. 1.640, CC)."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-redflag-4.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "personagem desesperada com contas",
+        "texto": "**Emprestar o nome pra dívida do outro,**\no contrato fica no seu CPF,\nmesmo depois do término."
+      },
+      {
+        "tipo": "legenda",
+        "foto": "pop-redflag-5.jpg",
+        "fotoCrua": true,
+        "fotoSugestao": "diva pop com óculos escuros e cara de 'é meu'",
+        "texto": "**Achar que tudo é dos dois,**\nna comunhão parcial, o que cada um\ntinha antes continua só seu\n(art. 1.659, I, CC)."
+      },
+      {
+        "tipo": "pergunta",
+        "titulo": "qual *red flag* você já viu por aí?",
+        "texto": "Me conta 👀"
+      }
+    ]
+  },
+  {
     "id": "prescricao-decadencia-trend",
     "titulo": "Prescrição ou decadência? · trend",
     "estilo": "trend",
@@ -92,99 +414,6 @@
         "titulo": "Qual ==era== é a sua?",
         "texto": "Me conta nos comentários ✨",
         "botao": "Salvar pra depois"
-      }
-    ]
-  },
-  {
-    "id": "viagem-crianca-eca-studio",
-    "titulo": "Seu filho pode viajar sem você? · studio",
-    "estilo": "studio",
-    "slides": [
-      {
-        "tipo": "capa",
-        "kicker": "Férias chegando",
-        "titulo": "Seu filho pode *viajar* sem você?",
-        "texto": "O que o ECA diz sobre viagem de criança e adolescente.",
-        "foto": "eduarda-gesticulando.jpg",
-        "fotoPos": "center 22%"
-      },
-      {
-        "tipo": "texto",
-        "kicker": "Pelo art. 83 do ECA,",
-        "titulo": "menor de 16 anos não viaja *sozinho*",
-        "texto": "para fora da comarca onde mora, sem os pais ou o responsável, sem autorização judicial.",
-        "grade": true
-      },
-      {
-        "tipo": "lista",
-        "titulo": "Quando *não* precisa de autorização do juiz:",
-        "itens": [
-          "comarca vizinha, no mesmo estado",
-          "na mesma região metropolitana",
-          "com avós, tios ou irmãos maiores de idade, provando o parentesco",
-          "com um adulto autorizado por escrito pelo pai, pela mãe ou pelo responsável"
-        ],
-        "texto": "(art. 83, § 1º, ECA)"
-      },
-      {
-        "tipo": "texto",
-        "fundo": "rosa",
-        "kicker": "E pra fora do país?",
-        "titulo": "com os *dois* pais, tudo certo",
-        "texto": "Com só um deles, precisa da autorização do outro por escrito, com firma reconhecida. Sem isso, só com autorização judicial (art. 84, ECA)."
-      },
-      {
-        "tipo": "cta",
-        "kicker": "Vai viajar com seus filhos e ficou com dúvida?",
-        "titulo": "me chama no *direct*",
-        "texto": "A gente confere o que você precisa antes de embarcar.",
-        "botao": "Link na bio"
-      }
-    ]
-  },
-  {
-    "id": "irmao-herda-studio",
-    "titulo": "Irmão herda do irmão? · studio (pop)",
-    "estilo": "studio",
-    "slides": [
-      {
-        "tipo": "texto",
-        "fundo": "rosa",
-        "enfeite": "morcegos",
-        "kicker": "Pergunta de quem maratonou The Vampire Diaries 🧛",
-        "titulo": "Irmão *herda* do irmão?"
-      },
-      {
-        "tipo": "texto",
-        "enfeite": "morcegos",
-        "kicker": "Se um dos irmãos Salvatore morresse…",
-        "titulo": "o outro só herda se *não* houver filhos, pais nem cônjuge",
-        "texto": "Irmãos são parentes colaterais e vêm por último na fila da herança (arts. 1.829 e 1.839, CC)."
-      },
-      {
-        "tipo": "lista",
-        "titulo": "A fila da *herança*",
-        "itens": [
-          "filhos e netos (em alguns casos, junto com o cônjuge)",
-          "pais e avós, junto com o cônjuge",
-          "o cônjuge ou companheiro, sozinho",
-          "irmãos, sobrinhos, tios e primos"
-        ],
-        "texto": "(art. 1.829, CC)"
-      },
-      {
-        "tipo": "texto",
-        "enfeite": "morcegos",
-        "kicker": "E o irmão só de pai ou só de mãe?",
-        "titulo": "recebe *metade* do que cabe ao irmão de pai e mãe",
-        "texto": "(art. 1.841, CC)"
-      },
-      {
-        "tipo": "cta",
-        "fundo": "rosa",
-        "enfeite": "morcegos",
-        "titulo": "Qual série eu explico *depois*?",
-        "texto": "Deixa nos comentários 🍿"
       }
     ]
   },
