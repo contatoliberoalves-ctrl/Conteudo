@@ -5,7 +5,7 @@ description: Gera posts de TELA ÚNICA (1 imagem 1080×1350) no molde "Post Edua
 
 # Molde: Post Eduarda
 
-Pasta: `moldes/post-eduarda/`. Para gerar posts só se edita `dados.json`.
+Pasta: `moldes/post-eduarda/`. Para gerar posts só se edita `dados.json`. Mesma regra de marca do Carrossel Eduarda Pop: 5 cores da paleta + branco, Inter Tight e Yellowtail.
 
 1. Leia `moldes/post-eduarda/README.md`.
 2. **frase**: 2 a 4 linhas curtas em minúsculas + `fim` (1 a 2 palavras, a virada da frase). **convite**: manchete com um trecho `{rosa}`, texto curto, a `palavra` para comentar e 2 mensagens de exemplo na `conversa`. Só prometa material que a Eduarda tenha de fato.

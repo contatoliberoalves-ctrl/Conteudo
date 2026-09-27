@@ -1,13 +1,16 @@
 # Carrossel Eduarda Pop
 
-Carrosséis da Eduarda Caraciolo (Advogada · Direito Civil e ECA) inspirados nas referências que ela separou (studio_debs, Estúdio Huna, Jullia Scabello, phanystudio, Vick Machado, Amanda Fernandes). Quatro estilos, escolhidos no campo `estilo` do post:
+Carrosséis da Eduarda Caraciolo (Advogada · Direito Civil e ECA) inspirados nas referências que ela separou (studio_debs, Estúdio Huna, Jullia Scabello, phanystudio, Vick Machado, Amanda Fernandes). Quatro estilos, escolhidos no campo `estilo` do post.
+
+**Regra da marca** (vale também para o `post-eduarda`): só as 5 cores da paleta — `#FFEBED` blush, `#FEBAC5` rosa-claro, `#F4789A` rosa-escuro, `#FC79AB` pink, `#FEA9AC` pêssego — e o **branco** como contracor; 3 fontes: Inter Tight (títulos e texto), Gloock (serifa do studio) e Yellowtail (a cursiva do `*destaque*`). Todo estilo repete o cabeçalho EDUARDA CARACIOLO · ADVOGADA · CIVIL E ECA, o @ em pílula, o brilho ✦ e um véu rosa nas fotos, para ornarem lado a lado no feed.
+
 
 | estilo | cara | tipos de slide |
 |---|---|---|
-| `trend` (moderno) | papel quadriculado, Anton em caixa-alta, rosa-choque `#FF1F8E` e roxo `#7A2CC7`, caixas tracejadas, brilhos ✦, marcas de corte | `capa`, `texto`, `lista` (fundo roxo), `item`, `cta` |
-| `studio` (moderno) | grafite granulado, serifa Gloock com uma palavra em cursiva rosé, microtexto nas bordas, grade de semana inclinada | `capa` (foto em cima), `texto`, `lista` (etiquetas), `item`, `faixa` (claro, foto em cima e embaixo), `cta` |
-| `scrap` (descontraído) | papel, grotesca pesada em minúsculas, balões de fala pretos, estrelas, papel rasgado, abas do perfil | `capa` (agenda + foto redonda), `item` (balão + papel rasgado), `janela` (cartão com fita), `lista` (moldura amarela), `legenda` (foto inteira + legenda rosa com emojis), `pergunta` (balão amarelo) |
-| `blocos` (descontraído) | cor chapada por slide, título em faixas, subtítulo condensado, caixinhas brancas, foto/print embaixo | `capa`, `dica`, `lista`, `cta` (todos com o mesmo layout) |
+| `trend` (moderno) | fundo blush quadriculado, títulos pesados em caixa-alta rosa-escuro, caixa pink com texto branco, caixas tracejadas arredondadas | `capa`, `texto`, `lista` (fundo roxo), `item`, `cta` |
+| `studio` (moderno) | fundo rosa-escuro granulado, serifa Gloock branca com uma palavra em cursiva, etiquetas brancas em pílula, grade de semana inclinada | `capa` (foto em cima), `texto`, `lista` (etiquetas), `item`, `faixa` (claro, foto em cima e embaixo), `cta` |
+| `scrap` (descontraído) | papel branco quadriculado, grotesca pesada em minúsculas, balões de fala pink, estrelas, papel rasgado rosa-escuro, abas do perfil | `capa` (agenda + foto redonda), `item` (balão + papel rasgado), `janela` (cartão com fita), `lista` (moldura amarela), `legenda` (foto inteira + legenda rosa com emojis), `pergunta` (balão amarelo) |
+| `blocos` (descontraído) | uma cor da paleta por slide, título em faixas, subtítulo em caixa-alta, pílulas brancas, foto em cápsula embaixo | `capa`, `dica`, `lista`, `cta` (todos com o mesmo layout) |
 
 ```
 CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]
@@ -22,7 +25,7 @@ Saída: `saida/<id>/1.png … N.png` e `painel.png`. O render diminui título (a
 ## dados.json
 Lista de posts: `id`, `titulo` (nome na galeria), `estilo`, `cor` (só `blocos`: cor padrão dos slides) e `slides`.
 
-Marcação: `**negrito**`, `*destaque*` (cursiva no studio, rosa no trend, itálico fino no scrap), `==caixa==` (roxo no trend, amarelo no scrap), `{cor}` (rosa no trend, sublinhado no scrap, amarelo no blocos), `\n` quebra a linha. `ts` muda o tamanho do título.
+Marcação: `**negrito**`, `*destaque*` (cursiva Yellowtail em todos), `==caixa==` (pink no trend, rosa-claro no scrap), `{cor}` (pink no trend, sublinhado no scrap), `\n` quebra a linha. `ts` muda o tamanho do título.
 
 Campos por tipo:
 - **capa**: `titulo`, `texto`, `foto`, `fotoPos`; studio: `kicker` (etiqueta branca), `fotoAltura`; scrap: `dia` (dia destacado na agenda).
@@ -33,4 +36,4 @@ Campos por tipo:
 - **legenda** (scrap): `foto`, `fotoPos`, `texto` (use `\n`; comece com `**Frase em negrito,**`), `y` (`topo`, `meio`, `base` ou px), `tam`, `emojis` (2, padrão 🥴 😵).
 - **faixa** (studio): `titulo`, `texto`, `foto`, `foto2`.
 - **pergunta** / **cta**: `titulo`, `texto`; trend/studio: `kicker`, `botao`.
-- **blocos** (todos os tipos): `cor` (marrom, verde, agua, roxo, rosa, grafite, claro), `titulo` (cada linha vira uma faixa), `sub`, `caixas[]`, `texto`, `colunas[]` (`{sim, titulo, texto}` → ✅/❌), `foto`, `fotoAltura`.
+- **blocos** (todos os tipos): `cor` (escuro, pink, pessego, claro, blush), `titulo` (cada linha vira uma faixa), `sub`, `caixas[]`, `texto`, `colunas[]` (`{sim, titulo, texto}` → ✅/❌), `foto`, `fotoAltura`.
