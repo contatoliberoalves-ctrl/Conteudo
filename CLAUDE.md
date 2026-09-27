@@ -25,6 +25,8 @@ Numa sessão nova, só os moldes gerados nela têm `saida/`, e o `gerar.py` deix
 
 A página baixa cada carrossel em .zip, envia pro Google Drive do usuário (botão "Enviar pro Drive": pasta `Carrosséis Instagram` / molde / carrossel / `01.png`…, reenviar troca os slides) e tem um editor de capa (mover/zoom da foto por baixo do texto). O ajuste salvo fica no banco da página, coleção `ajustes` (doc `<molde>__<post>` com `molde, post, dx, dy, z`). Quando o usuário pedir para **aplicar os ajustes da galeria**: leia a coleção com `ArtifactData` (list `ajustes`), grave `"fotoAjuste": {"dx", "dy", "z"}` no post do `dados.json`, gere o post de novo, atualize a galeria e apague os docs aplicados.
 
+Pedidos de alteração: no visor, o usuário clica num ponto de um slide e escreve o que alterar, remover ou adicionar. Cada pedido é um doc na coleção `pedidos` do banco da página (`molde, post, titulo, slide` (1 = capa), `x, y` (0–1, posição do clique no slide), `tipo` (alterar/remover/adicionar), `texto`, `criado`). Quando o usuário pedir para **aplicar os pedidos da galeria**: leia a coleção com `ArtifactData` (list `pedidos`), abra o PNG do slide em `moldes/<molde>/saida/<post>/<slide>.png` e veja o que está no ponto (x·1080, y·1350), faça a mudança no `dados.json` (ou no template, se for do visual do molde), gere de novo, confira, atualize a galeria e apague os docs aplicados. Pedido ambíguo: pergunte antes e deixe o doc.
+
 ## Ambiente em nuvem do Claude Code
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`

@@ -57,7 +57,7 @@ h1 span{color:var(--lima)}
 .pedido{background:var(--verde);color:#EEF0EA;border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
 .pedido span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--lima)}
 .pedido code{font-family:var(--body);font-size:14px;line-height:1.5;background:rgba(255,255,255,.07);border-radius:10px;padding:10px 12px;user-select:all;overflow-wrap:anywhere}
-.pedido button{align-self:flex-start;cursor:pointer;background:var(--lima);color:#141412;border:0;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600}
+.ped-item button{align-self:flex-start;cursor:pointer;background:var(--lima);color:#141412;border:0;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600}
 .barra{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .busca{flex:1 1 260px;max-width:420px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 16px}
 .busca input{all:unset;flex:1;min-width:0;font-size:14px}
@@ -95,6 +95,29 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 @media (max-width:760px){.slides figure{width:min(82vw,calc((100dvh - 220px)*.8))}}
 .slides .quadro{display:block;width:100%;aspect-ratio:4/5;border-radius:8px;background-color:#222;background-repeat:no-repeat}
 .slides figcaption{font-size:12px;color:#9BA69F;text-align:center}
+/* Comentários nos slides: clique num ponto do slide, escreva o pedido; o Claude lê a coleção "pedidos". */
+.slides .quadro.comentavel{position:relative;cursor:crosshair}
+.pino{position:absolute;display:block;box-sizing:border-box;margin:0;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#FF5A5F;color:#fff;border:2px solid #fff;font:700 12px/22px var(--body);text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.45);cursor:pointer;padding:0}
+.pino.novo{background:var(--lima);color:#141412}
+.dica{font-size:12px;color:#9BA69F}
+.pedidos{display:flex;flex-direction:column;gap:6px;max-height:22dvh;overflow-y:auto}
+.pedidos:empty{display:none}
+.ped-item{display:flex;flex-direction:row;gap:10px;align-items:flex-start;background:rgba(238,240,234,.06);border:1px solid rgba(238,240,234,.14);border-radius:10px;padding:8px 10px;font-size:13px;color:#EEF0EA}
+.ped-item .n{flex:none;width:22px;height:22px;border-radius:50%;background:#FF5A5F;color:#fff;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center}
+.ped-item p{margin:0;flex:1;white-space:pre-wrap}
+.ped-item small{color:#9BA69F;margin-right:6px}
+.pedido button{flex:none;cursor:pointer;background:none;border:1px solid rgba(238,240,234,.28);color:#EEF0EA;border-radius:999px;padding:3px 10px;font-size:12px}
+.ped-item.ativo{border-color:#FF5A5F}
+.form-pedido{position:fixed;z-index:10;width:min(340px,calc(100vw - 32px));background:#1D201E;color:#EEF0EA;border:1px solid rgba(238,240,234,.2);border-radius:14px;padding:14px;box-shadow:0 12px 40px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:10px}
+.form-pedido[hidden]{display:none}
+.form-pedido .tipos{display:flex;gap:6px}
+.form-pedido .tipos button{flex:1;cursor:pointer;border-radius:999px;padding:6px 8px;font-size:13px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:none;color:#EEF0EA}
+.form-pedido .tipos button[aria-pressed="true"]{background:var(--lima);border-color:var(--lima);color:#141412}
+.form-pedido textarea{width:100%;box-sizing:border-box;min-height:90px;resize:vertical;border-radius:10px;border:1px solid rgba(238,240,234,.28);background:#141412;color:#EEF0EA;padding:10px;font:14px/1.4 var(--body)}
+.form-pedido .linha{display:flex;gap:8px;justify-content:flex-end}
+.form-pedido .linha button{cursor:pointer;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:none;color:#EEF0EA}
+.form-pedido .linha button.primario{background:var(--lima);border-color:var(--lima);color:#141412}
+@media (max-width:760px){.form-pedido{left:16px!important;right:16px;bottom:16px;top:auto!important;width:auto}}
 .visor-rodape{font-size:12px;color:#9BA69F;text-align:center}
 .ferramentas{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .ferramentas button,.ed-botoes button{cursor:pointer;border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:rgba(238,240,234,.06);color:#EEF0EA}
@@ -145,8 +168,21 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
       <button id="v-drive" hidden>Enviar pro Drive</button>
       <button id="v-editar" hidden>Editar capa</button>
       <span class="status" id="v-status" role="status"></span>
+      <span class="dica" id="v-dica" hidden>Clique no ponto do slide que quer mudar e escreva o pedido.</span>
     </div>
     <div class="slides" id="v-slides"></div>
+    <div class="pedidos" id="v-pedidos" aria-label="Pedidos de alteração deste carrossel"></div>
+    <div class="form-pedido" id="f-pedido" role="dialog" aria-label="Novo pedido de alteração" hidden>
+      <strong id="f-onde"></strong>
+      <div class="tipos" role="group" aria-label="Tipo de pedido">
+        <button type="button" data-tipo="alterar" aria-pressed="true">Alterar</button>
+        <button type="button" data-tipo="remover" aria-pressed="false">Remover</button>
+        <button type="button" data-tipo="adicionar" aria-pressed="false">Adicionar</button>
+      </div>
+      <textarea id="f-texto" placeholder="Ex.: troca esse título por…, tira essa figura, põe uma seta aqui…" aria-label="O que mudar"></textarea>
+      <div class="linha"><button type="button" id="f-cancelar">Cancelar</button><button type="button" id="f-salvar" class="primario">Salvar pedido</button></div>
+      <span class="status" id="f-status" role="status"></span>
+    </div>
     <div class="editor" id="v-editor" hidden>
       <canvas id="ed-canvas" width="1080" height="1350" aria-label="Prévia da capa"></canvas>
       <div class="ed-painel">
@@ -250,7 +286,7 @@ function desenharGrade() {
   $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
     <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
       <div class="thumb${p.n >= 3 ? ' tres' : ''}" style="aspect-ratio:${Math.min(p.n, 3) * 4}/5"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
-      <div class="info"><strong>${esc(p.titulo)}${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
+      <div class="info"><strong>${esc(p.titulo)}${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}${nPedidos(p) ? `<span class="chip pedido-chip">${nPedidos(p)} ${nPedidos(p) === 1 ? 'pedido' : 'pedidos'}</span>` : ''}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
     </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
 }
@@ -264,13 +300,15 @@ function abrir(i) {
   // Cada slide é um recorte da tira com todos os slides do post.
   $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
+  fecharFormPedido(); desenharPedidos();
   if (!$('#visor').open) $('#visor').showModal();
 }
 $('#v-fechar').onclick = () => $('#visor').close();
 $('#v-ant').onclick = () => abrir(atual - 1);
 $('#v-prox').onclick = () => abrir(atual + 1);
 $('#visor').addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT') return;
+  if (['INPUT', 'TEXTAREA', 'BUTTON'].includes(e.target.tagName) && e.target.closest('#f-pedido, .ed-painel')) return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
   if (e.key === 'ArrowLeft') { e.preventDefault(); abrir(atual - 1); }
   if (e.key === 'ArrowRight') { e.preventDefault(); abrir(atual + 1); }
 });
@@ -279,13 +317,17 @@ $('#visor').addEventListener('click', e => { if (e.target.classList.contains('vi
 // ---------- Download e editor de capa ----------
 // downloads: entrega o .zip/.png para o visitante salvar. db: coleção "ajustes" com a posição da foto
 // salva no editor (doc "<molde>__<post>": {dx, dy, z}); o Claude lê essa coleção para gravar no molde.
-let DL = null, DB = null, AJ = {};
+let DL = null, DB = null, AJ = {}, PED = [];
 const chave = p => `${ativo.id}__${p.id}`;
 const postAtual = () => lista[atual];
 (async () => {
   try { DL = await window.claude?.use?.('downloads'); } catch (e) { DL = null; }
   atualizarFerramentas();
   try { DB = await window.claude?.use?.('db'); } catch (e) { DB = null; }
+  if (DB) DB.collection('pedidos').onSnapshot(snap => {
+    PED = snap.docs.filter(d => d.exists).map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (a.criado || 0) - (b.criado || 0));
+    desenharGrade(); if ($('#visor').open) desenharPedidos();
+  }, () => { PED = []; });
   if (DB) DB.collection('ajustes').onSnapshot(snap => {
     AJ = {}; snap.docs.forEach(d => { if (d.exists) AJ[d.id] = d.data(); });
     desenharGrade(); atualizarFerramentas();
@@ -298,6 +340,8 @@ function atualizarFerramentas() {
   $('#v-drive').hidden = !MCP;
   $('#v-editar').hidden = !(p.editor && p.editor.img);
   $('#ed-salvar').hidden = !DB; $('#ed-baixar').hidden = !DL;
+  $('#v-dica').hidden = !DB;
+  document.querySelectorAll('#v-slides .quadro').forEach(q => q.classList.toggle('comentavel', !!DB));
   $('#ed-apagar').hidden = !(DB && AJ[chave(p)]);
 }
 
@@ -418,6 +462,64 @@ $('#v-drive').onclick = async ev => {
     st.innerHTML = `Enviado: ${esc(RAIZ)} / ${esc(semBarra(molde.nome))} / ${esc(semBarra(p.titulo))} · <a href="${esc(url)}" target="_blank" rel="noopener">abrir a pasta</a>`;
   } catch (err) { st.textContent = erroDrive(err); }
   bt.disabled = false;
+};
+
+// ---------- Pedidos de alteração (clicar no slide e escrever) ----------
+// db: coleção "pedidos", um doc por pedido: {molde, post, titulo, slide, x, y (0–1 no slide), tipo, texto, criado}.
+// O Claude lê a coleção quando o usuário pede "aplica os pedidos da galeria" e apaga os que aplicou.
+const pedidosDe = p => PED.filter(d => d.molde === ativo.id && d.post === p.id);
+const nPedidos = p => PED.filter(d => d.molde === ativo.id && d.post === p.id).length;
+let FP = null;  // pedido em edição: {slide, x, y}
+function desenharPedidos() {
+  const p = postAtual(); if (!p) return;
+  const lst = pedidosDe(p);
+  document.querySelectorAll('#v-slides .quadro').forEach((q, k) => {
+    q.classList.toggle('comentavel', !!DB);
+    q.querySelectorAll('.pino').forEach(e => e.remove());
+    lst.forEach((d, i) => { if (d.slide !== k + 1) return;
+      const b = document.createElement('button'); b.className = 'pino'; b.textContent = i + 1; b.title = d.texto;
+      b.setAttribute('aria-label', `Pedido ${i + 1}: ${d.texto}`);
+      b.style.left = (d.x * 100) + '%'; b.style.top = (d.y * 100) + '%';
+      b.onclick = e => { e.stopPropagation(); const it = $(`#pd-${CSS.escape(d.id)}`); if (it) { it.classList.add('ativo'); it.scrollIntoView({ block: 'nearest' }); setTimeout(() => it.classList.remove('ativo'), 1500); } };
+      q.appendChild(b); });
+    if (FP && FP.slide === k + 1) { const b = document.createElement('span'); b.className = 'pino novo'; b.textContent = '+'; b.style.left = (FP.x * 100) + '%'; b.style.top = (FP.y * 100) + '%'; q.appendChild(b); }
+  });
+  $('#v-pedidos').innerHTML = lst.map((d, i) => `<div class="ped-item" id="pd-${esc(d.id)}"><span class="n">${i + 1}</span><p><small>Slide ${d.slide} · ${esc(d.tipo || 'alterar')}</small>${esc(d.texto)}</p><button data-apagar="${esc(d.id)}">Apagar</button></div>`).join('');
+  document.querySelectorAll('[data-apagar]').forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    try { await DB.doc('pedidos/' + b.dataset.apagar).delete(); } catch (e) { b.disabled = false; $('#v-status').textContent = 'Não foi possível apagar o pedido.'; }
+  });
+}
+$('#v-slides').addEventListener('click', e => {
+  const q = e.target.closest('.quadro'); if (!q || !DB || e.target.closest('.pino')) return;
+  e.stopPropagation();
+  const r = q.getBoundingClientRect(), k = [...document.querySelectorAll('#v-slides .quadro')].indexOf(q);
+  FP = { slide: k + 1, x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) };
+  const f = $('#f-pedido'); f.hidden = false;
+  f.style.left = Math.min(innerWidth - f.offsetWidth - 16, Math.max(16, e.clientX + 14)) + 'px';
+  f.style.top = Math.min(innerHeight - f.offsetHeight - 16, Math.max(16, e.clientY - 40)) + 'px';
+  $('#f-onde').textContent = `Slide ${FP.slide}: o que mudar neste ponto?`;
+  $('#f-status').textContent = ''; desenharPedidos(); $('#f-texto').focus();
+});
+function fecharFormPedido() { FP = null; $('#f-pedido').hidden = true; $('#f-texto').value = ''; }
+document.querySelectorAll('#f-pedido [data-tipo]').forEach(b => b.onclick = () =>
+  document.querySelectorAll('#f-pedido [data-tipo]').forEach(x => x.setAttribute('aria-pressed', x === b)));
+$('#f-cancelar').onclick = () => { fecharFormPedido(); desenharPedidos(); };
+$('#f-texto').addEventListener('keydown', e => {
+  if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); $('#f-cancelar').click(); }
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) $('#f-salvar').click();
+});
+$('#f-salvar').onclick = async () => {
+  const p = postAtual(), texto = $('#f-texto').value.trim();
+  if (!FP || !p) return;
+  if (!texto) { $('#f-status').textContent = 'Escreva o que mudar.'; return; }
+  const tipo = document.querySelector('#f-pedido [data-tipo][aria-pressed="true"]')?.dataset.tipo || 'alterar';
+  $('#f-salvar').disabled = true; $('#f-status').textContent = 'Salvando…';
+  try {
+    await DB.collection('pedidos').add({ molde: ativo.id, post: p.id, titulo: p.titulo, slide: FP.slide, x: +FP.x.toFixed(3), y: +FP.y.toFixed(3), tipo, texto, criado: Date.now() });
+    fecharFormPedido(); $('#v-status').textContent = 'Pedido salvo. Quando quiser, diga ao Claude: “aplica os pedidos da galeria”.';
+  } catch (err) { $('#f-status').textContent = err?.code === 'permission_denied' || err?.code === 'not_granted' ? 'Você não tem permissão para salvar pedidos aqui.' : 'Não foi possível salvar o pedido.'; }
+  $('#f-salvar').disabled = false;
 };
 
 let ED = null;
