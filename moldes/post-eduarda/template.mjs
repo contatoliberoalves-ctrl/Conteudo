@@ -21,14 +21,14 @@ const fmt = (t, m = {}) => esc(t)
 
 function img(ctx, nome, pos = 'center 30%') {
   const src = nome && ctx.imgs[nome];
-  if (src) return `<div data-foto style="position:relative;width:100%;height:100%"><img src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:${esc(pos)};display:block;filter:saturate(.85)"><div style="position:absolute;inset:0;background:${C.claro};mix-blend-mode:soft-light;opacity:.6"></div></div>`;
+  if (src) return `<div data-foto style="position:relative;width:100%;height:100%"><img src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:${esc(pos)};display:block;filter:saturate(.85)"><div style="position:absolute;inset:0;background:${C.pink};mix-blend-mode:color;opacity:.16"></div><div style="position:absolute;inset:0;background:${C.claro};mix-blend-mode:soft-light;opacity:.6"></div></div>`;
   if (nome) ctx.faltando.add(nome);
   return `<div data-foto style="width:100%;height:100%;background:linear-gradient(160deg,${C.claro},${C.pessego});display:flex;align-items:center;justify-content:center;${TIGHT};font-size:90px;color:#fff">EC</div>`;
 }
 const estrelinha = (x, y, px, cor, rot = 0) => `<svg style="position:absolute;left:${x}px;top:${y}px;width:${px}px;height:${px}px;transform:rotate(${rot}deg);z-index:4" viewBox="0 0 100 100"><path d="M50 6 L61 37 L94 38 L68 58 L78 92 L50 72 L22 92 L32 58 L6 38 L39 37Z" fill="none" stroke="${cor}" stroke-width="4" stroke-linejoin="round"/></svg>`;
 
 // ---------- frase ----------
-const CORES = { blush: [C.blush, C.escuro], claro: [C.claro, '#fff'], escuro: [C.escuro, '#fff'], pink: [C.pink, '#fff'], pessego: [C.pessego, '#fff'] };
+const CORES = { branco: ['#fff', C.escuro], blush: [C.blush, C.escuro], claro: [C.claro, '#fff'], escuro: [C.escuro, '#fff'], pink: [C.pink, '#fff'], pessego: [C.pessego, '#fff'] };
 function frase(s, ctx) {
   const [bg, tinta] = CORES[s.cor] || CORES.blush, fotos = lista(s.fotos).slice(0, 2);
   const tam = s.ts || 150;

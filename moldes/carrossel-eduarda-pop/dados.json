@@ -1,20 +1,20 @@
 [
   {
     "id": "prescricao-decadencia-trend",
-    "titulo": "Nem todo prazo é prescrição · trend",
+    "titulo": "Prescrição ou decadência? · trend",
     "estilo": "trend",
     "slides": [
       {
         "tipo": "capa",
-        "titulo": "==Nem todo== prazo do {Código Civil} é de ==prescrição==",
-        "texto": "O truque de um segundo pra não confundir mais com decadência na prova.",
-        "foto": "pensando-mesa.jpg",
-        "fotoPos": "38% center"
+        "kicker": "Direito Civil",
+        "titulo": "Prescrição ou decadência?\n==O truque de 1 segundo==",
+        "texto": "Pra nunca mais confundir os dois na prova.",
+        "ts": 104
       },
       {
         "tipo": "texto",
-        "kicker": "O Código Civil de 2002 deixou uma regra de ouro:",
-        "titulo": "Se está nos arts. ==205 e 206==, é {prescrição}.",
+        "kicker": "O Código Civil de 2002 facilitou:",
+        "titulo": "Está nos arts. ==205 e 206==? É {prescrição}.",
         "caixa": "Os outros prazos espalhados pelo Código são **decadenciais**, como os 4 anos do art. 178 para anular negócio por erro, dolo ou coação."
       },
       {
@@ -46,47 +46,145 @@
     ]
   },
   {
-    "id": "guarda-compartilhada-studio",
-    "titulo": "Guarda compartilhada ou alternada? · studio",
+    "id": "pensao-em-eras-trend",
+    "titulo": "Pensão alimentícia em eras · trend (pop)",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Direito de Família",
+        "titulo": "Pensão alimentícia\n==em eras==",
+        "texto": "Cada fase da vida do filho, uma regra diferente. Qual é a sua era?"
+      },
+      {
+        "tipo": "era",
+        "numero": 1,
+        "kicker": "Antes de nascer",
+        "titulo": "A era dos alimentos *gravídicos*",
+        "texto": "A gestante pode pedir ajuda com as despesas da gravidez, da concepção ao parto (Lei 11.804/2008)."
+      },
+      {
+        "tipo": "era",
+        "numero": 2,
+        "cor": "escuro",
+        "kicker": "Infância e adolescência",
+        "titulo": "A era da *pensão*",
+        "texto": "O valor segue as necessidades de quem recebe e as possibilidades de quem paga (art. 1.694, § 1º, CC)."
+      },
+      {
+        "tipo": "era",
+        "numero": 3,
+        "cor": "pessego",
+        "kicker": "18 anos",
+        "titulo": "Ela não acaba *sozinha*",
+        "texto": "Fazer 18 não cancela a pensão automaticamente: o cancelamento depende de decisão judicial (Súmula 358 do STJ)."
+      },
+      {
+        "tipo": "era",
+        "numero": 4,
+        "kicker": "Faculdade",
+        "titulo": "Pode *continuar*",
+        "texto": "Se o filho estuda e ainda depende dos pais, a Justiça costuma manter a pensão, em regra até os 24 anos."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "E aí?",
+        "titulo": "Qual ==era== é a sua?",
+        "texto": "Me conta nos comentários ✨",
+        "botao": "Salvar pra depois"
+      }
+    ]
+  },
+  {
+    "id": "viagem-crianca-eca-studio",
+    "titulo": "Seu filho pode viajar sem você? · studio",
     "estilo": "studio",
     "slides": [
       {
         "tipo": "capa",
-        "kicker": "Você ainda",
-        "titulo": "confunde guarda *compartilhada* com alternada?",
-        "texto": "Spoiler: o Código Civil só fala de uma delas.",
-        "foto": "pai-filha-abraco.jpg",
-        "fotoPos": "30% center"
+        "kicker": "Férias chegando",
+        "titulo": "Seu filho pode *viajar* sem você?",
+        "texto": "O que o ECA diz sobre viagem de criança e adolescente.",
+        "foto": "eduarda-gesticulando.jpg",
+        "fotoPos": "center 22%"
       },
       {
         "tipo": "texto",
-        "kicker": "Na guarda compartilhada, pai e mãe **decidem juntos** o que importa na vida do filho: escola, saúde, viagens.",
-        "titulo": "não é dividir a criança *ao meio*"
+        "kicker": "Pelo art. 83 do ECA,",
+        "titulo": "menor de 16 anos não viaja *sozinho*",
+        "texto": "para fora da comarca onde mora, sem os pais ou o responsável, sem autorização judicial.",
+        "grade": true
       },
       {
         "tipo": "lista",
-        "titulo": "E quando os pais não se entendem?",
+        "titulo": "Quando *não* precisa de autorização do juiz:",
         "itens": [
-          "não há acordo entre a mãe e o pai",
-          "os dois estão aptos a exercer o poder familiar",
-          "nenhum declarou que não quer a guarda",
-          "não há risco de violência doméstica"
+          "comarca vizinha, no mesmo estado",
+          "na mesma região metropolitana",
+          "com avós, tios ou irmãos maiores de idade, provando o parentesco",
+          "com um adulto autorizado por escrito pelo pai, pela mãe ou pelo responsável"
         ],
-        "texto": "aí o juiz aplica a *compartilhada*\n(art. 1.584, § 2º, CC)"
+        "texto": "(art. 83, § 1º, ECA)"
       },
       {
-        "tipo": "faixa",
-        "titulo": "Calma, alternada não é *compartilhada*",
-        "texto": "Na alternada, a criança muda de casa e, em cada período, **só um dos pais** exerce a guarda. Esse modelo não está previsto no Código Civil.",
-        "foto": "menino-mao.jpg",
-        "fotoPos": "center 35%"
+        "tipo": "texto",
+        "fundo": "rosa",
+        "kicker": "E pra fora do país?",
+        "titulo": "com os *dois* pais, tudo certo",
+        "texto": "Com só um deles, precisa da autorização do outro por escrito, com firma reconhecida. Sem isso, só com autorização judicial (art. 84, ECA)."
       },
       {
         "tipo": "cta",
-        "kicker": "Se ficou alguma dúvida sobre a guarda dos seus filhos,",
-        "titulo": "o próximo passo é uma *conversa*",
-        "texto": "Me chama no direct que a gente olha o seu caso com calma.",
+        "kicker": "Vai viajar com seus filhos e ficou com dúvida?",
+        "titulo": "me chama no *direct*",
+        "texto": "A gente confere o que você precisa antes de embarcar.",
         "botao": "Link na bio"
+      }
+    ]
+  },
+  {
+    "id": "irmao-herda-studio",
+    "titulo": "Irmão herda do irmão? · studio (pop)",
+    "estilo": "studio",
+    "slides": [
+      {
+        "tipo": "texto",
+        "fundo": "rosa",
+        "enfeite": "morcegos",
+        "kicker": "Pergunta de quem maratonou The Vampire Diaries 🧛",
+        "titulo": "Irmão *herda* do irmão?"
+      },
+      {
+        "tipo": "texto",
+        "enfeite": "morcegos",
+        "kicker": "Se um dos irmãos Salvatore morresse…",
+        "titulo": "o outro só herda se *não* houver filhos, pais nem cônjuge",
+        "texto": "Irmãos são parentes colaterais e vêm por último na fila da herança (arts. 1.829 e 1.839, CC)."
+      },
+      {
+        "tipo": "lista",
+        "titulo": "A fila da *herança*",
+        "itens": [
+          "filhos e netos (em alguns casos, junto com o cônjuge)",
+          "pais e avós, junto com o cônjuge",
+          "o cônjuge ou companheiro, sozinho",
+          "irmãos, sobrinhos, tios e primos"
+        ],
+        "texto": "(art. 1.829, CC)"
+      },
+      {
+        "tipo": "texto",
+        "enfeite": "morcegos",
+        "kicker": "E o irmão só de pai ou só de mãe?",
+        "titulo": "recebe *metade* do que cabe ao irmão de pai e mãe",
+        "texto": "(art. 1.841, CC)"
+      },
+      {
+        "tipo": "cta",
+        "fundo": "rosa",
+        "enfeite": "morcegos",
+        "titulo": "Qual série eu explico *depois*?",
+        "texto": "Deixa nos comentários 🍿"
       }
     ]
   },
@@ -97,9 +195,7 @@
     "slides": [
       {
         "tipo": "capa",
-        "titulo": "você não precisa decorar o Código,\n==na verdade==\nprecisa saber *achar* 4 coisas:",
-        "foto": "escrevendo.jpg",
-        "fotoPos": "45% center"
+        "titulo": "não decore o Código.\n==aprenda a achar==\nessas 4 coisas:"
       },
       {
         "tipo": "item",
@@ -139,38 +235,31 @@
     "estilo": "scrap",
     "slides": [
       {
-        "tipo": "lista",
-        "titulo": "erros que tiram ponto na sua peça de Civil",
-        "kicker": "e que dá pra evitar com 5 minutos de revisão:",
-        "itens": [
-          "endereçamento errado",
-          "artigo copiado sem explicar",
-          "dados inventados",
-          "pedidos genéricos"
-        ]
+        "tipo": "capa",
+        "titulo": "4 erros que *tiram ponto* na sua peça de Civil",
+        "texto": "e dá pra evitar com 5 minutos de revisão"
       },
       {
         "tipo": "legenda",
-        "foto": "aflita-notebook.jpg",
-        "fotoPos": "center 30%",
-        "texto": "**Errar o endereçamento,**\na peça começa por ele e o\nerro aparece logo na 1ª linha.",
-        "y": "base"
+        "foto": "eduarda-surpresa.jpg",
+        "fotoPos": "center 20%",
+        "texto": "**Errar o endereçamento,**\na peça começa por ele e o\nerro aparece logo na 1ª linha."
       },
       {
         "tipo": "legenda",
-        "foto": "lendo-cafe.jpg",
-        "fotoPos": "center 30%",
+        "foto": "eduarda-duvida.jpg",
+        "fotoPos": "center 20%",
         "texto": "**Copiar o artigo inteiro,**\ncite e explique como ele\nse aplica ao caso."
       },
       {
         "tipo": "legenda",
-        "foto": "lendo-oculos.jpg",
-        "fotoPos": "center 25%",
+        "foto": "eduarda-explicando.jpg",
+        "fotoPos": "center 20%",
         "texto": "**Inventar dados,** use só o que\no enunciado dá e deixe o resto\ncom reticências."
       },
       {
         "tipo": "legenda",
-        "foto": "notebook-sofa.jpg",
+        "foto": "eduarda-apontando.jpg",
         "fotoPos": "center 30%",
         "texto": "**Pedidos genéricos,**\nfaça um por um, como\nno seu checklist."
       },
@@ -185,19 +274,16 @@
     "id": "alimentos-gravidicos-blocos",
     "titulo": "Alimentos gravídicos · blocos",
     "estilo": "blocos",
-    "cor": "escuro",
+    "cor": "branco",
     "slides": [
       {
         "tipo": "capa",
+        "cor": "escuro",
         "titulo": "Alimentos gravídicos\n= pensão *antes*\ndo bebê nascer",
-        "sub": "Lei 11.804/2008 sem juridiquês.",
-        "foto": "gestante.jpg",
-        "fotoAltura": 460,
-        "cor": "escuro"
+        "sub": "Lei 11.804/2008 sem juridiquês."
       },
       {
         "tipo": "dica",
-        "cor": "pink",
         "titulo": "Quem pede\né a gestante",
         "sub": "E pode pedir ainda na gravidez.",
         "caixas": [
@@ -206,13 +292,11 @@
           "internações e parto",
           "remédios"
         ],
-        "texto": "O valor cobre as despesas da gravidez,\nda concepção ao parto (art. 2º).",
-        "foto": "caderno-rosa.jpg",
-        "fotoAltura": 300
+        "texto": "O valor cobre as despesas da gravidez,\nda concepção ao parto (art. 2º)."
       },
       {
         "tipo": "dica",
-        "cor": "pessego",
+        "cor": "blush",
         "titulo": "Não precisa de\nDNA pra começar",
         "sub": "Bastam indícios da paternidade.",
         "texto": "Convencido desses indícios, o juiz fixa\nos alimentos até o nascimento (art. 6º).",
@@ -231,7 +315,6 @@
       },
       {
         "tipo": "dica",
-        "cor": "claro",
         "titulo": "E quando o\nbebê nasce?",
         "sub": "A pensão continua.",
         "texto": "Com o nascimento com vida, os alimentos\nviram pensão do filho, até que alguém peça\na revisão (art. 6º, parágrafo único).",
@@ -240,7 +323,7 @@
       },
       {
         "tipo": "cta",
-        "cor": "blush",
+        "cor": "pink",
         "titulo": "Tá grávida e o pai\nnão ajuda?",
         "sub": "Você não precisa esperar o bebê nascer.",
         "texto": "Me chama no direct\nque eu te explico o caminho."

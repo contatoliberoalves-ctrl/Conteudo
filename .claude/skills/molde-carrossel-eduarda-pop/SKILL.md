@@ -7,7 +7,9 @@ description: Gera carrosséis de Instagram no molde "Carrossel Eduarda Pop", da 
 
 Pasta: `moldes/carrossel-eduarda-pop/`. O visual está em `template.mjs`; para gerar posts só se edita `dados.json`.
 
-**Regra da marca:** só as 5 cores da paleta (`#FFEBED`, `#FEBAC5`, `#F4789A`, `#FC79AB`, `#FEA9AC`) + branco, e as 3 fontes do molde (Inter Tight, Gloock, Yellowtail). Não traga cor nem fonte nova; os estilos têm que ornar lado a lado no feed.
+**Regra da marca:** só as 5 cores da paleta (`#FFEBED`, `#FEBAC5`, `#F4789A`, `#FC79AB`, `#FEA9AC`) + branco, e as 3 fontes do molde (Inter Tight, Gloock, Yellowtail). Não traga cor nem fonte nova; os estilos têm que ornar lado a lado no feed. Use **mais branco que rosa**: capa pode ser rosa, as páginas seguintes em geral brancas.
+
+**Fotos:** nas capas, só fotos em que a Eduarda aparece sozinha (lista em `fotos/LEIA.md`). Também dá para fazer carrossel sem ela, só com design; tema de cultura pop (séries, cantoras) vai no texto e nos enfeites (`era` com disco de vinil, `enfeite: "morcegos"`), nunca com foto de artista ou cena de série.
 
 ## Passo a passo
 

@@ -15,7 +15,7 @@ const buildDir = path.join(root, 'build');
 fs.mkdirSync(buildDir, { recursive: true });
 
 // Fotos da Eduarda (fora do git) em fotos/ (deste molde ou dos outros da Eduarda); ../carrossel-eduarda-pop/imagens/ tem as fotos CC0 de exemplo.
-const pastas = [path.join(root, 'fotos'), path.join(root, '..', 'carrossel-eduarda-pop', 'imagens'), path.join(root, '..', 'carrossel-eduarda', 'fotos'), path.join(root, '..', 'carrossel-eduarda-moderno', 'fotos')];
+const pastas = [path.join(root, 'fotos'), path.join(root, '..', 'carrossel-eduarda-pop', 'fotos'), path.join(root, '..', 'carrossel-eduarda-pop', 'imagens'), path.join(root, '..', 'carrossel-eduarda', 'fotos'), path.join(root, '..', 'carrossel-eduarda-moderno', 'fotos')];
 const achar = nome => pastas.map(p => path.join(p, nome)).find(f => fs.existsSync(f));
 
 const launch = {};
