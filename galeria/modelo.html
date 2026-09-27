@@ -456,7 +456,14 @@ $('#v-drive').onclick = async ev => {
     for (const f of antigos) if (f.mimeType !== PASTA) await drive('trash_file', { fileId: f.id });
     await cadaSlide(p, async (cv, k) => {
       st.textContent = `Enviando slide ${k + 1} de ${p.n}…`;
-      await MCP.callTool(DRIVE, 'create_file', { ...(await conteudoSlide(cv, k)), parentId: pc.id, disableConversionToGoogleType: true });
+      const enviar = async () => MCP.callTool(DRIVE, 'create_file', { ...(await conteudoSlide(cv, k)), parentId: pc.id, disableConversionToGoogleType: true });
+      try { await enviar(); }
+      catch (err) {
+        // O envio do PNG como arquivo anexo pode ser recusado antes de chegar ao Drive (ex.: "file upload failed (415)").
+        // Nesse caso o slide não subiu: passa a mandar tudo em JPEG dentro da própria chamada e tenta esse slide de novo.
+        if (!ARQ_MCP || !/upload|staging|415/i.test(err?.message || '') && !['bad_request', 'capability_disabled'].includes(err?.code)) throw err;
+        ARQ_MCP = false; await enviar();
+      }
     });
     const url = pc.viewUrl || `https://drive.google.com/drive/folders/${pc.id}`;
     st.innerHTML = `Enviado: ${esc(RAIZ)} / ${esc(semBarra(molde.nome))} / ${esc(semBarra(p.titulo))} · <a href="${esc(url)}" target="_blank" rel="noopener">abrir a pasta</a>`;
