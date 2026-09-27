@@ -1,0 +1,1 @@
+Fotos do autor (ensaios, fotos descontraídas e paisagens de viagem). Ficam fora do git (repositório público): os originais estão no Drive. Qualquer JPG/PNG; o render corta em 3:4 (1080×1440) pelo centro, ou pelo "fotoPos" do slide.

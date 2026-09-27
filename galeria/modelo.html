@@ -285,7 +285,7 @@ function desenharGrade() {
   $('#contagem').textContent = `${lista.length} de ${ativo.posts.length} posts`;
   $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
     <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
-      <div class="thumb${p.n >= 3 ? ' tres' : ''}" style="aspect-ratio:${Math.min(p.n, 3) * 4}/5"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
+      <div class="thumb${p.n >= 3 ? ' tres' : ''}" style="aspect-ratio:${Math.min(p.n, 3) * 1080}/${p.h || 1350}"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
       <div class="info"><strong>${esc(p.titulo)}${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}${nPedidos(p) ? `<span class="chip pedido-chip">${nPedidos(p)} ${nPedidos(p) === 1 ? 'pedido' : 'pedidos'}</span>` : ''}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
     </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
@@ -298,7 +298,7 @@ function abrir(i) {
   $('#v-titulo').textContent = p.titulo;
   fecharEditor(); $('#v-status').textContent = ''; atualizarFerramentas();
   // Cada slide é um recorte da tira com todos os slides do post.
-  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
+  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:1080/${p.h || 1350};background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
   fecharFormPedido(); desenharPedidos();
   if (!$('#visor').open) $('#visor').showModal();
@@ -373,13 +373,13 @@ async function salvarArquivo(nome, blob, status) {
 
 // Desenha os slides do post um a um (a capa com o ajuste salvo no editor, se houver) e entrega cada um a `fn`.
 async function cadaSlide(p, fn) {
-  const tira = await carregar(p.tira);
-  const cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350; const ctx = cv.getContext('2d');
+  const tira = await carregar(p.tira), H = p.h || 1350;  // altura do slide: 1350 (4:5) ou 1440 (3:4)
+  const cv = document.createElement('canvas'); cv.width = 1080; cv.height = H; const ctx = cv.getContext('2d');
   const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
   const sprite = usarEditor ? await carregar(p.editor.img) : null;
   for (let k = 0; k < p.n; k++) {
     if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
-    else ctx.drawImage(tira, k * 1080, 0, 1080, 1350, 0, 0, 1080, 1350);
+    else ctx.drawImage(tira, k * 1080, 0, 1080, H, 0, 0, 1080, H);
     await fn(cv, k);
   }
 }

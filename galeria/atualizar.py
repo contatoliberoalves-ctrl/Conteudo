@@ -36,7 +36,8 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         if not slides:
             print(f'! {c["id"]}: sem imagens em saida/, fica de fora', file=sys.stderr)
             continue
-        tira = Image.new('RGB', (1080 * len(slides), 1350))
+        alt = Image.open(slides[0]).height  # 1350 (4:5) ou 1440 (3:4)
+        tira = Image.new('RGB', (1080 * len(slides), alt))
         for k, s in enumerate(slides):
             tira.paste(Image.open(s).convert('RGB'), (1080 * k, 0))
         (dist / base).parent.mkdir(parents=True, exist_ok=True)
@@ -44,9 +45,11 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         painel = saida / 'painel.png'
         jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
         publicar += [f'{base}-painel.jpg', f'{base}-slides.webp']
-    n = len(slides) or next(p['n'] for p in antigo['posts'] if p['id'] == c['id'])
+    velho = next((p for p in (antigo or {}).get('posts', []) if p['id'] == c['id']), {})
+    n = len(slides) or velho['n']
+    alt = Image.open(slides[0]).height if slides else velho.get('h', 1350)
     posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'topicos': len(c.get('topicos', [])),
-                  'painel': f'{base}-painel.jpg', 'tira': f'{base}-slides.webp', 'n': n, 'editor': editores.get(c['id'])})
+                  'painel': f'{base}-painel.jpg', 'tira': f'{base}-slides.webp', 'n': n, 'h': alt, 'editor': editores.get(c['id'])})
 meta['posts'] = posts
 if antigo:
     moldes[moldes.index(antigo)] = meta
