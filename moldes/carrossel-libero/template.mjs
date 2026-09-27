@@ -306,3 +306,6 @@ ${pontes.map(p => { const w = p.tam || 360; return objetoHtml({ ...p, tam: w }, 
 </div></body></html>`;
   return { html, total: n, avisos };
 }
+
+// Peças do visual reaproveitadas pelo molde de tela única (post-libero).
+export { COR, TEMAS, TITULO, PERFIL, esc, rico, lista, textura };
