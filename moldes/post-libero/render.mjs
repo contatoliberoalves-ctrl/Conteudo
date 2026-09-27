@@ -24,8 +24,16 @@ if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.e
 const browser = await chromium.launch(launch);
 
 let problemas = 0;
-for (const c of dados) {
+// "estrutura": id de um post do molde Estrutura de Peças; os campos dele (endereçamento, qualificação,
+// tópicos, valor e o título) entram no post, sem copiar o texto.
+const estruturas = Object.fromEntries(JSON.parse(fs.readFileSync(path.join(root, '..', 'estrutura-de-pecas', 'dados.json'), 'utf8')).map(e => [e.id, e]));
+for (let c of dados) {
   if (filtro && c.id !== filtro) continue;
+  if (c.estrutura) {
+    const e = estruturas[c.estrutura];
+    if (!e) { console.log('!', c.id, `estrutura "${c.estrutura}" não existe em estrutura-de-pecas/dados.json`); problemas++; continue; }
+    c = { linhas: e.titulo, enderecamento: e.enderecamento, qualificacao: e.qualificacao, topicos: e.topicos, valor: e.valor, ...c };
+  }
   // Imagens de imagens/ (banco ou IA) ainda não geradas: o slide sai sem elas, com aviso.
   const pendentes = [];
   c.slides = (c.slides || []).map(s => {

@@ -1,8 +1,10 @@
 // Molde "Post Libero" (@liberofilho): post de tela única (1080×1350) no visual do Carrossel Libero.
-// Três layouts ("layout" no post):
+// Layouts ("layout" no post):
 //   dados    — título + gráfico de barras horizontais (ranking, estatística), com a fonte no pé;
 //   material — "Material gratuito": título grande, apostila em pé na direita e o balão "Comente #X";
-//   pdf      — página do PDF inclinada no centro, com os tópicos, e a caixa de comentário "Comente #X".
+//   pdf      — página do PDF inclinada no centro, com os tópicos, e a caixa de comentário "Comente #X";
+//   estrutura — estrutura da peça numa folha de petição (endereçamento, qualificação, tópicos em romanos);
+//   esqueleto — estrutura da peça em trilha numerada, com o endereçamento em destaque.
 // "linhas" é o título na imagem (lista de linhas); "titulo" é o nome do post na galeria.
 // Marcação: **negrito** e [[caixa]] (palavra com fundo sólido, só nos títulos), como no Carrossel Libero.
 import { COR, TEMAS, TITULO, PERFIL, esc, rico, lista, textura } from '../carrossel-libero/template.mjs';
@@ -75,11 +77,56 @@ const LAYOUTS = {
   },
 };
 
+// Estrutura das peças (dados puxados do molde Estrutura de Peças pelo render: enderecamento, qualificacao,
+// topicos, valor). "Dos Fatos (art. X)" vira título + detalhe menor.
+const partes = tp => { const i = tp.indexOf(' ('); return i > 0 ? [tp.slice(0, i), tp.slice(i + 2).replace(/\)$/, '')] : [tp, '']; };
+const ROMANO = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+Object.assign(LAYOUTS, {
+  // Folha de petição: endereçamento, qualificação, tópicos em romanos e fechamento.
+  estrutura(p, t) {
+    const tops = lista(p.topicos), px = tops.length > 7 ? 30 : 33;
+    const linha = (rot, txt) => `<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:19px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.vermelho}">${esc(rot)}</span><span data-corpo style="font-size:25px;font-weight:600;line-height:1.25;color:${COR.navy}">${rico(txt, t)}</span></div>`;
+    return `<div data-area style="position:absolute;left:110px;right:110px;top:70px;bottom:1015px;padding-bottom:16px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;z-index:3">
+        <span style="align-self:flex-start;background:${COR.navy};color:#fff;font-size:26px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px">${esc(p.selo || 'Estrutura da peça')}</span>
+        ${(l => ttl(l, t, p.ts || tam(l, 120, 860)))([lista(p.linhas || p.titulo).join(' ')])}
+      </div>
+      <div data-area style="position:absolute;left:90px;right:90px;top:345px;bottom:150px;background:#fff;box-shadow:0 30px 70px rgba(8,16,40,.22);padding:40px 48px 36px 76px;display:flex;flex-direction:column;gap:18px;z-index:2">
+        <span style="position:absolute;left:46px;top:0;bottom:0;width:3px;background:${COR.vermelho};opacity:.55"></span>
+        ${linha('Endereçamento', p.enderecamento)}
+        ${linha('Qualificação', p.qualificacao)}
+        <div style="display:flex;flex-direction:column;gap:${tops.length > 7 ? 10 : 14}px;border-top:2px solid #E4E7EE;padding-top:16px">
+          ${tops.map((tp, i) => { const [a, b] = partes(tp); return `<div style="display:flex;gap:16px;align-items:baseline"><span style="flex:none;width:52px;${TITULO};font-size:${px + 4}px;color:${COR.azul}">${ROMANO[i] || i + 1}</span><div><span data-corpo style="font-size:${px}px;font-weight:800;line-height:1.15;color:${COR.navy}">${rico(a, t)}</span>${b ? `<span data-corpo style="display:block;font-size:${px - 9}px;font-weight:600;line-height:1.2;color:${COR.azul}">${rico(b, t)}</span>` : ''}</div></div>`; }).join('')}
+        </div>
+        ${p.valor ? `<div style="margin-top:auto;border-top:2px solid #E4E7EE;padding-top:14px;display:flex;justify-content:space-between;font-size:22px;font-weight:700;color:${COR.navy}"><span>${esc(p.valor)}</span><span style="opacity:.6">Local, data · Advogado · OAB</span></div>` : ''}
+      </div>${selo(t)}`;
+  },
+  // Esqueleto em trilha: endereçamento em destaque e os tópicos como paradas numeradas.
+  esqueleto(p, t) {
+    const tops = lista(p.topicos), n = tops.length + (p.valor ? 1 : 0);
+    const alto = Math.min(110, Math.floor(700 / Math.max(n, 1)));
+    const paradas = [...tops, ...(p.valor ? [p.valor] : [])].map((tp, i) => {
+      const [a, b] = partes(tp), fim = i === tops.length;
+      return `<div style="position:relative;display:flex;gap:28px;align-items:center;min-height:${alto}px">
+        <span style="flex:none;width:64px;height:64px;border-radius:50%;background:${fim ? COR.vermelho : COR.azul};color:#fff;display:flex;align-items:center;justify-content:center;${TITULO};font-size:36px;z-index:1">${fim ? '✓' : String(i + 1).padStart(2, '0')}</span>
+        <div><span data-corpo style="font-size:${n > 8 ? 32 : 36}px;font-weight:800;line-height:1.1;color:#fff">${rico(a, t)}</span>${b ? `<span data-corpo style="display:block;font-size:${n > 8 ? 23 : 26}px;font-weight:600;line-height:1.2;color:${COR.azulClaro}">${rico(b, t)}</span>` : ''}</div></div>`;
+    }).join('');
+    return `<div data-area style="position:absolute;left:110px;right:110px;top:110px;bottom:190px;display:flex;flex-direction:column;gap:22px;z-index:3">
+        ${kicker(p.kicker || 'Esqueleto da peça', t)}
+        ${ttl(p.linhas || p.titulo, t, p.ts || tam(p.linhas || p.titulo, 130, 860))}
+        <div style="background:${COR.azul};padding:18px 24px;display:flex;flex-direction:column;gap:4px"><span style="font-size:20px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.off}">Endereçamento</span><span data-corpo style="font-size:28px;font-weight:700;line-height:1.2;color:#fff">${rico(p.enderecamento, t)}</span></div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:6px;margin-top:6px">
+          <span style="position:absolute;left:31px;top:30px;bottom:30px;width:3px;background:rgba(255,255,255,.25)"></span>
+          ${paradas}
+        </div>
+      </div>${selo(t)}`;
+  },
+});
+
 export function renderCarrossel(p) {
   const avisos = [];
   const t = TEMAS[p.tema] || TEMAS.blue;
   const f = LAYOUTS[p.layout];
-  if (!f) avisos.push(`layout "${p.layout}" não existe (use dados, material ou pdf)`);
+  if (!f) avisos.push(`layout "${p.layout}" não existe (use ${Object.keys(LAYOUTS).join(', ')})`);
   if (!TEMAS[p.tema]) avisos.push(`tema "${p.tema}" não existe (use blue, light ou dark)`);
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
