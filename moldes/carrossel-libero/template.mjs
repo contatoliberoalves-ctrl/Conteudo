@@ -99,8 +99,83 @@ function posObjeto(o) {
 
 const area = (html, esq = 110, dir = 110, extra = '') => `<div data-area style="position:absolute;left:${Math.max(esq, RESERVA.esq)}px;right:${Math.max(dir, RESERVA.dir)}px;top:${RESERVA.topo}px;bottom:${RESERVA.base}px;display:flex;flex-direction:column;justify-content:center;gap:32px;z-index:3${extra}">${html}</div>`;
 
+// Selo do perfil e "Arraste →" no pé das capas.
+const pe = (t, claro) => `<div style="position:absolute;left:110px;bottom:72px;background:${t === TEMAS.blue ? COR.navyFundo : COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
+  <div style="position:absolute;right:110px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${claro ? '#fff' : t.txt};z-index:6">Arraste →</div>`;
+const ttl = (linhas, t, px, extra = '') => `<h1 data-titulo style="${TITULO};margin:0;font-size:${px}px;line-height:.88;color:${t.tit}${extra}">${lista(linhas).map(l => rico(l, t)).join('<br>')}</h1>`;
+
+// Capas alternativas ("estilo" no slide de capa), para cada tipo de post ter cara própria.
+const CAPAS = {
+  // "Teses que caíram na <peça>": sigla gigante, nome por extenso, fichas dos exames e carimbo JÁ CAIU.
+  teses(s, t) {
+    const exames = lista(s.exames);
+    // Título pela linha mais longa (a sigla fica enorme; nomes por extenso encolhem).
+    const maior = Math.max(...lista(s.titulo).map(l => l.replace(/\[\[|\]\]|\*\*/g, '').length), 1);
+    const px = s.ts || Math.min(330, Math.floor(860 / (maior * 0.46)));
+    const linhasFichas = Math.ceil(exames.length / 5);
+    return `<div style="position:absolute;left:0;right:0;top:0;height:14px;background:${COR.azul}"></div>
+      <div style="position:absolute;left:110px;top:150px;background:${COR.navy};color:#fff;font-size:34px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:14px 24px;z-index:3">${esc(s.rotulo || 'Teses que caíram na')}</div>
+      <div data-objeto style="position:absolute;right:100px;top:290px;transform:rotate(8deg);border:10px solid ${COR.vermelho};outline:4px solid ${COR.vermelho};outline-offset:8px;padding:10px 26px 4px;text-align:center;color:${COR.vermelho};z-index:4">
+        <div style="${TITULO};font-size:96px;line-height:.9">Já caiu</div>
+        ${exames.length ? `<div style="font-size:28px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding-bottom:10px">${exames.length === 1 ? '1 vez' : exames.length + ' vezes'}</div>` : ''}
+      </div>
+      <div data-area style="position:absolute;left:110px;right:110px;top:530px;bottom:${230 + linhasFichas * 64}px;display:flex;flex-direction:column;justify-content:center;gap:26px;z-index:3">
+        ${ttl(s.titulo, t, px, `;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.05 : .88}`)}
+        ${s.nome ? `<div data-corpo style="font-size:44px;font-weight:700;line-height:1.15;color:${COR.navy}">${rico(s.nome, t)}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:110px;right:110px;bottom:190px;display:flex;flex-wrap:wrap;gap:14px;z-index:3">
+        ${exames.map(e => `<span style="border:4px solid ${COR.navy};background:#fff;color:${COR.navy};font-size:32px;font-weight:800;letter-spacing:.04em;padding:8px 16px">${esc(e)}</span>`).join('')}
+      </div>${pe(t)}`;
+  },
+  // Número gigante vazado (listas: "5 erros…", "3 dicas…").
+  numero(s, t) {
+    return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>
+      <div data-area style="position:absolute;left:110px;right:110px;top:760px;bottom:190px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px;z-index:3">
+        ${kicker(s.kicker, t)}${titulo(s, t, 150, 860)}${s.texto ? corpo(s, t, 40) : ''}
+      </div>${pe(t)}`;
+  },
+  // Comparação: dois blocos na diagonal e o selo VS no meio.
+  versus(s, t) {
+    const [a, b] = lista(s.lados);
+    const px = w => Math.min(s.ts || 260, Math.floor(820 / (Math.max(...String(w).split(/\s+/).map(p => p.length), 1) * 0.44)));
+    return `<div style="position:absolute;inset:0;background:${COR.navyFundo};clip-path:polygon(0 58%,100% 42%,100% 100%,0 100%);z-index:1"></div>
+      <div style="position:absolute;left:110px;right:110px;top:150px;display:flex;flex-direction:column;gap:18px;z-index:3">
+        ${kicker(s.kicker, t)}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${px(a)}px;line-height:${String(a).includes('[[') ? 1.08 : .88};color:#fff">${rico(a, t)}</h1>
+      </div>
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);width:230px;height:230px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;${TITULO};font-size:120px;color:#fff;box-shadow:0 20px 50px rgba(8,16,40,.45);z-index:4">VS</div>
+      <div data-area style="position:absolute;left:110px;right:110px;top:800px;bottom:190px;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-start;gap:18px;text-align:right;z-index:3">
+        <h1 style="${TITULO};margin:0;font-size:${px(b)}px;line-height:.88;color:${COR.azulClaro}">${rico(b, t)}</h1>
+        ${s.texto ? corpo(s, { ...t, txt: '#E4E8F0' }, 38) : ''}
+      </div>${pe(TEMAS.dark, true)}`;
+  },
+  // Pergunta: interrogação gigante saindo pela direita e, se houver, as opções de resposta.
+  pergunta(s, t) {
+    return `<div style="position:absolute;right:-120px;top:60px;${TITULO};font-size:1250px;line-height:.8;color:${t.escuro ? 'rgba(255,255,255,.1)' : 'rgba(11,79,216,.1)'};z-index:1">?</div>
+      <div data-area style="position:absolute;left:110px;right:200px;top:150px;bottom:190px;display:flex;flex-direction:column;justify-content:center;gap:34px;z-index:3">
+        ${kicker(s.kicker, t)}${titulo(s, t, 150, 770)}${s.texto ? corpo(s, t, 40) : ''}
+        ${lista(s.opcoes).length ? `<div style="display:flex;flex-wrap:wrap;gap:18px;margin-top:10px">${lista(s.opcoes).map((o, i) => `<span style="border-radius:40px 40px 40px 0;padding:22px 48px;font-size:46px;font-weight:800;${i ? `border:4px solid ${t.acento};color:${t.tit}` : `background:${t.caixa};color:#fff`}">${esc(o)}</span>`).join('')}</div>` : ''}
+      </div>${pe(t)}`;
+  },
+  // Manchete de jornal: cabeçalho "O Libero", fios duplos, manchete e linha fina.
+  manchete(s, t) {
+    const fio = `<div style="height:10px;border-top:3px solid ${COR.navy};border-bottom:3px solid ${COR.navy}"></div>`;
+    return `<div style="position:absolute;left:90px;right:90px;top:110px;display:flex;flex-direction:column;gap:14px;z-index:3">
+        <div style="display:flex;justify-content:space-between;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${COR.navy}"><span>${esc(s.edicao || 'Edição extra')}</span><span>${esc(s.secao || 'Constitucional')}</span></div>
+        ${fio}
+        <div style="${TITULO};text-align:center;font-size:150px;line-height:.9;color:${COR.navy}">O Libero</div>
+        ${fio}
+      </div>
+      <div data-area style="position:absolute;left:90px;right:90px;top:470px;bottom:190px;display:flex;flex-direction:column;justify-content:flex-start;gap:30px;z-index:3">
+        ${kicker(s.kicker, t)}${titulo(s, t, 150, 900)}
+        ${s.texto ? `<div style="border-top:3px solid ${COR.navy};padding-top:24px">${corpo(s, t, 40)}</div>` : ''}
+      </div>${pe(t)}`;
+  },
+};
+
 const TIPOS = {
   capa(s, t, c) {
+    if (s.estilo && CAPAS[s.estilo]) return CAPAS[s.estilo](s, t, c);
     const tag = `<div style="position:absolute;left:110px;bottom:72px;background:${t === TEMAS.blue ? COR.navyFundo : COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:110px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${s.foto ? '#fff' : t.txt};z-index:4">Arraste →</div>`;
     // Fundo em tela cheia: foto do autor ("foto") ou foto de banco ("imagem", salvo imagemModo "cartao").
@@ -154,6 +229,22 @@ const TIPOS = {
         <span style="flex:none;min-width:48px;font-size:28px;font-weight:800;color:${t.num}">${(k => s.marcador === 'romano' ? romano[k] : s.marcador === 'letra' ? 'abcdefghij'[k] + ')' : pad2(k + 1))(i + (s.inicio || 0))}</span>
         <span data-corpo style="font-size:${s.corpo || 40}px;font-weight:500;line-height:1.3;color:${t.txt}">${rico(it, t)}</span></div>`).join('');
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}<div style="display:flex;flex-direction:column;gap:22px">${itens}</div>`);
+  },
+  // Teses cobradas num exame: ficha do exame, o caso em uma frase e as teses com o dispositivo.
+  teses(s, t) {
+    const [bg, fg] = t === TEMAS.light ? [COR.navy, '#fff'] : [COR.off, COR.navy];
+    const itens = lista(s.itens).map(it => {
+      const [tese, art] = typeof it === 'string' ? [it, ''] : [it.tese, it.artigo];
+      return `<div style="display:flex;gap:24px;align-items:flex-start">
+        <span style="flex:none;width:34px;height:34px;margin-top:8px;background:${t.acento};${t === TEMAS.light ? '' : `box-shadow:inset 0 0 0 4px ${t.acento}`}"></span>
+        <div style="display:flex;flex-direction:column;gap:4px"><span data-corpo style="font-size:${s.corpo || 40}px;font-weight:700;line-height:1.2;color:${t.txt}">${rico(tese, t)}</span>
+        ${art ? `<span data-corpo style="font-size:${Math.round((s.corpo || 40) * .78)}px;font-weight:600;letter-spacing:.02em;color:${t.kicker}">${rico(art, t)}</span>` : ''}</div></div>`;
+    }).join('');
+    return area(`<div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+        ${s.exame ? `<span style="background:${bg};color:${fg};font-size:34px;font-weight:800;letter-spacing:.06em;padding:10px 20px">${esc(s.exame)}</span>` : ''}${kicker(s.kicker, t)}</div>
+      ${titulo(s, t, 110, 860)}
+      ${s.caso ? `<p data-corpo style="margin:0;font-size:${s.corpoCaso || 36}px;font-weight:500;line-height:1.3;color:${t.txt};opacity:.9">${rico(s.caso, t)}</p>` : ''}
+      <div style="display:flex;flex-direction:column;gap:26px;border-top:3px solid ${t.linha};padding-top:30px">${itens}</div>`);
   },
   frases(s, t) {
     const [bg, fg] = t === TEMAS.light ? [COR.azul, '#fff'] : [COR.off, COR.azul];

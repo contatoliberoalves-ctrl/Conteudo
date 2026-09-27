@@ -16,6 +16,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | tipo | campos |
 |---|---|
 | `capa` | `pre` (pergunta ou pré-título), `titulo` (linhas), `foto` (opcional: foto do autor em tela cheia, com degradê e texto embaixo), `imagem` (opcional: foto de banco em `imagens/`, em tela cheia com véu azul e o título por cima; com `"imagemModo": "cartao"`, vira um cartão com moldura branca no alto), `imagemPos` (enquadramento, ex.: `"center top"`), `texto` (subtítulo opcional). Sem `foto` nem `imagem`, a capa é só tipográfica. |
+| `teses` | `exame` (ficha, ex.: "OAB 43"), `kicker`, `titulo` (opcional), `caso` (o caso em uma frase), `itens` (`{tese, artigo}` ou texto), `corpo` (px) |
 | `texto` | `titulo`, `texto` (parágrafos), `palavra` (palavra-chave vertical na borda; lista = 2 colunas), `palavraLado` (`"esquerda"` ou `"direita"`), `corpo` (px) |
 | `impacto` | `titulo` (frase no bloco sólido), `sub` (subtítulo de 60px) |
 | `lei` | `titulo`, `citacao` (texto da lei, **literal**), `traducao` |
@@ -23,6 +24,20 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
 | `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita) |
+
+## Estilos de capa
+
+Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo, é a capa de sempre: tipográfica ou com foto/imagem):
+
+| estilo | para | campos |
+|---|---|---|
+| `teses` | série "Teses que caíram na <peça>" | `rotulo` ("Teses que caíram na"/"no"), `titulo` (sigla ou nome da peça), `nome` (linha de baixo), `exames` (fichas "OAB 43"…; o carimbo JÁ CAIU conta quantas) |
+| `numero` | listas ("3 erros…") | `numero` (vazado gigante), `kicker`, `titulo`, `texto`, `tn` (px do número) |
+| `versus` | comparações | `lados` (2 textos; aceita `[[caixa]]`), `kicker`, `texto` |
+| `pergunta` | quiz, verdadeiro ou falso | `kicker`, `titulo`, `texto`, `opcoes` (botões, ex.: `["Sim", "Não"]`) |
+| `manchete` | dados, notícias, rankings | `edicao`, `secao` (cabeçalho do jornal "O Libero"), `kicker`, `titulo`, `texto` (linha fina) |
+
+Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais Teses" do Livro de Prática Constitucional, conferida com os gabaritos da FGV (exames 32 a 46).
 
 ## Fotos de banco de imagens
 

@@ -10,24 +10,12 @@ from pathlib import Path
 
 from PIL import Image
 
+from gerar_util import jpeg, titulo
+
 raiz = Path(__file__).resolve().parent
 dist = raiz / 'dist'
 shutil.rmtree(dist, ignore_errors=True)
 (dist / 'img').mkdir(parents=True)
-
-
-def jpeg(origem, destino, largura, qualidade=82):
-    im = Image.open(origem).convert('RGB')
-    if im.width > largura:
-        im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
-    destino.parent.mkdir(parents=True, exist_ok=True)
-    im.save(destino, 'JPEG', quality=qualidade, optimize=True, progressive=True)
-
-
-def titulo(c):
-    """Nome do post na galeria: "titulo" (Estrutura de Peças), "destaque" (Carrossel Explicativo) ou "name" (Carrossel Infinito)."""
-    t = c.get('titulo') or c.get('destaque') or c.get('name') or c['id']
-    return ' '.join(t) if isinstance(t, list) else t
 
 
 # Editor de capa: por post com foto, uma imagem [camada de texto | foto com margem] enviada ao

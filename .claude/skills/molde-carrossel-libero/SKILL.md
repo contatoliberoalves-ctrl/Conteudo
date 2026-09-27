@@ -11,7 +11,7 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
 
 1. Leia `moldes/carrossel-libero/README.md` (tipos de slide e campos) e um carrossel de `dados.json` como exemplo.
 2. Acrescente um objeto em `dados.json` com 6 a 10 slides, nesta estrutura:
-   1. `capa`: pergunta ou tema provocativo (tipográfica, ou com `foto`);
+   1. `capa`: pergunta ou tema provocativo (tipográfica, ou com `foto`). Use um `estilo` de capa conforme o tipo de post, para o seguidor perceber que é outro assunto: `teses` (série "Teses que caíram na <peça>"), `numero` (listas), `versus` (comparações), `pergunta` (quiz) ou `manchete` (dados e rankings). Veja "Estilos de capa" no README. Não repita a diagramação da capa de `lei-inconstitucional-praga` (o autor achou que o texto não ornou);
    2. gancho: uma analogia ou situação do dia a dia (`texto`, quase sempre com `palavra` vertical);
    3. explicação: conceito, `lei` com tradução, `lista`, `impacto`, `frases` ou `balao`;
    4. `cta`: pergunta para comentar, seguir ou enviar, com `botao` e, se houver, `foto` (polaroide).
@@ -23,4 +23,5 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
    - Fotos: use as do autor (`fotos/` do molde ou `../carrossel-explicativo/fotos/`). O repositório é **público**: fotos nunca vão para o git. Uma foto de objeto (PNG sem fundo) pode ser pedida ao usuário. Nunca desenhe ilustrações.
 3. Gere: `cd moldes/carrossel-libero && node render.mjs <id>`. No ambiente em nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>`.
 4. O script precisa terminar com ✓. Se avisar que o texto não cabe ou encosta em algo, encurte ou divida o slide. Confira os PNGs.
+   - **Série "Teses que caíram na <peça>"**: capa `estilo: teses` + um slide `teses` por exame (ficha do exame, o caso em uma frase, as teses com o artigo) + `balao` com o padrão da banca + `cta`. Fonte: tabela "Principais Teses" do Livro de Prática Constitucional (peça o arquivo ao usuário) e os gabaritos da FGV; confira o número do exame no gabarito, porque o livro tem trocas (ex.: liberdade de culto é do OAB 34, não 33).
 5. Atualize a galeria (seção "Galeria" do `CLAUDE.md`, sempre no mesmo link) e faça commit de `dados.json`.
