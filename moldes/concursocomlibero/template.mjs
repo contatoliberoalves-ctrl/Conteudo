@@ -185,8 +185,10 @@ const TIPOS = {
   // Print (tela de plataforma, site, material): numa janela de navegador com sombra, abaixo do título.
   print(s, t, c) {
     const f = s.imagem && foto(c, s.imagem);
-    return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 80)}${corpo(s, t, 34)}
-      <div style="flex:none">${janela(t, f, { alturaMax: s.alturaMax || 640, pos: s.imagemPos || 'center top' })}</div>`, ';gap:30px');
+    const jan = `<div style="flex:none">${janela(t, f, { alturaMax: s.alturaMax || 640, pos: s.imagemPos || 'center top' })}</div>`;
+    // layout "topo": o print primeiro e o texto embaixo.
+    if (s.layout === 'topo') return area(`${jan}<div style="display:flex;flex-direction:column;gap:22px;margin-top:10px">${etiqueta(s.etiqueta)}${titulo(s, t, 76)}${corpo(s, t, 32)}</div>`, ';gap:26px');
+    return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 80)}${corpo(s, t, 34)}${jan}`, ';gap:30px');
   },
   // Oferta: preço antigo riscado e o novo em destaque.
   oferta(s, t) {

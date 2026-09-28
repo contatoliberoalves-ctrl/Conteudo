@@ -12,7 +12,7 @@ Pasta: `moldes/concursocomlibero/`. O visual está em `template.mjs` e **não de
 1. Leia `moldes/concursocomlibero/README.md` e um post parecido em `dados.json`.
 2. Acrescente um objeto em `dados.json` (`id` em kebab-case, `titulo`, `materia`, `slides`):
    - **Carrossel (6 a 8 slides):** `capa` → `lei` (texto literal) → explicação (`lista`, `tabela`, `numero` ou `texto`) → `impacto` ou macete → `pegadinha` → `cta`.
-   - **Divulgação de produto:** `capa` → `impacto` (a dor) → 3 ou 4 `print` da plataforma → `oferta` → `cta` com a frase do autor. Prints ficam em `fotos/` (fora do git); não invente preço, parcelamento, garantia nem bônus.
+   - **Divulgação de produto:** `capa` (`capaModo` produto ou leque) → `impacto` (a dor) → **um `print` por recurso** (item + a tela dele; o autor prefere assim a um resumo em cards) → `oferta` → `cta` com a frase do autor. Baixe **todas** as páginas da pasta do Drive (a busca pagina). Prints ficam em `fotos/` (fora do git); não invente preço, parcelamento, garantia nem bônus.
    - **Post único:** um só slide `questao` (certo ou errado) ou `prazo`.
    - **Capa: só `titulo` e `sub`** (sem etiqueta, sem frase antes do título). Tipográfica, ou com `foto` ao lado (`fotoModo: "lado"`) ou de fundo (`"fundo"`). Fotos do autor: `fotos/` deste molde ou dos outros moldes; confira o enquadramento do rosto e ajuste `fotoPos`.
    - Alterne páginas `branco` com `profundo`/`escuro` (o branco com verde deixa mais chique); nunca 3 iguais seguidos.

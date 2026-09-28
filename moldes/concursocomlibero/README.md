@@ -41,7 +41,7 @@ Nos textos: `**negrito**`, `==destaque==` (amarelo no escuro, verde no branco, m
 
 | tipo | uso | campos |
 |---|---|---|
-| `capa` | abertura: só título e subtítulo | `titulo`, `sub`; com foto: `foto`, `fotoModo` (`lado`: metade direita, texto à esquerda; `fundo`: tela cheia com degradê e texto embaixo), `fotoPos` (enquadramento CSS, ex.: `"58% top"`) |
+| `capa` | abertura: só título e subtítulo | `titulo`, `sub`; com foto: `foto`, `fotoModo` (`lado`: metade direita, texto à esquerda; `fundo`: tela cheia com degradê e texto embaixo), `fotoPos` (enquadramento CSS, ex.: `"58% top"`); ou `capaModo`: `produto` (título em cima e a tela `imagem` numa janela inclinada) ou `leque` (três telas `imagens` em leque) |
 | `texto` | explicação | `titulo`, `texto` [], `destaque` (card claro) |
 | `impacto` | frase para guardar | `titulo`, `sub` |
 | `lei` | lei seca + tradução | `titulo`, `dispositivo` (ex.: "CF/88 · ART. 37, CAPUT"), `citacao` (literal), `traducao` [] |
@@ -49,7 +49,8 @@ Nos textos: `**negrito**`, `==destaque==` (amarelo no escuro, verde no branco, m
 | `tabela` | consulta rápida | `titulo`, `cabecalho`? `[col1, col2]`, `linhas: [{valor, texto}]` (até 5), `colValor`?, `tamValor`?, `fundamento` |
 | `numero` | prazo, idade, quórum | `numero`, `unidade`, `titulo`, `texto`, `fundamento` |
 | `pegadinha` | errado x certo | `titulo`, `errado`, `certo`, `rotuloErrado`?, `rotuloCerto`?, `fundamento` |
-| `print` | tela de plataforma/site numa janela de navegador | `titulo`, `texto`, `imagem` (arquivo em `fotos/`, ex.: `enac/print-0856-recorte.png`; recorte antes tirando barra do sistema, dock e abas), `alturaMax`?, `imagemPos`? |
+| `print` | tela de plataforma/site numa janela de navegador | `titulo`, `texto`, `imagem` (arquivo em `fotos/`, ex.: `enac/print-0856-recorte.png`; recorte antes tirando barra do sistema, dock e abas), `alturaMax`?, `imagemPos`?, `layout`? (`topo`: print em cima e texto embaixo) |
+| `beneficios` | resumo em cards (2 colunas) | `titulo`, `itens: [{nome, texto}]` (até 8) |
 | `oferta` | preço de/por | `titulo`, `texto`, `de` (ex.: "R$ 497"), `por` (ex.: "R$ 297"), `condicao`? |
 | `cta` | fechamento | `titulo`, `texto`, `botao`, `foto`? (polaroide) |
 | `questao` | **post único**: certo ou errado | `titulo`, `banca`? (ex.: "CESPE · 2024"), `afirmacao`, `gabarito` (`certo`/`errado`), `explicacao`, `fundamento` |
