@@ -18,3 +18,5 @@ Fotos da Eduarda: fora do git (o repositório é público). Os originais estão 
 | eduarda-toscana.jpg | descontraidas/IMG_2709.PNG |
 
 Nas capas, use só fotos em que ela aparece sozinha.
+
+Fotos de artistas (mandadas pelo usuário, fora do git): diva-hannah.jpg, diva-selena.jpg, diva-taylor.jpg, diva-zendaya.jpg, diva-emma.jpg, usadas nos posts `*-pop-legenda`. Numa sessão nova, peça de novo.

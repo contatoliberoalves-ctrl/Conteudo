@@ -216,50 +216,119 @@
     ]
   },
   {
+    "id": "pecas-mais-cobradas-pop-legenda",
+    "titulo": "As peças que mais caíram na 2ª fase de Civil · pop (foto + frase)",
+    "estilo": "scrap",
+    "slides": [
+      {
+        "tipo": "legenda",
+        "foto": "diva-zendaya.jpg",
+        "fotoPos": "52% center",
+        "fotoCrua": true,
+        "texto": "**As peças que mais caíram**\n**na 2ª fase de Civil**",
+        "y": 900,
+        "tam": 60,
+        "emojis": [
+          "👀",
+          "📚"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "diva-taylor.jpg",
+        "fotoPos": "35% center",
+        "fotoCrua": true,
+        "texto": "**Apelação: 8 vezes,**\na campeã entre os\nexames 2 e 46.",
+        "emojis": [
+          "🏆",
+          "✨"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "diva-hannah.jpg",
+        "fotoPos": "46% center",
+        "fotoCrua": true,
+        "texto": "**Embargos de terceiro: 5 vezes,**\no último caiu no 46º exame.",
+        "emojis": [
+          "😎",
+          "📌"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "diva-emma.jpg",
+        "fotoPos": "54% center",
+        "fotoCrua": true,
+        "texto": "**Agravo de instrumento: 4 vezes,**\ndecisão interlocutória sobre\ntutela é a pista.",
+        "emojis": [
+          "🧐",
+          "⚡"
+        ]
+      },
+      {
+        "tipo": "legenda",
+        "foto": "diva-selena.jpg",
+        "fotoPos": "58% center",
+        "fotoCrua": true,
+        "texto": "**Contestação: 4 vezes,**\numa delas com reconvenção.",
+        "emojis": [
+          "💅",
+          "🛡️"
+        ]
+      },
+      {
+        "tipo": "pergunta",
+        "titulo": "qual peça você *mais* treinou?",
+        "texto": "Me conta aqui nos comentários 👇"
+      }
+    ]
+  },
+  {
     "id": "divorcio-pop-legenda",
     "titulo": "4 coisas que nunca se faz num divórcio · pop (foto + frase)",
     "estilo": "scrap",
     "slides": [
       {
         "tipo": "legenda",
-        "foto": "pop-divorcio-1.jpg",
+        "foto": "diva-taylor.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "diva pop ou personagem de série com cara de deboche",
         "texto": "**4 coisas que você NUNCA**\n**deve fazer num divórcio**",
-        "y": "meio",
+        "y": 900,
         "tam": 60,
         "emojis": [
           "💅",
           "💔"
-        ]
+        ],
+        "fotoPos": "35% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-divorcio-2.jpg",
+        "foto": "diva-zendaya.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "personagem saindo de casa com a mala",
-        "texto": "**Sumir de casa por 2 anos,**\nem alguns casos, o ex pode pedir\nusucapião da sua parte do imóvel\n(art. 1.240-A, CC)."
+        "texto": "**Sumir de casa por 2 anos,**\nem alguns casos, o ex pode pedir\nusucapião da sua parte do imóvel\n(art. 1.240-A, CC).",
+        "fotoPos": "52% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-divorcio-3.jpg",
+        "foto": "diva-selena.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "vilã de série com cara de fofoca",
-        "texto": "**Falar mal do pai ou da mãe pro filho,**\nisso é exemplo de alienação parental\n(art. 2º, Lei 12.318/2010)."
+        "texto": "**Falar mal do pai ou da mãe pro filho,**\nisso é exemplo de alienação parental\n(art. 2º, Lei 12.318/2010).",
+        "fotoPos": "58% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-divorcio-4.jpg",
+        "foto": "diva-emma.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "cantora pop chocada",
-        "texto": "**Parar de pagar a pensão por conta própria,**\na dívida continua e pode\nlevar à prisão civil (art. 528, § 3º, CPC)."
+        "texto": "**Parar de pagar a pensão por conta própria,**\na dívida continua e pode\nlevar à prisão civil (art. 528, § 3º, CPC).",
+        "fotoPos": "54% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-divorcio-5.jpg",
+        "foto": "diva-hannah.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "personagem escondendo alguma coisa",
-        "texto": "**Esconder bens na partilha,**\nos bens sonegados podem ser\ndivididos depois, na sobrepartilha\n(art. 669, CPC)."
+        "texto": "**Esconder bens na partilha,**\nos bens sonegados podem ser\ndivididos depois, na sobrepartilha\n(art. 669, CPC).",
+        "fotoPos": "46% center"
       },
       {
         "tipo": "pergunta",
@@ -275,44 +344,44 @@
     "slides": [
       {
         "tipo": "legenda",
-        "foto": "pop-redflag-1.jpg",
+        "foto": "diva-selena.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "casal de série brigando ou cantora revirando os olhos",
         "texto": "**Red flags jurídicas**\n**num relacionamento** 🚩",
-        "y": "meio",
+        "y": 900,
         "tam": 60,
         "emojis": [
           "🚩",
           "🙄"
-        ]
+        ],
+        "fotoPos": "58% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-redflag-2.jpg",
+        "foto": "diva-hannah.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "casal de série se mudando junto",
-        "texto": "**Morar junto sem contrato,**\na união estável existe sem papel\ne o regime é o da comunhão parcial\n(art. 1.725, CC)."
+        "texto": "**Morar junto sem contrato,**\na união estável existe sem papel\ne o regime é o da comunhão parcial\n(art. 1.725, CC).",
+        "fotoPos": "46% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-redflag-3.jpg",
+        "foto": "diva-taylor.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "cena de casamento de série",
-        "texto": "**Casar sem escolher o regime,**\nsem pacto antenupcial, vale\na comunhão parcial (art. 1.640, CC)."
+        "texto": "**Casar sem escolher o regime,**\nsem pacto antenupcial, vale\na comunhão parcial (art. 1.640, CC).",
+        "fotoPos": "35% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-redflag-4.jpg",
+        "foto": "diva-zendaya.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "personagem desesperada com contas",
-        "texto": "**Emprestar o nome pra dívida do outro,**\no contrato fica no seu CPF,\nmesmo depois do término."
+        "texto": "**Emprestar o nome pra dívida do outro,**\no contrato fica no seu CPF,\nmesmo depois do término.",
+        "fotoPos": "52% center"
       },
       {
         "tipo": "legenda",
-        "foto": "pop-redflag-5.jpg",
+        "foto": "diva-emma.jpg",
         "fotoCrua": true,
-        "fotoSugestao": "diva pop com óculos escuros e cara de 'é meu'",
-        "texto": "**Achar que tudo é dos dois,**\nna comunhão parcial, o que cada um\ntinha antes continua só seu\n(art. 1.659, I, CC)."
+        "texto": "**Achar que tudo é dos dois,**\nna comunhão parcial, o que cada um\ntinha antes continua só seu\n(art. 1.659, I, CC).",
+        "fotoPos": "54% center"
       },
       {
         "tipo": "pergunta",
