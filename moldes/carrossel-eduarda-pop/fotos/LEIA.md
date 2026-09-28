@@ -11,6 +11,7 @@ Fotos da Eduarda: fora do git (o repositório é público). Os originais estão 
 | eduarda-joinha-2.jpg | ECA/ECA-12.JPG |
 | eduarda-gesticulando.jpg | ECA/ECA-2.JPG |
 | eduarda-duvida.jpg | ECA/ECA-9.JPG |
+| eduarda-estudando.jpg | ECA/ECA-3.JPG |
 | eduarda-trevi.jpg | descontraidas/IMG_3569.HEIC |
 | eduarda-coliseu.jpg | descontraidas/IMG_3426.JPG |
 | eduarda-brinde.jpg | descontraidas/IMG_2368.JPG |

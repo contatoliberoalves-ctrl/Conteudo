@@ -67,9 +67,9 @@ const TIPOS = {
     return `<div style="position:absolute;inset:0;background:#3a2f2a">
       ${img(ctx, s.foto, s.fotoPos, 'contrast(1.05) saturate(.88) sepia(.14) brightness(.96)')}
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.35) 100%);z-index:1"></div>
-      ${arroba('#f3eee8', s.arrobaY || 170)}
+      ${arroba(s.corTitulo || '#f3eee8', s.arrobaY || 170)}
       <div data-area style="position:absolute;left:110px;right:${s.direita ?? 170}px;top:${s.tituloY || 240}px;z-index:4">
-        ${anton(s.titulo, s.ts || 200, '#F3EFEA', 'line-height:.86;padding:.24em 0;margin:-.24em 0', 'gasto')}
+        ${anton(s.titulo, s.ts || 200, s.corTitulo || '#F3EFEA', 'line-height:.86;padding:.24em 0;margin:-.24em 0', 'gasto')}
       </div>
       ${s.texto ? `<div data-area style="position:absolute;left:150px;right:${s.caixaDireita ?? 230}px;top:${s.caixaY || 1140}px;z-index:5">${caixaPreta(s.texto, s.caixaTam || 46, 'text-align:center')}</div>` : ''}
       ${figurinhas(s.figurinhas)}${grao(.42)}</div>`;

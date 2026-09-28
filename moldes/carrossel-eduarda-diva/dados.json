@@ -159,8 +159,8 @@
     "slides": [
       {
         "tipo": "capaFilme",
-        "foto": "eduarda-coliseu.jpg",
-        "fotoPos": "18% center",
+        "foto": "eduarda-estudando.jpg",
+        "fotoPos": "12% center",
         "titulo": "Você\ndecora\n{esqueleto}\n{de peça}...",
         "ts": 176,
         "texto": "ou aprende a **reconhecer a peça** que a banca {pede?}",
@@ -180,12 +180,13 @@
           },
           {
             "e": "👀",
-            "x": 700,
-            "y": 990,
+            "x": 620,
+            "y": 1000,
             "s": 110
           }
         ],
-        "direita": 330
+        "direita": 330,
+        "corTitulo": "#1B1B1B"
       },
       {
         "tipo": "lista",

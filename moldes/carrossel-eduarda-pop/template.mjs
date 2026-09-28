@@ -14,8 +14,8 @@
 const ARROBA = '@eduardacaraciolo';
 const FONTES = 'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Gloock&family=Yellowtail&family=Noto+Color+Emoji&display=swap';
 const W = 1080, H = 1350;
-// Paleta (dopely.colors) + branco; o rosa principal (escuro) passou a ser o fúcsia #EE2A8A, a pedido.
-const C = { blush: '#FFEBED', claro: '#FEBAC5', escuro: '#EE2A8A', pink: '#FC79AB', pessego: '#FEA9AC', branco: '#FFFFFF' };
+// Paleta: os rosas do Carrossel Eduarda Diva (fúcsia #EE2A8A como principal e orquídea #F29AD8) com tons claros derivados, + branco.
+const C = { blush: '#FDEAF4', claro: '#F29AD8', escuro: '#EE2A8A', pink: '#EE2A8A', pessego: '#F7B9E0', branco: '#FFFFFF' };
 const CLONE = 'box-decoration-break:clone;-webkit-box-decoration-break:clone';
 const TIGHT = "font-family:'Inter Tight','Noto Color Emoji',sans-serif";
 const SERIF = "font-family:'Gloock',serif;font-weight:400";

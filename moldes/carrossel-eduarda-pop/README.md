@@ -4,7 +4,7 @@ Carrosséis da Eduarda Caraciolo (Advogada · Direito Civil e ECA) inspirados na
 
 **Mais branco que rosa:** capa pode ser rosa; as páginas seguintes ficam, em geral, em fundo branco, com um slide rosa de vez em quando para marcar ritmo.
 
-**Regra da marca** (vale também para o `post-eduarda`): só as 5 cores da paleta — `#FFEBED` blush, `#FEBAC5` rosa-claro, `#EE2A8A` fúcsia (rosa principal; era `#F4789A`), `#FC79AB` pink, `#FEA9AC` pêssego — e o **branco** como contracor; 3 fontes: Inter Tight (títulos e texto), Gloock (serifa do studio) e Yellowtail (a cursiva do `*destaque*`). Todo estilo repete o cabeçalho EDUARDA CARACIOLO · ADVOGADA · CIVIL E ECA, o @ em pílula, o brilho ✦ e um véu rosa nas fotos, para ornarem lado a lado no feed.
+**Regra da marca** (vale também para o `post-eduarda`): os rosas do Carrossel Eduarda Diva — **fúcsia `#EE2A8A`** (principal: títulos, faixas, balões, fundos fortes) e **orquídea `#F29AD8`** — com os claros `#FDEAF4` (blush) e `#F7B9E0`, e o **branco** como contracor; 3 fontes: Inter Tight (títulos e texto), Gloock (serifa) e Yellowtail (a cursiva do `*destaque*`). Todo estilo repete o cabeçalho EDUARDA CARACIOLO · ADVOGADA · CIVIL E ECA, o @ em pílula e o brilho ✦, para ornarem lado a lado no feed.
 
 
 | estilo | cara | tipos de slide |

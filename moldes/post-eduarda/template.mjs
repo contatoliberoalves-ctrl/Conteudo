@@ -7,7 +7,7 @@
 const ARROBA = '@eduardacaraciolo';
 const FONTES = 'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Yellowtail&family=Noto+Color+Emoji&display=swap';
 const W = 1080, H = 1350;
-const C = { blush: '#FFEBED', claro: '#FEBAC5', escuro: '#EE2A8A', pink: '#FC79AB', pessego: '#FEA9AC' };
+const C = { blush: '#FDEAF4', claro: '#F29AD8', escuro: '#EE2A8A', pink: '#EE2A8A', pessego: '#F7B9E0' };
 const TIGHT = "font-family:'Inter Tight','Noto Color Emoji',sans-serif";
 const CURSIVA = "font-family:'Yellowtail',cursive;font-weight:400";
 
