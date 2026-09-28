@@ -49,6 +49,8 @@ Nos textos: `**negrito**`, `==destaque==` (amarelo no escuro, verde no branco, m
 | `tabela` | consulta rápida | `titulo`, `cabecalho`? `[col1, col2]`, `linhas: [{valor, texto}]` (até 5), `colValor`?, `tamValor`?, `fundamento` |
 | `numero` | prazo, idade, quórum | `numero`, `unidade`, `titulo`, `texto`, `fundamento` |
 | `pegadinha` | errado x certo | `titulo`, `errado`, `certo`, `rotuloErrado`?, `rotuloCerto`?, `fundamento` |
+| `print` | tela de plataforma/site numa janela de navegador | `titulo`, `texto`, `imagem` (arquivo em `fotos/`, ex.: `enac/print-0856-recorte.png`; recorte antes tirando barra do sistema, dock e abas), `alturaMax`?, `imagemPos`? |
+| `oferta` | preço de/por | `titulo`, `texto`, `de` (ex.: "R$ 497"), `por` (ex.: "R$ 297"), `condicao`? |
 | `cta` | fechamento | `titulo`, `texto`, `botao`, `foto`? (polaroide) |
 | `questao` | **post único**: certo ou errado | `titulo`, `banca`? (ex.: "CESPE · 2024"), `afirmacao`, `gabarito` (`certo`/`errado`), `explicacao`, `fundamento` |
 | `prazo` | **post único**: prazo que cai | `titulo`, `numero`, `unidade`, `texto`, `alerta` (vermelho), `fundamento` |

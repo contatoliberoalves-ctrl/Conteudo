@@ -151,6 +151,24 @@ const TIPOS = {
     };
     return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 80)}${bloco('errado', s.errado)}${bloco('certo', s.certo)}${fundamento(s.fundamento, t)}`, ';gap:30px');
   },
+  // Print (tela de plataforma, site, material): numa janela de navegador com sombra, abaixo do título.
+  print(s, t, c) {
+    const f = s.imagem && foto(c, s.imagem);
+    const barra = `<div style="height:46px;display:flex;align-items:center;gap:10px;padding:0 22px;background:${t.escuro ? '#DCEBE6' : '#EEF4F2'};border-bottom:1.5px solid rgba(13,61,56,.1)">${['#E4776C', '#E9C15B', '#6FBF8A'].map(k => `<span style="width:14px;height:14px;border-radius:50%;background:${k}"></span>`).join('')}</div>`;
+    const img = f ? `<img data-foto src="${f}" style="display:block;width:100%;max-height:${s.alturaMax || 640}px;object-fit:cover;object-position:${esc(s.imagemPos || 'center top')}">` : `<div style="height:420px;display:flex;align-items:center;justify-content:center;color:${COR.verde};${MONO};font-size:24px">print: ${esc(s.imagem || '')}</div>`;
+    return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 80)}${corpo(s, t, 34)}
+      <div style="flex:none;border-radius:22px;overflow:hidden;background:#fff;${t.escuro ? SOMBRA : `border:1.5px solid rgba(13,61,56,.14);${SOMBRA_LEVE}`}">${barra}${img}</div>`, ';gap:30px');
+  },
+  // Oferta: preço antigo riscado e o novo em destaque.
+  oferta(s, t) {
+    const riscado = t.escuro ? 'rgba(227,242,238,.6)' : 'rgba(59,65,77,.6)';
+    return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 84)}${corpo(s, t, 36)}
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px">
+        <span style="font-size:36px;color:${riscado}">de <span style="${MONO};font-weight:500;text-decoration:line-through;text-decoration-thickness:3px">${esc(s.de)}</span></span>
+        <span style="display:flex;align-items:baseline;gap:22px;flex-wrap:wrap"><span style="font-size:44px;font-weight:500;color:${t.tit}">por</span><span data-titulo style="${MONO};font-size:${s.tn || 190}px;font-weight:700;line-height:1;letter-spacing:-.05em;color:${t.valor}">${esc(s.por).replace(/^R\$\s*/, '<span style="font-size:.42em;letter-spacing:0;margin-right:.12em">R$</span>')}</span></span>
+        ${s.condicao ? `<span style="font-size:32px;color:${t.sub}">${rico(s.condicao, t)}</span>` : ''}
+      </div>`);
+  },
   cta(s, t, c) {
     const f = s.foto && foto(c, s.foto);
     const polaroide = f ? `<div data-foto style="position:absolute;right:96px;top:300px;background:#fff;padding:22px 22px 60px;transform:rotate(3deg);${SOMBRA};z-index:2"><img src="${f}" style="display:block;width:300px;height:380px;object-fit:cover;object-position:center top"></div>` : '';
