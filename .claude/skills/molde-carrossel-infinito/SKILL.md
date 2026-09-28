@@ -11,7 +11,7 @@ Pasta: `moldes/carrossel-infinito/`. O visual está em `template.mjs` e **não d
 
 1. Leia `moldes/carrossel-infinito/README.md` (campos) e um carrossel de `dados.json` como exemplo.
 2. Acrescente um objeto em `dados.json` seguindo a estrutura narrativa:
-   1. `cover`: gancho + macete ou promessa;
+   1. `cover`: **só `title` e `sub`** (pedido do autor: capa sem informação em demasia; nada de `kicker`, `pre` ou `hl`);
    2. conceito (`text` ou `compare`);
    3. um tópico por slide (`item`, `list`, `mnemo` ou `text`), com `tip` ("Pegadinha") quando couber;
    4. `cta` com resumo de bolso e pedido de salvar, comentar ou enviar.
