@@ -13,7 +13,9 @@ Pasta: `moldes/concursocomlibero/`. O visual está em `template.mjs` e **não de
 2. Acrescente um objeto em `dados.json` (`id` em kebab-case, `titulo`, `materia`, `slides`):
    - **Carrossel (6 a 8 slides):** `capa` → `lei` (texto literal) → explicação (`lista`, `tabela`, `numero` ou `texto`) → `impacto` ou macete → `pegadinha` → `cta`.
    - **Post único:** um só slide `questao` (certo ou errado) ou `prazo`.
-   - Alterne `profundo` e `escuro`; nunca 3 iguais seguidos.
+   - **Capa: só `titulo` e `sub`** (sem etiqueta, sem frase antes do título). Tipográfica, ou com `foto` ao lado (`fotoModo: "lado"`) ou de fundo (`"fundo"`). Fotos do autor: `fotos/` deste molde ou dos outros moldes; confira o enquadramento do rosto e ajuste `fotoPos`.
+   - Alterne páginas `branco` com `profundo`/`escuro` (o branco com verde deixa mais chique); nunca 3 iguais seguidos.
+   - Não há cabeçalho e o rodapé é só o @: não peça "arraste" nem nº de página.
    - Destaque de 1 a 3 palavras por slide com `==amarelo==`; artigos e números em `` `mono` `` quando estiverem no meio do texto.
    - Vermelho só aparece em `pegadinha` (lado errado), `questao` com gabarito errado e `alerta`; verde, só em acertos.
 3. Tom: didático, direto, próximo, sem formalidade de livro antigo. **Sem emoticons e sem travessões** (use vírgula, dois-pontos ou ponto; o render avisa).

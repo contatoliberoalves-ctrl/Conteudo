@@ -1,15 +1,18 @@
 # concursocomlibero (@concursocomlibero)
 
-Carrosséis e posts de tela única (1080×1350) para concursos. Segue a lógica do Carrossel Libero (tipos de slide, fundos alternados, perfil no rodapé, textura granulada) com uma estética jurídica: moldura fina de documento com cantos marcados, cabeçalho com a matéria e o nº da folha ("fl. 03/07"), § em marca d'água, etiquetas roxas em mono e cards claros como folhas pautadas.
+Carrosséis e posts de tela única (1080×1350) para concursos. Segue a lógica do Carrossel Libero (tipos de slide, fundos alternados, perfil no rodapé, textura granulada) com uma estética jurídica: páginas brancas com títulos e elementos verdes alternadas com páginas em verde profundo, moldura fina de documento, § em marca d'água, etiquetas roxas em mono e cards claros como folhas pautadas.
+
+Menos é mais (pedido do autor): sem cabeçalho, rodapé só com o @, e capa só com título e subtítulo, sem etiqueta nem traço (a capa pode ter foto de fundo ou ao lado do título).
 
 ## Identidade
 
 | uso | cor |
 |---|---|
-| Fundos (temas `profundo` e `escuro`) | `#06201D`, `#0D3D38` |
+| Fundos: tema `branco` e temas escuros `profundo` e `escuro` | branco, `#06201D`, `#0D3D38` |
+| Títulos e destaques nas páginas brancas | `#0D3D38`, `#1F8F7F` |
 | Verde principal (números da lista, fundamento) | `#1F8F7F` |
 | Cards e cabeçalhos de tabela | `#EAFAF5`, `#BFE6DD`, branco |
-| Palavras estratégicas, prazos, botão | amarelo `#F5C53D` |
+| Palavras estratégicas e números nas páginas escuras | amarelo `#F5C53D` |
 | Etiquetas e detalhes especiais | roxo `#2E1A7A` |
 | Só erros, pegadinhas, alertas | vermelho `#C0392B` |
 | Só acertos e confirmações | verde `#1F8A5B` |
@@ -31,14 +34,14 @@ Saída: `saida/<id>/1.png … N.png` e `painel.png`. O render reduz título e co
 
 ## dados.json
 
-Lista de posts: `{ "id", "titulo" (nome na galeria), "materia" (cabeçalho de todos os slides), "slides": [...] }`. Post de tela única = um só slide (sem nº de folha; rodapé com "Salve para revisar").
+Lista de posts: `{ "id", "titulo" (nome na galeria), "materia" (só para organizar; não aparece), "slides": [...] }`. Post de tela única = um só slide.
 
-Todo slide: `tipo`, `tema` (`profundo` | `escuro`, alterne; nunca 3 iguais seguidos), `etiqueta` (opcional, curta), `marca` (letra da marca d'água, padrão `§`; `false` tira).
-Nos textos: `**negrito**`, `==amarelo==` (em card claro vira marca-texto amarelo) e `` `mono` `` para artigos e números. `titulo` aceita lista de linhas. `ts` força o tamanho do título; `corpo`, o do texto.
+Todo slide: `tipo`, `tema` (`branco` | `profundo` | `escuro`; alterne branco com um escuro, nunca 3 iguais seguidos), `etiqueta` (opcional, curta), `marca` (letra da marca d'água, padrão `§`; `false` tira).
+Nos textos: `**negrito**`, `==destaque==` (amarelo no escuro, verde no branco, marca-texto amarelo nos cards) e `` `mono` `` para artigos e números. `titulo` aceita lista de linhas. `ts` força o tamanho do título; `corpo`, o do texto.
 
 | tipo | uso | campos |
 |---|---|---|
-| `capa` | abertura | `pre`, `titulo`, `texto`, `foto`? (à direita, com degradê) |
+| `capa` | abertura: só título e subtítulo | `titulo`, `sub`; com foto: `foto`, `fotoModo` (`lado`: metade direita, texto à esquerda; `fundo`: tela cheia com degradê e texto embaixo), `fotoPos` (enquadramento CSS, ex.: `"58% top"`) |
 | `texto` | explicação | `titulo`, `texto` [], `destaque` (card claro) |
 | `impacto` | frase para guardar | `titulo`, `sub` |
 | `lei` | lei seca + tradução | `titulo`, `dispositivo` (ex.: "CF/88 · ART. 37, CAPUT"), `citacao` (literal), `traducao` [] |

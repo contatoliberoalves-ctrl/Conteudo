@@ -14,8 +14,8 @@ const filtro = process.argv[2];
 const buildDir = path.join(root, 'build');
 fs.mkdirSync(buildDir, { recursive: true });
 
-// Fotos do autor: fotos/ deste molde; se não houver, os recortes do Carrossel Explicativo.
-const pastasFoto = [path.join(root, 'fotos'), path.join(root, '..', 'carrossel-explicativo', 'fotos')];
+// Fotos do autor: fotos/ deste molde; se não houver, as dos outros moldes do mesmo autor.
+const pastasFoto = ['fotos', '../carrossel-explicativo/fotos', '../estrutura-de-pecas/fotos'].map(p => path.join(root, p));
 const acharFoto = nome => pastasFoto.map(p => path.join(p, nome)).find(f => fs.existsSync(f));
 
 const launch = {};
