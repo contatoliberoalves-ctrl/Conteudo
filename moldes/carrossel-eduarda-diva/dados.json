@@ -5,8 +5,8 @@
     "slides": [
       {
         "tipo": "capaDiva",
-        "foto": "diva-selena.jpg",
-        "fotoPos": "58% center",
+        "foto": "diva-taylor.jpg",
+        "fotoPos": "35% center",
         "titulo": "As divas\nescolhem\n{direito civil.}",
         "tituloY": 600,
         "ts": 150,
@@ -42,10 +42,27 @@
         ]
       },
       {
+        "tipo": "dado",
+        "numero": "2ª",
+        "numeroTam": 380,
+        "titulo": "Disciplina que\nmais aprova",
+        "caixa": "Civil é a **segunda disciplina que mais aprova** no Exame da Ordem. Contra fatos, não há argumentos: e é a **primeira em utilidade** depois da prova.",
+        "figurinhas": [
+          {
+            "e": "🏆",
+            "x": 800,
+            "y": 300,
+            "s": 110,
+            "r": 8
+          }
+        ],
+        "kicker": "Motivo 1"
+      },
+      {
         "tipo": "texto",
-        "kicker": "Por que Civil na 2ª fase?",
-        "titulo": "Civil é a matéria\nda {vida real}",
-        "caixa": "Família, herança, contratos, consumo, casa e condomínio: os assuntos que mais aparecem nas questões são os do **dia a dia**.",
+        "kicker": "Motivo 2",
+        "titulo": "Praticidade e\n{cotidiano}",
+        "caixa": "Contratos, compras, casamento, sucessões: o Direito Civil está no seu dia a dia. Fica mais fácil aprender o que você **já vive**.",
         "figurinhas": [
           {
             "e": "💅",
@@ -57,17 +74,32 @@
         ]
       },
       {
-        "tipo": "dado",
-        "numero": "8x",
-        "titulo": "A apelação foi a\npeça mais cobrada",
-        "caixa": "Em 45 provas (exames 2 a 46). Embargos de terceiro vêm depois, com **5**.",
+        "tipo": "texto",
+        "kicker": "Motivo 3",
+        "titulo": "A lógica dos\n{códigos}",
+        "caixa": "Código Civil e CPC seguem uma **ordem lógica e estruturada**. E está tudo no Vade Mecum: nada de decorar teorias mirabolantes.",
         "figurinhas": [
           {
-            "e": "🏆",
-            "x": 780,
-            "y": 300,
-            "s": 120,
-            "r": 8
+            "e": "📚",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Motivo 4",
+        "titulo": "Previsibilidade\nda {banca}",
+        "caixa": "Bola de cristal? Não, mas parece 😅 As provas de Civil seguem um padrão, e a gente costuma **acertar a aposta da peça** e os assuntos das questões. Sem surpresas no dia 🙏",
+        "figurinhas": [
+          {
+            "e": "🔮",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
           }
         ]
       },
@@ -97,31 +129,13 @@
         ]
       },
       {
-        "tipo": "lista",
-        "titulo": "A pista é\no {ato}",
-        "itens": [
-          "Sentença → apelação",
-          "Decisão sobre tutela → agravo",
-          "Penhora do bem de quem não é parte → embargos de terceiro",
-          "Execução contra o seu cliente → embargos à execução"
-        ],
-        "figurinhas": [
-          {
-            "e": "👀",
-            "x": 860,
-            "y": 200,
-            "s": 90,
-            "r": 0
-          }
-        ]
-      },
-      {
         "tipo": "texto",
-        "titulo": "A banca pensa\nem {A} e {B}",
-        "caixa": "Muitas questões valem **0,65** no item A (a regra material) e **0,60** no B (o caminho processual). Conclusão + fato + artigo: **artigo solto não pontua**.",
+        "kicker": "Motivo 5",
+        "titulo": "Utilidade pra\nsua {carreira}",
+        "caixa": "Com a carteirinha na mão, você vai lidar com causas reais: consumidor, família, saúde, contratos. Estudar Civil na 2ª fase já te prepara pro mercado: é **quase um curso de prática jurídica**.",
         "figurinhas": [
           {
-            "e": "💡",
+            "e": "💼",
             "x": 860,
             "y": 230,
             "s": 90,
@@ -132,8 +146,7 @@
       {
         "tipo": "cta",
         "titulo": "Bora escolher\n{Civil} comigo?",
-        "texto": "Na mentoria de Civil 2ª fase: **aulas curtas**, treino depois de cada aula e **5 simulados com correção personalizada**.",
-        "botao": "Me chama no direct 💌",
+        "botao": "Ainda em dúvida? Me chama no direct 💌",
         "figurinhas": [
           {
             "e": "🎀",
@@ -162,31 +175,34 @@
         "foto": "eduarda-estudando.jpg",
         "fotoPos": "12% center",
         "titulo": "Você\ndecora\n{esqueleto}\n{de peça}...",
-        "ts": 176,
+        "ts": 122,
         "texto": "ou aprende a **reconhecer a peça** que a banca {pede?}",
         "figurinhas": [
           {
             "e": "💫",
-            "x": 470,
-            "y": 270,
-            "s": 110,
+            "x": 520,
+            "y": 730,
+            "s": 90,
             "r": -10
           },
           {
             "e": "🌸",
-            "x": 40,
-            "y": 690,
-            "s": 100
+            "x": 30,
+            "y": 1040,
+            "s": 80
           },
           {
             "e": "👀",
-            "x": 620,
-            "y": 1000,
-            "s": 110
+            "x": 860,
+            "y": 1060,
+            "s": 90
           }
         ],
-        "direita": 330,
-        "corTitulo": "#1B1B1B"
+        "direita": 440,
+        "tituloY": 770,
+        "arrobaY": 712,
+        "caixaY": 1195,
+        "caixaTam": 40
       },
       {
         "tipo": "lista",
@@ -258,11 +274,11 @@
     "slides": [
       {
         "tipo": "capaRecorte",
-        "foto": "eduarda-joinha-recorte.png",
+        "foto": "eduarda-surpresa-recorte.png",
         "titulo": "==Não== basta\ncitar o\n{artigo} pra\n{pontuar} na\n==2ª fase==",
         "ts": 138,
-        "recorteAltura": 760,
-        "recorteDireita": -90
+        "recorteAltura": 880,
+        "recorteDireita": -40
       },
       {
         "tipo": "texto",

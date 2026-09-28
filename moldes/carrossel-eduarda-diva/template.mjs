@@ -57,22 +57,21 @@ const FUCSIA3D = tres(R.fucsia, ['#D21F77', '#B81966', '#9C1356']);
 const diva3d = (t, px, al = 'center', acc = ROSA3D) => `<div data-titulo style="${NUNITO};font-size:${px}px;line-height:1.02;letter-spacing:-.02em;text-align:${al};${BRANCO3D}">${fmt(t, { acc })}</div>`;
 const caixaPreta = (t, px = 44, extra = '') => `<div style="background:${R.preto};padding:34px 44px;${extra}"><div data-corpo style="${POP};font-weight:400;font-size:${px}px;line-height:1.15;letter-spacing:-.02em;color:#fff">${fmt(t, { b: 'font-weight:700;color:#fff', acc: `color:${R.orquidea};font-weight:700` })}</div></div>`;
 const arroba = (cor = '#fff', y = 150) => `<div style="position:absolute;left:120px;top:${y}px;${POP};font-size:34px;letter-spacing:-.02em;color:${cor};opacity:.9;z-index:7"><span style="font-weight:400">@</span><b style="font-weight:700;color:${R.orquidea}">eduarda</b><span style="font-weight:400">caraciolo</span></div>`;
-const cabecalho = (cor = '#555') => `<div style="position:absolute;left:90px;right:90px;top:70px;display:flex;justify-content:space-between;${ANTON};font-size:30px;letter-spacing:.02em;color:${cor};z-index:7"><span>EDUARDA CARACIOLO</span><span>DIREITO CIVIL &amp; OAB</span></div>`;
-const rodape = (cor = R.tinta) => `<div style="position:absolute;left:60px;right:60px;bottom:56px;display:flex;align-items:center;gap:18px;${POP};font-weight:700;font-size:22px;letter-spacing:.06em;color:${cor};z-index:7">
-  <div style="width:54px;height:54px;border-radius:50%;background:${R.fucsia};color:#fff;display:flex;align-items:center;justify-content:center;${ANTON};font-size:22px">EC</div>
-  <span>${ARROBA.toUpperCase()}</span><span style="flex:1;border-top:2px solid ${cor};margin:0 10px"></span><span>2026</span><span style="flex:1;border-top:2px solid ${cor};margin:0 10px"></span><span>ADVOGADA &amp; PROFESSORA</span></div>`;
+// Cabeçalho: só o nome, centralizado. Rodapé: só o @, centralizado.
+const cabecalho = (cor = '#555') => `<div style="position:absolute;left:0;right:0;top:70px;text-align:center;${ANTON};font-size:30px;letter-spacing:.06em;color:${cor};z-index:7">EDUARDA CARACIOLO</div>`;
+const rodape = (cor = R.tinta) => `<div style="position:absolute;left:0;right:0;bottom:60px;text-align:center;${POP};font-weight:700;font-size:26px;letter-spacing:.04em;color:${cor};z-index:7">${ARROBA}</div>`;
 
 const TIPOS = {
   capaFilme(s, ctx) {
     return `<div style="position:absolute;inset:0;background:#3a2f2a">
-      ${img(ctx, s.foto, s.fotoPos, 'contrast(1.05) saturate(.88) sepia(.14) brightness(.96)')}
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.35) 100%);z-index:1"></div>
+      ${img(ctx, s.foto, s.fotoPos, s.filtro ?? 'contrast(1.04)')}
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,0,0,.2) 100%);z-index:1"></div>
       ${arroba(s.corTitulo || '#f3eee8', s.arrobaY || 170)}
       <div data-area style="position:absolute;left:110px;right:${s.direita ?? 170}px;top:${s.tituloY || 240}px;z-index:4">
         ${anton(s.titulo, s.ts || 200, s.corTitulo || '#F3EFEA', 'line-height:.86;padding:.24em 0;margin:-.24em 0', 'gasto')}
       </div>
       ${s.texto ? `<div data-area style="position:absolute;left:150px;right:${s.caixaDireita ?? 230}px;top:${s.caixaY || 1140}px;z-index:5">${caixaPreta(s.texto, s.caixaTam || 46, 'text-align:center')}</div>` : ''}
-      ${figurinhas(s.figurinhas)}${grao(.42)}</div>`;
+      ${figurinhas(s.figurinhas)}${grao(.22)}</div>`;
   },
   capaDiva(s, ctx) {
     return `<div style="position:absolute;inset:0;background:#caa">
@@ -118,6 +117,7 @@ const TIPOS = {
   dado(s) {
     return `<div style="position:absolute;inset:0;background:${R.fucsia}">${cabecalho('rgba(255,255,255,.85)')}
       <div data-area style="position:absolute;left:100px;right:100px;top:170px;bottom:190px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;z-index:3">
+        ${s.kicker ? `<div data-corpo style="${POP};font-weight:600;font-size:32px;color:#fff">${fmt(s.kicker)}</div>` : ''}
         <div class="gasto" style="${ANTON};font-size:${s.numeroTam || 420}px;line-height:.85;color:#fff">${esc(s.numero)}</div>
         ${anton(s.titulo, s.ts || 96, '#fff')}
         ${s.caixa ? caixaPreta(s.caixa, 36) : ''}
