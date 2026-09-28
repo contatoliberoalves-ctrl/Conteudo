@@ -1220,5 +1220,694 @@
         "body": "Comenta: defesa ou sítio, qual mais te confunde?"
       }
     ]
+  },
+  {
+    "id": "placar-controle-x-remedios",
+    "name": "Placar: controle x remédios",
+    "tema": "Dados das peças do 32º ao 46º Exame, por família",
+    "seams": [
+      1,
+      4
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "kicker": "Dados · OAB 2ª fase",
+        "pre": "15 exames, 15 peças:",
+        "title": "Controle x remédios",
+        "hl": "Do 32º ao 46º Exame",
+        "sub": "O placar das famílias de peça e o que isso muda no seu treino."
+      },
+      {
+        "type": "list",
+        "bg": "light",
+        "kicker": "Linha do tempo",
+        "title": "Exame a exame",
+        "items": [
+          {
+            "n": "32–34",
+            "t": "**Reclamação**, **ADC**, **MS**"
+          },
+          {
+            "n": "35–37",
+            "t": "**ADI**, **ADI**, **ação popular**"
+          },
+          {
+            "n": "38–40",
+            "t": "**MI coletivo**, **MS coletivo**, **ADI**"
+          },
+          {
+            "n": "41–43",
+            "t": "**ADC**, **reclamação**, **MS**"
+          },
+          {
+            "n": "44–46",
+            "t": "**Ação popular**, **MS**, **ADPF**"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "mint",
+        "kicker": "O placar",
+        "title": "7 x 6 x 2",
+        "cols": [
+          {
+            "title": "Remédios · 7",
+            "items": [
+              "MS: 4 (um coletivo)",
+              "Ação popular: 2",
+              "MI coletivo: 1",
+              "Art. 5º, LXIX a LXXIII"
+            ]
+          },
+          {
+            "title": "Controle · 6 + RCL 2",
+            "items": [
+              "ADI: 3 · ADC: 2 · ADPF: 1",
+              "Art. 102, I, “a”, e § 1º",
+              "Reclamação: 2 (art. 103-A, § 3º)"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "MS",
+        "ref": "Art. 5º, LXIX",
+        "title": "A peça do período",
+        "rows": [
+          {
+            "k": "Vezes",
+            "v": "4 em 15 exames (34º, 39º, 43º e 45º)"
+          },
+          {
+            "k": "Intervalo",
+            "v": "Caiu no 43º e voltou no 45º"
+          },
+          {
+            "k": "Coletivo",
+            "v": "No 39º, por associação (art. 5º, LXX, “b”)"
+          }
+        ],
+        "tip": "a ADI caiu em dois exames seguidos (35º e 36º): peça que acabou de cair pode voltar."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Não caíram de 32 a 46",
+        "title": "Não abandone",
+        "lead": "HC, habeas data, ACP, RE, ROC e procedimento comum",
+        "body": "não apareceram nesses 15 exames, mas seguem no edital. **Treine todas**, com mais repetições nas que mais caem.",
+        "box": "Dado mostra tendência, não garante a próxima peça."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Remédios",
+            "v": "7 peças"
+          },
+          {
+            "k": "Controle",
+            "v": "6 peças"
+          },
+          {
+            "k": "Reclamação",
+            "v": "2 peças"
+          },
+          {
+            "k": "MS",
+            "v": "o campeão"
+          }
+        ],
+        "title": "Salva o placar",
+        "body": "E comenta qual família você aposta para o próximo exame."
+      }
+    ]
+  },
+  {
+    "id": "grifar-para-se-salvar",
+    "name": "Grifar para se salvar",
+    "tema": "Técnica de estudo: grifos no caso da peça",
+    "seams": [
+      2
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "disc",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "kicker": "Técnica · identificação de peças",
+        "pre": "No caderno de prova:",
+        "title": "Grifar para se salvar",
+        "hl": "Na 2ª ou 3ª leitura",
+        "sub": "O que grifar no caso para achar a peça certa com precisão."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Por quê?",
+        "title": "O rascunho é seu",
+        "lead": "A folha com o caso não é entregue como resposta.",
+        "body": "Então dá para fazer **riscos e anotações com tranquilidade**. Comece a grifar e circular na **2ª ou 3ª leitura**, nas palavras e frases que parecem relevantes."
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "O que grifar",
+        "title": "5 alvos",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Pessoas envolvidas** (entes, pessoas físicas)"
+          },
+          {
+            "n": "2",
+            "t": "**Questões de direito** (ex.: valores da administração violados, art. 37)"
+          },
+          {
+            "n": "3",
+            "t": "**Expressões que remetem ao problema**"
+          },
+          {
+            "n": "4",
+            "t": "**Informações da peça** (prazos, juízos)"
+          },
+          {
+            "n": "5",
+            "t": "**Informes do cliente** (para ver se é legitimado)"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "05",
+        "ref": "Art. 103, VIII",
+        "title": "Exemplo: o cliente",
+        "rows": [
+          {
+            "k": "Grifo",
+            "v": "“partido político com representação no Congresso”"
+          },
+          {
+            "k": "Leitura",
+            "v": "Legitimado universal para ADI e ADC"
+          },
+          {
+            "k": "Resultado",
+            "v": "O controle concentrado entra no radar"
+          }
+        ],
+        "tip": "informe do cliente sozinho não fecha a peça: cruze com juízo e pedido."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Seja coerente",
+        "title": "Menos é mais",
+        "lead": "Grifo sem sentido só confunde.",
+        "body": "Os grifos e círculos precisam ser **coerentes**, para facilitar a compreensão e dar **mais precisão para procurar a peça** que melhor se amolda ao caso."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Quando",
+            "v": "2ª ou 3ª leitura"
+          },
+          {
+            "k": "O quê",
+            "v": "pessoas, direito, peça, cliente"
+          },
+          {
+            "k": "Como",
+            "v": "com coerência"
+          }
+        ],
+        "title": "Salva pra revisar",
+        "body": "E envia pra quem grifa o caso inteiro de amarelo."
+      }
+    ]
+  },
+  {
+    "id": "tecnica-de-exclusao",
+    "name": "Técnica de exclusão",
+    "tema": "Técnica de estudo: excluir peças até sobrar uma",
+    "seams": [
+      1,
+      3
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "bar",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "kicker": "Técnica · identificação de peças",
+        "pre": "Na dúvida sobre a peça?",
+        "title": "Técnica de exclusão",
+        "hl": "Compare e elimine",
+        "sub": "Cruze o caso com as características de cada peça até sobrar uma."
+      },
+      {
+        "type": "text",
+        "bg": "mint",
+        "kicker": "Como funciona",
+        "title": "Compatibilidade",
+        "lead": "Você compara os termos e circunstâncias do caso",
+        "body": "com as **características principais de cada peça** e verifica o que é compatível. O que não bate, sai."
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "STF",
+        "ref": "Art. 102, I, “a”",
+        "title": "Exemplo prático",
+        "rows": [
+          {
+            "k": "Caso",
+            "v": "Lei inconstitucional questionada no STF, em controle concentrado"
+          },
+          {
+            "k": "Exclua",
+            "v": "Remédios constitucionais, recursos e peças à parte"
+          },
+          {
+            "k": "Sobra",
+            "v": "ADI, ADC, ADO ou ADPF"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "dark",
+        "kicker": "Exclua assim",
+        "title": "Pistas rápidas",
+        "items": [
+          {
+            "n": "Réu",
+            "t": "Cliente se defende de processo: **contestação ou reconvenção**"
+          },
+          {
+            "n": "Omissão",
+            "t": "Omissão a suprir: **MI ou ADO** (art. 5º, LXXI, e art. 103, § 2º)"
+          },
+          {
+            "n": "Opinião",
+            "t": "Pediram opinião fundamentada: **parecer**"
+          },
+          {
+            "n": "Foro",
+            "t": "Sem foro por prerrogativa: saem quase todos os remédios"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Não é nenhuma?",
+        "title": "Residual",
+        "lead": "Excluiu tudo e nada encaixou?",
+        "body": "É **ação de procedimento comum**.",
+        "box": "Ela é a peça residual: entra quando nenhuma específica cabe."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "1",
+            "v": "compare o caso"
+          },
+          {
+            "k": "2",
+            "v": "exclua o que não bate"
+          },
+          {
+            "k": "3",
+            "v": "nada? procedimento comum"
+          }
+        ],
+        "title": "Salva a técnica",
+        "body": "E comenta qual dupla de peças mais te confunde."
+      }
+    ]
+  },
+  {
+    "id": "palavras-chave-da-banca",
+    "name": "Palavras-chave da banca",
+    "tema": "Técnica de estudo: a palavra que indica a peça",
+    "seams": [
+      2,
+      4
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "mint",
+        "align": "flex-start",
+        "kicker": "Técnica · identificação de peças",
+        "pre": "O segredo da banca:",
+        "title": "Palavras-chave",
+        "hl": "Nem pense em chutar",
+        "sub": "A FGV sempre deixa no enunciado pelo menos uma pista da peça."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Por quê?",
+        "title": "Prova à prova de recurso",
+        "lead": "Para evitar recursos, a banca coloca",
+        "body": "no mínimo **uma palavra ou expressão que impossibilita o ajuizamento de outras peças**. Você **consegue** saber qual é a peça."
+      },
+      {
+        "type": "compare",
+        "bg": "light",
+        "kicker": "Exemplo 1",
+        "title": "MI ou ADO?",
+        "cols": [
+          {
+            "title": "MI · art. 5º, LXXI",
+            "items": [
+              "Omissão que inviabiliza direito",
+              "Caso concreto do cliente"
+            ]
+          },
+          {
+            "title": "ADO · art. 103, § 2º",
+            "items": [
+              "Aparece “controle concentrado”",
+              "Legitimado do art. 103"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "200",
+        "ref": "Art. 5º, LXX",
+        "title": "Exemplo 2: o prazo",
+        "rows": [
+          {
+            "k": "Dúvida",
+            "v": "ACP ou MS coletivo?"
+          },
+          {
+            "k": "Pista",
+            "v": "“Se passaram 200 dias”"
+          },
+          {
+            "k": "Leitura",
+            "v": "Passou o prazo de 120 dias do MS: é ACP"
+          }
+        ],
+        "tip": "o MS tem 120 dias (Lei 12.016/09, art. 23); a ACP, 5 anos."
+      },
+      {
+        "type": "text",
+        "bg": "mint",
+        "kicker": "E se eu não achar?",
+        "title": "Procure até achar",
+        "lead": "Geralmente é uma informação explícita no texto:",
+        "body": "**legitimados, juízo, prazo** ou uma **característica essencial da peça**."
+      },
+      {
+        "type": "cta",
+        "bg": "light",
+        "summary": [
+          {
+            "k": "Regra",
+            "v": "sempre há pista"
+          },
+          {
+            "k": "ADO",
+            "v": "“controle concentrado”"
+          },
+          {
+            "k": "ACP",
+            "v": "prazo do MS vencido"
+          }
+        ],
+        "title": "Salva e treina",
+        "body": "E envia pra quem ainda chuta a peça."
+      }
+    ]
+  },
+  {
+    "id": "vade-mecum-clipes-e-remissoes",
+    "name": "Vade Mecum: clipes e remissões",
+    "tema": "Técnica de estudo: preparar o Vade Mecum",
+    "seams": [
+      1,
+      4
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "kicker": "Técnica · Vade Mecum",
+        "pre": "Seu material na prova:",
+        "title": "Clipes, grifos e remissões",
+        "hl": "Prepare antes",
+        "sub": "Como deixar o Vade Mecum pronto para achar tudo rápido."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "O básico",
+        "title": "Índice remissivo",
+        "lead": "É o “Google” que você pode levar pra prova.",
+        "body": "Tenha um Vade Mecum **de acordo com o edital** e com um **excelente índice remissivo**: nele você encontra as respostas das questões."
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "O segredo dos clipes",
+        "title": "Onde colocar",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Foro e competência** (ex.: art. 102 e art. 109)"
+          },
+          {
+            "n": "2",
+            "t": "**Recurso**: tem folha de rosto x não tem"
+          },
+          {
+            "n": "3",
+            "t": "**Pedidos** das peças"
+          },
+          {
+            "n": "4",
+            "t": "**Legitimados** (ex.: art. 103)"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "light",
+        "kicker": "Marcações",
+        "title": "Grifo x remissão",
+        "cols": [
+          {
+            "title": "Grifo",
+            "items": [
+              "Marca-texto, lápis ou giz",
+              "Destaca o mais relevante",
+              "Ex.: os pedidos de uma peça"
+            ]
+          },
+          {
+            "title": "Remissão",
+            "items": [
+              "Citação a outro artigo ligado",
+              "Feita a lápis",
+              "Ex.: no art. 5º, LXIX, anote “Lei 12.016/09”"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Por quê?",
+        "title": "Pontos fracos",
+        "lead": "Clipe no ponto fraco",
+        "body": "faz você achar rápido as características para **comparar as peças**. Bônus: marcar as folhas dos **pedidos** ajuda no final da peça."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Índice",
+            "v": "seu Google"
+          },
+          {
+            "k": "Clipes",
+            "v": "foro, recurso, pedidos, legitimados"
+          },
+          {
+            "k": "Remissão",
+            "v": "a lápis"
+          }
+        ],
+        "title": "Salva o checklist",
+        "body": "E comenta quantos clipes tem o seu Vade Mecum."
+      }
+    ]
+  },
+  {
+    "id": "como-treinar-com-as-provas",
+    "name": "Como treinar com as provas",
+    "tema": "Técnica de estudo: usar as provas da FGV (32º ao 46º)",
+    "seams": [
+      2
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "bar",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "kicker": "Técnica · treino de peça",
+        "pre": "15 provas, 1 roteiro:",
+        "title": "Treine com a FGV",
+        "hl": "Do 32º ao 46º Exame",
+        "sub": "Como transformar as provas anteriores no seu melhor material."
+      },
+      {
+        "type": "mnemo",
+        "bg": "light",
+        "kicker": "Roteiro",
+        "word": "LER · GRIFAR · EXCLUIR",
+        "cols": "1fr",
+        "rows": [
+          {
+            "l": "1",
+            "t": "**Ler** o caso até a 2ª leitura sem escrever"
+          },
+          {
+            "l": "2",
+            "t": "**Grifar** pessoas, direito, peça e cliente"
+          },
+          {
+            "l": "3",
+            "t": "**Excluir** o que não bate até sobrar uma peça"
+          },
+          {
+            "l": "4",
+            "t": "**Conferir** com o gabarito da FGV"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "Comece pelas que mais caem",
+        "title": "Ordem de treino",
+        "items": [
+          {
+            "n": "MS",
+            "t": "34º, 39º, 43º e 45º (art. 5º, LXIX e LXX)"
+          },
+          {
+            "n": "ADI",
+            "t": "35º, 36º e 40º (art. 102, I, “a”)"
+          },
+          {
+            "n": "ADC",
+            "t": "33º e 41º"
+          },
+          {
+            "n": "RCL",
+            "t": "32º e 42º (art. 103-A, § 3º)"
+          },
+          {
+            "n": "AP",
+            "t": "37º e 44º (art. 5º, LXXIII)"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "MS",
+        "ref": "Art. 5º, LXIX",
+        "title": "Compare pares",
+        "rows": [
+          {
+            "k": "Individual",
+            "v": "34º, 43º e 45º"
+          },
+          {
+            "k": "Coletivo",
+            "v": "39º, impetrado por associação"
+          },
+          {
+            "k": "Olhe",
+            "v": "O que muda na legitimidade e nos pedidos"
+          }
+        ],
+        "tip": "refazer a mesma peça em exames diferentes mostra o que a banca repete."
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Depois do treino",
+        "title": "Anote o erro",
+        "lead": "Errou a peça?",
+        "body": "Escreva **qual palavra-chave** deixou passar e **coloque um clipe** nesse ponto do Vade Mecum. É assim que o ponto fraco vira ponto forte."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "1",
+            "v": "ler e grifar"
+          },
+          {
+            "k": "2",
+            "v": "excluir"
+          },
+          {
+            "k": "3",
+            "v": "conferir o gabarito"
+          },
+          {
+            "k": "4",
+            "v": "anotar o erro"
+          }
+        ],
+        "title": "Salva o roteiro",
+        "body": "E comenta qual exame você vai refazer primeiro."
+      }
+    ]
   }
 ]

@@ -110,7 +110,6 @@ export function renderCarrossel(c) {
     const col = W - pl - pr;
     const corpo = (TIPOS[s.type] || TIPOS.text)(s, t, col);
     return `<section id="slide-${i + 1}" style="background:${t.bg}">
-      <div class="contador" style="color:${t.counter}">${pad2(i + 1)}/${pad2(n)}</div>
       <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px">${corpo}</div>
       ${s.type === 'cover' || s.type === 'cta' ? selo(t) : ''}
     </section>`;
@@ -150,7 +149,6 @@ export function renderCarrossel(c) {
 body{width:${n * W}px;height:${H}px;overflow:hidden;font-family:Poppins,sans-serif;-webkit-font-smoothing:antialiased}
 .faixa{position:relative;display:flex;width:${n * W}px;height:${H}px}
 section{position:relative;flex:none;width:${W}px;height:${H}px;overflow:hidden}
-.contador{position:absolute;top:100px;right:96px;font:600 22px Poppins;letter-spacing:2px;z-index:3}
 .conteudo{position:absolute;top:150px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:28px;z-index:3}
 .bloco{display:flex;flex-direction:column;gap:28px}
 .selo{position:absolute;bottom:96px;left:50%;transform:translateX(-50%);padding:8px 18px;border-radius:8px;font:400 24px Poppins;white-space:nowrap;z-index:3}
