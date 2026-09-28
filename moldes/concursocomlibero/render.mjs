@@ -27,7 +27,7 @@ let problemas = 0;
 for (const c of dados) {
   if (filtro && c.id !== filtro) continue;
   const fotos = {}, faltando = [];
-  for (const s of c.slides) for (const nome of [s.foto, s.imagem]) if (nome) { const f = acharFoto(nome); if (f) fotos[nome] = 'file://' + f; else faltando.push(nome); }
+  for (const s of c.slides) for (const nome of [s.foto, s.imagem, ...(s.imagens || [])]) if (nome) { const f = acharFoto(nome); if (f) fotos[nome] = 'file://' + f; else faltando.push(nome); }
   const { html, total, avisos } = renderCarrossel({ ...c, _fotos: fotos });
   faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/); o slide sai sem ela`));
   const htmlPath = path.join(buildDir, `${c.id}.html`);

@@ -73,6 +73,14 @@ const card = (t, html, { fundo = COR.fundo, pauta = false, pad = '48px 52px', ex
   `<div style="position:relative;background:${fundo};${pauta ? `background-image:repeating-linear-gradient(180deg,transparent 0 55px,rgba(31,143,127,.13) 55px 56px);` : ''}border-radius:26px;padding:${pad};${t.escuro ? SOMBRA : `border:1.5px solid rgba(31,143,127,.22);${SOMBRA_LEVE}`};color:${COR.preto}${extra}">${html}</div>`;
 const pCard = (txt, px = 34, cor = COR.cinza) => `<p data-corpo style="margin:0;font-size:${px}px;line-height:1.45;color:${cor};text-wrap:pretty">${rico(txt, 'card')}</p>`;
 
+const SOMBRA_FORTE = 'box-shadow:0 50px 90px -30px rgba(0,0,0,.6),0 4px 12px rgba(0,0,0,.2)';
+// Janela de navegador com o print dentro (bolinhas na barra).
+function janela(t, src, { alturaMax = 640, sombra, barra = 46, pos = 'center top' } = {}) {
+  const b = `<div style="height:${barra}px;display:flex;align-items:center;gap:${barra * .22}px;padding:0 ${barra * .48}px;background:${t.escuro ? '#DCEBE6' : '#EEF4F2'};border-bottom:1.5px solid rgba(13,61,56,.1)">${['#E4776C', '#E9C15B', '#6FBF8A'].map(k => `<span style="width:${barra * .3}px;height:${barra * .3}px;border-radius:50%;background:${k}"></span>`).join('')}</div>`;
+  const img = src ? `<img data-foto src="${src}" style="display:block;width:100%;max-height:${alturaMax}px;object-fit:cover;object-position:${esc(pos)}">` : `<div style="height:300px;display:flex;align-items:center;justify-content:center;color:${COR.verde};${MONO};font-size:24px">print</div>`;
+  return `<div style="border-radius:${barra * .45}px;overflow:hidden;background:#fff;${sombra || (t.escuro ? SOMBRA : `border:1.5px solid rgba(13,61,56,.14);${SOMBRA_LEVE}`)}">${b}${img}</div>`;
+}
+
 // Foto (fotos/ deste molde ou das pastas de fotos dos outros moldes), resolvida pelo render.
 const foto = (c, nome) => (c._fotos || {})[nome] || null;
 
@@ -96,7 +104,30 @@ const TIPOS = {
         <div data-area style="position:absolute;left:96px;width:410px;top:150px;bottom:180px;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:3">
           ${titulo(s, t, s.ts || 92, ';line-height:1.04')}${subHtml(t, 34)}</div>`;
     }
+    // Capa "produto": título em cima e a tela (s.imagem) numa janela de navegador inclinada, saindo pela direita.
+    if (s.capaModo === 'produto') {
+      const img = s.imagem && foto(c, s.imagem);
+      return `<div data-area style="position:absolute;left:112px;right:112px;top:150px;height:500px;display:flex;flex-direction:column;justify-content:center;gap:26px;z-index:3">
+          ${titulo(s, t, s.ts || 118, ';line-height:1.02')}${subHtml(t, 36)}</div>
+        <div data-objeto style="position:absolute;left:150px;top:690px;width:1040px;transform:rotate(-4deg);transform-origin:left top;z-index:2">${janela(t, img, { alturaMax: 520, sombra: SOMBRA_FORTE })}</div>`;
+    }
+    // Capa "leque": título em cima e três telas (s.imagens) em leque embaixo.
+    if (s.capaModo === 'leque') {
+      const ims = lista(s.imagens).slice(0, 3).map(n => foto(c, n));
+      const pos = [[-70, 760, -9, 1], [510, 760, 9, 1], [200, 700, 0, 2]];
+      const ordem = [0, 2, 1];
+      return `<div data-area style="position:absolute;left:112px;right:112px;top:120px;height:540px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:22px;z-index:3">
+          ${titulo(s, t, s.ts || 120, ';line-height:.98')}${subHtml(t, 36)}</div>
+        ${ordem.map(i => { const [x, y, r, z] = pos[i]; return `<div data-objeto style="position:absolute;left:${x}px;top:${y}px;width:680px;transform:rotate(${r}deg);z-index:${z + 1}">${janela(t, ims[i], { alturaMax: 420, sombra: SOMBRA_FORTE, barra: 38 })}</div>`; }).join('')}`;
+    }
     return area(`${titulo(s, t, s.ts || 124, ';line-height:1.02')}${subHtml(t)}`);
+  },
+  // Benefícios: cards em duas colunas (nome em Playfair, uma linha de explicação).
+  beneficios(s, t) {
+    const itens = lista(s.itens).map((it, i) => `<div style="background:${t.escuro ? 'rgba(234,250,245,.06)' : '#fff'};border:1.5px solid ${t.escuro ? 'rgba(191,230,221,.22)' : 'rgba(31,143,127,.2)'};border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:10px;${t.escuro ? '' : SOMBRA_LEVE}">
+        <div style="display:flex;align-items:center;gap:14px"><span style="${MONO};font-size:20px;font-weight:700;color:${t.escuro ? COR.prof : '#fff'};background:${t.escuro ? COR.amarelo : COR.verde};border-radius:8px;padding:4px 9px">${pad2(i + 1)}</span><span style="${PLAYFAIR};font-size:${s.tamNome || 36}px;line-height:1.05;color:${t.tit}">${esc(it.nome)}</span></div>
+        <span data-corpo style="font-size:${s.corpo || 25}px;line-height:1.38;color:${t.txt}">${rico(it.texto, t)}</span></div>`).join('');
+    return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 76)}<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">${itens}</div>`, ';gap:30px;top:140px;bottom:170px');
   },
   // Explicação: título, fio, parágrafos e, opcionalmente, um card de destaque.
   texto(s, t) {
@@ -154,10 +185,8 @@ const TIPOS = {
   // Print (tela de plataforma, site, material): numa janela de navegador com sombra, abaixo do título.
   print(s, t, c) {
     const f = s.imagem && foto(c, s.imagem);
-    const barra = `<div style="height:46px;display:flex;align-items:center;gap:10px;padding:0 22px;background:${t.escuro ? '#DCEBE6' : '#EEF4F2'};border-bottom:1.5px solid rgba(13,61,56,.1)">${['#E4776C', '#E9C15B', '#6FBF8A'].map(k => `<span style="width:14px;height:14px;border-radius:50%;background:${k}"></span>`).join('')}</div>`;
-    const img = f ? `<img data-foto src="${f}" style="display:block;width:100%;max-height:${s.alturaMax || 640}px;object-fit:cover;object-position:${esc(s.imagemPos || 'center top')}">` : `<div style="height:420px;display:flex;align-items:center;justify-content:center;color:${COR.verde};${MONO};font-size:24px">print: ${esc(s.imagem || '')}</div>`;
     return area(`${etiqueta(s.etiqueta)}${titulo(s, t, 80)}${corpo(s, t, 34)}
-      <div style="flex:none;border-radius:22px;overflow:hidden;background:#fff;${t.escuro ? SOMBRA : `border:1.5px solid rgba(13,61,56,.14);${SOMBRA_LEVE}`}">${barra}${img}</div>`, ';gap:30px');
+      <div style="flex:none">${janela(t, f, { alturaMax: s.alturaMax || 640, pos: s.imagemPos || 'center top' })}</div>`, ';gap:30px');
   },
   // Oferta: preço antigo riscado e o novo em destaque.
   oferta(s, t) {

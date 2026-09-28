@@ -57,18 +57,32 @@
     ]
   },
   {
-    "id": "cronograma-enac",
-    "titulo": "Cronograma ENAC (divulgação)",
+    "id": "cronograma-enac-v1",
+    "titulo": "Cronograma ENAC · variação 1 (capa escura com a plataforma)",
     "materia": "Cartórios · ENAC",
     "slides": [
-      {"tipo": "capa", "tema": "branco", "titulo": ["Cronograma", "==ENAC=="], "sub": "Uma meta por dia até a prova, com tudo o que você precisa em um só lugar.", "foto": "foto-1-sem-credito.png", "fotoModo": "lado", "fotoPos": "40% top"},
-      {"tipo": "impacto", "tema": "profundo", "titulo": ["Você não precisa", "de mais material.", "Precisa de ==rota==."], "sub": "O cronograma diz o que estudar hoje, na ordem certa, até o dia do ENAC."},
+      {"tipo": "capa", "tema": "profundo", "capaModo": "produto", "titulo": ["Seu estudo para", "o ==ENAC==, dia a dia"], "ts": 104, "sub": "Uma meta por dia até a prova, em uma plataforma só.", "imagem": "enac/print-0855-recorte.png", "marca": false},
+      {"tipo": "impacto", "tema": "branco", "titulo": ["Você não precisa", "de mais material.", "Precisa de ==rota==."], "sub": "O cronograma diz o que estudar hoje, na ordem certa, até o dia do ENAC."},
+      {"tipo": "beneficios", "etiqueta": "Tudo em um lugar", "titulo": "O que tem ==dentro==", "itens": [{"nome": "Cronograma", "texto": "Rota diária que se ajusta à sua rotina."}, {"nome": "Resumos", "texto": "Cadernos por matéria, com tabelas e pegadinhas."}, {"nome": "Lei seca", "texto": "Leitura guiada dentro da meta do dia."}, {"nome": "Questões", "texto": "Meta diária de questões para treinar sem parar."}, {"nome": "Flashcards", "texto": "Revisão ativa para fixar o que mais cai."}, {"nome": "Simulados", "texto": "As 3 edições oficiais do ENAC e simulados autorais."}, {"nome": "Desempenho", "texto": "Seu resultado por matéria para saber onde focar."}, {"nome": "Diagnóstico", "texto": "30 questões para achar suas prioridades."}], "tema": "profundo"},
       {"tipo": "print", "tema": "branco", "etiqueta": "Cronograma", "titulo": "Um passo por dia, uma ==meta== de cada vez", "texto": "Você monta a rota conforme a sua rotina. Os temas e as questões se reorganizam sozinhos.", "imagem": "enac/print-0856-recorte.png"},
-      {"tipo": "print", "tema": "escuro", "etiqueta": "Resumos", "titulo": "Cadernos por ==matéria==", "texto": "Cada caderno traz os temas cobrados e a lista do que revisar.", "imagem": "enac/print-0908-recorte.png"},
-      {"tipo": "print", "tema": "branco", "etiqueta": "Dentro do caderno", "titulo": "Direto ao ponto, com ==pegadinhas== da FGV", "texto": "Tabelas para consultar rápido e alertas do que não confundir na prova.", "imagem": "enac/print-0912-recorte.png"},
-      {"tipo": "print", "tema": "profundo", "etiqueta": "Simulados", "titulo": "Treine com as ==3 edições== do ENAC", "texto": "Prova no formato original: 100 questões, 5 horas, cartão-resposta e resultado por matéria.", "imagem": "enac/print-0858-recorte.png"},
-      {"tipo": "oferta", "tema": "branco", "etiqueta": "Investimento", "titulo": ["Cronograma ENAC", "==completo=="], "texto": "Cronograma, resumos, lei seca, questões, flashcards e simulados na mesma plataforma.", "de": "R$ 497", "por": "R$ 297"},
-      {"tipo": "cta", "tema": "profundo", "titulo": ["Comente ==#ENAC==", "que eu te mando", "o link."], "marca": "§"}
+      {"tipo": "print", "tema": "escuro", "etiqueta": "Resumos", "titulo": "Cadernos por ==matéria==", "texto": "Tabelas para consultar rápido e alertas das pegadinhas da FGV.", "imagem": "enac/print-0908-recorte.png"},
+      {"tipo": "print", "tema": "branco", "etiqueta": "Simulados", "titulo": "Treine com as ==3 edições== do ENAC", "texto": "Prova no formato original: 100 questões, 5 horas, cartão-resposta e resultado por matéria.", "imagem": "enac/print-0858-recorte.png"},
+      {"tipo": "oferta", "etiqueta": "Investimento", "titulo": ["Cronograma ENAC", "==completo=="], "texto": "Cronograma, resumos, lei seca, questões, flashcards, simulados e desempenho na mesma plataforma.", "de": "R$ 497", "por": "R$ 297", "tema": "profundo"},
+      {"tipo": "cta", "titulo": ["Comente ==#ENAC==", "que eu te mando", "o link."], "tema": "branco"}
+    ]
+  },
+  {
+    "id": "cronograma-enac-v2",
+    "titulo": "Cronograma ENAC · variação 2 (capa clara em leque)",
+    "materia": "Cartórios · ENAC",
+    "slides": [
+      {"tipo": "capa", "tema": "branco", "capaModo": "leque", "titulo": ["Cronograma", "==ENAC=="], "sub": "Tudo o que você precisa para a prova, organizado dia a dia.", "imagens": ["enac/print-0856-recorte.png", "enac/print-0908-recorte.png", "enac/print-0858-recorte.png"], "marca": false, "ts": 150},
+      {"tipo": "beneficios", "etiqueta": "Tudo em um lugar", "titulo": "O que tem ==dentro==", "itens": [{"nome": "Cronograma", "texto": "Rota diária que se ajusta à sua rotina."}, {"nome": "Resumos", "texto": "Cadernos por matéria, com tabelas e pegadinhas."}, {"nome": "Lei seca", "texto": "Leitura guiada dentro da meta do dia."}, {"nome": "Questões", "texto": "Meta diária de questões para treinar sem parar."}, {"nome": "Flashcards", "texto": "Revisão ativa para fixar o que mais cai."}, {"nome": "Simulados", "texto": "As 3 edições oficiais do ENAC e simulados autorais."}, {"nome": "Desempenho", "texto": "Seu resultado por matéria para saber onde focar."}, {"nome": "Diagnóstico", "texto": "30 questões para achar suas prioridades."}], "tema": "profundo"},
+      {"tipo": "print", "tema": "branco", "etiqueta": "Sua meta do dia", "titulo": "Abra, estude, ==avance==", "texto": "Leitura guiada, lei seca, questões e revisão ativa na mesma meta, com níveis e XP para manter o ritmo.", "imagem": "enac/print-0855-recorte.png"},
+      {"tipo": "print", "tema": "escuro", "etiqueta": "Dentro do caderno", "titulo": "Direto ao ponto, com ==pegadinhas== da FGV", "texto": "Tabelas para consultar rápido e alertas do que não confundir.", "imagem": "enac/print-0912-recorte.png"},
+      {"tipo": "print", "tema": "branco", "etiqueta": "Simulados", "titulo": "Treine como no ==dia da prova==", "texto": "As 3 edições oficiais no formato original, com resultado por matéria.", "imagem": "enac/print-0858-recorte.png"},
+      {"tipo": "oferta", "etiqueta": "Investimento", "titulo": ["Cronograma ENAC", "==completo=="], "texto": "Cronograma, resumos, lei seca, questões, flashcards, simulados e desempenho na mesma plataforma.", "de": "R$ 497", "por": "R$ 297", "tema": "profundo"},
+      {"tipo": "cta", "titulo": ["Comente ==#ENAC==", "que eu te mando", "o link."], "tema": "branco"}
     ]
   }
 ]
