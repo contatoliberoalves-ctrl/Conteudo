@@ -41,7 +41,7 @@ const titulo = (s, px = 96, extra = '') => lista(s.titulo).length
 const etiqueta = (txt, cor = COR.roxo, fg = '#fff') => txt ? `<span style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;background:${cor};color:${fg};${MONO};font-size:24px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px 10px 16px;border-radius:8px"><span style="width:8px;height:8px;border-radius:50%;background:${COR.amarelo};flex:none"></span>${esc(txt)}</span>` : '';
 const fio = (w = 120, cor = COR.amarelo) => `<span style="display:block;width:${w}px;height:4px;border-radius:2px;background:${cor};flex:none"></span>`;
 const corpo = (s, px = 38, cor = '#E3F2EE') => lista(s.texto).map(p => `<p data-corpo style="margin:0;font-size:${s.corpo || px}px;font-weight:400;line-height:1.42;color:${cor};text-wrap:pretty">${rico(p)}</p>`).join('');
-const fundamento = (txt, claro = false) => txt ? `<div style="display:flex;align-items:center;gap:14px;${MONO};font-size:24px;font-weight:500;letter-spacing:.04em;color:${claro ? COR.verde : COR.claro}"><span style="width:28px;height:2px;background:currentColor"></span>${esc(txt)}</div>` : '';
+const fundamento = (txt, claro = false) => txt ? `<div style="display:flex;align-items:center;gap:14px;${MONO};font-size:24px;font-weight:500;letter-spacing:.04em;color:${claro ? COR.verde : COR.claro}"><span style="width:10px;height:10px;border:2px solid currentColor;transform:rotate(45deg);flex:none"></span>${esc(txt)}</div>` : '';
 
 // Moldura de documento: linha fina a 44px da borda, com cantos marcados, cabeçalho com a matéria
 // (esquerda) e o nº da folha (direita), como nos autos.
