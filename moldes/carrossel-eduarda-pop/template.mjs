@@ -2,7 +2,7 @@
 // (Advogada · Direito Civil e ECA), a partir das referências que ela separou.
 // Regra da marca (vale para todos os estilos e para o Post Eduarda): só as 5 cores da paleta + branco como
 // contracor, e 3 fontes: Inter Tight (títulos e texto), Gloock (serifa) e Yellowtail (cursiva do *destaque*).
-// Em comum: cabeçalho EDUARDA CARACIOLO · ADVOGADA, palavra em cursiva, brilho ✦ e formas em pílula.
+// Em comum: @ em pílula no rodapé (sem cabeçalho), palavra em cursiva, brilho ✦ e formas em pílula.
 //   "trend"  (moderno)      capa blush quadriculada e páginas brancas, títulos pesados em caixa-alta, caixas tracejadas, disco de vinil (era)
 //   "studio" (moderno)      fundo branco (ou rosa-escuro), títulos em serifa, etiquetas em pílula, enfeite de morcegos opcional
 //   "scrap"  (descontraído) papel branco, grotesca pesada minúscula, balões de fala, estrelas, papel rasgado, legenda sobre foto
@@ -53,7 +53,8 @@ const cantos = cor => `
   <svg style="position:absolute;left:44px;top:44px;width:60px;height:60px" viewBox="0 0 60 60"><path d="M8 56 V8 H56" fill="none" stroke="${cor}" stroke-width="2"/><rect x="3" y="3" width="10" height="10" fill="#fff" stroke="${cor}" stroke-width="2"/></svg>
   <svg style="position:absolute;right:44px;bottom:44px;width:60px;height:60px" viewBox="0 0 60 60"><path d="M52 4 V52 H4" fill="none" stroke="${cor}" stroke-width="2"/><rect x="47" y="47" width="10" height="10" fill="#fff" stroke="${cor}" stroke-width="2"/></svg>`;
 // Cabeçalho comum a todos os estilos.
-const topo = (cor, y = 54) => `<div style="position:absolute;left:70px;right:70px;top:${y}px;display:flex;justify-content:space-between;${TIGHT};font-size:20px;letter-spacing:.14em;color:${cor};z-index:6"><span style="font-weight:600">EDUARDA CARACIOLO</span><span style="font-weight:800">ADVOGADA · CIVIL E ECA</span></div>`;
+// Cabeçalho removido a pedido (o @ no rodapé já identifica); a função fica para não mexer nos layouts.
+const topo = () => '';
 const arroba = (cor, y = H - 80) => `<div style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;z-index:6"><div style="${TIGHT};font-weight:600;font-size:22px;letter-spacing:.02em;color:${cor};border:1.5px solid ${cor};border-radius:999px;padding:6px 22px">${ARROBA}</div></div>`;
 const pilula = (html, bg, cor, extra = '') => `<div style="background:${bg};color:${cor};border-radius:999px;padding:16px 44px;${TIGHT};font-weight:800;font-size:34px;letter-spacing:-.01em;${extra}">${html}</div>`;
 // Barra de abas do perfil do Instagram (grade, reels, repost, marcados).
@@ -143,7 +144,7 @@ const TREND = {
       <div style="position:absolute;left:50%;top:150px;width:540px;height:540px;margin-left:-270px;transform:rotate(-3deg);background:linear-gradient(145deg,${cor},${C.claro});box-shadow:0 24px 50px rgba(238,42,138,.3);overflow:hidden">
         <div style="position:absolute;inset:22px;border:2px solid rgba(255,255,255,.8)"></div>
         <div style="position:absolute;left:52px;top:50px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.3em;color:#fff">ERA</div>
-        <div style="position:absolute;right:52px;top:50px;${TIGHT};font-weight:600;font-size:18px;letter-spacing:.18em;color:#fff;text-align:right">EDUARDA<br>CARACIOLO</div>
+        
         <div style="position:absolute;left:40px;bottom:-40px;${SERIF};font-size:380px;line-height:1;color:#fff;letter-spacing:-.04em">${dois(s.numero ?? 1)}</div>
         ${s.selo ? `<div style="position:absolute;right:48px;bottom:56px;background:#fff;color:${C.escuro};${TIGHT};font-weight:800;font-size:18px;letter-spacing:.12em;padding:8px 14px;text-transform:uppercase">${esc(s.selo)}</div>` : ''}
       </div>
@@ -297,7 +298,7 @@ const SCRAP = {
       <div style="position:absolute;left:70px;right:90px;top:140px;bottom:130px;background:#fff;border-radius:28px;transform:rotate(-2deg);border:2px solid ${C.claro};box-shadow:0 20px 50px rgba(238,42,138,.25);z-index:2">
         <div style="position:absolute;left:50%;top:-34px;width:190px;height:62px;margin-left:-95px;background:${C.claro}cc;transform:rotate(3deg)"></div>
         <div style="position:absolute;right:40px;top:34px;display:flex;gap:14px">${[C.claro, C.pessego, C.escuro].map(c => `<div style="width:26px;height:26px;border-radius:50%;background:${c}"></div>`).join('')}</div>
-        <div style="position:absolute;left:60px;top:40px;${TIGHT};font-size:19px;line-height:1.2;letter-spacing:.12em;color:${C.escuro}"><div style="font-weight:600">EDUARDA CARACIOLO</div><div style="font-weight:800">ADVOGADA · CIVIL E ECA</div></div>
+        
         <div data-area style="position:absolute;left:60px;right:60px;top:130px;bottom:60px;display:flex;flex-direction:column;justify-content:center;gap:56px">
           ${pTit(s.titulo, s.ts || 96)}
           ${s.fala ? balao(fmt(s.fala, pBal), { bg: C.pink, rot: -3, tam: 32 }) : ''}

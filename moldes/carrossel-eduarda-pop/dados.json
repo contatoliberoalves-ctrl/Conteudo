@@ -1,75 +1,75 @@
 [
   {
-    "id": "testamento-capa-foto",
-    "titulo": "Testamento não é coisa de rico · capa com foto",
+    "id": "heranca-segunda-fase-capa-foto",
+    "titulo": "Herança na 2ª fase: 4 temas que a banca adora · capa com foto",
     "estilo": "studio",
     "slides": [
       {
         "tipo": "capaFoto",
         "foto": "eduarda-guarda-chuva.jpg",
         "fotoPos": "center 35%",
-        "kicker": "Planejamento sucessório",
-        "titulo": "Testamento não é coisa de *rico*",
-        "texto": "5 coisas que você precisa saber",
-        "fonte": "serif"
+        "fonte": "serif",
+        "kicker": "Sucessões na 2ª fase",
+        "titulo": "4 temas de herança que a *banca adora*",
+        "texto": "e o artigo de cada um"
       },
       {
         "tipo": "texto",
-        "kicker": "Quem pode fazer?",
-        "titulo": "a partir dos *16 anos*",
-        "texto": "Toda pessoa capaz pode fazer testamento, e os maiores de 16 anos também podem (art. 1.860, parágrafo único, CC)."
+        "kicker": "1. Renúncia",
+        "titulo": "quem renuncia *some* da sucessão",
+        "texto": "A renúncia é feita por instrumento público ou termo judicial (art. 1.806, CC), e ninguém herda representando o herdeiro renunciante (art. 1.811, CC)."
       },
       {
         "tipo": "texto",
-        "kicker": "Tem filhos, pais ou cônjuge?",
-        "titulo": "então você dispõe de *metade*",
-        "texto": "A outra metade é a legítima: fica garantida aos herdeiros necessários, que são descendentes, ascendentes e cônjuge (arts. 1.789 e 1.845, CC)."
+        "kicker": "2. Colação",
+        "titulo": "doação em vida *volta pra conta*",
+        "texto": "O descendente que recebeu doação do ascendente e concorre à herança deve conferir esse valor, para igualar as legítimas (art. 2.002, CC)."
       },
       {
-        "tipo": "lista",
-        "titulo": "Os 3 testamentos *comuns*",
-        "itens": [
-          "**público**: feito no cartório, pelo tabelião",
-          "**cerrado**: você escreve e o tabelião aprova e lacra",
-          "**particular**: escrito por você e lido para 3 testemunhas"
-        ],
-        "texto": "(art. 1.862, CC)"
+        "tipo": "texto",
+        "kicker": "3. Doação inoficiosa",
+        "titulo": "doar *além* da metade é nulo",
+        "texto": "É nula a doação na parte que excede o que o doador poderia dispor em testamento no momento da liberalidade (art. 549, CC)."
       },
       {
         "tipo": "texto",
         "fundo": "rosa",
-        "kicker": "Mudou de ideia?",
-        "titulo": "dá pra *revogar*",
-        "texto": "O testamento pode ser revogado do mesmo modo e pela mesma forma como pode ser feito (art. 1.969, CC)."
+        "kicker": "4. Indignidade x deserdação",
+        "titulo": "quem *perde* o direito de herdar",
+        "texto": "A indignidade vem da lei, nos casos do art. 1.814. A deserdação é feita pelo autor da herança, em testamento e com a causa declarada, só contra herdeiros necessários (arts. 1.961 e 1.964, CC)."
       },
       {
         "tipo": "oab",
-        "titulo": "Testamento é tema *recorrente*",
+        "titulo": "Sucessões cai *muito*",
         "itens": [
           {
-            "exame": "16º",
-            "texto": "sucessão e substituição testamentária"
+            "exame": "7º",
+            "texto": "renúncia parcial e herança de pessoa viva"
           },
           {
-            "exame": "18º",
-            "texto": "testamento e herdeiros facultativos"
+            "exame": "13º",
+            "texto": "doação inoficiosa"
           },
           {
-            "exame": "25º",
-            "texto": "rompimento do testamento"
+            "exame": "23º",
+            "texto": "indignidade"
           },
           {
-            "exame": "38º",
-            "texto": "fideicomisso e abertura de testamento"
+            "exame": "33º",
+            "texto": "deserdação e inventário extrajudicial"
+          },
+          {
+            "exame": "46º",
+            "texto": "renúncia, representação e colação"
           }
         ]
       },
       {
         "tipo": "cta",
-        "kicker": "Quer planejar isso com calma?",
-        "titulo": "me chama no *direct*",
-        "texto": "Te explico qual formato faz sentido pra você.",
-        "botao": "Link na bio"
+        "kicker": "Quer treinar sucessões com correção?",
+        "titulo": "vem pra *mentoria*",
+        "texto": "Mentoria de Civil 2ª fase: aulas curtas, treino depois de cada aula e 5 simulados corrigidos.",
+        "botao": "Me chama no direct"
       }
     ]
   },
@@ -146,7 +146,7 @@
     "id": "uniao-estavel-casamento-chique",
     "titulo": "União estável ou casamento? · chique framboesa",
     "estilo": "chique",
-    "tom": "framboesa",
+    "tom": "fucsia",
     "slides": [
       {
         "tipo": "capa",
@@ -226,66 +226,89 @@
     ]
   },
   {
-    "id": "inventario-cartorio-chique",
-    "titulo": "Inventário no cartório · chique fúcsia",
+    "id": "vicio-ou-fato-chique",
+    "titulo": "Vício ou fato do produto? · chique",
     "estilo": "chique",
     "tom": "fucsia",
     "slides": [
       {
         "tipo": "capa",
-        "kicker": "Sucessões",
-        "titulo": "Inventário no *cartório*: quando pode?",
-        "texto": "Mais rápido que o judicial, mas com regras."
+        "kicker": "Responsabilidade civil e consumo",
+        "titulo": "Vício ou *fato* do produto?",
+        "texto": "A diferença que mais derruba ponto nas questões de Civil."
       },
       {
-        "tipo": "lista",
+        "tipo": "texto",
         "pagina": "01",
-        "kicker": "A regra do CPC (art. 610)",
-        "titulo": "O que precisa pra fazer por *escritura*",
-        "itens": [
-          "herdeiros **maiores e capazes**",
-          "todos **de acordo** com a partilha",
-          "**advogado** acompanhando as partes",
-          "sem testamento, ou com o testamento já registrado na Justiça"
+        "kicker": "Vício",
+        "titulo": "O produto *não funciona* como deveria",
+        "texto": "É problema de qualidade ou quantidade: o bem fica impróprio ou vale menos. O fornecedor tem 30 dias para sanar; se não sanar, o consumidor escolhe entre troca, dinheiro de volta ou abatimento (art. 18, § 1º, CDC)."
+      },
+      {
+        "tipo": "texto",
+        "pagina": "02",
+        "kicker": "Fato",
+        "titulo": "O produto *causa um dano*",
+        "texto": "É o acidente de consumo: o defeito atinge a segurança e machuca alguém ou causa prejuízo além do próprio produto (art. 12, CDC)."
+      },
+      {
+        "tipo": "compara",
+        "pagina": "03",
+        "kicker": "Lado a lado",
+        "titulo": "O que *muda* na prova",
+        "colunas": [
+          {
+            "titulo": "Vício",
+            "itens": [
+              "toda a cadeia responde junto (art. 18)",
+              "prazo para reclamar: 30 dias (não durável) ou 90 dias (durável), art. 26",
+              "é **decadência**"
+            ]
+          },
+          {
+            "titulo": "Fato",
+            "itens": [
+              "o comerciante responde de forma **subsidiária** (art. 13)",
+              "prazo de 5 anos para pedir a reparação (art. 27)",
+              "é **prescrição**"
+            ]
+          }
         ]
       },
       {
         "tipo": "destaque",
-        "pagina": "02",
-        "titulo": "Tem herdeiro menor? Desde 2024 também pode, com *regras especiais*",
-        "texto": "Resolução 571/2024 do CNJ."
-      },
-      {
-        "tipo": "texto",
-        "pagina": "03",
-        "kicker": "Prazo",
-        "titulo": "Abra em até *2 meses*",
-        "texto": "O inventário deve ser aberto em 2 meses a contar da morte (art. 611, CPC). O atraso pode gerar multa no imposto (ITCMD), conforme a lei de cada estado."
+        "pagina": "04",
+        "titulo": "Na dúvida: o produto *machucou* alguém? É fato.",
+        "texto": "Se só não serve pro que prometeu, é vício."
       },
       {
         "tipo": "oab",
-        "titulo": "Inventário e partilha na *prova*",
+        "titulo": "Consumo aparece em *toda* prova",
         "itens": [
           {
-            "exame": "33º",
-            "texto": "deserdação e inventário extrajudicial"
+            "exame": "10º",
+            "texto": "fato do produto e responsabilidade do comerciante"
           },
           {
-            "exame": "36º",
-            "texto": "preferência do coerdeiro e sobrepartilha"
+            "exame": "21º",
+            "texto": "peça: apelação com fato do produto"
           },
           {
-            "exame": "42º",
-            "texto": "colação de doação e remoção da inventariante"
+            "exame": "30º",
+            "texto": "comerciante e fato do produto"
+          },
+          {
+            "exame": "46º",
+            "texto": "vício de produto e prazo"
           }
         ]
       },
       {
         "tipo": "cta",
-        "kicker": "Perdeu alguém e não sabe por onde começar?",
-        "titulo": "Eu te *ajudo*",
-        "texto": "Me chama no direct.",
-        "botao": "Link na bio"
+        "kicker": "Salva pra revisar",
+        "titulo": "Vício *ou* fato?",
+        "texto": "Manda pra quem sempre confunde os dois.",
+        "botao": "Salvar"
       }
     ]
   },
@@ -359,77 +382,82 @@
     ]
   },
   {
-    "id": "divorcio-pop-legenda",
-    "titulo": "4 coisas que nunca se faz num divórcio · pop (foto + frase)",
+    "id": "nunca-na-segunda-fase-pop-legenda",
+    "titulo": "4 coisas que você nunca deve fazer na 2ª fase · pop (foto + frase)",
     "estilo": "scrap",
     "slides": [
       {
         "tipo": "legenda",
         "foto": "diva-taylor.jpg",
+        "fotoPos": "35% center",
         "fotoCrua": true,
-        "texto": "**4 coisas que você NUNCA**\n**deve fazer num divórcio**",
+        "texto": "**4 coisas que você NUNCA**\n**deve fazer na 2ª fase de Civil**",
         "y": 900,
         "tam": 60,
         "emojis": [
           "💅",
-          "💔"
-        ],
-        "fotoPos": "35% center"
+          "📚"
+        ]
       },
       {
         "tipo": "legenda",
         "foto": "diva-zendaya.jpg",
+        "fotoPos": "52% center",
         "fotoCrua": true,
-        "texto": "**Sumir de casa por 2 anos,**\nem alguns casos, o ex pode pedir\nusucapião da sua parte do imóvel\n(art. 1.240-A, CC).",
-        "fotoPos": "52% center"
+        "texto": "**Deixar o treino de peça pro fim,**\no treino começa junto com a teoria,\ndepois de cada aula."
       },
       {
         "tipo": "legenda",
         "foto": "diva-selena.jpg",
+        "fotoPos": "58% center",
         "fotoCrua": true,
-        "texto": "**Falar mal do pai ou da mãe pro filho,**\nisso é exemplo de alienação parental\n(art. 2º, Lei 12.318/2010).",
-        "fotoPos": "58% center"
+        "texto": "**Decorar esqueleto sem entender o cabimento,**\na banca troca um detalhe\ne a peça muda."
       },
       {
         "tipo": "legenda",
         "foto": "diva-emma.jpg",
+        "fotoPos": "54% center",
         "fotoCrua": true,
-        "texto": "**Parar de pagar a pensão por conta própria,**\na dívida continua e pode\nlevar à prisão civil (art. 528, § 3º, CPC).",
-        "fotoPos": "54% center"
+        "texto": "**Citar o artigo e parar aí,**\na grade pontua conclusão,\njustificativa e fundamento."
       },
       {
         "tipo": "legenda",
         "foto": "diva-hannah.jpg",
+        "fotoPos": "46% center",
         "fotoCrua": true,
-        "texto": "**Esconder bens na partilha,**\nos bens sonegados podem ser\ndivididos depois, na sobrepartilha\n(art. 669, CPC).",
-        "fotoPos": "46% center"
+        "texto": "**Ignorar a peça que caiu uma vez só,**\ncontrarrazões, rescisória e\ncuratela também já caíram."
       },
       {
         "tipo": "oab",
-        "titulo": "Divórcio na *2ª fase*",
+        "titulo": "A variedade das *últimas* provas",
         "itens": [
           {
-            "exame": "4º",
-            "texto": "divórcio depois da EC 66/2010"
-          },
-          {
-            "exame": "28º",
-            "texto": "prêmio de loteria na partilha"
-          },
-          {
-            "exame": "35º",
-            "texto": "usucapião familiar"
+            "exame": "39º",
+            "texto": "contrarrazões de apelação"
           },
           {
             "exame": "40º",
-            "texto": "peça: divórcio consensual com guarda, alimentos e partilha"
+            "texto": "divórcio consensual"
+          },
+          {
+            "exame": "41º",
+            "texto": "reintegração de posse"
+          },
+          {
+            "exame": "45º",
+            "texto": "interdição/curatela"
+          },
+          {
+            "exame": "46º",
+            "texto": "embargos de terceiro"
           }
-        ]
+        ],
+        "texto": "Por isso: treine reconhecer o **cabimento**."
       },
       {
         "tipo": "pergunta",
-        "titulo": "qual desses te *chocou* mais?",
-        "texto": "Conta aqui nos comentários 👇"
+        "titulo": "qual desses você *já* fez?",
+        "texto": "Sem julgamentos! Me conta aqui 👇"
       }
     ]
   },
@@ -573,72 +601,72 @@
     ]
   },
   {
-    "id": "pensao-em-eras-trend",
-    "titulo": "Pensão alimentícia em eras · trend (pop)",
+    "id": "segunda-fase-em-eras-trend",
+    "titulo": "A 2ª fase de Civil em eras · trend (pop)",
     "estilo": "trend",
     "slides": [
       {
         "tipo": "capa",
-        "kicker": "Direito de Família",
-        "titulo": "Pensão alimentícia\n==em eras==",
-        "texto": "Cada fase da vida do filho, uma regra diferente. Qual é a sua era?"
+        "kicker": "Dados da prova",
+        "titulo": "A 2ª fase de Civil\n==em eras==",
+        "texto": "Como a peça cobrada mudou do 2º ao 46º exame."
       },
       {
         "tipo": "era",
         "numero": 1,
-        "kicker": "Antes de nascer",
-        "titulo": "A era dos alimentos *gravídicos*",
-        "texto": "A gestante pode pedir ajuda com as despesas da gravidez, da concepção ao parto (Lei 11.804/2008)."
+        "kicker": "Exames 2 a 11",
+        "titulo": "A era das *ações iniciais*",
+        "texto": "8 das 10 peças foram iniciais: alimentos, usucapião, cautelar, declaratória, despejo…"
       },
       {
         "tipo": "era",
         "numero": 2,
         "cor": "escuro",
-        "kicker": "Infância e adolescência",
-        "titulo": "A era da *pensão*",
-        "texto": "O valor segue as necessidades de quem recebe e as possibilidades de quem paga (art. 1.694, § 1º, CC)."
+        "kicker": "Exames 12 a 30",
+        "titulo": "A era dos *recursos*",
+        "texto": "Chegam agravo, apelação e recurso especial: 8 recursos em 19 provas, além de 5 defesas."
       },
       {
         "tipo": "era",
         "numero": 3,
         "cor": "pessego",
-        "kicker": "18 anos",
-        "titulo": "Ela não acaba *sozinha*",
-        "texto": "Fazer 18 não cancela a pensão automaticamente: o cancelamento depende de decisão judicial (Súmula 358 do STJ)."
+        "kicker": "Exames 31 a 46",
+        "titulo": "A era da *variedade*",
+        "texto": "11 tipos de peça em 16 provas: de contrarrazões a curatela, passando por divórcio consensual."
       },
       {
         "tipo": "era",
         "numero": 4,
-        "kicker": "Faculdade",
-        "titulo": "Pode *continuar*",
-        "texto": "Se o filho estuda e ainda depende dos pais, a Justiça costuma manter a pensão, em regra até os 24 anos."
+        "kicker": "A sua era",
+        "titulo": "Treinar o *cabimento*",
+        "texto": "Frequência não é previsão: quem reconhece a peça pelo ato do enunciado está pronto pra qualquer era."
       },
       {
         "tipo": "oab",
-        "titulo": "Alimentos em *todas* as eras da prova",
+        "titulo": "As 4 provas *mais recentes*",
         "itens": [
           {
-            "exame": "4º",
-            "texto": "peça: ação de alimentos para ascendente idoso"
+            "exame": "43º",
+            "texto": "contestação em despejo"
           },
           {
-            "exame": "9º",
-            "texto": "peça: alimentos gravídicos"
+            "exame": "44º",
+            "texto": "agravo de instrumento"
           },
           {
-            "exame": "15º",
-            "texto": "exoneração de alimentos"
+            "exame": "45º",
+            "texto": "interdição/curatela"
           },
           {
-            "exame": "34º",
-            "texto": "exoneração e irrepetibilidade"
+            "exame": "46º",
+            "texto": "embargos de terceiro"
           }
         ]
       },
       {
         "tipo": "cta",
         "kicker": "E aí?",
-        "titulo": "Qual ==era== é a sua?",
+        "titulo": "Qual ==era== você viveu?",
         "texto": "Me conta nos comentários ✨",
         "botao": "Salvar pra depois"
       }
