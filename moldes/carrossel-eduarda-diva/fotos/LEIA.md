@@ -1,0 +1,1 @@
+Fotos (fora do git: repositório público). O render procura aqui e em ../carrossel-eduarda-pop/fotos/, onde estão as fotos da Eduarda (lista em ../carrossel-eduarda-pop/fotos/LEIA.md), o recorte eduarda-joinha-recorte.png (feito com rembg, modelo u2net_human_seg) e as fotos das divas mandadas pelo usuário.

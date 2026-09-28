@@ -4,7 +4,7 @@ Carrosséis da Eduarda Caraciolo (Advogada · Direito Civil e ECA) inspirados na
 
 **Mais branco que rosa:** capa pode ser rosa; as páginas seguintes ficam, em geral, em fundo branco, com um slide rosa de vez em quando para marcar ritmo.
 
-**Regra da marca** (vale também para o `post-eduarda`): só as 5 cores da paleta — `#FFEBED` blush, `#FEBAC5` rosa-claro, `#F4789A` rosa-escuro, `#FC79AB` pink, `#FEA9AC` pêssego — e o **branco** como contracor; 3 fontes: Inter Tight (títulos e texto), Gloock (serifa do studio) e Yellowtail (a cursiva do `*destaque*`). Todo estilo repete o cabeçalho EDUARDA CARACIOLO · ADVOGADA · CIVIL E ECA, o @ em pílula, o brilho ✦ e um véu rosa nas fotos, para ornarem lado a lado no feed.
+**Regra da marca** (vale também para o `post-eduarda`): só as 5 cores da paleta — `#FFEBED` blush, `#FEBAC5` rosa-claro, `#EE2A8A` fúcsia (rosa principal; era `#F4789A`), `#FC79AB` pink, `#FEA9AC` pêssego — e o **branco** como contracor; 3 fontes: Inter Tight (títulos e texto), Gloock (serifa do studio) e Yellowtail (a cursiva do `*destaque*`). Todo estilo repete o cabeçalho EDUARDA CARACIOLO · ADVOGADA · CIVIL E ECA, o @ em pílula, o brilho ✦ e um véu rosa nas fotos, para ornarem lado a lado no feed.
 
 
 | estilo | cara | tipos de slide |
@@ -36,7 +36,9 @@ Campos por tipo:
 - **fotoCrua: true** (qualquer slide com foto): usa a foto como veio (fotos de artista na `legenda`). **fotoSugestao**: sem o arquivo, o slide mostra "FOTO AQUI" com essa sugestão e o nome do arquivo esperado.
 - **chique**: `tom` no post; `pagina` ("01"…) no rodapé; `compara`: `colunas: [{titulo, itens[]}, {…}]`.
 - **capa**: `titulo`, `texto`, `foto`, `fotoPos`; trend: `kicker` (etiqueta) e, sem foto, tudo centralizado; studio: `kicker`, `fotoAltura`; scrap: `agenda: true` (agenda e abas do perfil, mais informação) e `dia`.
-- **era** (trend): `numero`, `kicker`, `titulo`, `texto`, `cor` (pink, escuro, pessego) do rótulo do disco.
+- **era** (trend): capa de álbum com o número da era; `numero`, `kicker`, `titulo`, `texto`, `cor` (pink, escuro, pessego), `selo`.
+- **oab** (qualquer estilo): "Já caiu na OAB · 2ª fase de Civil"; `titulo`, `itens: [{exame: "9º", texto}]`, `texto`. Tirar os exames só de `materiais/` (análise dos exames 2 a 46).
+- **capaFoto** com `fonte: "serif"`: título em serifa num cartão branco (mais chique).
 - **studio** (todos os tipos): `fundo: "rosa"` (slide de destaque) e `enfeite: "morcegos"`.
 - **texto**: `kicker`, `titulo`; trend: `caixa` (texto na caixa tracejada) e `destaque: true` (caixa rosa); studio: `texto`, `grade: true` (grade da semana).
 - **lista**: `titulo`, `itens[]` (até 4–5); trend: `kicker`, `subtitulo`; studio: `texto` (frase de fechamento, alinhada à direita); scrap: `kicker`.

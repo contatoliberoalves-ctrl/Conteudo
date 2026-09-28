@@ -14,8 +14,8 @@
 const ARROBA = '@eduardacaraciolo';
 const FONTES = 'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Gloock&family=Yellowtail&family=Noto+Color+Emoji&display=swap';
 const W = 1080, H = 1350;
-// Paleta (dopely.colors) + branco.
-const C = { blush: '#FFEBED', claro: '#FEBAC5', escuro: '#F4789A', pink: '#FC79AB', pessego: '#FEA9AC', branco: '#FFFFFF' };
+// Paleta (dopely.colors) + branco; o rosa principal (escuro) passou a ser o fúcsia #EE2A8A, a pedido.
+const C = { blush: '#FFEBED', claro: '#FEBAC5', escuro: '#EE2A8A', pink: '#FC79AB', pessego: '#FEA9AC', branco: '#FFFFFF' };
 const CLONE = 'box-decoration-break:clone;-webkit-box-decoration-break:clone';
 const TIGHT = "font-family:'Inter Tight','Noto Color Emoji',sans-serif";
 const SERIF = "font-family:'Gloock',serif;font-weight:400";
@@ -136,17 +136,19 @@ const TREND = {
       </div></div>`;
   },
   // Disco de vinil com o rótulo da "era" (posts de cultura pop, ex.: fases como álbuns).
+  // Capa de álbum da "era" (posts de cultura pop: fases como álbuns).
   era(s) {
     const cor = s.cor === 'pessego' ? C.pessego : s.cor === 'escuro' ? C.escuro : C.pink;
     return `<div style="position:absolute;inset:0;${tFundo}">${topo(C.escuro)}
-      <div style="position:absolute;left:50%;top:150px;width:560px;height:560px;margin-left:-280px;border-radius:50%;background:repeating-radial-gradient(circle,${C.escuro} 0 3px,#F58AA8 3px 6px);box-shadow:0 20px 40px rgba(244,120,154,.35)">
-        <div style="position:absolute;left:50%;top:50%;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;background:${cor};border:6px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center">
-          <div style="${TIGHT};font-weight:800;font-size:22px;letter-spacing:.2em">ERA</div>
-          <div style="${TIGHT};font-weight:900;font-size:86px;line-height:.9;letter-spacing:-.05em">${dois(s.numero ?? 1)}</div>
-          <div style="position:absolute;width:26px;height:26px;border-radius:50%;background:#fff;bottom:44px"></div>
-        </div></div>
-      ${brilho(160, 220, 70, C.pink, -8)}${brilho(850, 560, 56, C.pessego, 10)}
-      <div data-area style="position:absolute;left:100px;right:100px;top:760px;bottom:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:26px">
+      <div style="position:absolute;left:50%;top:150px;width:540px;height:540px;margin-left:-270px;transform:rotate(-3deg);background:linear-gradient(145deg,${cor},${C.claro});box-shadow:0 24px 50px rgba(238,42,138,.3);overflow:hidden">
+        <div style="position:absolute;inset:22px;border:2px solid rgba(255,255,255,.8)"></div>
+        <div style="position:absolute;left:52px;top:50px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.3em;color:#fff">ERA</div>
+        <div style="position:absolute;right:52px;top:50px;${TIGHT};font-weight:600;font-size:18px;letter-spacing:.18em;color:#fff;text-align:right">EDUARDA<br>CARACIOLO</div>
+        <div style="position:absolute;left:40px;bottom:-40px;${SERIF};font-size:380px;line-height:1;color:#fff;letter-spacing:-.04em">${dois(s.numero ?? 1)}</div>
+        ${s.selo ? `<div style="position:absolute;right:48px;bottom:56px;background:#fff;color:${C.escuro};${TIGHT};font-weight:800;font-size:18px;letter-spacing:.12em;padding:8px 14px;text-transform:uppercase">${esc(s.selo)}</div>` : ''}
+      </div>
+      ${brilho(150, 200, 70, C.pink, -8)}${brilho(860, 600, 56, C.pessego, 10)}
+      <div data-area style="position:absolute;left:100px;right:100px;top:770px;bottom:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:26px">
         ${s.kicker ? pilula(fmt(s.kicker, tM), cor, '#fff', 'font-size:26px;padding:8px 28px;text-transform:uppercase;letter-spacing:.1em') : ''}
         ${tTit(s.titulo, s.ts || 80).replace('color:', 'text-align:center;color:')}
         ${s.texto ? tCorpo(s.texto, 31) : ''}
@@ -268,7 +270,7 @@ const SCRAP = {
         ${dias.map(d => `<div>${d}</div>`).join('')}${nums.map((n, i) => `<div style="margin-top:14px;font-size:36px"><span style="display:inline-block;width:70px;height:70px;line-height:70px;border-radius:50%;${i === 1 ? `background:${C.pink};color:#fff` : ''}">${n}</span></div>`).join('')}
       </div>
       ${horas.map((h, i) => `<div style="position:absolute;left:30px;right:0;top:${330 + i * 132}px;display:flex;align-items:center;gap:24px;${TIGHT};font-size:24px;color:${C.pessego}"><span style="width:80px">${h}</span><div style="flex:1;height:1.5px;background:${C.blush}"></div></div>`).join('')}
-      ${s.foto ? `<div style="position:absolute;right:70px;top:190px;width:330px;height:330px;border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 14px 30px rgba(244,120,154,.35);transform:rotate(6deg);z-index:3">${img(ctx, s.foto, { pos: s.fotoPos || 'center 30%' })}</div>` : ''}
+      ${s.foto ? `<div style="position:absolute;right:70px;top:190px;width:330px;height:330px;border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 14px 30px rgba(238,42,138,.35);transform:rotate(6deg);z-index:3">${img(ctx, s.foto, { pos: s.fotoPos || 'center 30%' })}</div>` : ''}
       ${estrela(s.foto ? 140 : 820, 470, 70, C.pessego, -12)}${estrela(930, 1000, 54, C.pink, 10)}
       <div data-area style="position:absolute;left:80px;right:80px;top:${s.foto ? 540 : 360}px;bottom:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px;z-index:3">
         ${pTit(s.titulo, s.ts || 104, C.escuro, 'center')}
@@ -292,7 +294,7 @@ const SCRAP = {
   },
   janela(s) {
     return `<div class="ruido" style="position:absolute;inset:0;${pFundo(C.blush)}">
-      <div style="position:absolute;left:70px;right:90px;top:140px;bottom:130px;background:#fff;border-radius:28px;transform:rotate(-2deg);border:2px solid ${C.claro};box-shadow:0 20px 50px rgba(244,120,154,.25);z-index:2">
+      <div style="position:absolute;left:70px;right:90px;top:140px;bottom:130px;background:#fff;border-radius:28px;transform:rotate(-2deg);border:2px solid ${C.claro};box-shadow:0 20px 50px rgba(238,42,138,.25);z-index:2">
         <div style="position:absolute;left:50%;top:-34px;width:190px;height:62px;margin-left:-95px;background:${C.claro}cc;transform:rotate(3deg)"></div>
         <div style="position:absolute;right:40px;top:34px;display:flex;gap:14px">${[C.claro, C.pessego, C.escuro].map(c => `<div style="width:26px;height:26px;border-radius:50%;background:${c}"></div>`).join('')}</div>
         <div style="position:absolute;left:60px;top:40px;${TIGHT};font-size:19px;line-height:1.2;letter-spacing:.12em;color:${C.escuro}"><div style="font-weight:600">EDUARDA CARACIOLO</div><div style="font-weight:800">ADVOGADA · CIVIL E ECA</div></div>
@@ -377,6 +379,16 @@ function capaFoto(s, ctx, c) {
   const y = typeof s.y === 'number' ? s.y : null;
   const lugar = y != null ? `top:${y}px` : s.y === 'topo' ? 'top:170px' : s.y === 'meio' ? 'top:520px' : 'bottom:150px';
   const faixa = l => `<span style="background:#fff;color:${t.dark};padding:.02em .26em .06em;border-radius:.16em;${CLONE}">${fmt(l, { i: t.cur, cursiva: 1.1, b: 'font-weight:900' })}</span>`;
+  const al = s.alinhar === 'esquerda' ? 'left' : 'center';
+  // fonte "serif": título em serifa dentro de um cartão branco (mais chique).
+  if (s.fonte === 'serif') return `<div style="position:absolute;inset:0;background:${t.bg}">${img(ctx, s.foto, { pos: s.fotoPos || 'center' })}
+    ${topo('#fff', 52).replace('z-index:6', 'z-index:6;text-shadow:0 1px 8px rgba(0,0,0,.35)')}
+    <div data-area style="position:absolute;left:90px;right:90px;${lugar};display:flex;justify-content:center;z-index:3">
+      <div style="background:rgba(255,255,255,.96);border-radius:6px;padding:42px 54px 46px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:${al};box-shadow:0 18px 40px rgba(0,0,0,.18)">
+        ${s.kicker ? `<div style="${TIGHT};font-weight:700;font-size:22px;letter-spacing:.24em;text-transform:uppercase;color:${t.bg}">${esc(s.kicker)}</div><div style="width:70px;height:2px;background:${t.bg}"></div>` : ''}
+        <div data-titulo style="${SERIF};font-size:${s.ts || 92}px;line-height:1.02;letter-spacing:-.02em;color:${t.dark}">${fmt(s.titulo || '', { i: t.bg, cursiva: 1.15 })}</div>
+        ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:28px;line-height:1.3;color:${t.dark}">${fmt(s.texto, { i: t.bg })}</div>` : ''}
+      </div></div></div>`;
   return `<div style="position:absolute;inset:0;background:${t.bg}">${img(ctx, s.foto, { pos: s.fotoPos || 'center' })}
     ${topo('#fff', 52).replace('z-index:6', 'z-index:6;text-shadow:0 1px 8px rgba(0,0,0,.35)')}
     <div data-area style="position:absolute;left:70px;right:70px;${lugar};display:flex;flex-direction:column;align-items:${s.alinhar === 'esquerda' ? 'flex-start' : 'center'};gap:22px;z-index:3">
@@ -384,6 +396,24 @@ function capaFoto(s, ctx, c) {
       <div data-titulo style="${TIGHT};font-weight:800;font-size:${s.ts || 84}px;line-height:1.16;letter-spacing:-.045em;text-align:${s.alinhar === 'esquerda' ? 'left' : 'center'}">${String(s.titulo || '').split('\n').map(faixa).join('<br>')}</div>
       ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:600;font-size:30px;line-height:1.2;letter-spacing:-.02em;color:#fff;background:${t.bg};border-radius:999px;padding:12px 30px;text-align:center">${fmt(s.texto, { i: '#fff' })}</div>` : ''}
     </div></div>`;
+}
+
+
+// ================= JÁ CAIU NA OAB (todos os estilos) =================
+// Liga o tema do post à 2ª fase de Civil: exames em que o assunto caiu (fonte: padrões FGV, exames 2 a 46).
+// Campos: titulo, itens: [{exame: "9º", texto: "peça: ação de alimentos gravídicos"}], texto (dica final).
+function oab(s, ctx, c) {
+  const t = TONS[c.tom] || { bg: C.escuro, dark: C.escuro, light: C.blush, cur: C.pink };
+  return `<div style="position:absolute;inset:0;${grade('#fff', t.light, 36)}">${topo(t.dark)}
+    <div data-area style="position:absolute;left:90px;right:90px;top:150px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:34px">
+      <div style="align-self:flex-start">${pilula('Já caiu na OAB · 2ª fase de Civil', t.bg, '#fff', 'font-size:24px;padding:10px 28px;text-transform:uppercase;letter-spacing:.1em')}</div>
+      <div data-titulo style="${SERIF};font-size:${s.ts || 76}px;line-height:1.04;letter-spacing:-.02em;color:${t.dark}">${fmt(s.titulo || '', { i: t.bg, cursiva: 1.15 })}</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        ${lista(s.itens).map(k => `<div style="display:flex;align-items:center;gap:26px;background:#fff;border:2px solid ${t.light};border-radius:24px;padding:18px 26px"><div style="flex:none;min-width:120px;text-align:center;background:${t.bg};color:#fff;border-radius:16px;padding:10px 12px;${TIGHT};font-weight:900;font-size:34px;letter-spacing:-.03em">${esc(k.exame)}<div style="font-size:15px;font-weight:700;letter-spacing:.14em">EXAME</div></div><div data-corpo style="${TIGHT};font-weight:500;font-size:29px;line-height:1.25;letter-spacing:-.02em;color:${t.dark}">${fmt(k.texto, { b: 'font-weight:800' })}</div></div>`).join('')}
+      </div>
+      ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:600;font-size:28px;line-height:1.3;color:${t.dark}">${fmt(s.texto, { b: 'font-weight:800', i: t.bg })}</div>` : ''}
+    </div>
+    <div style="position:absolute;left:90px;right:90px;bottom:70px;${TIGHT};font-size:18px;letter-spacing:.04em;color:${t.dark};opacity:.75">Fonte: padrões de resposta da FGV, exames 2 a 46.</div></div>`;
 }
 
 // ================= CHIQUE =================
@@ -476,7 +506,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaFoto' ? capaFoto : estilo[s.tipo];
+    const f = s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };

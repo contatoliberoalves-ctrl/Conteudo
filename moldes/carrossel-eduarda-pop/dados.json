@@ -6,11 +6,12 @@
     "slides": [
       {
         "tipo": "capaFoto",
-        "foto": "eduarda-trevi.jpg",
+        "foto": "eduarda-guarda-chuva.jpg",
         "fotoPos": "center 35%",
         "kicker": "Planejamento sucessório",
-        "titulo": "Testamento não é\ncoisa de *rico*",
-        "texto": "5 coisas que você precisa saber"
+        "titulo": "Testamento não é coisa de *rico*",
+        "texto": "5 coisas que você precisa saber",
+        "fonte": "serif"
       },
       {
         "tipo": "texto",
@@ -42,6 +43,28 @@
         "texto": "O testamento pode ser revogado do mesmo modo e pela mesma forma como pode ser feito (art. 1.969, CC)."
       },
       {
+        "tipo": "oab",
+        "titulo": "Testamento é tema *recorrente*",
+        "itens": [
+          {
+            "exame": "16º",
+            "texto": "sucessão e substituição testamentária"
+          },
+          {
+            "exame": "18º",
+            "texto": "testamento e herdeiros facultativos"
+          },
+          {
+            "exame": "25º",
+            "texto": "rompimento do testamento"
+          },
+          {
+            "exame": "38º",
+            "texto": "fideicomisso e abertura de testamento"
+          }
+        ]
+      },
+      {
         "tipo": "cta",
         "kicker": "Quer planejar isso com calma?",
         "titulo": "me chama no *direct*",
@@ -60,8 +83,9 @@
         "foto": "eduarda-joinha.jpg",
         "fotoPos": "center 30%",
         "kicker": "ECA",
-        "titulo": "Adoção:\n*mito* ou verdade?",
-        "texto": "5 frases que eu mais escuto"
+        "titulo": "Adoção: *mito* ou verdade?",
+        "texto": "5 frases que eu mais escuto",
+        "fonte": "serif"
       },
       {
         "tipo": "texto",
@@ -94,6 +118,20 @@
         "kicker": "“O filho adotivo tem os mesmos direitos.”",
         "titulo": "==Verdade==",
         "caixa": "A adoção dá a condição de filho, com os mesmos direitos e deveres, inclusive na **herança** (art. 41, ECA)."
+      },
+      {
+        "tipo": "oab",
+        "titulo": "Adoção também cai na *2ª fase*",
+        "itens": [
+          {
+            "exame": "12º",
+            "texto": "adoção de maior"
+          },
+          {
+            "exame": "39º",
+            "texto": "adoção e destituição do poder familiar"
+          }
+        ]
       },
       {
         "tipo": "cta",
@@ -161,6 +199,24 @@
         "texto": "O STF igualou os dois na sucessão ao declarar inconstitucional o art. 1.790 do Código Civil (RE 878.694)."
       },
       {
+        "tipo": "oab",
+        "titulo": "União estável na *prova*",
+        "itens": [
+          {
+            "exame": "17º",
+            "texto": "sub-rogação na locação no fim da união estável"
+          },
+          {
+            "exame": "23º",
+            "texto": "união estável sem morar junto e coisa julgada"
+          },
+          {
+            "exame": "42º",
+            "texto": "sobrenome do companheiro incluído em cartório"
+          }
+        ]
+      },
+      {
         "tipo": "cta",
         "kicker": "Ficou em dúvida sobre a sua situação?",
         "titulo": "Vamos *conversar*",
@@ -205,6 +261,24 @@
         "kicker": "Prazo",
         "titulo": "Abra em até *2 meses*",
         "texto": "O inventário deve ser aberto em 2 meses a contar da morte (art. 611, CPC). O atraso pode gerar multa no imposto (ITCMD), conforme a lei de cada estado."
+      },
+      {
+        "tipo": "oab",
+        "titulo": "Inventário e partilha na *prova*",
+        "itens": [
+          {
+            "exame": "33º",
+            "texto": "deserdação e inventário extrajudicial"
+          },
+          {
+            "exame": "36º",
+            "texto": "preferência do coerdeiro e sobrepartilha"
+          },
+          {
+            "exame": "42º",
+            "texto": "colação de doação e remoção da inventariante"
+          }
+        ]
       },
       {
         "tipo": "cta",
@@ -280,7 +354,7 @@
       {
         "tipo": "pergunta",
         "titulo": "qual peça você *mais* treinou?",
-        "texto": "Me conta aqui nos comentários 👇"
+        "texto": "Na mentoria de Civil 2ª fase a gente treina **reconhecer o cabimento** antes de decorar esqueleto 💌"
       }
     ]
   },
@@ -329,6 +403,28 @@
         "fotoCrua": true,
         "texto": "**Esconder bens na partilha,**\nos bens sonegados podem ser\ndivididos depois, na sobrepartilha\n(art. 669, CPC).",
         "fotoPos": "46% center"
+      },
+      {
+        "tipo": "oab",
+        "titulo": "Divórcio na *2ª fase*",
+        "itens": [
+          {
+            "exame": "4º",
+            "texto": "divórcio depois da EC 66/2010"
+          },
+          {
+            "exame": "28º",
+            "texto": "prêmio de loteria na partilha"
+          },
+          {
+            "exame": "35º",
+            "texto": "usucapião familiar"
+          },
+          {
+            "exame": "40º",
+            "texto": "peça: divórcio consensual com guarda, alimentos e partilha"
+          }
+        ]
       },
       {
         "tipo": "pergunta",
@@ -384,6 +480,24 @@
         "fotoPos": "54% center"
       },
       {
+        "tipo": "oab",
+        "titulo": "Regime de bens na *prova*",
+        "itens": [
+          {
+            "exame": "11º",
+            "texto": "divórcio extrajudicial e presunção de bem comum"
+          },
+          {
+            "exame": "17º",
+            "texto": "fim da união estável e locação"
+          },
+          {
+            "exame": "44º",
+            "texto": "herança excluída da comunhão"
+          }
+        ]
+      },
+      {
         "tipo": "pergunta",
         "titulo": "qual *red flag* você já viu por aí?",
         "texto": "Me conta 👀"
@@ -426,6 +540,28 @@
         "titulo": "{2 anos} da conclusão do ato",
         "caixa": "É a regra do **art. 179** do Código Civil. Esse prazo também é decadencial.",
         "destaque": true
+      },
+      {
+        "tipo": "oab",
+        "titulo": "Prazo é assunto *certo*",
+        "itens": [
+          {
+            "exame": "19º",
+            "texto": "peça: apelação com decadência x prescrição"
+          },
+          {
+            "exame": "28º",
+            "texto": "prescrição quinquenal e interrupção"
+          },
+          {
+            "exame": "30º",
+            "texto": "prescrição da dívida e retroação da citação"
+          },
+          {
+            "exame": "34º",
+            "texto": "prescrição na responsabilidade extracontratual"
+          }
+        ]
       },
       {
         "tipo": "cta",
@@ -478,6 +614,28 @@
         "texto": "Se o filho estuda e ainda depende dos pais, a Justiça costuma manter a pensão, em regra até os 24 anos."
       },
       {
+        "tipo": "oab",
+        "titulo": "Alimentos em *todas* as eras da prova",
+        "itens": [
+          {
+            "exame": "4º",
+            "texto": "peça: ação de alimentos para ascendente idoso"
+          },
+          {
+            "exame": "9º",
+            "texto": "peça: alimentos gravídicos"
+          },
+          {
+            "exame": "15º",
+            "texto": "exoneração de alimentos"
+          },
+          {
+            "exame": "34º",
+            "texto": "exoneração e irrepetibilidade"
+          }
+        ]
+      },
+      {
         "tipo": "cta",
         "kicker": "E aí?",
         "titulo": "Qual ==era== é a sua?",
@@ -523,7 +681,7 @@
       {
         "tipo": "pergunta",
         "titulo": "e aí, qual desses é o seu {ponto fraco}?",
-        "texto": "Me conta nos comentários que eu faço **um post só** sobre ele."
+        "texto": "Me conta aqui. E se quiser treinar com correção: mentoria de Civil 2ª fase, **5 simulados corrigidos** 💌"
       }
     ]
   },
@@ -541,30 +699,34 @@
         "tipo": "legenda",
         "foto": "eduarda-surpresa.jpg",
         "fotoPos": "center 20%",
-        "texto": "**Errar o endereçamento,**\na peça começa por ele e o\nerro aparece logo na 1ª linha."
+        "texto": "**Errar o endereçamento,**\na peça começa por ele e o\nerro aparece logo na 1ª linha.",
+        "fotoCrua": true
       },
       {
         "tipo": "legenda",
         "foto": "eduarda-duvida.jpg",
         "fotoPos": "center 20%",
-        "texto": "**Copiar o artigo inteiro,**\ncite e explique como ele\nse aplica ao caso."
+        "texto": "**Copiar o artigo inteiro,**\ncite e explique como ele\nse aplica ao caso.",
+        "fotoCrua": true
       },
       {
         "tipo": "legenda",
         "foto": "eduarda-explicando.jpg",
         "fotoPos": "center 20%",
-        "texto": "**Inventar dados,** use só o que\no enunciado dá e deixe o resto\ncom reticências."
+        "texto": "**Inventar dados,** use só o que\no enunciado dá e deixe o resto\ncom reticências.",
+        "fotoCrua": true
       },
       {
         "tipo": "legenda",
         "foto": "eduarda-apontando.jpg",
         "fotoPos": "center 30%",
-        "texto": "**Pedidos genéricos,**\nfaça um por um, como\nno seu checklist."
+        "texto": "**Pedidos genéricos,**\nfaça um por um, como\nno seu checklist.",
+        "fotoCrua": true
       },
       {
         "tipo": "pergunta",
         "titulo": "qual desses você *já* cometeu?",
-        "texto": "Sem julgamentos! Comenta aqui o número 😅"
+        "texto": "Na mentoria de Civil 2ª fase são **5 simulados com correção personalizada**. Me chama no direct 💌"
       }
     ]
   },
@@ -618,6 +780,24 @@
         "texto": "Com o nascimento com vida, os alimentos\nviram pensão do filho, até que alguém peça\na revisão (art. 6º, parágrafo único).",
         "foto": "maos-bebe.jpg",
         "fotoAltura": 380
+      },
+      {
+        "tipo": "oab",
+        "titulo": "Alimentos gravídicos já foram *peça*",
+        "itens": [
+          {
+            "exame": "9º",
+            "texto": "peça: ação de alimentos gravídicos"
+          },
+          {
+            "exame": "11º",
+            "texto": "alimentos gravídicos e prazo de resposta"
+          },
+          {
+            "exame": "31º",
+            "texto": "alimentos gravídicos e execução com prisão"
+          }
+        ]
       },
       {
         "tipo": "cta",
