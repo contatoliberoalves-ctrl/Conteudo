@@ -16,6 +16,7 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 | 70 Dicas – Peças de Constitucional (docx) | 70 dicas curtas, cada uma com a peça a que se refere (HC, Controle, RE, Reclamação, MS, MI, AP…) | Carrossel de dicas por peça, ou "X dicas de Y" |
 | Livro de Prática Constitucional – OAB (docx) | Por peça (15): introdução, estrutura, tabela "Principais Teses" por exame, pedidos, esqueleto, caso prático e gabarito; estatística das peças cobradas | Série "Teses que caíram na <peça>" do `carrossel-libero` (feita, 15 posts) e posts de estatística. Na tabela de teses, alguns exames estão trocados (MS "XXXIII" é o OAB 34, "XXXVIII" é o 39; MI "XXXVII" é o 38): confira no gabarito da FGV |
 | Dicas de Revisão – 2ª fase OAB 42 (docx) | 329 dicas numeradas com tema (Processo Legislativo, Controle, CPI, MP, Direitos Fundamentais…) e o Exame em que caiu (I a XXXII, CESPE) | Carrosséis "Já caiu!" por tema ou por exame |
+| Manual de Argumentação Passo a Passo (docx) | Método LER → DIAGNOSTICAR → FUNDAMENTAR → RESPONDER: estrutura em 3 funções, verbos da banca, fato decisivo, hipótese, índice remissivo, artigo esquecido, ponte fato-norma, vários itens, conectivos, modelos, erros, revisão em 5 camadas, plano de 4 semanas e checklist | Feitos 6 carrosséis `argumentacao-*` no `carrossel-infinito`; ainda rende: hipótese, vários itens, conectivos, modelos reutilizáveis, revisão em 5 camadas, plano de 4 semanas, checklist |
 
 ## Meu Constitucional Diário — temas (dias 01–40)
 - Dia 01 — Eficácia das Normas Constitucionais

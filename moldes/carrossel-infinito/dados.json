@@ -1909,5 +1909,737 @@
         "body": "E comenta qual exame você vai refazer primeiro."
       }
     ]
+  },
+  {
+    "id": "argumentacao-estrutura-que-pontua",
+    "name": "A estrutura que pontua",
+    "tema": "Argumentação: resposta direta, aplicação ao caso e fundamento",
+    "seams": [
+      1,
+      4
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "title": "A estrutura que pontua",
+        "sub": "Três funções para qualquer resposta discursiva."
+      },
+      {
+        "type": "compare",
+        "bg": "light",
+        "kicker": "Informar não é argumentar",
+        "title": "Informação x argumento",
+        "cols": [
+          {
+            "title": "Informação isolada",
+            "items": [
+              "“A Constituição protege a liberdade de expressão.”",
+              "Pode estar correta, mas não resolve sozinha o caso"
+            ]
+          },
+          {
+            "title": "Argumento jurídico",
+            "items": [
+              "“A proibição é incompatível com a liberdade de expressão, pois impede previamente a manifestação do candidato.”"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "As três funções",
+        "title": "Resposta, caso, norma",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Resposta direta**: “Sim”, “Não”, “É cabível”, “O ato é inconstitucional”"
+          },
+          {
+            "n": "2",
+            "t": "**Aplicação ao caso**: o fato decisivo e por que ele preenche, viola ou afasta a hipótese"
+          },
+          {
+            "n": "3",
+            "t": "**Fundamento**: dispositivo, princípio, súmula ou tese, a serviço da conclusão"
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "✓",
+        "ref": "Art. 5º, IX",
+        "title": "Modelo base",
+        "rows": [
+          {
+            "k": "Resposta",
+            "v": "“Não, a medida não é válida,"
+          },
+          {
+            "k": "Caso",
+            "v": "pois restringe previamente a manifestação sem hipótese constitucional autorizadora,"
+          },
+          {
+            "k": "Fundamento",
+            "v": "em desacordo com a liberdade de expressão.”"
+          }
+        ],
+        "tip": "a ordem pode variar, mas nenhuma das três funções pode faltar nem se contradizer."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Dica do Líbero",
+        "title": "Teste do copia e cola",
+        "lead": "Sua resposta serviria em qualquer questão do mesmo tema?",
+        "body": "Então provavelmente **falta aplicação ao caso concreto**.",
+        "box": "Clareza vale mais que ornamentação."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "1",
+            "v": "resposta direta"
+          },
+          {
+            "k": "2",
+            "v": "aplicação ao caso"
+          },
+          {
+            "k": "3",
+            "v": "fundamento"
+          }
+        ],
+        "title": "Salva a estrutura",
+        "body": "E comenta qual das três você mais esquece na prova."
+      }
+    ]
+  },
+  {
+    "id": "argumentacao-verbos-da-banca",
+    "name": "Os verbos da banca",
+    "tema": "Argumentação: ler o comando antes de procurar a resposta",
+    "seams": [
+      2
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "title": "Os verbos da banca",
+        "sub": "O comando diz o que o examinador quer receber."
+      },
+      {
+        "type": "list",
+        "bg": "dark",
+        "kicker": "Leia o comando",
+        "title": "4 movimentos",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Circule o verbo** principal do comando"
+          },
+          {
+            "n": "2",
+            "t": "**Separe cada pergunta** (itens A, B e subitens)"
+          },
+          {
+            "n": "3",
+            "t": "Veja se pede **conclusão, justificativa, medida ou fundamento**"
+          },
+          {
+            "n": "4",
+            "t": "**Reescreva o comando** como pergunta simples"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "mint",
+        "kicker": "Verbos que pedem pouco",
+        "title": "Diga o quê",
+        "items": [
+          {
+            "n": "Indique",
+            "t": "Nomeie instituto, órgão, medida ou fundamento"
+          },
+          {
+            "n": "Fundamente",
+            "t": "Aponte a base normativa ou jurisprudencial"
+          },
+          {
+            "n": "Diferencie",
+            "t": "Dê o critério que separa e aplique"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "light",
+        "kicker": "Verbos que pedem mais",
+        "title": "Mostre o porquê",
+        "items": [
+          {
+            "n": "Justifique",
+            "t": "Dê a razão jurídica ligada ao fato decisivo"
+          },
+          {
+            "n": "Explique",
+            "t": "Mostre o caminho da regra à consequência"
+          },
+          {
+            "n": "Analise",
+            "t": "Validade, requisitos, limites e consequências"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Não confunda",
+        "title": "Indique e justifique",
+        "lead": "“Indique” pode aceitar resposta mais curta.",
+        "body": "“Justifique”, “explique” e “analise” exigem desenvolvimento. Se o comando reúne **“indique e justifique”**, cumpra as duas tarefas."
+      },
+      {
+        "type": "item",
+        "bg": "mint",
+        "num": "?",
+        "ref": "CF/88",
+        "title": "Decomponha",
+        "rows": [
+          {
+            "k": "Comando",
+            "v": "“É cabível a medida? Justifique à luz da Constituição.”"
+          },
+          {
+            "k": "1",
+            "v": "A medida é cabível ou não?"
+          },
+          {
+            "k": "2",
+            "v": "Qual fato determina a conclusão?"
+          },
+          {
+            "k": "3",
+            "v": "Qual norma constitucional sustenta a resposta?"
+          }
+        ],
+        "tip": "começar narrando o tema sem dizer se a medida é cabível."
+      },
+      {
+        "type": "cta",
+        "bg": "light",
+        "summary": [
+          {
+            "k": "Verbo",
+            "v": "circule"
+          },
+          {
+            "k": "Itens",
+            "v": "separe"
+          },
+          {
+            "k": "Comando",
+            "v": "reescreva"
+          }
+        ],
+        "title": "Salva e treina",
+        "body": "Pegue 5 comandos e escreva só a primeira frase de cada resposta."
+      }
+    ]
+  },
+  {
+    "id": "argumentacao-fato-decisivo",
+    "name": "Fato decisivo",
+    "tema": "Argumentação: separar fatos relevantes e achar o problema jurídico",
+    "seams": [
+      1,
+      3
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "disc",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "mint",
+        "align": "flex-start",
+        "title": "O fato decisivo",
+        "sub": "Nem todo dado do enunciado muda a solução."
+      },
+      {
+        "type": "compare",
+        "bg": "dark",
+        "kicker": "Separe",
+        "title": "Secundário x decisivo",
+        "cols": [
+          {
+            "title": "Fato secundário",
+            "items": [
+              "A personagem tem 52 anos",
+              "Nunca havia se envolvido em situação semelhante"
+            ]
+          },
+          {
+            "title": "Fato decisivo",
+            "items": [
+              "A autoridade negou acesso a dados pessoais em banco público",
+              "Mesmo após requerimento administrativo"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "light",
+        "kicker": "Marcação inteligente",
+        "title": "Poucas categorias",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Personagem** e qualidade jurídica"
+          },
+          {
+            "n": "2",
+            "t": "**Conduta ou omissão**"
+          },
+          {
+            "n": "3",
+            "t": "**Direito afetado**"
+          },
+          {
+            "n": "4",
+            "t": "**Prazo**"
+          },
+          {
+            "n": "5",
+            "t": "**Comando**"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Teste de relevância",
+        "title": "Tire o fato",
+        "lead": "Se eu retirar este fato, a conclusão jurídica muda?",
+        "body": "Se muda, ele é **relevante**. Se não muda, provavelmente só **contextualiza** o caso.",
+        "box": "Marcar tudo equivale a não priorizar nada."
+      },
+      {
+        "type": "item",
+        "bg": "mint",
+        "num": "HD",
+        "ref": "Art. 5º, LXXII",
+        "title": "Do fato ao problema",
+        "rows": [
+          {
+            "k": "Fato",
+            "v": "Órgão público nega retificar dado pessoal incorreto"
+          },
+          {
+            "k": "Direito",
+            "v": "Conhecimento e correção de informação pessoal"
+          },
+          {
+            "k": "Problema",
+            "v": "Qual instrumento permite retificar o dado?"
+          }
+        ],
+        "tip": "escreva o problema como pergunta. Se não consegue, não está pronto para o índice."
+      },
+      {
+        "type": "cta",
+        "bg": "light",
+        "summary": [
+          {
+            "k": "Fato",
+            "v": "decisivo"
+          },
+          {
+            "k": "Direito",
+            "v": "afetado"
+          },
+          {
+            "k": "Problema",
+            "v": "jurídico"
+          }
+        ],
+        "title": "Salva o método",
+        "body": "E envia pra quem grifa o enunciado inteiro."
+      }
+    ]
+  },
+  {
+    "id": "argumentacao-ponte-fato-norma",
+    "name": "A ponte entre fato e norma",
+    "tema": "Argumentação: ligar a conclusão aos fatos",
+    "seams": [
+      2,
+      4
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "bar",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "title": "A ponte fato-norma",
+        "sub": "O coração da argumentação."
+      },
+      {
+        "type": "compare",
+        "bg": "mint",
+        "kicker": "Veja a diferença",
+        "title": "Sem ponte x com ponte",
+        "cols": [
+          {
+            "title": "Sem ponte",
+            "items": [
+              "“É cabível habeas data, conforme o art. 5º, LXXII, da Constituição.”"
+            ]
+          },
+          {
+            "title": "Com ponte",
+            "items": [
+              "“É cabível habeas data, pois a interessada busca retificar dado pessoal incorreto mantido em registro público, hipótese protegida pelo art. 5º, LXXII.”"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "bg": "light",
+        "kicker": "Perguntas da aplicação",
+        "title": "Teste a ponte",
+        "items": [
+          {
+            "n": "1",
+            "t": "Qual **expressão da norma** corresponde ao fato?"
+          },
+          {
+            "n": "2",
+            "t": "O fato **cumpre os requisitos** ou viola a regra?"
+          },
+          {
+            "n": "3",
+            "t": "Existe **exceção ou limite** relevante?"
+          },
+          {
+            "n": "4",
+            "t": "Qual **consequência** a norma determina?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "bg": "dark",
+        "kicker": "Dica do Líbero",
+        "title": "Conectivos-ponte",
+        "lead": "“Pois, no caso”, “uma vez que”, “tendo em vista que”, “porque”.",
+        "body": "Eles **obrigam você a explicar** a relação entre a conclusão e os fatos."
+      },
+      {
+        "type": "item",
+        "bg": "light",
+        "num": "3",
+        "ref": "Art. 5º, LXXII",
+        "title": "Roteiro de 3 frases",
+        "rows": [
+          {
+            "k": "Frase 1",
+            "v": "“É cabível habeas data.”"
+          },
+          {
+            "k": "Frase 2",
+            "v": "“A interessada pretende retificar informação pessoal incorreta em banco de caráter público.”"
+          },
+          {
+            "k": "Frase 3",
+            "v": "“A garantia está no art. 5º, LXXII, da Constituição.”"
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Modelo",
+            "v": "“É cabível ___, pois ___, nos termos de ___.”"
+          }
+        ],
+        "title": "Salva o modelo",
+        "body": "E comenta “ponte” se você costuma citar artigo solto."
+      }
+    ]
+  },
+  {
+    "id": "argumentacao-nao-lembra-o-artigo",
+    "name": "Não lembra o artigo?",
+    "tema": "Argumentação: estratégia de segurança para o fundamento",
+    "seams": [
+      1,
+      4
+    ],
+    "rail": "dashed",
+    "link": "shapes",
+    "shape": "diamond",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "light",
+        "align": "flex-start",
+        "title": "Esqueceu o artigo?",
+        "sub": "Não abandone a tese nem invente numeração."
+      },
+      {
+        "type": "list",
+        "bg": "dark",
+        "kicker": "Ordem de reação",
+        "title": "5 passos",
+        "items": [
+          {
+            "n": "1",
+            "t": "Defina a **conclusão** e o instituto correto"
+          },
+          {
+            "n": "2",
+            "t": "Explique a **aplicação aos fatos**"
+          },
+          {
+            "n": "3",
+            "t": "Procure pelo **índice** ou pela organização da CF"
+          },
+          {
+            "n": "4",
+            "t": "Não achou? Cite o **diploma e a garantia**"
+          },
+          {
+            "n": "5",
+            "t": "Nunca troque fundamento seguro por **número duvidoso**"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "mint",
+        "kicker": "Na prática",
+        "title": "Arriscado x seguro",
+        "cols": [
+          {
+            "title": "Conduta arriscada",
+            "items": [
+              "“Conforme o art. 5º, inciso XLI”, sem segurança sobre o número ou o conteúdo"
+            ]
+          },
+          {
+            "title": "Conduta segura",
+            "items": [
+              "“Conforme a garantia constitucional do habeas data”, com o instituto certo e a numeração não confirmada"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "HD",
+        "ref": "Art. 5º, LXXII",
+        "title": "Busca em camadas",
+        "rows": [
+          {
+            "k": "1ª",
+            "v": "Termo mais específico: habeas data"
+          },
+          {
+            "k": "2ª",
+            "v": "Direito afetado: dados pessoais"
+          },
+          {
+            "k": "3ª",
+            "v": "Sinônimo ou gênero mais amplo"
+          },
+          {
+            "k": "4ª",
+            "v": "Capítulo constitucional relacionado"
+          }
+        ],
+        "tip": "fundamento genérico não substitui o dispositivo quando o espelho exige indicação específica."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Memória por famílias",
+        "title": "Agrupe por tema",
+        "lead": "Remédios, direitos fundamentais, competências, controle e processo legislativo.",
+        "body": "A **memória temática** facilita a localização do dispositivo no Vade Mecum."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "Tese",
+            "v": "preserve"
+          },
+          {
+            "k": "Artigo",
+            "v": "procure no índice"
+          },
+          {
+            "k": "Dúvida",
+            "v": "cite a garantia"
+          }
+        ],
+        "title": "Salva pra prova",
+        "body": "E envia pra quem trava quando esquece um inciso."
+      }
+    ]
+  },
+  {
+    "id": "argumentacao-erros-que-tiram-pontos",
+    "name": "Erros que tiram pontos",
+    "tema": "Argumentação: erros comuns e como reescrever a resposta fraca",
+    "seams": [
+      2
+    ],
+    "rail": "solid",
+    "link": "shapes",
+    "shape": "ring",
+    "slides": [
+      {
+        "type": "cover",
+        "bg": "dark",
+        "align": "flex-start",
+        "title": "Erros que tiram pontos",
+        "sub": "E como transformar uma resposta fraca."
+      },
+      {
+        "type": "list",
+        "bg": "light",
+        "kicker": "Os mais comuns",
+        "title": "Evite",
+        "items": [
+          {
+            "n": "1",
+            "t": "**Responder sem concluir**: não diz sim, não ou qual medida"
+          },
+          {
+            "n": "2",
+            "t": "**Copiar o enunciado** sem explicar a relevância"
+          },
+          {
+            "n": "3",
+            "t": "**Citar artigo solto**, sem relação com a conclusão"
+          },
+          {
+            "n": "4",
+            "t": "**Misturar itens** A e B no mesmo bloco"
+          },
+          {
+            "n": "5",
+            "t": "**Inventar numeração** que não conferiu"
+          },
+          {
+            "n": "6",
+            "t": "**Contradizer-se** entre conclusão e justificativa"
+          }
+        ]
+      },
+      {
+        "type": "compare",
+        "bg": "mint",
+        "kicker": "Reescrita",
+        "title": "Fraca x melhorada",
+        "cols": [
+          {
+            "title": "Versão fraca",
+            "items": [
+              "“Sim, porque é um direito fundamental.”"
+            ]
+          },
+          {
+            "title": "Versão melhorada",
+            "items": [
+              "“Sim. É cabível a medida porque a interessada pretende conhecer informação pessoal mantida em banco público, situação protegida pela garantia constitucional correspondente.”"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "item",
+        "bg": "dark",
+        "num": "4",
+        "ref": "Art. 5º, LXXII",
+        "title": "Método de reescrita",
+        "rows": [
+          {
+            "k": "1",
+            "v": "Troque palavras vagas pelo instituto correto"
+          },
+          {
+            "k": "2",
+            "v": "Inclua o fato que ativa a regra"
+          },
+          {
+            "k": "3",
+            "v": "Acrescente o fundamento confirmado"
+          },
+          {
+            "k": "4",
+            "v": "Retire o que não muda a conclusão"
+          }
+        ],
+        "tip": "deixar o examinador inferir sozinho o que é essencial. Escreva expressamente."
+      },
+      {
+        "type": "text",
+        "bg": "light",
+        "kicker": "Resposta objetiva",
+        "title": "Nem mais, nem menos",
+        "lead": "Objetividade não é superficialidade.",
+        "body": "É dizer **tudo o que pontua** e retirar **tudo o que não contribui** para a solução."
+      },
+      {
+        "type": "cta",
+        "bg": "mint",
+        "summary": [
+          {
+            "k": "✓",
+            "v": "conclusão visível"
+          },
+          {
+            "k": "✓",
+            "v": "fato decisivo"
+          },
+          {
+            "k": "✓",
+            "v": "fundamento específico"
+          },
+          {
+            "k": "✓",
+            "v": "sem contradição"
+          }
+        ],
+        "title": "Checklist relâmpago",
+        "body": "Salva e confere antes de entregar a resposta."
+      }
+    ]
   }
 ]
