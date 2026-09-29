@@ -165,6 +165,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
     </div>
     <div class="ferramentas">
       <button id="v-baixar" class="primario" hidden>Baixar carrossel (.zip)</button>
+      <button id="v-pdf" hidden>Baixar PDF</button>
       <button id="v-drive" hidden>Enviar pro Drive</button>
       <button id="v-editar" hidden>Editar capa</button>
       <span class="status" id="v-status" role="status"></span>
@@ -207,6 +208,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 </dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 const MOLDES = /*__DADOS__*/[];
 const $ = s => document.querySelector(s);
@@ -337,6 +339,7 @@ const postAtual = () => lista[atual];
 function atualizarFerramentas() {
   const p = postAtual(); if (!p) return;
   $('#v-baixar').hidden = !DL;
+  $('#v-pdf').hidden = !DL;
   $('#v-drive').hidden = !MCP;
   $('#v-editar').hidden = !(p.editor && p.editor.img);
   $('#ed-salvar').hidden = !DB; $('#ed-baixar').hidden = !DL;
@@ -394,6 +397,25 @@ $('#v-baixar').onclick = async ev => {
     await cadaSlide(p, async (cv, k) => zip.file(nomeSlide(k), await paraBlob(cv)));
     await salvarArquivo(`${p.id}.zip`, await zip.generateAsync({ type: 'blob' }), st);
   } catch (err) { st.textContent = 'Não foi possível montar o .zip: ' + (err.message || err); }
+  bt.disabled = false;
+};
+
+// PDF para apresentar: uma página por slide, do tamanho do slide (deitado nos slides de aula).
+$('#v-pdf').onclick = async ev => {
+  const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget;
+  const PDF = window.jspdf && window.jspdf.jsPDF;
+  if (!PDF) { st.textContent = 'Não foi possível montar o PDF nesta tela.'; return; }
+  bt.disabled = true; st.textContent = 'Montando o PDF…';
+  try {
+    const L = p.w || 1080, H = p.h || 1350, orientacao = L > H ? 'landscape' : 'portrait';
+    const doc = new PDF({ orientation: orientacao, unit: 'px', format: [L, H], hotfixes: ['px_scaling'], compress: true });
+    await cadaSlide(p, async (cv, k) => {
+      if (k) doc.addPage([L, H], orientacao);
+      doc.addImage(cv.toDataURL('image/jpeg', .92), 'JPEG', 0, 0, L, H);
+      st.textContent = `Montando o PDF… ${k + 1}/${p.n}`;
+    });
+    await salvarArquivo(`${p.id}.pdf`, doc.output('blob'), st);
+  } catch (err) { st.textContent = 'Não foi possível montar o PDF: ' + (err.message || err); }
   bt.disabled = false;
 };
 
