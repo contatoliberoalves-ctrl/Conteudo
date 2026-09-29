@@ -134,7 +134,12 @@ const TREND = {
         ${tTit(s.titulo, s.ts || 88)}
         ${s.fala ? `<div style="background:${C.pink};border-radius:40px;outline:2.5px dashed #fff;outline-offset:-14px;padding:38px 50px;align-self:flex-start;max-width:860px">${tCorpo(s.fala, 32, '#fff', 'left')}</div>` : ''}
         ${s.texto ? tCorpo(s.texto, 32, C.escuro, 'left') : ''}
-      </div></div>`;
+        ${lista(s.tags).length ? `<div style="display:flex;flex-wrap:wrap;gap:12px">${lista(s.tags).map(t => `<span style="border:2.5px solid ${C.pink};color:${C.pink};border-radius:999px;padding:9px 22px;${TIGHT};font-weight:700;font-size:26px;letter-spacing:-.01em;white-space:nowrap">${esc(t)}</span>`).join('')}</div>` : ''}
+      </div>
+      ${s.icone ? `<div style="position:absolute;right:96px;top:150px;width:200px;height:200px;border-radius:50%;background:${C.pink};outline:3px dashed #fff;outline-offset:-14px;display:flex;align-items:center;justify-content:center;font-size:104px;line-height:1;font-family:'Noto Color Emoji',sans-serif;transform:rotate(8deg);box-shadow:0 14px 30px rgba(238,42,138,.3);z-index:4">${esc(s.icone)}</div>
+        <svg style="position:absolute;right:300px;top:170px;width:54px;height:54px;z-index:4" viewBox="0 0 100 100"><path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="${C.pink}"/></svg>
+        <svg style="position:absolute;right:88px;top:370px;width:34px;height:34px;z-index:4" viewBox="0 0 100 100"><path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="${C.claro}"/></svg>` : ''}
+    </div>`;
   },
   // Disco de vinil com o rótulo da "era" (posts de cultura pop, ex.: fases como álbuns).
   // Capa de álbum da "era" (posts de cultura pop: fases como álbuns).

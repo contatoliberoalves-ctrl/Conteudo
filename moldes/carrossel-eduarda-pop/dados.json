@@ -852,25 +852,56 @@
         "tipo": "item",
         "titulo": "Você já estudou Civil a faculdade inteira",
         "texto": "Parte geral, obrigações, contratos, família e sucessões: você chega na 2ª fase com **anos de base**.",
-        "fala": "Achei que ia começar do zero, mas eu já sabia muita coisa!"
+        "fala": "Achei que ia começar do zero, mas eu já sabia muita coisa!",
+        "icone": "🎓",
+        "tags": [
+          "Parte geral",
+          "Obrigações",
+          "Contratos",
+          "Família",
+          "Sucessões"
+        ]
       },
       {
         "tipo": "item",
         "titulo": "As peças se repetem",
         "texto": "Do 2º ao 46º exame, a **apelação caiu 8 vezes**, os embargos de terceiro 5, o agravo de instrumento e a contestação 4 cada.",
-        "fala": "Então dá pra treinar o que mais cai!"
+        "fala": "Então dá pra treinar o que mais cai!",
+        "icone": "🔁",
+        "tags": [
+          "Apelação 8×",
+          "Embargos de terceiro 5×",
+          "Agravo 4×",
+          "Contestação 4×"
+        ]
       },
       {
         "tipo": "item",
         "titulo": "Os casos são do dia a dia",
         "texto": "Contrato, aluguel, família, herança, indenização: você entende o problema **na primeira leitura**.",
-        "fala": "Parece história de gente que eu conheço."
+        "fala": "Parece história de gente que eu conheço.",
+        "icone": "🏠",
+        "tags": [
+          "Contrato",
+          "Aluguel",
+          "Família",
+          "Herança",
+          "Indenização"
+        ]
       },
       {
         "tipo": "item",
         "titulo": "Serve pra advocacia toda",
         "texto": "O que você treina para a prova é **o que chega no escritório** depois da carteira.",
-        "fala": "Estudo uma vez e uso pra sempre."
+        "fala": "Estudo uma vez e uso pra sempre.",
+        "icone": "💼",
+        "tags": [
+          "Consultoria",
+          "Contratos",
+          "Ações de família",
+          "Inventários",
+          "Indenizações"
+        ]
       },
       {
         "tipo": "cta",
@@ -896,8 +927,8 @@
       {
         "tipo": "texto",
         "kicker": "Mito 1: “Civil tem matéria demais”",
-        "titulo": "Você não estuda ==tudo==: estuda o que {cai}",
-        "caixa": "Apelação, embargos de terceiro, agravo de instrumento e contestação somam **21 das 45 peças** cobradas do 2º ao 46º exame."
+        "titulo": "Você estuda ==tudo do edital==, com o {peso certo}",
+        "caixa": "**Todo o conteúdo do edital** entra no estudo. O que muda é o peso: apelação, embargos de terceiro, agravo de instrumento e contestação somam **21 das 45 peças** cobradas do 2º ao 46º exame, então ganham mais treino."
       },
       {
         "tipo": "texto",

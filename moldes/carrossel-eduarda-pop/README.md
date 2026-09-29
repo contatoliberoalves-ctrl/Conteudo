@@ -42,7 +42,7 @@ Campos por tipo:
 - **studio** (todos os tipos): `fundo: "rosa"` (slide de destaque) e `enfeite: "morcegos"`.
 - **texto**: `kicker`, `titulo`; trend: `caixa` (texto na caixa tracejada) e `destaque: true` (caixa rosa); studio: `texto`, `grade: true` (grade da semana).
 - **lista**: `titulo`, `itens[]` (até 4–5); trend: `kicker`, `subtitulo`; studio: `texto` (frase de fechamento, alinhada à direita); scrap: `kicker`.
-- **item**: `titulo`, `numero` (automático), `texto`; trend e scrap: `fala` (a fala da seguidora, entre aspas).
+- **item**: `titulo`, `numero` (automático), `texto`; trend e scrap: `fala` (a fala da seguidora, entre aspas); trend: `icone` (emoji num adesivo redondo no canto, com estrelinhas) e `tags` (etiquetas contornadas embaixo do texto).
 - **janela** (scrap): `titulo`, `fala`, `texto`.
 - **legenda** (scrap): `foto`, `fotoPos`, `texto` (use `\n`; comece com `**Frase em negrito,**`), `y` (`topo`, `meio`, `base` ou px), `tam`, `emojis` (2, padrão 🥴 😵).
 - **faixa** (studio): `titulo`, `texto`, `foto`, `foto2`.
