@@ -22,13 +22,13 @@ const TIPOS = {
       ${aba(s.aba || 'Dossiê · OAB 2ª fase', COR.navyFundo, '#fff')}
       <div style="position:relative;background:${pap};border-radius:0 18px 18px 18px;padding:60px 70px 56px;box-shadow:0 30px 60px rgba(0,0,0,.3);height:780px;display:flex;flex-direction:column">
         <div style="${TEXTO};font-size:44px;font-weight:700;color:${COR.navy}">${esc(s.rotulo)}</div>
-        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="120" style="${TITULO};font-size:${s.ts || 300}px;line-height:.86;padding-top:.06em;color:${COR.azul};height:290px;overflow:hidden;max-width:760px">${linhas(s.titulo)}</div>
+        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="80" style="${TITULO};font-size:${s.ts || 300}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.05 : .9};padding-top:.1em;color:${COR.azul};height:300px;overflow:hidden;max-width:640px">${linhas(s.titulo)}</div>
         <div style="${TEXTO};font-size:40px;font-weight:600;color:${COR.navy};margin-top:14px;max-width:760px">${esc(s.nome)}</div>
         <div style="margin-top:auto;border-top:3px dashed #C9CFDB;padding-top:26px">
           <div style="${TEXTO};font-size:22px;font-weight:700;letter-spacing:.16em;color:${COR.azul};margin-bottom:16px">EXAMES EM QUE CAIU</div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;max-width:760px">${exames.map(e => chip(e, COR.azul, '#fff', 30)).join('')}</div>
         </div>
-        ${carimbo(exames.length ? `Já caiu ${exames.length}×` : 'Já caiu', 'na FGV', 800, 150, -14, 300)}
+        ${carimbo(exames.length ? `Já caiu ${exames.length}×` : 'Já caiu', 'na FGV', 850, 170, -14, 280)}
       </div>
     </div>
     ${objeto(ctx, { img: 'paperclip.png', x: 1190, y: 70, tam: 190, rot: 18 })}
@@ -52,12 +52,12 @@ const TIPOS = {
   },
   // Ficha do exame: número vazado gigante e o exame à esquerda; autos do caso (o caso e as teses) à direita.
   ficha(s, t) {
-    const num = String(s.exame || '').replace(/\D/g, '');
+    const num = s.numero ?? (String(s.exame || '').match(/\d+/) || [''])[0];  // número vazado: o do exame (ou "numero")
     const papel = t.escuro ? pap : '#fff';
     return `<div style="position:absolute;left:60px;top:360px;${TITULO};font-size:600px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? 'rgba(255,255,255,.35)' : 'rgba(11,79,216,.3)'};z-index:1">${esc(num)}</div>
       <div style="position:absolute;left:120px;top:120px;width:560px;z-index:3">
         ${kick(s.kicker || 'Ficha do exame', t.kicker)}
-        <div style="${TITULO};font-size:170px;line-height:.88;color:${t.tit};margin-top:10px">${esc(s.exame)}</div>
+        <div style="${TITULO};font-size:${s.ts || 170}px;line-height:.88;color:${t.tit};margin-top:10px">${esc(s.exame)}</div>
       </div>
       <div style="position:absolute;left:760px;right:120px;top:110px;bottom:130px;z-index:4;display:flex;flex-direction:column">
         ${aba(s.aba || 'Autos do caso', COR.vermelho, '#fff')}
@@ -74,7 +74,7 @@ const TIPOS = {
   carimbo(s, t) {
     return `<div style="position:absolute;left:120px;top:150px;bottom:150px;width:820px;display:flex;flex-direction:column;justify-content:center;gap:30px">
         ${kick(s.kicker, t.kicker)}
-        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="60" style="flex:none;${TITULO};font-size:${s.ts || 170}px;line-height:.9;padding-top:.06em;color:${t.tit};max-height:600px;overflow:hidden">${linhas(s.titulo, t.caixa)}</div>
+        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="60" style="flex:none;${TITULO};font-size:${s.ts || 170}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.08 : .9};padding-top:.06em;color:${t.tit};max-height:600px;overflow:hidden">${linhas(s.titulo, t.caixa)}</div>
       </div>
       <div style="position:absolute;left:1040px;right:120px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center;gap:34px;border-left:8px solid ${COR.vermelho};padding-left:56px">
         ${lista(s.texto).map(p => `<p style="font-size:44px;font-weight:500;line-height:1.3;color:${t.txt}">${rico(p, t.caixa)}</p>`).join('')}

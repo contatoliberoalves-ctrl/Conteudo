@@ -46,7 +46,7 @@ const TIPOS = {
   },
   // Ficha do exame: número vazado gigante, o caso e as teses (com tag formal/material e o artigo).
   ficha(s, t) {
-    const num = String(s.exame || '').replace(/\D/g, '');
+    const num = s.numero ?? (String(s.exame || '').match(/\d+/) || [''])[0];  // número vazado: o do exame (ou "numero")
     const papel = t.escuro ? pap : '#fff';
     return `<div style="position:absolute;right:60px;top:40px;${TITULO};font-size:430px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? 'rgba(255,255,255,.4)' : 'rgba(11,79,216,.35)'};z-index:1">${esc(num)}</div>
       <div style="position:absolute;left:96px;top:150px;z-index:3">
