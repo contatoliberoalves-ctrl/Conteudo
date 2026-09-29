@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#141418;}
+a{color:#f7f400;}
+a:hover{color:#e224d6;}
+</style>
+</helmet>
+<section style="display:flex;flex-direction:column;gap:140px;padding:120px;font-family:'Space Grotesk',sans-serif;">
+
+<div style="display:flex;flex-direction:column;gap:12px;color:#fff;">
+<div style="font-size:64px;font-weight:700;">Moldes PodConst</div>
+<div style="font-size:30px;opacity:.65;">4 carrosséis de 10 páginas + 2 posts de tela única · 1080×1350 · arraste fotos nos espaços tracejados</div>
+</div>
+
+<!-- ============ 1a ============ -->
+<div id="1a" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1a</span><span style="font-size:44px;font-weight:700;">Carrossel · Dados e argumentos</span></div>
+<div style="display:flex;gap:56px;">
+
+<!-- 1a-01 capa -->
+<div data-screen-label="1a-01" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c1-01" shape="rect" placeholder="Foto da dupla (capa)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 50%,rgba(10,42,124,.75) 78%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:56px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;margin-right:100px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;margin-left:100px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;left:0;right:0;bottom:190px;display:flex;flex-direction:column;align-items:center;">
+<div style="background:#0b2a78;font-weight:700;font-size:40px;padding:4px 16px;margin-right:220px;">Frase de abertura do tema é a</div>
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:196px;line-height:.9;padding:18px 24px 0;">PALAVRA CHAVE</div>
+<div style="background:#0b2a78;font-weight:700;font-size:40px;padding:4px 16px;margin-left:320px;">complemento da pergunta?</div>
+</div>
+<div style="position:absolute;bottom:58px;left:50%;transform:translateX(-50%) rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:58px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+</div>
+
+<!-- 1a-02 foto + texto direita -->
+<div data-screen-label="1a-02" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#07163f;">
+<div style="position:absolute;top:0;bottom:0;left:0;width:640px;"><image-slot id="c1-02" shape="rect" placeholder="Foto de um professor falando"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,22,63,0) 30%,rgba(7,22,63,.9) 58%,#07163f 70%);"></div>
+<div style="position:absolute;right:84px;top:520px;width:470px;display:flex;flex-direction:column;align-items:flex-end;gap:36px;text-align:right;">
+<div style="font-weight:700;font-size:38px;line-height:1.22;text-wrap:pretty;">Uma afirmação forte que puxa o leitor pra próxima página, em até cinco linhas curtas</div>
+<div style="width:118px;height:24px;background:#f7f400;margin-right:30px;"></div>
+</div>
+</div>
+
+<!-- 1a-03 tipográfico repetido -->
+<div data-screen-label="1a-03" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 10%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%);">
+<div style="position:absolute;top:-30px;left:-110px;font-family:'Bebas Neue';font-size:300px;color:#f7f400;filter:blur(12px);">OS</div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:190px;line-height:.97;">
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">NÃO MENTEM</div>
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">OS DADOS</div>
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">NÃO MENTEM</div>
+<div>OS DADOS</div>
+<div>NÃO MENTEM</div>
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">OS DADOS</div>
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">NÃO MENTEM</div>
+<div style="color:transparent;-webkit-text-stroke:2px #c9f23a;">OS DADOS</div>
+</div>
+</div>
+
+<!-- 1a-04 gráfico -->
+<div data-screen-label="1a-04" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2f8f);">
+<div style="position:absolute;top:250px;left:248px;font-family:'Bebas Neue';font-size:104px;line-height:1;">TÍTULO DO GRÁFICO:</div>
+<div style="position:absolute;top:380px;left:200px;width:10px;height:760px;background:#f7f400;"></div>
+<div style="position:absolute;top:1052px;left:120px;width:770px;height:10px;background:#f7f400;"></div>
+<div style="position:absolute;top:400px;left:248px;display:flex;flex-direction:column;gap:26px;font-weight:700;font-size:38px;">
+<div style="display:flex;flex-direction:column;gap:18px;"><div style="width:510px;height:58px;background:#ff14f0;"></div><div style="padding-left:36px;">Item principal: 29,6%</div></div>
+<div style="display:flex;flex-direction:column;gap:18px;"><div style="width:390px;height:58px;background:#ff14f0;"></div><div style="padding-left:36px;">Item dois: 22,4%</div></div>
+<div style="display:flex;flex-direction:column;gap:18px;"><div style="width:310px;height:58px;background:#ff14f0;"></div><div style="padding-left:36px;">Item três: 17,9%</div></div>
+<div style="display:flex;flex-direction:column;gap:18px;"><div style="width:300px;height:58px;background:#ff14f0;"></div><div style="padding-left:36px;">Item quatro: 17,7%</div></div>
+</div>
+<div style="position:absolute;top:1090px;left:270px;right:160px;font-weight:700;font-size:36px;line-height:1.15;">Ou seja… frase de conclusão que amarra o dado.</div>
+</div>
+
+<!-- 1a-05 print -->
+<div data-screen-label="1a-05" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 10%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%);">
+<div style="position:absolute;bottom:-90px;right:-120px;font-family:'Bebas Neue';font-size:420px;color:#e224d6;filter:blur(12px);">PODCONST</div>
+<div style="position:absolute;top:175px;left:0;right:0;text-align:center;font-size:60px;line-height:1.15;font-weight:500;">O print que <b>comprova</b><br>o que dissemos.</div>
+<div style="position:absolute;top:460px;left:118px;width:844px;height:430px;background:#fff;border-radius:38px;padding:24px;box-sizing:border-box;box-shadow:0 30px 60px rgba(0,0,0,.3);"><image-slot id="c1-05" shape="rounded" radius="20" fit="contain" placeholder="Print / gráfico da fonte"></image-slot></div>
+</div>
+
+<!-- 1a-06 magenta + palavra vertical -->
+<div data-screen-label="1a-06" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;top:0;left:0;height:1350px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Bebas Neue';font-size:430px;line-height:.82;text-align:center;color:transparent;background:repeating-linear-gradient(45deg,#fff 0 5px,transparent 5px 14px);-webkit-background-clip:text;background-clip:text;">PODCONST</div>
+<div style="position:absolute;bottom:-40px;right:-40px;width:170px;height:220px;background:#f7f400;filter:blur(10px);"></div>
+<div style="position:absolute;top:300px;left:480px;right:90px;display:flex;flex-direction:column;gap:34px;">
+<div style="font-family:'Bebas Neue';font-size:140px;line-height:.9;">TÍTULO COM <i>ÊNFASE</i>? E UMA DÚVIDA!</div>
+<div style="width:110px;height:22px;background:#f7f400;margin-left:34px;"></div>
+<div style="font-weight:700;font-size:40px;line-height:1.1;">Calma que a gente<br>te ensina assim ó</div>
+<div style="border-left:3px solid #f7f400;padding-left:26px;margin-left:10px;display:flex;flex-direction:column;gap:30px;font-weight:700;font-size:31px;line-height:1.22;">
+<div>Primeiro passo com um exemplo curto entre parênteses;</div>
+<div>Segundo passo em uma ou duas linhas;</div>
+<div>Terceiro passo pra fechar a lista</div>
+</div>
+</div>
+</div>
+
+<!-- 1a-07 foto + bullets -->
+<div data-screen-label="1a-07" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a1e56;">
+<div style="position:absolute;inset:0;"><image-slot id="c1-07" shape="rect" placeholder="Foto de uma professora (à direita)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#0a1e56 0%,rgba(10,30,86,.9) 40%,rgba(10,30,86,0) 70%);"></div>
+<div style="position:absolute;top:320px;left:118px;width:620px;display:flex;flex-direction:column;gap:34px;">
+<div style="font-family:'Bebas Neue';font-size:118px;line-height:.9;">E POR QUE ESSA É A MELHOR ESCOLHA?</div>
+<div style="display:flex;flex-direction:column;gap:36px;font-weight:700;font-size:38px;line-height:1.1;">
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Primeiro motivo em duas linhas;</span></div>
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Segundo motivo curto;</span></div>
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Terceiro motivo (com um comentário)</span></div>
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Quarto motivo (é real!)</span></div>
+</div>
+</div>
+</div>
+
+<!-- 1a-08 magenta + pessoa recortada -->
+<div data-screen-label="1a-08" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;right:-20px;bottom:0;width:520px;height:1180px;"><image-slot id="c1-08" shape="rect" fit="contain" placeholder="Foto recortada (PNG sem fundo)"></image-slot></div>
+<div style="position:absolute;top:220px;left:114px;width:520px;display:flex;flex-direction:column;gap:32px;">
+<div style="font-family:'Bebas Neue';font-size:118px;line-height:.9;">TÍTULO CURTO, IMPACTANTE!</div>
+<div style="width:56px;height:22px;background:#f7f400;margin-left:22px;"></div>
+<div style="font-weight:600;font-size:33px;line-height:1.22;text-wrap:pretty;">Parágrafo de apoio explicando o ponto. Frases diretas, do jeito que vocês falam em aula.<br><br>Segundo parágrafo com o exemplo prático e o fechamento do raciocínio.</div>
+</div>
+</div>
+
+<!-- 1a-09 frase destaque -->
+<div data-screen-label="1a-09" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 10%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%);">
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:360px;left:120px;right:120px;display:flex;flex-direction:column;gap:40px;">
+<div style="font-family:'Bebas Neue';font-size:150px;line-height:.92;">UMA FRASE QUE <span style="background:#e224d6;padding:0 14px;">RESUME</span> TODO O POST.</div>
+<div style="width:110px;height:22px;background:#f7f400;"></div>
+<div style="font-weight:600;font-size:36px;line-height:1.22;max-width:700px;">Linha de apoio que explica a frase acima em poucas palavras.</div>
+</div>
+</div>
+
+<!-- 1a-10 CTA -->
+<div data-screen-label="1a-10" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a1e56;">
+<div style="position:absolute;inset:0;"><image-slot id="c1-10" shape="rect" placeholder="Foto da dupla (à direita)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,30,86,.85) 0%,rgba(10,30,86,.55) 45%,rgba(10,30,86,0) 70%),linear-gradient(0deg,rgba(10,42,124,.8) 0%,rgba(10,42,124,0) 30%);"></div>
+<div style="position:absolute;top:-30px;left:-60px;font-family:'Bebas Neue';font-size:260px;color:#f7f400;filter:blur(10px);">VDE</div>
+<div style="position:absolute;top:330px;left:92px;width:480px;display:flex;flex-direction:column;gap:40px;font-weight:700;font-size:38px;line-height:1.12;">
+<div>Resumo do carrossel em duas ou três linhas.</div>
+<div>E um reforço do porquê isso fica ainda MELHOR!</div>
+<div style="width:110px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div>Chamada final: deixa aqui nos comentários que vamos te ajudar.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1b ============ -->
+<div id="1b" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1b</span><span style="font-size:44px;font-weight:700;">Carrossel · Lista numerada</span></div>
+<div style="display:flex;gap:56px;">
+
+<!-- 1b-01 capa -->
+<div data-screen-label="1b-01" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c2-01" shape="rect" placeholder="Foto da dupla (capa)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 55%,rgba(10,42,124,.6) 85%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:56px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;margin-right:100px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;margin-left:100px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;left:0;right:0;bottom:230px;display:flex;flex-direction:column;align-items:center;">
+<div style="background:#0b2a78;font-family:'Bebas Neue';font-size:88px;line-height:1;padding:10px 22px 0;margin-right:190px;">QUAL É O MOTIVO PRA TER</div>
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:150px;line-height:1;padding:18px 30px 0;margin-left:60px;white-space:nowrap;">TANTO RESULTADO?</div>
+</div>
+<div style="position:absolute;bottom:58px;left:50%;transform:translateX(-50%) rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:58px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+</div>
+
+<!-- 1b-02 caixa + barras horizontais -->
+<div data-screen-label="1b-02" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:152px;left:100px;right:-40px;height:372px;border:4px solid #e224d6;border-radius:48px;padding:52px 0 0 74px;box-sizing:border-box;">
+<div style="font-weight:700;font-size:36px;line-height:1.1;">Contexto rápido que o seguidor já sabe…</div>
+<div style="font-family:'Bebas Neue';font-size:124px;line-height:.9;margin-top:14px;">MAS POR QUE<br>ISSO ACONTECE?</div>
+</div>
+<div style="position:absolute;top:596px;left:118px;height:500px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Bebas Neue';font-size:190px;line-height:.8;text-align:center;">RANKING</div>
+<div style="position:absolute;top:596px;left:280px;right:40px;display:flex;flex-direction:column;gap:30px;">
+<div style="display:flex;align-items:center;gap:22px;"><span style="width:200px;flex:none;text-align:right;font-family:'Bebas Neue';font-size:46px;white-space:nowrap;">ITEM UM</span><span style="width:364px;height:48px;background:#e224d6;"></span><span style="font-weight:700;font-size:40px;">29,6%</span></div>
+<div style="display:flex;align-items:center;gap:22px;"><span style="width:200px;flex:none;text-align:right;font-family:'Bebas Neue';font-size:46px;white-space:nowrap;">ITEM DOIS</span><span style="width:290px;height:48px;background:#e224d6;"></span><span style="font-weight:700;font-size:40px;">22,4%</span></div>
+<div style="display:flex;align-items:center;gap:22px;"><span style="width:200px;flex:none;text-align:right;font-family:'Bebas Neue';font-size:46px;white-space:nowrap;">ITEM TRÊS</span><span style="width:250px;height:48px;background:#e224d6;"></span><span style="font-weight:700;font-size:40px;">19,6%</span></div>
+<div style="display:flex;align-items:center;gap:22px;"><span style="width:200px;flex:none;text-align:right;font-family:'Bebas Neue';font-size:46px;white-space:nowrap;">ITEM QUATRO</span><span style="width:228px;height:48px;background:#e224d6;"></span><span style="font-weight:700;font-size:40px;">17,9%</span></div>
+<div style="display:flex;align-items:center;gap:22px;"><span style="width:200px;flex:none;text-align:right;font-family:'Bebas Neue';font-size:46px;white-space:nowrap;">ITEM CINCO</span><span style="width:152px;height:48px;background:#e224d6;"></span><span style="font-weight:700;font-size:40px;">11,8%</span></div>
+</div>
+<div style="position:absolute;top:1128px;left:126px;font-weight:700;font-size:24px;">Fonte: nome da fonte dos dados</div>
+</div>
+
+<!-- 1b-03 numeral 1 magenta -->
+<div data-screen-label="1b-03" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;top:-60px;left:10px;font-family:'Bebas Neue';font-size:1560px;line-height:1;color:rgba(120,0,120,.14);">1)</div>
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:450px;left:398px;right:110px;display:flex;flex-direction:column;gap:42px;font-size:36px;line-height:1.14;">
+<div style="font-weight:700;">Primeiro motivo em destaque, escrito em negrito em até quatro linhas.</div>
+<div style="font-weight:500;">Parágrafo de explicação do motivo com o detalhe que convence. Pode ter até seis linhas sem pesar.</div>
+</div>
+</div>
+
+<!-- 1b-04 numeral 2 amarelo -->
+<div data-screen-label="1b-04" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#16203a;background:#f7f400;">
+<div style="position:absolute;top:-60px;left:10px;font-family:'Bebas Neue';font-size:1560px;line-height:1;color:rgba(140,140,0,.12);">2)</div>
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#16203a;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#16203a;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:520px;left:452px;right:130px;font-weight:700;font-size:37px;line-height:1.14;">Segundo motivo explicado em um bloco só, direto ao ponto, com a consequência prática pro aluno.</div>
+</div>
+
+<!-- 1b-05 numeral 3 azul + título -->
+<div data-screen-label="1b-05" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 10%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%);">
+<div style="position:absolute;top:-60px;left:10px;font-family:'Bebas Neue';font-size:1560px;line-height:1;color:rgba(0,20,80,.18);">3)</div>
+<div style="position:absolute;top:360px;right:-140px;width:260px;height:420px;filter:blur(6px);transform:rotate(18deg);"><image-slot id="c2-05" shape="rounded" radius="8" placeholder="Objeto"></image-slot></div>
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:420px;left:452px;right:110px;display:flex;flex-direction:column;gap:22px;">
+<div style="font-family:'Bebas Neue';font-size:128px;line-height:.86;">TÍTULO DO TERCEIRO MOTIVO</div>
+<div style="font-weight:700;font-size:35px;line-height:1.14;">Explicação comparando com as outras opções e mostrando a vantagem.</div>
+</div>
+</div>
+
+<!-- 1b-06 objeto + texto direita -->
+<div data-screen-label="1b-06" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 50% 40%,#0a47b0 0%,#0a3596 50%,#0a2a7c 100%);">
+<div style="position:absolute;top:360px;left:-80px;width:520px;height:640px;filter:blur(5px);transform:rotate(-24deg);"><image-slot id="c2-06" shape="rounded" radius="10" placeholder="Objeto ilustrativo (livro, Vade Mecum…)"></image-slot></div>
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;top:470px;right:110px;width:440px;text-align:right;font-weight:700;font-size:37px;line-height:1.16;">Texto alinhado à direita desenvolvendo a ideia, ao lado de um objeto que ilustra o assunto.</div>
+</div>
+
+<!-- 1b-07 foto + listras -->
+<div data-screen-label="1b-07" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0b1636;">
+<div style="position:absolute;inset:0;"><image-slot id="c2-07" shape="rect" placeholder="Foto (pessoa à esquerda)"></image-slot></div>
+<div style="position:absolute;top:0;bottom:0;right:0;width:520px;pointer-events:none;background:repeating-linear-gradient(-45deg,rgba(160,180,230,.28) 0 4px,transparent 4px 18px),linear-gradient(90deg,rgba(11,22,54,.55),rgba(11,22,54,.95));"></div>
+<div style="position:absolute;top:520px;right:100px;width:420px;display:flex;flex-direction:column;align-items:flex-end;gap:26px;text-align:right;">
+<div style="font-weight:700;font-size:36px;line-height:1.14;">Um relato em primeira pessoa… a virada da história em poucas linhas.</div>
+<div style="width:98px;height:22px;background:#e224d6;margin-right:30px;"></div>
+</div>
+</div>
+
+<!-- 1b-08 pessoa + destaque -->
+<div data-screen-label="1b-08" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;left:-10px;bottom:0;width:520px;height:1080px;"><image-slot id="c2-08" shape="rect" fit="contain" placeholder="Foto recortada (PNG sem fundo)"></image-slot></div>
+<div style="position:absolute;top:210px;right:96px;width:600px;display:flex;flex-direction:column;align-items:flex-end;gap:36px;text-align:right;">
+<div style="font-weight:700;font-size:36px;line-height:1.14;">Isso aconteceu conosco e está acontecendo com você. Um parágrafo de empatia antes da frase forte.</div>
+<div style="width:96px;height:20px;background:#e224d6;"></div>
+<div style="font-family:'Bebas Neue';font-size:108px;line-height:1;">FRASE DE IMPACTO QUE<br>TERMINA <span style="background:#e224d6;padding:0 12px;">"DESTACADA"</span></div>
+</div>
+</div>
+
+<!-- 1b-09 pergunta sobre desfoque -->
+<div data-screen-label="1b-09" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 50% 50%,#0a47b0 0%,#0a3596 55%,#0a2a7c 100%);">
+<div style="position:absolute;top:-90px;left:300px;font-family:'Bebas Neue';font-size:420px;line-height:1;color:#e224d6;filter:blur(14px);">APROVA</div>
+<div style="position:absolute;bottom:-110px;left:-60px;font-family:'Bebas Neue';font-size:420px;line-height:1;color:#e224d6;filter:blur(14px);">VAÇÃO</div>
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Bebas Neue';font-size:130px;line-height:.95;padding:0 150px;">CERTO, MAS E A PERGUNTA QUE MUDA O RUMO?</div>
+</div>
+
+<!-- 1b-10 CTA já sabe -->
+<div data-screen-label="1b-10" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c2-10" shape="rect" placeholder="Foto da dupla (CTA)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 45%,rgba(10,42,124,.8) 70%,#0a2a7c 88%);"></div>
+<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span><b>@libero</b>filho</span><span style="flex:1;height:2px;background:#fff;"></span></div>
+<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;"><span style="flex:1;height:2px;background:#fff;"></span><span><b>@natalia</b>valenca</span></div>
+<div style="position:absolute;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center;">
+<div style="font-family:'Bebas Neue';font-size:190px;line-height:.85;">JÁ SABE NÉ?</div>
+<div style="width:86px;height:14px;background:#e224d6;"></div>
+<div style="font-weight:700;font-size:44px;line-height:1.2;max-width:760px;">Chamada final convidando pra entrar no time, em até três linhas!</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1c ============ -->
+<div id="1c" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1c</span><span style="font-size:44px;font-weight:700;">Carrossel · Storytelling</span></div>
+<div style="display:flex;gap:56px;">
+
+<!-- 1c-01 capa balões -->
+<div data-screen-label="1c-01" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c3-01" shape="rect" placeholder="Foto da dupla (capa)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 50%,rgba(10,42,124,.8) 78%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:56px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;margin-right:100px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;margin-left:100px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;top:200px;left:80px;width:280px;height:190px;border-radius:50%;background:#fff;border:6px solid #0b1a4a;display:flex;align-items:center;justify-content:center;text-align:center;color:#0b1a4a;font-family:'Bebas Neue';font-size:56px;line-height:.95;padding:0 30px;box-sizing:border-box;">PENSAMENTO UM</div>
+<div style="position:absolute;top:92px;right:46px;width:290px;height:200px;border-radius:50%;background:#fff;border:6px solid #0b1a4a;display:flex;align-items:center;justify-content:center;text-align:center;color:#0b1a4a;font-family:'Bebas Neue';font-size:50px;line-height:.95;padding:0 34px;box-sizing:border-box;">MDS! PENSAMENTO DOIS</div>
+<div style="position:absolute;left:0;right:0;bottom:190px;display:flex;flex-direction:column;align-items:center;gap:16px;">
+<div style="font-family:'Bebas Neue';font-size:92px;line-height:1;">NAT E LÍBERO CHEGARAM A ACHAR QUE</div>
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:128px;line-height:1;padding:14px 26px 0;">A VIRADA DA HISTÓRIA</div>
+</div>
+<div style="position:absolute;bottom:58px;left:50%;transform:translateX(-50%) rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:58px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+</div>
+
+<!-- 1c-02 caixa contorno + pessoa -->
+<div data-screen-label="1c-02" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;right:-20px;bottom:0;width:520px;height:1160px;"><image-slot id="c3-02" shape="rect" fit="contain" placeholder="Foto recortada (PNG sem fundo)"></image-slot></div>
+<div style="position:absolute;top:214px;left:104px;width:646px;height:568px;border:3px solid #e224d6;border-radius:44px;padding:74px 60px;box-sizing:border-box;font-family:'Bebas Neue';font-size:112px;line-height:1.02;">SIM, UMA FRASE DE IDENTIFICAÇÃO COM QUEM LÊ.</div>
+<div style="position:absolute;top:760px;left:302px;width:300px;height:44px;background:#f7f400;"></div>
+</div>
+
+<!-- 1c-03 bullets entre pessoas -->
+<div data-screen-label="1c-03" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;left:-230px;top:560px;width:360px;height:790px;"><image-slot id="c3-03a" shape="rect" placeholder="Pessoa (corte)"></image-slot></div>
+<div style="position:absolute;right:-220px;top:470px;width:360px;height:880px;"><image-slot id="c3-03b" shape="rect" placeholder="Pessoa (corte)"></image-slot></div>
+<div style="position:absolute;top:440px;left:250px;right:250px;display:flex;flex-direction:column;gap:48px;font-weight:700;font-size:46px;line-height:1.08;">
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Primeira dor comum do aluno;</span></div>
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Segunda dor em duas linhas;</span></div>
+<div style="display:flex;gap:16px;"><span style="color:#f7f400;">•</span><span>Terceira dor pra fechar a lista.</span></div>
+</div>
+</div>
+
+<!-- 1c-04 magenta texto + título -->
+<div data-screen-label="1c-04" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;bottom:-60px;right:-120px;font-family:'Bebas Neue';font-size:460px;line-height:1;color:#f7f400;filter:blur(14px);">MÉT</div>
+<div style="position:absolute;top:320px;left:152px;right:150px;display:flex;flex-direction:column;gap:30px;">
+<div style="font-weight:700;font-size:44px;line-height:1.1;">Um contexto pessoal que leva a uma conclusão em comum:</div>
+<div style="font-family:'Bebas Neue';font-size:150px;line-height:.9;">A PALAVRA-CHAVE.</div>
+<div style="width:116px;height:22px;background:#f7f400;margin-left:40px;"></div>
+<div style="font-weight:700;font-size:32px;line-height:1.2;">Pra um faltou isso, pra outro faltou aquilo, pra outro mais uma coisa. Frases em sequência.</div>
+</div>
+</div>
+
+<!-- 1c-05 foto + pergunta destacada -->
+<div data-screen-label="1c-05" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a1440;">
+<div style="position:absolute;inset:0;"><image-slot id="c3-05" shape="rect" placeholder="Foto (pessoa à direita)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#0a1440 0%,rgba(10,20,64,.85) 35%,rgba(10,20,64,0) 60%);"></div>
+<div style="position:absolute;top:470px;left:166px;width:480px;display:flex;flex-direction:column;gap:30px;">
+<div style="font-family:'Bebas Neue';font-size:108px;line-height:1;">E ENTÃO, O QUE<br>NOS FEZ <span style="background:#e224d6;padding:0 10px;">CHEGAR?</span></div>
+<div style="width:96px;height:20px;background:#e224d6;margin-left:40px;"></div>
+<div style="font-weight:700;font-size:34px;line-height:1.14;">A resposta curta que responde a pergunta acima.</div>
+</div>
+</div>
+
+<!-- 1c-06 card branco sobre magenta -->
+<div data-screen-label="1c-06" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;inset:-100px;display:flex;flex-direction:column;gap:0;transform:rotate(-12deg);font-family:'Bebas Neue';font-size:190px;line-height:1;color:rgba(110,0,110,.16);white-space:nowrap;">
+<div>MÉTODO VDE * MÉTODO VDE *</div><div style="margin-left:-300px;">MÉTODO VDE * MÉTODO VDE *</div><div>MÉTODO VDE * MÉTODO VDE *</div><div style="margin-left:-300px;">MÉTODO VDE * MÉTODO VDE *</div><div>MÉTODO VDE * MÉTODO VDE *</div><div style="margin-left:-300px;">MÉTODO VDE * MÉTODO VDE *</div><div>MÉTODO VDE * MÉTODO VDE *</div>
+</div>
+<div style="position:absolute;bottom:40px;left:-60px;font-family:'Bebas Neue';font-size:400px;line-height:1;color:#f7f400;filter:blur(12px);">ODO VDE</div>
+<div style="position:absolute;top:512px;left:202px;width:678px;background:#fff;border-radius:38px;padding:60px 84px 40px;box-sizing:border-box;color:#0b2a8c;display:flex;flex-direction:column;gap:20px;box-shadow:0 30px 60px rgba(80,0,80,.25);">
+<div style="font-weight:700;font-size:34px;line-height:1.2;">E foi com base nesses elementos (um + outro) que a solução foi criada.</div>
+<div style="display:flex;justify-content:flex-end;gap:10px;"><span style="width:18px;height:18px;border-radius:50%;background:#0b2a8c;"></span><span style="width:18px;height:18px;border-radius:50%;background:#0b2a8c;"></span><span style="width:18px;height:18px;border-radius:50%;background:#0b2a8c;"></span></div>
+</div>
+</div>
+
+<!-- 1c-07 magenta linhas amarelas -->
+<div data-screen-label="1c-07" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;top:0;right:30px;font-family:'Bebas Neue';font-size:260px;line-height:1;color:#f7f400;filter:blur(12px);">MÉTODO</div>
+<div style="position:absolute;top:0;left:192px;width:6px;height:700px;background:#f7f400;"></div>
+<div style="position:absolute;top:780px;left:818px;width:6px;height:570px;background:#f7f400;"></div>
+<div style="position:absolute;top:330px;left:240px;right:220px;font-weight:700;font-size:33px;line-height:1.2;">Ele foi pensado exatamente pra QUEM NUNCA estudou o tema consiga aprender do zero. Mais que aulas: suporte, materiais e treinos constantes.</div>
+<div style="position:absolute;top:730px;left:286px;width:88px;height:18px;background:#f7f400;"></div>
+<div style="position:absolute;top:790px;left:240px;right:290px;font-family:'Bebas Neue';font-size:84px;line-height:1.05;">UMA FRASE DE PROMESSA QUE FECHA A PÁGINA EM TRÊS LINHAS.</div>
+</div>
+
+<!-- 1c-08 painel magenta + lista -->
+<div data-screen-label="1c-08" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a1e56;">
+<div style="position:absolute;inset:0;"><image-slot id="c3-08" shape="rect" placeholder="Foto de fundo (lateral direita)"></image-slot></div>
+<div style="position:absolute;top:0;left:0;width:950px;height:1350px;border-radius:0 90px 90px 0;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);overflow:hidden;">
+<div style="position:absolute;top:-20px;left:540px;font-family:'Bebas Neue';font-size:260px;line-height:1;color:#f7f400;filter:blur(12px);">MÉTODO</div>
+<div style="position:absolute;bottom:-60px;left:-20px;font-family:'Bebas Neue';font-size:260px;line-height:1;color:#f7f400;filter:blur(12px);">ÉTODO VDE</div>
+<div style="position:absolute;top:258px;left:272px;right:120px;display:flex;flex-direction:column;gap:40px;">
+<div style="font-family:'Bebas Neue';font-size:138px;line-height:.92;">E EM <span style="background:#0b2a78;padding:0 10px;">TODO</span> CASO GERALMENTE TEM QUE TER:</div>
+<div style="display:flex;flex-direction:column;gap:22px;font-weight:700;font-size:34px;">
+<div style="display:flex;gap:12px;"><span style="color:#f7f400;">•</span><span>Item da lista</span></div>
+<div style="display:flex;gap:12px;"><span style="color:#f7f400;">•</span><span>Item da lista</span></div>
+<div style="display:flex;gap:12px;"><span style="color:#f7f400;">•</span><span>Item da lista</span></div>
+<div style="display:flex;gap:12px;"><span style="color:#f7f400;">•</span><span>Item da lista</span></div>
+<div style="display:flex;gap:12px;"><span style="color:#f7f400;">•</span><span>Item da lista</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 1c-09 foto + caixa contornada -->
+<div data-screen-label="1c-09" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a1e56;">
+<div style="position:absolute;inset:0;"><image-slot id="c3-09" shape="rect" placeholder="Foto da dupla rindo"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,30,86,0) 40%,rgba(10,30,86,.85) 62%,#0a1e56 100%);"></div>
+<div style="position:absolute;top:-20px;left:30px;font-family:'Bebas Neue';font-size:240px;line-height:1;color:#f7f400;filter:blur(10px);">VDE</div>
+<div style="position:absolute;top:818px;left:140px;width:650px;height:392px;border:3px solid #e224d6;border-radius:40px;padding:34px 46px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px;">
+<div style="font-weight:500;font-size:32px;line-height:1.2;">É por isso que a proposta tem dado certo, porque além de qualidade (e tem muita, viu?) tem também humanidade.</div>
+<div style="width:98px;height:14px;background:#f7f400;margin-left:44px;"></div>
+<div style="font-weight:700;font-size:32px;line-height:1.2;">Frase final de convite em negrito, em até três linhas!</div>
+</div>
+<div style="position:absolute;top:1196px;left:330px;width:380px;height:28px;background:#f7f400;"></div>
+</div>
+
+<!-- 1c-10 CTA desfoque amarelo -->
+<div data-screen-label="1c-10" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0b1636;">
+<div style="position:absolute;inset:0;"><image-slot id="c3-10" shape="rect" placeholder="Foto de ambiente (escura)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(11,22,54,.55),rgba(10,30,110,.9));"></div>
+<div style="position:absolute;top:-40px;left:450px;font-family:'Bebas Neue';font-size:300px;line-height:1;color:#f7f400;filter:blur(12px);">MÉTODO VD</div>
+<div style="position:absolute;bottom:-60px;left:-40px;font-family:'Bebas Neue';font-size:300px;line-height:1;color:#f7f400;filter:blur(12px);">ÉTODO VDE</div>
+<div style="position:absolute;top:410px;right:282px;width:520px;display:flex;flex-direction:column;align-items:flex-end;gap:44px;text-align:right;font-weight:700;font-size:42px;line-height:1.14;">
+<div>Frase-resumo pra quem quer resultado e não surpresa!</div>
+<div style="width:134px;height:24px;background:#f7f400;"></div>
+<div>Promessa final que leva o leitor pro time!</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============ 1d ============ -->
+<div id="1d" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1d</span><span style="font-size:44px;font-weight:700;">Carrossel · Método e prova social</span></div>
+<div style="display:flex;gap:56px;">
+
+<!-- 1d-01 capa -->
+<div data-screen-label="1d-01" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c4-01" shape="rect" placeholder="Foto da dupla (capa)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 55%,rgba(10,42,124,.7) 85%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:74px;left:74px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;top:70px;right:70px;transform:rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:50px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+<div style="position:absolute;left:0;right:0;bottom:190px;display:flex;flex-direction:column;align-items:center;">
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:150px;line-height:1;padding:14px 22px 0;margin-right:120px;">TÍTULO LINHA UM</div>
+<div style="background:#0b2a78;font-family:'Bebas Neue';font-style:italic;font-size:190px;line-height:1;padding:14px 26px 0;margin-left:120px;transform:skewX(-6deg);">LINHA DOIS</div>
+<div style="background:#e224d6;font-weight:700;font-size:26px;letter-spacing:6px;padding:6px 18px;margin-left:120px;">SUBTÍTULO EM CAIXA ALTA</div>
+</div>
+</div>
+
+<!-- 1d-02 pergunta -->
+<div data-screen-label="1d-02" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;top:0;left:0;right:0;height:300px;background:linear-gradient(180deg,#0a2c86,rgba(10,44,134,0));"></div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:70px;padding:0 260px 0 262px;">
+<div style="font-family:'Bebas Neue';font-size:124px;line-height:.88;">SIM, VOCÊ NÃO<br>LEU ERRADO.</div>
+<div style="font-family:'Bebas Neue';font-size:124px;line-height:.88;margin-top:-30px;">A AFIRMAÇÃO<br>PRINCIPAL AQUI.</div>
+<div style="display:flex;flex-direction:column;gap:30px;margin-top:-40px;">
+<div style="width:56px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div style="font-weight:700;font-size:33px;line-height:1.2;">Pra você ter uma ideia, um dado concreto que comprova a afirmação acima (quase o triplo). E um reforço final.</div>
+</div>
+</div>
+</div>
+
+<!-- 1d-03 blurred question -->
+<div data-screen-label="1d-03" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 50% 50%,#0a47b0 0%,#0a3596 55%,#0a2a7c 100%);">
+<div style="position:absolute;top:-90px;left:300px;font-family:'Bebas Neue';font-size:420px;line-height:1;color:#e224d6;filter:blur(14px);">APROVA</div>
+<div style="position:absolute;bottom:-110px;left:-60px;font-family:'Bebas Neue';font-size:420px;line-height:1;color:#e224d6;filter:blur(14px);">VAÇÃO</div>
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Bebas Neue';font-size:124px;line-height:.95;padding:0 180px;">CERTO, MAS E COMO A GENTE CONSEGUE ISSO?</div>
+</div>
+
+<!-- 1d-04 estudo aprofundado -->
+<div data-screen-label="1d-04" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#0a3aa6,#0a2c86);">
+<div style="position:absolute;top:-110px;left:-80px;font-family:'Bebas Neue';font-size:380px;line-height:1;color:#e224d6;filter:blur(14px);">ÇÃO</div>
+<div style="position:absolute;top:258px;left:262px;right:250px;display:flex;flex-direction:column;gap:30px;">
+<div style="font-family:'Bebas Neue';font-size:128px;line-height:.9;">PILAR NÚMERO UM DO MÉTODO!</div>
+<div style="width:56px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div style="font-weight:700;font-size:33px;line-height:1.2;">Como esse pilar funciona na prática: o que priorizamos, quais temas e como isso chega no aluno.<br><br>O resultado disso em uma frase: a vantagem que o aluno leva pro dia da prova.</div>
+</div>
+</div>
+
+<!-- 1d-05 magenta + pessoa direita -->
+<div data-screen-label="1d-05" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;right:-20px;bottom:0;width:470px;height:1100px;"><image-slot id="c4-05" shape="rect" fit="contain" placeholder="Foto recortada (PNG sem fundo)"></image-slot></div>
+<div style="position:absolute;top:260px;left:98px;width:540px;display:flex;flex-direction:column;gap:32px;">
+<div style="font-family:'Bebas Neue';font-size:118px;line-height:.9;">PILAR DOIS PRA O PIOR CENÁRIO!</div>
+<div style="width:56px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div style="font-weight:600;font-size:32px;line-height:1.22;">Uma das coisas que nos orgulhamos é… explicação do diferencial.<br><br>Isto porque o aluno sai preparado. Fechamento com humor (é real kkkkkk).</div>
+</div>
+</div>
+
+<!-- 1d-06 magenta entre fotos -->
+<div data-screen-label="1d-06" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 30% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;left:-190px;top:500px;width:370px;height:800px;"><image-slot id="c4-06a" shape="rect" placeholder="Pessoa (corte)"></image-slot></div>
+<div style="position:absolute;right:-60px;top:0;width:150px;height:1350px;border-radius:70px 0 0 70px;overflow:hidden;"><image-slot id="c4-06b" shape="rect" placeholder="Foto"></image-slot></div>
+<div style="position:absolute;top:230px;left:254px;right:320px;display:flex;flex-direction:column;gap:30px;">
+<div style="font-family:'Bebas Neue';font-size:118px;line-height:.9;">PILAR TRÊS: ACOMPANHAMENTO!</div>
+<div style="width:56px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div style="font-weight:600;font-size:32px;line-height:1.22;">Uma pergunta que o aluno se faz?<br><br>Como o método resolve isso: tirando dúvidas, dando apoio e com feedbacks personalizados.</div>
+</div>
+</div>
+
+<!-- 1d-07 print -->
+<div data-screen-label="1d-07" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 10%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%);">
+<div style="position:absolute;bottom:-90px;left:500px;font-family:'Bebas Neue';font-size:420px;color:#e224d6;filter:blur(12px);">APRO</div>
+<div style="position:absolute;top:175px;left:0;right:0;text-align:center;font-size:60px;line-height:1.15;font-weight:500;">O print dos resultados<br>pra <b>confirmar</b> o que dissemos.</div>
+<div style="position:absolute;top:460px;left:118px;width:844px;height:430px;background:#fff;border-radius:38px;padding:24px;box-sizing:border-box;box-shadow:0 30px 60px rgba(0,0,0,.3);"><image-slot id="c4-07" shape="rounded" radius="20" fit="contain" placeholder="Print / gráfico oficial"></image-slot></div>
+</div>
+
+<!-- 1d-08 depoimentos -->
+<div data-screen-label="1d-08" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#3a4050;background:#f4f4f2;">
+<div style="position:absolute;top:40px;left:0;display:flex;gap:40px;padding:0 0 0 10px;font-size:25px;line-height:1.5;">
+<div style="width:520px;transform:rotate(-4deg);">“Depoimento de aluno número um. Duas ou três frases elogiando a didática e o jeito leve das aulas.”</div>
+<div style="width:470px;transform:rotate(-3deg);">“Depoimento dois falando da professora, do carisma e de como a matéria ficou fácil.”</div>
+</div>
+<div style="position:absolute;top:240px;left:40px;display:flex;gap:40px;font-size:25px;line-height:1.5;">
+<div style="width:500px;transform:rotate(2deg);">“Depoimento três sobre fixar conteúdo denso de maneira divertida.”</div>
+<div style="width:450px;transform:rotate(-2deg);">“Depoimento quatro sobre a motivação e a clareza das explicações.”</div>
+</div>
+<div style="position:absolute;top:470px;left:0;right:0;text-align:center;font-family:'Bebas Neue';font-size:210px;line-height:.86;color:#0b2a8c;">TÁ VENDO QUE<br>É VERDADE?</div>
+<div style="position:absolute;top:880px;left:40px;display:flex;gap:44px;font-size:25px;line-height:1.5;">
+<div style="width:480px;transform:rotate(1deg);">“Depoimento cinco sobre a forma direta e didática das exposições.”</div>
+<div style="width:470px;transform:rotate(-3deg);">“Depoimento seis sobre a organização da equipe e o cuidado com o aluno.”</div>
+</div>
+<div style="position:absolute;top:1120px;left:70px;display:flex;gap:44px;font-size:25px;line-height:1.5;">
+<div style="width:460px;transform:rotate(-2deg);">“Depoimento sete sobre os materiais e o mapa mental.”</div>
+<div style="width:460px;transform:rotate(-4deg);">“Depoimento oito sobre os feedbacks e a correção das peças.”</div>
+</div>
+</div>
+
+<!-- 1d-09 magenta pessoa esquerda -->
+<div data-screen-label="1d-09" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:radial-gradient(120% 90% at 70% 20%,#ea2ee0 0%,#d61ccf 55%,#c515c2 100%);">
+<div style="position:absolute;left:-20px;bottom:0;width:460px;height:1100px;"><image-slot id="c4-09" shape="rect" fit="contain" placeholder="Foto recortada (PNG sem fundo)"></image-slot></div>
+<div style="position:absolute;top:260px;left:470px;right:90px;display:flex;flex-direction:column;gap:32px;">
+<div style="font-family:'Bebas Neue';font-size:118px;line-height:.9;">TREINO DURO, JOGO FÁCIL!</div>
+<div style="width:56px;height:22px;background:#f7f400;margin-left:24px;"></div>
+<div style="font-weight:600;font-size:32px;line-height:1.22;">Um erro comum de quem vai fazer a prova e por que ele custa caro.<br><br>O que fazemos diferente, quase diariamente, pra evitar isso.</div>
+</div>
+</div>
+
+<!-- 1d-10 CTA resumo -->
+<div data-screen-label="1d-10" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="c4-10" shape="rect" placeholder="Foto da dupla (CTA)"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 50%,rgba(10,42,124,.85) 70%,#0a2a7c 85%);"></div>
+<div style="position:absolute;left:60px;right:60px;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center;">
+<div style="font-family:'Bebas Neue';font-size:96px;line-height:.92;">EM RESUMO, UMA FRASE QUE FECHA<br>O CARROSSEL COM FORÇA.</div>
+<div style="font-weight:500;font-size:34px;line-height:1.25;">Então se você ainda não entrou, aproveite a oportunidade.<br><b>Uma linha final de urgência.</b></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============ Tela única ============ -->
+<div style="display:flex;gap:120px;flex-wrap:wrap;">
+
+<div id="1e" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1e</span><span style="font-size:44px;font-weight:700;">Tela única · Aviso / urgência</span></div>
+<div data-screen-label="1e" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="s1" shape="rect" placeholder="Foto da dupla"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,.1) 0%,rgba(10,42,124,.35) 40%,rgba(10,42,124,.85) 75%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:56px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;margin-right:100px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;margin-left:100px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;left:0;right:0;top:520px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;">
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:230px;line-height:1;padding:20px 30px 0;">ÚLTIMO DIA</div>
+<div style="font-family:'Bebas Neue';font-size:84px;line-height:.95;">PARA FAZER A AÇÃO PRINCIPAL<br>E RECEBER O BENEFÍCIO</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:10px;font-weight:700;font-size:34px;">
+<div style="background:#e224d6;padding:2px 14px;">Comente #PALAVRA pra</div>
+<div style="background:#e224d6;padding:2px 14px;">receber o link no direct</div>
+</div>
+</div>
+<div style="position:absolute;bottom:58px;left:50%;transform:translateX(-50%) rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:58px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+</div>
+</div>
+
+<div id="1f" style="display:flex;flex-direction:column;gap:36px;">
+<div style="display:flex;align-items:center;gap:18px;color:#fff;"><span style="background:#f7f400;color:#111;font-weight:700;font-size:30px;padding:6px 16px;border-radius:6px;">1f</span><span style="font-size:44px;font-weight:700;">Tela única · Anúncio / isca</span></div>
+<div data-screen-label="1f" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:#fff;background:#0a2a7c;">
+<div style="position:absolute;inset:0;"><image-slot id="s2" shape="rect" placeholder="Foto da dupla"></image-slot></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,42,124,0) 55%,rgba(10,42,124,.75) 80%,#0a2a7c 100%);"></div>
+<div style="position:absolute;top:74px;left:74px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;padding:2px 12px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>
+<div style="position:absolute;top:70px;right:70px;transform:rotate(-9deg);font-family:'Unbounded',sans-serif;font-weight:900;font-size:50px;line-height:.84;letter-spacing:-.02em;color:#ff1ff0;text-shadow:.05em .06em 0 #0b1a4a;display:flex;flex-direction:column;align-items:flex-start;"><div style="display:flex;align-items:center;margin-left:.62em;"><span>P</span><span style="width:.72em;height:.72em;border-radius:50%;background:#ff1ff0;box-shadow:.05em .06em 0 #0b1a4a;display:flex;align-items:center;justify-content:center;gap:.045em;margin:0 .01em;"><span style="width:.05em;height:0.16em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.44em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.3em;border-radius:.03em;background:#fff;"></span><span style="width:.05em;height:0.18em;border-radius:.03em;background:#fff;"></span></span><span>D</span></div><div>CONST</div></div>
+<div style="position:absolute;left:0;right:0;bottom:230px;display:flex;flex-direction:column;align-items:center;">
+<div style="background:#e224d6;font-family:'Bebas Neue';font-size:128px;line-height:1;padding:12px 22px 0;margin-right:90px;">NOME DO MATERIAL</div>
+<div style="background:#0b2a78;font-family:'Bebas Neue';font-size:168px;line-height:1;padding:12px 24px 0;margin-left:90px;">E COMPLEMENTO</div>
+<div style="background:#e224d6;font-weight:700;font-size:26px;letter-spacing:5px;padding:6px 18px;margin-left:90px;">PARA QUEM É ESSE MATERIAL</div>
+</div>
+<div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:#f7f400;color:#0b1a4a;border-radius:38px 38px 0 0;padding:24px 64px 30px;text-align:center;font-weight:700;font-size:30px;letter-spacing:4px;line-height:1.25;white-space:nowrap;">COMENTE #PALAVRA PRA<br>RECEBER GRATUITAMENTE</div>
+</div>
+</div>
+
+</div>
+</section>
+</x-dc>
+</body>
+</html>
