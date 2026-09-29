@@ -1,6 +1,6 @@
-# Libero Duelo (@liberofilho)
+# Libero Duelo (@liberofilho) · slides de aula 1920×1080
 
-Comparação em tela dividida (lado A azul, lado B navy, medalhão VS). Base: `../libero-comum/`. Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`).
+Comparação em tela dividida (lado A azul, lado B navy, medalhão VS). Slides deitados (16:9) para dar aula. A versão de post (1080×1350) com o mesmo design é o `visual` do Carrossel Libero (`../carrossel-libero/visuais/`). Base: `../libero-comum/`. Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`).
 
 Carrossel: `id`, `titulo`, `tema`, `nomes` (os dois lados, ex.: `["MI", "ADO"]`), `slides`. `capa`, `round` e `cta` usam a tela dividida (sem `tema`); `placar` e `macete` usam `tema` (`blue`, `light`, `dark`).
 

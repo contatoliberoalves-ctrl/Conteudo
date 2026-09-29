@@ -3,7 +3,7 @@
 // no texto, anéis vermelhos e rodapé só com o perfil (sem contador de páginas).
 // Usada pelos moldes Libero Dossiê, Libero Duelo e Libero Requisitos.
 
-export const W = 1080, H = 1350;
+export const W = 1080, H = 1350;  // post; os moldes de aula passam 1920×1080 para pagina()
 export const COR = {
   azul: '#0B4FD8', azulFundo: '#0839A8', off: '#EFF0F2', navy: '#14213A', navyFundo: '#121A27',
   azulClaro: '#8FB0FF', vermelho: '#FF2D55', papel: '#F7F7F4',
@@ -32,11 +32,11 @@ export const anel = (x, y, d, borda = 64) => `<div style="position:absolute;left
 // Objeto 3D (PNG sem fundo em libero-comum/assets): {img, x, y, tam, rot}.
 export const objeto = (ctx, o) => o && o.img ? `<img src="${ctx.asset(o.img)}" style="position:absolute;left:${o.x ?? 700}px;top:${o.y ?? 80}px;width:${o.tam ?? 320}px;transform:rotate(${o.rot ?? 0}deg);filter:drop-shadow(0 18px 24px rgba(0,0,0,.28));z-index:12">` : '';
 
-// Página: cada slide é um <section id="slide-N"> de 1080×1350; o render fotografa um por um.
-export function pagina(slides) {
+// Página: cada slide é um <section id="slide-N"> de w×h (post 1080×1350, aula 1920×1080); o render fotografa um por um.
+export function pagina(slides, w = W, h = H) {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;${TEXTO};-webkit-font-smoothing:antialiased}
-section{position:relative;width:${W}px;height:${H}px;overflow:hidden}
+section{position:relative;width:${w}px;height:${h}px;overflow:hidden}
 p{margin:0}</style></head><body>
 ${slides.map((s, i) => `<section id="slide-${i + 1}" style="background:${s.bg}">${s.html}${textura(s.escuro)}</section>`).join('\n')}
 </body></html>`;

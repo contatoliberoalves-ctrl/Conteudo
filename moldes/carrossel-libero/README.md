@@ -55,3 +55,10 @@ Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais 
 - A área de texto encolhe sozinha para não encostar nos objetos. Use 1 ou 2 pontes por carrossel, alternando em cima e embaixo.
 
 A capa não tem rodapé. Os demais slides mostram só "@liberofilho", sem contador de páginas (pedido do autor).
+
+## Visuais alternativos (`visual`)
+
+Um carrossel com `"visual": "dossie" | "duelo" | "requisitos"` usa outra diagramação, na mesma identidade, desenhada em `visuais/<visual>.mjs` e gerada pelo `../libero-comum/render-base.mjs` (objetos 3D em `../libero-comum/assets/`). Os campos de cada um estão nos READMEs dos moldes de aula `../libero-dossie/`, `../libero-duelo/` e `../libero-requisitos/` (mesmos tipos de slide, em 1920×1080):
+- `dossie`: processo arquivado (capa com folha, carimbo e clipe; `linha`, `ficha`, `carimbo`, `cta`). Para "teses que caíram".
+- `duelo`: tela dividida com VS (`capa`, `round`, `placar`, `macete`, `cta`; o carrossel tem `nomes`). Para comparações.
+- `requisitos`: ficha de candidatura (`capa`, `lei`, `requisito`, `virada`, `checklist`, `cta`). Para "fulano poderia ser X?".

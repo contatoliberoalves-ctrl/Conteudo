@@ -7,6 +7,13 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { renderCarrossel } from './template.mjs';
+import { gerarPosts } from '../libero-comum/render-base.mjs';
+import * as dossie from './visuais/dossie.mjs';
+import * as duelo from './visuais/duelo.mjs';
+import * as requisitos from './visuais/requisitos.mjs';
+
+// Posts com "visual" usam outra diagramação (visuais/), na mesma identidade, e o gerador de libero-comum.
+const VISUAIS = { dossie, duelo, requisitos };
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
@@ -26,6 +33,7 @@ const browser = await chromium.launch(launch);
 let problemas = 0;
 for (const c of dados) {
   if (filtro && c.id !== filtro) continue;
+  if (c.visual) continue;
   // Imagens de imagens/ (banco ou IA) ainda não geradas: o slide sai sem elas, com aviso.
   const pendentes = [];
   c.slides = c.slides.map(s => {
@@ -104,4 +112,7 @@ for (const c of dados) {
   if (todos.length) problemas++;
 }
 await browser.close();
+const comVisual = dados.filter(c => c.visual);
+comVisual.filter(c => !VISUAIS[c.visual]).forEach(c => { console.log('!', c.id, `visual "${c.visual}" não existe (${Object.keys(VISUAIS).join(', ')})`); problemas++; });
+problemas += await gerarPosts(root, comVisual.filter(c => VISUAIS[c.visual]), c => VISUAIS[c.visual].renderCarrossel, filtro);
 if (problemas) process.exitCode = 1;

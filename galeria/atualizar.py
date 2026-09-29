@@ -16,7 +16,7 @@ raiz = Path(__file__).resolve().parent
 dist = raiz / 'dist'
 molde, pedidos = sys.argv[1], set(sys.argv[2:])
 pasta = raiz.parent / 'moldes' / molde
-from gerar_util import jpeg, titulo
+from gerar_util import jpeg, tamanho_tira, titulo
 
 html = (dist / 'index.html').read_text('utf8')
 m = re.search(r'\nconst MOLDES = (.*);\n', html)
@@ -36,10 +36,10 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         if not slides:
             print(f'! {c["id"]}: sem imagens em saida/, fica de fora', file=sys.stderr)
             continue
-        alt = Image.open(slides[0]).height  # 1350 (4:5) ou 1440 (3:4)
-        tira = Image.new('RGB', (1080 * len(slides), alt))
+        larg, alt = tamanho_tira(slides)
+        tira = Image.new('RGB', (larg * len(slides), alt))
         for k, s in enumerate(slides):
-            tira.paste(Image.open(s).convert('RGB'), (1080 * k, 0))
+            tira.paste(Image.open(s).convert('RGB').resize((larg, alt), Image.LANCZOS), (larg * k, 0))
         (dist / base).parent.mkdir(parents=True, exist_ok=True)
         tira.save(dist / f'{base}-slides.webp', 'WEBP', quality=86, method=5)
         painel = saida / 'painel.png'
@@ -47,9 +47,9 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         publicar += [f'{base}-painel.jpg', f'{base}-slides.webp']
     velho = next((p for p in (antigo or {}).get('posts', []) if p['id'] == c['id']), {})
     n = len(slides) or velho['n']
-    alt = Image.open(slides[0]).height if slides else velho.get('h', 1350)
+    larg, alt = tamanho_tira(slides) if slides else (velho.get('w', 1080), velho.get('h', 1350))
     posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'topicos': len(c.get('topicos', [])),
-                  'painel': f'{base}-painel.jpg', 'tira': f'{base}-slides.webp', 'n': n, 'h': alt, 'editor': editores.get(c['id'])})
+                  'painel': f'{base}-painel.jpg', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'editor': editores.get(c['id'])})
 meta['posts'] = posts
 if antigo:
     moldes[moldes.index(antigo)] = meta

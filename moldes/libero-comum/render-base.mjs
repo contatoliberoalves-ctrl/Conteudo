@@ -1,16 +1,24 @@
-// Gerador comum dos moldes Libero Dossiê, Duelo e Requisitos.
-// Cada molde chama gerar(import.meta.url, renderCarrossel). Saída: saida/<id>/1.png … N.png e painel.png.
-// Elementos com data-fit encolhem a fonte até o conteúdo caber na própria caixa (mínimo em data-min);
-// se ainda não couber, o render avisa. Também avisa 3 fundos iguais seguidos e fotos que faltam.
+// Gerador comum dos moldes de aula Libero Dossiê, Duelo e Requisitos (1920×1080) e dos posts do
+// Carrossel Libero com "visual" (1080×1350). Saída: saida/<id>/1.png … N.png e painel.png.
+// O template devolve { html, total, avisos, largura, altura }. Elementos com data-fit encolhem a fonte
+// até o conteúdo caber na própria caixa (mínimo em data-min); se ainda não couber, o render avisa.
+// Também avisa 3 fundos iguais seguidos e fotos que faltam.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
+// Uso num molde: await gerar(import.meta.url, renderCarrossel)  (gera os posts do dados.json; aceita [id]).
 export async function gerar(url, renderCarrossel) {
   const root = path.dirname(new URL(url).pathname);
-  const comum = path.dirname(new URL(import.meta.url).pathname);
   const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
-  const filtro = process.argv[2];
+  process.exitCode = await gerarPosts(root, dados, () => renderCarrossel, process.argv[2]) ? 1 : process.exitCode;
+}
+
+// Gera os posts indicados; escolher(c) devolve o renderCarrossel do post. Devolve quantos tiveram aviso.
+export async function gerarPosts(root, posts, escolher, filtro) {
+  const comum = path.dirname(new URL(import.meta.url).pathname);
+  posts = posts.filter(c => !filtro || c.id === filtro);
+  if (!posts.length) return 0;
   fs.mkdirSync(path.join(root, 'build'), { recursive: true });
   // Fotos do autor (fora do git): fotos/ do molde, do Carrossel Libero ou do Carrossel Explicativo.
   const pastas = ['fotos', '../carrossel-libero/fotos', '../carrossel-explicativo/fotos'].map(p => path.join(root, p));
@@ -25,16 +33,15 @@ export async function gerar(url, renderCarrossel) {
   if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
   const browser = await chromium.launch(launch);
   let problemas = 0;
-  for (const c of dados) {
-    if (filtro && c.id !== filtro) continue;
+  for (const c of posts) {
     faltando.clear();
-    const { html, total, avisos = [] } = renderCarrossel(c, ctx);
+    const { html, total, avisos = [], largura = 1080, altura = 1350 } = escolher(c)(c, ctx);
     const temas = (c.slides || []).map(s => s.tema);
     temas.forEach((t, i) => { if (i > 1 && t && t === temas[i - 1] && t === temas[i - 2]) avisos.push(`slides ${i - 1} a ${i + 1} com o mesmo fundo (${t})`); });
     faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/)`));
     const htmlPath = path.join(root, 'build', `${c.id}.html`);
     fs.writeFileSync(htmlPath, html);
-    const page = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
+    const page = await browser.newPage({ viewport: { width: largura, height: altura } });
     await page.goto('file://' + htmlPath);
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(400);
@@ -57,20 +64,20 @@ export async function gerar(url, renderCarrossel) {
     const secoes = await page.$$('section');
     for (let i = 0; i < secoes.length; i++) await secoes[i].screenshot({ path: path.join(outDir, `${i + 1}.png`) });
     await page.close();
-    // Painel da galeria: os 3 primeiros slides lado a lado.
+    // Painel da galeria: os 3 primeiros slides lado a lado. A página precisa ser um arquivo (file://):
+    // uma página em branco não pode carregar os PNGs do disco.
     const n = Math.min(3, secoes.length);
-    const painel = await browser.newPage({ viewport: { width: 1080 * n, height: 1350 } });
-    // A página precisa ser um arquivo (file://): uma página em branco não pode carregar os PNGs do disco.
+    const painel = await browser.newPage({ viewport: { width: largura * n, height: altura } });
     const painelHtml = path.join(root, 'build', `${c.id}-painel.html`);
     fs.writeFileSync(painelHtml, `<body style="margin:0;display:flex">${Array.from({ length: n }, (_, i) => `<img src="file://${path.join(outDir, `${i + 1}.png`)}">`).join('')}</body>`);
     await painel.goto('file://' + painelHtml);
     await painel.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth));
     await painel.screenshot({ path: path.join(outDir, 'painel.png') });
     await painel.close();
-    console.log(avisos.length ? '!' : '✓', c.id, `(${total ?? secoes.length} slides)`);
+    console.log(avisos.length ? '!' : '✓', c.id, `(${total ?? secoes.length} slides, ${largura}×${altura})`);
     avisos.forEach(a => console.log('   ', a));
     if (avisos.length) problemas++;
   }
   await browser.close();
-  if (problemas) process.exitCode = 1;
+  return problemas;
 }

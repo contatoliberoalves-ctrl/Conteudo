@@ -1,38 +1,159 @@
 [
   {
-    "id": "teses-adi-dossie",
-    "titulo": "Teses que caíram na ADI",
+    "id": "teses-adi-aula",
+    "titulo": "Teses que caíram na ADI (aula)",
     "tema": "Teses cobradas pela FGV na ADI, exame a exame",
     "fonte": "Livro de Prática Constitucional (tabela Principais Teses) + gabaritos FGV",
     "slides": [
-      {"tipo": "capa", "tema": "blue", "rotulo": "Teses que caíram na", "titulo": ["ADI"], "nome": "Ação Direta de Inconstitucionalidade",
-       "exames": ["OAB 7", "OAB 13", "OAB 16", "OAB 17", "OAB 26", "OAB 27", "OAB 35", "OAB 36", "OAB 40"]},
-      {"tipo": "linha", "tema": "light", "kicker": "Linha do tempo", "titulo": ["9 exames,", "1 peça"], "itens": [
-        {"exame": "OAB 40", "texto": "Lei federal sobre imunidade e regimento dos deputados estaduais"},
-        {"exame": "OAB 36", "texto": "Lei estadual sobre mineração e desapropriação"},
-        {"exame": "OAB 35", "texto": "Lei estadual sobre transporte coletivo municipal e licitações"},
-        {"exame": "OAB 27", "texto": "Emenda estadual sobre mineração e transporte"},
-        {"exame": "OAB 17 e 26", "texto": "Lei estadual sobre direito eleitoral"},
-        {"exame": "OAB 16", "texto": "Lei estadual sobre energia elétrica"},
-        {"exame": "OAB 7 e 13", "texto": "Direito civil e decreto autônomo"}
-      ]},
-      {"tipo": "ficha", "tema": "dark", "exame": "OAB 40", "caso": "Lei federal mexeu com a imunidade e o regimento dos deputados estaduais. Autora: Mesa da Assembleia.", "itens": [
-        {"tese": "Inviolabilidade dos deputados estaduais por seus votos", "artigo": "art. 53, caput, c/c art. 27, § 1º"},
-        {"tese": "Ampliou o rol taxativo de competências do STF", "artigo": "art. 102 ou art. 53, § 1º"},
-        {"tese": "Assembleia é quem dispõe sobre o seu regimento", "artigo": "art. 27, § 3º"}
-      ]},
-      {"tipo": "ficha", "tema": "blue", "exame": "OAB 36", "caso": "Lei estadual sobre exploração mineral em áreas turísticas e desapropriação abreviada.", "itens": [
-        {"tag": "Formal", "tese": "Competência da União sobre jazidas e minas", "artigo": "art. 22, XII"},
-        {"tag": "Formal", "tese": "Competência da União sobre desapropriação", "artigo": "art. 22, II"},
-        {"tag": "Material", "tese": "Lavra depende da União; minérios são bens da União", "artigo": "art. 176, caput e § 1º; art. 20, IX"}
-      ]},
-      {"tipo": "ficha", "tema": "light", "exame": "OAB 35", "caso": "Lei estadual sobre transporte coletivo municipal e licitações.", "itens": [
-        {"tag": "Formal", "tese": "Interesse local e serviço de transporte são do Município", "artigo": "art. 30, I e V"},
-        {"tag": "Formal", "tese": "Normas gerais de licitação são da União", "artigo": "art. 22, XXVII"},
-        {"tag": "Material", "tese": "A lei não prejudica o ato jurídico perfeito", "artigo": "art. 5º, XXXVI"}
-      ]},
-      {"tipo": "carimbo", "tema": "dark", "kicker": "O padrão da banca", "titulo": ["Competência", "da [[União]]"], "texto": ["Quase sempre, o carro-chefe é a **competência privativa da União** (art. 22).", "E a FGV pede para separar a inconstitucionalidade **formal** da **material**."]},
-      {"tipo": "cta", "tema": "blue", "foto": "dsc08716.jpg", "titulo": ["Qual é a", "próxima peça?"], "texto": "Comenta aqui qual peça você quer ver destrinchada.", "botao": "Comenta aqui!"}
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "rotulo": "Teses que caíram na",
+        "titulo": [
+          "ADI"
+        ],
+        "nome": "Ação Direta de Inconstitucionalidade",
+        "exames": [
+          "OAB 7",
+          "OAB 13",
+          "OAB 16",
+          "OAB 17",
+          "OAB 26",
+          "OAB 27",
+          "OAB 35",
+          "OAB 36",
+          "OAB 40"
+        ]
+      },
+      {
+        "tipo": "linha",
+        "tema": "light",
+        "kicker": "Linha do tempo",
+        "titulo": [
+          "9 exames,",
+          "1 peça"
+        ],
+        "itens": [
+          {
+            "exame": "OAB 40",
+            "texto": "Lei federal sobre imunidade e regimento dos deputados estaduais"
+          },
+          {
+            "exame": "OAB 36",
+            "texto": "Lei estadual sobre mineração e desapropriação"
+          },
+          {
+            "exame": "OAB 35",
+            "texto": "Lei estadual sobre transporte coletivo municipal e licitações"
+          },
+          {
+            "exame": "OAB 27",
+            "texto": "Emenda estadual sobre mineração e transporte"
+          },
+          {
+            "exame": "OAB 17 e 26",
+            "texto": "Lei estadual sobre direito eleitoral"
+          },
+          {
+            "exame": "OAB 16",
+            "texto": "Lei estadual sobre energia elétrica"
+          },
+          {
+            "exame": "OAB 7 e 13",
+            "texto": "Direito civil e decreto autônomo"
+          }
+        ]
+      },
+      {
+        "tipo": "ficha",
+        "tema": "dark",
+        "exame": "OAB 40",
+        "caso": "Lei federal mexeu com a imunidade e o regimento dos deputados estaduais. Autora: Mesa da Assembleia.",
+        "itens": [
+          {
+            "tese": "Inviolabilidade dos deputados estaduais por seus votos",
+            "artigo": "art. 53, caput, c/c art. 27, § 1º"
+          },
+          {
+            "tese": "Ampliou o rol taxativo de competências do STF",
+            "artigo": "art. 102 ou art. 53, § 1º"
+          },
+          {
+            "tese": "Assembleia é quem dispõe sobre o seu regimento",
+            "artigo": "art. 27, § 3º"
+          }
+        ]
+      },
+      {
+        "tipo": "ficha",
+        "tema": "blue",
+        "exame": "OAB 36",
+        "caso": "Lei estadual sobre exploração mineral em áreas turísticas e desapropriação abreviada.",
+        "itens": [
+          {
+            "tag": "Formal",
+            "tese": "Competência da União sobre jazidas e minas",
+            "artigo": "art. 22, XII"
+          },
+          {
+            "tag": "Formal",
+            "tese": "Competência da União sobre desapropriação",
+            "artigo": "art. 22, II"
+          },
+          {
+            "tag": "Material",
+            "tese": "Lavra depende da União; minérios são bens da União",
+            "artigo": "art. 176, caput e § 1º; art. 20, IX"
+          }
+        ]
+      },
+      {
+        "tipo": "ficha",
+        "tema": "light",
+        "exame": "OAB 35",
+        "caso": "Lei estadual sobre transporte coletivo municipal e licitações.",
+        "itens": [
+          {
+            "tag": "Formal",
+            "tese": "Interesse local e serviço de transporte são do Município",
+            "artigo": "art. 30, I e V"
+          },
+          {
+            "tag": "Formal",
+            "tese": "Normas gerais de licitação são da União",
+            "artigo": "art. 22, XXVII"
+          },
+          {
+            "tag": "Material",
+            "tese": "A lei não prejudica o ato jurídico perfeito",
+            "artigo": "art. 5º, XXXVI"
+          }
+        ]
+      },
+      {
+        "tipo": "carimbo",
+        "tema": "dark",
+        "kicker": "O padrão da banca",
+        "titulo": [
+          "Competência",
+          "da [[União]]"
+        ],
+        "texto": [
+          "Quase sempre, o carro-chefe é a **competência privativa da União** (art. 22).",
+          "E a FGV pede para separar a inconstitucionalidade **formal** da **material**."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual é a",
+          "próxima peça?"
+        ],
+        "texto": "Comenta aqui qual peça você quer ver destrinchada.",
+        "botao": "Comenta aqui!"
+      }
     ]
   }
 ]

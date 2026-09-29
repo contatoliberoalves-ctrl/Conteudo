@@ -1,11 +1,11 @@
 ---
 name: molde-libero-dossie
-description: Gera carrosséis no molde "Libero Dossiê" do @liberofilho (identidade do Carrossel Libero em forma de processo arquivado: folha com aba, carimbo JÁ CAIU, linha do tempo, uma ficha por exame com número vazado e teses com artigo). Use para "teses que caíram", histórico de exames, jurisprudência caso a caso ou quando pedirem "dossiê".
+description: Gera slides de AULA (16:9, 1920×1080) no molde "Libero Dossiê" do @liberofilho (identidade do Carrossel Libero em forma de processo arquivado: folha com aba, carimbo JÁ CAIU, linha do tempo, uma ficha por exame com número vazado e teses com artigo). Use para "teses que caíram", histórico de exames, jurisprudência caso a caso ou quando pedirem "dossiê".
 ---
 
 # Molde: Libero Dossiê
 
-Pasta `moldes/libero-dossie/` (base em `moldes/libero-comum/`). O visual está em `template.mjs` e não deve ser alterado para gerar posts: só edite `dados.json`. Leia o `README.md` do molde.
+Pasta `moldes/libero-dossie/` (base em `moldes/libero-comum/`). Slides deitados para dar aula (1920×1080). Para a versão de post (1080×1350) com o mesmo design, use o molde Carrossel Libero com `"visual": "dossie"`. O visual está em `template.mjs` e não deve ser alterado para gerar posts: só edite `dados.json`. Leia o `README.md` do molde.
 
 1. Estrutura: `capa` → `linha` (todos os exames) → uma `ficha` por exame (caso em uma frase, 2 a 4 teses com `tag` e `artigo`) → `carimbo` (padrão da banca) → `cta`. De 6 a 10 slides.
 2. Conteúdo de teses: tabela "Principais Teses" do Livro de Prática Constitucional e gabaritos da FGV (`materiais/README.md`); confira o número do exame. Nunca invente tese, exame ou artigo.

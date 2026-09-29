@@ -1,39 +1,195 @@
 [
   {
-    "id": "mi-x-ado-duelo",
-    "titulo": "MI x ADO: o duelo",
+    "id": "mi-x-ado-aula",
+    "titulo": "MI x ADO: o duelo (aula)",
     "tema": "Diferenças entre mandado de injunção e ADO, critério por critério",
-    "nomes": ["MI", "ADO"],
+    "nomes": [
+      "MI",
+      "ADO"
+    ],
     "slides": [
-      {"tipo": "capa", "kicker": "Não confunde mais", "lados": [{"sigla": "MI", "nome": "Mandado de injunção"}, {"sigla": "ADO", "nome": "Ação direta de inconstitucionalidade por omissão"}],
-       "texto": "Os dois atacam a **falta de lei**. Mas não são a mesma coisa.", "objeto": {"img": "boxing_glove.png"}},
-      {"tipo": "round", "numero": "01", "titulo": ["Natureza"], "lados": [
-        {"texto": ["**Remédio constitucional:** protege o **seu** direito, no caso concreto."], "artigo": "art. 5º, LXXI"},
-        {"texto": ["Ação do **controle concentrado:** protege a Constituição, em abstrato."], "artigo": "art. 103, § 2º"}]},
-      {"tipo": "round", "numero": "02", "titulo": ["Objeto"], "lados": [
-        {"texto": ["Falta de norma que torna **inviável** o exercício de direitos e liberdades constitucionais."], "artigo": "art. 5º, LXXI"},
-        {"texto": ["Omissão em **qualquer norma** constitucional de eficácia limitada."], "artigo": "art. 103, § 2º"}],
-       "pegadinha": "a ADO não exige um direito seu travado; o MI exige."},
-      {"tipo": "round", "numero": "03", "titulo": ["Quem propõe"], "lados": [
-        {"texto": ["Quem tem o direito travado. No **coletivo**: MP, partido, sindicato, entidade de classe, associação e Defensoria."], "artigo": "Lei 13.300/16, arts. 3º e 12"},
-        {"texto": ["Só os **9 legitimados** do art. 103."], "artigo": "art. 103; Lei 9.868/99, art. 12-A"}]},
-      {"tipo": "round", "numero": "04", "titulo": ["Quem julga"], "lados": [
-        {"texto": ["Depende de **quem se omitiu**: STF, STJ ou outro juízo, conforme a autoridade."], "artigo": "art. 102, I, “q”; art. 105, I, “h”"},
-        {"texto": ["Sempre o **STF**."], "artigo": "art. 102, I, “a”; art. 103, § 2º"}]},
-      {"tipo": "round", "numero": "05", "titulo": ["O que se ganha"], "lados": [
-        {"texto": ["Prazo para editar a norma e, se não vier, as **condições** para exercer o direito."], "artigo": "Lei 13.300/16, art. 8º"},
-        {"texto": ["**Ciência** ao Poder omisso; órgão administrativo tem **30 dias**."], "artigo": "art. 103, § 2º"}],
-       "pegadinha": "a ADO não obriga o Legislativo a legislar num prazo: ela dá ciência."},
-      {"tipo": "placar", "tema": "light", "kicker": "Placar final", "titulo": ["Resumo da luta"], "linhas": [
-        {"criterio": "Natureza", "a": "Remédio constitucional", "b": "Controle concentrado"},
-        {"criterio": "Objeto", "a": "Direito constitucional inviabilizado", "b": "Qualquer norma de eficácia limitada"},
-        {"criterio": "Quem propõe", "a": "O titular do direito (ou legitimado do coletivo)", "b": "Legitimados do art. 103"},
-        {"criterio": "Quem julga", "a": "Depende da autoridade omissa", "b": "STF"},
-        {"criterio": "Decisão", "a": "Prazo e condições para exercer o direito", "b": "Ciência ao Poder omisso"}]},
-      {"tipo": "macete", "tema": "dark", "kicker": "Macete de bolso", "titulo": ["Na hora da prova"], "frases": [
-        "Direito fundamental **seu** travado por falta de lei? **MI.**",
-        "Omissão em qualquer norma de eficácia limitada, proposta por legitimado do art. 103? **ADO.**"]},
-      {"tipo": "cta", "foto": "dsc08716.jpg", "titulo": ["Qual dupla te", "confunde?"], "texto": "Comenta a próxima luta que você quer ver aqui.", "botao": "Comenta aqui!"}
+      {
+        "tipo": "capa",
+        "kicker": "Não confunde mais",
+        "lados": [
+          {
+            "sigla": "MI",
+            "nome": "Mandado de injunção"
+          },
+          {
+            "sigla": "ADO",
+            "nome": "Ação direta de inconstitucionalidade por omissão"
+          }
+        ],
+        "texto": "Os dois atacam a **falta de lei**. Mas não são a mesma coisa.",
+        "objeto": {
+          "img": "boxing_glove.png"
+        }
+      },
+      {
+        "tipo": "round",
+        "numero": "01",
+        "titulo": [
+          "Natureza"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "**Remédio constitucional:** protege o **seu** direito, no caso concreto."
+            ],
+            "artigo": "art. 5º, LXXI"
+          },
+          {
+            "texto": [
+              "Ação do **controle concentrado:** protege a Constituição, em abstrato."
+            ],
+            "artigo": "art. 103, § 2º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "02",
+        "titulo": [
+          "Objeto"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Falta de norma que torna **inviável** o exercício de direitos e liberdades constitucionais."
+            ],
+            "artigo": "art. 5º, LXXI"
+          },
+          {
+            "texto": [
+              "Omissão em **qualquer norma** constitucional de eficácia limitada."
+            ],
+            "artigo": "art. 103, § 2º"
+          }
+        ],
+        "pegadinha": "a ADO não exige um direito seu travado; o MI exige."
+      },
+      {
+        "tipo": "round",
+        "numero": "03",
+        "titulo": [
+          "Quem propõe"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Quem tem o direito travado. No **coletivo**: MP, partido, sindicato, entidade de classe, associação e Defensoria."
+            ],
+            "artigo": "Lei 13.300/16, arts. 3º e 12"
+          },
+          {
+            "texto": [
+              "Só os **9 legitimados** do art. 103."
+            ],
+            "artigo": "art. 103; Lei 9.868/99, art. 12-A"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "04",
+        "titulo": [
+          "Quem julga"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Depende de **quem se omitiu**: STF, STJ ou outro juízo, conforme a autoridade."
+            ],
+            "artigo": "art. 102, I, “q”; art. 105, I, “h”"
+          },
+          {
+            "texto": [
+              "Sempre o **STF**."
+            ],
+            "artigo": "art. 102, I, “a”; art. 103, § 2º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "05",
+        "titulo": [
+          "O que se ganha"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Prazo para editar a norma e, se não vier, as **condições** para exercer o direito."
+            ],
+            "artigo": "Lei 13.300/16, art. 8º"
+          },
+          {
+            "texto": [
+              "**Ciência** ao Poder omisso; órgão administrativo tem **30 dias**."
+            ],
+            "artigo": "art. 103, § 2º"
+          }
+        ],
+        "pegadinha": "a ADO não obriga o Legislativo a legislar num prazo: ela dá ciência."
+      },
+      {
+        "tipo": "placar",
+        "tema": "light",
+        "kicker": "Placar final",
+        "titulo": [
+          "Resumo da luta"
+        ],
+        "linhas": [
+          {
+            "criterio": "Natureza",
+            "a": "Remédio constitucional",
+            "b": "Controle concentrado"
+          },
+          {
+            "criterio": "Objeto",
+            "a": "Direito constitucional inviabilizado",
+            "b": "Qualquer norma de eficácia limitada"
+          },
+          {
+            "criterio": "Quem propõe",
+            "a": "O titular do direito (ou legitimado do coletivo)",
+            "b": "Legitimados do art. 103"
+          },
+          {
+            "criterio": "Quem julga",
+            "a": "Depende da autoridade omissa",
+            "b": "STF"
+          },
+          {
+            "criterio": "Decisão",
+            "a": "Prazo e condições para exercer o direito",
+            "b": "Ciência ao Poder omisso"
+          }
+        ]
+      },
+      {
+        "tipo": "macete",
+        "tema": "dark",
+        "kicker": "Macete de bolso",
+        "titulo": [
+          "Na hora da prova"
+        ],
+        "frases": [
+          "Direito fundamental **seu** travado por falta de lei? **MI.**",
+          "Omissão em qualquer norma de eficácia limitada, proposta por legitimado do art. 103? **ADO.**"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual dupla te",
+          "confunde?"
+        ],
+        "texto": "Comenta a próxima luta que você quer ver aqui.",
+        "botao": "Comenta aqui!"
+      }
     ]
   }
 ]
