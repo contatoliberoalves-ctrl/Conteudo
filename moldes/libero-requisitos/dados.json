@@ -1,0 +1,188 @@
+[
+  {
+    "id": "naruto-presidente",
+    "titulo": "Naruto poderia ser presidente do Brasil?",
+    "tema": "Condições de elegibilidade para presidente (art. 14, § 3º) aplicadas ao Naruto",
+    "personagem": "o Naruto",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "kicker": "Análise constitucional",
+        "titulo": [
+          "Naruto poderia",
+          "ser [[presidente]]",
+          "do Brasil?"
+        ],
+        "texto": "Checando os requisitos da Constituição, um por um.",
+        "objeto": {
+          "img": "ninja.png"
+        }
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "As regras do jogo",
+        "titulo": [
+          "Condições de",
+          "elegibilidade"
+        ],
+        "ref": "Art. 14, § 3º, da CF/88",
+        "citacao": [
+          "São condições de elegibilidade, na forma da lei:",
+          "I - a nacionalidade brasileira;",
+          "II - o pleno exercício dos direitos políticos;",
+          "III - o alistamento eleitoral;",
+          "IV - o domicílio eleitoral na circunscrição;",
+          "V - a filiação partidária;",
+          "VI - a idade mínima de: a) trinta e cinco anos para Presidente e Vice-Presidente da República e Senador;"
+        ],
+        "traducao": "Faltou **uma**, não tem candidatura. Bora checar."
+      },
+      {
+        "tipo": "requisito",
+        "tema": "dark",
+        "numero": "01",
+        "titulo": [
+          "Brasileiro",
+          "nato"
+        ],
+        "veredito": "nao",
+        "artigo": "art. 12, § 3º, I",
+        "regra": "Presidente da República é cargo **privativo de brasileiro nato**. Não basta ser brasileiro: tem que ser nato.",
+        "analise": [
+          "Nasceu na **Vila da Folha**, no País do Fogo, filho de Minato e Kushina. Nenhum dos dois é brasileiro, e a Vila da Folha não fica no Brasil."
+        ]
+      },
+      {
+        "tipo": "requisito",
+        "tema": "blue",
+        "numero": "02",
+        "titulo": [
+          "Alistamento",
+          "eleitoral"
+        ],
+        "veredito": "nao",
+        "artigo": "art. 14, § 2º",
+        "regra": "**Estrangeiros não podem se alistar** como eleitores.",
+        "analise": [
+          "Sem nacionalidade brasileira, nada de título de eleitor. E sem título, também não tem **pleno exercício dos direitos políticos** nem domicílio eleitoral."
+        ]
+      },
+      {
+        "tipo": "requisito",
+        "tema": "light",
+        "numero": "03",
+        "titulo": [
+          "Filiação",
+          "partidária"
+        ],
+        "veredito": "nao",
+        "artigo": "art. 14, § 3º, V",
+        "regra": "Para ser candidato, precisa estar **filiado a um partido político**.",
+        "analise": [
+          "O **clã Uzumaki** não é partido político. E a Akatsuki, muito menos."
+        ]
+      },
+      {
+        "tipo": "requisito",
+        "tema": "dark",
+        "numero": "04",
+        "titulo": [
+          "Idade mínima:",
+          "35 anos"
+        ],
+        "veredito": "talvez",
+        "rotulo": "Ainda não",
+        "artigo": "art. 14, § 3º, VI, “a”",
+        "regra": "Presidente e vice precisam ter pelo menos **35 anos**.",
+        "analise": [
+          "No Boruto, ele já é pai e Hokage, mas **ainda não chegou aos 35**. Esse é o único que o tempo resolve."
+        ],
+        "objeto": {
+          "img": "fox.png",
+          "x": 600,
+          "y": 1040,
+          "tam": 230,
+          "rot": 10
+        }
+      },
+      {
+        "tipo": "virada",
+        "tema": "blue",
+        "kicker": "Plot twist",
+        "titulo": [
+          "E se ele se",
+          "naturalizar?"
+        ],
+        "texto": [
+          "Nem assim. Presidente é cargo **privativo de brasileiro nato** (art. 12, § 3º, I).",
+          "Naturalizado, até poderia disputar outros cargos, como **deputado federal**. Presidente, nunca."
+        ],
+        "objeto": {
+          "img": "steaming_bowl.png",
+          "x": 760,
+          "y": 1000,
+          "tam": 250,
+          "rot": -10
+        }
+      },
+      {
+        "tipo": "checklist",
+        "tema": "light",
+        "titulo": [
+          "O veredito"
+        ],
+        "selo": "Inelegível",
+        "itens": [
+          {
+            "v": "nao",
+            "t": "Nacionalidade: brasileiro nato",
+            "art": "art. 12, § 3º, I"
+          },
+          {
+            "v": "nao",
+            "t": "Pleno exercício dos direitos políticos",
+            "art": "art. 14, § 3º, II"
+          },
+          {
+            "v": "nao",
+            "t": "Alistamento eleitoral",
+            "art": "art. 14, § 3º, III"
+          },
+          {
+            "v": "nao",
+            "t": "Domicílio eleitoral",
+            "art": "art. 14, § 3º, IV"
+          },
+          {
+            "v": "nao",
+            "t": "Filiação partidária",
+            "art": "art. 14, § 3º, V"
+          },
+          {
+            "v": "talvez",
+            "t": "Idade mínima de 35 anos",
+            "art": "art. 14, § 3º, VI, “a”"
+          },
+          {
+            "v": "sim",
+            "t": "Alfabetizado (analfabeto é inelegível)",
+            "art": "art. 14, § 4º"
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Quem é o próximo",
+          "candidato?"
+        ],
+        "texto": "Comenta qual personagem você quer ver nessa análise.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  }
+]
