@@ -263,6 +263,8 @@ function desenharMolde() {
       ${temas.length > 1 ? `<div class="filtros" role="group" aria-label="Filtrar por tema">${['todos', ...temas].map(t =>
         `<button data-tema="${esc(t)}" aria-pressed="${t === filtroTema}">${t === 'todos' ? 'Todos' : 'Tema ' + esc(t)}</button>`).join('')}</div>` : ''}
       <span class="contagem" id="contagem"></span>
+      <button id="enviar-todos" hidden>Enviar todos pro Drive</button>
+      <span class="contagem" id="st-molde" role="status"></span>
     </div>
     <div class="grade" id="grade"></div>`;
   $('#busca').oninput = e => { termo = e.target.value; desenharGrade(); };
@@ -277,7 +279,29 @@ function desenharMolde() {
     catch (err) { const r = document.createRange(); r.selectNodeContents($('#pedido-txt')); getSelection().removeAllRanges(); getSelection().addRange(r); e.target.textContent = 'Selecionado: copie com Ctrl+C'; }
     setTimeout(() => e.target.textContent = 'Copiar pedido', 2200);
   };
+  $('#enviar-todos').onclick = enviarTodos;
+  $('#enviar-todos').hidden = !temDrive();
   desenharGrade();
+}
+
+// O conector do Drive é carregado depois do primeiro desenho da página (MCP ainda não existe).
+function temDrive() { try { return !!MCP; } catch (e) { return false; } }
+
+// Envia de uma vez todos os posts visíveis do molde (respeita a busca e o filtro), um depois do outro.
+async function enviarTodos(ev) {
+  const bt = ev.currentTarget, st = $('#st-molde'), molde = ativo, posts = lista.slice();
+  if (!posts.length) return;
+  bt.disabled = true; st.textContent = 'Preparando as pastas no Drive…';
+  let pm = null;
+  try {
+    for (let i = 0; i < posts.length; i++) {
+      const p = posts[i];
+      ({ pm } = await enviarPost(p, molde, k => { st.textContent = `Enviando post ${i + 1} de ${posts.length} (${p.titulo}) · slide ${k + 1} de ${p.n}…`; }));
+    }
+    const url = pm.viewUrl || `https://drive.google.com/drive/folders/${pm.id}`;
+    st.innerHTML = `Enviados ${posts.length} posts para ${esc(RAIZ)} / ${esc(semBarra(molde.nome))} · <a href="${esc(url)}" target="_blank" rel="noopener">abrir a pasta</a>`;
+  } catch (err) { st.textContent = erroDrive(err) + ' (os posts anteriores já foram enviados)'; }
+  bt.disabled = false;
 }
 
 const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -430,6 +454,7 @@ const pastas = {};
   try { MCP = await window.claude?.use?.('mcp'); } catch (e) { MCP = null; }
   if (MCP) { try { ARQ_MCP = !!(await MCP.listTools()).fileArgs; } catch (e) { ARQ_MCP = false; } }
   atualizarFerramentas();
+  if ($('#enviar-todos')) $('#enviar-todos').hidden = !MCP;
 })();
 const aspas = s => String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 const semBarra = s => String(s).replace(/[\/\\]/g, '-').trim();
@@ -467,17 +492,15 @@ function erroDrive(err) {
     default: return 'Não foi possível enviar pro Drive: ' + (err?.message || err);
   }
 }
-$('#v-drive').onclick = async ev => {
-  const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget, molde = ativo;
-  bt.disabled = true; st.textContent = 'Preparando as pastas no Drive…';
-  try {
+// Envia um post para "Carrosséis Instagram" / molde / post (troca os slides antigos) e devolve a pasta do post.
+async function enviarPost(p, molde, avisar = () => {}) {
     const raiz = await pastaDentro(RAIZ);
     const pm = await pastaDentro(semBarra(molde.nome), raiz.id);
     const pc = await pastaDentro(semBarra(p.titulo), pm.id);
     const antigos = (await drive('search_files', { query: `parentId = '${pc.id}'`, excludeContentSnippets: true, pageSize: 50 })).files || [];
     for (const f of antigos) if (f.mimeType !== PASTA) await drive('trash_file', { fileId: f.id });
     await cadaSlide(p, async (cv, k) => {
-      st.textContent = `Enviando slide ${k + 1} de ${p.n}…`;
+      avisar(k);
       const enviar = async () => MCP.callTool(DRIVE, 'create_file', { ...(await conteudoSlide(cv, k)), parentId: pc.id, disableConversionToGoogleType: true });
       try { await enviar(); }
       catch (err) {
@@ -487,6 +510,13 @@ $('#v-drive').onclick = async ev => {
         ARQ_MCP = false; await enviar();
       }
     });
+    return { pc, pm };
+}
+$('#v-drive').onclick = async ev => {
+  const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget, molde = ativo;
+  bt.disabled = true; st.textContent = 'Preparando as pastas no Drive…';
+  try {
+    const { pc } = await enviarPost(p, molde, k => { st.textContent = `Enviando slide ${k + 1} de ${p.n}…`; });
     const url = pc.viewUrl || `https://drive.google.com/drive/folders/${pc.id}`;
     st.innerHTML = `Enviado: ${esc(RAIZ)} / ${esc(semBarra(molde.nome))} / ${esc(semBarra(p.titulo))} · <a href="${esc(url)}" target="_blank" rel="noopener">abrir a pasta</a>`;
   } catch (err) { st.textContent = erroDrive(err); }
