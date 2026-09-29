@@ -60,8 +60,11 @@ export async function gerar(url, renderCarrossel) {
     // Painel da galeria: os 3 primeiros slides lado a lado.
     const n = Math.min(3, secoes.length);
     const painel = await browser.newPage({ viewport: { width: 1080 * n, height: 1350 } });
-    await painel.setContent(`<body style="margin:0;display:flex">${Array.from({ length: n }, (_, i) => `<img src="file://${path.join(outDir, `${i + 1}.png`)}">`).join('')}</body>`);
-    await painel.waitForTimeout(200);
+    // A página precisa ser um arquivo (file://): uma página em branco não pode carregar os PNGs do disco.
+    const painelHtml = path.join(root, 'build', `${c.id}-painel.html`);
+    fs.writeFileSync(painelHtml, `<body style="margin:0;display:flex">${Array.from({ length: n }, (_, i) => `<img src="file://${path.join(outDir, `${i + 1}.png`)}">`).join('')}</body>`);
+    await painel.goto('file://' + painelHtml);
+    await painel.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth));
     await painel.screenshot({ path: path.join(outDir, 'painel.png') });
     await painel.close();
     console.log(avisos.length ? '!' : '✓', c.id, `(${total ?? secoes.length} slides)`);
