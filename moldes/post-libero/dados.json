@@ -111,5 +111,32 @@
     "layout": "esqueleto",
     "tema": "dark",
     "estrutura": "adi"
+  },
+  {
+    "id": "video-pecas-cobradas-uma-vez",
+    "titulo": "Vídeo novo: Peças que foram cobradas uma vez",
+    "layout": "video",
+    "tema": "blue",
+    "linhas": [
+      "Vídeo novo",
+      "no [[canal]]"
+    ],
+    "print": "print-video-pecas-uma-vez.jpg",
+    "hashtag": "#AULA",
+    "chamada": "pra receber o link"
+  },
+  {
+    "id": "video-pecas-cobradas-uma-vez-destaque",
+    "titulo": "Vídeo novo: Peças que foram cobradas uma vez (destaque)",
+    "layout": "video-destaque",
+    "tema": "dark",
+    "linhas": [
+      "Vídeo",
+      "[[novo]]",
+      "no canal"
+    ],
+    "print": "print-video-pecas-uma-vez.jpg",
+    "hashtag": "#AULA",
+    "chamada": "pra receber o link"
   }
 ]

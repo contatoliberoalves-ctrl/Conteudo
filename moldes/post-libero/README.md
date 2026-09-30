@@ -18,7 +18,11 @@ Campos comuns: `id`, `titulo` (nome do post na galeria), `layout`, `tema` (`blue
 | `pdf` | PDF pra receber no direct | `selo` (ex.: "PDF gratuito"), `kicker`, `sub`, `pagina` (título da página do PDF), `itens` (tópicos da página; as linhas de texto ficam só sugeridas), `hashtag`, `botao` (padrão "Enviar ➤"), `chamada` (padrão "e receba o PDF no direct") |
 | `estrutura` | estrutura da peça numa folha de petição | `estrutura` (id de um post de `../estrutura-de-pecas/dados.json`: o render puxa título, endereçamento, qualificação, tópicos e valor), `selo` (padrão "Estrutura da peça"). Os tópicos saem em romanos; o que está entre parênteses vira a linha menor. |
 | `esqueleto` | estrutura da peça em trilha numerada | `estrutura` (como acima), `kicker` (padrão "Esqueleto da peça"). O endereçamento fica numa faixa azul; o valor da causa fecha a trilha. |
+| `video` | vídeo novo no YouTube (fundo claro/azul) | `print` (print do vídeo, arquivo em `fotos/`, fora do git), `selo` (padrão "No YouTube"), `hashtag` (padrão `#AULA`), `chamada` (padrão "pra receber o link"), `botao` (padrão "Enviar ➤"), `playX`/`playY` (posição do play em %, para não cobrir o rosto) |
+| `video-destaque` | vídeo novo no YouTube (tema `dark`, título gigante) | os mesmos de `video`, mais `printY` e `balaoY` (px do topo do print e do balão "Comenta #AULA") |
 
 Nos layouts `estrutura` e `esqueleto`, qualquer campo do post (`linhas`, `topicos`…) substitui o que vem da Estrutura de Peças.
 
 Nos layouts `material` e `pdf`, a apostila e a página são desenhos: não precisam de arquivo. Não coloque na página conteúdo que o material não tem.
+
+Nos layouts `video` e `video-destaque`, o print do vídeo é foto pessoal: fica em `fotos/` (fora do git, o repositório é público). Numa sessão nova, peça o print ao usuário.

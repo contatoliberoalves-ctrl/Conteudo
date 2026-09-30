@@ -4,7 +4,9 @@
 //   material — "Material gratuito": título grande, apostila em pé na direita e o balão "Comente #X";
 //   pdf      — página do PDF inclinada no centro, com os tópicos, e a caixa de comentário "Comente #X";
 //   estrutura — estrutura da peça numa folha de petição (endereçamento, qualificação, tópicos em romanos);
-//   esqueleto — estrutura da peça em trilha numerada, com o endereçamento em destaque.
+//   esqueleto — estrutura da peça em trilha numerada, com o endereçamento em destaque;
+//   video    — divulgação de vídeo novo no YouTube: título, o print com play e barra de progresso, barra "Comenta #X";
+//   video-destaque — fundo escuro, título gigante, print inclinado em moldura branca e balão "Comenta #X".
 // "linhas" é o título na imagem (lista de linhas); "titulo" é o nome do post na galeria.
 // Marcação: **negrito** e [[caixa]] (palavra com fundo sólido, só nos títulos), como no Carrossel Libero.
 import { COR, TEMAS, TITULO, PERFIL, esc, rico, lista, textura } from '../carrossel-libero/template.mjs';
@@ -74,6 +76,42 @@ const LAYOUTS = {
         <span style="background:${COR.azul};color:#fff;font-size:28px;font-weight:800;border-radius:40px;padding:14px 26px;white-space:nowrap">${esc(p.botao || 'Enviar ➤')}</span>
       </div>
       <div style="position:absolute;right:110px;bottom:80px;font-size:28px;font-weight:700;color:${t.txt};z-index:6">${esc(p.chamada || 'e receba o PDF no direct')}</div>${selo(t)}`;
+  },
+  // Vídeo novo no YouTube: print (p.print, em fotos/) como player, com play e barra de progresso vermelhos.
+  video(p, t) {
+    const src = (p._fotos || {})[p.print] || '';
+    return `<div style="position:absolute;left:110px;top:85px;display:flex;align-items:center;gap:14px;transform:rotate(-2deg);background:${COR.vermelho};color:#fff;font-size:30px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;z-index:4">▶ ${esc(p.selo || 'No YouTube')}</div>
+      <div data-area style="position:absolute;left:110px;right:110px;top:175px;height:250px;display:flex;flex-direction:column;justify-content:center;gap:14px;z-index:3">
+        ${ttl(p.linhas, t, p.ts || tam(p.linhas, 130, 860))}
+      </div>
+      <div data-objeto style="position:absolute;left:200px;right:200px;top:455px;z-index:2">
+        <div style="position:relative;border-radius:28px;overflow:hidden;box-shadow:0 34px 70px rgba(8,16,40,.45);border:8px solid #0f0f0f;background:#0f0f0f">
+          ${src ? `<img src="${src}" style="display:block;width:100%">` : `<div style="height:520px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px">print do vídeo em fotos/${esc(p.print || '')}</div>`}
+          <div style="position:absolute;left:${p.playX ?? 16}%;top:${p.playY ?? 50}%;width:130px;height:90px;margin:-45px 0 0 -65px;background:#FF0000;border-radius:30px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.35)"><div style="width:0;height:0;border-left:38px solid #fff;border-top:23px solid transparent;border-bottom:23px solid transparent;margin-left:8px"></div></div>
+        </div>
+      </div>
+      <div style="position:absolute;left:110px;right:110px;top:1125px;display:flex;align-items:center;gap:18px;background:#fff;border:3px solid ${COR.navy};border-radius:60px;padding:14px 16px 14px 34px;z-index:4">
+        <span style="flex:1;font-size:34px;font-weight:600;color:${COR.navy}">Comenta <b style="font-weight:800;color:${COR.vermelho}">${esc(p.hashtag || '#AULA')}</b> ${esc(p.chamada || 'pra receber o link')}</span>
+        <span style="background:${COR.azul};color:#fff;font-size:28px;font-weight:800;border-radius:40px;padding:14px 26px;white-space:nowrap">${esc(p.botao || 'Enviar ➤')}</span>
+      </div>${selo(t)}`;
+  },
+  // Variação escura: título gigante à esquerda, print inclinado em moldura branca e balão de comentário.
+  'video-destaque'(p, t) {
+    const src = (p._fotos || {})[p.print] || '';
+    return `<div data-anel style="position:absolute;right:-220px;top:-220px;width:440px;height:440px;border:72px solid ${COR.vermelho};border-radius:50%;box-sizing:border-box"></div>
+      <div data-area style="position:absolute;left:110px;right:300px;top:120px;height:450px;display:flex;flex-direction:column;gap:22px;z-index:3">
+        <div style="font-size:28px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${t.kicker}">${esc(p.selo || 'No YouTube')}</div>
+        ${ttl(p.linhas, t, p.ts || tam(p.linhas, 150, 560))}
+      </div>
+      <div data-objeto style="position:absolute;right:60px;top:${p.printY ?? 690}px;width:540px;background:#fff;padding:18px 18px 22px;transform:rotate(4deg);box-shadow:0 34px 70px rgba(0,0,0,.5);z-index:2">
+        ${src ? `<img src="${src}" style="display:block;width:100%">` : `<div style="height:520px;display:flex;align-items:center;justify-content:center;color:${COR.navy};font-size:28px">print em fotos/${esc(p.print || '')}</div>`}
+        <div style="position:absolute;left:${p.playX ?? 16}%;top:${p.playY ?? 48}%;width:110px;height:78px;margin:-39px 0 0 -55px;background:#FF0000;border-radius:24px;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:36px solid #fff;border-top:21px solid transparent;border-bottom:21px solid transparent;margin-left:8px"></div></div>
+      </div>
+      <div style="position:absolute;left:110px;top:${p.balaoY ?? 590}px;width:400px;background:${COR.azul};border-radius:48px 48px 48px 0;padding:36px 42px;z-index:4;box-shadow:0 20px 40px rgba(0,0,0,.35)">
+        <div style="font-size:36px;font-weight:600;line-height:1.2;color:#fff">Comenta</div>
+        <div style="${TITULO};font-size:${Math.min(110, Math.floor(360 / (String(p.hashtag || '#AULA').length * .5)))}px;line-height:1;color:#fff;margin:6px 0 10px">${esc(p.hashtag || '#AULA')}</div>
+        <div style="font-size:32px;font-weight:600;line-height:1.2;color:#fff">${esc(p.chamada || 'pra receber o link')}</div>
+      </div>${selo(t, COR.azul)}`;
   },
 };
 
