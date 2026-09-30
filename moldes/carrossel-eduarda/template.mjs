@@ -19,9 +19,11 @@ const rt = (s, escuro = false, corB = TINTA) => esc(s)
 const lista = v => (Array.isArray(v) ? v : v ? [v] : []);
 
 // Imagem ou, sem arquivo, um espaço reservado com a legenda (como o <image-slot> do kit).
-function imagem(ctx, nome, legenda, { fit = 'cover', pos = 'center', escuro = false } = {}) {
+// filtro "pb": preto e branco com contraste (fotos de estúdio coloridas demais para a paleta rosé).
+function imagem(ctx, nome, legenda, { fit = 'cover', pos = 'center', escuro = false, filtro = '' } = {}) {
   const url = nome && ctx.imagem(nome);
-  if (url) return `<img data-foto src="${url}" style="display:block;width:100%;height:100%;object-fit:${fit};object-position:${pos}">`;
+  const f = filtro === 'pb' ? ';filter:grayscale(1) contrast(1.12) brightness(.92)' : '';
+  if (url) return `<img data-foto src="${url}" style="display:block;width:100%;height:100%;object-fit:${fit};object-position:${pos}${f}">`;
   if (nome) ctx.avisos.push(`slide ${ctx.n}: imagem não encontrada: ${nome} (coloque em fotos/ ou imagens/)`);
   const cor = escuro ? 'rgba(232,185,185,.35)' : 'rgba(169,118,122,.45)';
   return `<div data-vazio style="width:100%;height:100%;box-sizing:border-box;border:2px dashed ${cor};background:${escuro ? 'rgba(255,255,255,.04)' : 'rgba(201,154,157,.10)'};display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:24px;color:${escuro ? '#8E8282' : ROSE_ESC}">${esc(legenda)}</div>`;
@@ -47,24 +49,41 @@ const porTamanho = (s, faixas) => { const n = String(s || '').length; for (const
 // Cada modelo: fundo, rodapé (claro | rose | nenhum) e o conteúdo.
 const MODELOS = {
   // ---------- Linha Clara ----------
-  L01: { nome: 'Capa com foto', fundo: BG_CLARO, rodape: 'barra', html: (s, ctx) => {
-    const px = s.tamanhoTitulo || porTamanho(s.titulo, [[34, 104], [50, 92], [999, 84]]);
-    return `${s.numero != null && s.numero !== '' ? `<div style="position:absolute;right:-40px;top:-80px;${GILDA};font-size:1500px;line-height:1;color:#EBDADB">${esc(s.numero)}</div>` : ''}
-      <div style="position:absolute;right:0;top:0;bottom:0;width:560px">${imagem(ctx, s.foto, 'foto da Eduarda (recorte)', { pos: s.posicao || 'center bottom' })}</div>
-      <div data-caixa style="position:absolute;left:84px;top:${s.topo || (px >= 104 ? 380 : 340)}px;width:${px >= 104 ? 520 : 540}px;bottom:230px;display:flex;flex-direction:column;gap:40px">
-        <span data-fit style="${GILDA};font-size:${px}px;line-height:1.03;text-wrap:balance">${rt(s.titulo)}</span>
-        ${s.destaque ? `<span style="font-size:40px;font-weight:600;line-height:1.5;color:#fff"><span style="background:${ROSE};padding:2px 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone">${rt(s.destaque, false, '#fff')}</span></span>` : ''}
+  // Capa com foto em arco (com o contorno rosé deslocado), número gigante ou sobretítulo à esquerda e
+  // título largo embaixo. Serve para foto comum ou recorte (fundo transparente).
+  L01: { nome: 'Capa com foto', fundo: BG_CLARO, rodape: 'barra', arraste: true, html: (s, ctx) => {
+    const px = s.tamanhoTitulo || porTamanho(s.titulo, [[30, 100], [50, 86], [999, 78]]);
+    const num = s.numero != null && s.numero !== '';
+    return `<div style="position:absolute;left:-160px;bottom:-220px;width:620px;height:620px;border-radius:50%;background:#F1E4E4"></div>
+      <div style="position:absolute;right:60px;top:124px;width:450px;height:580px;border:2px solid ${ROSE};border-radius:225px 225px 26px 26px"></div>
+      <div style="position:absolute;right:84px;top:100px;width:450px;height:580px;border-radius:225px 225px 26px 26px;overflow:hidden;background:linear-gradient(180deg,#F3E6E6,#E4C9CA);box-shadow:0 40px 70px -40px rgba(90,60,62,.55)">${imagem(ctx, s.foto, 'foto da Eduarda', { pos: s.posicao || 'center 30%', filtro: s.filtro })}</div>
+      <div style="position:absolute;left:84px;top:100px;width:440px;height:580px;display:flex;flex-direction:column;justify-content:${num ? 'flex-end' : 'center'};gap:26px">
+        ${s.sobretitulo ? `<span style="font-size:24px;letter-spacing:.28em;text-transform:uppercase;color:${ROSE_ESC};font-weight:600;line-height:1.6">${esc(s.sobretitulo)}</span>` : ''}
+        ${num ? `<span style="${GILDA};font-size:540px;line-height:.78;color:${ROSE};margin-left:-14px">${esc(s.numero)}</span>` : `<div style="display:flex;align-items:center;gap:18px;color:${ROSE}"><span style="width:90px;height:2px;background:${ROSE}"></span><span style="font-size:30px">✦</span></div>`}
       </div>
-      <div style="position:absolute;left:84px;bottom:110px">${assinatura(ctx)}</div>`;
+      <div data-caixa style="position:absolute;left:84px;right:84px;top:740px;bottom:215px;display:flex;flex-direction:column;gap:26px">
+        <span data-fit style="${GILDA};font-size:${px}px;line-height:1.04;text-wrap:balance">${rt(s.titulo)}</span>
+        ${s.destaque ? `<span style="font-size:32px;font-weight:600;line-height:1.5;color:#fff"><span style="background:${ROSE};padding:4px 14px;box-decoration-break:clone;-webkit-box-decoration-break:clone">${rt(s.destaque, false, '#fff')}</span></span>` : ''}
+      </div>
+      <div style="position:absolute;left:84px;bottom:106px">${assinatura(ctx)}</div>`;
   } },
-  L02: { nome: 'Capa tipográfica', fundo: BG_CLARO, rodape: 'barra', arraste: true, html: (s, ctx) => `
-      <div data-caixa style="position:absolute;left:96px;right:96px;top:60px;bottom:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:36px;text-align:center">
+  // Capa tipográfica numa moldura fina; com "foto", ganha a foto redonda com anel rosé no topo.
+  L02: { nome: 'Capa tipográfica', fundo: BG_CLARO, rodape: 'barra', arraste: true, html: (s, ctx) => {
+    const f = !!s.foto;
+    return `<div style="position:absolute;inset:48px 48px 96px;border:2px solid #E3CBCC;border-radius:36px"></div>
+      <div style="position:absolute;left:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:#F2E6E6"></div>
+      <div style="position:absolute;right:-90px;bottom:180px;width:300px;height:300px;border-radius:50%;border:2px solid ${MARCA}"></div>
+      ${f ? `<div style="position:absolute;left:50%;top:120px;transform:translateX(-50%);width:330px;height:330px;border-radius:50%;padding:12px;border:2px solid ${ROSE};box-sizing:border-box">
+        <div style="width:100%;height:100%;border-radius:50%;overflow:hidden">${imagem(ctx, s.foto, 'foto da Eduarda', { pos: s.posicao || 'center 30%', filtro: s.filtro })}</div></div>
+        <span style="position:absolute;left:calc(50% + 100px);top:380px;width:84px;height:84px;border-radius:50%;background:${ROSE};color:#fff;display:flex;align-items:center;justify-content:center;font-size:38px">✦</span>` : ''}
+      <div data-caixa style="position:absolute;left:110px;right:110px;top:${f ? 480 : 60}px;bottom:230px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:${f ? 26 : 36}px;text-align:center">
         ${s.sobretitulo ? `<span style="font-size:26px;letter-spacing:.3em;text-transform:uppercase;color:${ROSE_ESC};font-weight:600">${esc(s.sobretitulo)}</span>` : ''}
-        ${s.titulo ? `<span style="${GILDA};font-size:76px;line-height:1.1;text-wrap:balance">${rt(s.titulo)}</span>` : ''}
-        <span data-fit style="${GILDA};font-size:${s.tamanhoPalavra || porTamanho(s.palavra, [[10, 180], [999, 170]])}px;line-height:.9;color:${ROSE}">${rt(s.palavra)}</span>
-        ${s.selo ? `<span style="background:${ROSE};color:#fff;font-size:36px;font-weight:500;padding:14px 48px;border-radius:999px;margin-top:12px">${esc(s.selo)}</span>` : ''}
+        ${s.titulo ? `<span style="${GILDA};font-size:${f ? 68 : 76}px;line-height:1.1;text-wrap:balance">${rt(s.titulo)}</span>` : ''}
+        <span data-fit style="${GILDA};font-size:${s.tamanhoPalavra || porTamanho(s.palavra, [[10, f ? 160 : 180], [999, f ? 140 : 170]])}px;line-height:.9;color:${ROSE}">${rt(s.palavra)}</span>
+        ${s.selo ? `<span style="background:${ROSE};color:#fff;font-size:34px;font-weight:500;padding:14px 48px;border-radius:999px;margin-top:10px">${esc(s.selo)}</span>` : ''}
       </div>
-      <div style="position:absolute;left:0;right:0;bottom:110px;display:flex;justify-content:center">${assinatura(ctx)}</div>` },
+      <div style="position:absolute;left:0;right:0;bottom:120px;display:flex;justify-content:center">${assinatura(ctx)}</div>`;
+  } },
   L03: { nome: 'Card com borda', fundo: BG_CLARO, rodape: 'barra', html: s => `
       <div data-caixa style="position:absolute;left:72px;right:72px;top:-40px;bottom:130px;border:2px solid #D9B9BB;border-radius:36px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:56px;padding:0 90px;text-align:center">
         <span data-fit style="${GILDA};font-size:${s.tamanhoTitulo || 80}px;line-height:1.15;text-wrap:balance">${rt(s.titulo)}</span>
@@ -180,7 +199,8 @@ const MODELOS = {
 
   // ---------- Linha Escura ----------
   D01: { nome: 'Capa dark', fundo: DARK, escuro: true, html: (s, ctx) => `
-      <div style="position:absolute;inset:0">${imagem(ctx, s.foto, 'foto de fundo / montagem', { escuro: true, pos: s.posicao || 'center top' })}</div>
+      <div style="position:absolute;inset:0">${imagem(ctx, s.foto, 'foto de fundo / montagem', { escuro: true, pos: s.posicao || 'center top', filtro: s.filtro })}</div>
+      ${s.filtro === 'pb' ? `<div style="position:absolute;inset:0;background:${ACENTO};mix-blend-mode:multiply;opacity:.35"></div>` : ''}
       <div style="position:absolute;left:0;right:0;bottom:0;height:780px;background:linear-gradient(180deg,rgba(15,13,13,0) 0%,rgba(15,13,13,.85) 45%,${DARK} 100%)"></div>
       <div data-caixa style="position:absolute;left:80px;right:80px;bottom:120px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
         ${s.sobretitulo ? `<span style="font-size:40px;font-weight:500;letter-spacing:.02em">${rt(s.sobretitulo, true)}</span>` : ''}

@@ -24,14 +24,14 @@ Lista de posts: `{ "id", "titulo" (nome na galeria), "avatar"? (padrão avatar.j
 Cada slide tem `"modelo"` e os campos abaixo. Nos textos: `**negrito**` e `==destaque rosé==`. Campos marcados com [] aceitam texto ou lista de parágrafos.
 Todo slide aceita `"contador": false`, `"arraste": true|false` e, nos títulos, `"tamanhoTitulo"` (px) para forçar o tamanho.
 
-Imagens: nome de arquivo procurado em `fotos/` (fotos pessoais, fora do git) e depois em `imagens/`. Sem arquivo, o slide sai com um espaço reservado tracejado e o render avisa. `"posicao"` (CSS `object-position`) ajusta o enquadramento.
+Imagens: nome de arquivo procurado em `fotos/` (fotos pessoais, fora do git) e depois em `imagens/`. Sem arquivo, o slide sai com um espaço reservado tracejado e o render avisa. `"posicao"` (CSS `object-position`) ajusta o enquadramento. Capa sempre com foto da Eduarda (ver `fotos/LEIA.md`); prefira as fotos de viagem (tons que combinam com o rosé) nas capas claras e as de estúdio com `"filtro": "pb"` na D01.
 
 ### Linha Clara
 
 | modelo | uso | campos |
 |---|---|---|
-| L01 | Capa com foto (recorte à direita) | `numero` (número gigante ao fundo, opcional), `titulo`, `destaque` (faixa rosé), `foto` |
-| L02 | Capa tipográfica | `sobretitulo`, `titulo`, `palavra` (grande, rosé), `selo` (pílula) |
+| L01 | Capa com foto em arco (à direita, com contorno rosé) e título largo embaixo | `numero` (número gigante à esquerda, opcional), `sobretitulo` (no lugar do número), `titulo`, `destaque` (faixa rosé), `foto`, `posicao`, `filtro` |
+| L02 | Capa tipográfica numa moldura fina | `sobretitulo`, `titulo`, `palavra` (grande, rosé), `selo` (pílula), `foto` (opcional: foto redonda com anel rosé no topo), `posicao` |
 | L03 | Card com borda, centralizado | `titulo` (use `==…==`), `texto`[] |
 | L04 | Título caixa-alta + destaque | `titulo`, `texto`[], `destaque` (caixa rosé) |
 | L05 | Fundo rosé com checklist | `titulo`, `itens` (2 a 4) |
@@ -51,7 +51,7 @@ Imagens: nome de arquivo procurado em `fotos/` (fotos pessoais, fora do git) e d
 
 | modelo | uso | campos |
 |---|---|---|
-| D01 | Capa com foto de fundo | `sobretitulo`, `titulo` (gigante), `subtitulo`, `foto` |
+| D01 | Capa com foto de fundo | `sobretitulo`, `titulo` (gigante), `subtitulo`, `foto`, `filtro: "pb"` (preto e branco com tom rosé: bom para fotos de estúdio coloridas) |
 | D02 | Texto + etapas numeradas | `titulo`, `subtitulo`, `texto`[], `etapas` (até 4), `obs`, `imagem` |
 | D03 | Lista em tabela | `titulo`, `texto`[], `tabelaTitulo`, `linhas` (até 5), `rodape`, `imagem` |
 | D04 | Número em destaque | `numero`, `legenda`, `palavra`, `texto`, `imagem` (à esquerda) |

@@ -59,11 +59,13 @@ const eMold = (tag, miolo) => `
   <div style="position:absolute;left:88px;right:88px;bottom:118px;height:1px;background:${E.fio}"></div>
   <div style="position:absolute;left:88px;right:88px;bottom:66px;${HANKEN};font-size:20px;letter-spacing:.08em;color:#6E6263">Advogada — Direito Civil e ECA</div>`;
 const EDITORIAL = {
-  capa(s) {
+  capa(s, c) {
     return eMold(s.tag, `
       ${s.numeroFundo ? `<div style="position:absolute;left:70px;top:150px;${SERIF};font-style:italic;font-size:620px;line-height:1;color:${ROSE}">${esc(s.numeroFundo)}</div>` : ''}
-      <div data-area style="position:absolute;left:88px;right:88px;top:${s.numeroFundo ? 700 : 300}px;bottom:150px;display:flex;flex-direction:column;${s.numeroFundo ? '' : 'justify-content:flex-end;'}gap:36px">
-        <span data-titulo style="${SERIF};font-size:${s.ts || 108}px;line-height:.98;letter-spacing:-.01em;text-wrap:balance">${fmt(s.titulo, { acc: E.acc })}</span>
+      ${s.foto ? `<div style="position:absolute;right:88px;top:170px;width:${s.numeroFundo ? 520 : 904}px;height:500px;overflow:hidden">${foto(c, s.foto, { pos: s.fotoPos || 'center 30%', tom: 'papel' })}</div>
+        <span style="position:absolute;right:88px;top:684px;${HANKEN};font-size:18px;letter-spacing:.2em;color:#6E6263">FIG. 01 — ${esc(String(s.legenda || 'A AUTORA').toUpperCase())}</span>` : ''}
+      <div data-area style="position:absolute;left:88px;right:88px;top:${s.numeroFundo ? 730 : 300}px;bottom:170px;display:flex;flex-direction:column;justify-content:flex-end;gap:36px">
+        <span data-titulo style="${SERIF};font-size:${s.ts || 124}px;line-height:.96;letter-spacing:-.01em;text-wrap:balance">${fmt(s.titulo, { acc: E.acc })}</span>
         <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px"><span data-corpo style="${HANKEN};font-size:32px;color:${SEC}">${fmt(s.texto)}</span><span style="flex:none;${HANKEN};font-size:22px;font-weight:600;letter-spacing:.16em;color:${E.acc}">ARRASTE →</span></div>
       </div>`);
   },
@@ -132,7 +134,9 @@ const BLOCOS = {
   },
   cta(s, c) {
     return `
-      <div style="position:absolute;left:72px;top:150px;width:360px;height:360px;border-radius:50%;overflow:hidden">${foto(c, s.foto, { pos: s.fotoPos || 'center 25%', tom: 'escuro' })}</div>
+      <div style="position:absolute;left:52px;top:100px;width:480px;height:480px;border-radius:50%;border:2px solid ${ROSE};box-sizing:border-box"></div>
+      <div style="position:absolute;left:72px;top:120px;width:440px;height:440px;border-radius:50%;overflow:hidden">${foto(c, s.foto, { pos: s.fotoPos || 'center 25%', tom: 'escuro' })}</div>
+      <span style="position:absolute;left:430px;top:450px;width:110px;height:110px;border-radius:50%;background:${ROSE};color:${BL.tinta};display:flex;align-items:center;justify-content:center;${SERIF};font-style:italic;font-size:44px">VDE</span>
       <div data-area style="position:absolute;left:72px;right:72px;top:560px;bottom:72px;display:flex;flex-direction:column;justify-content:flex-end;gap:44px">
         <span data-titulo style="${HANKEN};font-size:${s.ts || 104}px;font-weight:700;line-height:.98;letter-spacing:-.045em">${fmt(s.titulo, { i: blI(ROSE) })}</span>
         ${texto(s).map(t => `<span data-corpo style="${HANKEN};font-size:34px;line-height:1.5;color:#D8C8C6">${fmt(t)}</span>`).join('')}

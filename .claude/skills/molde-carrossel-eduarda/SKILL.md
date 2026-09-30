@@ -29,7 +29,7 @@ Pasta: `moldes/carrossel-eduarda/`. O visual está em `template.mjs` e **não de
    - L10: enunciado até ~80 palavras e 4 alternativas curtas; enunciado maior, divida em dois slides.
    - L07 `etiqueta` em uma linha (até ~22 caracteres).
    - Linha Escura: títulos de 2 a 4 palavras por linha, texto até ~40 palavras.
-5. Imagens: coloque em `fotos/` (fotos da Eduarda, **nunca vão para o git**: o repositório é público) ou `imagens/` (ilustrações com direito de uso). Stills de filmes/séries também ficam em `fotos/`. Nomes esperados: `eduarda-recorte.png` (L01), `eduarda-cta.jpg` (L16), `avatar.jpg` (assinatura). Se faltarem, peça ao usuário (link do Drive); sem elas o slide sai com espaço reservado tracejado.
+5. Imagens: coloque em `fotos/` (fotos da Eduarda, **nunca vão para o git**: o repositório é público) ou `imagens/` (ilustrações com direito de uso). Stills de filmes/séries também ficam em `fotos/`. As fotos são as mesmas do Carrossel Eduarda Pop (nomes em `moldes/carrossel-eduarda/fotos/LEIA.md`); `avatar.jpg` é o recorte do rosto. **Toda capa leva foto:** L01 (arco) e L02 (`foto` redonda no topo) com fotos de viagem; D01 com foto de estúdio e `"filtro": "pb"`. Se faltarem, peça ao usuário (link do Drive); sem elas o slide sai com espaço reservado tracejado.
 6. Gere: `cd moldes/carrossel-eduarda && npm install` (1ª vez) e `node render.mjs <id>`.
    - No ambiente em nuvem do Claude Code: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>`.
 7. Leia os avisos do render ("o texto não cabe" → encurte ou divida) e confira os PNGs de `saida/<id>/`, pelo menos a capa e o slide mais longo.
