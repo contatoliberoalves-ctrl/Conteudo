@@ -76,13 +76,17 @@ const TIPOS = {
   // CTA: foto do autor presa por clipe (polaroide), pergunta e botão.
   cta(s, t, ctx) {
     const f = s.foto ? ctx.foto(s.foto) : '';
-    return `${anel(-230, 160, 420)}
+    return `${f ? anel(-230, 160, 420) : anel(850, -220, 440)}
     ${f ? `<div style="position:absolute;right:100px;top:150px;width:470px;background:#fff;padding:22px 22px 80px;transform:rotate(4deg);box-shadow:0 30px 50px rgba(0,0,0,.35);z-index:6"><div style="height:520px;background:url('${f}') center 25%/cover"></div></div>
       ${objeto(ctx, { img: 'paperclip.png', x: 620, y: 70, tam: 170, rot: 20 })}` : ''}
-    <div style="position:absolute;left:96px;right:96px;top:${f ? 760 : 300}px;bottom:170px;display:flex;flex-direction:column;gap:30px;z-index:7">
+    <div style="position:absolute;left:96px;right:96px;top:${f ? 760 : 150}px;bottom:170px;display:flex;flex-direction:column;justify-content:${f ? 'flex-start' : 'center'};gap:30px;z-index:7">
       <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="60" style="flex:none;${TITULO};font-size:${s.ts || 110}px;line-height:.9;color:${t.tit};max-height:230px;overflow:hidden">${linhas(s.titulo, t.caixa)}</div>
       ${s.texto ? `<p style="font-size:38px;font-weight:500;line-height:1.3;color:${t.txt};max-width:760px">${rico(s.texto, t.caixa)}</p>` : ''}
       ${s.botao ? `<div><span style="display:inline-block;background:${t.escuro ? '#fff' : COR.azul};color:${t.escuro ? COR.azul : '#fff'};${TEXTO};font-size:34px;font-weight:800;padding:22px 44px;border-radius:999px">${esc(s.botao)}</span></div>` : ''}
+      ${s.print ? `<div style="position:relative;margin-top:20px;transform:rotate(-1.5deg)">
+        <img src="${ctx.foto(s.print)}" style="display:block;width:100%;border-radius:22px;box-shadow:0 26px 50px rgba(0,0,0,.35);border:10px solid #fff">
+        ${s.destaque ? `<div style="position:absolute;left:${s.destaque[0]}%;top:${s.destaque[1]}%;width:${s.destaque[2]}%;height:${s.destaque[3]}%;border:8px solid ${COR.vermelho};border-radius:999px;transform:scale(1.2)"></div>` : ''}
+        ${objeto(ctx, { img: 'paperclip.png', x: 790, y: -95, tam: 150, rot: 20 })}</div>` : ''}
     </div>${rodape(t.txt)}`;
   },
 };

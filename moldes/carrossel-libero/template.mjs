@@ -173,6 +173,11 @@ const CAPAS = {
   },
 };
 
+// Print de tela no CTA (ex.: botão "Assinar" do perfil), com anel vermelho opcional em volta de um ponto.
+const printCta = (src, d) => `<div data-print style="position:relative;align-self:stretch;margin-top:10px;border-radius:26px;overflow:visible;box-shadow:0 26px 50px rgba(10,20,40,.35)">
+  <img src="${src}" style="display:block;width:100%;border-radius:26px">
+  ${d ? `<div style="position:absolute;left:${d[0]}%;top:${d[1]}%;width:${d[2]}%;height:${d[3]}%;border:8px solid ${COR.vermelho};border-radius:999px;transform:scale(1.18)"></div>` : ''}</div>`;
+
 const TIPOS = {
   capa(s, t, c) {
     if (s.estilo && CAPAS[s.estilo]) return CAPAS[s.estilo](s, t, c);
@@ -259,11 +264,14 @@ const TIPOS = {
         ${lista(s.texto).map(p => `<p data-corpo style="margin:0;font-size:${s.corpo || 46}px;font-weight:500;line-height:1.3;color:#fff">${rico(p, t)}</p>`).join('')}
       </div>`, 150, 150);
   },
+  // "print" (ex.: print do perfil com o botão Assinar) numa moldura; "destaque" = [x, y, largura, altura] em %
+  // da imagem para o anel vermelho que aponta o botão.
   cta(s, t, c) {
     const [bg, fg] = t === TEMAS.blue ? [COR.off, COR.azul] : [COR.azul, '#fff'];
     const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:cover;object-position:center top"></div>` : '';
     return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, s.foto ? 96 : 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}
-      ${s.botao ? `<span style="align-self:flex-start;background:${bg};color:${fg};border-radius:40px 40px 40px 0;padding:22px 40px;font-size:36px;font-weight:800;white-space:nowrap">${esc(s.botao)}</span>` : ''}`, 110, s.foto ? 490 : 110)}`;
+      ${s.botao ? `<span style="align-self:flex-start;background:${bg};color:${fg};border-radius:40px 40px 40px 0;padding:22px 40px;font-size:36px;font-weight:800;white-space:nowrap">${esc(s.botao)}</span>` : ''}
+      ${s.print ? printCta(foto(c, s.print), s.destaque) : ''}`, 110, s.foto ? 490 : 110)}`;
   },
 };
 
