@@ -42,14 +42,16 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
             tira.paste(Image.open(s).convert('RGB').resize((larg, alt), Image.LANCZOS), (larg * k, 0))
         (dist / base).parent.mkdir(parents=True, exist_ok=True)
         tira.save(dist / f'{base}-slides.webp', 'WEBP', quality=86, method=5)
-        painel = saida / 'painel.png'
-        jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
-        publicar += [f'{base}-painel.jpg', f'{base}-slides.webp']
+        publicar.append(f'{base}-slides.webp')
+        if len(slides) > 3:  # até 3 slides o painel é a própria tira (ver gerar.py)
+            painel = saida / 'painel.png'
+            jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
+            publicar.append(f'{base}-painel.jpg')
     velho = next((p for p in (antigo or {}).get('posts', []) if p['id'] == c['id']), {})
     n = len(slides) or velho['n']
     larg, alt = tamanho_tira(slides) if slides else (velho.get('w', 1080), velho.get('h', 1350))
     posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'topicos': len(c.get('topicos', [])),
-                  'painel': f'{base}-painel.jpg', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'editor': editores.get(c['id'])})
+                  'painel': f'{base}-painel.jpg' if n > 3 else f'{base}-slides.webp', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'editor': editores.get(c['id'])})
 meta['posts'] = posts
 if antigo:
     moldes[moldes.index(antigo)] = meta

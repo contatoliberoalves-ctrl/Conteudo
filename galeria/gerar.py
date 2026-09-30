@@ -89,14 +89,17 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             tira.paste(Image.open(s).convert('RGB').resize((larg, alt), Image.LANCZOS), (larg * k, 0))
         (dist / base).parent.mkdir(parents=True, exist_ok=True)
         tira.save(dist / f'{base}-slides.webp', 'WEBP', quality=86, method=5)
-        painel = saida / 'painel.png'
-        jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
+        # Até 3 slides, o painel seria igual à tira: usa a própria tira (um arquivo a menos por post,
+        # que a página publicada tem limite de arquivos por versão).
+        if len(slides) > 3:
+            painel = saida / 'painel.png'
+            jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
         posts.append({
             'id': c['id'],
             'titulo': titulo(c),
             'tema': c.get('tema', ''),
             'topicos': len(c.get('topicos', [])),
-            'painel': f'{base}-painel.jpg',
+            'painel': f'{base}-painel.jpg' if len(slides) > 3 else f'{base}-slides.webp',
             'tira': f'{base}-slides.webp',
             'n': len(slides), 'w': larg, 'h': alt,
             'editor': editor(pasta, c, saida),
