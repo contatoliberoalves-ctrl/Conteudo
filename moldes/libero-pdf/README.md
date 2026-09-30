@@ -15,5 +15,6 @@ Lista de materiais: `{ id, titulo, capa, fonte, materias: [{id, nome, descricao}
 
 Regras do conteúdo das teses:
 - Fonte: tabelas "Principais Teses" do Livro de Prática Constitucional (Drive do autor) e padrões de resposta da FGV para os exames 32 a 46 (os mesmos dos carrosséis `teses-*` do Carrossel Libero). Não invente tese nem artigo; `artigo` vazio quando a fonte não traz.
-- Números de exame corrigidos em relação ao Livro: MS "XXXIII" = OAB 34, MS "XXXVIII" = OAB 39, MI "XXXVII" = OAB 38, AP "XXXVI/XXXVII" = OAB 37. A linha AP "XXIX" do Livro repete o RO do OAB 30 e ficou de fora; a AP "XXX" (patrimônio histórico) entrou como OAB 29 (confirmar no caderno da FGV).
+- Exames conferidos um a um nos padrões de resposta da FGV (1 a 46, no Drive do autor e em oab.fgv.br). As tabelas do Livro estão com o número errado em vários exames; os certos são: Ação Popular 6, 18, 25, 28, 31, 37 e 44; MS 15, 23 e 29 (não 14, 22 e 28); MS coletivo 24 e 39; MI coletivo 22 e 38; ACP 21; o exame 5 aceitou procedimento comum ou MS.
+- Reaplicação: a do XXV em Porto Alegre foi ADPF (lei municipal contra imigrantes) e entra como `"peca": "ADPF (reaplicação)"`. A do XX em Porto Velho foi MS (vaga em creche) e não entrou.
 - Cada tese vai para a matéria em que se apoia (competência → Organização do Estado; art. 37 → Administração; art. 5º → Direitos individuais; cabimento, controle difuso e omissão → Controle e processo).

@@ -8,12 +8,14 @@ import { COR, FONTES, TITULO, TEXTO, PERFIL, esc, linhas, textura, anel } from '
 
 export const W = 794, H = 1122;  // A4 a 96 dpi (210 × 297 mm)
 const M = 58;                     // margem lateral
+// Peça-base para a contagem da capa (coletivo e reaplicação não contam como peça nova).
+const BASE = { 'MS coletivo': 'Mandado de segurança', 'MI coletivo': 'Mandado de injunção', 'Procedimento comum ou MS': 'Procedimento comum' };
 const dois = n => String(n).padStart(2, '0');
 const chip = (txt, bg, cor, px = 10.5) => `<span style="display:inline-block;background:${bg};color:${cor};${TEXTO};font-size:${px}px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap">${esc(txt)}</span>`;
 
 function capa(p, total) {
   const c = p.capa || {};
-  const exames = new Set(p.teses.map(t => t.exame)).size, pecas = new Set(p.teses.map(t => t.peca.replace(/ coletivo$/, ''))).size;
+  const exames = new Set(p.teses.map(t => t.exame)).size, pecas = new Set(p.teses.map(t => BASE[t.peca] || t.peca.replace(/ \(.*\)$/, ''))).size;
   const num = (n, rot) => `<div style="flex:1;border-top:3px solid rgba(255,255,255,.35);padding-top:14px">
       <div style="${TITULO};font-size:64px;line-height:.9;color:#fff">${n}</div>
       <div style="${TEXTO};font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${COR.off};margin-top:6px">${rot}</div></div>`;
@@ -56,7 +58,7 @@ function raiox(p, grupos) {
         <div style="${TEXTO};font-size:13px;line-height:1.4;color:${COR.navy}"><b style="font-weight:800">Como ler:</b> à esquerda, o exame e a peça em que a tese caiu. À direita, a tese e, no selo azul, o artigo que a fundamenta. ${chip('art. 30, I', '#E4ECFF', COR.azul)}</div>
       </div>
     </div>
-    <div style="position:absolute;left:${M}px;right:${M}px;bottom:44px;${TEXTO};font-size:10.5px;line-height:1.4;color:#5B6478;z-index:3">Fonte: ${esc(p.fonte)}</div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:44px;max-width:520px;${TEXTO};font-size:10.5px;line-height:1.4;color:#5B6478;z-index:3">Fonte: ${esc(p.fonte)}</div>
     ${textura(false)}
   </section>`;
 }
@@ -98,12 +100,12 @@ function indice(p) {
   p.teses.forEach(t => { const k = `${t.exame}|${t.peca}`; por.set(k, (por.get(k) || 0) + 1); });
   const linhasIdx = [...por].map(([k, n]) => { const [e, pc] = k.split('|'); return { e: +e, pc, n }; }).sort((a, b) => b.e - a.e || a.pc.localeCompare(b.pc));
   const meio = Math.ceil(linhasIdx.length / 2);
-  const col = arr => `<div style="display:flex;flex-direction:column">${arr.map(l => `<div style="display:grid;grid-template-columns:62px 1fr 40px;gap:8px;align-items:baseline;padding:5px 0;border-bottom:1px solid #D5DAE4">
-      <span style="${TITULO};font-size:20px;color:${COR.navy}">OAB ${l.e}</span><span style="${TEXTO};font-size:12px;font-weight:600;color:${COR.navy}">${esc(l.pc)}</span><span style="${TEXTO};font-size:12px;font-weight:800;color:${COR.azul};text-align:right">${l.n}</span></div>`).join('')}</div>`;
+  const col = arr => `<div style="display:flex;flex-direction:column">${arr.map(l => `<div style="display:grid;grid-template-columns:62px 1fr 40px;gap:8px;align-items:baseline;padding:2.5px 0;border-bottom:1px solid #D5DAE4">
+      <span style="${TITULO};font-size:18px;color:${COR.navy}">OAB ${l.e}</span><span style="${TEXTO};font-size:12px;font-weight:600;color:${COR.navy}">${esc(l.pc)}</span><span style="${TEXTO};font-size:12px;font-weight:800;color:${COR.azul};text-align:right">${l.n}</span></div>`).join('')}</div>`;
   return `<section class="pagina" style="background:${COR.papel}">
     <div style="position:absolute;left:${M}px;right:${M}px;top:64px;z-index:3">
       <div style="${TEXTO};font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.azul}">Índice por exame</div>
-      <div style="${TITULO};font-size:58px;line-height:.92;color:${COR.azul};margin-top:8px">Qual peça caiu em cada exame</div>
+      <div style="${TITULO};font-size:52px;line-height:.92;color:${COR.azul};margin-top:8px">Qual peça caiu em cada exame</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:22px">${col(linhasIdx.slice(0, meio))}${col(linhasIdx.slice(meio))}</div>
       <p style="${TEXTO};font-size:11px;line-height:1.4;color:#5B6478;margin-top:16px">A coluna da direita diz quantas teses daquela prova estão neste PDF.</p>
     </div>
