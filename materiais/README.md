@@ -17,6 +17,16 @@ Conteúdo do @constitucionalgabaritado usado como fonte dos posts. **Os arquivos
 | Livro de Prática Constitucional – OAB (docx) | Por peça (15): introdução, estrutura, tabela "Principais Teses" por exame, pedidos, esqueleto, caso prático e gabarito; estatística das peças cobradas | Série "Teses que caíram na <peça>" do `carrossel-libero` (feita, 15 posts) e posts de estatística. Na tabela de teses, alguns exames estão trocados (MS "XXXIII" é o OAB 34, "XXXVIII" é o 39; MI "XXXVII" é o 38): confira no gabarito da FGV |
 | Dicas de Revisão – 2ª fase OAB 42 (docx) | 329 dicas numeradas com tema (Processo Legislativo, Controle, CPI, MP, Direitos Fundamentais…) e o Exame em que caiu (I a XXXII, CESPE) | Carrosséis "Já caiu!" por tema ou por exame |
 | Manual de Argumentação Passo a Passo (docx) | Método LER → DIAGNOSTICAR → FUNDAMENTAR → RESPONDER: estrutura em 3 funções, verbos da banca, fato decisivo, hipótese, índice remissivo, artigo esquecido, ponte fato-norma, vários itens, conectivos, modelos, erros, revisão em 5 camadas, plano de 4 semanas e checklist | Feitos 6 carrosséis `argumentacao-*` no `carrossel-infinito`; ainda rende: hipótese, vários itens, conectivos, modelos reutilizáveis, revisão em 5 camadas, plano de 4 semanas, checklist |
+| Mapeamento da Banca de Constitucional (docx) | Perfil da FGV, 5 blocos de temas recorrentes, método de resolução, 4 padrões de resposta, palavras-chave da pergunta, checklist | Pilares B e C de `ideias-de-conteudo-constitucional.md` |
+| Banco de Argumentos OAB (PDF) | 15 aprendizados sobre fundamentação, argumentos de mérito de cada peça dos exames I–XLII e 30 "novos argumentos que a banca pode cobrar" | Carrosséis de argumentos por peça e de apostas |
+| Questões da OAB – Exames 1 a 45 (docx) | Todas as questões discursivas com gabarito (texto grande: o conector salva em arquivo; extraia com `jq`) | Série "Já caiu!" (uma questão por carrossel) e quiz |
+| Aulas 01, 02 e 06 (pptx, Líbero e Natália) | Interpretação (4 pilares, 2 leituras, pistas da FGV), índice remissivo (3 tentativas) e modelo de resposta (Sim/Não + motivo + fundamento, moldes por tipo de pergunta) | Pilar C e Reels |
+| OAB 47 – Base do Simulado 03 (docx) | Espelho comentado de uma Ação Popular (Hogwarts) e 4 questões, mais a tabela do que zera ponto na correção | "O que zera sua peça", "onde estão os pontos" |
+| Checklist – Direito Material (PDF) | Artigos a marcar no Vade Mecum, aula por aula. Tem dados pessoais do dono no rodapé: nunca copie para o repositório nem envie o original | Isca "Checklist do Vadão" |
+| 100 Resumos Diários (PDF) e Índice Remissivo OAB 45 (docx; também "Constitucional.docx") | Resumos por tema (neoconstitucionalismo a controle) e índice alfabético-remissivo | Temas didáticos e posts de índice |
+| Casos da CIDH envolvendo o Brasil (docx) | Comissão x Corte e 13 casos | Fora do foco da 2ª fase; bônus |
+
+**Plano de posts a partir de tudo isso:** `materiais/ideias-de-conteudo-constitucional.md`.
 
 ## Meu Constitucional Diário — temas (dias 01–40)
 - Dia 01 — Eficácia das Normas Constitucionais
