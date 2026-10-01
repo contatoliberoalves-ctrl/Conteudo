@@ -36,6 +36,24 @@ h1 span{color:var(--lima)}
 .numeros strong{font-family:var(--display);font-weight:400;font-size:40px;line-height:1}
 .numeros span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
+/* Seletor de projetos (perfis) */
+.projetos{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.proj-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:18px;background:var(--surface);border:2px solid transparent;box-shadow:var(--shadow)}
+.proj-btn[aria-pressed="true"]{border-color:var(--lima)}
+.proj-btn .capa{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:10px;overflow:hidden;background:var(--chip);aspect-ratio:12/5}
+.proj-btn .capa img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-btn strong{font-family:var(--display);font-weight:400;font-size:30px;line-height:1}
+.proj-btn small{color:var(--muted);font-size:13px}
+.proj-btn small b{color:var(--lima-ink);font-weight:600}
+.compacto .proj-btn{flex-direction:row;align-items:center;padding:10px 12px;gap:12px}
+.compacto .proj-btn .capa{display:none}
+.compacto .proj-btn strong{font-size:24px}
+.compacto .proj-btn small{display:none}
+.titulo-sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:-24px}
+.titulo-sec h2{font-size:clamp(32px,5vw,48px);line-height:1}
+.titulo-sec span{font-size:13px;color:var(--muted)}
+.escolha{color:var(--muted);margin:-20px 0 0}
+
 /* Seletor de moldes */
 .moldes{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .molde-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:18px;background:var(--surface);border:2px solid transparent;box-shadow:var(--shadow)}
@@ -142,12 +160,16 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 <div class="wrap">
   <header class="topo">
     <div>
-      <div class="perfil">@constitucional<b>gabaritado</b></div>
+      <div class="perfil">Conteúdo do <b>Líbero</b> e parceiros</div>
       <h1>Galeria de <span>moldes</span></h1>
     </div>
     <div class="numeros" id="numeros"></div>
   </header>
 
+  <p class="escolha" id="escolha">Escolha o projeto para ver os moldes dele.</p>
+  <section aria-label="Projetos" class="projetos" id="projetos"></section>
+
+  <div class="titulo-sec" id="titulo-sec" hidden></div>
   <section aria-label="Moldes" class="moldes" id="moldes"></section>
 
   <section class="molde" id="molde"></section>
@@ -216,7 +238,22 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 const ler = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 
-let ativo = MOLDES.find(m => m.id === ler('molde')) || MOLDES[0];
+// Projetos (perfis): cada molde cai no primeiro projeto cujo teste casa com o "perfil" do molde.json
+// (ou com o campo "projeto", se houver). Os que não casarem vão para "Outros".
+const PROJETOS = [
+  { id: 'pessoal', nome: 'Insta pessoal', perfil: '@liberofilho', teste: m => /liberofilho/i.test(m.perfil) },
+  { id: 'constitucional', nome: 'Constitucional Gabaritado', perfil: '@constitucionalgabaritado', teste: m => /constitucionalgabaritado/i.test(m.perfil) },
+  { id: 'eduarda', nome: 'Eduarda', perfil: 'Eduarda Caraciolo', teste: m => /eduarda/i.test(m.perfil) },
+  { id: 'concurso', nome: 'Concurso com Libero', perfil: '@concursocomlibero', teste: m => /concursocomlibero/i.test(m.perfil) },
+  { id: 'etica', nome: 'Ética Gabaritada', perfil: '@eticagabaritadanaoba', teste: m => /eticagabaritada/i.test(m.perfil) },
+];
+const ORDEM_TESTE = ['concurso', 'etica', 'eduarda', 'constitucional', 'pessoal'];
+const projetoDe = m => (m.projeto && PROJETOS.find(p => p.id === m.projeto)) || ORDEM_TESTE.map(id => PROJETOS.find(p => p.id === id)).find(p => p.teste(m)) || OUTROS;
+const OUTROS = { id: 'outros', nome: 'Outros', perfil: '' };
+const projetosVisiveis = () => [...PROJETOS, OUTROS].filter(p => MOLDES.some(m => projetoDe(m) === p));
+const moldesDe = p => MOLDES.filter(m => projetoDe(m) === p);
+let projeto = projetosVisiveis().find(p => p.id === ler('projeto')) || null;
+let ativo = projeto ? (moldesDe(projeto).find(m => m.id === ler('molde')) || moldesDe(projeto)[0]) : null;
 let filtroTema = 'todos', termo = '', lista = [], atual = 0;
 
 const totalPosts = MOLDES.reduce((n, m) => n + m.posts.length, 0);
@@ -224,12 +261,41 @@ const totalSlides = MOLDES.reduce((n, m) => n + m.posts.reduce((k, p) => k + p.n
 $('#numeros').innerHTML = [[MOLDES.length, MOLDES.length === 1 ? 'molde' : 'moldes'], [totalPosts, 'posts'], [totalSlides, 'slides']]
   .map(([n, r]) => `<div><strong>${n}</strong><span>${r}</span></div>`).join('');
 
+function desenharProjetos() {
+  const ps = projetosVisiveis();
+  $('#projetos').classList.toggle('compacto', !!projeto);
+  $('#escolha').hidden = !!projeto;
+  $('#projetos').innerHTML = ps.map(p => {
+    const ms = moldesDe(p), posts = ms.reduce((n, m) => n + m.posts.length, 0);
+    const capas = ms.filter(m => m.posts[0]).slice(0, 3).map(m => `<img src="${esc(m.posts[0].painel)}" alt="" loading="lazy">`).join('');
+    return `<button class="proj-btn" data-proj="${esc(p.id)}" aria-pressed="${p === projeto}">
+      <div class="capa">${capas}</div>
+      <strong>${esc(p.nome)}</strong>
+      <small>${p.perfil ? `<b>${esc(p.perfil)}</b> · ` : ''}${ms.length} ${ms.length === 1 ? 'molde' : 'moldes'} · ${posts} posts</small>
+    </button>`;
+  }).join('');
+  document.querySelectorAll('.proj-btn').forEach(b => b.onclick = () => {
+    projeto = ps.find(p => p.id === b.dataset.proj); guardar('projeto', projeto.id);
+    ativo = moldesDe(projeto).find(m => m.id === ler('molde')) || moldesDe(projeto)[0];
+    filtroTema = 'todos'; termo = ''; desenharTudo();
+  });
+}
+
+function desenharTudo() {
+  desenharProjetos();
+  const sec = $('#titulo-sec');
+  sec.hidden = !projeto;
+  if (projeto) sec.innerHTML = `<h2>${esc(projeto.nome)}</h2><span>${moldesDe(projeto).length} moldes</span>`;
+  $('#moldes').hidden = $('#molde').hidden = !projeto;
+  if (projeto) { desenharMoldes(); desenharMolde(); }
+}
+
 function desenharMoldes() {
-  $('#moldes').innerHTML = MOLDES.map(m => `
+  $('#moldes').innerHTML = moldesDe(projeto).map(m => `
     <button class="molde-btn" data-id="${esc(m.id)}" aria-pressed="${m === ativo}">
       ${m.posts[0] ? `<img src="${esc(m.posts[0].painel)}" alt="" loading="lazy">` : ''}
       <strong>${esc(m.nome)}</strong>
-      <small>${m.perfil && m.perfil !== '@constitucionalgabaritado' ? `<b>${esc(m.perfil)}</b> · ` : ''}${esc(m.formato)} · ${m.posts.length} posts</small>
+      <small>${m.perfil && m.perfil !== projeto.perfil ? `<b>${esc(m.perfil)}</b> · ` : ''}${esc(m.formato)} · ${m.posts.length} posts</small>
     </button>`).join('') + `
     <div class="molde-btn novo" role="note">
       <strong>+ Novo molde</strong>
@@ -306,6 +372,7 @@ async function enviarTodos(ev) {
 
 const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 function desenharGrade() {
+  if (!ativo || !$('#grade')) return;
   const q = semAcento(termo.trim());
   lista = ativo.posts.filter(p => (filtroTema === 'todos' || p.tema === filtroTema) && (!q || semAcento(p.titulo + ' ' + p.id).includes(q)));
   $('#contagem').textContent = `${lista.length} de ${ativo.posts.length} posts`;
@@ -622,6 +689,5 @@ $('#ed-baixar').onclick = async () => {
   await salvarArquivo(`${ED.p.id}-capa.png`, await paraBlob($('#ed-canvas')), $('#ed-status'));
 };
 
-desenharMoldes();
-desenharMolde();
+desenharTudo();
 </script>
