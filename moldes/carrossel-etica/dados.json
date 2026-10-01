@@ -1,0 +1,256 @@
+[
+  {
+    "id": "sancoes-disciplinares",
+    "titulo": "As 4 sanções disciplinares",
+    "tema": "Sanções do Estatuto da Advocacia (Lei 8.906/94, arts. 35 a 39)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "numero",
+        "tema": "degrade",
+        "numero": "4",
+        "kicker": "Estatuto da OAB · art. 35",
+        "titulo": ["Sanções", "disciplinares"],
+        "texto": "Censura, suspensão, exclusão e multa: quando cabe cada uma.",
+        "pilula": "Lei 8.906/94 · arts. 35 a 39"
+      },
+      {
+        "tipo": "missao",
+        "tema": "branco",
+        "kicker": "Art. 35",
+        "titulo": ["As quatro"],
+        "cards": [
+          { "icone": "⚠️", "rotulo": "Art. 36", "titulo": "Censura", "texto": "A mais leve. Pode virar advertência." },
+          { "icone": "⏸️", "rotulo": "Art. 37", "titulo": "Suspensão", "texto": "Afasta da advocacia por um tempo." },
+          { "icone": "🚫", "rotulo": "Art. 38", "titulo": "Exclusão", "texto": "Cancela a inscrição." },
+          { "icone": "💰", "rotulo": "Art. 39", "titulo": "Multa", "texto": "Nunca sozinha: soma com outra." }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "degrade",
+        "kicker": "Art. 36",
+        "titulo": ["Censura"],
+        "palavra": "CENSURA",
+        "palavraLado": "direita",
+        "texto": [
+          "Cabe nas infrações dos **incisos I a XVI e XXIX do art. 34**.",
+          "E também na violação ao **Código de Ética** ou a preceito do Estatuto que não tenha sanção mais grave."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "branco",
+        "kicker": "Art. 36, parágrafo único",
+        "titulo": ["Vira", "advertência?"],
+        "citacao": "A censura pode ser convertida em advertência, em ofício reservado, sem registro nos assentamentos do inscrito, quando presente circunstância atenuante.",
+        "traducao": "Traduzindo: com **atenuante**, a censura pode sair sem deixar marca na ficha."
+      },
+      {
+        "tipo": "texto",
+        "tema": "degrade",
+        "kicker": "Art. 37",
+        "titulo": ["Suspensão"],
+        "palavra": "PAUSA",
+        "palavraLado": "esquerda",
+        "texto": [
+          "Cabe nos **incisos XVII a XXV e XXX do art. 34** e na **reincidência** em infração disciplinar.",
+          "Dura de **30 dias a 12 meses**. Nos incisos XXI e XXIII, vai até pagar tudo; no XXIV, até novas provas de habilitação."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "branco",
+        "kicker": "Art. 38, I",
+        "titulo": ["3 suspensões", "= exclusão"],
+        "sub": "Na terceira, a carteira vai embora."
+      },
+      {
+        "tipo": "lista",
+        "tema": "degrade",
+        "kicker": "Art. 38",
+        "titulo": ["Exclusão"],
+        "itens": [
+          "Aplicação, **por três vezes**, de suspensão.",
+          "Infrações dos **incisos XXVI a XXVIII do art. 34**: falsa prova para a inscrição, inidoneidade moral e crime infamante.",
+          "Exige manifestação favorável de **2/3** dos membros do Conselho Seccional."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "branco",
+        "kicker": "Art. 39",
+        "titulo": ["Multa"],
+        "palavra": "MULTA",
+        "palavraLado": "direita",
+        "texto": [
+          "Vai de **1 a 10 anuidades**.",
+          "É aplicada **cumulativamente** com censura ou suspensão, quando houver **circunstâncias agravantes**. Multa sozinha não existe."
+        ]
+      },
+      {
+        "tipo": "frases",
+        "tema": "degrade",
+        "kicker": "Pra não esquecer",
+        "titulo": ["Cola na mente"],
+        "frases": [
+          "Censura: a mais leve.",
+          "Suspensão: 30 dias a 12 meses.",
+          "Três suspensões: exclusão.",
+          "Multa: só acompanhada."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "branco",
+        "titulo": ["Salva pra", "revisar"],
+        "texto": "Sanção disciplinar cai todo exame. Manda pra quem vai fazer a OAB com você.",
+        "botao": "Comente ÉTICA"
+      }
+    ]
+  },
+  {
+    "id": "prazos-processo-disciplinar",
+    "titulo": "Prazos do processo disciplinar",
+    "tema": "Prescrição, reabilitação, suspensão preventiva e sigilo (Lei 8.906/94, arts. 41, 43, 70 e 72)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "desafio",
+        "tema": "degrade",
+        "progresso": { "valor": 100, "texto": "5", "rotulo": "prazos" },
+        "kicker": "Revisão de véspera",
+        "titulo": ["Prazos do", "processo", "disciplinar"],
+        "texto": "Os números que a banca mais gosta de trocar.",
+        "pilula": "Estatuto + Código de Ética"
+      },
+      {
+        "tipo": "missao",
+        "tema": "branco",
+        "kicker": "Contando o tempo",
+        "titulo": ["Três prazos"],
+        "cards": [
+          { "icone": "⏳", "rotulo": "Prescrição · art. 43", "titulo": "5 anos", "texto": "Contados da constatação oficial do fato." },
+          { "icone": "💤", "rotulo": "Intercorrente · art. 43, §1º", "titulo": "3 anos parado", "texto": "Pendente de despacho ou julgamento." },
+          { "icone": "🔁", "rotulo": "Reabilitação · art. 41", "titulo": "1 ano", "texto": "Após cumprir a sanção, com provas de bom comportamento." }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "degrade",
+        "kicker": "Art. 70, §3º",
+        "titulo": ["Suspensão", "preventiva"],
+        "palavra": "90 DIAS",
+        "palavraLado": "direita",
+        "texto": [
+          "O Tribunal de Ética do Conselho da **inscrição principal** pode suspender o advogado antes do fim do processo.",
+          "Só se o caso tiver **repercussão prejudicial à dignidade da advocacia**, depois de ouvi-lo em **sessão especial**. E o processo tem de acabar em **90 dias**."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "branco",
+        "kicker": "Art. 37, §§ 1º a 3º",
+        "titulo": ["Quanto dura", "a suspensão"],
+        "itens": [
+          "Regra: de **30 dias a 12 meses**.",
+          "Incisos XXI e XXIII do art. 34 (contas com o cliente e dívida com a OAB): até a **satisfação integral** da dívida.",
+          "Inciso XXIV (inépcia profissional): até prestar **novas provas de habilitação**."
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "degrade",
+        "kicker": "Pegadinha",
+        "titulo": ["É público?"],
+        "texto": [
+          "Não. O processo disciplinar tramita em **sigilo** até o término.",
+          "Só as partes, seus defensores e a autoridade judiciária competente têm acesso (art. 72, §2º)."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "rosa",
+        "progresso": { "valor": 100, "rotulo": "da revisão" },
+        "titulo": ["Revisão", "concluída"],
+        "texto": "Salva pra rever na véspera e manda pra sua dupla de estudos.",
+        "botao": "Comente PRAZOS"
+      }
+    ]
+  },
+  {
+    "id": "incompatibilidade-impedimento",
+    "titulo": "Incompatibilidade x impedimento",
+    "tema": "Proibição total e parcial de advogar (Lei 8.906/94, arts. 27 a 30)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "versus",
+        "tema": "degrade",
+        "kicker": "Estatuto · arts. 27 a 30",
+        "lados": ["Incompatibilidade", "Impedimento"],
+        "texto": "Um proíbe tudo. O outro, só uma parte."
+      },
+      {
+        "tipo": "lei",
+        "tema": "branco",
+        "kicker": "Art. 27",
+        "titulo": ["Total ou", "parcial"],
+        "citacao": "A incompatibilidade determina a proibição total, e o impedimento, a proibição parcial do exercício da advocacia.",
+        "traducao": "Traduzindo: o **incompatível** não advoga nem em causa própria; o **impedido** só não advoga em certos casos."
+      },
+      {
+        "tipo": "lista",
+        "tema": "degrade",
+        "kicker": "Art. 28 · alguns incompatíveis",
+        "titulo": ["Não advogam"],
+        "corpo": 36,
+        "itens": [
+          "Chefe do **Executivo** e membros da **Mesa do Legislativo**.",
+          "Juízes, MP e membros de tribunais e conselhos de contas.",
+          "Quem exerce atividade **policial** de qualquer natureza.",
+          "**Militares** na ativa.",
+          "Quem lança, arrecada ou fiscaliza **tributos**.",
+          "Direção e gerência de **instituições financeiras**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "branco",
+        "kicker": "Art. 30",
+        "titulo": ["Impedidos"],
+        "palavra": "PARCIAL",
+        "palavraLado": "direita",
+        "texto": [
+          "**Servidores públicos**: não advogam contra a Fazenda Pública que os remunere ou à qual se vincule a entidade empregadora.",
+          "**Parlamentares**: não advogam contra ou a favor de pessoas jurídicas de direito público, estatais e concessionárias de serviço público."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "degrade",
+        "kicker": "Art. 30, parágrafo único",
+        "titulo": ["Professor", "pode"],
+        "sub": "Docente de curso jurídico não entra no impedimento do servidor."
+      },
+      {
+        "tipo": "frases",
+        "tema": "branco",
+        "kicker": "Pra não esquecer",
+        "titulo": ["Cola na mente"],
+        "frases": [
+          "Incompatibilidade: proibição total.",
+          "Impedimento: proibição parcial.",
+          "Servidor: não advoga contra quem paga."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "degrade",
+        "titulo": ["Ficou claro?"],
+        "texto": "Salva e marca aquele amigo servidor que quer advogar.",
+        "botao": "Comente OAB"
+      }
+    ]
+  }
+]
