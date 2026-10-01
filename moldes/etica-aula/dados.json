@@ -1,0 +1,151 @@
+[
+  {
+    "id": "sancoes-disciplinares-aula",
+    "titulo": "Sanções disciplinares (aula)",
+    "tema": "Sanções, atenuantes, prescrição e reabilitação no Estatuto da Advocacia (Lei 8.906/94, arts. 34 a 43 e 72)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "degrade",
+        "kicker": "Aula · Ética na OAB",
+        "titulo": ["Sanções", "[[disciplinares]]"],
+        "texto": "Censura, suspensão, exclusão e multa no Estatuto da Advocacia.",
+        "pilula": "Lei 8.906/94 · arts. 34 a 43",
+        "progresso": { "valor": 100, "texto": "4", "rotulo": "sanções" }
+      },
+      {
+        "tipo": "missao",
+        "tema": "branco",
+        "kicker": "Roteiro",
+        "titulo": ["O que vamos ver"],
+        "cards": [
+          { "icone": "📖", "rotulo": "Parte 1 · arts. 35 a 39", "titulo": "As quatro sanções", "texto": "Quando cabe cada uma." },
+          { "icone": "⚖️", "rotulo": "Parte 2 · art. 40", "titulo": "Atenuantes", "texto": "O que alivia a pena." },
+          { "icone": "⏳", "rotulo": "Parte 3 · arts. 41 e 43", "titulo": "Prazos", "texto": "Prescrição e reabilitação." },
+          { "icone": "📝", "rotulo": "Fechamento", "titulo": "Teste rápido", "texto": "Uma questão pra fixar." }
+        ]
+      },
+      {
+        "tipo": "secao",
+        "tema": "degrade",
+        "numero": "01",
+        "kicker": "Parte 1 · art. 35",
+        "titulo": ["As quatro", "sanções"],
+        "pilula": "Censura · suspensão · exclusão · multa"
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Arts. 36 a 39",
+        "titulo": ["Quando cabe cada uma"],
+        "colunas": ["Sanção", "Quando cabe", "Detalhe"],
+        "linhas": [
+          ["Censura", "Incisos **I a XVI e XXIX** do art. 34; violação ao Código de Ética", "Com atenuante, pode virar advertência"],
+          ["Suspensão", "Incisos **XVII a XXV e XXX** do art. 34; reincidência", "De **30 dias a 12 meses**"],
+          ["Exclusão", "**3 suspensões**; incisos **XXVI a XXVIII** do art. 34", "Quórum de **2/3** do Conselho Seccional"],
+          ["Multa", "Junto com censura ou suspensão, havendo **agravantes**", "De **1 a 10 anuidades**"]
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "degrade",
+        "kicker": "Art. 36, parágrafo único",
+        "titulo": ["Censura vira", "advertência?"],
+        "citacao": "A censura pode ser convertida em advertência, em ofício reservado, sem registro nos assentamentos do inscrito, quando presente circunstância atenuante.",
+        "fonte": "Lei 8.906/94",
+        "traducao": "Traduzindo: com **atenuante**, a censura pode sair sem marca na ficha do advogado."
+      },
+      {
+        "tipo": "comparar",
+        "tema": "branco",
+        "kicker": "Arts. 37 e 38",
+        "titulo": ["Suspensão x exclusão"],
+        "lados": [
+          { "rotulo": "Art. 37", "titulo": "Suspensão", "itens": ["Afasta da advocacia por um tempo.", "De **30 dias a 12 meses**.", "Incisos XXI e XXIII: até pagar a dívida.", "Inciso XXIV: até novas provas de habilitação."] },
+          { "rotulo": "Art. 38", "titulo": "Exclusão", "itens": ["Cancela a inscrição.", "Depois de **3 suspensões**.", "Incisos XXVI a XXVIII do art. 34.", "Quórum de **2/3** do Conselho Seccional."] }
+        ]
+      },
+      {
+        "tipo": "secao",
+        "tema": "degrade",
+        "numero": "02",
+        "kicker": "Parte 2 · art. 40",
+        "titulo": ["Atenuantes"],
+        "texto": "Circunstâncias que o Tribunal de Ética considera na aplicação das sanções."
+      },
+      {
+        "tipo": "lista",
+        "tema": "branco",
+        "kicker": "Art. 40",
+        "titulo": ["São", "atenuantes"],
+        "marcador": "romano",
+        "itens": [
+          "Falta cometida na **defesa de prerrogativa** profissional.",
+          "**Ausência de punição** disciplinar anterior.",
+          "Exercício assíduo e proficiente de **mandato ou cargo** em qualquer órgão da OAB.",
+          "Prestação de **relevantes serviços** à advocacia ou à causa pública."
+        ]
+      },
+      {
+        "tipo": "missao",
+        "tema": "degrade",
+        "kicker": "Parte 3 · arts. 41 e 43",
+        "titulo": ["Três prazos"],
+        "colunas": 3,
+        "cards": [
+          { "icone": "⏳", "rotulo": "Prescrição", "titulo": "5 anos", "texto": "Da constatação oficial do fato." },
+          { "icone": "💤", "rotulo": "Intercorrente", "titulo": "3 anos parado", "texto": "Pendente de despacho ou julgamento." },
+          { "icone": "🔁", "rotulo": "Reabilitação", "titulo": "1 ano", "texto": "Após cumprir a sanção, com bom comportamento." }
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "rosa",
+        "kicker": "Pegadinha · art. 72, §2º",
+        "titulo": ["É público?"],
+        "texto": [
+          "Não. O processo disciplinar tramita em **sigilo** até o término.",
+          "Só as partes, seus defensores e a autoridade judiciária competente têm acesso."
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "branco",
+        "kicker": "Teste rápido",
+        "titulo": ["E a multa?"],
+        "enunciado": "Segundo o Estatuto da Advocacia, a multa disciplinar:",
+        "alternativas": [
+          "pode ser aplicada sozinha, em qualquer infração.",
+          "é aplicada cumulativamente com censura ou suspensão, havendo circunstâncias agravantes.",
+          "varia de 1 a 5 anuidades.",
+          "substitui a exclusão quando houver atenuante."
+        ],
+        "correta": 1
+      },
+      {
+        "tipo": "questao",
+        "tema": "branco",
+        "kicker": "Gabarito · art. 39",
+        "titulo": ["E a multa?"],
+        "enunciado": "Segundo o Estatuto da Advocacia, a multa disciplinar:",
+        "alternativas": [
+          "pode ser aplicada sozinha, em qualquer infração.",
+          "é aplicada cumulativamente com censura ou suspensão, havendo circunstâncias agravantes.",
+          "varia de 1 a 5 anuidades.",
+          "substitui a exclusão quando houver atenuante."
+        ],
+        "correta": 1,
+        "gabarito": true
+      },
+      {
+        "tipo": "fim",
+        "tema": "degrade",
+        "kicker": "Fim da aula",
+        "titulo": ["Bora pras", "questões!"],
+        "texto": "Revise a tabela das sanções e os três prazos antes de resolver.",
+        "botao": "Salve esta aula",
+        "progresso": { "valor": 100, "rotulo": "da aula" }
+      }
+    ]
+  }
+]
