@@ -246,9 +246,10 @@ const PROJETOS = [
   { id: 'eduarda', nome: 'Eduarda', perfil: 'Eduarda Caraciolo', teste: m => /eduarda/i.test(m.perfil) },
   { id: 'concurso', nome: 'Concurso com Libero', perfil: '@concursocomlibero', teste: m => /concursocomlibero/i.test(m.perfil) },
   { id: 'etica', nome: 'Ética Gabaritada', perfil: '@eticagabaritadanaoba', teste: m => /eticagabaritada/i.test(m.perfil) },
+  { id: 'argumenta', nome: 'Argumenta com Líbero', perfil: 'Provas discursivas', teste: m => /argumenta/i.test(m.perfil + ' ' + m.id) },
   { id: 'podconst', nome: 'PodConst', perfil: 'Líbero e Natália Valença', teste: m => /podconst/i.test(m.perfil + ' ' + m.id) },
 ];
-const ORDEM_TESTE = ['podconst', 'concurso', 'etica', 'eduarda', 'constitucional', 'pessoal'];
+const ORDEM_TESTE = ['argumenta', 'podconst', 'concurso', 'etica', 'eduarda', 'constitucional', 'pessoal'];
 const projetoDe = m => (m.projeto && PROJETOS.find(p => p.id === m.projeto)) || ORDEM_TESTE.map(id => PROJETOS.find(p => p.id === id)).find(p => p.teste(m)) || OUTROS;
 const OUTROS = { id: 'outros', nome: 'Outros', perfil: '' };
 const projetosVisiveis = () => [...PROJETOS, OUTROS].filter(p => MOLDES.some(m => projetoDe(m) === p));

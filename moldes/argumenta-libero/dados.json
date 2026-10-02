@@ -1,0 +1,362 @@
+[
+  {
+    "id": "card-complete-o-que-falta",
+    "titulo": "Card: Complete o que falta (quiz)",
+    "tema": "Card único de quiz com a demonstração do Laboratório de Respostas (habeas data, art. 5º, LXXII, CF)",
+    "slides": [
+      {
+        "tipo": "quiz",
+        "tema": "menta",
+        "kicker": "Treino · Complete o que falta",
+        "xp": "+40 XP",
+        "titulo": [
+          "Qual parte está impedindo esta resposta de pontuar integralmente?"
+        ],
+        "respostas": [
+          {
+            "texto": "É cabível habeas data, nos termos do Art. 5º, LXXII, da Constituição Federal."
+          }
+        ],
+        "alternativas": [
+          "A resposta direta",
+          "A aplicação ao caso",
+          "O fundamento jurídico"
+        ],
+        "chamada": "Comenta a letra 👇"
+      }
+    ]
+  },
+  {
+    "id": "card-treine-onde-erra",
+    "titulo": "Card: Treine exatamente onde você erra",
+    "tema": "Card único de divulgação do projeto, com o print do Laboratório de Respostas",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "balao": false,
+        "unico": true,
+        "kicker": "Provas discursivas · OAB",
+        "titulo": [
+          "Treine exatamente",
+          "{{onde você erra.}}"
+        ],
+        "texto": "Exercícios curtos de Constitucional para a 2ª fase.",
+        "pilula": "Laboratório de respostas",
+        "print": "app-laboratorio.png",
+        "printY": 760
+      }
+    ]
+  },
+  {
+    "id": "resposta-em-tres-blocos",
+    "titulo": "Resposta em três blocos",
+    "tema": "Carrossel temático de argumentação: resposta direta, aplicação ao caso e fundamento jurídico",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "kicker": "Provas discursivas · OAB 2ª fase",
+        "titulo": [
+          "Tem fundamento,",
+          "{{mas não pontua?}}"
+        ],
+        "texto": "O que costuma faltar é a ponte entre o fato e a norma.",
+        "pilula": "Resposta em 3 blocos"
+      },
+      {
+        "tipo": "resposta",
+        "tema": "branco",
+        "kicker": "O erro mais comum",
+        "titulo": [
+          "Citar o artigo",
+          "{{e parar}}"
+        ],
+        "respostas": [
+          {
+            "rotulo": "Resposta incompleta",
+            "status": "errado",
+            "texto": "É cabível habeas data, nos termos do Art. 5º, LXXII, da Constituição Federal."
+          }
+        ],
+        "texto": "A banca quer saber **por que** o artigo se aplica àqueles fatos. Sem isso, a resposta não pontua inteira."
+      },
+      {
+        "tipo": "cards",
+        "tema": "menta",
+        "kicker": "O método",
+        "titulo": [
+          "Responda em",
+          "{{três blocos}}"
+        ],
+        "cards": [
+          {
+            "rotulo": "Bloco 1",
+            "titulo": "Resposta direta",
+            "texto": "Qual é a solução?",
+            "seta": false
+          },
+          {
+            "rotulo": "Bloco 2",
+            "titulo": "Aplicação ao caso",
+            "texto": "Que fato justifica a aplicação dessa norma?",
+            "seta": false,
+            "ativo": true
+          },
+          {
+            "rotulo": "Bloco 3",
+            "titulo": "Fundamento jurídico",
+            "texto": "O diploma e o dispositivo pertinente.",
+            "seta": false
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "verde",
+        "kicker": "Bloco 1",
+        "titulo": [
+          "Resposta",
+          "{{direta}}"
+        ],
+        "texto": [
+          "Comece respondendo exatamente o que o comando pergunta.",
+          "Se o item pergunta \"está correta a negativa?\", a primeira frase já diz **sim** ou **não**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "branco",
+        "kicker": "Bloco 2",
+        "titulo": [
+          "A ponte",
+          "{{fato–norma}}"
+        ],
+        "texto": [
+          "É aqui que mais se perde ponto.",
+          "Use os fatos do enunciado: **quem** pediu, **o que** aconteceu e **por que** a regra se aplica a eles."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "menta",
+        "kicker": "Bloco 3",
+        "titulo": [
+          "O fundamento",
+          "{{vem depois}}"
+        ],
+        "texto": [
+          "Cite o fundamento **depois** de explicar a aplicação aos fatos.",
+          "Diploma e dispositivo: artigo, inciso, parágrafo ou súmula."
+        ]
+      },
+      {
+        "tipo": "resposta",
+        "tema": "verde",
+        "kicker": "Antes e depois",
+        "titulo": [
+          "A mesma resposta,",
+          "{{agora completa}}"
+        ],
+        "respostas": [
+          {
+            "rotulo": "Antes",
+            "status": "errado",
+            "texto": "É cabível habeas data, nos termos do Art. 5º, LXXII, da Constituição Federal.",
+            "px": 30
+          },
+          {
+            "rotulo": "Depois",
+            "status": "certo",
+            "texto": "Sim, é cabível habeas data, pois o interessado quer conhecer e retificar seus dados pessoais em registro público e houve recusa ao acesso, nos termos do art. 5º, LXXII, da CF.",
+            "px": 32
+          }
+        ]
+      },
+      {
+        "tipo": "checklist",
+        "tema": "branco",
+        "kicker": "Antes de entregar",
+        "titulo": [
+          "Confira",
+          "{{os três blocos}}"
+        ],
+        "itens": [
+          "✓ Respondi exatamente o que o comando pergunta?",
+          "✓ Usei os fatos do enunciado para aplicar a norma?",
+          "✓ Citei o diploma e o dispositivo?",
+          "Fiz uma resposta para cada item?"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "verde",
+        "titulo": [
+          "Treine exatamente",
+          "{{onde você erra.}}"
+        ],
+        "texto": "Salva pra usar na próxima discursiva e manda pra quem vai fazer a 2ª fase.",
+        "botao": "Comenta ARGUMENTA"
+      }
+    ]
+  },
+  {
+    "id": "apresentando-argumenta",
+    "titulo": "Apresentando o Argumenta com Líbero",
+    "tema": "Carrossel de apresentação do projeto: o problema, o método em 5 etapas, a leitura, o índice remissivo, o laboratório de respostas e a construção",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "logo": true,
+        "kicker": "Novo projeto",
+        "titulo": [
+          "Argumenta",
+          "{{com Líbero}}"
+        ],
+        "texto": "Treino guiado para as provas discursivas.",
+        "print": "app-leitura.png",
+        "printY": 840
+      },
+      {
+        "tipo": "texto",
+        "tema": "branco",
+        "kicker": "O problema",
+        "titulo": [
+          "Saber a matéria",
+          "{{não basta}}"
+        ],
+        "texto": [
+          "Na discursiva, a banca corrige **como** você responde: o comando, os fatos e o fundamento.",
+          "O Argumenta treina exatamente essa parte."
+        ]
+      },
+      {
+        "tipo": "etapas",
+        "tema": "menta",
+        "kicker": "O método",
+        "titulo": [
+          "5 etapas",
+          "{{por questão}}"
+        ],
+        "atual": 1,
+        "etapas": [
+          {
+            "nome": "Leitura",
+            "texto": "Leia, marque e identifique os problemas."
+          },
+          {
+            "nome": "Diagnóstico"
+          },
+          {
+            "nome": "Consulta ao índice",
+            "texto": "Encontre e registre os fundamentos."
+          },
+          {
+            "nome": "Construção",
+            "texto": "Escreva uma resposta para cada item."
+          },
+          {
+            "nome": "Revisão"
+          }
+        ]
+      },
+      {
+        "tipo": "print",
+        "tema": "verde",
+        "kicker": "Etapa 1 · Leitura",
+        "titulo": [
+          "Marque o enunciado",
+          "{{como a banca lê}}"
+        ],
+        "print": "app-problemas.png",
+        "texto": "Personagem, fato relevante, palavra-chave, problema jurídico, comando e informação secundária."
+      },
+      {
+        "tipo": "print",
+        "tema": "branco",
+        "kicker": "Etapa 3 · Consulta ao índice",
+        "titulo": [
+          "Índice remissivo",
+          "{{constitucional}}"
+        ],
+        "print": "app-indice.png",
+        "alturaPrint": 540,
+        "texto": "**1107 entradas**: busque pelo problema, instituto, situação ou artigo."
+      },
+      {
+        "tipo": "cards",
+        "tema": "menta",
+        "kicker": "Laboratório de respostas",
+        "titulo": [
+          "Treine exatamente",
+          "{{onde você erra.}}"
+        ],
+        "corpo": 28,
+        "cards": [
+          {
+            "icone": "🧩",
+            "rotulo": "Treino 01",
+            "titulo": "Complete o que falta",
+            "texto": "Receba uma resposta incompleta e escreva apenas o bloco ausente.",
+            "ativo": true
+          },
+          {
+            "icone": "🛠️",
+            "rotulo": "Treino 02",
+            "titulo": "Conserte a resposta",
+            "texto": "Encontre o erro jurídico e reescreva o trecho."
+          },
+          {
+            "icone": "🌉",
+            "rotulo": "Treino 03",
+            "titulo": "Ponte fato–norma",
+            "texto": "Treine somente a aplicação da regra aos fatos."
+          },
+          {
+            "icone": "✂️",
+            "rotulo": "Treino 04",
+            "titulo": "Enxugue o texto",
+            "texto": "Retire excessos sem perder pontos jurídicos."
+          },
+          {
+            "icone": "↕️",
+            "rotulo": "Treino 05",
+            "titulo": "Ordene os blocos",
+            "texto": "Reconstrua uma resposta embaralhada."
+          },
+          {
+            "icone": "⇄",
+            "rotulo": "Treino 06",
+            "titulo": "Compare institutos",
+            "texto": "Diferencie soluções jurídicas parecidas."
+          }
+        ]
+      },
+      {
+        "tipo": "print",
+        "tema": "verde",
+        "kicker": "Etapa 4 · Construção",
+        "titulo": [
+          "Uma resposta",
+          "{{para cada item}}"
+        ],
+        "print": "app-construcao.png",
+        "alturaPrint": 560,
+        "texto": "Resposta direta, aplicação ao caso e fundamento jurídico."
+      },
+      {
+        "tipo": "cta",
+        "tema": "branco",
+        "balao": true,
+        "logo": true,
+        "titulo": [
+          "Bora treinar",
+          "{{a discursiva?}}"
+        ],
+        "texto": "Comenta **ARGUMENTA** que eu te mando o link.",
+        "botao": "Comenta ARGUMENTA"
+      }
+    ]
+  }
+]
