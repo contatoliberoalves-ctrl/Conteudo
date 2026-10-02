@@ -1,0 +1,170 @@
+[
+  {
+    "id": "manchete-odeia-constitucional-feed",
+    "titulo": "Se você odeia Constitucional (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "manchete",
+    "foto": "img-3159.jpg",
+    "linhas": [
+      "Se você odeia",
+      "Constitucional,",
+      "esse reforço é pra você!"
+    ],
+    "destaque": 1,
+    "td": 160,
+    "ts": 92,
+    "sub": "Reforço de Constitucional para a 1ª fase da OAB. **Vagas abertas.**"
+  },
+  {
+    "id": "manchete-odeia-constitucional-story",
+    "titulo": "Se você odeia Constitucional (stories)",
+    "de": "manchete-odeia-constitucional-feed",
+    "formato": "story"
+  },
+  {
+    "id": "manchete-professor-gabaritar-feed",
+    "titulo": "Aprenda com o professor que vai te fazer gabaritar (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "manchete",
+    "foto": "0547.jpg",
+    "linhas": [
+      "Aprenda",
+      "Constitucional",
+      "com o professor que",
+      "vai te fazer"
+    ],
+    "destaque": 1,
+    "td": 150,
+    "ts": 88,
+    "acento": "gabaritar!",
+    "sub": "Reforço de Constitucional · 1ª fase da OAB"
+  },
+  {
+    "id": "manchete-professor-gabaritar-story",
+    "titulo": "Aprenda com o professor que vai te fazer gabaritar (stories)",
+    "de": "manchete-professor-gabaritar-feed",
+    "formato": "story"
+  },
+  {
+    "id": "etiquetas-vagas-abertas-feed",
+    "titulo": "Vagas abertas (etiquetas de story) (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "etiquetas",
+    "foto": "dsc08712.jpg",
+    "etiquetas": [
+      [
+        "VAGAS ABERTAS!!📣"
+      ],
+      [
+        "REFORÇO DE CONSTITUCIONAL",
+        "PRA 1ª FASE DA OAB"
+      ],
+      [
+        "DE R$ 247 POR",
+        "APENAS R$ 119🔥"
+      ],
+      [
+        "COMENTA REFORÇO PRA",
+        "RECEBER O LINK👇👇👇"
+      ]
+    ]
+  },
+  {
+    "id": "etiquetas-vagas-abertas-story",
+    "titulo": "Vagas abertas (etiquetas de story) (stories)",
+    "de": "etiquetas-vagas-abertas-feed",
+    "formato": "story"
+  },
+  {
+    "id": "nota-reprovou-feed",
+    "titulo": "Nota: reprovou por causa de Constitucional? (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "nota",
+    "frase": "Reprovou na 1ª fase por causa de Constitucional? {{Que tal superar isso?}}",
+    "fecho": "Vagas abertas pro Reforço."
+  },
+  {
+    "id": "nota-reprovou-story",
+    "titulo": "Nota: reprovou por causa de Constitucional? (stories)",
+    "de": "nota-reprovou-feed",
+    "formato": "story"
+  },
+  {
+    "id": "tweet-tentar-acertar-feed",
+    "titulo": "Tweet: a matéria que você só tenta acertar (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "tweet",
+    "avatar": "0557.jpg",
+    "nome": "Constitucional Gabaritado",
+    "frase": "Constitucional não precisa ser a matéria que você {{só tenta acertar.}}",
+    "fecho": "Corre pro Reforço."
+  },
+  {
+    "id": "tweet-tentar-acertar-story",
+    "titulo": "Tweet: a matéria que você só tenta acertar (stories)",
+    "de": "tweet-tentar-acertar-feed",
+    "formato": "story"
+  },
+  {
+    "id": "oferta-condicao-abertura-feed",
+    "titulo": "Oferta: condição especial de abertura (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "oferta",
+    "foto": "0207.jpg",
+    "linhas": [
+      "Vagas",
+      "{{abertas}}"
+    ],
+    "caixa": "~~R$ 247~~ {{R$ 119}}",
+    "sub": "Condição especial de abertura",
+    "prova": [
+      "Reforço de",
+      "{{Constitucional}}",
+      "1ª fase da OAB"
+    ],
+    "acao": "Toque em “Saiba mais” e garanta sua vaga."
+  },
+  {
+    "id": "oferta-condicao-abertura-story",
+    "titulo": "Oferta: condição especial de abertura (stories)",
+    "de": "oferta-condicao-abertura-feed",
+    "formato": "story"
+  },
+  {
+    "id": "lista-voce-tera-feed",
+    "titulo": "O que tem no Reforço (feed)",
+    "tema": "Reforço de Constitucional",
+    "formato": "feed",
+    "layout": "lista",
+    "foto": "dsc08859.jpg",
+    "kicker": "Vagas abertas 💚",
+    "linhas": [
+      "O que tem",
+      "no {{Reforço}}"
+    ],
+    "itens": [
+      "Aulas dos principais temas de Constitucional",
+      "Resolução de muitas questões",
+      "Questões autorais no estilo FGV",
+      "Quizzes para testar o aprendizado",
+      "Tabelas e resumos para revisão",
+      "**100 resumos rápidos** dos temas já cobrados na OAB",
+      "Estratégias contra as pegadinhas da banca",
+      "Encontros comigo nos pontos mais importantes"
+    ],
+    "preco": "De ~~R$ 247~~ por {{R$ 119}}",
+    "botao": "Quero minha vaga"
+  },
+  {
+    "id": "lista-voce-tera-story",
+    "titulo": "O que tem no Reforço (stories)",
+    "de": "lista-voce-tera-feed",
+    "formato": "story"
+  }
+]
