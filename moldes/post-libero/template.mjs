@@ -6,7 +6,8 @@
 //   estrutura — estrutura da peça numa folha de petição (endereçamento, qualificação, tópicos em romanos);
 //   esqueleto — estrutura da peça em trilha numerada, com o endereçamento em destaque;
 //   video    — divulgação de vídeo novo no YouTube: título, o print com play e barra de progresso, barra "Comenta #X";
-//   video-destaque — fundo escuro, título gigante, print inclinado em moldura branca e balão "Comenta #X".
+//   video-destaque — fundo escuro, título gigante, print inclinado em moldura branca e balão "Comenta #X";
+//   trecho   — título (pergunta) + print de um trecho (livro, artigo) numa folha inclinada e balão com a pergunta final.
 // "linhas" é o título na imagem (lista de linhas); "titulo" é o nome do post na galeria.
 // Marcação: **negrito** e [[caixa]] (palavra com fundo sólido, só nos títulos), como no Carrossel Libero.
 import { COR, TEMAS, TITULO, PERFIL, esc, rico, lista, textura } from '../carrossel-libero/template.mjs';
@@ -113,6 +114,25 @@ const LAYOUTS = {
         <div style="font-size:32px;font-weight:600;line-height:1.2;color:#fff">${esc(p.chamada || 'pra receber o link')}</div>
       </div>${selo(t, COR.azul)}`;
   },
+};
+
+// Trecho de livro/artigo: selo, título, o print (p.print, em fotos/) numa folha branca inclinada, com fita
+// adesiva, e o balão com a pergunta pro seguidor ("Isso acontece com você?"). "fonte" sai no pé da folha.
+LAYOUTS.trecho = (p, t) => {
+  const src = (p._fotos || {})[p.print] || '';
+  const balao = t === TEMAS.blue ? COR.navyFundo : COR.azul;
+  return `<div style="position:absolute;left:110px;top:95px;transform:rotate(-2deg);background:${COR.vermelho};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 22px;z-index:4">${esc(p.selo || 'Trecho de livro')}</div>
+    <div data-area style="position:absolute;left:110px;right:110px;top:175px;height:${p.alturaTitulo || 340}px;display:flex;flex-direction:column;justify-content:center;z-index:3">
+      ${ttl(p.linhas, t, p.ts || tam(p.linhas, 135, 860))}
+    </div>
+    <div data-objeto style="position:absolute;left:100px;right:100px;top:${p.printY ?? 570}px;transform:rotate(-2.5deg);background:#fff;padding:22px 22px ${p.fonte ? 54 : 22}px;box-shadow:0 34px 70px rgba(8,16,40,.42);z-index:2">
+      <div style="position:absolute;left:50%;top:-26px;width:190px;height:52px;margin-left:-95px;background:rgba(255,255,255,.55);box-shadow:0 2px 6px rgba(0,0,0,.12);transform:rotate(3deg)"></div>
+      ${src ? `<img src="${src}" style="display:block;width:100%">` : `<div style="height:480px;display:flex;align-items:center;justify-content:center;color:${COR.navy};font-size:28px">print em fotos/${esc(p.print || '')}</div>`}
+      ${p.fonte ? `<div style="position:absolute;left:22px;right:22px;bottom:14px;font-size:20px;font-weight:600;color:${COR.navy};opacity:.7">${esc(p.fonte)}</div>` : ''}
+    </div>
+    <div style="position:absolute;right:${p.balaoX ?? 90}px;top:${p.balaoY ?? 1135}px;max-width:640px;background:${balao};border-radius:44px 44px 0 44px;padding:26px 38px;box-shadow:0 20px 40px rgba(8,16,40,.35);z-index:4">
+      <div style="${TITULO};font-size:${p.tp || 58}px;line-height:.95;color:#fff">${lista(p.pergunta).map(l => rico(l, { ...t, caixa: COR.vermelho })).join('<br>')}</div>
+    </div>${selo(t)}`;
 };
 
 // Estrutura das peças (dados puxados do molde Estrutura de Peças pelo render: enderecamento, qualificacao,
