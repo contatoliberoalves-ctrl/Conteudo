@@ -1,0 +1,130 @@
+[
+  {
+    "id": "manchete-gabaritar-etica-feed",
+    "titulo": "Como gabaritar Ética na OAB em 5 dias (feed)",
+    "tema": "Manchete com o app no celular (ref.: produto digital do zero)",
+    "layout": "manchete",
+    "destaque": 1,
+    "acento": "em 5 dias",
+    "sub": "Do Estatuto às questões, uma missão por dia.",
+    "formato": "feed",
+    "linhas": [
+      "Como gabaritar",
+      "Ética",
+      "na OAB"
+    ]
+  },
+  {
+    "id": "manchete-gabaritar-etica-story",
+    "titulo": "Como gabaritar Ética na OAB em 5 dias (stories)",
+    "de": "manchete-gabaritar-etica-feed",
+    "formato": "story"
+  },
+  {
+    "id": "etiquetas-antes-da-prova-feed",
+    "titulo": "Rápido, antes da prova! (feed)",
+    "tema": "Etiquetas de story nativo sobre o app (ref.: curso liberado)",
+    "layout": "etiquetas",
+    "etiquetas": [
+      [
+        "RÁPIDO ANTES QUE",
+        "A PROVA CHEGUE!!😱"
+      ],
+      [
+        "DESAFIO ÉTICA GABARITADA:",
+        "5 DIAS PRA FECHAR",
+        "ÉTICA DA OAB"
+      ],
+      [
+        "56 QUESTÕES POR DIA",
+        "DENTRO DO APP"
+      ],
+      [
+        "COMENTA ÉTICA PRA",
+        "RECEBER O LINK",
+        "👇👇👇"
+      ]
+    ],
+    "formato": "feed"
+  },
+  {
+    "id": "etiquetas-antes-da-prova-story",
+    "titulo": "Rápido, antes da prova! (stories)",
+    "de": "etiquetas-antes-da-prova-feed",
+    "formato": "story"
+  },
+  {
+    "id": "nota-cada-questao-feed",
+    "titulo": "Nota: cada questão de Ética (feed)",
+    "tema": "Nota do iPhone com frase e fecho (ref.: Corre pra CST)",
+    "layout": "nota",
+    "frase": "Cada questão de Ética que você erra é {{um ponto a menos entre você e a carteira da OAB.}}",
+    "fecho": "Corre pro Desafio.",
+    "formato": "feed"
+  },
+  {
+    "id": "nota-cada-questao-story",
+    "titulo": "Nota: cada questão de Ética (stories)",
+    "de": "nota-cada-questao-feed",
+    "formato": "story"
+  },
+  {
+    "id": "tweet-8-questoes-feed",
+    "titulo": "Tweet: as 8 questões de Ética (feed)",
+    "tema": "Tweet da marca com destaque (ref.: os 10k)",
+    "layout": "tweet",
+    "frase": "As {{8 questões}} de Ética não vão se acertar sozinhas.",
+    "fecho": "Corre pro Desafio.",
+    "formato": "feed"
+  },
+  {
+    "id": "tweet-8-questoes-story",
+    "titulo": "Tweet: as 8 questões de Ética (stories)",
+    "de": "tweet-8-questoes-feed",
+    "formato": "story"
+  },
+  {
+    "id": "oferta-desafio-5-dias-feed",
+    "titulo": "Oferta: Desafio 5 dias (feed)",
+    "tema": "Anúncio com marca, chamada, caixa e painel Saiba mais (ref.: inscrições abertas)",
+    "layout": "oferta",
+    "caixa": "Do Estatuto às questões",
+    "sub": "Estatuto + Código de Ética",
+    "prova": [
+      "{{280 questões}}",
+      "em 5 dias"
+    ],
+    "acao": "Toque em “Saiba mais” e comece hoje.",
+    "formato": "feed",
+    "linhas": [
+      "Desafio",
+      "{{5 dias}}"
+    ]
+  },
+  {
+    "id": "oferta-desafio-5-dias-story",
+    "titulo": "Oferta: Desafio 5 dias (stories)",
+    "de": "oferta-desafio-5-dias-feed",
+    "formato": "story"
+  },
+  {
+    "id": "plano-de-hoje-feed",
+    "titulo": "Plano de hoje: 3 missões (feed)",
+    "tema": "Missões do dia no app, com título e botão",
+    "layout": "plano",
+    "sub": "Leia os artigos, resolva as questões e revise as dicas.",
+    "botao": "Comece o desafio",
+    "formato": "feed",
+    "linhas": [
+      "3 missões",
+      "pra fechar",
+      "{{Ética}}"
+    ]
+  },
+  {
+    "id": "plano-de-hoje-story",
+    "titulo": "Plano de hoje: 3 missões (stories)",
+    "de": "plano-de-hoje-feed",
+    "formato": "story"
+  }
+]
