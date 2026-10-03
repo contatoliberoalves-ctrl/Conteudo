@@ -154,5 +154,48 @@
       "Isso acontece",
       "com você?"
     ]
+  },
+  {
+    "id": "estrutura-adc",
+    "titulo": "Estrutura: ADC",
+    "layout": "estrutura",
+    "tema": "light",
+    "estrutura": "adc"
+  },
+  {
+    "id": "estrutura-adpf",
+    "titulo": "Estrutura: ADPF",
+    "layout": "estrutura",
+    "tema": "blue",
+    "estrutura": "adpf"
+  },
+  {
+    "id": "estrutura-reclamacao-constitucional",
+    "titulo": "Estrutura: Reclamação Constitucional",
+    "layout": "estrutura",
+    "tema": "light",
+    "estrutura": "reclamacao-constitucional"
+  },
+  {
+    "id": "estrutura-recurso-ordinario-constitucional",
+    "titulo": "Estrutura: Recurso Ordinário Constitucional",
+    "layout": "estrutura",
+    "tema": "blue",
+    "estrutura": "recurso-ordinario-constitucional",
+    "topicos": [
+      "Da Tempestividade (art. 1.003, §5º, CPC)",
+      "Do Cabimento",
+      "Do Preparo ou Gratuidade (art. 1.007, CPC)",
+      "Síntese Fática",
+      "Do Mérito – Razões Recursais",
+      "Dos Pedidos"
+    ]
+  },
+  {
+    "id": "estrutura-recurso-extraordinario",
+    "titulo": "Estrutura: Recurso Extraordinário",
+    "layout": "estrutura",
+    "tema": "light",
+    "estrutura": "recurso-extraordinario"
   }
 ]
