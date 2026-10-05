@@ -45,7 +45,7 @@ const LAYOUTS = {
           : `<div style="${TITULO};font-size:${p.ts || 104}px;line-height:.92;color:#fff">${esc(l)}</div>`).join('')}
         ${p.acento ? `<div style="align-self:flex-end;margin:-4px 30px 0 0;font-family:'Caveat',cursive;font-weight:700;font-size:66px;line-height:1;color:#fff;transform:rotate(-6deg)">${esc(p.acento)}</div>` : ''}
         ${p.sub ? `<div style="${TEXTO};font-size:34px;font-weight:500;line-height:1.3;color:#DDE7E2;margin-top:18px;max-width:880px">${rico(p.sub, COR.claro)}</div>` : ''}
-      </div>${arroba('rgba(155,224,163,.85)', story ? 230 : 44)}${textura()}`;
+      </div>${p.semArroba ? '' : arroba('rgba(155,224,163,.85)', story ? 230 : 44)}${textura()}`;
   },
   // Ref. "Rápido antes que saia do ar": etiquetas do texto nativo do story (máquina de escrever), brancas e a
   // última em verde, sobre a foto.
@@ -96,7 +96,7 @@ const LAYOUTS = {
           <div style="width:112px;height:112px;border-radius:50%;overflow:hidden;flex:none">${av}</div>
           <div style="flex:1;${IOS}"><div style="display:flex;align-items:center;gap:10px;font-size:38px;font-weight:700;color:#111">${esc(p.nome || 'Líbero Filho')}
             <svg width="36" height="36" viewBox="0 0 24 24"><path d="M12 1.5l2.6 1.9 3.2-.2 1 3 2.7 1.8-1 3.1 1 3-2.7 1.9-1 3-3.2-.2L12 22.5l-2.6-1.9-3.2.2-1-3-2.7-1.9 1-3-1-3.1L5.2 6.2l1-3 3.2.2z" fill="${COR.medio}"/><path d="M7.8 12.2l2.8 2.8 5.6-5.8" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div style="font-size:32px;color:#6B6B70;margin-top:2px">${esc(p.arroba || PERFIL)}</div></div>
+            ${p.semArroba ? '' : `<div style="font-size:32px;color:#6B6B70;margin-top:2px">${esc(p.arroba || PERFIL)}</div>`}</div>
           <span style="font-size:44px;color:#6B6B70;letter-spacing:2px;align-self:flex-start">•••</span>
         </div>
         <div style="${IOS};font-size:${p.tf || (story ? 84 : 76)}px;font-weight:800;line-height:1.12;letter-spacing:-.03em;color:#111">${rico(p.frase, COR.medio)}</div>

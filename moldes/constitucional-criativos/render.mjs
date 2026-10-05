@@ -1,5 +1,6 @@
 // Uso: node render.mjs [id]  -> saida/<id>/1.png (1080×1350 no feed, 1080×1920 nos stories) e painel.png.
 // Um post com "de": "<id>" herda os campos daquele post (o mesmo criativo em outro formato).
+// SEM_ARROBA=1: versão sem o @ do perfil (para tráfego pago), em saida-sem-arroba/.
 // Avisa se o texto sair do slide ou passar da largura, ou se uma foto de fotos/ faltar.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
@@ -23,7 +24,7 @@ let problemas = 0;
 for (const bruto of dados) {
   if (filtro && bruto.id !== filtro) continue;
   const c = bruto.de ? { ...porId[bruto.de], ...bruto } : bruto;
-  const { html, largura, altura, avisos } = renderCriativo({ ...c, _fotos });
+  const { html, largura, altura, avisos } = renderCriativo({ ...c, _fotos, semArroba: !!process.env.SEM_ARROBA });
   for (const k of ['foto', 'avatar']) if (c[k] && !_fotos[c[k]]) avisos.push(`foto não encontrada: fotos/${c[k]}`);
   const htmlPath = path.join(root, 'build', `${c.id}.html`);
   fs.writeFileSync(htmlPath, html);
@@ -41,7 +42,7 @@ for (const bruto of dados) {
     while ((no = tw.nextNode())) { const g = document.createRange(); g.selectNodeContents(no); if ([...g.getClientRects()].some(q => q.right > w - 40 || q.left < 40)) { out.push('linha de texto encostando na borda'); break; } }
     return out;
   }, [largura, altura]));
-  const outDir = path.join(root, 'saida', c.id);
+  const outDir = path.join(root, process.env.SEM_ARROBA ? 'saida-sem-arroba' : 'saida', c.id);
   fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(outDir, { recursive: true });
   await page.screenshot({ path: path.join(outDir, '1.png') });
