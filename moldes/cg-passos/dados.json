@@ -1,0 +1,219 @@
+[
+  {
+    "id": "pec-passo-a-passo",
+    "titulo": "PEC: da proposta à promulgação",
+    "tema": "Emenda constitucional: iniciativa, votação, promulgação e limites (art. 60, CF/88)",
+    "etapas": [
+      {
+        "nome": "Proposta",
+        "resumo": "1/3 da Câmara ou do Senado, o Presidente da República ou mais da metade das Assembleias Legislativas."
+      },
+      {
+        "nome": "Votação",
+        "quorum": "3/5",
+        "resumo": "Em cada Casa, em 2 turnos, com 3/5 dos votos."
+      },
+      {
+        "nome": "Promulgação",
+        "resumo": "Pelas Mesas da Câmara e do Senado. Não há sanção nem veto."
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "foto": "0547.jpg",
+        "titulo": [
+          "PEC: da proposta",
+          "à {{promulgação}}"
+        ],
+        "sub": "O caminho de uma emenda à Constituição em 3 etapas.",
+        "ts": 128
+      },
+      {
+        "tipo": "etapa",
+        "tema": "gelo",
+        "etapa": 1,
+        "titulo": [
+          "Quem pode {{propor}}"
+        ],
+        "texto": [
+          "**1/3** dos membros da Câmara ou do Senado;",
+          "o **Presidente da República**;",
+          "**mais da metade** das Assembleias Legislativas, cada uma pela maioria relativa de seus membros."
+        ],
+        "artigo": "Art. 60, I a III"
+      },
+      {
+        "tipo": "etapa",
+        "tema": "verde",
+        "etapa": 2,
+        "titulo": [
+          "Discussão e {{votação}}"
+        ],
+        "quorum": "3/5",
+        "quorumTexto": "dos votos, em **2 turnos**, em **cada Casa**",
+        "texto": "São 4 votações no total: 2 na Câmara e 2 no Senado.",
+        "artigo": "Art. 60, §2º"
+      },
+      {
+        "tipo": "etapa",
+        "tema": "gelo",
+        "etapa": 3,
+        "titulo": [
+          "Quem {{promulga}}"
+        ],
+        "texto": [
+          "As **Mesas da Câmara e do Senado**, com o respectivo número de ordem.",
+          "**Não há sanção nem veto** do Presidente da República."
+        ],
+        "artigo": "Art. 60, §3º"
+      },
+      {
+        "tipo": "lista",
+        "tema": "verde",
+        "kicker": "Os limites",
+        "titulo": [
+          "Quando {{não}} pode"
+        ],
+        "itens": [
+          "**Circunstanciais:** na vigência de intervenção federal, estado de defesa ou estado de sítio (§1º)",
+          "**Materiais:** proposta tendente a abolir as cláusulas pétreas (§4º)",
+          "**Formal:** matéria rejeitada ou prejudicada não volta na mesma sessão legislativa (§5º)"
+        ]
+      },
+      {
+        "tipo": "trilha",
+        "tema": "gelo",
+        "kicker": "Cola na mente",
+        "titulo": [
+          "A PEC em {{3 passos}}"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "verde",
+        "titulo": [
+          "1/3, 3/5",
+          "{{e 2 turnos}}"
+        ],
+        "texto": "Salva pra revisar e manda pra quem confunde o quórum da PEC com o da lei complementar.",
+        "botao": "Comenta PEC"
+      }
+    ]
+  },
+  {
+    "id": "impeachment-passo-a-passo",
+    "titulo": "Impeachment do Presidente em 4 passos",
+    "tema": "Crime de responsabilidade do Presidente da República (arts. 51, I; 52, I e p.u.; 86)",
+    "etapas": [
+      {
+        "nome": "Denúncia",
+        "resumo": "Qualquer cidadão denuncia na Câmara dos Deputados."
+      },
+      {
+        "nome": "Câmara",
+        "quorum": "2/3",
+        "resumo": "Autoriza a instauração do processo."
+      },
+      {
+        "nome": "Senado instaura",
+        "resumo": "O Presidente fica suspenso por até 180 dias."
+      },
+      {
+        "nome": "Julgamento",
+        "quorum": "2/3",
+        "resumo": "Senado julga, sob a presidência do Presidente do STF."
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "foto": "dsc08879.jpg",
+        "titulo": [
+          "Impeachment",
+          "em {{4 passos}}"
+        ],
+        "sub": "Do pedido à perda do cargo do Presidente da República."
+      },
+      {
+        "tipo": "etapa",
+        "tema": "gelo",
+        "etapa": 1,
+        "titulo": [
+          "Quem {{denuncia}}"
+        ],
+        "texto": [
+          "**Qualquer cidadão** pode denunciar o Presidente por crime de responsabilidade perante a **Câmara dos Deputados**."
+        ],
+        "artigo": "Lei 1.079/50, art. 14"
+      },
+      {
+        "tipo": "etapa",
+        "tema": "verde",
+        "etapa": 2,
+        "titulo": [
+          "A Câmara {{autoriza}}"
+        ],
+        "quorum": "2/3",
+        "quorumTexto": "dos membros da **Câmara**",
+        "texto": "A Câmara não julga: só **autoriza** a instauração do processo.",
+        "artigo": "Arts. 51, I, e 86"
+      },
+      {
+        "tipo": "etapa",
+        "tema": "gelo",
+        "etapa": 3,
+        "titulo": [
+          "O Senado {{instaura}}"
+        ],
+        "quorum": "180",
+        "quorumTexto": "dias: prazo máximo de **afastamento**",
+        "texto": "Instaurado o processo no Senado, o Presidente fica **suspenso** das funções. Se o julgamento não terminar em 180 dias, ele volta ao cargo, e o processo continua.",
+        "artigo": "Art. 86, §1º, II, e §2º"
+      },
+      {
+        "tipo": "etapa",
+        "tema": "verde",
+        "etapa": 4,
+        "titulo": [
+          "O {{julgamento}}"
+        ],
+        "quorum": "2/3",
+        "quorumTexto": "dos votos do **Senado** para condenar",
+        "texto": "A sessão é presidida pelo **Presidente do STF**. A pena é a **perda do cargo** com **inabilitação por 8 anos** para função pública.",
+        "artigo": "Art. 52, I e parágrafo único"
+      },
+      {
+        "tipo": "trilha",
+        "tema": "gelo",
+        "kicker": "Cola na mente",
+        "titulo": [
+          "O rito {{inteiro}}"
+        ]
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "Quem {{julga}}?"
+        ],
+        "texto": [
+          "O **Senado**, não o STF. O Presidente do STF só **preside** a sessão de julgamento.",
+          "Nos crimes **comuns**, aí sim, quem julga é o STF, depois da autorização da Câmara (art. 102, I, b)."
+        ],
+        "artigo": "Arts. 52, I, e 86"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Salva esse {{rito}}"
+        ],
+        "texto": "Câmara autoriza, Senado julga. Manda pra quem vai fazer a OAB com você.",
+        "botao": "Comenta RITO"
+      }
+    ]
+  }
+]

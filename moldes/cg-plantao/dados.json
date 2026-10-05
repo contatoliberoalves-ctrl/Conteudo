@@ -1,0 +1,33 @@
+[
+  {
+    "id": "presidente-do-senado",
+    "titulo": "Presidente do Senado: como funciona a escolha?",
+    "tema": "Eleição das Mesas (art. 57, §4º), recondução (STF, ADI 6524) e funções do Presidente do Senado",
+    "slides": [
+      { "tipo": "capa", "tema": "verde", "icone": "congresso", "titulo": ["Presidente do", "Senado Federal"], "pergunta": "Como funciona o **processo de escolha**?" },
+      { "tipo": "destaque", "tema": "gelo", "kicker": "Quem escolhe?", "grande": "81 votos", "titulo": ["Os próprios {{senadores}}"], "texto": "O Presidente do Senado é eleito **pelos colegas**, em sessão preparatória, junto com o resto da Mesa. Não há voto popular para o cargo.", "artigo": "Art. 57, §4º, CF/88" },
+      { "tipo": "lei", "tema": "verde", "kicker": "O que diz a Constituição", "titulo": ["Art. 57, §4º"], "citacao": "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente.", "fonte": "Constituição Federal", "traducao": "Traduzindo: **mandato de 2 anos** e, em regra, **sem reeleição seguida** para o mesmo cargo." },
+      { "tipo": "pegadinha", "tema": "gelo", "titulo": ["E a reeleição?"], "texto": ["Dentro da **mesma legislatura**, não pode: o STF confirmou a vedação da recondução.", "Mas, numa **legislatura nova**, a reeleição para o mesmo cargo é permitida."], "artigo": "STF, ADI 6524" },
+      { "tipo": "lista", "tema": "verde", "kicker": "E o que ele faz?", "titulo": ["Muito além do {{Senado}}"], "itens": ["Preside a **Mesa do Congresso Nacional** (art. 57, §5º)", "É o **3º na linha sucessória** do Presidente da República (art. 80)", "Integra o **Conselho da República** (art. 89, III)", "Integra o **Conselho de Defesa Nacional** (art. 91, III)"] },
+      { "tipo": "cta", "tema": "gelo", "titulo": ["Cai na {{OAB}}?"], "texto": "Mesa, mandato e linha sucessória aparecem direto na 1ª fase. Salva e manda pra quem estuda com você.", "botao": "Salvar pra revisar" }
+    ]
+  },
+  {
+    "id": "linha-sucessoria",
+    "titulo": "O Presidente saiu: quem assume?",
+    "tema": "Substituição e sucessão do Presidente da República (arts. 79 a 81)",
+    "slides": [
+      { "tipo": "capa", "tema": "verde", "icone": "planalto", "titulo": ["O Presidente saiu.", "Quem assume?"], "pergunta": "A **linha sucessória** em 4 degraus" },
+      { "tipo": "linha", "tema": "gelo", "kicker": "Arts. 79 e 80", "titulo": ["A ordem de {{chamada}}"], "itens": [
+        { "titulo": "Vice-Presidente", "texto": "Substitui nos impedimentos e **sucede** na vaga.", "artigo": "Art. 79" },
+        { "titulo": "Presidente da Câmara", "texto": "Assume se Presidente e Vice estiverem impedidos ou os cargos vagos.", "artigo": "Art. 80" },
+        { "titulo": "Presidente do Senado", "texto": "Vem logo depois do Presidente da Câmara.", "artigo": "Art. 80" },
+        { "titulo": "Presidente do STF", "texto": "O último da lista.", "artigo": "Art. 80" }
+      ] },
+      { "tipo": "destaque", "tema": "verde", "kicker": "Vagaram os dois cargos?", "grande": "90 dias", "titulo": ["Nova eleição {{direta}}"], "texto": "Se Presidente e Vice deixarem os cargos, faz-se eleição **90 dias** depois da última vaga.", "artigo": "Art. 81, caput" },
+      { "tipo": "destaque", "tema": "gelo", "kicker": "E se for no fim do mandato?", "grande": "30 dias", "titulo": ["Eleição {{indireta}}"], "texto": "Nos **últimos 2 anos** do mandato, a eleição é feita **pelo Congresso Nacional**, 30 dias depois da última vaga.", "artigo": "Art. 81, §1º" },
+      { "tipo": "pegadinha", "tema": "verde", "titulo": ["Mandato novo? {{Não.}}"], "texto": ["Quem é eleito nesses casos só **completa o período** de quem saiu.", "E os Presidentes da Câmara, do Senado e do STF apenas **substituem**: nunca sucedem."], "artigo": "Arts. 80 e 81, §2º" },
+      { "tipo": "cta", "tema": "gelo", "titulo": ["Salva essa {{ordem}}"], "texto": "Vice, Câmara, Senado e STF. Manda pra quem sempre troca a ordem na prova.", "botao": "Comenta PLANTÃO" }
+    ]
+  }
+]
