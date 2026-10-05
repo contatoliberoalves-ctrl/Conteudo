@@ -1,550 +1,725 @@
 [
-  {
-    "id": "modelo-coringa",
-    "titulo": "Como acertar qualquer questão sobre peça",
-    "slides": [
-      {
-        "foto": "dsc08879.jpg",
-        "fotoPos": "center 30%",
-        "blocos": [
-          {
-            "texto": "Como acertar qualquer\nquestão sobre peça",
-            "cor": "bege",
-            "y": 950
-          },
-          {
-            "texto": "Modelo Coringa",
-            "cor": "branco",
-            "y": 1130
-          }
-        ]
-      },
-      {
-        "foto": "viagem-04.jpg",
-        "blocos": [
-          {
-            "texto": "Nas questões que perguntam\nqual é a ação cabível use:",
-            "cor": "preto",
-            "y": 360
-          },
-          {
-            "texto": "“A ação cabível é [nome da ação],\npois [motivo do cabimento], nos\ntermos do [fundamento].”",
-            "cor": "branco",
-            "y": 700,
-            "tam": 68
-          }
-        ]
-      },
-      {
-        "foto": "viagem-45.jpg",
-        "blocos": [
-          {
-            "texto": "Exemplo:",
-            "cor": "marrom",
-            "y": 340,
-            "tam": 83
-          },
-          {
-            "texto": "“A ação cabível é a ADPF, pois se\npretende submeter lei municipal\nao controle concentrado perante o\nSTF, nos termos do art. 102, §1º,\nda CRFB/88 e da Lei 9.882/1999.”",
-            "cor": "branco",
-            "y": 540,
-            "tam": 62
-          }
-        ]
-      },
-      {
-        "foto": "viagem-50.jpg",
-        "blocos": [
-          {
-            "texto": "Esse molde a banca\nSEMPRE usa nas respostas",
-            "cor": "branco",
-            "y": 560
-          },
-          {
-            "texto": "Gostou? Então me deixe\nsaber 👇👇👇",
-            "cor": "rosa",
-            "y": 800
-          }
-        ]
-      }
+ {
+  "id": "modelo-coringa",
+  "titulo": "Como acertar qualquer questão sobre peça",
+  "slides": [
+   {
+    "foto": "dsc08879.jpg",
+    "fotoPos": "center 30%",
+    "blocos": [
+     {
+      "texto": "Como acertar qualquer\nquestão sobre peça",
+      "cor": "bege",
+      "y": 950
+     },
+     {
+      "texto": "Modelo Coringa",
+      "cor": "branco",
+      "y": 1130
+     }
     ]
-  },
-  {
-    "id": "metodo-vde",
-    "titulo": "O curso ideal pra quem tem TDAH",
-    "slides": [
-      {
-        "foto": "viagem-43.jpg",
-        "blocos": [
-          {
-            "texto": "O curso ideal pra\nquem tem TDAH",
-            "cor": "branco",
-            "y": 760
-          },
-          {
-            "texto": "2ª fase da OAB",
-            "cor": "menta",
-            "y": 950,
-            "tam": 68
-          }
-        ]
-      },
-      {
-        "foto": "viagem-61.jpg",
-        "blocos": [
-          {
-            "texto": "Mapas mentais de peças\ne direito material",
-            "cor": "branco",
-            "y": 170
-          },
-          {
-            "texto": "Muito útil pra quem é mais\nvisual e tem dificuldade de foco",
-            "cor": "preto",
-            "y": 1150,
-            "tam": 62
-          }
-        ],
-        "print": {
-          "img": "mapas.jpg",
-          "y": 400,
-          "largura": 820
-        }
-      },
-      {
-        "foto": "viagem-37.jpg",
-        "blocos": [
-          {
-            "texto": "Lista de todos os grifos e\nremissões pra fazer",
-            "cor": "branco",
-            "y": 190
-          },
-          {
-            "texto": "Você não vai correr o risco de\ndeixar passar nenhum deles,\nbasta conferir a lista",
-            "cor": "preto",
-            "y": 1020,
-            "tam": 62
-          }
-        ],
-        "print": {
-          "img": "lista-grifos.jpg",
-          "y": 420,
-          "largura": 820
-        }
-      },
-      {
-        "foto": "viagem-92.jpg",
-        "blocos": [
-          {
-            "texto": "Cronograma unificado com todos\nos links e materiais importantes",
-            "cor": "branco",
-            "y": 190,
-            "tam": 60
-          },
-          {
-            "texto": "Você não precisa ser da turma do\nScooby Doo pra encontrar o que\nprecisa na plataforma",
-            "cor": "preto",
-            "y": 1090,
-            "tam": 60
-          }
-        ],
-        "print": {
-          "img": "cronograma.jpg",
-          "y": 370,
-          "largura": 840
-        }
-      },
-      {
-        "foto": "viagem-98.jpg",
-        "blocos": [
-          {
-            "texto": "Esqueletos de peças",
-            "cor": "branco",
-            "y": 110
-          },
-          {
-            "texto": "Facilitam na hora do treino. Você não\nvai precisar quebrar cabeça pra\naprender as estruturas",
-            "cor": "preto",
-            "y": 1170,
-            "tam": 57
-          }
-        ],
-        "print": {
-          "img": "esqueletos.jpg",
-          "y": 250,
-          "largura": 600
-        }
-      },
-      {
-        "foto": "viagem-67.jpg",
-        "blocos": [
-          {
-            "texto": "Aulas de qualidade, mas\nobjetivas",
-            "cor": "branco",
-            "y": 190
-          },
-          {
-            "texto": "Nada de passar horas e horas com\naulas ao vivo ou extensas. Aqui\nprezamos pelo foco no conteúdo. Ideal\npra quem tem limite de foco (sou TDAH,\nsei bem como a gente funciona).",
-            "cor": "preto",
-            "y": 920,
-            "tam": 55
-          }
-        ],
-        "print": {
-          "img": "aulas.jpg",
-          "y": 430,
-          "largura": 820
-        }
-      },
-      {
-        "foto": "viagem-44.jpg",
-        "blocos": [
-          {
-            "texto": "Comunidade ativa",
-            "cor": "branco",
-            "y": 230
-          },
-          {
-            "texto": "Você terá sua dúvida respondida em\ntempo ágil, o que te ajudará a entender\nmelhor os assuntos controversos. Tem\nespaço pra desabafo também (pra\naqueles dias que só Jesus na causa)",
-            "cor": "preto",
-            "y": 890,
-            "tam": 55
-          }
-        ],
-        "print": {
-          "img": "comunidade.jpg",
-          "y": 390,
-          "largura": 820
-        }
-      },
-      {
-        "foto": "viagem-57.jpg",
-        "blocos": [
-          {
-            "texto": "Banco de questões",
-            "cor": "branco",
-            "y": 290
-          },
-          {
-            "texto": "Como é comprovado cientificamente\nque é a forma de estudos que mais\nprende a atenção, temos treino\nconstantemente",
-            "cor": "preto",
-            "y": 990,
-            "tam": 57
-          }
-        ],
-        "print": {
-          "img": "banco-questoes.jpg",
-          "y": 460,
-          "largura": 820
-        }
-      },
-      {
-        "foto": "dsc08848.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Gostou do que viu e quer entrar\nno curso mais completo do Brasil?",
-            "cor": "branco",
-            "y": 930,
-            "tam": 60
-          },
-          {
-            "texto": "Comenta #TDAH que eu te\nmando o link",
-            "cor": "menta",
-            "y": 1120,
-            "tam": 65
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-04.jpg",
+    "blocos": [
+     {
+      "texto": "Nas questões que perguntam\nqual é a ação cabível use:",
+      "cor": "preto",
+      "y": 360
+     },
+     {
+      "texto": "“A ação cabível é [nome da ação],\npois [motivo do cabimento], nos\ntermos do [fundamento].”",
+      "cor": "branco",
+      "y": 700,
+      "tam": 68
+     }
     ]
-  },
-  {
-    "id": "segunda-fase-o-que-saber",
-    "titulo": "O que você precisa saber sobre a 2ª fase",
-    "slides": [
-      {
-        "foto": "viagem-15.jpg",
-        "blocos": [
-          {
-            "texto": "O que você precisa\nsaber sobre a 2ª fase",
-            "cor": "ciano",
-            "y": 760
-          },
-          {
-            "texto": "Termos, conceitos, informes",
-            "cor": "noite",
-            "y": 960,
-            "tam": 65
-          }
-        ]
-      },
-      {
-        "foto": "viagem-10.jpg",
-        "blocos": [
-          {
-            "texto": "A prova é discursiva",
-            "cor": "noite",
-            "y": 190
-          },
-          {
-            "texto": "Você vai precisar bastante\ntreinar a escrita pra ficar bom",
-            "cor": "ciano",
-            "y": 1170,
-            "tam": 62
-          }
-        ],
-        "print": {
-          "img": "rascunho.jpg",
-          "y": 350,
-          "largura": 540
-        }
-      },
-      {
-        "foto": "dsc08906.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "VADE MECUM",
-            "cor": "noite",
-            "y": 880,
-            "tam": 83
-          },
-          {
-            "texto": "Você pode levá-lo pra prova. Tenha um\nque esteja de acordo com as normas do\nedital e que possua um excelente índice\nremissivo.",
-            "cor": "ciano",
-            "y": 1030,
-            "tam": 55
-          }
-        ]
-      },
-      {
-        "foto": "viagem-28.jpg",
-        "blocos": [
-          {
-            "texto": "Índice Remissivo",
-            "cor": "noite",
-            "y": 180
-          },
-          {
-            "texto": "O nosso “Google” que pode levar\npra prova. Nele você encontra as\nrespostas das questões",
-            "cor": "ciano",
-            "y": 1110,
-            "tam": 60
-          }
-        ],
-        "print": {
-          "img": "indice.jpg",
-          "y": 340,
-          "largura": 700
-        }
-      },
-      {
-        "foto": "viagem-76.jpg",
-        "blocos": [
-          {
-            "texto": "Remissões",
-            "cor": "noite",
-            "y": 150
-          },
-          {
-            "texto": "Citações a outros artigos que tenham\nalguma ligação com o que está na lei.\nVocê pode fazer com o lápis",
-            "cor": "ciano",
-            "y": 1160,
-            "tam": 55
-          }
-        ],
-        "print": {
-          "img": "remissoes.jpg",
-          "y": 300,
-          "largura": 620
-        }
-      },
-      {
-        "foto": "viagem-82.jpg",
-        "blocos": [
-          {
-            "texto": "Grifos",
-            "cor": "noite",
-            "y": 250
-          },
-          {
-            "texto": "É colorir de marca texto, lápis ou giz\num artigo ou parte dele. Usamos pra\nidentificar o que é mais relevante (ex:\npedidos de uma peça).",
-            "cor": "ciano",
-            "y": 900,
-            "tam": 55
-          }
-        ],
-        "print": {
-          "img": "grifos.jpg",
-          "y": 420,
-          "largura": 900
-        }
-      },
-      {
-        "foto": "dsc08925.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Quer um curso que te ensina\nsobre tudo isso e te dá toda a\nbase pra 2ª fase?",
-            "cor": "ciano",
-            "y": 820,
-            "tam": 62
-          },
-          {
-            "texto": "Comente #OAB que eu te\nmando o link no direct",
-            "cor": "noite",
-            "y": 1110,
-            "tam": 65
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-45.jpg",
+    "blocos": [
+     {
+      "texto": "Exemplo:",
+      "cor": "marrom",
+      "y": 340,
+      "tam": 83
+     },
+     {
+      "texto": "“A ação cabível é a ADPF, pois se\npretende submeter lei municipal\nao controle concentrado perante o\nSTF, nos termos do art. 102, §1º,\nda CRFB/88 e da Lei 9.882/1999.”",
+      "cor": "branco",
+      "y": 540,
+      "tam": 62
+     }
     ]
-  },
-  {
-    "id": "estrutura-mandado-de-seguranca",
-    "titulo": "Vamos montar a estrutura do Mandado de Segurança?",
-    "slides": [
-      {
-        "foto": "dsc08914.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Vamos montar a\nESTRUTURA da peça de\nMandado de Segurança?",
-            "cor": "lilas",
-            "y": 960,
-            "tam": 75
-          }
-        ]
-      },
-      {
-        "foto": "dsc08920.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Endereçamento e fatos",
-            "cor": "lilas",
-            "y": 1120
-          }
-        ]
-      },
-      {
-        "foto": "dsc08922.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Atenção na legitimidade\npra não fazer pequena",
-            "cor": "branco",
-            "y": 1060
-          }
-        ]
-      },
-      {
-        "foto": "dsc08928.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Apenas quando couber no\ncontexto do enunciado",
-            "cor": "branco",
-            "y": 1060
-          }
-        ]
-      },
-      {
-        "foto": "dsc08842.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Tópicos essenciais do MS\n+ fundamentação",
-            "cor": "lilas",
-            "y": 1060
-          }
-        ]
-      },
-      {
-        "foto": "dsc08859.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "A banca geralmente cobra uns 3.\nMas colocamos todos que podem\ncair por precaução.",
-            "cor": "branco",
-            "y": 960,
-            "tam": 60
-          },
-          {
-            "texto": "P.s estão todos na lei do MS",
-            "cor": "lilas",
-            "y": 1190,
-            "tam": 62
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-50.jpg",
+    "blocos": [
+     {
+      "texto": "Esse molde a banca\nSEMPRE usa nas respostas",
+      "cor": "branco",
+      "y": 560
+     },
+     {
+      "texto": "Gostou? Então me deixe\nsaber 👇👇👇",
+      "cor": "rosa",
+      "y": 800
+     }
     ]
-  },
-  {
-    "id": "habeas-data-estrutura",
-    "titulo": "Vamos fazer um Habeas Data?",
-    "slides": [
-      {
-        "foto": "dsc08888.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Vamos fazer um Habeas Data?",
-            "cor": "branco",
-            "y": 1010,
-            "tam": 68
-          },
-          {
-            "texto": "Estrutura da Peça",
-            "cor": "bege",
-            "y": 1130
-          }
-        ]
-      },
-      {
-        "foto": "dsc08713.jpg",
-        "fotoPos": "center 20%",
-        "blocos": [
-          {
-            "texto": "Sabe onde você aprende todas as\npeças DO ZERO? No Método VDE",
-            "cor": "branco",
-            "y": 980,
-            "tam": 62
-          },
-          {
-            "texto": "Comente #VDE que eu te mando o link",
-            "cor": "verde",
-            "y": 1160,
-            "tam": 57
-          }
-        ]
-      }
+   }
+  ]
+ },
+ {
+  "id": "metodo-vde",
+  "titulo": "O curso ideal pra quem tem TDAH",
+  "slides": [
+   {
+    "foto": "viagem-43.jpg",
+    "blocos": [
+     {
+      "texto": "O curso ideal pra\nquem tem TDAH",
+      "cor": "branco",
+      "y": 760
+     },
+     {
+      "texto": "2ª fase da OAB",
+      "cor": "menta",
+      "y": 950,
+      "tam": 68
+     }
     ]
-  },
-  {
-    "id": "pontuacao-segunda-fase",
-    "titulo": "Pontuação da 2ª fase",
-    "slides": [
-      {
-        "foto": "viagem-87.jpg",
-        "blocos": [
-          {
-            "texto": "Pontuação",
-            "cor": "marrom",
-            "y": 280,
-            "tam": 94
-          },
-          {
-            "texto": "A peça vale 5,0 e as questões\ntotalizam 5,0",
-            "cor": "branco",
-            "y": 560
-          },
-          {
-            "texto": "Para passar você precisa de\n6,0. Ou seja, é preciso focar\nem ambas.",
-            "cor": "rosa",
-            "y": 820
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-61.jpg",
+    "blocos": [
+     {
+      "texto": "Mapas mentais de peças\ne direito material",
+      "cor": "branco",
+      "y": 170
+     },
+     {
+      "texto": "Muito útil pra quem é mais\nvisual e tem dificuldade de foco",
+      "cor": "preto",
+      "y": 1150,
+      "tam": 62
+     }
+    ],
+    "print": {
+     "img": "mapas.jpg",
+     "y": 400,
+     "largura": 820
+    }
+   },
+   {
+    "foto": "viagem-37.jpg",
+    "blocos": [
+     {
+      "texto": "Lista de todos os grifos e\nremissões pra fazer",
+      "cor": "branco",
+      "y": 190
+     },
+     {
+      "texto": "Você não vai correr o risco de\ndeixar passar nenhum deles,\nbasta conferir a lista",
+      "cor": "preto",
+      "y": 1020,
+      "tam": 62
+     }
+    ],
+    "print": {
+     "img": "lista-grifos.jpg",
+     "y": 420,
+     "largura": 820
+    }
+   },
+   {
+    "foto": "viagem-92.jpg",
+    "blocos": [
+     {
+      "texto": "Cronograma unificado com todos\nos links e materiais importantes",
+      "cor": "branco",
+      "y": 190,
+      "tam": 60
+     },
+     {
+      "texto": "Você não precisa ser da turma do\nScooby Doo pra encontrar o que\nprecisa na plataforma",
+      "cor": "preto",
+      "y": 1090,
+      "tam": 60
+     }
+    ],
+    "print": {
+     "img": "cronograma.jpg",
+     "y": 370,
+     "largura": 840
+    }
+   },
+   {
+    "foto": "viagem-98.jpg",
+    "blocos": [
+     {
+      "texto": "Esqueletos de peças",
+      "cor": "branco",
+      "y": 110
+     },
+     {
+      "texto": "Facilitam na hora do treino. Você não\nvai precisar quebrar cabeça pra\naprender as estruturas",
+      "cor": "preto",
+      "y": 1170,
+      "tam": 57
+     }
+    ],
+    "print": {
+     "img": "esqueletos.jpg",
+     "y": 250,
+     "largura": 600
+    }
+   },
+   {
+    "foto": "viagem-67.jpg",
+    "blocos": [
+     {
+      "texto": "Aulas de qualidade, mas\nobjetivas",
+      "cor": "branco",
+      "y": 190
+     },
+     {
+      "texto": "Nada de passar horas e horas com\naulas ao vivo ou extensas. Aqui\nprezamos pelo foco no conteúdo. Ideal\npra quem tem limite de foco (sou TDAH,\nsei bem como a gente funciona).",
+      "cor": "preto",
+      "y": 920,
+      "tam": 55
+     }
+    ],
+    "print": {
+     "img": "aulas.jpg",
+     "y": 430,
+     "largura": 820
+    }
+   },
+   {
+    "foto": "viagem-44.jpg",
+    "blocos": [
+     {
+      "texto": "Comunidade ativa",
+      "cor": "branco",
+      "y": 230
+     },
+     {
+      "texto": "Você terá sua dúvida respondida em\ntempo ágil, o que te ajudará a entender\nmelhor os assuntos controversos. Tem\nespaço pra desabafo também (pra\naqueles dias que só Jesus na causa)",
+      "cor": "preto",
+      "y": 890,
+      "tam": 55
+     }
+    ],
+    "print": {
+     "img": "comunidade.jpg",
+     "y": 390,
+     "largura": 820
+    }
+   },
+   {
+    "foto": "viagem-57.jpg",
+    "blocos": [
+     {
+      "texto": "Banco de questões",
+      "cor": "branco",
+      "y": 290
+     },
+     {
+      "texto": "Como é comprovado cientificamente\nque é a forma de estudos que mais\nprende a atenção, temos treino\nconstantemente",
+      "cor": "preto",
+      "y": 990,
+      "tam": 57
+     }
+    ],
+    "print": {
+     "img": "banco-questoes.jpg",
+     "y": 460,
+     "largura": 820
+    }
+   },
+   {
+    "foto": "dsc08848.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Gostou do que viu e quer entrar\nno curso mais completo do Brasil?",
+      "cor": "branco",
+      "y": 930,
+      "tam": 60
+     },
+     {
+      "texto": "Comenta #TDAH que eu te\nmando o link",
+      "cor": "menta",
+      "y": 1120,
+      "tam": 65
+     }
     ]
-  }
+   }
+  ]
+ },
+ {
+  "id": "segunda-fase-o-que-saber",
+  "titulo": "O que você precisa saber sobre a 2ª fase",
+  "slides": [
+   {
+    "foto": "viagem-15.jpg",
+    "blocos": [
+     {
+      "texto": "O que você precisa\nsaber sobre a 2ª fase",
+      "cor": "ciano",
+      "y": 760
+     },
+     {
+      "texto": "Termos, conceitos, informes",
+      "cor": "noite",
+      "y": 960,
+      "tam": 65
+     }
+    ]
+   },
+   {
+    "foto": "viagem-10.jpg",
+    "blocos": [
+     {
+      "texto": "A prova é discursiva",
+      "cor": "noite",
+      "y": 190
+     },
+     {
+      "texto": "Você vai precisar bastante\ntreinar a escrita pra ficar bom",
+      "cor": "ciano",
+      "y": 1170,
+      "tam": 62
+     }
+    ],
+    "print": {
+     "img": "rascunho.jpg",
+     "y": 350,
+     "largura": 540
+    }
+   },
+   {
+    "foto": "dsc08906.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "VADE MECUM",
+      "cor": "noite",
+      "y": 880,
+      "tam": 83
+     },
+     {
+      "texto": "Você pode levá-lo pra prova. Tenha um\nque esteja de acordo com as normas do\nedital e que possua um excelente índice\nremissivo.",
+      "cor": "ciano",
+      "y": 1030,
+      "tam": 55
+     }
+    ]
+   },
+   {
+    "foto": "viagem-28.jpg",
+    "blocos": [
+     {
+      "texto": "Índice Remissivo",
+      "cor": "noite",
+      "y": 180
+     },
+     {
+      "texto": "O nosso “Google” que pode levar\npra prova. Nele você encontra as\nrespostas das questões",
+      "cor": "ciano",
+      "y": 1110,
+      "tam": 60
+     }
+    ],
+    "print": {
+     "img": "indice.jpg",
+     "y": 340,
+     "largura": 700
+    }
+   },
+   {
+    "foto": "viagem-76.jpg",
+    "blocos": [
+     {
+      "texto": "Remissões",
+      "cor": "noite",
+      "y": 150
+     },
+     {
+      "texto": "Citações a outros artigos que tenham\nalguma ligação com o que está na lei.\nVocê pode fazer com o lápis",
+      "cor": "ciano",
+      "y": 1160,
+      "tam": 55
+     }
+    ],
+    "print": {
+     "img": "remissoes.jpg",
+     "y": 300,
+     "largura": 620
+    }
+   },
+   {
+    "foto": "viagem-82.jpg",
+    "blocos": [
+     {
+      "texto": "Grifos",
+      "cor": "noite",
+      "y": 250
+     },
+     {
+      "texto": "É colorir de marca texto, lápis ou giz\num artigo ou parte dele. Usamos pra\nidentificar o que é mais relevante (ex:\npedidos de uma peça).",
+      "cor": "ciano",
+      "y": 900,
+      "tam": 55
+     }
+    ],
+    "print": {
+     "img": "grifos.jpg",
+     "y": 420,
+     "largura": 900
+    }
+   },
+   {
+    "foto": "dsc08925.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Quer um curso que te ensina\nsobre tudo isso e te dá toda a\nbase pra 2ª fase?",
+      "cor": "ciano",
+      "y": 820,
+      "tam": 62
+     },
+     {
+      "texto": "Comente #OAB que eu te\nmando o link no direct",
+      "cor": "noite",
+      "y": 1110,
+      "tam": 65
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "estrutura-mandado-de-seguranca",
+  "titulo": "Vamos montar a estrutura do Mandado de Segurança?",
+  "slides": [
+   {
+    "foto": "dsc08914.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Vamos montar a\nESTRUTURA da peça de\nMandado de Segurança?",
+      "cor": "lilas",
+      "y": 960,
+      "tam": 75
+     }
+    ]
+   },
+   {
+    "foto": "dsc08920.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Endereçamento e fatos",
+      "cor": "lilas",
+      "y": 1120
+     }
+    ]
+   },
+   {
+    "foto": "dsc08922.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Atenção na legitimidade\npra não fazer pequena",
+      "cor": "branco",
+      "y": 1060
+     }
+    ]
+   },
+   {
+    "foto": "dsc08928.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Apenas quando couber no\ncontexto do enunciado",
+      "cor": "branco",
+      "y": 1060
+     }
+    ]
+   },
+   {
+    "foto": "dsc08842.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Tópicos essenciais do MS\n+ fundamentação",
+      "cor": "lilas",
+      "y": 1060
+     }
+    ]
+   },
+   {
+    "foto": "dsc08859.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "A banca geralmente cobra uns 3.\nMas colocamos todos que podem\ncair por precaução.",
+      "cor": "branco",
+      "y": 960,
+      "tam": 60
+     },
+     {
+      "texto": "P.s estão todos na lei do MS",
+      "cor": "lilas",
+      "y": 1190,
+      "tam": 62
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "habeas-data-estrutura",
+  "titulo": "Vamos fazer um Habeas Data?",
+  "slides": [
+   {
+    "foto": "dsc08888.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Vamos fazer um Habeas Data?",
+      "cor": "branco",
+      "y": 1010,
+      "tam": 68
+     },
+     {
+      "texto": "Estrutura da Peça",
+      "cor": "bege",
+      "y": 1130
+     }
+    ]
+   },
+   {
+    "foto": "dsc08713.jpg",
+    "fotoPos": "center 20%",
+    "blocos": [
+     {
+      "texto": "Sabe onde você aprende todas as\npeças DO ZERO? No Método VDE",
+      "cor": "branco",
+      "y": 980,
+      "tam": 62
+     },
+     {
+      "texto": "Comente #VDE que eu te mando o link",
+      "cor": "verde",
+      "y": 1160,
+      "tam": 57
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "pontuacao-segunda-fase",
+  "titulo": "Pontuação da 2ª fase",
+  "slides": [
+   {
+    "foto": "viagem-87.jpg",
+    "blocos": [
+     {
+      "texto": "Pontuação",
+      "cor": "marrom",
+      "y": 280,
+      "tam": 94
+     },
+     {
+      "texto": "A peça vale 5,0 e as questões\ntotalizam 5,0",
+      "cor": "branco",
+      "y": 560
+     },
+     {
+      "texto": "Para passar você precisa de\n6,0. Ou seja, é preciso focar\nem ambas.",
+      "cor": "rosa",
+      "y": 820
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "por-que-constitucional-2a-fase",
+  "titulo": "Por que fazer Constitucional na 2ª fase",
+  "slides": [
+   {
+    "foto": "viagem-07.jpg",
+    "fotoPos": "center 30%",
+    "blocos": [
+     {
+      "texto": "Por que você deveria fazer\nConstitucional na 2ª fase\nda OAB",
+      "cor": "bege",
+      "y": 930
+     },
+     {
+      "texto": "8 motivos 👇",
+      "cor": "branco",
+      "y": 1200
+     }
+    ]
+   },
+   {
+    "foto": "viagem-54.jpg",
+    "blocos": [
+     {
+      "texto": "1. É a matéria que\nmais aprova.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Foi a disciplina com maior índice\nde aprovação no último dado\noficial da OAB.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-30.jpg",
+    "blocos": [
+     {
+      "texto": "2. Menos conteúdo\npra decorar.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "A Constituição tem muito menos\ntemas do que outros códigos\ngigantes (CPC, CPP, CLT...).",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-59.jpg",
+    "blocos": [
+     {
+      "texto": "3. As respostas estão\nna própria Constituição.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Você resolve boa parte da prova\ncom o Vade Mecum aberto só na CF.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-29.jpg",
+    "blocos": [
+     {
+      "texto": "4. Peças fáceis\nde identificar.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Ações como ADI, ADPF, MS são\ndiferentes e fáceis de reconhecer.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-46.jpg",
+    "blocos": [
+     {
+      "texto": "5. Estrutura de peça\nsem mistério.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Segue a mesma lógica de uma\npetição inicial: endereçamento,\nfatos, fundamentos e pedidos.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-47.jpg",
+    "blocos": [
+     {
+      "texto": "6. Tem muita peça com\nlei específica.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Mandado de Segurança, Ação Popular,\nHabeas Data... todas com lei que\nguia o passo a passo.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-93.jpg",
+    "blocos": [
+     {
+      "texto": "7. Nos últimos 10 exames, todas\nas questões tinham respostas na\nConstituição/lei das peças.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 68
+     },
+     {
+      "texto": "A cobrança é mais focada em\nprincípios e normas constitucionais,\nacessíveis no próprio texto.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-64.jpg",
+    "blocos": [
+     {
+      "texto": "8. Facilita a argumentação\nna hora da prova.",
+      "cor": "preto",
+      "y": 300,
+      "tam": 76
+     },
+     {
+      "texto": "Os temas são amplos, permitindo\nraciocínio lógico com base\nem princípios.",
+      "cor": "branco",
+      "y": 720,
+      "tam": 62
+     }
+    ]
+   },
+   {
+    "foto": "viagem-56.jpg",
+    "fotoPos": "center 30%",
+    "blocos": [
+     {
+      "texto": "Ficou balançado(a)?",
+      "cor": "branco",
+      "y": 880
+     },
+     {
+      "texto": "Se quiser acessar o site com\ndados e motivos comente\n#CONSTITUCIONAL",
+      "cor": "verde",
+      "y": 1040,
+      "tam": 64
+     }
+    ]
+   }
+  ]
+ }
 ]
