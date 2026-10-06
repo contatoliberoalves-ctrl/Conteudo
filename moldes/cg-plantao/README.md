@@ -11,5 +11,6 @@ Slides comuns (cg-comum): `texto` (texto, artigo) · `destaque` (`grande`: núme
 Fotos do autor (fora do git): `fotos/` do molde, `../carrossel-libero/fotos` ou `../carrossel-explicativo/fotos`.
 
 ## Tipos próprios
-- `capa`: `selo` (padrão "PLANTÃO CONSTITUCIONAL"), `titulo` (cada linha numa faixa verde), `pergunta` (pílula), `fotos` (1 ou 2 recortes PNG sem fundo das autoridades, em `fotos/`: saem em preto e branco; `alturaFotos`) ou `icone` (`congresso`, `stf`, `planalto`) quando não houver foto.
+- `capa`: `selo` (padrão "PLANTÃO CONSTITUCIONAL"), `titulo` (cada linha numa faixa verde), `pergunta` (pílula), `fotos` (1 ou 2 recortes PNG sem fundo das autoridades, em `fotos/`: saem em preto e branco; `alturaFotos`) ou `icone` (`congresso`, `stf`, `planalto`, `cpi`, `relogio`, `escudo`, `sirene`, `passaporte`) quando não houver foto; `fundo` (imagem em `fotos/`, ex.: arte de IA, com `fundoPos`) vira o fundo da capa, escurecido e puxado para o verde. Prompts prontos em `PROMPTS-CAPAS.md`.
 - `linha`: passos ligados por uma linha (`itens`: [{`titulo`, `texto`, `artigo`, `n`}], `atual` acende um passo).
+- `versus`: comparação em duas colunas (`lados`: [a, b]; `linhas`: [[critério, a, b]]).

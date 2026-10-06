@@ -4,12 +4,73 @@
     "titulo": "Presidente do Senado: como funciona a escolha?",
     "tema": "Eleição das Mesas (art. 57, §4º), recondução (STF, ADI 6524) e funções do Presidente do Senado",
     "slides": [
-      { "tipo": "capa", "tema": "verde", "icone": "congresso", "titulo": ["Presidente do", "Senado Federal"], "pergunta": "Como funciona o **processo de escolha**?" },
-      { "tipo": "destaque", "tema": "gelo", "kicker": "Quem escolhe?", "grande": "81 votos", "titulo": ["Os próprios {{senadores}}"], "texto": "O Presidente do Senado é eleito **pelos colegas**, em sessão preparatória, junto com o resto da Mesa. Não há voto popular para o cargo.", "artigo": "Art. 57, §4º, CF/88" },
-      { "tipo": "lei", "tema": "verde", "kicker": "O que diz a Constituição", "titulo": ["Art. 57, §4º"], "citacao": "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente.", "fonte": "Constituição Federal", "traducao": "Traduzindo: **mandato de 2 anos** e, em regra, **sem reeleição seguida** para o mesmo cargo." },
-      { "tipo": "pegadinha", "tema": "gelo", "titulo": ["E a reeleição?"], "texto": ["Dentro da **mesma legislatura**, não pode: o STF confirmou a vedação da recondução.", "Mas, numa **legislatura nova**, a reeleição para o mesmo cargo é permitida."], "artigo": "STF, ADI 6524" },
-      { "tipo": "lista", "tema": "verde", "kicker": "E o que ele faz?", "titulo": ["Muito além do {{Senado}}"], "itens": ["Preside a **Mesa do Congresso Nacional** (art. 57, §5º)", "É o **3º na linha sucessória** do Presidente da República (art. 80)", "Integra o **Conselho da República** (art. 89, III)", "Integra o **Conselho de Defesa Nacional** (art. 91, III)"] },
-      { "tipo": "cta", "tema": "gelo", "titulo": ["Cai na {{OAB}}?"], "texto": "Mesa, mandato e linha sucessória aparecem direto na 1ª fase. Salva e manda pra quem estuda com você.", "botao": "Salvar pra revisar" }
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "congresso",
+        "titulo": [
+          "Presidente do",
+          "Senado Federal"
+        ],
+        "pergunta": "Como funciona o **processo de escolha**?"
+      },
+      {
+        "tipo": "destaque",
+        "tema": "gelo",
+        "kicker": "Quem escolhe?",
+        "grande": "81 votos",
+        "titulo": [
+          "Os próprios {{senadores}}"
+        ],
+        "texto": "O Presidente do Senado é eleito **pelos colegas**, em sessão preparatória, junto com o resto da Mesa. Não há voto popular para o cargo.",
+        "artigo": "Art. 57, §4º, CF/88"
+      },
+      {
+        "tipo": "lei",
+        "tema": "verde",
+        "kicker": "O que diz a Constituição",
+        "titulo": [
+          "Art. 57, §4º"
+        ],
+        "citacao": "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente.",
+        "fonte": "Constituição Federal",
+        "traducao": "Traduzindo: **mandato de 2 anos** e, em regra, **sem reeleição seguida** para o mesmo cargo."
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "gelo",
+        "titulo": [
+          "E a reeleição?"
+        ],
+        "texto": [
+          "Dentro da **mesma legislatura**, não pode: o STF confirmou a vedação da recondução.",
+          "Mas, numa **legislatura nova**, a reeleição para o mesmo cargo é permitida."
+        ],
+        "artigo": "STF, ADI 6524"
+      },
+      {
+        "tipo": "lista",
+        "tema": "verde",
+        "kicker": "E o que ele faz?",
+        "titulo": [
+          "Muito além do {{Senado}}"
+        ],
+        "itens": [
+          "Preside a **Mesa do Congresso Nacional** (art. 57, §5º)",
+          "É o **3º na linha sucessória** do Presidente da República (art. 80)",
+          "Integra o **Conselho da República** (art. 89, III)",
+          "Integra o **Conselho de Defesa Nacional** (art. 91, III)"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Cai na {{OAB}}?"
+        ],
+        "texto": "Mesa, mandato e linha sucessória aparecem direto na 1ª fase. Salva e manda pra quem estuda com você.",
+        "botao": "Salvar pra revisar"
+      }
     ]
   },
   {
@@ -17,17 +78,528 @@
     "titulo": "O Presidente saiu: quem assume?",
     "tema": "Substituição e sucessão do Presidente da República (arts. 79 a 81)",
     "slides": [
-      { "tipo": "capa", "tema": "verde", "icone": "planalto", "titulo": ["O Presidente saiu.", "Quem assume?"], "pergunta": "A **linha sucessória** em 4 degraus" },
-      { "tipo": "linha", "tema": "gelo", "kicker": "Arts. 79 e 80", "titulo": ["A ordem de {{chamada}}"], "itens": [
-        { "titulo": "Vice-Presidente", "texto": "Substitui nos impedimentos e **sucede** na vaga.", "artigo": "Art. 79" },
-        { "titulo": "Presidente da Câmara", "texto": "Assume se Presidente e Vice estiverem impedidos ou os cargos vagos.", "artigo": "Art. 80" },
-        { "titulo": "Presidente do Senado", "texto": "Vem logo depois do Presidente da Câmara.", "artigo": "Art. 80" },
-        { "titulo": "Presidente do STF", "texto": "O último da lista.", "artigo": "Art. 80" }
-      ] },
-      { "tipo": "destaque", "tema": "verde", "kicker": "Vagaram os dois cargos?", "grande": "90 dias", "titulo": ["Nova eleição {{direta}}"], "texto": "Se Presidente e Vice deixarem os cargos, faz-se eleição **90 dias** depois da última vaga.", "artigo": "Art. 81, caput" },
-      { "tipo": "destaque", "tema": "gelo", "kicker": "E se for no fim do mandato?", "grande": "30 dias", "titulo": ["Eleição {{indireta}}"], "texto": "Nos **últimos 2 anos** do mandato, a eleição é feita **pelo Congresso Nacional**, 30 dias depois da última vaga.", "artigo": "Art. 81, §1º" },
-      { "tipo": "pegadinha", "tema": "verde", "titulo": ["Mandato novo? {{Não.}}"], "texto": ["Quem é eleito nesses casos só **completa o período** de quem saiu.", "E os Presidentes da Câmara, do Senado e do STF apenas **substituem**: nunca sucedem."], "artigo": "Arts. 80 e 81, §2º" },
-      { "tipo": "cta", "tema": "gelo", "titulo": ["Salva essa {{ordem}}"], "texto": "Vice, Câmara, Senado e STF. Manda pra quem sempre troca a ordem na prova.", "botao": "Comenta PLANTÃO" }
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "planalto",
+        "titulo": [
+          "O Presidente saiu.",
+          "Quem assume?"
+        ],
+        "pergunta": "A **linha sucessória** em 4 degraus"
+      },
+      {
+        "tipo": "linha",
+        "tema": "gelo",
+        "kicker": "Arts. 79 e 80",
+        "titulo": [
+          "A ordem de {{chamada}}"
+        ],
+        "itens": [
+          {
+            "titulo": "Vice-Presidente",
+            "texto": "Substitui nos impedimentos e **sucede** na vaga.",
+            "artigo": "Art. 79"
+          },
+          {
+            "titulo": "Presidente da Câmara",
+            "texto": "Assume se Presidente e Vice estiverem impedidos ou os cargos vagos.",
+            "artigo": "Art. 80"
+          },
+          {
+            "titulo": "Presidente do Senado",
+            "texto": "Vem logo depois do Presidente da Câmara.",
+            "artigo": "Art. 80"
+          },
+          {
+            "titulo": "Presidente do STF",
+            "texto": "O último da lista.",
+            "artigo": "Art. 80"
+          }
+        ]
+      },
+      {
+        "tipo": "destaque",
+        "tema": "verde",
+        "kicker": "Vagaram os dois cargos?",
+        "grande": "90 dias",
+        "titulo": [
+          "Nova eleição {{direta}}"
+        ],
+        "texto": "Se Presidente e Vice deixarem os cargos, faz-se eleição **90 dias** depois da última vaga.",
+        "artigo": "Art. 81, caput"
+      },
+      {
+        "tipo": "destaque",
+        "tema": "gelo",
+        "kicker": "E se for no fim do mandato?",
+        "grande": "30 dias",
+        "titulo": [
+          "Eleição {{indireta}}"
+        ],
+        "texto": "Nos **últimos 2 anos** do mandato, a eleição é feita **pelo Congresso Nacional**, 30 dias depois da última vaga.",
+        "artigo": "Art. 81, §1º"
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "Mandato novo? {{Não.}}"
+        ],
+        "texto": [
+          "Quem é eleito nesses casos só **completa o período** de quem saiu.",
+          "E os Presidentes da Câmara, do Senado e do STF apenas **substituem**: nunca sucedem."
+        ],
+        "artigo": "Arts. 80 e 81, §2º"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Salva essa {{ordem}}"
+        ],
+        "texto": "Vice, Câmara, Senado e STF. Manda pra quem sempre troca a ordem na prova.",
+        "botao": "Comenta PLANTÃO"
+      }
+    ]
+  },
+  {
+    "id": "cpi-pode-nao-pode",
+    "titulo": "CPI: o que pode e o que não pode",
+    "tema": "Comissão Parlamentar de Inquérito (art. 58, §3º) e a reserva de jurisdição",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "cpi",
+        "titulo": [
+          "CPI pode",
+          "prender?"
+        ],
+        "pergunta": "O que a CPI **pode** e o que **não pode** fazer"
+      },
+      {
+        "tipo": "lista",
+        "tema": "gelo",
+        "kicker": "Art. 58, §3º",
+        "titulo": [
+          "Pra criar uma {{CPI}}"
+        ],
+        "numerada": true,
+        "itens": [
+          "Requerimento de **1/3** dos membros da Câmara, do Senado ou das duas Casas (CPI mista)",
+          "**Fato determinado**",
+          "**Prazo certo**"
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "verde",
+        "kicker": "O que diz a Constituição",
+        "titulo": [
+          "Poderes de {{juiz}}"
+        ],
+        "citacao": "As comissões parlamentares de inquérito, que terão poderes de investigação próprios das autoridades judiciais, além de outros previstos nos regimentos das respectivas Casas, serão criadas pela Câmara dos Deputados e pelo Senado Federal, em conjunto ou separadamente, mediante requerimento de um terço de seus membros, para a apuração de fato determinado e por prazo certo, sendo suas conclusões, se for o caso, encaminhadas ao Ministério Público, para que promova a responsabilidade civil ou criminal dos infratores.",
+        "fonte": "Art. 58, §3º, CF/88",
+        "corpo": 28
+      },
+      {
+        "tipo": "versus",
+        "tema": "gelo",
+        "kicker": "Reserva de jurisdição",
+        "titulo": [
+          "Pode {{x}} não pode"
+        ],
+        "lados": [
+          "Pode ✓",
+          "Não pode ✗"
+        ],
+        "linhas": [
+          [
+            "Sigilos",
+            "Quebrar sigilo **bancário, fiscal e de dados**, com decisão fundamentada",
+            "**Interceptação telefônica** (escuta): só juiz"
+          ],
+          [
+            "Pessoas",
+            "Ouvir testemunhas e investigados",
+            "**Prender**, salvo em flagrante"
+          ],
+          [
+            "Bens e casa",
+            "Requisitar documentos e informações",
+            "**Busca domiciliar** e **indisponibilidade de bens**"
+          ]
+        ]
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "A CPI {{condena}}?"
+        ],
+        "texto": [
+          "**Não.** A CPI investiga e, se for o caso, manda as conclusões ao **Ministério Público**, que promove a responsabilidade civil ou criminal."
+        ],
+        "artigo": "Art. 58, §3º"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Salva pra {{revisar}}"
+        ],
+        "texto": "1/3, fato determinado e prazo certo. Manda pra quem acha que CPI pode tudo.",
+        "botao": "Comenta PLANTÃO"
+      }
+    ]
+  },
+  {
+    "id": "medida-provisoria-prazos",
+    "titulo": "Medida provisória: os prazos e as proibições",
+    "tema": "Medida provisória (art. 62): 60 + 60 dias, trancamento de pauta, vedações e reedição",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "relogio",
+        "titulo": [
+          "Medida",
+          "provisória"
+        ],
+        "pergunta": "Por que ela **tranca a pauta** do Congresso?"
+      },
+      {
+        "tipo": "destaque",
+        "tema": "gelo",
+        "kicker": "Quanto tempo ela vale?",
+        "grande": "60 + 60",
+        "titulo": [
+          "Até {{120 dias}}"
+        ],
+        "texto": "A MP perde a eficácia se não for convertida em lei em **60 dias**, prorrogáveis **uma vez** por mais 60. O prazo **não corre no recesso**.",
+        "artigo": "Art. 62, §§3º, 4º e 7º"
+      },
+      {
+        "tipo": "destaque",
+        "tema": "verde",
+        "kicker": "Trancamento de pauta",
+        "grande": "45 dias",
+        "titulo": [
+          "Pauta {{trancada}}"
+        ],
+        "texto": "Se não for apreciada em **45 dias**, entra em **regime de urgência** e sobrestão as demais deliberações da Casa em que estiver tramitando.",
+        "artigo": "Art. 62, §6º"
+      },
+      {
+        "tipo": "lista",
+        "tema": "gelo",
+        "kicker": "Art. 62, §1º",
+        "titulo": [
+          "MP {{não}} pode tratar de"
+        ],
+        "corpo": 30,
+        "itens": [
+          "Nacionalidade, cidadania, direitos políticos, partidos e direito eleitoral",
+          "Direito **penal**, processual penal e processual civil",
+          "Organização do Judiciário e do MP, carreira e garantias de seus membros",
+          "Planos plurianuais e orçamento (salvo crédito extraordinário)",
+          "Detenção ou sequestro de bens e poupança",
+          "Matéria reservada a **lei complementar**"
+        ]
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "Pode {{reeditar}}?"
+        ],
+        "texto": [
+          "MP **rejeitada** ou que **perdeu a eficácia** por decurso de prazo **não pode ser reeditada na mesma sessão legislativa**."
+        ],
+        "artigo": "Art. 62, §10"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "60 + 60 {{e 45}}"
+        ],
+        "texto": "Salva os prazos e manda pra quem sempre esquece do recesso.",
+        "botao": "Comenta PLANTÃO"
+      }
+    ]
+  },
+  {
+    "id": "imunidade-parlamentar",
+    "titulo": "Imunidade parlamentar: material x formal",
+    "tema": "Imunidades dos deputados e senadores (art. 53)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "escudo",
+        "titulo": [
+          "Deputado pode",
+          "ser preso?"
+        ],
+        "pergunta": "As **imunidades parlamentares** em 3 regras"
+      },
+      {
+        "tipo": "versus",
+        "tema": "gelo",
+        "kicker": "Art. 53",
+        "titulo": [
+          "Material {{x}} formal"
+        ],
+        "lados": [
+          "Material",
+          "Formal"
+        ],
+        "linhas": [
+          [
+            "O que protege",
+            "**Opiniões, palavras e votos**",
+            "A **prisão** e o **processo**"
+          ],
+          [
+            "Efeito",
+            "Inviolável **civil e penalmente**",
+            "Prisão só em **flagrante de crime inafiançável**"
+          ],
+          [
+            "Onde está",
+            "Art. 53, caput",
+            "Art. 53, §§2º a 5º"
+          ]
+        ]
+      },
+      {
+        "tipo": "destaque",
+        "tema": "verde",
+        "kicker": "Preso em flagrante?",
+        "grande": "24 horas",
+        "titulo": [
+          "A Casa {{decide}}"
+        ],
+        "texto": "Os autos vão em **24 horas** para a Casa, que resolve sobre a prisão pelo voto da **maioria de seus membros**.",
+        "artigo": "Art. 53, §2º"
+      },
+      {
+        "tipo": "texto",
+        "tema": "gelo",
+        "kicker": "Art. 53, §3º",
+        "titulo": [
+          "E o {{processo}}?"
+        ],
+        "texto": [
+          "Recebida a denúncia contra parlamentar por crime ocorrido **após a diplomação**, o STF dá ciência à Casa.",
+          "Por iniciativa de **partido político** nela representado, a Casa pode **sustar o andamento** da ação, pelo voto da maioria de seus membros."
+        ],
+        "artigo": "Art. 53, §§1º e 3º"
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "Desde {{quando}}?"
+        ],
+        "texto": [
+          "As imunidades formais e o foro no STF valem **desde a expedição do diploma**, não desde a posse."
+        ],
+        "artigo": "Art. 53, §§1º e 2º"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Salva essa {{diferença}}"
+        ],
+        "texto": "Material protege a fala. Formal protege da prisão e do processo.",
+        "botao": "Comenta PLANTÃO"
+      }
+    ]
+  },
+  {
+    "id": "estado-defesa-sitio",
+    "titulo": "Estado de defesa x estado de sítio",
+    "tema": "Estados de exceção (arts. 136 a 139): hipóteses, prazos e controle do Congresso",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "sirene",
+        "titulo": [
+          "Defesa ou",
+          "sítio?"
+        ],
+        "pergunta": "A diferença que a banca **adora** cobrar"
+      },
+      {
+        "tipo": "versus",
+        "tema": "gelo",
+        "kicker": "Arts. 136 a 139",
+        "titulo": [
+          "Lado a {{lado}}"
+        ],
+        "corpo": 27,
+        "lados": [
+          "Defesa",
+          "Sítio"
+        ],
+        "linhas": [
+          [
+            "Congresso",
+            "Decreta e **depois** submete ao Congresso em 24 h",
+            "Precisa de **autorização prévia** do Congresso"
+          ],
+          [
+            "Quórum",
+            "Maioria absoluta (aprova o decreto)",
+            "Maioria absoluta (autoriza)"
+          ],
+          [
+            "Prazo",
+            "Até **30 dias**, prorrogável **uma vez**",
+            "Até **30 dias** por vez; na guerra, enquanto ela durar"
+          ],
+          [
+            "Lugar",
+            "Locais **restritos e determinados**",
+            "Pode ser nacional"
+          ]
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "verde",
+        "kicker": "Quando cabe",
+        "titulo": [
+          "As {{hipóteses}}"
+        ],
+        "corpo": 30,
+        "itens": [
+          "**Defesa:** ordem pública ou paz social ameaçadas por grave instabilidade institucional ou atingidas por calamidades de grandes proporções na natureza (art. 136)",
+          "**Sítio, I:** comoção grave de repercussão nacional ou ineficácia do estado de defesa (art. 137, I)",
+          "**Sítio, II:** declaração de estado de guerra ou resposta a agressão armada estrangeira (art. 137, II)"
+        ]
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "gelo",
+        "titulo": [
+          "Quem é {{ouvido}}?"
+        ],
+        "texto": [
+          "Nos dois casos, o Presidente ouve o **Conselho da República** e o **Conselho de Defesa Nacional**, mas a opinião deles **não vincula**."
+        ],
+        "artigo": "Arts. 136 e 137"
+      },
+      {
+        "tipo": "cta",
+        "tema": "verde",
+        "titulo": [
+          "Defesa: {{depois}}.",
+          "Sítio: {{antes}}."
+        ],
+        "texto": "É o controle do Congresso. Salva e manda pra quem troca os dois.",
+        "botao": "Comenta PLANTÃO"
+      }
+    ]
+  },
+  {
+    "id": "nato-x-naturalizado",
+    "titulo": "Brasileiro nato x naturalizado",
+    "tema": "Diferenças permitidas pela CF entre natos e naturalizados (arts. 5º, LI; 12, §§2º e 3º; 89, VII; 222)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "icone": "passaporte",
+        "titulo": [
+          "Nato x",
+          "naturalizado"
+        ],
+        "pergunta": "Só a **Constituição** pode diferenciar"
+      },
+      {
+        "tipo": "lei",
+        "tema": "gelo",
+        "kicker": "A regra",
+        "titulo": [
+          "Art. 12, §2º"
+        ],
+        "citacao": "A lei não poderá estabelecer distinção entre brasileiros natos e naturalizados, salvo nos casos previstos nesta Constituição.",
+        "fonte": "Constituição Federal",
+        "traducao": "Traduzindo: as diferenças são **só as da CF**. As principais estão nos próximos slides."
+      },
+      {
+        "tipo": "lista",
+        "tema": "verde",
+        "kicker": "Art. 12, §3º",
+        "titulo": [
+          "Cargos {{só}} de nato"
+        ],
+        "corpo": 30,
+        "itens": [
+          "Presidente e Vice-Presidente da República",
+          "Presidente da Câmara e Presidente do Senado",
+          "Ministro do STF",
+          "Carreira diplomática",
+          "Oficial das Forças Armadas",
+          "Ministro de Estado da Defesa"
+        ]
+      },
+      {
+        "tipo": "versus",
+        "tema": "gelo",
+        "kicker": "Outras diferenças",
+        "titulo": [
+          "Nato {{x}} naturalizado"
+        ],
+        "corpo": 27,
+        "lados": [
+          "Nato",
+          "Naturalizado"
+        ],
+        "linhas": [
+          [
+            "Extradição",
+            "**Nunca**",
+            "Por crime comum **antes** da naturalização ou tráfico de drogas"
+          ],
+          [
+            "Conselho da República",
+            "Tem **6 cidadãos natos**",
+            "Não ocupa essas vagas"
+          ],
+          [
+            "Empresa jornalística",
+            "Pode ser dono",
+            "Só se naturalizado **há mais de 10 anos**"
+          ]
+        ]
+      },
+      {
+        "tipo": "pegadinha",
+        "tema": "verde",
+        "titulo": [
+          "Senador {{naturalizado}}?"
+        ],
+        "texto": [
+          "**Pode.** Ser senador ou deputado não é privativo de nato. Só a **presidência** das Casas é."
+        ],
+        "artigo": "Art. 12, §3º, II e III"
+      },
+      {
+        "tipo": "cta",
+        "tema": "gelo",
+        "titulo": [
+          "Salva essa {{lista}}"
+        ],
+        "texto": "Manda pra quem acha que naturalizado não pode ser parlamentar.",
+        "botao": "Comenta PLANTÃO"
+      }
     ]
   }
 ]
