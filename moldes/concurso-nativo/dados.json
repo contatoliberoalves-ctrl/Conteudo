@@ -183,21 +183,23 @@
         "tom": 0.12,
         "elementos": [
           {
-            "texto": "Como eu estudei para\no concurso de cartórios?",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 100,
-            "tam": 66
-          },
-          {
             "tipo": "enquete",
             "pergunta": "Já pensou em cartório?",
             "opcoes": [
               "Sim",
               "Ainda não"
             ],
-            "y": 930,
-            "largura": 500
+            "y": 90,
+            "largura": 500,
+            "lado": "direita",
+            "escala": 0.68
+          },
+          {
+            "texto": "Como eu estudei para\no concurso de cartórios?",
+            "estilo": "forte",
+            "cor": "amarelo",
+            "y": 800,
+            "tam": 70
           }
         ]
       },
@@ -234,7 +236,7 @@
             "tam": 80
           },
           {
-            "texto": "Estudar em modo treino:\nresolver, errar, corrigir\ne voltar a resolver.",
+            "texto": "Foquei em modo treino:\nresolver, errar, corrigir\ne voltar a resolver.",
             "cor": "branco",
             "y": 920,
             "tam": 46

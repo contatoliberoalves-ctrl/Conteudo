@@ -4,7 +4,7 @@
 // (enquete, quiz, caixa de perguntas, link e menção).
 //
 // Slide: { foto, fotoPos, escurecer, tom (véu verde 0–1), elementos: [...] }
-// Elemento (todos têm "y": px do topo, ou "topo" | "meio" | "base"; "largura" opcional):
+// Elemento (todos têm "y": px do topo, ou "topo" | "meio" | "base"; "largura", "lado" e "escala" opcionais):
 //   texto    { texto ("\n" quebra), estilo: "maquina" | "forte", cor, tam }
 //   enquete  { pergunta, opcoes: [a, b], votos?: [%, %] }
 //   quiz     { pergunta, opcoes: [...], certa (0 = A), revelar?: true }
@@ -26,7 +26,13 @@ const FORTE = "font-family:'Anton','Noto Color Emoji',sans-serif;font-weight:400
 const UI = "font-family:'Inter','Noto Color Emoji',sans-serif";
 const GRAD = 'linear-gradient(120deg,#2E1A7A 0%,#1F8F7F 60%,#F5C53D 100%)';
 const yDe = e => typeof e.y === 'number' ? e.y : POS[e.y] ?? POS.meio;
-const caixa = (e, html) => `<div data-bloco style="position:absolute;left:0;right:0;top:${yDe(e)}px;display:flex;justify-content:center;z-index:3">${html}</div>`;
+// "lado": "esquerda" | "direita" encosta o elemento na margem; "escala" (ex.: 0.7) diminui a figurinha.
+const LADO = { esquerda: ['flex-start', 'top left'], direita: ['flex-end', 'top right'] };
+const caixa = (e, html) => {
+  const [jc, origem] = LADO[e.lado] || ['center', 'top center'];
+  const esc = e.escala && e.escala !== 1;
+  return `<div data-bloco style="position:absolute;left:0;right:0;top:${yDe(e)}px;padding:0 60px;display:flex;justify-content:${jc};z-index:3${esc ? `;height:0` : ''}">${esc ? `<div style="transform:scale(${e.escala});transform-origin:${origem}">${html}</div>` : html}</div>`;
+};
 const sombra = 'box-shadow:0 14px 34px rgba(0,0,0,.28)';
 
 const ELEMENTOS = {
@@ -36,7 +42,7 @@ const ELEMENTOS = {
     const forte = e.estilo === 'forte';
     const tam = e.tam || (forte ? 96 : 54);
     const linhas = esc(e.texto).replace(/\*\*(.+?)\*\*/g, '$1').split('\n');
-    return caixa(e, `<div style="max-width:${e.largura || 960}px;text-align:center;${forte ? FORTE : MAQ};font-size:${tam}px;line-height:${forte ? 1.12 : 1.3};${forte ? 'transform:rotate(-2deg)' : ''}">
+    return caixa(e, `<div style="max-width:${e.largura || 960}px;text-align:center;${forte ? FORTE : MAQ};font-size:${tam}px;line-height:${forte ? 1.24 : 1.3};${forte ? 'transform:rotate(-2deg)' : ''}">
       ${linhas.map(l => `<span style="background:${bg};color:${fg};padding:${forte ? '.04em .3em 0' : '.1em .36em .12em'};border-radius:${forte ? '.08em' : '.14em'};box-decoration-break:clone;-webkit-box-decoration-break:clone">${l}</span>`).join('<br>')}</div>`);
   },
   // Enquete: cartão branco, pergunta e duas opções (com % se houver "votos").
