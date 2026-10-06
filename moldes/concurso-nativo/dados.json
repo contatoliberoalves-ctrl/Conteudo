@@ -1,0 +1,213 @@
+[
+  {
+    "id": "pode-acumular-cargos",
+    "titulo": "Pode acumular dois cargos públicos?",
+    "slides": [
+      {
+        "foto": "viagem-02.jpg",
+        "fotoPos": "center 25%",
+        "tom": 0.15,
+        "elementos": [
+          {
+            "texto": "Pode acumular dois\ncargos públicos?",
+            "estilo": "forte",
+            "cor": "amarelo",
+            "y": 800,
+            "tam": 74
+          },
+          {
+            "tipo": "enquete",
+            "pergunta": "O que você acha?",
+            "opcoes": [
+              "Pode",
+              "Não pode"
+            ],
+            "y": 990,
+            "largura": 500
+          }
+        ]
+      },
+      {
+        "foto": "viagem-63.jpg",
+        "fotoPos": "center 30%",
+        "escurecer": 0.15,
+        "elementos": [
+          {
+            "texto": "A regra:",
+            "estilo": "forte",
+            "cor": "escuro",
+            "y": 120,
+            "tam": 80
+          },
+          {
+            "texto": "É vedada a acumulação\nremunerada de cargos\npúblicos, exceto quando\nhouver compatibilidade\nde horários.",
+            "cor": "branco",
+            "y": 280,
+            "tam": 48
+          },
+          {
+            "texto": "Art. 37, XVI, CF/88",
+            "cor": "verde",
+            "y": 650,
+            "tam": 40
+          }
+        ]
+      },
+      {
+        "foto": "viagem-27.jpg",
+        "escurecer": 0.2,
+        "elementos": [
+          {
+            "texto": "As 3 exceções",
+            "estilo": "forte",
+            "cor": "amarelo",
+            "y": 130,
+            "tam": 86
+          },
+          {
+            "texto": "a) dois cargos de professor",
+            "cor": "branco",
+            "y": 330,
+            "tam": 44
+          },
+          {
+            "texto": "b) um de professor com outro\ntécnico ou científico",
+            "cor": "branco",
+            "y": 460,
+            "tam": 44
+          },
+          {
+            "texto": "c) dois cargos ou empregos de\nprofissionais de saúde, com\nprofissões regulamentadas",
+            "cor": "branco",
+            "y": 640,
+            "tam": 44
+          },
+          {
+            "texto": "Sempre com compatibilidade\nde horários",
+            "cor": "escuro",
+            "y": 900,
+            "tam": 46
+          }
+        ]
+      },
+      {
+        "foto": "viagem-14.jpg",
+        "fotoPos": "center 20%",
+        "elementos": [
+          {
+            "tipo": "quiz",
+            "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+            "opcoes": [
+              "Pode",
+              "Não pode"
+            ],
+            "certa": 0,
+            "y": 640
+          }
+        ]
+      },
+      {
+        "foto": "viagem-14.jpg",
+        "fotoPos": "center 20%",
+        "elementos": [
+          {
+            "tipo": "quiz",
+            "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+            "opcoes": [
+              "Pode",
+              "Não pode"
+            ],
+            "certa": 0,
+            "revelar": true,
+            "y": 640
+          },
+          {
+            "texto": "Profissional de saúde com\nprofissão regulamentada: alínea c",
+            "cor": "escuro",
+            "y": 1110,
+            "tam": 40
+          }
+        ]
+      },
+      {
+        "foto": "viagem-80.jpg",
+        "fotoPos": "center 30%",
+        "escurecer": 0.15,
+        "elementos": [
+          {
+            "texto": "Pegadinha",
+            "estilo": "forte",
+            "cor": "vermelho",
+            "y": 120,
+            "tam": 84
+          },
+          {
+            "texto": "A proibição vale também\npara empregos e funções\nem autarquias, fundações,\nempresas públicas e\nsociedades de economia mista.",
+            "cor": "branco",
+            "y": 290,
+            "tam": 46
+          },
+          {
+            "texto": "Art. 37, XVII, CF/88",
+            "cor": "verde",
+            "y": 700,
+            "tam": 40
+          }
+        ]
+      },
+      {
+        "foto": "viagem-53.jpg",
+        "fotoPos": "center 25%",
+        "elementos": [
+          {
+            "tipo": "pergunta",
+            "titulo": "Ficou alguma dúvida sobre acumulação?",
+            "y": 700,
+            "largura": 660
+          },
+          {
+            "tipo": "mencao",
+            "y": 1100
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quiz-validade-concurso",
+    "titulo": "Quiz: validade do concurso (post único)",
+    "slides": [
+      {
+        "foto": "img-3160.jpg",
+        "fotoPos": "center 20%",
+        "tom": 0.2,
+        "elementos": [
+          {
+            "texto": "Cai em toda prova",
+            "estilo": "forte",
+            "cor": "amarelo",
+            "y": 90,
+            "tam": 80
+          },
+          {
+            "tipo": "quiz",
+            "pergunta": "Qual é o prazo de validade do concurso público?",
+            "opcoes": [
+              "Até 1 ano, improrrogável",
+              "Até 2 anos, prorrogável uma vez por igual período",
+              "Até 4 anos, improrrogável"
+            ],
+            "certa": 1,
+            "y": 740,
+            "largura": 800
+          },
+          {
+            "tipo": "link",
+            "texto": "Gabarito: art. 37, III",
+            "y": 1200
+          }
+        ]
+      }
+    ]
+  }
+]
