@@ -23,7 +23,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `lista` | `titulo`, `itens`, `marcador` (`"num"`, `"romano"` ou `"letra"`), `inicio` (continua a contagem: `1` começa em 02/II/b) |
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
-| `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita), `print` (opcional: print de tela em `fotos/`, ex.: o botão "Assinar" do perfil) e `destaque` (`[x, y, largura, altura]` em % do print: anel vermelho em volta do ponto) |
+| `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita), `print` (opcional: print de tela em `fotos/`, ex.: o botão "Assinar" do perfil) e `destaque` (`[x, y, largura, altura]` em % do print: anel vermelho em volta do ponto) e `centro` (`true`: título, texto e botão centralizados, sem foto) |
 
 ## Estilos de capa
 

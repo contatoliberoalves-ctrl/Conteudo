@@ -3423,14 +3423,14 @@
     "pontes": [
       {
         "img": "ballot_box_with_ballot.png",
-        "entre": 3,
+        "entre": 4,
         "y": 880,
         "tam": 300,
         "rot": -8
       },
       {
         "img": "abacus.png",
-        "entre": 5,
+        "entre": 9,
         "y": 230,
         "tam": 300,
         "rot": 8
@@ -3482,44 +3482,83 @@
         "itens": [
           "**Douglas Ruas (PL):** 49,27% dos votos válidos",
           "**Eduardo Paes (PSD):** 42,76%",
-          "**Garotinho (Republicanos):** 3,17%, ou **274.411 votos**"
-        ]
-      },
-      {
-        "tipo": "texto",
-        "tema": "light",
-        "kicker": "O detalhe",
-        "titulo": [
-          "Candidatura negada,",
-          "mas na urna"
-        ],
-        "palavra": "SUB JUDICE",
-        "texto": [
-          "O TRE-RJ **indeferiu** a candidatura de Garotinho: os direitos políticos dele estão suspensos por condenação por improbidade.",
-          "Ele recorreu e ficou na urna. Os votos foram contados, mas ficaram **pendurados**, esperando a decisão final."
+          "**Garotinho (Republicanos):** 3,17%, ou **274.411 votos**",
+          "Ruas ficou a **menos de 1 ponto** de levar no 1º turno"
         ]
       },
       {
         "tipo": "lei",
-        "tema": "dark",
-        "kicker": "Art. 16-A, Lei 9.504/97",
+        "tema": "light",
+        "kicker": "Art. 77, § 2º, c/c art. 28, CF",
         "titulo": [
-          "A regra"
+          "A regra dos 50%"
         ],
-        "citacao": "O candidato cujo registro esteja sub judice poderá efetuar todos os atos relativos à campanha eleitoral, inclusive utilizar o horário eleitoral gratuito no rádio e na televisão e ter seu nome mantido na urna eletrônica enquanto estiver sob essa condição, ficando a validade dos votos a ele atribuídos condicionada ao deferimento de seu registro por instância superior.",
-        "traducao": "Traduzindo: **pode fazer campanha e aparecer na urna**, mas os votos **só valem se o registro for deferido**."
+        "citacao": "Será considerado eleito Presidente o candidato que, registrado por partido político, obtiver a maioria absoluta de votos, não computados os em branco e os nulos.",
+        "traducao": "Traduzindo: para ganhar no 1º turno, precisa de **mais da metade dos votos válidos**. Branco e nulo **não entram na conta**."
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "O problema",
+        "titulo": [
+          "Candidatura",
+          "negada"
+        ],
+        "palavra": "INDEFERIDO",
+        "texto": [
+          "O TRE-RJ **indeferiu** o registro de Garotinho: os direitos políticos dele estão **suspensos** por condenação por improbidade.",
+          "Com o registro negado, os votos nele **não valem**. Mas aí veio o detalhe..."
+        ]
       },
       {
         "tipo": "texto",
         "tema": "blue",
-        "kicker": "A reviravolta",
+        "kicker": "Então por que ele estava na urna?",
         "titulo": [
-          "Ele desistiu",
-          "do recurso"
+          "A urna já",
+          "estava fechada"
         ],
         "texto": [
-          "Em 5 de outubro, um dia depois da eleição, Garotinho **desistiu do recurso** no TSE.",
-          "Sem recurso, o indeferimento fica valendo e os 274 mil votos viram **nulos** (art. 175, § 3º, do Código Eleitoral)."
+          "A decisão do TRE-RJ saiu **depois** que o sistema das urnas já tinha sido fechado. Por isso o nome dele **continuou lá**.",
+          "E mais de 274 mil eleitores digitaram o número dele."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "Art. 16-A, Lei 9.504/97",
+        "titulo": [
+          "Voto sob condição"
+        ],
+        "citacao": "O candidato cujo registro esteja sub judice poderá efetuar todos os atos relativos à campanha eleitoral, inclusive utilizar o horário eleitoral gratuito no rádio e na televisão e ter seu nome mantido na urna eletrônica enquanto estiver sob essa condição, ficando a validade dos votos a ele atribuídos condicionada ao deferimento de seu registro por instância superior.",
+        "traducao": "Traduzindo: os votos de quem está com o registro em discussão **só valem se o registro for deferido** no fim."
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "A sequência",
+        "titulo": [
+          "TSE, recurso",
+          "e desistência"
+        ],
+        "texto": [
+          "**2 de outubro:** um ministro do TSE decidiu que os votos dados a Garotinho seriam **anulados**.",
+          "**4 de outubro:** eleição. O resultado oficial mostrou Ruas com 49,27% e 2º turno marcado.",
+          "**5 de outubro:** Garotinho **desistiu do recurso** contra o indeferimento."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "O que isso muda",
+        "titulo": [
+          "Os votos",
+          "viram nulos"
+        ],
+        "palavra": "NULO",
+        "texto": [
+          "Sem recurso, o indeferimento fica valendo. Os 274.411 votos são **nulos** (art. 175, § 3º, do Código Eleitoral).",
+          "E voto nulo, como você viu na regra dos 50%, **sai da conta** dos válidos."
         ]
       },
       {
@@ -3527,39 +3566,47 @@
         "tema": "light",
         "kicker": "Agora faz a conta",
         "titulo": [
-          "Menos votos válidos"
+          "Ruas passa",
+          "dos 50%"
         ],
         "marcador": "num",
         "itens": [
-          "Os votos de Garotinho **saem da conta** dos válidos",
-          "Os votos de Ruas continuam os mesmos, só que divididos por um total menor",
-          "Ruas passa de 49,27% para cerca de **50,9%**",
-          "Mais da metade dos válidos = **eleito no 1º turno** (art. 28 c/c art. 77, § 2º, CF)"
+          "Válidos antes: cerca de **8,67 milhões**",
+          "Tirando os 274 mil de Garotinho: cerca de **8,39 milhões**",
+          "Ruas tem os mesmos **4,27 milhões** de votos",
+          "4,27 ÷ 8,39 = **50,9%**: mais da metade"
         ]
       },
       {
         "tipo": "texto",
         "tema": "dark",
-        "kicker": "E o Paes?",
+        "kicker": "E agora?",
         "titulo": [
-          "Pode ficar",
-          "sem 2º turno"
+          "Dois cenários"
         ],
-        "palavra": "NULO",
         "texto": [
-          "Se a Justiça Eleitoral confirmar o novo cálculo, **não tem 2º turno**: Ruas é declarado eleito.",
-          "Lembra do post de voto nulo? Aqui o nulo **não foi escolha do eleitor**. Foi o voto dado a um candidato com registro negado."
+          "**Se a Justiça Eleitoral confirmar o novo cálculo:** Ruas é declarado eleito no 1º turno e **não tem 2º turno**.",
+          "**Se não confirmar:** Ruas e Paes voltam às urnas em **25 de outubro**.",
+          "Até a publicação deste post, a proclamação oficial ainda não tinha saído."
         ]
       },
       {
-        "tipo": "cta",
+        "tipo": "impacto",
         "tema": "blue",
-        "foto": "etica-23.jpg",
+        "titulo": "Ninguém anulou o voto. Mas 274 mil votos viraram nulos.",
+        "sub": "Aqui o nulo não foi escolha do eleitor: foi o voto dado a um candidato sem registro."
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "centro": true,
         "titulo": [
           "E aí?"
         ],
-        "texto": "Quem votou no Garotinho perdeu o voto. Você acha justo? Manda pra quem é do Rio.",
-        "botao": "Comenta aqui!"
+        "texto": "O que você acha que vai acontecer?",
+        "botao": "Comenta aqui!",
+        "corpo": 54,
+        "ts": 200
       }
     ]
   }

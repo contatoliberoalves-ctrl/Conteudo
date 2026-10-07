@@ -337,9 +337,11 @@ const TIPOS = {
   cta(s, t, c) {
     const [bg, fg] = t === TEMAS.blue ? [COR.off, COR.azul] : [COR.azul, '#fff'];
     const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:cover;object-position:center top"></div>` : '';
+    // "centro": true centraliza título, texto e botão (CTA sem foto).
+    const meio = s.centro && !s.foto;
     return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, s.foto ? 96 : 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}
-      ${s.botao ? `<span style="align-self:flex-start;background:${bg};color:${fg};border-radius:40px 40px 40px 0;padding:22px 40px;font-size:36px;font-weight:800;white-space:nowrap">${esc(s.botao)}</span>` : ''}
-      ${s.print ? printCta(foto(c, s.print), s.destaque) : ''}`, 110, s.foto ? 490 : 110)}`;
+      ${s.botao ? `<span style="align-self:${meio ? 'center' : 'flex-start'};background:${bg};color:${fg};border-radius:40px 40px 40px 0;padding:22px 40px;font-size:36px;font-weight:800;white-space:nowrap">${esc(s.botao)}</span>` : ''}
+      ${s.print ? printCta(foto(c, s.print), s.destaque) : ''}`, 110, s.foto ? 490 : 110, meio ? ';align-items:center;text-align:center' : '')}`;
   },
 };
 
