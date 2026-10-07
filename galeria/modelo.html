@@ -112,7 +112,14 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 .slides figure{margin:0;flex:0 0 auto;width:min(calc((100vw - 2*clamp(16px,3vw,40px) - 24px)/3),calc((100dvh - 200px)*.8));scroll-snap-align:center;display:flex;flex-direction:column;gap:8px}
 @media (max-width:760px){.slides figure{width:min(82vw,calc((100dvh - 220px)*.8))}}
 .slides .quadro{display:block;width:100%;aspect-ratio:4/5;border-radius:8px;background-color:#222;background-repeat:no-repeat}
-.slides figcaption{font-size:12px;color:#9BA69F;text-align:center}
+.slides figcaption{font-size:12px;color:#9BA69F;text-align:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px}
+/* Baixar só uma parte: marcar slides ou baixar um slide (ex.: a capa da aula como miniatura do YouTube). */
+.slides .sel{display:inline-flex;align-items:center;gap:6px;cursor:pointer;min-height:32px}
+.slides .sel input{width:18px;height:18px;accent-color:var(--lima);cursor:pointer;margin:0}
+.slides .mini{cursor:pointer;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:rgba(238,240,234,.06);color:#EEF0EA}
+.slides .mini:hover{background:rgba(238,240,234,.16)}
+.slides.sem-dl .mini,.slides.sem-dl .sel input{display:none}
+.slides figure.marcado .quadro{outline:3px solid var(--lima);outline-offset:3px}
 /* Comentários nos slides: clique num ponto do slide, escreva o pedido; o Claude lê a coleção "pedidos". */
 .slides .quadro.comentavel{position:relative;cursor:crosshair}
 .pino{position:absolute;display:block;box-sizing:border-box;margin:0;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#FF5A5F;color:#fff;border:2px solid #fff;font:700 12px/22px var(--body);text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.45);cursor:pointer;padding:0}
@@ -144,6 +151,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 .ferramentas button:disabled,.ed-botoes button:disabled{opacity:.5;cursor:progress}
 .status{font-size:13px;color:#C9D2CC;min-height:1.2em}
 .chip{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:var(--lima);color:#141412;font-size:11px;font-weight:600;vertical-align:middle;font-family:var(--body);letter-spacing:0}
+.editor[hidden],.slides[hidden]{display:none}
 .editor{flex:1;min-height:0;display:grid;grid-template-columns:auto minmax(240px,340px);gap:28px;align-items:center;justify-content:center}
 .editor canvas{height:min(calc(100dvh - 230px),calc((100vw - 460px)*1.25));width:auto;aspect-ratio:4/5;border-radius:10px;background:#222;display:block;max-width:100%}
 @media (max-width:760px){.editor{grid-template-columns:1fr;overflow-y:auto;align-content:start}.editor canvas{height:auto;width:100%}}
@@ -188,6 +196,8 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
     <div class="ferramentas">
       <button id="v-baixar" class="primario" hidden>Baixar carrossel (.zip)</button>
       <button id="v-pdf" hidden>Baixar PDF</button>
+      <button id="v-sel" hidden>Baixar selecionados</button>
+      <button id="v-todos" hidden>Marcar todos</button>
       <button id="v-drive" hidden>Enviar pro Drive</button>
       <button id="v-editar" hidden>Editar capa</button>
       <span class="status" id="v-status" role="status"></span>
@@ -393,8 +403,9 @@ function abrir(i) {
   $('#v-titulo').textContent = p.titulo;
   fecharEditor(); $('#v-status').textContent = ''; atualizarFerramentas();
   // Cada slide é um recorte da tira com todos os slides do post.
-  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption>Slide ${k + 1}</figcaption></figure>`).join('');
+  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption><label class="sel"><input type="checkbox" data-sel="${k}" aria-label="Selecionar o slide ${k + 1}">Slide ${k + 1}</label><button class="mini" data-baixar="${k}" aria-label="Baixar o slide ${k + 1}">Baixar</button>${(p.w || 1080) > (p.h || 1350) ? `<button class="mini" data-yt="${k}" aria-label="Baixar o slide ${k + 1} como miniatura do YouTube">Miniatura YouTube</button>` : ''}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
+  SEL.clear(); atualizarSelecao();
   fecharFormPedido(); desenharPedidos();
   if (!$('#visor').open) $('#visor').showModal();
 }
@@ -433,6 +444,7 @@ function atualizarFerramentas() {
   const p = postAtual(); if (!p) return;
   $('#v-baixar').hidden = !DL;
   $('#v-pdf').hidden = !DL;
+  $('#v-slides').classList.toggle('sem-dl', !DL); atualizarSelecao();
   $('#v-drive').hidden = !MCP;
   $('#v-editar').hidden = !(p.editor && p.editor.img);
   $('#ed-salvar').hidden = !DB; $('#ed-baixar').hidden = !DL;
@@ -468,12 +480,13 @@ async function salvarArquivo(nome, blob, status) {
 }
 
 // Desenha os slides do post um a um (a capa com o ajuste salvo no editor, se houver) e entrega cada um a `fn`.
-async function cadaSlide(p, fn) {
+async function cadaSlide(p, fn, quais = null) {
   const tira = await carregar(p.tira), H = p.h || 1350, L = p.w || 1080;  // slide 1080×1350 (4:5), 1080×1440 (3:4) ou deitado (aula, 16:9)
   const cv = document.createElement('canvas'); cv.width = L; cv.height = H; const ctx = cv.getContext('2d');
   const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
   const sprite = usarEditor ? await carregar(p.editor.img) : null;
   for (let k = 0; k < p.n; k++) {
+    if (quais && !quais.includes(k)) continue;
     if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
     else ctx.drawImage(tira, k * L, 0, L, H, 0, 0, L, H);
     await fn(cv, k);
@@ -492,6 +505,55 @@ $('#v-baixar').onclick = async ev => {
   } catch (err) { st.textContent = 'Não foi possível montar o .zip: ' + (err.message || err); }
   bt.disabled = false;
 };
+
+// Baixar só uma parte do post: slides marcados (1 = PNG; vários = .zip só com eles), um slide pelo botão
+// "Baixar" ou, nos slides deitados (aula), a "Miniatura YouTube" em JPG 1280×720 (o YouTube aceita até 2 MB).
+const SEL = new Set();
+function atualizarSelecao() {
+  const p = postAtual(); if (!p) return;
+  document.querySelectorAll('#v-slides [data-sel]').forEach(c => { c.checked = SEL.has(+c.dataset.sel); c.closest('figure').classList.toggle('marcado', c.checked); });
+  $('#v-sel').hidden = !DL || !SEL.size;
+  $('#v-sel').textContent = SEL.size === 1 ? 'Baixar o slide marcado (.png)' : `Baixar ${SEL.size} slides marcados (.zip)`;
+  $('#v-todos').hidden = !DL || p.n < 2;
+  $('#v-todos').textContent = SEL.size === p.n ? 'Desmarcar todos' : 'Marcar todos';
+}
+$('#v-slides').addEventListener('change', e => {
+  const c = e.target.closest('[data-sel]'); if (!c) return;
+  c.checked ? SEL.add(+c.dataset.sel) : SEL.delete(+c.dataset.sel); atualizarSelecao();
+});
+$('#v-todos').onclick = () => { const p = postAtual(); if (SEL.size === p.n) SEL.clear(); else for (let k = 0; k < p.n; k++) SEL.add(k); atualizarSelecao(); };
+async function baixarSlides(quais, st, bt) {
+  const p = postAtual(); bt && (bt.disabled = true);
+  try {
+    if (quais.length === 1) {
+      let blob; await cadaSlide(p, async cv => { blob = await paraBlob(cv); }, quais);
+      await salvarArquivo(`${p.id}-${nomeSlide(quais[0])}`, blob, st);
+    } else {
+      if (!window.JSZip) { st.textContent = 'Não foi possível montar o .zip nesta tela.'; return; }
+      st.textContent = 'Montando o .zip…';
+      const zip = new JSZip();
+      await cadaSlide(p, async (cv, k) => zip.file(nomeSlide(k), await paraBlob(cv)), quais);
+      await salvarArquivo(`${p.id}-selecao.zip`, await zip.generateAsync({ type: 'blob' }), st);
+    }
+  } catch (err) { st.textContent = 'Não foi possível baixar: ' + (err.message || err); }
+  finally { bt && (bt.disabled = false); }
+}
+$('#v-sel').onclick = ev => baixarSlides([...SEL].sort((a, b) => a - b), $('#v-status'), ev.currentTarget);
+$('#v-slides').addEventListener('click', async e => {
+  const b = e.target.closest('[data-baixar],[data-yt]'); if (!b || !DL) return;
+  e.stopPropagation();
+  const st = $('#v-status');
+  if (b.dataset.baixar != null) return baixarSlides([+b.dataset.baixar], st, b);
+  const p = postAtual(), k = +b.dataset.yt; b.disabled = true;
+  try {
+    const yt = document.createElement('canvas'); yt.width = 1280; yt.height = 720;
+    const c = yt.getContext('2d'); c.imageSmoothingQuality = 'high';
+    await cadaSlide(p, async cv => { c.drawImage(cv, 0, 0, 1280, 720); }, [k]);
+    let blob; for (const q of [0.92, 0.85, 0.75]) { blob = await paraBlob(yt, 'image/jpeg', q); if (blob.size < 1900000) break; }
+    await salvarArquivo(`${p.id}-miniatura-${String(k + 1).padStart(2, '0')}.jpg`, blob, st);
+  } catch (err) { st.textContent = 'Não foi possível montar a miniatura: ' + (err.message || err); }
+  b.disabled = false;
+}, true);
 
 // PDF para apresentar: uma página por slide, do tamanho do slide (deitado nos slides de aula).
 $('#v-pdf').onclick = async ev => {

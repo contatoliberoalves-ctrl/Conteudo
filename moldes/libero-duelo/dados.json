@@ -191,5 +191,873 @@
         "botao": "Comenta aqui!"
       }
     ]
+  },
+  {
+    "id": "adi-x-adc-aula",
+    "titulo": "ADI x ADC: o duelo (aula)",
+    "tema": "Diferenças entre ADI e ADC, critério por critério",
+    "nomes": [
+      "ADI",
+      "ADC"
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Ataque x defesa",
+        "lados": [
+          {
+            "sigla": "ADI",
+            "nome": "Ação direta de inconstitucionalidade"
+          },
+          {
+            "sigla": "ADC",
+            "nome": "Ação declaratória de constitucionalidade"
+          }
+        ],
+        "texto": "Uma **ataca** a lei, a outra **defende**. E o resultado pode ser o mesmo.",
+        "objeto": {
+          "img": "balance_scale.png"
+        }
+      },
+      {
+        "tipo": "round",
+        "numero": "01",
+        "titulo": [
+          "O que pede"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Que o STF declare a lei **inconstitucional**."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "Que o STF declare a lei **constitucional**."
+            ],
+            "artigo": "art. 102, I, “a”"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "02",
+        "titulo": [
+          "Objeto"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Lei ou ato normativo **federal ou estadual**."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "Só lei ou ato normativo **federal**."
+            ],
+            "artigo": "art. 102, I, “a”"
+          }
+        ],
+        "pegadinha": "lei estadual nunca é objeto de ADC."
+      },
+      {
+        "tipo": "round",
+        "numero": "03",
+        "titulo": [
+          "Requisito extra"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Não precisa provar polêmica nos tribunais."
+            ],
+            "artigo": "Lei 9.868/99, art. 3º"
+          },
+          {
+            "texto": [
+              "Exige **controvérsia judicial relevante** sobre a lei."
+            ],
+            "artigo": "Lei 9.868/99, art. 14, III"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "04",
+        "titulo": [
+          "Quem propõe"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Os **9 legitimados** do art. 103."
+            ],
+            "artigo": "art. 103"
+          },
+          {
+            "texto": [
+              "Os **mesmos 9** legitimados."
+            ],
+            "artigo": "art. 103"
+          }
+        ],
+        "pegadinha": "antes da EC 45/2004, a ADC tinha só 4 legitimados."
+      },
+      {
+        "tipo": "round",
+        "numero": "05",
+        "titulo": [
+          "Cautelar"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "**Suspende** a lei impugnada, por maioria absoluta."
+            ],
+            "artigo": "Lei 9.868/99, art. 10"
+          },
+          {
+            "texto": [
+              "Suspende os **julgamentos** que aplicam a lei, por até **180 dias**."
+            ],
+            "artigo": "Lei 9.868/99, art. 21"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "06",
+        "titulo": [
+          "Resultado"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Procedente: lei inconstitucional. Improcedente: lei **constitucional**."
+            ],
+            "artigo": "Lei 9.868/99, art. 24"
+          },
+          {
+            "texto": [
+              "Procedente: lei constitucional. Improcedente: lei **inconstitucional**."
+            ],
+            "artigo": "Lei 9.868/99, art. 24; art. 102, § 2º"
+          }
+        ],
+        "pegadinha": "é o caráter dúplice: as duas são a mesma ação com o sinal trocado."
+      },
+      {
+        "tipo": "placar",
+        "tema": "light",
+        "kicker": "Placar final",
+        "titulo": [
+          "Resumo da luta"
+        ],
+        "linhas": [
+          {
+            "criterio": "Pedido",
+            "a": "Inconstitucionalidade",
+            "b": "Constitucionalidade"
+          },
+          {
+            "criterio": "Objeto",
+            "a": "Lei federal ou estadual",
+            "b": "Só lei federal"
+          },
+          {
+            "criterio": "Requisito",
+            "a": "Nenhum extra",
+            "b": "Controvérsia judicial relevante"
+          },
+          {
+            "criterio": "Legitimados",
+            "a": "Art. 103",
+            "b": "Art. 103"
+          },
+          {
+            "criterio": "Cautelar",
+            "a": "Suspende a lei",
+            "b": "Suspende os processos (180 dias)"
+          },
+          {
+            "criterio": "Efeitos",
+            "a": "Erga omnes e vinculante",
+            "b": "Erga omnes e vinculante"
+          }
+        ]
+      },
+      {
+        "tipo": "macete",
+        "tema": "dark",
+        "kicker": "Macete de bolso",
+        "titulo": [
+          "Na hora da prova"
+        ],
+        "frases": [
+          "Quer **derrubar** lei federal ou estadual? **ADI.**",
+          "Quer **blindar** lei federal que os juízes estão afastando? **ADC.**"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual dupla te",
+          "confunde?"
+        ],
+        "texto": "Comenta a próxima luta que você quer ver aqui.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "adi-x-adpf-aula",
+    "titulo": "ADI x ADPF: o duelo (aula)",
+    "tema": "Diferenças entre ADI e ADPF, critério por critério",
+    "nomes": [
+      "ADI",
+      "ADPF"
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Qual cabe aqui?",
+        "lados": [
+          {
+            "sigla": "ADI",
+            "nome": "Ação direta de inconstitucionalidade"
+          },
+          {
+            "sigla": "ADPF",
+            "nome": "Arguição de descumprimento de preceito fundamental"
+          }
+        ],
+        "texto": "Lei municipal ou anterior a 1988? A resposta muda **tudo**.",
+        "objeto": {
+          "img": "classical_building.png"
+        }
+      },
+      {
+        "tipo": "round",
+        "numero": "01",
+        "titulo": [
+          "Objeto"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Lei ou ato normativo **federal ou estadual**."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "**Ato do Poder Público**, inclusive **municipal**."
+            ],
+            "artigo": "Lei 9.882/99, art. 1º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "02",
+        "titulo": [
+          "Tempo da norma"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Só norma **posterior** à CF/88."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "Também norma **anterior** à CF/88."
+            ],
+            "artigo": "Lei 9.882/99, art. 1º, parágrafo único, I"
+          }
+        ],
+        "pegadinha": "lei anterior a 1988 não é inconstitucional: é recepcionada ou não. Por isso vai de ADPF."
+      },
+      {
+        "tipo": "round",
+        "numero": "03",
+        "titulo": [
+          "Parâmetro"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "**Qualquer** norma da Constituição."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "Só **preceito fundamental**."
+            ],
+            "artigo": "art. 102, § 1º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "04",
+        "titulo": [
+          "Subsidiariedade"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Não precisa esgotar outro meio."
+            ],
+            "artigo": "Lei 9.868/99"
+          },
+          {
+            "texto": [
+              "Só cabe se **não houver outro meio eficaz**."
+            ],
+            "artigo": "Lei 9.882/99, art. 4º, § 1º"
+          }
+        ],
+        "pegadinha": "se cabe ADI, em regra não cabe ADPF."
+      },
+      {
+        "tipo": "round",
+        "numero": "05",
+        "titulo": [
+          "Quem propõe"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Os **9 legitimados** do art. 103."
+            ],
+            "artigo": "art. 103"
+          },
+          {
+            "texto": [
+              "Os **mesmos** legitimados da ADI."
+            ],
+            "artigo": "Lei 9.882/99, art. 2º, I"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "06",
+        "titulo": [
+          "Lei municipal x CF"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "**Não** cabe ADI no STF."
+            ],
+            "artigo": "art. 102, I, “a”"
+          },
+          {
+            "texto": [
+              "**Cabe** ADPF no STF."
+            ],
+            "artigo": "Lei 9.882/99, art. 1º, parágrafo único, I"
+          }
+        ],
+        "pegadinha": "a ADI estadual no TJ usa a Constituição do Estado como parâmetro."
+      },
+      {
+        "tipo": "placar",
+        "tema": "light",
+        "kicker": "Placar final",
+        "titulo": [
+          "Resumo da luta"
+        ],
+        "linhas": [
+          {
+            "criterio": "Objeto",
+            "a": "Lei federal ou estadual",
+            "b": "Ato do Poder Público, inclusive municipal"
+          },
+          {
+            "criterio": "Tempo",
+            "a": "Pós-1988",
+            "b": "Antes ou depois de 1988"
+          },
+          {
+            "criterio": "Parâmetro",
+            "a": "Toda a Constituição",
+            "b": "Preceito fundamental"
+          },
+          {
+            "criterio": "Subsidiária?",
+            "a": "Não",
+            "b": "Sim"
+          },
+          {
+            "criterio": "Legitimados",
+            "a": "Art. 103",
+            "b": "Art. 103"
+          }
+        ]
+      },
+      {
+        "tipo": "macete",
+        "tema": "dark",
+        "kicker": "Macete de bolso",
+        "titulo": [
+          "Na hora da prova"
+        ],
+        "frases": [
+          "Lei **federal ou estadual** pós-1988? **ADI.**",
+          "Lei **municipal**, **pré-1988** ou sem outro meio? **ADPF.**"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual dupla te",
+          "confunde?"
+        ],
+        "texto": "Comenta a próxima luta que você quer ver aqui.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "defesa-x-sitio-aula",
+    "titulo": "Estado de defesa x estado de sítio: o duelo (aula)",
+    "tema": "Diferenças entre estado de defesa e estado de sítio (arts. 136 a 139)",
+    "nomes": [
+      "Defesa",
+      "Sítio"
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Sistema constitucional de crises",
+        "lados": [
+          {
+            "sigla": "Defesa",
+            "nome": "Estado de defesa",
+            "ts": 150
+          },
+          {
+            "sigla": "Sítio",
+            "nome": "Estado de sítio",
+            "ts": 150
+          }
+        ],
+        "texto": "Os dois **restringem direitos**. Um é bem mais pesado.",
+        "objeto": {
+          "img": "shield.png"
+        }
+      },
+      {
+        "tipo": "round",
+        "numero": "01",
+        "titulo": [
+          "Quando"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Ordem pública ou paz social ameaçadas por **instabilidade institucional** ou atingidas por **calamidade** de grandes proporções."
+            ],
+            "artigo": "art. 136"
+          },
+          {
+            "texto": [
+              "**Comoção grave** de repercussão nacional, **ineficácia** do estado de defesa, **guerra** ou agressão armada estrangeira."
+            ],
+            "artigo": "art. 137, I e II"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "02",
+        "titulo": [
+          "Congresso"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Presidente **decreta** e submete em **24 horas**; o Congresso decide por maioria absoluta."
+            ],
+            "artigo": "art. 136, § 4º"
+          },
+          {
+            "texto": [
+              "Presidente **pede autorização antes**; o Congresso decide por maioria absoluta."
+            ],
+            "artigo": "art. 137, parágrafo único"
+          }
+        ],
+        "pegadinha": "no defesa o controle é posterior; no sítio é prévio."
+      },
+      {
+        "tipo": "round",
+        "numero": "03",
+        "titulo": [
+          "Conselhos"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Ouve o Conselho da República e o de Defesa Nacional."
+            ],
+            "artigo": "art. 136"
+          },
+          {
+            "texto": [
+              "Ouve **os mesmos** dois conselhos."
+            ],
+            "artigo": "art. 137"
+          }
+        ],
+        "pegadinha": "a opinião dos conselhos não vincula o Presidente."
+      },
+      {
+        "tipo": "round",
+        "numero": "04",
+        "titulo": [
+          "Área"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Locais **restritos e determinados**."
+            ],
+            "artigo": "art. 136"
+          },
+          {
+            "texto": [
+              "O decreto indica a **área abrangida**, que pode ser o país."
+            ],
+            "artigo": "art. 138"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "05",
+        "titulo": [
+          "Prazo"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Até **30 dias**, prorrogável **uma vez** por igual período."
+            ],
+            "artigo": "art. 136, § 2º"
+          },
+          {
+            "texto": [
+              "Comoção: 30 dias por vez. Guerra: **enquanto durar** a guerra ou agressão."
+            ],
+            "artigo": "art. 138, § 1º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "06",
+        "titulo": [
+          "Restrições"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Reunião, sigilo de correspondência e de comunicações. Prisão de no máximo **10 dias**, salvo autorização judicial."
+            ],
+            "artigo": "art. 136, §§ 1º e 3º"
+          },
+          {
+            "texto": [
+              "Obrigação de ficar em local, busca em domicílio, restrição à imprensa, requisição de bens e mais."
+            ],
+            "artigo": "art. 139"
+          }
+        ],
+        "pegadinha": "nos dois, é vedada a incomunicabilidade do preso."
+      },
+      {
+        "tipo": "placar",
+        "tema": "light",
+        "kicker": "Placar final",
+        "titulo": [
+          "Resumo da luta"
+        ],
+        "linhas": [
+          {
+            "criterio": "Gravidade",
+            "a": "Menor",
+            "b": "Maior"
+          },
+          {
+            "criterio": "Congresso",
+            "a": "Depois (24 h)",
+            "b": "Antes (autoriza)"
+          },
+          {
+            "criterio": "Área",
+            "a": "Locais determinados",
+            "b": "Área do decreto"
+          },
+          {
+            "criterio": "Prazo",
+            "a": "30 + 30 dias",
+            "b": "30 dias por vez ou enquanto durar a guerra"
+          },
+          {
+            "criterio": "Quórum",
+            "a": "Maioria absoluta",
+            "b": "Maioria absoluta"
+          }
+        ]
+      },
+      {
+        "tipo": "macete",
+        "tema": "dark",
+        "kicker": "Macete de bolso",
+        "titulo": [
+          "Na hora da prova"
+        ],
+        "frases": [
+          "**Defesa:** decreta primeiro, pergunta depois.",
+          "**Sítio:** pergunta primeiro, decreta depois."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual dupla te",
+          "confunde?"
+        ],
+        "texto": "Comenta a próxima luta que você quer ver aqui.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "nato-x-naturalizado-aula",
+    "titulo": "Brasileiro nato x naturalizado: o duelo (aula)",
+    "tema": "Diferenças entre brasileiro nato e naturalizado (arts. 5º, LI, 12, 89 e 222)",
+    "nomes": [
+      "Nato",
+      "Naturalizado"
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Nacionalidade",
+        "lados": [
+          {
+            "sigla": "Nato",
+            "nome": "Brasileiro nato",
+            "ts": 96
+          },
+          {
+            "sigla": "Naturalizado",
+            "nome": "Brasileiro naturalizado",
+            "ts": 96
+          }
+        ],
+        "texto": "A lei não pode diferenciar os dois. **Só a Constituição.**",
+        "objeto": {
+          "img": "identification_card.png"
+        }
+      },
+      {
+        "tipo": "round",
+        "numero": "01",
+        "titulo": [
+          "Como se adquire"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Nasce no Brasil, ou no exterior de pai ou mãe brasileiros (a serviço do país, registrado ou com opção)."
+            ],
+            "artigo": "art. 12, I"
+          },
+          {
+            "texto": [
+              "Pede a naturalização: **1 ano** de residência (língua portuguesa) ou **15 anos** (demais)."
+            ],
+            "artigo": "art. 12, II"
+          }
+        ],
+        "pegadinha": "quem vem de país de língua portuguesa precisa também de idoneidade moral."
+      },
+      {
+        "tipo": "round",
+        "numero": "02",
+        "titulo": [
+          "Distinções"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "A regra é a **igualdade**."
+            ],
+            "artigo": "art. 12, § 2º"
+          },
+          {
+            "texto": [
+              "A lei **não pode** criar diferenças além das da Constituição."
+            ],
+            "artigo": "art. 12, § 2º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "03",
+        "titulo": [
+          "Cargos"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Pode ocupar **todos**, inclusive os privativos de nato."
+            ],
+            "artigo": "art. 12, § 3º"
+          },
+          {
+            "texto": [
+              "Fica de fora de Presidente e vice, presidentes da Câmara e do Senado, STF, diplomacia, oficial das Forças Armadas e Ministro da Defesa."
+            ],
+            "artigo": "art. 12, § 3º"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "04",
+        "titulo": [
+          "Extradição"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "**Nunca** é extraditado."
+            ],
+            "artigo": "art. 5º, LI"
+          },
+          {
+            "texto": [
+              "Só por **crime comum anterior** à naturalização ou **tráfico** de drogas."
+            ],
+            "artigo": "art. 5º, LI"
+          }
+        ]
+      },
+      {
+        "tipo": "round",
+        "numero": "05",
+        "titulo": [
+          "Perda"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Só se **pedir** a perda, sem ficar apátrida."
+            ],
+            "artigo": "art. 12, § 4º, II"
+          },
+          {
+            "texto": [
+              "Também por **cancelamento** judicial: fraude na naturalização ou atentado à ordem democrática."
+            ],
+            "artigo": "art. 12, § 4º, I"
+          }
+        ],
+        "pegadinha": "as hipóteses de perda mudaram com a EC 131/2023."
+      },
+      {
+        "tipo": "round",
+        "numero": "06",
+        "titulo": [
+          "Outros pontos"
+        ],
+        "lados": [
+          {
+            "texto": [
+              "Integra o **Conselho da República** (6 cidadãos natos)."
+            ],
+            "artigo": "art. 89, VII"
+          },
+          {
+            "texto": [
+              "Pode ser dono de jornal ou rádio após **10 anos** de naturalizado."
+            ],
+            "artigo": "art. 222"
+          }
+        ]
+      },
+      {
+        "tipo": "placar",
+        "tema": "light",
+        "kicker": "Placar final",
+        "titulo": [
+          "Resumo da luta"
+        ],
+        "linhas": [
+          {
+            "criterio": "Aquisição",
+            "a": "Nascimento",
+            "b": "Pedido (1 ou 15 anos)"
+          },
+          {
+            "criterio": "Cargos",
+            "a": "Todos",
+            "b": "Menos os 7 do art. 12, § 3º"
+          },
+          {
+            "criterio": "Extradição",
+            "a": "Nunca",
+            "b": "Crime anterior ou tráfico"
+          },
+          {
+            "criterio": "Perda",
+            "a": "Só a pedido",
+            "b": "A pedido ou cancelamento judicial"
+          },
+          {
+            "criterio": "Imprensa",
+            "a": "Pode ser dono",
+            "b": "Após 10 anos"
+          }
+        ]
+      },
+      {
+        "tipo": "macete",
+        "tema": "dark",
+        "kicker": "Macete de bolso",
+        "titulo": [
+          "Cargos de nato: MP3.COM"
+        ],
+        "frases": [
+          "**M**inistro do STF, **P**residente e vice, **P**residente da Câmara, **P**residente do Senado",
+          "**C**arreira diplomática, **O**ficial das Forças Armadas, **M**inistro da Defesa"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "foto": "dsc08716.jpg",
+        "titulo": [
+          "Qual dupla te",
+          "confunde?"
+        ],
+        "texto": "Comenta a próxima luta que você quer ver aqui.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]
