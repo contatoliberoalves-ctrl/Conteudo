@@ -142,6 +142,25 @@ const CAPAS = {
       <div style="position:absolute;left:${s.margem || 70}px;bottom:62px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:80px;bottom:70px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
   },
+  // Ringue: dois recortes (PNG sem fundo) frente a frente sobre fundo dividido azul x navy, um terceiro
+  // personagem num círculo no meio com carimbo vermelho e o título curto no alto.
+  // Campos: pre (etiqueta), titulo, esquerda/direita/centro ({img, h, x, y}), carimbo.
+  ringue(s, t, c) {
+    const rec = (r, lado) => r ? `<img data-foto src="${foto(c, r.img)}" style="position:absolute;${lado}:${r.x ?? -20}px;bottom:${r.y ?? 0}px;height:${r.h || 900}px;z-index:2;filter:drop-shadow(0 20px 40px rgba(8,16,40,.45))">` : '';
+    const ce = s.centro;
+    return `<div style="position:absolute;inset:0;background:${COR.azul}"></div>
+      <div style="position:absolute;inset:0;background:${COR.navyFundo};clip-path:polygon(58% 0,100% 0,100% 100%,42% 100%)"></div>
+      ${rec(s.esquerda, 'left')}${rec(s.direita, 'right')}
+      ${ce ? `<div style="position:absolute;left:${(ce.x ?? 540) - (ce.tam || 260) / 2}px;top:${ce.y ?? 470}px;width:${ce.tam || 260}px;height:${ce.tam || 260}px;border-radius:50%;overflow:hidden;border:10px solid #fff;background:#fff;box-shadow:0 20px 50px rgba(8,16,40,.5);z-index:4"><img src="${foto(c, ce.img)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1)"></div>
+        ${s.carimbo ? `<div style="position:absolute;left:${ce.x ?? 540}px;top:${(ce.y ?? 470) + (ce.tam || 260) - 40}px;transform:translateX(-50%) rotate(-8deg);border:7px solid ${COR.vermelho};background:rgba(255,255,255,.92);color:${COR.vermelho};${TITULO};font-size:54px;line-height:1;padding:8px 18px 4px;white-space:nowrap;z-index:5">${esc(s.carimbo)}</div>` : ''}` : ''}
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,39,0) 80%,rgba(18,26,39,.85) 100%);z-index:3"></div>
+      <div style="position:absolute;left:0;right:0;top:${s.topo || 80}px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;z-index:5">
+        ${s.pre ? `<div style="background:#fff;color:${COR.navy};font-size:36px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;transform:rotate(-2deg)">${rico(s.pre, TEMAS.light)}</div>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 150}px;line-height:.9;color:#fff;text-shadow:0 8px 30px rgba(8,16,40,.45)">${lista(s.titulo).map(l => rico(l, TEMAS.dark)).join('<br>')}</h1>
+      </div>
+      <div style="position:absolute;left:70px;bottom:62px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
+      <div style="position:absolute;right:80px;bottom:70px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>

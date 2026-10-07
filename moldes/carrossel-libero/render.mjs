@@ -42,7 +42,8 @@ for (const c of dados) {
     return s2;
   });
   const fotos = {}, faltando = [];
-  for (const s of c.slides) for (const n of [s.foto, s.print]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
+  // Fotos do slide: foto, print e os recortes da capa "ringue" (esquerda, direita, centro).
+  for (const s of c.slides) for (const n of [s.foto, s.print, ...['esquerda', 'direita', 'centro'].map(k => s[k]?.img)]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
   const { html, total, avisos } = renderCarrossel({ ...c, _fotos: fotos });
   faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/)`));
   pendentes.forEach(f => avisos.push(`imagem pendente: imagens/${f} (gere com python3 gerar_imagens_ia.py ou coloque o arquivo)`));

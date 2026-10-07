@@ -3418,7 +3418,7 @@
   },
   {
     "id": "eleicao-rj-garotinho",
-    "titulo": "O 2º turno que pode não existir (eleição no RJ)",
+    "titulo": "Treta no RJ: vai ter 2º turno?",
     "tema": "Votos de candidato com registro indeferido (art. 16-A da Lei 9.504/97) no caso Garotinho x Ruas x Paes, governo do RJ 2026",
     "pontes": [
       {
@@ -3439,16 +3439,32 @@
     "slides": [
       {
         "tipo": "capa",
-        "tema": "light",
-        "estilo": "manchete",
-        "edicao": "Eleições 2026",
-        "secao": "Rio de Janeiro",
-        "kicker": "Ruas x Paes x Garotinho",
+        "tema": "dark",
+        "estilo": "ringue",
+        "pre": "Treta no RJ",
         "titulo": [
-          "O 2º turno que",
-          "pode [[não existir]]"
+          "Vai ter",
+          "2º turno?"
         ],
-        "texto": "Como 274 mil votos podem decidir o governo do Rio sem nova votação."
+        "esquerda": {
+          "img": "rj-ruas.png",
+          "h": 880,
+          "x": -40
+        },
+        "direita": {
+          "img": "rj-paes.png",
+          "h": 780,
+          "x": -90
+        },
+        "centro": {
+          "img": "rj-garotinho.png",
+          "x": 540,
+          "y": 930,
+          "tam": 230
+        },
+        "carimbo": "Votos anulados?",
+        "topo": 70,
+        "ts": 140
       },
       {
         "tipo": "lista",
