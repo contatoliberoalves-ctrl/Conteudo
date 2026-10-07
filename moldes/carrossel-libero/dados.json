@@ -3165,5 +3165,129 @@
         "botao": "Comenta aqui!"
       }
     ]
+  },
+  {
+    "id": "presidente-do-senado",
+    "titulo": "Como é escolhido o presidente do Senado?",
+    "tema": "Eleição da Mesa do Senado (art. 57, § 4º) e o caso Davi Alcolumbre",
+    "pontes": [
+      {
+        "img": "balance_scale.png",
+        "entre": 3,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "ballot_box_with_ballot.png",
+        "entre": 6,
+        "y": 230,
+        "tam": 300,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "foto": "alcolumbre-capa.jpg",
+        "pre": "Como funciona a escolha do",
+        "titulo": [
+          "presidente",
+          "do [[Senado]]?"
+        ],
+        "ts": 140
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Primeiro",
+        "titulo": [
+          "Você não vota",
+          "nessa eleição"
+        ],
+        "palavra": "SÍNDICO",
+        "texto": [
+          "Quem escolhe o presidente do Senado são os **81 senadores**. O povo não vota.",
+          "É tipo eleição de **síndico**: só quem mora no prédio escolhe quem vai mandar no condomínio."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "blue",
+        "kicker": "Art. 57, § 4º, CF",
+        "titulo": [
+          "A regra"
+        ],
+        "citacao": "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente.",
+        "traducao": "Traduzindo: eleição em **fevereiro**, mandato de **2 anos** e **sem reeleição** logo em seguida."
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Passo a passo",
+        "titulo": [
+          "Como é a eleição"
+        ],
+        "marcador": "num",
+        "itens": [
+          "**Quem pode:** qualquer senador **brasileiro nato** (art. 12, § 3º, III)",
+          "**Quando:** em fevereiro, a cada 2 anos, em sessão preparatória",
+          "**Como:** voto **secreto** dos 81 senadores",
+          "**Quem vence:** quem tiver a maioria dos votos"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Por que importa",
+        "titulo": [
+          "Não é só",
+          "mais um cargo"
+        ],
+        "palavra": "PODER",
+        "texto": [
+          "O presidente do Senado **preside o Congresso Nacional** (art. 57, § 5º).",
+          "É o **3º na linha sucessória** da Presidência, depois do vice e do presidente da Câmara (art. 80).",
+          "E é ele quem decide o que entra na **pauta** do Senado."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Contexto atual",
+        "titulo": [
+          "Davi",
+          "Alcolumbre"
+        ],
+        "texto": [
+          "Em fevereiro de 2025, Davi Alcolumbre (União Brasil-AP) foi eleito com **73 dos 81 votos**, para um mandato até fevereiro de 2027.",
+          "É a **segunda vez** dele no cargo: ele já tinha presidido o Senado de 2019 a 2021."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Mas e a reeleição?",
+        "titulo": [
+          "Pode tentar",
+          "em 2027?"
+        ],
+        "texto": [
+          "Em 2020, o STF (ADI 6524) disse que a vedação vale dentro da **mesma legislatura**. Por isso ele não pôde concorrer em 2021.",
+          "Em 2027 começa uma **nova legislatura**. Então o art. 57, § 4º não impede: ele **pode concorrer de novo**."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "foto": "etica-23.jpg",
+        "titulo": [
+          "E aí?"
+        ],
+        "texto": "Você acha que ele consegue mais 2 anos no comando do Senado? Manda pra quem estuda Constitucional.",
+        "botao": "Comente SIM ou NÃO"
+      }
+    ]
   }
 ]
