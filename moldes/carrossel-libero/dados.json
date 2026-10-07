@@ -3415,5 +3415,131 @@
         "botao": "Comenta aqui!"
       }
     ]
+  },
+  {
+    "id": "eleicao-rj-garotinho",
+    "titulo": "O 2º turno que pode não existir (eleição no RJ)",
+    "tema": "Votos de candidato com registro indeferido (art. 16-A da Lei 9.504/97) no caso Garotinho x Ruas x Paes, governo do RJ 2026",
+    "pontes": [
+      {
+        "img": "ballot_box_with_ballot.png",
+        "entre": 3,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "abacus.png",
+        "entre": 5,
+        "y": 230,
+        "tam": 300,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "light",
+        "estilo": "manchete",
+        "edicao": "Eleições 2026",
+        "secao": "Rio de Janeiro",
+        "kicker": "Ruas x Paes x Garotinho",
+        "titulo": [
+          "O 2º turno que",
+          "pode [[não existir]]"
+        ],
+        "texto": "Como 274 mil votos podem decidir o governo do Rio sem nova votação."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "O placar do 1º turno",
+        "titulo": [
+          "Quase lá"
+        ],
+        "marcador": "num",
+        "itens": [
+          "**Douglas Ruas (PL):** 49,27% dos votos válidos",
+          "**Eduardo Paes (PSD):** 42,76%",
+          "**Garotinho (Republicanos):** 3,17%, ou **274.411 votos**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "O detalhe",
+        "titulo": [
+          "Candidatura negada,",
+          "mas na urna"
+        ],
+        "palavra": "SUB JUDICE",
+        "texto": [
+          "O TRE-RJ **indeferiu** a candidatura de Garotinho: os direitos políticos dele estão suspensos por condenação por improbidade.",
+          "Ele recorreu e ficou na urna. Os votos foram contados, mas ficaram **pendurados**, esperando a decisão final."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "Art. 16-A, Lei 9.504/97",
+        "titulo": [
+          "A regra"
+        ],
+        "citacao": "O candidato cujo registro esteja sub judice poderá efetuar todos os atos relativos à campanha eleitoral, inclusive utilizar o horário eleitoral gratuito no rádio e na televisão e ter seu nome mantido na urna eletrônica enquanto estiver sob essa condição, ficando a validade dos votos a ele atribuídos condicionada ao deferimento de seu registro por instância superior.",
+        "traducao": "Traduzindo: **pode fazer campanha e aparecer na urna**, mas os votos **só valem se o registro for deferido**."
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "A reviravolta",
+        "titulo": [
+          "Ele desistiu",
+          "do recurso"
+        ],
+        "texto": [
+          "Em 5 de outubro, um dia depois da eleição, Garotinho **desistiu do recurso** no TSE.",
+          "Sem recurso, o indeferimento fica valendo e os 274 mil votos viram **nulos** (art. 175, § 3º, do Código Eleitoral)."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Agora faz a conta",
+        "titulo": [
+          "Menos votos válidos"
+        ],
+        "marcador": "num",
+        "itens": [
+          "Os votos de Garotinho **saem da conta** dos válidos",
+          "Os votos de Ruas continuam os mesmos, só que divididos por um total menor",
+          "Ruas passa de 49,27% para cerca de **50,9%**",
+          "Mais da metade dos válidos = **eleito no 1º turno** (art. 28 c/c art. 77, § 2º, CF)"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "E o Paes?",
+        "titulo": [
+          "Pode ficar",
+          "sem 2º turno"
+        ],
+        "palavra": "NULO",
+        "texto": [
+          "Se a Justiça Eleitoral confirmar o novo cálculo, **não tem 2º turno**: Ruas é declarado eleito.",
+          "Lembra do post de voto nulo? Aqui o nulo **não foi escolha do eleitor**. Foi o voto dado a um candidato com registro negado."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "foto": "etica-23.jpg",
+        "titulo": [
+          "E aí?"
+        ],
+        "texto": "Quem votou no Garotinho perdeu o voto. Você acha justo? Manda pra quem é do Rio.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]
