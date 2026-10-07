@@ -38,6 +38,7 @@ Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo
 | `manchete` | dados, notícias, rankings | `edicao`, `secao` (cabeçalho do jornal "O Libero"), `kicker`, `titulo`, `texto` (linha fina) |
 | `cantos` | comparação sobre uma foto em tela cheia (montagem de IA) | `imagem` ou `foto`, `cima` (linhas no alto à esquerda), `pre` (etiqueta branca logo abaixo), `selo` (bola vermelha, ex.: "x"; `seloPos` [x, y]), `baixo` (linhas embaixo à esquerda), `tc`/`tb` (px), `base` (distância do rodapé). Deixe o rosto livre à direita |
 | `ringue` | treta entre duas pessoas e um terceiro no meio (eleições, disputas) | `pre` (etiqueta), `titulo` (curto, no alto), `esquerda`/`direita` (`{img, h, x, y}`: recortes PNG sem fundo em `fotos/`, `h` = altura em px), `centro` (`{img, x, y, tam}`: círculo PB), `carimbo` (texto vermelho sob o círculo). Para recortar: `rembg` (sessão `u2net_human_seg`) |
+| `apuracao` | eleições e resultados (placar de TV) | `pre` (com bolinha vermelha "ao vivo"), `titulo`, `meta` (% da marca vermelha nas barras, padrão 50), `metaTexto`, `max` (% da barra cheia, padrão 60), `candidatos` (`[{foto, nome, partido, pct, anulado, carimbo, carimboX}]`: fotos quadradas do rosto em `fotos/`), `placarY` |
 
 Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais Teses" do Livro de Prática Constitucional, conferida com os gabaritos da FGV (exames 32 a 46).
 

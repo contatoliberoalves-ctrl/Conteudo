@@ -3440,31 +3440,36 @@
       {
         "tipo": "capa",
         "tema": "dark",
-        "estilo": "ringue",
+        "estilo": "apuracao",
         "pre": "Treta no RJ",
         "titulo": [
           "Vai ter",
-          "2º turno?"
+          "[[2º turno]]?"
         ],
-        "esquerda": {
-          "img": "rj-ruas.png",
-          "h": 880,
-          "x": -40
-        },
-        "direita": {
-          "img": "rj-paes.png",
-          "h": 780,
-          "x": -90
-        },
-        "centro": {
-          "img": "rj-garotinho.png",
-          "x": 540,
-          "y": 930,
-          "tam": 230
-        },
-        "carimbo": "Votos anulados?",
-        "topo": 70,
-        "ts": 140
+        "meta": 50,
+        "metaTexto": "50%",
+        "candidatos": [
+          {
+            "foto": "rj-ruas-rosto.jpg",
+            "nome": "Ruas",
+            "pct": 49.27
+          },
+          {
+            "foto": "rj-paes-rosto.jpg",
+            "nome": "Paes",
+            "pct": 42.76
+          },
+          {
+            "foto": "rj-garotinho-rosto.jpg",
+            "nome": "Garotinho",
+            "pct": 3.17,
+            "anulado": true,
+            "carimbo": "Anulados?"
+          }
+        ],
+        "ts": 160,
+        "placarY": 580,
+        "topo": 80
       },
       {
         "tipo": "lista",

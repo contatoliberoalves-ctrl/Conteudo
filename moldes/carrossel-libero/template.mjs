@@ -161,6 +161,40 @@ const CAPAS = {
       <div style="position:absolute;left:70px;bottom:62px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
       <div style="position:absolute;right:80px;bottom:70px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
   },
+  // Apuração: placar de eleição de TV. Cada candidato numa linha (foto redonda, nome, % e barra até a linha
+  // da "meta", ex.: 50%); "anulado" deixa a linha em PB, riscada e com carimbo.
+  // Campos: pre, titulo, meta, candidatos [{foto, nome, partido, pct, anulado, carimbo}].
+  apuracao(s, t, c) {
+    const meta = s.meta ?? 50, max = s.max ?? 60;
+    const x = p => `${(p / max) * 100}%`;
+    const linhas = lista(s.candidatos).map((k, i) => {
+      const cor = k.anulado ? 'rgba(255,255,255,.35)' : i === 0 ? COR.azulClaro : '#fff';
+      return `<div style="position:relative;display:flex;align-items:center;gap:30px;opacity:${k.anulado ? .9 : 1}">
+        <div style="flex:none;width:${k.anulado ? 130 : 170}px;height:${k.anulado ? 130 : 170}px;border-radius:50%;overflow:hidden;border:6px solid ${k.anulado ? 'rgba(255,255,255,.4)' : i === 0 ? COR.azulClaro : '#fff'};margin-left:${k.anulado ? 20 : 0}px"><img src="${foto(c, k.foto)}" style="width:100%;height:100%;object-fit:cover;${k.anulado ? 'filter:grayscale(1) brightness(.8)' : ''}"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-size:${k.anulado ? 32 : 38}px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:${k.anulado ? 'rgba(255,255,255,.6)' : '#fff'}">${esc(k.nome)}${k.partido ? ` <span style="font-weight:500;opacity:.7">${esc(k.partido)}</span>` : ''}</span>
+            <span style="${TITULO};font-size:${k.anulado ? 64 : 92}px;line-height:.9;color:${cor};${k.anulado ? 'text-decoration:line-through;text-decoration-thickness:6px;text-decoration-color:' + COR.vermelho : ''}">${esc(String(k.pct).replace('.', ','))}%</span>
+          </div>
+          <div style="position:relative;height:${k.anulado ? 16 : 26}px;background:rgba(255,255,255,.12)"><div style="position:absolute;left:0;top:0;bottom:0;width:${x(k.pct)};background:${cor}"></div>
+            <div style="position:absolute;left:${x(meta)};top:-10px;bottom:-10px;border-left:5px solid ${COR.vermelho}"></div>
+            ${i === 0 ? `<div style="position:absolute;left:${x(meta)};top:calc(100% + 14px);transform:translateX(-50%);font-size:24px;font-weight:800;letter-spacing:.06em;color:${COR.vermelho};white-space:nowrap">${esc(s.metaTexto || meta + '%')}</div>` : ''}</div>
+        </div>
+        ${k.carimbo ? `<div style="position:absolute;left:${k.carimboX ?? 430}px;top:-4px;transform:rotate(-6deg);border:5px solid ${COR.vermelho};color:${COR.vermelho};background:rgba(18,26,39,.85);${TITULO};font-size:40px;line-height:1;padding:5px 12px 1px;z-index:3">${esc(k.carimbo)}</div>` : ''}
+      </div>`;
+    }).join('');
+    return `<div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 0%,${COR.azulFundo} 0%,${COR.navyFundo} 62%)"></div>
+      <div style="position:absolute;left:90px;right:90px;top:${s.topo || 90}px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:3">
+        ${s.pre ? `<div style="display:flex;align-items:center;gap:14px;font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff"><span style="width:20px;height:20px;border-radius:50%;background:${COR.vermelho};box-shadow:0 0 0 8px rgba(255,45,85,.25)"></span>${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 170}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.08 : .88};color:#fff">${lista(s.titulo).map(l => rico(l, { ...TEMAS.dark, caixa: COR.azul })).join('<br>')}</h1>
+      </div>
+      <div style="position:absolute;left:90px;right:90px;top:${s.placarY || 640}px;bottom:190px;z-index:3">
+        
+        <div style="position:relative;display:flex;flex-direction:column;gap:50px">${linhas}</div>
+      </div>
+      <div style="position:absolute;left:90px;bottom:72px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>
