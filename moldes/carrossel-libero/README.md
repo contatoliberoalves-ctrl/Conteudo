@@ -36,6 +36,7 @@ Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo
 | `versus` | comparações | `lados` (2 textos; aceita `[[caixa]]`), `kicker`, `texto` |
 | `pergunta` | quiz, verdadeiro ou falso | `kicker`, `titulo`, `texto`, `opcoes` (botões, ex.: `["Sim", "Não"]`) |
 | `manchete` | dados, notícias, rankings | `edicao`, `secao` (cabeçalho do jornal "O Libero"), `kicker`, `titulo`, `texto` (linha fina) |
+| `cantos` | comparação sobre uma foto em tela cheia (montagem de IA) | `imagem` ou `foto`, `cima` (linhas no alto à esquerda), `pre` (etiqueta branca logo abaixo), `selo` (bola vermelha, ex.: "x"; `seloPos` [x, y]), `baixo` (linhas embaixo à esquerda), `tc`/`tb` (px), `base` (distância do rodapé). Deixe o rosto livre à direita |
 
 Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais Teses" do Livro de Prática Constitucional, conferida com os gabaritos da FGV (exames 32 a 46).
 

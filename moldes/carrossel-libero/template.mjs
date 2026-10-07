@@ -127,6 +127,21 @@ const CAPAS = {
         ${exames.map(e => `<span style="border:4px solid ${COR.navy};background:#fff;color:${COR.navy};font-size:32px;font-weight:800;letter-spacing:.04em;padding:8px 16px">${esc(e)}</span>`).join('')}
       </div>${pe(t)}`;
   },
+  // Foto em tela cheia (montagem) com o título dividido nos cantos livres: "cima" no alto à esquerda (com "pre" numa etiqueta logo abaixo), selo
+  // vermelho no meio e "baixo" embaixo à esquerda (para comparações sobre uma foto: "Voto nulo x voto em branco").
+  cantos(s, t, c) {
+    const src = s.foto ? foto(c, s.foto) : `../imagens/${esc(s.imagem)}`;
+    const linhas = (v, px, cor) => lista(v).map(l => `<div style="${TITULO};font-size:${px}px;line-height:.86;color:${cor}">${rico(l, TEMAS.dark)}</div>`).join('');
+    return `<img data-foto src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.imagemPos || 'center top')}">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,39,.35) 0%,rgba(18,26,39,0) 30%,rgba(18,26,39,0) 62%,rgba(18,26,39,.85) 88%)"></div>
+      <div style="position:absolute;left:${s.margem || 70}px;top:${s.topo || 70}px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:3"><div>${linhas(s.cima, s.tc || 190, '#fff')}</div>
+        ${s.pre ? `<div style="background:#fff;color:${COR.navy};font-size:34px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:10px 20px;transform:rotate(-2deg)">${rico(s.pre, TEMAS.light)}</div>` : ''}</div>
+      ${s.selo ? `<div style="position:absolute;left:${(s.seloPos || [190, 520])[0]}px;top:${(s.seloPos || [190, 520])[1]}px;width:170px;height:170px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;${TITULO};font-size:110px;color:#fff;transform:rotate(-8deg);box-shadow:0 20px 50px rgba(8,16,40,.45);z-index:4">${esc(s.selo)}</div>` : ''}
+      <div style="position:absolute;left:${s.margem || 70}px;bottom:${s.base || 150}px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;z-index:3">
+        <div>${linhas(s.baixo, s.tb || 170, '#fff')}</div></div>
+      <div style="position:absolute;left:${s.margem || 70}px;bottom:62px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      <div style="position:absolute;right:80px;bottom:70px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>

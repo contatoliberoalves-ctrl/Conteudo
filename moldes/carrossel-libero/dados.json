@@ -3314,15 +3314,24 @@
       {
         "tipo": "capa",
         "tema": "dark",
-        "foto": "provisoria-voto.jpg",
-        "imagemFutura": "ia-voto-nulo-branco.jpg",
+        "estilo": "cantos",
+        "imagem": "ia-voto-nulo-branco.jpg",
         "promptIA": "Use a pessoa da foto que estou enviando e mantenha o rosto, os óculos, o tom de pele, o cabelo e os traços exatamente iguais. Crie uma foto vertical 4:5, estilo ensaio editorial: ele de terno azul-marinho e camisa branca, em pé ao lado de uma urna eletrônica brasileira grande (cinza-claro, teclado numérico, uma tecla branca, uma laranja e uma verde embaixo), com cara de dúvida, uma mão no queixo e a outra apontando para a tecla branca. Fundo azul royal liso (#1046D8) com leve granulado, luz de estúdio suave. Rosto e urna na metade de cima da imagem; o terço de baixo mais escuro e vazio, para eu colocar o título depois. Não escreva nenhum texto, letra ou logotipo na imagem.",
-        "pre": "Voto nulo x voto em branco:",
-        "titulo": [
-          "Qual a",
-          "[[diferença]]?"
+        "cima": [
+          "Voto",
+          "nulo"
         ],
-        "ts": 150
+        "selo": "x",
+        "baixo": [
+          "Voto em",
+          "branco"
+        ],
+        "pre": "Qual a diferença?",
+        "base": 140,
+        "seloPos": [
+          200,
+          560
+        ]
       },
       {
         "tipo": "texto",
