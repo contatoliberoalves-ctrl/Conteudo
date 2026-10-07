@@ -3289,5 +3289,122 @@
         "botao": "Comente SIM ou NÃO"
       }
     ]
+  },
+  {
+    "id": "voto-nulo-x-branco",
+    "titulo": "Voto nulo x voto em branco: qual a diferença?",
+    "tema": "Voto nulo e voto em branco (art. 77, § 2º, CF; art. 5º da Lei 9.504/97; art. 224 do Código Eleitoral)",
+    "pontes": [
+      {
+        "img": "ballot_box_with_ballot.png",
+        "entre": 2,
+        "y": 880,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "cross_mark.png",
+        "entre": 5,
+        "y": 230,
+        "tam": 260,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "foto": "provisoria-voto.jpg",
+        "imagemFutura": "ia-voto-nulo-branco.jpg",
+        "promptIA": "Use a pessoa da foto que estou enviando e mantenha o rosto, os óculos, o tom de pele, o cabelo e os traços exatamente iguais. Crie uma foto vertical 4:5, estilo ensaio editorial: ele de terno azul-marinho e camisa branca, em pé ao lado de uma urna eletrônica brasileira grande (cinza-claro, teclado numérico, uma tecla branca, uma laranja e uma verde embaixo), com cara de dúvida, uma mão no queixo e a outra apontando para a tecla branca. Fundo azul royal liso (#1046D8) com leve granulado, luz de estúdio suave. Rosto e urna na metade de cima da imagem; o terço de baixo mais escuro e vazio, para eu colocar o título depois. Não escreva nenhum texto, letra ou logotipo na imagem.",
+        "pre": "Voto nulo x voto em branco:",
+        "titulo": [
+          "Qual a",
+          "[[diferença]]?"
+        ],
+        "ts": 150
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Pensa comigo",
+        "titulo": [
+          "É tipo pedir",
+          "no restaurante"
+        ],
+        "palavra": "CARDÁPIO",
+        "texto": [
+          "**Branco:** você olha o cardápio e diz \"não quero nada\".",
+          "**Nulo:** você pede um prato que **não existe** no cardápio.",
+          "Nos dois casos, você sai sem comer. Hahaha"
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Na urna",
+        "titulo": [
+          "Como cada um é feito"
+        ],
+        "marcador": "num",
+        "itens": [
+          "**Branco:** aperta a tecla **BRANCO** e depois **CONFIRMA**",
+          "**Nulo:** digita um número que **não é de nenhum candidato** nem partido (ex.: 00) e **CONFIRMA**"
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "Art. 77, § 2º, CF",
+        "titulo": [
+          "Quem ganha?"
+        ],
+        "citacao": "Será considerado eleito Presidente o candidato que, registrado por partido político, obtiver a maioria absoluta de votos, não computados os em branco e os nulos.",
+        "traducao": "Traduzindo: **branco e nulo ficam fora da conta**. Só os **votos válidos** decidem."
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Mito 1",
+        "titulo": [
+          "Branco vai pra",
+          "quem está ganhando?"
+        ],
+        "palavra": "MITO",
+        "texto": [
+          "**Não.** Isso vem de uma regra antiga: o branco entrava no cálculo do quociente eleitoral das eleições para deputado e vereador.",
+          "Desde a **Lei 9.504/97 (art. 5º)**, só contam os votos dados a candidatos e legendas. Branco e nulo têm o **mesmo peso: zero**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Mito 2",
+        "titulo": [
+          "Mais da metade",
+          "anulou? Nova eleição?"
+        ],
+        "texto": [
+          "**Também não.** O art. 224 do Código Eleitoral fala de votos **anulados pela Justiça Eleitoral**, por fraude ou abuso, por exemplo.",
+          "O voto nulo do eleitor não derruba eleição: vence quem tiver a maioria dos **votos válidos**, por menos que sejam."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "dark",
+        "titulo": "Na prática, o efeito é o mesmo: nenhum.",
+        "sub": "A diferença está só na intenção de quem vota."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "foto": "etica-23.jpg",
+        "titulo": [
+          "Você sabia?"
+        ],
+        "texto": "Manda pra quem ainda acha que anular o voto derruba a eleição.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]
