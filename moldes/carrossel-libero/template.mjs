@@ -319,6 +319,31 @@ const TIPOS = {
       ${s.caso ? `<p data-corpo style="margin:0;font-size:${s.corpoCaso || 36}px;font-weight:500;line-height:1.3;color:${t.txt};opacity:.9">${rico(s.caso, t)}</p>` : ''}
       <div style="display:flex;flex-direction:column;gap:26px;border-top:3px solid ${t.linha};padding-top:30px">${itens}</div>`);
   },
+  // Treino de peças: o enunciado numa folha (borda azul), com o rótulo do caso e o convite a responder.
+  enunciado(s, t) {
+    return area(`${kicker(s.kicker, t)}${titulo(s, t, 110, 860)}
+      <div style="background:#fff;border-left:14px solid ${COR.azul};padding:44px 48px;box-shadow:0 24px 50px rgba(8,16,40,.28);display:flex;flex-direction:column;gap:18px">
+        ${lista(s.texto).map(p => `<p data-corpo style="margin:0;font-size:${s.corpo || 32}px;font-weight:500;line-height:1.38;color:${COR.navy};text-wrap:pretty">${rico(p, TEMAS.light)}</p>`).join('')}
+      </div>
+      ${s.rodape ? `<div style="font-size:30px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:${t.tit}">${rico(s.rodape, t)}</div>` : ''}`, 90, 90);
+  },
+  // Pergunta de múltipla escolha: tema no título, a pergunta e as alternativas A–D (o gabarito fica no slide "gabarito").
+  questao(s, t) {
+    const [bgL, fgL] = t.escuro ? ['#fff', COR.azul] : [COR.azul, '#fff'];
+    const ops = lista(s.opcoes).map((o, i) => `<div style="display:flex;align-items:center;gap:26px;padding:22px 28px;border:3px solid ${t.escuro ? 'rgba(255,255,255,.35)' : '#C9CFDB'};background:${t.escuro ? 'rgba(255,255,255,.06)' : '#fff'};border-radius:22px">
+        <span style="flex:none;width:64px;height:64px;border-radius:50%;background:${bgL};color:${fgL};display:flex;align-items:center;justify-content:center;${TITULO};font-size:42px">${'ABCDE'[i]}</span>
+        <span data-corpo style="font-size:${s.corpo || 34}px;font-weight:600;line-height:1.25;color:${t.txt}">${rico(o, t)}</span></div>`).join('');
+    return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}${s.pergunta ? `<p data-corpo style="margin:0;font-size:${s.corpoPergunta || 40}px;font-weight:700;line-height:1.25;color:${t.tit}">${rico(s.pergunta, t)}</p>` : ''}
+      <div style="display:flex;flex-direction:column;gap:18px">${ops}</div>`, 90, 90);
+  },
+  // Gabarito do treino: uma linha por pergunta, com a letra certa, o porquê e o artigo.
+  gabarito(s, t) {
+    const linhas = lista(s.itens).map(it => `<div style="display:flex;gap:26px;align-items:flex-start;padding-bottom:20px;border-bottom:2px solid ${t.linha}">
+        <span style="flex:none;width:72px;height:72px;border-radius:50%;background:${t.escuro ? '#fff' : COR.azul};color:${t.escuro ? COR.azul : '#fff'};display:flex;align-items:center;justify-content:center;${TITULO};font-size:46px">${esc(it.letra)}</span>
+        <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:24px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:${t.kicker}">${esc(it.tema)}</span>
+          <span data-corpo style="font-size:${s.corpo || 30}px;font-weight:500;line-height:1.28;color:${t.txt}">${rico(it.texto, t)}${it.artigo ? ` <b style="font-weight:800;white-space:nowrap">(${esc(it.artigo)})</b>` : ''}</span></div></div>`).join('');
+    return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}<div style="display:flex;flex-direction:column;gap:20px">${linhas}</div>`, 90, 90);
+  },
   frases(s, t) {
     const [bg, fg] = t === TEMAS.light ? [COR.azul, '#fff'] : [COR.off, COR.azul];
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}

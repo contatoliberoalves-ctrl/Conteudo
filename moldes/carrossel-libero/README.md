@@ -22,6 +22,9 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `lei` | `titulo`, `citacao` (texto da lei, **literal**), `traducao` |
 | `lista` | `titulo`, `itens`, `marcador` (`"num"`, `"romano"` ou `"letra"`), `inicio` (continua a contagem: `1` começa em 02/II/b) |
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
+| `enunciado` | `kicker` (ex.: "Caso 01 · Enunciado (1/2)"), `texto` (parágrafos do caso, numa folha branca com borda azul), `corpo` (px; 36 cabe ~700 caracteres) |
+| `questao` | `kicker` ("Pergunta 1 de 5"), `titulo` (o tema: Endereçamento, Partes, Teses, Pedidos), `pergunta`, `opcoes` (A–D), `corpo` |
+| `gabarito` | `kicker`, `titulo`, `itens: [{tema, letra, texto, artigo}]` (uma linha por pergunta, com a letra certa) |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
 | `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita), `print` (opcional: print de tela em `fotos/`, ex.: o botão "Assinar" do perfil) e `destaque` (`[x, y, largura, altura]` em % do print: anel vermelho em volta do ponto) e `centro` (`true`: título, texto e botão centralizados, sem foto) |
 
@@ -65,3 +68,7 @@ Um carrossel com `"visual": "dossie" | "duelo" | "requisitos"` usa outra diagram
 - `dossie`: processo arquivado (capa com folha, carimbo e clipe; `linha`, `ficha`, `carimbo`, `cta`). Para "teses que caíram".
 - `duelo`: tela dividida com VS (`capa`, `round`, `placar`, `macete`, `cta`; o carrossel tem `nomes`). Para comparações.
 - `requisitos`: ficha de candidatura (`capa`, `lei`, `requisito`, `virada`, `checklist`, `cta`). Para "fulano poderia ser X?".
+
+## Série "Vamos treinar estrutura de peças?"
+
+Posts com `"serie": "treino"`: capa `estilo: pergunta`, enunciado em 2 slides `enunciado`, 5 `questao` (peça, endereçamento, partes/legitimidade, teses, pedidos), `gabarito` e `cta` centralizado. Fonte dos casos: caderno "Mentoria VDE · Treino de peças" (20 casos com gabarito; peça o PDF ao autor). Varie a letra certa entre as perguntas e use alternativas erradas plausíveis (habeas data x MS, ADI x ADPF…).

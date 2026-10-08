@@ -3609,5 +3609,515 @@
         "ts": 200
       }
     ]
+  },
+  {
+    "id": "treino-estrutura-caso-01",
+    "titulo": "Vamos treinar estrutura de peças? Caso 01 (certidão negada)",
+    "tema": "Treino de estrutura: mandado de segurança individual (certidão gratuita, art. 5º, XXXIV, b)",
+    "serie": "treino",
+    "inspiracao": "Mentoria VDE · Caderno de treino de peças (Líbero Filho)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "estilo": "pergunta",
+        "kicker": "Treino de peças · Caso 01",
+        "titulo": [
+          "Vamos treinar",
+          "estrutura de",
+          "peças?"
+        ],
+        "texto": "Leia o caso, responda as **5 perguntas** e confira o gabarito no final.",
+        "opcoes": [
+          "Bora!"
+        ]
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "dark",
+        "kicker": "Caso 01 · Enunciado (1/2)",
+        "texto": [
+          "Rapunzel, brasileira, pretende apresentar sua defesa em processo administrativo relativo a um imóvel de sua propriedade no Município Aurora. Para demonstrar que a construção foi regularmente autorizada, requereu ao Diretor do Departamento de Obras certidão sobre a licença expedida pelo próprio Município.",
+          "O Diretor indeferiu expressamente o pedido, afirmando que o documento somente seria entregue após o pagamento de uma taxa de R$ 800,00. A cobrança é exigida inclusive quando a certidão se destina à defesa de direitos ou ao esclarecimento de situação de interesse pessoal. Rapunzel possui o requerimento, a negativa e a intimação que fixa o término do prazo de defesa em oito dias."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "blue",
+        "kicker": "Caso 01 · Enunciado (2/2)",
+        "texto": [
+          "Há três dias, ela recebeu a decisão e procurou você. Não existe recurso administrativo com efeito suspensivo independentemente de caução, e o Diretor não possui foro originário em tribunal. Rapunzel deseja obter o documento gratuitamente por ação constitucional que dispense novas provas e não comporte honorários de sucumbência.",
+          "Como advogado(a) de Rapunzel, elabore a peça adequada."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 1 de 5",
+        "titulo": [
+          "Qual é a peça?"
+        ],
+        "pergunta": "Rapunzel quer a certidão grátis, sem novas provas e sem honorários. Qual ação?",
+        "opcoes": [
+          "Habeas data",
+          "Mandado de segurança individual",
+          "Ação popular",
+          "Mandado de injunção"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "dark",
+        "kicker": "Pergunta 2 de 5",
+        "titulo": [
+          "Endereçamento"
+        ],
+        "pergunta": "A quem você endereça a peça?",
+        "opcoes": [
+          "Ministro Presidente do STF",
+          "Desembargador Presidente do TJ",
+          "Juízo da Fazenda Pública (ou Cível) da comarca de Aurora",
+          "Juízo Federal da seção judiciária"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 3 de 5",
+        "titulo": [
+          "Partes"
+        ],
+        "pergunta": "Quem são as partes?",
+        "opcoes": [
+          "Rapunzel contra o Município, sem indicar autoridade",
+          "Rapunzel, impetrante; Diretor de Obras, autoridade coatora; Município Aurora, pessoa jurídica interessada",
+          "O Ministério Público, em favor de Rapunzel",
+          "Rapunzel contra o Prefeito, autoridade coatora"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "blue",
+        "kicker": "Pergunta 4 de 5",
+        "titulo": [
+          "Tese principal"
+        ],
+        "pergunta": "Qual é a tese central?",
+        "opcoes": [
+          "Direito de petição aos Poderes Públicos",
+          "Acesso a dados pessoais em banco público",
+          "Obtenção gratuita de certidão para defesa de direitos e esclarecimento de interesse pessoal",
+          "Inexistência de lei regulamentadora da taxa"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 5 de 5",
+        "titulo": [
+          "Pedidos"
+        ],
+        "pergunta": "Qual conjunto de pedidos está certo?",
+        "opcoes": [
+          "Citação do Município, prova pericial e honorários",
+          "Liminar para expedir a certidão sem taxa; notificação do coator; ciência ao Município; MP; concessão da segurança",
+          "Indenização por danos morais e devolução da taxa",
+          "Declaração de inconstitucionalidade da taxa com efeito erga omnes"
+        ]
+      },
+      {
+        "tipo": "gabarito",
+        "tema": "dark",
+        "kicker": "Confere aqui",
+        "titulo": [
+          "Gabarito"
+        ],
+        "itens": [
+          {
+            "tema": "Peça",
+            "letra": "B",
+            "texto": "Mandado de segurança individual: direito líquido e certo, prova pré-constituída, sem honorários.",
+            "artigo": "art. 5º, LXIX; Lei 12.016/09, art. 25"
+          },
+          {
+            "tema": "Endereçamento",
+            "letra": "C",
+            "texto": "Juízo da Fazenda Pública ou Cível da comarca de Aurora: o Diretor não tem foro em tribunal.",
+            "artigo": ""
+          },
+          {
+            "tema": "Partes",
+            "letra": "B",
+            "texto": "Impetrante, autoridade coatora e pessoa jurídica interessada.",
+            "artigo": "Lei 12.016/09, art. 6º"
+          },
+          {
+            "tema": "Tese",
+            "letra": "C",
+            "texto": "Certidão para defesa de direitos independe de taxa. Não confunda com habeas data.",
+            "artigo": "art. 5º, XXXIV, “b”"
+          },
+          {
+            "tema": "Pedidos",
+            "letra": "B",
+            "texto": "Liminar pelo prazo de defesa, notificação, ciência, MP e concessão da segurança.",
+            "artigo": "Lei 12.016/09, art. 7º, III"
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Quantas você",
+          "acertou?"
+        ],
+        "texto": "Comenta o seu placar (ex.: 4/5) e qual caso você quer no próximo treino.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "treino-estrutura-caso-17",
+    "titulo": "Vamos treinar estrutura de peças? Caso 17 (lei municipal de 1982)",
+    "tema": "Treino de estrutura: ADPF contra lei municipal pré-constitucional (censura à imprensa)",
+    "serie": "treino",
+    "inspiracao": "Mentoria VDE · Caderno de treino de peças (Líbero Filho)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "estilo": "pergunta",
+        "kicker": "Treino de peças · Caso 17",
+        "titulo": [
+          "Vamos treinar",
+          "estrutura de",
+          "peças?"
+        ],
+        "texto": "Leia o caso, responda as **5 perguntas** e confira o gabarito no final.",
+        "opcoes": [
+          "Bora!"
+        ]
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "dark",
+        "kicker": "Caso 17 · Enunciado (1/2)",
+        "texto": [
+          "O Município Seahaven aplica lei municipal editada em 1982 que proíbe a circulação e a distribuição de jornais que divulguem críticas ao prefeito ou aos serviços públicos locais. O diploma prevê apreensão das publicações e fechamento dos pontos de distribuição.",
+          "Truman Burbank, presidente do diretório nacional do Partido Transparência, que possui um senador, recebeu cópias da lei, autos de apreensão e decisões judiciais conflitantes. A prefeitura anunciou uma operação para apreender novas edições na semana seguinte."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "blue",
+        "kicker": "Caso 17 · Enunciado (2/2)",
+        "texto": [
+          "O partido busca pronunciamento de controle concentrado perante o STF, com a Constituição de 1988 como parâmetro, para resolver a controvérsia com alcance geral. Os documentos demonstram que não há outro instrumento objetivo capaz de sanar a lesão com a mesma amplitude.",
+          "Como advogado(a) do partido, elabore a peça adequada."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 1 de 5",
+        "titulo": [
+          "Qual é a peça?"
+        ],
+        "pergunta": "Lei municipal de 1982 contra a Constituição de 1988, no STF. Qual ação?",
+        "opcoes": [
+          "ADI",
+          "Reclamação",
+          "ADPF",
+          "Ação popular"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "dark",
+        "kicker": "Pergunta 2 de 5",
+        "titulo": [
+          "Endereçamento"
+        ],
+        "pergunta": "A quem você endereça a peça?",
+        "opcoes": [
+          "Juízo da Fazenda Pública de Seahaven",
+          "Desembargador Presidente do TJ",
+          "Juízo Federal",
+          "Ministro Presidente do STF"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 3 de 5",
+        "titulo": [
+          "Legitimidade"
+        ],
+        "pergunta": "Sobre o partido, o que está certo?",
+        "opcoes": [
+          "Legitimado pelo diretório nacional, com representação no Congresso, sem precisar provar pertinência temática",
+          "Só pode propor se provar pertinência temática",
+          "Precisa de autorização de todos os filiados",
+          "Quem propõe é Truman, em nome próprio"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "blue",
+        "kicker": "Pergunta 4 de 5",
+        "titulo": [
+          "Teses"
+        ],
+        "pergunta": "Qual é o núcleo das teses?",
+        "opcoes": [
+          "Inconstitucionalidade formal por vício de iniciativa",
+          "Não recepção da lei por ofensa à liberdade de expressão e de imprensa e à vedação de censura, com subsidiariedade demonstrada",
+          "Ofensa ao direito adquirido dos jornais",
+          "Lei municipal pós-1988 incompatível com a Constituição estadual"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 5 de 5",
+        "titulo": [
+          "Pedidos"
+        ],
+        "pergunta": "Qual conjunto de pedidos está certo?",
+        "opcoes": [
+          "Honorários e custas contra o Município",
+          "Declaração de inconstitucionalidade só entre as partes",
+          "Liminar para suspender a lei e as apreensões; informações; PGR; não recepção com eficácia geral e vinculante",
+          "Indenização aos jornais apreendidos"
+        ]
+      },
+      {
+        "tipo": "gabarito",
+        "tema": "dark",
+        "kicker": "Confere aqui",
+        "titulo": [
+          "Gabarito"
+        ],
+        "itens": [
+          {
+            "tema": "Peça",
+            "letra": "C",
+            "texto": "ADPF: lei municipal e anterior a 1988 não cabem em ADI.",
+            "artigo": "Lei 9.882/99, art. 1º, parágrafo único, I"
+          },
+          {
+            "tema": "Endereçamento",
+            "letra": "D",
+            "texto": "Ministro Presidente do STF.",
+            "artigo": "art. 102, § 1º"
+          },
+          {
+            "tema": "Legitimidade",
+            "letra": "A",
+            "texto": "Partido com representação no Congresso é legitimado universal.",
+            "artigo": "art. 103, VIII; Lei 9.882/99, art. 2º, I"
+          },
+          {
+            "tema": "Teses",
+            "letra": "B",
+            "texto": "Liberdade de expressão e de imprensa, vedação à censura e subsidiariedade.",
+            "artigo": "arts. 5º, IV e IX, e 220; Lei 9.882/99, art. 4º, § 1º"
+          },
+          {
+            "tema": "Pedidos",
+            "letra": "C",
+            "texto": "Liminar, informações, PGR e não recepção com eficácia geral e vinculante.",
+            "artigo": "Lei 9.882/99, arts. 5º e 10"
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Quantas você",
+          "acertou?"
+        ],
+        "texto": "Comenta o seu placar (ex.: 4/5) e qual caso você quer no próximo treino.",
+        "botao": "Comenta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "treino-estrutura-caso-05",
+    "titulo": "Vamos treinar estrutura de peças? Caso 05 (cadastro negado)",
+    "tema": "Treino de estrutura: habeas data contra autarquia federal",
+    "serie": "treino",
+    "inspiracao": "Mentoria VDE · Caderno de treino de peças (Líbero Filho)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "estilo": "pergunta",
+        "kicker": "Treino de peças · Caso 05",
+        "titulo": [
+          "Vamos treinar",
+          "estrutura de",
+          "peças?"
+        ],
+        "texto": "Leia o caso, responda as **5 perguntas** e confira o gabarito no final.",
+        "opcoes": [
+          "Bora!"
+        ]
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "dark",
+        "kicker": "Caso 05 · Enunciado (1/2)",
+        "texto": [
+          "Miguel Rivera, brasileiro, soube que uma autarquia federal de assistência social mantém cadastro com informações sobre seus vínculos familiares, renda e histórico de atendimento. Esses dados são compartilhados com outros órgãos públicos.",
+          "Miguel apresentou ao Diretor de Cadastros, autoridade que administra o banco, requerimento para conhecer integralmente as informações referentes à sua pessoa. O Diretor negou expressamente o acesso, alegando que os registros seriam reservados à administração, embora não apontasse risco à segurança da sociedade ou do Estado. A decisão escrita foi entregue há cinco dias."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "blue",
+        "kicker": "Caso 05 · Enunciado (2/2)",
+        "texto": [
+          "Miguel possui prova do requerimento e da negativa. Não pretende obter dados de terceiros, discutir concessão de benefício ou receber indenização. Deseja exclusivamente conhecer seus próprios registros. Não há urgência concreta nem competência originária de tribunal para atos do Diretor.",
+          "Como advogado(a) de Miguel, elabore a ação constitucional adequada."
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 1 de 5",
+        "titulo": [
+          "Qual é a peça?"
+        ],
+        "pergunta": "Miguel quer conhecer os próprios dados num banco público. Qual ação?",
+        "opcoes": [
+          "Mandado de segurança",
+          "Ação popular",
+          "Habeas data",
+          "Mandado de injunção"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "dark",
+        "kicker": "Pergunta 2 de 5",
+        "titulo": [
+          "Endereçamento"
+        ],
+        "pergunta": "A quem você endereça a peça?",
+        "opcoes": [
+          "Juízo Federal competente",
+          "Juízo da Fazenda Pública estadual",
+          "Ministro Presidente do STJ",
+          "Ministro Presidente do STF"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 3 de 5",
+        "titulo": [
+          "Partes"
+        ],
+        "pergunta": "Quem são as partes?",
+        "opcoes": [
+          "Miguel contra a União",
+          "O Ministério Público Federal, em favor de Miguel",
+          "Miguel contra o Município onde mora",
+          "Miguel, titular dos dados, contra o Diretor de Cadastros da autarquia federal"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "blue",
+        "kicker": "Pergunta 4 de 5",
+        "titulo": [
+          "Teses"
+        ],
+        "pergunta": "Qual é o núcleo das teses?",
+        "opcoes": [
+          "Direito à indenização pelo uso indevido dos dados",
+          "Direito de conhecer as informações pessoais em banco de entidade pública, com a recusa comprovada",
+          "Direito de acessar dados de terceiros",
+          "Direito ao benefício assistencial"
+        ]
+      },
+      {
+        "tipo": "questao",
+        "tema": "light",
+        "kicker": "Pergunta 5 de 5",
+        "titulo": [
+          "Pedidos"
+        ],
+        "pergunta": "Qual conjunto de pedidos está certo?",
+        "opcoes": [
+          "Liminar obrigatória e honorários",
+          "Citação da União e perícia",
+          "Notificação; MP; concessão da ordem para acessar os próprios registros; gratuidade",
+          "Indenização e exclusão de todos os dados"
+        ]
+      },
+      {
+        "tipo": "gabarito",
+        "tema": "dark",
+        "kicker": "Confere aqui",
+        "titulo": [
+          "Gabarito"
+        ],
+        "itens": [
+          {
+            "tema": "Peça",
+            "letra": "C",
+            "texto": "Habeas data: conhecer informações da própria pessoa em banco público.",
+            "artigo": "art. 5º, LXXII, “a”"
+          },
+          {
+            "tema": "Endereçamento",
+            "letra": "A",
+            "texto": "Juízo Federal: autarquia federal, sem foro em tribunal.",
+            "artigo": "art. 109, VIII; Lei 9.507/97, art. 20, I"
+          },
+          {
+            "tema": "Partes",
+            "letra": "D",
+            "texto": "Titular dos dados contra a autoridade que administra o banco.",
+            "artigo": ""
+          },
+          {
+            "tema": "Teses",
+            "letra": "B",
+            "texto": "Acesso aos próprios dados, com prova da recusa administrativa.",
+            "artigo": "Súmula 2/STJ"
+          },
+          {
+            "tema": "Pedidos",
+            "letra": "C",
+            "texto": "Sem liminar (não há urgência). Notificação, MP, ordem de acesso e gratuidade.",
+            "artigo": "art. 5º, LXXVII"
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Quantas você",
+          "acertou?"
+        ],
+        "texto": "Comenta o seu placar (ex.: 4/5) e qual caso você quer no próximo treino.",
+        "botao": "Comenta aqui!"
+      }
+    ]
   }
 ]
