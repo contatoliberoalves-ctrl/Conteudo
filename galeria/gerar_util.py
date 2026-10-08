@@ -10,8 +10,12 @@ def jpeg(origem, destino, largura, qualidade=82):
 
 
 def tamanho_tira(slides):
-    """Tamanho de cada slide na tira: sempre o original (a tira é dividida em partes, ver salvar_tira)."""
-    return Image.open(slides[0]).size
+    """Tamanho de cada slide na tira: o original; nos slides deitados (aula, 1920×1080), 1600×900, nítido
+    no PDF e com 10 slides por parte da tira (a galeria tem limite de arquivos por versão)."""
+    w, h = Image.open(slides[0]).size
+    if w > h and w > 1600:
+        return 1600, round(h * 1600 / w)
+    return w, h
 
 
 def salvar_tira(slides, dist, base):
