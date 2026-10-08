@@ -42,6 +42,7 @@ Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo
 | `cantos` | comparação sobre uma foto em tela cheia (montagem de IA) | `imagem` ou `foto`, `cima` (linhas no alto à esquerda), `pre` (etiqueta branca logo abaixo), `selo` (bola vermelha, ex.: "x"; `seloPos` [x, y]), `baixo` (linhas embaixo à esquerda), `tc`/`tb` (px), `base` (distância do rodapé). Deixe o rosto livre à direita |
 | `ringue` | treta entre duas pessoas e um terceiro no meio (eleições, disputas) | `pre` (etiqueta), `titulo` (curto, no alto), `esquerda`/`direita` (`{img, h, x, y}`: recortes PNG sem fundo em `fotos/`, `h` = altura em px), `centro` (`{img, x, y, tam}`: círculo PB), `carimbo` (texto vermelho sob o círculo). Para recortar: `rembg` (sessão `u2net_human_seg`) |
 | `apuracao` | eleições e resultados (placar de TV) | `pre` (com bolinha vermelha "ao vivo"), `titulo`, `meta` (% da marca vermelha nas barras, padrão 50), `metaTexto`, `max` (% da barra cheia, padrão 60), `candidatos` (`[{foto, nome, partido, pct, anulado, carimbo, carimboX}]`: fotos quadradas do rosto em `fotos/`), `placarY` |
+| `treino` | série "Vamos treinar estrutura de peças?" | `kicker`, `titulo` (use `[[caixa]]`), `etapas` (itens da folha com caixinha para marcar), `caso` (carimbo vermelho), `folha`/`folhaDir` (cabeçalho da folha), `folhaY`, `folhaH`, `ts` |
 
 Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais Teses" do Livro de Prática Constitucional, conferida com os gabaritos da FGV (exames 32 a 46).
 
@@ -71,4 +72,4 @@ Um carrossel com `"visual": "dossie" | "duelo" | "requisitos"` usa outra diagram
 
 ## Série "Vamos treinar estrutura de peças?"
 
-Posts com `"serie": "treino"`: capa `estilo: pergunta`, enunciado em 2 slides `enunciado`, 5 `questao` (peça, endereçamento, partes/legitimidade, teses, pedidos), `gabarito` e `cta` centralizado. Fonte dos casos: caderno "Mentoria VDE · Treino de peças" (20 casos com gabarito; peça o PDF ao autor). Varie a letra certa entre as perguntas e use alternativas erradas plausíveis (habeas data x MS, ADI x ADPF…).
+Posts com `"serie": "treino"`: capa `estilo: treino`, enunciado em 2 slides `enunciado`, 5 `questao` (peça, endereçamento, partes/legitimidade, teses, pedidos), `gabarito` e `cta` centralizado. Fonte dos casos: caderno "Mentoria VDE · Treino de peças" (20 casos com gabarito; peça o PDF ao autor). Varie a letra certa entre as perguntas e use alternativas erradas plausíveis (habeas data x MS, ADI x ADPF…).

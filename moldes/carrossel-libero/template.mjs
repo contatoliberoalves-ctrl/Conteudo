@@ -195,6 +195,26 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:72px;background:${COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
   },
+  // Treino de peças: título no alto e uma folha de peça inclinada com as etapas para marcar, o carimbo do
+  // caso e um lápis. Campos: kicker, titulo, etapas (itens da folha), caso (carimbo), texto (linha de baixo).
+  treino(s, t) {
+    const etapas = lista(s.etapas).map(e => `<div style="display:flex;align-items:center;gap:22px;padding:16px 0;border-bottom:2px dashed #C9CFDB">
+        <span style="flex:none;width:46px;height:46px;border:5px solid ${COR.azul};border-radius:8px"></span>
+        <span style="${TITULO};font-size:52px;line-height:1;color:${COR.navy}">${esc(e)}</span>
+        <span style="flex:1;height:3px;background:#E1E5EC;margin-left:6px"></span></div>`).join('');
+    return `<div style="position:absolute;inset:0;background:${t.bg}"></div>
+      <div style="position:absolute;left:100px;right:100px;top:90px;display:flex;flex-direction:column;gap:18px;z-index:3">
+        ${kicker(s.kicker, t)}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 150}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1>
+      </div>
+      <div style="position:absolute;left:150px;width:760px;top:${s.folhaY || 600}px;height:${s.folhaH || 540}px;background:#fff;transform:rotate(-4deg);transform-origin:top left;box-shadow:0 40px 80px rgba(8,16,40,.45);padding:46px 60px;z-index:2">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.azul};padding-bottom:14px;border-bottom:4px solid ${COR.azul}"><span>${esc(s.folha || 'Estrutura da peça')}</span><span style="color:#9AA3B5">${esc(s.folhaDir || '')}</span></div>
+        ${etapas}
+      </div>
+      ${s.caso ? `<div style="position:absolute;right:90px;top:${(s.folhaY || 600) - 70}px;transform:rotate(10deg);border:8px solid ${COR.vermelho};outline:3px solid ${COR.vermelho};outline-offset:6px;color:${COR.vermelho};background:rgba(255,255,255,.92);padding:8px 26px 2px;text-align:center;z-index:4"><div style="font-size:22px;font-weight:800;letter-spacing:.2em">CASO</div><div style="${TITULO};font-size:110px;line-height:.9">${esc(s.caso)}</div></div>` : ''}
+      <img src="../assets/pencil.png" style="position:absolute;right:40px;bottom:150px;width:260px;transform:rotate(-30deg);z-index:4;filter:drop-shadow(0 24px 30px rgba(8,16,40,.4))">
+      ${pe(t, true)}`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>
