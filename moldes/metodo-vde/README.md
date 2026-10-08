@@ -25,4 +25,4 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 - `esqueleto`: gabarito no esqueleto VDE, `pontos` (3 por slide): {`n`, `nome` (Endereçamento, Partes e legitimidade, Cabimento, Tutela de urgência, Teses, Pedidos), `texto` (tópicos), `artigos` (etiquetas)}. Use dois slides por caso (1/2 e 2/2).
 - `fim`: `titulo`, `texto`, `botao`.
 
-Conteúdo: use o material da mentoria (ex.: caderno "Treino de peças", 20 casos com gabarito; peça o PDF ao autor). Não invente gabaritos nem o significado da sigla VDE.
+Conteúdo: use o material da mentoria (ex.: caderno "Treino de peças", 20 casos com gabarito; peça o PDF ao autor). Sem jurisprudência (só Constituição e leis), salvo pedido. Não invente gabaritos nem o significado da sigla VDE.

@@ -342,7 +342,8 @@
         "numero": "01",
         "kicker": "Caso 1",
         "titulo": [
-          "Prova no sábado"
+          "A permissão",
+          "do taxista"
         ],
         "texto": "Art. 5º violado e cabimento do remédio.",
         "pilula": "Aposta: mandado de segurança"
@@ -352,15 +353,16 @@
         "tema": "lavanda",
         "kicker": "Caso 1 · Enunciado",
         "titulo": [
-          "Prova no sábado"
+          "A permissão",
+          "do taxista"
         ],
         "pilula": "Peça autoral",
         "texto": [
-          "Matilda, brasileira, adventista do sétimo dia, foi aprovada na prova objetiva do concurso para professor do Município Estrela. A prova prática foi marcada para um sábado, das 8h às 12h. Pela sua crença, ela guarda o período entre o pôr do sol de sexta e o de sábado.",
-          "Antes da prova, Matilda requereu ao Presidente da Comissão do Concurso fazer a mesma prova no sábado, após o pôr do sol, isolada dos demais candidatos desde a manhã, sem custo extra para o Município. Juntou declaração da igreja. O pedido foi negado por escrito, só porque “o edital não prevê exceção”.",
-          "A prova será em dez dias. Matilda tem o edital, o requerimento, a declaração e a negativa, e quer uma ação constitucional que dispense outras provas e não gere honorários de sucumbência. O Presidente da Comissão não tem foro originário em tribunal."
+          "João, taxista há doze anos no Município Alfa, requereu a renovação anual da sua permissão para o serviço de táxi. O Secretário Municipal de Transportes indeferiu o pedido, por escrito, com base exclusiva em decreto municipal editado neste ano, que condiciona a renovação à **filiação do permissionário à Associação dos Taxistas de Alfa**.",
+          "Nenhuma lei municipal prevê essa exigência. João cumpre todos os demais requisitos e não deseja se associar. A permissão vence em quinze dias e, sem ela, ele não poderá trabalhar.",
+          "João tem o requerimento, a decisão de indeferimento, o decreto e os documentos que comprovam os demais requisitos. Ele busca uma ação constitucional que dispense a produção de outras provas e não comporte honorários de sucumbência. O Secretário não possui foro por prerrogativa de função."
         ],
-        "pergunta": "Como advogado(a) de Matilda, elabore a peça cabível."
+        "pergunta": "Como advogado(a) de João, elabore a peça cabível."
       },
       {
         "tipo": "esqueleto",
@@ -374,19 +376,19 @@
             "n": "01",
             "nome": "Endereçamento",
             "texto": [
-              "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Estrela."
+              "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Alfa."
             ],
             "artigos": [
-              "Sem foro em tribunal"
+              "Sem foro por prerrogativa"
             ]
           },
           {
             "n": "02",
             "nome": "Partes e legitimidade",
             "texto": [
-              "Impetrante: **Matilda**.",
-              "Autoridade coatora: **Presidente da Comissão do Concurso**.",
-              "Pessoa jurídica interessada: **Município Estrela**."
+              "Impetrante: **João**.",
+              "Autoridade coatora: **Secretário Municipal de Transportes**.",
+              "Pessoa jurídica interessada: **Município Alfa**."
             ],
             "artigos": [
               "Lei 12.016/09, art. 6º"
@@ -418,8 +420,8 @@
             "n": "04",
             "nome": "Tutela de urgência",
             "texto": [
-              "**Liminar** para garantir a prova após o pôr do sol, isolada dos demais.",
-              "Fundamento relevante e prova em dez dias."
+              "**Liminar** para renovar a permissão sem a exigência de filiação.",
+              "Permissão vence em quinze dias; João fica sem trabalhar."
             ],
             "artigos": [
               "Lei 12.016/09, art. 7º, III"
@@ -429,14 +431,15 @@
             "n": "05",
             "nome": "Teses",
             "texto": [
-              "Liberdade de crença e **escusa de consciência**.",
-              "**Tema 386/STF**: data ou horário alternativo, com razoabilidade, isonomia e sem ônus desproporcional.",
-              "Negativa sem fundamentação concreta."
+              "**Liberdade de associação**: ninguém pode ser compelido a associar-se.",
+              "**Liberdade de profissão**, atendidas só as qualificações da lei.",
+              "**Legalidade**: decreto não cria obrigação que a lei não prevê."
             ],
             "artigos": [
-              "art. 5º, VI e VIII",
-              "art. 37, caput",
-              "RE 611.874"
+              "art. 5º, XX",
+              "art. 5º, XIII",
+              "art. 5º, II",
+              "art. 37, caput"
             ]
           },
           {
@@ -444,12 +447,11 @@
             "nome": "Pedidos",
             "texto": [
               "Liminar; notificação do coator; ciência ao Município; MP.",
-              "**Concessão da segurança**.",
+              "**Concessão da segurança** para renovar a permissão sem a filiação.",
               "Sem honorários; valor da causa."
             ],
             "artigos": [
-              "Lei 12.016/09, arts. 7º, 12 e 25",
-              "Súm. 512/STF"
+              "Lei 12.016/09, arts. 7º, 12 e 25"
             ]
           }
         ]
@@ -462,8 +464,8 @@
           "Pegadinha"
         ],
         "texto": [
-          "O Tema 386 **não dá direito automático** à mudança: a tese exige razoabilidade, igualdade entre candidatos e ausência de ônus desproporcional.",
-          "Por isso o enunciado diz que Matilda ficaria **isolada** e **sem custo extra**: use esses fatos na peça."
+          "O mandado de segurança **não ataca o decreto em tese**: ele ataca o **ato concreto** que negou a renovação.",
+          "A ilegalidade do decreto entra como **fundamento** do pedido."
         ]
       },
       {
@@ -579,7 +581,6 @@
               "Preparo, se devido; sem honorários."
             ],
             "artigos": [
-              "Súm. 512/STF",
               "Lei 12.016/09, art. 25"
             ]
           }
@@ -836,7 +837,7 @@
             "nome": "Teses",
             "texto": [
               "**Simetria**: a iniciativa privativa do chefe do Executivo para criar cargos vale para o Prefeito.",
-              "A **sanção não convalida** o vício de iniciativa.",
+              "O vício de iniciativa é **formal**: a lei nasce inconstitucional.",
               "Cargo em comissão só para direção, chefia e assessoramento; **moralidade**."
             ],
             "artigos": [
@@ -886,10 +887,10 @@
         ],
         "linhas": [
           [
-            "1 · Matilda",
+            "1 · João",
             "Mandado de segurança",
             "Fazenda Pública local",
-            "Escusa de consciência (art. 5º, VIII; Tema 386)"
+            "Liberdade de associação e de profissão (art. 5º, XX e XIII)"
           ],
           [
             "2 · Lupin",
@@ -914,12 +915,12 @@
       {
         "tipo": "fim",
         "tema": "degrade",
-        "kicker": "Sua vez",
+        "kicker": "Até a próxima",
         "titulo": [
-          "Agora é [[escrever]]"
+          "Confia no",
+          "[[processo]]."
         ],
-        "texto": "Escolha um dos 4 casos, escreva a peça inteira com o tempo marcado e confira com o esqueleto.",
-        "botao": "Mentoria Método VDE"
+        "texto": "Cada peça treinada hoje é um ponto a mais no dia da prova."
       }
     ]
   }
