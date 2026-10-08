@@ -148,6 +148,28 @@ const TIPOS = {
           ${lista(s.texto).map(p => `<p style="margin:0 0 .5em;font-weight:500;line-height:1.4;color:${COR.tinta}">${rico(p, TEMAS.branco)}</p>`).join('')}
         </div></div></div>${rodape(t)}`;
   },
+  // Caso (enunciado): título à esquerda e o texto numa folha branca com borda em degradê; "pergunta" no pé da folha.
+  caso(s, t) {
+    return `<div style="position:absolute;left:120px;top:140px;bottom:150px;width:460px;display:flex;flex-direction:column;justify-content:center;gap:26px;z-index:3">
+      ${kick(s.kicker, t)}${tit(s, t, 96, 520)}${barra(t)}${pilula(s.pilula, t)}
+    </div>
+    <div style="position:absolute;left:660px;right:120px;top:110px;bottom:120px;display:flex;align-items:center;z-index:3">
+      <div style="width:100%;max-height:100%;padding:6px 6px 6px 14px;border-radius:30px;background:${DEG_H}">
+        <div data-fit="caso" data-min="22" style="max-height:832px;overflow:hidden;background:#fff;border-radius:24px;padding:44px 52px;${FONTE};font-size:${s.corpo || 30}px">
+          ${lista(s.texto).map(p => `<p style="margin:0 0 .65em;font-weight:400;line-height:1.48;color:${COR.tinta};text-wrap:pretty">${rico(p, TEMAS.branco)}</p>`).join('')}
+          ${s.pergunta ? `<p style="margin:.4em 0 0;font-weight:700;color:${COR.roxo}">${rico(s.pergunta, TEMAS.branco)}</p>` : ''}
+        </div></div></div>${rodape(t)}`;
+  },
+  // Esqueleto VDE (gabarito destrinchado): 3 pontos por slide, cada um com número, nome, texto e artigos em etiquetas.
+  esqueleto(s, t) {
+    const ps = lista(s.pontos);
+    const card = p => `<div style="display:flex;flex-direction:column;gap:18px;background:${t.cartao};border:2px solid ${t.escuro ? 'rgba(255,255,255,.18)' : COR.borda};border-top:8px solid ${COR.roxo};border-radius:26px;padding:34px 34px 30px;box-shadow:0 14px 30px rgba(46,5,117,.07)">
+        <div style="display:flex;align-items:center;gap:18px">${numero(p.n, t, 64)}<span style="font-size:.74em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${t.kicker};line-height:1.15">${esc(p.nome)}</span></div>
+        ${lista(p.texto).map(x => `<div style="display:flex;gap:14px;align-items:baseline;line-height:1.4;color:${t.txt}"><span style="flex:none;width:10px;height:10px;border-radius:3px;background:${DEG_H};transform:translateY(-3px)"></span><span>${rico(x, t)}</span></div>`).join('')}
+        ${lista(p.artigos).length ? `<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:6px">${lista(p.artigos).map(a => `<span style="background:${COR.lavandaClara};color:${COR.roxo};border:1.5px solid ${COR.borda};border-radius:999px;padding:6px 16px;font-size:.66em;font-weight:600">${esc(a)}</span>`).join('')}</div>` : ''}</div>`;
+    return `${topo(s, t, 80)}
+    <div data-fit="esqueleto" data-min="20" style="position:absolute;left:120px;right:120px;top:${s.titulo ? 270 : 180}px;bottom:120px;display:grid;grid-template-columns:repeat(${ps.length || 3},1fr);gap:28px;align-items:stretch;${FONTE};font-size:${s.corpo || 30}px;overflow:hidden;z-index:3">${ps.map(card).join('')}</div>${rodape(t)}`;
+  },
   // Fechamento: título, texto e botão.
   fim(s, t) {
     return `${arcos(t, 'direita', 540, 7)}

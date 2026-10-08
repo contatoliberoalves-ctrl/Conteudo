@@ -21,6 +21,8 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 - `tabela`: `colunas` e `linhas`.
 - `questao`: `enunciado`, `alternativas`, `correta` (0 = A); repita com `gabarito: true` para revelar.
 - `balao`: atenção/pegadinha, `texto` num balão com borda em degradê.
+- `caso`: enunciado de peça autoral, `texto` (parágrafos) numa folha com borda em degradê, `pergunta` no pé ("elabore a peça cabível"), `titulo` e `pilula` à esquerda.
+- `esqueleto`: gabarito no esqueleto VDE, `pontos` (3 por slide): {`n`, `nome` (Endereçamento, Partes e legitimidade, Cabimento, Tutela de urgência, Teses, Pedidos), `texto` (tópicos), `artigos` (etiquetas)}. Use dois slides por caso (1/2 e 2/2).
 - `fim`: `titulo`, `texto`, `botao`.
 
 Conteúdo: use o material da mentoria (ex.: caderno "Treino de peças", 20 casos com gabarito; peça o PDF ao autor). Não invente gabaritos nem o significado da sigla VDE.
