@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Líbero Filho: professor de Direito Constitucional para OAB e concursos. Projetos, Reforço, PodConst, conteúdo e materiais gratuitos.">
+<title>Líbero Filho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: a página é um carrossel do @liberofilho na vertical — blocos azuis com anel vermelho e grão
+   alternando com papel off-white; títulos em Big Shoulders caixa-alta com a palavra-chave numa caixa navy. */
+:root {
+  --azul: #0B4FD8; --azul-fundo: #0839A8; --navy: #14213A; --navy-fundo: #121A27;
+  --vermelho: #FF2D55; --azul-claro: #8FB0FF;
+  --papel: #F4F5F7; --cartao: #FFFFFF; --tinta: #14213A; --tinta-suave: #4E5870; --linha: #D5DAE4;
+  --caixa: #121A27; --caixa-texto: #FFFFFF; --titulo: #0B4FD8; --chip: #E4ECFF; --chip-texto: #0B4FD8;
+  --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --texto: 'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ruido: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --papel: #0F1624; --cartao: #172238; --tinta: #E8ECF4; --tinta-suave: #A9B3C7; --linha: #2A3753;
+  --caixa: #0B4FD8; --titulo: #8FB0FF; --chip: #1E2C4A; --chip-texto: #8FB0FF; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --papel: #0F1624; --cartao: #172238; --tinta: #E8ECF4; --tinta-suave: #A9B3C7; --linha: #2A3753;
+  --caixa: #0B4FD8; --titulo: #8FB0FF; --chip: #1E2C4A; --chip-texto: #8FB0FF; color-scheme: dark }
+
+* { box-sizing: border-box }
+html { scroll-behavior: smooth; scroll-padding-top: 72px }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } * { transition: none !important; animation: none !important } }
+body { margin: 0; background: var(--papel); color: var(--tinta); font-family: var(--texto); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased }
+img { max-width: 100%; height: auto; display: block }
+a { color: inherit }
+:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; border-radius: 4px }
+.miolo { width: 100%; max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px) }
+.grao { position: relative; isolation: isolate }
+.grao::after { content: ''; position: absolute; inset: 0; background-image: var(--ruido); opacity: .5; mix-blend-mode: overlay; pointer-events: none; z-index: 0 }
+.grao > * { position: relative; z-index: 1 }
+
+/* títulos no padrão dos carrosséis */
+.tit { font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: .92; letter-spacing: .005em; margin: 0; text-wrap: balance; color: var(--titulo) }
+.tit .cx { background: var(--caixa); color: var(--caixa-texto); padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone }
+.kicker { font-size: 13px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--azul); margin: 0 0 12px }
+.lead { font-size: clamp(17px, 2vw, 19px); color: var(--tinta-suave); max-width: 62ch; margin: 0 }
+
+/* barra de abas */
+.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--navy-fundo); color: #fff; border-bottom: 3px solid var(--vermelho) }
+.topo .miolo { display: flex; align-items: center; gap: 20px; min-height: 60px }
+.marca { font-family: var(--display); font-weight: 900; font-size: 26px; letter-spacing: .02em; text-decoration: none; white-space: nowrap }
+.abas { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-left: auto; min-width: 0 }
+.abas::-webkit-scrollbar { display: none }
+.abas a { text-decoration: none; font-size: 14px; font-weight: 700; padding: 8px 12px; border-radius: 6px; white-space: nowrap; color: #C9D4EA }
+.abas a:hover, .abas a.ativa { background: rgba(255,255,255,.1); color: #fff }
+.abas a.destaque { background: var(--vermelho); color: #fff }
+
+/* botões */
+.botoes { display: flex; flex-wrap: wrap; gap: 12px }
+.bt { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 900; font-size: 22px; letter-spacing: .03em; text-transform: uppercase; text-decoration: none; padding: 12px 22px; border-radius: 999px; border: 2px solid transparent; transition: transform .15s }
+.bt:hover { transform: translateY(-2px) }
+.bt-branco { background: #fff; color: var(--azul) }
+.bt-vermelho { background: var(--vermelho); color: #fff }
+.bt-contorno { border-color: currentColor; color: inherit }
+.bt-azul { background: var(--azul); color: #fff }
+.bt.em-breve { opacity: .55; pointer-events: none }
+.bt .seta { font-family: var(--texto); font-weight: 800 }
+
+/* abertura */
+.hero { background: linear-gradient(170deg, var(--azul) 0%, var(--azul-fundo) 100%); color: #fff; overflow: hidden }
+.hero .miolo { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 56px); align-items: end; padding-block: clamp(40px, 7vw, 84px) 0 }
+.hero .tit { color: #fff; font-size: clamp(64px, 11vw, 148px) }
+.hero .tit .cx { background: var(--navy-fundo); color: #fff }
+.hero .kicker { color: #fff; background: var(--navy-fundo); display: inline-block; padding: 7px 12px; border-radius: 6px }
+.hero .lead { color: #E6ECFA; margin: 22px 0 28px }
+.hero-texto { padding-bottom: clamp(40px, 6vw, 72px) }
+.hero-foto { position: relative; align-self: end }
+.hero-foto::before { content: ''; position: absolute; width: 88%; aspect-ratio: 1; right: -18%; top: -6%; border: clamp(36px, 5vw, 60px) solid var(--vermelho); border-radius: 50%; z-index: -1 }
+.hero-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 18px 18px 0 0 }
+.arroba { margin-top: 18px; font-size: 14px; font-weight: 700; letter-spacing: .08em; color: #E6ECFA }
+
+/* faixa de números reais do trabalho (perfis e projetos) */
+.faixa { background: var(--navy-fundo); color: #fff }
+.faixa .miolo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-block: 22px }
+.faixa div { border-left: 3px solid var(--vermelho); padding-left: 14px }
+.faixa b { display: block; font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1 }
+.faixa span { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C9D4EA }
+
+section.bloco { padding-block: clamp(56px, 8vw, 104px) }
+.cabeca { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 44px) }
+.cabeca .tit { font-size: clamp(44px, 7vw, 84px) }
+
+/* sobre */
+.sobre { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: center }
+.sobre img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px }
+.sobre p { margin: 0 0 1em; max-width: 60ch }
+.sobre p.grande { font-size: clamp(20px, 2.4vw, 24px); font-weight: 600; line-height: 1.4; color: var(--tinta) }
+.sobre p:not(.grande) { color: var(--tinta-suave) }
+
+/* projetos */
+.projetos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
+.projeto { background: var(--cartao); border: 1px solid var(--linha); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; transition: transform .15s, border-color .15s; min-width: 0 }
+.projeto:hover { transform: translateY(-3px); border-color: var(--azul) }
+.projeto .selo { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: 20px; color: #fff }
+.projeto h3 { font-family: var(--display); font-weight: 900; font-size: 30px; line-height: .95; text-transform: uppercase; margin: 0; color: var(--tinta) }
+.projeto p { margin: 0; font-size: 15px; color: var(--tinta-suave) }
+.projeto .onde { margin-top: auto; font-size: 13px; font-weight: 800; letter-spacing: .06em; color: var(--azul) }
+:root[data-theme="dark"] .projeto .onde { color: var(--azul-claro) }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .projeto .onde { color: var(--azul-claro) } }
+
+/* blocos azuis (reforço, podcast) */
+.azul { background: linear-gradient(170deg, var(--azul) 0%, var(--azul-fundo) 100%); color: #fff; overflow: hidden }
+.escuro { background: radial-gradient(120% 90% at 100% 0%, #1d3566 0%, var(--navy-fundo) 60%); color: #fff; overflow: hidden }
+.azul .tit, .escuro .tit { color: #fff }
+.azul .tit .cx { background: var(--navy-fundo) }
+.escuro .tit .cx { background: var(--azul) }
+.azul .kicker, .escuro .kicker { color: #fff }
+.azul .lead, .escuro .lead { color: #E6ECFA }
+.dupla { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(28px, 5vw, 64px); align-items: center }
+.dupla img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 18px; box-shadow: 0 24px 50px rgba(0,0,0,.28) }
+.lista { list-style: none; padding: 0; margin: 24px 0 30px; display: grid; gap: 12px }
+.lista li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; font-weight: 600 }
+.lista li::before { content: ''; width: 12px; height: 12px; margin-top: 7px; background: var(--vermelho) }
+.anel { position: absolute; border: 56px solid var(--vermelho); border-radius: 50%; pointer-events: none; z-index: 0 }
+
+/* conteúdo: perfis */
+.perfis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px }
+.perfil { display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: center; background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; padding: 14px 18px; text-decoration: none; min-width: 0 }
+.perfil:hover { border-color: var(--azul) }
+.perfil .av { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: 22px; color: #fff }
+.perfil b { display: block; font-size: 16px; overflow-wrap: anywhere }
+.perfil small { color: var(--tinta-suave); font-size: 14px }
+.perfil .ir { font-weight: 800; color: var(--azul); font-size: 20px }
+.conteudo-topo { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; align-items: end; margin-bottom: 36px }
+.conteudo-topo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 10px solid var(--vermelho) }
+
+/* materiais */
+.materiais { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px }
+.material { background: var(--cartao); border: 1px solid var(--linha); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0 }
+.material .capa { aspect-ratio: 210 / 297; background: var(--azul); overflow: hidden; border-bottom: 1px solid var(--linha) }
+.material .capa img { width: 100%; height: 100%; object-fit: cover }
+.material .corpo { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1 }
+.material .tags { display: flex; flex-wrap: wrap; gap: 6px }
+.tag { font-size: 11.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: var(--chip); color: var(--chip-texto); padding: 3px 9px; border-radius: 5px }
+.tag.gratis { background: var(--vermelho); color: #fff }
+.material h3 { font-family: var(--display); font-weight: 900; font-size: 30px; line-height: .95; text-transform: uppercase; margin: 0 }
+.material p { margin: 0; font-size: 15px; color: var(--tinta-suave) }
+.material .bt { margin-top: auto; align-self: flex-start; font-size: 19px; padding: 10px 18px }
+.material.breve .capa img { filter: grayscale(.4) brightness(.8) }
+.aviso-breve { margin-top: auto; font-size: 14px; font-weight: 700; color: var(--vermelho) }
+
+/* rodapé */
+.rodape { background: var(--navy-fundo); color: #C9D4EA; padding-block: 56px 40px }
+.rodape .miolo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: end }
+.rodape .tit { color: #fff; font-size: clamp(48px, 8vw, 96px) }
+.rodape .tit .cx { background: var(--vermelho) }
+.rodape nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; font-weight: 600 }
+.rodape nav a { text-decoration: none }
+.rodape nav a:hover { color: #fff }
+.rodape small { grid-column: 1 / -1; border-top: 1px solid #2A3753; padding-top: 18px; font-size: 13px }
+
+@media (max-width: 860px) {
+  .hero .miolo, .sobre, .dupla, .rodape .miolo, .conteudo-topo { grid-template-columns: 1fr }
+  .hero-foto { max-width: 420px; justify-self: center; width: 100% }
+  .projetos, .materiais { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .faixa .miolo { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .conteudo-topo img { display: none }
+  .marca { display: none }
+  .abas { margin-left: 0 }
+}
+@media (max-width: 560px) {
+  .projetos, .materiais, .perfis { grid-template-columns: 1fr }
+  .dupla img { aspect-ratio: 4 / 3 }
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="miolo">
+    <a class="marca" href="#inicio">LÍBERO FILHO</a>
+    <nav class="abas" aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#reforco">Reforço</a>
+      <a href="#podcast">PodConst</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#materiais" class="destaque">Materiais grátis</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero grao" id="inicio">
+    <div class="miolo">
+      <div class="hero-texto">
+        <p class="kicker">Direito Constitucional · OAB e concursos</p>
+        <h1 class="tit">Líbero<br><span class="cx">Filho</span></h1>
+        <p class="lead">Professor de Direito Constitucional. Aqui você encontra meus projetos, o Reforço, o PodConst e os materiais que eu libero de graça.</p>
+        <div class="botoes">
+          <a class="bt bt-vermelho" href="#materiais">Baixar materiais <span class="seta">↓</span></a>
+          <a class="bt bt-branco" href="#reforco">Conhecer o Reforço</a>
+        </div>
+        <p class="arroba">@liberofilho no Instagram</p>
+      </div>
+      <div class="hero-foto"><img src="fotos/hero.webp" alt="Líbero Filho de terno azul, sorrindo" width="900" height="1125"></div>
+    </div>
+  </section>
+
+  <div class="faixa">
+    <div class="miolo">
+      <div><b>OAB</b><span>1ª e 2ª fase</span></div>
+      <div><b>6</b><span>projetos</span></div>
+      <div><b>4</b><span>perfis no Insta</span></div>
+      <div><b>1</b><span>podcast</span></div>
+    </div>
+  </div>
+
+  <section class="bloco" id="sobre">
+    <div class="miolo sobre">
+      <img src="fotos/sobre.webp" alt="Líbero Filho sentado, de terno azul" width="900" height="1125">
+      <div>
+        <p class="kicker">Sobre mim</p>
+        <h2 class="tit" style="font-size:clamp(44px,7vw,84px);margin-bottom:24px">Prazer,<br><span class="cx">Líbero</span></h2>
+        <p class="grande">Eu ensino Direito Constitucional para quem vai fazer a OAB e concursos públicos, do jeito que eu gostaria de ter aprendido: direto, com analogia e muito treino no formato da prova.</p>
+        <p>No Instagram, explico Constitucional com o que está acontecendo no país e com a cultura pop. Nas mentorias e nos cursos, o foco é o que a banca cobra: peça, questão discursiva e as pegadinhas da 1ª fase.</p>
+        <p>Também falo de Constitucional no PodConst, com a Natália Valença, e crio materiais gratuitos, como simulados autorais com gabarito comentado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="projetos" style="padding-top:0">
+    <div class="miolo">
+      <div class="cabeca">
+        <p class="kicker">Projetos</p>
+        <h2 class="tit">Onde eu <span class="cx">ensino</span></h2>
+        <p class="lead">Cada projeto tem um foco. Escolha o que combina com a sua fase.</p>
+      </div>
+      <div class="projetos">
+        <a class="projeto" data-link="constitucional" href="https://www.instagram.com/constitucionalgabaritado/" target="_blank" rel="noopener">
+          <span class="selo" style="background:#0E7A4F">CG</span>
+          <h3>Constitucional Gabaritado</h3>
+          <p>Constitucional para a 1ª fase da OAB, com macetes, plantão de notícias e o Reforço.</p>
+          <span class="onde">@constitucionalgabaritado →</span>
+        </a>
+        <a class="projeto" data-link="vde" href="https://www.instagram.com/liberofilho/" target="_blank" rel="noopener">
+          <span class="selo" style="background:linear-gradient(170deg,#2E0575,#1937B1)">VDE</span>
+          <h3>Mentoria Método VDE</h3>
+          <p>Mentoria para a 2ª fase de Constitucional, com a Natália Valença: treino de peças com checklist e correção.</p>
+          <span class="onde">Saiba mais →</span>
+        </a>
+        <a class="projeto" href="#podcast">
+          <span class="selo" style="background:#D6247A">POD</span>
+          <h3>PodConst</h3>
+          <p>O podcast de Constitucional que eu faço com a Natália Valença.</p>
+          <span class="onde">Ouvir →</span>
+        </a>
+        <a class="projeto" data-link="argumenta" href="https://www.instagram.com/liberofilho/" target="_blank" rel="noopener">
+          <span class="selo" style="background:#0F5D46">ARG</span>
+          <h3>Argumenta com Líbero</h3>
+          <p>Treino de provas discursivas: exercícios curtos para a resposta pontuar inteira.</p>
+          <span class="onde">Saiba mais →</span>
+        </a>
+        <a class="projeto" data-link="etica" href="https://www.instagram.com/eticagabaritadanaoba/" target="_blank" rel="noopener">
+          <span class="selo" style="background:linear-gradient(170deg,#E0457B,#7A1036)">ÉT</span>
+          <h3>Ética Gabaritada</h3>
+          <p>Ética na OAB em 5 dias, com questões por dia dentro do app.</p>
+          <span class="onde">@eticagabaritadanaoba →</span>
+        </a>
+        <a class="projeto" data-link="concurso" href="https://www.instagram.com/concursocomlibero/" target="_blank" rel="noopener">
+          <span class="selo" style="background:#0B3D2E">CL</span>
+          <h3>Concurso com Líbero</h3>
+          <p>Constitucional para concursos públicos: artigos, prazos e pegadinhas de banca.</p>
+          <span class="onde">@concursocomlibero →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco azul grao" id="reforco">
+    <div class="anel" style="width:420px;height:420px;right:-200px;top:-200px"></div>
+    <div class="miolo dupla">
+      <div>
+        <p class="kicker">Reforço de Constitucional · 1ª fase da OAB</p>
+        <h2 class="tit" style="font-size:clamp(46px,7vw,84px)">Constitucional<br>não é <span class="cx">chute</span></h2>
+        <p class="lead" style="margin-top:20px">Se Constitucional é a matéria que você só tenta acertar, o Reforço é pra você.</p>
+        <ul class="lista">
+          <li>Aulas diretas do que mais cai na 1ª fase</li>
+          <li>Macetes para decorar o que a prova cobra ao pé da letra</li>
+          <li>Treino com questões no estilo da FGV</li>
+        </ul>
+        <div class="botoes"><a class="bt bt-branco" data-link="reforco" href="#" target="_blank" rel="noopener">Quero o Reforço <span class="seta">→</span></a></div>
+      </div>
+      <img src="fotos/reforco.webp" alt="Líbero Filho escrevendo num quadro branco" width="900" height="900">
+    </div>
+  </section>
+
+  <section class="bloco escuro grao" id="podcast">
+    <div class="anel" style="width:380px;height:380px;left:-210px;bottom:-190px;border-width:48px"></div>
+    <div class="miolo dupla">
+      <img src="fotos/podcast.webp" alt="Líbero Filho falando ao microfone" width="900" height="900">
+      <div>
+        <p class="kicker">Podcast</p>
+        <h2 class="tit" style="font-size:clamp(56px,9vw,112px)">Pod<span class="cx">Const</span></h2>
+        <p class="lead" style="margin-top:20px">Eu e a Natália Valença conversando sobre Constitucional, a OAB e a rotina de quem estuda para prova. Dá pra ouvir no caminho, na academia ou lavando a louça.</p>
+        <div class="botoes" style="margin-top:30px">
+          <a class="bt bt-vermelho" data-link="podconstSpotify" href="#" target="_blank" rel="noopener">Ouvir no Spotify</a>
+          <a class="bt bt-contorno" data-link="podconstYoutube" href="#" target="_blank" rel="noopener">Ver no YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="conteudo">
+    <div class="miolo">
+      <div class="conteudo-topo">
+        <div class="cabeca" style="margin:0">
+          <p class="kicker">Produção de conteúdo</p>
+          <h2 class="tit">Me acompanha <span class="cx">por aí</span></h2>
+          <p class="lead">Carrossel, aula, treino de peça e Constitucional explicado com o que está no noticiário.</p>
+        </div>
+        <img src="fotos/conteudo.webp" alt="Líbero Filho segurando uma claquete" width="900" height="900">
+      </div>
+      <div class="perfis">
+        <a class="perfil" href="https://www.instagram.com/liberofilho/" target="_blank" rel="noopener"><span class="av" style="background:#0B4FD8">LF</span><span><b>@liberofilho</b><small>Meu perfil pessoal: Constitucional, OAB e bastidores</small></span><span class="ir">→</span></a>
+        <a class="perfil" href="https://www.instagram.com/constitucionalgabaritado/" target="_blank" rel="noopener"><span class="av" style="background:#0E7A4F">CG</span><span><b>@constitucionalgabaritado</b><small>Constitucional para a OAB</small></span><span class="ir">→</span></a>
+        <a class="perfil" href="https://www.instagram.com/concursocomlibero/" target="_blank" rel="noopener"><span class="av" style="background:#0B3D2E">CL</span><span><b>@concursocomlibero</b><small>Constitucional para concursos</small></span><span class="ir">→</span></a>
+        <a class="perfil" href="https://www.instagram.com/eticagabaritadanaoba/" target="_blank" rel="noopener"><span class="av" style="background:#B02A5B">ÉT</span><span><b>@eticagabaritadanaoba</b><small>Ética na OAB</small></span><span class="ir">→</span></a>
+        <a class="perfil" data-link="youtube" data-esconder="1" href="#" target="_blank" rel="noopener"><span class="av" style="background:#E62117">YT</span><span><b>YouTube</b><small>Aulas completas e lives</small></span><span class="ir">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="materiais" style="padding-top:0">
+    <div class="miolo">
+      <div class="cabeca">
+        <p class="kicker">Materiais gratuitos</p>
+        <h2 class="tit">Baixa e <span class="cx">treina</span></h2>
+        <p class="lead">Simulados e PDFs que eu faço para você treinar no formato da prova. É só baixar e imprimir.</p>
+      </div>
+      <div class="materiais" id="lista-materiais"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="miolo">
+    <h2 class="tit">Bora<br><span class="cx">gabaritar?</span></h2>
+    <nav aria-label="Rodapé">
+      <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a>
+      <a href="#reforco">Reforço</a><a href="#podcast">PodConst</a>
+      <a href="#conteudo">Conteúdo</a><a href="#materiais">Materiais</a>
+      <a href="https://www.instagram.com/liberofilho/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <small>© <span id="ano">2026</span> Líbero Filho · @liberofilho</small>
+  </div>
+</footer>
+
+<script>
+// Links dos projetos: preencha aqui. Vazio = o botão aparece como "em breve" (ou some, com data-esconder).
+const LINKS = {
+  reforco: '',
+  podconstSpotify: '',
+  podconstYoutube: '',
+  youtube: '',
+  vde: '',
+  argumenta: '',
+};
+// Materiais: o PDF fica na pasta materiais/. publicado: false mostra "em breve".
+const MATERIAIS = [
+  { titulo: 'Simulado autoral', texto: 'Peça inspirada no 44º Exame (ação popular) e 4 questões discursivas no modelo da FGV.', tags: ['Grátis', '2ª fase', 'PDF · 10 págs.'], capa: 'materiais/simulado-autoral.webp', arquivo: 'materiais/simulado-autoral.pdf', publicado: true },
+  { titulo: 'Gabarito do simulado', texto: 'Padrão de resposta e distribuição dos pontos da peça e das 4 questões.', tags: ['Grátis', '2ª fase', 'PDF · 9 págs.'], capa: 'materiais/gabarito-simulado-autoral.webp', arquivo: 'materiais/gabarito-simulado-autoral.pdf', publicado: false },
+];
+
+document.querySelectorAll('[data-link]').forEach(a => {
+  const url = LINKS[a.dataset.link];
+  if (url === undefined) return;
+  if (url) { a.href = url; return; }
+  if (a.dataset.esconder) { a.hidden = true; return; }
+  a.removeAttribute('target');
+  if (a.classList.contains('bt')) { a.classList.add('em-breve'); a.setAttribute('aria-disabled', 'true'); a.innerHTML = a.textContent.replace(/[→↓]/g, '').trim() + ' · em breve'; }
+});
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+document.getElementById('lista-materiais').innerHTML = MATERIAIS.map(m => `
+  <article class="material${m.publicado ? '' : ' breve'}">
+    <div class="capa"><img src="${esc(m.capa)}" alt="Capa: ${esc(m.titulo)}"></div>
+    <div class="corpo">
+      <div class="tags">${m.tags.map((t, i) => `<span class="tag${i === 0 ? ' gratis' : ''}">${esc(t)}</span>`).join('')}</div>
+      <h3>${esc(m.titulo)}</h3>
+      <p>${esc(m.texto)}</p>
+      ${m.publicado ? `<a class="bt bt-azul" href="${esc(m.arquivo)}" download target="_blank" rel="noopener">Baixar PDF <span class="seta">↓</span></a>` : `<span class="aviso-breve">Em breve no @liberofilho</span>`}
+    </div>
+  </article>`).join('');
+
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// Marca a aba da seção visível.
+const abas = [...document.querySelectorAll('.abas a')];
+const secoes = abas.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const marcar = () => {
+  const y = window.scrollY + 120;
+  let atual = null;
+  secoes.forEach(s => { if (s.offsetTop <= y) atual = s.id; });
+  abas.forEach(a => a.classList.toggle('ativa', a.getAttribute('href') === '#' + atual && !a.classList.contains('destaque')));
+};
+window.addEventListener('scroll', marcar, { passive: true }); marcar();
+</script>
+</body>
+</html>
