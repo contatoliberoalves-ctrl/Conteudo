@@ -13,10 +13,12 @@ from pathlib import Path
 from PIL import Image
 
 raiz = Path(__file__).resolve().parent
-dist = raiz / 'dist'
 molde, pedidos = sys.argv[1], set(sys.argv[2:])
 pasta = raiz.parent / 'moldes' / molde
-from gerar_util import jpeg, tamanho_tira, salvar_tira, titulo
+# Cada molde fica numa galeria (galerias.json): a principal (dist/) ou a do Líbero (dist-libero/).
+galeria = galeria_de(molde)
+dist = raiz / GALERIAS[galeria]['dist']
+from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
 
 html = (dist / 'index.html').read_text('utf8')
 m = re.search(r'\nconst MOLDES = (.*);\n', html)
@@ -58,7 +60,6 @@ if antigo:
 else:
     moldes.append(meta)
     moldes.sort(key=lambda x: x['id'])
-modelo = (raiz / 'modelo.html').read_text('utf8')
-dados = json.dumps(moldes, ensure_ascii=False).replace('</', '<\\/')
-(dist / 'index.html').write_text(modelo.replace('/*__DADOS__*/[]', dados), 'utf8')
+(dist / 'index.html').write_text(pagina(galeria, moldes), 'utf8')
+print(f'galeria: {GALERIAS[galeria]["nome"]} ({GALERIAS[galeria]["url"] or "ainda não publicada"}), root: galeria/{GALERIAS[galeria]["dist"]}', file=sys.stderr)
 print(json.dumps({p: p for p in publicar}, ensure_ascii=False))

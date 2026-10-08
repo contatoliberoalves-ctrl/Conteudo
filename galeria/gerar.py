@@ -1,7 +1,7 @@
 # Monta a galeria de moldes a partir de moldes/*/ (molde.json + dados.json + saida/<id>/*.png).
 # Por post publica 2 imagens: <id>-painel.jpg (miniatura) e <id>-slides.webp (todos os slides, 1080x1350).
 # Posts com foto ganham também a imagem do editor de capa (ver editor()).
-# Uso: python3 galeria/gerar.py   -> gera galeria/dist/index.html e as imagens em galeria/dist/img/
+# Uso: python3 galeria/gerar.py   -> gera galeria/<dist>/index.html e as imagens em galeria/<dist>/img/ de cada galeria (galerias.json)
 # Requer Pillow (pip install pillow). Rode antes o "npm run gerar" de cada molde.
 import hashlib
 import json
@@ -10,12 +10,14 @@ from pathlib import Path
 
 from PIL import Image
 
-from gerar_util import jpeg, tamanho_tira, salvar_tira, titulo
+from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
 
 raiz = Path(__file__).resolve().parent
+# Uma pasta por galeria (galerias.json); dist/ é a principal (e a do editor de capa).
+for gal in GALERIAS.values():
+    shutil.rmtree(raiz / gal['dist'], ignore_errors=True)
+    (raiz / gal['dist'] / 'img').mkdir(parents=True)
 dist = raiz / 'dist'
-shutil.rmtree(dist, ignore_errors=True)
-(dist / 'img').mkdir(parents=True)
 
 
 # Editor de capa: por post com foto, uma imagem [camada de texto | foto com margem] enviada ao
@@ -80,15 +82,16 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             print(f'  ! {pasta.name}/{c["id"]}: sem imagens em saida/, pulando')
             continue
         base = f'img/{pasta.name}/{c["id"]}'
+        dg = raiz / GALERIAS[galeria_de(pasta.name)]['dist']
         # Uma tira com todos os slides lado a lado em resolução cheia (1080x1350 cada, WebP): 1 arquivo
         # por post, para caber no limite de arquivos da página. A galeria recorta cada slide dela para
         # mostrar e para montar o zip de download.
-        larg, alt, por, _ = salvar_tira(slides, dist, base)
+        larg, alt, por, _ = salvar_tira(slides, dg, base)
         # Até 3 slides, o painel seria igual à tira: usa a própria tira (um arquivo a menos por post,
         # que a página publicada tem limite de arquivos por versão).
         if len(slides) > 3:
             painel = saida / 'painel.png'
-            jpeg(painel if painel.exists() else slides[0], dist / f'{base}-painel.jpg', 1200, 78)
+            jpeg(painel if painel.exists() else slides[0], dg / f'{base}-painel.jpg', 1200, 78)
         posts.append({
             'id': c['id'],
             'titulo': titulo(c),
@@ -103,9 +106,8 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     moldes.append(meta)
     print(f'✓ {meta["nome"]}: {len(posts)} posts')
 
-html = (raiz / 'modelo.html').read_text('utf8')
-dados = json.dumps(moldes, ensure_ascii=False).replace('</', '<\\/')
-(dist / 'index.html').write_text(html.replace('/*__DADOS__*/[]', dados), 'utf8')
+for chave, gal in GALERIAS.items():
+    (raiz / gal['dist'] / 'index.html').write_text(pagina(chave, [m for m in moldes if galeria_de(m['id']) == chave]), 'utf8')
 (dist / 'editor').mkdir(exist_ok=True)
 (dist / 'editor' / 'pendentes.txt').write_text('\n'.join(pendentes) + ('\n' if pendentes else ''))
 if pendentes:

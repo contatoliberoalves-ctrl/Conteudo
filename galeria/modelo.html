@@ -27,6 +27,10 @@ button{font:inherit;color:inherit}
 
 /* Cabeçalho */
 .topo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.outras{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.outras:empty{display:none}
+.outras a{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:600;color:inherit;text-decoration:none}
+.outras a:hover{border-color:var(--lima)}
 .perfil{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .perfil b{font-weight:600;color:var(--ink)}
 h1{font-size:clamp(52px,9vw,104px);line-height:.88;margin-top:8px}
@@ -169,7 +173,8 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
   <header class="topo">
     <div>
       <div class="perfil">Conteúdo do <b>Líbero</b> e parceiros</div>
-      <h1>Galeria de <span>moldes</span></h1>
+      <h1 id="titulo-galeria">Galeria de <span>moldes</span></h1>
+      <nav class="outras" id="outras" aria-label="Outras galerias"></nav>
     </div>
     <div class="numeros" id="numeros"></div>
   </header>
@@ -243,6 +248,15 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 const MOLDES = /*__DADOS__*/[];
+// Esta galeria e as outras (galerias.json): os moldes ficam divididos para caber no limite de arquivos de cada página.
+const GALERIA = /*__GALERIA__*/null;
+(() => {
+  if (!GALERIA) return;
+  const p = GALERIA.nome.split(' '), ult = p.pop();
+  document.getElementById('titulo-galeria').innerHTML = `${p.join(' ')} <span>${ult}</span>`;
+  document.title = GALERIA.nome;
+  document.getElementById('outras').innerHTML = (GALERIA.outras || []).map(o => `<a href="${o.url}" target="_blank" rel="noopener">Ver a ${o.nome} →</a>`).join('');
+})();
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };

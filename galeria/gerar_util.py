@@ -1,5 +1,26 @@
 # Funções do gerar.py usadas também pelo atualizar.py.
+import json
+import re
+from pathlib import Path
 from PIL import Image
+
+RAIZ = Path(__file__).resolve().parent
+GALERIAS = json.loads((RAIZ / 'galerias.json').read_text('utf8'))
+
+
+def galeria_de(molde):
+    """Chave da galeria do molde em galerias.json ("principal" para os que não estão em outra)."""
+    return next((k for k, g in GALERIAS.items() if molde in g.get('moldes', [])), 'principal')
+
+
+def pagina(chave, moldes):
+    """HTML da galeria `chave`, com os moldes dela e o link para as outras galerias."""
+    g = GALERIAS[chave]
+    outras = [{'nome': o['nome'], 'url': o['url']} for k, o in GALERIAS.items() if k != chave and o.get('url')]
+    info = json.dumps({'nome': g['nome'], 'outras': outras}, ensure_ascii=False).replace('</', '<\\/')
+    dados = json.dumps(moldes, ensure_ascii=False).replace('</', '<\\/')
+    html = (RAIZ / 'modelo.html').read_text('utf8').replace('/*__DADOS__*/[]', dados).replace('/*__GALERIA__*/null', info)
+    return re.sub(r'<title>.*?</title>', f'<title>{g["nome"]}</title>', html, count=1)
 
 def jpeg(origem, destino, largura, qualidade=82):
     im = Image.open(origem).convert('RGB')

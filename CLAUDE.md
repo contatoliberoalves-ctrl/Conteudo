@@ -14,7 +14,11 @@ O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os
 `materiais/README.md` lista o conteúdo do autor já recebido (estruturas, competências, guia, Diário Constitucional…) e os temas de cada um. Os arquivos em si não ficam no repositório: peça-os ao usuário quando for escrever um post a partir deles.
 
 ## Galeria
-Publicada em https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq — sempre atualize **esse mesmo link** (Artifact com `url`), nunca crie outro.
+São duas, para caber no limite de 511 arquivos por versão; `galeria/galerias.json` diz quais moldes vão em cada uma (os não listados ficam na principal):
+- **Principal** ("Galeria de moldes"): https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq, pasta `galeria/dist`.
+- **Galeria do Líbero** (moldes do @liberofilho, Argumenta, PodConst, Método VDE): https://claude.ai/artifact/6KjmpAJr3nJb7v2k2UiSPM, pasta `galeria/dist-libero`.
+
+Sempre atualize **esses mesmos links** (Artifact com `url`), nunca crie outros. Nos passos abaixo, `dist` é a pasta da galeria do molde (o `atualizar.py` avisa qual galeria e qual `root` usar). Os bancos (`pedidos`, `ajustes`) são separados: leia os das duas galerias.
 
 1. Gere os PNGs dos moldes que mudaram. Nos moldes com foto, rode antes o `recortar_fotos.py` (cria `fotos/fontes/` e `fotos/fontes.json`, usados pelo editor de capa; ficam fora do git).
 2. `pip install pillow` (se preciso) e `python3 galeria/gerar.py` → `galeria/dist/index.html`, `galeria/dist/img/**` (`-slides.webp` por post, em resolução cheia; quando a tira passaria de 16.000 px, o limite do WebP, ela é dividida em `-slides-2.webp`, `-slides-3.webp`…, que também vão no `files`; e, só nos posts com mais de 3 slides, `-painel.jpg`; nos outros o painel é a própria tira, para caber no limite de 511 arquivos por versão) e `galeria/dist/editor/*.webp` (editor de capa).
