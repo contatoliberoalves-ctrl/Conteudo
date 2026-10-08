@@ -33,7 +33,7 @@ function capa(c, escura, numeros) {
     <div style="position:absolute;left:${M}px;top:66px;${TEXTO};font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:${escura ? COR.azul : COR.navyFundo};padding:8px 14px;border-radius:6px;z-index:3">${esc(c.rotulo)}</div>
     <div style="position:absolute;left:${M}px;right:${M}px;top:300px;z-index:3">
       <div style="${TITULO};font-size:${c.ts || 140}px;line-height:.95;color:#fff">${linhas(c.titulo, escura ? COR.azul : COR.navyFundo)}</div>
-      <p style="${TEXTO};font-size:19px;font-weight:500;line-height:1.42;color:${COR.off};margin-top:30px;max-width:540px">${esc(c.sub)}</p>
+      ${c.sub ? `<p style="${TEXTO};font-size:19px;font-weight:500;line-height:1.42;color:${COR.off};margin-top:30px;max-width:540px">${esc(c.sub)}</p>` : ''}
     </div>
     <div style="position:absolute;left:${M}px;right:${M}px;bottom:150px;display:flex;gap:26px;z-index:3">
       ${numeros.map(([n, r]) => `<div style="flex:1;border-top:3px solid rgba(255,255,255,.35);padding-top:14px"><div style="${TITULO};font-size:58px;line-height:.9;color:#fff">${n}</div><div style="${TEXTO};font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${COR.off};margin-top:6px">${r}</div></div>`).join('')}
@@ -144,6 +144,7 @@ document.fonts.ready.then(() => {
   const todas = [...document.querySelectorAll('.pagina')];
   todas.forEach((s, i) => { const r = s.querySelector('.num'); if (r) r.textContent = String(i + 1).padStart(2, '0');
     const c = s.querySelector('.cabe'); if (c && c.scrollHeight > c.clientHeight + 1) avisos.push('página ' + (i + 1) + ': conteúdo passa do espaço (' + (c.scrollHeight - c.clientHeight) + ' px)'); });
+  todas[todas.length - 1].style.breakAfter = 'auto';
   window.__avisos = avisos; window.__pronto = true;
 });
 </script></body></html>`;

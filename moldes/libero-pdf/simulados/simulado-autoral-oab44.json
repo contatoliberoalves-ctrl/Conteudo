@@ -2,12 +2,17 @@
   "titulo": "Simulado autoral · Constitucional",
   "capa": {
     "rotulo": "Simulado autoral · 2ª fase OAB",
-    "titulo": ["Simulado", "[[autoral]]"],
-    "sub": "Peça inspirada no 44º Exame (ação popular) e 4 questões discursivas no modelo da FGV. Imprima, marque 5 horas e faça como se fosse o dia da prova."
+    "titulo": [
+      "Simulado",
+      "[[autoral]]"
+    ]
   },
   "capaGabarito": {
     "rotulo": "Simulado autoral · 2ª fase OAB",
-    "titulo": ["Gabarito", "[[comentado]]"],
+    "titulo": [
+      "Gabarito",
+      "[[comentado]]"
+    ],
     "sub": "Padrão de resposta e distribuição dos pontos da peça e das 4 questões, no formato da FGV. Corrija o seu simulado item por item."
   },
   "instrucoes": [
@@ -38,34 +43,111 @@
       "Ao final, devem ser pedidas: a citação dos réus; a intimação do Ministério Público (Art. 6º, § 4º, e Art. 7º, inciso I, alínea a, da Lei nº 4.717/1965); a procedência do pedido, para declarar a nulidade do edital e de todos os atos do procedimento licitatório, impedindo-se a celebração do contrato; a isenção de custas e do ônus da sucumbência (Art. 5º, inciso LXXIII, da CRFB/88); e a produção de provas, inclusive pericial. O examinando deve atribuir valor à causa e fechar a peça com Local…, Data…, Advogado… e OAB…."
     ],
     "pontos": [
-      { "grupo": "Endereçamento" },
-      { "item": "1. Juízo Cível ou Juízo de Fazenda Pública da Comarca X (0,10), conforme o Art. 5º da Lei nº 4.717/1965 (0,10).", "valor": "0,00/0,10/0,20" },
-      { "grupo": "Partes e legitimidade" },
-      { "item": "2. Autor: Carlos (0,10).", "valor": "0,00/0,10" },
-      { "item": "3. Réus: Pedro, Prefeito do Município Alfa (0,10), a sociedade empresária Beta (0,10) e o Município Alfa (0,10).", "valor": "0,00/0,10/0,20/0,30" },
-      { "item": "4. Legitimidade ativa: Carlos é cidadão, eleitor (0,20), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 ou do Art. 1º, caput, da Lei nº 4.717/1965 (0,10).", "valor": "0,00/0,20/0,30" },
-      { "item": "5. Legitimidade passiva: o Prefeito praticou o ato e a sociedade Beta é beneficiária dele (0,10), conforme o Art. 6º, caput, da Lei nº 4.717/1965 (0,10).", "valor": "0,00/0,10/0,20" },
-      { "grupo": "Cabimento" },
-      { "item": "6. Cabe ação popular para anular ato lesivo ao patrimônio público e à moralidade administrativa (0,20), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 (0,10).", "valor": "0,00/0,20/0,30" },
-      { "grupo": "Fundamentos de mérito" },
-      { "item": "7.1. O direcionamento do edital para beneficiar o cunhado do Prefeito afronta a impessoalidade (0,35), prevista no Art. 37, caput, da CRFB/88 (0,10).", "valor": "0,00/0,35/0,45" },
-      { "item": "7.2. O favorecimento de parente com recursos públicos afronta a moralidade administrativa (0,35), prevista no Art. 37, caput, ou no Art. 5º, inciso LXXIII, da CRFB/88 (0,10).", "valor": "0,00/0,35/0,45" },
-      { "item": "7.3. A exigência de sede no Município há mais de dez anos frustra a igualdade de condições entre os concorrentes e não é exigência de qualificação técnica ou econômica indispensável (0,35), nos termos do Art. 37, inciso XXI, da CRFB/88 (0,10).", "valor": "0,00/0,35/0,45" },
-      { "item": "7.4. A remuneração no dobro do valor de mercado afronta a economicidade (0,35), prevista no Art. 70, caput, da CRFB/88, ou a eficiência, prevista no Art. 37, caput, da CRFB/88 (0,10).", "valor": "0,00/0,35/0,45" },
-      { "item": "8. O edital é nulo por desvio de finalidade (0,20), nos termos do Art. 2º, alínea e, da Lei nº 4.717/1965 (0,10).", "valor": "0,00/0,20/0,30" },
-      { "grupo": "Fundamentos da liminar" },
-      { "item": "9. A probabilidade do direito está demonstrada pelas ofensas aos comandos constitucionais (0,10).", "valor": "0,00/0,10" },
-      { "item": "10. O perigo da demora decorre da assinatura do contrato, marcada para daqui a dez dias (0,10), sendo cabível a suspensão liminar do ato, conforme o Art. 5º, § 4º, da Lei nº 4.717/1965 (0,10).", "valor": "0,00/0,10/0,20" },
-      { "grupo": "Pedidos" },
-      { "item": "11. Concessão da liminar para suspender o procedimento licitatório e impedir a assinatura do contrato (0,20).", "valor": "0,00/0,20" },
-      { "item": "12. Citação dos réus (0,10).", "valor": "0,00/0,10" },
-      { "item": "13. Intimação do Ministério Público (0,10).", "valor": "0,00/0,10" },
-      { "item": "14. Procedência do pedido para declarar a nulidade do edital e dos atos do procedimento licitatório, impedindo a celebração do contrato (0,30).", "valor": "0,00/0,30" },
-      { "item": "15. Isenção de custas e do ônus da sucumbência (0,10), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 (0,10).", "valor": "0,00/0,10/0,20" },
-      { "item": "16. Protesto pela produção de provas, inclusive pericial (0,10).", "valor": "0,00/0,10" },
-      { "grupo": "Fechamento" },
-      { "item": "17. Valor da causa (0,10).", "valor": "0,00/0,10" },
-      { "item": "18. Local…, Data…, Advogado… e OAB… (0,10).", "valor": "0,00/0,10" }
+      {
+        "grupo": "Endereçamento"
+      },
+      {
+        "item": "1. Juízo Cível ou Juízo de Fazenda Pública da Comarca X (0,10), conforme o Art. 5º da Lei nº 4.717/1965 (0,10).",
+        "valor": "0,00/0,10/0,20"
+      },
+      {
+        "grupo": "Partes e legitimidade"
+      },
+      {
+        "item": "2. Autor: Carlos (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "item": "3. Réus: Pedro, Prefeito do Município Alfa (0,10), a sociedade empresária Beta (0,10) e o Município Alfa (0,10).",
+        "valor": "0,00/0,10/0,20/0,30"
+      },
+      {
+        "item": "4. Legitimidade ativa: Carlos é cidadão, eleitor (0,20), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 ou do Art. 1º, caput, da Lei nº 4.717/1965 (0,10).",
+        "valor": "0,00/0,20/0,30"
+      },
+      {
+        "item": "5. Legitimidade passiva: o Prefeito praticou o ato e a sociedade Beta é beneficiária dele (0,10), conforme o Art. 6º, caput, da Lei nº 4.717/1965 (0,10).",
+        "valor": "0,00/0,10/0,20"
+      },
+      {
+        "grupo": "Cabimento"
+      },
+      {
+        "item": "6. Cabe ação popular para anular ato lesivo ao patrimônio público e à moralidade administrativa (0,20), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 (0,10).",
+        "valor": "0,00/0,20/0,30"
+      },
+      {
+        "grupo": "Fundamentos de mérito"
+      },
+      {
+        "item": "7.1. O direcionamento do edital para beneficiar o cunhado do Prefeito afronta a impessoalidade (0,35), prevista no Art. 37, caput, da CRFB/88 (0,10).",
+        "valor": "0,00/0,35/0,45"
+      },
+      {
+        "item": "7.2. O favorecimento de parente com recursos públicos afronta a moralidade administrativa (0,35), prevista no Art. 37, caput, ou no Art. 5º, inciso LXXIII, da CRFB/88 (0,10).",
+        "valor": "0,00/0,35/0,45"
+      },
+      {
+        "item": "7.3. A exigência de sede no Município há mais de dez anos frustra a igualdade de condições entre os concorrentes e não é exigência de qualificação técnica ou econômica indispensável (0,35), nos termos do Art. 37, inciso XXI, da CRFB/88 (0,10).",
+        "valor": "0,00/0,35/0,45"
+      },
+      {
+        "item": "7.4. A remuneração no dobro do valor de mercado afronta a economicidade (0,35), prevista no Art. 70, caput, da CRFB/88, ou a eficiência, prevista no Art. 37, caput, da CRFB/88 (0,10).",
+        "valor": "0,00/0,35/0,45"
+      },
+      {
+        "item": "8. O edital é nulo por desvio de finalidade (0,20), nos termos do Art. 2º, alínea e, da Lei nº 4.717/1965 (0,10).",
+        "valor": "0,00/0,20/0,30"
+      },
+      {
+        "grupo": "Fundamentos da liminar"
+      },
+      {
+        "item": "9. A probabilidade do direito está demonstrada pelas ofensas aos comandos constitucionais (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "item": "10. O perigo da demora decorre da assinatura do contrato, marcada para daqui a dez dias (0,10), sendo cabível a suspensão liminar do ato, conforme o Art. 5º, § 4º, da Lei nº 4.717/1965 (0,10).",
+        "valor": "0,00/0,10/0,20"
+      },
+      {
+        "grupo": "Pedidos"
+      },
+      {
+        "item": "11. Concessão da liminar para suspender o procedimento licitatório e impedir a assinatura do contrato (0,20).",
+        "valor": "0,00/0,20"
+      },
+      {
+        "item": "12. Citação dos réus (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "item": "13. Intimação do Ministério Público (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "item": "14. Procedência do pedido para declarar a nulidade do edital e dos atos do procedimento licitatório, impedindo a celebração do contrato (0,30).",
+        "valor": "0,00/0,30"
+      },
+      {
+        "item": "15. Isenção de custas e do ônus da sucumbência (0,10), nos termos do Art. 5º, inciso LXXIII, da CRFB/88 (0,10).",
+        "valor": "0,00/0,10/0,20"
+      },
+      {
+        "item": "16. Protesto pela produção de provas, inclusive pericial (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "grupo": "Fechamento"
+      },
+      {
+        "item": "17. Valor da causa (0,10).",
+        "valor": "0,00/0,10"
+      },
+      {
+        "item": "18. Local…, Data…, Advogado… e OAB… (0,10).",
+        "valor": "0,00/0,10"
+      }
     ]
   },
   "questoes": [
@@ -77,16 +159,30 @@
         "Preocupada, Lúcia procurou você, como advogado(a), e formulou os questionamentos a seguir."
       ],
       "itens": [
-        { "letra": "A", "texto": "Lúcia pode ser considerada brasileira nata? Em caso afirmativo, o que ela precisa fazer? Justifique.", "valor": "0,65" },
-        { "letra": "B", "texto": "Caso tenha reconhecida a nacionalidade brasileira, Lúcia a perderá por manter a nacionalidade italiana? Justifique.", "valor": "0,60" }
+        {
+          "letra": "A",
+          "texto": "Lúcia pode ser considerada brasileira nata? Em caso afirmativo, o que ela precisa fazer? Justifique.",
+          "valor": "0,65"
+        },
+        {
+          "letra": "B",
+          "texto": "Caso tenha reconhecida a nacionalidade brasileira, Lúcia a perderá por manter a nacionalidade italiana? Justifique.",
+          "valor": "0,60"
+        }
       ],
       "gabarito": [
         "A) Sim. São brasileiros natos os nascidos no estrangeiro de pai brasileiro ou de mãe brasileira que venham a residir na República Federativa do Brasil e optem, em qualquer tempo, depois de atingida a maioridade, pela nacionalidade brasileira (Art. 12, inciso I, alínea c, da CRFB/88). Como Lúcia já é maior e passou a residir no Brasil, basta fazer a opção, perante a Justiça Federal (Art. 109, inciso X, da CRFB/88).",
         "B) Não. O brasileiro só perde a nacionalidade se tiver cancelada a naturalização, por sentença judicial, ou se fizer pedido expresso de perda perante a autoridade brasileira competente (Art. 12, § 4º, incisos I e II, da CRFB/88). Ter outra nacionalidade não está entre as hipóteses de perda."
       ],
       "pontos": [
-        { "item": "A. Sim. Lúcia, nascida no estrangeiro de mãe brasileira, passou a residir no Brasil (0,25) e deve optar pela nacionalidade brasileira depois de atingida a maioridade (0,30), nos termos do Art. 12, inciso I, alínea c, da CRFB/88 (0,10).", "valor": "0,00/0,25/0,30/0,35/0,40/0,55/0,65" },
-        { "item": "B. Não. A perda da nacionalidade do brasileiro só ocorre com o cancelamento da naturalização ou com o pedido expresso de perda (0,50), nos termos do Art. 12, § 4º, da CRFB/88 (0,10).", "valor": "0,00/0,50/0,60" }
+        {
+          "item": "A. Sim. Lúcia, nascida no estrangeiro de mãe brasileira, passou a residir no Brasil (0,25) e deve optar pela nacionalidade brasileira depois de atingida a maioridade (0,30), nos termos do Art. 12, inciso I, alínea c, da CRFB/88 (0,10).",
+          "valor": "0,00/0,25/0,30/0,35/0,40/0,55/0,65"
+        },
+        {
+          "item": "B. Não. A perda da nacionalidade do brasileiro só ocorre com o cancelamento da naturalização ou com o pedido expresso de perda (0,50), nos termos do Art. 12, § 4º, da CRFB/88 (0,10).",
+          "valor": "0,00/0,50/0,60"
+        }
       ]
     },
     {
@@ -97,16 +193,30 @@
         "Roberto procurou você, como advogado(a), e formulou os questionamentos a seguir."
       ],
       "itens": [
-        { "letra": "A", "texto": "O ingresso dos fiscais na residência de Roberto foi lícito? Justifique.", "valor": "0,65" },
-        { "letra": "B", "texto": "Os documentos recolhidos podem servir de base para o auto de infração? Justifique.", "valor": "0,60" }
+        {
+          "letra": "A",
+          "texto": "O ingresso dos fiscais na residência de Roberto foi lícito? Justifique.",
+          "valor": "0,65"
+        },
+        {
+          "letra": "B",
+          "texto": "Os documentos recolhidos podem servir de base para o auto de infração? Justifique.",
+          "valor": "0,60"
+        }
       ],
       "gabarito": [
         "A) Não. A casa é asilo inviolável do indivíduo, e ninguém nela pode penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, para prestar socorro, ou, durante o dia, por determinação judicial (Art. 5º, inciso XI, da CRFB/88). Os fiscais entraram à noite, sem consentimento, sem ordem judicial e fora das situações excepcionais.",
         "B) Não. São inadmissíveis, no processo, as provas obtidas por meios ilícitos (Art. 5º, inciso LVI, da CRFB/88), o que vale também para o processo administrativo. Os documentos foram obtidos com violação do domicílio e não podem fundamentar o auto de infração."
       ],
       "pontos": [
-        { "item": "A. Não. A casa é inviolável e só se admite o ingresso sem consentimento em flagrante delito, desastre, para prestar socorro ou, durante o dia, por determinação judicial (0,55), nos termos do Art. 5º, inciso XI, da CRFB/88 (0,10).", "valor": "0,00/0,55/0,65" },
-        { "item": "B. Não. As provas obtidas por meios ilícitos são inadmissíveis no processo (0,50), nos termos do Art. 5º, inciso LVI, da CRFB/88 (0,10).", "valor": "0,00/0,50/0,60" }
+        {
+          "item": "A. Não. A casa é inviolável e só se admite o ingresso sem consentimento em flagrante delito, desastre, para prestar socorro ou, durante o dia, por determinação judicial (0,55), nos termos do Art. 5º, inciso XI, da CRFB/88 (0,10).",
+          "valor": "0,00/0,55/0,65"
+        },
+        {
+          "item": "B. Não. As provas obtidas por meios ilícitos são inadmissíveis no processo (0,50), nos termos do Art. 5º, inciso LVI, da CRFB/88 (0,10).",
+          "valor": "0,00/0,50/0,60"
+        }
       ]
     },
     {
@@ -116,16 +226,30 @@
         "O Partido Político Gama, que possui representantes apenas na Assembleia Legislativa do Estado Beta, sem nenhum parlamentar no Congresso Nacional, entende que a lei é inconstitucional e consultou você, como advogado(a), formulando os questionamentos a seguir."
       ],
       "itens": [
-        { "letra": "A", "texto": "A Lei estadual nº XX/2025 é compatível com a Constituição da República? Justifique.", "valor": "0,65" },
-        { "letra": "B", "texto": "O Partido Político Gama pode ajuizar ação direta de inconstitucionalidade perante o Supremo Tribunal Federal contra essa lei? Justifique.", "valor": "0,60" }
+        {
+          "letra": "A",
+          "texto": "A Lei estadual nº XX/2025 é compatível com a Constituição da República? Justifique.",
+          "valor": "0,65"
+        },
+        {
+          "letra": "B",
+          "texto": "O Partido Político Gama pode ajuizar ação direta de inconstitucionalidade perante o Supremo Tribunal Federal contra essa lei? Justifique.",
+          "valor": "0,60"
+        }
       ],
       "gabarito": [
         "A) Não. Compete privativamente à União legislar sobre direito penal (Art. 22, inciso I, da CRFB/88). Ao criar crime e causa de aumento de pena, sem lei complementar que o autorizasse (Art. 22, parágrafo único), o Estado Beta invadiu a competência da União, o que gera inconstitucionalidade formal orgânica.",
         "B) Não. Embora caiba ADI no STF contra lei estadual em face da Constituição da República (Art. 102, inciso I, alínea a, da CRFB/88), o partido político só tem legitimidade se tiver representação no Congresso Nacional (Art. 103, inciso VIII, da CRFB/88, e Art. 2º, inciso VIII, da Lei nº 9.868/1999), o que não é o caso do Partido Gama."
       ],
       "pontos": [
-        { "item": "A. Não. Compete privativamente à União legislar sobre direito penal (0,55), nos termos do Art. 22, inciso I, da CRFB/88 (0,10).", "valor": "0,00/0,55/0,65" },
-        { "item": "B. Não. Só o partido político com representação no Congresso Nacional pode ajuizar ADI (0,50), nos termos do Art. 103, inciso VIII, da CRFB/88 ou do Art. 2º, inciso VIII, da Lei nº 9.868/1999 (0,10).", "valor": "0,00/0,50/0,60" }
+        {
+          "item": "A. Não. Compete privativamente à União legislar sobre direito penal (0,55), nos termos do Art. 22, inciso I, da CRFB/88 (0,10).",
+          "valor": "0,00/0,55/0,65"
+        },
+        {
+          "item": "B. Não. Só o partido político com representação no Congresso Nacional pode ajuizar ADI (0,50), nos termos do Art. 103, inciso VIII, da CRFB/88 ou do Art. 2º, inciso VIII, da Lei nº 9.868/1999 (0,10).",
+          "valor": "0,00/0,50/0,60"
+        }
       ]
     },
     {
@@ -135,26 +259,46 @@
         "O Superior Tribunal de Justiça, em única instância, denegou a segurança. Inconformado, Paulo procurou você, como advogado(a), e formulou os questionamentos a seguir."
       ],
       "itens": [
-        { "letra": "A", "texto": "Foi correta a impetração do mandado de segurança diretamente no Superior Tribunal de Justiça? Justifique.", "valor": "0,60" },
-        { "letra": "B", "texto": "Qual o recurso cabível contra a decisão do Superior Tribunal de Justiça e qual o órgão competente para julgá-lo? Justifique.", "valor": "0,65" }
+        {
+          "letra": "A",
+          "texto": "Foi correta a impetração do mandado de segurança diretamente no Superior Tribunal de Justiça? Justifique.",
+          "valor": "0,60"
+        },
+        {
+          "letra": "B",
+          "texto": "Qual o recurso cabível contra a decisão do Superior Tribunal de Justiça e qual o órgão competente para julgá-lo? Justifique.",
+          "valor": "0,65"
+        }
       ],
       "gabarito": [
         "A) Sim. Compete ao Superior Tribunal de Justiça processar e julgar, originariamente, os mandados de segurança contra ato de Ministro de Estado (Art. 105, inciso I, alínea b, da CRFB/88).",
         "B) Cabe recurso ordinário constitucional ao Supremo Tribunal Federal, a quem compete julgar, em recurso ordinário, o mandado de segurança decidido em única instância pelos Tribunais Superiores, se denegatória a decisão (Art. 102, inciso II, alínea a, da CRFB/88, e Art. 1.027, inciso I, do CPC). O prazo é de 15 dias (Art. 1.003, § 5º, do CPC)."
       ],
       "pontos": [
-        { "item": "A. Sim. Compete ao STJ julgar originariamente mandado de segurança contra ato de Ministro de Estado (0,50), nos termos do Art. 105, inciso I, alínea b, da CRFB/88 (0,10).", "valor": "0,00/0,50/0,60" },
-        { "item": "B. Recurso ordinário constitucional (0,20), julgado pelo Supremo Tribunal Federal, por se tratar de mandado de segurança decidido em única instância por Tribunal Superior e denegada a segurança (0,35), nos termos do Art. 102, inciso II, alínea a, da CRFB/88 (0,10).", "valor": "0,00/0,20/0,30/0,35/0,45/0,55/0,65" }
+        {
+          "item": "A. Sim. Compete ao STJ julgar originariamente mandado de segurança contra ato de Ministro de Estado (0,50), nos termos do Art. 105, inciso I, alínea b, da CRFB/88 (0,10).",
+          "valor": "0,00/0,50/0,60"
+        },
+        {
+          "item": "B. Recurso ordinário constitucional (0,20), julgado pelo Supremo Tribunal Federal, por se tratar de mandado de segurança decidido em única instância por Tribunal Superior e denegada a segurança (0,35), nos termos do Art. 102, inciso II, alínea a, da CRFB/88 (0,10).",
+          "valor": "0,00/0,20/0,30/0,35/0,45/0,55/0,65"
+        }
       ]
     }
   ],
   "cta": {
-    "titulo": ["Fez o", "[[simulado?]]"],
+    "titulo": [
+      "Fez o",
+      "[[simulado?]]"
+    ],
     "texto": "Me segue no **@liberofilho**: em breve eu posto o gabarito comentado, com a distribuição dos pontos da peça e das questões.",
     "selo": "Gabarito em breve"
   },
   "ctaGabarito": {
-    "titulo": ["Quanto você", "[[tirou?]]"],
+    "titulo": [
+      "Quanto você",
+      "[[tirou?]]"
+    ],
     "texto": "Me conta no **@liberofilho** e manda este gabarito pra quem está na 2ª fase com você.",
     "selo": "Segue lá"
   }
