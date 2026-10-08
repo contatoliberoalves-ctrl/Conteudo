@@ -1,0 +1,152 @@
+[
+  {
+    "id": "treino-pecas-estilo-banca",
+    "tema": "6 casos no estilo da FGV (inspirados nos exames 39 a 46, simplificados), cada um com o checklist VDE em branco na página seguinte e gabarito no fim",
+    "capa": {
+      "rotulo": "Direito Constitucional",
+      "titulo": ["Treino de peças", "[[estilo banca]]"],
+      "sub": "6 casos no formato da FGV, um pouco mais diretos, com o checklist VDE para preencher e gabarito destrinchado no fim."
+    },
+    "comoUsar": [
+      "Leia o enunciado e escreva qual é a peça **antes de virar a página**. Os títulos dos casos não revelam a peça.",
+      "Na página seguinte, monte a peça no **checklist VDE**: os seis pontos, com artigo em cada um.",
+      "Só depois confira o **gabarito**, no fim do caderno. Marque o que acertou e reveja o que faltou.",
+      "Primeiro treino com material e Vade Mecum; depois só com o Vade; por fim, com tempo marcado."
+    ],
+    "nota": "Casos autorais, inspirados em peças cobradas pela FGV (o exame vem indicado em cada caso) e simplificados para treino. Nomes e fatos são fictícios. Os gabaritos trazem os pontos essenciais, só com a Constituição e as leis: não são peças completas nem espelhos oficiais da FGV.",
+    "casos": [
+      {
+        "titulo": "A padaria do centro",
+        "inspirado": "Inspirado no XLIII Exame (FGV)",
+        "enunciado": [
+          "O Município Alfa editou a Lei Municipal nº XX, segundo a qual os comerciantes estabelecidos no centro da cidade somente poderiam renovar o alvará de funcionamento se comprovassem estar filiados à Associação Comercial do Município Alfa, entidade privada.",
+          "Maria mantém há oito anos uma pequena padaria no centro. Ela não é filiada à Associação e não deseja se filiar. Ao requerer a renovação do alvará, apresentou todos os documentos exigidos pelas normas sanitárias e urbanísticas. Ainda assim, o Secretário Municipal de Fazenda indeferiu o pedido, por escrito, com fundamento exclusivo na ausência de filiação, e determinou o fechamento do estabelecimento em quinze dias.",
+          "A decisão foi publicada há vinte dias e dela não cabe recurso administrativo. Maria vive da renda da padaria.",
+          "Ela procurou você, como advogado(a), e pediu o ajuizamento da ação constitucional de rito mais célere, sem dilação probatória, já que possui todos os documentos, e que não a sujeite à condenação em honorários de sucumbência.",
+          "Elabore a peça processual adequada. (Valor: 5,00)"
+        ],
+        "peca": "Mandado de segurança individual",
+        "pista": "Ato concreto de autoridade + prova só documental + sem honorários = MS.",
+        "gabarito": [
+          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Alfa, conforme a organização judiciária local. O Secretário Municipal não tem foro no tribunal."], "artigos": [] },
+          { "texto": ["Impetrante: Maria, titular do direito violado.", "Autoridade coatora: o Secretário Municipal de Fazenda, que praticou o ato; pessoa jurídica a que se vincula: Município Alfa."], "artigos": ["Lei 12.016/09, art. 6º"] },
+          { "texto": ["Direito líquido e certo violado por ato de autoridade, provado só com documentos.", "Impetração dentro de 120 dias da ciência do ato (passaram 20)."], "artigos": ["CF, art. 5º, LXIX", "Lei 12.016/09, art. 1º", "Lei 12.016/09, art. 23"] },
+          { "texto": ["Sim: liminar para suspender o indeferimento e o fechamento. Fundamento relevante e risco de ineficácia: a padaria fecha em quinze dias e é a renda de Maria."], "artigos": ["Lei 12.016/09, art. 7º, III"] },
+          { "texto": ["Liberdade de associação: ninguém pode ser compelido a associar-se. Exigir filiação para renovar o alvará viola esse direito.", "Livre exercício de trabalho e de atividade econômica: Maria cumpriu as exigências sanitárias e urbanísticas.", "A lei municipal é inconstitucional, o que deve ser reconhecido incidentalmente (controle difuso)."], "artigos": ["CF, art. 5º, XX", "CF, art. 5º, XIII", "CF, art. 170, parágrafo único"] },
+          { "texto": ["Liminar; notificação da autoridade coatora para prestar informações; ciência ao órgão de representação judicial do Município; oitiva do MP.", "Concessão da segurança: anular o indeferimento e garantir a renovação do alvará sem exigir filiação.", "Documentos que provam o direito; valor da causa; sem condenação em honorários."], "artigos": ["Lei 12.016/09, art. 7º, I e II", "art. 12", "art. 25"] }
+        ],
+        "atencao": "Maria não pode propor ADI e quer resolver o caso dela: a inconstitucionalidade da lei é a causa de pedir, não o pedido."
+      },
+      {
+        "titulo": "Música na praça",
+        "inspirado": "Inspirado no XXXIX Exame (FGV)",
+        "enunciado": [
+          "O Prefeito do Município Beta, incomodado com as apresentações na Praça Central, proferiu decisão, por escrito, proibindo os músicos de rua de se apresentarem em espaços públicos sem a prévia aprovação, pela Secretaria Municipal de Cultura, do repertório que pretendem tocar. Segundo a decisão, só seriam aprovadas “músicas de conteúdo adequado aos valores da cidade”. Quem a descumprisse teria os instrumentos apreendidos.",
+          "A Associação dos Músicos de Rua do Município Beta, legalmente constituída e em funcionamento há dez anos, reúne todos os músicos que se apresentam na cidade. Em assembleia, os associados decidiram, por unanimidade, que a Associação deveria ir a juízo em defesa de todos eles.",
+          "A decisão do Prefeito foi publicada há quinze dias e contra ela não cabe recurso administrativo com efeito suspensivo. A Associação deseja uma ação constitucional célere, sem produção de provas além dos documentos que já possui, sem risco de condenação em honorários advocatícios e que beneficie exclusivamente os seus associados.",
+          "Elabore, na condição de advogado(a) da Associação, a peça processual adequada. (Valor: 5,00)"
+        ],
+        "peca": "Mandado de segurança coletivo",
+        "pista": "Associação em defesa dos associados + ato concreto + só documentos + sem honorários.",
+        "gabarito": [
+          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Beta, conforme a organização judiciária local."], "artigos": [] },
+          { "texto": ["Impetrante: a Associação, constituída e em funcionamento há mais de um ano, em defesa dos direitos dos associados. A autorização especial é dispensada.", "Autoridade coatora: o Prefeito; pessoa jurídica: Município Beta."], "artigos": ["CF, art. 5º, LXX, b", "Lei 12.016/09, art. 21", "Lei 12.016/09, art. 6º"] },
+          { "texto": ["Direito líquido e certo dos associados violado por ato do Prefeito, provado com documentos (ata da assembleia, estatuto e decisão).", "Prazo de 120 dias respeitado; não há recurso com efeito suspensivo."], "artigos": ["CF, art. 5º, LXIX e LXX", "Lei 12.016/09, art. 1º", "Lei 12.016/09, art. 23"] },
+          { "texto": ["Sim: liminar para suspender a exigência de aprovação prévia e a apreensão dos instrumentos.", "No MS coletivo, a liminar só é concedida depois de ouvido o representante judicial do Município, em 72 horas."], "artigos": ["Lei 12.016/09, art. 7º, III", "Lei 12.016/09, art. 22, § 2º"] },
+          { "texto": ["A expressão artística é livre, independentemente de censura ou licença: aprovar repertório antes é censura prévia.", "É vedada toda censura de natureza política, ideológica e artística.", "Os músicos vivem da apresentação: a apreensão atinge o livre exercício do trabalho e o exercício dos direitos culturais."], "artigos": ["CF, art. 5º, IX", "CF, art. 220, § 2º", "CF, art. 5º, XIII", "CF, art. 215"] },
+          { "texto": ["Liminar; notificação do Prefeito; ciência ao Município; oitiva do MP.", "Concessão da segurança para afastar a exigência de aprovação do repertório e a apreensão, em favor dos associados.", "Documentos; valor da causa; sem honorários."], "artigos": ["Lei 12.016/09, art. 7º, I e II", "art. 12", "art. 22", "art. 25"] }
+        ],
+        "atencao": "O pedido de “beneficiar exclusivamente os associados” aponta para o MS coletivo: a sentença faz coisa julgada só para os membros do grupo."
+      },
+      {
+        "titulo": "A lei das estradas",
+        "inspirado": "Inspirado no XXXV Exame (FGV)",
+        "enunciado": [
+          "O Estado Alfa promulgou a Lei estadual nº XX, que entrará em vigor em trinta dias.",
+          "O Art. 1º criou nova infração de trânsito, consistente em dirigir com o braço para fora da janela do veículo, punida com multa e perda de pontos na carteira de habilitação. O Art. 2º obrigou as empresas de telefonia móvel que atuam no Estado a instalar antenas em todos os municípios com menos de cinco mil habitantes, sob pena de suspensão do serviço. O Art. 3º determinou que os valores arrecadados com as multas do Art. 1º seriam destinados ao fundo estadual de segurança pública.",
+          "O Partido Político Gama, que conta com um deputado federal, considera a lei flagrantemente inconstitucional e teme os prejuízos que sua aplicação causará aos motoristas e às empresas.",
+          "Na condição de advogado(a) do Partido Gama, elabore a peça processual cabível de controle concentrado de constitucionalidade, de modo que a Lei estadual nº XX seja confrontada com a Constituição da República perante o órgão diretamente incumbido de sua guarda, antes que produza efeitos. (Valor: 5,00)"
+        ],
+        "peca": "Ação direta de inconstitucionalidade (ADI)",
+        "pista": "Lei estadual posterior a 1988 + Constituição da República como parâmetro + STF.",
+        "gabarito": [
+          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, I, a"] },
+          { "texto": ["Requerente: Partido Gama, com representação no Congresso Nacional (um deputado federal basta).", "Indicar os órgãos que editaram a lei, que prestarão informações: Assembleia Legislativa e Governador do Estado Alfa."], "artigos": ["CF, art. 103, VIII", "Lei 9.868/99, art. 2º, VIII"] },
+          { "texto": ["Lei estadual editada depois da Constituição de 1988, impugnada diante da própria Constituição da República.", "Indicar os dispositivos impugnados e os fundamentos de cada um; juntar cópia da lei e procuração."], "artigos": ["Lei 9.868/99, art. 3º e parágrafo único"] },
+          { "texto": ["Sim: medida cautelar para suspender a eficácia dos arts. 1º a 3º. O vício é evidente e a lei entra em vigor em trinta dias, com multas e suspensão do serviço."], "artigos": ["Lei 9.868/99, art. 10"] },
+          { "texto": ["Art. 1º: só a União legisla sobre trânsito. Inconstitucionalidade formal orgânica.", "Art. 2º: telecomunicações são competência legislativa privativa da União, que também explora o serviço.", "Art. 3º: só existe para aplicar o Art. 1º e cai junto com ele."], "artigos": ["CF, art. 22, XI", "CF, art. 22, IV", "CF, art. 21, XI"] },
+          { "texto": ["Medida cautelar; informações da Assembleia Legislativa e do Governador; oitiva do Advogado-Geral da União e do Procurador-Geral da República.", "Procedência para declarar a inconstitucionalidade dos arts. 1º a 3º da Lei estadual nº XX."], "artigos": ["Lei 9.868/99, art. 6º", "Lei 9.868/99, art. 8º", "CF, art. 103, §§ 1º e 3º"] }
+        ],
+        "atencao": "Não esqueça o pedido de cautelar: a lei ainda não está em vigor, e é isso que mostra o perigo da demora."
+      },
+      {
+        "titulo": "Merenda da roça",
+        "inspirado": "Inspirado no XLI Exame (FGV)",
+        "enunciado": [
+          "Para reduzir a evasão escolar e fortalecer a economia local, foi editada a Lei Federal nº XX, que determinou que ao menos 30% dos alimentos da merenda das escolas públicas fossem adquiridos de agricultores familiares da própria região.",
+          "Grandes distribuidoras de alimentos passaram a sustentar que a lei seria inconstitucional, pois violaria a isonomia e a livre concorrência ao favorecer um grupo de produtores. Esses argumentos foram acolhidos em diversas ações individuais e coletivas, nas quais juízes e tribunais vêm afastando a aplicação da lei, enquanto outros a aplicam normalmente. A divergência gera insegurança e atrasa a compra da merenda em muitos municípios.",
+          "O Partido Político Delta, com representação no Senado Federal, contratou você, como advogado(a), para ajuizar a ação constitucional cabível, de modo que o Supremo Tribunal Federal reconheça, com eficácia contra todos e efeito vinculante, a compatibilidade da Lei nº XX com a Constituição da República, e que os processos em que a lei é discutida fiquem suspensos até o julgamento final.",
+          "Redija a peça processual adequada. (Valor: 5,00)"
+        ],
+        "peca": "Ação declaratória de constitucionalidade (ADC)",
+        "pista": "Lei federal + decisões judiciais divergentes + pedido para declarar que a lei é válida.",
+        "gabarito": [
+          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, I, a"] },
+          { "texto": ["Requerente: Partido Delta, com representação no Congresso Nacional.", "Não há réu: é processo objetivo."], "artigos": ["CF, art. 103, VIII"] },
+          { "texto": ["Lei federal, objeto possível de ADC.", "Controvérsia judicial relevante sobre a aplicação da lei, demonstrada com cópias das decisões divergentes."], "artigos": ["CF, art. 102, I, a", "Lei 9.868/99, art. 14, III e parágrafo único"] },
+          { "texto": ["Sim: medida cautelar para suspender o julgamento dos processos que envolvem a aplicação da lei até a decisão final."], "artigos": ["Lei 9.868/99, art. 21"] },
+          { "texto": ["Alimentação escolar é dever do Estado com a educação, e a criança tem prioridade absoluta.", "Isonomia material: tratar de forma diferente a agricultura familiar reduz desigualdades, que é objetivo da República e princípio da ordem econômica.", "Compete a todos os entes fomentar a produção agropecuária e organizar o abastecimento alimentar."], "artigos": ["CF, art. 208, VII", "CF, art. 227", "CF, art. 3º, III", "CF, art. 170, VII", "CF, art. 23, VIII"] },
+          { "texto": ["Medida cautelar; oitiva do Procurador-Geral da República.", "Procedência para declarar a constitucionalidade da Lei nº XX, com eficácia contra todos e efeito vinculante."], "artigos": ["Lei 9.868/99, art. 19", "CF, art. 102, § 2º"] }
+        ],
+        "atencao": "Na ADC não se pedem informações a órgãos nem se cita o Advogado-Geral da União: só o PGR é ouvido."
+      },
+      {
+        "titulo": "A festa da cidade",
+        "inspirado": "Inspirado no XLIV Exame (FGV)",
+        "enunciado": [
+          "O Prefeito do Município Ômega contratou, sem licitação, a sociedade empresária Show Total Ltda. para organizar a festa de aniversário da cidade, pelo valor de R$ 2 milhões. Orçamentos de outras empresas mostram que o preço é quase o triplo do praticado no mercado para um evento do mesmo porte. A sócia majoritária da Show Total é esposa do Prefeito.",
+          "O contrato foi assinado na semana passada, e o primeiro pagamento, correspondente à metade do valor, está previsto para daqui a dez dias.",
+          "Pedro, eleitor no Município Ômega, ficou indignado com o uso do dinheiro público e procurou você, como advogado(a), para o ajuizamento da ação constitucional cabível, de modo a anular o contrato e impedir o pagamento, admitindo-se a produção de provas para demonstrar o superfaturamento. Pedro não quer arcar com custas judiciais nem com ônus da sucumbência, pois não está agindo de má-fé.",
+          "Elabore a peça processual adequada. (Valor: 5,00)"
+        ],
+        "peca": "Ação popular",
+        "pista": "Eleitor + dinheiro público + moralidade + precisa de provas + isenção de custas.",
+        "gabarito": [
+          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Ômega, conforme a organização judiciária local."], "artigos": ["Lei 4.717/65, art. 5º"] },
+          { "texto": ["Autor: Pedro, cidadão, com prova da cidadania pelo título de eleitor.", "Réus: o Município Ômega, o Prefeito, que autorizou o contrato, e a Show Total, beneficiária."], "artigos": ["CF, art. 5º, LXXIII", "Lei 4.717/65, art. 1º, § 3º", "Lei 4.717/65, art. 6º"] },
+          { "texto": ["Ato lesivo ao patrimônio público e à moralidade administrativa.", "Nulidade por ilegalidade do objeto e desvio de finalidade. O rito admite produção de provas."], "artigos": ["CF, art. 5º, LXXIII", "Lei 4.717/65, art. 1º", "Lei 4.717/65, art. 2º, c e e"] },
+          { "texto": ["Sim: suspensão liminar do contrato e do pagamento previsto para daqui a dez dias."], "artigos": ["Lei 4.717/65, art. 5º, § 4º"] },
+          { "texto": ["Moralidade e impessoalidade: o Prefeito contratou a empresa da esposa.", "Contratação sem licitação, fora das hipóteses legais.", "Lesão ao patrimônio público: preço quase três vezes o de mercado."], "artigos": ["CF, art. 37, caput", "CF, art. 37, XXI"] },
+          { "texto": ["Liminar; citação dos réus; intimação do Ministério Público; requisição de documentos e produção de provas.", "Procedência para anular o contrato e condenar os responsáveis e a beneficiária a ressarcir o dano.", "Isenção de custas e ônus da sucumbência; valor da causa."], "artigos": ["Lei 4.717/65, art. 6º, § 4º", "Lei 4.717/65, art. 7º", "Lei 4.717/65, art. 11", "CF, art. 5º, LXXIII"] }
+        ],
+        "atencao": "O Município entra como réu, mas pode passar a atuar ao lado do autor se isso for útil ao interesse público (Lei 4.717/65, art. 6º, § 3º)."
+      },
+      {
+        "titulo": "Os templos do centro",
+        "inspirado": "Inspirado no XLVI Exame (FGV)",
+        "enunciado": [
+          "A Lei nº XX, de 1985, do Município Sigma, ainda formalmente em vigor, proíbe a instalação de templos de “religiões não tradicionais” na área central da cidade e autoriza a Prefeitura a fechar, sem qualquer processo, os templos que descumprirem a regra.",
+          "A lei estava esquecida, mas o atual Prefeito anunciou que passará a aplicá-la no próximo mês, e diversos templos já receberam notificações. Lideranças religiosas levaram os fatos ao Partido Político Épsilon, que tem representação na Câmara dos Deputados.",
+          "O Partido deseja submeter a lei municipal ao controle concentrado de constitucionalidade perante o Supremo Tribunal Federal, tendo como parâmetro a Constituição da República de 1988, e impedir que ela seja aplicada enquanto o processo tramita.",
+          "Na condição de advogado(a) do Partido Épsilon, elabore a petição inicial da medida judicial cabível. (Valor: 5,00)"
+        ],
+        "peca": "Arguição de descumprimento de preceito fundamental (ADPF)",
+        "pista": "Lei municipal + anterior a 1988 + controle concentrado no STF: não cabe ADI.",
+        "gabarito": [
+          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, § 1º", "Lei 9.882/99, art. 1º"] },
+          { "texto": ["Requerente: Partido Épsilon, com representação no Congresso Nacional.", "Indicar as autoridades responsáveis pela lei e pela sua aplicação: Câmara Municipal e Prefeito de Sigma."], "artigos": ["CF, art. 103, VIII", "Lei 9.882/99, art. 2º, I"] },
+          { "texto": ["Cabe ADPF contra lei municipal e contra lei anterior à Constituição.", "Subsidiariedade: não há outro meio eficaz, porque a ADI não alcança lei municipal nem lei anterior a 1988.", "Indicar os preceitos fundamentais violados."], "artigos": ["Lei 9.882/99, art. 1º, parágrafo único, I", "Lei 9.882/99, art. 4º, § 1º", "Lei 9.882/99, art. 3º"] },
+          { "texto": ["Sim: liminar para suspender a aplicação da lei e os efeitos das notificações, já que a aplicação começa no próximo mês."], "artigos": ["Lei 9.882/99, art. 5º, §§ 2º e 3º"] },
+          { "texto": ["Liberdade de crença e livre exercício dos cultos, com proteção aos locais de culto.", "O Estado não pode embaraçar o funcionamento de cultos religiosos.", "Igualdade, e fechamento sem processo viola o devido processo legal, o contraditório e a ampla defesa. A lei não foi recepcionada."], "artigos": ["CF, art. 5º, VI", "CF, art. 19, I", "CF, art. 5º, caput", "CF, art. 5º, LIV e LV"] },
+          { "texto": ["Liminar; informações das autoridades responsáveis; oitiva do Advogado-Geral da União e do Procurador-Geral da República.", "Procedência para declarar a incompatibilidade (não recepção) da lei com a Constituição de 1988, com eficácia contra todos e efeito vinculante."], "artigos": ["Lei 9.882/99, art. 6º", "Lei 9.882/99, art. 7º, parágrafo único", "Lei 9.882/99, art. 10, § 3º"] }
+        ],
+        "atencao": "Lei anterior a 1988 não é “inconstitucional”: o pedido é reconhecer que ela não foi recepcionada pela Constituição."
+      }
+    ],
+    "divisor": "Compare ponto a ponto com o seu checklist. Errou a peça? Volte ao enunciado e procure a pista que entregava a resposta.",
+    "fim": {
+      "titulo": ["Confia no", "[[processo]]."],
+      "texto": "Uma peça por dia. O checklist vira reflexo, e a prova vira só mais um treino."
+    }
+  }
+]

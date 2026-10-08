@@ -15,10 +15,10 @@ from PIL import Image
 raiz = Path(__file__).resolve().parent
 molde, pedidos = sys.argv[1], set(sys.argv[2:])
 pasta = raiz.parent / 'moldes' / molde
+from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
 # Cada molde fica numa galeria (galerias.json): a principal (dist/) ou a do Líbero (dist-libero/).
 galeria = galeria_de(molde)
 dist = raiz / GALERIAS[galeria]['dist']
-from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
 
 html = (dist / 'index.html').read_text('utf8')
 m = re.search(r'\nconst MOLDES = (.*);\n', html)
