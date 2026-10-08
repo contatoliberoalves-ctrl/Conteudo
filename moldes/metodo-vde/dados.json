@@ -1,0 +1,230 @@
+[
+  {
+    "id": "planejar-a-peca-aula",
+    "titulo": "Como planejar a peça (aula de exemplo)",
+    "tema": "Os 6 pontos para planejar a peça, treino em 3 rodadas e caso 19 do caderno",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "degrade",
+        "kicker": "Mentoria Método VDE · 2ª fase OAB",
+        "titulo": [
+          "Como planejar",
+          "a [[peça]]"
+        ],
+        "texto": "Os 6 pontos que você resolve antes de escrever a primeira linha.",
+        "pilula": "Direito Constitucional"
+      },
+      {
+        "tipo": "texto",
+        "tema": "branco",
+        "kicker": "Antes de começar",
+        "titulo": [
+          "Nome da peça",
+          "não basta"
+        ],
+        "texto": [
+          "Identifique a medida cabível **antes** de consultar o gabarito.",
+          "O objetivo é escrever a peça processual adequada, não apenas indicar o nome dela: **desenvolva os fundamentos e aplique cada artigo aos fatos**."
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "branco",
+        "kicker": "Planejamento",
+        "titulo": [
+          "Os [[6 pontos]] da peça"
+        ],
+        "cards": [
+          {
+            "titulo": "Endereçamento",
+            "texto": "Para quem a peça vai."
+          },
+          {
+            "titulo": "Partes e legitimidade",
+            "texto": "Quem pede e contra quem."
+          },
+          {
+            "titulo": "Cabimento",
+            "texto": "Por que é esta peça e não outra."
+          },
+          {
+            "titulo": "Tutela de urgência",
+            "texto": "Se cabe, e com qual fundamento."
+          },
+          {
+            "titulo": "Artigos, súmulas e teses",
+            "texto": "O mérito, aplicado aos fatos."
+          },
+          {
+            "titulo": "Pedidos",
+            "texto": "O que você quer que o juiz faça."
+          }
+        ]
+      },
+      {
+        "tipo": "secao",
+        "tema": "degrade",
+        "numero": "01",
+        "kicker": "Parte 1",
+        "titulo": [
+          "Como treinar"
+        ],
+        "texto": "O mesmo caso, em três rodadas."
+      },
+      {
+        "tipo": "lista",
+        "tema": "lavanda",
+        "kicker": "Treino em 3 rodadas",
+        "titulo": [
+          "Do material",
+          "ao relógio"
+        ],
+        "itens": [
+          "Primeiro: com o seu **material** e o **Vade Mecum**.",
+          "Depois: refaça **só com o Vade**.",
+          "Por fim: com **tempo marcado**, como na prova."
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "branco",
+        "kicker": "Atenção",
+        "titulo": [
+          "Não invente dados"
+        ],
+        "texto": [
+          "Não crie nomes, datas ou informações que o enunciado não deu.",
+          "Use **reticências** para os dados necessários que não foram fornecidos."
+        ]
+      },
+      {
+        "tipo": "secao",
+        "tema": "degrade",
+        "numero": "02",
+        "kicker": "Parte 2",
+        "titulo": [
+          "Na prática:",
+          "caso 19"
+        ],
+        "texto": "Alice e o depósito prévio."
+      },
+      {
+        "tipo": "questao",
+        "tema": "branco",
+        "kicker": "Teste rápido",
+        "titulo": [
+          "Qual é a peça?"
+        ],
+        "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
+        "alternativas": [
+          "Habeas data",
+          "Mandado de segurança individual",
+          "Ação popular",
+          "Reclamação ao STF"
+        ],
+        "correta": 1
+      },
+      {
+        "tipo": "questao",
+        "tema": "branco",
+        "kicker": "Gabarito",
+        "titulo": [
+          "Qual é a peça?"
+        ],
+        "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
+        "alternativas": [
+          "Habeas data",
+          "Mandado de segurança individual",
+          "Ação popular",
+          "Reclamação ao STF"
+        ],
+        "correta": 1,
+        "gabarito": true
+      },
+      {
+        "tipo": "lei",
+        "tema": "lavanda",
+        "kicker": "A tese",
+        "titulo": [
+          "Súmula Vinculante 21"
+        ],
+        "citacao": "É inconstitucional a exigência de depósito ou arrolamento prévios de dinheiro ou bens para admissibilidade de recurso administrativo.",
+        "fonte": "STF · Súmula Vinculante 21",
+        "traducao": "Traduzindo: o recurso administrativo **não pode depender de depósito**. Junto com o art. 5º, LIV e LV, é o coração da peça."
+      },
+      {
+        "tipo": "comparar",
+        "tema": "branco",
+        "kicker": "Não confunda",
+        "titulo": [
+          "MS ou reclamação?"
+        ],
+        "lados": [
+          {
+            "rotulo": "A peça do caso",
+            "titulo": "Mandado de segurança",
+            "itens": [
+              "Juízo da Fazenda Pública (ou Cível) local",
+              "Prova pré-constituída",
+              "Sem honorários (Lei 12.016/09, art. 25)"
+            ]
+          },
+          {
+            "rotulo": "A tentação",
+            "titulo": "Reclamação ao STF",
+            "itens": [
+              "Ato administrativo contra súmula vinculante",
+              "Exige **esgotar as vias administrativas**",
+              "Lei 11.417/06, art. 7º, § 1º"
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Gabarito do caso 19",
+        "titulo": [
+          "A estrutura"
+        ],
+        "colunas": [
+          "Ponto",
+          "No caso de Alice"
+        ],
+        "linhas": [
+          [
+            "Endereçamento",
+            "Juízo da Fazenda Pública ou Cível da comarca das Maravilhas"
+          ],
+          [
+            "Partes",
+            "Alice, impetrante; Secretária de Fiscalização, coatora; Município, interessado"
+          ],
+          [
+            "Cabimento",
+            "Direito líquido e certo; prazo de 120 dias (art. 5º, LXIX; Lei 12.016/09, arts. 1º e 23)"
+          ],
+          [
+            "Tutela",
+            "Liminar para afastar o depósito e processar o recurso (art. 7º, III)"
+          ],
+          [
+            "Pedidos",
+            "Liminar, notificação, ciência ao Município, MP e concessão da segurança"
+          ]
+        ]
+      },
+      {
+        "tipo": "fim",
+        "tema": "degrade",
+        "kicker": "Sua vez",
+        "titulo": [
+          "Bora [[treinar]]?"
+        ],
+        "texto": "Escreva a peça do caso 19 inteira e confira com o gabarito do caderno.",
+        "botao": "Mentoria Método VDE"
+      }
+    ]
+  }
+]
