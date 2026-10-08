@@ -10,11 +10,27 @@ def jpeg(origem, destino, largura, qualidade=82):
 
 
 def tamanho_tira(slides):
-    """Tamanho de cada slide na tira: o original, menos nos slides deitados (aula, 1920×1080), que
-    encolhem para a tira não passar de 16.000 px de largura (limite do WebP)."""
-    w, h = Image.open(slides[0]).size
-    larg = min(w, 16000 // len(slides))
-    return larg, round(h * larg / w)
+    """Tamanho de cada slide na tira: sempre o original (a tira é dividida em partes, ver salvar_tira)."""
+    return Image.open(slides[0]).size
+
+
+def salvar_tira(slides, dist, base):
+    """Grava os slides lado a lado em resolução cheia. O WebP aceita no máximo 16.383 px de largura,
+    então a tira é dividida em partes: <base>-slides.webp (1ª), <base>-slides-2.webp, … Devolve
+    (largura, altura, slides por parte, arquivos gravados)."""
+    larg, alt = tamanho_tira(slides)
+    por = max(1, 16000 // larg)
+    arquivos = []
+    for i in range(0, len(slides), por):
+        grupo = slides[i:i + por]
+        tira = Image.new('RGB', (larg * len(grupo), alt))
+        for k, s in enumerate(grupo):
+            tira.paste(Image.open(s).convert('RGB').resize((larg, alt), Image.LANCZOS), (larg * k, 0))
+        nome = f'{base}-slides.webp' if i == 0 else f'{base}-slides-{i // por + 1}.webp'
+        (dist / nome).parent.mkdir(parents=True, exist_ok=True)
+        tira.save(dist / nome, 'WEBP', quality=86, method=5)
+        arquivos.append(nome)
+    return larg, alt, por, arquivos
 
 
 def titulo(c):

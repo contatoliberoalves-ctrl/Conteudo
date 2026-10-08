@@ -397,6 +397,13 @@ function desenharGrade() {
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
 }
 
+// A tira do post pode vir em partes (o WebP tem limite de largura): <id>-slides.webp, <id>-slides-2.webp…
+// trecho(p, k) diz em que arquivo e em que posição está o slide k.
+function trecho(p, k) {
+  const por = p.por || p.n, parte = Math.floor(k / por), nParte = Math.min(por, p.n - parte * por);
+  return { src: parte ? p.tira.replace(/-slides\.webp$/, `-slides-${parte + 1}.webp`) : p.tira, i: k - parte * por, nParte };
+}
+const fundoSlide = (p, k) => { const t = trecho(p, k); return `background-image:url('${esc(t.src)}');background-size:${t.nParte * 100}% 100%;background-position:${t.nParte > 1 ? (t.i / (t.nParte - 1)) * 100 : 0}% 0`; };
 function abrir(i) {
   atual = (i + lista.length) % lista.length;
   const p = lista[atual];
@@ -404,7 +411,7 @@ function abrir(i) {
   $('#v-titulo').textContent = p.titulo;
   fecharEditor(); $('#v-status').textContent = ''; atualizarFerramentas();
   // Cada slide é um recorte da tira com todos os slides do post.
-  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};background-image:url('${esc(p.tira)}');background-size:${p.n * 100}% 100%;background-position:${p.n > 1 ? (k / (p.n - 1)) * 100 : 0}% 0"></div><figcaption><label class="sel"><input type="checkbox" data-sel="${k}" aria-label="Selecionar o slide ${k + 1}">Slide ${k + 1}</label><button class="mini" data-baixar="${k}" aria-label="Baixar o slide ${k + 1}">Baixar</button>${(p.w || 1080) > (p.h || 1350) ? `<button class="mini" data-yt="${k}" aria-label="Baixar o slide ${k + 1} como miniatura do YouTube">Miniatura YouTube</button>` : ''}</figcaption></figure>`).join('');
+  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};${fundoSlide(p, k)}"></div><figcaption><label class="sel"><input type="checkbox" data-sel="${k}" aria-label="Selecionar o slide ${k + 1}">Slide ${k + 1}</label><button class="mini" data-baixar="${k}" aria-label="Baixar o slide ${k + 1}">Baixar</button>${(p.w || 1080) > (p.h || 1350) ? `<button class="mini" data-yt="${k}" aria-label="Baixar o slide ${k + 1} como miniatura do YouTube">Miniatura YouTube</button>` : ''}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
   SEL.clear(); atualizarSelecao();
   fecharFormPedido(); desenharPedidos();
@@ -482,14 +489,15 @@ async function salvarArquivo(nome, blob, status) {
 
 // Desenha os slides do post um a um (a capa com o ajuste salvo no editor, se houver) e entrega cada um a `fn`.
 async function cadaSlide(p, fn, quais = null) {
-  const tira = await carregar(p.tira), H = p.h || 1350, L = p.w || 1080;  // slide 1080×1350 (4:5), 1080×1440 (3:4) ou deitado (aula, 16:9)
+  const H = p.h || 1350, L = p.w || 1080, partes = {};
+  const parteDe = async src => partes[src] || (partes[src] = await carregar(src));  // slide 1080×1350 (4:5), 1080×1440 (3:4) ou deitado (aula, 16:9)
   const cv = document.createElement('canvas'); cv.width = L; cv.height = H; const ctx = cv.getContext('2d');
   const a = AJ[chave(p)], usarEditor = a && p.editor?.img;
   const sprite = usarEditor ? await carregar(p.editor.img) : null;
   for (let k = 0; k < p.n; k++) {
     if (quais && !quais.includes(k)) continue;
     if (k === 0 && sprite) desenharCapa(ctx, p.editor, sprite, ajusteDe(p));
-    else ctx.drawImage(tira, k * L, 0, L, H, 0, 0, L, H);
+    else { const tr = trecho(p, k); ctx.drawImage(await parteDe(tr.src), tr.i * L, 0, L, H, 0, 0, L, H); }
     await fn(cv, k);
   }
 }

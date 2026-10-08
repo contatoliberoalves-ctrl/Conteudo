@@ -10,7 +10,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from gerar_util import jpeg, tamanho_tira, titulo
+from gerar_util import jpeg, tamanho_tira, salvar_tira, titulo
 
 raiz = Path(__file__).resolve().parent
 dist = raiz / 'dist'
@@ -83,12 +83,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
         # Uma tira com todos os slides lado a lado em resolução cheia (1080x1350 cada, WebP): 1 arquivo
         # por post, para caber no limite de arquivos da página. A galeria recorta cada slide dela para
         # mostrar e para montar o zip de download.
-        larg, alt = tamanho_tira(slides)
-        tira = Image.new('RGB', (larg * len(slides), alt))
-        for k, s in enumerate(slides):
-            tira.paste(Image.open(s).convert('RGB').resize((larg, alt), Image.LANCZOS), (larg * k, 0))
-        (dist / base).parent.mkdir(parents=True, exist_ok=True)
-        tira.save(dist / f'{base}-slides.webp', 'WEBP', quality=86, method=5)
+        larg, alt, por, _ = salvar_tira(slides, dist, base)
         # Até 3 slides, o painel seria igual à tira: usa a própria tira (um arquivo a menos por post,
         # que a página publicada tem limite de arquivos por versão).
         if len(slides) > 3:
@@ -101,7 +96,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             'topicos': len(c.get('topicos', [])),
             'painel': f'{base}-painel.jpg' if len(slides) > 3 else f'{base}-slides.webp',
             'tira': f'{base}-slides.webp',
-            'n': len(slides), 'w': larg, 'h': alt,
+            'n': len(slides), 'w': larg, 'h': alt, 'por': por,
             'editor': editor(pasta, c, saida),
         })
     meta['posts'] = posts
