@@ -4,6 +4,7 @@
 // Conteúdo: uma lista de teses {exame, peca, materia, tese, artigo}, agrupada por matéria e, dentro dela,
 // por exame (do mais recente ao mais antigo). A paginação é feita no navegador: cada bloco (abertura de
 // matéria ou grupo de um exame) vai para a página seguinte se não couber.
+import { renderSimulado } from './simulado.mjs';
 import { COR, FONTES, TITULO, TEXTO, PERFIL, esc, linhas, textura, anel } from '../libero-comum/identidade.mjs';
 
 export const W = 794, H = 1122;  // A4 a 96 dpi (210 × 297 mm)
@@ -115,6 +116,7 @@ function indice(p) {
 }
 
 export function renderCarrossel(p) {
+  if (p.tipo === 'simulado') return renderSimulado(p);
   const avisos = [];
   const grupos = p.materias.map(m => ({ ...m, teses: p.teses.filter(t => t.materia === m.id) }));
   p.teses.filter(t => !p.materias.some(m => m.id === t.materia)).forEach(t => avisos.push(`tese sem matéria válida (${t.materia}): ${t.tese.slice(0, 40)}`));
