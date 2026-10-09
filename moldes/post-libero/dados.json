@@ -197,5 +197,50 @@
     "layout": "estrutura",
     "tema": "light",
     "estrutura": "recurso-extraordinario"
+  },
+  {
+    "id": "simulado-autoral-pdf",
+    "titulo": "Simulado autoral (PDF): comente #SIMULADO",
+    "layout": "pdf",
+    "tema": "light",
+    "selo": "Simulado gratuito",
+    "kicker": "OAB 2ª fase",
+    "linhas": [
+      "Simulado",
+      "[[autoral]]"
+    ],
+    "sub": "Peça + 4 questões no modelo da FGV",
+    "pagina": "Simulado autoral",
+    "itens": [
+      "Instruções da prova",
+      "Peça prático-profissional",
+      "Rascunho com linhas numeradas",
+      "Questões 1 a 4 (itens A e B)",
+      "Gabarito em breve"
+    ],
+    "hashtag": "#SIMULADO",
+    "chamada": "pra receber o link"
+  },
+  {
+    "id": "simulado-autoral-material",
+    "titulo": "Simulado autoral (apostila): comente #SIMULADO",
+    "layout": "material",
+    "tema": "dark",
+    "selo": "Simulado gratuito",
+    "linhas": [
+      "Simulado",
+      "[[autoral]]",
+      "de 2ª fase"
+    ],
+    "sub": "Peça + 4 questões no modelo da FGV",
+    "apostila": {
+      "titulo": [
+        "Simulado",
+        "autoral"
+      ],
+      "rodape": "Constitucional · 2ª fase OAB"
+    },
+    "hashtag": "#SIMULADO",
+    "chamada": "pra receber o link"
   }
 ]
