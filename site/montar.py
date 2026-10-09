@@ -12,13 +12,17 @@ RAIZ = AQUI.parent
 FOTOS = RAIZ / 'moldes/estrutura-de-pecas/fotos'
 # nome no site: (original, largura, recorte vertical opcional)
 ESCOLHA = {'hero': ('0557.jpg', 900), 'sobre': ('0458.jpg', 900), 'reforco': ('dsc08888.jpg', 900),
-           'podcast': ('dsc08680.jpg', 900), 'conteudo': ('dsc08842.jpg', 900)}
+           'podcast': ('dsc08680.jpg', 900), 'conteudo': ('dsc08842.jpg', 900),
+           'projetos': ('dsc08712.jpg', 900), 'materiais': ('dsc08920.jpg', 900), 'mentoria': ('0207.jpg', 700),
+           'canal': ('constitucional-27.jpg', 700)}
 # materiais: pasta de saída do molde, arquivo do site
 MATERIAIS = {'simulado-autoral.pdf': 'moldes/libero-pdf/saida/simulado-autoral-oab44/simulado-autoral-oab44.pdf',
              # O gabarito entra quando for divulgado (e publicado: true no index.html):
              # 'gabarito-simulado-autoral.pdf': 'moldes/libero-pdf/saida/simulado-autoral-oab44-gabarito/simulado-autoral-oab44-gabarito.pdf',
              }
 CAPAS = {'simulado-autoral.webp': 'moldes/libero-pdf/saida/simulado-autoral-oab44/1.png',
+         'simulado-autoral-p3.webp': 'moldes/libero-pdf/saida/simulado-autoral-oab44/3.png',
+         'simulado-autoral-p6.webp': 'moldes/libero-pdf/saida/simulado-autoral-oab44/6.png',
          'gabarito-simulado-autoral.webp': 'moldes/libero-pdf/saida/simulado-autoral-oab44-gabarito/1.png'}
 
 (AQUI / 'fotos').mkdir(exist_ok=True)
