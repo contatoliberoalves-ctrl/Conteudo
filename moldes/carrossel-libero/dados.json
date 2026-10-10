@@ -4353,8 +4353,9 @@
         ],
         "recorte": {
           "img": "autoral-exemplo.png",
-          "h": 820
-        }
+          "h": 900
+        },
+        "ts": 280
       },
       {
         "tipo": "enunciado",
@@ -4436,6 +4437,118 @@
         "rotulo": "Plantão Constitucional",
         "ts": 78,
         "letreiro": "STF · Eleições 2026 · Debate presidencial"
+      }
+    ]
+  },
+  {
+    "id": "autoral-rony-weasley",
+    "titulo": "Qual é a peça? Autoral com Rony Weasley",
+    "tema": "Caso autoral (habeas data: acesso e retificação de informações em registro da Polícia Federal)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "autoral",
+        "tema": "blue",
+        "kicker": "Qual é a peça?",
+        "titulo": [
+          "Autoral"
+        ],
+        "recorte": {
+          "img": "autoral-rony.png",
+          "h": 930
+        },
+        "nome": "Rony Weasley",
+        "ts": 280
+      },
+      {
+        "tipo": "enunciado",
+        "kicker": "Enunciado (1/2)",
+        "texto": [
+          "Rony Weasley, brasileiro, residente em Belo Horizonte, conhecido pelo medo de aranhas e pela paixão por xadrez, foi aprovado nas provas objetivas do concurso para agente da Polícia Federal. Na investigação social, porém, foi informado de que havia, nos registros da Superintendência Regional, “anotações desabonadoras” a seu respeito, sem que lhe dissessem quais.",
+          "Desconfiado de que tudo decorre de uma confusão com um homônimo, Rony protocolou requerimento administrativo pedindo acesso às informações e, se fosse o caso, a sua retificação. O Superintendente Regional indeferiu expressamente o pedido, por escrito, afirmando que os dados seriam de uso interno e sigiloso."
+        ],
+        "corpo": 32,
+        "tema": "dark"
+      },
+      {
+        "tipo": "enunciado",
+        "kicker": "Enunciado (2/2)",
+        "texto": [
+          "Rony procurou você, como advogado(a). Por enquanto, ele não quer discutir a eliminação no concurso: deseja apenas conhecer as informações que constam a seu respeito e corrigi-las, caso estejam erradas, por meio de uma ação constitucional gratuita.",
+          "Na qualidade de advogado(a) de Rony, elabore a peça adequada."
+        ],
+        "corpo": 32,
+        "rodape": "Qual é a peça?",
+        "tema": "blue"
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "centro": true,
+        "titulo": [
+          "Qual é a",
+          "[[peça]]?"
+        ],
+        "texto": [
+          "Comenta aqui a sua resposta. O gabarito sai nos stories."
+        ],
+        "botao": "Comente a peça 👇"
+      }
+    ]
+  },
+  {
+    "id": "autoral-rony-weasley-escuro",
+    "titulo": "Qual é a peça? Autoral com Rony Weasley (versão escura)",
+    "tema": "Caso autoral (habeas data: acesso e retificação de informações em registro da Polícia Federal)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "autoral",
+        "tema": "dark",
+        "kicker": "Qual é a peça?",
+        "titulo": [
+          "Autoral"
+        ],
+        "recorte": {
+          "img": "autoral-rony.png",
+          "h": 930
+        },
+        "nome": "Rony Weasley",
+        "ts": 280
+      },
+      {
+        "tipo": "enunciado",
+        "kicker": "Enunciado (1/2)",
+        "texto": [
+          "Rony Weasley, brasileiro, residente em Belo Horizonte, conhecido pelo medo de aranhas e pela paixão por xadrez, foi aprovado nas provas objetivas do concurso para agente da Polícia Federal. Na investigação social, porém, foi informado de que havia, nos registros da Superintendência Regional, “anotações desabonadoras” a seu respeito, sem que lhe dissessem quais.",
+          "Desconfiado de que tudo decorre de uma confusão com um homônimo, Rony protocolou requerimento administrativo pedindo acesso às informações e, se fosse o caso, a sua retificação. O Superintendente Regional indeferiu expressamente o pedido, por escrito, afirmando que os dados seriam de uso interno e sigiloso."
+        ],
+        "corpo": 32,
+        "tema": "blue"
+      },
+      {
+        "tipo": "enunciado",
+        "kicker": "Enunciado (2/2)",
+        "texto": [
+          "Rony procurou você, como advogado(a). Por enquanto, ele não quer discutir a eliminação no concurso: deseja apenas conhecer as informações que constam a seu respeito e corrigi-las, caso estejam erradas, por meio de uma ação constitucional gratuita.",
+          "Na qualidade de advogado(a) de Rony, elabore a peça adequada."
+        ],
+        "corpo": 32,
+        "rodape": "Qual é a peça?",
+        "tema": "dark"
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Qual é a",
+          "[[peça]]?"
+        ],
+        "texto": [
+          "Comenta aqui a sua resposta. O gabarito sai nos stories."
+        ],
+        "botao": "Comente a peça 👇"
       }
     ]
   }
