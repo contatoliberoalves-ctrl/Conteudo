@@ -251,6 +251,55 @@ const CAPAS = {
       ${s.selo ? `<div style="position:absolute;left:50%;top:${(s.cartasY || 560) + 300}px;transform:translateX(-50%) rotate(-8deg);width:150px;height:150px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;${TITULO};font-size:70px;color:#fff;box-shadow:0 18px 40px rgba(8,16,40,.45);z-index:8">${esc(s.selo)}</div>` : ''}
       ${pe(t, true)}`;
   },
+  // Caso autoral: personagem/famoso recortado (PNG sem fundo) embaixo, à frente do título gigante, com
+  // listras finas na diagonal e anel vermelho atrás da cabeça. Campos: kicker ("Qual é a peça?"), titulo
+  // ("AUTORAL" ou o nome do caso), ts, recorte {img, h, x} (h = altura em px), selo (etiqueta, ex.: "Caso 07").
+  autoral(s, t, c) {
+    const r = s.recorte || {}, h = r.h || 860;
+    return `<div style="position:absolute;inset:0;background:repeating-linear-gradient(-55deg,rgba(255,255,255,.05) 0 2px,transparent 2px 46px);z-index:1"></div>
+      <div style="position:absolute;left:50%;top:${1350 - h - 70}px;transform:translateX(-50%);width:440px;height:440px;border:60px solid ${COR.vermelho};border-radius:50%;z-index:2"></div>
+      <div style="position:absolute;left:0;right:0;top:${s.topo || 150}px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;z-index:3">
+        ${s.kicker ? `<div style="font-size:44px;font-weight:800;font-style:italic;letter-spacing:.2em;text-transform:uppercase;color:${COR.azulClaro}">${esc(s.kicker)}</div>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || tamanho(s.titulo, 300, 960)}px;line-height:.86;color:#fff;text-shadow:0 10px 30px rgba(8,16,40,.35)">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1>
+      </div>
+      ${r.img ? `<img data-foto src="${foto(c, r.img)}" style="position:absolute;left:${r.x != null ? r.x + 'px' : '50%'};bottom:0;height:${h}px;${r.x != null ? '' : 'transform:translateX(-50%);'}filter:drop-shadow(0 20px 40px rgba(8,16,40,.45));z-index:4">` : ''}
+      ${s.selo ? `<div style="position:absolute;right:80px;top:${1350 - h + 60}px;transform:rotate(8deg);background:${COR.vermelho};color:#fff;${TITULO};font-size:56px;line-height:1;padding:12px 22px 6px;box-shadow:0 14px 30px rgba(8,16,40,.35);z-index:6">${esc(s.selo)}</div>` : ''}
+      <div style="position:absolute;left:80px;top:60px;display:flex;align-items:center;gap:18px;z-index:6"><span style="font-size:32px;font-weight:800;color:#fff">${PERFIL}</span><span style="display:flex;gap:7px">${'<span style="width:10px;height:10px;border-radius:50%;background:#fff"></span>'.repeat(3)}</span></div>
+      <div style="position:absolute;right:80px;top:76px;width:400px;height:4px;background:#fff;z-index:6"></div>`;
+  },
+  // Notícia: foto no alto (até a metade), etiqueta inclinada ("Notícia urgente") na emenda e a manchete
+  // embaixo, no navy. Campos: foto, fotoPos, fotoH (px, padrão 760), etiqueta, titulo (use [[caixa]]), ts,
+  // texto (linha fina opcional), fonte (crédito no pé).
+  noticia(s, t, c) {
+    const fh = s.fotoH || 760;
+    return `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;left:0;top:0;width:1080px;height:${fh}px;object-fit:cover;object-position:${esc(s.fotoPos || 'center top')};z-index:1">
+      <div style="position:absolute;left:0;right:0;top:${fh}px;bottom:0;background:linear-gradient(180deg,${COR.azulFundo} 0%,${COR.navyFundo} 100%);z-index:1"></div>
+      <div style="position:absolute;left:0;right:0;top:${fh}px;height:10px;background:#fff;z-index:2"></div>
+      <div style="position:absolute;left:60px;top:${fh - 92}px;transform:skewX(-10deg);background:${COR.azul};border:5px solid #fff;box-shadow:0 18px 30px rgba(8,16,40,.35);padding:14px 44px 10px;z-index:4"><div style="transform:skewX(10deg);${TITULO};font-size:76px;line-height:1;color:#fff">${esc(s.etiqueta || 'Notícia urgente')}</div></div>
+      <div data-area style="position:absolute;left:90px;right:90px;top:${fh + 80}px;bottom:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;text-align:center;z-index:3">
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 92}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.08 : .95};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.vermelho })).join('<br>')}</h1>
+        ${s.texto ? `<p data-corpo style="margin:0;font-size:34px;font-weight:500;line-height:1.3;color:#C9D4EA">${rico(s.texto, TEMAS.dark)}</p>` : ''}
+      </div>
+      <div style="position:absolute;left:90px;right:90px;bottom:62px;display:flex;align-items:center;gap:24px;z-index:3"><span style="font-size:30px;font-weight:700;color:#fff">${PERFIL}</span><span style="flex:1;height:3px;background:rgba(255,255,255,.7)"></span>${s.fonte ? `<span style="font-size:22px;font-weight:600;color:#C9D4EA">${esc(s.fonte)}</span>` : ''}</div>`;
+  },
+  // Urgente (plantão de TV): foto em tela cheia, selo "Urgente" com bolinha vermelha no alto e tarja de
+  // manchete embaixo (faixa azul com o rótulo + caixa branca com a manchete) e letreiro vermelho no pé.
+  // Campos: foto, fotoPos, selo (padrão "Urgente"), rotulo (padrão "Plantão Constitucional"), titulo, ts,
+  // letreiro (texto do pé), hora.
+  urgente(s, t, c) {
+    return `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.fotoPos || 'center top')};z-index:1">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,26,39,.55) 0%,rgba(18,26,39,0) 22%,rgba(18,26,39,0) 45%,rgba(18,26,39,.85) 72%,#121A27 100%);z-index:1"></div>
+      <div style="position:absolute;left:70px;top:70px;display:flex;align-items:center;gap:16px;background:${COR.vermelho};color:#fff;padding:12px 26px 8px;z-index:4"><span style="width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 0 7px rgba(255,255,255,.35)"></span><span style="${TITULO};font-size:58px;line-height:1">${esc(s.selo || 'Urgente')}</span></div>
+      ${s.hora ? `<div style="position:absolute;right:70px;top:78px;background:rgba(18,26,39,.75);color:#fff;font-size:34px;font-weight:800;letter-spacing:.06em;padding:10px 20px;z-index:4">${esc(s.hora)}</div>` : ''}
+      <div data-area style="position:absolute;left:60px;right:60px;bottom:170px;display:flex;flex-direction:column;z-index:4">
+        <div style="align-self:flex-start;background:${COR.azul};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:12px 24px">${esc(s.rotulo || 'Plantão Constitucional')}</div>
+        <div style="background:#fff;padding:26px 30px 20px;border-left:16px solid ${COR.vermelho};box-shadow:0 24px 50px rgba(8,16,40,.45)"><h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 86}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.08 : .95};color:${COR.navy}">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.azul })).join('<br>')}</h1></div>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:70px;height:70px;background:${COR.vermelho};display:flex;align-items:center;overflow:hidden;z-index:4">
+        <span style="flex:none;height:100%;display:flex;align-items:center;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:800;padding:0 26px">${PERFIL}</span>
+        <span style="white-space:nowrap;font-size:30px;font-weight:700;color:#fff;padding-left:26px">${esc(s.letreiro || '')}</span></div>
+      <div style="position:absolute;right:70px;bottom:18px;font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>

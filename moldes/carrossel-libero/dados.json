@@ -4337,5 +4337,106 @@
         "botao": "Seguir @liberofilho"
       }
     ]
+  },
+  {
+    "id": "autoral-gravacoes-espacos-publicos",
+    "titulo": "Qual é a peça? Autoral: gravações em espaços públicos",
+    "tema": "Caso autoral (ADPF contra lei municipal que exige autorização prévia para gravar em espaços públicos)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "autoral",
+        "tema": "blue",
+        "kicker": "Qual é a peça?",
+        "titulo": [
+          "Autoral"
+        ],
+        "recorte": {
+          "img": "autoral-exemplo.png",
+          "h": 820
+        }
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "blue",
+        "kicker": "Enunciado (1/2)",
+        "texto": [
+          "O Município Gomi editou lei municipal determinando que artistas, influenciadores digitais e produtores de conteúdo somente poderiam realizar gravações em praças, ruas, mercados públicos e demais espaços urbanos mediante autorização prévia da Secretaria Municipal de Ordem Pública.",
+          "A norma também estabeleceu que a Administração poderia negar a autorização quando entendesse que o conteúdo produzido pudesse “causar constrangimento às autoridades locais”, “prejudicar a imagem institucional do Município” ou “gerar repercussão social inconveniente”. Em caso de descumprimento, a lei previa apreensão dos equipamentos utilizados na gravação, aplicação de multa e proibição de novas autorizações por 12 meses."
+        ],
+        "corpo": 31
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "dark",
+        "kicker": "Enunciado (2/2)",
+        "texto": [
+          "Com base nessa lei, fiscais municipais impediram Manu el Gomi, produtora de conteúdo conhecida por realizar vídeos humorísticos e críticas sociais em espaços públicos, de gravar em uma praça da cidade. Seus equipamentos foram apreendidos após ela iniciar uma gravação sobre a má conservação do local e sobre a ausência de acessibilidade para pessoas com deficiência.",
+          "Entidades da sociedade civil sustentam que a norma viola a liberdade de expressão, a liberdade artística, o direito à informação, a vedação à censura prévia, a igualdade e o regime democrático.",
+          "O Partido Popular da Cultura, com representação no Congresso Nacional, entende que a lei municipal afronta preceitos fundamentais da Constituição e que não há outro meio eficaz para resolver a controvérsia de forma ampla e definitiva perante o STF. Na qualidade de advogado(a) do partido, elabore a peça adequada."
+        ],
+        "corpo": 27,
+        "rodape": "Qual é a peça?"
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Qual é a",
+          "[[peça]]?"
+        ],
+        "texto": [
+          "Comenta aqui a sua resposta. O gabarito sai nos stories."
+        ],
+        "botao": "Comente a peça 👇"
+      }
+    ]
+  },
+  {
+    "id": "noticia-gilmar-debate",
+    "titulo": "Notícia (modelo): Gilmar e o debate",
+    "tema": "Modelo de notícia: foto no alto, etiqueta e manchete",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "foto": "noticia-exemplo.jpg",
+        "fotoPos": "center 20%",
+        "titulo": [
+          "Gilmar determina que",
+          "Globo convide",
+          "[[Renan Santos]] para",
+          "o debate de hoje"
+        ],
+        "estilo": "noticia",
+        "etiqueta": "Notícia urgente",
+        "ts": 84
+      }
+    ]
+  },
+  {
+    "id": "urgente-gilmar-debate",
+    "titulo": "Urgente (modelo): Gilmar e o debate",
+    "tema": "Modelo de notícia em plantão de TV: foto em tela cheia e tarja",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "foto": "noticia-exemplo.jpg",
+        "fotoPos": "center 20%",
+        "titulo": [
+          "Gilmar determina que",
+          "Globo convide",
+          "[[Renan Santos]] para",
+          "o debate de hoje"
+        ],
+        "estilo": "urgente",
+        "selo": "Urgente",
+        "rotulo": "Plantão Constitucional",
+        "ts": 78,
+        "letreiro": "STF · Eleições 2026 · Debate presidencial"
+      }
+    ]
   }
 ]
