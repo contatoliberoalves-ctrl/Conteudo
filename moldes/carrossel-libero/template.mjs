@@ -265,7 +265,7 @@ const CAPAS = {
       <div style="position:absolute;left:0;right:0;top:${ty}px;text-align:center;z-index:2">
         <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || tamanho(s.titulo, 330, 1000)}px;line-height:.82;color:${escuro ? '#fff' : '#fff'};letter-spacing:.01em;text-shadow:0 14px 40px rgba(8,16,40,.35)">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.vermelho })).join('<br>')}</h1>
       </div>
-      ${s.kicker ? `<div style="position:absolute;left:50%;top:${ty - 92}px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:#fff;color:${COR.navyFundo};font-size:32px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:14px 30px;border-radius:999px;box-shadow:0 14px 30px rgba(8,16,40,.3);white-space:nowrap;z-index:3"><span style="width:16px;height:16px;border-radius:50%;background:${COR.vermelho}"></span>${esc(s.kicker)}</div>` : ''}
+      ${s.kicker ? `<div style="position:absolute;left:0;right:0;top:${ty - 78}px;display:flex;align-items:center;justify-content:center;gap:26px;font-size:40px;font-weight:800;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:#fff;white-space:nowrap;z-index:3"><span style="width:110px;height:3px;background:${COR.azulClaro}"></span>${esc(s.kicker)}<span style="width:110px;height:3px;background:${COR.azulClaro}"></span></div>` : ''}
       ${r.img ? `<img data-foto src="${foto(c, r.img)}" style="position:absolute;left:${r.x != null ? r.x + 'px' : '50%'};bottom:0;height:${h}px;${r.x != null ? '' : 'transform:translateX(-50%);'}filter:drop-shadow(0 24px 50px rgba(8,16,40,.5));z-index:4">` : ''}
       <div style="position:absolute;left:0;right:0;bottom:0;height:330px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,${fundo} 88%);z-index:5"></div>
       ${s.nome ? `<div style="position:absolute;left:80px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;z-index:6">
@@ -274,7 +274,7 @@ const CAPAS = {
       ${s.selo ? `<div style="position:absolute;right:80px;bottom:172px;transform:rotate(-6deg);background:${COR.vermelho};color:#fff;${TITULO};font-size:54px;line-height:1;padding:12px 22px 6px;box-shadow:0 14px 30px rgba(8,16,40,.35);z-index:6">${esc(s.selo)}</div>` : ''}
       <div style="position:absolute;left:80px;top:60px;display:flex;align-items:center;gap:18px;z-index:6"><span style="font-size:30px;font-weight:800;color:#fff">${PERFIL}</span><span style="display:flex;gap:7px">${'<span style="width:9px;height:9px;border-radius:50%;background:#fff"></span>'.repeat(3)}</span></div>
       <div style="position:absolute;right:80px;top:76px;width:420px;height:3px;background:rgba(255,255,255,.8);z-index:6"></div>
-      <div style="position:absolute;left:80px;right:80px;bottom:70px;display:flex;justify-content:space-between;align-items:center;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;z-index:6"><span>${esc(s.rodape || 'Caso autoral · OAB 2ª fase')}</span><span>Arraste →</span></div>`;
+      ${s.rodape ? `<div style="position:absolute;left:80px;right:80px;bottom:70px;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;z-index:6">${esc(s.rodape)}</div>` : ''}`;
   },
   // Notícia: foto no alto (até a metade), etiqueta inclinada ("Notícia urgente") na emenda e a manchete
   // embaixo, no navy. Campos: foto, fotoPos, fotoH (px, padrão 760), etiqueta, titulo (use [[caixa]]), ts,
