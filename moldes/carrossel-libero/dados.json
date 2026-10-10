@@ -4131,5 +4131,211 @@
         "botao": "Comenta aqui!"
       }
     ]
+  },
+  {
+    "id": "superpoderes-do-presidente",
+    "titulo": "Os superpoderes de quem ganhar dia 25",
+    "tema": "Poderes do Presidente da República (art. 84 da CF), aproveitando o 2º turno de 2026",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "trunfo",
+        "tema": "blue",
+        "pre": "2º turno · dia 25",
+        "titulo": [
+          "Os [[superpoderes]]",
+          "de quem ganhar"
+        ],
+        "cartas": [
+          {
+            "nome": "Lula",
+            "numero": "A1"
+          },
+          {
+            "nome": "Flávio",
+            "numero": "B1"
+          }
+        ],
+        "atributos": [
+          [
+            "Nomear ministros",
+            "99"
+          ],
+          [
+            "Vetar leis",
+            "95"
+          ],
+          [
+            "Indicar ao STF",
+            "90"
+          ],
+          [
+            "Fechar o STF",
+            "0"
+          ]
+        ],
+        "texto": "Spoiler: a carta é **a mesma** pros dois."
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "O contexto",
+        "titulo": [
+          "Dia 25, alguém",
+          "ganha um [[pacote]]"
+        ],
+        "texto": [
+          "No 2º turno, o Brasil escolhe quem assume a Presidência. E a posse agora é em **5 de janeiro** (art. 82, com a EC 111/2021).",
+          "Junto com a faixa vem o **art. 84 da Constituição**: 28 incisos de poderes. Bora ver os principais?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Poder 1",
+        "titulo": [
+          "Monta o",
+          "[[time]]"
+        ],
+        "palavra": "Ministros",
+        "palavraLado": "direita",
+        "texto": [
+          "Nomeia e demite os **ministros de Estado** sozinho, sem pedir licença ao Senado (art. 84, I).",
+          "É tipo técnico de futebol: escala quem joga e tira quando quiser.",
+          "Requisito: brasileiro, maior de 21 anos e com direitos políticos (art. 87)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Poder 2",
+        "titulo": [
+          "Indica ministros",
+          "do [[STF]]"
+        ],
+        "texto": [
+          "Abriu vaga no Supremo? Quem escolhe o nome é o presidente (art. 84, XIV).",
+          "Mas não basta apontar: o indicado passa por **sabatina no Senado** e precisa do voto da maioria absoluta dos senadores (art. 101, parágrafo único).",
+          "Também passam pelo Senado as indicações para PGR, presidente do Banco Central e tribunais superiores."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Poder 3",
+        "titulo": [
+          "Começa leis",
+          "e [[PECs]]"
+        ],
+        "texto": [
+          "Pode propor **emenda à Constituição** (art. 60, II) e projetos de lei (art. 61).",
+          "Alguns assuntos só ele pode começar, como criar cargos no Executivo ou aumentar a remuneração deles (art. 61, § 1º, II, a).",
+          "E pode pedir **urgência**: cada Casa tem 45 dias para votar, senão a pauta tranca (art. 64, §§ 1º e 2º)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Poder 4",
+        "titulo": [
+          "A",
+          "[[caneta]]"
+        ],
+        "palavra": "Veto",
+        "palavraLado": "direita",
+        "texto": [
+          "Projeto aprovado vai para a mesa dele: **sanciona** ou **veta**, no todo ou em parte, em 15 dias úteis (art. 66, § 1º).",
+          "Ficou em silêncio? Vale como sanção (art. 66, § 3º).",
+          "Mas o Congresso pode **derrubar o veto** com a maioria absoluta de deputados e senadores (art. 66, § 4º)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Poder 5",
+        "titulo": [
+          "Medida",
+          "[[provisória]]"
+        ],
+        "texto": [
+          "Com **relevância e urgência**, edita uma MP que vale como lei na hora (art. 62).",
+          "Dura 60 dias, prorrogáveis por mais 60. Se o Congresso não aprovar, ela cai.",
+          "E não vale pra tudo: direito penal, nacionalidade, partidos e eleições ficam de fora (art. 62, § 1º, I)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Poder 6",
+        "titulo": [
+          "[[Decretos]]"
+        ],
+        "texto": [
+          "Regulamenta as leis para que elas sejam cumpridas (art. 84, IV).",
+          "E, sem aumentar gastos, reorganiza a administração federal e extingue cargos vagos direto por decreto (art. 84, VI)."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Poder 7",
+        "titulo": [
+          "Modo",
+          "[[crise]]"
+        ],
+        "itens": [
+          "Comandante supremo das **Forças Armadas** (art. 84, XIII)",
+          "Decreta **intervenção federal** (art. 84, X)",
+          "Decreta **estado de defesa** e **de sítio**; o sítio só com autorização do Congresso (art. 84, IX; art. 137)",
+          "Declara **guerra**, com autorização do Congresso (art. 84, XIX)",
+          "Concede **indulto** e comuta penas (art. 84, XII)"
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Calma lá",
+        "titulo": [
+          "O que ele",
+          "[[não pode]]"
+        ],
+        "itens": [
+          "Fechar o Congresso ou o STF",
+          "Demitir ministro do STF: o cargo é vitalício (art. 95, I)",
+          "Criar crime por medida provisória (art. 62, § 1º, I, b)",
+          "Gastar além do que o orçamento prevê (art. 167, II)",
+          "Mudar a Constituição sozinho: PEC precisa de 3/5 nas duas Casas, em dois turnos (art. 60, § 2º)"
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "Pegadinha de prova",
+        "titulo": [
+          "Dá pra",
+          "[[delegar]]?"
+        ],
+        "citacao": "O Presidente da República poderá delegar as atribuições mencionadas nos incisos VI, XII e XXV, primeira parte, aos Ministros de Estado, ao Procurador-Geral da República ou ao Advogado-Geral da União, que observarão os limites traçados nas respectivas delegações.",
+        "traducao": [
+          "Só três: **decreto autônomo** (VI), **indulto** (XII) e **prover cargos** (XXV). O resto é só dele."
+        ],
+        "corpo": 32
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Qual desses",
+          "você [[não sabia]]?"
+        ],
+        "texto": [
+          "Comenta aqui e manda pra quem vai votar dia 25 sem saber o tamanho dessa caneta."
+        ],
+        "botao": "Seguir @liberofilho"
+      }
+    ]
   }
 ]

@@ -215,6 +215,42 @@ const CAPAS = {
       <img src="../assets/pencil.png" style="position:absolute;right:40px;bottom:150px;width:260px;transform:rotate(-30deg);z-index:4;filter:drop-shadow(0 24px 30px rgba(8,16,40,.4))">
       ${pe(t, true)}`;
   },
+  // Trunfo: cartas de super-herói (jogo de cartas) com os atributos do cargo. 1 carta no centro ou 2
+  // inclinadas lado a lado. Campos: pre, titulo, ts, cartas [{nome, foto, numero, fotoPos}] (sem foto =
+  // silhueta com "?"), atributos [[rotulo, valor]] (valor 0 sai em vermelho), cartaRotulo, cartasY.
+  trunfo(s, t, c) {
+    const cartas = lista(s.cartas), duas = cartas.length > 1;
+    const w = duas ? 400 : 520, hFoto = duas ? 250 : 380;
+    const attrs = lista(s.atributos).map(([r, v]) => `<div style="display:flex;justify-content:space-between;align-items:center;padding:${duas ? 7 : 11}px 0;border-bottom:2px solid #E1E5EC">
+        <span style="font-size:${duas ? 23 : 27}px;font-weight:700;color:${COR.navy}">${esc(r)}</span>
+        <span style="${TITULO};font-size:${duas ? 40 : 48}px;line-height:1;color:${+v === 0 ? COR.vermelho : COR.azul}">${esc(v)}</span></div>`).join('');
+    const silhueta = `<svg viewBox="0 0 200 160" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="xMidYMax meet"><circle cx="100" cy="62" r="36" fill="#2A3A5C"/><path d="M30 160c4-40 34-58 70-58s66 18 70 58z" fill="#2A3A5C"/></svg>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;${TITULO};font-size:${duas ? 170 : 220}px;color:${COR.vermelho};text-shadow:0 8px 0 ${COR.navyFundo}">?</div>`;
+    const carta = (k, i) => {
+      const rot = duas ? (i ? 5 : -5) : -3;
+      const x = duas ? (i ? 590 : 90) : (1080 - w) / 2;
+      return `<div style="position:absolute;left:${x}px;top:${s.cartasY || (duas ? 620 : 520)}px;width:${w}px;background:#fff;border-radius:26px;padding:16px;transform:rotate(${rot}deg);box-shadow:0 34px 70px rgba(8,16,40,.5);z-index:${3 + i}">
+        <div style="border:5px solid ${COR.navyFundo};border-radius:16px;overflow:hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;background:${COR.navyFundo};color:#fff;padding:10px 16px">
+            <span style="font-size:22px;font-weight:800;letter-spacing:.16em">${esc(s.cartaRotulo || 'PRESIDENTE')}</span>
+            <span style="background:${COR.vermelho};${TITULO};font-size:30px;line-height:1;padding:4px 10px 0;border-radius:6px">${esc(k.numero || (i ? 'B1' : 'A1'))}</span></div>
+          <div style="position:relative;height:${hFoto}px;background:radial-gradient(circle at 50% 30%,#3D6FE0 0%,${COR.azulFundo} 70%);overflow:hidden">
+            ${k.foto ? `<img src="${foto(c, k.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(k.fotoPos || 'center top')}">` : silhueta}
+            <div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(18,26,39,.9),rgba(18,26,39,0));padding:40px 16px 10px;${TITULO};font-size:${duas ? 50 : 60}px;line-height:.9;color:#fff">${esc(k.nome)}</div></div>
+          <div style="padding:6px 16px 10px">${attrs}</div>
+        </div></div>`;
+    };
+    return `<div style="position:absolute;right:-230px;top:-230px;width:520px;height:520px;border:80px solid ${COR.vermelho};border-radius:50%;z-index:1"></div>
+      <div style="position:absolute;left:-260px;bottom:-200px;width:520px;height:520px;border:70px solid rgba(255,255,255,.12);border-radius:50%;z-index:1"></div>
+      <div style="position:absolute;left:100px;right:100px;top:${s.topo || 90}px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:3">
+        ${s.pre ? `<span style="background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px">${esc(s.pre)}</span>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 118}px;line-height:1.04;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1>
+        ${s.texto ? `<p style="margin:6px 0 0;font-size:40px;font-weight:600;line-height:1.25;color:#E6ECFA">${rico(s.texto, t)}</p>` : ''}
+      </div>
+      ${cartas.map(carta).join('')}
+      ${s.selo ? `<div style="position:absolute;left:50%;top:${(s.cartasY || 560) + 300}px;transform:translateX(-50%) rotate(-8deg);width:150px;height:150px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;${TITULO};font-size:70px;color:#fff;box-shadow:0 18px 40px rgba(8,16,40,.45);z-index:8">${esc(s.selo)}</div>` : ''}
+      ${pe(t, true)}`;
+  },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
     return `<div style="position:absolute;left:70px;top:40px;${TITULO};font-size:${s.tn || 760}px;line-height:.8;color:transparent;-webkit-text-stroke:8px ${t.escuro ? 'rgba(255,255,255,.55)' : COR.azul};z-index:2">${esc(s.numero)}</div>
