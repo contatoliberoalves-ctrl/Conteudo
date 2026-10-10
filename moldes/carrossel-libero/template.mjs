@@ -220,7 +220,7 @@ const CAPAS = {
   // silhueta com "?"), atributos [[rotulo, valor]] (valor 0 sai em vermelho), cartaRotulo, cartasY.
   trunfo(s, t, c) {
     const cartas = lista(s.cartas), duas = cartas.length > 1;
-    const w = duas ? 400 : 520, hFoto = duas ? 250 : 380;
+    const w = duas ? 400 : 520, hFoto = duas ? (lista(s.atributos).length > 3 ? 250 : 310) : 380;
     const attrs = lista(s.atributos).map(([r, v]) => `<div style="display:flex;justify-content:space-between;align-items:center;padding:${duas ? 7 : 11}px 0;border-bottom:2px solid #E1E5EC">
         <span style="font-size:${duas ? 23 : 27}px;font-weight:700;color:${COR.navy}">${esc(r)}</span>
         <span style="${TITULO};font-size:${duas ? 40 : 48}px;line-height:1;color:${+v === 0 ? COR.vermelho : COR.azul}">${esc(v)}</span></div>`).join('');
