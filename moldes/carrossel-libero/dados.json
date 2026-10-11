@@ -4816,5 +4816,257 @@
         "botao": "Seguir @liberofilho"
       }
     ]
+  },
+  {
+    "id": "composicao-do-tse",
+    "titulo": "Quem apita a eleição? A composição do TSE",
+    "tema": "Composição e estrutura do TSE e da Justiça Eleitoral (arts. 118 a 121 da CF), com os ministros atuais",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "plenario",
+        "tema": "blue",
+        "pre": "Eleições 2026",
+        "titulo": [
+          "Quem [[apita]]",
+          "a eleição?"
+        ],
+        "numero": "7",
+        "numeroTexto": "ministros. Nenhum fez concurso pra lá.",
+        "grupos": {
+          "STF": "vermelho",
+          "STJ": "branco",
+          "Juristas": "claro"
+        },
+        "assentos": [
+          {
+            "foto": "tse-estela.jpg",
+            "grupo": "Juristas"
+          },
+          {
+            "foto": "tse-sebastiao.jpg",
+            "grupo": "STJ"
+          },
+          {
+            "foto": "tse-kassio.jpg",
+            "grupo": "STF"
+          },
+          {
+            "foto": "tse-mendonca.jpg",
+            "grupo": "STF"
+          },
+          {
+            "foto": "tse-toffoli.jpg",
+            "grupo": "STF"
+          },
+          {
+            "foto": "tse-cueva.jpg",
+            "grupo": "STJ"
+          },
+          {
+            "foto": "tse-floriano.jpg",
+            "grupo": "Juristas"
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "O árbitro",
+        "titulo": [
+          "Todo jogo",
+          "tem [[juiz]]"
+        ],
+        "palavra": "Árbitro",
+        "palavraLado": "direita",
+        "texto": [
+          "Na eleição, o juiz do jogo é a **Justiça Eleitoral**: registra candidaturas, organiza a votação, conta os votos, diploma os eleitos e julga quem joga sujo.",
+          "No topo dela está o **Tribunal Superior Eleitoral (TSE)**, em Brasília.",
+          "O curioso: ninguém faz concurso pra ser ministro de lá. Bora ver como esse time é montado?"
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "A estrutura · art. 118 da CF",
+        "titulo": [
+          "A Justiça",
+          "Eleitoral em [[4]] andares"
+        ],
+        "itens": [
+          "**TSE**: a cúpula, em Brasília",
+          "**TREs**: um na capital de cada Estado e no DF (art. 120)",
+          "**Juízes eleitorais**: os juízes de direito que cuidam das zonas eleitorais",
+          "**Juntas eleitorais**: um juiz de direito e 2 ou 4 cidadãos, que apuram a votação (Código Eleitoral, art. 36)"
+        ],
+        "corpo": 38
+      },
+      {
+        "tipo": "lei",
+        "tema": "blue",
+        "kicker": "Art. 119 da CF",
+        "titulo": [
+          "Quem senta",
+          "na [[mesa]]"
+        ],
+        "citacao": "O Tribunal Superior Eleitoral compor-se-á, no mínimo, de sete membros, escolhidos: I - mediante eleição, pelo voto secreto: a) três juízes dentre os Ministros do Supremo Tribunal Federal; b) dois juízes dentre os Ministros do Superior Tribunal de Justiça; II - por nomeação do Presidente da República, dois juízes dentre seis advogados de notável saber jurídico e idoneidade moral, indicados pelo Supremo Tribunal Federal.",
+        "corpo": 30,
+        "traducao": "Tradução: **3 do STF + 2 do STJ + 2 advogados = 7**."
+      },
+      {
+        "tipo": "retratos",
+        "tema": "light",
+        "kicker": "Cadeiras 1, 2 e 3",
+        "titulo": [
+          "Os 3 do",
+          "[[STF]]"
+        ],
+        "pessoas": [
+          {
+            "foto": "tse-kassio.jpg",
+            "nome": "Nunes Marques"
+          },
+          {
+            "foto": "tse-mendonca.jpg",
+            "nome": "André Mendonça"
+          },
+          {
+            "foto": "tse-toffoli.jpg",
+            "nome": "Dias Toffoli"
+          }
+        ],
+        "texto": [
+          "Quem escolhe: o **próprio STF**, em votação secreta entre os seus ministros (art. 119, I, a).",
+          "Eles não saem do Supremo: julgam nos dois tribunais ao mesmo tempo."
+        ],
+        "fonte": "Composição: infográfico do g1 (16/03/2026), com a troca no STJ em set/2026."
+      },
+      {
+        "tipo": "retratos",
+        "tema": "dark",
+        "kicker": "Cadeiras 4 e 5",
+        "titulo": [
+          "Os 2 do",
+          "[[STJ]]"
+        ],
+        "pessoas": [
+          {
+            "foto": "tse-sebastiao.jpg",
+            "nome": "Sebastião Reis",
+            "nota": "Desde set/2026"
+          },
+          {
+            "foto": "tse-cueva.jpg",
+            "nome": "Villas Bôas Cueva"
+          }
+        ],
+        "texto": [
+          "Quem escolhe: o **próprio STJ**, também em voto secreto (art. 119, I, b).",
+          "Em setembro, Sebastião Reis entrou na vaga de Antônio Carlos Ferreira."
+        ],
+        "fonte": "Composição: infográfico do g1 (16/03/2026), com a troca no STJ em set/2026."
+      },
+      {
+        "tipo": "retratos",
+        "tema": "blue",
+        "kicker": "Cadeiras 6 e 7",
+        "titulo": [
+          "Os 2",
+          "[[juristas]]"
+        ],
+        "pessoas": [
+          {
+            "foto": "tse-estela.jpg",
+            "nome": "Estela Aranha"
+          },
+          {
+            "foto": "tse-floriano.jpg",
+            "nome": "Floriano Marques"
+          }
+        ],
+        "texto": [
+          "O **STF indica** advogados de notável saber jurídico e idoneidade moral, e o **Presidente da República nomeia** (art. 119, II).",
+          "Detalhe que cai em prova: aqui **não tem sabatina no Senado**."
+        ],
+        "fonte": "Composição: infográfico do g1 (16/03/2026), com a troca no STJ em set/2026."
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Quem manda lá dentro",
+        "titulo": [
+          "Presidente, vice",
+          "e [[corregedor]]"
+        ],
+        "texto": [
+          "O **presidente** e o **vice** do TSE saem sempre dos 3 ministros do STF.",
+          "O **corregedor eleitoral** sai dos 2 do STJ.",
+          "E os juristas? Votam igual a todo mundo, mas não comandam o tribunal (art. 119, parágrafo único)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Prazo de validade",
+        "titulo": [
+          "Ninguém fica",
+          "pra [[sempre]]"
+        ],
+        "palavra": "Biênio",
+        "palavraLado": "direita",
+        "texto": [
+          "Cada ministro serve por **2 anos, no mínimo**, e nunca por mais de **dois biênios seguidos** (art. 121, § 2º).",
+          "Cada titular tem um **substituto**, escolhido pelo mesmo processo.",
+          "Por isso o TSE vive trocando de cara: é uma justiça de **juízes emprestados**, sem carreira própria."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "E no seu Estado? · art. 120",
+        "titulo": [
+          "O TRE também",
+          "tem [[7]]"
+        ],
+        "itens": [
+          "2 **desembargadores** do TJ, eleitos pelo próprio TJ",
+          "2 **juízes de direito**, escolhidos pelo TJ",
+          "1 **juiz do TRF** (ou juiz federal, se não houver TRF na capital), escolhido pelo TRF",
+          "2 **advogados** nomeados pelo Presidente da República, de uma lista de 6 do TJ",
+          "Presidente e vice: entre os **desembargadores** (art. 120, § 2º)"
+        ],
+        "corpo": 34
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Pegadinhas de prova",
+        "titulo": [
+          "Cai na",
+          "[[prova]]"
+        ],
+        "itens": [
+          "O TSE tem **no mínimo** 7 membros: a CF não fixa um teto",
+          "Não há vaga para o **Ministério Público** no TSE",
+          "Os advogados **não passam** pelo Senado",
+          "Presidente do TSE é **sempre** ministro do STF",
+          "As decisões do TSE são irrecorríveis, salvo as que **contrariarem a CF** e as que **negarem habeas corpus ou mandado de segurança** (art. 121, § 3º)"
+        ],
+        "corpo": 34
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Manda pra",
+          "quem [[confunde]]"
+        ],
+        "texto": [
+          "Tem gente que jura que o TSE é do Governo. Manda esse post pra ela e salva pra revisar antes da prova."
+        ],
+        "botao": "Seguir @liberofilho",
+        "centro": true
+      }
+    ]
   }
 ]

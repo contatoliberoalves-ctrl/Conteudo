@@ -251,6 +251,34 @@ const CAPAS = {
       ${s.selo ? `<div style="position:absolute;left:50%;top:${(s.cartasY || 560) + 300}px;transform:translateX(-50%) rotate(-8deg);width:150px;height:150px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;${TITULO};font-size:70px;color:#fff;box-shadow:0 18px 40px rgba(8,16,40,.45);z-index:8">${esc(s.selo)}</div>` : ''}
       ${pe(t, true)}`;
   },
+  // Plenário: título no alto e as fotos dos membros de um tribunal num arco (como as cadeiras do plenário),
+  // com o anel na cor do grupo de origem e a legenda embaixo. Campos: pre, titulo, ts, numero (no meio do
+  // arco), numeroTexto, assentos [{foto, grupo}], grupos {nome: cor} (cores: vermelho, branco, claro, navy).
+  plenario(s, t, c) {
+    const cores = { vermelho: COR.vermelho, branco: '#fff', claro: COR.azulClaro, navy: COR.navyFundo };
+    const grupos = s.grupos || {};
+    const corDe = g => cores[grupos[g]] || '#fff';
+    const as = lista(s.assentos), n = as.length, R = s.raio || 370, cx = 540, cy = s.arcoY || 990, d = s.diam || 200;
+    const assentos = as.map((a, i) => {
+      const ang = Math.PI - (n > 1 ? i / (n - 1) : .5) * Math.PI, x = cx + R * Math.cos(ang), y = cy - R * Math.sin(ang);
+      return `<div data-foto style="position:absolute;left:${Math.round(x - d / 2)}px;top:${Math.round(y - d / 2)}px;width:${d}px;height:${d}px;border-radius:50%;border:9px solid ${corDe(a.grupo)};overflow:hidden;background:${COR.navyFundo};box-shadow:0 20px 40px rgba(8,16,40,.45);z-index:3">
+        <img src="${foto(c, a.foto)}" style="width:100%;height:100%;object-fit:cover;transform:scale(1.08);object-position:${esc(a.fotoPos || 'center 30%')}"></div>`;
+    }).join('');
+    const legenda = Object.keys(grupos).map(g => `<span style="display:flex;align-items:center;gap:12px;font-size:28px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff"><span style="width:26px;height:26px;border-radius:50%;border:7px solid ${corDe(g)}"></span>${esc(g)}</span>`).join('');
+    return `<div style="position:absolute;right:-230px;top:-230px;width:520px;height:520px;border:80px solid ${COR.vermelho};border-radius:50%;z-index:1"></div>
+      <div style="position:absolute;left:${cx - R - 40}px;top:${cy - R - 40}px;width:${2 * R + 80}px;height:${2 * R + 80}px;border-radius:50%;border:3px dashed rgba(255,255,255,.25);z-index:1"></div>
+      <div style="position:absolute;left:100px;right:100px;top:${s.topo || 90}px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:3">
+        ${s.pre ? `<span style="background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px">${esc(s.pre)}</span>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 150}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1>
+      </div>
+      ${assentos}
+      <div style="position:absolute;left:${cx - 210}px;width:420px;top:${cy - R + 140}px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:3">
+        ${s.numero ? `<div style="${TITULO};font-size:${s.tn || 250}px;line-height:.8;color:transparent;-webkit-text-stroke:6px #fff">${esc(s.numero)}</div>` : ''}
+        ${s.numeroTexto ? `<div style="margin-top:10px;font-size:32px;font-weight:700;line-height:1.2;color:#fff">${rico(s.numeroTexto, t)}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:0;right:0;top:${cy + d / 2 + 34}px;display:flex;justify-content:center;gap:36px;z-index:3">${legenda}</div>
+      ${pe(t, true)}`;
+  },
   // Caso autoral: personagem/famoso recortado (PNG sem fundo) na frente do título gigante (o título fica
   // atrás da cabeça, efeito de revista), luz suave atrás da pessoa, etiqueta "Qual é a peça?" e o nome do
   // personagem numa ficha. Tema blue (azul) ou dark (escuro). Campos: kicker, titulo, ts, tituloY, recorte
@@ -440,6 +468,20 @@ const TIPOS = {
         ${lista(s.texto).map(p => `<p data-corpo style="margin:0;font-size:${s.corpo || 32}px;font-weight:500;line-height:1.38;color:${COR.navy};text-wrap:pretty">${rico(p, TEMAS.light)}</p>`).join('')}
       </div>
       ${s.rodape ? `<div style="font-size:30px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:${t.tit}">${rico(s.rodape, t)}</div>` : ''}`, 90, 90);
+  },
+  // Retratos: fotos redondas de pessoas (2 a 4) com nome e nota, entre o título e o texto. Campos: titulo,
+  // pessoas [{foto, nome, nota, fotoPos}], texto, corpo, fonte (linha pequena no pé, ex.: crédito da composição).
+  retratos(s, t, c) {
+    const ps = lista(s.pessoas), d = s.diam || (ps.length > 3 ? 190 : ps.length > 2 ? 230 : 260);
+    const anel = t === TEMAS.light ? COR.azul : t === TEMAS.blue ? '#fff' : COR.vermelho;
+    const fotos = ps.map(p => `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+        <div data-retrato style="width:${d}px;height:${d}px;border-radius:50%;border:9px solid ${anel};overflow:hidden;box-shadow:0 22px 44px rgba(8,16,40,.35)"><img src="${foto(c, p.foto)}" style="width:100%;height:100%;object-fit:cover;transform:scale(1.08);object-position:${esc(p.fotoPos || 'center 30%')}"></div>
+        <div style="${TITULO};font-size:44px;line-height:.95;color:${t.tit}">${esc(p.nome)}</div>
+        ${p.nota ? `<div style="font-size:22px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${t.kicker}">${esc(p.nota)}</div>` : ''}</div>`).join('');
+    return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}
+      <div style="display:flex;justify-content:center;gap:24px;margin:10px 0">${fotos}</div>
+      ${barra(t)}${corpo(s, t, s.corpo || 38)}
+      ${s.fonte ? `<div style="font-size:20px;font-weight:600;color:${t.txt};opacity:.6">${esc(s.fonte)}</div>` : ''}`, 90, 90);
   },
   // Pergunta de múltipla escolha: tema no título, a pergunta e as alternativas A–D (o gabarito fica no slide "gabarito").
   questao(s, t) {

@@ -25,6 +25,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `enunciado` | `kicker` (ex.: "Caso 01 · Enunciado (1/2)"), `texto` (parágrafos do caso, numa folha branca com borda azul), `corpo` (px; 36 cabe ~700 caracteres) |
 | `questao` | `kicker` ("Pergunta 1 de 5"), `titulo` (o tema: Endereçamento, Partes, Teses, Pedidos), `pergunta`, `opcoes` (A–D), `corpo` |
 | `gabarito` | `kicker`, `titulo`, `itens: [{tema, letra, texto, artigo}]` (uma linha por pergunta, com a letra certa) |
+| `retratos` | `titulo`, `pessoas` (`[{foto, nome, nota, fotoPos}]`, 2 a 4 fotos redondas do rosto em `fotos/`), `texto`, `corpo`, `fonte` (crédito pequeno no pé). Para mostrar quem ocupa um cargo |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
 | `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita), `print` (opcional: print de tela em `fotos/`, ex.: o botão "Assinar" do perfil) e `destaque` (`[x, y, largura, altura]` em % do print: anel vermelho em volta do ponto) e `centro` (`true`: título, texto e botão centralizados, sem foto) |
 
@@ -46,6 +47,7 @@ Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo
 | `autoral` | "Qual é a peça?" com caso autoral e um personagem/famoso na capa | `tema` (`blue` azul ou `dark` escuro), `kicker` ("Qual é a peça?", em itálico entre dois fios), `titulo` ("Autoral"; fica atrás da cabeça), `ts` (~280), `tituloY`, `recorte` (`{img, h, x}`: PNG sem fundo em `fotos/`, feito com `python3 recortar_pessoa.py <foto> fotos/<nome>.png [x1 y1 x2 y2]`), `nome` (ficha "Personagem do caso", opcional; `nomeRotulo` troca o rótulo), `selo` (etiqueta vermelha opcional), `rodape` (linha no pé, opcional). Depois da capa: `enunciado` em 1 ou 2 slides (o último com `rodape: "Qual é a peça?"`) e `cta` centralizado |
 | `noticia` | notícia (post de 1 slide ou capa de carrossel) | `foto` (print/foto da notícia em `fotos/`), `fotoPos`, `fotoH` (altura da foto, padrão 760), `etiqueta` (padrão "Notícia urgente"), `titulo` (manchete; `[[nome]]` em caixa vermelha), `texto` (linha fina), `fonte`, `ts` |
 | `urgente` | plantão de TV: foto em tela cheia, selo "Urgente" e tarja de manchete | `foto`, `fotoPos`, `selo`, `rotulo` (padrão "Plantão Constitucional"), `titulo` (`[[nome]]` em caixa azul), `letreiro` (texto do pé), `hora`, `ts` |
+| `plenario` | composição de tribunal (TSE, STF…) | `pre`, `titulo`, `ts`, `assentos` (`[{foto, grupo}]`: fotos quadradas do rosto em `fotos/`, dispostas num arco como cadeiras), `grupos` (`{nome: cor}`; cores `vermelho`, `branco`, `claro`, `navy`; vira a legenda), `numero` (vazado no meio do arco) e `numeroTexto`, `raio`, `arcoY`, `diam` |
 | `treino` | série "Vamos treinar estrutura de peças?" | `kicker`, `titulo` (use `[[caixa]]`), `etapas` (itens da folha com caixinha para marcar), `caso` (carimbo vermelho), `folha`/`folhaDir` (cabeçalho da folha), `folhaY`, `folhaH`, `ts` |
 
 Os posts da série de teses têm `"serie": "teses"` e usam a tabela "Principais Teses" do Livro de Prática Constitucional, conferida com os gabaritos da FGV (exames 32 a 46).
