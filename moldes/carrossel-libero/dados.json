@@ -4652,12 +4652,18 @@
     "slides": [
       {
         "tipo": "capa",
-        "estilo": "versus",
+        "estilo": "pergunta",
         "tema": "blue",
-        "kicker": "Qual é a peça?",
-        "lados": [
-          "[[MS]] ou",
-          "[[HD]]?"
+        "kicker": "Teste rápido · 2ª fase",
+        "titulo": [
+          "O caso fala de",
+          "[[informação]].",
+          "Qual é a peça?"
+        ],
+        "texto": "Uma pergunta decide. Arrasta que eu te mostro.",
+        "opcoes": [
+          "MS",
+          "HD"
         ]
       },
       {
@@ -4738,13 +4744,20 @@
         "estilo": "numero",
         "tema": "blue",
         "numero": "5",
-        "kicker": "Leitura de caso",
         "titulo": [
-          "perguntas antes",
-          "da [[peça]]"
+          "perguntas",
+          "que [[entregam]]",
+          "a peça"
         ],
-        "texto": "Leia o caso como advogado, não como leitor.",
-        "tn": 520
+        "tn": 700,
+        "ts": 160,
+        "objeto": {
+          "img": "magnifying_glass_tilted_left.png",
+          "x": 560,
+          "y": 110,
+          "tam": 440,
+          "rot": -10
+        }
       },
       {
         "tipo": "texto",
