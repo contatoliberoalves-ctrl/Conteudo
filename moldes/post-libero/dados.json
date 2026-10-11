@@ -242,5 +242,50 @@
     },
     "hashtag": "#SIMULADO",
     "chamada": "pra receber o link"
+  },
+  {
+    "id": "gabarito-simulado-pdf",
+    "titulo": "Gabarito do simulado (PDF): comente #GABARITO",
+    "layout": "pdf",
+    "tema": "light",
+    "selo": "Gabarito gratuito",
+    "kicker": "OAB 2ª fase",
+    "linhas": [
+      "Gabarito",
+      "[[comentado]]"
+    ],
+    "sub": "Do simulado autoral: peça + 4 questões",
+    "pagina": "Gabarito comentado",
+    "itens": [
+      "Padrão de resposta da peça",
+      "Distribuição dos pontos (itens 1 a 18)",
+      "Gabarito das questões 1 a 4",
+      "Pontos dos itens A e B",
+      "Quanto você tirou?"
+    ],
+    "hashtag": "#GABARITO",
+    "chamada": "pra receber"
+  },
+  {
+    "id": "gabarito-simulado-material",
+    "titulo": "Gabarito do simulado (apostila): comente #GABARITO",
+    "layout": "material",
+    "tema": "dark",
+    "selo": "Gabarito gratuito",
+    "linhas": [
+      "Saiu o",
+      "[[gabarito]]",
+      "do simulado"
+    ],
+    "sub": "Padrão de resposta e pontos",
+    "apostila": {
+      "titulo": [
+        "Gabarito",
+        "comentado"
+      ],
+      "rodape": "Simulado autoral · 2ª fase OAB"
+    },
+    "hashtag": "#GABARITO",
+    "chamada": "pra receber"
   }
 ]
