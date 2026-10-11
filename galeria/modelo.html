@@ -354,8 +354,9 @@ function desenharMolde() {
     <div class="barra">
       <label class="busca"><span aria-hidden="true">⌕</span><input id="busca" type="search" placeholder="Buscar post…" aria-label="Buscar post" value="${esc(termo)}"></label>
       ${temas.length > 1 ? `<div class="filtros" role="group" aria-label="Filtrar por tema">${['todos', ...temas].map(t =>
-        `<button data-tema="${esc(t)}" aria-pressed="${t === filtroTema}">${t === 'todos' ? 'Todos' : 'Tema ' + esc(t)}</button>`).join('')}</div>` : ''}
+        `<button data-tema="${esc(t)}" aria-pressed="${t === filtroTema}">${t === 'todos' ? 'Todos' : (/^\d/.test(t) ? 'Tema ' : '') + esc(t)}</button>`).join('')}</div>` : ''}
       <span class="contagem" id="contagem"></span>
+      <button id="baixar-todos" hidden>Baixar todos (.zip)</button>
       <button id="enviar-todos" hidden>Enviar todos pro Drive</button>
       <span class="contagem" id="st-molde" role="status"></span>
     </div>
@@ -372,6 +373,8 @@ function desenharMolde() {
     catch (err) { const r = document.createRange(); r.selectNodeContents($('#pedido-txt')); getSelection().removeAllRanges(); getSelection().addRange(r); e.target.textContent = 'Selecionado: copie com Ctrl+C'; }
     setTimeout(() => e.target.textContent = 'Copiar pedido', 2200);
   };
+  $('#baixar-todos').onclick = baixarTodos;
+  $('#baixar-todos').hidden = !DL;
   $('#enviar-todos').onclick = enviarTodos;
   $('#enviar-todos').hidden = !temDrive();
   desenharGrade();
@@ -450,6 +453,7 @@ const chave = p => `${ativo.id}__${p.id}`;
 const postAtual = () => lista[atual];
 (async () => {
   try { DL = await window.claude?.use?.('downloads'); } catch (e) { DL = null; }
+  if ($('#baixar-todos')) $('#baixar-todos').hidden = !DL;
   atualizarFerramentas();
   try { DB = await window.claude?.use?.('db'); } catch (e) { DB = null; }
   if (DB) DB.collection('pedidos').onSnapshot(snap => {
@@ -516,6 +520,25 @@ async function cadaSlide(p, fn, quais = null) {
   }
 }
 const nomeSlide = (k, ext = 'png') => `${String(k + 1).padStart(2, '0')}.${ext}`;
+
+// Baixa num .zip só todos os posts visíveis do molde (respeita a busca e o filtro), uma pasta por post.
+async function baixarTodos(ev) {
+  const bt = ev.currentTarget, st = $('#st-molde'), posts = [...lista];
+  if (!window.JSZip) { st.textContent = 'Não foi possível montar o .zip nesta tela.'; return; }
+  if (!posts.length) return;
+  bt.disabled = true;
+  try {
+    const zip = new JSZip();
+    for (const [i, p] of posts.entries()) {
+      st.textContent = `Montando o .zip… ${i + 1}/${posts.length}`;
+      const pasta = zip.folder(p.id);
+      await cadaSlide(p, async (cv, k) => pasta.file(nomeSlide(k), await paraBlob(cv)));
+    }
+    const sufixo = filtroTema === 'todos' ? '' : '-' + semAcento(filtroTema).replace(/[^a-z0-9]+/g, '-');
+    await salvarArquivo(`${ativo.id}${sufixo}.zip`, await zip.generateAsync({ type: 'blob' }), st);
+  } catch (err) { st.textContent = 'Não foi possível montar o .zip: ' + (err.message || err); }
+  bt.disabled = false;
+}
 
 $('#v-baixar').onclick = async ev => {
   const p = postAtual(), st = $('#v-status'), bt = ev.currentTarget;

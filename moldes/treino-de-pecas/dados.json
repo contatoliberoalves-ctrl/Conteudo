@@ -2,7 +2,8 @@
   {
     "id": "autoral-partido-alfa",
     "tipo": "autoral",
-    "capa": "A",
+    "tema": "Autoral",
+    "chamada": "O adicional de penosidade está na Constituição. A lei nunca saiu.",
     "enunciado": [
       "O art. 7º, inciso XXIII, da CF/88 assegura aos trabalhadores o adicional de remuneração para as atividades penosas, insalubres ou perigosas, na forma da lei. No caso hipotético, passados muitos anos da promulgação da Constituição, o Congresso Nacional ainda não editou a lei que regulamenta o adicional de penosidade.",
       "Preocupado com a saúde de trabalhadores expostos a atividades desgastantes, o Partido Político *Alfa*, com representação na Câmara dos Deputados, deseja que o Supremo Tribunal Federal reconheça a mora do Poder Legislativo de forma ampla, sem defender o direito de um trabalhador específico, dando ciência ao Congresso para que adote as providências necessárias.",
@@ -14,7 +15,8 @@
   {
     "id": "autoral-taxa-de-matricula",
     "tipo": "autoral",
-    "capa": "B",
+    "tema": "Autoral",
+    "chamada": "Universidade pública cobrando matrícula, e o TJ achou normal.",
     "enunciado": [
       "*Joana* foi aprovada no vestibular de uma universidade pública mantida pelo Estado *Beta*. No ato da matrícula, a instituição exigiu o pagamento de uma taxa de matrícula, sob pena de cancelamento da vaga. Joana ajuizou ação contra a cobrança, alegando que o ensino público em estabelecimentos oficiais é gratuito, mas o juiz de primeiro grau julgou o pedido improcedente.",
       "O Tribunal de Justiça do Estado *Beta*, em acórdão proferido pelo colegiado competente, confirmou a sentença e manteve a cobrança, sem enfrentar o entendimento vinculante do Supremo Tribunal Federal sobre o tema.",
@@ -24,9 +26,140 @@
     "gabarito": "Diário Constitucional, dia 52\nGabarito: Reclamação Constitucional."
   },
   {
+    "id": "autoral-habeas-data-ficha",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Uma punição que nunca existiu está na ficha dele. E o órgão não quer apagar.",
+    "enunciado": [
+      "*Carlos* é servidor público da autarquia federal *Ômega* há doze anos. Ao pedir uma certidão para concorrer a uma promoção, descobriu que sua ficha funcional registra uma advertência por abandono de posto, aplicada em 2019, punição que ele jamais sofreu: nunca houve processo, notificação ou sindicância em seu nome.",
+      "*Carlos* protocolou requerimento administrativo pedindo a correção do registro, juntando suas folhas de ponto do período. Passados mais de quinze dias, o pedido continua sem qualquer decisão, e a promoção será decidida no mês que vem com base na ficha funcional.",
+      "*Carlos* procura você, como advogado(a), para que a informação falsa seja corrigida."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Habeas data (art. 5º, LXXII, \"b\", da CF/88), para retificar o dado; cabível porque o pedido administrativo ficou mais de quinze dias sem decisão (Lei nº 9.507/1997, art. 7º, II, e art. 8º, parágrafo único, II)."
+  },
+  {
+    "id": "autoral-mandado-de-injuncao-penosidade",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Ele trabalha no sol de 40 graus e a Constituição promete um adicional. Falta a lei.",
+    "enunciado": [
+      "*Antônio* trabalha há quinze anos no corte manual de cana-de-açúcar, sob sol forte e jornada exaustiva. Ele sabe que o art. 7º, XXIII, da CF/88 garante aos trabalhadores o adicional de remuneração para as atividades penosas, na forma da lei.",
+      "Ao pedir o adicional de penosidade ao empregador, ouviu que nada é devido, porque o Congresso Nacional, passados mais de trinta anos da promulgação da Constituição, nunca editou a lei que define o que é atividade penosa e o valor do adicional.",
+      "*Antônio* quer, em nome próprio, que o Poder Judiciário reconheça a falta da norma e viabilize o exercício do seu direito, e contrata você como advogado(a)."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Mandado de injunção individual (art. 5º, LXXI, da CF/88 e Lei nº 13.300/2016), no STF, porque a norma faltante cabe ao Congresso Nacional (art. 102, I, \"q\"). Compare com o caso do Partido Alfa: lá o pedido era abstrato (ADO); aqui é o direito do próprio Antônio."
+  },
+  {
+    "id": "autoral-acao-popular-carros-de-luxo",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Dez carros de luxo, preço triplicado e uma cidadã de olho no portal da transparência.",
+    "enunciado": [
+      "Consultando o portal da transparência do Município *Gama*, *Helena*, eleitora no Município, descobriu que a Prefeitura comprou dez carros de luxo blindados para uso dos secretários municipais. A compra foi feita sem licitação, sob a justificativa de \"urgência\", e cada veículo custou o triplo do valor de mercado.",
+      "Os carros foram adquiridos de uma concessionária que pertence ao cunhado do Prefeito. A compra já foi paga, e os veículos estão em uso.",
+      "*Helena* quer, em nome próprio, anular o contrato e fazer com que os responsáveis devolvam o dinheiro aos cofres públicos, e procura você, como advogado(a)."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Ação popular (art. 5º, LXXIII, da CF/88 e Lei nº 4.717/1965), proposta por Helena como cidadã (prova com o título de eleitor, art. 1º, § 3º), para anular o ato lesivo ao patrimônio público e à moralidade administrativa."
+  },
+  {
+    "id": "autoral-adi-lei-de-direito-civil",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Um Estado resolveu mudar sozinho as regras do direito civil.",
+    "enunciado": [
+      "A Assembleia Legislativa do Estado *Delta* aprovou, e o Governador sancionou, a Lei estadual nº 1.234, que reduz para dois anos o prazo de prescrição das dívidas civis entre particulares no território do Estado e muda as regras de herança para os casais em união estável.",
+      "Segundo a justificativa do projeto, a lei busca \"modernizar o direito privado de acordo com a realidade local\". Logo após sua publicação, a lei passou a ser aplicada por juízes estaduais, gerando insegurança em contratos e inventários.",
+      "O Procurador-Geral da República quer retirar a lei do ordenamento jurídico, com efeitos para todos, e pede a você, como assessor(a), a indicação da medida judicial."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Ação direta de inconstitucionalidade (art. 102, I, \"a\", da CF/88 e Lei nº 9.868/1999), proposta pelo PGR (art. 103, VI), por vício formal: só a União legisla sobre direito civil (art. 22, I)."
+  },
+  {
+    "id": "autoral-adpf-praca-sem-protesto",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Um decreto municipal proibiu protestos na praça central.",
+    "enunciado": [
+      "O Prefeito do Município *Ômega* editou o Decreto nº 77, que proíbe \"qualquer reunião, passeata ou manifestação de caráter político\" na praça central da cidade, local tradicional de encontros públicos, sob pena de multa e dispersão pela guarda municipal.",
+      "O decreto vale para todas as pessoas, por tempo indeterminado, e já foi usado para impedir um ato pacífico de professores.",
+      "O Partido Político *Beta*, com representação no Congresso Nacional, quer que o Supremo Tribunal Federal afaste o decreto de forma ampla, com efeitos para todos, e contrata você como advogado(a). Não há outro meio capaz de resolver a questão com a mesma amplitude."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Arguição de descumprimento de preceito fundamental (art. 102, § 1º, da CF/88 e Lei nº 9.882/1999, art. 1º, parágrafo único, I): ato municipal não pode ser objeto de ADI no STF. Preceito violado: direito de reunião (art. 5º, XVI). Legitimidade do partido: art. 2º, I, da Lei nº 9.882/1999 c/c art. 103, VIII, da CF/88."
+  },
+  {
+    "id": "autoral-ms-coletivo-adicional-noturno",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Uma portaria cortou o adicional noturno de toda a categoria.",
+    "enunciado": [
+      "A Lei estadual nº 500 garante adicional noturno aos servidores da saúde do Estado *Sigma* que trabalham entre 22h e 5h. Mesmo assim, o Secretário Estadual de Saúde publicou a Portaria nº 12, suspendendo o pagamento do adicional \"por contenção de despesas\" a partir do mês seguinte.",
+      "Os contracheques, as escalas de plantão e a própria portaria comprovam a situação, sem necessidade de qualquer outra prova. A portaria foi publicada há vinte dias.",
+      "O Sindicato dos Servidores da Saúde de *Sigma*, legalmente constituído e em funcionamento há cinco anos, quer proteger de uma vez todos os seus filiados e procura você, como advogado(a)."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Mandado de segurança coletivo (art. 5º, LXX, \"b\", da CF/88 e Lei nº 12.016/2009, art. 21): direito líquido e certo com prova pré-constituída, ato de autoridade, sindicato com mais de um ano, dentro dos 120 dias (art. 23)."
+  },
+  {
+    "id": "autoral-habeas-corpus-condominio",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Ele devia o condomínio e o juiz mandou prender.",
+    "enunciado": [
+      "*Rafael* deixou de pagar oito meses de taxas de condomínio do apartamento em que mora. O condomínio ajuizou ação de cobrança e, na fase de cumprimento de sentença, pediu medidas mais duras para forçar o pagamento.",
+      "O juiz da causa, entendendo que a dívida condominial \"tem natureza essencial para a vida em comunidade\", decretou a prisão civil de *Rafael* por sessenta dias, até que pague o débito. O mandado de prisão já foi expedido.",
+      "A família de *Rafael* procura você, como advogado(a), para impedir a prisão."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Habeas corpus (art. 5º, LXVIII, da CF/88): a prisão civil por dívida só é admitida para o devedor de alimentos (art. 5º, LXVII); dívida de condomínio não autoriza prisão."
+  },
+  {
+    "id": "autoral-acp-rio-poluido",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Uma indústria, um rio poluído e uma associação ambiental.",
+    "enunciado": [
+      "A indústria química *Zeta* despeja resíduos tóxicos no Rio *Claro*, que abastece três municípios. Laudos de universidades apontam mortandade de peixes e risco à saúde da população ribeirinha.",
+      "A Associação *Rio Vivo*, constituída há quatro anos e que tem, entre suas finalidades institucionais, a proteção do meio ambiente, quer que a empresa seja obrigada a parar os despejos imediatamente e a reparar os danos causados ao rio.",
+      "Um dos diretores sugeriu ajuizar uma ação popular. A associação procura você, como advogado(a), para indicar a medida correta."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Ação civil pública (Lei nº 7.347/1985, art. 1º, I, e art. 5º, V; art. 129, § 1º, da CF/88). Não cabe ação popular: só o cidadão tem legitimidade (art. 5º, LXXIII), não a associação."
+  },
+  {
+    "id": "autoral-recurso-extraordinario-demissao",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "Demitida sem processo. O TJ disse que ampla defesa não vale ali.",
+    "enunciado": [
+      "*Marina*, servidora estável do Estado *Teta*, foi demitida por ato do Governador, sem qualquer processo administrativo e sem oportunidade de se defender. Ela ajuizou ação pedindo a reintegração, mas o pedido foi julgado improcedente.",
+      "O Tribunal de Justiça negou provimento à apelação, afirmando expressamente que \"as garantias do contraditório e da ampla defesa se limitam aos processos judiciais\". Os embargos de declaração foram rejeitados, e não cabe mais nenhum recurso no próprio Tribunal.",
+      "*Marina* procura você, como advogado(a), para levar a discussão constitucional adiante."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Recurso extraordinário ao STF (art. 102, III, \"a\", da CF/88): o acórdão de última instância contraria o art. 5º, LV, e o art. 41, § 1º, II, da CF/88. Lembre-se da repercussão geral (art. 102, § 3º)."
+  },
+  {
+    "id": "autoral-recurso-ordinario-stj",
+    "tipo": "autoral",
+    "tema": "Autoral",
+    "chamada": "O STJ negou o mandado de segurança. Ainda tem pra onde ir?",
+    "enunciado": [
+      "*Tiago* teve sua inscrição em um programa federal de bolsas cancelada por ato de um Ministro de Estado, sem motivação. Com prova documental de que preenchia todos os requisitos, impetrou mandado de segurança diretamente no Superior Tribunal de Justiça.",
+      "A Primeira Seção do STJ, julgando o mandado de segurança em única instância, denegou a ordem, por entender que o ato do Ministro foi válido.",
+      "*Tiago* procura você, como advogado(a), para recorrer da decisão."
+    ],
+    "comando": "Diante dessa situação hipotética, indique a medida judicial cabível.",
+    "gabarito": "Caso autoral\nGabarito: Recurso ordinário constitucional ao STF (art. 102, II, \"a\", da CF/88): mandado de segurança decidido em única instância por Tribunal Superior, com decisão denegatória. O MS foi ao STJ por ser contra Ministro de Estado (art. 105, I, \"b\")."
+  },
+  {
     "id": "exame-46-adpf",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Uma lei estadual de 1984 esquecida na gaveta volta a ser aplicada.",
     "enunciado": [
       "O Governador do Estado *Alfa*, no qual estão sediados diversos municípios com elevado potencial turístico, decidiu adotar medidas para aumentar o nível de eficiência dos operadores do setor, públicos e privados. Sensível a esse objetivo, o secretário de turismo informou que constatara que os órgãos públicos não vinham aplicando a Lei estadual nº XX, editada em 1984, diploma normativo que estabeleceu algumas medidas com elevado potencial de aprimorar a qualidade dos serviços de transportes oferecidos na esfera dos municípios localizados nos distintos quadrantes do território estadual.",
       "De acordo com o Art. 1º da Lei estadual nº XX/84, as pessoas jurídicas que explorem o serviço de transporte coletivo de passageiros, no interior do território de qualquer Município, deveriam observar os detalhados padrões de estilização dos veículos elencados nesse preceito. O Art. 2º estabelecia regras detalhadas para os contratos a serem celebrados entre os distintos operadores do setor de turismo, em relação ao serviço que iriam prestar, de modo a detalhar prestações e individualizar responsabilidades. O Art. 3º, por sua vez, estabelecia as regras a serem observadas, pelo Estado *Alfa* ou pelos municípios nele sediados, para a desapropriação das áreas com elevado potencial turístico.",
@@ -36,13 +169,13 @@
     ],
     "comando": "Redija a peça processual adequada, conforme solicitação do Partido Político *Delta*.",
     "valor": "(Valor: 5,00)",
-    "gabarito": "46º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Arguição de descumprimento de preceito fundamental (ADPF).",
-    "quebra": 2
+    "gabarito": "46º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Arguição de descumprimento de preceito fundamental (ADPF)."
   },
   {
     "id": "exame-45-mandado-de-seguranca",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Radioisótopos, uma lei municipal e a ameaça de lacrar a empresa em 5 dias.",
     "enunciado": [
       "A sociedade empresária *Alfa*, regularmente constituída e em devido funcionamento com estrita observância da sistemática legal vigente, é especializada na comercialização de radioisótopos para fins medicinais, com destaque para os materiais utilizados em radioterapias, em que doses de radiação são aplicadas na região do corpo afetada por células cancerígenas.",
       "Em razão da natureza dos radioisótopos e do risco que oferecem para o ser humano e o meio ambiente, *Alfa* está obrigada a observar rígidos protocolos de segurança, estabelecidos pelo ente federativo competente para a outorga da permissão de comercialização.",
@@ -58,7 +191,8 @@
   {
     "id": "exame-44-acao-popular",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "A linha de ônibus que passa de 30 em 30 minutos na casa dos parentes do prefeito.",
     "enunciado": [
       "O Município *Alfa*, com apenas 20.000 (vinte mil) habitantes, possui uma pequena área urbana e uma extensa área rural, em sua maior parte desabitada, sendo caracterizada pela existência de grandes latifúndios improdutivos. Uma das promessas de campanha de *João*, atual Prefeito do Município *Alfa*, foi a de reorganizar o transporte coletivo municipal, de modo a aumentar a mobilidade da população e a evitar o desvio produtivo, o que ocorria frequentemente com a necessidade de se aguardar por algumas horas a chegada de um ônibus. Esse quadro era sensivelmente agravado em razão da opacidade do sistema de transporte, de modo que a população desconhecia a quantidade de ônibus em circulação e até os horários em que cada um passaria por cada local, o que apresentava grandes variações durante os dias da semana.",
       "*João* se responsabilizou pessoalmente pela elaboração do Edital de Licitação para a Concessão da Exploração do Serviço de Transporte Coletivo Municipal. A publicação do Edital foi informada à população, sendo enaltecida como o início da solução de todos os problemas apresentados. A sociedade empresária *Delta* saiu vencedora na licitação e a solenidade de assinatura do contrato de concessão com o Município *Alfa*, representado pelo Prefeito Municipal *João*, foi marcada para a semana seguinte.",
@@ -67,13 +201,13 @@
     ],
     "comando": "A partir da narrativa acima, elabore a peça processual adequada.",
     "valor": "(Valor: 5,00)",
-    "gabarito": "44º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Ação popular.",
-    "quebra": 2
+    "gabarito": "44º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Ação popular."
   },
   {
     "id": "exame-43-mandado-de-seguranca",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Uma multa por não entrar na associação de moradores.",
     "enunciado": [
       "Após ampla mobilização de alguns setores da classe política, iniciou-se um processo de conscientização coletiva no âmbito do Município *Alfa*, com o objetivo de estimular a participação dos munícipes nas associações de moradores e nos movimentos sociais. O principal problema detectado era a debilidade dos movimentos dos bairros, o que diminuía o conhecimento dos problemas e dificultava a formação de pautas de interesse comum.",
       "Com o objetivo de combater as causas desse problema e tornar o Município *Alfa* um exemplo de coesão social e de articulação dos interesses individuais com o interesse coletivo, foi aprovada a Lei Municipal nº XX, que passou a ser conhecida como Lei do Associativismo Bairrista. De acordo com esse diploma normativo, os moradores que residissem há mais de dez anos em determinado bairro e não estivessem associados à associação de moradores existente no local estariam sujeitos ao pagamento de multa administrativa, calculada no percentual de 20% do salário mínimo, devida a cada mês em que perdurasse a omissão. A multa seria aplicada ao fim de processo administrativo, instaurado na Secretaria Municipal de Ordem Pública, no qual seriam assegurados o contraditório e a ampla defesa.",
@@ -84,13 +218,14 @@
     ],
     "comando": "Elabore, na condição de advogado(a) de *João*, a peça processual adequada ao caso concreto.",
     "valor": "(Valor: 5,00)",
-    "gabarito": "43º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Mandado de segurança.",
-    "quebra": 3
+    "gabarito": "43º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Mandado de segurança."
   },
   {
     "id": "exame-42-reclamacao",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "ts": 78,
+    "chamada": "Honorários do advogado, um precatório e o Presidente do TJ dizendo que não é alimentar.",
     "enunciado": [
       "*João* atuou como advogado de *Maria* em uma ação de reparação de danos ajuizada em face do Estado *Alfa*. Após longa tramitação processual, a sentença de mérito que condenou o referido ente federativo a indenizar *Maria* pelos danos materiais e morais que sofrera transitou em julgado. A mesma sentença condenou o Estado *Alfa* nos ônus da sucumbência, o que incluía o dever de pagar honorários advocatícios a *João*, que foram fixados em 20% do valor da condenação.",
       "Após a adoção dos atos processuais necessários, o Juízo da Vara de Fazenda Pública da Comarca *Beta*, a requerimento de *João* de destaque dos honorários advocatícios, requisitou, do Presidente do Tribunal de Justiça do Estado *Alfa*, a expedição de precatório, visando ao recebimento do valor correspondente à condenação ao pagamento dos referidos honorários, observado o caráter alimentar do débito. O Presidente, no entanto, não reconheceu o caráter alimentar do valor a ser recebido por *João*, com o argumento de que a condenação sofrida pelo Estado *Alfa* deveria ser compreendida em sua integralidade, não de modo separado, considerando a parte atribuída a *João* e a parte atribuída à *Maria*, sendo que, esta última, não tinha caráter alimentar.",
@@ -104,7 +239,8 @@
   {
     "id": "exame-41-adc",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Uma lei de ciência e tecnologia derrubada juiz por juiz.",
     "enunciado": [
       "Diversas instituições de ensino brasileiras uniram esforços para o desenvolvimento científico do país, o que acarretaria benefícios não só no plano econômico como também no ambiente social. Como fruto desse movimento, foi submetido à apreciação do Presidente da República um anteprojeto de lei, que veio a ser apresentado ao Poder Legislativo e deu origem à Lei nº XX.",
       "Nos termos do Art. 1º da Lei nº XX, a União deveria alocar mais recursos, observadas as políticas públicas adotadas por esse ente federativo, nos projetos direcionados ao aperfeiçoamento das teorias científicas, o que consubstancia a pesquisa científica básica, e nos projetos que buscam estabelecer padrões de inovação em atividade de interesse da coletividade, o que aponta para a pesquisa científica tecnológica. O Art. 2º, por sua vez, autorizou que a União celebrasse ajustes com os órgãos e as entidades públicas, bem como com entidades privadas, visando, entre outros objetivos, ao compartilhamento de recursos humanos especializados para a execução de projetos de pesquisa, o que ocorreria mediante contrapartida do beneficiário, não necessariamente financeira. Por fim, o Art. 3º estatuiu que a União poderia oferecer estímulos creditícios para a atuação de inventores independentes, de modo a aprimorar o processo criativo e a favorecer o aproveitamento econômico das invenções.",
@@ -118,7 +254,8 @@
   {
     "id": "exame-40-adi",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Uma lei federal quer punir deputado estadual por votar lei inconstitucional.",
     "enunciado": [
       "Em razão de notícias de irregularidades difundidas por diversos meios de comunicação social, que teriam sido praticadas nas Assembleias Legislativas de alguns estados da Federação, um grupo de deputados federais apresentou projeto de lei cujo fim precípuo era o de veicular o “Estatuto Básico do Deputado Estadual”. De acordo com os autores da proposta, a medida era essencial para a preservação da moralidade administrativa e para a sedimentação do princípio republicano.",
       "O projeto teve grande receptividade da opinião pública, dando origem, ao fim do processo legislativo regular, à Lei Federal nº XX. De acordo com o seu Art. 1º, os deputados estaduais poderiam ser responsabilizados civil e criminalmente sempre que votassem favoravelmente a aprovação de leis cuja inconstitucionalidade viesse a ser declarada em decisão definitiva do Supremo Tribunal Federal. O Art. 2º dispôs que, nas situações a que se refere o Art. 1º, a competência para o processo e o julgamento da ação penal a ser ajuizada em face do deputado estadual é do Supremo Tribunal Federal. Por fim, o Art. 3º veiculou um conjunto de regras que deveria ser inserido no Regimento Interno de cada Assembleia Legislativa, cujo objetivo era o de disciplinar o fluxo de informações entre os distintos órgãos da Casa Legislativa.",
@@ -131,7 +268,8 @@
   {
     "id": "exame-39-mandado-de-seguranca-coletivo",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Um prefeito decidiu qual arte os artesãos podem vender.",
     "enunciado": [
       "A área central do Município *Alfa*, cuja construção remonta a meados do século XVII, era mundialmente conhecida pela singularidade de sua arquitetura e pela beleza das obras de arte que ornavam tanto as fachadas como o interior de inúmeros prédios. Essas características, que se somavam ao título de patrimônio histórico da humanidade, em muito potencializavam o turismo no local, havendo grande procura por peças de artesanato.",
       "Apesar do sucesso do artesanato local, verificou-se o surgimento de uma grande onda modernista, o que desagradou sobremaneira o Prefeito Municipal que via o risco de ser corrompida a identidade do Município. Por tal razão, proferiu decisão, por escrito, proibindo que os artesãos confeccionassem ou comercializassem obras de arte que não apresentassem compatibilidade com os padrões arquitetônicos e a história do Município, sabidamente vinculados ao Barroco. Caso a determinação não fosse atendida, o alvará de localização do Centro de Artesanato, mantido pela Associação dos Artesãos do Município *Alfa*, seria cassado, o que geraria enormes prejuízos para o próprio sustento dos artesãos, pois é nesse local que comercializam suas obras.",
@@ -145,7 +283,8 @@
   {
     "id": "exame-38-mandado-de-injuncao-coletivo",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Uma emenda prometeu direitos sociais. Oito anos depois, nada de lei.",
     "enunciado": [
       "A organização não governamental *Alfa*, constituída há mais de uma década sob a forma de associação, liderou durante vários anos uma grande campanha no cenário nacional com o objetivo de que a Constituição da República fosse alterada, de modo a contemplar alguns direitos sociais, de natureza prestacional, direcionados a uma minoria étnica historicamente excluída na realidade brasileira. Os associados de *Alfa* eram justamente integrantes dessa minoria étnica. *Alfa*, por sua vez, tinha como objetivo zelar pelos direitos fundamentais de primeira e de segunda dimensão dos seus associados, que eram alcançados pela igualdade formal, mas exigiam atenção diferenciada dos poderes constituídos para que efetivamente alcançassem um nível de igualdade material. A omissão desses direitos estava comprometendo a própria subsistência dessas pessoas, colocando em risco a sua existência por não disporem do mínimo para sobreviver, além de viverem de modo aviltante.",
       "Em razão desse esforço e do engajamento das lideranças partidárias, foi promulgada a Emenda Constitucional nº XX. Apesar das tentativas de que os direitos sociais fossem veiculados em normas de eficácia plena e aplicabilidade imediata, prevaleceu o entendimento, no âmbito do Poder Legislativo federal, de que deveriam ser previstos em normas programáticas, o que gerou grande dissabor para a organização não governamental *Alfa*. Afinal, não obstante o transcurso de 8 (oito) anos desde a promulgação da reforma constitucional, ainda não tinha sido editada a lei ordinária que integraria o seu conteúdo, pormenorizando cada um dos direitos a serem fruídos.",
@@ -158,7 +297,8 @@
   {
     "id": "exame-37-acao-popular",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Um prefeito, um doador de campanha e uma área verde prestes a virar condomínio.",
     "enunciado": [
       "O Município *Sigma* se notabilizou no território nacional em razão da exuberância das paisagens existentes em sua esfera territorial, entre as quais se destacava uma área de preservação ambiental localizada na área central do Município. Essa área foi criada há mais de uma década por força do Decreto nº XX, da lavra do então prefeito municipal, tendo tornado a região tão aprazível que, em poucos anos, foram erguidas construções em todas as demais áreas livres, valorizando-a sobremaneira.",
       "Em razão desse quadro e da crescente especulação imobiliária, *João Santos*, recém-empossado prefeito do Município *Sigma*, foi visitado por *Pedro Silva*, conhecido construtor e principal doador de sua campanha eleitoral, e foi instado a cumprir uma promessa que fizera: *João* tinha afirmado que, caso fosse eleito, desafetaria a referida área de preservação ambiental e permitiria que *Pedro* ali construísse um conjunto habitacional e comercializasse as respectivas unidades.",
@@ -174,7 +314,8 @@
   {
     "id": "exame-36-adi",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Mineração, turismo e uma lei estadual que desapropria quase tudo.",
     "enunciado": [
       "O potencial turístico do Estado *Ômega* foi sensivelmente abalado, em decorrência do crescimento da extração de inúmeras substâncias minerais úteis encontradas em seu subsolo. A atividade assim desenvolvida enseja o surgimento de grandes montes, quer de detritos, quer das substâncias minerais extraídas, o que se mostra visualmente incompatível com as belezas naturais existentes nas localidades próximas.",
       "Em razão desse quadro, foi promulgada a Lei Estadual XX, que dispôs, em seu Art. 1º, que a exploração das referidas atividades econômicas, nas regiões geográficas classificadas como de potencial turístico pela Secretaria de Estado de Turismo, dependeria de prévia autorização ou concessão desse órgão, que somente seria deferida após a realização de audiências públicas com a população diretamente interessada. O Art. 2º, por sua vez, estabeleceu um procedimento abreviado para a expropriação das propriedades privadas, nas quais as substâncias minerais úteis fossem encontradas no subsolo, em montante superior a 50% da área total, preceito no qual se enquadrava a quase totalidade das propriedades existentes. Ressalta-se que o Art. 2º ainda era expresso no sentido de que a indenização devida aos proprietários privados também abrangeria o potencial econômico oferecido pelas substâncias minerais. As sociedades empresárias que exploravam essas atividades econômicas, bem como os proprietários das áreas nas quais eram encontradas as substâncias minerais úteis, constataram que a Lei Estadual XX lhes causaria um imenso impacto: as primeiras por serem obrigadas a paralisar suas atividades, enquanto não obtivessem a autorização exigida no Art. 1º, isto se lograssem êxito em obtê-la; os últimos, corriam o risco de perder suas propriedades, conforme dispunha o Art. 2º.",
@@ -187,7 +328,8 @@
   {
     "id": "exame-35-adi",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "chamada": "Um Estado decidiu mandar no ônibus de todos os municípios.",
     "enunciado": [
       "O Estado *Alfa*, com o declarado objetivo de uniformizar a atividade e zelar pela qualidade do serviço de transporte coletivo municipal, de modo a proteger os interesses do consumidor, promulgou a Lei nº XX, que entrará em vigor dentro de 30 (trinta) dias.",
       "De acordo com o Art. 1º desse diploma normativo, o serviço de transporte coletivo municipal prestado em cada Município situado no território do Estado deverá atender ao extenso rol de especificações previstas nos incisos desse preceito, que variavam desde o tamanho e o conforto dos veículos até o número mínimo de linhas e de veículos em circulação nos finais de semana. O Art. 2º dispôs sobre as normas gerais para a licitação do serviço, que poderiam ser suplementadas pelos Municípios, de modo a atender às peculiaridades locais. Por fim, o Art. 3º determinou que o Art. 1º da Lei nº XX deveria ser imediatamente aplicado aos contratos de concessão em curso, realizando-se as adaptações que se fizessem necessárias na prestação do serviço.",
@@ -200,7 +342,8 @@
   {
     "id": "exame-34-mandado-de-seguranca",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Um templo, um boletim sobre serviços públicos e um alvará cassado pelo prefeito.",
     "enunciado": [
       "*João*, pessoa de muita fé, com estrita observância das regras legais vigentes, construiu um templo para que pudesse realizar as reuniões de oração afetas à religião que professava.",
       "Em razão da seriedade de sua atividade, as reuniões passaram a ser frequentadas por um elevado quantitativo de pessoas, as quais também passaram a organizar, no interior do templo, no intervalo das orações, as denominadas “reuniões de civilidade”. Nessas reuniões, eram discutidos temas de interesse geral, especialmente a qualidade dos serviços públicos, daí resultando a criação de um “boletim”, editado pelo próprio *João*, no qual era descrita a situação desses serviços, principalmente a respeito de suas instalações, do nível do atendimento e do tempo de espera.",
@@ -213,7 +356,9 @@
   {
     "id": "exame-33-adc",
     "tipo": "treino",
-    "capa": "B",
+    "tema": "Prova da OAB",
+    "ts": 78,
+    "chamada": "Uma lei federal de irrigação no semiárido, juízes travando tudo e a Mesa do Senado querendo resolver.",
     "enunciado": [
       "Em um cenário de grave crise econômica, com franco decréscimo da atividade produtiva, foi aprovada a Lei Federal nº XX/2018, cujo objetivo era estimular a produção de gêneros agrícolas, especialmente em regiões de baixa renda, assoladas por secas frequentes.",
       "Para alcançar esse objetivo, o Art. 1º dispôs que as atividades produtivas desenvolvidas por pequenos e médios proprietários rurais, nas regiões em desenvolvimento que preenchessem os referidos requisitos, seriam destinatárias de cooperação da União, de modo que, em suas glebas, fossem estabelecidas fontes de pequena irrigação. O Art. 2º acresceu que a União deveria adotar as medidas administrativas necessárias para que os rios existentes nessas regiões tivessem o seu aproveitamento econômico e social priorizado. Por fim, o Art. 3º dispôs que a implementação dos projetos referidos no Art. 2º, pela sua amplitude, deveria ser antecedida dos estudos prévios de impacto ambiental.",
@@ -223,13 +368,13 @@
     ],
     "comando": "Elabore a petição inicial da medida judicial cabível.",
     "valor": "(Valor: 5,00)",
-    "gabarito": "33º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Ação declaratória de constitucionalidade (ADC).",
-    "quebra": 3
+    "gabarito": "33º Exame de Ordem, peça prático-profissional de Direito Constitucional (FGV).\nGabarito: Ação declaratória de constitucionalidade (ADC)."
   },
   {
     "id": "exame-32-reclamacao",
     "tipo": "treino",
-    "capa": "A",
+    "tema": "Prova da OAB",
+    "chamada": "Transposição de cargo, um concurso no fim do prazo e uma súmula vinculante ignorada.",
     "enunciado": [
       "Após regular aprovação em concurso público de provas e títulos, *João da Silva* foi nomeado e empossado no cargo de técnico administrativo de nível médio, vinculado ao Poder Executivo do Município *Alfa*. Exerceu suas funções com grande dedicação por mais de uma década. Durante esse período, também teve oportunidade de concluir o curso de Administração de Empresas.",
       "Assim que *João* concluiu a faculdade, foi editada a Lei Municipal nº 123/18, que permitia aos ocupantes do cargo de provimento efetivo de técnico administrativo de nível médio, desde que preenchessem os requisitos exigidos, optarem pela transposição para o cargo de auditor administrativo de nível superior, passando a integrar a respectiva carreira.",
