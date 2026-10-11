@@ -4549,5 +4549,259 @@
         "botao": "Comente a peça 👇"
       }
     ]
+  },
+  {
+    "id": "arg-citar-o-artigo-nao-basta",
+    "titulo": "Argumentação: citar o artigo não basta",
+    "tema": "Manual de Argumentação: resposta em 4 blocos (conclusão, fundamento, aplicação, consequência)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "kicker": "Argumentação · 2ª fase",
+        "titulo": [
+          "Citar o artigo",
+          "[[não basta]]"
+        ],
+        "texto": "A sua resposta precisa mostrar a ponte entre o fato e a norma.",
+        "aneis": true
+      },
+      {
+        "tipo": "balao",
+        "tema": "light",
+        "kicker": "A resposta fraca",
+        "titulo": [
+          "Parece certa,",
+          "[[mas perde ponto]]"
+        ],
+        "texto": [
+          "“É cabível mandado de segurança, nos termos do art. 5º, LXIX, da CF.”"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Por que está fraca",
+        "titulo": [
+          "Cadê a",
+          "[[ponte]]?"
+        ],
+        "texto": [
+          "O artigo está certo. Mas a resposta não diz **qual fato do caso** ativa essa norma.",
+          "O examinador não pode adivinhar a ponte que você deixou de construir."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "O método",
+        "titulo": [
+          "Responda em",
+          "[[4 blocos]]"
+        ],
+        "itens": [
+          "**Conclusão:** qual é a resposta?",
+          "**Fundamento:** qual regra sustenta a conclusão?",
+          "**Aplicação:** por que essa regra alcança o caso?",
+          "**Consequência:** o que resulta disso?"
+        ]
+      },
+      {
+        "tipo": "frases",
+        "tema": "light",
+        "kicker": "A resposta reescrita",
+        "titulo": [
+          "Agora",
+          "[[sim]]"
+        ],
+        "frases": [
+          "É cabível mandado de segurança, porque há violação a direito líquido e certo por ato de autoridade.",
+          "A CF prevê o MS no art. 5º, LXIX, e a Lei 12.016/2009 o disciplina.",
+          "No caso, o direito e o ato já podem ser provados por documentos.",
+          "Assim, o MS protege o direito contra a ilegalidade."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "dark",
+        "kicker": "Dica de ouro",
+        "titulo": [
+          "“No caso,”"
+        ],
+        "sub": "é a frase que constrói a ponte. Use sempre."
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Salva pro",
+          "próximo [[treino]]"
+        ],
+        "texto": [
+          "E testa os 4 blocos na próxima questão que você fizer."
+        ],
+        "botao": "Seguir @liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "arg-ms-ou-hd",
+    "titulo": "Argumentação: MS ou HD?",
+    "tema": "Manual de Argumentação: comparação entre mandado de segurança e habeas data",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "versus",
+        "tema": "blue",
+        "kicker": "Qual é a peça?",
+        "lados": [
+          "[[MS]] ou",
+          "[[HD]]?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "O ponto em comum",
+        "titulo": [
+          "Os dois",
+          "[[confundem]]"
+        ],
+        "texto": [
+          "Nos dois, alguém quer uma informação e a autoridade nega.",
+          "Por isso tanta gente escolhe pelo nome mais conhecido. Mas o que decide é o **objeto da informação**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Critério 1",
+        "titulo": [
+          "De quem é",
+          "o [[dado]]?"
+        ],
+        "texto": [
+          "São **dados da própria pessoa**, em registro público ou de caráter público? O habeas data entra no radar.",
+          "Serve para conhecer, complementar ou retificar esses dados (art. 5º, LXXII, da CF; Lei 9.507/1997)."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Critério 2",
+        "titulo": [
+          "A prova está",
+          "[[pronta]]?"
+        ],
+        "texto": [
+          "Há direito líquido e certo violado por ato de autoridade e tudo se prova com documentos? O caminho pode ser o **mandado de segurança** (art. 5º, LXIX; Lei 12.016/2009).",
+          "Direito líquido e certo não é direito fácil: é direito provado de cara."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Teste rápido",
+        "titulo": [
+          "Qual você",
+          "[[escolheria]]?"
+        ],
+        "itens": [
+          "João quer saber o que consta **sobre ele** no cadastro da Polícia Federal. → **Habeas data**",
+          "Maria pediu à prefeitura cópia do **contrato da festa da cidade** e o pedido foi negado. → **Mandado de segurança** (informação de interesse geral, art. 5º, XXXIII)"
+        ],
+        "corpo": 42
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "centro": true,
+        "titulo": [
+          "Manda pra quem",
+          "ainda [[mistura]]"
+        ],
+        "texto": [
+          "O objeto da informação muda a resposta."
+        ],
+        "botao": "Seguir @liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "arg-leia-como-advogado",
+    "titulo": "Argumentação: 5 perguntas antes de escolher a peça",
+    "tema": "Manual de Argumentação: leitura estratégica e mapa de diagnóstico",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "numero",
+        "tema": "blue",
+        "numero": "5",
+        "kicker": "Leitura de caso",
+        "titulo": [
+          "perguntas antes",
+          "da [[peça]]"
+        ],
+        "texto": "Leia o caso como advogado, não como leitor.",
+        "tn": 520
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Primeira leitura",
+        "titulo": [
+          "Entenda",
+          "o [[conflito]]"
+        ],
+        "texto": [
+          "Leia para entender os personagens e a ordem dos fatos. Ainda não tente encaixar uma peça.",
+          "No fim, escreva **em uma linha** qual é o conflito central."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Segunda leitura",
+        "titulo": [
+          "Agora,",
+          "[[com perguntas]]"
+        ],
+        "itens": [
+          "**Sujeito:** quem pode agir e contra quem?",
+          "**Ato:** o que produziu a lesão: lei, omissão, decisão?",
+          "**Direito:** qual valor constitucional foi atingido?",
+          "**Instrumento:** qual via protege melhor esse interesse?",
+          "**Resultado:** anular, declarar, suspender ou mandar fazer?"
+        ],
+        "corpo": 36
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Regra de ouro",
+        "titulo": [
+          "Marque só o que",
+          "[[muda a resposta]]"
+        ],
+        "texto": [
+          "Não sublinhe o enunciado inteiro. O fato que você marca precisa ter uma **função jurídica**.",
+          "Se mudar esse fato muda a peça, ele é o fato decisivo."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "centro": true,
+        "titulo": [
+          "Qual palavra do caso",
+          "te levou à [[resposta]]?"
+        ],
+        "texto": [
+          "Comenta aqui no próximo treino."
+        ],
+        "botao": "Seguir @liberofilho"
+      }
+    ]
   }
 ]
