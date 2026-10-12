@@ -273,8 +273,9 @@ const PROJETOS = [
   { id: 'argumenta', nome: 'Argumenta com Líbero', perfil: 'Provas discursivas', teste: m => /argumenta/i.test(m.perfil + ' ' + m.id) },
   { id: 'vde', nome: 'Método VDE', perfil: 'Mentoria · Natália e Líbero', teste: m => /(^|\W)vde(\W|$)/i.test(m.perfil + ' ' + m.id) },
   { id: 'podconst', nome: 'PodConst', perfil: 'Líbero e Natália Valença', teste: m => /podconst/i.test(m.perfil + ' ' + m.id) },
+  { id: 'renato', nome: 'Pastor Renato', perfil: 'Interpretação Bíblica', teste: m => /renato/i.test(m.perfil + ' ' + m.id) },
 ];
-const ORDEM_TESTE = ['vde', 'argumenta', 'podconst', 'concurso', 'etica', 'eduarda', 'constitucional', 'pessoal'];
+const ORDEM_TESTE = ['renato', 'vde', 'argumenta', 'podconst', 'concurso', 'etica', 'eduarda', 'constitucional', 'pessoal'];
 const projetoDe = m => (m.projeto && PROJETOS.find(p => p.id === m.projeto)) || ORDEM_TESTE.map(id => PROJETOS.find(p => p.id === id)).find(p => p.teste(m)) || OUTROS;
 const OUTROS = { id: 'outros', nome: 'Outros', perfil: '' };
 const projetosVisiveis = () => [...PROJETOS, OUTROS].filter(p => MOLDES.some(m => projetoDe(m) === p));
