@@ -279,6 +279,23 @@ const CAPAS = {
       <div style="position:absolute;left:0;right:0;top:${cy + d / 2 + 34}px;display:flex;justify-content:center;gap:36px;z-index:3">${legenda}</div>
       ${pe(t, true)}`;
   },
+  // Produto (livro, apostila): a foto do produto (PNG sem fundo em fotos/) grande e inclinada à direita,
+  // com o título à esquerda. Campos: pre, titulo, ts, texto, produto {img, h, x, y, rot}, selo (bola vermelha,
+  // ex.: "11ª edição"), hashtag (balão no pé: "Comente #X").
+  produto(s, t, c) {
+    const p = s.produto || {};
+    return `<div style="position:absolute;right:-230px;top:-230px;width:520px;height:520px;border:80px solid ${COR.vermelho};border-radius:50%;z-index:1"></div>
+      <div style="position:absolute;left:-200px;bottom:-260px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 70%);z-index:1"></div>
+      <img data-foto src="${foto(c, p.img)}" style="position:absolute;left:${p.x ?? 470}px;top:${p.y ?? 500}px;height:${p.h || 720}px;transform:rotate(${p.rot ?? 6}deg);filter:drop-shadow(0 40px 60px rgba(8,16,40,.55));z-index:3">
+      <div data-area style="position:absolute;left:100px;width:${s.largura || 520}px;top:${s.topo || 110}px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:4">
+        ${s.pre ? `<span style="background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px">${esc(s.pre)}</span>` : ''}
+        <h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || 130}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1>
+        ${s.texto ? `<p style="margin:4px 0 0;font-size:36px;font-weight:600;line-height:1.25;color:#E6ECFA">${rico(s.texto, t)}</p>` : ''}
+      </div>
+      ${s.selo ? `<div style="position:absolute;left:${s.seloX ?? 380}px;top:${s.seloY ?? 820}px;transform:rotate(-10deg);width:190px;height:190px;border-radius:50%;background:${COR.vermelho};display:flex;align-items:center;justify-content:center;text-align:center;${TITULO};font-size:50px;line-height:.95;color:#fff;box-shadow:0 18px 40px rgba(8,16,40,.45);z-index:6">${lista(s.selo).map(esc).join('<br>')}</div>` : ''}
+      ${s.hashtag ? `<div style="position:absolute;left:100px;bottom:170px;background:#fff;color:${COR.azul};border-radius:40px 40px 40px 0;padding:22px 36px;font-size:40px;font-weight:800;box-shadow:0 20px 40px rgba(8,16,40,.35);z-index:6">Comente ${esc(s.hashtag)}</div>` : ''}
+      ${s.semArraste ? pe(t, true).replace(/<div[^>]*>Arraste →<\/div>/, '') : pe(t, true)}`;
+  },
   // Caso autoral: personagem/famoso recortado (PNG sem fundo) na frente do título gigante (o título fica
   // atrás da cabeça, efeito de revista), luz suave atrás da pessoa, etiqueta "Qual é a peça?" e o nome do
   // personagem numa ficha. Tema blue (azul) ou dark (escuro). Campos: kicker, titulo, ts, tituloY, recorte
