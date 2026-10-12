@@ -534,7 +534,7 @@ const TIPOS = {
   // da imagem para o anel vermelho que aponta o botão.
   cta(s, t, c) {
     const [bg, fg] = t === TEMAS.blue ? [COR.off, COR.azul] : [COR.azul, '#fff'];
-    const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:cover;object-position:center top"></div>` : '';
+    const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:${s.fotoFit || 'cover'};object-position:center ${s.fotoFit === 'contain' ? 'center' : 'top'}${s.fotoFit === 'contain' ? `;background:linear-gradient(170deg,${COR.azul},${COR.azulFundo})` : ''}"></div>` : '';
     // "centro": true centraliza título, texto e botão (CTA sem foto).
     const meio = s.centro && !s.foto;
     return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, s.foto ? 96 : 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}
