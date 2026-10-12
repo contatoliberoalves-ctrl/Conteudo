@@ -5649,15 +5649,18 @@
     "slides": [
       {
         "tipo": "capa",
-        "tema": "dark",
-        "foto": "aula-revisao.jpg",
-        "titulo": [
-          "Aula de revisão",
-          "[[concluída]]"
-        ],
-        "texto": "O que acharam? Conta aqui embaixo 👇",
-        "semArraste": true,
-        "ts": 104
+        "estilo": "autoral",
+        "tema": "blue",
+        "kicker": "Aula de revisão",
+        "titulo": "Concluída",
+        "tituloY": 250,
+        "recorte": {
+          "img": "aula-revisao-recorte.png",
+          "h": 930
+        },
+        "selo": "✓ Feito",
+        "nomeRotulo": "Conta aqui embaixo 👇",
+        "nome": "O que acharam?"
       }
     ]
   }
