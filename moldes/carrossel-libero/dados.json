@@ -5641,5 +5641,24 @@
         "fotoFit": "contain"
       }
     ]
+  },
+  {
+    "id": "aula-revisao-concluida",
+    "titulo": "Aula de revisão concluída",
+    "tema": "Post único pós-aula com foto do autor",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "dark",
+        "foto": "aula-revisao.jpg",
+        "titulo": [
+          "Aula de revisão",
+          "[[concluída]]"
+        ],
+        "texto": "O que acharam? Conta aqui embaixo 👇",
+        "semArraste": true,
+        "ts": 104
+      }
+    ]
   }
 ]

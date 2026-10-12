@@ -409,7 +409,7 @@ const TIPOS = {
   capa(s, t, c) {
     if (s.estilo && CAPAS[s.estilo]) return CAPAS[s.estilo](s, t, c);
     const tag = `<div style="position:absolute;left:110px;bottom:72px;background:${t === TEMAS.blue ? COR.navyFundo : COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
-      <div style="position:absolute;right:110px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${s.foto ? '#fff' : t.txt};z-index:4">Arraste →</div>`;
+      ${s.semArraste ? '' : `<div style="position:absolute;right:110px;bottom:80px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${s.foto ? '#fff' : t.txt};z-index:4">Arraste →</div>`}`;
     // Fundo em tela cheia: foto do autor ("foto") ou foto de banco ("imagem", salvo imagemModo "cartao").
     // A foto de banco ganha um véu azul da paleta para "ornar" com o perfil.
     const telaCheia = s.foto ? foto(c, s.foto) : s.imagem && s.imagemModo !== 'cartao' ? `../imagens/${esc(s.imagem)}` : null;
