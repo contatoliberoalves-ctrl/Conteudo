@@ -15,7 +15,7 @@ from PIL import Image
 raiz = Path(__file__).resolve().parent
 molde, pedidos = sys.argv[1], set(sys.argv[2:])
 pasta = raiz.parent / 'moldes' / molde
-from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
+from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo
 # Cada molde fica numa galeria (galerias.json): a principal (dist/) ou a do Líbero (dist-libero/).
 galeria = galeria_de(molde)
 dist = raiz / GALERIAS[galeria]['dist']
@@ -52,7 +52,7 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         larg, alt = tamanho_tira(slides); por = max(1, 16000 // larg)
     else:
         larg, alt, por = velho.get('w', 1080), velho.get('h', 1350), velho.get('por', n)
-    posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'topicos': len(c.get('topicos', [])),
+    posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'nativo': nativo(c), 'topicos': len(c.get('topicos', [])),
                   'painel': f'{base}-painel.jpg' if n > 3 else f'{base}-slides.webp', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'por': por, 'editor': editores.get(c['id'])})
 meta['posts'] = posts
 if antigo:

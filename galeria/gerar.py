@@ -10,7 +10,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from gerar_util import GALERIAS, galeria_de, jpeg, pagina, tamanho_tira, salvar_tira, titulo
+from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo
 
 raiz = Path(__file__).resolve().parent
 # Uma pasta por galeria (galerias.json); dist/ é a principal (e a do editor de capa).
@@ -95,7 +95,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
         posts.append({
             'id': c['id'],
             'titulo': titulo(c),
-            'tema': c.get('tema', ''),
+            'tema': c.get('tema', ''), 'nativo': nativo(c),
             'topicos': len(c.get('topicos', [])),
             'painel': f'{base}-painel.jpg' if len(slides) > 3 else f'{base}-slides.webp',
             'tira': f'{base}-slides.webp',

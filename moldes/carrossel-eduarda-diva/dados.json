@@ -171,37 +171,34 @@
     "slides": [
       {
         "tipo": "capaFilme",
-        "foto": "eduarda-estudando.jpg",
-        "fotoPos": "12% center",
+        "foto": "eduarda-gesticulando.jpg",
+        "fotoPos": "60% center",
         "titulo": "Você\ndecora\n{esqueleto}\n{de peça}...",
-        "ts": 122,
+        "ts": 94,
         "texto": "ou aprende a **reconhecer a peça** que a banca {pede?}",
         "figurinhas": [
           {
             "e": "💫",
-            "x": 520,
-            "y": 730,
-            "s": 90,
+            "x": 440,
+            "y": 190,
+            "s": 80,
             "r": -10
-          },
-          {
-            "e": "🌸",
-            "x": 30,
-            "y": 1040,
-            "s": 80
           },
           {
             "e": "👀",
             "x": 860,
-            "y": 1060,
+            "y": 980,
             "s": 90
           }
         ],
-        "direita": 440,
-        "tituloY": 770,
-        "arrobaY": 712,
-        "caixaY": 1195,
-        "caixaTam": 40
+        "direita": 540,
+        "tituloY": 250,
+        "arrobaY": 175,
+        "caixaY": 1120,
+        "caixaTam": 38,
+        "caixaDireita": 110,
+        "zoom": 1.25,
+        "origem": "0% 72%"
       },
       {
         "tipo": "lista",
@@ -273,11 +270,11 @@
     "slides": [
       {
         "tipo": "capaRecorte",
-        "foto": "eduarda-surpresa-recorte.png",
+        "foto": "eduarda-surpresa-recorte-hd.png",
         "titulo": "==Não== basta\ncitar o\n{artigo} pra\n{pontuar} na\n==2ª fase==",
         "ts": 138,
-        "recorteAltura": 880,
-        "recorteDireita": -40
+        "recorteAltura": 900,
+        "recorteDireita": 30
       },
       {
         "tipo": "texto",

@@ -15,7 +15,9 @@ const ARROBA = '@eduardacaraciolo';
 const FONTES = 'https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Gloock&family=Yellowtail&family=Noto+Color+Emoji&display=swap';
 const W = 1080, H = 1350;
 // Paleta: os rosas do Carrossel Eduarda Diva (fúcsia #EE2A8A como principal e orquídea #F29AD8) com tons claros derivados, + branco.
-const C = { blush: '#FDEAF4', claro: '#F29AD8', escuro: '#EE2A8A', pink: '#EE2A8A', pessego: '#F7B9E0', branco: '#FFFFFF' };
+// Fundo branco = o papel do Carrossel Eduarda Diva (off-white quente), para os moldes da Eduarda ornarem no feed.
+const PAPEL = '#F6F2EE';
+const C = { blush: '#FDEAF4', claro: '#F29AD8', escuro: '#EE2A8A', pink: '#EE2A8A', pessego: '#F7B9E0', branco: PAPEL };
 const CLONE = 'box-decoration-break:clone;-webkit-box-decoration-break:clone';
 const TIGHT = "font-family:'Inter Tight','Noto Color Emoji',sans-serif";
 const SERIF = "font-family:'Gloock',serif;font-weight:400";
@@ -177,7 +179,7 @@ const TREND = {
 const sM = (cur = C.pink) => ({ i: cur, cursiva: 1.25, acc: `color:${C.pink}`, b: `font-weight:800`, hl: `background:${C.blush};padding:0 .14em` });
 const sPal = s => (s.fundo === 'rosa'
   ? { bg: C.escuro, tit: '#fff', txt: '#fff', cur: C.blush, linha: C.claro, chip: '#fff', chipTxt: C.escuro, ruido: true }
-  : { bg: '#fff', tit: C.escuro, txt: C.escuro, cur: C.pink, linha: C.claro, chip: C.blush, chipTxt: C.escuro, ruido: false });
+  : { bg: PAPEL, tit: C.escuro, txt: C.escuro, cur: C.pink, linha: C.claro, chip: C.blush, chipTxt: C.escuro, ruido: false });
 const sTit = (t, px, p, al = 'center') => `<div data-titulo style="${SERIF};font-size:${px}px;line-height:1;letter-spacing:-.02em;color:${p.tit};text-align:${al}">${fmt(t, sM(p.cur))}</div>`;
 const sCorpo = (t, px, p, al = 'center', cor = p.txt) => `<div data-corpo style="${TIGHT};font-weight:500;font-size:${px}px;line-height:1.3;letter-spacing:-.015em;color:${cor};text-align:${al}">${fmt(t, { ...sM(p.cur), b: `font-weight:800;color:${cor}` })}</div>`;
 const morcego = (x, y, px, cor, rot = 0) => `<svg style="position:absolute;left:${x}px;top:${y}px;width:${px}px;height:${Math.round(px * .5)}px;transform:rotate(${rot}deg);z-index:1" viewBox="0 0 100 50"><path d="M50 14 C47 8 44 7 42 10 C38 4 30 0 18 2 C24 8 24 14 20 18 C14 14 6 15 0 20 C12 22 18 30 20 40 C26 34 34 34 40 38 C42 30 46 26 50 26 C54 26 58 30 60 38 C66 34 74 34 80 40 C82 30 88 22 100 20 C94 15 86 14 80 18 C76 14 76 8 82 2 C70 0 62 4 58 10 C56 7 53 8 50 14Z" fill="${cor}"/></svg>`;
@@ -232,7 +234,7 @@ const STUDIO = {
   },
   faixa(s, ctx) {
     const p = sPal({});
-    return `<div style="position:absolute;inset:0;background:#fff">
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">
       <div style="position:absolute;left:0;right:0;top:0;height:330px">${img(ctx, s.foto, { pos: s.fotoPos || 'center 20%' })}</div>
       <div style="position:absolute;left:0;right:0;bottom:0;height:300px">${img(ctx, s.foto2 || s.foto, { pos: s.foto2Pos || 'center 85%' })}</div>
       <div data-area style="position:absolute;left:110px;right:110px;top:380px;bottom:350px;display:flex;flex-direction:column;justify-content:center;gap:36px">
@@ -258,7 +260,7 @@ const pM = { i: C.pink, cursiva: 1.18, hl: `background:linear-gradient(transpare
 const pBal = { ...pM, b: `font-weight:800;color:${C.blush}`, i: C.blush };
 const pTit = (t, px, cor = C.escuro, al = 'left') => `<div data-titulo style="${TIGHT};font-weight:800;font-size:${px}px;line-height:.95;letter-spacing:-.05em;word-spacing:.06em;color:${cor};text-align:${al}">${fmt(t, pM)}</div>`;
 const pCorpo = (t, px = 34, cor = C.escuro, al = 'left', m = pM) => `<div data-corpo style="${TIGHT};font-weight:500;font-size:${px}px;line-height:1.22;letter-spacing:-.03em;color:${cor};text-align:${al}">${fmt(t, m)}</div>`;
-const pFundo = (bg = '#fff') => grade(bg, C.blush, 54);
+const pFundo = (bg = PAPEL) => grade(bg, C.blush, 54);
 
 const SCRAP = {
   capa(s, ctx) {
@@ -313,7 +315,7 @@ const SCRAP = {
       ${estrela(900, 90, 64, C.pink, 10)}${estrela(60, 1170, 56, C.pessego, -10)}${arroba(C.escuro, H - 84)}</div>`;
   },
   lista(s) {
-    return `<div style="position:absolute;inset:0;background:#fff">
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">
       <div class="ruido" style="position:absolute;left:66px;right:66px;top:48px;bottom:0;background:${C.blush};border-radius:40px 40px 0 0"></div>
       ${estrela(22, 330, 60, C.pink, 0)}
       <div data-area style="position:absolute;left:130px;right:130px;top:130px;bottom:300px;display:flex;flex-direction:column;justify-content:center;gap:40px;z-index:3">
@@ -356,7 +358,7 @@ SCRAP.cta = SCRAP.pergunta;
 // ================= BLOCOS =================
 // Cada slide com uma cor da paleta. Nos fundos fortes, texto branco em faixas translúcidas;
 // nos claros, faixas brancas com texto rosa-escuro.
-const B = { branco: ['#fff', false], escuro: [C.escuro, true], pink: [C.pink, true], pessego: [C.pessego, false], claro: [C.claro, false], blush: [C.blush, false] };
+const B = { branco: [PAPEL, false], escuro: [C.escuro, true], pink: [C.pink, true], pessego: [C.pessego, false], claro: [C.claro, false], blush: [C.blush, false] };
 const BLOCOS = {};
 BLOCOS.capa = BLOCOS.dica = BLOCOS.lista = BLOCOS.cta = BLOCOS.texto = function (s, ctx, c) {
   const [bg, forte] = B[s.cor || c.cor] || B.escuro;
@@ -450,7 +452,7 @@ const CHIQUE = {
   },
   texto(s, ctx, c) {
     const t = tom(c), m = qM(t);
-    return `<div style="position:absolute;inset:0;background:#fff">${qMoldura(t.bg)}${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">${qMoldura(t.bg)}${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:110px;right:110px;top:190px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 96, t.dark, m)}
@@ -460,7 +462,7 @@ const CHIQUE = {
   },
   lista(s, ctx, c) {
     const t = tom(c), m = qM(t);
-    return `<div style="position:absolute;inset:0;background:#fff">${qMoldura(t.bg)}${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">${qMoldura(t.bg)}${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:110px;right:110px;top:180px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:36px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 84, t.dark, m)}
@@ -475,7 +477,7 @@ const CHIQUE = {
     const col = (k, forte) => `<div style="flex:1;background:${forte ? t.bg : t.light};padding:40px 36px;display:flex;flex-direction:column;gap:22px">
       <div style="${SERIF};font-size:52px;line-height:1;color:${forte ? '#fff' : t.dark}">${esc(k?.titulo || '')}</div>
       ${lista(k?.itens).map(x => `<div style="border-top:1px solid ${forte ? 'rgba(255,255,255,.5)' : t.bg + '55'};padding-top:16px">${qCorpo(x, 27, forte ? '#fff' : t.dark, forte ? { ...m, b: 'font-weight:800;color:#fff' } : m)}</div>`).join('')}</div>`;
-    return `<div style="position:absolute;inset:0;background:#fff">${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:80px;right:80px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center;gap:40px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 80, t.dark, m)}
@@ -510,7 +512,7 @@ const CHIQUE = {
 //   "vs" (duas palavras com o selo "ou"), "numero" (número vazado gigante), "disco" (vinil), "selo" (pílula da lei).
 const FUNDOS_D = {
   fucsia: { bg: C.escuro, tinta: '#fff', acc: '#FFD3EA', linha: 'rgba(255,255,255,.6)', pil: '#fff', pilT: C.escuro },
-  branco: { bg: '#fff', tinta: C.escuro, acc: C.claro, linha: C.claro, pil: C.escuro, pilT: '#fff' },
+  branco: { bg: PAPEL, tinta: C.escuro, acc: C.claro, linha: C.claro, pil: C.escuro, pilT: '#fff' },
   blush: { bg: C.blush, tinta: C.escuro, acc: C.claro, linha: C.claro, pil: C.escuro, pilT: '#fff' },
 };
 function capaD(s) {

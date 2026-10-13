@@ -249,6 +249,23 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 <script>
 const MOLDES = /*__DADOS__*/[];
 // Esta galeria e as outras (galerias.json): os moldes ficam divididos para caber no limite de arquivos de cada página.
+// Eduarda: os moldes dela aparecem juntos, separados só em Carrosséis (capa de design), Nativos (capa com foto)
+// e Telas únicas. Cada post guarda o molde de origem (p.molde) para pedidos, ajustes e downloads.
+(() => {
+  const ids = ['carrossel-eduarda', 'carrossel-eduarda-moderno', 'carrossel-eduarda-pop', 'carrossel-eduarda-diva', 'post-eduarda'];
+  const deles = MOLDES.filter(m => ids.includes(m.id));
+  if (!deles.length) return;
+  const g = { carrosseis: [], nativos: [], telas: [] };
+  for (const m of deles) for (const p of m.posts) g[m.id === 'post-eduarda' ? 'telas' : p.nativo ? 'nativos' : 'carrosseis'].push({ ...p, molde: m.id });
+  const virt = [
+    ['eduarda-carrosseis', 'Carrosséis', 'Carrosséis com capa de design, nos estilos da Eduarda (rosa, Gloock e cursiva).', 'Carrossel · 1080×1350', g.carrosseis],
+    ['eduarda-nativos', 'Nativos', 'Carrosséis com foto dela na capa.', 'Carrossel · 1080×1350', g.nativos],
+    ['eduarda-telas', 'Telas únicas', 'Posts de uma imagem: frases e convites.', 'Tela única · 1080×1350', g.telas],
+  ].filter(v => v[4].length).map(([id, nome, descricao, formato, posts]) => ({ id, nome, descricao, formato, perfil: 'Eduarda Caraciolo', pedido: 'Crie um post da Eduarda Caraciolo sobre: ', posts }));
+  const i = MOLDES.indexOf(deles[0]);
+  for (const m of deles) MOLDES.splice(MOLDES.indexOf(m), 1);
+  MOLDES.splice(i, 0, ...virt);
+})();
 const GALERIA = /*__GALERIA__*/null;
 (() => {
   if (!GALERIA) return;
@@ -450,7 +467,8 @@ $('#visor').addEventListener('click', e => { if (e.target.classList.contains('vi
 // downloads: entrega o .zip/.png para o visitante salvar. db: coleção "ajustes" com a posição da foto
 // salva no editor (doc "<molde>__<post>": {dx, dy, z}); o Claude lê essa coleção para gravar no molde.
 let DL = null, DB = null, AJ = {}, PED = [];
-const chave = p => `${ativo.id}__${p.id}`;
+const moldeDe = p => p.molde || ativo.id;
+const chave = p => `${moldeDe(p)}__${p.id}`;
 const postAtual = () => lista[atual];
 (async () => {
   try { DL = await window.claude?.use?.('downloads'); } catch (e) { DL = null; }
@@ -704,8 +722,8 @@ $('#v-drive').onclick = async ev => {
 // ---------- Pedidos de alteração (clicar no slide e escrever) ----------
 // db: coleção "pedidos", um doc por pedido: {molde, post, titulo, slide, x, y (0–1 no slide), tipo, texto, criado}.
 // O Claude lê a coleção quando o usuário pede "aplica os pedidos da galeria" e apaga os que aplicou.
-const pedidosDe = p => PED.filter(d => d.molde === ativo.id && d.post === p.id);
-const nPedidos = p => PED.filter(d => d.molde === ativo.id && d.post === p.id).length;
+const pedidosDe = p => PED.filter(d => d.molde === moldeDe(p) && d.post === p.id);
+const nPedidos = p => PED.filter(d => d.molde === moldeDe(p) && d.post === p.id).length;
 let FP = null;  // pedido em edição: {slide, x, y}
 function desenharPedidos() {
   const p = postAtual(); if (!p) return;
@@ -753,7 +771,7 @@ $('#f-salvar').onclick = async () => {
   const tipo = document.querySelector('#f-pedido [data-tipo][aria-pressed="true"]')?.dataset.tipo || 'alterar';
   $('#f-salvar').disabled = true; $('#f-status').textContent = 'Salvando…';
   try {
-    await DB.collection('pedidos').add({ molde: ativo.id, post: p.id, titulo: p.titulo, slide: FP.slide, x: +FP.x.toFixed(3), y: +FP.y.toFixed(3), tipo, texto, criado: Date.now() });
+    await DB.collection('pedidos').add({ molde: moldeDe(p), post: p.id, titulo: p.titulo, slide: FP.slide, x: +FP.x.toFixed(3), y: +FP.y.toFixed(3), tipo, texto, criado: Date.now() });
     fecharFormPedido(); $('#v-status').textContent = 'Pedido salvo. Quando quiser, diga ao Claude: “aplica os pedidos da galeria”.';
   } catch (err) { $('#f-status').textContent = err?.code === 'permission_denied' || err?.code === 'not_granted' ? 'Você não tem permissão para salvar pedidos aqui.' : 'Não foi possível salvar o pedido.'; }
   $('#f-salvar').disabled = false;
@@ -786,7 +804,7 @@ $('#ed-original').onclick = () => porValores({ dx: 0, dy: 0, z: 1 });
 $('#ed-salvar').onclick = async () => {
   if (!ED || !DB) return; const a = valores(), st = $('#ed-status');
   try {
-    await DB.doc('ajustes/' + chave(ED.p)).set({ molde: ativo.id, post: ED.p.id, ...a, salvoEm: new Date().toISOString() });
+    await DB.doc('ajustes/' + chave(ED.p)).set({ molde: moldeDe(ED.p), post: ED.p.id, ...a, salvoEm: new Date().toISOString() });
     st.textContent = 'Ajuste salvo.';
   } catch (e) { st.textContent = 'Não foi possível salvar (sem permissão de edição nesta galeria?).'; }
 };

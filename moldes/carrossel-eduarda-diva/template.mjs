@@ -64,7 +64,7 @@ const rodape = (cor = R.tinta) => `<div style="position:absolute;left:0;right:0;
 const TIPOS = {
   capaFilme(s, ctx) {
     return `<div style="position:absolute;inset:0;background:#3a2f2a">
-      ${img(ctx, s.foto, s.fotoPos, s.filtro ?? 'contrast(1.04)')}
+      <div style="position:absolute;inset:0;transform:scale(${s.zoom || 1});transform-origin:${esc(s.origem || 'center')}">${img(ctx, s.foto, s.fotoPos, s.filtro ?? 'contrast(1.04)')}</div>
       <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,0,0,.2) 100%);z-index:1"></div>
       ${arroba(s.corTitulo || '#f3eee8', s.arrobaY || 170)}
       <div data-area style="position:absolute;left:110px;right:${s.direita ?? 170}px;top:${s.tituloY || 240}px;z-index:4">

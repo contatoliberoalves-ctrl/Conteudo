@@ -62,3 +62,9 @@ def titulo(c):
     """Nome do post na galeria: "titulo" (Estrutura de Peças), "destaque" (Carrossel Explicativo) ou "name" (Carrossel Infinito)."""
     t = c.get('titulo') or c.get('destaque') or c.get('name') or c['id']
     return ' '.join(t) if isinstance(t, list) else t
+
+
+def nativo(c):
+    """Post com foto na capa (a galeria junta os moldes da Eduarda em Carrosséis, Nativos e Telas únicas)."""
+    s = (c.get('slides') or [{}])[0]
+    return bool(s.get('foto') or s.get('tipo') in ('capaFoto', 'legenda'))
