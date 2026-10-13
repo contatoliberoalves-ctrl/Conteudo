@@ -5663,5 +5663,49 @@
         "nome": "O que acharam?"
       }
     ]
+  },
+  {
+    "id": "troque-por-oab",
+    "titulo": "Troque por: eu vou passar na OAB",
+    "tema": "Post motivacional (2 telas)",
+    "slides": [
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Troque:",
+        "titulo": [
+          "Não vou passar",
+          "na OAB [[porque]]:"
+        ],
+        "riscado": true,
+        "marcador": "num",
+        "corpo": 46,
+        "itens": [
+          "Não tive tempo suficiente",
+          "Minha vida é complicada",
+          "Não sou capaz",
+          "Não é pra mim"
+        ],
+        "aneis": true
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Por:",
+        "titulo": [
+          "Eu [[vou passar]]",
+          "na OAB:"
+        ],
+        "marcador": "num",
+        "corpo": 46,
+        "itens": [
+          "Mesmo não tendo o tempo perfeito",
+          "Apesar das dificuldades",
+          "Pois **sou capaz**",
+          "É **SIM** pra mim!"
+        ],
+        "aneis": "baixo"
+      }
+    ]
   }
 ]

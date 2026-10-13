@@ -20,7 +20,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `texto` | `titulo`, `texto` (parágrafos), `palavra` (palavra-chave vertical na borda; lista = 2 colunas), `palavraLado` (`"esquerda"` ou `"direita"`), `corpo` (px) |
 | `impacto` | `titulo` (frase no bloco sólido), `sub` (subtítulo de 60px) |
 | `lei` | `titulo`, `citacao` (texto da lei, **literal**), `traducao` |
-| `lista` | `titulo`, `itens`, `marcador` (`"num"`, `"romano"` ou `"letra"`), `inicio` (continua a contagem: `1` começa em 02/II/b) |
+| `lista` | `titulo`, `itens`, `riscado` (itens riscados em vermelho, ex.: "Troque:"), `marcador` (`"num"`, `"romano"` ou `"letra"`), `inicio` (continua a contagem: `1` começa em 02/II/b) |
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
 | `enunciado` | `kicker` (ex.: "Caso 01 · Enunciado (1/2)"), `texto` (parágrafos do caso, numa folha branca com borda azul), `corpo` (px; 36 cabe ~700 caracteres) |
 | `questao` | `kicker` ("Pergunta 1 de 5"), `titulo` (o tema: Endereçamento, Partes, Teses, Pedidos), `pergunta`, `opcoes` (A–D), `corpo` |

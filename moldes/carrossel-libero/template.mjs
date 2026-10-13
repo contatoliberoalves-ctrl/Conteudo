@@ -459,7 +459,7 @@ const TIPOS = {
     const romano = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
     const itens = lista(s.itens).map((it, i) => `<div style="display:flex;gap:28px;align-items:baseline;padding:0 0 22px;border-bottom:2px solid ${t.linha}">
         <span style="flex:none;min-width:48px;font-size:28px;font-weight:800;color:${t.num}">${(k => s.marcador === 'romano' ? romano[k] : s.marcador === 'letra' ? 'abcdefghij'[k] + ')' : pad2(k + 1))(i + (s.inicio || 0))}</span>
-        <span data-corpo style="font-size:${s.corpo || 40}px;font-weight:500;line-height:1.3;color:${t.txt}">${rico(it, t)}</span></div>`).join('');
+        <span data-corpo style="font-size:${s.corpo || 40}px;font-weight:500;line-height:1.3;color:${t.txt}${s.riscado ? `;text-decoration:line-through;text-decoration-color:${COR.vermelho};text-decoration-thickness:5px;opacity:.75` : ''}">${rico(it, t)}</span></div>`).join('');
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}<div style="display:flex;flex-direction:column;gap:22px">${itens}</div>`);
   },
   // Teses cobradas num exame: ficha do exame, o caso em uma frase e as teses com o dispositivo.
