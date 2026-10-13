@@ -269,12 +269,26 @@
     "titulo": "Não basta citar artigo",
     "slides": [
       {
-        "tipo": "capaRecorte",
-        "foto": "eduarda-surpresa-recorte-hd.png",
-        "titulo": "==Não== basta\ncitar o\n{artigo} pra\n{pontuar} na\n==2ª fase==",
-        "ts": 138,
-        "recorteAltura": 900,
-        "recorteDireita": 30
+        "tipo": "capaPolaroid",
+        "foto": "eduarda-surpresa.jpg",
+        "titulo": "==Não== basta citar\no {artigo} pra pontuar\nna ==2ª fase==",
+        "ts": 100,
+        "legenda": "só o artigo?!",
+        "texto": "**Conclusão + fato + artigo**: a fórmula que pontua.",
+        "figurinhas": [
+          {
+            "e": "✨",
+            "x": 150,
+            "y": 1060,
+            "s": 80,
+            "r": -8
+          }
+        ],
+        "fotoLargura": 390,
+        "fotoY": 510,
+        "direita": 90,
+        "caixaY": 720,
+        "caixaLargura": 400
       },
       {
         "tipo": "texto",
@@ -317,6 +331,14 @@
         "texto": "E me conta: você responde com **conclusão + fato + artigo**?",
         "botao": "Salvar ✨"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capaRecorte",
+      "foto": "eduarda-surpresa-recorte-hd.png",
+      "titulo": "==Não== basta\ncitar o\n{artigo} pra\n{pontuar} na\n==2ª fase==",
+      "ts": 138,
+      "recorteAltura": 900,
+      "recorteDireita": 30
+    }
   }
 ]

@@ -149,14 +149,11 @@
     "tom": "fucsia",
     "slides": [
       {
-        "tipo": "capaD",
-        "variante": "vs",
-        "fundo": "fucsia",
+        "tipo": "capaRetrato",
+        "foto": "eduarda-duvida.jpg",
+        "fundo": "branco",
         "kicker": "Direito de Família",
-        "a": "União estável",
-        "b": "*casamento*",
-        "ta": 120,
-        "tb": 150,
+        "titulo": "União estável\n*ou* casamento?",
         "texto": "O que muda de verdade entre os dois."
       },
       {
@@ -243,14 +240,11 @@
     "tom": "fucsia",
     "slides": [
       {
-        "tipo": "capaD",
-        "variante": "vs",
+        "tipo": "capaRetrato",
+        "foto": "eduarda-falando.jpg",
         "fundo": "fucsia",
         "kicker": "Consumidor",
-        "a": "Vício",
-        "b": "*fato* do produto",
-        "ta": 170,
-        "tb": 120,
+        "titulo": "Vício *ou*\nfato do produto?",
         "texto": "A diferença que mais derruba ponto nas questões de Civil."
       },
       {
@@ -635,8 +629,8 @@
   },
   {
     "id": "4-coisas-segunda-fase-scrap",
-    "titulo": "4 coisas pra saber achar na peça · scrap",
-    "estilo": "scrap",
+    "titulo": "4 coisas pra saber achar na peça · nota",
+    "estilo": "nota",
     "slides": [
       {
         "tipo": "capaD",
@@ -660,14 +654,13 @@
         "texto": "Marque no Vade Mecum os artigos que mais caem e faça **remissões** entre eles. Na prova, você só confere."
       },
       {
-        "tipo": "janela",
-        "titulo": "03. o prazo",
+        "tipo": "item",
+        "titulo": "o prazo",
         "fala": "“sempre confundo prescrição com **decadência**.”",
         "texto": "Prazo dos arts. **205 e 206** é de prescrição. Os demais prazos do Código Civil são de decadência."
       },
       {
         "tipo": "item",
-        "numero": 4,
         "titulo": "o pedido",
         "fala": "“esqueço de pedir **custas e honorários**.”",
         "texto": "Tenha um **checklist fixo** de pedidos e confira no fim: citação, procedência, provas, custas e honorários."

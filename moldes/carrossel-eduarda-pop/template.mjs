@@ -546,7 +546,78 @@ function capaD(s) {
       <span style="font-weight:600;border:1.5px solid ${f.tinta};border-radius:999px;padding:6px 22px">${ARROBA}</span><span style="font-weight:700;letter-spacing:.18em">ARRASTA →</span></div></div>`;
 }
 
-const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE };
+
+// ================= CAPA RETRATO (foto de estúdio inteira) =================
+// A foto entra inteira, na proporção original (sem corte nem esticar), num quadro com sombra de cor,
+// e o título em Gloock embaixo. Mesma moldura, @ e "arrasta" da capa design. Campos: foto, fundo
+// (fucsia, branco, blush), kicker, titulo, texto, ts, fotoLargura (px, padrão 520).
+function capaRetrato(s, ctx) {
+  const f = FUNDOS_D[s.fundo] || FUNDOS_D.branco, m = { i: f.bg === C.escuro ? '#FFD3EA' : C.pink, cursiva: 1.15, b: 'font-weight:800' };
+  const src = s.foto && ctx.imgs[s.foto];
+  if (s.foto && !src) ctx.faltando.add(s.foto);
+  const L = s.fotoLargura || 520, A = Math.round(L * (s.proporcao || 1.5));
+  const sombra = f.bg === C.escuro ? '#FFD3EA' : C.claro;
+  return `<div style="position:absolute;inset:0;background:${f.bg}">
+    <div style="position:absolute;inset:40px;border:1.5px solid ${f.linha};border-radius:28px;pointer-events:none"></div>
+    ${brilho(150, 170, 54, f.bg === C.escuro ? '#fff' : C.pink)}${brilho(880, 560, 38, sombra, 12)}${brilho(905, 640, 22, f.bg === C.escuro ? '#fff' : C.pink)}
+    <div style="position:absolute;left:${(W - L) / 2}px;top:${s.fotoY || 92}px;width:${L}px;height:${A}px">
+      <div style="position:absolute;inset:0;transform:translate(18px,18px);background:${sombra};border-radius:22px"></div>
+      <div style="position:absolute;inset:0;border-radius:22px;overflow:hidden;border:6px solid #fff;background:#fff">${src ? `<img data-foto src="${src}" style="width:100%;height:100%;object-fit:contain;display:block">` : ''}</div>
+      ${s.kicker ? `<div style="position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);white-space:nowrap;background:${f.pil};color:${f.pilT};border-radius:999px;padding:10px 28px;${TIGHT};font-weight:700;font-size:22px;letter-spacing:.2em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}
+    </div>
+    <div data-area style="position:absolute;left:100px;right:100px;top:${(s.fotoY || 92) + A + 46}px;bottom:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;text-align:center">
+      <div data-titulo style="${SERIF};font-size:${s.ts || 88}px;line-height:1.02;letter-spacing:-.025em;color:${f.tinta}">${fmt(s.titulo || '', m)}</div>
+      ${s.texto ? `<div style="${TIGHT};font-weight:500;font-size:28px;line-height:1.3;color:${f.tinta};opacity:.9">${fmt(s.texto, m)}</div>` : ''}
+    </div>
+    <div style="position:absolute;left:96px;right:96px;bottom:88px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:22px;color:${f.tinta}">
+      <span style="font-weight:600;border:1.5px solid ${f.tinta};border-radius:999px;padding:6px 22px">${ARROBA}</span><span style="font-weight:700;letter-spacing:.18em">ARRASTA →</span></div></div>`;
+}
+
+// ================= NOTA (páginas suaves, irmãs da capa design) =================
+// Papel e blush alternados, moldura arredondada, número grande em Gloock, a dúvida num cartão branco
+// e a dica com o rótulo "como achar". Tipos: item (titulo, fala, texto, rotulo) e pergunta (titulo, texto, botao).
+const VINHO = '#850F4C';
+const nM = { i: C.pink, cursiva: 1.15, acc: `color:${C.pink}`, b: `font-weight:800;color:${C.pink}` };
+const nRodape = (cor, dir) => `<div style="position:absolute;left:96px;right:96px;bottom:88px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:22px;color:${cor}">
+  <span style="font-weight:600;border:1.5px solid ${cor};border-radius:999px;padding:6px 22px">${ARROBA}</span><span style="font-weight:700;letter-spacing:.18em">${dir}</span></div>`;
+const NOTA = {
+  item(s, ctx, c) {
+    const tot = (c.slides || []).filter(x => x.tipo === 'item').length;
+    const par = s.numero % 2 === 0, bg = par ? C.blush : PAPEL;
+    return `<div style="position:absolute;inset:0;background:${bg}">
+      <div style="position:absolute;inset:40px;border:1.5px solid ${C.claro};border-radius:28px;pointer-events:none"></div>
+      ${brilho(905, 120, 44, C.pink, 8)}
+      <div style="position:absolute;left:110px;top:118px;display:flex;align-items:flex-end;gap:26px">
+        <div style="${SERIF};font-size:210px;line-height:.78;color:${C.pink}">${dois(s.numero)}</div>
+        <div style="padding-bottom:8px;${TIGHT};font-weight:700;font-size:22px;letter-spacing:.22em;text-transform:uppercase;color:${VINHO};line-height:1.6">${esc(s.rotulo || 'pra achar no Código')}<br><span style="color:${C.pink}">${s.numero} de ${tot}</span></div>
+      </div>
+      <div data-area style="position:absolute;left:110px;right:110px;top:330px;bottom:180px;display:flex;flex-direction:column;justify-content:center;gap:70px">
+        <div data-titulo style="${SERIF};font-size:${s.ts || 136}px;line-height:1;letter-spacing:-.025em;color:${VINHO}">${fmt(s.titulo, nM)}</div>
+        ${s.fala ? `<div style="position:relative;margin-top:14px;background:#fff;border-radius:28px;padding:52px 48px 44px;box-shadow:0 14px 34px rgba(238,42,138,.10)">
+          <div style="position:absolute;left:36px;top:-30px;background:${C.pink};color:#fff;border-radius:999px;padding:4px 26px 10px;${CURSIVA};font-size:44px;line-height:1">a dúvida</div>
+          <div data-corpo style="${TIGHT};font-weight:500;font-style:italic;font-size:40px;line-height:1.3;letter-spacing:-.015em;color:${VINHO}">${fmt(s.fala, nM)}</div></div>` : ''}
+        ${s.texto ? `<div style="display:flex;gap:28px;align-items:stretch">
+          <div style="flex:none;width:4px;border-radius:4px;background:${C.pink}"></div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="${TIGHT};font-weight:800;font-size:24px;letter-spacing:.22em;text-transform:uppercase;color:${C.pink}">${esc(s.dica || 'como achar')}</div>
+            <div data-corpo style="${TIGHT};font-weight:500;font-size:40px;line-height:1.3;letter-spacing:-.015em;color:${VINHO}">${fmt(s.texto, nM)}</div></div></div>` : ''}
+      </div>${nRodape(VINHO, s.numero < tot ? 'ARRASTA →' : '')}</div>`;
+  },
+  pergunta(s) {
+    const m = { i: '#FFD3EA', cursiva: 1.15, acc: 'color:#FFD3EA', b: 'font-weight:800;color:#fff' };
+    return `<div style="position:absolute;inset:0;background:${C.escuro}">
+      <div style="position:absolute;inset:40px;border:1.5px solid rgba(255,255,255,.6);border-radius:28px;pointer-events:none"></div>
+      ${brilho(150, 170, 54, '#fff')}${brilho(860, 1010, 40, '#FFD3EA', 12)}
+      <div data-area style="position:absolute;left:120px;right:120px;top:200px;bottom:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:44px">
+        <div data-titulo style="${SERIF};font-size:${s.ts || 104}px;line-height:1.02;letter-spacing:-.025em;color:#fff">${fmt(s.titulo, m)}</div>
+        <div style="width:120px;height:2px;background:rgba(255,255,255,.7)"></div>
+        ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:34px;line-height:1.36;color:#fff;max-width:780px">${fmt(s.texto, m)}</div>` : ''}
+        ${pilula(fmt(s.botao || 'comenta aqui ↓'), '#fff', C.escuro, 'font-size:28px;padding:14px 40px;letter-spacing:.06em;text-transform:uppercase')}
+      </div>${nRodape('#fff', '')}</div>`;
+  },
+};
+
+const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE, nota: NOTA };
 
 export function renderCarrossel(c) {
   const estilo = ESTILOS[c.estilo] || TREND;
@@ -555,7 +626,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaD' ? capaD : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
+    const f = s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };

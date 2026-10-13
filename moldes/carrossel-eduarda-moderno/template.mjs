@@ -9,7 +9,8 @@ const NOME = 'Eduarda Caraciolo';
 const CARGO = 'Advogada · Direito Civil e ECA';
 const ARROBA = '@EDUARDACARACIOLO';
 
-const SEC = '#4A3F40', ROSE = '#C99A9D', MARCA = '#D8B1B3', ROSE_ESC = '#A9767A';
+// Paleta: papel do Carrossel Diva e os rosas do Pop (a pedido, no lugar do rosé antigo).
+const SEC = '#6E3553', ROSE = '#F29AD8', MARCA = '#FDEAF4', ROSE_ESC = '#EE2A8A';
 const SERIF = "font-family:'Instrument Serif',serif";
 const HANKEN = "font-family:'Hanken Grotesk',sans-serif";
 const CORM = "font-family:'Cormorant Garamond',serif";
@@ -51,15 +52,31 @@ function avatar(ctx, px, tom = 'claro') {
 const texto = (s) => lista(s.texto);
 
 // 1a · Editorial: papel, fios finos, Instrument Serif + Hanken Grotesk.
-const E = { bg: '#F4EFEA', tinta: '#231C1D', acc: ROSE_ESC, fio: '#CDBFBC' };
+const E = { bg: '#F6F2EE', tinta: '#5C0A33', acc: ROSE_ESC, fio: '#F7B9E0' };
 const eMold = (tag, miolo) => `
   <div style="position:absolute;left:88px;right:88px;top:72px;display:flex;justify-content:space-between;${HANKEN};font-size:20px;font-weight:600;letter-spacing:.24em;color:${E.tinta}"><span>${NOME.toUpperCase()}</span><span style="color:${E.acc};text-transform:uppercase">${esc(tag || '')}</span></div>
   <div style="position:absolute;left:88px;right:88px;top:118px;height:1px;background:${E.tinta}"></div>
   ${miolo}
   <div style="position:absolute;left:88px;right:88px;bottom:118px;height:1px;background:${E.fio}"></div>
-  <div style="position:absolute;left:88px;right:88px;bottom:66px;${HANKEN};font-size:20px;letter-spacing:.08em;color:#6E6263">Advogada — Direito Civil e ECA</div>`;
+  <div style="position:absolute;left:88px;right:88px;bottom:66px;${HANKEN};font-size:20px;letter-spacing:.08em;color:${SEC}">Advogada — Direito Civil e ECA</div>`;
 const EDITORIAL = {
   capa(s, c) {
+    // recorte: foto de estúdio sem fundo (PNG), em tamanho natural, apoiada no fio de baixo dentro de um arco rosa.
+    if (s.recorte) {
+      const src = c.imgs[s.foto];
+      if (!src) c.faltando.add(s.foto);
+      const L = s.recorteLargura || 700;
+      return eMold(s.tag, `
+        <span style="position:absolute;left:60px;bottom:200px;${SERIF};font-style:italic;font-size:${s.numeroTam || 460}px;line-height:.8;color:${ROSE}">${esc(s.numeroFundo || '')}</span>
+        <div style="position:absolute;right:88px;bottom:119px;width:${L}px;height:${s.arcoAltura || 700}px;border-radius:${L / 2}px ${L / 2}px 0 0;background:${ROSE}"></div>
+        <div style="position:absolute;right:88px;bottom:119px;width:${L}px;height:${s.arcoAltura || 700}px;border-radius:${L / 2}px ${L / 2}px 0 0;overflow:hidden">
+          ${src ? `<img data-foto src="${src}" style="position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:${s.fotoLargura || L}px;display:block">` : ''}</div>
+        <div data-area style="position:absolute;left:88px;right:88px;top:160px;display:flex;flex-direction:column;gap:22px">
+          <span data-titulo style="${SERIF};font-size:${s.ts || 104}px;line-height:.98;letter-spacing:-.01em;color:${E.tinta};text-wrap:balance">${fmt(s.titulo, { acc: E.acc })}</span>
+          <span data-corpo style="${HANKEN};font-size:32px;color:${SEC}">${fmt(s.texto)}</span>
+        </div>
+        <span style="position:absolute;left:88px;bottom:150px;${HANKEN};font-size:22px;font-weight:600;letter-spacing:.16em;color:${E.acc}">ARRASTE →</span>`);
+    }
     return eMold(s.tag, `
       ${s.numeroFundo ? `<div style="position:absolute;left:70px;top:150px;${SERIF};font-style:italic;font-size:620px;line-height:1;color:${ROSE}">${esc(s.numeroFundo)}</div>` : ''}
       ${s.foto ? `<div style="position:absolute;right:88px;top:170px;width:${s.numeroFundo ? 520 : 904}px;height:500px;overflow:hidden">${foto(c, s.foto, { pos: s.fotoPos || 'center 30%', tom: 'papel' })}</div>

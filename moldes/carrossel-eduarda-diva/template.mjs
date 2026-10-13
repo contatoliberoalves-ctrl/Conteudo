@@ -89,6 +89,23 @@ const TIPOS = {
       </div>
       ${rodape()}${grao(.18, 'multiply')}</div>`;
   },
+  // Capa polaroide: foto de estúdio inteira (proporção original, sem corte) num polaroide inclinado,
+  // título condensado no alto, legenda em cursiva e caixa preta opcional. Campos: foto, titulo, ts,
+  // legenda, texto, fotoLargura (px), fotoY, rot (graus), proporcao (altura/largura, padrão 1,5).
+  capaPolaroid(s, ctx) {
+    const src = s.foto && ctx.imgs[s.foto];
+    if (s.foto && !src) ctx.faltando.add(s.foto);
+    const L = s.fotoLargura || 400, A = Math.round(L * (s.proporcao || 1.5));
+    return `<div style="position:absolute;inset:0;${quadriculado}">${cabecalho()}
+      <div data-area style="position:absolute;left:100px;right:100px;top:${s.tituloY || 150}px;z-index:4">${anton(s.titulo, s.ts || 118, R.tinta, 'line-height:1.14')}</div>
+      <div style="position:absolute;right:${s.direita ?? 110}px;top:${s.fotoY || 520}px;width:${L + 36}px;padding:18px 18px 92px;box-sizing:border-box;background:#fff;box-shadow:0 26px 50px rgba(0,0,0,.2);transform:rotate(${s.rot ?? 3}deg);z-index:3">
+        <div style="position:absolute;left:50%;top:-26px;width:190px;height:54px;margin-left:-95px;background:${R.orquidea};opacity:.85;transform:rotate(-4deg)"></div>
+        ${src ? `<img data-foto src="${src}" style="display:block;width:${L}px;height:${A}px;object-fit:contain;background:#eee">` : `<div style="width:${L}px;height:${A}px;background:#eee"></div>`}
+        ${s.legenda ? `<div style="position:absolute;left:0;right:0;bottom:16px;text-align:center;${CURSIVA};font-size:56px;line-height:1;color:${R.fucsia}">${esc(s.legenda)}</div>` : ''}
+      </div>
+      ${s.texto ? `<div data-area style="position:absolute;left:100px;width:${s.caixaLargura || 420}px;top:${s.caixaY || 760}px;z-index:5;transform:rotate(-2deg)">${caixaPreta(s.texto, s.caixaTam || 40)}</div>` : ''}
+      ${figurinhas(s.figurinhas)}${rodape()}${grao(.18, 'multiply')}</div>`;
+  },
   // Texto: título condensado + caixa preta (clima da capa filme), fundo papel.
   texto(s) {
     return `<div style="position:absolute;inset:0;${papel()}">${cabecalho('#777')}

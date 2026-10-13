@@ -24,6 +24,7 @@ Marcação: `**negrito**`, `*itálico de destaque*` (o toque serifado/rosé dos 
 | tipo | campos |
 |---|---|
 | capa | `titulo`, `texto`, `foto`, `fotoPos`; 1a: `tag` (canto direito), `numeroFundo` (número gigante; a foto fica ao lado dele), `legenda` (legenda da foto, padrão "A autora"); 1c: `kicker` |
+| capa (1a com `recorte: true`) | `foto` = PNG sem fundo (recorte de estúdio, corte reto embaixo), apoiado no fio de baixo dentro de um arco rosa; `numeroFundo` vai à esquerda; `recorteLargura`, `arcoAltura`, `fotoLargura`, `numeroTam`, `ts`. A paleta da 1a é o papel do Diva (#F6F2EE) com os rosas do Pop. |
 | item | `titulo`, `texto` (lista de parágrafos: o último sai em destaque), `rotulo` ("Erro" → "ERRO Nº 01" na 1a e "PRIMEIRO ERRO" na 1c), `tag` (troca o rótulo inteiro), `numero` (automático) |
 | resumo | `titulo`, `itens[]` (até 6), `tag` |
 | cta | `titulo`, `texto`, `botao`, `foto`; 1a: `tag`; 1c: `marca` (palavra grande em itálico, ex.: "VDE") |
