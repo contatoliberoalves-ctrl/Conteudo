@@ -1,0 +1,57 @@
+[
+  {
+    "id": "documentos-para-casar",
+    "titulo": "Vai casar? Os documentos para a habilitação",
+    "slides": [
+      { "tipo": "capa", "kicker": "Casamento civil", "titulo": "Vai casar? Veja os [[documentos]] para a habilitação", "texto": "Salve este post e separe tudo antes de agendar." },
+      { "tipo": "lista", "kicker": "Para solteiros", "titulo": "Se você é [[solteiro(a)]]", "itens": [
+        { "texto": "Certidão de nascimento original legível ou documento equivalente" },
+        { "texto": "RG e CPF", "obs": "Cópia" },
+        { "texto": "Comprovante de endereço (de Petrolina/PE) em nome do noivo, noiva ou dos pais", "obs": "Cópia" }
+      ] },
+      { "tipo": "lista", "kicker": "Para divorciados", "titulo": "Se você é [[divorciado(a)]]", "corpo": 34, "itens": [
+        { "texto": "Certidão de casamento original com averbação do divórcio" },
+        { "texto": "Cópia da sentença do divórcio, onde esclareça se houve ou não bens a partilhar, ou termo de audiência que trate da partilha de bens" },
+        { "texto": "RG e CPF", "obs": "Cópia" },
+        { "texto": "Comprovante de endereço (de Petrolina/PE) em nome do noivo, noiva ou dos pais", "obs": "Cópia" }
+      ] },
+      { "tipo": "lista", "kicker": "Para viúvos", "titulo": "Se você é [[viúvo(a)]]", "corpo": 34, "itens": [
+        { "texto": "Certidão de casamento original e cópia do óbito do(a) falecido(a)" },
+        { "texto": "RG e CPF (cópia) ou CNH" },
+        { "texto": "Comprovante de endereço (de Petrolina/PE) em nome do noivo, noiva ou dos pais", "obs": "Cópia" },
+        { "texto": "Inventário de bens do casamento anterior" }
+      ], "nota": "Caso o inventário não tenha sido feito, deve casar com o regime de **separação obrigatória de bens**." },
+      { "tipo": "lista", "fundo": "carvao", "kicker": "Para todos os casos", "titulo": "Atenção a estes [[detalhes]]", "corpo": 33, "itens": [
+        "Os RGs apresentados devem estar dentro do prazo de validade (art. 15 do Decreto nº 10.977/2022).",
+        "Todas as certidões devem ter sido expedidas há, no máximo, **90 dias** antes da habilitação, em bom estado e no original.",
+        "No ato da entrada para habilitação comparecem os noivos e **2 testemunhas**, com RG e CPF (cópia)."
+      ] },
+      { "tipo": "passos", "kicker": "Autoatendimento", "titulo": "Agende sua habilitação [[on-line]]", "itens": [
+        "Acesse **registrocivil.net/76745**",
+        "Entre e faça seu cadastro",
+        "Envie os documentos",
+        "Agende o dia e a hora do atendimento"
+      ] },
+      { "tipo": "destaque", "kicker": "Valores", "numeros": [
+        { "valor": "R$ 323,64", "rotulo": "Valor do casamento" },
+        { "valor": "R$ 150,00", "rotulo": "Sala de casamento em Curral Queimado" }
+      ], "tv": 140, "texto": "A sala pode ser alugada para a celebração e as fotos." },
+      { "tipo": "cta", "kicker": "Dúvidas?", "titulo": "Fale com o [[cartório]]", "texto": "Sugerimos comparecer antes da data agendada para providenciar as 2ª vias atualizadas das certidões." }
+    ]
+  },
+  {
+    "id": "regime-de-bens",
+    "titulo": "Regime de bens: qual escolher no casamento",
+    "slides": [
+      { "tipo": "capa", "kicker": "Casamento civil", "titulo": "Regime de [[bens]]: entenda antes de casar", "texto": "Os 6 regimes explicados em poucas palavras." },
+      { "tipo": "texto", "kicker": "O regime legal", "titulo": "Comunhão [[parcial]] de bens", "texto": ["Os bens havidos antes do casamento continuam a pertencer a cada um dos cônjuges, comunicando-se apenas os bens adquiridos após o matrimônio."] },
+      { "tipo": "texto", "kicker": "Tudo junto", "titulo": "Comunhão [[universal]] de bens", "texto": ["Comunicam-se todos os bens, isto é, tanto os que já existiam como os que vierem a adquirir após o casamento."] },
+      { "tipo": "texto", "kicker": "Divide no fim", "titulo": "Participação final nos [[aquestos]]", "corpo": 38, "texto": ["Não haverá comunhão em relação aos bens havidos pelos cônjuges antes e durante o matrimônio.", "Porém, se houver a dissolução da sociedade conjugal, dividem-se os bens adquiridos pelo casal, a título oneroso, durante o casamento."] },
+      { "tipo": "texto", "kicker": "Cada um com o seu", "titulo": "Separação [[total]] de bens", "texto": ["Não se comunicam os bens havidos antes tampouco os havidos após o casamento."] },
+      { "tipo": "texto", "kicker": "Sob medida", "titulo": "Regime [[misto]]", "corpo": 34, "texto": ["Os noivos que desejarem adotar regime de bens distinto do legal ou estabelecer cláusulas patrimoniais personalizadas podem fazê-lo pelo **pacto antenupcial**.", "O Código Civil (art. 1.639) permite pactuar quanto aos bens o que lhes aprouver, e o Enunciado 331 do CJF permite misturar os regimes, desde que as cláusulas não contrariem a lei brasileira."] },
+      { "tipo": "texto", "fundo": "carvao", "kicker": "Sem escolha", "titulo": "Separação [[obrigatória]] de bens", "corpo": 36, "texto": ["Algumas pessoas não podem escolher o regime de bens: os maiores de 70 anos, os menores de 16 que precisaram ser autorizados pelo juiz para casar e os demais casos citados no art. 1.523 do Código Civil."] },
+      { "tipo": "lista", "kicker": "Atenção", "titulo": "Precisam de [[pacto antenupcial]]", "itens": ["Comunhão universal de bens", "Separação total de bens", "Participação final nos aquestos", "Regime misto"], "nota": "O pacto é lavrado por escritura no Tabelionato de Notas e deve ser apresentado no momento da habilitação para o casamento." },
+      { "tipo": "cta", "kicker": "Ficou com dúvida?", "titulo": "A gente te [[explica]]", "texto": "Fale com o cartório antes de agendar a habilitação." }
+    ]
+  }
+]
