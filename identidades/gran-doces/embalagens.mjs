@@ -114,21 +114,22 @@ const PROD = [
     cena: () => casinha(330, 1080, 420, C.azul, 'bolinhas', C.creme, 'Brownietone', 'O FAVORITO DA CASA', { gal: true, galLado: true, texto: C.azul }) },
   { id: 'mini-panetone', nome: 'Mini Panetone', peso: '150 g', foto: 'panetone', fundo: C.creme, cor: C.vermelho, desc: 'Versão individual, perfeita para presentear: clássico, gotas de chocolate ou brownietone.',
     cena: () => `${miniCubo(140, 1080, 230, C.verde, 'gotas', C.ouro, 'GOTAS')}${miniCubo(600, 1080, 230, C.azul, 'bolinhas', C.creme, 'BROWNIETONE')}${miniCubo(370, 1170, 250, C.vermelho, 'estrelas', C.ouro, 'CLÁSSICO')}` },
-  { id: 'kits-brownie', nome: 'Kits de Brownie', peso: '6 unidades', foto: 'brownies', fundo: '#F6E7DA', cor: C.cacau, desc: 'Três sabores em caixas com janela: Tradicional, Ninho e Chocolate. Ótimos para presentear a equipe.',
+  { id: 'kits-brownie', nome: 'Kits de Brownie', peso: '6 unidades', foto: 'brownies', fundo: '#F6E7DA', cor: C.cacau, desc: 'Três sabores, cada um com seu adesivo: Tradicional, Ninho e Chocolate. Caixa kraft com laço, pronta para presentear.',
     cena: () => `<g transform="translate(95,215) scale(.8)">${caixaBrownie(120, 640, C.caramelo, C.creme, 'Tradicional', 'brownies')}${caixaBrownie(330, 900, C.ninho, C.azul, 'Ninho', 'brownies')}${caixaBrownie(120, 1160, C.cacau, C.ouro, 'Chocolate', 'brownies')}</g>` },
-  { id: 'torta-chocolate', nome: 'Torta de Chocolate', peso: '10 fatias', foto: 'fatia', fundo: '#E9F0EA', cor: C.verde, desc: 'Massa de cacau, recheio cremoso de brigadeiro e cobertura de ganache. Vai na caixa redonda de presente.',
+  { id: 'torta-chocolate', nome: 'Torta de Chocolate', peso: '10 fatias', foto: 'fatia', fundo: '#E9F0EA', cor: C.verde, desc: 'Massa de cacau, recheio cremoso de brigadeiro e cobertura de ganache. Acompanha o topo de Feliz Natal da Gran Doces.',
     cena: () => caixaTorta(540, 1080) },
 ];
-const mockup = p => `<div style="position:relative;width:1080px;height:1350px;overflow:hidden;background:radial-gradient(90% 60% at 50% 35%,#fff 0%,${p.fundo} 70%)">
-  <div style="position:absolute;left:0;right:0;bottom:0;height:420px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(60,30,10,.08))"></div>
-  <svg viewBox="0 0 1080 1350" style="position:absolute;inset:0;width:100%;height:100%">${DEFS}${p.cena()}</svg></div>`;
+// Foto da embalagem (montar_fotos.py): foto real com o adesivo/etiqueta da Gran Doces aplicado.
+const FOTOEMB = id => 'file://' + path.join(root, 'saida/fotos-embalagem', id + '.jpg');
+const mockup = p => `<div style="width:1080px;height:1350px;background:url(${FOTOEMB(p.id)}) center/cover"></div>`;
 const post = p => `<div style="position:relative;width:1080px;height:1350px;overflow:hidden">${mockup(p)}
-  <div style="position:absolute;left:80px;right:80px;top:70px;display:flex;justify-content:space-between;align-items:flex-start">
-    <div><div style="font-weight:700;font-size:24px;letter-spacing:.3em;color:${p.cor}">NATAL 2026</div><div class="f" style="font-weight:900;font-size:76px;line-height:1;letter-spacing:-.03em;color:${C.noite};margin-top:10px;max-width:640px">${p.nome}</div></div>
-    <div style="width:210px;height:210px;border-radius:50%;overflow:hidden;border:8px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.18);flex:none"><div style="width:100%;height:100%;background:url(${FOTO(p.foto)}) center/cover"></div></div></div>
-  <div style="position:absolute;left:80px;right:80px;bottom:60px;display:flex;justify-content:space-between;align-items:flex-end;color:${C.noite}">
-    <div style="font-size:30px;font-weight:700">${p.peso} · <span style="color:${p.cor}">R$ 00,00</span></div>
-    <div class="f" style="font-weight:900;font-size:40px;color:${C.azul}">Gran Doces</div></div></div>`;
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,4,.62) 0%,rgba(10,6,4,0) 26%,rgba(10,6,4,0) 74%,rgba(10,6,4,.66) 100%)"></div>
+  <div style="position:absolute;left:80px;right:80px;top:70px;color:#fff">
+    <div style="font-weight:700;font-size:24px;letter-spacing:.3em;color:${C.ouro}">NATAL 2026 · GRAN DOCES</div>
+    <div class="f" style="font-weight:900;font-size:80px;line-height:1;letter-spacing:-.03em;margin-top:12px;max-width:900px">${p.nome}</div></div>
+  <div style="position:absolute;left:80px;right:80px;bottom:64px;display:flex;justify-content:space-between;align-items:flex-end;color:#fff">
+    <div style="font-size:32px;font-weight:700">${p.peso} · <span style="color:${C.ouro}">R$ 00,00</span></div>
+    <div style="font-size:26px;font-weight:700;letter-spacing:.14em;background:${C.ouro};color:${C.cacau};padding:12px 26px;border-radius:999px">ENCOMENDE</div></div></div>`;
 
 // ---------- cardápio A4 ----------
 const W = 1240, H = 1754;
@@ -142,12 +143,12 @@ const capa = `<div style="position:relative;width:${W}px;height:${H}px;overflow:
     <div class="f" style="font-weight:900;font-size:100px;letter-spacing:-.03em;margin-top:60px">Gran Doces</div>
     <div style="font-weight:700;font-size:26px;letter-spacing:.42em;margin-top:16px">CONFEITARIA</div></div></div>`;
 const pagina = (p, img) => `<div style="position:relative;width:${W}px;height:${H}px;overflow:hidden;background:${C.creme}">
-  <img src="file://${img}" style="position:absolute;left:0;top:0;width:${W}px;height:${W * 1350 / 1080 * .74}px;object-fit:cover;object-position:center 72%">
+  <img src="${FOTOEMB(p.id)}" style="position:absolute;left:0;top:0;width:${W}px;height:${W * 1350 / 1080 * .76}px;object-fit:cover;object-position:center 60%">
   <div style="position:absolute;left:0;right:0;top:${W * 1350 / 1080 * .74 - 10}px;bottom:0;background:${p.cor};padding:60px 90px;color:${C.creme}">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:40px">
       <div><div class="f" style="font-weight:900;font-size:84px;line-height:1;letter-spacing:-.03em">${p.nome}</div>
         <div style="font-weight:700;font-size:30px;letter-spacing:.12em;color:${C.ouro};margin-top:20px">${p.peso.toUpperCase()} · R$ 00,00</div></div>
-      <div style="width:200px;height:200px;border-radius:50%;overflow:hidden;border:6px solid ${C.creme};flex:none;margin-top:-140px;box-shadow:0 18px 40px rgba(0,0,0,.25)"><div style="width:100%;height:100%;background:url(${FOTO(p.foto)}) center/cover"></div></div></div>
+      </div>
     <p style="font-size:34px;line-height:1.5;margin-top:26px;max-width:960px;opacity:.94">${p.desc}</p>
     <div style="position:absolute;right:90px;bottom:60px" class="f"><span style="font-weight:900;font-size:34px;color:${C.ouro}">Gran Doces</span></div></div></div>`;
 const contato = `<div style="position:relative;width:${W}px;height:${H}px;overflow:hidden;background:${C.azul};display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:${C.creme}">

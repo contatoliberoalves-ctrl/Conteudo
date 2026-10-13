@@ -13,3 +13,6 @@ Usadas só para ilustrar as peças; troque pelas fotos dos produtos da Gran Doce
 - biscoitos2.jpg: Christmas gingerbread cookies ·  · cc0 · 
 - presente.jpg:  ·  · cc0 · 
 - presente2.jpg: Person giving Christmas present image ·  · cc0 · 
+
+## Fotos de embalagem (montar_fotos.py)
+- src-panettone-0.jpg, src-red-gift-box-2.jpg, src-christmas-gift-box-9.jpg, src-christmas-gift-box-5.jpg, src-chocolate-cake-slice-0.jpg: Openverse/Rawpixel, CC0. Os adesivos e o topo da Gran Doces foram aplicados por cima.
