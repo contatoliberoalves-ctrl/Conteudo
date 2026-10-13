@@ -23,5 +23,7 @@ Nas capas, use só fotos em que ela aparece sozinha.
 Fotos de artistas (mandadas pelo usuário, fora do git): diva-hannah.jpg, diva-selena.jpg, diva-taylor.jpg, diva-zendaya.jpg, diva-emma.jpg, usadas nos posts `*-pop-legenda`. Numa sessão nova, peça de novo.
 | eduarda-debrucada.jpg | CIVIL/CIVIL-39.JPG |
 | eduarda-escrevendo.jpg | CIVIL/CIVIL-3.JPG |
+| eduarda-caneta.jpg | CIVIL/CIVIL-6.JPG, sem a faixa preta do alto (cortada a partir do pixel 438) |
+| eduarda-pensando.jpg | CIVIL/CIVIL-4.JPG, sem a faixa preta do alto (cortada a partir do pixel 440) |
 
 Recortes sem fundo (rembg, modelo u2net_human_seg; ver README do carrossel-eduarda-diva): eduarda-joinha-recorte.png, eduarda-surpresa-recorte.png e outros *-recorte.png.

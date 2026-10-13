@@ -167,24 +167,15 @@
   },
   {
     "id": "decora-esqueleto-filme",
-    "titulo": "Você decora esqueleto...",
+    "titulo": "Decorar esqueleto não aprova",
     "slides": [
       {
         "tipo": "capaLimpa",
-        "foto": "eduarda-gesticulando.jpg",
-        "fotoPos": "center 0%",
-        "titulo": "Você decora {esqueleto}\nou reconhece o que\na banca {pede}?",
+        "foto": "eduarda-caneta.jpg",
+        "fotoPos": "center top",
+        "titulo": "Decorar {esqueleto}\nnão aprova.\n{Reconhecer} a peça, sim.",
         "ts": 88,
-        "tituloY": 150,
-        "figurinhas": [
-          {
-            "e": "👀",
-            "x": 860,
-            "y": 470,
-            "s": 90,
-            "r": 8
-          }
-        ]
+        "tituloY": 860
       },
       {
         "tipo": "lista",
