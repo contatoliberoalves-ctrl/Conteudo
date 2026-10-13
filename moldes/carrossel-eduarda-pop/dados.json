@@ -149,9 +149,14 @@
     "tom": "fucsia",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "capaD",
+        "variante": "vs",
+        "fundo": "fucsia",
         "kicker": "Direito de Família",
-        "titulo": "União estável\nou *casamento*?",
+        "a": "União estável",
+        "b": "*casamento*",
+        "ta": 120,
+        "tb": 150,
         "texto": "O que muda de verdade entre os dois."
       },
       {
@@ -223,7 +228,13 @@
         "texto": "Me chama no direct.",
         "botao": "Link na bio"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "kicker": "Direito de Família",
+      "titulo": "União estável\nou *casamento*?",
+      "texto": "O que muda de verdade entre os dois."
+    }
   },
   {
     "id": "vicio-ou-fato-chique",
@@ -232,9 +243,14 @@
     "tom": "fucsia",
     "slides": [
       {
-        "tipo": "capa",
-        "kicker": "Responsabilidade civil e consumo",
-        "titulo": "Vício ou *fato* do produto?",
+        "tipo": "capaD",
+        "variante": "vs",
+        "fundo": "fucsia",
+        "kicker": "Consumidor",
+        "a": "Vício",
+        "b": "*fato* do produto",
+        "ta": 170,
+        "tb": 120,
         "texto": "A diferença que mais derruba ponto nas questões de Civil."
       },
       {
@@ -310,7 +326,13 @@
         "texto": "Manda pra quem sempre confunde os dois.",
         "botao": "Salvar"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "kicker": "Responsabilidade civil e consumo",
+      "titulo": "Vício ou *fato* do produto?",
+      "texto": "A diferença que mais derruba ponto nas questões de Civil."
+    }
   },
   {
     "id": "pecas-mais-cobradas-pop-legenda",
@@ -538,11 +560,15 @@
     "estilo": "trend",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "capaD",
+        "variante": "vs",
+        "fundo": "branco",
         "kicker": "Direito Civil",
-        "titulo": "Prescrição ou decadência?\n==O truque de 1 segundo==",
-        "texto": "Pra nunca mais confundir os dois na prova.",
-        "ts": 104
+        "a": "Prescrição",
+        "b": "*decadência*",
+        "ta": 130,
+        "tb": 150,
+        "texto": "O truque de **1 segundo** pra nunca mais confundir."
       },
       {
         "tipo": "texto",
@@ -598,7 +624,14 @@
         "texto": "E manda pra quem estuda Civil com você.",
         "botao": "Salvar e compartilhar ✦"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "kicker": "Direito Civil",
+      "titulo": "Prescrição ou decadência?\n==O truque de 1 segundo==",
+      "texto": "Pra nunca mais confundir os dois na prova.",
+      "ts": 104
+    }
   },
   {
     "id": "segunda-fase-em-eras-trend",
@@ -606,9 +639,12 @@
     "estilo": "trend",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "capaD",
+        "variante": "disco",
+        "fundo": "blush",
         "kicker": "Dados da prova",
-        "titulo": "A 2ª fase de Civil\n==em eras==",
+        "titulo": "A 2ª fase de Civil\nem *eras*",
+        "ts": 96,
         "texto": "Como a peça cobrada mudou do 2º ao 46º exame."
       },
       {
@@ -670,7 +706,13 @@
         "texto": "Me conta nos comentários ✨",
         "botao": "Salvar pra depois"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "kicker": "Dados da prova",
+      "titulo": "A 2ª fase de Civil\n==em eras==",
+      "texto": "Como a peça cobrada mudou do 2º ao 46º exame."
+    }
   },
   {
     "id": "4-coisas-segunda-fase-scrap",
@@ -678,8 +720,14 @@
     "estilo": "scrap",
     "slides": [
       {
-        "tipo": "capa",
-        "titulo": "não decore o Código.\n==aprenda a achar==\nessas 4 coisas:"
+        "tipo": "capaD",
+        "variante": "numero",
+        "numero": "4",
+        "fundo": "blush",
+        "kicker": "2ª fase",
+        "titulo": "coisas pra *achar*\nno Código",
+        "ts": 100,
+        "texto": "Não decore o Código. Aprenda a achar isso aqui."
       },
       {
         "tipo": "item",
@@ -711,7 +759,11 @@
         "titulo": "e aí, qual desses é o seu {ponto fraco}?",
         "texto": "Me conta aqui. E se quiser treinar com correção: mentoria de Civil 2ª fase, **5 simulados corrigidos** 💌"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "titulo": "não decore o Código.\n==aprenda a achar==\nessas 4 coisas:"
+    }
   },
   {
     "id": "erros-na-peca-legenda",
@@ -719,9 +771,14 @@
     "estilo": "scrap",
     "slides": [
       {
-        "tipo": "capa",
-        "titulo": "4 erros que *tiram ponto* na sua peça de Civil",
-        "texto": "e dá pra evitar com 5 minutos de revisão"
+        "tipo": "capaD",
+        "variante": "numero",
+        "numero": "4",
+        "fundo": "branco",
+        "kicker": "Peça de Civil",
+        "titulo": "erros que\n*tiram ponto*",
+        "ts": 104,
+        "texto": "E dá pra evitar com 5 minutos de revisão."
       },
       {
         "tipo": "legenda",
@@ -756,7 +813,12 @@
         "titulo": "qual desses você *já* cometeu?",
         "texto": "Na mentoria de Civil 2ª fase são **5 simulados com correção personalizada**. Me chama no direct 💌"
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "titulo": "4 erros que *tiram ponto* na sua peça de Civil",
+      "texto": "e dá pra evitar com 5 minutos de revisão"
+    }
   },
   {
     "id": "alimentos-gravidicos-blocos",
@@ -765,10 +827,13 @@
     "cor": "branco",
     "slides": [
       {
-        "tipo": "capa",
-        "cor": "escuro",
-        "titulo": "Alimentos gravídicos\n= pensão *antes*\ndo bebê nascer",
-        "sub": "Lei 11.804/2008 sem juridiquês."
+        "tipo": "capaD",
+        "variante": "selo",
+        "fundo": "fucsia",
+        "kicker": "Família",
+        "titulo": "Alimentos gravídicos:\npensão *antes*\ndo bebê nascer",
+        "ts": 104,
+        "selo": "Lei 11.804/2008 sem juridiquês"
       },
       {
         "tipo": "dica",
@@ -834,7 +899,13 @@
         "sub": "Você não precisa esperar o bebê nascer.",
         "texto": "Me chama no direct\nque eu te explico o caminho."
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capa",
+      "cor": "escuro",
+      "titulo": "Alimentos gravídicos\n= pensão *antes*\ndo bebê nascer",
+      "sub": "Lei 11.804/2008 sem juridiquês."
+    }
   },
   {
     "id": "por-que-escolher-civil-trend",

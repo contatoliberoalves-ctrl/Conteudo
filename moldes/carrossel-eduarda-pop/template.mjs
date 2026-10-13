@@ -503,6 +503,47 @@ const CHIQUE = {
   },
 };
 
+
+// ================= CAPA DESIGN (família única para todos os estilos) =================
+// Mesma grade em todas: moldura fina, etiqueta no alto, título em Gloock com a palavra-chave em cursiva,
+// @ e "arrasta" embaixo. Muda só o fundo (fucsia, branco, blush) e o motivo central:
+//   "vs" (duas palavras com o selo "ou"), "numero" (número vazado gigante), "disco" (vinil), "selo" (pílula da lei).
+const FUNDOS_D = {
+  fucsia: { bg: C.escuro, tinta: '#fff', acc: '#FFD3EA', linha: 'rgba(255,255,255,.6)', pil: '#fff', pilT: C.escuro },
+  branco: { bg: '#fff', tinta: C.escuro, acc: C.claro, linha: C.claro, pil: C.escuro, pilT: '#fff' },
+  blush: { bg: C.blush, tinta: C.escuro, acc: C.claro, linha: C.claro, pil: C.escuro, pilT: '#fff' },
+};
+function capaD(s) {
+  const f = FUNDOS_D[s.fundo] || FUNDOS_D.fucsia, m = { i: f.acc, cursiva: 1.15, b: 'font-weight:800', hl: `background:${f.pil};color:${f.pilT};padding:0 .14em;border-radius:.12em` };
+  const tit = (x, px, al = 'center') => `<div data-titulo style="${SERIF};font-size:${px}px;line-height:1.02;letter-spacing:-.025em;color:${f.tinta};text-align:${al}">${fmt(x, m)}</div>`;
+  const sub = s.texto ? `<div style="${TIGHT};font-weight:500;font-size:32px;line-height:1.35;color:${f.tinta};opacity:.92;text-align:center;max-width:760px">${fmt(s.texto, m)}</div>` : '';
+  let motivo = '';
+  if (s.variante === 'vs') motivo = `<div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+      ${tit(s.a, s.ta || 150)}
+      <div style="display:flex;align-items:center;gap:26px;width:100%;justify-content:center"><span style="flex:1;max-width:260px;height:1.5px;background:${f.linha}"></span>
+        <span style="width:118px;height:118px;border-radius:50%;background:${f.pil};color:${f.pilT};display:flex;align-items:center;justify-content:center;${CURSIVA};font-size:74px;line-height:1;padding-bottom:6px">ou</span>
+        <span style="flex:1;max-width:260px;height:1.5px;background:${f.linha}"></span></div>
+      ${tit(s.b, s.tb || 150)}</div>`;
+  else if (s.variante === 'numero') motivo = `<div style="display:flex;align-items:center;gap:36px">
+      <div style="${SERIF};font-size:${s.tn || 460}px;line-height:.78;color:${f.pil};flex:none">${esc(s.numero)}</div>
+      <div style="width:2px;align-self:stretch;background:${f.linha}"></div>
+      ${tit(s.titulo, s.ts || 96, 'left')}</div>`;
+  else if (s.variante === 'disco') motivo = `<div style="display:flex;flex-direction:column;align-items:center;gap:40px">
+      <div style="position:relative;width:420px;height:420px;border-radius:50%;background:repeating-radial-gradient(circle,${f.tinta} 0 2px,${f.bg === '#fff' ? C.escuro : '#2a0a1c'} 2px 9px);box-shadow:0 30px 60px rgba(238,42,138,.35)">
+        <div style="position:absolute;inset:130px;border-radius:50%;background:${f.bg === C.escuro ? '#fff' : C.escuro};display:flex;align-items:center;justify-content:center;${CURSIVA};font-size:48px;color:${f.bg === C.escuro ? C.escuro : '#fff'}">eras</div>
+        <div style="position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px;border-radius:50%;background:${f.bg}"></div></div>
+      ${tit(s.titulo, s.ts || 104)}</div>`;
+  else motivo = `<div style="display:flex;flex-direction:column;align-items:center;gap:34px">${tit(s.titulo, s.ts || 118)}
+      ${s.selo ? `<div style="border:2px solid ${f.tinta};color:${f.tinta};border-radius:999px;padding:12px 34px;${TIGHT};font-weight:700;font-size:26px;letter-spacing:.16em;text-transform:uppercase">${esc(s.selo)}</div>` : ''}</div>`;
+  return `<div style="position:absolute;inset:0;background:${f.bg}">
+    <div style="position:absolute;inset:40px;border:1.5px solid ${f.linha};border-radius:28px;pointer-events:none"></div>
+    ${brilho(92, 92, 46, f.tinta)}${brilho(H > 0 ? 930 : 0, 1150, 34, f.acc, 12)}
+    <div style="position:absolute;left:0;right:0;top:96px;display:flex;justify-content:center">${s.kicker ? `<div style="background:${f.pil};color:${f.pilT};border-radius:999px;padding:10px 28px;${TIGHT};font-weight:700;font-size:22px;letter-spacing:.2em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}</div>
+    <div data-area style="position:absolute;left:110px;right:110px;top:190px;bottom:230px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:44px">${motivo}${sub}</div>
+    <div style="position:absolute;left:96px;right:96px;bottom:88px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:22px;color:${f.tinta}">
+      <span style="font-weight:600;border:1.5px solid ${f.tinta};border-radius:999px;padding:6px 22px">${ARROBA}</span><span style="font-weight:700;letter-spacing:.18em">ARRASTA →</span></div></div>`;
+}
+
 const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE };
 
 export function renderCarrossel(c) {
@@ -512,7 +553,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
+    const f = s.tipo === 'capaD' ? capaD : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };

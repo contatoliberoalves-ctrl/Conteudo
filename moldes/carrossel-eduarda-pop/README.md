@@ -32,6 +32,7 @@ Lista de posts: `id`, `titulo` (nome na galeria), `estilo`, `cor` (só `blocos`:
 Marcação: `**negrito**`, `*destaque*` (cursiva Yellowtail em todos), `==caixa==` (pink no trend, rosa-claro no scrap), `{cor}` (pink no trend, sublinhado no scrap), `\n` quebra a linha. `ts` muda o tamanho do título.
 
 Campos por tipo:
+- **capaD** (qualquer estilo, capa só de design): família única de capas para o feed — moldura fina, etiqueta (`kicker`) em pílula no alto, título em Gloock com `*cursiva*`, @ e ARRASTA embaixo. `fundo`: `fucsia`, `branco` ou `blush` (alterne no feed). `variante`: `vs` (`a`, `b`, `ta`, `tb`: duas palavras com o selo "ou"), `numero` (`numero`, `tn`, `titulo`), `disco` (vinil com "eras", `titulo`) ou sem variante (`titulo`, `selo` em pílula contornada). `texto` vira a linha fina. A capa antiga fica guardada em `capaAntiga` no post.
 - **capaFoto** (qualquer estilo): foto dela inteira, **sem véu nem filtro**, com `kicker`, `titulo` (cada linha vira uma faixa branca) e `texto` por cima; `y` (`base`, `meio`, `topo` ou px), `alinhar: "esquerda"`.
 - **fotoCrua: true** (qualquer slide com foto): usa a foto como veio (fotos de artista na `legenda`). **fotoSugestao**: sem o arquivo, o slide mostra "FOTO AQUI" com essa sugestão e o nome do arquivo esperado.
 - **chique**: `tom` no post; `pagina` ("01"…) no rodapé; `compara`: `colunas: [{titulo, itens[]}, {…}]`.
