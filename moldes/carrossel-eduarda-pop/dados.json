@@ -234,101 +234,6 @@
     }
   },
   {
-    "id": "vicio-ou-fato-chique",
-    "titulo": "Vício ou fato do produto? · chique",
-    "estilo": "chique",
-    "tom": "fucsia",
-    "slides": [
-      {
-        "tipo": "capaRetrato",
-        "foto": "eduarda-falando.jpg",
-        "fundo": "fucsia",
-        "kicker": "Consumidor",
-        "titulo": "Vício *ou*\nfato do produto?",
-        "texto": "A diferença que mais derruba ponto nas questões de Civil."
-      },
-      {
-        "tipo": "texto",
-        "pagina": "01",
-        "kicker": "Vício",
-        "titulo": "O produto *não funciona* como deveria",
-        "texto": "É problema de qualidade ou quantidade: o bem fica impróprio ou vale menos. O fornecedor tem 30 dias para sanar; se não sanar, o consumidor escolhe entre troca, dinheiro de volta ou abatimento (art. 18, § 1º, CDC)."
-      },
-      {
-        "tipo": "texto",
-        "pagina": "02",
-        "kicker": "Fato",
-        "titulo": "O produto *causa um dano*",
-        "texto": "É o acidente de consumo: o defeito atinge a segurança e machuca alguém ou causa prejuízo além do próprio produto (art. 12, CDC)."
-      },
-      {
-        "tipo": "compara",
-        "pagina": "03",
-        "kicker": "Lado a lado",
-        "titulo": "O que *muda* na prova",
-        "colunas": [
-          {
-            "titulo": "Vício",
-            "itens": [
-              "toda a cadeia responde junto (art. 18)",
-              "prazo para reclamar: 30 dias (não durável) ou 90 dias (durável), art. 26",
-              "é **decadência**"
-            ]
-          },
-          {
-            "titulo": "Fato",
-            "itens": [
-              "o comerciante responde de forma **subsidiária** (art. 13)",
-              "prazo de 5 anos para pedir a reparação (art. 27)",
-              "é **prescrição**"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "destaque",
-        "pagina": "04",
-        "titulo": "Na dúvida: o produto *machucou* alguém? É fato.",
-        "texto": "Se só não serve pro que prometeu, é vício."
-      },
-      {
-        "tipo": "oab",
-        "titulo": "Consumo aparece em *toda* prova",
-        "itens": [
-          {
-            "exame": "10º",
-            "texto": "fato do produto e responsabilidade do comerciante"
-          },
-          {
-            "exame": "21º",
-            "texto": "peça: apelação com fato do produto"
-          },
-          {
-            "exame": "30º",
-            "texto": "comerciante e fato do produto"
-          },
-          {
-            "exame": "46º",
-            "texto": "vício de produto e prazo"
-          }
-        ]
-      },
-      {
-        "tipo": "cta",
-        "kicker": "Salva pra revisar",
-        "titulo": "Vício *ou* fato?",
-        "texto": "Manda pra quem sempre confunde os dois.",
-        "botao": "Salvar"
-      }
-    ],
-    "capaAntiga": {
-      "tipo": "capa",
-      "kicker": "Responsabilidade civil e consumo",
-      "titulo": "Vício ou *fato* do produto?",
-      "texto": "A diferença que mais derruba ponto nas questões de Civil."
-    }
-  },
-  {
     "id": "pecas-mais-cobradas-pop-legenda",
     "titulo": "As peças que mais caíram na 2ª fase de Civil · pop (foto + frase)",
     "estilo": "scrap",
@@ -554,14 +459,15 @@
     "estilo": "trend",
     "slides": [
       {
-        "tipo": "capaD",
-        "variante": "vs",
-        "fundo": "branco",
+        "tipo": "capaIndice",
         "kicker": "Direito Civil",
-        "a": "Prescrição",
-        "b": "*decadência*",
-        "ta": 130,
-        "tb": 150,
+        "titulo": "Prescrição ou\n{decadência}?",
+        "ts": 124,
+        "itens": [
+          "Onde a lei esconde **cada prazo**",
+          "O que **cada uma** extingue",
+          "Quando **já caiu** na OAB"
+        ],
         "texto": "O truque de **1 segundo** pra nunca mais confundir."
       },
       {
@@ -628,67 +534,22 @@
     }
   },
   {
-    "id": "4-coisas-segunda-fase-scrap",
-    "titulo": "4 coisas pra saber achar na peça · nota",
-    "estilo": "nota",
-    "slides": [
-      {
-        "tipo": "capaD",
-        "variante": "numero",
-        "numero": "4",
-        "fundo": "blush",
-        "titulo": "coisas pra *achar*\nno Código",
-        "ts": 100,
-        "texto": "Não decore o Código. Aprenda a achar isso aqui."
-      },
-      {
-        "tipo": "item",
-        "titulo": "a peça",
-        "fala": "“eu leio o problema e **travo** na hora de escolher a peça.”",
-        "texto": "Comece pelo **pedido**: o que o cliente quer que o juiz faça? A resposta aponta a ação e o rito."
-      },
-      {
-        "tipo": "item",
-        "titulo": "o fundamento",
-        "fala": "“eu sei a tese, mas **não acho o artigo** a tempo.”",
-        "texto": "Marque no Vade Mecum os artigos que mais caem e faça **remissões** entre eles. Na prova, você só confere."
-      },
-      {
-        "tipo": "item",
-        "titulo": "o prazo",
-        "fala": "“sempre confundo prescrição com **decadência**.”",
-        "texto": "Prazo dos arts. **205 e 206** é de prescrição. Os demais prazos do Código Civil são de decadência."
-      },
-      {
-        "tipo": "item",
-        "titulo": "o pedido",
-        "fala": "“esqueço de pedir **custas e honorários**.”",
-        "texto": "Tenha um **checklist fixo** de pedidos e confira no fim: citação, procedência, provas, custas e honorários."
-      },
-      {
-        "tipo": "pergunta",
-        "titulo": "e aí, qual desses é o seu {ponto fraco}?",
-        "texto": "Me conta aqui. E se quiser treinar com correção: mentoria de Civil 2ª fase, **5 simulados corrigidos** 💌"
-      }
-    ],
-    "capaAntiga": {
-      "tipo": "capa",
-      "titulo": "não decore o Código.\n==aprenda a achar==\nessas 4 coisas:"
-    }
-  },
-  {
     "id": "erros-na-peca-legenda",
     "titulo": "Erros que tiram ponto na peça · scrap legenda",
     "estilo": "scrap",
     "slides": [
       {
-        "tipo": "capaD",
-        "variante": "numero",
-        "numero": "4",
-        "fundo": "branco",
-        "titulo": "erros que\n*tiram ponto*",
-        "ts": 104,
-        "texto": "E dá pra evitar com 5 minutos de revisão."
+        "tipo": "capaIndice",
+        "kicker": "2ª fase de Civil",
+        "titulo": "4 erros que\n==tiram ponto==\nna sua peça",
+        "ts": 118,
+        "itens": [
+          "Errar o **endereçamento**",
+          "Copiar o **artigo inteiro**",
+          "**Inventar** dados",
+          "Pedidos **genéricos**"
+        ],
+        "texto": "E dá pra evitar com **5 minutos** de revisão."
       },
       {
         "tipo": "legenda",
@@ -822,11 +683,16 @@
     "estilo": "trend",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "capaIndice",
         "kicker": "OAB 2ª fase",
         "titulo": "Por que escolher\n==Direito Civil==?",
-        "texto": "7 motivos pra escolher a matéria sem medo.",
-        "ts": 104
+        "ts": 112,
+        "itens": [
+          "Você já estudou a matéria **inteira**",
+          "As peças **se repetem**",
+          "Os casos são do **dia a dia**"
+        ],
+        "texto": "E mais **4 motivos** pra escolher a matéria sem medo."
       },
       {
         "tipo": "item",
@@ -982,6 +848,173 @@
         "titulo": "Bora de ==Civil== comigo",
         "texto": "Salva e manda pra quem ainda está em dúvida.",
         "botao": "Salvar e compartilhar ✦"
+      }
+    ]
+  },
+  {
+    "id": "15-casos-autorais-civil",
+    "titulo": "15 casos autorais · Direito Civil",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Direito Civil",
+        "titulo": "15 casos\n==autorais==",
+        "texto": "Um caso por página. Você descobre a peça?",
+        "ts": 124
+      },
+      {
+        "tipo": "caso",
+        "numero": 1,
+        "texto": "Carla ajuizou ação de indenização contra a Construtora Alfa por infiltrações no apartamento que comprou na planta. Após a instrução, o juiz julgou o pedido **improcedente**, por entender que o defeito decorreu de mau uso. A sentença foi publicada ontem e Carla quer reverter a decisão."
+      },
+      {
+        "tipo": "caso",
+        "numero": 2,
+        "texto": "Laura, 6 anos, é filha de Diego, que consta como pai na certidão de nascimento. Desde a separação dos pais, Diego, que trabalha com carteira assinada, **nunca contribuiu** com as despesas da filha, que mora com a mãe e tem gastos com escola, saúde e alimentação."
+      },
+      {
+        "tipo": "caso",
+        "numero": 3,
+        "texto": "Rafael comprou um carro de Hugo, pagou à vista e transferiu o veículo para o seu nome no Detran, quando não havia nenhuma ação contra Hugo. Meses depois, em execução movida pelo Banco Sigma **apenas contra Hugo**, o carro de Rafael foi penhorado."
+      },
+      {
+        "tipo": "caso",
+        "numero": 4,
+        "texto": "Bruno emprestou R$ 20 mil ao amigo Caio, que assinou um bilhete reconhecendo a dívida e prometendo pagar em seis meses. O documento **não tem assinatura de testemunhas**. O prazo venceu, Caio não pagou e Bruno quer um caminho mais rápido que o procedimento comum."
+      },
+      {
+        "tipo": "caso",
+        "numero": 5,
+        "texto": "Marta, 62 anos, precisa de uma cirurgia cardíaca urgente, mas o plano de saúde negou a cobertura. Ela ajuizou ação de obrigação de fazer com pedido de tutela de urgência, que o juiz **indeferiu em decisão interlocutória**, apesar do laudo médico juntado aos autos."
+      },
+      {
+        "tipo": "caso",
+        "numero": 6,
+        "texto": "Renata alugou seu apartamento a Fábio, por contrato escrito de 30 meses. Há quatro meses, Fábio **não paga os aluguéis** nem o condomínio e não atende às ligações. Renata quer o imóvel de volta e receber os valores em atraso."
+      },
+      {
+        "tipo": "caso",
+        "numero": 7,
+        "texto": "João foi citado em ação de cobrança movida pela Loja Beta, referente a compras feitas no crediário em 2016, com contrato assinado. A ação só foi proposta em 2025, sem nenhuma causa de interrupção do prazo. João procura você para **se defender** no processo."
+      },
+      {
+        "tipo": "caso",
+        "numero": 8,
+        "texto": "Bianca está **grávida** de quatro meses. Ela namorou Tiago por dois anos e tem fotos e mensagens que indicam a paternidade. Desde que soube da gestação, Tiago se recusa a ajudar com consultas, exames e enxoval, e Bianca não consegue arcar com tudo sozinha."
+      },
+      {
+        "tipo": "caso",
+        "numero": 9,
+        "texto": "Sandra viajou e, ao voltar, há duas semanas, encontrou seu sítio **ocupado** por um grupo que trocou os cadeados e se recusa a sair. Ela tem a posse do imóvel há anos, comprovada por contas e testemunhas, e quer retomá-lo com urgência."
+      },
+      {
+        "tipo": "caso",
+        "numero": 10,
+        "texto": "Em ação de indenização, Leandro pediu danos materiais e danos morais. A sentença, publicada há dois dias, condenou o réu aos danos materiais, mas **não disse uma palavra** sobre o pedido de danos morais. Leandro quer que o próprio juiz se manifeste sobre o pedido."
+      },
+      {
+        "tipo": "caso",
+        "numero": 11,
+        "texto": "Há 17 anos, Seu Antônio mora com a família numa casa em um terreno abandonado, onde construiu e plantou. **Nunca houve oposição** do dono que consta no registro, que jamais apareceu. Antônio quer ser reconhecido como proprietário do imóvel."
+      },
+      {
+        "tipo": "caso",
+        "numero": 12,
+        "texto": "Paula foi citada em execução de título extrajudicial movida por Gustavo, com base em uma nota promissória de R$ 30 mil. Paula **já quitou a dívida** e guarda o recibo assinado por Gustavo. Ela quer se defender, mesmo sem penhora de bens."
+      },
+      {
+        "tipo": "caso",
+        "numero": 13,
+        "texto": "Júlia comprou móveis parcelados na Loja Gama. Ao tentar pagar a última parcela, a loja **se recusou a receber** e a dar quitação, cobrando juros que o contrato não prevê. Com medo de ser negativada, Júlia quer pagar o valor correto e se livrar da dívida."
+      },
+      {
+        "tipo": "caso",
+        "numero": 14,
+        "texto": "Lucas, 19 anos, descobriu por um exame de DNA particular que seu pai biológico é Eduardo, que nunca o registrou. Eduardo, que está vivo, **se recusa a reconhecê-lo** voluntariamente. Lucas quer o nome do pai no registro e todos os direitos de filho."
+      },
+      {
+        "tipo": "caso",
+        "numero": 15,
+        "texto": "Em ação de cobrança, o Tribunal de Justiça, ao julgar a apelação, aplicou a Felipe um prazo prescricional **diferente do previsto no Código Civil**, contrariando a lei federal. Não cabem mais embargos de declaração e Felipe quer levar a questão adiante."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "E aí?",
+        "titulo": "Quais são suas ==respostas==?",
+        "texto": "Comenta aqui o número do caso e a peça. Em breve posto o **gabarito**.",
+        "botao": "Comenta aqui ↓"
+      }
+    ]
+  },
+  {
+    "id": "gabarito-15-casos-autorais",
+    "titulo": "Gabarito dos casos autorais · Direito Civil",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capa",
+        "kicker": "Direito Civil",
+        "titulo": "Gabarito dos\n==casos autorais==",
+        "texto": "Confere as 15 respostas e conta quantas você acertou.",
+        "ts": 112
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Gabarito · casos 1 a 8",
+        "titulo": "Qual era a {peça}?",
+        "itens": [
+          "**Apelação**\nart. 1.009, CPC",
+          "**Ação de alimentos**\nLei 5.478/68 e art. 1.694, CC",
+          "**Embargos de terceiro**\nart. 674, CPC",
+          "**Ação monitória**\nart. 700, CPC",
+          "**Agravo de instrumento**\nart. 1.015, I, CPC",
+          "**Ação de despejo por falta de pagamento, com cobrança dos aluguéis**\nart. 9º, III, e art. 62, I, Lei 8.245/91",
+          "**Contestação, alegando prescrição**\nart. 335, CPC, e art. 206, § 5º, I, CC",
+          "**Ação de alimentos gravídicos**\nLei 11.804/2008"
+        ],
+        "contagem": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Gabarito · casos 9 a 15",
+        "titulo": "Qual era a {peça}?",
+        "itens": [
+          "**Ação de reintegração de posse, com pedido liminar**\narts. 560 e 562, CPC",
+          "**Embargos de declaração**\nart. 1.022, II, CPC",
+          "**Ação de usucapião (extraordinária)**\nart. 1.238, CC",
+          "**Embargos à execução**\narts. 914 e 917, CPC",
+          "**Ação de consignação em pagamento**\nart. 335, I, CC, e art. 539, CPC",
+          "**Ação de investigação de paternidade**\nart. 1.606, CC, e art. 27, ECA",
+          "**Recurso especial**\nart. 105, III, “a”, CF, e art. 1.029, CPC"
+        ],
+        "contagem": [
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Fala a verdade:",
+        "titulo": "Quantas você ==acertou==?",
+        "texto": "Comenta seu placar de 0 a 15 e salva pra treinar de novo.",
+        "botao": "Comenta seu placar ↓"
       }
     ]
   }

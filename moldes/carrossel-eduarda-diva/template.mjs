@@ -106,6 +106,35 @@ const TIPOS = {
       ${s.texto ? `<div data-area style="position:absolute;left:100px;width:${s.caixaLargura || 420}px;top:${s.caixaY || 760}px;z-index:5;transform:rotate(-2deg)">${caixaPreta(s.texto, s.caixaTam || 40)}</div>` : ''}
       ${figurinhas(s.figurinhas)}${rodape()}${grao(.18, 'multiply')}</div>`;
   },
+  // Capa lista: o visual da página de lista (papel quadriculado, título condensado, fios tracejados),
+  // com etiqueta, prévia numerada do carrossel e linha fina. Campos: kicker, titulo, ts, itens, contagem, texto.
+  capaLista(s) {
+    return `<div style="position:absolute;inset:0;${quadriculado}">${cabecalho()}
+      <div data-area style="position:absolute;left:100px;right:100px;top:170px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px;z-index:3">
+        ${s.kicker ? `<div style="align-self:flex-start;border:2.5px dashed ${R.fucsia};color:${R.fucsia};border-radius:999px;padding:8px 26px;${POP};font-weight:700;font-size:24px;letter-spacing:.12em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}
+        ${anton(s.titulo, s.ts || 150, R.tinta, 'line-height:1.04')}
+        ${lista(s.itens).length ? `<div style="border-top:2.5px dashed ${R.tinta}">${lista(s.itens).map((t, i) => {
+          const [a, b] = String(t).split('→').map(x => x.trim());
+          return `<div style="display:flex;align-items:center;gap:30px;padding:20px 0;border-bottom:2.5px dashed ${R.tinta}"><span style="${ANTON};font-size:60px;line-height:1;color:${R.fucsia};width:64px;flex:none">${s.contagem ? esc(s.contagem[i] ?? '') : i + 1}</span><div data-corpo style="${POP};font-weight:500;font-size:31px;line-height:1.2;letter-spacing:-.02em;color:${R.tinta}">${fmt(a, { b: 'font-weight:800' })}${b ? ` <span style="color:${R.fucsia}">→</span> <b style="font-weight:800;color:${R.roxo}">${fmt(b)}</b>` : ''}</div></div>`;
+        }).join('')}</div>` : ''}
+        ${s.texto ? `<div data-corpo style="${POP};font-weight:500;font-size:31px;line-height:1.3;letter-spacing:-.02em;color:${R.tinta}">${fmt(s.texto, { b: `font-weight:800;color:${R.fucsia}` })}</div>` : ''}
+      </div>
+      <div style="position:absolute;right:100px;bottom:62px;${POP};font-weight:800;font-size:24px;letter-spacing:.14em;color:${R.fucsia};z-index:7">ARRASTA →</div>
+      ${figurinhas(s.figurinhas)}${rodape()}${grao(.18, 'multiply')}</div>`;
+  },
+  // Capa com a foto inteira, sem filtro, sem granulado e sem zoom (resolução original). O título vai em
+  // faixas pretas com letra branca no alto e a linha fina numa pílula branca. Campos: foto, fotoPos,
+  // titulo ({x} rosa), ts, texto, tituloY, figurinhas.
+  capaLimpa(s, ctx) {
+    const faixa = l => `<span style="background:${R.preto};color:#fff;padding:.04em .18em .02em;${CLONE}">${fmt(l, { acc: `color:${R.orquidea}` })}</span>`;
+    return `<div style="position:absolute;inset:0;background:#222">${img(ctx, s.foto, s.fotoPos || 'center')}
+      <div data-area style="position:absolute;left:80px;right:80px;top:${s.tituloY || 120}px;display:flex;flex-direction:column;align-items:flex-start;gap:26px;z-index:4">
+        <div data-titulo style="${ANTON};font-size:${s.ts || 110}px;line-height:1.16;text-transform:uppercase">${String(s.titulo || '').split('\n').map(faixa).join('<br>')}</div>
+        ${s.texto ? `<div data-corpo style="background:#fff;color:${R.tinta};border-radius:999px;padding:14px 32px;${POP};font-weight:500;font-size:30px;letter-spacing:-.02em;box-shadow:0 10px 24px rgba(0,0,0,.2)">${fmt(s.texto, { b: 'font-weight:800', acc: `color:${R.fucsia};font-weight:800` })}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center;z-index:5"><span style="background:#fff;color:${R.tinta};${POP};font-weight:700;font-size:24px;padding:8px 22px;border-radius:999px">${ARROBA}</span></div>
+      ${figurinhas(s.figurinhas)}</div>`;
+  },
   // Texto: título condensado + caixa preta (clima da capa filme), fundo papel.
   texto(s) {
     return `<div style="position:absolute;inset:0;${papel()}">${cabecalho('#777')}

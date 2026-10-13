@@ -170,35 +170,21 @@
     "titulo": "Você decora esqueleto...",
     "slides": [
       {
-        "tipo": "capaFilme",
+        "tipo": "capaLimpa",
         "foto": "eduarda-gesticulando.jpg",
-        "fotoPos": "60% center",
-        "titulo": "Você\ndecora\n{esqueleto}\n{de peça}...",
-        "ts": 94,
-        "texto": "ou aprende a **reconhecer a peça** que a banca {pede?}",
+        "fotoPos": "center 0%",
+        "titulo": "Você decora {esqueleto}\nou reconhece o que\na banca {pede}?",
+        "ts": 88,
+        "tituloY": 150,
         "figurinhas": [
-          {
-            "e": "💫",
-            "x": 440,
-            "y": 190,
-            "s": 80,
-            "r": -10
-          },
           {
             "e": "👀",
             "x": 860,
-            "y": 980,
-            "s": 90
+            "y": 470,
+            "s": 90,
+            "r": 8
           }
-        ],
-        "direita": 540,
-        "tituloY": 250,
-        "arrobaY": 175,
-        "caixaY": 1120,
-        "caixaTam": 38,
-        "caixaDireita": 110,
-        "zoom": 1.25,
-        "origem": "0% 72%"
+        ]
       },
       {
         "tipo": "lista",
@@ -262,33 +248,63 @@
           }
         ]
       }
-    ]
+    ],
+    "capaAntiga": {
+      "tipo": "capaFilme",
+      "foto": "eduarda-gesticulando.jpg",
+      "fotoPos": "60% center",
+      "titulo": "Você\ndecora\n{esqueleto}\n{de peça}...",
+      "ts": 94,
+      "texto": "ou aprende a **reconhecer a peça** que a banca {pede?}",
+      "figurinhas": [
+        {
+          "e": "💫",
+          "x": 440,
+          "y": 190,
+          "s": 80,
+          "r": -10
+        },
+        {
+          "e": "👀",
+          "x": 860,
+          "y": 980,
+          "s": 90
+        }
+      ],
+      "direita": 540,
+      "tituloY": 250,
+      "arrobaY": 175,
+      "caixaY": 1120,
+      "caixaTam": 38,
+      "caixaDireita": 110,
+      "zoom": 1.25,
+      "origem": "0% 72%"
+    }
   },
   {
     "id": "artigo-solto-recorte",
     "titulo": "Não basta citar artigo",
     "slides": [
       {
-        "tipo": "capaPolaroid",
-        "foto": "eduarda-surpresa.jpg",
-        "titulo": "==Não== basta citar\no {artigo} pra pontuar\nna ==2ª fase==",
-        "ts": 100,
-        "legenda": "só o artigo?!",
-        "texto": "**Conclusão + fato + artigo**: a fórmula que pontua.",
+        "tipo": "capaLista",
+        "kicker": "2ª fase de Civil",
+        "titulo": "==Não== basta\ncitar o {artigo}",
+        "ts": 150,
+        "itens": [
+          "**Conclusão** direta",
+          "**Fato** decisivo do enunciado",
+          "**Artigo** aplicado ao caso"
+        ],
+        "texto": "A fórmula que **pontua** na 2ª fase.",
         "figurinhas": [
           {
             "e": "✨",
-            "x": 150,
-            "y": 1060,
+            "x": 880,
+            "y": 190,
             "s": 80,
-            "r": -8
+            "r": 0
           }
-        ],
-        "fotoLargura": 390,
-        "fotoY": 510,
-        "direita": 90,
-        "caixaY": 720,
-        "caixaLargura": 400
+        ]
       },
       {
         "tipo": "texto",
@@ -340,5 +356,126 @@
       "recorteAltura": 900,
       "recorteDireita": 30
     }
+  },
+  {
+    "id": "4-coisas-achar-no-codigo",
+    "titulo": "4 coisas pra saber achar na peça",
+    "slides": [
+      {
+        "tipo": "capaLista",
+        "kicker": "2ª fase de Civil",
+        "titulo": "4 coisas pra\n{achar} no Código",
+        "ts": 140,
+        "itens": [
+          "A **peça**",
+          "O **fundamento**",
+          "O **prazo**",
+          "O **pedido**"
+        ],
+        "texto": "Não decore o Código. **Aprenda a achar** isso aqui.",
+        "figurinhas": [
+          {
+            "e": "🔎",
+            "x": 870,
+            "y": 190,
+            "s": 90,
+            "r": 8
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "1 · “Eu travo na hora de escolher a peça.”",
+        "titulo": "A {peça}",
+        "caixa": "Comece pelo **pedido**: o que o cliente quer que o juiz faça? A resposta aponta a ação e o rito.",
+        "figurinhas": [
+          {
+            "e": "📌",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "2 · “Sei a tese, mas não acho o artigo a tempo.”",
+        "titulo": "O {fundamento}",
+        "caixa": "Marque no Vade Mecum os artigos que mais caem e faça **remissões** entre eles. Na prova, você só confere.",
+        "figurinhas": [
+          {
+            "e": "📚",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "3 · “Sempre confundo prescrição com decadência.”",
+        "titulo": "O {prazo}",
+        "caixa": "Prazo dos **arts. 205 e 206** é de prescrição. Os demais prazos do Código Civil são de decadência.",
+        "figurinhas": [
+          {
+            "e": "⏳",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "4 · “Esqueço de pedir custas e honorários.”",
+        "titulo": "O {pedido}",
+        "caixa": "Tenha um **checklist fixo** e confira no fim: citação, procedência, provas, custas e honorários.",
+        "figurinhas": [
+          {
+            "e": "✅",
+            "x": 860,
+            "y": 230,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "titulo": "Na prova,\n{procure} assim",
+        "itens": [
+          "Escolher a peça → comece pelo pedido",
+          "Achar o fundamento → artigos marcados e remissões",
+          "Prazo → arts. 205 e 206 são prescrição",
+          "Pedidos → checklist fixo no fim"
+        ],
+        "ts": 100
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Qual desses é\no seu {ponto fraco}?",
+        "texto": "Me conta aqui. E se quiser treinar com correção: mentoria de Civil 2ª fase, **5 simulados corrigidos**.",
+        "botao": "Me chama no direct 💌",
+        "figurinhas": [
+          {
+            "e": "🎀",
+            "x": 80,
+            "y": 140,
+            "s": 110,
+            "r": -12
+          },
+          {
+            "e": "✨",
+            "x": 880,
+            "y": 1100,
+            "s": 90,
+            "r": 0
+          }
+        ]
+      }
+    ]
   }
 ]

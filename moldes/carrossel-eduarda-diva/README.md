@@ -13,6 +13,8 @@ CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mj
 | `capaDiva` | `foto`, `fotoPos`, `titulo` (branco em 3D; `{…}` em rosa 3D), `ts`, `tituloY`, `figurinhas` |
 | `capaRecorte` | `foto` (PNG recortado, sem fundo), `titulo` (`==…==` caixa roxa tracejada, `{…}` rosa), `ts`, `recorteAltura`, `recorteDireita`, `direita` |
 | `capaPolaroid` | `foto` (foto de estúdio inteira, sem corte), `titulo`, `ts`, `legenda` (cursiva no polaroide), `texto` (caixa preta), `fotoLargura`, `fotoY`, `direita`, `rot`, `caixaY`, `caixaLargura`, `figurinhas` |
+| `capaLista` | capa no visual da página de lista: `kicker`, `titulo`, `ts`, `itens` (prévia numerada, `a → b`), `contagem`, `texto`, `figurinhas` |
+| `capaLimpa` | foto inteira sem filtro, granulado ou zoom; título em faixas pretas (`{x}` rosa), `ts`, `tituloY`, `fotoPos`, `texto` (pílula branca), `figurinhas` |
 | `texto` | `kicker`, `titulo`, `caixa` (texto na caixa preta), `caixaTam`, `figurinhas` |
 | `lista` | `titulo`, `itens[]` (use `→` para "pista → peça"), `contagem[]` (troca o número da linha, ex.: vezes que caiu) |
 | `dado` | `kicker`, `numero` (ex.: "8x"), `numeroTam`, `titulo`, `caixa` |

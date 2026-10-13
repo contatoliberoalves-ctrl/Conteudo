@@ -17,6 +17,9 @@ const W = 1080, H = 1350;
 // Paleta: os rosas do Carrossel Eduarda Diva (fúcsia #EE2A8A como principal e orquídea #F29AD8) com tons claros derivados, + branco.
 // Fundo branco = o papel do Carrossel Eduarda Diva (off-white quente), para os moldes da Eduarda ornarem no feed.
 const PAPEL = '#F6F2EE';
+// Fundo branco de todas as páginas: o papel quadriculado do Carrossel Diva (a pedido).
+const QUAD = `background-color:${PAPEL};background-image:linear-gradient(rgba(0,0,0,.06) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(0,0,0,.06) 1.5px,transparent 1.5px);background-size:40px 40px`;
+const fundo = bg => (bg === PAPEL || bg === '#fff' ? QUAD : `background:${bg}`);
 const C = { blush: '#FDEAF4', claro: '#F29AD8', escuro: '#EE2A8A', pink: '#EE2A8A', pessego: '#F7B9E0', branco: PAPEL };
 const CLONE = 'box-decoration-break:clone;-webkit-box-decoration-break:clone';
 const TIGHT = "font-family:'Inter Tight','Noto Color Emoji',sans-serif";
@@ -93,7 +96,7 @@ const tTit = (t, px, m = tM, cor = C.escuro) => `<div data-titulo style="${TIGHT
 const tCorpo = (t, px = 32, cor = C.escuro, al = 'center', m = tM) => `<div data-corpo style="${TIGHT};font-weight:500;font-size:${px}px;line-height:1.36;letter-spacing:-.015em;color:${cor};text-align:${al}">${fmt(t, m)}</div>`;
 // Capa em blush quadriculado; as páginas seguintes em branco quadriculado (mais leve no feed).
 const tFundoCapa = grade(C.blush, `${C.claro}88`, 36);
-const tFundo = grade('#fff', C.blush, 36);
+const tFundo = QUAD;
 
 const TREND = {
   capa(s, ctx) {
@@ -143,6 +146,29 @@ const TREND = {
         <svg style="position:absolute;right:88px;top:370px;width:34px;height:34px;z-index:4" viewBox="0 0 100 100"><path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="${C.claro}"/></svg>` : ''}
     </div>`;
   },
+  // Caso autoral (um por página): número grande, "caso 01 de 15", enunciado curto e a pergunta no fim.
+  caso(s, ctx, c) {
+    const tot = (c.slides || []).filter(x => x.tipo === 'caso').length;
+    return `<div style="position:absolute;inset:0;${tFundo}">${iNome('#777')}
+      <div data-area style="position:absolute;left:100px;right:100px;top:150px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+        <div style="display:flex;align-items:flex-end;gap:24px">
+          <div style="${TIGHT};font-weight:900;font-size:180px;line-height:.8;letter-spacing:-.06em;color:${C.pink}">${dois(s.numero)}</div>
+          <div style="padding-bottom:6px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.2em;text-transform:uppercase;line-height:1.5;color:${TINTA}">caso autoral<br><span style="color:${C.pink}">${s.numero} de ${tot} · ${esc(s.area || 'Direito Civil')}</span></div>
+        </div>
+        <div style="border-top:2.5px dashed ${TINTA};border-bottom:2.5px dashed ${TINTA};padding:40px 0">
+          <div data-corpo style="${TIGHT};font-weight:500;font-size:${s.tc || 38}px;line-height:1.34;letter-spacing:-.02em;color:${TINTA}">${fmt(s.texto, { b: 'font-weight:800', i: C.pink })}</div></div>
+        <div style="align-self:flex-start;background:${C.pink};color:#fff;border-radius:999px;outline:2.5px dashed #fff;outline-offset:-9px;padding:18px 40px;${TIGHT};font-weight:900;font-size:32px;letter-spacing:.02em;text-transform:uppercase">${fmt(s.pergunta || 'Qual a medida judicial cabível?')}</div>
+      </div>${brilho(900, 160, 56, C.pink, 8)}${iRodape(s.numero < tot ? 'ARRASTA →' : '')}</div>`;
+  },
+  // Gabarito em lista tracejada: itens "Caso → peça · fundamento".
+  gabarito(s) {
+    return `<div style="position:absolute;inset:0;${tFundo}">${iNome('#777')}
+      <div data-area style="position:absolute;left:100px;right:100px;top:160px;bottom:160px;display:flex;flex-direction:column;justify-content:center;gap:34px">
+        ${s.kicker ? `<div style="${TIGHT};font-weight:800;font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:${C.pink}">${esc(s.kicker)}</div>` : ''}
+        ${iTit(s.titulo, s.ts || 92)}
+        ${iLinhas(s.itens, s.contagem, s.tl || 29)}
+      </div>${iRodape(s.ultima ? '' : 'ARRASTA →')}</div>`;
+  },
   // Disco de vinil com o rótulo da "era" (posts de cultura pop, ex.: fases como álbuns).
   // Capa de álbum da "era" (posts de cultura pop: fases como álbuns).
   era(s) {
@@ -186,7 +212,7 @@ const morcego = (x, y, px, cor, rot = 0) => `<svg style="position:absolute;left:
 const sEnfeite = (s, p) => s.enfeite !== 'morcegos' ? '' : `
   <div style="position:absolute;right:90px;top:120px;width:170px;height:170px;border-radius:50%;background:${p.bg === '#fff' ? C.blush : 'rgba(255,255,255,.18)'};z-index:1"></div>
   ${morcego(760, 250, 120, p.linha, -12)}${morcego(880, 330, 80, p.linha, 10)}${morcego(90, 1080, 100, p.linha, 8)}${morcego(200, 1150, 64, p.linha, -14)}`;
-const sCaixa = (s, p, ruido = p.ruido) => `class="${ruido ? 'ruido' : ''}" style="position:absolute;inset:0;background:${p.bg}"`;
+const sCaixa = (s, p, ruido = p.ruido) => `class="${ruido ? 'ruido' : ''}" style="position:absolute;inset:0;${fundo(p.bg)}"`;
 
 const STUDIO = {
   capa(s, ctx) {
@@ -234,7 +260,7 @@ const STUDIO = {
   },
   faixa(s, ctx) {
     const p = sPal({});
-    return `<div style="position:absolute;inset:0;background:${PAPEL}">
+    return `<div style="position:absolute;inset:0;${QUAD}">
       <div style="position:absolute;left:0;right:0;top:0;height:330px">${img(ctx, s.foto, { pos: s.fotoPos || 'center 20%' })}</div>
       <div style="position:absolute;left:0;right:0;bottom:0;height:300px">${img(ctx, s.foto2 || s.foto, { pos: s.foto2Pos || 'center 85%' })}</div>
       <div data-area style="position:absolute;left:110px;right:110px;top:380px;bottom:350px;display:flex;flex-direction:column;justify-content:center;gap:36px">
@@ -260,7 +286,7 @@ const pM = { i: C.pink, cursiva: 1.18, hl: `background:linear-gradient(transpare
 const pBal = { ...pM, b: `font-weight:800;color:${C.blush}`, i: C.blush };
 const pTit = (t, px, cor = C.escuro, al = 'left') => `<div data-titulo style="${TIGHT};font-weight:800;font-size:${px}px;line-height:.95;letter-spacing:-.05em;word-spacing:.06em;color:${cor};text-align:${al}">${fmt(t, pM)}</div>`;
 const pCorpo = (t, px = 34, cor = C.escuro, al = 'left', m = pM) => `<div data-corpo style="${TIGHT};font-weight:500;font-size:${px}px;line-height:1.22;letter-spacing:-.03em;color:${cor};text-align:${al}">${fmt(t, m)}</div>`;
-const pFundo = (bg = PAPEL) => grade(bg, C.blush, 54);
+const pFundo = (bg = PAPEL) => (bg === PAPEL ? QUAD : grade(bg, C.blush, 54));
 
 const SCRAP = {
   capa(s, ctx) {
@@ -315,7 +341,7 @@ const SCRAP = {
       ${estrela(900, 90, 64, C.pink, 10)}${estrela(60, 1170, 56, C.pessego, -10)}${arroba(C.escuro, H - 84)}</div>`;
   },
   lista(s) {
-    return `<div style="position:absolute;inset:0;background:${PAPEL}">
+    return `<div style="position:absolute;inset:0;${QUAD}">
       <div class="ruido" style="position:absolute;left:66px;right:66px;top:48px;bottom:0;background:${C.blush};border-radius:40px 40px 0 0"></div>
       ${estrela(22, 330, 60, C.pink, 0)}
       <div data-area style="position:absolute;left:130px;right:130px;top:130px;bottom:300px;display:flex;flex-direction:column;justify-content:center;gap:40px;z-index:3">
@@ -370,7 +396,7 @@ BLOCOS.capa = BLOCOS.dica = BLOCOS.lista = BLOCOS.cta = BLOCOS.texto = function 
   const txt = s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:30px;line-height:1.24;letter-spacing:-.03em;color:${tinta};text-align:center">${String(s.texto).split('\n').map(l => `<span style="background:${forte ? 'rgba(255,255,255,.14)' : bg === '#fff' ? C.blush : '#fff'};padding:.03em .3em;${CLONE}">${fmt(l, m)}</span>`).join('<br>')}</div>` : '';
   const cols = lista(s.colunas).length ? `<div style="display:flex;justify-content:center;gap:40px">${lista(s.colunas).map(k => `<div style="text-align:center;color:${tinta};background:${barra};border-radius:30px;padding:22px 36px;min-width:300px"><div style="font-family:'Noto Color Emoji';font-size:44px">${k.sim === false ? '❌' : '✅'}</div><div style="${TIGHT};font-weight:800;font-size:30px;letter-spacing:-.02em;margin-top:8px">${esc(k.titulo)}</div><div data-corpo style="${TIGHT};font-weight:500;font-size:24px;margin-top:6px">${esc(k.texto || '')}</div></div>`).join('')}</div>` : '';
   const alt = s.foto ? s.fotoAltura || 420 : 0;
-  return `<div style="position:absolute;inset:0;background:${bg}">${topo(tinta)}
+  return `<div style="position:absolute;inset:0;${fundo(bg)}">${topo(tinta)}
     <div data-area style="position:absolute;left:70px;right:70px;top:120px;bottom:${s.foto ? alt + 130 : 140}px;display:flex;flex-direction:column;justify-content:center;gap:26px">
       ${tit}${sub}${caixas}${txt}${cols}
     </div>
@@ -412,7 +438,7 @@ function capaFoto(s, ctx, c) {
 // Campos: titulo, itens: [{exame: "9º", texto: "peça: ação de alimentos gravídicos"}], texto (dica final).
 function oab(s, ctx, c) {
   const t = TONS[c.tom] || { bg: C.escuro, dark: C.escuro, light: C.blush, cur: C.pink };
-  return `<div style="position:absolute;inset:0;${grade('#fff', t.light, 36)}">${topo(t.dark)}
+  return `<div style="position:absolute;inset:0;${QUAD}">${topo(t.dark)}
     <div data-area style="position:absolute;left:90px;right:90px;top:150px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:34px">
       <div style="align-self:flex-start">${pilula('Já caiu na OAB · 2ª fase de Civil', t.bg, '#fff', 'font-size:24px;padding:10px 28px;text-transform:uppercase;letter-spacing:.1em')}</div>
       <div data-titulo style="${SERIF};font-size:${s.ts || 76}px;line-height:1.04;letter-spacing:-.02em;color:${t.dark}">${fmt(s.titulo || '', { i: t.bg, cursiva: 1.15 })}</div>
@@ -452,7 +478,7 @@ const CHIQUE = {
   },
   texto(s, ctx, c) {
     const t = tom(c), m = qM(t);
-    return `<div style="position:absolute;inset:0;background:${PAPEL}">${qMoldura(t.bg)}${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;${QUAD}">${qMoldura(t.bg)}${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:110px;right:110px;top:190px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 96, t.dark, m)}
@@ -462,7 +488,7 @@ const CHIQUE = {
   },
   lista(s, ctx, c) {
     const t = tom(c), m = qM(t);
-    return `<div style="position:absolute;inset:0;background:${PAPEL}">${qMoldura(t.bg)}${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;${QUAD}">${qMoldura(t.bg)}${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:110px;right:110px;top:180px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:36px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 84, t.dark, m)}
@@ -477,7 +503,7 @@ const CHIQUE = {
     const col = (k, forte) => `<div style="flex:1;background:${forte ? t.bg : t.light};padding:40px 36px;display:flex;flex-direction:column;gap:22px">
       <div style="${SERIF};font-size:52px;line-height:1;color:${forte ? '#fff' : t.dark}">${esc(k?.titulo || '')}</div>
       ${lista(k?.itens).map(x => `<div style="border-top:1px solid ${forte ? 'rgba(255,255,255,.5)' : t.bg + '55'};padding-top:16px">${qCorpo(x, 27, forte ? '#fff' : t.dark, forte ? { ...m, b: 'font-weight:800;color:#fff' } : m)}</div>`).join('')}</div>`;
-    return `<div style="position:absolute;inset:0;background:${PAPEL}">${topo(t.dark, 70)}
+    return `<div style="position:absolute;inset:0;${QUAD}">${topo(t.dark, 70)}
       <div data-area style="position:absolute;left:80px;right:80px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center;gap:40px">
         ${s.kicker ? qKicker(s.kicker, t.bg) : ''}
         ${qTit(s.titulo, s.ts || 80, t.dark, m)}
@@ -537,7 +563,7 @@ function capaD(s) {
       ${tit(s.titulo, s.ts || 104)}</div>`;
   else motivo = `<div style="display:flex;flex-direction:column;align-items:center;gap:34px">${tit(s.titulo, s.ts || 118)}
       ${s.selo ? `<div style="border:2px solid ${f.tinta};color:${f.tinta};border-radius:999px;padding:12px 34px;${TIGHT};font-weight:700;font-size:26px;letter-spacing:.16em;text-transform:uppercase">${esc(s.selo)}</div>` : ''}</div>`;
-  return `<div style="position:absolute;inset:0;background:${f.bg}">
+  return `<div style="position:absolute;inset:0;${fundo(f.bg)}">
     <div style="position:absolute;inset:40px;border:1.5px solid ${f.linha};border-radius:28px;pointer-events:none"></div>
     ${brilho(92, 92, 46, f.tinta)}${brilho(H > 0 ? 930 : 0, 1150, 34, f.acc, 12)}
     <div style="position:absolute;left:0;right:0;top:96px;display:flex;justify-content:center">${s.kicker ? `<div style="background:${f.pil};color:${f.pilT};border-radius:999px;padding:10px 28px;${TIGHT};font-weight:700;font-size:22px;letter-spacing:.2em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}</div>
@@ -557,7 +583,7 @@ function capaRetrato(s, ctx) {
   if (s.foto && !src) ctx.faltando.add(s.foto);
   const L = s.fotoLargura || 520, A = Math.round(L * (s.proporcao || 1.5));
   const sombra = f.bg === C.escuro ? '#FFD3EA' : C.claro;
-  return `<div style="position:absolute;inset:0;background:${f.bg}">
+  return `<div style="position:absolute;inset:0;${fundo(f.bg)}">
     <div style="position:absolute;inset:40px;border:1.5px solid ${f.linha};border-radius:28px;pointer-events:none"></div>
     ${brilho(150, 170, 54, f.bg === C.escuro ? '#fff' : C.pink)}${brilho(880, 560, 38, sombra, 12)}${brilho(905, 640, 22, f.bg === C.escuro ? '#fff' : C.pink)}
     <div style="position:absolute;left:${(W - L) / 2}px;top:${s.fotoY || 92}px;width:${L}px;height:${A}px">
@@ -584,7 +610,7 @@ const NOTA = {
   item(s, ctx, c) {
     const tot = (c.slides || []).filter(x => x.tipo === 'item').length;
     const par = s.numero % 2 === 0, bg = par ? C.blush : PAPEL;
-    return `<div style="position:absolute;inset:0;background:${bg}">
+    return `<div style="position:absolute;inset:0;${fundo(bg)}">
       <div style="position:absolute;inset:40px;border:1.5px solid ${C.claro};border-radius:28px;pointer-events:none"></div>
       ${brilho(905, 120, 44, C.pink, 8)}
       <div style="position:absolute;left:110px;top:118px;display:flex;align-items:flex-end;gap:26px">
@@ -617,6 +643,31 @@ const NOTA = {
   },
 };
 
+
+// ================= CAPA ÍNDICE (estilo da página de lista do Carrossel Diva) =================
+// Papel quadriculado, nome no alto, título pesado em tinta escura com {rosa} e ==caixa roxa tracejada==,
+// lista numerada com fios tracejados (prévia do carrossel), linha fina e @ / ARRASTA. Campos: kicker,
+// titulo, ts, itens ("a → b" põe o b em roxo), contagem (números no lugar de 1, 2, 3), texto.
+const TINTA = '#1B1B1B', ROXO = '#7A2CC7';
+const iM = { acc: `color:${C.pink}`, i: C.pink, cursiva: 1.1, b: 'font-weight:800', hl: `background:${ROXO};color:#fff;padding:0 .1em;outline:3px dashed rgba(0,0,0,.55);outline-offset:-2px` };
+const iTit = (t, px, cor = TINTA, al = 'left') => `<div data-titulo style="${TIGHT};font-weight:900;font-size:${px}px;line-height:1.02;text-transform:uppercase;letter-spacing:-.045em;color:${cor};text-align:${al}">${fmt(t, iM)}</div>`;
+const iNome = (cor = '#555') => `<div style="position:absolute;left:0;right:0;top:72px;text-align:center;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.24em;color:${cor};z-index:6">EDUARDA CARACIOLO</div>`;
+const iLinhas = (itens, contagem, px = 32) => `<div style="border-top:2.5px dashed ${TINTA}">${lista(itens).map((x, i) => {
+  const [a, b] = String(x).split('→').map(y => y.trim());
+  return `<div style="display:flex;align-items:center;gap:30px;padding:20px 0;border-bottom:2.5px dashed ${TINTA}"><span style="${TIGHT};font-weight:900;font-size:58px;line-height:1;letter-spacing:-.04em;color:${C.pink};width:76px;flex:none">${contagem ? esc(contagem[i] ?? '') : dois(i + 1)}</span><div data-corpo style="${TIGHT};font-weight:500;font-size:${px}px;line-height:1.22;letter-spacing:-.02em;color:${TINTA}">${fmt(a, { b: 'font-weight:800' })}${b ? ` <span style="color:${C.pink}">→</span> <b style="font-weight:800;color:${ROXO}">${fmt(b, { b: 'font-weight:900' })}</b>` : ''}</div></div>`;
+}).join('')}</div>`;
+const iRodape = (dir = 'ARRASTA →') => `<div style="position:absolute;left:96px;right:96px;bottom:80px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:22px;color:${TINTA};z-index:6">
+  <span style="font-weight:700">${ARROBA}</span><span style="font-weight:800;letter-spacing:.18em;color:${C.pink}">${dir}</span></div>`;
+function capaIndice(s) {
+  return `<div style="position:absolute;inset:0;${QUAD}">${iNome()}
+    <div data-area style="position:absolute;left:100px;right:100px;top:170px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+      ${s.kicker ? `<div style="align-self:flex-start;border:2.5px dashed ${C.pink};color:${C.pink};border-radius:999px;padding:8px 26px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.14em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}
+      ${iTit(s.titulo, s.ts || 120)}
+      ${lista(s.itens).length ? iLinhas(s.itens, s.contagem, s.tl || 32) : ''}
+      ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:32px;line-height:1.3;letter-spacing:-.02em;color:${TINTA}">${fmt(s.texto, { b: `font-weight:800;color:${C.pink}` })}</div>` : ''}
+    </div>${brilho(900, 150, 60, C.pink, 8)}${iRodape()}</div>`;
+}
+
 const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE, nota: NOTA };
 
 export function renderCarrossel(c) {
@@ -626,7 +677,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
+    const f = s.tipo === 'capaIndice' ? capaIndice : s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };
