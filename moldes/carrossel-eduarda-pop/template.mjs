@@ -662,8 +662,7 @@ function capaIndice(s) {
   return `<div style="position:absolute;inset:0;${QUAD}">${iNome()}
     <div data-area style="position:absolute;left:100px;right:100px;top:170px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px">
       ${s.kicker ? `<div style="align-self:flex-start;border:2.5px dashed ${C.pink};color:${C.pink};border-radius:999px;padding:8px 26px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.14em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}
-      ${iTit(s.titulo, s.ts || 120)}
-      ${lista(s.itens).length ? iLinhas(s.itens, s.contagem, s.tl || 32) : ''}
+      ${lista(s.itens).length ? iTit(s.titulo, s.ts || 120) + iLinhas(s.itens, s.contagem, s.tl || 32) : `<div style="border-top:2.5px dashed ${TINTA};border-bottom:2.5px dashed ${TINTA};padding:44px 0">${iTit(s.titulo, s.ts || 150)}</div>`}
       ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:32px;line-height:1.3;letter-spacing:-.02em;color:${TINTA}">${fmt(s.texto, { b: `font-weight:800;color:${C.pink}` })}</div>` : ''}
     </div>${brilho(900, 150, 60, C.pink, 8)}${iRodape()}</div>`;
 }

@@ -112,7 +112,7 @@ const TIPOS = {
     return `<div style="position:absolute;inset:0;${quadriculado}">${cabecalho()}
       <div data-area style="position:absolute;left:100px;right:100px;top:170px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:40px;z-index:3">
         ${s.kicker ? `<div style="align-self:flex-start;border:2.5px dashed ${R.fucsia};color:${R.fucsia};border-radius:999px;padding:8px 26px;${POP};font-weight:700;font-size:24px;letter-spacing:.12em;text-transform:uppercase">${esc(s.kicker)}</div>` : ''}
-        ${anton(s.titulo, s.ts || 150, R.tinta, 'line-height:1.04')}
+        ${lista(s.itens).length ? anton(s.titulo, s.ts || 150, R.tinta, 'line-height:1.04') : `<div style="border-top:2.5px dashed ${R.tinta};border-bottom:2.5px dashed ${R.tinta};padding:44px 0">${anton(s.titulo, s.ts || 190, R.tinta, 'line-height:1.04')}</div>`}
         ${lista(s.itens).length ? `<div style="border-top:2.5px dashed ${R.tinta}">${lista(s.itens).map((t, i) => {
           const [a, b] = String(t).split('→').map(x => x.trim());
           return `<div style="display:flex;align-items:center;gap:30px;padding:20px 0;border-bottom:2.5px dashed ${R.tinta}"><span style="${ANTON};font-size:60px;line-height:1;color:${R.fucsia};width:64px;flex:none">${s.contagem ? esc(s.contagem[i] ?? '') : i + 1}</span><div data-corpo style="${POP};font-weight:500;font-size:31px;line-height:1.2;letter-spacing:-.02em;color:${R.tinta}">${fmt(a, { b: 'font-weight:800' })}${b ? ` <span style="color:${R.fucsia}">→</span> <b style="font-weight:800;color:${R.roxo}">${fmt(b)}</b>` : ''}</div></div>`;
