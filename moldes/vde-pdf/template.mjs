@@ -164,8 +164,78 @@ function fim(p, n) {
   </section>`;
 }
 
+
+// ---------- Guia de cabimento ("tipo": "guia"): capa, mapa de decisão, fichas por peça, duelos, tabela, fim ----------
+const grad = t => `<span style="background:${DEG_H};-webkit-background-clip:text;background-clip:text;color:transparent">${t}</span>`;
+function capaGuia(p) {
+  const c = p.capa || {};
+  return `<section class="pagina" style="background:${DEGRADE};color:#fff">
+    ${arcos(W + 120, 640, 260, 9, 'rgba(201,184,255,.26)')}
+    <div style="position:absolute;left:${M}px;top:64px;display:flex;align-items:center;gap:12px"><span style="width:34px;height:3px;border-radius:2px;background:#C9B8FF"></span>${kick('Método VDE', '#fff')}</div>
+    <div style="position:absolute;left:${M}px;top:92px;${F};font-size:11px;font-weight:500;letter-spacing:.12em;color:#ECE8FF">GUIA DE CABIMENTO · 2ª FASE OAB</div>
+    <div style="position:absolute;left:${M}px;right:${M}px;top:130px;height:1px;background:rgba(255,255,255,.22)"></div>
+    <div style="position:absolute;left:${M}px;right:${M + 40}px;top:280px">
+      ${kick(c.rotulo || '', COR.lavanda)}
+      <div style="${TIT};font-size:${c.ts || 76}px;line-height:1.02;margin-top:16px">${lista(c.titulo).map(l => rico(l, true)).join('<br>')}</div>
+      <span style="display:block;width:70px;height:5px;border-radius:3px;background:${COR.lavanda};margin-top:26px"></span>
+      <p style="${F};font-size:16px;line-height:1.5;color:#ECE8FF;margin:24px 0 0;max-width:500px">${rico(c.sub, true)}</p>
+    </div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:150px;display:flex;gap:26px">
+      ${[[p.fichas.length, 'peças explicadas'], [p.duelos.length, 'duelos de peças'], [1, 'mapa de decisão']].map(([n, r]) => `<div style="flex:1;border-top:2px solid rgba(255,255,255,.3);padding-top:12px"><div style="${TIT};font-size:46px;line-height:1">${dois(n)}</div><div style="${F};font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${COR.lavanda};margin-top:6px">${r}</div></div>`).join('')}
+    </div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:96px;height:1px;background:rgba(255,255,255,.22)"></div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:52px;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="${F};font-size:22px;font-weight:700">Natália e Líbero</span><span style="${F};font-size:11px;font-weight:500;color:#ECE8FF">${PERFIS}</span></div>
+  </section>`;
+}
+function mapaGuia(p, n) {
+  const blocos = lista(p.mapa).map((m, i) => `<div style="border:1px solid ${COR.borda};border-radius:14px;padding:12px 16px;background:#fff">
+      <div style="display:flex;gap:12px;align-items:flex-start">${quadro(i + 1, 28)}<p style="${F};font-size:12.5px;font-weight:600;line-height:1.4;color:${COR.tinta};margin-top:3px">${rico(m.pergunta)}</p></div>
+      <div style="display:flex;flex-direction:column;gap:5px;margin:8px 0 0 40px">${m.respostas.map(([se, peca]) => `<div style="display:flex;align-items:center;gap:8px;${F};font-size:11px;color:${COR.tinta}"><span style="flex:1;line-height:1.35">${rico(se)}</span><span style="color:${COR.lavanda}">→</span><span style="flex:none;background:${DEG_H};color:#fff;font-weight:700;font-size:10.5px;padding:3px 10px;border-radius:999px;max-width:230px;text-align:center">${esc(peca)}</span></div>`).join('')}</div></div>`).join('');
+  return branca(`${kick('Comece por aqui')}
+    <div style="${TIT};font-size:34px;line-height:1.05;color:${COR.tinta};margin-top:6px">Mapa de ${grad('decisão')}</div>
+    <p style="${F};font-size:11.5px;line-height:1.5;color:${COR.cinza};margin-top:8px">Leia o enunciado e responda na ordem. A primeira pergunta com "sim" leva ao grupo de peças; depois, a ficha de cada uma confirma.</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">${blocos}</div>`, 'Mapa de decisão', n, '#FBFAFF');
+}
+const ficha = f => `<div style="border:1px solid ${COR.borda};border-radius:16px;overflow:hidden;background:#fff">
+    <div style="background:${DEGRADE};color:#fff;padding:10px 16px;display:flex;align-items:center;gap:12px"><span style="${TIT};font-size:22px;background:rgba(255,255,255,.16);border-radius:8px;padding:2px 10px">${esc(f.sigla)}</span><span style="${F};font-size:15px;font-weight:700">${esc(f.nome)}</span></div>
+    <div style="padding:10px 16px 12px">
+      <div style="${F};font-size:9.5px;font-weight:700;letter-spacing:.14em;color:${COR.indigo}">CABE QUANDO</div>
+      <div style="${F};font-size:11.2px;line-height:1.45;color:${COR.tinta};margin-top:3px">${lista(f.cabe).map(t => `<div style="display:flex;gap:7px"><span style="flex:none;width:5px;height:5px;border-radius:2px;background:${COR.roxo};margin-top:6px"></span><span>${rico(t)}</span></div>`).join('')}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:8px">${[['Quem propõe', f.quem], ['Contra', f.contra], ['Onde', f.onde], ['Prazo', f.prazo]].map(([r, v]) => `<div><div style="${F};font-size:9px;font-weight:700;letter-spacing:.12em;color:${COR.indigo}">${r.toUpperCase()}</div><div style="${F};font-size:10.4px;line-height:1.35;color:${COR.tinta}">${rico(v)}</div></div>`).join('')}</div>
+      <div style="display:flex;gap:10px;margin-top:8px;align-items:stretch">
+        <div style="flex:1;background:#FFF1F4;border:1px solid #F8C9D4;border-radius:10px;padding:6px 10px"><div style="${F};font-size:9px;font-weight:800;letter-spacing:.12em;color:${COR.vermelho}">NÃO CABE</div>${lista(f.naoCabe).map(t => `<div style="${F};font-size:10.2px;line-height:1.35;color:${COR.tinta}">× ${rico(t)}</div>`).join('')}</div>
+        <div style="flex:1;background:${COR.lavandaClara};border-radius:10px;padding:6px 10px"><div style="${F};font-size:9px;font-weight:800;letter-spacing:.12em;color:${COR.roxo}">PISTA NO ENUNCIADO</div><div style="${F};font-size:10.2px;line-height:1.35;color:${COR.tinta}">${rico(f.pista)}</div></div></div>
+      <div style="margin-top:4px">${lista(f.artigos).map(chip).join('')}</div>
+    </div></div>`;
+const duelo = d => `<div style="border:1px solid ${COR.borda};border-radius:16px;overflow:hidden;background:#fff">
+    <div style="display:grid;grid-template-columns:110px 1fr 1fr">
+      <div style="background:${COR.lavandaClara}"></div>
+      <div style="background:${COR.roxo};color:#fff;padding:9px 14px;${F};font-weight:700;font-size:14px">${esc(d.a)}</div>
+      <div style="background:${COR.indigo};color:#fff;padding:9px 14px;${F};font-weight:700;font-size:14px;position:relative"><span style="position:absolute;left:-15px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:#fff;color:${COR.roxo};display:flex;align-items:center;justify-content:center;${F};font-weight:800;font-size:10px;box-shadow:0 2px 6px rgba(0,0,0,.2)">VS</span><span style="padding-left:14px">${esc(d.b)}</span></div>
+      ${d.linhas.map(([r, x, y]) => `<div style="background:${COR.lavandaClara};padding:7px 12px;${F};font-size:9.5px;font-weight:700;letter-spacing:.08em;color:${COR.roxo};border-top:1px solid ${COR.borda}">${esc(r).toUpperCase()}</div><div style="padding:7px 14px;${F};font-size:10.8px;line-height:1.38;color:${COR.tinta};border-top:1px solid ${COR.borda}">${rico(x)}</div><div style="padding:7px 14px 7px 28px;${F};font-size:10.8px;line-height:1.38;color:${COR.tinta};border-top:1px solid ${COR.borda};border-left:1px solid ${COR.borda}">${rico(y)}</div>`).join('')}
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;background:#FFF8E6;border-top:1px solid #F3E2B3;padding:8px 14px"><span style="flex:none;${F};font-size:9px;font-weight:800;letter-spacing:.12em;color:#9A6B00;padding-top:2px">COMO NÃO ERRAR</span><span style="${F};font-size:11px;line-height:1.4;color:${COR.tinta}">${rico(d.macete)}</span></div></div>`;
+function tabelaGuia(p, n) {
+  const linhas = p.fichas.map((f, i) => `<tr style="background:${i % 2 ? COR.lavandaClara : '#fff'}"><td style="padding:5px 8px;font-weight:800;color:${COR.roxo}">${esc(f.sigla)}</td><td style="padding:5px 8px">${rico(f.quem)}</td><td style="padding:5px 8px">${rico(f.onde)}</td><td style="padding:5px 8px">${rico(f.prazo)}</td></tr>`).join('');
+  return branca(`${kick('Para revisar na véspera')}
+    <div style="${TIT};font-size:30px;line-height:1.05;color:${COR.tinta};margin-top:6px">Tabela-${grad('resumo')}</div>
+    <table style="width:100%;border-collapse:collapse;margin-top:12px;${F};font-size:9.2px;line-height:1.3;color:${COR.tinta}">
+      <tr style="background:${DEG_H};color:#fff;text-align:left"><th style="padding:6px 8px">Peça</th><th style="padding:6px 8px">Quem propõe</th><th style="padding:6px 8px">Onde</th><th style="padding:6px 8px">Prazo</th></tr>${linhas}</table>`, 'Tabela-resumo', n);
+}
+function renderGuia(p) {
+  let n = 1;
+  const pags = [capaGuia(p), mapaGuia(p, ++n)];
+  for (let i = 0; i < p.fichas.length; i += 2) pags.push(branca(`${i === 0 ? `${kick('Parte 1')}<div style="${TIT};font-size:30px;line-height:1.05;color:${COR.tinta};margin:4px 0 12px">Cabimento de ${grad('cada peça')}</div>` : ''}<div style="display:flex;flex-direction:column;gap:12px">${p.fichas.slice(i, i + 2).map(ficha).join('')}</div>`, 'Fichas de cabimento', ++n));
+  for (let i = 0; i < p.duelos.length; i += 2) pags.push(branca(`${i === 0 ? `${kick('Parte 2')}<div style="${TIT};font-size:30px;line-height:1.05;color:${COR.tinta};margin:4px 0 12px">Peças que ${grad('confundem')}</div>` : ''}<div style="display:flex;flex-direction:column;gap:14px">${p.duelos.slice(i, i + 2).map(duelo).join('')}</div>`, 'Duelos', ++n, '#FBFAFF'));
+  pags.push(tabelaGuia(p, ++n));
+  pags.push(fim(p, ++n));
+  return pags;
+}
+
 export function renderCarrossel(p) {
   const avisos = [];
+  if (p.tipo === 'guia') return montar(renderGuia(p), avisos);
   p.casos.forEach((c, i) => { if (lista(c.gabarito).length !== PONTOS.length) avisos.push(`caso ${i + 1}: o gabarito precisa de ${PONTOS.length} pontos`); });
   let n = 1;
   const pags = [capa(p), comoUsar(p, ++n)];
@@ -173,6 +243,9 @@ export function renderCarrossel(p) {
   pags.push(divisor(p, ++n));
   p.casos.forEach((c, i) => pags.push(gabarito(c, i, ++n)));
   pags.push(fim(p, ++n));
+  return montar(pags, avisos);
+}
+function montar(pags, avisos) {
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
 <style>@page{size:210mm 297mm;margin:0}*{box-sizing:border-box}body{margin:0;${F};-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 p{margin:0}.pagina{position:relative;width:${W}px;height:${H}px;overflow:hidden;break-after:page}.pagina:last-child{break-after:auto}</style></head><body>

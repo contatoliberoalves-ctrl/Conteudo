@@ -4,7 +4,10 @@
     "tema": "6 casos no estilo da FGV (inspirados nos exames 39 a 46, simplificados), cada um com o checklist VDE em branco na página seguinte e gabarito no fim",
     "capa": {
       "rotulo": "Direito Constitucional",
-      "titulo": ["Treino de peças", "[[estilo banca]]"],
+      "titulo": [
+        "Treino de peças",
+        "[[estilo banca]]"
+      ],
       "sub": "6 casos no formato da FGV, um pouco mais diretos, com o checklist VDE para preencher e gabarito destrinchado no fim."
     },
     "comoUsar": [
@@ -28,12 +31,64 @@
         "peca": "Mandado de segurança individual",
         "pista": "Ato concreto de autoridade + prova só documental + sem honorários = MS.",
         "gabarito": [
-          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Alfa, conforme a organização judiciária local. O Secretário Municipal não tem foro no tribunal."], "artigos": [] },
-          { "texto": ["Impetrante: Maria, titular do direito violado.", "Autoridade coatora: o Secretário Municipal de Fazenda, que praticou o ato; pessoa jurídica a que se vincula: Município Alfa."], "artigos": ["Lei 12.016/09, art. 6º"] },
-          { "texto": ["Direito líquido e certo violado por ato de autoridade, provado só com documentos.", "Impetração dentro de 120 dias da ciência do ato (passaram 20)."], "artigos": ["CF, art. 5º, LXIX", "Lei 12.016/09, art. 1º", "Lei 12.016/09, art. 23"] },
-          { "texto": ["Sim: liminar para suspender o indeferimento e o fechamento. Fundamento relevante e risco de ineficácia: a padaria fecha em quinze dias e é a renda de Maria."], "artigos": ["Lei 12.016/09, art. 7º, III"] },
-          { "texto": ["Liberdade de associação: ninguém pode ser compelido a associar-se. Exigir filiação para renovar o alvará viola esse direito.", "Livre exercício de trabalho e de atividade econômica: Maria cumpriu as exigências sanitárias e urbanísticas.", "A lei municipal é inconstitucional, o que deve ser reconhecido incidentalmente (controle difuso)."], "artigos": ["CF, art. 5º, XX", "CF, art. 5º, XIII", "CF, art. 170, parágrafo único"] },
-          { "texto": ["Liminar; notificação da autoridade coatora para prestar informações; ciência ao órgão de representação judicial do Município; oitiva do MP.", "Concessão da segurança: anular o indeferimento e garantir a renovação do alvará sem exigir filiação.", "Documentos que provam o direito; valor da causa; sem condenação em honorários."], "artigos": ["Lei 12.016/09, art. 7º, I e II", "art. 12", "art. 25"] }
+          {
+            "texto": [
+              "Juízo Cível ou de Fazenda Pública da Comarca do Município Alfa, conforme a organização judiciária local. O Secretário Municipal não tem foro no tribunal."
+            ],
+            "artigos": []
+          },
+          {
+            "texto": [
+              "Impetrante: Maria, titular do direito violado.",
+              "Autoridade coatora: o Secretário Municipal de Fazenda, que praticou o ato; pessoa jurídica a que se vincula: Município Alfa."
+            ],
+            "artigos": [
+              "Lei 12.016/09, art. 6º"
+            ]
+          },
+          {
+            "texto": [
+              "Direito líquido e certo violado por ato de autoridade, provado só com documentos.",
+              "Impetração dentro de 120 dias da ciência do ato (passaram 20)."
+            ],
+            "artigos": [
+              "CF, art. 5º, LXIX",
+              "Lei 12.016/09, art. 1º",
+              "Lei 12.016/09, art. 23"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: liminar para suspender o indeferimento e o fechamento. Fundamento relevante e risco de ineficácia: a padaria fecha em quinze dias e é a renda de Maria."
+            ],
+            "artigos": [
+              "Lei 12.016/09, art. 7º, III"
+            ]
+          },
+          {
+            "texto": [
+              "Liberdade de associação: ninguém pode ser compelido a associar-se. Exigir filiação para renovar o alvará viola esse direito.",
+              "Livre exercício de trabalho e de atividade econômica: Maria cumpriu as exigências sanitárias e urbanísticas.",
+              "A lei municipal é inconstitucional, o que deve ser reconhecido incidentalmente (controle difuso)."
+            ],
+            "artigos": [
+              "CF, art. 5º, XX",
+              "CF, art. 5º, XIII",
+              "CF, art. 170, parágrafo único"
+            ]
+          },
+          {
+            "texto": [
+              "Liminar; notificação da autoridade coatora para prestar informações; ciência ao órgão de representação judicial do Município; oitiva do MP.",
+              "Concessão da segurança: anular o indeferimento e garantir a renovação do alvará sem exigir filiação.",
+              "Documentos que provam o direito; valor da causa; sem condenação em honorários."
+            ],
+            "artigos": [
+              "Lei 12.016/09, art. 7º, I e II",
+              "art. 12",
+              "art. 25"
+            ]
+          }
         ],
         "atencao": "Maria não pode propor ADI e quer resolver o caso dela: a inconstitucionalidade da lei é a causa de pedir, não o pedido."
       },
@@ -49,12 +104,70 @@
         "peca": "Mandado de segurança coletivo",
         "pista": "Associação em defesa dos associados + ato concreto + só documentos + sem honorários.",
         "gabarito": [
-          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Beta, conforme a organização judiciária local."], "artigos": [] },
-          { "texto": ["Impetrante: a Associação, constituída e em funcionamento há mais de um ano, em defesa dos direitos dos associados. A autorização especial é dispensada.", "Autoridade coatora: o Prefeito; pessoa jurídica: Município Beta."], "artigos": ["CF, art. 5º, LXX, b", "Lei 12.016/09, art. 21", "Lei 12.016/09, art. 6º"] },
-          { "texto": ["Direito líquido e certo dos associados violado por ato do Prefeito, provado com documentos (ata da assembleia, estatuto e decisão).", "Prazo de 120 dias respeitado; não há recurso com efeito suspensivo."], "artigos": ["CF, art. 5º, LXIX e LXX", "Lei 12.016/09, art. 1º", "Lei 12.016/09, art. 23"] },
-          { "texto": ["Sim: liminar para suspender a exigência de aprovação prévia e a apreensão dos instrumentos.", "No MS coletivo, a liminar só é concedida depois de ouvido o representante judicial do Município, em 72 horas."], "artigos": ["Lei 12.016/09, art. 7º, III", "Lei 12.016/09, art. 22, § 2º"] },
-          { "texto": ["A expressão artística é livre, independentemente de censura ou licença: aprovar repertório antes é censura prévia.", "É vedada toda censura de natureza política, ideológica e artística.", "Os músicos vivem da apresentação: a apreensão atinge o livre exercício do trabalho e o exercício dos direitos culturais."], "artigos": ["CF, art. 5º, IX", "CF, art. 220, § 2º", "CF, art. 5º, XIII", "CF, art. 215"] },
-          { "texto": ["Liminar; notificação do Prefeito; ciência ao Município; oitiva do MP.", "Concessão da segurança para afastar a exigência de aprovação do repertório e a apreensão, em favor dos associados.", "Documentos; valor da causa; sem honorários."], "artigos": ["Lei 12.016/09, art. 7º, I e II", "art. 12", "art. 22", "art. 25"] }
+          {
+            "texto": [
+              "Juízo Cível ou de Fazenda Pública da Comarca do Município Beta, conforme a organização judiciária local."
+            ],
+            "artigos": []
+          },
+          {
+            "texto": [
+              "Impetrante: a Associação, constituída e em funcionamento há mais de um ano, em defesa dos direitos dos associados. A autorização especial é dispensada.",
+              "Autoridade coatora: o Prefeito; pessoa jurídica: Município Beta."
+            ],
+            "artigos": [
+              "CF, art. 5º, LXX, b",
+              "Lei 12.016/09, art. 21",
+              "Lei 12.016/09, art. 6º"
+            ]
+          },
+          {
+            "texto": [
+              "Direito líquido e certo dos associados violado por ato do Prefeito, provado com documentos (ata da assembleia, estatuto e decisão).",
+              "Prazo de 120 dias respeitado; não há recurso com efeito suspensivo."
+            ],
+            "artigos": [
+              "CF, art. 5º, LXIX e LXX",
+              "Lei 12.016/09, art. 1º",
+              "Lei 12.016/09, art. 23"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: liminar para suspender a exigência de aprovação prévia e a apreensão dos instrumentos.",
+              "No MS coletivo, a liminar só é concedida depois de ouvido o representante judicial do Município, em 72 horas."
+            ],
+            "artigos": [
+              "Lei 12.016/09, art. 7º, III",
+              "Lei 12.016/09, art. 22, § 2º"
+            ]
+          },
+          {
+            "texto": [
+              "A expressão artística é livre, independentemente de censura ou licença: aprovar repertório antes é censura prévia.",
+              "É vedada toda censura de natureza política, ideológica e artística.",
+              "Os músicos vivem da apresentação: a apreensão atinge o livre exercício do trabalho e o exercício dos direitos culturais."
+            ],
+            "artigos": [
+              "CF, art. 5º, IX",
+              "CF, art. 220, § 2º",
+              "CF, art. 5º, XIII",
+              "CF, art. 215"
+            ]
+          },
+          {
+            "texto": [
+              "Liminar; notificação do Prefeito; ciência ao Município; oitiva do MP.",
+              "Concessão da segurança para afastar a exigência de aprovação do repertório e a apreensão, em favor dos associados.",
+              "Documentos; valor da causa; sem honorários."
+            ],
+            "artigos": [
+              "Lei 12.016/09, art. 7º, I e II",
+              "art. 12",
+              "art. 22",
+              "art. 25"
+            ]
+          }
         ],
         "atencao": "O pedido de “beneficiar exclusivamente os associados” aponta para o MS coletivo: a sentença faz coisa julgada só para os membros do grupo."
       },
@@ -70,12 +183,64 @@
         "peca": "Ação direta de inconstitucionalidade (ADI)",
         "pista": "Lei estadual posterior a 1988 + Constituição da República como parâmetro + STF.",
         "gabarito": [
-          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, I, a"] },
-          { "texto": ["Requerente: Partido Gama, com representação no Congresso Nacional (um deputado federal basta).", "Indicar os órgãos que editaram a lei, que prestarão informações: Assembleia Legislativa e Governador do Estado Alfa."], "artigos": ["CF, art. 103, VIII", "Lei 9.868/99, art. 2º, VIII"] },
-          { "texto": ["Lei estadual editada depois da Constituição de 1988, impugnada diante da própria Constituição da República.", "Indicar os dispositivos impugnados e os fundamentos de cada um; juntar cópia da lei e procuração."], "artigos": ["Lei 9.868/99, art. 3º e parágrafo único"] },
-          { "texto": ["Sim: medida cautelar para suspender a eficácia dos arts. 1º a 3º. O vício é evidente e a lei entra em vigor em trinta dias, com multas e suspensão do serviço."], "artigos": ["Lei 9.868/99, art. 10"] },
-          { "texto": ["Art. 1º: só a União legisla sobre trânsito. Inconstitucionalidade formal orgânica.", "Art. 2º: telecomunicações são competência legislativa privativa da União, que também explora o serviço.", "Art. 3º: só existe para aplicar o Art. 1º e cai junto com ele."], "artigos": ["CF, art. 22, XI", "CF, art. 22, IV", "CF, art. 21, XI"] },
-          { "texto": ["Medida cautelar; informações da Assembleia Legislativa e do Governador; oitiva do Advogado-Geral da União e do Procurador-Geral da República.", "Procedência para declarar a inconstitucionalidade dos arts. 1º a 3º da Lei estadual nº XX."], "artigos": ["Lei 9.868/99, art. 6º", "Lei 9.868/99, art. 8º", "CF, art. 103, §§ 1º e 3º"] }
+          {
+            "texto": [
+              "Ministro Presidente do Supremo Tribunal Federal."
+            ],
+            "artigos": [
+              "CF, art. 102, I, a"
+            ]
+          },
+          {
+            "texto": [
+              "Requerente: Partido Gama, com representação no Congresso Nacional (um deputado federal basta).",
+              "Indicar os órgãos que editaram a lei, que prestarão informações: Assembleia Legislativa e Governador do Estado Alfa."
+            ],
+            "artigos": [
+              "CF, art. 103, VIII",
+              "Lei 9.868/99, art. 2º, VIII"
+            ]
+          },
+          {
+            "texto": [
+              "Lei estadual editada depois da Constituição de 1988, impugnada diante da própria Constituição da República.",
+              "Indicar os dispositivos impugnados e os fundamentos de cada um; juntar cópia da lei e procuração."
+            ],
+            "artigos": [
+              "Lei 9.868/99, art. 3º e parágrafo único"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: medida cautelar para suspender a eficácia dos arts. 1º a 3º. O vício é evidente e a lei entra em vigor em trinta dias, com multas e suspensão do serviço."
+            ],
+            "artigos": [
+              "Lei 9.868/99, art. 10"
+            ]
+          },
+          {
+            "texto": [
+              "Art. 1º: só a União legisla sobre trânsito. Inconstitucionalidade formal orgânica.",
+              "Art. 2º: telecomunicações são competência legislativa privativa da União, que também explora o serviço.",
+              "Art. 3º: só existe para aplicar o Art. 1º e cai junto com ele."
+            ],
+            "artigos": [
+              "CF, art. 22, XI",
+              "CF, art. 22, IV",
+              "CF, art. 21, XI"
+            ]
+          },
+          {
+            "texto": [
+              "Medida cautelar; informações da Assembleia Legislativa e do Governador; oitiva do Advogado-Geral da União e do Procurador-Geral da República.",
+              "Procedência para declarar a inconstitucionalidade dos arts. 1º a 3º da Lei estadual nº XX."
+            ],
+            "artigos": [
+              "Lei 9.868/99, art. 6º",
+              "Lei 9.868/99, art. 8º",
+              "CF, art. 103, §§ 1º e 3º"
+            ]
+          }
         ],
         "atencao": "Não esqueça o pedido de cautelar: a lei ainda não está em vigor, e é isso que mostra o perigo da demora."
       },
@@ -91,12 +256,65 @@
         "peca": "Ação declaratória de constitucionalidade (ADC)",
         "pista": "Lei federal + decisões judiciais divergentes + pedido para declarar que a lei é válida.",
         "gabarito": [
-          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, I, a"] },
-          { "texto": ["Requerente: Partido Delta, com representação no Congresso Nacional.", "Não há réu: é processo objetivo."], "artigos": ["CF, art. 103, VIII"] },
-          { "texto": ["Lei federal, objeto possível de ADC.", "Controvérsia judicial relevante sobre a aplicação da lei, demonstrada com cópias das decisões divergentes."], "artigos": ["CF, art. 102, I, a", "Lei 9.868/99, art. 14, III e parágrafo único"] },
-          { "texto": ["Sim: medida cautelar para suspender o julgamento dos processos que envolvem a aplicação da lei até a decisão final."], "artigos": ["Lei 9.868/99, art. 21"] },
-          { "texto": ["Alimentação escolar é dever do Estado com a educação, e a criança tem prioridade absoluta.", "Isonomia material: tratar de forma diferente a agricultura familiar reduz desigualdades, que é objetivo da República e princípio da ordem econômica.", "Compete a todos os entes fomentar a produção agropecuária e organizar o abastecimento alimentar."], "artigos": ["CF, art. 208, VII", "CF, art. 227", "CF, art. 3º, III", "CF, art. 170, VII", "CF, art. 23, VIII"] },
-          { "texto": ["Medida cautelar; oitiva do Procurador-Geral da República.", "Procedência para declarar a constitucionalidade da Lei nº XX, com eficácia contra todos e efeito vinculante."], "artigos": ["Lei 9.868/99, art. 19", "CF, art. 102, § 2º"] }
+          {
+            "texto": [
+              "Ministro Presidente do Supremo Tribunal Federal."
+            ],
+            "artigos": [
+              "CF, art. 102, I, a"
+            ]
+          },
+          {
+            "texto": [
+              "Requerente: Partido Delta, com representação no Congresso Nacional.",
+              "Não há réu: é processo objetivo."
+            ],
+            "artigos": [
+              "CF, art. 103, VIII"
+            ]
+          },
+          {
+            "texto": [
+              "Lei federal, objeto possível de ADC.",
+              "Controvérsia judicial relevante sobre a aplicação da lei, demonstrada com cópias das decisões divergentes."
+            ],
+            "artigos": [
+              "CF, art. 102, I, a",
+              "Lei 9.868/99, art. 14, III e parágrafo único"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: medida cautelar para suspender o julgamento dos processos que envolvem a aplicação da lei até a decisão final."
+            ],
+            "artigos": [
+              "Lei 9.868/99, art. 21"
+            ]
+          },
+          {
+            "texto": [
+              "Alimentação escolar é dever do Estado com a educação, e a criança tem prioridade absoluta.",
+              "Isonomia material: tratar de forma diferente a agricultura familiar reduz desigualdades, que é objetivo da República e princípio da ordem econômica.",
+              "Compete a todos os entes fomentar a produção agropecuária e organizar o abastecimento alimentar."
+            ],
+            "artigos": [
+              "CF, art. 208, VII",
+              "CF, art. 227",
+              "CF, art. 3º, III",
+              "CF, art. 170, VII",
+              "CF, art. 23, VIII"
+            ]
+          },
+          {
+            "texto": [
+              "Medida cautelar; oitiva do Procurador-Geral da República.",
+              "Procedência para declarar a constitucionalidade da Lei nº XX, com eficácia contra todos e efeito vinculante."
+            ],
+            "artigos": [
+              "Lei 9.868/99, art. 19",
+              "CF, art. 102, § 2º"
+            ]
+          }
         ],
         "atencao": "Na ADC não se pedem informações a órgãos nem se cita o Advogado-Geral da União: só o PGR é ouvido."
       },
@@ -112,12 +330,68 @@
         "peca": "Ação popular",
         "pista": "Eleitor + dinheiro público + moralidade + precisa de provas + isenção de custas.",
         "gabarito": [
-          { "texto": ["Juízo Cível ou de Fazenda Pública da Comarca do Município Ômega, conforme a organização judiciária local."], "artigos": ["Lei 4.717/65, art. 5º"] },
-          { "texto": ["Autor: Pedro, cidadão, com prova da cidadania pelo título de eleitor.", "Réus: o Município Ômega, o Prefeito, que autorizou o contrato, e a Show Total, beneficiária."], "artigos": ["CF, art. 5º, LXXIII", "Lei 4.717/65, art. 1º, § 3º", "Lei 4.717/65, art. 6º"] },
-          { "texto": ["Ato lesivo ao patrimônio público e à moralidade administrativa.", "Nulidade por ilegalidade do objeto e desvio de finalidade. O rito admite produção de provas."], "artigos": ["CF, art. 5º, LXXIII", "Lei 4.717/65, art. 1º", "Lei 4.717/65, art. 2º, c e e"] },
-          { "texto": ["Sim: suspensão liminar do contrato e do pagamento previsto para daqui a dez dias."], "artigos": ["Lei 4.717/65, art. 5º, § 4º"] },
-          { "texto": ["Moralidade e impessoalidade: o Prefeito contratou a empresa da esposa.", "Contratação sem licitação, fora das hipóteses legais.", "Lesão ao patrimônio público: preço quase três vezes o de mercado."], "artigos": ["CF, art. 37, caput", "CF, art. 37, XXI"] },
-          { "texto": ["Liminar; citação dos réus; intimação do Ministério Público; requisição de documentos e produção de provas.", "Procedência para anular o contrato e condenar os responsáveis e a beneficiária a ressarcir o dano.", "Isenção de custas e ônus da sucumbência; valor da causa."], "artigos": ["Lei 4.717/65, art. 6º, § 4º", "Lei 4.717/65, art. 7º", "Lei 4.717/65, art. 11", "CF, art. 5º, LXXIII"] }
+          {
+            "texto": [
+              "Juízo Cível ou de Fazenda Pública da Comarca do Município Ômega, conforme a organização judiciária local."
+            ],
+            "artigos": [
+              "Lei 4.717/65, art. 5º"
+            ]
+          },
+          {
+            "texto": [
+              "Autor: Pedro, cidadão, com prova da cidadania pelo título de eleitor.",
+              "Réus: o Município Ômega, o Prefeito, que autorizou o contrato, e a Show Total, beneficiária."
+            ],
+            "artigos": [
+              "CF, art. 5º, LXXIII",
+              "Lei 4.717/65, art. 1º, § 3º",
+              "Lei 4.717/65, art. 6º"
+            ]
+          },
+          {
+            "texto": [
+              "Ato lesivo ao patrimônio público e à moralidade administrativa.",
+              "Nulidade por ilegalidade do objeto e desvio de finalidade. O rito admite produção de provas."
+            ],
+            "artigos": [
+              "CF, art. 5º, LXXIII",
+              "Lei 4.717/65, art. 1º",
+              "Lei 4.717/65, art. 2º, c e e"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: suspensão liminar do contrato e do pagamento previsto para daqui a dez dias."
+            ],
+            "artigos": [
+              "Lei 4.717/65, art. 5º, § 4º"
+            ]
+          },
+          {
+            "texto": [
+              "Moralidade e impessoalidade: o Prefeito contratou a empresa da esposa.",
+              "Contratação sem licitação, fora das hipóteses legais.",
+              "Lesão ao patrimônio público: preço quase três vezes o de mercado."
+            ],
+            "artigos": [
+              "CF, art. 37, caput",
+              "CF, art. 37, XXI"
+            ]
+          },
+          {
+            "texto": [
+              "Liminar; citação dos réus; intimação do Ministério Público; requisição de documentos e produção de provas.",
+              "Procedência para anular o contrato e condenar os responsáveis e a beneficiária a ressarcir o dano.",
+              "Isenção de custas e ônus da sucumbência; valor da causa."
+            ],
+            "artigos": [
+              "Lei 4.717/65, art. 6º, § 4º",
+              "Lei 4.717/65, art. 7º",
+              "Lei 4.717/65, art. 11",
+              "CF, art. 5º, LXXIII"
+            ]
+          }
         ],
         "atencao": "O Município entra como réu, mas pode passar a atuar ao lado do autor se isso for útil ao interesse público (Lei 4.717/65, art. 6º, § 3º)."
       },
@@ -133,20 +407,737 @@
         "peca": "Arguição de descumprimento de preceito fundamental (ADPF)",
         "pista": "Lei municipal + anterior a 1988 + controle concentrado no STF: não cabe ADI.",
         "gabarito": [
-          { "texto": ["Ministro Presidente do Supremo Tribunal Federal."], "artigos": ["CF, art. 102, § 1º", "Lei 9.882/99, art. 1º"] },
-          { "texto": ["Requerente: Partido Épsilon, com representação no Congresso Nacional.", "Indicar as autoridades responsáveis pela lei e pela sua aplicação: Câmara Municipal e Prefeito de Sigma."], "artigos": ["CF, art. 103, VIII", "Lei 9.882/99, art. 2º, I"] },
-          { "texto": ["Cabe ADPF contra lei municipal e contra lei anterior à Constituição.", "Subsidiariedade: não há outro meio eficaz, porque a ADI não alcança lei municipal nem lei anterior a 1988.", "Indicar os preceitos fundamentais violados."], "artigos": ["Lei 9.882/99, art. 1º, parágrafo único, I", "Lei 9.882/99, art. 4º, § 1º", "Lei 9.882/99, art. 3º"] },
-          { "texto": ["Sim: liminar para suspender a aplicação da lei e os efeitos das notificações, já que a aplicação começa no próximo mês."], "artigos": ["Lei 9.882/99, art. 5º, §§ 2º e 3º"] },
-          { "texto": ["Liberdade de crença e livre exercício dos cultos, com proteção aos locais de culto.", "O Estado não pode embaraçar o funcionamento de cultos religiosos.", "Igualdade, e fechamento sem processo viola o devido processo legal, o contraditório e a ampla defesa. A lei não foi recepcionada."], "artigos": ["CF, art. 5º, VI", "CF, art. 19, I", "CF, art. 5º, caput", "CF, art. 5º, LIV e LV"] },
-          { "texto": ["Liminar; informações das autoridades responsáveis; oitiva do Advogado-Geral da União e do Procurador-Geral da República.", "Procedência para declarar a incompatibilidade (não recepção) da lei com a Constituição de 1988, com eficácia contra todos e efeito vinculante."], "artigos": ["Lei 9.882/99, art. 6º", "Lei 9.882/99, art. 7º, parágrafo único", "Lei 9.882/99, art. 10, § 3º"] }
+          {
+            "texto": [
+              "Ministro Presidente do Supremo Tribunal Federal."
+            ],
+            "artigos": [
+              "CF, art. 102, § 1º",
+              "Lei 9.882/99, art. 1º"
+            ]
+          },
+          {
+            "texto": [
+              "Requerente: Partido Épsilon, com representação no Congresso Nacional.",
+              "Indicar as autoridades responsáveis pela lei e pela sua aplicação: Câmara Municipal e Prefeito de Sigma."
+            ],
+            "artigos": [
+              "CF, art. 103, VIII",
+              "Lei 9.882/99, art. 2º, I"
+            ]
+          },
+          {
+            "texto": [
+              "Cabe ADPF contra lei municipal e contra lei anterior à Constituição.",
+              "Subsidiariedade: não há outro meio eficaz, porque a ADI não alcança lei municipal nem lei anterior a 1988.",
+              "Indicar os preceitos fundamentais violados."
+            ],
+            "artigos": [
+              "Lei 9.882/99, art. 1º, parágrafo único, I",
+              "Lei 9.882/99, art. 4º, § 1º",
+              "Lei 9.882/99, art. 3º"
+            ]
+          },
+          {
+            "texto": [
+              "Sim: liminar para suspender a aplicação da lei e os efeitos das notificações, já que a aplicação começa no próximo mês."
+            ],
+            "artigos": [
+              "Lei 9.882/99, art. 5º, §§ 2º e 3º"
+            ]
+          },
+          {
+            "texto": [
+              "Liberdade de crença e livre exercício dos cultos, com proteção aos locais de culto.",
+              "O Estado não pode embaraçar o funcionamento de cultos religiosos.",
+              "Igualdade, e fechamento sem processo viola o devido processo legal, o contraditório e a ampla defesa. A lei não foi recepcionada."
+            ],
+            "artigos": [
+              "CF, art. 5º, VI",
+              "CF, art. 19, I",
+              "CF, art. 5º, caput",
+              "CF, art. 5º, LIV e LV"
+            ]
+          },
+          {
+            "texto": [
+              "Liminar; informações das autoridades responsáveis; oitiva do Advogado-Geral da União e do Procurador-Geral da República.",
+              "Procedência para declarar a incompatibilidade (não recepção) da lei com a Constituição de 1988, com eficácia contra todos e efeito vinculante."
+            ],
+            "artigos": [
+              "Lei 9.882/99, art. 6º",
+              "Lei 9.882/99, art. 7º, parágrafo único",
+              "Lei 9.882/99, art. 10, § 3º"
+            ]
+          }
         ],
         "atencao": "Lei anterior a 1988 não é “inconstitucional”: o pedido é reconhecer que ela não foi recepcionada pela Constituição."
       }
     ],
     "divisor": "Compare ponto a ponto com o seu checklist. Errou a peça? Volte ao enunciado e procure a pista que entregava a resposta.",
     "fim": {
-      "titulo": ["Confia no", "[[processo]]."],
+      "titulo": [
+        "Confia no",
+        "[[processo]]."
+      ],
       "texto": "Uma peça por dia. O checklist vira reflexo, e a prova vira só mais um treino."
+    }
+  },
+  {
+    "id": "guia-cabimento-pecas",
+    "tipo": "guia",
+    "tema": "Guia de cabimento das peças constitucionais: mapa de decisão, fichas e duelos das peças que mais se confundem (CF e leis)",
+    "capa": {
+      "rotulo": "Direito Constitucional · 2ª fase",
+      "titulo": [
+        "Qual é a",
+        "[[peça?]]"
+      ],
+      "ts": 84,
+      "sub": "Cabimento simplificado de cada peça e as diferenças entre as que mais confundem: AP x ACP, MS x HD, MI x ADO, ADI x ADPF e outras."
+    },
+    "mapa": [
+      {
+        "pergunta": "O problema é uma **lei ou ato normativo em tese**, sem ninguém pedindo um direito próprio?",
+        "respostas": [
+          [
+            "Quer derrubar lei federal ou estadual",
+            "ADI"
+          ],
+          [
+            "Lei municipal ou anterior a 1988 / nenhuma outra ação resolve",
+            "ADPF"
+          ],
+          [
+            "Quer confirmar lei federal que juízes estão afastando",
+            "ADC"
+          ],
+          [
+            "A Constituição exige uma lei que não existe",
+            "ADO"
+          ]
+        ]
+      },
+      {
+        "pergunta": "Há **uma pessoa (ou grupo) com direito concreto** violado por autoridade?",
+        "respostas": [
+          [
+            "Liberdade de ir e vir",
+            "HC"
+          ],
+          [
+            "Dados sobre a própria pessoa (acessar, corrigir)",
+            "HD"
+          ],
+          [
+            "Falta norma e o direito não pode ser exercido",
+            "MI"
+          ],
+          [
+            "Direito líquido e certo, com prova documental",
+            "MS (coletivo se for entidade pelo grupo)"
+          ]
+        ]
+      },
+      {
+        "pergunta": "A lesão é ao **patrimônio público, à moralidade, ao meio ambiente** ou a interesses de toda a coletividade?",
+        "respostas": [
+          [
+            "Quem pede é o cidadão eleitor",
+            "Ação popular"
+          ],
+          [
+            "Quem pede é MP, Defensoria, ente público ou associação",
+            "Ação civil pública"
+          ]
+        ]
+      },
+      {
+        "pergunta": "Já existe **decisão judicial** contra o seu cliente?",
+        "respostas": [
+          [
+            "Desrespeita súmula vinculante, decisão do STF em controle concentrado ou usurpa competência",
+            "Reclamação"
+          ],
+          [
+            "Última instância que contraria a Constituição",
+            "Recurso extraordinário"
+          ],
+          [
+            "Tribunal negou HC / MS em única instância",
+            "Recurso ordinário (STF ou STJ)"
+          ]
+        ]
+      }
+    ],
+    "fichas": [
+      {
+        "sigla": "MS",
+        "nome": "Mandado de segurança individual",
+        "cabe": [
+          "Proteger **direito líquido e certo** (provado por documentos, sem produzir prova)",
+          "contra ato ilegal ou abusivo de **autoridade** pública ou agente no exercício de atribuição do Poder Público",
+          "quando não couber HC nem HD"
+        ],
+        "quem": "O titular do direito (pessoa física ou jurídica)",
+        "contra": "Ato da autoridade coatora",
+        "onde": "Depende da autoridade (ex.: arts. 102, I, d; 105, I, b; 109, VIII)",
+        "prazo": "120 dias da ciência do ato (Lei 12.016, art. 23)",
+        "naoCabe": [
+          "Ato com recurso administrativo com efeito suspensivo, sem caução",
+          "Decisão judicial com recurso com efeito suspensivo",
+          "Decisão judicial transitada em julgado"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXIX",
+          "Lei 12.016/2009, arts. 1º e 5º"
+        ],
+        "pista": "\"documentos comprovam\", \"ato do Secretário/Prefeito\", prazo curto"
+      },
+      {
+        "sigla": "MSC",
+        "nome": "Mandado de segurança coletivo",
+        "cabe": [
+          "Mesmos requisitos do MS, mas para **proteger o grupo**: direitos coletivos ou individuais homogêneos dos membros"
+        ],
+        "quem": "Partido com representação no Congresso; sindicato, entidade de classe ou associação em funcionamento há pelo menos 1 ano",
+        "contra": "Ato da autoridade coatora",
+        "onde": "Depende da autoridade",
+        "prazo": "120 dias",
+        "naoCabe": [
+          "Associação com menos de 1 ano de funcionamento",
+          "Defesa de direito de um único associado"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXX",
+          "Lei 12.016/2009, art. 21"
+        ],
+        "pista": "\"sindicato\", \"associação\", \"todos os filiados\""
+      },
+      {
+        "sigla": "HC",
+        "nome": "Habeas corpus",
+        "cabe": [
+          "Quando alguém **sofre ou está ameaçado** de sofrer violência ou coação na **liberdade de locomoção**, por ilegalidade ou abuso de poder"
+        ],
+        "quem": "Qualquer pessoa, em favor de si ou de outro (até sem advogado)",
+        "contra": "Autoridade ou particular que restringe a liberdade",
+        "onde": "Depende do coator (ex.: arts. 102, I, d e i; 105, I, c; 109, VII)",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Punições disciplinares militares (art. 142, § 2º)",
+          "Discussão que não envolva liberdade de locomoção"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXVIII e LXXVII",
+          "CPP, arts. 647 e 654"
+        ],
+        "pista": "\"preso\", \"mandado de prisão\", \"impedido de circular\""
+      },
+      {
+        "sigla": "HD",
+        "nome": "Habeas data",
+        "cabe": [
+          "Conhecer informações **sobre a própria pessoa** em bancos de dados governamentais ou de caráter público",
+          "Retificar esses dados",
+          "Anotar explicação sobre dado verdadeiro"
+        ],
+        "quem": "O próprio titular dos dados (ação personalíssima)",
+        "contra": "Entidade que mantém o registro",
+        "onde": "Lei 9.507, art. 20",
+        "prazo": "Não há, mas exige **recusa prévia**: pedido negado ou sem resposta em 10 dias (acesso) ou 15 dias (retificação/anotação)",
+        "naoCabe": [
+          "Pedir dados de terceiros ou informações de interesse geral (aí é MS)",
+          "Ir direto ao Judiciário sem pedido administrativo"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXXII",
+          "Lei 9.507/1997, arts. 7º e 8º"
+        ],
+        "pista": "\"ficha\", \"cadastro\", \"registro\", \"pedido sem resposta\""
+      },
+      {
+        "sigla": "MI",
+        "nome": "Mandado de injunção (individual e coletivo)",
+        "cabe": [
+          "Quando a **falta de norma regulamentadora** torna inviável exercer direito ou liberdade constitucional, ou prerrogativa de nacionalidade, soberania e cidadania"
+        ],
+        "quem": "Individual: o titular do direito. Coletivo: MP, partido com representação no CN, sindicato/entidade/associação com 1 ano, Defensoria",
+        "contra": "O órgão omisso (quem deveria editar a norma)",
+        "onde": "Depende do órgão omisso (ex.: art. 102, I, q; 105, I, h)",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Quando a norma já existe, mesmo que ruim",
+          "Direito que não depende de regulamentação"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXXI",
+          "Lei 13.300/2016, arts. 2º, 3º e 12"
+        ],
+        "pista": "\"na forma da lei\" + \"lei nunca editada\" + quem quer exercer o direito"
+      },
+      {
+        "sigla": "AP",
+        "nome": "Ação popular",
+        "cabe": [
+          "Anular ato **lesivo** ao patrimônio público (ou de entidade de que o Estado participe), à **moralidade administrativa**, ao **meio ambiente** ou ao patrimônio histórico e cultural"
+        ],
+        "quem": "**Só o cidadão** (eleitor: prova com título de eleitor)",
+        "contra": "Quem praticou o ato, quem se beneficiou e a pessoa jurídica",
+        "onde": "Juízo de 1º grau (Lei 4.717, art. 5º)",
+        "prazo": "Prescreve em 5 anos (Lei 4.717, art. 21)",
+        "naoCabe": [
+          "Proposta por associação, MP ou pessoa jurídica",
+          "Defesa de direito próprio do autor"
+        ],
+        "artigos": [
+          "CF, art. 5º, LXXIII",
+          "Lei 4.717/1965, arts. 1º e 6º"
+        ],
+        "pista": "\"cidadão\", \"eleitor\", \"contrato superfaturado\", \"dinheiro público\""
+      },
+      {
+        "sigla": "ACP",
+        "nome": "Ação civil pública",
+        "cabe": [
+          "Responsabilizar por danos ao **meio ambiente, consumidor, bens de valor artístico/histórico, ordem urbanística, ordem econômica, patrimônio público** ou outro interesse difuso ou coletivo"
+        ],
+        "quem": "MP, Defensoria, União, Estados, DF, Municípios, autarquias, empresas públicas, fundações, SEM e **associação com 1 ano** e finalidade ligada ao tema",
+        "contra": "Quem causou o dano (público ou privado)",
+        "onde": "Foro do local do dano (Lei 7.347, art. 2º)",
+        "prazo": "A lei não fixa",
+        "naoCabe": [
+          "Proposta por cidadão",
+          "Pretensões sobre tributos, contribuições previdenciárias e FGTS"
+        ],
+        "artigos": [
+          "CF, art. 129, III",
+          "Lei 7.347/1985, arts. 1º e 5º"
+        ],
+        "pista": "\"associação\", \"Ministério Público\", \"empresa poluindo\", \"consumidores\""
+      },
+      {
+        "sigla": "ADI",
+        "nome": "Ação direta de inconstitucionalidade",
+        "cabe": [
+          "Retirar do ordenamento **lei ou ato normativo federal ou estadual** (e distrital de natureza estadual) contrário à Constituição"
+        ],
+        "quem": "Legitimados do art. 103 (Presidente, Mesas, Governador, PGR, OAB, partido, confederação sindical ou entidade de classe nacional)",
+        "contra": "A norma (processo objetivo, sem réu)",
+        "onde": "STF (art. 102, I, a)",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Lei municipal em face da CF (→ ADPF)",
+          "Lei anterior a 1988 (→ ADPF)"
+        ],
+        "artigos": [
+          "CF, arts. 102, I, a, e 103",
+          "Lei 9.868/1999"
+        ],
+        "pista": "\"lei estadual\", \"Governador/partido quer derrubar\", efeitos para todos"
+      },
+      {
+        "sigla": "ADC",
+        "nome": "Ação declaratória de constitucionalidade",
+        "cabe": [
+          "Confirmar a constitucionalidade de **lei ou ato normativo federal** quando há **controvérsia judicial relevante** sobre ela"
+        ],
+        "quem": "Os mesmos legitimados da ADI (art. 103)",
+        "contra": "Não há réu",
+        "onde": "STF (art. 102, I, a)",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Lei estadual ou municipal",
+          "Sem decisões judiciais divergentes"
+        ],
+        "artigos": [
+          "CF, art. 102, I, a, e § 2º",
+          "Lei 9.868/1999, art. 14, III"
+        ],
+        "pista": "\"juízes afastando a lei federal\", \"decisões conflitantes\""
+      },
+      {
+        "sigla": "ADO",
+        "nome": "Ação direta de inconstitucionalidade por omissão",
+        "cabe": [
+          "Declarar a **mora** do Poder ou órgão que deixou de editar medida para tornar efetiva norma constitucional, **em tese**, sem caso concreto"
+        ],
+        "quem": "Os mesmos legitimados da ADI (art. 103)",
+        "contra": "O Poder ou órgão omisso",
+        "onde": "STF",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Quando o autor quer exercer o próprio direito (→ MI)"
+        ],
+        "artigos": [
+          "CF, art. 103, § 2º",
+          "Lei 9.868/1999, arts. 12-A a 12-H"
+        ],
+        "pista": "\"partido/Governador\" + \"lei que nunca saiu\" + pedido amplo"
+      },
+      {
+        "sigla": "ADPF",
+        "nome": "Arguição de descumprimento de preceito fundamental",
+        "cabe": [
+          "Evitar ou reparar lesão a **preceito fundamental** por ato do Poder Público",
+          "Controvérsia constitucional sobre lei federal, estadual ou **municipal**, inclusive **anterior a 1988**"
+        ],
+        "quem": "Os mesmos legitimados da ADI",
+        "contra": "O ato do Poder Público",
+        "onde": "STF (art. 102, § 1º)",
+        "prazo": "Não há",
+        "naoCabe": [
+          "Quando houver outro meio eficaz de sanar a lesão (subsidiariedade)"
+        ],
+        "artigos": [
+          "CF, art. 102, § 1º",
+          "Lei 9.882/1999, arts. 1º e 4º, § 1º"
+        ],
+        "pista": "\"lei municipal\", \"lei de 1984\", \"decreto\", \"nenhuma outra ação resolve\""
+      },
+      {
+        "sigla": "RCL",
+        "nome": "Reclamação constitucional",
+        "cabe": [
+          "Preservar a **competência** do tribunal",
+          "Garantir a **autoridade** das suas decisões",
+          "Garantir a observância de **súmula vinculante** e de decisão do STF em **controle concentrado**"
+        ],
+        "quem": "A parte interessada ou o MP",
+        "contra": "A decisão ou o ato que desrespeitou",
+        "onde": "O tribunal cuja competência ou decisão foi desrespeitada (STF, na 2ª fase)",
+        "prazo": "Antes do trânsito em julgado da decisão reclamada",
+        "naoCabe": [
+          "Depois do trânsito em julgado",
+          "Ato administrativo contra SV sem esgotar a via administrativa"
+        ],
+        "artigos": [
+          "CF, arts. 102, I, l, e 103-A, § 3º",
+          "CPC, art. 988",
+          "Lei 11.417/2006, art. 7º"
+        ],
+        "pista": "\"súmula vinculante\", \"decisão do STF ignorada\", \"recurso administrativo esgotado\""
+      },
+      {
+        "sigla": "RE",
+        "nome": "Recurso extraordinário",
+        "cabe": [
+          "Causa decidida em **única ou última instância** que: a) contraria a CF; b) declara inconstitucional tratado ou lei federal; c) julga válida lei ou ato local contestado em face da CF; d) julga válida lei local contestada em face de lei federal"
+        ],
+        "quem": "A parte vencida",
+        "contra": "O acórdão",
+        "onde": "Interposto no tribunal de origem e julgado pelo STF",
+        "prazo": "15 dias úteis (CPC, art. 1.003, § 5º) + repercussão geral",
+        "naoCabe": [
+          "Ainda há recurso ordinário a interpor",
+          "Discussão só de lei federal (→ REsp)"
+        ],
+        "artigos": [
+          "CF, art. 102, III, e § 3º",
+          "CPC, arts. 1.029 e 1.035"
+        ],
+        "pista": "\"TJ/TRF manteve\", \"esgotados os recursos\", \"embargos rejeitados\""
+      },
+      {
+        "sigla": "ROC",
+        "nome": "Recurso ordinário constitucional",
+        "cabe": [
+          "**STF**: HC, MS, HD e MI decididos em **única instância** pelos Tribunais Superiores, se **denegatória**",
+          "**STJ**: HC decidido em única ou última instância por TRF/TJ, se denegatório; MS decidido em única instância por TRF/TJ, se denegatório"
+        ],
+        "quem": "O impetrante vencido",
+        "contra": "O acórdão denegatório",
+        "onde": "Interposto no tribunal de origem; julgado pelo STF (art. 102, II) ou STJ (art. 105, II)",
+        "prazo": "15 dias úteis (CPC, art. 1.003, § 5º); RHC ao STJ: 5 dias (Lei 8.038, art. 30)",
+        "naoCabe": [
+          "Decisão que concedeu a ordem",
+          "MS julgado em 1º grau e depois em apelação (→ RE/REsp)"
+        ],
+        "artigos": [
+          "CF, arts. 102, II, e 105, II",
+          "CPC, arts. 1.027 e 1.028"
+        ],
+        "pista": "\"STJ/TJ negou o MS\", \"em única instância\""
+      }
+    ],
+    "duelos": [
+      {
+        "a": "Ação popular",
+        "b": "Ação civil pública",
+        "linhas": [
+          [
+            "Quem propõe",
+            "Só o cidadão eleitor",
+            "MP, Defensoria, entes públicos, associação com 1 ano"
+          ],
+          [
+            "Objetivo",
+            "Anular ato lesivo + ressarcir",
+            "Reparar ou evitar dano a interesse difuso/coletivo"
+          ],
+          [
+            "Contra",
+            "Agentes, beneficiários e a pessoa jurídica",
+            "Quem causou o dano, público ou privado"
+          ],
+          [
+            "Base",
+            "Art. 5º, LXXIII; Lei 4.717",
+            "Art. 129, III; Lei 7.347"
+          ]
+        ],
+        "macete": "Olhe **quem pede**: cidadão → AP. Associação, MP ou Defensoria → ACP. Associação nunca propõe ação popular."
+      },
+      {
+        "a": "Mandado de segurança",
+        "b": "Habeas data",
+        "linhas": [
+          [
+            "Informação",
+            "Qualquer informação (de terceiros, de interesse geral)",
+            "Só dados sobre o próprio impetrante"
+          ],
+          [
+            "Antes de ajuizar",
+            "Não exige pedido prévio",
+            "Exige recusa ou silêncio administrativo"
+          ],
+          [
+            "Prazo",
+            "120 dias",
+            "Não há"
+          ],
+          [
+            "Custas",
+            "Há custas",
+            "Gratuito (art. 5º, LXXVII)"
+          ]
+        ],
+        "macete": "Dado **meu** em cadastro público → HD. Qualquer outra informação negada → MS."
+      },
+      {
+        "a": "Mandado de injunção",
+        "b": "ADO",
+        "linhas": [
+          [
+            "Natureza",
+            "Caso concreto: o autor quer exercer o direito",
+            "Controle abstrato: declarar a omissão em tese"
+          ],
+          [
+            "Quem propõe",
+            "O titular do direito (ou entidade, no coletivo)",
+            "Legitimados do art. 103"
+          ],
+          [
+            "Onde",
+            "Depende do órgão omisso",
+            "Sempre no STF"
+          ],
+          [
+            "Resultado",
+            "Viabiliza o exercício do direito ao autor",
+            "Ciência ao Poder omisso"
+          ]
+        ],
+        "macete": "Mesma omissão, perguntas diferentes: **quem quer exercer o direito** → MI; **partido/Governador pedindo de forma ampla** → ADO."
+      },
+      {
+        "a": "ADI",
+        "b": "ADPF",
+        "linhas": [
+          [
+            "Objeto",
+            "Lei/ato normativo federal ou estadual",
+            "Qualquer ato do Poder Público, inclusive municipal e anterior a 1988"
+          ],
+          [
+            "Parâmetro",
+            "Toda a Constituição",
+            "Preceito fundamental"
+          ],
+          [
+            "Caráter",
+            "Principal",
+            "Subsidiária: só se nada mais resolver"
+          ],
+          [
+            "Base",
+            "Art. 102, I, a; Lei 9.868",
+            "Art. 102, § 1º; Lei 9.882"
+          ]
+        ],
+        "macete": "Lei **municipal** ou **antes de 1988** em face da CF → ADPF. Lei federal ou estadual atual → ADI."
+      },
+      {
+        "a": "ADI",
+        "b": "ADC",
+        "linhas": [
+          [
+            "Pedido",
+            "Declarar a norma inconstitucional",
+            "Declarar a norma constitucional"
+          ],
+          [
+            "Objeto",
+            "Lei federal ou estadual",
+            "Só lei federal"
+          ],
+          [
+            "Requisito extra",
+            "Não há",
+            "Controvérsia judicial relevante"
+          ],
+          [
+            "Base",
+            "Art. 102, I, a; Lei 9.868",
+            "Art. 102, I, a; Lei 9.868, art. 14, III"
+          ]
+        ],
+        "macete": "Cliente **quer derrubar** a lei → ADI. Cliente **quer salvar** a lei federal que juízes estão afastando → ADC."
+      },
+      {
+        "a": "MS individual",
+        "b": "MS coletivo",
+        "linhas": [
+          [
+            "Quem",
+            "O próprio titular do direito",
+            "Partido, sindicato, entidade de classe, associação (1 ano)"
+          ],
+          [
+            "Defende",
+            "Direito próprio",
+            "Direitos do grupo de membros"
+          ],
+          [
+            "Autorização",
+            "Não se aplica",
+            "Dispensada autorização especial dos membros"
+          ],
+          [
+            "Base",
+            "Art. 5º, LXIX",
+            "Art. 5º, LXX; Lei 12.016, art. 21"
+          ]
+        ],
+        "macete": "Se o enunciado traz uma **entidade defendendo todos os filiados**, é coletivo."
+      },
+      {
+        "a": "Habeas corpus",
+        "b": "Mandado de segurança",
+        "linhas": [
+          [
+            "Direito protegido",
+            "Liberdade de locomoção",
+            "Qualquer outro direito líquido e certo"
+          ],
+          [
+            "Quem impetra",
+            "Qualquer pessoa, até sem advogado",
+            "O titular, por advogado"
+          ],
+          [
+            "Prazo",
+            "Não há",
+            "120 dias"
+          ],
+          [
+            "Custas",
+            "Gratuito",
+            "Há custas"
+          ]
+        ],
+        "macete": "Envolve **prisão ou ir e vir** → HC. Qualquer outro direito provado por documentos → MS."
+      },
+      {
+        "a": "Recurso extraordinário",
+        "b": "Reclamação",
+        "linhas": [
+          [
+            "Natureza",
+            "Recurso: rediscute a decisão",
+            "Ação: protege competência/autoridade do STF"
+          ],
+          [
+            "Quando",
+            "Última instância contrariou a CF",
+            "Decisão/ato desrespeitou SV ou decisão do STF em controle concentrado"
+          ],
+          [
+            "Limite",
+            "15 dias úteis; repercussão geral",
+            "Antes do trânsito em julgado"
+          ],
+          [
+            "Base",
+            "Art. 102, III",
+            "Art. 103-A, § 3º; CPC, art. 988"
+          ]
+        ],
+        "macete": "O enunciado menciona **súmula vinculante** ou **decisão do STF com efeito vinculante** desrespeitada → Reclamação."
+      },
+      {
+        "a": "Recurso extraordinário",
+        "b": "Recurso ordinário",
+        "linhas": [
+          [
+            "Decisão atacada",
+            "Única ou última instância que contraria a CF",
+            "HC/MS/HD/MI denegados em única instância por tribunal"
+          ],
+          [
+            "O que discute",
+            "Só questão constitucional",
+            "Fatos e direito (amplo)"
+          ],
+          [
+            "Repercussão geral",
+            "Exige",
+            "Não exige"
+          ],
+          [
+            "Base",
+            "Art. 102, III",
+            "Arts. 102, II, e 105, II"
+          ]
+        ],
+        "macete": "**Tribunal julgou o MS como 1ª instância e negou** → ROC. Caso subiu por recursos e terminou contra a CF → RE."
+      },
+      {
+        "a": "Recurso extraordinário",
+        "b": "Recurso especial",
+        "linhas": [
+          [
+            "Tribunal",
+            "STF",
+            "STJ"
+          ],
+          [
+            "Questão",
+            "Constitucional",
+            "Lei federal"
+          ],
+          [
+            "Decisões atacadas",
+            "De qualquer tribunal (e turmas recursais)",
+            "Só de TRF e TJ"
+          ],
+          [
+            "Base",
+            "Art. 102, III",
+            "Art. 105, III"
+          ]
+        ],
+        "macete": "Ofensa à **Constituição** → RE. Ofensa à **lei federal** → REsp. Ofensa às duas → os dois."
+      }
+    ],
+    "fim": {
+      "titulo": [
+        "Peça certa",
+        "[[começa no cabimento.]]"
+      ],
+      "texto": "Antes de escrever, responda: quem pede, contra quem, sobre o quê e com base em qual artigo. O resto vem no checklist VDE."
     }
   }
 ]

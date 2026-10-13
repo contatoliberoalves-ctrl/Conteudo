@@ -12,3 +12,6 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 
 ## dados.json
 `{ id, tema, capa, comoUsar[], nota, casos[], divisor, fim }`. Cada caso: `{ titulo, inspirado, enunciado[], peca, pista, gabarito[6], atencao }`. `gabarito` segue a ordem dos 6 pontos (Endereçamento, Partes e legitimidade, Cabimento, Tutela de urgência, Teses, Pedidos), cada um `{ texto[], artigos[] }`. `**negrito**` e `[[destaque]]` valem nos textos.
+
+## Guia de cabimento (`"tipo": "guia"`)
+Capa, mapa de decisão (`mapa[]`: `{pergunta, respostas: [[situação, peça]]}`), fichas por peça, 2 por página (`fichas[]`: `{sigla, nome, cabe[], quem, contra, onde, prazo, naoCabe[], artigos[], pista}`), duelos das peças que se confundem, 2 por página (`duelos[]`: `{a, b, linhas: [[critério, a, b]], macete}`), tabela-resumo automática (sigla, quem, onde, prazo) e `fim`. Só CF e leis (sem jurisprudência, salvo pedido).
