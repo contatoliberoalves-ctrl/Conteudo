@@ -21,6 +21,7 @@ Campos comuns: `id`, `titulo` (nome do post na galeria), `layout`, `tema` (`blue
 | `video` | vídeo novo no YouTube (fundo claro/azul) | `print` (print do vídeo, arquivo em `fotos/`, fora do git), `selo` (padrão "No YouTube"), `hashtag` (padrão `#AULA`), `chamada` (padrão "pra receber o link"), `botao` (padrão "Enviar ➤"), `playX`/`playY` (posição do play em %, para não cobrir o rosto) |
 | `video-destaque` | vídeo novo no YouTube (tema `dark`, título gigante) | os mesmos de `video`, mais `printY` e `balaoY` (px do topo do print e do balão "Comenta #AULA") |
 | `trecho` | trecho de livro/artigo com uma pergunta (ex.: "Por que TDAH tem um branco nas provas?") | `linhas` (título), `print` (foto do trecho em `fotos/`), `pergunta` (balão no pé, lista de linhas), `selo` (padrão "Trecho de livro"), `fonte` (opcional, no pé da folha), `printY`, `balaoY`, `balaoX`, `tp` |
+| `treino` | divulgar treino/casos no app Argumenta com Líbero (fundo quase preto, sem anel vermelho, acento menta) | `logo` (símbolo do app, procurado também em `../argumenta-libero/fotos/`), `selo` (padrão "No app"), `app`, `numero` (vazado em menta), `tn`, `linhas`, `ts`, `materias` (pílulas), `hashtag`, `chamada`, `th` |
 
 Nos layouts `estrutura` e `esqueleto`, qualquer campo do post (`linhas`, `topicos`…) substitui o que vem da Estrutura de Peças.
 

@@ -15,7 +15,7 @@ const buildDir = path.join(root, 'build');
 fs.mkdirSync(buildDir, { recursive: true });
 
 // Fotos: fotos/ deste molde; se não houver, os recortes do Carrossel Explicativo (mesmo autor).
-const pastasFoto = [path.join(root, 'fotos'), path.join(root, '..', 'carrossel-explicativo', 'fotos')];
+const pastasFoto = [path.join(root, 'fotos'), path.join(root, '..', 'carrossel-explicativo', 'fotos'), path.join(root, '..', 'argumenta-libero', 'fotos')];
 const acharFoto = nome => pastasFoto.map(p => path.join(p, nome)).find(f => fs.existsSync(f));
 
 const launch = {};
@@ -43,7 +43,7 @@ for (let c of dados) {
   });
   const fotos = {}, faltando = [];
   for (const s of c.slides) if (s.foto) { const f = acharFoto(s.foto); if (f) fotos[s.foto] = 'file://' + f; else faltando.push(s.foto); }
-  for (const n of [c.print]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
+  for (const n of [c.print, c.logo]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
   const { html, total, avisos } = renderCarrossel({ ...c, _fotos: fotos });
   faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/)`));
   pendentes.forEach(f => avisos.push(`imagem pendente: imagens/${f} (gere com python3 gerar_imagens_ia.py ou coloque o arquivo)`));

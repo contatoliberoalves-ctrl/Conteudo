@@ -7,6 +7,8 @@
 //   esqueleto — estrutura da peça em trilha numerada, com o endereçamento em destaque;
 //   video    — divulgação de vídeo novo no YouTube: título, o print com play e barra de progresso, barra "Comenta #X";
 //   video-destaque — fundo escuro, título gigante, print inclinado em moldura branca e balão "Comenta #X";
+//   treino   — fundo quase preto, sem anel vermelho: símbolo do app no alto, número vazado em menta, matérias em
+//              pílulas e o balão "Comente X" (divulgação de treino/casos no app Argumenta com Líbero);
 //   trecho   — título (pergunta) + print de um trecho (livro, artigo) numa folha inclinada e balão com a pergunta final.
 // "linhas" é o título na imagem (lista de linhas); "titulo" é o nome do post na galeria.
 // Marcação: **negrito** e [[caixa]] (palavra com fundo sólido, só nos títulos), como no Carrossel Libero.
@@ -114,6 +116,32 @@ const LAYOUTS = {
         <div style="font-size:32px;font-weight:600;line-height:1.2;color:#fff">${esc(p.chamada || 'pra receber o link')}</div>
       </div>${selo(t, COR.azul)}`;
   },
+};
+
+// Treino: fundo navy quase preto (sem o anel vermelho), acento verde-menta do app Argumenta com Líbero.
+const MENTA = '#7FE0A8';
+LAYOUTS.treino = (p, t) => {
+  const src = (p._fotos || {})[p.logo] || '';
+  const mats = lista(p.materias);
+  return `<div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 85% 0%,rgba(127,224,168,.16) 0%,rgba(0,0,0,0) 60%),linear-gradient(180deg,#0B111C 0%,#05080E 100%)"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.035) 1.5px,transparent 1.5px);background-size:60px 60px"></div>
+    <div style="position:absolute;left:110px;right:110px;top:84px;display:flex;align-items:center;gap:26px;z-index:4">
+      <div style="width:150px;height:150px;flex:none;border-radius:34px;background:#fff;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.5)">${src ? `<img src="${src}" style="width:100%;height:100%;object-fit:contain">` : ''}</div>
+      <div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:26px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${MENTA}">${esc(p.selo || 'No app')}</div>
+        <div style="font-size:38px;font-weight:800;color:#fff;line-height:1.1">${esc(p.app || 'Argumenta com Líbero')}</div></div>
+    </div>
+    <div data-area style="position:absolute;left:110px;right:110px;top:300px;bottom:520px;display:flex;flex-direction:column;justify-content:center;z-index:3">
+      <div style="${TITULO};font-size:${p.tn || 380}px;line-height:.78;color:transparent;-webkit-text-stroke:5px ${MENTA}">${esc(p.numero || '')}</div>
+      <h1 data-titulo style="${TITULO};margin:18px 0 0;font-size:${p.ts || 150}px;line-height:.9;color:#fff">${lista(p.linhas).map(l => rico(l, { ...t, caixa: '#1E7A4E' })).join('<br>')}</h1>
+    </div>
+    <div style="position:absolute;left:110px;right:110px;top:860px;display:flex;flex-wrap:wrap;gap:16px;z-index:3">
+      ${mats.map(m => `<span style="border:2.5px solid ${MENTA};color:#fff;border-radius:999px;padding:12px 28px;font-size:32px;font-weight:700">${esc(m)}</span>`).join('')}
+    </div>
+    <div style="position:absolute;left:110px;right:110px;top:1060px;display:flex;align-items:center;justify-content:space-between;gap:30px;background:${MENTA};border-radius:44px 44px 44px 0;padding:30px 44px;z-index:4">
+      <div style="font-size:36px;font-weight:700;color:#05080E;line-height:1.15">Comente<br><span style="font-weight:600;font-size:30px">${esc(p.chamada || 'pra receber o link')}</span></div>
+      <div style="${TITULO};font-size:${p.th || 110}px;line-height:1;color:#05080E">${esc(p.hashtag)}</div>
+    </div>
+    <div style="position:absolute;right:110px;bottom:58px;font-size:28px;font-weight:700;color:#fff;opacity:.8;z-index:6">${PERFIL}</div>`;
 };
 
 // Trecho de livro/artigo: selo, título, o print (p.print, em fotos/) numa folha branca inclinada, com fita
