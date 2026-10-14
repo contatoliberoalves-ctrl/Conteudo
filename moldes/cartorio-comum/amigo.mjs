@@ -115,7 +115,7 @@ export const TIPOS = {
     <div style="position:absolute;left:0;right:0;top:0;height:${alt}px;overflow:hidden;${img ? `background:url(${img}) ${s.fotoPos || 'center'}/cover` : ''}">${img ? '' : sertao(1080, alt, s.cor || 'barro', s.icone)}</div>
     <div style="position:absolute;left:0;right:0;top:${alt - 360}px;height:362px;background:linear-gradient(transparent,${c.bg} 92%)"></div>
     <div style="position:absolute;left:56px;top:56px;transform:rotate(-4deg)">${etiqueta(s.selo || 'Você sabia?', A.sol, A.tinta, 40, `box-shadow:0 6px 0 ${c.escuro}`)}</div>
-    ${tarja}${rostos}
+    ${tarja}${rostos}${s.credito ? `<div style="position:absolute;right:30px;top:${alt - 380}px;font-size:16px;font-weight:600;color:rgba(255,255,255,.75);text-shadow:0 1px 3px rgba(0,0,0,.5)">${esc(s.credito)}</div>` : ''}
     ${area(`${titulo(s.titulo, s.ts || 104, '#fff', 'text-shadow:0 4px 18px rgba(0,0,0,.18)')}${s.texto ? corpo(s.texto, 36, '#fff') : ''}`, { top: alt - 10, bottom: 150, extra: 'gap:18px;justify-content:flex-end' })}
     <div style="position:absolute;left:90px;right:90px;bottom:52px;display:flex;align-items:center;gap:18px">${selo(70)}${nome('#fff', 22)}
       <span style="margin-left:auto;font-weight:900;font-size:26px;color:${c.escuro};background:#fff;border-radius:999px;padding:12px 26px">${esc(s.arrasta || 'Arrasta pro lado')} →</span></div>`;

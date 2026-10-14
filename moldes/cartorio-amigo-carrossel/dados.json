@@ -562,24 +562,25 @@
   {
     "id": "dna-de-famoso",
     "titulo": "Teste de DNA de famoso: o que muda na certidão?",
-    "promptImagem": "(foto do Roberto Carlos, enviada pelo usuário)",
+    "promptImagem": "Foto: Roberto Carlos no Credicard Hall, por Teca Lamboglia, CC BY 2.0 (Wikimedia Commons)",
     "slides": [
       {
         "tipo": "famoso",
         "cor": "barro",
         "icone": "familia",
-        "foto": "fotos/famosos/roberto-carlos.jpg",
-        "fotoPos": "center 25%",
+        "foto": "fotos/roberto-carlos.jpg",
+        "fotoPos": "center 4%",
         "selo": "Relembre",
         "tarja": {
           "rotulo": "Teste de DNA",
           "icone": "lupa",
           "texto": "Reconheceu o filho quando ele já tinha **24 anos**"
         },
-        "tarjaTop": 400,
+        "tarjaTop": 470,
         "titulo": "Até o [[Rei]] fez teste de DNA. O que muda na certidão?",
         "ts": 92,
-        "texto": "E como reconhecer um filho sem briga e sem juiz."
+        "texto": "E como reconhecer um filho sem briga e sem juiz.",
+        "credito": "Foto: Teca Lamboglia (CC BY 2.0, recortada)"
       },
       {
         "tipo": "texto",
