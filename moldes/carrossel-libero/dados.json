@@ -5707,5 +5707,161 @@
         "aneis": "baixo"
       }
     ]
+  },
+  {
+    "id": "recurso-nunca-errar",
+    "titulo": "Como NUNCA errar a identificação se for um recurso",
+    "tema": "Apelação x ROC (STJ e STF) x RE na 2ª fase de Constitucional: as 3 perguntas, os artigos e as pegadinhas",
+    "pontes": [
+      {
+        "img": "magnifying_glass_tilted_left.png",
+        "entre": 2,
+        "y": 900,
+        "tam": 320,
+        "rot": -10
+      },
+      {
+        "img": "balance_scale.png",
+        "entre": 7,
+        "y": 160,
+        "tam": 300,
+        "rot": 6
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "pergunta",
+        "tema": "blue",
+        "kicker": "2ª fase · Constitucional",
+        "titulo": [
+          "Como [[NUNCA]] errar",
+          "a identificação",
+          "se for um recurso"
+        ],
+        "texto": "Caiu recurso? Três perguntas e você acerta qual é.",
+        "opcoes": [
+          "Apelação",
+          "ROC",
+          "RE"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Respira",
+        "titulo": [
+          "Recurso é a peça",
+          "mais previsível"
+        ],
+        "palavra": "CALMA",
+        "palavraLado": "direita",
+        "texto": [
+          "Muita gente trava quando o caso já tem uma decisão. Mas é justamente ela que **entrega a peça**.",
+          "O enunciado sempre conta **quem decidiu**, **como decidiu** e **o que ficou errado**. É só ler nessa ordem."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "O método",
+        "titulo": [
+          "As 3 perguntas"
+        ],
+        "marcador": "num",
+        "itens": [
+          "**Quem decidiu?** Juiz de 1º grau ou tribunal.",
+          "**Em que instância?** O tribunal julgou a ação originariamente (única instância) ou julgou um recurso?",
+          "**O que decidiu?** Negou um remédio (HC, MS, HD, MI)? Ou violou a Constituição?"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Juiz de 1º grau sentenciou",
+        "titulo": [
+          "[[Apelação]]"
+        ],
+        "palavra": "SENTENÇA",
+        "palavraLado": "esquerda",
+        "texto": [
+          "Cabe contra **sentença** (art. 1.009, CPC). Na 2ª fase: sentença em MS (art. 14, Lei 12.016/09), em ação popular, em ACP ou em ação de procedimento comum.",
+          "Prazo de **15 dias úteis** (art. 1.003, § 5º, CPC). Interposição ao juiz da causa; razões ao TJ ou ao TRF."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "Tribunal Superior negou o remédio",
+        "titulo": [
+          "ROC ao STF",
+          "(art. 102, II, a)"
+        ],
+        "citacao": "julgar, em recurso ordinário: a) o habeas corpus, o mandado de segurança, o habeas data e o mandado de injunção decididos em única instância pelos Tribunais Superiores, se denegatória a decisão;",
+        "traducao": "Traduzindo: **STJ, TSE, TST ou STM** julgou o HC, MS, HD ou MI como primeira e única instância e **negou**? ROC ao STF."
+      },
+      {
+        "tipo": "lei",
+        "tema": "dark",
+        "kicker": "TJ ou TRF negou o remédio",
+        "titulo": [
+          "ROC ao STJ",
+          "(art. 105, II)"
+        ],
+        "citacao": "julgar, em recurso ordinário: a) os habeas corpus decididos em única ou última instância pelos Tribunais Regionais Federais ou pelos tribunais dos Estados, do Distrito Federal e Territórios, quando a decisão for denegatória; b) os mandados de segurança decididos em única instância pelos Tribunais Regionais Federais ou pelos tribunais dos Estados, do Distrito Federal e Territórios, quando denegatória a decisão;",
+        "traducao": "Traduzindo: **TJ ou TRF** negou **MS** que ele julgou originariamente (ou negou HC)? ROC ao STJ."
+      },
+      {
+        "tipo": "lei",
+        "tema": "blue",
+        "kicker": "Tribunal violou a Constituição",
+        "titulo": [
+          "Recurso",
+          "Extraordinário"
+        ],
+        "citacao": "julgar, mediante recurso extraordinário, as causas decididas em única ou última instância, quando a decisão recorrida: a) contrariar dispositivo desta Constituição;",
+        "traducao": "Traduzindo: decisão de **última ou única instância** que ofende a CF. Precisa de **prequestionamento** e **repercussão geral** (art. 102, § 3º, CF)."
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Onde a banca te pega",
+        "titulo": [
+          "Pegadinhas"
+        ],
+        "marcador": "letra",
+        "itens": [
+          "**MS concedido** pelo TJ? Não cabe ROC: ele só serve quando a decisão é **denegatória**.",
+          "TJ julgou a **apelação** do MS (não foi originário)? Não é ROC. Ofendeu a CF? **RE**.",
+          "**Sentença** em MS? É apelação, não ROC (art. 14, Lei 12.016/09).",
+          "Tribunal Superior negou **MI ou HD** originário? ROC ao **STF**."
+        ]
+      },
+      {
+        "tipo": "frases",
+        "tema": "dark",
+        "kicker": "Resumo de bolso",
+        "titulo": [
+          "Cola na mente"
+        ],
+        "frases": [
+          "Juiz sentenciou: apelação.",
+          "TJ/TRF negou MS originário: ROC ao STJ.",
+          "Tribunal Superior negou remédio originário: ROC ao STF.",
+          "Tribunal ofendeu a CF: RE."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Qual recurso",
+          "te dá mais medo?"
+        ],
+        "texto": "Comenta aqui e salva pra revisar antes da prova.",
+        "botao": "Comente #RECURSO"
+      }
+    ]
   }
 ]
