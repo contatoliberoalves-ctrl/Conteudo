@@ -126,7 +126,7 @@ export const TIPOS = {
     const c = CORES[s.cor] || CORES.barro;
     const img = foto(ctx.root, s.foto);
     return `${fundoCreme}${area(`${kicker(s)}
-    <div style="display:flex;align-items:center;gap:40px"><div style="flex:none;width:260px;height:260px;border-radius:50%;overflow:hidden;background:${c.claro};border:10px solid #fff;box-shadow:0 12px 0 ${c.bg};display:flex;align-items:center;justify-content:center">${img ? `<div style="width:100%;height:100%;background:url(${img}) ${s.fotoPos || 'center 25%'}/cover"></div>` : icone(s.icone || 'pergunta', 130, c.bg, 1.8)}</div>
+    <div style="display:flex;align-items:center;gap:40px"><div style="flex:none;width:260px;height:260px;border-radius:50%;overflow:hidden;background:${c.claro};border:10px solid #fff;box-shadow:0 12px 0 ${c.bg};display:flex;align-items:center;justify-content:center">${img ? `<div style="width:100%;height:100%;background:url(${img}) ${s.fotoPos || 'center 25%'}/${s.fotoTam || 'cover'} no-repeat"></div>` : icone(s.icone || 'pergunta', 130, c.bg, 1.8)}</div>
       <div><div style="font-weight:800;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:${A.suave}">Conhecido como</div>${titulo(s.artistico, s.ts || 104, c.bg)}</div></div>
     <div style="background:#fff;border-radius:36px;padding:34px 40px;border:4px dashed ${c.bg}"><div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">${icone('documento', 40, c.bg, 2.2)}<span style="font-weight:900;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:${c.bg}">Nome de registro</span></div>${titulo(s.registro, s.tr || 70)}</div>
     ${lista(s.texto).map(t => corpo(t, s.corpo || 38)).join('')}`, { extra: 'justify-content:center' })}${rodape(ctx)}`;

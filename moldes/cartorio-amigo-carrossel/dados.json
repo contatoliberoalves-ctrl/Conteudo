@@ -461,10 +461,11 @@
         "tipo": "capa",
         "cor": "verde",
         "icone": "pergunta",
-        "foto": "fotos/nome-de-verdade.jpg",
+        "foto": "fotos/famosos/nome-de-verdade.jpg",
         "selo": "Quiz",
         "titulo": "Você sabe o nome [[de verdade]] deles?",
-        "texto": "Tente adivinhar antes de passar pro lado!"
+        "texto": "Tente adivinhar antes de passar pro lado!",
+        "fotoPos": "center 45%"
       },
       {
         "tipo": "ficha",
@@ -491,7 +492,9 @@
         "registro": "Nivaldo Batista Lima",
         "cor": "verde",
         "icone": "pergunta",
-        "foto": "fotos/famosos/gusttavo-lima.jpg"
+        "foto": "fotos/famosos/gusttavo-lima.jpg",
+        "fotoPos": "50% 15%",
+        "fotoTam": "190%"
       },
       {
         "tipo": "ficha",
@@ -509,7 +512,9 @@
         "registro": "Francisco Everardo Oliveira Silva",
         "cor": "ceu",
         "icone": "pergunta",
-        "foto": "fotos/famosos/tiririca.jpg"
+        "foto": "fotos/famosos/tiririca.jpg",
+        "fotoPos": "50% 9%",
+        "fotoTam": "280%"
       },
       {
         "tipo": "texto",
