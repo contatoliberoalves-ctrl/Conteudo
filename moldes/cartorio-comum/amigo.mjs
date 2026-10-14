@@ -121,6 +121,21 @@ export const TIPOS = {
     ${lista(s.texto).map(t => corpo(t, s.corpo || 44)).join('')}`, { extra: 'justify-content:center' })}${rodape(ctx)}`;
   },
   // Pergunta de alguém do povoado (balão de fala) e a resposta do cartório (balão creme).
+  // Nome artístico x nome de registro: foto redonda (ou ícone), o nome famoso e a ficha do registro.
+  ficha: (s, f, ctx) => {
+    const c = CORES[s.cor] || CORES.barro;
+    const img = foto(ctx.root, s.foto);
+    return `${fundoCreme}${area(`${kicker(s)}
+    <div style="display:flex;align-items:center;gap:40px"><div style="flex:none;width:260px;height:260px;border-radius:50%;overflow:hidden;background:${c.claro};border:10px solid #fff;box-shadow:0 12px 0 ${c.bg};display:flex;align-items:center;justify-content:center">${img ? `<div style="width:100%;height:100%;background:url(${img}) ${s.fotoPos || 'center 25%'}/cover"></div>` : icone(s.icone || 'pergunta', 130, c.bg, 1.8)}</div>
+      <div><div style="font-weight:800;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:${A.suave}">Conhecido como</div>${titulo(s.artistico, s.ts || 104, c.bg)}</div></div>
+    <div style="background:#fff;border-radius:36px;padding:34px 40px;border:4px dashed ${c.bg}"><div style="display:flex;align-items:center;gap:14px;margin-bottom:10px">${icone('documento', 40, c.bg, 2.2)}<span style="font-weight:900;font-size:28px;letter-spacing:.06em;text-transform:uppercase;color:${c.bg}">Nome de registro</span></div>${titulo(s.registro, s.tr || 70)}</div>
+    ${lista(s.texto).map(t => corpo(t, s.corpo || 38)).join('')}`, { extra: 'justify-content:center' })}${rodape(ctx)}`;
+  },
+  // Ranking em barras: itens [{nome, valor}] (valor numérico, mostrado com ponto de milhar).
+  ranking: (s, f, ctx) => {
+    const it = lista(s.itens), max = s.max || Math.max(...it.map(i => i.valor));
+    return `${fundoCreme}${area(`${kicker(s)}${titulo(s.titulo, s.ts || 80)}<div style="display:flex;flex-direction:column;gap:16px">${it.map((i, k) => `<div style="display:flex;align-items:center;gap:20px"><span style="flex:none;width:56px;${TIT};font-size:44px;color:${A.suave};text-align:right">${k + (s.inicio || 1)}º</span><div style="flex:1;position:relative;height:84px;background:#fff;border-radius:22px;overflow:hidden"><div style="position:absolute;left:0;top:0;bottom:0;width:${Math.max(38, 100 * i.valor / max)}%;background:${ROD[k % 4]};border-radius:22px"></div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 26px"><span style="${TIT};font-size:46px;color:#fff">${esc(i.nome)}</span><span style="font-weight:800;font-size:30px;color:${A.tinta}">${Number(i.valor).toLocaleString('pt-BR')}</span></div></div></div>`).join('')}</div>${lista(s.texto).map(t => corpo(t, s.corpo || 34, A.suave)).join('')}`, { extra: 'justify-content:center' })}${rodape(ctx)}`;
+  },
   pergunta: (s, f, ctx) => `${fundoCreme}${area(`${kicker(s, A.verde)}
     <div style="align-self:flex-start;max-width:860px;position:relative;background:${A.ceu};color:#fff;border-radius:44px 44px 44px 10px;padding:40px 46px">${titulo(s.pergunta, s.ts || 72, '#fff')}${s.quem ? `<div style="font-weight:800;font-size:28px;margin-top:14px;opacity:.85">${esc(s.quem)}</div>` : ''}</div>
     <div style="align-self:flex-end;max-width:860px;background:#fff;border-radius:44px 44px 10px 44px;padding:38px 46px;display:flex;flex-direction:column;gap:18px;box-shadow:0 10px 0 #EAD3B5"><div style="display:flex;align-items:center;gap:14px">${selo(56)}<span style="font-weight:900;font-size:28px;color:${A.barro}">O cartório responde</span></div>${lista(s.texto).map(t => corpo(t, s.corpo || 40)).join('')}</div>`, { extra: 'justify-content:center;gap:40px' })}${rodape(ctx)}`,

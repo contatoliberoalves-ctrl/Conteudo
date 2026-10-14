@@ -170,5 +170,407 @@
         "titulo": "Quantas você [[acertou]]? Conta aqui nos comentários!"
       }
     ]
+  },
+  {
+    "id": "davi-e-emily-cartorio",
+    "titulo": "Davi e Emily casaram? A resposta está no tipo de cartório",
+    "promptImagem": "(foto do casal Davi Brito e Emily Araújo, enviada pelo usuário)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "barro",
+        "icone": "aliancas",
+        "foto": "fotos/davi-e-emily.jpg",
+        "selo": "Fofoca do cartório",
+        "titulo": "Davi e Emily casaram? A [[resposta]] está no tipo de cartório",
+        "texto": "Entenda o babado e aprenda de vez onde se casa!",
+        "ts": 84
+      },
+      {
+        "tipo": "texto",
+        "kicker": "O babado",
+        "titulo": "Uma pasta, um cartório e [[muita dúvida]]",
+        "texto": [
+          "Davi Brito, campeão do BBB 24, e Emily Araújo foram vistos num cartório com uma pasta de documentos, e Davi postou que tinha **oficializado a união**.",
+          "Só que um jornalista ligou para o cartório ao vivo e ouviu: **ali não se faz casamento civil**."
+        ]
+      },
+      {
+        "tipo": "pergunta",
+        "kicker": "Peraí…",
+        "pergunta": "Ué, cartório não é tudo igual?",
+        "quem": "Pergunta que muita gente fez",
+        "texto": [
+          "Não! Existem **tipos diferentes de cartório**, e cada um faz uma coisa.",
+          "O de lá era um **Tabelionato de Notas**. Casamento civil só se faz no **Registro Civil**, como o nosso."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Quem faz o quê",
+        "titulo": "Cada cartório no seu [[quadrado]]",
+        "itens": [
+          "**Registro Civil** (como o nosso): casamento, nascimento, óbito e certidões",
+          "**Tabelionato de Notas**: escrituras, procurações e união estável por escritura",
+          "**Registro de Imóveis**: registro de casas e terrenos"
+        ]
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Mito ou verdade?",
+        "frase": "União estável e casamento são a mesma coisa.",
+        "resposta": "mito",
+        "texto": [
+          "A união estável pode ser feita por escritura no cartório de notas. O **casamento** é feito no **Registro Civil**, com habilitação, testemunhas e certidão de casamento.",
+          "E a união estável pode **virar casamento** depois, aqui no cartório."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Moral da história",
+        "titulo": "Quer casar de [[papel passado]]? É no Registro Civil",
+        "texto": "A gente não sabe o que o casal assinou. Mas uma coisa é certa: **casamento civil** em Curral Queimado é aqui no nosso cartório."
+      },
+      {
+        "tipo": "cta",
+        "cor": "barro"
+      }
+    ]
+  },
+  {
+    "id": "cr7-e-georgina-regime-de-bens",
+    "titulo": "CR7 e Georgina casaram. E o regime de bens?",
+    "promptImagem": "(foto de Cristiano Ronaldo e Georgina Rodríguez juntos, enviada pelo usuário)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "ceu",
+        "icone": "aliancas",
+        "foto": "fotos/cr7-e-georgina.jpg",
+        "selo": "Casamento de famoso",
+        "titulo": "CR7 e Georgina casaram. E a [[fortuna]], como fica?",
+        "texto": "O que todo mundo quis saber, explicado do jeito daqui."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "A notícia",
+        "titulo": "O casamento mais [[comentado]] do ano",
+        "texto": [
+          "Cristiano Ronaldo e Georgina Rodríguez anunciaram em agosto que estão **oficialmente casados**.",
+          "A gente não sabe o que eles combinaram sobre os bens. Mas aqui no Brasil funciona assim:"
+        ]
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Regimes de bens",
+        "titulo": "Como ficam os [[bens]] do casal",
+        "corpo": 32,
+        "itens": [
+          "**Comunhão parcial**: divide o que o casal conquistar **depois** do casamento. É o regime de quem não escolhe nenhum",
+          "**Comunhão universal**: junta tudo, o de antes e o de depois",
+          "**Separação total**: cada um fica com o que é seu",
+          "**Participação final nos aquestos**: cada um cuida do seu e, no fim, divide o que foi conquistado junto"
+        ],
+        "ts": 76
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Mito ou verdade?",
+        "frase": "Pra escolher outro regime, é só avisar no dia.",
+        "resposta": "mito",
+        "texto": "Tirando a comunhão parcial, os outros regimes precisam de **pacto antenupcial**: uma escritura feita no cartório de notas e apresentada na habilitação."
+      },
+      {
+        "tipo": "numero",
+        "kicker": "Você sabia?",
+        "cor": "verde",
+        "valor": "70+",
+        "rotulo": "acima dos 70 anos, a regra é a **separação obrigatória** de bens",
+        "texto": "Mas desde 2024 o STF permite que o casal afaste essa regra por escritura pública."
+      },
+      {
+        "tipo": "cta",
+        "cor": "ceu"
+      }
+    ]
+  },
+  {
+    "id": "casamentos-de-famosos-2026",
+    "titulo": "2026, o ano do sim: os famosos que casaram",
+    "promptImagem": "(foto de Taylor Swift e Travis Kelce, ou de outro casal da lista, enviada pelo usuário)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "barro",
+        "icone": "aliancas",
+        "foto": "fotos/casamentos-2026.jpg",
+        "selo": "Ano do sim",
+        "titulo": "Taylor, Dua Lipa, CR7… 2026 é o ano do [[sim]]!",
+        "texto": "Veja quem casou e o que você precisa pra casar também.",
+        "ts": 84
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Quem casou",
+        "titulo": "Os famosos que disseram [[sim]]",
+        "corpo": 35,
+        "itens": [
+          "**Dua Lipa e Callum Turner**: em maio, em Londres, numa cerimônia pequena com a família",
+          "**Taylor Swift e Travis Kelce**: em julho, em Nova York",
+          "**Cristiano Ronaldo e Georgina**: anunciaram em agosto",
+          "**Zendaya e Tom Holland**: ele confirmou que já estão casados"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "E você?",
+        "titulo": "Festa de famoso tem castelo. Mas o que vale é o [[papel]]",
+        "texto": "Pode ser festão ou almoço em família: o casamento só vale de verdade com a **certidão de casamento**, que sai do cartório."
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Como casar aqui",
+        "titulo": "Seu passo a passo",
+        "itens": [
+          "Separe os documentos (certidões com **até 90 dias**)",
+          "Agende em **registrocivil.net/76745**",
+          "Venha com **2 testemunhas** na habilitação",
+          "Habilitação pronta: vocês têm **90 dias** para casar"
+        ]
+      },
+      {
+        "tipo": "numero",
+        "kicker": "Quanto custa",
+        "cor": "verde",
+        "valor": "R$ 323,64",
+        "tv": 92,
+        "rotulo": "o casamento civil aqui no cartório",
+        "texto": "Quer celebrar na sala de Curral Queimado? **R$ 150**. Fotos profissionais? **R$ 200**. Os dois são opcionais."
+      },
+      {
+        "tipo": "cta",
+        "cor": "barro",
+        "titulo": "Vai dizer [[sim]]? Fala com a gente!"
+      }
+    ]
+  },
+  {
+    "id": "nomes-mais-registrados",
+    "titulo": "Os nomes mais registrados do Brasil",
+    "promptImagem": "Fotografia realista, horizontal (3:2), luz suave: pezinhos de um bebê recém-nascido sobre uma manta clara, com uma pulseirinha de maternidade, fundo desfocado em tons quentes. Sem texto, sem letras, sem logotipos.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "ceu",
+        "icone": "bebe",
+        "foto": "fotos/nomes-mais-registrados.jpg",
+        "selo": "Top 10 do Brasil",
+        "titulo": "Qual o nome [[mais registrado]] do Brasil?",
+        "texto": "Será que o do seu filho está na lista?"
+      },
+      {
+        "tipo": "ranking",
+        "kicker": "Ranking de 2025",
+        "titulo": "Do 1º ao [[5º]] lugar",
+        "max": 28271,
+        "itens": [
+          {
+            "nome": "Helena",
+            "valor": 28271
+          },
+          {
+            "nome": "Ravi",
+            "valor": 21982
+          },
+          {
+            "nome": "Miguel",
+            "valor": 21654
+          },
+          {
+            "nome": "Maitê",
+            "valor": 20677
+          },
+          {
+            "nome": "Cecília",
+            "valor": 20378
+          }
+        ],
+        "texto": "Registros de 2025 · Fonte: Arpen-Brasil"
+      },
+      {
+        "tipo": "ranking",
+        "kicker": "Ranking de 2025",
+        "titulo": "Do 6º ao [[10º]] lugar",
+        "max": 28271,
+        "itens": [
+          {
+            "nome": "Heitor",
+            "valor": 17751
+          },
+          {
+            "nome": "Arthur",
+            "valor": 17514
+          },
+          {
+            "nome": "Maria Cecília",
+            "valor": 16889
+          },
+          {
+            "nome": "Theo",
+            "valor": 16766
+          },
+          {
+            "nome": "Aurora",
+            "valor": 16506
+          }
+        ],
+        "texto": "Registros de 2025 · Fonte: Arpen-Brasil",
+        "inicio": 6
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Curiosidade",
+        "titulo": "Helena reina pelo [[2º ano]] seguido",
+        "texto": [
+          "Em 2025, **Helena** foi o nome mais registrado do Brasil de novo.",
+          "Entre os meninos, **Ravi** passou **Miguel**, que liderava antes."
+        ]
+      },
+      {
+        "tipo": "pergunta",
+        "kicker": "E aqui?",
+        "pergunta": "Qual será o nome mais registrado em Curral Queimado?",
+        "quem": "Comenta aí o nome do seu filho!",
+        "texto": "Seja Helena, Ravi ou um nome bem diferente: o registro é **de graça** e o prazo é de **15 dias** depois do nascimento."
+      },
+      {
+        "tipo": "cta",
+        "cor": "ceu"
+      }
+    ]
+  },
+  {
+    "id": "nome-de-verdade-dos-famosos",
+    "titulo": "Você sabe o nome de verdade deles?",
+    "promptImagem": "(foto de um dos famosos da lista, como a Anitta, enviada pelo usuário; ou uma imagem de microfone e palco iluminado, sem texto)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "verde",
+        "icone": "pergunta",
+        "foto": "fotos/nome-de-verdade.jpg",
+        "selo": "Quiz",
+        "titulo": "Você sabe o nome [[de verdade]] deles?",
+        "texto": "Tente adivinhar antes de passar pro lado!"
+      },
+      {
+        "tipo": "ficha",
+        "kicker": "Famoso 1",
+        "artistico": "Anitta",
+        "registro": "Larissa de Macedo Machado",
+        "cor": "barro",
+        "icone": "pergunta",
+        "foto": "fotos/anitta.jpg"
+      },
+      {
+        "tipo": "ficha",
+        "kicker": "Famoso 2",
+        "artistico": "Xuxa",
+        "registro": "Maria da Graça Meneghel",
+        "cor": "ceu",
+        "icone": "pergunta",
+        "foto": "fotos/xuxa.jpg"
+      },
+      {
+        "tipo": "ficha",
+        "kicker": "Famoso 3",
+        "artistico": "Gusttavo Lima",
+        "registro": "Nivaldo Batista Lima",
+        "cor": "verde",
+        "icone": "pergunta",
+        "foto": "fotos/gusttavo-lima.jpg"
+      },
+      {
+        "tipo": "ficha",
+        "kicker": "Famoso 4",
+        "artistico": "Wesley Safadão",
+        "registro": "Wesley Oliveira da Silva",
+        "cor": "barro",
+        "icone": "pergunta",
+        "foto": "fotos/wesley-safadao.jpg"
+      },
+      {
+        "tipo": "ficha",
+        "kicker": "Famoso 5",
+        "artistico": "Tiririca",
+        "registro": "Francisco Everardo Oliveira Silva",
+        "cor": "ceu",
+        "icone": "pergunta",
+        "foto": "fotos/tiririca.jpg"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "E você?",
+        "titulo": "Seu nome também pode [[mudar]]",
+        "texto": "Eles usam nome artístico, mas o registro continua o mesmo. Já você, se for maior de 18 anos, pode trocar o **primeiro nome** direto no cartório, uma vez, sem juiz (Lei 14.382/2022)."
+      },
+      {
+        "tipo": "cta",
+        "cor": "verde",
+        "titulo": "Quantos você [[acertou]]? Conta aqui!"
+      }
+    ]
+  },
+  {
+    "id": "dna-de-famoso",
+    "titulo": "Teste de DNA de famoso: o que muda na certidão?",
+    "promptImagem": "Fotografia realista, horizontal (3:2), luz quente: pai nordestino sorrindo, abraçando o filho adolescente na porta de casa no interior, os dois felizes. Sem texto, sem letras, sem logotipos.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "barro",
+        "icone": "familia",
+        "foto": "fotos/dna-de-famoso.jpg",
+        "selo": "Relembre",
+        "titulo": "DNA de famoso: o que [[muda]] na certidão?",
+        "texto": "E como reconhecer um filho sem briga e sem juiz."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Relembre",
+        "titulo": "Até o [[Rei]] passou por isso",
+        "texto": "Roberto Carlos só descobriu que era pai de Rafael Braga quando o filho já tinha **24 anos**. A história virou notícia no país inteiro."
+      },
+      {
+        "tipo": "pergunta",
+        "kicker": "Na vida real",
+        "pergunta": "Se o pai quiser reconhecer o filho depois, precisa de processo?",
+        "texto": [
+          "Não! O pai pode **reconhecer o filho direto no cartório**.",
+          "O nome do pai e dos avós passa a constar na certidão."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Como funciona",
+        "titulo": "Reconhecer é [[simples]]",
+        "itens": [
+          "O pai vem ao cartório com **documento de identidade**",
+          "Se o filho for **maior de idade**, ele precisa concordar",
+          "Se for **menor**, a mãe precisa concordar"
+        ]
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Mito ou verdade?",
+        "frase": "Só dá pra reconhecer filho com teste de DNA.",
+        "resposta": "mito",
+        "texto": "O reconhecimento voluntário no cartório **não exige DNA**. O exame entra quando há dúvida ou desacordo, e aí o caso vai para a Justiça."
+      },
+      {
+        "tipo": "cta",
+        "cor": "barro"
+      }
+    ]
   }
 ]
