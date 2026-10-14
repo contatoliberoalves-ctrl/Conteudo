@@ -17,7 +17,9 @@ Gerar: `node render.mjs [id]` (no ambiente em nuvem: `CHROMIUM_PATH=/opt/pw-brow
 | `name`, `tema` | nome e tema (galeria) |
 | `seams` | divisões com figura/foto: `[1, 3]` = entre os slides 1-2 e 3-4 (1 a 3 divisões) |
 | `rail` | `"solid"` ou `"dashed"` (alterne entre carrosséis) |
-| `link` | `"shapes"` ou `"photo"` |
+| `link` | `"icones"` (padrão novo: selo verde com um ícone do tema em cada divisão), `"shapes"` ou `"photo"` |
+| `icone` | ícone do tema, grande e vazado no fundo da capa |
+| `icones` | um ícone por divisão (com `icones`), escolhido pelo que os dois slides vizinhos tratam: `escudo`, `balanca`, `martelo`, `livro`, `lupa`, `marcador`, `clipe`, `passaporte`, `urna`, `coluna`, `grafico`, `alvo`, `lampada`, `relogio`, `check`, `ponte`, `balao`, `lapis`, `erro`, `documento`, `pessoas`, `alerta`, `bandeira`, `casa`, `trofeu`, `filtro`, `chave`, `camadas` |
 | `shape` | `ring`, `diamond`, `bar` ou `disc` (com `shapes`) |
 | `ph` | sugestões de imagem, uma por divisão (com `photo`; aparecem no quadro tracejado enquanto não há foto) |
 | `fotos` | arquivos em `imagens/`, um por divisão (`.png` sem fundo fica recortado, sem moldura) |
@@ -29,7 +31,7 @@ O lado do slide que encosta numa divisão com figura/foto ganha 300px de margem 
 
 Todos têm `type` e `bg` (`dark`, `light` ou `mint`; nunca dois iguais seguidos; se faltar, alterna sozinho) e aceitam `ts` (tamanho base do título; o título encolhe sozinho para a maior palavra caber). Nos textos: `**negrito**`, `==destaque==` e `\n` para quebrar linha.
 
-- `cover`: `align` (`flex-start`/`center`), `kicker`, `pre`, `title`, `hl` (faixa de destaque), `sub`. Com selo.
+- `cover`: só `title` e `sub` (no máximo isso: sem kicker, pre ou faixa), `align`, `ts`. Com selo e o `icone` do carrossel no fundo.
 - `text`: `kicker`, `title`, `lead` (negrito inicial), `body`, `box` (caixa vazada, opcional).
 - `item`: `num`, `ref` (artigo), `title`, `rows: [{k, v}]`, `tip` (caixa "Pegadinha:", opcional).
 - `list`: `kicker`, `title`, `items: [{n, t}]` (até 6 itens curtos).

@@ -66,7 +66,7 @@ for (const c of dados) {
   }
   await page.screenshot({ path: path.join(outDir, 'painel.png'), clip: { x: 0, y: 0, width: Math.min(total, 3) * 1080, height: 1350 } });
   await page.close();
-  console.log(todos.length ? '!' : '✓', c.id, `(${total} slides, ${c.link === 'photo' ? 'foto' : c.shape || 'ring'})`);
+  console.log(todos.length ? '!' : '✓', c.id, `(${total} slides, ${c.link === 'photo' ? 'foto' : c.link === 'icones' ? 'ícones' : c.shape || 'ring'})`);
   todos.forEach(a => console.log('   ', a));
   if (todos.length) problemas++;
 }

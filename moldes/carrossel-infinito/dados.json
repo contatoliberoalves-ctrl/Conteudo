@@ -8,18 +8,14 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "disc",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "OAB 2ª fase · Constitucional",
-        "pre": "O que caiu na peça nos",
-        "title": "Últimos 15 exames",
-        "hl": "Do 32º ao 46º Exame",
-        "sub": "Quais peças a FGV mais cobra e onde focar o treino."
+        "title": "O que caiu na peça",
+        "sub": "Do 32º ao 46º Exame: as peças que a FGV mais cobra."
       },
       {
         "type": "list",
@@ -136,6 +132,11 @@
         "title": "Treina essas 5",
         "body": "Salva e comenta qual peça você aposta para o próximo exame."
       }
+    ],
+    "icone": "documento",
+    "icones": [
+      "grafico",
+      "coluna"
     ]
   },
   {
@@ -147,18 +148,14 @@
       3
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "OAB 2ª fase",
-        "pre": "Os 5",
         "title": "Remédios constitucionais",
-        "hl": "Art. 5º, LXVIII a LXXIII",
-        "sub": "O que cada um protege e quando usar, sem enrolação."
+        "sub": "O que cada um protege e quando usar."
       },
       {
         "type": "list",
@@ -284,6 +281,11 @@
         "title": "Salva pra revisar",
         "body": "E manda pra quem vai fazer a 2ª fase com você."
       }
+    ],
+    "icone": "escudo",
+    "icones": [
+      "escudo",
+      "balanca"
     ]
   },
   {
@@ -295,18 +297,15 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "light",
         "align": "flex-start",
-        "kicker": "Controle de constitucionalidade",
-        "pre": "As 4 ações do",
         "title": "Controle concentrado",
-        "hl": "ADI · ADC · ADO · ADPF",
-        "sub": "Objeto e fundamento de cada uma, direto ao ponto."
+        "sub": "ADI, ADC, ADO e ADPF direto ao ponto.",
+        "ts": 150
       },
       {
         "type": "text",
@@ -401,6 +400,11 @@
         "title": "Salva e revisa",
         "body": "Comenta qual dessas mais te confunde."
       }
+    ],
+    "icone": "coluna",
+    "icones": [
+      "martelo",
+      "balanca"
     ]
   },
   {
@@ -412,18 +416,14 @@
       3
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "bar",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Controle concentrado",
-        "pre": "Quem pode propor",
-        "title": "ADI, ADC, ADO e ADPF?",
-        "hl": "Art. 103 da CF/88",
-        "sub": "São 9 legitimados, e só alguns precisam de pertinência temática."
+        "title": "Quem pode propor ADI?",
+        "sub": "Os 9 legitimados do art. 103 e a pertinência temática."
       },
       {
         "type": "mnemo",
@@ -529,6 +529,11 @@
         "title": "Salva o macete",
         "body": "E envia pra quem sempre esquece um legitimado."
       }
+    ],
+    "icone": "pessoas",
+    "icones": [
+      "pessoas",
+      "alvo"
     ]
   },
   {
@@ -540,18 +545,14 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Direito Constitucional",
-        "pre": "Nato ou naturalizado?",
-        "title": "Nacionalidade",
-        "hl": "Art. 12 da CF/88",
-        "sub": "Quem é nato, quem é naturalizado e o que muda entre eles."
+        "title": "Nato ou naturalizado?",
+        "sub": "O que muda entre eles no art. 12 da CF."
       },
       {
         "type": "compare",
@@ -668,6 +669,11 @@
         "title": "Salva pra revisar",
         "body": "E marca quem confunde nato com naturalizado."
       }
+    ],
+    "icone": "passaporte",
+    "icones": [
+      "passaporte",
+      "balanca"
     ]
   },
   {
@@ -679,18 +685,14 @@
       4
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "bar",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "light",
         "align": "flex-start",
-        "kicker": "Direitos políticos",
-        "pre": "Quem pode ser votado?",
-        "title": "Idade mínima",
-        "hl": "Art. 14, § 3º, VI",
-        "sub": "As idades que a banca adora cobrar, mais perda e suspensão."
+        "title": "Quem pode ser votado?",
+        "sub": "Idades mínimas, perda e suspensão dos direitos políticos."
       },
       {
         "type": "list",
@@ -794,6 +796,11 @@
         "title": "Salva e revisa",
         "body": "Envia pra quem vai fazer a 2ª fase com você."
       }
+    ],
+    "icone": "urna",
+    "icones": [
+      "urna",
+      "alerta"
     ]
   },
   {
@@ -805,18 +812,14 @@
       5
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "mint",
         "align": "flex-start",
-        "kicker": "Organização do Estado",
-        "pre": "Quem legisla sobre o quê?",
-        "title": "Competências legislativas",
-        "hl": "Arts. 22, 24 e 30",
-        "sub": "União, Estados e Municípios, com dois macetes."
+        "title": "Quem legisla sobre o quê?",
+        "sub": "União, Estados e Municípios com dois macetes."
       },
       {
         "type": "text",
@@ -974,6 +977,11 @@
         "title": "Salva os macetes",
         "body": "Comenta qual competência mais te pega na prova."
       }
+    ],
+    "icone": "camadas",
+    "icones": [
+      "documento",
+      "casa"
     ]
   },
   {
@@ -985,18 +993,14 @@
       3
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "disc",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Organização do Estado",
-        "pre": "Quando a União pode",
-        "title": "Intervir nos Estados",
-        "hl": "Arts. 34 a 36 da CF/88",
-        "sub": "Hipóteses, quem provoca e quem controla."
+        "title": "Intervenção federal",
+        "sub": "Quando a União pode intervir nos Estados."
       },
       {
         "type": "text",
@@ -1103,6 +1107,11 @@
         "title": "Salva pra revisar",
         "body": "Envia pra quem está estudando organização do Estado."
       }
+    ],
+    "icone": "bandeira",
+    "icones": [
+      "bandeira",
+      "martelo"
     ]
   },
   {
@@ -1114,17 +1123,13 @@
       4
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "light",
         "align": "flex-start",
-        "kicker": "Defesa do Estado",
-        "pre": "Não confunda estado de",
         "title": "Defesa x sítio",
-        "hl": "Arts. 136 a 139",
         "sub": "Quem decreta, quem autoriza e por quanto tempo."
       },
       {
@@ -1219,6 +1224,11 @@
         "title": "Salva e compartilha",
         "body": "Comenta: defesa ou sítio, qual mais te confunde?"
       }
+    ],
+    "icone": "alerta",
+    "icones": [
+      "escudo",
+      "relogio"
     ]
   },
   {
@@ -1230,18 +1240,14 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Dados · OAB 2ª fase",
-        "pre": "15 exames, 15 peças:",
         "title": "Controle x remédios",
-        "hl": "Do 32º ao 46º Exame",
-        "sub": "O placar das famílias de peça e o que isso muda no seu treino."
+        "sub": "O placar das peças do 32º ao 46º Exame."
       },
       {
         "type": "list",
@@ -1351,6 +1357,11 @@
         "title": "Salva o placar",
         "body": "E comenta qual família você aposta para o próximo exame."
       }
+    ],
+    "icone": "grafico",
+    "icones": [
+      "grafico",
+      "trofeu"
     ]
   },
   {
@@ -1361,18 +1372,14 @@
       2
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "disc",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "light",
         "align": "flex-start",
-        "kicker": "Técnica · identificação de peças",
-        "pre": "No caderno de prova:",
         "title": "Grifar para se salvar",
-        "hl": "Na 2ª ou 3ª leitura",
-        "sub": "O que grifar no caso para achar a peça certa com precisão."
+        "sub": "O que grifar no caso para achar a peça certa."
       },
       {
         "type": "text",
@@ -1460,6 +1467,10 @@
         "title": "Salva pra revisar",
         "body": "E envia pra quem grifa o caso inteiro de amarelo."
       }
+    ],
+    "icone": "marcador",
+    "icones": [
+      "marcador"
     ]
   },
   {
@@ -1471,18 +1482,14 @@
       3
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "bar",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Técnica · identificação de peças",
-        "pre": "Na dúvida sobre a peça?",
         "title": "Técnica de exclusão",
-        "hl": "Compare e elimine",
-        "sub": "Cruze o caso com as características de cada peça até sobrar uma."
+        "sub": "Na dúvida sobre a peça, compare e elimine."
       },
       {
         "type": "text",
@@ -1566,6 +1573,11 @@
         "title": "Salva a técnica",
         "body": "E comenta qual dupla de peças mais te confunde."
       }
+    ],
+    "icone": "filtro",
+    "icones": [
+      "lupa",
+      "filtro"
     ]
   },
   {
@@ -1577,18 +1589,14 @@
       4
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "mint",
         "align": "flex-start",
-        "kicker": "Técnica · identificação de peças",
-        "pre": "O segredo da banca:",
-        "title": "Palavras-chave",
-        "hl": "Nem pense em chutar",
-        "sub": "A FGV sempre deixa no enunciado pelo menos uma pista da peça."
+        "title": "Palavras-chave da banca",
+        "sub": "A FGV sempre deixa uma pista da peça no enunciado."
       },
       {
         "type": "text",
@@ -1670,6 +1678,11 @@
         "title": "Salva e treina",
         "body": "E envia pra quem ainda chuta a peça."
       }
+    ],
+    "icone": "chave",
+    "icones": [
+      "chave",
+      "lupa"
     ]
   },
   {
@@ -1681,18 +1694,14 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "light",
         "align": "flex-start",
-        "kicker": "Técnica · Vade Mecum",
-        "pre": "Seu material na prova:",
         "title": "Clipes, grifos e remissões",
-        "hl": "Prepare antes",
-        "sub": "Como deixar o Vade Mecum pronto para achar tudo rápido."
+        "sub": "Seu Vade Mecum pronto para achar tudo rápido."
       },
       {
         "type": "text",
@@ -1778,6 +1787,11 @@
         "title": "Salva o checklist",
         "body": "E comenta quantos clipes tem o seu Vade Mecum."
       }
+    ],
+    "icone": "livro",
+    "icones": [
+      "livro",
+      "clipe"
     ]
   },
   {
@@ -1788,18 +1802,14 @@
       2
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "bar",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
         "bg": "dark",
         "align": "flex-start",
-        "kicker": "Técnica · treino de peça",
-        "pre": "15 provas, 1 roteiro:",
         "title": "Treine com a FGV",
-        "hl": "Do 32º ao 46º Exame",
-        "sub": "Como transformar as provas anteriores no seu melhor material."
+        "sub": "As provas anteriores como seu melhor material."
       },
       {
         "type": "mnemo",
@@ -1908,6 +1918,10 @@
         "title": "Salva o roteiro",
         "body": "E comenta qual exame você vai refazer primeiro."
       }
+    ],
+    "icone": "check",
+    "icones": [
+      "lapis"
     ]
   },
   {
@@ -1919,8 +1933,7 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2021,6 +2034,11 @@
         "title": "Salva a estrutura",
         "body": "E comenta qual das três você mais esquece na prova."
       }
+    ],
+    "icone": "documento",
+    "icones": [
+      "balao",
+      "check"
     ]
   },
   {
@@ -2031,8 +2049,7 @@
       2
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2159,6 +2176,10 @@
         "title": "Salva e treina",
         "body": "Pegue 5 comandos e escreva só a primeira frase de cada resposta."
       }
+    ],
+    "icone": "balao",
+    "icones": [
+      "balao"
     ]
   },
   {
@@ -2170,8 +2191,7 @@
       3
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "disc",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2281,6 +2301,11 @@
         "title": "Salva o método",
         "body": "E envia pra quem grifa o enunciado inteiro."
       }
+    ],
+    "icone": "lupa",
+    "icones": [
+      "lupa",
+      "alvo"
     ]
   },
   {
@@ -2292,8 +2317,7 @@
       4
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "bar",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2387,6 +2411,11 @@
         "title": "Salva o modelo",
         "body": "E comenta “ponte” se você costuma citar artigo solto."
       }
+    ],
+    "icone": "ponte",
+    "icones": [
+      "ponte",
+      "lapis"
     ]
   },
   {
@@ -2398,8 +2427,7 @@
       4
     ],
     "rail": "dashed",
-    "link": "shapes",
-    "shape": "diamond",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2510,6 +2538,11 @@
         "title": "Salva pra prova",
         "body": "E envia pra quem trava quando esquece um inciso."
       }
+    ],
+    "icone": "livro",
+    "icones": [
+      "lampada",
+      "livro"
     ]
   },
   {
@@ -2520,8 +2553,7 @@
       2
     ],
     "rail": "solid",
-    "link": "shapes",
-    "shape": "ring",
+    "link": "icones",
     "slides": [
       {
         "type": "cover",
@@ -2640,6 +2672,10 @@
         "title": "Checklist relâmpago",
         "body": "Salva e confere antes de entregar a resposta."
       }
+    ],
+    "icone": "erro",
+    "icones": [
+      "lapis"
     ]
   }
 ]
