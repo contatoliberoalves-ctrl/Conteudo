@@ -1,0 +1,46 @@
+[
+  {
+    "id": "registro-de-graca",
+    "titulo": "Registrar o bebê é de graça",
+    "layout": "curiosidade",
+    "cor": "verde",
+    "icone": "bebe",
+    "foto": "fotos/registro-de-graca.jpg",
+    "promptImagem": "Fotografia realista, horizontal 16:9, luz suave: mãozinha de um bebê recém-nascido segurando o dedo de um adulto, sobre uma manta de crochê colorida típica do Nordeste. Fundo desfocado em tons quentes. Sem texto, sem letras, sem logotipos.",
+    "chamada": "Registrar o bebê é [[de graça]]",
+    "texto": "O registro de nascimento e a primeira certidão não custam nada, para **qualquer família**."
+  },
+  {
+    "id": "mito-rg-vencido",
+    "titulo": "Mito ou verdade: casar com o RG vencido",
+    "layout": "mito",
+    "kicker": "Mito ou verdade?",
+    "frase": "Dá pra casar com o RG vencido.",
+    "resposta": "mito",
+    "texto": [
+      "Para a habilitação do casamento, o RG precisa estar **dentro da validade**.",
+      "Confira a data no seu documento antes de agendar!"
+    ]
+  },
+  {
+    "id": "perdi-a-certidao",
+    "titulo": "Perdi minha certidão. E agora?",
+    "layout": "pergunta",
+    "kicker": "Pergunta do povo",
+    "pergunta": "Perdi minha certidão de nascimento. E agora?",
+    "texto": [
+      "Calma! É só pedir a **2ª via** aqui no cartório.",
+      "Foi registrado em outra cidade? A gente pede pra você pelo sistema dos cartórios."
+    ]
+  },
+  {
+    "id": "hora-marcada",
+    "titulo": "Atendimento com hora marcada",
+    "layout": "aviso",
+    "cor": "ceu",
+    "icone": "calendario",
+    "selo": "Dica do cartório",
+    "chamada": "Marque sua [[hora]] pelo celular",
+    "texto": "Acesse **registrocivil.net/76745**, cadastre-se, envie os documentos e escolha o dia. Assim a gente agiliza o seu atendimento!"
+  }
+]

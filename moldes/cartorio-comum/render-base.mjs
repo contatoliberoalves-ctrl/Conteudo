@@ -14,7 +14,7 @@ export function abrirNavegador() {
   return chromium.launch(launch);
 }
 
-export async function renderMolde(root, slides) {
+export async function renderMolde(root, slides, headExtra = '') {
   if (!EMB) console.log('! sem moldes/cartorio-comum/assets/emblema.png: rode preparar_logo.py com a arte do emblema');
   const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
   const filtro = process.argv.slice(2);
@@ -24,7 +24,7 @@ export async function renderMolde(root, slides) {
     if (filtro.length && !filtro.includes(c.id)) continue;
     const { w, h, slides: ss } = slides(c);
     const n = ss.length;
-    const html = `<!doctype html><html><head>${HEAD}</head><body><div style="display:flex;width:${w * n}px">${ss.map((s, i) => `<div id="s${i + 1}" style="position:relative;width:${w}px;height:${h}px;overflow:hidden;flex:none">${s}</div>`).join('')}</div></body></html>`;
+    const html = `<!doctype html><html><head>${HEAD}${headExtra}</head><body><div style="display:flex;width:${w * n}px">${ss.map((s, i) => `<div id="s${i + 1}" style="position:relative;width:${w}px;height:${h}px;overflow:hidden;flex:none">${s}</div>`).join('')}</div></body></html>`;
     fs.mkdirSync(path.join(root, 'build'), { recursive: true });
     const arq = path.join(root, 'build', c.id + '.html');
     fs.writeFileSync(arq, html);
