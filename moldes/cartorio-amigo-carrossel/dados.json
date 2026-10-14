@@ -458,14 +458,44 @@
     "promptImagem": "(foto de um dos famosos da lista, como a Anitta, enviada pelo usuário; ou uma imagem de microfone e palco iluminado, sem texto)",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "famoso",
         "cor": "verde",
-        "icone": "pergunta",
-        "foto": "fotos/famosos/nome-de-verdade.jpg",
-        "selo": "Quiz",
-        "titulo": "Você sabe o nome [[de verdade]] deles?",
-        "texto": "Tente adivinhar antes de passar pro lado!",
-        "fotoPos": "center 45%"
+        "foto": "fotos/famosos/gusttavo-lima.jpg",
+        "fotoPos": "center 20%",
+        "selo": "Quiz dos famosos",
+        "tarja": {
+          "rotulo": "Nome de registro",
+          "barras": [
+            5,
+            6,
+            4
+          ]
+        },
+        "tarjaTop": 300,
+        "rostos": [
+          {
+            "foto": "fotos/famosos/anitta.jpg",
+            "pos": "center 30%"
+          },
+          {
+            "foto": "fotos/famosos/xuxa.jpg",
+            "pos": "center 25%"
+          },
+          {
+            "foto": "fotos/famosos/wesley-safadao.jpg",
+            "pos": "center 30%"
+          },
+          {
+            "foto": "fotos/famosos/tiririca.jpg",
+            "pos": "50% 9%",
+            "tam": "280%"
+          }
+        ],
+        "titulo": "Ele não se chama [[Gusttavo Lima]]! E os outros famosos?",
+        "ts": 86,
+        "texto": "Adivinhe antes de passar pro lado!",
+        "alturaFoto": 760,
+        "rostosSobe": 160
       },
       {
         "tipo": "ficha",
@@ -532,15 +562,23 @@
   {
     "id": "dna-de-famoso",
     "titulo": "Teste de DNA de famoso: o que muda na certidão?",
-    "promptImagem": "Fotografia realista, horizontal (3:2), luz quente: pai nordestino sorrindo, abraçando o filho adolescente na porta de casa no interior, os dois felizes. Sem texto, sem letras, sem logotipos.",
+    "promptImagem": "(foto do Roberto Carlos, enviada pelo usuário)",
     "slides": [
       {
-        "tipo": "capa",
+        "tipo": "famoso",
         "cor": "barro",
         "icone": "familia",
-        "foto": "fotos/dna-de-famoso.jpg",
+        "foto": "fotos/famosos/roberto-carlos.jpg",
+        "fotoPos": "center 25%",
         "selo": "Relembre",
-        "titulo": "DNA de famoso: o que [[muda]] na certidão?",
+        "tarja": {
+          "rotulo": "Teste de DNA",
+          "icone": "lupa",
+          "texto": "Reconheceu o filho quando ele já tinha **24 anos**"
+        },
+        "tarjaTop": 400,
+        "titulo": "Até o [[Rei]] fez teste de DNA. O que muda na certidão?",
+        "ts": 92,
         "texto": "E como reconhecer um filho sem briga e sem juiz."
       },
       {

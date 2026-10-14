@@ -100,6 +100,26 @@ export const TIPOS = {
     <div style="position:absolute;left:90px;right:90px;bottom:52px;display:flex;align-items:center;gap:18px">${selo(70)}${nome('#fff', 22)}
       <span style="margin-left:auto;font-weight:900;font-size:26px;color:${c.escuro};background:#fff;border-radius:999px;padding:12px 26px">${esc(s.arrasta || 'Arrasta pro lado')} →</span></div>`;
   },
+  // Capa de revista com famoso: foto em tela cheia que se funde na cor, selo, etiqueta de "ficha"
+  // (com tarja de censura ou texto), rostos redondos de outros famosos e título grande embaixo.
+  famoso: (s, f, ctx) => {
+    const c = CORES[s.cor] || CORES.barro;
+    const alt = s.alturaFoto || 820;
+    const img = foto(ctx.root, s.foto);
+    const tarja = s.tarja ? `<div style="position:absolute;right:56px;top:${s.tarjaTop || 120}px;transform:rotate(3deg);background:#fff;border-radius:26px;padding:22px 28px;box-shadow:0 10px 0 ${c.escuro};max-width:460px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">${icone(s.tarja.icone || 'documento', 34, c.bg, 2.2)}<span style="font-weight:900;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:${c.bg}">${esc(s.tarja.rotulo)}</span></div>
+      ${s.tarja.texto ? `<div style="${TIT};font-size:44px;line-height:1.05;color:${A.tinta}">${rico(s.tarja.texto)}</div>`
+        : `<div style="display:flex;flex-wrap:wrap;gap:10px">${lista(s.tarja.barras || [5, 6, 4]).map(n => `<span style="display:block;height:44px;width:${n * 34}px;border-radius:10px;background:${A.tinta}"></span>`).join('')}</div>`}</div>` : '';
+    const rostos = lista(s.rostos).length ? `<div style="position:absolute;left:70px;top:${alt - (s.rostosSobe || 190)}px;display:flex">${lista(s.rostos).map((r, i) => { const u = foto(ctx.root, r.foto || r); return `<span style="display:block;width:150px;height:150px;border-radius:50%;margin-left:${i ? -30 : 0}px;border:7px solid ${c.bg};background:${u ? `url(${u}) ${r.pos || 'center 25%'}/${r.tam || 'cover'} no-repeat` : c.claro};box-shadow:0 6px 14px rgba(0,0,0,.25)"></span>`; }).join('')}<span style="display:flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:50%;margin-left:-30px;border:7px solid ${c.bg};background:${A.sol};${TIT};font-size:84px;color:${A.tinta}">?</span></div>` : '';
+    return `<div style="position:absolute;inset:0;background:${c.bg}"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:${alt}px;overflow:hidden;${img ? `background:url(${img}) ${s.fotoPos || 'center'}/cover` : ''}">${img ? '' : sertao(1080, alt, s.cor || 'barro', s.icone)}</div>
+    <div style="position:absolute;left:0;right:0;top:${alt - 360}px;height:362px;background:linear-gradient(transparent,${c.bg} 92%)"></div>
+    <div style="position:absolute;left:56px;top:56px;transform:rotate(-4deg)">${etiqueta(s.selo || 'Você sabia?', A.sol, A.tinta, 40, `box-shadow:0 6px 0 ${c.escuro}`)}</div>
+    ${tarja}${rostos}
+    ${area(`${titulo(s.titulo, s.ts || 104, '#fff', 'text-shadow:0 4px 18px rgba(0,0,0,.18)')}${s.texto ? corpo(s.texto, 36, '#fff') : ''}`, { top: alt - 10, bottom: 150, extra: 'gap:18px;justify-content:flex-end' })}
+    <div style="position:absolute;left:90px;right:90px;bottom:52px;display:flex;align-items:center;gap:18px">${selo(70)}${nome('#fff', 22)}
+      <span style="margin-left:auto;font-weight:900;font-size:26px;color:${c.escuro};background:#fff;border-radius:999px;padding:12px 26px">${esc(s.arrasta || 'Arrasta pro lado')} →</span></div>`;
+  },
   texto: (s, f, ctx) => `${fundoCreme}${area(`${kicker(s)}${titulo(s.titulo, s.ts || 92)}${lista(s.texto).map(t => corpo(t, s.corpo || 46)).join('')}${s.destaque ? `<div style="background:#fff;border-radius:30px;padding:30px 36px;border-left:14px solid ${A.sol};font-weight:700;font-size:38px;line-height:1.4;color:${A.tinta}">${rico(s.destaque)}</div>` : ''}`, { extra: 'justify-content:center' })}${rodape(ctx)}`,
   // Lista numerada em cartões brancos, com bolinhas coloridas.
   lista: (s, f, ctx) => `${fundoCreme}${area(`${kicker(s)}${titulo(s.titulo, s.ts || 88)}<div style="display:flex;flex-direction:column;gap:20px">${lista(s.itens).map((t, i) => `<div style="display:flex;gap:26px;align-items:center;background:#fff;border-radius:28px;padding:24px 30px"><span style="flex:none;width:72px;height:72px;border-radius:50%;background:${ROD[i % 4]};color:#fff;display:flex;align-items:center;justify-content:center;${TIT};font-size:44px">${i + 1}</span><span style="font-weight:600;font-size:${s.corpo || 40}px;line-height:1.36;color:${A.tinta}">${rico(t)}</span></div>`).join('')}</div>`, { extra: 'justify-content:center' })}${rodape(ctx)}`,
