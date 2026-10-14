@@ -1,0 +1,174 @@
+[
+  {
+    "id": "mudar-de-nome",
+    "titulo": "Dá pra mudar de nome direto no cartório",
+    "promptImagem": "Fotografia realista, horizontal (3:2), luz quente de fim de tarde: uma mulher nordestina de uns 30 anos, sorrindo, segurando uma folha de papel em frente a uma casa simples de alvenaria pintada de cores vivas, num povoado do sertão de Pernambuco. Céu azul limpo, chão de terra batida, clima alegre e acolhedor. Sem texto, sem letras, sem logotipos.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "barro",
+        "icone": "caneta",
+        "foto": "fotos/mudar-de-nome.jpg",
+        "titulo": "Dá pra [[mudar de nome]] direto no cartório",
+        "texto": "Sem juiz e sem advogado. A gente explica!"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "A novidade",
+        "titulo": "Desde 2022, a lei deixou tudo mais [[simples]]",
+        "texto": [
+          "A Lei nº 14.382/2022 permite que **qualquer pessoa maior de 18 anos** troque o **primeiro nome** direto no cartório de registro civil, sem processo na Justiça.",
+          "E tem mais: **não precisa explicar o motivo**."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Como funciona",
+        "titulo": "Passo a passo",
+        "itens": [
+          "Você vem ao cartório e faz o pedido **pessoalmente**",
+          "O cartório faz a alteração no seu registro",
+          "Os órgãos que emitem RG, CPF, passaporte e título de eleitor são **avisados pelo próprio cartório**"
+        ]
+      },
+      {
+        "tipo": "numero",
+        "kicker": "Atenção",
+        "cor": "sol",
+        "valor": "1 vez",
+        "tv": 120,
+        "rotulo": "É só **uma vez** que dá pra trocar o primeiro nome assim, direto no cartório.",
+        "texto": "Se depois quiser desfazer, aí só pela Justiça. Então pense bem antes!"
+      },
+      {
+        "tipo": "lista",
+        "kicker": "E o sobrenome?",
+        "titulo": "O sobrenome também pode [[mudar]]",
+        "itens": [
+          "**Incluir sobrenomes da família**, como o da avó",
+          "**Acrescentar ou tirar** o sobrenome do marido ou da esposa",
+          "**Tirar o sobrenome do ex** depois do divórcio"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "cor": "verde"
+      }
+    ]
+  },
+  {
+    "id": "registro-de-nascimento",
+    "titulo": "Registrar o bebê: 5 coisas que pouca gente sabe",
+    "promptImagem": "Fotografia realista, horizontal (3:2), luz suave de manhã: mãe e pai nordestinos jovens, de pele morena, sentados num alpendre de casa do interior, segurando com carinho um bebê recém-nascido enrolado numa manta clara. Fundo com parede caiada, vasos de plantas e um pouco de céu azul. Clima de alegria e família. Sem texto, sem letras, sem logotipos.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "ceu",
+        "icone": "bebe",
+        "foto": "fotos/registro-de-nascimento.jpg",
+        "titulo": "Bebê novo em casa? [[5 coisas]] sobre o registro",
+        "texto": "Que pouca gente sabe. Salve pra não esquecer!"
+      },
+      {
+        "tipo": "numero",
+        "kicker": "1 · É de graça",
+        "cor": "verde",
+        "valor": "R$ 0",
+        "rotulo": "para registrar o bebê e tirar a **primeira certidão**",
+        "texto": "Vale para **todas as famílias**, sem precisar comprovar nada. Está na lei (Lei nº 6.015/73, art. 30)."
+      },
+      {
+        "tipo": "numero",
+        "kicker": "2 · O prazo",
+        "cor": "sol",
+        "valor": "15 dias",
+        "tv": 104,
+        "rotulo": "é o prazo para registrar depois do nascimento",
+        "texto": "Para quem mora a **mais de 30 km do cartório**, o prazo pode chegar a **3 meses**."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "3 · CPF",
+        "titulo": "A certidão já sai com o [[CPF]] do bebê",
+        "texto": "Não precisa ir a outro lugar para tirar o CPF da criança: o número já vem impresso na certidão de nascimento."
+      },
+      {
+        "tipo": "pergunta",
+        "kicker": "4 · De onde é o bebê?",
+        "pergunta": "Meu filho nasceu no hospital em outra cidade. Ele vai ser de lá?",
+        "quem": "Dúvida de muita mãe aqui da região",
+        "texto": [
+          "Não precisa! Na hora do registro, a família pode escolher como **naturalidade** a cidade onde a **mãe mora**.",
+          "Assim, quem nasceu em outra cidade pode ser registrado como **petrolinense**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "5 · O nome do pai",
+        "titulo": "Faltou o pai no registro? Dá pra [[resolver]]",
+        "texto": "O pai pode **reconhecer o filho depois**, direto no cartório, sem processo na Justiça.",
+        "destaque": "Venham ao cartório com os documentos pessoais que a gente orienta cada caso."
+      },
+      {
+        "tipo": "cta",
+        "cor": "ceu"
+      }
+    ]
+  },
+  {
+    "id": "mito-ou-verdade-casamento",
+    "titulo": "Casamento no cartório: mito ou verdade?",
+    "promptImagem": "Fotografia realista, horizontal (3:2), luz dourada: casal nordestino feliz de mãos dadas, ele de camisa social clara e ela de vestido simples branco com flores no cabelo, rindo, numa rua de povoado do sertão com casinhas coloridas e bandeirinhas. Foco nas mãos com alianças. Clima de festa simples e alegre. Sem texto, sem letras, sem logotipos.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "cor": "barro",
+        "icone": "aliancas",
+        "foto": "fotos/mito-ou-verdade-casamento.jpg",
+        "selo": "Mito ou verdade?",
+        "titulo": "Vai casar no cartório? Teste o que você [[sabe]]",
+        "texto": "5 frases que todo mundo fala. Quantas você acerta?"
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Frase 1",
+        "frase": "Precisa de testemunha pra casar.",
+        "resposta": "verdade",
+        "texto": "Na entrada da habilitação vêm os **noivos e 2 testemunhas**, cada uma com RG e CPF (cópia)."
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Frase 2",
+        "frase": "Qualquer certidão serve, mesmo a antiga.",
+        "resposta": "mito",
+        "texto": "As certidões precisam ter sido tiradas há **no máximo 90 dias** antes da habilitação, no original e em bom estado."
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Frase 3",
+        "frase": "Depois de pronta, a habilitação vale pra sempre.",
+        "resposta": "mito",
+        "texto": "A habilitação vale **90 dias** (Código Civil, art. 1.532). Passou disso sem casar, tem que fazer de novo."
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Frase 4",
+        "frase": "União estável pode virar casamento direto no cartório.",
+        "resposta": "verdade",
+        "texto": "Desde 2022, o casal pode pedir a **conversão** no cartório de registro civil, sem precisar de juiz."
+      },
+      {
+        "tipo": "mito",
+        "kicker": "Frase 5",
+        "frase": "Dá pra adiantar tudo pela internet.",
+        "resposta": "verdade",
+        "texto": "No **registrocivil.net/76745** você se cadastra, envia os documentos e escolhe o dia e a hora do atendimento."
+      },
+      {
+        "tipo": "cta",
+        "cor": "barro",
+        "titulo": "Quantas você [[acertou]]? Conta aqui nos comentários!"
+      }
+    ]
+  }
+]
