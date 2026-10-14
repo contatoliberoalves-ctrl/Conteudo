@@ -4,7 +4,7 @@
 //
 // Slide: { foto, fotoPos, escurecer, blocos: [{ texto, cor, tam, y, largura }], print: { img, y, largura, raio } }
 //   texto  — "\n" quebra a linha; **negrito** não muda nada (o nativo é todo em negrito).
-//   cor    — preto, branco, bege, marrom, rosa, lilas, verde, menta, ciano, noite (ver CORES).
+//   cor    — preto, branco, bege, marrom, rosa, lilas, verde, menta, ciano, noite, azul (ver CORES).
 //   tam    — corpo do texto em px (padrão 80; encolhe sozinho se uma linha não couber); y — topo do bloco em px (0–1440) ou "topo", "meio", "base".
 //   largura— largura máxima do texto em px (padrão 1000); o bloco fica centralizado.
 const CORES = {
@@ -12,6 +12,7 @@ const CORES = {
   bege: ['#E3B48A', '#272119'], marrom: ['#5A4636', '#FFFFFF'], rosa: ['#C56A7C', '#FFF1F4'],
   lilas: ['#E5E1FC', '#3D1DA3'], verde: ['#2E3F1A', '#E9F4DB'], menta: ['#29FFA1', '#171E18'],
   ciano: ['#01FEE9', '#173332'], noite: ['#151B1B', '#49E3E1'],
+  azul: ['#0B4FD8', '#FFFFFF'], // azul do perfil, letra branca (texto das páginas)
 };
 const POS = { topo: 170, meio: 620, base: 1080 };
 const H = 1440;
