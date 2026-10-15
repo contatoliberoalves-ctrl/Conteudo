@@ -394,6 +394,23 @@ const CAPAS = {
       ${lista(s.opcoes).map((o, i) => `<div style="position:absolute;left:${pos[i][0]}px;top:${pos[i][1]}px;transform:rotate(${pos[i][2]}deg);background:${COR.navyFundo};color:#fff;border:3px solid ${R};font-size:40px;font-weight:800;padding:12px 30px;z-index:5">${esc(o)}</div>`).join('')}
       ${s.texto ? `<div style="position:absolute;left:110px;right:110px;bottom:180px;text-align:center;font-size:44px;font-weight:800;color:#fff;z-index:5">${rico(s.texto, t)}</div>` : ''}${pe(t, true)}`;
   },
+  // Semana: dois calendários de 7 dias (antes x agora) com os dias de trabalho e as folgas, e um carimbo.
+  // Campos: kicker, titulo, linhas ([{rotulo, folgas: [índices 0–6], riscar}]), carimbo (texto do carimbo vermelho), texto.
+  semana(s, t) {
+    const D = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'], R = COR.vermelho;
+    const linha = (l, k) => `<div style="position:relative;display:flex;align-items:center;gap:18px">
+        <div style="width:140px;flex:none;${TITULO};font-size:52px;line-height:1;color:#fff;${l.riscar ? 'opacity:.5' : ''}">${esc(l.rotulo)}</div>
+        <div style="display:flex;gap:10px;${l.riscar ? 'opacity:.5' : ''}">${D.map((d, i) => { const f = lista(l.folgas).includes(i);
+          return `<div style="width:88px;height:116px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;${f ? `background:#fff;color:${COR.azul}` : `background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.35);color:#fff`}"><span style="${TITULO};font-size:52px;line-height:1">${d}</span><span style="font-size:15px;font-weight:800;letter-spacing:.05em">${f ? 'FOLGA' : 'TRAB.'}</span></div>`; }).join('')}</div>
+        ${l.riscar ? `<div style="position:absolute;left:-20px;right:-20px;top:50%;height:12px;margin-top:-6px;background:${R};transform:rotate(-4deg);border-radius:6px"></div>` : ''}
+      </div>`;
+    return `<div data-area style="position:absolute;left:90px;right:90px;top:140px;bottom:190px;display:flex;flex-direction:column;justify-content:center;gap:40px;z-index:3">
+        ${kicker(s.kicker, t)}${titulo(s, t, 190, 900)}
+        <div style="display:flex;flex-direction:column;gap:26px;margin-top:10px">${lista(s.linhas).map(linha).join('')}</div>
+        ${s.texto ? corpo(s, t, 40) : ''}
+      </div>
+      ${s.carimbo ? `<div data-objeto style="position:absolute;right:80px;top:150px;transform:rotate(10deg);border:9px solid ${R};outline:3px solid ${R};outline-offset:7px;padding:8px 22px 2px;color:${R};background:rgba(255,255,255,.04);text-align:center;z-index:4"><div style="${TITULO};font-size:84px;line-height:.9">${lista(s.carimbo).map(esc).join('<br>')}</div></div>` : ''}${pe(t, true)}`;
+  },
   // Pergunta: interrogação gigante saindo pela direita e, se houver, as opções de resposta.
   pergunta(s, t) {
     return `<div style="position:absolute;right:-120px;top:60px;${TITULO};font-size:1250px;line-height:.8;color:${t.escuro ? 'rgba(255,255,255,.1)' : 'rgba(11,79,216,.1)'};z-index:1">?</div>

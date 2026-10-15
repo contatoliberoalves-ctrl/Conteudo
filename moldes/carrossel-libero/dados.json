@@ -5861,5 +5861,167 @@
         "botao": "Comente #RECURSO"
       }
     ]
+  },
+  {
+    "id": "pec-6x1-aprovada",
+    "titulo": "PEC do fim da escala 6x1 aprovada no Senado",
+    "tema": "Senado aprovou em 14/10/2026 (75 a 1, dois turnos) a PEC do fim da escala 6x1: 40 horas, 2 folgas, sem redução de salário, transição de 14 meses; rito da PEC (art. 60) e promulgação",
+    "fontes": [
+      "https://www.gazetadopovo.com.br/economia/senado-aprova-pec-do-fim-da-escala-6x1/",
+      "https://www.jb.com.br/brasil/politica/2026/10/1061236-senado-aprova-pec-que-poe-fim-a-escala-6x1.html",
+      "https://www.brasildefato.com.br/2026/10/14/vitoria-de-lula-pec-do-fim-da-escala-6x1-e-aprovada-em-1a-votacao-no-senado/",
+      "https://www.otempo.com.br/politica/congresso/2026/10/14/entenda-a-pec-que-acaba-com-a-escala-6x1-aprovada-no-senado"
+    ],
+    "pontes": [
+      {
+        "img": "party_popper.png",
+        "entre": 2,
+        "y": 170,
+        "tam": 300,
+        "rot": -8
+      },
+      {
+        "img": "tear_off_calendar.png",
+        "entre": 4,
+        "y": 880,
+        "tam": 300,
+        "rot": 8
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "semana",
+        "tema": "blue",
+        "kicker": "Aprovada no Senado",
+        "titulo": [
+          "Adeus, [[6x1]]"
+        ],
+        "carimbo": [
+          "75 x 1"
+        ],
+        "linhas": [
+          {
+            "rotulo": "Antes",
+            "folgas": [
+              0
+            ],
+            "riscar": true
+          },
+          {
+            "rotulo": "Agora",
+            "folgas": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "dark",
+        "kicker": "Quarta-feira, 14 de outubro",
+        "titulo": [
+          "Aprovada!"
+        ],
+        "sub": "75 votos a 1, nos dois turnos. O único contra foi o senador Hamilton Mourão."
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "O que muda",
+        "titulo": [
+          "4 mudanças"
+        ],
+        "marcador": "num",
+        "itens": [
+          "Jornada máxima cai de **44 para 40 horas** por semana.",
+          "**Dois dias de descanso** remunerado por semana: adeus, 6x1.",
+          "**Sem redução de salário** por causa da jornada menor.",
+          "O limite diário continua em **8 horas**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Não é da noite pro dia",
+        "titulo": [
+          "A transição"
+        ],
+        "palavra": "14 MESES",
+        "palavraLado": "direita",
+        "texto": [
+          "**60 dias** depois da promulgação: a jornada máxima cai para **42 horas** semanais.",
+          "**12 meses depois**: chega às **40 horas**.",
+          "Ao todo, as empresas têm cerca de **14 meses** para se adaptar."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "E no seu caso?",
+        "titulo": [
+          "Quem já..."
+        ],
+        "marcador": "letra",
+        "itens": [
+          "**Trabalha 5x2 com 44 horas:** a escala fica, mas as horas diminuem.",
+          "**Já cumpre 40 horas ou menos:** nada muda.",
+          "**Tem escala especial** (como a 12x36): segundo o texto divulgado, continua possível por negociação."
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "light",
+        "kicker": "Onde está isso na Constituição",
+        "titulo": [
+          "Art. 7º, XIII",
+          "(como é hoje)"
+        ],
+        "citacao": "duração do trabalho normal não superior a oito horas diárias e quarenta e quatro semanais, facultada a compensação de horários e a redução da jornada, mediante acordo ou convenção coletiva de trabalho;",
+        "traducao": "Traduzindo: é esse **44** que vira **40** com a PEC."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Momento Constitucional",
+        "titulo": [
+          "Por que não vai",
+          "pra sanção?"
+        ],
+        "marcador": "num",
+        "itens": [
+          "PEC precisa de **3/5 dos votos, em dois turnos**, em cada Casa (art. 60, § 2º, CF). No Senado, são 49 votos.",
+          "Emenda constitucional **não tem sanção nem veto**: é promulgada pelas **Mesas da Câmara e do Senado** (art. 60, § 3º).",
+          "Como o Senado **não mudou o texto** que veio da Câmara, ele não volta pra lá."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "E agora?",
+        "titulo": [
+          "Próximo passo:",
+          "promulgação"
+        ],
+        "palavra": "PROMULGA",
+        "palavraLado": "esquerda",
+        "texto": [
+          "A Câmara aprovou em maio (**472 a 22** e **461 a 19**). Agora falta a **promulgação** em sessão do Congresso, que o presidente do Senado sinalizou para a próxima semana.",
+          "Promulgou, começa a contar o prazo de **60 dias** da primeira etapa."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "centro": true,
+        "titulo": [
+          "A sua escala",
+          "vai mudar?"
+        ],
+        "texto": "Me conta nos comentários e manda pra quem trabalha no 6x1.",
+        "botao": "Comente 5x2"
+      }
+    ]
   }
 ]
