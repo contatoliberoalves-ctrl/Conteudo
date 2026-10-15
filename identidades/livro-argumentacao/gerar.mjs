@@ -5,6 +5,7 @@
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
+import { V2, FONTES2 } from './v2.mjs';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire('/opt/node-tools/node_modules/')('playwright');
 
@@ -93,8 +94,9 @@ const V = [
       <div style="position:absolute;left:0;right:0;bottom:74px;text-align:center;font-family:Manrope;font-weight:700;font-size:16px;letter-spacing:.34em;color:#F4EEDD">LÍBERO ALVES RODRIGUES FILHO</div>`.replace(/id="circ-(\w+)"([\s\S]*?)#CIRC/, (m, id, meio) => `id="circ-${id}"${meio}#circ-${id}`),
   },
 ];
+V.push(...V2(grao));
 
-const FONTES = 'family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@500;700;800&family=Anton';
+const FONTES = FONTES2 + '&' + 'family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@500;700;800&family=Anton';
 
 const caixa = (w, h, html) => `<div style="position:relative;width:${w}px;height:${h}px;overflow:hidden;flex:none">${html}</div>`;
 const fundo = v => `<div style="position:absolute;inset:0;background:${v.bg}"></div>${grao(.16)}`;
@@ -137,7 +139,7 @@ const texto = v => `<div style="position:absolute;inset:0;background:${v.papel}"
   <div style="position:absolute;bottom:44px;left:0;right:0;text-align:center;font-family:${v.txt};font-size:14px;color:#888">17</div>`;
 
 const prancha = v => `<div style="width:1920px;height:1080px;background:linear-gradient(180deg,#F1F2EF,#E4E7E2);position:relative;overflow:hidden;font-family:Inter,sans-serif">
-  <div style="position:absolute;left:60px;top:42px;right:60px;display:flex;align-items:baseline;gap:24px"><span style="font-family:${v.tit};font-weight:800;font-size:46px;color:${v.dk};white-space:nowrap">${v.nome}</span><span style="font-size:18px;color:#4a4a4a;max-width:1250px;line-height:1.45">${v.conceito}</span></div>
+  <div style="position:absolute;left:60px;top:42px;right:60px;display:flex;align-items:baseline;gap:24px"><span style="font-family:${v.tit};font-weight:800;font-size:46px;color:${v.dk};white-space:nowrap">${v.nome}${v.grupo ? `<span style="display:block;font-family:Inter;font-weight:700;font-size:14px;letter-spacing:.2em;color:#777;margin-top:6px">${v.grupo.toUpperCase()}</span>` : ''}</span><span style="font-size:18px;color:#4a4a4a;max-width:1250px;line-height:1.45">${v.conceito}</span></div>
   <div style="position:absolute;left:60px;top:150px;transform:scale(.95);transform-origin:0 0;box-shadow:0 24px 50px rgba(0,0,0,.28)">${caixa(W, H, v.capa(v))}</div>
   <div style="position:absolute;left:800px;top:175px;transform:scale(.5);transform-origin:0 0">${livro3d(v)}</div>
   <div style="position:absolute;left:1180px;top:175px;transform:scale(.46);transform-origin:0 0;display:flex;gap:40px">${caixa(W, H, abertura(v))}${caixa(W, H, texto(v))}</div>
@@ -155,14 +157,16 @@ const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
 const browser = await chromium.launch(launch);
-const out = path.join(root, 'saida'); fs.rmSync(out, { recursive: true, force: true }); fs.mkdirSync(out, { recursive: true });
+const out = path.join(root, 'saida'); fs.mkdirSync(out, { recursive: true });
 const foto = async (html, w, h, arq, escala = 1) => {
   const f = path.join(out, 'tmp.html'); fs.writeFileSync(f, `<!doctype html><html><head>${head}</head><body>${html}</body></html>`);
   const p = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: escala });
   await p.goto('file://' + f); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(500);
   await p.screenshot({ path: path.join(out, arq), clip: { x: 0, y: 0, width: w, height: h } }); await p.close();
 };
+const so = process.argv.slice(2);
 for (const [i, v] of V.entries()) {
+  if (so.length && !so.includes(v.id)) continue;
   await foto(prancha(v), 1920, 1080, `${i + 1}-${v.id}-prancha.png`);
   await foto(caixa(W, H, v.capa(v)), W, H, `${i + 1}-${v.id}-capa.png`, 1890 / W);
   await foto(aberta(v), W * 2 + LOMBADA, H, `${i + 1}-${v.id}-capa-aberta.png`, 2);
