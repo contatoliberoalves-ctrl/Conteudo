@@ -376,6 +376,24 @@ const CAPAS = {
         ${s.texto ? corpo(s, { ...t, txt: '#E4E8F0' }, 38) : ''}
       </div>${pe(TEMAS.dark, true)}`;
   },
+  // Mira: alvo vermelho no centro com a palavra-chave gigante na cruz e as opções em etiquetas em volta.
+  // Pouco texto: "pre" (linha de cima), "titulo" (a palavra no centro), "opcoes" (até 4, nos cantos da mira).
+  mira(s, t) {
+    const R = COR.vermelho, cx = 540, cy = s.miraY || 640;
+    const anel = (d, w, op = 1) => `<div style="position:absolute;left:${cx - d / 2}px;top:${cy - d / 2}px;width:${d}px;height:${d}px;border-radius:50%;border:${w}px solid ${R};opacity:${op};box-sizing:border-box"></div>`;
+    const pos = [[150, cy - 330, -6], [700, cy - 300, 5], [170, cy + 250, 4], [690, cy + 270, -5]];
+    const palavra = lista(s.titulo).join(' ');
+    const px = s.ts || Math.min(300, Math.floor(980 / (palavra.length * 0.46)));
+    return `<div style="position:absolute;left:0;right:0;top:${cy}px;height:4px;background:${R};opacity:.55;z-index:1"></div>
+      <div style="position:absolute;top:0;bottom:0;left:${cx - 2}px;width:4px;background:${R};opacity:.55;z-index:1"></div>
+      ${anel(820, 6, .35)}${anel(600, 10, .6)}${anel(380, 14)}
+      <div style="position:absolute;left:${cx - 18}px;top:${cy - 18}px;width:36px;height:36px;border-radius:50%;background:${R};z-index:2"></div>
+      <div data-area style="position:absolute;left:40px;right:40px;top:140px;bottom:180px;z-index:4">
+      ${s.pre ? `<div style="position:absolute;left:0;right:0;top:0;display:flex;justify-content:center"><div style="background:#fff;color:${COR.navy};${TITULO};font-size:${s.tp || 92}px;line-height:1;padding:8px 26px 0">${rico(s.pre, t)}</div></div>` : ''}
+      <h1 data-titulo style="position:absolute;left:0;right:0;top:${cy - 140 - px * .46}px;margin:0;text-align:center;${TITULO};font-size:${px}px;line-height:.92;color:#fff;text-shadow:0 10px 40px rgba(8,16,40,.6)">${esc(palavra)}</h1></div>
+      ${lista(s.opcoes).map((o, i) => `<div style="position:absolute;left:${pos[i][0]}px;top:${pos[i][1]}px;transform:rotate(${pos[i][2]}deg);background:${COR.navyFundo};color:#fff;border:3px solid ${R};font-size:40px;font-weight:800;padding:12px 30px;z-index:5">${esc(o)}</div>`).join('')}
+      ${s.texto ? `<div style="position:absolute;left:110px;right:110px;bottom:180px;text-align:center;font-size:44px;font-weight:800;color:#fff;z-index:5">${rico(s.texto, t)}</div>` : ''}${pe(t, true)}`;
+  },
   // Pergunta: interrogação gigante saindo pela direita e, se houver, as opções de resposta.
   pergunta(s, t) {
     return `<div style="position:absolute;right:-120px;top:60px;${TITULO};font-size:1250px;line-height:.8;color:${t.escuro ? 'rgba(255,255,255,.1)' : 'rgba(11,79,216,.1)'};z-index:1">?</div>
