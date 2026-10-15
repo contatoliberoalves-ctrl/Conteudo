@@ -18,6 +18,8 @@ São duas, para caber no limite de 511 arquivos por versão; `galeria/galerias.j
 - **Principal** ("Galeria de moldes"): https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq, pasta `galeria/dist`.
 - **Galeria do Líbero** (moldes do @liberofilho, Argumenta, PodConst, Método VDE): https://claude.ai/artifact/6KjmpAJr3nJb7v2k2UiSPM, pasta `galeria/dist-libero`.
 
+Dentro de cada molde, a galeria mostra os posts do mais novo para o mais antigo (o último do `dados.json` aparece primeiro; `gerar.py` e `atualizar.py` já invertem). Post novo vai sempre no fim do `dados.json`.
+
 Sempre atualize **esses mesmos links** (Artifact com `url`), nunca crie outros. Nos passos abaixo, `dist` é a pasta da galeria do molde (o `atualizar.py` avisa qual galeria e qual `root` usar). Os bancos (`pedidos`, `ajustes`) são separados: leia os das duas galerias.
 
 1. Gere os PNGs dos moldes que mudaram. Nos moldes com foto, rode antes o `recortar_fotos.py` (cria `fotos/fontes/` e `fotos/fontes.json`, usados pelo editor de capa; ficam fora do git).

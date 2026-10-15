@@ -54,7 +54,7 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
         larg, alt, por = velho.get('w', 1080), velho.get('h', 1350), velho.get('por', n)
     posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'nativo': nativo(c), 'topicos': len(c.get('topicos', [])),
                   'painel': f'{base}-painel.jpg' if n > 3 else f'{base}-slides.webp', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'por': por, 'editor': editores.get(c['id'])})
-meta['posts'] = posts
+meta['posts'] = posts[::-1]  # o mais novo (último do dados.json) aparece primeiro
 if antigo:
     moldes[moldes.index(antigo)] = meta
 else:

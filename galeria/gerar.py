@@ -102,7 +102,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             'n': len(slides), 'w': larg, 'h': alt, 'por': por,
             'editor': editor(pasta, c, saida),
         })
-    meta['posts'] = posts
+    meta['posts'] = posts[::-1]  # o mais novo (último do dados.json) aparece primeiro
     moldes.append(meta)
     print(f'✓ {meta["nome"]}: {len(posts)} posts')
 
