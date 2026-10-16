@@ -10,6 +10,9 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 3. **Conteúdo** (papel): cada matéria abre com uma faixa azul (número vazado, nome, `descricao`, contagem). Depois vêm os grupos de exame + peça, do exame mais recente ao mais antigo. A paginação é feita no navegador: um grupo que não cabe vai inteiro para a página seguinte, e a faixa da matéria nunca fica sozinha no pé da página.
 4. **Índice por exame**: exame, peça e quantas teses dele há no PDF.
 
+## Ordem por artigo (`teses-por-artigo`)
+Mesmas teses, na sequência dos dispositivos (`"ordem": "artigo"`, `"de": "teses-por-materia"` puxa as teses e a fonte do outro material; visual em `artigos.mjs`). Seções: a CF por título (princípios, direitos e garantias, organização do Estado, dos Poderes, ordem econômica, ordem social), depois leis e códigos (ordem cronológica), súmulas vinculantes e as teses sem dispositivo na fonte. Dentro de cada artigo, caput e incisos antes dos parágrafos. Uma tese que cita vários dispositivos aparece em cada um. `raiox` troca os textos do sumário. O índice por exame no fim confere se há algum exame faltando (avisa em vermelho).
+
 ## dados.json
 Lista de materiais: `{ id, titulo, capa, fonte, materias: [{id, nome, descricao}], teses: [{exame (número), peca, materia (id), tese, artigo}] }`.
 

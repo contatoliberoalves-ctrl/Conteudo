@@ -7,7 +7,10 @@ import path from 'node:path';
 import { renderCarrossel, W, H } from './template.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')).filter(c => !process.argv[2] || c.id === process.argv[2]);
+const todos = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
+// "de": material que usa as teses (e a fonte) de outro, só que em outra ordem.
+todos.forEach(c => { const o = c.de && todos.find(x => x.id === c.de); if (o) { c.teses = o.teses; c.fonte = c.fonte || o.fonte; } });
+const dados = todos.filter(c => !process.argv[2] || c.id === process.argv[2]);
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });

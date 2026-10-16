@@ -5,6 +5,7 @@
 // por exame (do mais recente ao mais antigo). A paginação é feita no navegador: cada bloco (abertura de
 // matéria ou grupo de um exame) vai para a página seguinte se não couber.
 import { renderSimulado } from './simulado.mjs';
+import { porArtigo } from './artigos.mjs';
 import { COR, FONTES, TITULO, TEXTO, PERFIL, esc, linhas, textura, anel } from '../libero-comum/identidade.mjs';
 
 export const W = 794, H = 1122;  // A4 a 96 dpi (210 × 297 mm)
@@ -14,7 +15,7 @@ const BASE = { 'MS coletivo': 'Mandado de segurança', 'MI coletivo': 'Mandado d
 const dois = n => String(n).padStart(2, '0');
 const chip = (txt, bg, cor, px = 10.5) => `<span style="display:inline-block;background:${bg};color:${cor};${TEXTO};font-size:${px}px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap">${esc(txt)}</span>`;
 
-function capa(p, total) {
+function capa(p, total, quarto = [p.materias.length, 'matérias']) {
   const c = p.capa || {};
   const exames = new Set(p.teses.map(t => t.exame)).size, pecas = new Set(p.teses.map(t => BASE[t.peca] || t.peca.replace(/ \(.*\)$/, ''))).size;
   const num = (n, rot) => `<div style="flex:1;border-top:3px solid rgba(255,255,255,.35);padding-top:14px">
@@ -28,7 +29,7 @@ function capa(p, total) {
       <p style="${TEXTO};font-size:20px;font-weight:500;line-height:1.4;color:${COR.off};margin-top:28px;max-width:520px">${esc(c.sub)}</p>
     </div>
     <div style="position:absolute;left:${M}px;right:${M}px;bottom:130px;display:flex;gap:28px;z-index:3">
-      ${num(total, 'teses')}${num(exames, 'exames')}${num(pecas, 'peças')}${num(p.materias.length, 'matérias')}
+      ${num(total, 'teses')}${num(exames, 'exames')}${num(pecas, 'peças')}${num(quarto[0], quarto[1])}
     </div>
     <div style="position:absolute;left:${M}px;bottom:58px;${TEXTO};font-size:15px;font-weight:700;letter-spacing:.08em;color:#fff;z-index:3">${PERFIL}</div>
     ${textura(true)}
@@ -41,9 +42,9 @@ function raiox(p, grupos) {
   return `<section class="pagina" style="background:${COR.off}">
     ${anel(620, 900, 330, 40)}
     <div style="position:absolute;left:${M}px;right:${M}px;top:70px;z-index:3">
-      <div style="${TEXTO};font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.azul}">Raio-X · o que mais cai</div>
-      <div style="${TITULO};font-size:76px;line-height:.92;color:${COR.azul};margin-top:10px">As teses por <span style="background:${COR.azul};color:#fff;padding:0 .12em">matéria</span></div>
-      <p style="${TEXTO};font-size:14.5px;line-height:1.45;color:${COR.navy};margin-top:18px;max-width:560px">Cada tese aparece na matéria em que ela se apoia. Dentro de cada matéria, os exames vêm do mais recente ao mais antigo. Clique no nome para ir direto à página.</p>
+      <div style="${TEXTO};font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.azul}">${esc(p.raiox?.rotulo || 'Raio-X · o que mais cai')}</div>
+      <div style="${TITULO};font-size:76px;line-height:.92;color:${COR.azul};margin-top:10px">As teses por <span style="background:${COR.azul};color:#fff;padding:0 .12em">${esc(p.raiox?.palavra || 'matéria')}</span></div>
+      <p style="${TEXTO};font-size:14.5px;line-height:1.45;color:${COR.navy};margin-top:18px;max-width:560px">${esc(p.raiox?.texto || 'Cada tese aparece na matéria em que ela se apoia. Dentro de cada matéria, os exames vêm do mais recente ao mais antigo. Clique no nome para ir direto à página.')}</p>
       <div style="margin-top:40px;display:flex;flex-direction:column;gap:26px">
         ${grupos.map((g, i) => `<a href="#m-${g.id}" style="text-decoration:none;color:inherit;display:grid;grid-template-columns:44px 1fr 70px;gap:14px;align-items:center">
           <span style="${TITULO};font-size:34px;color:transparent;-webkit-text-stroke:1.5px ${COR.azul}">${dois(i + 1)}</span>
@@ -55,8 +56,9 @@ function raiox(p, grupos) {
         </a>`).join('')}
       </div>
       <div style="margin-top:40px;border:2px dashed #C9CFDB;border-radius:14px;padding:16px 20px;display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start;background:#fff">
-        <div><div style="${TEXTO};font-size:10px;font-weight:800;letter-spacing:.14em;color:${COR.azul}">OAB</div><div style="${TITULO};font-size:36px;line-height:.9;color:${COR.navy}">35</div><div style="${TEXTO};font-size:10px;font-weight:800;text-transform:uppercase;color:${COR.vermelho};margin-top:4px">ADI</div></div>
-        <div style="${TEXTO};font-size:13px;line-height:1.4;color:${COR.navy}"><b style="font-weight:800">Como ler:</b> à esquerda, o exame e a peça em que a tese caiu. À direita, a tese e, no selo azul, o artigo que a fundamenta. ${chip('art. 30, I', '#E4ECFF', COR.azul)}</div>
+        ${p.ordem === 'artigo' ? `<div><div style="${TEXTO};font-size:10px;font-weight:800;letter-spacing:.14em;color:${COR.azul}">ART. 5º</div><div style="${TITULO};font-size:36px;line-height:.9;color:${COR.navy}">LXIX</div></div>
+        <div style="${TEXTO};font-size:13px;line-height:1.4;color:${COR.navy}"><b style="font-weight:800">Como ler:</b> o título azul é o artigo; à esquerda de cada linha, o inciso, a alínea ou o parágrafo. À direita, a tese, o exame e a peça (selo escuro) e o dispositivo como está no padrão da FGV (selo azul). ${chip('OAB 30 · Recurso ordinário', COR.navy, '#fff')} ${chip('art. 5º, LXIX', '#E4ECFF', COR.azul)}</div>` : `<div><div style="${TEXTO};font-size:10px;font-weight:800;letter-spacing:.14em;color:${COR.azul}">OAB</div><div style="${TITULO};font-size:36px;line-height:.9;color:${COR.navy}">35</div><div style="${TEXTO};font-size:10px;font-weight:800;text-transform:uppercase;color:${COR.vermelho};margin-top:4px">ADI</div></div>
+        <div style="${TEXTO};font-size:13px;line-height:1.4;color:${COR.navy}"><b style="font-weight:800">Como ler:</b> à esquerda, o exame e a peça em que a tese caiu. À direita, a tese e, no selo azul, o artigo que a fundamenta. ${chip('art. 30, I', '#E4ECFF', COR.azul)}</div>`}
       </div>
     </div>
     <div style="position:absolute;left:${M}px;right:${M}px;bottom:44px;max-width:520px;${TEXTO};font-size:10.5px;line-height:1.4;color:#5B6478;z-index:3">Fonte: ${esc(p.fonte)}</div>
@@ -95,6 +97,9 @@ function grupo(g, exame, peca, teses) {
   </div>`;
 }
 
+// Confirma que nenhum exame ficou de fora (1 até o último, sem buracos).
+const conf = p => { const ex = new Set(p.teses.map(t => t.exame)), max = Math.max(...ex), falta = Array.from({ length: max }, (_, i) => i + 1).filter(n => !ex.has(n));
+  return falta.length ? ` <b style="color:${COR.vermelho}">Faltam os exames ${falta.join(', ')}.</b>` : ` <b style="color:${COR.azul}">Conferido: estão aqui todos os exames, do 1 ao ${max}${p.teses.some(t => /reaplica/.test(t.peca)) ? ', e a reaplicação do XXV' : ''}.</b>`; };
 // Índice por exame (duas colunas): exame, peça e quantas teses.
 function indice(p) {
   const por = new Map();
@@ -108,7 +113,7 @@ function indice(p) {
       <div style="${TEXTO};font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.azul}">Índice por exame</div>
       <div style="${TITULO};font-size:52px;line-height:.92;color:${COR.azul};margin-top:8px">Qual peça caiu em cada exame</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:22px">${col(linhasIdx.slice(0, meio))}${col(linhasIdx.slice(meio))}</div>
-      <p style="${TEXTO};font-size:11px;line-height:1.4;color:#5B6478;margin-top:16px">A coluna da direita diz quantas teses daquela prova estão neste PDF.</p>
+      <p style="${TEXTO};font-size:11px;line-height:1.4;color:#5B6478;margin-top:16px">A coluna da direita diz quantas teses daquela prova estão neste PDF.${conf(p)}</p>
     </div>
     <div class="rodape"></div>
     ${textura(false)}
@@ -118,18 +123,25 @@ function indice(p) {
 export function renderCarrossel(p) {
   if (p.tipo === 'simulado') return renderSimulado(p);
   const avisos = [];
-  const grupos = p.materias.map(m => ({ ...m, teses: p.teses.filter(t => t.materia === m.id) }));
-  p.teses.filter(t => !p.materias.some(m => m.id === t.materia)).forEach(t => avisos.push(`tese sem matéria válida (${t.materia}): ${t.tese.slice(0, 40)}`));
-  const blocos = grupos.map((g, i) => {
-    const chaves = [...new Set(g.teses.map(t => `${t.exame}|${t.peca}`))].map(k => k.split('|')).sort((a, b) => b[0] - a[0]);
-    return abertura(g, i) + chaves.map(([e, pc]) => grupo(g, e, pc, g.teses.filter(t => t.exame == e && t.peca === pc))).join('');
-  }).join('');
+  let grupos, blocos, quarto;
+  if (p.ordem === 'artigo') {
+    // Mesmas teses de outro material (p.de), na sequência dos dispositivos.
+    const r = porArtigo(p);
+    grupos = r.grupos; blocos = r.blocos(abertura); quarto = [r.artigos, 'dispositivos'];
+  } else {
+    grupos = p.materias.map(m => ({ ...m, teses: p.teses.filter(t => t.materia === m.id) }));
+    p.teses.filter(t => !p.materias.some(m => m.id === t.materia)).forEach(t => avisos.push(`tese sem matéria válida (${t.materia}): ${t.tese.slice(0, 40)}`));
+    blocos = grupos.map((g, i) => {
+      const chaves = [...new Set(g.teses.map(t => `${t.exame}|${t.peca}`))].map(k => k.split('|')).sort((a, b) => b[0] - a[0]);
+      return abertura(g, i) + chaves.map(([e, pc]) => grupo(g, e, pc, g.teses.filter(t => t.exame == e && t.peca === pc))).join('');
+    }).join('');
+  }
 
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
 <style>@page{size:210mm 297mm;margin:0}*{box-sizing:border-box}body{margin:0;${TEXTO};-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 p{margin:0}.pagina{position:relative;width:${W}px;height:${H}px;overflow:hidden;break-after:page}
 #fluxo{position:absolute;left:-9999px;top:0;width:${W - 2 * M}px}</style></head><body>
-${capa(p, p.teses.length)}${raiox(p, grupos)}<div id="paginas"></div>${indice(p)}
+${capa(p, p.teses.length, quarto)}${raiox(p, grupos)}<div id="paginas"></div>${indice(p)}
 <div id="fluxo">${blocos}</div>
 <script>
 // Paginação: enche cada página com blocos; a abertura de matéria só fica se couber junto com o bloco seguinte.
