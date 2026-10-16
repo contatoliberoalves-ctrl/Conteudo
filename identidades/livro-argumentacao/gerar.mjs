@@ -6,6 +6,7 @@ import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
 import { V2, FONTES2 } from './v2.mjs';
+import { V3, FONTES3 } from './v3.mjs';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire('/opt/node-tools/node_modules/')('playwright');
 
@@ -94,9 +95,9 @@ const V = [
       <div style="position:absolute;left:0;right:0;bottom:74px;text-align:center;font-family:Manrope;font-weight:700;font-size:16px;letter-spacing:.34em;color:#F4EEDD">LÍBERO ALVES RODRIGUES FILHO</div>`.replace(/id="circ-(\w+)"([\s\S]*?)#CIRC/, (m, id, meio) => `id="circ-${id}"${meio}#circ-${id}`),
   },
 ];
-V.push(...V2(grao));
+V.push(...V2(grao), ...V3(grao));
 
-const FONTES = FONTES2 + '&' + 'family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@500;700;800&family=Anton';
+const FONTES = FONTES3 + '&' + FONTES2 + '&' + 'family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Archivo:wdth,wght@62..125,500..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Caveat:wght@500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Manrope:wght@500;700;800&family=Anton';
 
 const caixa = (w, h, html) => `<div style="position:relative;width:${w}px;height:${h}px;overflow:hidden;flex:none">${html}</div>`;
 const fundo = v => `<div style="position:absolute;inset:0;background:${v.bg}"></div>${grao(.16)}`;
