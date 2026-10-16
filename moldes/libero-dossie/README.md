@@ -6,7 +6,8 @@ Carrossel: `id`, `titulo`, `tema`, `fonte`, `slides`. Cada slide tem `tipo` e `t
 
 | tipo | campos |
 |---|---|
-| `capa` | `aba` (etiqueta da pasta), `rotulo` ("Teses que caíram na"), `titulo` (sigla), `nome`, `exames` (fichas; o carimbo conta "Já caiu N×"), `ts` |
+| `capa` | `aba` (etiqueta da pasta), `rotulo` ("Teses que caíram na"), `titulo` (sigla), `nome`, `exames` (fichas; o carimbo conta "Já caiu N×"), `examesRotulo` (troca "Exames em que caiu"), `selo`/`seloSub` (troca o texto do carimbo), `ts` |
+| `peca` | estrutura de uma peça numa folha de petição: `kicker` ("Peça 01 de 12"), `numero` (vazado), `sigla`, `nome`, `enderecamento`, `qualificacao`, `topicos`, `valor`, `fechamento` (padrão "Local..., Data..., Advogado..., OAB..."), `corpo`. Use as estruturas do molde Estrutura de Peças (`../estrutura-de-pecas/dados.json`) |
 | `linha` | `kicker`, `titulo`, `itens: [{exame, texto}]` (linha do tempo), `corpo` |
 | `ficha` | `exame` ("OAB 40": o número sai vazado gigante), `kicker`, `aba`, `caso`, `itens: [{tag ("Formal"/"Material"), tese, artigo}]`, `corpo` |
 | `carimbo` | `kicker`, `titulo`, `texto`, `selo`, `seloSub` |

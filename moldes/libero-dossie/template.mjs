@@ -25,10 +25,10 @@ const TIPOS = {
         <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="80" style="${TITULO};font-size:${s.ts || 300}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.05 : .9};padding-top:.1em;color:${COR.azul};height:300px;overflow:hidden;max-width:640px">${linhas(s.titulo)}</div>
         <div style="${TEXTO};font-size:40px;font-weight:600;color:${COR.navy};margin-top:14px;max-width:760px">${esc(s.nome)}</div>
         <div style="margin-top:auto;border-top:3px dashed #C9CFDB;padding-top:26px">
-          <div style="${TEXTO};font-size:22px;font-weight:700;letter-spacing:.16em;color:${COR.azul};margin-bottom:16px">EXAMES EM QUE CAIU</div>
+          <div style="${TEXTO};font-size:22px;font-weight:700;letter-spacing:.16em;color:${COR.azul};margin-bottom:16px">${esc(s.examesRotulo || 'Exames em que caiu').toUpperCase()}</div>
           <div style="display:flex;flex-wrap:wrap;gap:12px;max-width:760px">${exames.map(e => chip(e, COR.azul, '#fff', 30)).join('')}</div>
         </div>
-        ${carimbo(exames.length ? `Já caiu ${exames.length}×` : 'Já caiu', 'na FGV', 850, 170, -14, 280)}
+        ${carimbo(s.selo || (exames.length ? `Já caiu ${exames.length}×` : 'Já caiu'), s.seloSub ?? 'na FGV', 850, 170, -14, 280)}
       </div>
     </div>
     ${objeto(ctx, { img: 'paperclip.png', x: 1190, y: 70, tam: 190, rot: 18 })}
@@ -67,6 +67,29 @@ const TIPOS = {
             <div style="${TITULO};font-size:1.6em;line-height:.9;color:${COR.vermelho};width:1.1em;flex:none">${k + 1}</div>
             <div style="line-height:1.25">${i.tag ? chip(i.tag, COR.navy, '#fff', 20) + ' ' : ''}<span style="font-weight:600">${rico(i.tese)}</span>${i.artigo ? `<div style="margin-top:.25em">${chip(i.artigo, '#E4ECFF', COR.azul, 26)}</div>` : ''}</div>
           </div>`).join('')}
+        </div>
+      </div>${rod(t)}`;
+  },
+  // Estrutura da peça: número vazado e a sigla à esquerda; a folha da petição à direita (endereçamento,
+  // qualificação, tópicos numerados e fechamento).
+  peca(s, t) {
+    const papel = t.escuro ? pap : '#fff', tops = lista(s.topicos);
+    const rot = txt => `<div style="${TEXTO};font-size:.62em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.vermelho};margin-bottom:.2em">${esc(txt)}</div>`;
+    return `<div style="position:absolute;left:40px;bottom:110px;${TITULO};font-size:480px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? 'rgba(255,255,255,.3)' : 'rgba(11,79,216,.25)'};z-index:1">${esc(s.numero)}</div>
+      <div style="position:absolute;left:120px;top:120px;width:560px;z-index:3;display:flex;flex-direction:column;gap:14px">
+        ${kick(s.kicker || 'Estrutura da peça', t.kicker)}
+        <div data-fit="${esc(s.sigla)}" data-min="70" style="${TITULO};font-size:${s.ts || 200}px;line-height:.88;color:${t.tit};max-height:360px;overflow:hidden">${linhas(s.sigla, t.caixa)}</div>
+        ${s.nome ? `<div style="${TEXTO};font-size:38px;font-weight:600;line-height:1.2;color:${t.txt}">${esc(s.nome)}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:740px;right:110px;top:90px;bottom:120px;z-index:4;display:flex;flex-direction:column">
+        ${aba(s.aba || 'Estrutura', COR.vermelho, '#fff')}
+        <div data-fit="${esc(s.sigla)} folha" data-min="18" style="background:${papel};border-radius:0 18px 18px 18px;padding:38px 48px;box-shadow:0 20px 40px rgba(0,0,0,.18);flex:1;overflow:hidden;font-size:${s.corpo || 42}px;color:${COR.navy};display:flex;flex-direction:column;gap:.55em">
+          <div>${rot('Endereçamento')}<div style="font-weight:700;line-height:1.25">${rico(s.enderecamento)}</div></div>
+          <div>${rot('Qualificação')}<div style="font-weight:500;line-height:1.25">${rico(s.qualificacao)}</div></div>
+          <div style="border-top:3px dashed #C9CFDB;padding-top:.5em">${rot('Tópicos')}
+            ${tops.map((x, k) => `<div style="display:flex;gap:.5em;margin-bottom:.32em;line-height:1.22"><span style="${TITULO};color:${COR.azul};font-size:1.25em;line-height:.95;width:1.2em;flex:none">${k + 1}</span><span style="font-weight:600">${rico(x)}</span></div>`).join('')}
+          </div>
+          <div style="margin-top:auto;border-top:3px dashed #C9CFDB;padding-top:.5em;display:flex;flex-wrap:wrap;gap:.4em .8em;align-items:center">${chip(s.valor || 'Valor da Causa', '#E4ECFF', COR.azul, 28)}${chip(s.fechamento || 'Local..., Data..., Advogado..., OAB...', COR.navy, '#fff', 28)}</div>
         </div>
       </div>${rod(t)}`;
   },
