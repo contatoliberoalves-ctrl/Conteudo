@@ -78,7 +78,7 @@ const TIPOS = {
     return `<div style="position:absolute;left:40px;bottom:110px;${TITULO};font-size:480px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? 'rgba(255,255,255,.3)' : 'rgba(11,79,216,.25)'};z-index:1">${esc(s.numero)}</div>
       <div style="position:absolute;left:120px;top:120px;width:560px;z-index:3;display:flex;flex-direction:column;gap:14px">
         ${kick(s.kicker || 'Estrutura da peça', t.kicker)}
-        <div data-fit="${esc(s.sigla)}" data-min="70" style="${TITULO};font-size:${s.ts || 200}px;line-height:.88;color:${t.tit};max-height:360px;overflow:hidden">${linhas(s.sigla, t.caixa)}</div>
+        <div data-fit="${esc(s.sigla)}" data-min="70" style="${TITULO};font-size:${s.ts || 200}px;line-height:.9;padding-top:.12em;color:${t.tit};max-height:400px;overflow:hidden">${linhas(s.sigla, t.caixa)}</div>
         ${s.nome ? `<div style="${TEXTO};font-size:38px;font-weight:600;line-height:1.2;color:${t.txt}">${esc(s.nome)}</div>` : ''}
       </div>
       <div style="position:absolute;left:740px;right:110px;top:90px;bottom:120px;z-index:4;display:flex;flex-direction:column">
@@ -91,6 +91,33 @@ const TIPOS = {
           </div>
           <div style="margin-top:auto;border-top:3px dashed #C9CFDB;padding-top:.5em;display:flex;flex-wrap:wrap;gap:.4em .8em;align-items:center">${chip(s.valor || 'Valor da Causa', '#E4ECFF', COR.azul, 28)}${chip(s.fechamento || 'Local..., Data..., Advogado..., OAB...', COR.navy, '#fff', 28)}</div>
         </div>
+      </div>${rod(t)}`;
+  },
+  // Capa "mural": título à esquerda e um quadro com as peças (sigla, quantas teses e barra proporcional).
+  mural(s, t) {
+    const pecas = lista(s.pecas), max = Math.max(...pecas.map(x => x.n || 0), 1), cols = s.colunas || 3;
+    const tile = (x, k) => { const top = k === 0; const bg = top ? COR.vermelho : x.escuro ? COR.navyFundo : pap; const cor = top || x.escuro ? '#fff' : COR.navy;
+      return `<div style="background:${bg};border-radius:16px;padding:18px 22px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 28px rgba(0,0,0,.18);min-width:0;${x.escuro && !top ? 'border:2px solid rgba(255,255,255,.16);' : ''}">
+        <div data-fit="${esc(x.sigla)}" data-min="26" style="${TITULO};font-size:${x.ts || 62}px;line-height:.9;padding-top:.12em;color:${top ? '#fff' : x.escuro ? '#fff' : COR.azul};white-space:nowrap;overflow:hidden">${esc(x.sigla)}</div>
+        <div><div style="${TEXTO};font-size:22px;font-weight:700;color:${cor};opacity:.9;margin:8px 0 8px">${x.n} ${x.n === 1 ? 'tese' : 'teses'}</div>
+        <div style="height:8px;border-radius:4px;background:${top || x.escuro ? 'rgba(255,255,255,.25)' : '#DCE3F2'}"><div style="height:100%;width:${Math.max(6, Math.round(100 * x.n / max))}%;border-radius:4px;background:${top ? '#fff' : x.escuro ? COR.azulClaro : COR.azul}"></div></div></div>
+      </div>`; };
+    return `${anel(-360, -380, 560)}
+      <div style="position:absolute;left:120px;top:120px;bottom:150px;width:700px;display:flex;flex-direction:column;justify-content:center;gap:28px;z-index:3">
+        ${kick(s.kicker, t.kicker)}
+        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="70" style="${TITULO};font-size:${s.ts || 170}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .9};color:${t.tit};max-height:640px;overflow:hidden">${linhas(s.titulo, COR.vermelho)}</div>
+        ${s.texto ? `<p style="font-size:38px;font-weight:600;line-height:1.25;color:${t.txt}">${rico(s.texto, t.caixa)}</p>` : ''}
+      </div>
+      <div style="position:absolute;left:900px;right:110px;top:100px;bottom:110px;display:grid;grid-template-columns:repeat(${cols},1fr);gap:18px;z-index:4">${pecas.map(tile).join('')}</div>${rod(t)}`;
+  },
+  // Divisor de peça: sigla vazada gigante à direita; nome, quantas teses e os exames à esquerda.
+  divisor(s, t) {
+    return `<div style="position:absolute;right:-30px;top:50%;transform:translateY(-50%);${TITULO};font-size:${s.tn || 560}px;line-height:.8;color:transparent;-webkit-text-stroke:6px ${t.escuro ? 'rgba(255,255,255,.4)' : 'rgba(11,79,216,.35)'};white-space:nowrap;z-index:1">${esc(s.vazado || s.sigla)}</div>
+      <div style="position:absolute;left:120px;top:140px;bottom:150px;width:${s.largura || 860}px;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:3">
+        ${kick(s.kicker, t.kicker)}
+        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="70" style="${TITULO};font-size:${s.ts || 180}px;line-height:.92;padding-top:.12em;color:${t.tit};max-height:520px;overflow:hidden">${linhas(s.titulo, t.caixa)}</div>
+        <div style="display:flex;align-items:center;gap:22px"><span style="${TITULO};font-size:96px;line-height:.9;color:${t.escuro ? '#fff' : COR.vermelho}">${esc(s.numero)}</span><span style="${TEXTO};font-size:36px;font-weight:600;line-height:1.2;color:${t.txt}">${rico(s.texto || '', t.caixa)}</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;max-width:860px">${lista(s.exames).map(e => chip(e, t.escuro ? '#fff' : COR.azul, t.escuro ? COR.azul : '#fff', 30)).join('')}</div>
       </div>${rod(t)}`;
   },
   // Carimbo: título grande à esquerda, explicação à direita e o carimbo vermelho.

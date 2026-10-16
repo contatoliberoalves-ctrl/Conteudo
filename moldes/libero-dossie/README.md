@@ -10,5 +10,7 @@ Carrossel: `id`, `titulo`, `tema`, `fonte`, `slides`. Cada slide tem `tipo` e `t
 | `peca` | estrutura de uma peça numa folha de petição: `kicker` ("Peça 01 de 12"), `numero` (vazado), `sigla`, `nome`, `enderecamento`, `qualificacao`, `topicos`, `valor`, `fechamento` (padrão "Local..., Data..., Advogado..., OAB..."), `corpo`. Use as estruturas do molde Estrutura de Peças (`../estrutura-de-pecas/dados.json`) |
 | `linha` | `kicker`, `titulo`, `itens: [{exame, texto}]` (linha do tempo), `corpo` |
 | `ficha` | `exame` ("OAB 40": o número sai vazado gigante), `kicker`, `aba`, `caso`, `itens: [{tag ("Formal"/"Material"), tese, artigo}]`, `corpo` |
+| `mural` | capa alternativa: título à esquerda e quadro de peças à direita (`pecas: [{sigla, n, escuro}]`, a 1ª em vermelho; `n` = nº de teses, vira barra), `kicker`, `texto`, `colunas` |
+| `divisor` | abre cada peça: `kicker`, `titulo` (nome), `sigla`/`vazado` (sigla vazada gigante à direita; `tn`), `numero` + `texto` ("28" "teses em 7 exames"), `exames` (fichas) |
 | `carimbo` | `kicker`, `titulo`, `texto`, `selo`, `seloSub` |
 | `cta` | `titulo`, `texto`, `botao`, `foto` (polaroide presa por clipe) |
