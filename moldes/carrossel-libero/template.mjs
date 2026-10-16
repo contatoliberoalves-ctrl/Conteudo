@@ -411,6 +411,21 @@ const CAPAS = {
       </div>
       ${s.carimbo ? `<div data-objeto style="position:absolute;right:80px;top:150px;transform:rotate(10deg);border:9px solid ${R};outline:3px solid ${R};outline-offset:7px;padding:8px 22px 2px;color:${R};background:rgba(255,255,255,.04);text-align:center;z-index:4"><div style="${TITULO};font-size:84px;line-height:.9">${lista(s.carimbo).map(esc).join('<br>')}</div></div>` : ''}${pe(t, true)}`;
   },
+  // Agenda do dia: "HOJE" gigante e uma linha por aula, com o horário num bloco e a etiqueta (onde/para quem).
+  agenda(s, t) {
+    const R = COR.vermelho;
+    const item = a => `<div style="display:flex;align-items:stretch;gap:0;background:rgba(255,255,255,.07);border:3px solid rgba(255,255,255,.28)">
+        <div style="flex:none;width:250px;background:#fff;color:${COR.azul};display:flex;align-items:center;justify-content:center;${TITULO};font-size:96px;line-height:1">${esc(a.hora)}</div>
+        <div style="flex:1;padding:22px 28px;display:flex;flex-direction:column;gap:10px;justify-content:center">
+          <div data-corpo style="${TITULO};font-size:${s.ti || 58}px;line-height:.98;color:#fff;text-transform:uppercase">${rico(a.titulo, t)}</div>
+          ${a.etiqueta ? `<span style="align-self:flex-start;background:${a.cor === 'navy' ? COR.navyFundo : R};color:#fff;font-size:24px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px">${esc(a.etiqueta)}</span>` : ''}
+        </div></div>`;
+    return `<div data-area style="position:absolute;left:90px;right:90px;top:120px;bottom:190px;display:flex;flex-direction:column;justify-content:center;gap:34px;z-index:3">
+        ${kicker(s.kicker, t)}${titulo(s, t, s.ts || 300, 900)}
+        <div style="display:flex;flex-direction:column;gap:26px">${lista(s.aulas).map(item).join('')}</div>
+        ${s.texto ? corpo(s, t, 38) : ''}
+      </div>${pe(t, true)}`;
+  },
   // Pergunta: interrogação gigante saindo pela direita e, se houver, as opções de resposta.
   pergunta(s, t) {
     return `<div style="position:absolute;right:-120px;top:60px;${TITULO};font-size:1250px;line-height:.8;color:${t.escuro ? 'rgba(255,255,255,.1)' : 'rgba(11,79,216,.1)'};z-index:1">?</div>

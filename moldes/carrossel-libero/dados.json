@@ -6079,5 +6079,70 @@
         "botao": "Comente a peça 👇"
       }
     ]
+  },
+  {
+    "id": "programacao-lives-hoje",
+    "titulo": "Programação de aulas HOJE: 2 lives",
+    "tema": "Divulgação: live de teses (12h, assinantes do Instagram) e live de estrutura das peças de Constitucional (19h, YouTube)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "agenda",
+        "tema": "blue",
+        "kicker": "Programação de aulas",
+        "titulo": [
+          "[[Hoje]]"
+        ],
+        "aulas": [
+          {
+            "hora": "12h00",
+            "titulo": "Live: teses pra 2ª fase",
+            "etiqueta": "Exclusivo dos assinantes do Insta"
+          },
+          {
+            "hora": "19h00",
+            "titulo": "Live: estrutura das peças mais cobradas de Constitucional",
+            "etiqueta": "No YouTube",
+            "cor": "navy"
+          }
+        ],
+        "texto": "Passe para o lado para saber **como participar** →"
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "kicker": "Live das 12h00",
+        "titulo": [
+          "Teses pra",
+          "2ª fase"
+        ],
+        "texto": [
+          "Exclusiva dos **assinantes do Instagram**. E lá tem **materiais extras**, além da live.",
+          "Toque em **Assinar** no meu perfil."
+        ],
+        "print": "print-assinar.jpg",
+        "destaque": [
+          70.7,
+          10,
+          19,
+          52
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "centro": true,
+        "kicker": "Live das 19h00",
+        "titulo": [
+          "Estrutura das",
+          "[[peças]] mais",
+          "cobradas"
+        ],
+        "texto": [
+          "De Constitucional, ao vivo no meu YouTube: canal **Líbero Filho TV**."
+        ],
+        "botao": "Comenta LIVE que eu mando o link"
+      }
+    ]
   }
 ]
