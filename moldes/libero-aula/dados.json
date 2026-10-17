@@ -1,0 +1,1163 @@
+[
+  {
+    "id": "enderecamento-sem-erro",
+    "titulo": "Como não errar o endereçamento?",
+    "tema": "Aula: os 3 grupos de peças (sem foro privilegiado, local fixo, foro conforme a autoridade)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "foto",
+        "tema": "dark",
+        "foto": "recorte-dsc08859.png",
+        "fotoX": 40,
+        "circuloX": 120,
+        "kicker": "2ª fase OAB · Constitucional",
+        "titulo": [
+          "Como não",
+          "errar o",
+          "[[endereçamento]]?"
+        ],
+        "texto": "3 grupos de peças, 3 lógicas diferentes.",
+        "largura": 1000
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Antes de tudo",
+        "titulo": [
+          "Pouco ponto,",
+          "primeira linha"
+        ],
+        "texto": [
+          "Nos padrões da FGV, o endereçamento costuma valer **0,10**.",
+          "Mas é a primeira linha da peça e mostra se você entendeu **quem julga a causa**.",
+          "O truque é separar as peças em **3 grupos**: cada grupo tem uma lógica."
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "blue",
+        "kicker": "Os 3 grupos",
+        "titulo": [
+          "Onde cada peça [[nasce]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Grupo 1",
+            "titulo": "Sem foro privilegiado",
+            "texto": "Vão sempre ao **juízo de 1º grau**, não importa quem é o réu.",
+            "itens": [
+              "Ação popular",
+              "Ação civil pública",
+              "Procedimento comum"
+            ],
+            "chips": [
+              "1º grau"
+            ]
+          },
+          {
+            "rotulo": "Grupo 2",
+            "titulo": "Local fixo",
+            "texto": "O tribunal já é definido pela própria peça.",
+            "itens": [
+              "ADI, ADC, ADO, ADPF → STF",
+              "Representação de inconst. → TJ",
+              "Recursos → órgão que decidiu"
+            ],
+            "chips": [
+              "controle",
+              "recursos"
+            ],
+            "cor": "navy"
+          },
+          {
+            "rotulo": "Grupo 3",
+            "titulo": "Depende da autoridade",
+            "texto": "O foro muda conforme **quem praticou o ato**.",
+            "itens": [
+              "Mandado de segurança",
+              "Mandado de injunção",
+              "Habeas data"
+            ],
+            "chips": [
+              "CF",
+              "art. 20, Lei 9.507/97"
+            ],
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Grupo 1 · sem foro privilegiado",
+        "titulo": [
+          "Sempre no [[1º grau]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Ação popular",
+            "d": "Juízo Cível ou da Fazenda Pública da Comarca X, conforme a origem do ato. Ato federal: Justiça Federal.",
+            "tag": [
+              "Lei 4.717/65, art. 5º",
+              "CF, art. 109, I"
+            ]
+          },
+          {
+            "t": "Ação civil pública",
+            "d": "Juízo do local onde ocorrer o dano.",
+            "tag": [
+              "Lei 7.347/85, art. 2º"
+            ]
+          },
+          {
+            "t": "Ação de procedimento comum",
+            "d": "Juízo de 1º grau: Fazenda Pública (Estado ou Município) ou Vara Federal (União).",
+            "tag": [
+              "CF, art. 109, I"
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "light",
+        "kicker": "Grupo 2 · local fixo",
+        "titulo": [
+          "O endereço já vem [[pronto]]"
+        ],
+        "colunas": [
+          "Peça",
+          "Para quem",
+          "Base"
+        ],
+        "grade": "1.1fr 1.6fr 1fr",
+        "linhas": [
+          [
+            "ADI · ADC · ADO",
+            "Ministro Presidente do STF",
+            "CF, art. 102, I, a"
+          ],
+          [
+            "ADPF",
+            "Ministro Presidente do STF",
+            "CF, art. 102, § 1º"
+          ],
+          [
+            "Representação de inconstitucionalidade",
+            "Presidente do Tribunal de Justiça",
+            "CF, art. 125, § 2º"
+          ],
+          [
+            "Reclamação",
+            "Tribunal cuja competência ou decisão foi desrespeitada",
+            "CF, arts. 102, I, l, e 105, I, f"
+          ],
+          [
+            "Recurso extraordinário",
+            "Interposição: Presidente ou Vice do tribunal de origem · razões: STF",
+            "CPC, art. 1.029"
+          ],
+          [
+            "Recurso ordinário",
+            "Interposição: tribunal de origem · razões: STF ou STJ",
+            "CF, arts. 102, II, e 105, II · CPC, art. 1.028"
+          ]
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "blue",
+        "kicker": "Grupo 3 · depende da autoridade",
+        "titulo": [
+          "Ache a [[autoridade]], ache o foro"
+        ],
+        "colunas": [
+          "Ato de…",
+          "Vai para",
+          "Base"
+        ],
+        "grade": "1.6fr .7fr 1.2fr",
+        "linhas": [
+          [
+            "Presidente da República, Mesas da Câmara e do Senado, TCU, PGR ou o próprio STF",
+            "STF",
+            "art. 102, I, d (MS e HD) e q (MI)"
+          ],
+          [
+            "Ministro de Estado, Comandantes das Forças ou o próprio STJ",
+            "STJ",
+            "art. 105, I, b (MS e HD) e h (MI)"
+          ],
+          [
+            "Juiz federal ou o próprio TRF",
+            "TRF",
+            "art. 108, I, c"
+          ],
+          [
+            "Outra autoridade federal",
+            "Juiz federal",
+            "art. 109, VIII"
+          ],
+          [
+            "Autoridade estadual ou municipal",
+            "O que disser a Constituição do Estado; sem essa informação, 1º grau",
+            "art. 125, § 1º"
+          ]
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "dark",
+        "kicker": "Habeas data",
+        "titulo": [
+          "Está tudo",
+          "no [[art. 20]]"
+        ],
+        "texto": [
+          "A Lei 9.507/97 repete, no **art. 20**, a lista de competências do habeas data por autoridade: STF, STJ, TRFs, juízes federais, tribunais estaduais e juízes estaduais.",
+          "Na prova, é só achar a autoridade nesse artigo."
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "light",
+        "kicker": "E se o enunciado não disser a comarca?",
+        "titulo": [
+          "Juízo… da",
+          "[[Comarca X]]"
+        ],
+        "texto": "Quando os dados não permitem identificar a organização judiciária, a própria FGV aceita o endereçamento genérico, como “Juízo Cível ou de Fazenda Pública da Comarca X” (padrões dos exames 44 e 45)."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Na prova",
+        "titulo": [
+          "3 perguntas e [[pronto]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "É ação popular, ACP ou procedimento comum?",
+            "d": "Então é juízo de 1º grau."
+          },
+          {
+            "t": "É controle concentrado ou recurso?",
+            "d": "O local é fixo: STF, TJ ou o órgão que decidiu."
+          },
+          {
+            "t": "É MS, MI ou HD?",
+            "d": "Ache a autoridade e procure na CF (arts. 102, 105, 108, 109) ou no art. 20 da Lei 9.507/97."
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Ficou alguma",
+          "[[dúvida]]?"
+        ],
+        "texto": "Manda nos comentários a peça que mais te confunde no endereçamento.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "quanto-vale-argumentacao",
+    "titulo": "Quanto vale a argumentação das peças na 2ª fase?",
+    "tema": "Aula com cálculo médio de 7 padrões de resposta da FGV (exames XX a 45)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "numero",
+        "tema": "light",
+        "numero": "2,3",
+        "rotulo": "pontos, em média, de 5,0",
+        "kicker": "Fiz a conta",
+        "titulo": [
+          "Quanto vale a",
+          "[[argumentação]]",
+          "na peça?"
+        ],
+        "texto": "Com 7 padrões de resposta da FGV de Constitucional."
+      },
+      {
+        "tipo": "topico",
+        "tema": "blue",
+        "kicker": "Como fiz a conta",
+        "titulo": [
+          "7 padrões,",
+          "1 média"
+        ],
+        "texto": [
+          "Peguei a tabela **Distribuição dos Pontos** da peça nos exames **XX, XXVII, XXVIII, XXXII, XXXVI, 40 e 45**.",
+          "Somei os itens de cada bloco, do jeito que a própria FGV separa (endereçamento, partes, cabimento, mérito, liminar, pedidos, fechamento), e tirei a média."
+        ]
+      },
+      {
+        "tipo": "barras",
+        "tema": "dark",
+        "kicker": "Média por bloco · peça de 5,0",
+        "titulo": [
+          "Onde estão os [[pontos]]"
+        ],
+        "casas": 1,
+        "barras": [
+          {
+            "rotulo": "Fundamentos de mérito",
+            "texto": "as teses",
+            "valor": 2.3
+          },
+          {
+            "rotulo": "Forma",
+            "texto": "endereçamento, partes, legitimidade, cabimento",
+            "valor": 1.2,
+            "destaque": false
+          },
+          {
+            "rotulo": "Pedidos",
+            "valor": 0.8,
+            "destaque": false
+          },
+          {
+            "rotulo": "Fundamentos da liminar",
+            "valor": 0.6,
+            "destaque": false
+          },
+          {
+            "rotulo": "Fechamento",
+            "valor": 0.1,
+            "destaque": false
+          }
+        ],
+        "lado": [
+          "**46%** da peça é mérito.",
+          "Com a liminar, a argumentação chega a **2,9 de 5,0 (57%)**."
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "light",
+        "kicker": "Exame a exame",
+        "titulo": [
+          "Mérito em cada [[padrão]]"
+        ],
+        "colunas": [
+          "Exame",
+          "Peça",
+          "Mérito",
+          "Liminar",
+          "Total argumentação"
+        ],
+        "grade": "1fr 1.4fr 1fr 1fr 1.3fr",
+        "linhas": [
+          [
+            "XX",
+            "ADPF",
+            "2,3",
+            "0,5",
+            "2,8"
+          ],
+          [
+            "XXVII",
+            "ADI",
+            "2,7",
+            "0,45",
+            "3,15"
+          ],
+          [
+            "XXVIII",
+            "Ação popular",
+            "2,1",
+            "0,4",
+            "2,5"
+          ],
+          [
+            "XXXII",
+            "Reclamação",
+            "1,3",
+            "0,8",
+            "2,1"
+          ],
+          [
+            "XXXVI",
+            "ADI",
+            "2,7",
+            "0,5",
+            "3,2"
+          ],
+          [
+            "40",
+            "ADI",
+            "2,1",
+            "0,8",
+            "2,9"
+          ],
+          [
+            "45",
+            "Mandado de segurança",
+            "2,8",
+            "0,6",
+            "3,4"
+          ]
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "blue",
+        "kicker": "Compare",
+        "titulo": [
+          "1 tese vale",
+          "[[7 endereçamentos]]"
+        ],
+        "texto": "Cada tese de mérito costuma valer de **0,60 a 0,80**. O endereçamento vale **0,10**."
+      },
+      {
+        "tipo": "topico",
+        "tema": "dark",
+        "kicker": "Atenção",
+        "titulo": [
+          "O artigo",
+          "sozinho não",
+          "[[pontua]]"
+        ],
+        "texto": [
+          "No padrão, a tese vale **0,60** e o artigo, **0,10**. Quem só cita o dispositivo fica com quase nada."
+        ],
+        "citacao": "A simples menção ou transcrição do dispositivo legal não confere pontuação.",
+        "fonte": "Observação dos enunciados de peça da FGV"
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "E nas questões?",
+        "titulo": [
+          "Lá é",
+          "quase tudo",
+          "[[argumento]]"
+        ],
+        "texto": [
+          "Cada questão vale **1,25**, dividida nos itens **A** e **B** (0,60 ou 0,65 cada).",
+          "Cada item pontua a **resposta fundamentada**: conclusão + porquê + artigo.",
+          "Somando peça e questões, **quase 8 dos 10 pontos** da prova vêm de argumentar bem."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "titulo": [
+          "Treine a",
+          "[[argumentação]]"
+        ],
+        "texto": "Tese + artigo + fato do caso, em cada parágrafo.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "peca-ou-questoes",
+    "titulo": "Começar pela peça ou pelas questões?",
+    "tema": "Aula: prós e contras, recomendação e plano de tempo das 5 horas",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "split",
+        "lados": [
+          {
+            "sigla": "PEÇA",
+            "nome": "vale 5,0",
+            "ts": 240
+          },
+          {
+            "sigla": "QUESTÕES",
+            "nome": "4 × 1,25",
+            "ts": 165
+          }
+        ],
+        "selo": "ou",
+        "titulo": [
+          "Começar pela peça ou pelas questões?"
+        ],
+        "seloY": 235,
+        "ts": 92
+      },
+      {
+        "tipo": "cards",
+        "tema": "light",
+        "kicker": "Os dois caminhos",
+        "titulo": [
+          "Prós e [[contras]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Começar pela peça",
+            "titulo": "A parte que mais vale",
+            "itens": [
+              "Metade da nota (5,0)",
+              "Cabeça descansada para a parte mais longa",
+              "Questões ficam para o fim, com o que sobrar"
+            ],
+            "chips": [
+              "risco: travar na identificação"
+            ]
+          },
+          {
+            "rotulo": "Começar pelas questões",
+            "titulo": "Aquecimento",
+            "itens": [
+              "Pontos rápidos e confiança",
+              "Pode lembrar artigos úteis para a peça"
+            ],
+            "chips": [
+              "risco: fazer a peça na correria"
+            ],
+            "cor": "navy"
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "blue",
+        "kicker": "Minha recomendação",
+        "titulo": [
+          "Identifique a",
+          "[[peça]] primeiro"
+        ],
+        "texto": "Leia o enunciado da peça, decida qual é e monte o esqueleto. Só depois escolha a ordem: assim a peça nunca fica para a última hora."
+      },
+      {
+        "tipo": "passos",
+        "tema": "dark",
+        "kicker": "Uma sugestão para as 5 horas",
+        "titulo": [
+          "O plano de [[tempo]]"
+        ],
+        "passos": [
+          {
+            "t": "Ler e identificar",
+            "d": "40 min no enunciado da peça"
+          },
+          {
+            "t": "Esqueleto e teses",
+            "d": "30 min no índice remissivo"
+          },
+          {
+            "t": "Escrever a peça",
+            "d": "cerca de 2 h"
+          },
+          {
+            "t": "4 questões",
+            "d": "cerca de 20 min cada"
+          },
+          {
+            "t": "Revisão",
+            "d": "30 min de folga"
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Quando começar pelas questões",
+        "titulo": [
+          "Exceções que [[valem]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Travou na identificação",
+            "d": "Passou do tempo e nada? Vá para as questões e volte com a cabeça fria."
+          },
+          {
+            "t": "Nervosismo alto no início",
+            "d": "Uma questão que você domina ajuda a destravar."
+          },
+          {
+            "t": "Mesmo assim: limite de tempo",
+            "d": "Questão não pode roubar o tempo da peça."
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Regras de ouro",
+        "titulo": [
+          "Seja qual for a [[ordem]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Nunca deixe a peça para a última hora."
+          },
+          {
+            "t": "Olhe o relógio ao fim de cada etapa."
+          },
+          {
+            "t": "Nenhuma questão em branco: resposta curta e fundamentada pontua."
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "E você, começa",
+          "por [[onde]]?"
+        ],
+        "texto": "Conta nos comentários: peça ou questões?",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "fiscal-vade-mecum",
+    "titulo": "O que fazer se o fiscal quiser confiscar meu Vade?",
+    "tema": "Aula: o que o edital permite, o que o fiscal pode fazer e o passo a passo na hora",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "fita",
+        "tema": "dark",
+        "fita": "VISTORIA",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "O fiscal quer",
+          "[[recolher]] meu Vade."
+        ],
+        "texto": "E agora?"
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Pode acontecer",
+        "titulo": [
+          "O Vade passa",
+          "por [[vistoria]]"
+        ],
+        "texto": [
+          "O material de consulta é vistoriado **antes da prova** e pode ser vistoriado **de novo durante a aplicação**.",
+          "Achou algo proibido? Quando der, o fiscal **isola só o trecho** (grampo, fita adesiva, destacamento). Se não der para isolar, o material pode ser **recolhido**."
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "blue",
+        "kicker": "O que diz o edital",
+        "titulo": [
+          "Pode x [[não pode]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Pode",
+            "titulo": "Liberado",
+            "marca": "✓",
+            "itens": [
+              "Grifo e marca-texto",
+              "Remissão simples a artigo ou lei",
+              "Clipes para separar códigos",
+              "Separadores de editora com nome da lei"
+            ]
+          },
+          {
+            "rotulo": "Não pode",
+            "titulo": "Proibido",
+            "marca": "✕",
+            "itens": [
+              "Anotação pessoal ou transcrição",
+              "Código comentado ou anotado",
+              "Post-it escrito ou em branco",
+              "Roteiro de peça, doutrina, jurisprudência avulsa",
+              "Atualizar a lei à mão"
+            ],
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "passos",
+        "tema": "dark",
+        "kicker": "Na hora",
+        "titulo": [
+          "Passo a [[passo]]"
+        ],
+        "passos": [
+          {
+            "t": "Calma",
+            "d": "Ouça o motivo. Discutir só tira seu tempo."
+          },
+          {
+            "t": "Peça para isolar",
+            "d": "Grampo ou fita só no trecho, como o edital prevê."
+          },
+          {
+            "t": "Chame o coordenador",
+            "d": "Se o fiscal mantiver o recolhimento."
+          },
+          {
+            "t": "Registre",
+            "d": "Peça que a ocorrência conste em ata."
+          },
+          {
+            "t": "Volte para a prova",
+            "d": "O relógio continua correndo."
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "light",
+        "kicker": "Recolheram mesmo?",
+        "titulo": [
+          "Faça a prova",
+          "[[assim mesmo]]"
+        ],
+        "texto": "Estrutura decorada, raciocínio e os artigos que você lembra ainda pontuam. Desistir é a única forma de zerar com certeza."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Para não passar por isso",
+        "titulo": [
+          "Revise o Vade [[antes]]"
+        ],
+        "colunas": 2,
+        "itens": [
+          {
+            "t": "Leia a lista do edital do seu exame"
+          },
+          {
+            "t": "Tire post-its escritos ou em branco"
+          },
+          {
+            "t": "Nada de anotações nas margens"
+          },
+          {
+            "t": "Separadores só de editora"
+          },
+          {
+            "t": "Remissão só a artigo ou lei"
+          },
+          {
+            "t": "Leve só o que é permitido"
+          }
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Já passou",
+          "por [[isso]]?"
+        ],
+        "texto": "Conta nos comentários como foi a vistoria na sua prova.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "artigos-que-vao-cair",
+    "titulo": "Artigos que vão cair na 2ª fase da OAB de Constitucional",
+    "tema": "Aula: art. 5º, 21 a 24, 29 e 30, 37, ordem social e processo legislativo, com quantos exames cobraram cada um nas peças",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "mapa",
+        "tema": "blue",
+        "kicker": "2ª fase OAB · Constitucional",
+        "titulo": [
+          "Artigos que",
+          "vão [[cair]]"
+        ],
+        "texto": "Onde eu apostaria as fichas, com os números dos exames.",
+        "etiquetas": [
+          "Art. 5º",
+          "Arts. 21–24",
+          "Arts. 29–30",
+          "Art. 37",
+          "Ordem social",
+          "Processo legislativo"
+        ]
+      },
+      {
+        "tipo": "barras",
+        "tema": "light",
+        "kicker": "Em quantos exames caíram nas peças (1 a 46)",
+        "titulo": [
+          "Os números da [[aposta]]"
+        ],
+        "barras": [
+          {
+            "rotulo": "Art. 5º",
+            "texto": "direitos e remédios",
+            "valor": 25
+          },
+          {
+            "rotulo": "Art. 37",
+            "texto": "Administração Pública",
+            "valor": 16,
+            "destaque": false
+          },
+          {
+            "rotulo": "Arts. 21 a 24",
+            "texto": "competências",
+            "valor": 15,
+            "destaque": false
+          },
+          {
+            "rotulo": "Ordem social",
+            "texto": "arts. 193 a 232",
+            "valor": 11,
+            "destaque": false
+          },
+          {
+            "rotulo": "Arts. 29 e 30",
+            "texto": "Municípios",
+            "valor": 7,
+            "destaque": false
+          }
+        ],
+        "unidade": "exames",
+        "colValor": 260
+      },
+      {
+        "tipo": "cards",
+        "tema": "dark",
+        "kicker": "Art. 5º · 25 exames",
+        "titulo": [
+          "Os incisos que mais [[caem]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Mais cobrados",
+            "titulo": "Caput e II",
+            "itens": [
+              "Isonomia (caput) · 7 exames",
+              "Legalidade (II) · 5 exames"
+            ]
+          },
+          {
+            "rotulo": "Liberdades",
+            "titulo": "IV, IX, XIII, XVI",
+            "itens": [
+              "Expressão (IV e IX)",
+              "Profissão (XIII)",
+              "Reunião (XVI)"
+            ]
+          },
+          {
+            "rotulo": "Remédios",
+            "titulo": "LXIX a LXXIII",
+            "itens": [
+              "MS (LXIX)",
+              "MI (LXXI)",
+              "HD (LXXII)",
+              "Ação popular (LXXIII)"
+            ],
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "blue",
+        "kicker": "Arts. 21 a 24 · 15 exames",
+        "titulo": [
+          "Competência",
+          "é a [[rainha]]"
+        ],
+        "texto": [
+          "O art. **22** domina: lei estadual ou municipal que invade competência **privativa da União** é a tese mais repetida das peças.",
+          "Mais cobrados: **22, I** (civil, trabalho, eleitoral…) em 7 exames, e **22, II, IV, XII e XXVII**.",
+          "Leia também o **21** (competência material da União) e o **23** (competência comum)."
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Arts. 29 e 30 · 7 exames",
+        "titulo": [
+          "O Município",
+          "e o interesse",
+          "[[local]]"
+        ],
+        "texto": [
+          "**30, I**: o Município legisla sobre assunto de interesse local (3 exames).",
+          "**30, V**: serviços públicos de interesse local, como o transporte coletivo.",
+          "**29**: a Lei Orgânica e as regras do Município, como o foro do Prefeito no TJ (art. 29, X)."
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "dark",
+        "kicker": "Art. 37 · 16 exames",
+        "titulo": [
+          "LIMPE e",
+          "[[concurso]]"
+        ],
+        "texto": [
+          "O **caput** (legalidade, impessoalidade, moralidade, publicidade e eficiência) caiu em 9 exames.",
+          "Depois vêm o **inciso II** (concurso público) e o **§ 6º** (responsabilidade do Estado).",
+          "É o argumento coringa das ações populares."
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "light",
+        "kicker": "Ordem social · 11 exames",
+        "titulo": [
+          "De 193 a 232, [[leia]] estes"
+        ],
+        "cards": [
+          {
+            "titulo": "Saúde",
+            "texto": "Arts. 6º e 196: direito de todos e dever do Estado.",
+            "chips": [
+              "3 exames"
+            ]
+          },
+          {
+            "titulo": "Meio ambiente",
+            "texto": "Art. 225: proteção e licenças.",
+            "chips": [
+              "4 exames"
+            ],
+            "cor": "azul"
+          },
+          {
+            "titulo": "Cultura e ciência",
+            "texto": "Arts. 215, 216 e 218 a 219-B.",
+            "chips": [
+              "3 exames"
+            ]
+          },
+          {
+            "titulo": "Comunicação e idoso",
+            "texto": "Arts. 220 e 230.",
+            "chips": [
+              "2 exames"
+            ],
+            "cor": "navy"
+          }
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "blue",
+        "kicker": "Processo legislativo",
+        "titulo": [
+          "Pouco na peça,",
+          "mais na",
+          "[[questão]]"
+        ],
+        "texto": [
+          "Nas peças, caiu uma vez (art. 60, simetria na emenda estadual, exame XXVII).",
+          "Nas questões aparece mais: medida provisória (exame XX), lei complementar x ordinária (exame XXXIX).",
+          "Leia os arts. **59 a 69**: iniciativa, quórum, sanção, veto e medida provisória."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Qual artigo",
+          "você [[aposta]]?"
+        ],
+        "texto": "Comenta o seu e eu te digo se já caiu.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "erros-segunda-fase",
+    "titulo": "Erros que você NÃO pode cometer na 2ª fase da OAB",
+    "tema": "Aula: os erros que zeram, os que fazem a resposta não ser corrigida e os que tiram ponto",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "fita",
+        "tema": "blue",
+        "fita": "NÃO FAÇA",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "Erros que você",
+          "[[NÃO]] pode cometer"
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "light",
+        "kicker": "3 níveis de estrago",
+        "titulo": [
+          "Do pior ao [[menor]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Zeram",
+            "titulo": "Fim de jogo",
+            "itens": [
+              "Peça errada",
+              "Identificar a prova"
+            ],
+            "cor": "vermelho"
+          },
+          {
+            "rotulo": "Não são corrigidos",
+            "titulo": "Ponto perdido",
+            "itens": [
+              "Resposta fora do espaço",
+              "Folha da questão errada"
+            ],
+            "cor": "navy"
+          },
+          {
+            "rotulo": "Tiram pontos",
+            "titulo": "Somam no fim",
+            "itens": [
+              "Só citar o artigo",
+              "Não separar A e B",
+              "Inventar dados",
+              "Esquecer pedidos ou fechamento"
+            ]
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "dark",
+        "kicker": "Os que zeram",
+        "titulo": [
+          "[[Zero]] na peça ou na prova"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Peça inadequada",
+            "d": "O edital prevê nota zero na peça quando ela não é a adequada ao problema."
+          },
+          {
+            "t": "Qualquer sinal de identificação",
+            "d": "Nome, assinatura, rubrica ou marca podem zerar sua prova. Feche com “Local…, Data…, Advogado…, OAB…”."
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "Os que nem são lidos",
+        "titulo": [
+          "Fora do lugar, fora da [[nota]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Texto fora do espaço destinado",
+            "d": "Não é considerado na correção."
+          },
+          {
+            "t": "Resposta na folha errada",
+            "d": "Questão 2 na folha da 3, peça no espaço de questão: confira número e item antes de escrever."
+          }
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Os que tiram pontos",
+        "titulo": [
+          "Detalhes que [[custam caro]]"
+        ],
+        "colunas": 2,
+        "itens": [
+          {
+            "t": "Só citar o artigo",
+            "d": "Sem a tese aplicada ao caso, não pontua."
+          },
+          {
+            "t": "Artigo sem a lei",
+            "d": "“Art. 5º” de qual diploma?"
+          },
+          {
+            "t": "Não separar A) e B)",
+            "d": "Cada item tem a sua pontuação."
+          },
+          {
+            "t": "Inventar dados",
+            "d": "Faltou nome ou data? Use reticências."
+          },
+          {
+            "t": "Esquecer liminar e pedidos",
+            "d": "Somam quase 1,5 da peça."
+          },
+          {
+            "t": "Questão em branco",
+            "d": "Resposta curta e fundamentada pontua."
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "dark",
+        "kicker": "Regra de ouro",
+        "titulo": [
+          "Revise antes",
+          "de [[entregar]]"
+        ],
+        "texto": "Peça certa, nenhuma identificação, cada resposta no seu espaço, A) e B) separados, pedidos e fechamento."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "titulo": [
+          "Qual erro te dá",
+          "mais [[medo]]?"
+        ],
+        "texto": "Comenta aqui que eu respondo.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "capa-nao-achar-resposta",
+    "titulo": "Capa: O que fazer se não achar a resposta de uma questão?",
+    "tema": "Capa de vídeo/aula (branco e azul-escuro, com foto)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "branca",
+        "foto": "recorte-dsc08879.png",
+        "selo": "2ª fase OAB",
+        "titulo": [
+          "O que fazer",
+          "se não achar",
+          "a [[resposta]]",
+          "de uma questão?"
+        ],
+        "ts": 128
+      }
+    ]
+  },
+  {
+    "id": "capa-correcao-segunda-fase",
+    "titulo": "Capa: O que esperar da correção da 2ª fase da OAB?",
+    "tema": "Capa de vídeo/aula (azul-escuro e branco, com a folha corrigida)",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "folha",
+        "tema": "dark",
+        "nota": "6,0",
+        "notaRotulo": "PARA PASSAR",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "O que esperar",
+          "da [[correção]]",
+          "da 2ª fase?"
+        ]
+      }
+    ]
+  }
+]

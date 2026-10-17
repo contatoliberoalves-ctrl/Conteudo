@@ -19,3 +19,5 @@ Identidade: azul #0a3aa6 → #0a2a7c, navy #0b2a78, magenta #e224d6, amarelo #f7
 Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`). Saída em `saida/<id>/1.png…`.
 
 Para um post com conteúdo próprio: copie as telas do grupo no HTML do kit com um prefixo novo (ex.: `2a-01…`), troque os textos e aponte o `grupo` para ele.
+
+`kit/sapo.png`: sapo 3D do Fluent Emoji (Microsoft, licença MIT), usado na tela 2d (#Sapoconst).
