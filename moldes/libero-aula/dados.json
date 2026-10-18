@@ -1445,7 +1445,7 @@
           "a [[correção]]",
           "da 2ª fase?"
         ],
-        "texto": "Do dia da prova ao resultado definitivo.",
+        "texto": "Spoiler: a correção é positiva. A banca soma, não desconta.",
         "largura": 1000
       },
       {
@@ -1530,6 +1530,57 @@
           "O examinador procura, na sua resposta, **cada item do padrão**. Achou e está fundamentado? Pontua. Não achou? Zero naquele item.",
           "Por isso a correção é **por item**: errar uma parte não derruba as outras."
         ]
+      },
+      {
+        "tipo": "capa",
+        "estilo": "classica",
+        "tema": "dark",
+        "simbolo": "+",
+        "kicker": "O princípio",
+        "titulo": [
+          "Correção",
+          "[[positiva]]"
+        ],
+        "texto": "O examinador procura na sua prova o que está **coerente com o padrão de resposta** e soma esses pontos."
+      },
+      {
+        "tipo": "cards",
+        "tema": "light",
+        "kicker": "Na prática",
+        "titulo": [
+          "A banca [[soma]], não desconta"
+        ],
+        "cards": [
+          {
+            "rotulo": "Escreveu algo a mais, errado?",
+            "titulo": "Não desconta",
+            "marca": "✓",
+            "texto": "O que não está no padrão simplesmente **não soma**. Não existe ponto negativo."
+          },
+          {
+            "rotulo": "Disse a tese com outras palavras?",
+            "titulo": "Pontua",
+            "marca": "✓",
+            "texto": "Vale o **conteúdo** coerente com o gabarito, não a frase idêntica."
+          },
+          {
+            "rotulo": "Se contradisse no mesmo item?",
+            "titulo": "Pode perder o item",
+            "marca": "✕",
+            "texto": "Duas respostas opostas: o examinador não escolhe por você.",
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "blue",
+        "kicker": "Por isso",
+        "titulo": [
+          "Escreva tudo",
+          "o que [[sabe]]"
+        ],
+        "texto": "Cada tese a mais é uma chance de bater um item do padrão. Em branco é a **única resposta que garante zero**."
       },
       {
         "tipo": "lista",
@@ -1872,6 +1923,68 @@
           "2ª fase?"
         ],
         "texto": "Peça 5,0 + 4 questões de 1,25."
+      }
+    ]
+  },
+  {
+    "id": "capa-acao-popular-4-autores-numero",
+    "titulo": "Capa: Ação popular com 04 autores? (número)",
+    "tema": "Capa de aula: litisconsórcio ativo na ação popular",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "numero",
+        "tema": "dark",
+        "numero": "04",
+        "rotulo": "autores na mesma ação",
+        "kicker": "2ª fase OAB · Constitucional",
+        "titulo": [
+          "Ação popular",
+          "com [[04 autores]]?"
+        ],
+        "texto": "Pode? Quem assina? Como qualifica?"
+      }
+    ]
+  },
+  {
+    "id": "capa-acao-popular-4-autores-foto",
+    "titulo": "Capa: Ação popular com 04 autores? (foto)",
+    "tema": "Capa de aula: litisconsórcio ativo na ação popular",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "foto",
+        "tema": "blue",
+        "foto": "recorte-dsc08879.png",
+        "fotoX": 40,
+        "circuloX": 120,
+        "selo": "Pode isso?",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "Ação popular",
+          "com [[04]]",
+          "autores?"
+        ],
+        "largura": 1000
+      }
+    ]
+  },
+  {
+    "id": "capa-acao-popular-4-autores-branca",
+    "titulo": "Capa: Ação popular com 04 autores? (branca)",
+    "tema": "Capa de aula: litisconsórcio ativo na ação popular",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "branca",
+        "foto": "recorte-dsc08859.png",
+        "selo": "2ª fase OAB",
+        "titulo": [
+          "Ação popular",
+          "com [[04]]",
+          "autores?"
+        ],
+        "ts": 140
       }
     ]
   }
