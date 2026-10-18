@@ -16,6 +16,7 @@ Use um estilo diferente por aula, para os vídeos não ficarem iguais.
 | `fita` | faixas vermelhas de atenção cruzando a tela | `fita` (texto repetido), `kicker`, `titulo`, `texto` |
 | `mapa` | mural de etiquetas (artigos) à direita | `etiquetas`, `kicker`, `titulo`, `texto` |
 | `branca` | miniatura de vídeo: fundo branco, título navy, faixa navy | `foto` (opcional), `selo`, `titulo`, `ts`, `rodape`, `simbolo` (sem foto) |
+| `dica` | Capa de série numerada (post de Twitter/X): número vazado gigante com "/ total", etiqueta Antes/Depois da prova (`fase`, `numero`, `total`, `titulo`, `texto`). |
 | `folha` | prova corrigida com nota carimbada | `nota`, `notaRotulo`, `kicker`, `titulo`, `texto` |
 
 Recortes: `python3 ../carrossel-libero/recortar_pessoa.py ../carrossel-explicativo/fotos/<foto>.jpg fotos/recorte-<foto>.png` (fotos fora do git).

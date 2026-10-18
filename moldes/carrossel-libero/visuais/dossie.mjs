@@ -64,6 +64,44 @@ const TIPOS = {
         </div>
       </div>${rodape(t.txt)}`;
   },
+  // Capa "mural": título no alto e um quadro com as peças do carrossel (sigla e nome), a primeira em vermelho.
+  mural(s, t) {
+    const pecas = lista(s.pecas), cols = s.colunas || 3;
+    const tile = (x, k) => { const top = k === 0, bg = top ? COR.vermelho : x.escuro ? COR.navyFundo : pap, cor = top || x.escuro ? '#fff' : COR.navy;
+      return `<div style="background:${bg};border-radius:16px;padding:14px 18px 12px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 24px rgba(0,0,0,.2);min-width:0;${x.escuro && !top ? 'border:2px solid rgba(255,255,255,.16);' : ''}">
+        <div style="${TEXTO};font-size:18px;font-weight:800;color:${cor};opacity:.75">${String(k + 1).padStart(2, '0')}</div>
+        <div data-fit="${esc(x.sigla)}" data-min="24" style="${TITULO};font-size:${x.ts || 58}px;line-height:.9;padding-top:.12em;color:${top || x.escuro ? '#fff' : COR.azul};white-space:nowrap;overflow:hidden">${esc(x.sigla)}</div>
+      </div>`; };
+    return `${anel(700, -300, 520)}
+      <div style="position:absolute;left:96px;right:96px;top:120px;z-index:3">
+        ${s.kicker ? `<div style="${TEXTO};font-size:28px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${t.kicker}">${esc(s.kicker)}</div>` : ''}
+        <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="70" style="${TITULO};font-size:${s.ts || 150}px;line-height:.9;padding-top:.12em;color:${t.tit};margin-top:12px;max-height:420px;overflow:hidden">${linhas(s.titulo, COR.vermelho)}</div>
+        ${s.texto ? `<p style="font-size:34px;font-weight:600;line-height:1.25;color:${t.txt};margin:20px 0 0;max-width:820px">${rico(s.texto, t.caixa)}</p>` : ''}
+      </div>
+      <div style="position:absolute;left:96px;right:96px;top:${s.gradeY || 700}px;bottom:96px;display:grid;grid-template-columns:repeat(${cols},1fr);gap:16px;z-index:4">${pecas.map(tile).join('')}</div>`;
+  },
+  // Estrutura da peça: sigla e nome no alto, número vazado e a folha com endereçamento, qualificação, tópicos e fechamento.
+  peca(s, t) {
+    const papel = t.escuro ? pap : '#fff', tops = lista(s.topicos);
+    const rot = txt => `<div style="${TEXTO};font-size:.62em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.vermelho};margin-bottom:.2em">${esc(txt)}</div>`;
+    return `<div style="position:absolute;right:60px;top:50px;${TITULO};font-size:300px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? 'rgba(255,255,255,.35)' : 'rgba(11,79,216,.3)'};z-index:1">${esc(s.numero)}</div>
+      <div style="position:absolute;left:96px;right:96px;top:100px;z-index:3">
+        <div style="${TEXTO};font-size:26px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${t.kicker}">${esc(s.kicker || 'Estrutura da peça')}</div>
+        <div data-fit="${esc(lista(s.sigla).join(' '))}" data-min="60" style="${TITULO};font-size:${s.ts || 130}px;line-height:.9;padding-top:.12em;color:${t.tit};margin-top:4px;height:${Math.round((s.ts || 130) * 1.03)}px;max-width:${s.largura || 720}px;white-space:nowrap;overflow:hidden">${esc(lista(s.sigla).join(' '))}</div>
+        ${s.nome ? `<div style="${TEXTO};font-size:32px;font-weight:600;line-height:1.2;color:${t.txt};margin-top:8px">${esc(s.nome)}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:80px;right:80px;top:${s.folhaY || 360}px;bottom:120px;z-index:4;display:flex;flex-direction:column">
+        ${aba(s.aba || 'Estrutura', COR.vermelho, '#fff')}
+        <div data-fit="${esc(lista(s.sigla).join(' '))} folha" data-min="20" style="background:${papel};border-radius:0 18px 18px 18px;padding:30px 40px;box-shadow:0 20px 40px rgba(0,0,0,.18);flex:1;overflow:hidden;font-size:${s.corpo || 36}px;color:${COR.navy};display:flex;flex-direction:column;gap:.5em">
+          <div>${rot('Endereçamento')}<div style="font-weight:700;line-height:1.25">${rico(s.enderecamento)}</div></div>
+          <div>${rot('Qualificação')}<div style="font-weight:500;line-height:1.25">${rico(s.qualificacao)}</div></div>
+          <div style="border-top:3px dashed #C9CFDB;padding-top:.5em">${rot('Tópicos')}
+            ${tops.map((x, k) => `<div style="display:flex;gap:.5em;margin-bottom:.3em;line-height:1.22"><span style="${TITULO};color:${COR.azul};font-size:1.25em;line-height:.95;width:1.2em;flex:none">${k + 1}</span><span style="font-weight:600">${rico(x)}</span></div>`).join('')}
+          </div>
+          <div style="margin-top:auto;border-top:3px dashed #C9CFDB;padding-top:.5em;display:flex;flex-wrap:wrap;gap:.4em .7em;align-items:center">${chip(s.valor || 'Valor da Causa', '#E4ECFF', COR.azul, 24)}${chip(s.fechamento || 'Local..., Data..., Advogado..., OAB...', COR.navy, '#fff', 24)}</div>
+        </div>
+      </div>${rodape(t.txt)}`;
+  },
   // Carimbo: a conclusão do dossiê numa frase grande, com o carimbo vermelho.
   carimbo(s, t) {
     return `<div style="position:absolute;left:96px;right:96px;top:170px;bottom:190px;display:flex;flex-direction:column;justify-content:center;gap:40px">

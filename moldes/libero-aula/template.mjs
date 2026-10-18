@@ -99,6 +99,19 @@ const CAPAS = {
         ${kick(s.kicker, t.kicker)}${tit(s, t, 150, 960)}${s.texto ? corpo(s, t, 38) : ''}
       </div>${rod(t)}`;
   },
+  // Dica de série (capa de post no Twitter/X): número vazado gigante com "/total", etiqueta da fase e o título.
+  dica(s, t) {
+    const depois = s.fase === 'depois';
+    return `${anel(1560, -300, 620)}
+      <div style="position:absolute;right:110px;top:50%;transform:translateY(-52%);text-align:right;z-index:2">
+        <div style="${TITULO};font-size:${s.tn || 640}px;line-height:.8;color:transparent;-webkit-text-stroke:7px ${t.escuro ? 'rgba(255,255,255,.45)' : 'rgba(11,79,216,.4)'}">${esc(String(s.numero).padStart(2, '0'))}</div>
+        <div style="${TITULO};font-size:90px;line-height:1;color:${depois ? COR.vermelho : t.kicker};margin-top:10px">/ ${esc(s.total || 20)}</div>
+      </div>
+      <div style="position:absolute;left:130px;top:130px;bottom:170px;width:${s.largura || 1150}px;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:4">
+        <div style="display:flex;gap:14px;align-items:center">${chip(depois ? 'Depois da prova' : 'Antes da prova', depois ? COR.vermelho : (t.escuro ? '#fff' : COR.azul), depois || !t.escuro ? '#fff' : COR.azul, 30)}${kick(s.kicker || 'Dica · 2ª fase OAB', t.kicker)}</div>
+        ${tit(s, t, 150, s.largura || 1150)}${s.texto ? `<div style="max-width:980px">${corpo(s, t, 40)}</div>` : ''}
+      </div>${rod(t)}`;
+  },
 };
 
 // ---------- Slides de conteúdo ----------
