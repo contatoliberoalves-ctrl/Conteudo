@@ -6536,5 +6536,117 @@
         "botao": "Comenta a sua aposta"
       }
     ]
+  },
+  {
+    "id": "resultado-2fase-oab47",
+    "titulo": "Quando sai o resultado da 2ª fase? (OAB 47)",
+    "tema": "Datas do resultado preliminar, recursos e resultado definitivo da 2ª fase do 47º Exame",
+    "fonte": "Cronograma do 47º Exame (OAB/FGV), conforme Magistrar e Ceisc, consultado em 18/10/2026",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "agenda",
+        "tema": "blue",
+        "kicker": "OAB 47 · 2ª fase",
+        "titulo": [
+          "Quando sai o",
+          "[[resultado]]?"
+        ],
+        "ts": 150,
+        "aulas": [
+          {
+            "hora": "12/11",
+            "titulo": "Resultado preliminar",
+            "etiqueta": "Previsto no cronograma"
+          },
+          {
+            "hora": "13/11",
+            "titulo": "Prazo de recursos",
+            "etiqueta": "De 13 a 15/11",
+            "cor": "navy"
+          },
+          {
+            "hora": "03/12",
+            "titulo": "Resultado definitivo",
+            "etiqueta": "Resultado final do Exame"
+          }
+        ],
+        "texto": "Passe para o lado: o que fazer em **cada etapa** →"
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Etapa 1 · 12/11",
+        "titulo": [
+          "Resultado",
+          "[[preliminar]]"
+        ],
+        "palavra": "12/11",
+        "texto": [
+          "A FGV divulga a **nota preliminar** da peça e das questões.",
+          "Junto com ela, dá para consultar a **imagem da sua prova** e conferir a pontuação de cada item.",
+          "Ainda **não é o resultado final**: a nota pode mudar com o recurso."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Etapa 2 · 13 a 15/11",
+        "titulo": [
+          "Prazo de",
+          "[[recursos]]"
+        ],
+        "palavra": "Recurso",
+        "texto": [
+          "São **3 dias** para recorrer do resultado preliminar.",
+          "Compare **item a item** o padrão de resposta com o que você escreveu.",
+          "Recurso bom é **objetivo**: mostra onde a sua resposta atende ao padrão e pede a pontuação."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Etapa 3 · 03/12",
+        "titulo": [
+          "Resultado",
+          "[[definitivo]]"
+        ],
+        "palavra": "03/12",
+        "texto": [
+          "Sai o **resultado final** do Exame, já com os recursos julgados.",
+          "Aprovado? É hora de providenciar a **inscrição na OAB** da sua seccional.",
+          "Não foi dessa vez? Confira no edital o **reaproveitamento da 1ª fase**."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "titulo": [
+          "Enquanto",
+          "[[espera]]"
+        ],
+        "itens": [
+          "Descanse: não refaça a prova nas redes",
+          "Leia o padrão de resposta com calma",
+          "Anote o que você escreveu enquanto lembra",
+          "Separe o edital: prazos e regras do recurso",
+          "Acompanhe o site do Exame de Ordem"
+        ],
+        "marcador": "num"
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Salva pra",
+          "não [[perder]]",
+          "o prazo"
+        ],
+        "texto": [
+          "Datas do cronograma do 47º Exame, **sujeitas a alteração**. Confira sempre no site oficial: **examedeordem.oab.org.br**."
+        ],
+        "botao": "Manda pra quem fez a prova"
+      }
+    ]
   }
 ]

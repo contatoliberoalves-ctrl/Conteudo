@@ -166,5 +166,22 @@
     "titulo": "O que tem no Reforço (stories)",
     "de": "lista-voce-tera-feed",
     "formato": "story"
+  },
+  {
+    "id": "tweet-o-que-achou-da-prova-feed",
+    "titulo": "Tweet: o que você achou da prova? (feed)",
+    "tema": "Pós-prova 2ª fase OAB",
+    "formato": "feed",
+    "layout": "tweet",
+    "avatar": "0557.jpg",
+    "nome": "Constitucional Gabaritado",
+    "frase": "E aí, {{o que você achou da prova?}}",
+    "fecho": "Deixa seu comentário abaixo 👇"
+  },
+  {
+    "id": "tweet-o-que-achou-da-prova-story",
+    "titulo": "Tweet: o que você achou da prova? (story)",
+    "de": "tweet-o-que-achou-da-prova-feed",
+    "formato": "story"
   }
 ]
