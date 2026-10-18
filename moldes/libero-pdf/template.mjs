@@ -5,6 +5,7 @@
 // por exame (do mais recente ao mais antigo). A paginação é feita no navegador: cada bloco (abertura de
 // matéria ou grupo de um exame) vai para a página seguinte se não couber.
 import { renderSimulado } from './simulado.mjs';
+import { renderDocumento } from './documento.mjs';
 import { porArtigo } from './artigos.mjs';
 import { COR, FONTES, TITULO, TEXTO, PERFIL, esc, linhas, textura, anel } from '../libero-comum/identidade.mjs';
 
@@ -122,6 +123,7 @@ function indice(p) {
 
 export function renderCarrossel(p) {
   if (p.tipo === 'simulado') return renderSimulado(p);
+  if (p.tipo === 'documento') return renderDocumento(p);
   const avisos = [];
   let grupos, blocos, quarto;
   if (p.ordem === 'artigo') {

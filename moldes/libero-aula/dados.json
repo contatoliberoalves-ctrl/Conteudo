@@ -1987,5 +1987,252 @@
         "ts": 140
       }
     ]
+  },
+  {
+    "id": "video-sim-nao-tese",
+    "titulo": "Vídeo: Errei o sim/não, mas acertei a tese. Pontuo?",
+    "tema": "Slides para vídeo pós-prova da 2ª fase",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "split",
+        "lados": [
+          {
+            "sigla": "SIM",
+            "nome": "a resposta certa",
+            "ts": 260
+          },
+          {
+            "sigla": "NÃO",
+            "nome": "o que eu escrevi",
+            "ts": 260
+          }
+        ],
+        "selo": "?",
+        "titulo": [
+          "Errei o sim/não, mas acertei a tese. Pontuo?"
+        ],
+        "seloY": 235,
+        "ts": 84
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Como o padrão pontua",
+        "titulo": [
+          "A conclusão",
+          "faz parte da",
+          "[[resposta]]"
+        ],
+        "texto": [
+          "Na questão, o item costuma pontuar a resposta **completa**: a conclusão (sim/não) + o porquê + o artigo.",
+          "Exemplo do formato do padrão: “**Sim**, porque [fundamento] (0,55), conforme art. X (0,10).”"
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "dark",
+        "kicker": "Na prática",
+        "titulo": [
+          "O que [[costuma]] acontecer"
+        ],
+        "cards": [
+          {
+            "rotulo": "Sim/não errado + tese que leva à conclusão certa",
+            "titulo": "Contradição",
+            "texto": "A sua conclusão briga com o seu fundamento. O examinador não escolhe por você.",
+            "cor": "vermelho"
+          },
+          {
+            "rotulo": "Tese do padrão escrita com clareza",
+            "titulo": "Vale recurso",
+            "texto": "Se o fundamento que pontua está lá, mostre o trecho e peça a pontuação dele."
+          },
+          {
+            "rotulo": "Só o artigo certo",
+            "titulo": "Não pontua sozinho",
+            "texto": "A mera citação do dispositivo não confere pontuação."
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "blue",
+        "kicker": "Resumo",
+        "titulo": [
+          "Depende da",
+          "[[tabela]] de pontos"
+        ],
+        "texto": "Leia a distribuição de pontos do item: se o fundamento tem valor próprio e está na sua resposta, recorra."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "titulo": [
+          "Te aconteceu",
+          "[[isso]]?"
+        ],
+        "texto": "Comenta qual questão que eu olho o padrão com você.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "video-rasurei-a-prova",
+    "titulo": "Vídeo: Rasurei a prova. Vão zerar?",
+    "tema": "Slides para vídeo pós-prova da 2ª fase",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "folha",
+        "tema": "dark",
+        "nota": "0?",
+        "notaRotulo": "RASURA",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "Rasurei a prova.",
+          "Vão [[zerar]]?"
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Resposta curta",
+        "titulo": [
+          "Rasura",
+          "[[não zera]]"
+        ],
+        "texto": [
+          "Errou uma palavra ou um trecho? O caminho é **riscar com um traço simples** e escrever a versão certa em seguida.",
+          "O que está riscado **não é corrigido**. O resto da resposta é corrigido normalmente."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Onde mora o risco",
+        "titulo": [
+          "O que pode [[custar ponto]]"
+        ],
+        "colunas": 1,
+        "itens": [
+          {
+            "t": "Trecho ilegível",
+            "d": "Se o examinador não consegue ler, aquilo não pontua."
+          },
+          {
+            "t": "Rasura que vira marca",
+            "d": "Desenho, rabisco proposital ou sinal diferente pode ser visto como identificação."
+          },
+          {
+            "t": "Corretivo",
+            "d": "O edital não permite. Na dúvida, risque."
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "dark",
+        "kicker": "Resumo",
+        "titulo": [
+          "Riscou e",
+          "[[seguiu]]? Tá tudo bem"
+        ],
+        "texto": "Rasura comum, com um traço, é normal em prova escrita à mão. Confira sempre as regras do edital."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "titulo": [
+          "Rasurou",
+          "[[muito]]?"
+        ],
+        "texto": "Comenta aqui que eu te respondo.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "video-acao-popular-coletiva",
+    "titulo": "Vídeo: Coloquei ação popular coletiva: e agora?",
+    "tema": "Slides para vídeo pós-prova da 2ª fase",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "fita",
+        "tema": "blue",
+        "fita": "E AGORA?",
+        "kicker": "2ª fase OAB",
+        "titulo": [
+          "Coloquei ação popular",
+          "[[coletiva]]"
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "Primeiro: respira",
+        "titulo": [
+          "Ação popular",
+          "[[não tem]] versão",
+          "coletiva"
+        ],
+        "texto": [
+          "A Lei 4.717/65 fala só em **ação popular**. Quem propõe é o **cidadão** (art. 5º, LXXIII, CF).",
+          "Vários cidadãos podem estar no polo ativo (litisconsórcio), mas a peça continua sendo **ação popular**."
+        ],
+        "citacao": "Qualquer cidadão é parte legítima para propor ação popular que vise a anular ato lesivo ao patrimônio público...",
+        "fonte": "Art. 5º, LXXIII, CF/88"
+      },
+      {
+        "tipo": "cards",
+        "tema": "dark",
+        "kicker": "O que pesa na correção",
+        "titulo": [
+          "Nome x [[conteúdo]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Se a peça é de ação popular",
+            "titulo": "Peça certa",
+            "texto": "Endereçamento, cidadão no polo ativo, cabimento no art. 5º, LXXIII, e na Lei 4.717/65, pedidos de anulação e ressarcimento.",
+            "marca": "✓"
+          },
+          {
+            "rotulo": "O adjetivo “coletiva”",
+            "titulo": "Erro de nome",
+            "texto": "No máximo, pode custar o que o padrão der à **indicação da peça**. Não troca a peça por outra.",
+            "marca": "!"
+          },
+          {
+            "rotulo": "Se fundamentou como ACP",
+            "titulo": "Aí complica",
+            "texto": "Lei 7.347/85, MP como autor, interesses difusos: aí a estrutura é de outra peça.",
+            "marca": "✕",
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "blue",
+        "kicker": "Resumo",
+        "titulo": [
+          "Vale o que você",
+          "[[construiu]]"
+        ],
+        "texto": "Se toda a estrutura é de ação popular, o examinador corrige uma ação popular. Leia o padrão e, se preciso, recorra."
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "titulo": [
+          "Você também",
+          "[[escreveu]] assim?"
+        ],
+        "texto": "Comenta aqui que eu respondo.",
+        "botao": "@liberofilho"
+      }
+    ]
   }
 ]
