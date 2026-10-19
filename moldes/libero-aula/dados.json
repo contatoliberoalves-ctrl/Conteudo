@@ -2234,5 +2234,262 @@
         "botao": "@liberofilho"
       }
     ]
+  },
+  {
+    "id": "aula-camara-como-re",
+    "titulo": "Aula: Coloquei a Câmara como ré. E agora?",
+    "tema": "Pós-prova OAB 47",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "foto",
+        "tema": "blue",
+        "foto": "recorte-0211.png",
+        "fotoX": 40,
+        "circuloX": 120,
+        "selo": "OAB 47 · Peça",
+        "kicker": "2ª fase · Constitucional",
+        "titulo": [
+          "Coloquei a",
+          "[[Câmara]] como",
+          "ré. E agora?"
+        ],
+        "texto": "Quem o padrão colocou no polo passivo e quanto isso pesa.",
+        "largura": 1000
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "O que o padrão pediu",
+        "titulo": [
+          "Polo",
+          "[[passivo]]"
+        ],
+        "texto": [
+          "**E**: presidente da Câmara, que implementou os pagamentos e também recebeu.",
+          "**F, G, H e I**: beneficiários dos valores indevidos.",
+          "**Município Beta**: a pessoa jurídica cujo patrimônio foi lesado."
+        ],
+        "citacao": "A ação será proposta contra as pessoas públicas ou privadas e as entidades referidas no art. 1º, contra as autoridades, funcionários ou administradores que houverem autorizado, aprovado, ratificado ou praticado o ato impugnado [...] e contra os beneficiários diretos do mesmo.",
+        "fonte": "Art. 6º, caput, Lei 4.717/65"
+      },
+      {
+        "tipo": "cards",
+        "tema": "dark",
+        "kicker": "A diferença",
+        "titulo": [
+          "Câmara x [[Município]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Câmara de Vereadores",
+            "titulo": "Órgão",
+            "texto": "Faz parte do **Poder Legislativo municipal**. Não tem personalidade jurídica própria.",
+            "marca": "✕",
+            "cor": "vermelho"
+          },
+          {
+            "rotulo": "Município Beta",
+            "titulo": "Pessoa jurídica",
+            "texto": "É quem tem o patrimônio lesado e responde pelos atos do seu Legislativo (art. 6º da Lei 4.717/65).",
+            "marca": "✓"
+          }
+        ]
+      },
+      {
+        "tipo": "topico",
+        "tema": "blue",
+        "kicker": "E quanto isso custa?",
+        "titulo": [
+          "Não zera",
+          "a [[peça]]"
+        ],
+        "texto": [
+          "A correção é **positiva**: E a I no polo passivo, cidadania dos autores, teses e pedidos continuam pontuando.",
+          "O que pode cair é a parte ligada à **legitimidade do Município**.",
+          "Detalhe: o próprio padrão não lista o Município na primeira enumeração dos réus e só o reconhece no parágrafo seguinte. Vale olhar o espelho com calma."
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "light",
+        "kicker": "Resumo",
+        "titulo": [
+          "Errar um réu não é",
+          "errar a [[peça]]"
+        ],
+        "texto": "Ação popular certa, autores certos e teses certas valem muito mais que esse detalhe."
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Você colocou",
+          "[[quem]] como réu?"
+        ],
+        "texto": "Comenta aqui que eu respondo.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "aula-civel-ou-fazenda",
+    "titulo": "Aula: Juízo Cível ou Fazenda Pública?",
+    "tema": "Pós-prova OAB 47",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "split",
+        "lados": [
+          {
+            "sigla": "CÍVEL",
+            "nome": "Juízo Cível",
+            "ts": 220
+          },
+          {
+            "sigla": "FAZENDA",
+            "nome": "Fazenda Pública",
+            "ts": 180
+          }
+        ],
+        "selo": "ou",
+        "titulo": [
+          "Qual endereçamento estava certo na OAB 47?"
+        ],
+        "seloY": 235,
+        "ts": 84
+      },
+      {
+        "tipo": "topico",
+        "tema": "light",
+        "kicker": "O que diz o padrão",
+        "titulo": [
+          "Os [[dois]]",
+          "valem"
+        ],
+        "texto": [
+          "A FGV aceitou qualquer um dos dois, desde que na comarca que abrange o **Município Beta**."
+        ],
+        "citacao": "A petição deve ser endereçada ao Juízo Cível da Comarca X ou ao Juízo de Fazenda Pública da Comarca X, que abranja a esfera territorial do Município Beta, já que os dados constantes do enunciado não permitem identificar a organização judiciária do local.",
+        "fonte": "Padrão de resposta preliminar · OAB 47"
+      },
+      {
+        "tipo": "passos",
+        "tema": "dark",
+        "kicker": "Por que os dois?",
+        "titulo": [
+          "O raciocínio do [[endereçamento]]"
+        ],
+        "passos": [
+          {
+            "t": "Sem foro por prerrogativa",
+            "d": "Ação popular vai ao juízo de 1º grau, mesmo contra vereadores."
+          },
+          {
+            "t": "Justiça estadual",
+            "d": "Não há União, autarquia ou empresa pública federal no caso."
+          },
+          {
+            "t": "Comarca de Beta",
+            "d": "É onde estão o Município e o patrimônio lesado."
+          },
+          {
+            "t": "Cível ou Fazenda?",
+            "d": "Depende da organização judiciária local, que o enunciado não informou."
+          }
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "blue",
+        "kicker": "Na prática",
+        "titulo": [
+          "Certo x [[arriscado]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Aceito",
+            "titulo": "Comarca de Beta",
+            "itens": [
+              "Juízo Cível da Comarca de Beta",
+              "Vara da Fazenda Pública da Comarca de Beta"
+            ],
+            "marca": "✓"
+          },
+          {
+            "rotulo": "Arriscado",
+            "titulo": "Fora do padrão",
+            "itens": [
+              "Justiça Federal",
+              "Tribunal de Justiça ou STF",
+              "“Juízo do Estado Beta”, sem comarca"
+            ],
+            "marca": "✕",
+            "cor": "vermelho"
+          }
+        ]
+      },
+      {
+        "tipo": "frase",
+        "tema": "light",
+        "kicker": "E se eu errei?",
+        "titulo": [
+          "É [[um]] item",
+          "da peça"
+        ],
+        "texto": "O endereçamento costuma valer pouco perto das teses. Respira: o resto da peça continua sendo corrigido."
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "titulo": [
+          "Pra onde você",
+          "[[endereçou]]?"
+        ],
+        "texto": "Comenta aqui que eu respondo.",
+        "botao": "@liberofilho"
+      }
+    ]
+  },
+  {
+    "id": "capa-ampliar-fundamentacao",
+    "titulo": "Capa: A banca vai ampliar a fundamentação da peça?",
+    "tema": "Pós-prova OAB 47",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "branca",
+        "foto": "recorte-0341.png",
+        "selo": "OAB 47 · Constitucional",
+        "titulo": [
+          "A banca vai",
+          "ampliar a",
+          "[[fundamentação]]",
+          "da peça?"
+        ],
+        "ts": 118
+      }
+    ]
+  },
+  {
+    "id": "capa-anulacao-3b",
+    "titulo": "Capa: Anulação da questão 3B em Constitucional?",
+    "tema": "Pós-prova OAB 47",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "numero",
+        "tema": "dark",
+        "numero": "3B",
+        "rotulo": "recurso especial · 0,60",
+        "kicker": "2ª fase da OAB",
+        "titulo": [
+          "Anulação da",
+          "[[questão 3B]]",
+          "em Constitucional?"
+        ],
+        "texto": "O que diz o edital e o que pedimos à banca."
+      }
+    ]
   }
 ]
