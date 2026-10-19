@@ -142,6 +142,34 @@ const LAYOUTS = {
   },
 };
 
+// Dúvida de aluno: a pergunta num balão de mensagem, o professor recortado num lado e, no outro, o selo da
+// resposta (NÃO, SIM, CALMA…) gigante com a explicação. Campos: pergunta, selo, resposta, foto (recorte PNG),
+// lado ("esquerda" | "direita", onde fica a foto), fundo ("escuro" | "verde" | "gelo" | "medio"), tp (px da pergunta).
+const FUNDOS_DUVIDA = {
+  escuro: { bg: `${GRADE},${ESCURO}`, balao: '#fff', tBalao: COR.base, selo: COR.claro, txt: '#E6EEEA', chip: COR.claro, tChip: COR.base, arroba: 'rgba(155,224,163,.85)' },
+  verde: { bg: `linear-gradient(160deg,#b4ecba 0%,${COR.claro} 60%,#7fd08a 100%)`, balao: COR.base, tBalao: '#fff', selo: COR.base, txt: COR.texto, chip: COR.base, tChip: COR.claro, arroba: 'rgba(28,31,30,.7)' },
+  gelo: { bg: `radial-gradient(rgba(59,76,73,.10) 2px,transparent 2px) 0 0/30px 30px,${COR.gelo}`, balao: COR.verde, tBalao: '#fff', selo: COR.medio, txt: COR.texto, chip: COR.medio, tChip: '#fff', arroba: 'rgba(59,76,73,.75)' },
+  medio: { bg: `linear-gradient(165deg,${COR.medio} 0%,${COR.verde} 100%)`, balao: '#fff', tBalao: COR.base, selo: '#fff', txt: '#EAF5EC', chip: '#fff', tChip: COR.verde, arroba: 'rgba(255,255,255,.8)' },
+};
+LAYOUTS.duvida = (p, c, H, story) => {
+  const f = FUNDOS_DUVIDA[p.fundo] || FUNDOS_DUVIDA.escuro, dir = p.lado !== 'esquerda', src = foto(c, p.foto);
+  const topo = story ? 300 : 90;
+  return `<div style="position:absolute;inset:0;background:${f.bg}"></div>
+    <div style="position:absolute;left:60px;right:60px;top:${topo}px;display:flex;align-items:center;justify-content:space-between;z-index:5">
+      <span style="background:${f.chip};color:${f.tChip};${TEXTO};font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;border-radius:999px">${esc(p.kicker || 'Dúvida de aluno · OAB 47')}</span>
+      <span style="${TEXTO};font-size:24px;font-weight:700;letter-spacing:.04em;color:${f.arroba}">${p.semArroba ? '' : PERFIL}</span></div>
+    <div style="position:absolute;left:60px;right:60px;top:${topo + 100}px;z-index:5">
+      <div style="position:relative;background:${f.balao};border-radius:46px;padding:44px 52px 48px;box-shadow:0 24px 50px rgba(0,0,0,.22)">
+        <div style="${TITULO};font-size:${p.tp || 100}px;line-height:.98;color:${f.tBalao}">${rico(p.pergunta, f.balao === '#fff' ? COR.medio : COR.claro)}</div>
+        <span style="position:absolute;${dir ? 'left:90px' : 'right:90px'};bottom:-34px;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:38px solid ${f.balao}"></span>
+      </div></div>
+    ${src ? `<img src="${src}" style="position:absolute;bottom:0;${dir ? 'right:-60px' : 'left:-60px'};height:${p.fotoH || (story ? 980 : 720)}px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));z-index:3">` : ''}
+    <div data-area style="position:absolute;${dir ? 'left:60px' : 'right:60px'};width:${p.largura || 560}px;bottom:${story ? 380 : 120}px;display:flex;flex-direction:column;gap:14px;z-index:6;${dir ? '' : 'text-align:right;align-items:flex-end'}">
+      <div style="${TITULO};font-size:${p.ts || 170}px;line-height:.82;color:${f.selo}">${esc(p.selo)}</div>
+      <div style="${TEXTO};font-size:${p.tr || 38}px;font-weight:600;line-height:1.3;color:${f.txt}">${rico(p.resposta, f.selo)}</div>
+    </div>${textura(.25)}`;
+};
+
 export function renderCriativo(c) {
   const story = c.formato === 'story';
   const H = ALTURA[c.formato] || ALTURA.feed;

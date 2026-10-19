@@ -1,4 +1,4 @@
-// Modelo visual do "Carrossel Explicativo": capa com foto (6 layouts, campo "capa"), 4 ou 5 slides de
+// Modelo visual do "Carrossel Explicativo": capa com foto (layouts A–D, F e G, campo "capa"), 4 ou 5 slides de
 // conteúdo (3 estilos, campo "estilo") e CTA.
 // Gera um painel com todos os slides lado a lado (N × 1080 por 1350). Regras em README.md.
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -157,7 +157,34 @@ function capaF(c) {
   <div style="position:absolute;left:96px;right:96px;top:${y + h + 16}px;display:flex;justify-content:space-between;font-size:22px;color:${COR.texto}"><i>${esc(c.subtitulo || '')}</i><span style="font-weight:600">${HANDLE}</span></div>`;
 }
 
-const CAPAS = { A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, COR.gelo], D: [capaD, COR.base], F: [capaF, '#f3f1ea'] };
+
+// G · Documento: fundo escuro com grade, título no alto, uma folha (ex.: padrão de resposta) inclinada com
+// trechos riscados (~~x~~) e corrigidos à mão ({{x}}), carimbo e o autor recortado (PNG sem fundo) à direita.
+// Campos extras: doc {rotulo, linhas[]}, carimbo, recorte (PNG em fotos/), recorteH.
+function capaG(c) {
+  const d = linhasDe(c), apoio = lista(c.apoio).join(' '), doc = c.doc || {};
+  const tam = caber(d, 170, 90, 940);
+  const linha = t => esc(t).replace(/~~(.+?)~~/g, `<s style="color:#d64545;text-decoration-thickness:5px">$1</s>`)
+    .replace(/\{\{(.+?)\}\}/g, `<span style="font-family:Caveat,cursive;font-weight:700;font-size:1.7em;line-height:.6;color:${COR.medio};margin:0 4px">$1</span>`)
+    .replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:700">$1</b>');
+  return `
+  <div style="position:absolute;inset:0;background:linear-gradient(rgba(155,224,163,.06) 2px,transparent 2px) 0 0/54px 54px,linear-gradient(90deg,rgba(155,224,163,.06) 2px,transparent 2px) 0 0/54px 54px,radial-gradient(90% 60% at 30% 25%,${COR.verde} 0%,#222927 60%,#141716 100%)"></div>
+  ${c.recorte ? `<img src="../fotos/${esc(c.recorte)}" style="position:absolute;right:-70px;bottom:0;height:${c.recorteH || 800}px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45));z-index:2">` : ''}
+  <div style="position:absolute;left:70px;top:80px;z-index:4">${c.etiqueta ? `<span style="background:${COR.claro};color:${COR.base};font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;border-radius:999px">${esc(c.etiqueta)}</span>` : ''}</div>
+  <div data-bloco style="position:absolute;left:70px;right:70px;top:150px;z-index:4">
+    ${apoio ? `<div style="font-size:38px;font-weight:600;color:${COR.claro}">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:#fff">${d.map((l, i) => i === d.length - 1 ? `<span style="color:${COR.claro}">${esc(l)}</span>` : esc(l)).join('<br>')}</div>
+  </div>
+  <div style="position:absolute;left:60px;top:${c.docY || 600}px;width:${c.docW || 620}px;transform:rotate(-4deg);background:#fbfaf6;border-radius:10px;padding:34px 38px 40px;box-shadow:0 30px 60px rgba(0,0,0,.45);z-index:3">
+    <div style="font-size:19px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:${COR.medio};border-bottom:2px solid #e2e6e3;padding-bottom:12px;margin-bottom:16px">${esc(doc.rotulo || 'Padrão de resposta')}</div>
+    ${lista(doc.linhas).map(t => `<div style="font-size:${doc.tl || 29}px;line-height:1.5;color:${COR.texto};font-weight:500">${linha(t)}</div>`).join('')}
+    ${[86, 70, 92].map(w => `<div style="height:12px;border-radius:6px;background:#e6e9e7;width:${w}%;margin-top:18px"></div>`).join('')}
+  </div>
+  ${c.carimbo ? `<div style="position:absolute;left:${c.carimboX ?? 420}px;top:${c.carimboY ?? 980}px;transform:rotate(-12deg);border:8px solid #d64545;color:#d64545;${bebas};font-size:${c.carimboT || 86}px;line-height:1;padding:12px 26px 4px;border-radius:12px;background:rgba(251,250,246,.9);z-index:5">${esc(c.carimbo)}</div>` : ''}
+  <div style="position:absolute;left:70px;bottom:44px;font-size:24px;font-weight:500;letter-spacing:1px;color:rgba(155,224,163,.85);z-index:6">${HANDLE}</div>`;
+}
+
+const CAPAS = { G: [capaG, COR.base], A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, COR.gelo], D: [capaD, COR.base], F: [capaF, '#f3f1ea'] };
 
 function conteudo(s, k, estilo) {
   const fundo = s.fundo || RITMO[k % RITMO.length];
@@ -247,7 +274,7 @@ export function renderCarrossel(c) {
   ];
   const total = slides.length;
   const html = `<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif}</style></head><body>
 <div id="painel" style="position:relative;width:${total * 1080}px;height:1350px;overflow:hidden">
 ${slides.map((s, i) => `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:1350px;overflow:hidden;background:${s.bg}">${s.html}</div>`).join('\n')}

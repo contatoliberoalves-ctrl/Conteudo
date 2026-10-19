@@ -35,6 +35,7 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
   - `C` Moldura: fundo claro pontilhado, foto emoldurada com sombra verde, etiqueta numa fita, título grifado.
   - `D` Balão: foto em tela cheia e o título num balão de fala branco.
   - `F` Manchete: página de jornal, título em preto e a foto como imagem da matéria.
+  - `G` Documento: fundo escuro com grade, título no alto, folha inclinada (`doc`: `rotulo`, `linhas` com `~~riscado~~` e `{{correção à mão}}`), `carimbo` vermelho e o autor recortado à direita (`recorte`: PNG sem fundo em `fotos/`, `recorteH`). Boa para retificação, anulação e erro no gabarito.
 - `estilo`: visual dos slides de conteúdo e do CTA:
   - `classico`: gelo e verde (o original).
   - `caderno`: papel pautado com margem verde e títulos grifados; os slides "verde" viram verde-claro; CTA branco sobre verde-claro.

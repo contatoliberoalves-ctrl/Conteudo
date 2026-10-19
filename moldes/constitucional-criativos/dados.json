@@ -189,59 +189,78 @@
     "titulo": "Dúvida pós-prova: Errei o artigo. Zero a questão? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "tweet",
-    "avatar": "0557.jpg",
-    "nome": "Constitucional Gabaritado",
-    "frase": "Errei o artigo. Zero a questão?",
-    "fecho": "{{Não.}} Você só perde 0,10."
+    "layout": "duvida",
+    "pergunta": "Errei o artigo. {{Zero}} a questão?",
+    "selo": "NÃO.",
+    "resposta": "Você só perde **0,10**. O resto da resposta continua valendo.",
+    "foto": "recorte-0211.png",
+    "lado": "direita",
+    "fundo": "escuro"
   },
   {
     "id": "duvida-sim-nao-tese-feed",
     "titulo": "Dúvida pós-prova: Errei o sim/não, mas acertei a tese. Pontuo? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "nota",
-    "frase": "Errei o sim/não, mas acertei a tese. Pontuo?",
-    "fecho": "{{Não.}} Infelizmente, nesse caso a banca não considera."
+    "layout": "duvida",
+    "pergunta": "Errei o sim/não, mas acertei a tese. {{Pontuo?}}",
+    "selo": "NÃO.",
+    "resposta": "Infelizmente, nesse caso **a banca não considera**.",
+    "foto": "recorte-0341.png",
+    "lado": "esquerda",
+    "fundo": "verde"
   },
   {
     "id": "duvida-nome-do-municipio-feed",
     "titulo": "Dúvida pós-prova: Quem citou o nome do município vai ter a peça zerada? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "tweet",
-    "avatar": "0557.jpg",
-    "nome": "Constitucional Gabaritado",
-    "frase": "Quem citou o nome do município vai ter a peça zerada?",
-    "fecho": "{{Com certeza não.}} Vão considerar normalmente."
+    "layout": "duvida",
+    "pergunta": "Citei o nome do município. A peça vai ser {{zerada?}}",
+    "selo": "JAMAIS.",
+    "resposta": "**Com certeza não.** Vão considerar normalmente.",
+    "foto": "recorte-0547.png",
+    "lado": "direita",
+    "fundo": "gelo"
   },
   {
     "id": "duvida-errei-enderecamento-feed",
     "titulo": "Dúvida pós-prova: Errei o endereçamento. E agora? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "nota",
-    "frase": "Errei o endereçamento. E agora?",
-    "fecho": "Só vai perder 0,10. Não chore por isso. {{Você vai conseguir passar!}}"
+    "layout": "duvida",
+    "pergunta": "Errei o endereçamento. {{E agora?}}",
+    "selo": "CALMA.",
+    "resposta": "Só vai perder **0,10**. Não chore por isso. **Você vai conseguir passar!**",
+    "foto": "recorte-0465.png",
+    "lado": "esquerda",
+    "fundo": "medio"
   },
   {
     "id": "duvida-ampliacao-art-37-feed",
     "titulo": "Dúvida pós-prova: Vai ter ampliação da tese pra aceitar o art. 37? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "tweet",
-    "avatar": "0557.jpg",
-    "nome": "Constitucional Gabaritado",
-    "frase": "Vai ter ampliação da tese pra aceitar o art. 37?",
-    "fecho": "Acreditamos que {{não}}: o foco foi a inconstitucionalidade da norma, e a tese já está extensa."
+    "layout": "duvida",
+    "pergunta": "Vai ter ampliação da tese pra aceitar o {{art. 37?}}",
+    "selo": "ACREDITAMOS QUE NÃO.",
+    "resposta": "O foco foi a **inconstitucionalidade da norma**. E a tese já está extensa.",
+    "foto": "recorte-0557.png",
+    "lado": "direita",
+    "fundo": "verde",
+    "ts": 104
   },
   {
     "id": "duvida-reclamacao-transito-feed",
     "titulo": "Dúvida pós-prova: Por que cabe reclamação na 4, se teve o trânsito em julgado? (feed)",
     "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
     "formato": "feed",
-    "layout": "nota",
-    "frase": "Por que cabe reclamação na 4, se teve o trânsito em julgado?",
-    "fecho": "O trânsito em julgado foi da decisão na {{ADI}}, que deveria ter sido seguida. Ele só reforça o efeito vinculante."
+    "layout": "duvida",
+    "pergunta": "Por que cabe reclamação na 4, se teve o {{trânsito em julgado?}}",
+    "selo": "SIMPLES:",
+    "resposta": "O trânsito em julgado foi da decisão na **ADI**, que deveria ter sido seguida. Ele só **reforça** o efeito vinculante.",
+    "foto": "recorte-0561.png",
+    "lado": "esquerda",
+    "fundo": "escuro"
   }
 ]

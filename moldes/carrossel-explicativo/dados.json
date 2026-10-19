@@ -2659,7 +2659,7 @@
   },
   {
     "id": "retificacao-gabarito-oab47",
-    "capa": "F",
+    "capa": "G",
     "estilo": "caderno",
     "etiqueta": "OAB 47 · Questão 4, item A",
     "apoio": "Erro no padrão:",
@@ -2705,17 +2705,29 @@
     "cta": {
       "pergunta": "Você citou qual alínea?",
       "chamada": "Comenta e manda pra quem fez a prova"
-    }
+    },
+    "recorte": "recorte-dsc08859.png",
+    "recorteH": 820,
+    "doc": {
+      "rotulo": "Padrão de resposta · FGV",
+      "linhas": [
+        "A) Sim. É cabível a reclamação,",
+        "nos termos do Art. 102, inciso I,",
+        "**alínea ~~i~~ {{l}}**, da CRFB/88, ou",
+        "Art. 988, inciso III, do CPC."
+      ]
+    },
+    "carimbo": "ERRADO"
   },
   {
     "id": "anulacao-q3b-oab47",
-    "capa": "D",
+    "capa": "G",
     "estilo": "noturno",
-    "etiqueta": "OAB 47 · Questão 3",
-    "apoio": "Item B:",
+    "etiqueta": "OAB 47 · Questão 3, item B",
+    "apoio": "Recurso especial:",
     "destaque": [
-      "Passível de",
-      "anulação"
+      "Questão passível",
+      "de anulação"
     ],
     "subtitulo": "O recurso especial não estava no edital",
     "foto": "0547.jpg",
@@ -2763,6 +2775,20 @@
     "cta": {
       "pergunta": "Você acha que deve ser anulada?",
       "chamada": "Comenta e recorra no prazo"
-    }
+    },
+    "recorte": "recorte-dsc08879.png",
+    "recorteH": 800,
+    "doc": {
+      "rotulo": "Edital · Anexo II · item 30",
+      "linhas": [
+        "Recursos.",
+        "Recurso Ordinário.",
+        "Recurso Extraordinário.",
+        "~~Recurso Especial~~ {{cadê?}}"
+      ]
+    },
+    "carimbo": "ANULA?",
+    "carimboX": 380,
+    "carimboY": 1010
   }
 ]
