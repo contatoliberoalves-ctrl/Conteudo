@@ -336,6 +336,16 @@ const CAPAS = {
       </div>
       <div style="position:absolute;left:90px;right:90px;bottom:62px;display:flex;align-items:center;gap:24px;z-index:3"><span style="font-size:30px;font-weight:700;color:#fff">${PERFIL}</span><span style="flex:1;height:3px;background:rgba(255,255,255,.7)"></span>${s.fonte ? `<span style="font-size:22px;font-weight:600;color:#C9D4EA">${esc(s.fonte)}</span>` : ''}</div>`;
   },
+  // Meme: fundo escuro, a legenda em texto corrido em cima e a foto inteira logo abaixo (bloco centralizado).
+  // Campos: foto, titulo (legenda; linhas ou texto), ts (px da legenda, padrão 56).
+  meme(s, t, c) {
+    return `<div style="position:absolute;inset:0;background:#0E1420;z-index:0"></div>
+      <div data-area style="position:absolute;left:70px;right:70px;top:110px;bottom:130px;display:flex;flex-direction:column;justify-content:center;gap:44px;z-index:3">
+        <h1 data-titulo style="margin:0;font-size:${s.ts || 56}px;font-weight:700;line-height:1.22;color:#fff">${lista(s.titulo).map(l => esc(l)).join(' ')}</h1>
+        <img data-foto src="${foto(c, s.foto)}" style="display:block;width:100%;border-radius:6px">
+      </div>
+      <div style="position:absolute;left:70px;bottom:60px;font-size:28px;font-weight:700;color:rgba(255,255,255,.75);z-index:3">${PERFIL}</div>`;
+  },
   // Urgente (plantão de TV): foto em tela cheia, selo "Urgente" com bolinha vermelha no alto e tarja de
   // manchete embaixo (faixa azul com o rótulo + caixa branca com a manchete) e letreiro vermelho no pé.
   // Campos: foto, fotoPos, selo (padrão "Urgente"), rotulo (padrão "Plantão Constitucional"), titulo, ts,
