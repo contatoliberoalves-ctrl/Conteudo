@@ -183,5 +183,65 @@
     "titulo": "Tweet: o que você achou da prova? (story)",
     "de": "tweet-o-que-achou-da-prova-feed",
     "formato": "story"
+  },
+  {
+    "id": "duvida-errei-o-artigo-feed",
+    "titulo": "Dúvida pós-prova: Errei o artigo. Zero a questão? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "tweet",
+    "avatar": "0557.jpg",
+    "nome": "Constitucional Gabaritado",
+    "frase": "Errei o artigo. Zero a questão?",
+    "fecho": "{{Não.}} Você só perde 0,10."
+  },
+  {
+    "id": "duvida-sim-nao-tese-feed",
+    "titulo": "Dúvida pós-prova: Errei o sim/não, mas acertei a tese. Pontuo? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "nota",
+    "frase": "Errei o sim/não, mas acertei a tese. Pontuo?",
+    "fecho": "{{Não.}} Infelizmente, nesse caso a banca não considera."
+  },
+  {
+    "id": "duvida-nome-do-municipio-feed",
+    "titulo": "Dúvida pós-prova: Quem citou o nome do município vai ter a peça zerada? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "tweet",
+    "avatar": "0557.jpg",
+    "nome": "Constitucional Gabaritado",
+    "frase": "Quem citou o nome do município vai ter a peça zerada?",
+    "fecho": "{{Com certeza não.}} Vão considerar normalmente."
+  },
+  {
+    "id": "duvida-errei-enderecamento-feed",
+    "titulo": "Dúvida pós-prova: Errei o endereçamento. E agora? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "nota",
+    "frase": "Errei o endereçamento. E agora?",
+    "fecho": "Só vai perder 0,10. Não chore por isso. {{Você vai conseguir passar!}}"
+  },
+  {
+    "id": "duvida-ampliacao-art-37-feed",
+    "titulo": "Dúvida pós-prova: Vai ter ampliação da tese pra aceitar o art. 37? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "tweet",
+    "avatar": "0557.jpg",
+    "nome": "Constitucional Gabaritado",
+    "frase": "Vai ter ampliação da tese pra aceitar o art. 37?",
+    "fecho": "Acreditamos que {{não}}: o foco foi a inconstitucionalidade da norma, e a tese já está extensa."
+  },
+  {
+    "id": "duvida-reclamacao-transito-feed",
+    "titulo": "Dúvida pós-prova: Por que cabe reclamação na 4, se teve o trânsito em julgado? (feed)",
+    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+    "formato": "feed",
+    "layout": "nota",
+    "frase": "Por que cabe reclamação na 4, se teve o trânsito em julgado?",
+    "fecho": "O trânsito em julgado foi da decisão na {{ADI}}, que deveria ter sido seguida. Ele só reforça o efeito vinculante."
   }
 ]

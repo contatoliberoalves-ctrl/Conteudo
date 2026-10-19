@@ -601,5 +601,80 @@
         "botao": "Comenta PLANTÃO"
       }
     ]
+  },
+  {
+    "id": "retificacao-gabarito-q4",
+    "titulo": "Retificação no gabarito (questão 4, alínea da reclamação)",
+    "tema": "O padrão preliminar da OAB 47 cita art. 102, I, i, para a reclamação; o certo é a alínea l",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "verde",
+        "selo": "OAB 47 · QUESTÃO 4",
+        "icone": "stf",
+        "titulo": [
+          "Retificação",
+          "no gabarito"
+        ],
+        "pergunta": "A alínea da **reclamação** está errada"
+      },
+      {
+        "tipo": "lei",
+        "tema": "gelo",
+        "kicker": "O que diz o padrão preliminar",
+        "titulo": [
+          "Questão 4"
+        ],
+        "citacao": "A) Sim. É cabível a reclamação, nos termos do Art. 102, inciso I, alínea i, da CRFB/88, ou Art. 988, inciso III, do CPC.",
+        "fonte": "Padrão de resposta preliminar · FGV",
+        "traducao": "O problema está na **alínea i**."
+      },
+      {
+        "tipo": "versus",
+        "tema": "verde",
+        "kicker": "Art. 102, I, CF",
+        "titulo": [
+          "Alínea {{i}} x alínea {{l}}"
+        ],
+        "corpo": 28,
+        "lados": [
+          "Alínea i",
+          "Alínea l"
+        ],
+        "linhas": [
+          [
+            "O que trata",
+            "**Habeas corpus** no STF",
+            "**Reclamação** no STF"
+          ],
+          [
+            "Serve pra questão 4?",
+            "**Não**",
+            "**Sim**"
+          ]
+        ]
+      },
+      {
+        "tipo": "lei",
+        "tema": "gelo",
+        "kicker": "O dispositivo certo",
+        "titulo": [
+          "Art. 102, I, {{l}}"
+        ],
+        "citacao": "a reclamação para a preservação de sua competência e garantia da autoridade de suas decisões;",
+        "fonte": "Constituição Federal",
+        "traducao": "O art. 988, III, do CPC, citado junto, está **correto**."
+      },
+      {
+        "tipo": "cta",
+        "tema": "verde",
+        "titulo": [
+          "A banca {{deve}}",
+          "retificar"
+        ],
+        "texto": "Quem citou a alínea **l** acertou. Manda pra quem fez a prova.",
+        "botao": "Comenta RETIFICA"
+      }
+    ]
   }
 ]
