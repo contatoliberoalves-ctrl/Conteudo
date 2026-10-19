@@ -1,5 +1,162 @@
 [
   {
+    "id": "repescagem-tudo-que-precisa-saber",
+    "titulo": "Tudo que você precisa saber sobre a repescagem",
+    "tema": "Repescagem da OAB (reaproveitamento da 1ª fase do 47º no 48º): inscrição, taxa, dúvidas, Constitucional, como não perder a chance e o Método VDE Repescagem",
+    "pontes": [
+      {
+        "img": "door.png",
+        "entre": 2,
+        "y": 1010,
+        "tam": 300,
+        "rot": -6
+      },
+      {
+        "img": "rocket.png",
+        "entre": 8,
+        "y": 330,
+        "tam": 300,
+        "rot": -10
+      }
+    ],
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "manchete",
+        "tema": "blue",
+        "edicao": "Edição da repescagem",
+        "secao": "2ª fase · OAB",
+        "kicker": "Reprovou na 2ª fase do 47º?",
+        "titulo": [
+          "Tudo que você",
+          "precisa saber sobre",
+          "a [[repescagem]]"
+        ],
+        "texto": "Inscrição, taxa, dúvidas e o que fazer pra não perder essa chance."
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Primeiro: o que é?",
+        "titulo": [
+          "O que é a",
+          "repescagem?"
+        ],
+        "palavra": "CHANCE",
+        "texto": [
+          "Você passou na 1ª fase, mas reprovou na 2ª? Essa aprovação **não foi pro lixo**.",
+          "Na repescagem, você vai **direto pra 2ª fase do próximo exame**, sem fazer a 1ª fase de novo.",
+          "É tipo já ter feito o check-in: você pula a fila e vai direto pro portão de embarque."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Mas não é automático",
+        "titulo": [
+          "O que você",
+          "precisa fazer"
+        ],
+        "marcador": "num",
+        "itens": [
+          "Fazer **nova inscrição**: o edital sai em **13 de novembro**",
+          "Pagar a taxa de **R$ 175**",
+          "Escolher a matéria da sua 2ª fase"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Dúvida 1",
+        "titulo": [
+          "Posso deixar",
+          "pra outra OAB?"
+        ],
+        "texto": [
+          "**Não.** Tem que ser nessa.",
+          "A repescagem vale só para o exame seguinte. Deixou passar, volta pra 1ª fase."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Dúvida 2",
+        "titulo": [
+          "É uma prova",
+          "diferente?"
+        ],
+        "texto": [
+          "**Não.** É a mesma prova que vai fazer quem passar na 1ª fase da **OAB 48**.",
+          "Mesma prova, mesma banca, mesma correção."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Dúvida 3",
+        "titulo": [
+          "Posso mudar",
+          "de matéria?"
+        ],
+        "texto": [
+          "**Sim.** E, inclusive, você deveria vir para **Constitucional**: a melhor matéria da 2ª fase."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "kicker": "Não sou eu que tô dizendo",
+        "titulo": [
+          "Olha o índice",
+          "de aprovação"
+        ],
+        "print": "indice-aprovacao.png"
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "kicker": "E agora?",
+        "titulo": [
+          "O que fazer pra",
+          "não perder",
+          "essa chance?"
+        ],
+        "marcador": "num",
+        "itens": [
+          "Entender **o que gerou a reprovação**",
+          "Montar um **planejamento**",
+          "Treinar **argumentação** e **identificação de peças**",
+          "Entrar no **Método VDE de Repescagem**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "VDE Repescagem · Constitucional",
+        "titulo": [
+          "Vai estar",
+          "[[absurdo]]"
+        ],
+        "texto": [
+          "Com coisas que **não têm em NENHUM outro curso**.",
+          "Focado em quem **reprovou e precisa superar isso**."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "dark",
+        "centro": true,
+        "kicker": "Grupo de reforço gratuito",
+        "titulo": [
+          "Bora pra",
+          "repescagem?"
+        ],
+        "texto": "Entre no **grupo de reforço da repescagem** que eu e a Nat criamos e garanta seu lugar na **lista de espera** do VDE Repescagem.",
+        "botao": "Comente #recomeço"
+      }
+    ]
+  },
+  {
     "id": "lei-inconstitucional-praga",
     "titulo": "Lei inconstitucional é praga",
     "tema": "Controle de constitucionalidade difuso e concentrado; RE (art. 102, III)",
