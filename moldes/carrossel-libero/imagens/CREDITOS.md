@@ -10,3 +10,4 @@ Fotos de domínio público (CC0 ou Public Domain Mark), encontradas pelo Openver
 | justica.jpg | Justice | rawpixel | CC0 | https://www.rawpixel.com/image/9201537/justice |
 | mar-amanhecer.jpg | Sunrise over a blue ocean | Markus Spiske | CC0 | https://www.rawpixel.com/image/432156/free-photo-image-beach-sea-tropical |
 | robo-braco.jpg | Robotic arm machine in the lab | rawpixel | CC0 | https://www.rawpixel.com/image/4042546/photo-image-technology-yellow |
+| van-gogh-pescador.jpg | Schelpenvisser (Shell Fisherman), Vincent van Gogh | Rijksmuseum | CC0 | https://www.rawpixel.com/image/537433/free-illustration-image-van-gogh-fisherman-public-domain |
