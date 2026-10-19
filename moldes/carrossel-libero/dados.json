@@ -5,34 +5,40 @@
     "tema": "Repescagem da OAB (reaproveitamento da 1ª fase do 47º no 48º): inscrição, taxa, dúvidas, Constitucional, como não perder a chance e o Método VDE Repescagem",
     "pontes": [
       {
-        "img": "door.png",
-        "entre": 2,
-        "y": 1010,
-        "tam": 300,
-        "rot": -6
-      },
-      {
         "img": "rocket.png",
         "entre": 8,
         "y": 330,
         "tam": 300,
         "rot": -10
+      },
+      {
+        "img": "graduation_cap.png",
+        "entre": 2,
+        "y": 1010,
+        "tam": 300,
+        "rot": -6
       }
     ],
     "slides": [
       {
         "tipo": "capa",
-        "estilo": "manchete",
         "tema": "blue",
-        "edicao": "Edição da repescagem",
-        "secao": "2ª fase · OAB",
-        "kicker": "Reprovou na 2ª fase do 47º?",
+        "aneis": true,
+        "pre": "Reprovou na 2ª fase?",
         "titulo": [
           "Tudo que você",
-          "precisa saber sobre",
-          "a [[repescagem]]"
+          "precisa saber",
+          "sobre a",
+          "[[repescagem]]"
         ],
-        "texto": "Inscrição, taxa, dúvidas e o que fazer pra não perder essa chance."
+        "texto": "Inscrição, taxa, dúvidas e como não perder essa chance.",
+        "objeto": {
+          "img": "door.png",
+          "x": 830,
+          "y": 60,
+          "tam": 210,
+          "rot": -10
+        }
       },
       {
         "tipo": "texto",
@@ -110,7 +116,8 @@
           "Olha o índice",
           "de aprovação"
         ],
-        "print": "indice-aprovacao.png"
+        "print": "indice-aprovacao.jpg",
+        "texto": "**Constitucional** tem o **maior aproveitamento médio** da 2ª fase: **29,6%**. Fonte: FGV."
       },
       {
         "tipo": "lista",
@@ -148,8 +155,8 @@
         "centro": true,
         "kicker": "Grupo de reforço gratuito",
         "titulo": [
-          "Bora pra",
-          "repescagem?"
+          "Bora vencer",
+          "essa prova?"
         ],
         "texto": "Entre no **grupo de reforço da repescagem** que eu e a Nat criamos e garanta seu lugar na **lista de espera** do VDE Repescagem.",
         "botao": "Comente #recomeço"
