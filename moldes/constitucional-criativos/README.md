@@ -24,4 +24,5 @@ Marcação: `**negrito**`, `{{destaque}}` (verde) e `~~riscado~~` (preço "de").
 | `tweet` | tweet ("Os 10k…") | `avatar` (foto; `avatarPos`, `avatarZoom`), `nome`, `arroba`, `frase`, `fecho`, `tf` |
 | `oferta` | "Inscrições abertas" | `foto`, `linhas`, `caixa` (ex.: `~~R$ 247~~ {{R$ 119}}`), `sub`, `prova`, `acao` |
 | `duvida` | dúvida de aluno | `pergunta` (no balão; `{{destaque}}`), `selo` (NÃO, SIM, CALMA…; `ts`), `resposta`, `foto` (recorte PNG em `fotos/`), `lado` (`direita`/`esquerda`: onde fica a foto), `fundo` (`escuro`, `verde`, `gelo`, `medio`), `tp`, `tr`, `largura` |
+| `duvidaSimples` | dúvida de aluno sem foto, nos fundos dos carrosséis | `fundo` (`caderno`, `noturno`, `documento`), `pergunta` (`{{marca-texto}}`), `selo`, `resposta`, `marca` (texto gigante translúcido), `tp`, `ts`, `tr` |
 | `lista` | lista de benefícios | `foto`, `kicker`, `linhas`, `itens`, `ti`, `preco`, `botao` |

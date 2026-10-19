@@ -163,11 +163,51 @@ LAYOUTS.duvida = (p, c, H, story) => {
         <div style="${TITULO};font-size:${p.tp || 100}px;line-height:.98;color:${f.tBalao}">${rico(p.pergunta, f.balao === '#fff' ? COR.medio : COR.claro)}</div>
         <span style="position:absolute;${dir ? 'left:90px' : 'right:90px'};bottom:-34px;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:38px solid ${f.balao}"></span>
       </div></div>
-    ${src ? `<img src="${src}" style="position:absolute;bottom:0;${dir ? 'right:-60px' : 'left:-60px'};height:${p.fotoH || (story ? 980 : 720)}px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));z-index:3">` : ''}
+    ${src ? `<img src="${src}" style="position:absolute;bottom:0;${dir ? 'right:0' : 'left:0'};height:${p.fotoH || (story ? 980 : 720)}px;max-width:560px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));z-index:3">` : ''}
     <div data-area style="position:absolute;${dir ? 'left:60px' : 'right:60px'};width:${p.largura || 560}px;bottom:${story ? 380 : 120}px;display:flex;flex-direction:column;gap:14px;z-index:6;${dir ? '' : 'text-align:right;align-items:flex-end'}">
       <div style="${TITULO};font-size:${p.ts || 170}px;line-height:.82;color:${f.selo}">${esc(p.selo)}</div>
       <div style="${TEXTO};font-size:${p.tr || 38}px;font-weight:600;line-height:1.3;color:${f.txt}">${rico(p.resposta, f.selo)}</div>
     </div>${textura(.25)}`;
+};
+
+// Dúvida de aluno sem foto, nos fundos dos carrosséis: "caderno" (papel pautado com margem verde e marca-texto),
+// "noturno" (quase preto com moldura fina verde-clara) e "documento" (grade escura e folha inclinada com carimbo).
+// Campos: pergunta ({{marca-texto}}), selo, resposta, marca (texto gigante translúcido), tp, ts.
+LAYOUTS.duvidaSimples = (p, c, H, story) => {
+  const topo = story ? 300 : 110, tipo = p.fundo || 'caderno';
+  const chip = (bg, cor) => `<span style="align-self:flex-start;background:${bg};color:${cor};${TEXTO};font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 22px;border-radius:999px">${esc(p.kicker || 'Dúvida de aluno · OAB 47')}</span>`;
+  const marcaTxt = (cor, fundo) => esc(p.pergunta).replace(/\{\{(.+?)\}\}/g, `<span style="background:${fundo};color:${cor};padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`);
+  const marca = cor => p.marca ? `<div style="position:absolute;right:-20px;bottom:${story ? 260 : 60}px;${TITULO};font-size:${p.tm || 420}px;line-height:.8;color:${cor};white-space:nowrap;z-index:1">${esc(p.marca)}</div>` : '';
+  const assinatura = cor => `<div style="position:absolute;left:0;right:0;bottom:${story ? 230 : 44}px;text-align:center;${TEXTO};font-size:24px;font-weight:600;letter-spacing:.06em;color:${cor};z-index:6">${p.semArroba ? '' : PERFIL}</div>`;
+  if (tipo === 'documento') {
+    return `<div style="position:absolute;inset:0;background:${GRADE},${ESCURO}"></div>
+      <div style="position:absolute;left:70px;right:70px;top:${topo}px;display:flex;flex-direction:column;gap:30px;z-index:4">${chip(COR.claro, COR.base)}
+        <div style="${TITULO};font-size:${p.tp || 104}px;line-height:.95;color:#fff">${marcaTxt(COR.base, COR.claro)}</div></div>
+      <div data-area style="position:absolute;left:90px;right:90px;bottom:${story ? 460 : 230}px;transform:rotate(-2.5deg);background:#fbfaf6;border-radius:14px;padding:46px 52px 52px;box-shadow:0 30px 60px rgba(0,0,0,.45);z-index:4">
+        <div style="${TEXTO};font-size:22px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${COR.medio};border-bottom:2px solid #e2e6e3;padding-bottom:14px;margin-bottom:22px">${esc(p.rotuloDoc || 'Resposta do professor')}</div>
+        <div style="${TEXTO};font-size:${p.tr || 40}px;font-weight:600;line-height:1.35;color:${COR.texto}">${rico(p.resposta, COR.medio)}</div>
+        <div style="position:absolute;right:30px;top:-70px;transform:rotate(9deg);border:8px solid #d64545;color:#d64545;${TITULO};font-size:${p.ts || 74}px;line-height:1;padding:12px 24px 4px;border-radius:12px;background:rgba(251,250,246,.95)">${esc(p.selo)}</div>
+      </div>${assinatura('rgba(155,224,163,.85)')}${textura(.22)}`;
+  }
+  if (tipo === 'noturno') {
+    return `<div style="position:absolute;inset:0;background:#171a19"></div>
+      <div style="position:absolute;inset:34px;border:2px solid rgba(155,224,163,.45);border-radius:6px"></div>${marca('rgba(155,224,163,.08)')}
+      <div data-area style="position:absolute;left:96px;right:96px;top:${topo + 30}px;bottom:${story ? 360 : 140}px;display:flex;flex-direction:column;gap:34px;z-index:4">${chip(COR.claro, COR.base)}
+        <div style="${TITULO};font-size:${p.tp || 112}px;line-height:.95;color:#fff">${marcaTxt(COR.base, COR.claro)}</div>
+        <div style="width:110px;height:8px;background:${COR.claro};border-radius:4px"></div>
+        <div style="margin-top:auto"><div style="${TITULO};font-size:${p.ts || 190}px;line-height:.82;color:${COR.claro}">${esc(p.selo)}</div>
+        <div style="${TEXTO};font-size:${p.tr || 42}px;font-weight:600;line-height:1.3;color:#E6EEEA;margin-top:18px">${rico(p.resposta, COR.claro)}</div></div>
+      </div>${assinatura('rgba(155,224,163,.8)')}${textura(.25)}`;
+  }
+  // caderno
+  return `<div style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 62px,rgba(59,76,73,.16) 62px 64px),${COR.gelo}"></div>
+    <div style="position:absolute;left:96px;top:0;bottom:0;width:3px;background:rgba(63,154,77,.6)"></div>${marca('rgba(59,76,73,.07)')}
+    <div data-area style="position:absolute;left:140px;right:80px;top:${topo + 20}px;bottom:${story ? 360 : 140}px;display:flex;flex-direction:column;gap:34px;z-index:4">${chip(COR.verde, '#fff')}
+      <div style="${TITULO};font-size:${p.tp || 112}px;line-height:1.02;color:${COR.base}">${marcaTxt(COR.base, COR.claro)}</div>
+      <div style="margin-top:auto;background:${COR.verde};border-radius:28px;padding:40px 46px;box-shadow:0 20px 40px rgba(28,31,30,.18)">
+        <div style="${TITULO};font-size:${p.ts || 150}px;line-height:.85;color:${COR.claro}">${esc(p.selo)}</div>
+        <div style="${TEXTO};font-size:${p.tr || 40}px;font-weight:600;line-height:1.3;color:#fff;margin-top:14px">${rico(p.resposta, COR.claro)}</div></div>
+    </div>${assinatura('rgba(59,76,73,.75)')}${textura(.18)}`;
 };
 
 export function renderCriativo(c) {
