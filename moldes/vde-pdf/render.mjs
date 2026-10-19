@@ -7,7 +7,10 @@ import path from 'node:path';
 import { renderCarrossel, W, H } from './template.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')).filter(c => !process.argv[2] || c.id === process.argv[2]);
+// privado/*.json: materiais com dados de alunos (análises individuais), fora do git.
+const priv = path.join(root, 'privado');
+const extras = fs.existsSync(priv) ? fs.readdirSync(priv).filter(f => f.endsWith('.json')).flatMap(f => JSON.parse(fs.readFileSync(path.join(priv, f), 'utf8'))) : [];
+const dados = [...JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')), ...extras].filter(c => !process.argv[2] || c.id === process.argv[2]);
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });

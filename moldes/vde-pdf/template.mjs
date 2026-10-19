@@ -233,9 +233,75 @@ function renderGuia(p) {
   return pags;
 }
 
+// ---------- Análise individual da prova ("tipo": "analise"): por aluno, capa + peça + questões; fim ----------
+// Dados de alunos ficam em privado/ (fora do git). Status: ok, parcial, erro, conferir.
+const STATUS = {
+  ok: ['Alinhado', '#E3F6EC', '#16794B'], parcial: ['Parcial', '#FFF4D9', '#9A6A00'],
+  erro: ['Diferente do padrão', '#FDE7EC', '#C22F52'], conferir: ['Conferir na folha', '#EEF0F6', '#4C5578'],
+};
+const selo = s => { const [t, bg, cor] = STATUS[s] || STATUS.conferir; return `<span style="display:inline-block;background:${bg};color:${cor};${F};font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap">${t}</span>`; };
+function capaAluno(p, a) {
+  return `<section class="pagina" style="background:${DEGRADE};color:#fff">
+    ${arcos(W + 120, 640, 260, 9, 'rgba(201,184,255,.26)')}
+    <div style="position:absolute;left:${M}px;top:64px;display:flex;align-items:center;gap:12px"><span style="width:34px;height:3px;border-radius:2px;background:#C9B8FF"></span>${kick('Método VDE', '#fff')}</div>
+    <div style="position:absolute;left:${M}px;top:92px;${F};font-size:11px;font-weight:500;letter-spacing:.12em;color:#ECE8FF">MENTORIA · 2ª FASE OAB</div>
+    <div style="position:absolute;left:${M}px;right:${M}px;top:130px;height:1px;background:rgba(255,255,255,.22)"></div>
+    <div style="position:absolute;left:${M}px;right:${M + 30}px;top:330px">
+      ${kick(p.rotulo || 'OAB 47 · Direito Constitucional', COR.lavanda)}
+      <div style="${TIT};font-size:78px;line-height:1;margin-top:16px">Análise<br>da ${rico('[[Prova]]', true)}</div>
+      <span style="display:block;width:70px;height:5px;border-radius:3px;background:${COR.lavanda};margin-top:30px"></span>
+      <div style="${F};font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${COR.lavanda};margin-top:30px">Aluno(a)</div>
+      <div style="${TIT};font-size:${a.ts || 40}px;line-height:1.1;margin-top:6px">${esc(a.nome)}</div>
+    </div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:96px;height:1px;background:rgba(255,255,255,.22)"></div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:52px;display:flex;justify-content:space-between;align-items:baseline">
+      <span style="${F};font-size:22px;font-weight:700">Natália e Líbero</span><span style="${F};font-size:11px;font-weight:500;color:#ECE8FF">${PERFIS}</span></div>
+  </section>`;
+}
+const titulo = (k, t) => `${kick(k)}<div style="${TIT};font-size:28px;line-height:1.1;color:${COR.tinta};margin:4px 0 10px">${rico(t)}</div>`;
+const par = t => `<p style="${F};font-size:13px;line-height:1.6;color:${COR.tinta};margin:0 0 8px">${rico(t)}</p>`;
+const caixaTexto = (rot, itens, bg = COR.lavandaClara, cor = COR.roxo) => `<div style="background:${bg};border-radius:14px;padding:12px 16px;margin-top:10px">
+    <div style="${F};font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${cor};margin-bottom:5px">${esc(rot)}</div>
+    ${lista(itens).map(t => `<div style="display:flex;gap:8px;${F};font-size:12.4px;line-height:1.5;color:${COR.tinta};margin-top:3px"><span style="flex:none;width:5px;height:5px;border-radius:2px;background:${cor};margin-top:7px"></span><span>${rico(t)}</span></div>`).join('')}</div>`;
+function pecaAluno(a, n) {
+  const pc = a.peca || {};
+  const linhas = lista(pc.itens).map(i => `<div style="display:grid;grid-template-columns:1fr 1.15fr;gap:14px;padding:11px 0;border-bottom:1px dashed ${COR.borda}">
+      <div style="${F};font-size:12.4px;line-height:1.45;color:${COR.tinta}"><div style="${F};font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${COR.indigo};margin-bottom:2px">${esc(i.tema)}</div>${rico(i.viu)}</div>
+      <div style="${F};font-size:12.4px;line-height:1.45;color:${COR.tinta}"><div style="margin-bottom:3px">${selo(i.status)}</div>${rico(i.leitura)}</div></div>`).join('');
+  return branca(`${titulo('Peça · ação popular', pc.titulo || 'Sua [[peça]]')}
+    ${lista(pc.intro).map(par).join('')}
+    <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:14px;border-bottom:2px solid ${COR.roxo};padding-bottom:5px;margin-top:4px;${F};font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.roxo}"><span>O que eu vi no seu material</span><span>Minha leitura</span></div>
+    ${linhas}
+    ${pc.conferir ? caixaTexto('Pra conferir na folha definitiva', pc.conferir) : ''}`, `Análise · ${a.curto || a.nome}`, n);
+}
+function questoesAluno(p, a, n) {
+  const q = a.questoes || {};
+  const linhas = lista(q.itens).map(i => `<div style="display:grid;grid-template-columns:34px 1fr 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed ${COR.borda};align-items:start">
+      ${quadro(i.item, 30)}
+      <div style="${F};font-size:12px;line-height:1.45;color:${COR.tinta}"><div style="margin-bottom:3px">${selo(i.status)}</div>${rico(i.viu)}</div>
+      <div style="${F};font-size:12px;line-height:1.45;color:${COR.cinza}">${rico(i.padrao)}</div></div>`).join('');
+  return branca(`${titulo('Questões 1 a 4', q.titulo || 'Item por [[item]]')}
+    ${lista(q.intro).map(par).join('')}
+    <div style="display:grid;grid-template-columns:34px 1fr 1fr;gap:12px;border-bottom:2px solid ${COR.roxo};padding-bottom:5px;${F};font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${COR.roxo}"><span></span><span>Sua resposta</span><span>O que o padrão pedia</span></div>
+    ${linhas}
+    ${q.conta ? caixaTexto(q.conta.rotulo || 'Fazendo as contas', q.conta.itens) : ''}
+    <div style="margin-top:auto;padding-top:12px"><div style="background:${DEGRADE};border-radius:16px;padding:16px 20px;color:#fff">
+      <div style="${F};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.lavanda}">Recado pra você</div>
+      ${lista(a.recado).map(t => `<p style="${F};font-size:12.2px;line-height:1.55;color:#fff;margin:6px 0 0">${rico(t, true)}</p>`).join('')}
+    </div></div>`, `Análise · ${a.curto || a.nome}`, n, '#FBFAFF');
+}
+function renderAnalise(p) {
+  let n = 0;
+  const pags = [];
+  lista(p.alunos).forEach(a => { pags.push(capaAluno(p, a)); n++; pags.push(pecaAluno(a, ++n)); pags.push(questoesAluno(p, a, ++n)); });
+  if (p.fim) pags.push(fim(p, ++n));
+  return pags;
+}
+
 export function renderCarrossel(p) {
   const avisos = [];
   if (p.tipo === 'guia') return montar(renderGuia(p), avisos);
+  if (p.tipo === 'analise') return montar(renderAnalise(p), avisos);
   p.casos.forEach((c, i) => { if (lista(c.gabarito).length !== PONTOS.length) avisos.push(`caso ${i + 1}: o gabarito precisa de ${PONTOS.length} pontos`); });
   let n = 1;
   const pags = [capa(p), comoUsar(p, ++n)];
