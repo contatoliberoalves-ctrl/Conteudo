@@ -287,6 +287,7 @@ function questoesAluno(p, a, n) {
     ${q.conta ? caixaTexto(q.conta.rotulo || 'Fazendo as contas', q.conta.itens) : ''}
     <div style="margin-top:auto;padding-top:12px"><div style="background:${DEGRADE};border-radius:16px;padding:16px 20px;color:#fff">
       <div style="${F};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.lavanda}">Recado pra você</div>
+      ${a.chances ? `<div style="${TIT};font-size:24px;line-height:1.15;margin-top:6px">${rico(a.chances, true)}</div>` : ''}
       ${lista(a.recado).map(t => `<p style="${F};font-size:12.2px;line-height:1.55;color:#fff;margin:6px 0 0">${rico(t, true)}</p>`).join('')}
     </div></div>`, `Análise · ${a.curto || a.nome}`, n, '#FBFAFF');
 }
