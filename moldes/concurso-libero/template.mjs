@@ -149,10 +149,32 @@ function post(p) {
     </div></div>`);
 }
 
+// Capa de grupo (WhatsApp/Telegram) 1080×1080: tudo dentro do círculo central (o app recorta redondo).
+// `bandeira`: "sp" (listras pretas e brancas com o cantão vermelho, círculo branco e 4 estrelas) ou
+// "pe" (arco-íris vermelho, amarelo e verde com a estrela, na ordem do desenho oficial).
+const bandeiraSP = w => { const h = w * .66, c = h * 7 / 13;
+  return `<div style="position:relative;width:${w}px;height:${h}px;border-radius:${w * .05}px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.3)"><div style="display:flex;flex-direction:column;width:100%;height:100%">${Array.from({ length: 13 }, (_, k) => `<span style="flex:1;background:${k % 2 ? '#fff' : '#111'}"></span>`).join('')}</div>
+  <div style="position:absolute;left:0;top:0;width:${c}px;height:${c}px;background:#E30613"><div style="position:absolute;left:50%;top:50%;width:${c * .58}px;height:${c * .58}px;transform:translate(-50%,-50%);border-radius:50%;background:#fff"></div>
+  ${[[.14, .14], [.86, .14], [.14, .86], [.86, .86]].map(([x, y]) => `<svg width="${c * .15}" height="${c * .15}" viewBox="0 0 100 100" style="position:absolute;left:${x * c - c * .075}px;top:${y * c - c * .075}px"><path d="M50 4 L61.8 38.2 L97.6 38.2 L68.6 59.4 L79.4 93.6 L50 72.4 L20.6 93.6 L31.4 59.4 L2.4 38.2 L38.2 38.2Z" fill="#FFD100"/></svg>`).join('')}</div></div>`; };
+const bandeiraPE = w => `<svg width="${w}" height="${w * .62}" viewBox="0 0 280 174" style="display:block;overflow:visible">
+  <path d="M10 170 A130 130 0 0 1 270 170" fill="none" stroke="#C34342" stroke-width="18"/><path d="M28 170 A112 112 0 0 1 252 170" fill="none" stroke="#FFB511" stroke-width="18"/><path d="M46 170 A94 94 0 0 1 234 170" fill="none" stroke="#00AD4A" stroke-width="18"/>
+  <path d="M140 0 L148.8 26.6 L176.8 26.6 L154.2 43.2 L162.8 69.8 L140 53.4 L117.2 69.8 L125.8 43.2 L103.2 26.6 L131.2 26.6Z" fill="#FFB511"/></svg>`;
+function grupo(p) {
+  const t = TEMA.escuro;
+  const elemento = p.bandeira === 'sp' ? bandeiraSP(300) : bandeiraPE(300);
+  return `<section style="width:1080px;height:1080px;background:${VERDE_BG}">${textura(true)}
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5">
+      ${elemento}
+      <div style="${S};font-size:38px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#DFFFEA;margin-top:46px">${esc(p.rotulo || 'Grupo de estudos')}</div>
+      <div style="${T};font-size:${p.ts || 190}px;line-height:1.02;color:#fff;margin-top:34px">${linhas(p.manchete, t)}</div>
+      <div style="margin-top:44px">${marca(34)}</div></div></section>`;
+}
+
 export function renderCarrossel(p) {
   const avisos = [];
   let secoes;
   if (p.tipo === 'post') secoes = [post(p)];
+  else if (p.tipo === 'grupo') secoes = [grupo(p)];
   else {
     const total = p.slides.length;
     secoes = p.slides.map((s, i) => s.tipo === 'capa' ? capa(s, p.estilo) : s.tipo === 'cta' ? cta(s) : conteudo(s, p.estilo, i));
