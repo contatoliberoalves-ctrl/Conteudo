@@ -4,6 +4,8 @@
 // o checklist VDE em branco para preencher; depois um divisor, um gabarito por caso e o fechamento.
 // Cada página tem tamanho fixo; o render avisa se algum conteúdo passar do espaço (.cabe).
 
+import { renderQuestoes } from './questoes.mjs';
+
 export const W = 794, H = 1122;  // A4 a 96 dpi (210 × 297 mm)
 const M = 60;
 const COR = {
@@ -235,6 +237,7 @@ function renderGuia(p) {
 
 export function renderCarrossel(p) {
   const avisos = [];
+  if (p.tipo === 'questoes') return renderQuestoes(p);
   if (p.tipo === 'guia') return montar(renderGuia(p), avisos);
   p.casos.forEach((c, i) => { if (lista(c.gabarito).length !== PONTOS.length) avisos.push(`caso ${i + 1}: o gabarito precisa de ${PONTOS.length} pontos`); });
   let n = 1;
@@ -255,3 +258,6 @@ ${pags.join('\n')}
   window.__pronto = true; });</script></body></html>`;
   return { html, avisos, largura: W, altura: H };
 }
+
+// Peças visuais usadas pelo caderno de questões discursivas (questoes.mjs).
+export { M, COR, DEGRADE, DEG_H, FONTES, F, TIT, PERFIS, esc, lista, dois, rico, arcos, kick, quadro, chip };

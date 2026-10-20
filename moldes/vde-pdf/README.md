@@ -15,3 +15,6 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 
 ## Guia de cabimento (`"tipo": "guia"`)
 Capa, mapa de decisão (`mapa[]`: `{pergunta, respostas: [[situação, peça]]}`), fichas por peça, 2 por página (`fichas[]`: `{sigla, nome, cabe[], quem, contra, onde, prazo, naoCabe[], artigos[], pista}`), duelos das peças que se confundem, 2 por página (`duelos[]`: `{a, b, linhas: [[critério, a, b]], macete}`), tabela-resumo automática (sigla, quem, onde, prazo) e `fim`. Só CF e leis (sem jurisprudência, salvo pedido).
+
+## Caderno de questões discursivas (`"tipo": "questoes"`)
+Primeiro: `questoes-180-autorais` (180 questões autorais, 30 por área). Visual em `questoes.mjs`: capa, como usar (`comoUsar[]`, `passos[]`, tabela de pontuação, `pontuacao`, `limites[]`), sumário com links e páginas, divisor Parte I, enunciados por área (cada área em página nova), divisor Parte II, gabaritos com fundamento e espelho, referências (`refsIntro`) e `fim`. A paginação é feita no navegador (questão ou gabarito inteiro na página seguinte quando não cabe). O conteúdo fica em `questoes/<conteudo>.json`: `{ areas: [{nome, q: [{n, enun[], itens[[letra, texto, valor]], titulo, tag, ref, resp{A,B}, fund{A,B}, esp[[letra, conteúdo, fundamento, total]]}]}], refs: [[url, nome]] }` (extraído do .docx do autor, sem mudar o texto).

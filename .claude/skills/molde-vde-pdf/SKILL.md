@@ -17,3 +17,6 @@ Pasta: `moldes/vde-pdf/`. Só se edita `dados.json` (campos no `README.md`).
 ## Gerar
 1. `cd moldes/vde-pdf && CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>`; precisa terminar com ✓ (senão encurte o texto da página indicada).
 2. Confira os PNGs, atualize a Galeria do Líbero (`python3 galeria/atualizar.py vde-pdf <id>`) e faça commit.
+
+## Caderno de questões discursivas
+Para um banco de questões com itens A/B e gabaritos (ex.: o .docx "180 questões autorais"): extraia o texto sem alterar para `questoes/<conteudo>.json` (campos no README) e crie a entrada `tipo: "questoes"` no `dados.json`. O render tem que terminar com ✓ (nenhum bloco maior que a página).
