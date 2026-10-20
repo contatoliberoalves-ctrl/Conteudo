@@ -27,3 +27,5 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
 4. O script precisa terminar com ✓. Se avisar que o texto não cabe ou encosta em algo, encurte ou divida o slide. Confira os PNGs.
    - **Série "Teses que caíram na <peça>"**: capa `estilo: teses` + um slide `teses` por exame (ficha do exame, o caso em uma frase, as teses com o artigo) + `balao` com o padrão da banca + `cta`. Fonte: tabela "Principais Teses" do Livro de Prática Constitucional (peça o arquivo ao usuário) e os gabaritos da FGV; confira o número do exame no gabarito, porque o livro tem trocas (ex.: liberdade de culto é do OAB 34, não 33).
 5. Atualize a galeria (seção "Galeria" do `CLAUDE.md`, sempre no mesmo link) e faça commit de `dados.json`.
+
+- O autor não gosta da capa `manchete` (jornal "O Libero"): prefira a capa com foto ou outro estilo.
