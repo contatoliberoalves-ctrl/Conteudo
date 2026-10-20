@@ -13,3 +13,4 @@ Slides (`tipo`): `capa` {pre, titulo[], sub, alerta, ts} (título centralizado; 
 Dados de edital: pesquise e confira em mais de uma fonte; cite os editais (número, banca, data de publicação) num slide.
 
 Capa objetiva: só o título que o usuário pediu (e o subtítulo dele); nada de chips, selos ou números na capa. Títulos do miolo diretos ("Vagas e salários", "Datas do concurso"), sem kicker nem frases de efeito genéricas.
+O conteúdo de cada página (e da tela única) se ajusta sozinho ao espaço: cresce até ocupar ~92% da altura (no máximo 1,3x) e fica centralizado; o render avisa se não couber.

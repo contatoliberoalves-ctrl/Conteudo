@@ -121,7 +121,7 @@ function cta(s) {
     </div>`);
 }
 function conteudo(s, estilo, i) {
-  const corpo = t => `<div style="position:absolute;left:${M}px;right:${M}px;top:50%;transform:translateY(-54%);z-index:5">${CONTEUDO[s.tipo](s, t)}</div>${rodape(t)}`;
+  const corpo = t => `<div class="caixa" style="position:absolute;left:${M}px;right:${M}px;top:100px;bottom:150px;display:flex;align-items:center;z-index:5"><div class="enc" style="width:100%">${CONTEUDO[s.tipo](s, t)}</div></div>${rodape(t)}`;
   // alternado: páginas alternando verde e branco, como o azul e o off-white do Carrossel Libero.
   if (estilo === 'alternado') return i % 2 ? secao(COR.papel, `${textura(false)}${corpo(TEMA.claro)}`) : secao(VERDE_BG, `${textura(true)}${corpo(TEMA.escuro)}`);
   if (estilo === 'claro') return secao(COR.papel, `${textura(false)}<div style="position:absolute;left:0;top:0;bottom:0;width:16px;background:#0BA457"></div>${corpo(TEMA.claro)}`);
@@ -131,22 +131,22 @@ function conteudo(s, estilo, i) {
     <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.06) 1px,transparent 1px);background-size:54px 54px"></div>
     <div style="position:absolute;left:60px;right:60px;top:90px;bottom:120px;background:#fff;border-radius:30px;z-index:4;box-shadow:0 30px 70px rgba(0,0,0,.35)">
       ${s.aba ? `<div style="position:absolute;left:40px;top:-22px;${S};font-size:18px;font-weight:800;letter-spacing:.18em;color:#fff;background:#0BA457;padding:9px 18px;border-radius:10px">${esc(s.aba)}</div>` : ''}
-      <div class="ficha-corpo" style="position:absolute;left:46px;right:46px;top:46px;zoom:.88">${CONTEUDO[s.tipo](s, t)}</div></div>${rodape(TEMA.escuro)}`);
+      <div class="caixa" style="position:absolute;left:46px;right:46px;top:50px;bottom:46px;display:flex;align-items:center"><div class="enc" style="width:100%">${CONTEUDO[s.tipo](s, t)}</div></div></div>${rodape(TEMA.escuro)}`);
 }
 
 // Tela única: manchete com números e CTA.
 function post(p) {
   const t = TEMA.escuro;
   return secao(VERDE_BG, `${textura(true)}${topo(t)}
-    <div style="position:absolute;left:${M}px;right:${M}px;top:${p.top || 230}px;z-index:5">
+    <div class="caixa" style="position:absolute;left:${M}px;right:${M}px;top:170px;bottom:90px;display:flex;align-items:center;z-index:5"><div class="enc" style="width:100%">
       ${p.selo ? `<span style="display:inline-block;${S};font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:${COR.petroleo};padding:10px 18px;border-radius:10px;transform:rotate(-2deg)">${esc(p.selo)}</span>` : ''}
       <div style="${T};font-size:${p.ts || 160}px;line-height:.98;color:#fff;margin-top:26px">${linhas(p.manchete, t)}</div>
       ${p.sub ? `<p style="${I};font-size:30px;font-weight:500;line-height:1.4;color:#E3FFF8;margin:26px 0 0">${rico(p.sub, t)}</p>` : ''}
       <div style="display:grid;grid-template-columns:repeat(${lista(p.numeros).length},1fr);gap:16px;margin-top:40px">${lista(p.numeros).map(x => `<div style="background:rgba(3,40,32,.25);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:22px 20px">
-        <div style="${T};font-size:${x.px || 64}px;line-height:.9;color:#fff">${esc(x.n)}</div><div style="${I};font-size:20px;font-weight:600;line-height:1.3;color:#E3FFF8;margin-top:8px">${rico(x.rot, t)}</div></div>`).join('')}</div>
-    </div>
-    ${p.comenta ? `<div style="position:absolute;left:${M}px;right:${M}px;bottom:130px;display:flex;align-items:center;gap:20px;background:${COR.petroleo};border-radius:999px;padding:16px 22px;z-index:5">
-      <span style="${S};font-size:32px;font-weight:700;color:#fff">Comenta <span style="color:#3DF0A0">${esc(p.comenta)}</span></span><span style="margin-left:auto;${I};font-size:22px;font-weight:600;color:#E3FFF8">${esc(p.comentaTexto || 'e receba o link')}</span></div>` : ''}`);
+        <div style="${T};font-size:${x.px || 64}px;line-height:.9;color:#fff;white-space:nowrap">${esc(x.n)}</div><div style="${I};font-size:20px;font-weight:600;line-height:1.3;color:#E3FFF8;margin-top:8px">${rico(x.rot, t)}</div></div>`).join('')}</div>
+    ${p.comenta ? `<div style="margin-top:56px;display:flex;align-items:center;gap:20px;background:${COR.petroleo};border-radius:999px;padding:16px 22px">
+      <span style="${S};font-size:32px;font-weight:700;color:#fff">Comenta <span style="color:#3DF0A0">${esc(p.comenta)}</span></span><span style="margin-left:auto;${I};font-size:22px;font-weight:600;color:#E3FFF8">${esc(p.comentaTexto || 'e receba o link')}</span></div>` : ''}
+    </div></div>`);
 }
 
 export function renderCarrossel(p) {
@@ -161,6 +161,12 @@ export function renderCarrossel(p) {
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;${I};-webkit-font-smoothing:antialiased}section{position:relative;width:${W}px;height:${H}px;overflow:hidden}p{margin:0}</style></head>
 <body>${secoes.join('\n')}
-<script>document.fonts.ready.then(()=>{const fichas=[...document.querySelectorAll('.ficha-corpo')].flatMap(c=>{const p=c.parentElement.getBoundingClientRect(),r=c.getBoundingClientRect();return r.bottom>p.bottom-24?['ficha passa do cartão: '+(c.closest('section').querySelector('[style*="letter-spacing:.18em"]')||{}).textContent]:[]});window.__avisos=fichas.concat([...document.querySelectorAll('section')].flatMap((s,i)=>{const r=s.getBoundingClientRect();return [...s.querySelectorAll('div,p,span')].some(e=>{const b=e.getBoundingClientRect();return b.width&&(b.bottom>r.bottom-40||b.right>r.right+1)&&getComputedStyle(e).position!=='absolute'})?['slide '+(i+1)+': conteúdo passa da página']:[]}));window.__pronto=true});</script></body></html>`;
+<script>document.fonts.ready.then(()=>{
+document.querySelectorAll('.caixa').forEach(c=>{const e=c.firstElementChild,W=c.clientWidth,A=c.clientHeight;e.style.flex='none';
+  // procura o maior zoom (até 1,3x) em que o conteúdo, com a largura da caixa, ocupa no máximo 92% da altura
+  let lo=.7,hi=1.3;const cabe=z=>{e.style.zoom=z;e.style.width=(W/z)+'px';return e.getBoundingClientRect().height<=A*.92;};
+  if(cabe(hi)){return;} for(let k=0;k<14;k++){const m=(lo+hi)/2;if(cabe(m))lo=m;else hi=m;} cabe(lo);});
+const caixas=[...document.querySelectorAll('.caixa')].flatMap(c=>{const e=c.firstElementChild;return e.getBoundingClientRect().height>c.clientHeight+2?['conteúdo não cabe: '+(c.closest('section').querySelector('div').textContent||'').slice(0,30)]:[]});
+window.__avisos=caixas.concat([...document.querySelectorAll('section')].flatMap((s,i)=>{const r=s.getBoundingClientRect();return [...s.querySelectorAll('div,p,span')].some(e=>{const b=e.getBoundingClientRect();return b.width&&(b.bottom>r.bottom-40||b.right>r.right+1)&&getComputedStyle(e).position!=='absolute'})?['slide '+(i+1)+': conteúdo passa da página']:[]}));window.__pronto=true});</script></body></html>`;
   return { html, avisos, n: secoes.length };
 }
