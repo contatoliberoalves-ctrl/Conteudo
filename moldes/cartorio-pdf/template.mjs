@@ -2,6 +2,7 @@
 // Capa e contracapa no carvão; páginas no papel com cabeçalho (emblema + nome), título da página e
 // blocos: checklist, avisos, passos, valores, cards, lei e contato. A paginação é a do dados.json
 // (cada item de "paginas" é uma folha); o render avisa quando um conteúdo encosta no rodapé.
+// "local" troca o nome da serventia no cabeçalho e na capa (ex.: Rajada) e tira o contato de Curral Queimado.
 import { C, CAPS, CONTATO, DISPLAY, FUNDOS, HEAD, PRATA, emblema, esc, lista, logo, rico } from '../cartorio-comum/marca.mjs';
 
 export const W = 794, H = 1123;
@@ -22,14 +23,16 @@ const BLOCOS = {
   valores: b => `${h3(b.titulo)}<div style="display:grid;grid-template-columns:repeat(${lista(b.itens).length},1fr);gap:12px">${lista(b.itens).map(v => `<div style="background:${C.carvao};border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px"><span class="prataV" style="${DISPLAY};font-weight:700;font-size:40px;line-height:1">${esc(v.valor)}</span><span style="${CAPS};font-size:10px;color:#BDBBB4;line-height:1.5">${esc(v.rotulo)}</span></div>`).join('')}</div>${nota(b.nota)}`,
   cards: b => `${h3(b.titulo)}<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">${lista(b.itens).map(c => `<div style="background:#fff;border:1px solid ${C.linha};border-radius:10px;padding:14px 16px;${c.largo ? 'grid-column:1/-1;' : ''}"><div style="${DISPLAY};font-size:20px;color:${C.grafite};margin-bottom:6px">${rico(c.titulo, P)}</div><div style="font-size:12.5px;line-height:1.5;color:${C.grafite}">${rico(c.texto, P)}</div></div>`).join('')}</div>${nota(b.nota)}`,
   lei: b => `${h3(b.titulo)}<div style="background:#fff;border:1px solid ${C.linha};border-radius:10px;padding:16px 20px">${b.ref ? `<div style="${CAPS};font-size:10px;color:${C.cinza};margin-bottom:10px">${esc(b.ref)}</div>` : ''}${lista(b.itens).map(t => `<p style="font-family:'Cormorant Garamond';font-size:16.5px;line-height:1.45;color:${C.grafite};margin-bottom:6px">${rico(t, P)}</p>`).join('')}</div>${nota(b.nota)}`,
+  tabela: b => `${h3(b.titulo)}<div style="background:#fff;border:1px solid ${C.linha};border-radius:10px;overflow:hidden">${lista(b.linhas).map((l, i) => `<div style="display:grid;grid-template-columns:1.3fr 1fr;${i ? `border-top:1px solid ${C.linha};` : `background:${C.carvao};`}">${l.map((v, k) => `<div style="padding:12px 16px;${i ? `font-size:14px;color:${C.grafite};${k ? 'font-weight:600;' : ''}` : `${CAPS};font-size:10px;color:#D9D8D3;`}">${rico(v, i ? P : K)}</div>`).join('')}</div>`).join('')}</div>${nota(b.nota)}`,
+  assinatura: b => `<div style="margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:300px;height:1px;background:${C.grafite}"></span><span style="${DISPLAY};font-size:22px;color:${C.grafite}">${esc(b.nome)}</span>${b.cargo ? `<span style="${CAPS};font-size:10px;color:${C.cinza}">${esc(b.cargo)}</span>` : ''}</div>`,
   contato: b => `${h3(b.titulo)}<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px">${[['Endereço', CONTATO.endereco.join('\n')], ['Telefone', CONTATO.telefone], ['Agendamento', CONTATO.site]].map(([r, v]) => `<div style="background:#fff;border:1px solid ${C.linha};border-radius:10px;padding:12px 14px"><div style="${CAPS};font-size:9.5px;color:${C.cinza};margin-bottom:4px">${r}</div><div style="font-size:13px;line-height:1.45;color:${C.grafite};white-space:pre-line">${esc(v)}</div></div>`).join('')}</div>`,
 };
 
 const cabecalho = (c, pg) => `<div style="position:absolute;left:56px;right:56px;top:34px;display:flex;align-items:center;gap:14px">
-  ${emblema(46)}<div style="${CAPS};font-size:9.5px;line-height:1.55;color:${C.cinza}">Cartório do Registro Civil<br>de Curral Queimado</div>
+  ${emblema(46)}<div style="${CAPS};font-size:9.5px;line-height:1.55;color:${C.cinza}">Cartório do Registro Civil<br>de ${esc(c.local || 'Curral Queimado')}</div>
   <div style="margin-left:auto;${CAPS};font-size:9.5px;color:${C.cinza}">${esc(c.titulo)}</div></div>
   <div style="position:absolute;left:56px;right:56px;top:96px;height:1px;background:${fioP}"></div>
-  <div style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;${CAPS};font-size:9px;color:${C.cinza}"><span>${esc(CONTATO.telefone)} · ${esc(CONTATO.site)}</span><span>${String(pg).padStart(2, '0')}</span></div>`;
+  <div style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;${CAPS};font-size:9px;color:${C.cinza}"><span>${c.local ? '' : `${esc(CONTATO.telefone)} · ${esc(CONTATO.site)}`}</span><span>${String(pg).padStart(2, '0')}</span></div>`;
 
 const capa = c => `<section class="pagina" style="background:${C.carvao}">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 28%,rgba(255,255,255,.08),transparent 60%)"></div>
@@ -38,7 +41,7 @@ const capa = c => `<section class="pagina" style="background:${C.carvao}">
     <div style="display:flex;align-items:center;gap:16px"><span style="width:50px;height:1.5px;background:${PRATA}"></span><span style="${CAPS};font-size:13px;color:#BDBBB4">${esc(c.capa.rotulo)}</span><span style="width:50px;height:1.5px;background:${PRATA}"></span></div>
     <div class="prataV" style="${DISPLAY};font-size:${c.capa.ts || 70}px;line-height:1.02">${lista(c.capa.titulo).map(t => rico(t, K)).join('<br>')}</div>
     ${c.capa.sub ? `<div style="font-size:15px;line-height:1.55;color:#D9D8D3;max-width:520px">${rico(c.capa.sub, K)}</div>` : ''}</div>
-  <div style="position:absolute;left:0;right:0;bottom:70px;display:flex;justify-content:center">${logo(72, { comEmblema: false })}</div></section>`;
+  <div style="position:absolute;left:0;right:0;bottom:70px;display:flex;justify-content:center">${logo(72, { comEmblema: false, ...(c.local ? { sub: `Registro Civil das Pessoas Naturais de ${c.local}` } : {}) })}</div></section>`;
 
 const contracapa = c => `<section class="pagina" style="background:${C.carvao}">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,rgba(255,255,255,.07),transparent 60%)"></div>
@@ -56,7 +59,7 @@ const pagina = (c, p, pg) => `<section class="pagina" style="background:${C.pape
 export function renderCarrossel(c) {
   const html = `<!doctype html><html><head>${HEAD}<style>@page{size:210mm 297mm;margin:0}html,body{background:#888}
   .pagina{position:relative;width:${W}px;height:${H}px;overflow:hidden;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}</style></head>
-  <body>${capa(c)}${lista(c.paginas).map((p, i) => pagina(c, p, i + 2)).join('')}${contracapa(c)}
+  <body>${capa(c)}${lista(c.paginas).map((p, i) => pagina(c, p, i + 2)).join('')}${c.semContracapa ? '' : contracapa(c)}
   <script>document.fonts.ready.then(()=>{window.__pronto=true})</script></body></html>`;
   return { html, avisos: [] };
 }

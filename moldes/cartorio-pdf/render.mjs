@@ -9,7 +9,10 @@ import { renderCarrossel, W, H } from './template.mjs';
 
 if (!EMB) console.log('! sem moldes/cartorio-comum/assets/emblema.png: rode preparar_logo.py com a arte do emblema');
 const root = path.dirname(new URL(import.meta.url).pathname);
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')).filter(c => !process.argv[2] || c.id === process.argv[2]);
+// privado/*.json: documentos internos (propostas, dados de pessoas), fora do git.
+const priv = path.join(root, 'privado');
+const extras = fs.existsSync(priv) ? fs.readdirSync(priv).filter(f => f.endsWith('.json')).flatMap(f => JSON.parse(fs.readFileSync(path.join(priv, f), 'utf8'))) : [];
+const dados = [...JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')), ...extras].filter(c => !process.argv[2] || c.id === process.argv[2]);
 const browser = await abrirNavegador();
 fs.mkdirSync(path.join(root, 'build'), { recursive: true });
 const escala = 1080 / W;
