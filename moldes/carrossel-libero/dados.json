@@ -6744,22 +6744,11 @@
     "tema": "Frases que não ajudam quem estuda pra OAB; cada jornada é diferente; quer incentivar, apoie",
     "slides": [
       {
-        "tipo": "capa",
-        "tema": "dark",
-        "pre": "Não é legal",
-        "titulo": [
-          "Nem é",
-          "[[incentivo]]",
-          "falar isso"
-        ],
-        "texto": "Pra quem ainda está na luta pela OAB."
-      },
-      {
         "tipo": "frases",
-        "tema": "light",
+        "tema": "dark",
         "titulo": [
-          "Evite",
-          "[[dizer]]:"
+          "Não é legal",
+          "nem [[incentivo]] falar:"
         ],
         "frases": [
           "A prova da OAB é muito fácil.",
@@ -6775,22 +6764,16 @@
         "sub": "Cada um tem suas próprias dificuldades e dons."
       },
       {
-        "tipo": "balao",
-        "tema": "light",
-        "titulo": [
-          "Quer",
-          "[[incentivar]]?"
-        ],
-        "texto": "Ajude. Dê apoio."
-      },
-      {
         "tipo": "cta",
         "tema": "dark",
         "titulo": [
-          "Quer",
-          "[[criticar]]?"
+          "Quer incentivar?",
+          "[[Ajude, dê apoio.]]"
         ],
-        "texto": "Guarde sua falta de amor pra você.",
+        "texto": [
+          "Quer criticar?",
+          "**Guarde sua falta de amor pra você.**"
+        ],
         "botao": "Manda pra quem precisa ler"
       }
     ]
