@@ -14,3 +14,4 @@ Pasta `moldes/concurso-libero/`. Leia o `README.md` (tipos de slide e campos).
 5. Mande os PNGs, atualize a galeria principal (seção "Galeria" do `CLAUDE.md`, mesmo link) e faça commit.
 
 Fundos sempre em cores fixas (verde, petróleo, branco/papel) ou degradê leve entre dois verdes; o usuário achou o degradê com brilhos "cara de IA" nos posts.
+Capa: só o título pedido, centralizado, e um alerta de prazo (`alerta`) quando houver urgência; sem chips, selos, números, contador de página ou "arrasta". Miolo sem kicker e sem termos genéricos ("anota na agenda", "salva esse post"); títulos diretos.
