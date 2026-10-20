@@ -404,6 +404,23 @@ const CAPAS = {
       ${lista(s.opcoes).map((o, i) => `<div style="position:absolute;left:${pos[i][0]}px;top:${pos[i][1]}px;transform:rotate(${pos[i][2]}deg);background:${COR.navyFundo};color:#fff;border:3px solid ${R};font-size:40px;font-weight:800;padding:12px 30px;z-index:5">${esc(o)}</div>`).join('')}
       ${s.texto ? `<div style="position:absolute;left:110px;right:110px;bottom:180px;text-align:center;font-size:44px;font-weight:800;color:#fff;z-index:5">${rico(s.texto, t)}</div>` : ''}${pe(t, true)}`;
   },
+  // Alerta: aviso oficial no fundo navy, com fitas de atenção (listras vermelhas) cruzando o alto e o pé,
+  // triângulo de alerta gigante e etiqueta. Campos: pre (etiqueta), titulo, texto, fita (texto da fita), ts.
+  alerta(s, t) {
+    const R = COR.vermelho;
+    const fita = (y, rot) => `<div style="position:absolute;left:-120px;right:-120px;top:${y}px;height:84px;transform:rotate(${rot}deg);background:repeating-linear-gradient(-45deg,${R} 0 34px,#fff 34px 68px);box-shadow:0 14px 30px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:2">
+        <span style="background:${COR.navyFundo};color:#fff;${TITULO};font-size:52px;line-height:1;padding:8px 26px 2px;letter-spacing:.06em">${esc(s.fita || 'Atenção · Aviso oficial')}</span></div>`;
+    return `<div style="position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 42%,#1d2c4f 0%,${COR.navyFundo} 70%);z-index:0"></div>
+      ${fita(70, -4)}${fita(1170, 3)}
+      <svg viewBox="0 0 200 180" style="position:absolute;left:50%;top:230px;width:300px;transform:translateX(-50%);z-index:3;filter:drop-shadow(0 18px 40px rgba(255,45,85,.35))">
+        <path d="M100 10 L190 170 L10 170 Z" fill="${R}" stroke="#fff" stroke-width="8" stroke-linejoin="round"/>
+        <rect x="91" y="62" width="18" height="62" rx="9" fill="#fff"/><circle cx="100" cy="146" r="11" fill="#fff"/></svg>
+      <div data-area style="position:absolute;left:80px;right:80px;top:530px;bottom:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;text-align:center;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.navyFundo};font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 26px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 150}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1>
+        ${s.texto ? `<p data-corpo style="margin:0;font-size:40px;font-weight:600;line-height:1.3;color:#C9D4EA;max-width:860px">${rico(s.texto, TEMAS.dark)}</p>` : ''}
+      </div>`;
+  },
   // Semana: dois calendários de 7 dias (antes x agora) com os dias de trabalho e as folgas, e um carimbo.
   // Campos: kicker, titulo, linhas ([{rotulo, folgas: [índices 0–6], riscar}]), carimbo (texto do carimbo vermelho), texto.
   semana(s, t) {
