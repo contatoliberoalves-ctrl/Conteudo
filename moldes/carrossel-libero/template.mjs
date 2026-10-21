@@ -421,6 +421,19 @@ const CAPAS = {
         ${s.texto ? `<p data-corpo style="margin:0;font-size:40px;font-weight:600;line-height:1.3;color:#C9D4EA;max-width:860px">${rico(s.texto, TEMAS.dark)}</p>` : ''}
       </div>`;
   },
+  // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
+  // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
+  bolao(s, t) {
+    const R = COR.vermelho, it = lista(s.itens);
+    const cel = (o, i) => `<div style="position:relative;background:${i % 2 ? '#fff' : COR.off};border-radius:22px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 12px 26px rgba(8,16,40,.28)">
+        <span style="position:absolute;top:-16px;right:-10px;background:${R};color:#fff;${TITULO};font-size:34px;line-height:1;padding:8px 14px 4px;border-radius:12px;transform:rotate(6deg);box-shadow:0 6px 14px rgba(0,0,0,.25)">+${esc(o.pontos)}</span>
+        <span style="font-size:${s.tc || 29}px;font-weight:700;line-height:1.2;color:${COR.navy}">${rico(o.texto, TEMAS.light)}</span></div>`;
+    return `<div style="position:absolute;left:70px;right:70px;top:80px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 130}px;line-height:.98;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1></div>
+      <div data-area style="position:absolute;left:60px;right:60px;top:${s.gradeY || 370}px;height:${s.gradeH || 760}px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:26px 22px;z-index:4">${it.map(cel).join('')}</div>
+      ${s.texto ? `<div style="position:absolute;left:60px;right:60px;bottom:70px;display:flex;justify-content:center;z-index:5"><div style="background:${COR.navyFundo};color:#fff;${TITULO};font-size:64px;line-height:1;padding:18px 36px 10px;border-radius:18px;transform:rotate(-1.5deg)">${rico(s.texto, { ...t, caixa: R })}</div></div>` : ''}`;
+  },
   // Semana: dois calendários de 7 dias (antes x agora) com os dias de trabalho e as folgas, e um carimbo.
   // Campos: kicker, titulo, linhas ([{rotulo, folgas: [índices 0–6], riscar}]), carimbo (texto do carimbo vermelho), texto.
   semana(s, t) {
