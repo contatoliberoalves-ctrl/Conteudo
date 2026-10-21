@@ -6832,5 +6832,97 @@
         "texto": "Quantos pontos [[você]] fez?"
       }
     ]
+  },
+  {
+    "id": "local-de-votacao-2turno",
+    "titulo": "Seu local de votação pode ter mudado (2º turno)",
+    "tema": "Alerta do TSE: confira o local de votação antes do 2º turno de 25/10/2026",
+    "fonte": "Senado Notícias (20/10/2026) e TSE: TREs divulgam os locais de votação do 2º turno",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "alerta",
+        "tema": "dark",
+        "pre": "O TSE avisou",
+        "fita": "Atenção · 2º turno · 25/10",
+        "titulo": [
+          "Seu local de",
+          "votação pode ter",
+          "[[mudado]]"
+        ],
+        "ts": 118,
+        "texto": "Antes de sair de casa no domingo, **confere onde você vota**."
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Por que mudou?",
+        "titulo": [
+          "Chuva, obra",
+          "e [[acessibilidade]]"
+        ],
+        "palavra": "Mudou",
+        "texto": [
+          "Algumas escolas e prédios usados como local de votação foram afetados por **chuvas fortes**, estão em **reforma** ou passaram por **melhorias de acessibilidade**.",
+          "Aí as seções precisaram ir pra outro endereço."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Quantas mudaram",
+        "titulo": [
+          "441 seções",
+          "em [[142 locais]]"
+        ],
+        "palavra": "441",
+        "texto": [
+          "É o número que o TSE divulgou em 20/10. Antes, a previsão era de cerca de **4,3 mil seções**.",
+          "Os números ainda podem mudar enquanto as zonas eleitorais terminam os ajustes."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "light",
+        "titulo": [
+          "Como",
+          "[[conferir]]"
+        ],
+        "marcador": "num",
+        "itens": [
+          "Entre no site do **TSE** ou do **TRE do seu estado**",
+          "Ou abra o app **e-Título**",
+          "Confira **endereço, zona e seção**",
+          "Pediu transferência temporária? **Confira também**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "E quem decide?",
+        "titulo": [
+          "É o",
+          "[[TRE]]"
+        ],
+        "palavra": "TRE",
+        "texto": [
+          "A mudança de local é feita pelos **Tribunais Regionais Eleitorais**. O TSE não altera nem pede a mudança.",
+          "Cada TRE vai divulgar os locais modificados por todos os meios disponíveis."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "titulo": [
+          "Confere hoje,",
+          "não no [[domingo]]"
+        ],
+        "texto": [
+          "Evita fila, correria e surpresa na porta da escola errada.",
+          "Manda pro grupo da família: sempre tem alguém que não sabe."
+        ],
+        "botao": "Compartilha esse aviso"
+      }
+    ]
   }
 ]
