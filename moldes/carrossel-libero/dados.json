@@ -6841,17 +6841,22 @@
     "slides": [
       {
         "tipo": "capa",
-        "estilo": "alerta",
-        "tema": "dark",
-        "pre": "O TSE avisou",
-        "fita": "Atenção · 2º turno · 25/10",
+        "estilo": "urna",
+        "tema": "blue",
+        "pre": "O TSE avisou · 2º turno 25/10",
         "titulo": [
           "Seu local de",
           "votação pode ter",
           "[[mudado]]"
         ],
         "ts": 118,
-        "texto": "Antes de sair de casa no domingo, **confere onde você vota**."
+        "tela": [
+          "Seu local de votação",
+          "~~A escola de sempre~~",
+          "Novo endereço: ???",
+          "Confere [[antes]] de domingo"
+        ],
+        "texto": "Antes de sair de casa, **confere onde você vota**."
       },
       {
         "tipo": "texto",

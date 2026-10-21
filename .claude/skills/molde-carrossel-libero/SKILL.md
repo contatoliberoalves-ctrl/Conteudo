@@ -29,3 +29,4 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
 5. Atualize a galeria (seção "Galeria" do `CLAUDE.md`, sempre no mesmo link) e faça commit de `dados.json`.
 
 - O autor não gosta da capa `manchete` (jornal "O Libero"): prefira a capa com foto ou outro estilo.
+- Posts de aviso, comunicado ou alerta: cada um com uma capa **diferente e criativa**, ligada ao tema (ex.: `urna` para eleição, `alerta` para comunicado oficial). Não repita a mesma capa em avisos seguidos: se nenhum estilo combinar, crie um novo.

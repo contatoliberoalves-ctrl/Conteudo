@@ -421,6 +421,33 @@ const CAPAS = {
         ${s.texto ? `<p data-corpo style="margin:0;font-size:40px;font-weight:600;line-height:1.3;color:#C9D4EA;max-width:860px">${rico(s.texto, TEMAS.dark)}</p>` : ''}
       </div>`;
   },
+  // Urna: urna eletrônica desenhada, com o aviso na tela verde (~~riscado~~ e [[destaque]]) e um pino de
+  // mapa saindo do canto. Para avisos de eleição. Campos: pre, titulo, ts, tela ([linhas]; a 1ª é o
+  // cabeçalho), texto (frase abaixo da urna).
+  urna(s, t) {
+    const R = COR.vermelho, L = lista(s.tela);
+    const tela = l => esc(l).replace(/~~(.+?)~~/g, `<s style="text-decoration-thickness:5px;text-decoration-color:${R};opacity:.6">$1</s>`)
+      .replace(/\[\[(.+?)\]\]/g, `<span style="background:${R};color:#fff;padding:0 10px">$1</span>`).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+    const tecla = (n, bg = '#20242C', cor = '#fff', w = 64) => `<div style="width:${w}px;height:52px;border-radius:9px;background:${bg};color:${cor};display:flex;align-items:center;justify-content:center;font-size:${w > 64 ? 14 : 28}px;font-weight:800;box-shadow:inset 0 -5px 0 rgba(0,0,0,.28)">${n}</div>`;
+    return `<div style="position:absolute;left:90px;right:90px;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 124}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      <div data-objeto style="position:absolute;left:70px;top:${s.urnaY || 600}px;width:940px;height:470px;transform:rotate(-3deg);border-radius:34px;background:linear-gradient(160deg,#F3F4F6 0%,#C9CDD4 100%);box-shadow:0 40px 70px rgba(8,16,40,.5),inset 0 -14px 0 rgba(0,0,0,.08);z-index:3">
+        <div style="position:absolute;left:34px;top:34px;width:560px;height:402px;border-radius:16px;background:#1A1E25;padding:18px">
+          <div style="width:100%;height:100%;border-radius:8px;background:linear-gradient(180deg,#E8F3DF 0%,#D2E6C4 100%);padding:26px 30px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;color:#15211A;font-family:'Schibsted Grotesk',sans-serif">
+            ${L.map((l, i) => i ? `<div style="font-size:${i === L.length - 1 ? 50 : 36}px;font-weight:${i === L.length - 1 ? 800 : 600};line-height:1.15">${tela(l)}</div>` : `<div style="font-size:22px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-bottom:3px solid #15211A;padding-bottom:10px">${tela(l)}</div>`).join('')}
+          </div></div>
+        <div style="position:absolute;left:624px;top:34px;width:282px;height:402px;border-radius:16px;background:#2B3038;padding:22px 20px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;align-items:center">
+          <div style="font-size:15px;font-weight:800;letter-spacing:.2em;color:#9AA3B2">JUSTIÇA ELEITORAL</div>
+          <div style="display:grid;grid-template-columns:repeat(3,64px);gap:10px">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => tecla(n)).join('')}<div></div>${tecla(0)}<div></div></div>
+          <div style="display:flex;gap:6px;margin-top:4px">${tecla('BRANCO', '#fff', '#20242C', 72)}${tecla('CORRIGE', '#F28C28', '#20242C', 72)}${tecla('CONFIRMA', '#2E9E44', '#fff', 86)}</div>
+        </div>
+        <svg viewBox="0 0 100 130" style="position:absolute;right:-30px;top:-120px;width:150px;transform:rotate(12deg);filter:drop-shadow(0 16px 26px rgba(0,0,0,.4))"><path d="M50 4C25 4 6 23 6 47c0 32 44 77 44 77s44-45 44-77C94 23 75 4 50 4z" fill="${R}" stroke="#fff" stroke-width="6"/><circle cx="50" cy="46" r="16" fill="#fff"/></svg>
+      </div>
+      ${s.texto ? `<div style="position:absolute;left:90px;right:90px;top:${(s.urnaY || 600) + 540}px;font-size:38px;font-weight:600;line-height:1.3;color:#fff;z-index:4">${rico(s.texto, t)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
   bolao(s, t) {
