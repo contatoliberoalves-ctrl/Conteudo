@@ -6929,5 +6929,72 @@
         "botao": "Compartilha esse aviso"
       }
     ]
+  },
+  {
+    "id": "aulas-gratis-petrolina-juazeiro",
+    "titulo": "Aulas gratuitas: alunos de Petrolina e Juazeiro",
+    "tema": "Tela única: aulas gratuitas com o Método VDE para os afetados pelo cancelamento das provas da 2ª fase em Petrolina e Juazeiro; comente #AULA",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "convite",
+        "tema": "blue",
+        "alerta": "Atenção!",
+        "titulo": [
+          "Alunos de",
+          "[[Petrolina]]",
+          "e [[Juazeiro]]"
+        ],
+        "cartao": {
+          "titulo": [
+            "Aulas gratuitas"
+          ],
+          "texto": "Em parceria com o **Método VDE**, estarei ministrando algumas aulas **gratuitas** para os alunos afetados pelo cancelamento das provas."
+        },
+        "logo": "vde-logo-cor.png",
+        "parceria": "Parceria",
+        "cta": {
+          "texto": "Para entrar no grupo e saber mais, **comente**",
+          "tag": "#AULA"
+        },
+        "ts": 108,
+        "cartaoY": 585
+      }
+    ]
+  },
+  {
+    "id": "aulas-gratis-petrolina-juazeiro-foto",
+    "titulo": "Aulas gratuitas: alunos de Petrolina e Juazeiro (com foto)",
+    "tema": "Tela única: aulas gratuitas com o Método VDE para os afetados pelo cancelamento das provas da 2ª fase em Petrolina e Juazeiro; comente #AULA",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "convite",
+        "tema": "blue",
+        "alerta": "Atenção!",
+        "titulo": [
+          "Alunos de",
+          "[[Petrolina]]",
+          "e [[Juazeiro]]"
+        ],
+        "cartao": {
+          "titulo": [
+            "Aulas gratuitas"
+          ],
+          "texto": "Em parceria com o **Método VDE**, estarei ministrando algumas aulas **gratuitas** para os alunos afetados pelo cancelamento das provas."
+        },
+        "logo": "vde-logo-cor.png",
+        "parceria": "Parceria",
+        "cta": {
+          "texto": "Para entrar no grupo e saber mais, **comente**",
+          "tag": "#AULA"
+        },
+        "foto": "recorte-0211.png",
+        "ts": 108,
+        "cartaoY": 585,
+        "fotoX": -120,
+        "fotoH": 900
+      }
+    ]
   }
 ]

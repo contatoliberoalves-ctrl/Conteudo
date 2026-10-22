@@ -448,6 +448,36 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
   },
+  // Convite: aviso "Atenção!" em selo vermelho, título com o público, um ingresso branco (canhoto "Grátis",
+  // picote e furos laterais) com o recado e o logo do parceiro, e um comentário do Insta com a palavra-chave.
+  // Com "foto" (recorte PNG sem fundo), a pessoa entra à direita e o ingresso fica mais estreito.
+  // Campos: alerta, titulo, ts, cartao {titulo, texto}, selo (canhoto), logo (arquivo em fotos/), parceria
+  // (texto antes do logo), cta {texto, tag}, foto.
+  convite(s, t, c) {
+    const R = COR.vermelho, F = !!s.foto, cart = s.cartao || {}, cta = s.cta || {};
+    const larg = F ? 640 : 900, tw = F ? 560 : 860;
+    const furo = (lado, y) => `<span style="position:absolute;${lado}:-26px;top:${y};width:52px;height:52px;border-radius:50%;background:${COR.azulFundo}"></span>`;
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 85% 10%,#2B6BF0 0%,${COR.azul} 40%,${COR.azulFundo} 100%);z-index:0"></div>
+      <div style="position:absolute;right:-240px;top:-240px;width:620px;height:620px;border-radius:50%;border:2px dashed rgba(255,255,255,.22);z-index:1"></div>
+      ${F ? `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;right:${s.fotoX ?? -150}px;bottom:0;height:${s.fotoH || 1000}px;z-index:2;filter:drop-shadow(0 30px 40px rgba(8,16,40,.45))">` : ''}
+      <div style="position:absolute;left:90px;top:90px;width:${tw}px;display:flex;flex-direction:column;align-items:flex-start;gap:26px;z-index:4">
+        <div style="display:flex;align-items:center;gap:14px;background:${R};color:#fff;padding:12px 28px 8px;transform:rotate(-3deg);box-shadow:0 14px 26px rgba(8,16,40,.35)"><svg viewBox="0 0 200 180" width="48"><path d="M100 14 L188 168 L12 168 Z" fill="#fff"/><rect x="91" y="62" width="18" height="60" rx="9" fill="${R}"/><circle cx="100" cy="144" r="11" fill="${R}"/></svg><span style="${TITULO};font-size:60px;line-height:1">${esc(s.alerta || 'Atenção!')}</span></div>
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 128}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.navyFundo })).join('<br>')}</h1></div>
+      <div data-area style="position:absolute;left:70px;top:${s.cartaoY || 560}px;width:${larg}px;display:flex;background:#fff;border-radius:26px;box-shadow:0 34px 60px rgba(8,16,40,.45);transform:rotate(-1.5deg);z-index:3">
+        <div style="position:relative;flex:none;width:${F ? 96 : 120}px;border-right:5px dashed #C9CFDB;display:flex;align-items:center;justify-content:center">
+          <div style="writing-mode:vertical-rl;transform:rotate(180deg);${TITULO};font-size:${F ? 62 : 76}px;line-height:1;color:${R};letter-spacing:.04em">${esc(s.selo || 'Grátis')}</div>
+          ${furo('left', '18%')}</div>
+        <div style="position:relative;flex:1;padding:${F ? '30px 32px 26px' : '34px 44px 30px'};display:flex;flex-direction:column;gap:${F ? 16 : 20}px">
+          <div style="${TITULO};font-size:${F ? 66 : 84}px;line-height:.95;color:${COR.azul}">${lista(cart.titulo).map(l => rico(l, TEMAS.light)).join('<br>')}</div>
+          <p data-corpo style="margin:0;font-size:${F ? 30 : 36}px;font-weight:500;line-height:1.3;color:${COR.navy}">${rico(cart.texto, TEMAS.light)}</p>
+          ${s.logo ? `<div style="display:flex;align-items:center;gap:18px;border-top:3px solid #E4E6EA;padding-top:${F ? 16 : 20}px;margin-top:4px"><span style="font-size:${F ? 22 : 26}px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6B7590">${esc(s.parceria || 'Em parceria com')}</span><img src="${foto(c, s.logo)}" style="height:${F ? 62 : 76}px"></div>` : ''}
+          ${furo('right', '18%')}</div></div>
+      <div style="position:absolute;left:70px;${F ? 'width:720px' : 'right:70px'};bottom:118px;display:flex;align-items:center;gap:22px;background:#fff;border-radius:999px;padding:16px 34px 16px 16px;box-shadow:0 20px 40px rgba(8,16,40,.4);z-index:4">
+        <span style="flex:none;width:76px;height:76px;border-radius:50%;background:${COR.navyFundo};display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="40" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+        <span style="flex:1;font-size:${F ? 28 : 32}px;font-weight:600;line-height:1.2;color:${COR.navy}">${rico(cta.texto || 'Comente', TEMAS.light)}</span>
+        <span style="flex:none;background:${R};color:#fff;${TITULO};font-size:${F ? 60 : 70}px;line-height:1;padding:12px 26px 6px;border-radius:16px;transform:rotate(-3deg)">${esc(cta.tag || '#AULA')}</span></div>
+      <div style="position:absolute;left:90px;bottom:44px;font-size:28px;font-weight:700;color:#fff;z-index:4">${PERFIL}</div>`;
+  },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
   bolao(s, t) {
