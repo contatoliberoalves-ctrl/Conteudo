@@ -478,6 +478,49 @@ const CAPAS = {
         <span style="flex:none;background:${R};color:#fff;${TITULO};font-size:${F ? 60 : 70}px;line-height:1;padding:12px 26px 6px;border-radius:16px;transform:rotate(-3deg)">${esc(cta.tag || '#AULA')}</span></div>
       <div style="position:absolute;left:90px;bottom:44px;font-size:28px;font-weight:700;color:#fff;z-index:4">${PERFIL}</div>`;
   },
+  // Cartaz (tema dark): "@liberofilho × logo do parceiro" no alto, palavra vazada gigante ao fundo, título em
+  // caixa alta, faixa azul com o assunto, recado e CTA com a hashtag num bloco vermelho inclinado. Com "foto"
+  // (recorte PNG), a pessoa entra à direita. Campos: pre (pílula vermelha), titulo, ts, faixa, texto, vazado,
+  // logo (versão branca), cta {texto, tag}, foto, fotoX, fotoH.
+  cartaz(s, t, c) {
+    const R = COR.vermelho, F = !!s.foto, cta = s.cta || {}, w = F ? 560 : 900;
+    return `<div style="position:absolute;right:-60px;top:0;bottom:0;display:flex;align-items:center;writing-mode:vertical-rl;${TITULO};font-size:420px;line-height:.8;color:transparent;-webkit-text-stroke:4px rgba(143,176,255,.22);z-index:1">${esc(s.vazado || 'Grátis')}</div>
+      ${F ? `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;right:${s.fotoX ?? -110}px;bottom:0;height:${s.fotoH || 940}px;z-index:2;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))">` : ''}
+      <div style="position:absolute;left:90px;top:80px;display:flex;align-items:center;gap:22px;z-index:4"><span style="font-size:30px;font-weight:800;color:#fff">${PERFIL}</span><span style="font-size:40px;font-weight:300;color:${COR.azulClaro}">×</span>${s.logo ? `<img src="${foto(c, s.logo)}" style="height:64px">` : ''}</div>
+      <div data-area style="position:absolute;left:90px;top:210px;width:${w}px;display:flex;flex-direction:column;align-items:flex-start;gap:26px;z-index:4">
+        ${s.pre ? `<div style="background:${R};color:#fff;font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 150}px;line-height:.9;color:#fff">${lista(s.titulo).map(l => rico(l, t).replace(/<span style="background:[^;]+;color:#fff;padding:0 14px;[^"]*">(.+?)<\/span>/g, `<span style="color:${COR.azulClaro}">$1</span>`)).join('<br>')}</h1>
+        ${s.faixa ? `<div style="background:${COR.azul};color:#fff;${TITULO};font-size:${F ? 64 : 78}px;line-height:1;padding:14px 26px 8px;box-shadow:12px 12px 0 ${R}">${esc(s.faixa)}</div>` : ''}
+        ${s.texto ? `<p data-corpo style="margin:12px 0 0;font-size:${F ? 32 : 38}px;font-weight:500;line-height:1.35;color:#C9D4EA">${rico(s.texto, t)}</p>` : ''}
+      </div>
+      <div style="position:absolute;left:90px;bottom:${s.ctaY || 90}px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;z-index:4">
+        <span style="font-size:${F ? 30 : 34}px;font-weight:600;color:#fff;max-width:${F ? 520 : 800}px;line-height:1.25">${rico(cta.texto || 'Comente', t)}</span>
+        <span style="background:${R};color:#fff;${TITULO};font-size:${F ? 120 : 140}px;line-height:1;padding:14px 36px 4px;transform:rotate(-4deg);transform-origin:left;box-shadow:0 20px 40px rgba(0,0,0,.4)">${esc(cta.tag || '#AULA')}</span></div>`;
+  },
+  // Bilhete (tema light): papel quadriculado, um bilhete branco preso com fitas, carimbo redondo, logo do
+  // parceiro e, embaixo, um comentário do Insta com a hashtag e a seta "comenta assim".
+  // Campos: alerta, titulo, ts, texto, carimbo ([2 linhas]), logo, parceria, cta {texto, tag, usuario}.
+  bilhete(s, t, c) {
+    const R = COR.vermelho, cta = s.cta || {};
+    const fita = (x, rot) => `<span style="position:absolute;top:-28px;${x};width:170px;height:56px;background:rgba(143,176,255,.55);transform:rotate(${rot}deg);box-shadow:0 2px 6px rgba(0,0,0,.08)"></span>`;
+    const c1 = lista(s.carimbo || ['Aulas', 'Grátis']);
+    return `<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(11,79,216,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(11,79,216,.08) 2px,transparent 2px);background-size:54px 54px;z-index:0"></div>
+      <div data-area style="position:absolute;left:80px;right:80px;top:110px;background:#fff;padding:60px 56px 44px;transform:rotate(-1.5deg);box-shadow:0 30px 60px rgba(20,33,58,.18);display:flex;flex-direction:column;gap:26px;z-index:3">
+        ${fita('left:60px', -6)}${fita('right:60px', 5)}
+        <div style="${TITULO};font-size:56px;line-height:1;color:${R}">${esc(s.alerta || 'Atenção!')}</div>
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 120}px;line-height:1.02;color:${COR.azul}">${lista(s.titulo).map(l => rico(l, t)).join('<br>')}</h1>
+        <span style="display:block;width:120px;height:10px;background:${R}"></span>
+        <p data-corpo style="margin:0;font-size:38px;font-weight:500;line-height:1.35;color:${COR.navy}">${rico(s.texto, TEMAS.light)}</p>
+        ${s.logo ? `<div style="display:flex;align-items:center;gap:20px;margin-top:6px"><span style="font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6B7590">${esc(s.parceria || 'Em parceria com')}</span><img src="${foto(c, s.logo)}" style="height:80px"></div>` : ''}
+      </div>
+      <div style="position:absolute;right:70px;top:${s.carimboY || 150}px;width:250px;height:250px;border-radius:50%;border:8px solid ${R};outline:3px solid ${R};outline-offset:-22px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(14deg);color:${R};${TITULO};font-size:64px;line-height:.9;text-align:center;background:rgba(255,255,255,.6);z-index:4">${c1.map(esc).join('<br>')}</div>
+      <div style="position:absolute;left:80px;right:80px;bottom:${s.ctaY || 110}px;display:flex;align-items:center;gap:22px;background:#fff;border-radius:24px;padding:22px 30px;box-shadow:0 18px 40px rgba(20,33,58,.16);z-index:4">
+        <span style="flex:none;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,${COR.azul},${R})"></span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:24px;font-weight:700;color:#6B7590">${esc(cta.usuario || 'você')}</span><span style="${TITULO};font-size:76px;line-height:1;color:${COR.navy}">${esc(cta.tag || '#AULA')}</span></div>
+        <svg viewBox="0 0 24 24" width="44" fill="none" stroke="${R}" stroke-width="2"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.6 0 6 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill="${R}"/></svg></div>
+      <div style="position:absolute;left:110px;bottom:${(s.ctaY || 110) + 150}px;display:flex;align-items:flex-end;gap:12px;z-index:4"><span style="font-size:32px;font-weight:700;color:${COR.navy}">${rico(cta.texto || 'Comenta assim', TEMAS.light)}</span><svg viewBox="0 0 60 60" width="56" fill="none" stroke="${R}" stroke-width="5" stroke-linecap="round"><path d="M10 8c22 4 30 18 26 40"/><path d="M26 40l10 10 10-12"/></svg></div>
+      <div style="position:absolute;left:80px;bottom:44px;font-size:28px;font-weight:700;color:${COR.navy};z-index:4">${PERFIL}</div>`;
+  },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
   bolao(s, t) {

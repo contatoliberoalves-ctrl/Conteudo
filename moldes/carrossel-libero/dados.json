@@ -6996,5 +6996,64 @@
         "fotoH": 900
       }
     ]
+  },
+  {
+    "id": "aulas-gratis-petrolina-juazeiro-cartaz",
+    "titulo": "Aulas gratuitas: Petrolina e Juazeiro (cartaz escuro, com foto)",
+    "tema": "Tela única: aulas gratuitas com o Método VDE para os afetados pelo cancelamento das provas da 2ª fase em Petrolina e Juazeiro; comente #AULA",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "cartaz",
+        "tema": "dark",
+        "aneis": "baixo",
+        "pre": "Atenção, alunos de",
+        "titulo": [
+          "Petrolina",
+          "e [[Juazeiro]]"
+        ],
+        "ts": 118,
+        "faixa": "Aulas gratuitas",
+        "texto": "Em parceria com o **Método VDE**, estarei ministrando algumas aulas **gratuitas** para os alunos afetados pelo cancelamento das provas.",
+        "logo": "vde-logo-branco.png",
+        "vazado": "Grátis",
+        "foto": "recorte-0341.png",
+        "cta": {
+          "texto": "Pra entrar no grupo e saber mais, **comente**",
+          "tag": "#AULA"
+        }
+      }
+    ]
+  },
+  {
+    "id": "aulas-gratis-petrolina-juazeiro-bilhete",
+    "titulo": "Aulas gratuitas: Petrolina e Juazeiro (bilhete, fundo claro)",
+    "tema": "Tela única: aulas gratuitas com o Método VDE para os afetados pelo cancelamento das provas da 2ª fase em Petrolina e Juazeiro; comente #AULA",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "bilhete",
+        "tema": "light",
+        "alerta": "Atenção!",
+        "titulo": [
+          "Alunos de",
+          "Petrolina e",
+          "Juazeiro"
+        ],
+        "texto": "Em parceria com o **Método VDE**, estarei ministrando algumas aulas **gratuitas** para os alunos afetados pelo cancelamento das provas.",
+        "carimbo": [
+          "Aulas",
+          "Grátis"
+        ],
+        "logo": "vde-logo-cor.png",
+        "parceria": "Em parceria com",
+        "cta": {
+          "texto": "Pra entrar no grupo e saber mais, **comenta assim**",
+          "tag": "#AULA",
+          "usuario": "seu perfil"
+        },
+        "ts": 108
+      }
+    ]
   }
 ]
