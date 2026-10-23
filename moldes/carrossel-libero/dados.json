@@ -7077,28 +7077,49 @@
     ]
   },
   {
-    "id": "realidade-muda-papel",
-    "titulo": "Estuda que a realidade muda · bilhete",
-    "tema": "Tela única emocional (tons pastel): Estuda que a realidade muda",
+    "id": "realidade-muda-off",
+    "titulo": "Estuda que a realidade muda · off-white",
+    "tema": "Tela única emocional, leve, na identidade do insta pessoal: Estuda que a realidade muda",
     "slides": [
       {
         "tipo": "capa",
         "estilo": "suave",
         "tema": "light",
-        "variante": "papel",
+        "variante": "off",
+        "kicker": "Lembrete",
         "titulo": [
-          "Estuda, que a",
-          "realidade muda.",
-          "Um dia de cada vez."
+          "Estuda,",
+          "que a",
+          "realidade",
+          "[[muda.]]"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "realidade-muda-claro",
+    "titulo": "Estuda que a realidade muda · azul claro",
+    "tema": "Tela única emocional, leve, na identidade do insta pessoal: Estuda que a realidade muda",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "suave",
+        "tema": "light",
+        "variante": "claro",
+        "titulo": [
+          "Estuda,",
+          "que a",
+          "realidade",
+          "[[muda.]]"
         ],
-        "papelY": 440
+        "vazado": "MUDA"
       }
     ]
   },
   {
     "id": "realidade-muda-paisagem",
     "titulo": "Estuda que a realidade muda · paisagem",
-    "tema": "Tela única emocional (tons pastel): Estuda que a realidade muda",
+    "tema": "Tela única emocional, leve, na identidade do insta pessoal: Estuda que a realidade muda",
     "slides": [
       {
         "tipo": "capa",
@@ -7107,65 +7128,46 @@
         "variante": "paisagem",
         "foto": "paisagem-3.jpg",
         "titulo": [
-          "Estuda, que a realidade muda.",
-          "Devagar, mas muda."
+          "Estuda, que a",
+          "realidade [[muda.]]"
         ]
       }
     ]
   },
   {
-    "id": "realidade-muda-ceu",
-    "titulo": "Estuda que a realidade muda · céu",
-    "tema": "Tela única emocional (tons pastel): Estuda que a realidade muda",
+    "id": "realidade-muda-azul",
+    "titulo": "Estuda que a realidade muda · azul",
+    "tema": "Tela única emocional, leve, na identidade do insta pessoal: Estuda que a realidade muda",
     "slides": [
       {
         "tipo": "capa",
         "estilo": "suave",
         "tema": "light",
-        "variante": "ceu",
-        "titulo": [
-          "estuda,",
-          "que a",
-          "realidade",
-          "muda."
-        ],
-        "ts": 178,
-        "textoY": 400
-      }
-    ]
-  },
-  {
-    "id": "realidade-muda-repeticao",
-    "titulo": "Estuda que a realidade muda · repetição",
-    "tema": "Tela única emocional (tons pastel): Estuda que a realidade muda",
-    "slides": [
-      {
-        "tipo": "capa",
-        "estilo": "suave",
-        "tema": "light",
-        "variante": "repeticao",
-        "texto": "Estuda hoje, revisa amanhã, erra, corrige e volta pro caderno. Uma hora a realidade",
-        "palavra": "muda",
-        "repete": 64,
-        "destaque": 37
-      }
-    ]
-  },
-  {
-    "id": "realidade-muda-nevoa",
-    "titulo": "Estuda que a realidade muda · névoa",
-    "tema": "Tela única emocional (tons pastel): Estuda que a realidade muda",
-    "slides": [
-      {
-        "tipo": "capa",
-        "estilo": "suave",
-        "tema": "light",
-        "variante": "nevoa",
+        "variante": "azul",
         "titulo": [
           "Estuda,",
           "que a",
           "realidade",
-          "muda."
+          "[[muda.]]"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "realidade-muda-caderno",
+    "titulo": "Estuda que a realidade muda · caderno",
+    "tema": "Tela única emocional, leve, na identidade do insta pessoal: Estuda que a realidade muda",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "suave",
+        "tema": "light",
+        "variante": "caderno",
+        "titulo": [
+          "Estuda,",
+          "que a",
+          "realidade",
+          "[[muda.]]"
         ]
       }
     ]

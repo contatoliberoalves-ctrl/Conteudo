@@ -30,3 +30,4 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
 
 - O autor não gosta da capa `manchete` (jornal "O Libero"): prefira a capa com foto ou outro estilo.
 - Posts de aviso, comunicado ou alerta: cada um com uma capa **diferente e criativa**, ligada ao tema (ex.: `urna` para eleição, `alerta` para comunicado oficial). Não repita a mesma capa em avisos seguidos: se nenhum estilo combinar, crie um novo.
+- Frases emocionais ou inspiradoras: use a capa `suave`, na identidade do perfil (Big Shoulders, off-white, azuis e navy). Referências de outros perfis que o autor mandar servem só de clima: não copie fontes cursivas, cores ou elementos delas (o autor achou que destoou).
