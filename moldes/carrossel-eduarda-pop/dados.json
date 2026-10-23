@@ -1016,5 +1016,90 @@
         "botao": "Comenta seu placar ↓"
       }
     ]
+  },
+  {
+    "id": "nomes-civil-banca-aceitar",
+    "titulo": "Nomes de Civil que a banca deve aceitar · trend com capa de foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-segredo.jpg",
+        "fotoPos": "center 30%",
+        "fonte": "serif",
+        "kicker": "2ª fase de Civil",
+        "titulo": "Nomes de Civil que a *banca deve aceitar*"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Peça de Civil",
+        "titulo": "O que a banca ==deve aceitar==",
+        "caixa": "Entendemos que seria possível que a banca aceitasse as seguintes **nomenclaturas**:"
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Nomenclaturas · 1 a 6",
+        "titulo": "Nomes {possíveis}",
+        "itens": [
+          "**Petição Inicial de Ação Indenizatória**",
+          "**Petição Inicial de Ação de Indenização**",
+          "**Ação Indenizatória**",
+          "**Ação de Indenização**",
+          "**Ação de Indenização por Danos Materiais**",
+          "**Ação de Indenização por Danos Materiais (Danos Emergentes e Lucros Cessantes)**"
+        ],
+        "contagem": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Nomenclaturas · 7 a 11",
+        "titulo": "Nomes {possíveis}",
+        "itens": [
+          "**Ação de Reparação de Danos**",
+          "**Ação de Reparação de Danos Materiais**",
+          "**Ação de Reparação Civil**",
+          "**Ação de Ressarcimento de Danos**",
+          "**Ação de Responsabilidade Civil**"
+        ],
+        "contagem": [
+          "07",
+          "08",
+          "09",
+          "10",
+          "11"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Colocou danos morais ou obrigação de fazer?",
+        "titulo": "Ainda ==dá pra torcer==",
+        "caixa": "Para quem colocou **danos morais** ou **obrigação de fazer** na nomenclatura: acredito que existe a possibilidade da banca aceitar e estamos torcendo para isso, porém precisamos aguardar a divulgação do espelho no dia **12/11** 🙏💜",
+        "destaque": true
+      }
+    ]
+  },
+  {
+    "id": "ampliacoes-civil-capa",
+    "titulo": "Ampliações na prova de Civil · capa com foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-escrevendo.jpg",
+        "fotoPos": "center 30%",
+        "fonte": "serif",
+        "kicker": "2ª fase da OAB",
+        "titulo": "Ampliações na *prova de Civil*"
+      }
+    ]
   }
 ]
