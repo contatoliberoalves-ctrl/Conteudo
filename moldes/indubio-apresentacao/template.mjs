@@ -21,7 +21,7 @@ const par = (t, escuro, px = 14) => lista(t).map(p => `<p style="margin:0;${M};f
 const janela = (src, w, h, url, pos = 'top', escuro) => `<div style="width:${w}px;border-radius:12px;overflow:hidden;background:${escuro ? '#2A2A2D' : '#fff'};box-shadow:0 30px 60px rgba(0,0,0,${escuro ? .5 : .16}),0 0 0 1px rgba(0,0,0,.06)">
   <div style="height:28px;display:flex;align-items:center;gap:6px;padding:0 12px;background:${escuro ? '#2A2A2D' : '#EFEDE8'}">${['#E0605A', '#E9B94B', '#5DBB63'].map(c => `<i style="width:9px;height:9px;border-radius:50%;background:${c}"></i>`).join('')}
     ${url ? `<span style="flex:1;margin-left:14px;height:16px;border-radius:8px;background:${escuro ? '#3A3A3E' : '#fff'};${M};font-size:9px;line-height:16px;color:${COR.cinza};padding:0 10px">${esc(url)}</span>` : ''}</div>
-  <div style="height:${h}px;background:url('${src}') ${pos}/100% auto no-repeat"></div></div>`;
+  <div style="height:${h}px;overflow:hidden;position:relative"><img src="${src}" style="display:block;width:100%;height:auto;position:absolute;left:0;${pos === 'bottom' ? 'bottom:0' : 'top:0'}"></div></div>`;
 const rodape = (n, escuro, marca) => `<div style="position:absolute;left:64px;right:64px;bottom:28px;display:flex;justify-content:space-between;align-items:center;${M};font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:${escuro ? '#8E8C87' : COR.cinza}"><span>${esc(marca)}</span><span>${String(n).padStart(2, '0')}</span></div>`;
 
 const TIPOS = {
@@ -29,10 +29,10 @@ const TIPOS = {
   capa(s, a) {
     return { escuro: true, html: `<div style="position:absolute;inset:0;background:radial-gradient(90% 90% at 85% 30%,#2A2622 0%,${COR.preto} 60%)"></div>
       <div style="position:absolute;left:64px;top:52px">${logo(true, 26)}</div>
-      <div style="position:absolute;left:64px;top:0;bottom:0;width:430px;display:flex;flex-direction:column;justify-content:center;gap:22px">
+      <div style="position:absolute;left:64px;top:0;bottom:0;width:400px;display:flex;flex-direction:column;justify-content:center;gap:22px">
         ${kicker(s.kicker, true)}${titulo(s.titulo, true, s.ts || 46)}${par(s.texto, true, 14)}
         ${s.cliente ? `<div style="${M};font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#8E8C87;margin-top:8px">${esc(s.cliente)}</div>` : ''}</div>
-      <div style="position:absolute;right:-60px;top:120px;transform:perspective(1600px) rotateY(-10deg)">${janela(s.print, 620, 388, s.url, s.pos, true)}</div>
+      <div style="position:absolute;right:56px;top:50%;transform:translateY(-50%)">${janela(s.print, 560, 350, s.url, s.pos, true)}</div>
       <div style="position:absolute;left:64px;bottom:40px;width:60px;height:2px;background:${COR.ouro}"></div>` };
   },
   // Texto: título à esquerda, parágrafos e até 4 pilares numerados em cartões.
@@ -54,6 +54,27 @@ const TIPOS = {
         ${lista(s.itens).length ? `<div style="display:flex;flex-direction:column;gap:9px;margin-top:4px">${lista(s.itens).map(t => `<div style="display:flex;gap:10px;align-items:flex-start;${M};font-size:12px;line-height:1.45;color:${e ? '#E2E0DB' : '#2A2927'}"><span style="width:5px;height:5px;margin-top:6px;border-radius:50%;background:${COR.ouro};flex:none"></span><span>${rico(t)}</span></div>`).join('')}</div>` : ''}</div>`;
     return { escuro: e, html: `<div style="position:absolute;inset:0;background:${e ? COR.preto : COR.off}"></div>${col}
       <div style="position:absolute;${dir ? 'left' : 'right'}:56px;top:${s.janelaY || 120}px">${janela(s.print, 640, s.h || 400, s.url, s.pos, e)}</div>` };
+  },
+  // Dupla: duas telas sobrepostas (a segunda um pouco abaixo e à frente) + coluna de texto.
+  dupla(s) {
+    const e = !!s.escuro, dir = s.lado === 'direita';
+    const [a, b] = lista(s.prints);
+    return { escuro: e, html: `<div style="position:absolute;inset:0;background:${e ? COR.preto : COR.off}"></div>
+      <div style="position:absolute;${dir ? 'right' : 'left'}:64px;top:0;bottom:70px;width:290px;display:flex;flex-direction:column;justify-content:center;gap:18px">
+        ${kicker(s.kicker, e)}${titulo(s.titulo, e, s.ts || 30)}${par(s.texto, e, 12.5)}
+        ${lista(s.itens).length ? `<div style="display:flex;flex-direction:column;gap:9px;margin-top:4px">${lista(s.itens).map(t => `<div style="display:flex;gap:10px;align-items:flex-start;${M};font-size:12px;line-height:1.45;color:${e ? '#E2E0DB' : '#2A2927'}"><span style="width:5px;height:5px;margin-top:6px;border-radius:50%;background:${COR.ouro};flex:none"></span><span>${rico(t)}</span></div>`).join('')}</div>` : ''}</div>
+      <div style="position:absolute;${dir ? 'left' : 'right'}:${dir ? 40 : 150}px;top:56px">${janela(a, 520, 325, null, 'top', e)}</div>
+      <div style="position:absolute;${dir ? 'left' : 'right'}:${dir ? 170 : 40}px;top:330px">${janela(b, 520, 325, null, 'top', e)}</div>` };
+  },
+  // Trio: três telas lado a lado com legenda (ex.: o mesmo painel para cada perfil).
+  trio(s) {
+    const e = !!s.escuro;
+    return { escuro: e, html: `<div style="position:absolute;inset:0;background:${e ? COR.preto : COR.off}"></div>
+      <div style="position:absolute;left:64px;top:56px;width:760px;display:flex;flex-direction:column;gap:14px">${kicker(s.kicker, e)}${titulo(s.titulo, e, s.ts || 30)}${par(s.texto, e, 12.5)}</div>
+      <div style="position:absolute;left:64px;right:64px;top:${s.telasY || 270}px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        ${lista(s.telas).map(t => `<div style="display:flex;flex-direction:column;gap:14px">${janela(t.print, 311, 195, null, 'top', e)}
+          <div><div style="${M};font-weight:700;font-size:14px;color:${e ? '#fff' : COR.preto}">${esc(t.t)}</div><div style="${M};font-size:11.5px;line-height:1.55;color:${e ? '#B7B5B0' : COR.cinza};margin-top:4px">${rico(t.d)}</div></div></div>`).join('')}
+      </div>` };
   },
   // Recursos: grade de cartões com ícone simples (para a área de membros e outras funções sem print).
   recursos(s) {

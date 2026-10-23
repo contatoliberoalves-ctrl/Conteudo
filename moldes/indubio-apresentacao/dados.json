@@ -6,36 +6,57 @@
     "slides": [
       {
         "tipo": "capa",
-        "kicker": "Case · Portal institucional",
-        "titulo": ["ANOREG", "Pernambuco", "_portal e área de membros_"],
-        "texto": "Informação, representação institucional e capacitação em um ambiente moderno e intuitivo.",
-        "cliente": "Associação dos Notários e Registradores de Pernambuco",
+        "kicker": "Portal institucional",
+        "titulo": [
+          "ANOREG",
+          "Pernambuco"
+        ],
+        "texto": "Portal público e área de membros da Associação dos Notários e Registradores de Pernambuco.",
+        "cliente": "Indubio Pro Marketing",
         "print": "prints/anoreg-01.png"
       },
       {
         "tipo": "texto",
         "kicker": "O projeto",
-        "titulo": ["Um portal para", "_informar, representar_", "_e capacitar_"],
+        "titulo": [
+          "Informação,",
+          "representação",
+          "e capacitação"
+        ],
         "texto": [
-          "A plataforma **ANOREG Pernambuco** reúne informação, representação institucional e capacitação em um ambiente moderno e intuitivo.",
-          "O portal apresenta notícias, serviços e orientações ao cidadão, ações da entidade e acesso a normas e fontes oficiais."
+          "A plataforma **ANOREG Pernambuco** reúne informação, representação institucional e capacitação em um só lugar.",
+          "O portal traz notícias, serviços e orientações ao cidadão, as ações da entidade e acesso a normas e fontes oficiais. A área de membros reúne avisos, conteúdos e capacitações, com login único e permissões para associados, diretoria e presidência."
         ],
         "pilares": [
-          { "t": "Informação", "d": "Notícias da categoria e orientações claras para o cidadão." },
-          { "t": "Representação institucional", "d": "As ações da entidade, presidência, diretoria e governança." },
-          { "t": "Capacitação", "d": "A ANOREG Academia, com formações ao vivo e gravadas." },
-          { "t": "Normas e fontes oficiais", "d": "Acesso direto aos órgãos e às centrais de consulta." }
+          {
+            "t": "Portal público",
+            "d": "Notícias, serviços ao cidadão, a entidade, a Academia e as normas."
+          },
+          {
+            "t": "Área de membros",
+            "d": "Avisos, agenda, biblioteca e trilhas de formação."
+          },
+          {
+            "t": "Perfis de acesso",
+            "d": "Associados, diretoria e presidência, cada um com o seu painel."
+          },
+          {
+            "t": "Identidade ANOREG/PE",
+            "d": "Cores e logo da entidade, no computador e no celular."
+          }
         ]
       },
       {
         "tipo": "tela",
-        "kicker": "Página inicial",
-        "titulo": ["A porta de entrada", "_do cartório ao cidadão_"],
+        "kicker": "Portal",
+        "titulo": [
+          "Página inicial"
+        ],
         "itens": [
-          "Abertura forte: **Cartórios e cidadania em Pernambuco**",
+          "Chamada principal: **Cartórios e cidadania em Pernambuco**",
           "Atalhos para encontrar um cartório, certidões e serviços, normas e emolumentos e a área do associado",
-          "Botão de **Área de membros** sempre à vista",
-          "Contraste e ampliação de texto no topo da página"
+          "Botão da **Área de membros** no topo de todas as páginas",
+          "Opções de contraste e de ampliar o texto"
         ],
         "print": "prints/anoreg-01.png"
       },
@@ -43,35 +64,42 @@
         "tipo": "tela",
         "escuro": true,
         "lado": "direita",
-        "kicker": "Notícias",
-        "titulo": ["Pernambuco", "_em pauta_"],
+        "kicker": "Portal",
+        "titulo": [
+          "Notícias"
+        ],
         "itens": [
           "Filtros por assunto: cidadania, institucional e para a categoria",
-          "Cada notícia mostra a categoria e a origem",
-          "Link direto para a **fonte oficial**"
+          "Cada notícia mostra a categoria e de onde veio",
+          "Link para a **fonte oficial**"
         ],
         "print": "prints/anoreg-02.png"
       },
       {
         "tipo": "tela",
-        "kicker": "Para o cidadão",
-        "titulo": ["O serviço certo.", "_Sem complicação._"],
+        "kicker": "Portal",
+        "titulo": [
+          "Serviços",
+          "ao cidadão"
+        ],
         "itens": [
           "Encontre um cartório",
           "Certidões e registros",
           "Escrituras e procurações",
           "Consulta de protesto",
-          "Linguagem clara e caminho até os **canais oficiais**"
+          "Explicação simples e caminho até os **canais oficiais**"
         ],
         "print": "prints/anoreg-03.png"
       },
       {
         "tipo": "tela",
         "lado": "direita",
-        "kicker": "A entidade",
-        "titulo": ["Uma categoria forte.", "_Muitas vozes._"],
+        "kicker": "Portal",
+        "titulo": [
+          "A ANOREG/PE"
+        ],
         "itens": [
-          "Quem é a ANOREG/PE e o que ela representa",
+          "O que a entidade faz e quem ela representa",
           "Presidência e diretoria",
           "Atuação e conquistas",
           "Governança e transparência"
@@ -81,20 +109,26 @@
       {
         "tipo": "tela",
         "escuro": true,
-        "kicker": "ANOREG Academia",
-        "titulo": ["Formação para", "_a prática do cartório_"],
+        "kicker": "Portal",
+        "titulo": [
+          "ANOREG",
+          "Academia"
+        ],
         "itens": [
           "Trilhas **gravadas** e encontros **ao vivo**",
           "Gestão & liderança, Direito & tecnologia e Conexões que ensinam",
-          "Cada trilha com módulos e proposta própria"
+          "Cada trilha com seus módulos"
         ],
         "print": "prints/anoreg-05.png"
       },
       {
         "tipo": "tela",
         "lado": "direita",
-        "kicker": "Normas e fontes",
-        "titulo": ["Normas e", "_fontes de consulta_"],
+        "kicker": "Portal",
+        "titulo": [
+          "Normas e fontes",
+          "de consulta"
+        ],
         "itens": [
           "Corregedoria Geral da Justiça (TJPE)",
           "Conselho Nacional de Justiça",
@@ -104,36 +138,178 @@
         "print": "prints/anoreg-06.png"
       },
       {
-        "tipo": "niveis",
+        "tipo": "tela",
+        "escuro": true,
         "kicker": "Área de membros",
-        "titulo": ["Um espaço", "_exclusivo_", "para a categoria"],
-        "texto": "Avisos, conteúdos e capacitações ao vivo e gravadas, com login único e permissões específicas para cada perfil.",
-        "login": "Login único",
-        "loginTexto": "um acesso, permissões por perfil",
-        "niveis": [
-          { "t": "Associados", "d": "Avisos, conteúdos e capacitações ao vivo e gravadas." },
-          { "t": "Diretoria", "d": "Permissões específicas da diretoria." },
-          { "t": "Presidência", "d": "Permissões específicas da presidência." }
+        "titulo": [
+          "Login único"
+        ],
+        "texto": "O botão **Área de membros** abre o acesso direto do portal. Com e-mail e senha, cada pessoa entra no painel do seu perfil.",
+        "itens": [
+          "Um só acesso para associados, diretoria e presidência",
+          "O menu e as funções mudam conforme o perfil",
+          "Botão para voltar ao portal público"
+        ],
+        "print": "prints/membros-01-login.png"
+      },
+      {
+        "tipo": "tela",
+        "lado": "direita",
+        "kicker": "Área de membros",
+        "titulo": [
+          "Painel inicial"
+        ],
+        "itens": [
+          "Resumo do que precisa de atenção: comunicados não lidos, trilhas de formação e conteúdos publicados",
+          "Destaque com a mensagem da entidade",
+          "Agenda institucional e atalhos para representação, comunicação e conhecimento",
+          "Menu lateral com todas as seções"
+        ],
+        "print": "prints/membros-02-presidencia.png"
+      },
+      {
+        "tipo": "tela",
+        "kicker": "Área de membros",
+        "titulo": [
+          "Avisos e",
+          "comunicados"
+        ],
+        "itens": [
+          "Mural com os comunicados da entidade",
+          "Cada aviso mostra o assunto e o público (todos, diretoria…)",
+          "Marcação de **lido** e contagem dos que faltam ler"
+        ],
+        "print": "prints/membros-04-comunicados.png"
+      },
+      {
+        "tipo": "dupla",
+        "escuro": true,
+        "lado": "direita",
+        "kicker": "Área de membros",
+        "titulo": [
+          "ANOREG Academia",
+          "por dentro"
+        ],
+        "itens": [
+          "Trilhas separadas por tema: gestão, inovação e encontros",
+          "Progresso de cada trilha",
+          "Módulos que o membro marca conforme avança"
+        ],
+        "prints": [
+          "prints/membros-05-academia.png",
+          "prints/membros-06-trilha.png"
+        ]
+      },
+      {
+        "tipo": "dupla",
+        "kicker": "Área de membros",
+        "titulo": [
+          "Agenda e",
+          "biblioteca"
+        ],
+        "itens": [
+          "Próximos encontros, ao vivo ou da diretoria",
+          "Botão para salvar o encontro na lista pessoal",
+          "Biblioteca com links para as fontes oficiais (TJPE, ANOREG/BR, ANOREG/SP)",
+          "Referências salvas em **Meus favoritos**"
+        ],
+        "prints": [
+          "prints/membros-07-agenda.png",
+          "prints/membros-08-biblioteca.png"
+        ]
+      },
+      {
+        "tipo": "dupla",
+        "escuro": true,
+        "lado": "direita",
+        "kicker": "Área de membros",
+        "titulo": [
+          "Gestão de",
+          "conteúdos"
+        ],
+        "itens": [
+          "A diretoria cria e organiza os comunicados",
+          "Escolha do público de cada comunicado",
+          "Fluxo: o conteúdo é preparado, revisado pela diretoria e publicado",
+          "Na **Visão institucional**, a presidência acompanha comunicação, formação e frentes de atuação"
+        ],
+        "prints": [
+          "prints/membros-10-gestao.png",
+          "prints/membros-11-institucional.png"
+        ]
+      },
+      {
+        "tipo": "trio",
+        "kicker": "Área de membros",
+        "titulo": [
+          "Um painel para cada perfil"
+        ],
+        "texto": "O mesmo login leva cada pessoa ao painel certo, com o menu e as permissões do seu perfil.",
+        "telas": [
+          {
+            "print": "prints/membros-13-associado.png",
+            "t": "Associado",
+            "d": "Visão geral, comunicados, Academia, agenda, biblioteca e favoritos."
+          },
+          {
+            "print": "prints/membros-12-diretoria.png",
+            "t": "Diretoria",
+            "d": "Tudo do associado e a gestão de conteúdos."
+          },
+          {
+            "print": "prints/membros-02-presidencia.png",
+            "t": "Presidência",
+            "d": "Tudo da diretoria e a visão institucional."
+          }
         ]
       },
       {
         "tipo": "recursos",
-        "kicker": "Em todo o portal",
-        "titulo": ["Identidade e", "_experiência_"],
-        "texto": "Tudo com a identidade visual da ANOREG/PE e navegação adaptada para computadores e celulares.",
+        "kicker": "Em todo o projeto",
+        "titulo": [
+          "Identidade e navegação"
+        ],
+        "texto": "Portal e área de membros seguem a identidade visual da ANOREG/PE e se adaptam ao computador e ao celular.",
         "cards": [
-          { "icone": "paleta", "t": "Identidade ANOREG/PE", "d": "Cores, logo e tom da entidade em todas as páginas." },
-          { "icone": "tela", "t": "Computador", "d": "Leitura confortável e atalhos à vista." },
-          { "icone": "celular", "t": "Celular", "d": "Navegação adaptada para telas menores." },
-          { "icone": "escudo", "t": "Fontes oficiais", "d": "Informação com origem clara e links para os órgãos." },
-          { "icone": "video", "t": "Capacitação", "d": "Formações ao vivo e gravadas na área de membros." },
-          { "icone": "chave", "t": "Acesso por perfil", "d": "Login único com permissões para cada função." }
-        ]
+          {
+            "icone": "paleta",
+            "t": "Identidade ANOREG/PE",
+            "d": "Cores, logo e fotos de Pernambuco nas duas partes do projeto."
+          },
+          {
+            "icone": "tela",
+            "t": "Computador",
+            "d": "Menu lateral na área de membros e atalhos no portal."
+          },
+          {
+            "icone": "celular",
+            "t": "Celular",
+            "d": "Navegação adaptada para telas menores."
+          },
+          {
+            "icone": "escudo",
+            "t": "Fontes oficiais",
+            "d": "Notícias e normas com link para a origem."
+          },
+          {
+            "icone": "video",
+            "t": "Formação",
+            "d": "Trilhas gravadas e encontros ao vivo."
+          },
+          {
+            "icone": "chave",
+            "t": "Acesso por perfil",
+            "d": "Login único com permissões para cada função."
+          }
+        ],
+        "cardsY": 250
       },
       {
         "tipo": "fim",
-        "titulo": ["Obrigado."],
-        "texto": "Projeto desenvolvido pela Indubio Pro Marketing para a ANOREG Pernambuco."
+        "titulo": [
+          "Obrigado."
+        ],
+        "texto": "Indubio Pro Marketing · Projeto ANOREG Pernambuco"
       }
     ]
   }

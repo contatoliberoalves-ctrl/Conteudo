@@ -4,6 +4,7 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { renderApresentacao, W, H } from './template.mjs';
+const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
@@ -16,8 +17,10 @@ const browser = await chromium.launch(launch);
 let problemas = 0;
 for (const a of dados) {
   if (filtro && a.id !== filtro) continue;
-  const faltando = a.slides.flatMap(s => s.print && !fs.existsSync(path.join(root, s.print)) ? [s.print] : []);
-  const { html, total } = renderApresentacao({ ...a, slides: a.slides.map(s => s.print ? { ...s, print: 'file://' + path.join(root, s.print) } : s) });
+  const imgs = s => [s.print, ...lista(s.prints), ...lista(s.telas).map(t => t.print)].filter(Boolean);
+  const faltando = a.slides.flatMap(s => imgs(s).filter(p => !fs.existsSync(path.join(root, p))));
+  const url = p => 'file://' + path.join(root, p);
+  const { html, total } = renderApresentacao({ ...a, slides: a.slides.map(s => ({ ...s, ...(s.print && { print: url(s.print) }), ...(s.prints && { prints: s.prints.map(url) }), ...(s.telas && { telas: s.telas.map(t => ({ ...t, print: url(t.print) })) }) })) });
   const htmlPath = path.join(root, 'build', `${a.id}.html`);
   fs.writeFileSync(htmlPath, html);
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 2 });
