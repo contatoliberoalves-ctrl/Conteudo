@@ -111,8 +111,8 @@ const TREND = {
   },
   texto(s) {
     const caixa = !s.caixa ? '' : s.destaque
-      ? `<div style="background:${C.pink};border-radius:40px;outline:2.5px dashed #fff;outline-offset:-14px;padding:46px 56px;margin-top:40px">${tCorpo(s.caixa, 33, '#fff', 'center', { ...tM, b: 'font-weight:800' })}</div>`
-      : `<div style="border:2.5px dashed ${C.escuro};border-radius:40px;background:#fff;padding:40px 52px;margin-top:40px">${tCorpo(s.caixa, 31)}</div>`;
+      ? `<div style="background:${C.pink};border-radius:40px;outline:2.5px dashed #fff;outline-offset:-14px;padding:46px 56px;margin-top:40px">${tCorpo(s.caixa, s.tc || 33, '#fff', 'center', { ...tM, b: 'font-weight:800' })}</div>`
+      : `<div style="border:2.5px dashed ${C.escuro};border-radius:40px;background:#fff;padding:40px 52px;margin-top:40px">${tCorpo(s.caixa, s.tc || 31)}</div>`;
     return `<div style="position:absolute;inset:0;${tFundo}">${cantos(C.escuro)}
       <div data-area style="position:absolute;left:100px;right:100px;top:150px;bottom:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:34px">
         ${s.kicker ? tCorpo(s.kicker, 34) : ''}
