@@ -539,6 +539,59 @@ const CAPAS = {
       </div>
       <div style="position:absolute;left:0;right:0;bottom:70px;text-align:center;font-size:30px;font-weight:700;letter-spacing:.06em;color:#fff;z-index:4">${esc(s.assinatura || '— ' + PERFIL)}</div>`;
   },
+  // Suave (frases emocionais, tons pastel e quase nenhum elemento). "variante": papel (bilhete rasgado com
+  // fita sobre listras azul-claras, letra cursiva), paisagem (foto de viagem com a frase pequena no céu),
+  // ceu (azul pastel granulado, frase grande em creme e estrelinhas), repeticao (creme, frase e a última
+  // palavra repetida em cinza, uma delas em destaque) e nevoa (degradê lavanda, frase fina + negrito).
+  // Campos: titulo (linhas; na nevoa, a última linha sai em negrito), texto (frase de cima na repeticao),
+  // palavra (a palavra repetida), foto (paisagem), fotoPos, assinatura.
+  suave(s, t, c) {
+    const v = s.variante || 'papel', L = lista(s.titulo), ass = esc(s.assinatura || PERFIL);
+    const INTER = "font-family:'Inter',sans-serif", CAV = "font-family:'Caveat',cursive";
+    if (v === 'papel') {
+      const borda = 'polygon(0% 3%,4% 0%,9% 2%,15% 0%,22% 3%,30% 1%,38% 2.5%,47% 0%,55% 2%,63% .5%,71% 3%,79% 1%,87% 2.5%,94% 0%,100% 2%,99% 12%,100% 25%,98.5% 40%,100% 55%,99% 70%,100% 85%,99% 97%,93% 100%,85% 98%,77% 100%,68% 97.5%,59% 100%,50% 98%,41% 100%,32% 97.5%,23% 100%,14% 98%,6% 100%,0% 97%,1% 85%,0% 70%,1.5% 55%,0% 40%,1% 25%,0% 12%)';
+      const fita = (pos, rot) => `<span style="position:absolute;${pos};width:150px;height:60px;background:rgba(244,240,226,.82);transform:rotate(${rot}deg);box-shadow:0 2px 6px rgba(0,0,0,.06);z-index:4"></span>`;
+      return `<div style="position:absolute;inset:0;background:repeating-linear-gradient(90deg,#AFC6E6 0 26px,#F4F6FA 26px 30px,#AFC6E6 30px 34px,#F4F6FA 34px 37px);z-index:0"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(80,100,140,.08));z-index:0"></div>
+        <div style="position:absolute;left:90px;right:90px;top:${s.papelY || 400}px;filter:drop-shadow(0 10px 18px rgba(40,60,100,.18));z-index:3">
+          <div data-area style="clip-path:${borda};background:#F1ECDD;padding:90px 80px 70px;display:flex;flex-direction:column;gap:30px;text-align:center">
+            <h1 data-titulo style="margin:0;${CAV};font-weight:500;font-size:${s.ts || 96}px;line-height:1.08;color:#34466B">${L.map(esc).join('<br>')}</h1>
+            <div style="align-self:flex-end;${CAV};font-size:52px;color:#34466B">${ass}</div></div></div>
+        ${fita(`left:60px;top:${(s.papelY || 400) - 18}px`, -38)}${fita(`right:60px;top:${(s.papelY || 400) + 470}px`, -38)}`;
+    }
+    if (v === 'paisagem') {
+      return `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.fotoPos || 'center')};z-index:0">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(245,247,250,.78) 0%,rgba(245,247,250,.35) 34%,rgba(245,247,250,0) 55%);z-index:1"></div>
+        <div data-area style="position:absolute;left:200px;right:200px;top:${s.textoY || 230}px;text-align:center;z-index:3">
+          <h1 data-titulo style="margin:0;${INTER};font-weight:400;font-size:${s.ts || 46}px;line-height:1.3;color:#26303D">${L.map(esc).join('<br>')}</h1></div>
+        <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center;${INTER};font-size:24px;color:rgba(255,255,255,.9);z-index:3">${ass}</div>`;
+    }
+    if (v === 'ceu') {
+      const estrela = (x, y, w, rot, cor) => `<svg viewBox="0 0 100 100" style="position:absolute;left:${x}px;top:${y}px;width:${w}px;transform:rotate(${rot}deg);z-index:2"><path d="M50 4 C54 34 66 46 96 50 C66 54 54 66 50 96 C46 66 34 54 4 50 C34 46 46 34 50 4Z" fill="${cor}"/></svg>`;
+      return `<div style="position:absolute;inset:0;background:linear-gradient(180deg,#8FB2E3 0%,#A9C5EC 55%,#CFE0F4 100%);z-index:0"></div>
+        <div style="position:absolute;left:640px;top:170px;width:300px;height:110px;border-radius:60px;background:rgba(255,255,255,.85);filter:blur(1px);z-index:1"></div>
+        <div style="position:absolute;left:700px;top:120px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.85);z-index:1"></div>
+        <div style="position:absolute;left:800px;top:150px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.85);z-index:1"></div>
+        ${estrela(110, 1060, 110, 8, '#FCE7A8')}${estrela(860, 1120, 70, -10, '#FCE7A8')}${estrela(900, 330, 54, 12, '#FFF6D6')}
+        <div style="position:absolute;left:90px;top:110px;${INTER};font-weight:800;font-size:28px;color:#FFF4CC;z-index:3">${ass}</div>
+        <div data-area style="position:absolute;left:90px;right:60px;top:${s.textoY || 380}px;bottom:240px;z-index:3">
+          <h1 data-titulo style="margin:0;${INTER};font-weight:800;letter-spacing:-.045em;font-size:${s.ts || 150}px;line-height:.92;color:#FFF4CC">${L.map(esc).join('<br>')}</h1></div>`;
+    }
+    if (v === 'repeticao') {
+      const p = esc(s.palavra || 'muda'), n = s.repete || 40, dest = s.destaque ?? 22;
+      return `<div style="position:absolute;inset:0;background:#F3EBDC;z-index:0"></div>
+        <div data-area style="position:absolute;left:80px;right:80px;top:140px;bottom:150px;display:flex;flex-direction:column;gap:6px;z-index:3">
+          <p style="margin:0 0 4px;${INTER};font-weight:800;letter-spacing:-.02em;font-size:${s.ts || 54}px;line-height:1.2;color:#2E3A55;text-align:justify">${rico(s.texto, TEMAS.light)}</p>
+          <div style="${INTER};font-weight:400;letter-spacing:-.02em;font-size:${s.ts || 54}px;line-height:1.2;color:#A3A6AE;text-align:justify;text-align-last:justify">${Array.from({ length: n }, (_, i) => i === dest ? `<b style="font-weight:800;color:${COR.azul}">${p}.</b>` : p).join(' ')}</div></div>
+        <div style="position:absolute;left:0;right:0;bottom:70px;text-align:center;${INTER};font-weight:800;font-size:24px;color:#2E3A55;z-index:3">${ass}</div>`;
+    }
+    // nevoa
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 25%,#EEF1F8 0%,#D9E0EF 45%,#BAC6E2 100%);z-index:0"></div>
+      <div style="position:absolute;right:-200px;bottom:-260px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.7),transparent);z-index:1"></div>
+      <div style="position:absolute;left:0;right:0;top:120px;text-align:center;${INTER};font-size:26px;color:#4A5A7C;z-index:3">${ass}</div>
+      <div data-area style="position:absolute;left:80px;right:80px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;z-index:3">
+        <h1 data-titulo style="margin:0;${INTER};letter-spacing:-.045em;font-size:${s.ts || 140}px;line-height:.98;color:#24324F">${L.map((l, i) => `<span style="font-weight:${i === L.length - 1 ? 800 : 300}">${esc(l)}</span>`).join('<br>')}</h1></div>`;
+  },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
   bolao(s, t) {
@@ -762,7 +815,7 @@ export function renderCarrossel(c) {
     if (!TEMAS[s.tema]) avisos.push(`slide ${i + 1}: tema "${s.tema}" não existe (use blue, light ou dark)`);
   });
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Schibsted+Grotesk:wght@500;600;700;800&family=Caveat:wght@500;600&family=Inter:wght@300;400;800&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}</style></head><body>
 <div id="painel" style="position:relative;width:${n * 1080}px;height:1350px">
 ${slides.map((s, i) => {
