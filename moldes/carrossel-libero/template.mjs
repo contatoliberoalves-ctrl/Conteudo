@@ -521,6 +521,24 @@ const CAPAS = {
       <div style="position:absolute;left:110px;bottom:${(s.ctaY || 110) + 150}px;display:flex;align-items:flex-end;gap:12px;z-index:4"><span style="font-size:32px;font-weight:700;color:${COR.navy}">${rico(cta.texto || 'Comenta assim', TEMAS.light)}</span><svg viewBox="0 0 60 60" width="56" fill="none" stroke="${R}" stroke-width="5" stroke-linecap="round"><path d="M10 8c22 4 30 18 26 40"/><path d="M26 40l10 10 10-12"/></svg></div>
       <div style="position:absolute;left:80px;bottom:44px;font-size:28px;font-weight:700;color:${COR.navy};z-index:4">${PERFIL}</div>`;
   },
+  // Frase (motivacional, tela única): fundo de amanhecer (navy no alto, azul embaixo, com um sol de anéis
+  // nascendo no pé), aspas vazadas, kicker e a frase. Uma palavra entre {{chaves}} sai "se preenchendo"
+  // (contorno à esquerda, cheia à direita) e [[caixa]] sai em vermelho. Campos: kicker, titulo, ts, assinatura.
+  frase(s, t) {
+    const R = COR.vermelho;
+    const linha = l => rico(l, { ...t, caixa: R }).replace(/\{\{(.+?)\}\}/g, `<span style="background:linear-gradient(90deg,transparent 0%,transparent 18%,#fff 82%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:3px #fff">$1</span>`);
+    const anel = (d, w, op) => `<div style="position:absolute;left:${540 - d / 2}px;top:${1350 - d * .32}px;width:${d}px;height:${d}px;border-radius:50%;border:${w}px solid rgba(255,255,255,${op});box-sizing:border-box"></div>`;
+    return `<div style="position:absolute;inset:0;background:linear-gradient(180deg,${COR.navyFundo} 0%,#14306f 38%,${COR.azul} 78%,#2F6BFF 100%);z-index:0"></div>
+      <div style="position:absolute;left:140px;right:140px;top:1050px;height:800px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,170,150,.55),rgba(255,45,85,.25) 55%,transparent);z-index:1"></div>
+      <div style="position:absolute;inset:0;overflow:hidden;z-index:1">${anel(1500, 2, .12)}${anel(1180, 2, .18)}${anel(860, 3, .26)}
+        <div style="position:absolute;left:340px;top:1180px;width:400px;height:400px;border-radius:50%;background:${R};box-shadow:0 0 120px 30px rgba(255,45,85,.45)"></div></div>
+      <div style="position:absolute;left:80px;top:40px;${TITULO};font-size:420px;line-height:1;color:transparent;-webkit-text-stroke:5px rgba(143,176,255,.35);z-index:2">“</div>
+      <div data-area style="position:absolute;left:100px;right:80px;top:${s.tituloY || 230}px;bottom:360px;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:4">
+        ${s.kicker ? `<div style="display:flex;align-items:center;gap:18px"><span style="width:60px;height:6px;background:${R}"></span><span style="font-size:30px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:${COR.azulClaro}">${esc(s.kicker)}</span></div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 190}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.02 : .9};color:#fff">${lista(s.titulo).map(linha).join('<br>')}</h1>
+      </div>
+      <div style="position:absolute;left:0;right:0;bottom:70px;text-align:center;font-size:30px;font-weight:700;letter-spacing:.06em;color:#fff;z-index:4">${esc(s.assinatura || '— ' + PERFIL)}</div>`;
+  },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
   bolao(s, t) {
