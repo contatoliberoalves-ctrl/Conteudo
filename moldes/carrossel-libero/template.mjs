@@ -543,7 +543,7 @@ const CAPAS = {
   // granulado, off-white, azuis claros e navy, e o vermelho só num detalhe. Variantes: off (off-white,
   // anel vermelho fino no canto), claro (azul bem claro com a última palavra vazada gigante ao fundo),
   // paisagem (foto de viagem em duotone azul, frase pequena no alto), azul (degradê azul do perfil → azul
-  // claro, frase branca centralizada) e caderno (off-white pautado, marca-texto azul-claro na palavra).
+  // claro, frase branca centralizada) e vertical (off-white com a palavra vertical clarinha na borda, a frase à direita e o anel vermelho no pé).
   // Campos: titulo (linhas; [[palavra]] = destaque da variante), kicker, ts, foto, fotoPos, vazado.
   suave(s, t, c) {
     const v = s.variante || 'off', L = lista(s.titulo), R = COR.vermelho;
@@ -565,15 +565,21 @@ const CAPAS = {
       <div data-area style="position:absolute;left:110px;right:110px;top:150px;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center;z-index:3">
         ${tit('#fff', `<span style="color:${COR.off};border-bottom:8px solid ${R}">$1</span>`, 110)}</div>${pe('#fff')}`;
     if (v === 'azul') return `<div style="position:absolute;inset:0;background:linear-gradient(170deg,${COR.azul} 0%,#4F7FE8 55%,${COR.azulClaro} 100%);z-index:0"></div>
+      <div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:${s.grao ?? .5};mix-blend-mode:overlay;z-index:1"></div>
+      <div style="position:absolute;left:-200px;top:-260px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),transparent);z-index:1"></div>
       <div data-area style="position:absolute;left:110px;right:110px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px;text-align:center;z-index:3">
         ${s.kicker ? `<div style="font-size:26px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#DCE6FF">${esc(s.kicker)}</div>` : ''}
         ${tit('#fff', `<span style="color:${COR.navy}">$1</span>`, 150)}
         <span style="width:70px;height:6px;background:${R}"></span></div>${pe('#fff')}`;
-    // caderno
-    return `<div style="position:absolute;inset:0;background:${COR.off};background-image:repeating-linear-gradient(180deg,transparent 0 66px,rgba(11,79,216,.13) 66px 68px);z-index:0"></div>
-      <div style="position:absolute;left:150px;top:0;bottom:0;width:3px;background:rgba(255,45,85,.45);z-index:1"></div>
-      <div data-area style="position:absolute;left:200px;right:100px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:3">
-        ${kick(COR.azul)}${tit(COR.navy, `<span style="background:linear-gradient(180deg,transparent 52%,${COR.azulClaro} 52%,${COR.azulClaro} 90%,transparent 90%);padding:0 6px">$1</span>`, 140)}</div>${pe(COR.navy)}`;
+    // vertical: palavra vertical clarinha colada na borda esquerda (como nos slides de texto do perfil),
+    // frase à direita e o anel vermelho saindo pelo pé.
+    const pv = esc((s.vertical || 'REALIDADE').toUpperCase());
+    return `<div style="position:absolute;inset:0;background:${COR.off};z-index:0"></div>
+      <div style="position:absolute;left:-18px;top:0;bottom:0;display:flex;justify-content:center;${TITULO};font-size:${s.tv || 300}px;line-height:.86;color:rgba(11,79,216,.12);writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;z-index:1">${pv}</div>
+      <div style="position:absolute;right:-150px;bottom:-200px;width:440px;height:440px;border-radius:50%;border:64px solid ${R};box-sizing:border-box;z-index:1"></div>
+      <div data-area style="position:absolute;left:330px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:3">
+        ${kick(COR.azul)}${tit(COR.navy, `<span style="background:${COR.azul};color:#fff;padding:0 14px">$1</span>`, 140)}</div>
+      <div style="position:absolute;left:330px;bottom:64px;font-size:26px;font-weight:700;letter-spacing:.06em;color:${COR.navy};z-index:4">${PERFIL}</div>`;
   },
   // Bolão: cartela 3×3 de coisas que o aluno fez, cada quadrado com a pontuação num selo, e a pergunta final.
   // Campos: pre (etiqueta), titulo, itens ([{texto, pontos}], 9), texto (pergunta do pé), ts.
