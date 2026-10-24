@@ -1971,5 +1971,525 @@
         "botao": "Bons estudos!"
       }
     ]
+  },
+  {
+    "id": "temas-tjsp-aula",
+    "titulo": "Temas que mais caem no Concurso TJ SP",
+    "tema": "Escrevente TJSP (Vunesp): assuntos mais cobrados por matéria, segundo levantamento de questões de 2015 a 2024",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "degrade",
+        "kicker": "Escrevente · Vunesp",
+        "titulo": [
+          "Temas que",
+          "mais caem no",
+          "[[TJ SP]]"
+        ],
+        "texto": "O que a Vunesp mais cobrou em cada matéria do Escrevente, de 2015 a 2024.",
+        "pilula": "Raio-X da banca"
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Edital 2026 · 70 questões",
+        "titulo": [
+          "Onde estão as [[questões]]"
+        ],
+        "colunas": [
+          "Bloco",
+          "Questões",
+          "Caráter"
+        ],
+        "linhas": [
+          [
+            "I · Língua Portuguesa",
+            "16",
+            "Elimina: mínimo 50%"
+          ],
+          [
+            "II · Conhecimentos em Direito",
+            "30",
+            "Elimina: mínimo 50%"
+          ],
+          [
+            "III · Conhecimentos Gerais",
+            "24",
+            "Só classifica"
+          ],
+          [
+            "Informática · Raciocínio Lógico · Matemática · Atualidades",
+            "9 · 7 · 4 · 4",
+            "Dentro do bloco III"
+          ]
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "lavanda",
+        "kicker": "De onde vêm os números",
+        "titulo": [
+          "Como lemos",
+          "os [[percentuais]]"
+        ],
+        "texto": [
+          "Os números são do **Raio-X Estratégico TJ-SP (Escrevente)**, da Estratégia Concursos (2024), que separou por assunto as questões da **Vunesp de nível médio** de 2015 a 2024.",
+          "Foram **3.426 questões** de Português, **226** de Constitucional, **72** de Processo Penal e **70** de Penal, por exemplo.",
+          "Cada percentual mostra a fatia **dentro da matéria**: quanto daquela disciplina foi cobrado em cada assunto."
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Bloco I · Língua Portuguesa",
+        "titulo": [
+          "Português: o [[top 5]]"
+        ],
+        "colunas": [
+          "Assunto",
+          "Incidência"
+        ],
+        "linhas": [
+          [
+            "Interpretação de textos",
+            "44,31%"
+          ],
+          [
+            "Regência verbal e nominal. Crase",
+            "9,43%"
+          ],
+          [
+            "Concordância verbal e nominal",
+            "8,17%"
+          ],
+          [
+            "Preposições e conjunções",
+            "7,65%"
+          ],
+          [
+            "Pontuação",
+            "6,28%"
+          ]
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "lavanda",
+        "kicker": "Atenção",
+        "titulo": [
+          "Quase metade",
+          "é [[interpretação]]"
+        ],
+        "texto": [
+          "Interpretação de texto respondeu por **44%** das questões de Português da banca no período.",
+          "Somada a regência, crase e concordância, passa de **60%**. Ler um texto por dia e treinar questões da Vunesp rende mais do que decorar regra solta."
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Bloco II · Direito Penal",
+        "titulo": [
+          "Penal: os [[crimes]] da lista"
+        ],
+        "colunas": [
+          "Assunto",
+          "Artigos do CP",
+          "Incidência"
+        ],
+        "linhas": [
+          [
+            "Crimes de funcionário público contra a administração",
+            "312 a 317; 319 a 327",
+            "48,57%"
+          ],
+          [
+            "Crimes contra a fé pública",
+            "293 a 305; 307; 308; 311-A",
+            "27,14%"
+          ],
+          [
+            "Crimes contra a administração da Justiça",
+            "339 a 347; 357; 359",
+            "17,14%"
+          ],
+          [
+            "Crimes de particular contra a administração",
+            "328 a 333; 336; 337",
+            "7,14%"
+          ]
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Bloco II · Processo Penal",
+        "titulo": [
+          "Processo Penal: o [[top 5]]"
+        ],
+        "colunas": [
+          "Assunto",
+          "Incidência"
+        ],
+        "linhas": [
+          [
+            "Juizados Especiais Criminais",
+            "20,83%"
+          ],
+          [
+            "Tribunal do Júri",
+            "16,67%"
+          ],
+          [
+            "Sujeitos processuais (MP, acusado, defensor, auxiliares)",
+            "15,28%"
+          ],
+          [
+            "Habeas corpus",
+            "15,28%"
+          ],
+          [
+            "Processo comum",
+            "13,89%"
+          ]
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "lavanda",
+        "kicker": "Bloco II · Processo Civil",
+        "titulo": [
+          "Processo Civil: o [[top 5]]"
+        ],
+        "colunas": [
+          "Assunto",
+          "Incidência"
+        ],
+        "linhas": [
+          [
+            "Leis 9.099/95 (arts. 3º a 19) e 12.153/09",
+            "23,91%"
+          ],
+          [
+            "Comunicação dos atos processuais (CPC, arts. 188 a 275)",
+            "23,91%"
+          ],
+          [
+            "Procedimento comum e cumprimento de sentença",
+            "15,22%"
+          ],
+          [
+            "Impedimento, suspeição e auxiliares da Justiça (arts. 144 a 155)",
+            "13,04%"
+          ],
+          [
+            "Recursos (arts. 994 a 1.026)",
+            "13,04%"
+          ]
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "branco",
+        "kicker": "Bloco II · Constitucional e Administrativo",
+        "titulo": [
+          "Onde a banca [[insiste]]"
+        ],
+        "colunas": [
+          "Matéria",
+          "Assunto",
+          "Incidência"
+        ],
+        "linhas": [
+          [
+            "Constitucional",
+            "Administração Pública e servidores",
+            "38,94%"
+          ],
+          [
+            "Constitucional",
+            "Direitos e deveres individuais e coletivos",
+            "37,61%"
+          ],
+          [
+            "Constitucional",
+            "Direitos sociais",
+            "12,39%"
+          ],
+          [
+            "Administrativo",
+            "Improbidade (Lei 8.429/92)",
+            "61,73%"
+          ],
+          [
+            "Administrativo",
+            "Estatuto dos Servidores de SP (Lei 10.261/68)",
+            "38,27%"
+          ]
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "branco",
+        "kicker": "Bloco III · Conhecimentos Gerais",
+        "titulo": [
+          "O que mais cai em [[gerais]]"
+        ],
+        "colunas": 3,
+        "cards": [
+          {
+            "rotulo": "Informática",
+            "titulo": "Internet · 27%",
+            "texto": "Excel (25%) e Word (24%) logo atrás."
+          },
+          {
+            "rotulo": "Raciocínio Lógico",
+            "titulo": "Conjuntos · 66%",
+            "texto": "Dois terços das questões da matéria."
+          },
+          {
+            "rotulo": "Matemática",
+            "titulo": "Equações · 16%",
+            "texto": "Depois: geometria plana (15%) e frações, razão e proporção (13%)."
+          }
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "lavanda",
+        "kicker": "Antes de montar o plano",
+        "titulo": [
+          "O que o número",
+          "[[não mostra]]"
+        ],
+        "texto": [
+          "O edital de 2026 **ampliou Direito Administrativo**: os percentuais acima são de provas anteriores.",
+          "**Normas da Corregedoria** só caem no TJ SP, então há poucas questões para medir. E **Atualidades** não teve análise por falta de histórico. Nenhuma das duas pode ficar de fora."
+        ]
+      },
+      {
+        "tipo": "fim",
+        "tema": "degrade",
+        "kicker": "Resumo",
+        "titulo": [
+          "Estude pelo",
+          "[[peso]]"
+        ],
+        "texto": "Fonte: Raio-X Estratégico TJ-SP (Escrevente), Estratégia Concursos, 2024 (questões Vunesp de nível médio, 2015 a 2024). Confira o conteúdo no edital 2026 da Vunesp.",
+        "botao": "Bons estudos!"
+      }
+    ]
+  },
+  {
+    "id": "trt-mg-do-zero-aula",
+    "titulo": "Como estudar DO ZERO pra o concurso do TRT MG",
+    "tema": "TRT 3ª Região (MG): plano para começar do zero antes do edital, com base na prova de 2022",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "degrade",
+        "kicker": "Ainda sem edital",
+        "titulo": [
+          "Como estudar",
+          "[[do zero]] pro",
+          "TRT MG"
+        ],
+        "texto": "Comissão formada e edital previsto para o 2º semestre de 2027: dá tempo de começar com calma.",
+        "pilula": "Plano de estudos"
+      },
+      {
+        "tipo": "cards",
+        "tema": "branco",
+        "kicker": "TRT 3 · Minas Gerais",
+        "titulo": [
+          "Onde o concurso [[está]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Situação",
+            "titulo": "Comissão formada",
+            "texto": "Publicada no Diário Oficial em 20/10/2026."
+          },
+          {
+            "rotulo": "Edital",
+            "titulo": "2º semestre de 2027",
+            "texto": "É a previsão divulgada até agora."
+          },
+          {
+            "rotulo": "Banca",
+            "titulo": "A definir",
+            "texto": "Em 2022 foi a Fumarc."
+          },
+          {
+            "rotulo": "Cargos vagos",
+            "titulo": "496",
+            "texto": "104 de Analista e 392 de Técnico (set/2026)."
+          },
+          {
+            "rotulo": "Técnico",
+            "titulo": "R$ 9.776,74",
+            "texto": "Base inicial desde julho de 2026."
+          },
+          {
+            "rotulo": "Analista",
+            "titulo": "R$ 16.041,21",
+            "texto": "Base inicial desde julho de 2026."
+          }
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "lavanda",
+        "kicker": "O mapa · Técnico em 2022",
+        "titulo": [
+          "Como foi a [[prova]]"
+        ],
+        "colunas": [
+          "Disciplina",
+          "Questões"
+        ],
+        "linhas": [
+          [
+            "Língua Portuguesa",
+            "15"
+          ],
+          [
+            "Noções de Informática",
+            "5"
+          ],
+          [
+            "Legislação",
+            "5"
+          ],
+          [
+            "Noções de Direito (Constitucional e Administrativo)",
+            "5"
+          ],
+          [
+            "Específicos: Direito do Trabalho e Processo do Trabalho",
+            "30"
+          ],
+          [
+            "Discursiva: redação de 20 a 30 linhas, tema atual",
+            "0 a 50 pontos"
+          ]
+        ]
+      },
+      {
+        "tipo": "lista",
+        "tema": "branco",
+        "kicker": "Passo a passo",
+        "titulo": [
+          "Do zero ao",
+          "[[edital]]"
+        ],
+        "itens": [
+          "**Escolha o cargo:** Técnico ou Analista. O conteúdo muda, e o plano também.",
+          "**Use o edital de 2022 como mapa** até sair o novo.",
+          "**Comece pelo que pesa mais:** na prova de Técnico, metade foi de Direito do Trabalho e Processo do Trabalho.",
+          "**Português toda semana:** foi a maior disciplina de conhecimentos gerais.",
+          "**Questões desde a primeira semana** e uma redação por semana."
+        ]
+      },
+      {
+        "tipo": "cards",
+        "tema": "branco",
+        "kicker": "Por onde começar",
+        "titulo": [
+          "Os primeiros [[assuntos]]"
+        ],
+        "cards": [
+          {
+            "rotulo": "Direito do Trabalho",
+            "titulo": "A base",
+            "texto": "Princípios e fontes, contrato de emprego, remuneração e fim do contrato."
+          },
+          {
+            "rotulo": "Processo do Trabalho",
+            "titulo": "O caminho da ação",
+            "texto": "Competência da Justiça do Trabalho e dissídio individual."
+          },
+          {
+            "rotulo": "Constitucional",
+            "titulo": "Arts. 5º a 7º e 37 a 41",
+            "texto": "Direitos fundamentais, direitos dos trabalhadores e Administração Pública."
+          },
+          {
+            "rotulo": "Português",
+            "titulo": "Todo dia um pouco",
+            "texto": "Interpretação de texto e gramática, com questões."
+          }
+        ]
+      },
+      {
+        "tipo": "tabela",
+        "tema": "lavanda",
+        "kicker": "Sugestão de rotina",
+        "titulo": [
+          "Uma semana [[modelo]]"
+        ],
+        "colunas": [
+          "Dia",
+          "Bloco 1",
+          "Bloco 2"
+        ],
+        "linhas": [
+          [
+            "Segunda",
+            "Direito do Trabalho",
+            "Português"
+          ],
+          [
+            "Terça",
+            "Processo do Trabalho",
+            "Questões"
+          ],
+          [
+            "Quarta",
+            "Direito do Trabalho",
+            "Informática"
+          ],
+          [
+            "Quinta",
+            "Constitucional e Administrativo",
+            "Português"
+          ],
+          [
+            "Sexta",
+            "Processo do Trabalho",
+            "Questões"
+          ],
+          [
+            "Sábado",
+            "Revisão da semana",
+            "Redação"
+          ]
+        ]
+      },
+      {
+        "tipo": "balao",
+        "tema": "lavanda",
+        "kicker": "Quando a banca sair",
+        "titulo": [
+          "Ajuste o",
+          "[[plano]]"
+        ],
+        "texto": [
+          "Em 2022 a banca foi a **Fumarc**. A próxima pode ser outra, e o estilo das questões muda com ela.",
+          "Saiu a banca, troque as questões do treino pelas dela. Saiu o edital, confira **matéria por matéria** e corte o que não estiver lá."
+        ]
+      },
+      {
+        "tipo": "fim",
+        "tema": "degrade",
+        "kicker": "Comece hoje",
+        "titulo": [
+          "O edital vem,",
+          "a [[base]] fica"
+        ],
+        "texto": "Dados publicados até 22/10/2026 e prova de Técnico de 2022 como referência. Confira tudo no edital quando ele sair.",
+        "botao": "Bons estudos!"
+      }
+    ]
   }
 ]

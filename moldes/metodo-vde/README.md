@@ -26,3 +26,7 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 - `fim`: `titulo`, `texto`, `botao`.
 
 Conteúdo: use o material da mentoria (ex.: caderno "Treino de peças", 20 casos com gabarito; peça o PDF ao autor). Sem jurisprudência (só Constituição e leis), salvo pedido. Não invente gabaritos nem o significado da sigla VDE.
+
+## Capas do YouTube (`miniaturas.json`)
+
+`node miniaturas.mjs [id]` → `saida/miniaturas/<id>.jpg` e `<id>-foto.jpg` (1280×720). Campos: `id` (o da aula), `fundo` (`claro` ou degradê), `kicker`, `titulo` (linhas, `[[destaque]]`; encolhe até caber), `sub`, `px`, `objeto` à direita (`edital` {topo, titulo, linhas [[rótulo, valor]], carimbo}, `vagas` {topo, n, rotulo, sub}, `linha` {topo, etapas [[título, data, feito]]}, `barras` {topo, titulo, max, itens [[assunto, %]]}, `semana` {topo, dias [[dia, matéria]], feitos}) e, para a versão com foto, `foto` (recorte PNG em `fotos/`, fora do git), `selo`, `seloX`, `fotoX`.
