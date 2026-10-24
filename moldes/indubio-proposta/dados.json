@@ -1,0 +1,362 @@
+[
+  {
+    "id": "edicao-videos-podconst",
+    "por": "Otávio Daniel",
+    "para": "PodConst · Natália Valença",
+    "etiquetas": [
+      "PodConst",
+      "YouTube da Natália",
+      "Áudio para o Spotify",
+      "Thumbnails de bônus"
+    ],
+    "escopoTexto": "O que [[Otávio Daniel]] vai entregar todo mês para o PodConst e para o canal da Natália.",
+    "escopo": [
+      {
+        "titulo": "PodConst",
+        "sub": "Mensal",
+        "itens": [
+          {
+            "q": "1",
+            "t": "Vinheta para a introdução dos vídeos"
+          },
+          {
+            "q": "8",
+            "t": "Vídeos de 10 a 12 minutos editados"
+          },
+          {
+            "q": "4",
+            "t": "Vídeos de 15 minutos editados"
+          },
+          {
+            "q": "+",
+            "t": "Áudio extraído desses vídeos para o [[Spotify]]"
+          }
+        ]
+      },
+      {
+        "titulo": "YouTube da Natália",
+        "sub": "Mensal",
+        "itens": [
+          {
+            "q": "8",
+            "t": "Vídeos de até 10 minutos editados"
+          }
+        ]
+      }
+    ],
+    "unitarios": [
+      {
+        "t": "Vinheta",
+        "valor": 350,
+        "d": "Cobrada à parte, fora dos planos"
+      },
+      {
+        "t": "Por edição de vídeo",
+        "valor": 60,
+        "d": "Valor de cada vídeo editado"
+      }
+    ],
+    "planosTitulo": "Planos PodConst · 12 vídeos mensais",
+    "planos": [
+      {
+        "nome": "Mensal",
+        "d": "12 vídeos por mês",
+        "por": 720
+      },
+      {
+        "nome": "3 meses",
+        "d": "36 vídeos no total",
+        "de": 2160,
+        "por": 1800
+      },
+      {
+        "nome": "6 meses",
+        "d": "72 vídeos no total",
+        "de": 4320,
+        "por": 3500,
+        "destaque": true,
+        "selo": "Melhor valor"
+      }
+    ],
+    "extras": [
+      {
+        "nome": "YouTube da Natália",
+        "d": "8 vídeos por mês × R$ 60 por edição",
+        "valor": 480
+      }
+    ],
+    "bonus": "[[Thumbnails]] para os vídeos, sem custo a mais. A vinheta é cobrada por fora.",
+    "paginasThumbs": [
+      {
+        "titulo": [
+          "Ideias de [[thumbs]]",
+          "para as aulas"
+        ],
+        "texto": "Thumbnails inclusas como bônus. Algumas ideias para as aulas do YouTube, sem foto:",
+        "thumbs": [
+          "zera",
+          "gabaritar",
+          "identificacao"
+        ]
+      },
+      {
+        "titulo": [
+          "Mais ideias",
+          "[[sem foto]]"
+        ],
+        "thumbs": [
+          "pontuacao",
+          "adi",
+          "ms"
+        ]
+      },
+      {
+        "titulo": [
+          "Versões [[com foto]]"
+        ],
+        "texto": "A mesma ideia com a foto recortada de quem apresenta o vídeo.",
+        "thumbs": [
+          "zera-foto",
+          "gabaritar-foto"
+        ],
+        "cheio": true
+      }
+    ],
+    "fimTexto": "Qualquer ajuste no escopo ou nos planos, é só falar que a gente adapta."
+  },
+  {
+    "id": "edicao-videos-natalia",
+    "por": "Otávio Daniel",
+    "para": "Natália Valença",
+    "etiquetas": [
+      "8 vídeos por mês",
+      "Thumbnails de bônus",
+      "Vinheta opcional"
+    ],
+    "escopoTexto": "O que [[Otávio Daniel]] vai entregar todo mês para a Natália.",
+    "escopo": [
+      {
+        "titulo": "Natália Valença",
+        "sub": "Mensal",
+        "itens": [
+          {
+            "q": "8",
+            "t": "Vídeos de até 10 minutos editados"
+          },
+          {
+            "q": "+",
+            "t": "Thumbnail para cada vídeo (bônus)"
+          }
+        ]
+      },
+      {
+        "titulo": "Vinheta",
+        "sub": "Opcional · à parte",
+        "itens": [
+          {
+            "q": "1",
+            "t": "Vinheta para a introdução dos vídeos, caso ela queira (R$ 350, por fora)"
+          }
+        ]
+      }
+    ],
+    "unitarios": [
+      {
+        "t": "Por edição de vídeo",
+        "valor": 60,
+        "d": "Valor de cada vídeo editado"
+      },
+      {
+        "t": "Vinheta",
+        "valor": 350,
+        "d": "À parte, caso ela queira"
+      }
+    ],
+    "planosTitulo": "Planos · 8 vídeos mensais",
+    "planos": [
+      {
+        "nome": "Mensal",
+        "d": "8 vídeos por mês",
+        "por": 480
+      },
+      {
+        "nome": "3 meses",
+        "d": "24 vídeos no total",
+        "de": 1440,
+        "por": 1200
+      },
+      {
+        "nome": "6 meses",
+        "d": "48 vídeos no total",
+        "de": 2880,
+        "por": 2400,
+        "destaque": true,
+        "selo": "Melhor valor"
+      }
+    ],
+    "bonus": "[[Thumbnails]] para os vídeos, sem custo a mais.",
+    "paginasThumbs": [
+      {
+        "titulo": [
+          "Ideias de [[thumbs]]",
+          "para as aulas"
+        ],
+        "texto": "Thumbnails inclusas como bônus. Algumas ideias para as aulas do YouTube, sem foto:",
+        "thumbs": [
+          "zera",
+          "gabaritar",
+          "identificacao"
+        ]
+      },
+      {
+        "titulo": [
+          "Mais ideias",
+          "[[sem foto]]"
+        ],
+        "thumbs": [
+          "pontuacao",
+          "adi",
+          "ms"
+        ]
+      }
+    ],
+    "fimTexto": "Qualquer ajuste no escopo ou nos planos, é só falar que a gente adapta.",
+    "numeros": [
+      {
+        "n": "8",
+        "t": "vídeos por mês"
+      },
+      {
+        "n": "24",
+        "t": "vídeos no plano de 3 meses"
+      },
+      {
+        "n": "48",
+        "t": "vídeos no plano de 6 meses"
+      }
+    ]
+  },
+  {
+    "id": "edicao-videos-libero",
+    "por": "Otávio Daniel",
+    "para": "Líbero Filho",
+    "etiquetas": [
+      "8 vídeos por mês",
+      "Thumbnails de bônus",
+      "Vinheta opcional"
+    ],
+    "escopoTexto": "O que [[Otávio Daniel]] vai entregar todo mês para o Líbero.",
+    "escopo": [
+      {
+        "titulo": "Líbero Filho",
+        "sub": "Mensal",
+        "itens": [
+          {
+            "q": "8",
+            "t": "Vídeos editados"
+          },
+          {
+            "q": "+",
+            "t": "Thumbnail para cada vídeo (bônus)"
+          }
+        ]
+      },
+      {
+        "titulo": "Vinheta",
+        "sub": "Opcional · à parte",
+        "itens": [
+          {
+            "q": "1",
+            "t": "Vinheta para a introdução dos vídeos, caso ele queira (R$ 350, por fora)"
+          }
+        ]
+      }
+    ],
+    "unitarios": [
+      {
+        "t": "Por edição de vídeo",
+        "valor": 60,
+        "d": "Valor de cada vídeo editado"
+      },
+      {
+        "t": "Vinheta",
+        "valor": 350,
+        "d": "À parte, caso ele queira"
+      }
+    ],
+    "planosTitulo": "Planos · 8 vídeos mensais",
+    "planos": [
+      {
+        "nome": "Mensal",
+        "d": "8 vídeos por mês",
+        "por": 480
+      },
+      {
+        "nome": "3 meses",
+        "d": "24 vídeos no total",
+        "de": 1440,
+        "por": 1200
+      },
+      {
+        "nome": "6 meses",
+        "d": "48 vídeos no total",
+        "de": 2880,
+        "por": 2400,
+        "destaque": true,
+        "selo": "Melhor valor"
+      }
+    ],
+    "bonus": "[[Thumbnails]] para os vídeos, sem custo a mais.",
+    "paginasThumbs": [
+      {
+        "titulo": [
+          "Ideias de [[thumbs]]",
+          "para as aulas"
+        ],
+        "texto": "Thumbnails inclusas como bônus. Algumas ideias para as aulas do YouTube, sem foto:",
+        "thumbs": [
+          "zera",
+          "gabaritar",
+          "identificacao"
+        ]
+      },
+      {
+        "titulo": [
+          "Mais ideias",
+          "[[sem foto]]"
+        ],
+        "thumbs": [
+          "pontuacao",
+          "adi",
+          "ms"
+        ]
+      },
+      {
+        "titulo": [
+          "Versões [[com foto]]"
+        ],
+        "texto": "A mesma ideia com a foto recortada de quem apresenta o vídeo.",
+        "thumbs": [
+          "zera-foto",
+          "gabaritar-foto"
+        ],
+        "cheio": true
+      }
+    ],
+    "fimTexto": "Qualquer ajuste no escopo ou nos planos, é só falar que a gente adapta.",
+    "numeros": [
+      {
+        "n": "8",
+        "t": "vídeos por mês"
+      },
+      {
+        "n": "24",
+        "t": "vídeos no plano de 3 meses"
+      },
+      {
+        "n": "48",
+        "t": "vídeos no plano de 6 meses"
+      }
+    ]
+  }
+]
