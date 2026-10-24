@@ -55,7 +55,14 @@ for (const p of dados) {
   fs.mkdirSync(outDir, { recursive: true });
   const slides = await page.$$('.slide');
   for (let i = 0; i < slides.length; i++) await slides[i].screenshot({ path: path.join(outDir, `${i + 1}.png`) });
-  await page.pdf({ path: path.join(outDir, `${p.id}.pdf`), width: '210mm', height: '297mm', printBackground: true, preferCSSPageSize: true });
+  // O PDF é montado com as imagens das páginas: o granulado (mix-blend) e as sombras saíam como faixas cinzas
+  // em alguns leitores de PDF (Preview/iPhone) quando o PDF vinha direto do HTML.
+  const imgsHtml = path.join(build, `${p.id}-pdf.html`);
+  fs.writeFileSync(imgsHtml, `<!doctype html><html><head><style>@page{size:210mm 297mm;margin:0}html,body{margin:0}img{display:block;width:210mm;height:297mm;page-break-after:always;break-after:page}img:last-child{page-break-after:auto;break-after:auto}</style></head><body>${slides.map((_, i) => `<img src="file://${path.join(outDir, `${i + 1}.png`)}">`).join('')}</body></html>`);
+  const pdfPage = await browser.newPage();
+  await pdfPage.goto('file://' + imgsHtml);
+  await pdfPage.pdf({ path: path.join(outDir, `${p.id}.pdf`), width: '210mm', height: '297mm', printBackground: true, preferCSSPageSize: true });
+  await pdfPage.close();
   fs.copyFileSync(path.join(outDir, '1.png'), path.join(outDir, 'painel.png'));
   await page.close();
   console.log(avisos.length ? '!' : '✓', p.id, `(${total} páginas)`);
