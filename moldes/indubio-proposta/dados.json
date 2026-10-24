@@ -2,14 +2,14 @@
   {
     "id": "edicao-videos-podconst",
     "por": "Otávio Daniel",
-    "para": "PodConst · Natália Valença",
+    "para": "PodConst",
     "etiquetas": [
-      "PodConst",
-      "YouTube da Natália",
+      "12 vídeos por mês",
       "Áudio para o Spotify",
-      "Thumbnails de bônus"
+      "Thumbnails de bônus",
+      "Vinheta à parte"
     ],
-    "escopoTexto": "O que [[Otávio Daniel]] vai entregar todo mês para o PodConst e para o canal da Natália.",
+    "escopoTexto": "O que [[Otávio Daniel]] vai entregar todo mês para o PodConst.",
     "escopo": [
       {
         "titulo": "PodConst",
@@ -30,16 +30,6 @@
           {
             "q": "+",
             "t": "Áudio extraído desses vídeos para o [[Spotify]]"
-          }
-        ]
-      },
-      {
-        "titulo": "YouTube da Natália",
-        "sub": "Mensal",
-        "itens": [
-          {
-            "q": "8",
-            "t": "Vídeos de até 10 minutos editados"
           }
         ]
       }
@@ -76,13 +66,6 @@
         "por": 3500,
         "destaque": true,
         "selo": "Melhor valor"
-      }
-    ],
-    "extras": [
-      {
-        "nome": "YouTube da Natália",
-        "d": "8 vídeos por mês × R$ 60 por edição",
-        "valor": 480
       }
     ],
     "bonus": "[[Thumbnails]] para os vídeos, sem custo a mais. A vinheta é cobrada por fora.",
@@ -122,7 +105,21 @@
         "cheio": true
       }
     ],
-    "fimTexto": "Qualquer ajuste no escopo ou nos planos, é só falar que a gente adapta."
+    "fimTexto": "Qualquer ajuste no escopo ou nos planos, é só falar que a gente adapta.",
+    "numeros": [
+      {
+        "n": "12",
+        "t": "vídeos editados por mês"
+      },
+      {
+        "n": "36",
+        "t": "vídeos no plano de 3 meses"
+      },
+      {
+        "n": "72",
+        "t": "vídeos no plano de 6 meses"
+      }
+    ]
   },
   {
     "id": "edicao-videos-natalia",

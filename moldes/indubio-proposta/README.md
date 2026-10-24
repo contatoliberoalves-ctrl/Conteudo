@@ -20,6 +20,5 @@ Propostas comerciais da Indubio Pro Marketing em A4 retrato (PDF + PNG 2×). `no
 `[[texto]]` sai em dourado. Valores em número (`brl` formata).
 
 ## thumbs.json
-Miniaturas de YouTube em `thumbs.mjs` (estilos `zera`, `gabaritar`, `identificacao`, `sigla`, `pontuacao`).
+Miniaturas de YouTube em `thumbs.mjs` (fundo `escuro` ou papel, título Anton com `[[palavra]]` em vermelho, `kicker`, `sub`, `px`; à direita o `objeto`: `zera`, `gabaritar`, `identificacao`, `adi`, `ms`, `pontuacao`).
 `foto` = recorte PNG sem fundo em `fotos/` (fora do git; recorte com rembg `u2net_human_seg`).
-`sigla` aceita `sigla`, `texto`, `chips`, `fundo`, `cor`, `destaque`, `ts`, `tt`.

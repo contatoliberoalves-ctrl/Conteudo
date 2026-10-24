@@ -1,54 +1,69 @@
-// Miniaturas de YouTube (1280×720) usadas como bônus nas propostas. Cada estilo é uma composição pronta;
-// "foto" (recorte PNG sem fundo, em fotos/) põe a pessoa à direita e o texto à esquerda.
-const F = "font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;text-transform:uppercase";
+// Miniaturas de YouTube (1280×720) usadas como bônus nas propostas. Uma série só: fundo escuro ou papel com
+// granulado, título condensado (Anton) com uma palavra em vermelho, e à direita um objeto real do tema
+// (folha de prova, cartão-resposta, texto de lei grifado). Com "foto" (recorte PNG sem fundo, em fotos/),
+// a pessoa entra no lugar do objeto.
+const FONTES = 'https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap';
+const A = "font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:-.005em";
 const I = "font-family:'Inter',sans-serif";
+const S = "font-family:'Source Serif 4',serif";
+const COR = { tinta: '#101114', papel: '#EFEBE2', vermelho: '#E5352B', grifo: 'rgba(255,214,0,.55)' };
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
-const tag = (t, bg, fg) => `<span style="display:inline-block;background:${bg};color:${fg};${I};font-weight:800;font-size:30px;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;border-radius:10px">${esc(t)}</span>`;
-const grao = `<div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:.35;mix-blend-mode:overlay"></div>`;
-const pessoa = (src, h = 760, r = -40) => src ? `<img src="${src}" style="position:absolute;right:${r}px;bottom:-40px;height:${h}px;filter:drop-shadow(-20px 10px 40px rgba(0,0,0,.45))">` : '';
+const rico = s => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="color:${COR.vermelho}">$1</span>`);
+// ==texto== sai grifado (marca-texto), usado nos trechos de lei.
+const grifa = s => esc(s).replace(/==(.+?)==/g, `<mark style="background:linear-gradient(transparent 12%,${COR.grifo} 12%,${COR.grifo} 88%,transparent 88%);color:inherit;padding:0 2px">$1</mark>`);
 
-export const ESTILOS = {
-  // Fundo escuro, palavra-chave gigante em vermelho com carimbo, nota 0,00 num círculo.
-  zera: t => `<div style="position:absolute;inset:0;background:radial-gradient(90% 90% at 20% 30%,#2A1414 0%,#0D0B0B 70%)"></div>${grao}
-    ${t.foto ? '' : `<div style="position:absolute;right:70px;top:120px;width:420px;height:420px;border-radius:50%;border:16px solid #FF2E3A;display:flex;align-items:center;justify-content:center;transform:rotate(-10deg)"><span style="${F};font-size:190px;color:#FF2E3A">0,00</span></div>`}
-    ${pessoa(t.foto, 760, -30)}
-    <div style="position:absolute;left:70px;top:70px;${t.foto ? 'width:720px' : 'width:700px'}">${tag('OAB', '#FF2E3A', '#fff')}
-      <div style="${F};font-size:118px;line-height:.92;color:#fff;margin-top:34px">O que</div>
-      <div style="${F};font-size:250px;line-height:.82;color:#FF2E3A;text-shadow:0 10px 0 #5A0B10">zera</div>
-      <div style="${F};font-size:110px;line-height:.95;color:#fff">na 2ª fase?</div></div>`,
-  // Amarelo vivo, texto preto, coluna de vistos.
-  gabaritar: t => `<div style="position:absolute;inset:0;background:#FFD43B"></div>${grao}
-    ${t.foto ? '' : `<div style="position:absolute;right:60px;top:110px;display:grid;grid-template-columns:repeat(3,100px);gap:16px">${Array.from({ length: 9 }, () => `<div style="width:100px;height:100px;border-radius:20px;background:#111;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="64"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#FFD43B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`).join('')}</div>`}
-    ${pessoa(t.foto, 780, -20)}
-    <div style="position:absolute;left:70px;top:80px;width:${t.foto ? 740 : 700}px">${tag('1ª fase OAB', '#111', '#FFD43B')}
-      <div style="${F};font-size:104px;line-height:.92;color:#111;margin-top:30px">Como</div>
-      <div style="${F};font-size:150px;line-height:.86;color:#111;background:#fff;display:inline-block;padding:4px 18px 0;transform:rotate(-2deg);margin:6px 0 10px">gabaritar</div>
-      <div style="${F};font-size:96px;line-height:.95;color:#111">constitucional</div></div>`,
-  // Azul profundo com lupa e etiqueta "Qual é a peça?".
-  identificacao: t => `<div style="position:absolute;inset:0;background:linear-gradient(135deg,#0B2A6F 0%,#0B4FD8 100%)"></div>${grao}
-    <svg viewBox="0 0 24 24" style="position:absolute;right:30px;top:150px;width:380px" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><circle cx="10" cy="10" r="6.5" stroke-width="1.8"/><path d="M15 15l6 6" stroke-width="2.6"/></svg>
-    <div style="position:absolute;right:130px;top:250px;${F};font-size:120px;color:#FFD43B;transform:rotate(-8deg)">?</div>
-    <div style="position:absolute;left:70px;top:80px;width:760px">${tag('Constitucional', '#FFD43B', '#0B2A6F')}
-      <div style="${F};font-size:100px;line-height:.92;color:#fff;margin-top:30px">Técnicas de</div>
-      <div style="${F};font-size:118px;line-height:.95;color:#FFD43B">identificação</div>
-      <div style="display:inline-block;margin-top:24px;background:#fff;color:#0B2A6F;${F};font-size:62px;padding:10px 24px 4px;border-radius:14px;transform:rotate(-2deg)">Qual é a peça?</div></div>`,
-  // Roxo, sigla gigante e etiquetas de palavras-chave (as "pistas" do enunciado).
-  sigla: t => `<div style="position:absolute;inset:0;background:${t.fundo || 'linear-gradient(135deg,#2E0575 0%,#6A1FD0 100%)'}"></div>${grao}
-    <div style="position:absolute;right:-30px;top:-60px;${F};font-size:${t.ts || 520}px;line-height:.8;color:rgba(255,255,255,.12)">${esc(t.sigla)}</div>
-    <div style="position:absolute;left:70px;top:70px;width:1140px">${tag('Palavras-chave', '#fff', t.cor || '#2E0575')}
-      <div style="${F};font-size:${t.tt || 150}px;line-height:.9;color:#fff;margin-top:30px">${lista(t.texto || t.titulo).map(esc).join('<br>')}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:34px;max-width:1000px">${lista(t.chips).map((c, i) => `<span style="background:${i % 2 ? '#fff' : t.destaque || '#FFD43B'};color:#111;${I};font-weight:800;font-size:36px;padding:12px 26px;border-radius:999px;transform:rotate(${i % 2 ? 2 : -2}deg)">${esc(c)}</span>`).join('')}</div></div>`,
-  // Placar: a conta da nota da 2ª fase.
-  pontuacao: t => `<div style="position:absolute;inset:0;background:#0F1A2E"></div>${grao}
-    <div style="position:absolute;left:70px;top:70px">${tag('2ª fase OAB', '#22C55E', '#0F1A2E')}</div>
-    <div style="position:absolute;left:70px;top:170px;${F};font-size:110px;line-height:.92;color:#fff">Como funciona<br>a <span style="color:#22C55E">pontuação</span></div>
-    <div style="position:absolute;left:70px;right:70px;bottom:70px;display:flex;align-items:center;gap:22px">
-      ${[['Peça', '5,0'], ['+', ''], ['4 questões', '4 × 1,25'], ['=', ''], ['Total', '10,0']].map(([a, b]) => b ? `<div style="flex:1;background:#fff;border-radius:22px;padding:18px 20px;text-align:center"><div style="${I};font-weight:800;font-size:26px;letter-spacing:.1em;text-transform:uppercase;color:#64748B">${a}</div><div style="${F};font-size:78px;line-height:1;color:#0F1A2E">${b}</div></div>` : `<div style="${F};font-size:80px;color:#22C55E">${a}</div>`).join('')}
-      <div style="flex:none;background:#22C55E;border-radius:22px;padding:18px 26px;text-align:center;transform:rotate(-4deg)"><div style="${I};font-weight:800;font-size:26px;letter-spacing:.1em;color:#0F1A2E">PRA PASSAR</div><div style="${F};font-size:78px;line-height:1;color:#0F1A2E">6,0</div></div></div>`,
+const fundo = escuro => escuro
+  ? `<div style="position:absolute;inset:0;background:radial-gradient(70% 90% at 78% 40%,#262830 0%,${COR.tinta} 70%)"></div>
+     <div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:.45;mix-blend-mode:overlay"></div>`
+  : `<div style="position:absolute;inset:0;background:radial-gradient(80% 90% at 75% 40%,#F7F4EE 0%,${COR.papel} 75%)"></div>
+     <div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:.22;mix-blend-mode:multiply"></div>`;
+const kicker = (t, escuro) => `<div style="display:flex;align-items:center;gap:16px;${I};font-weight:700;font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:${escuro ? '#B9BAC0' : '#55534E'}"><span style="width:44px;height:4px;background:${COR.vermelho}"></span>${esc(t)}</div>`;
+const titulo = (linhas, escuro, px) => `<div style="${A};font-size:${px}px;line-height:1.02;color:${escuro ? '#fff' : COR.tinta};margin-top:26px">${lista(linhas).map(rico).join('<br>')}</div>`;
+const texto = (t, escuro) => `<div style="position:absolute;left:72px;top:${t.top || 92}px;width:${t.foto ? 700 : t.largura || 640}px">${kicker(t.kicker, escuro)}${titulo(t.linhas, escuro, t.px || 118)}
+  ${t.sub ? `<div style="display:inline-block;margin-top:26px;${I};font-weight:700;font-size:34px;color:${escuro ? COR.tinta : '#fff'};background:${escuro ? '#fff' : COR.tinta};padding:10px 22px;border-radius:6px">${esc(t.sub)}</div>` : ''}</div>`;
+const pessoa = (src, escuro) => `${escuro ? `<div style="position:absolute;right:-80px;bottom:-200px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(229,53,43,.28) 0%,transparent 65%)"></div>` : ''}
+  <img src="${src}" style="position:absolute;right:10px;bottom:0;height:700px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))">`;
+// Folha branca com sombra, levemente girada.
+const folha = (html, { w = 470, h = 560, r = 3, right = 70, top = 90 } = {}) => `<div style="position:absolute;right:${right}px;top:${top}px;width:${w}px;height:${h}px;background:#fff;border-radius:6px;transform:rotate(${r}deg);box-shadow:0 30px 60px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.2);overflow:hidden">${html}</div>`;
+const linhas = (n, cor = '#D9D6CF', larg = [92, 86, 95, 70, 90, 82, 94, 60]) => Array.from({ length: n }, (_, i) => `<div style="height:12px;width:${larg[i % larg.length]}%;background:${cor};border-radius:3px;margin-bottom:20px"></div>`).join('');
+const lei = (ref, corpo) => `<div style="padding:40px 40px 0">
+  <div style="${I};font-weight:700;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:#8A867D;margin-bottom:18px">${esc(ref)}</div>
+  <div style="${S};font-size:27px;line-height:1.5;color:#1E1E22">${grifa(corpo)}</div></div>`;
+
+const OBJETOS = {
+  // Folha da peça corrigida: linhas de texto e a nota 0,00 de 5,00 circulada em caneta vermelha.
+  zera: () => folha(`<div style="padding:38px 40px">
+      <div style="display:flex;justify-content:space-between;${I};font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#8A867D;margin-bottom:30px"><span>Peça profissional</span><span>Folha 1</span></div>
+      ${linhas(9)}</div>
+    <div style="position:absolute;right:34px;bottom:40px;width:260px;height:170px;display:flex;align-items:center;justify-content:center;transform:rotate(-7deg)">
+      <svg viewBox="0 0 260 170" style="position:absolute;inset:0" fill="none" stroke="${COR.vermelho}" stroke-width="5" stroke-linecap="round"><path d="M40 92C30 40 120 18 190 30c60 12 62 82 10 112-50 28-150 22-168-26C25 94 50 60 92 50"/></svg>
+      <span style="${A};font-size:92px;color:${COR.vermelho}">0,00</span></div>
+`, { r: 4 }),
+  // Cartão-resposta com alternativas A–D marcadas.
+  gabaritar: () => folha(`<div style="padding:36px 44px">
+      <div style="${I};font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#8A867D;margin-bottom:26px">Folha de respostas</div>
+      ${[1, 3, 0, 2, 1, 3, 2].map((m, i) => `<div style="display:flex;align-items:center;gap:22px;margin-bottom:20px"><span style="${I};font-weight:700;font-size:20px;color:#8A867D;width:34px">${String(i + 1).padStart(2, '0')}</span>
+        ${'ABCD'.split('').map((l, j) => `<span style="width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;${I};font-weight:700;font-size:20px;${j === m ? `background:${COR.tinta};color:#fff` : 'border:2.5px solid #CFCBC2;color:#A5A199'}">${l}</span>`).join('')}
+        <svg viewBox="0 0 24 24" width="36" fill="none" stroke="${COR.vermelho}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg></div>`).join('')}</div>`, { r: -3, h: 600, top: 70 }),
+  // Enunciado com as pistas grifadas.
+  identificacao: () => folha(`<div style="padding:40px 40px">
+      <div style="${I};font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#8A867D;margin-bottom:28px">Enunciado</div>
+      ${[[92], [40, 'rgba(255,214,0,.75)', 44], [95], [70], [30, 'rgba(255,214,0,.75)', 52], [86], [94], [55, 'rgba(255,214,0,.75)', 30], [80]].map(([w, g, gw]) => `<div style="position:relative;height:12px;width:${w + (gw || 0)}%;margin-bottom:22px"><div style="position:absolute;left:0;top:0;height:12px;width:${g ? w / (w + gw) * 100 : 100}%;background:#D9D6CF;border-radius:3px"></div>${g ? `<div style="position:absolute;right:0;top:-8px;height:28px;width:${gw / (w + gw) * 100 - 2}%;background:${g};border-radius:3px"></div><div style="position:absolute;right:6px;top:0;height:12px;width:${gw / (w + gw) * 100 - 6}%;background:#9C988F;border-radius:3px"></div>` : ''}</div>`).join('')}</div>`, { r: 3, h: 540, top: 100 }),
+  adi: () => folha(lei('CF/88 · Art. 102, I, a', 'Compete ao Supremo Tribunal Federal (...) processar e julgar, originariamente: a) a ==ação direta de inconstitucionalidade== de ==lei ou ato normativo federal ou estadual== (...)'), { r: 3, h: 520, top: 100 }),
+  ms: () => folha(lei('Lei 12.016/2009 · Art. 1º', 'Conceder-se-á mandado de segurança para proteger ==direito líquido e certo==, não amparado por habeas corpus ou habeas data, sempre que, ==ilegalmente ou com abuso de poder== (...) por parte de ==autoridade== (...)'), { r: -3, h: 540, top: 90 }),
+  // A conta da nota da 2ª fase, como num quadro de resultado.
+  pontuacao: () => folha(`<div style="padding:34px 40px">
+      <div style="${I};font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#8A867D;margin-bottom:10px">Nota final · 2ª fase</div>
+      ${[['Peça profissional', '5,00'], ['4 questões × 1,25', '5,00']].map(([a, b]) => `<div style="display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:2px solid #E6E2D9"><span style="${I};font-weight:600;font-size:26px;color:#3C3B38">${a}</span><span style="${A};font-size:58px;color:${COR.tinta}">${b}</span></div>`).join('')}
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0"><span style="${I};font-weight:800;font-size:26px;color:${COR.tinta}">Total</span><span style="${A};font-size:58px;color:${COR.tinta}">10,00</span></div>
+      <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;background:${COR.tinta};color:#fff;border-radius:8px;padding:18px 22px"><span style="${I};font-weight:700;font-size:22px;letter-spacing:.06em">Aprovação</span><span style="${A};font-size:52px;color:#fff">6,00</span></div></div>`, { r: -2, h: 580, top: 70 }),
 };
 
-export function htmlThumb(t, HEAD) {
-  return `<!doctype html><html><head>${HEAD}<style>*{box-sizing:border-box}html,body{margin:0;width:1280px;height:720px;overflow:hidden}</style></head>
-<body><div style="position:relative;width:1280px;height:720px;overflow:hidden">${ESTILOS[t.estilo](t)}</div></body></html>`;
+export function htmlThumb(t) {
+  const escuro = !!t.escuro;
+  return `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="${FONTES}"><style>*{box-sizing:border-box}html,body{margin:0;width:1280px;height:720px;overflow:hidden}</style></head>
+<body><div style="position:relative;width:1280px;height:720px;overflow:hidden">${fundo(escuro)}
+  ${t.foto ? pessoa(t.foto, escuro) : OBJETOS[t.objeto]()}
+  ${texto(t, escuro)}</div></body></html>`;
 }
