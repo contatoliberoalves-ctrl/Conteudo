@@ -853,7 +853,9 @@ const TIPOS = {
         <span style="flex:none;width:64px;height:64px;border-radius:50%;background:${bgL};color:${fgL};display:flex;align-items:center;justify-content:center;${TITULO};font-size:42px">${'ABCDE'[i]}</span>
         <span data-corpo style="font-size:${s.corpo || 34}px;font-weight:600;line-height:1.25;color:${t.txt}">${rico(o, t)}</span></div>`).join('');
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 120, 860)}${s.pergunta ? `<p data-corpo style="margin:0;font-size:${s.corpoPergunta || 40}px;font-weight:700;line-height:1.25;color:${t.tit}">${rico(s.pergunta, t)}</p>` : ''}
-      <div style="display:flex;flex-direction:column;gap:18px">${ops}</div>`, 90, 90);
+      <div style="display:flex;flex-direction:column;gap:18px">${ops}</div>`, 90, 90)
+      // carimbo: texto (linhas) de um carimbo vermelho girado no canto de baixo (ex.: "Gabarito em recurso").
+      + (s.carimbo ? `<div style="position:absolute;right:70px;bottom:${s.carimboY || 70}px;transform:rotate(-10deg);border:7px solid ${COR.vermelho};border-radius:14px;padding:10px 22px 4px;${TITULO};font-size:${s.tcarimbo || 52}px;line-height:1;color:${COR.vermelho};text-align:center;background:rgba(255,255,255,.75);z-index:6">${lista(s.carimbo).map(esc).join('<br>')}</div>` : '');
   },
   // Gabarito do treino: uma linha por pergunta, com a letra certa, o porquê e o artigo.
   gabarito(s, t) {

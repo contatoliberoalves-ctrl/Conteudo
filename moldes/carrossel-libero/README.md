@@ -23,7 +23,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `lista` | `titulo`, `itens`, `riscado` (itens riscados em vermelho, ex.: "Troque:"), `marcador` (`"num"`, `"romano"` ou `"letra"`), `inicio` (continua a contagem: `1` começa em 02/II/b) |
 | `frases` | `titulo`, `frases` (cada uma numa etiqueta, entre aspas) |
 | `enunciado` | `kicker` (ex.: "Caso 01 · Enunciado (1/2)"), `texto` (parágrafos do caso, numa folha branca com borda azul), `corpo` (px; 36 cabe ~700 caracteres) |
-| `questao` | `kicker` ("Pergunta 1 de 5"), `titulo` (o tema: Endereçamento, Partes, Teses, Pedidos), `pergunta`, `opcoes` (A–D), `corpo` |
+| `questao` | `kicker` ("Pergunta 1 de 5"), `titulo` (o tema: Endereçamento, Partes, Teses, Pedidos), `pergunta`, `opcoes` (A–D), `corpo`, `carimbo` (linhas de um carimbo vermelho no canto, ex.: "Gabarito em recurso"; `carimboY`, `tcarimbo`) |
 | `gabarito` | `kicker`, `titulo`, `itens: [{tema, letra, texto, artigo}]` (uma linha por pergunta, com a letra certa) |
 | `retratos` | `titulo`, `pessoas` (`[{foto, nome, nota, fotoPos}]`, 2 a 4 fotos redondas do rosto em `fotos/`), `texto`, `corpo`, `fonte` (crédito pequeno no pé). Para mostrar quem ocupa um cargo |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
