@@ -448,6 +448,29 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
   },
+  // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
+  // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
+  // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
+  posse(s, t) {
+    const R = COR.vermelho, y = s.calY || 640, a = s.antes || {}, d = s.depois || {};
+    const folha = (f, w, h, n) => `<div style="position:relative;width:${w}px;height:${h}px;border-radius:30px;background:#fff;box-shadow:0 34px 60px rgba(8,16,40,.5);overflow:hidden">
+        <div style="height:${h * .2}px;background:${R};display:flex;align-items:center;justify-content:center;padding-top:10px;font-size:${n * .16}px;font-weight:800;letter-spacing:.18em;padding-left:.18em;color:#fff;text-transform:uppercase">${esc(f.mes)}</div>
+        <div style="${TITULO};font-size:${n}px;line-height:1;text-align:center;color:${COR.navy};margin-top:${h * .06}px">${esc(f.dia)}</div>
+        <div style="position:absolute;left:0;right:0;bottom:${h * .07}px;text-align:center;font-size:${n * .16}px;font-weight:700;letter-spacing:.2em;color:#8A93A6">${esc(f.ano)}</div>
+        ${[.28, .72].map(x => `<span style="position:absolute;left:${x * 100}%;top:10px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:${COR.navyFundo};opacity:.45"></span>`).join('')}</div>`;
+    return `<div style="position:absolute;left:90px;right:90px;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 116}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      <div data-objeto style="position:absolute;left:90px;top:${y + 60}px;transform:rotate(-7deg);z-index:3">${folha(a, 330, 400, 190)}
+        <svg viewBox="0 0 100 100" style="position:absolute;left:55px;top:120px;width:220px;height:200px" fill="none" stroke="${R}" stroke-width="9" stroke-linecap="round"><path d="M12 14L88 90M88 12L14 88"/></svg></div>
+      <div style="position:absolute;left:-310px;top:${y + 170}px;width:1700px;height:170px;transform:rotate(-16deg);background:linear-gradient(180deg,#1E8E4E 0 33%,#FFD52E 33% 67%,#1E8E4E 67% 100%);box-shadow:0 18px 30px rgba(0,0,0,.35),inset 0 6px 10px rgba(255,255,255,.3),inset 0 -8px 12px rgba(0,0,0,.25);z-index:2"></div>
+      <div style="position:absolute;left:470px;top:${y + 190}px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF3B8,#E8B92C 55%,#A97C12);box-shadow:0 10px 20px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:4">
+        <svg viewBox="0 0 24 24" width="78"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z" fill="#1E8E4E"/></svg></div>
+      <div data-objeto style="position:absolute;right:90px;top:${y}px;transform:rotate(5deg);z-index:3">${folha(d, 400, 490, 290)}</div>
+      ${s.texto ? `<div style="position:absolute;left:90px;right:90px;top:${y + 540}px;font-size:38px;font-weight:600;line-height:1.3;color:#fff;z-index:4">${rico(s.texto, t)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Convite: aviso "Atenção!" em selo vermelho, título com o público, um ingresso branco (canhoto "Grátis",
   // picote e furos laterais) com o recado e o logo do parceiro, e um comentário do Insta com a palavra-chave.
   // Com "foto" (recorte PNG sem fundo), a pessoa entra à direita e o ingresso fica mais estreito.
