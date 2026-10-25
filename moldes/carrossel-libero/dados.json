@@ -7376,28 +7376,26 @@
   {
     "id": "eleicao-fgv",
     "titulo": "Quem tá organizando essa eleição é a FGV?",
-    "tema": "Humor: o vai e vem do horário de votação no 2º turno de 2026 como se fosse questão da FGV",
+    "tema": "Meme: o vai e vem do horário de votação no 2º turno de 2026",
     "slides": [
       {
-        "tipo": "questao",
-        "tema": "light",
-        "kicker": "Aqui pensando...",
+        "tipo": "capa",
+        "tema": "blue",
+        "semArraste": true,
+        "pre": "Aqui pensando:",
         "titulo": [
-          "Quem tá organizando",
-          "essa eleição é a [[FGV]]?"
+          "Quem tá",
+          "organizando",
+          "essa eleição",
+          "é a [[FGV]]?"
         ],
-        "pergunta": "Até que horas foi a votação do 2º turno? Assinale a correta:",
-        "opcoes": [
-          "17h",
-          "19h",
-          "19h, mas só se a urna não tiver fechado",
-          "Todas as anteriores, a depender do TRE"
-        ],
-        "carimbo": [
-          "Gabarito",
-          "em recurso"
-        ],
-        "carimboY": 40
+        "objeto": {
+          "img": "face_with_tears_of_joy.png",
+          "x": 400,
+          "y": 930,
+          "tam": 280,
+          "rot": -8
+        }
       }
     ]
   }
