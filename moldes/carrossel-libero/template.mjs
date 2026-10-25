@@ -446,7 +446,7 @@ const CAPAS = {
       </div>
       ${s.texto ? `<div style="position:absolute;left:90px;right:90px;top:${(s.urnaY || 600) + 540}px;font-size:38px;font-weight:600;line-height:1.3;color:#fff;z-index:4">${rico(s.texto, t)}</div>` : ''}
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
-      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+      ${s.semArraste ? '' : `<div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`}`;
   },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
