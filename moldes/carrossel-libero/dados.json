@@ -7310,5 +7310,43 @@
         "texto": "Depois, **Zanin esclareceu**: as 19h valem só para as seções que ainda estavam abertas."
       }
     ]
+  },
+  {
+    "id": "urnas-como-fica",
+    "titulo": "Como fica: urnas fechadas x urnas abertas",
+    "tema": "2º turno de 25/10/2026: Zanin esclarece que a prorrogação até as 19h vale só para seções ainda abertas",
+    "fonte": "Mixvale e Jornal Razão, 25/10/2026",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "situacoes",
+        "tema": "blue",
+        "pre": "2º turno · decisão do STF",
+        "titulo": [
+          "Como fica",
+          "a [[votação]]?"
+        ],
+        "ts": 140,
+        "cardsY": 500,
+        "itens": [
+          {
+            "icone": "cadeado",
+            "cor": "vermelho",
+            "rotulo": "Urnas que já fecharam",
+            "titulo": "Não serão reabertas",
+            "texto": "Os votos já dados são contados normalmente."
+          },
+          {
+            "icone": "relogio",
+            "cor": "verde",
+            "rotulo": "Urnas que ainda estavam abertas",
+            "titulo": "Seguem até as 19h",
+            "texto": "Horário de Brasília."
+          }
+        ],
+        "tc": 78,
+        "texto": "Esclarecimento do ministro **Cristiano Zanin**, do STF, neste domingo (25)."
+      }
+    ]
   }
 ]

@@ -475,6 +475,30 @@ const CAPAS = {
       ${s.texto ? `<div data-corpo style="position:absolute;left:90px;right:90px;top:${y + 640}px;font-size:34px;font-weight:600;line-height:1.3;color:#fff;z-index:4">${rico(s.texto, TEMAS.dark)}</div>` : ''}
       <div style="position:absolute;left:90px;bottom:56px;background:${COR.azul};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>`;
   },
+  // Situações: "como fica" em dois (ou três) cartões grandes, cada um com um ícone (cadeado, relógio, check, x),
+  // um rótulo, o título do caso e a consequência. Tela única de regra/decisão. Campos: pre, titulo, ts,
+  // itens [{icone, rotulo, titulo, texto, cor: 'vermelho' | 'verde' | 'azul'}], texto (nota no pé), cardsY.
+  situacoes(s, t) {
+    const R = COR.vermelho, cores = { vermelho: R, verde: '#1FA45A', azul: COR.azul };
+    const ic = {
+      cadeado: c => `<svg viewBox="0 0 64 80" width="96"><path d="M16 36V24a16 16 0 0 1 32 0v12" fill="none" stroke="${c}" stroke-width="8"/><rect x="6" y="34" width="52" height="42" rx="8" fill="${c}"/><circle cx="32" cy="52" r="6" fill="#fff"/><rect x="29" y="54" width="6" height="12" rx="3" fill="#fff"/></svg>`,
+      relogio: c => `<svg viewBox="0 0 80 80" width="104"><circle cx="40" cy="40" r="34" fill="none" stroke="${c}" stroke-width="8"/><path d="M40 20v20l14 10" fill="none" stroke="${c}" stroke-width="8" stroke-linecap="round"/></svg>`,
+      check: c => `<svg viewBox="0 0 80 80" width="100"><circle cx="40" cy="40" r="36" fill="${c}"/><path d="M23 41l11 11 23-25" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      x: c => `<svg viewBox="0 0 80 80" width="100"><circle cx="40" cy="40" r="36" fill="${c}"/><path d="M27 27l26 26M53 27L27 53" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg>`,
+    };
+    const y = s.cardsY || 520;
+    return `<div style="position:absolute;left:90px;right:90px;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 124}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      <div data-objeto style="position:absolute;left:90px;right:90px;top:${y}px;display:flex;flex-direction:column;gap:30px;z-index:4">
+        ${lista(s.itens).map((it, i) => { const c = cores[it.cor] || R; return `<div style="display:flex;align-items:center;gap:34px;background:#fff;border-radius:30px;padding:34px 40px;border-left:18px solid ${c};box-shadow:0 26px 50px rgba(8,16,40,.35);transform:rotate(${i % 2 ? 1 : -1}deg)">
+          <div style="flex:none;width:110px;display:flex;justify-content:center">${(ic[it.icone] || ic.check)(c)}</div>
+          <div><div style="font-size:26px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${c}">${esc(it.rotulo)}</div>
+            <div style="${TITULO};font-size:${s.tc || 76}px;line-height:.95;color:${COR.navy};margin-top:6px">${rico(it.titulo, { ...t, caixa: c })}</div>
+            ${it.texto ? `<div style="font-size:34px;font-weight:600;line-height:1.25;color:${COR.navy};margin-top:10px">${rico(it.texto, TEMAS.light)}</div>` : ''}</div></div>`; }).join('')}</div>
+      ${s.texto ? `<div data-corpo style="position:absolute;left:90px;right:90px;bottom:130px;font-size:32px;font-weight:600;line-height:1.3;color:#E4E8F0;z-index:4">${rico(s.texto, TEMAS.dark)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:56px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>`;
+  },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
   // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
