@@ -499,6 +499,28 @@ const CAPAS = {
       ${s.texto ? `<div data-corpo style="position:absolute;left:90px;right:90px;bottom:130px;font-size:32px;font-weight:600;line-height:1.3;color:#E4E8F0;z-index:4">${rico(s.texto, TEMAS.dark)}</div>` : ''}
       <div style="position:absolute;left:90px;bottom:56px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>`;
   },
+  // Eleito: fundo branco, recorte da pessoa à direita sobre um círculo azul com anel vermelho, e à esquerda o
+  // cargo e o nome em blocos. Tela única de resultado. Campos: pre, rotulo (ex.: "Presidente eleito"), nome
+  // (linhas), ts, foto (recorte PNG em fotos/), fotoH (altura), fotoProp (largura/altura do recorte), fotoCx (centro),
+  // discoY (altura do centro do círculo na foto, 0–1), texto (linha no pé), credito (crédito da foto).
+  eleito(s, t, c) {
+    const R = COR.vermelho, A = COR.azul;
+    // Círculo do tamanho da foto: os cortes laterais da foto ficam fora dele e só a cabeça "sai" por cima.
+    const h = s.fotoH || 1000, w = h * (s.fotoProp || .763), cx = s.fotoCx || 850, l = cx - w / 2, top = 1350 - h;
+    const r = w / 2 - 8, cy = top + h * (s.discoY || .62);
+    const img = clip => `<img src="${foto(c, s.foto)}" style="position:absolute;left:${l}px;top:${top}px;height:${h}px;z-index:2;clip-path:${clip}">`;
+    return `<div style="position:absolute;inset:0;background:#fff;z-index:0"></div>
+      <div style="position:absolute;left:${cx - r}px;top:${cy - r}px;width:${2 * r}px;height:${2 * r}px;border-radius:50%;background:linear-gradient(160deg,${A} 0%,${COR.azulFundo} 100%);z-index:1"></div>
+      <div data-anel style="position:absolute;left:${cx - r - 46}px;top:${cy - r - 46}px;width:${2 * r + 92}px;height:${2 * r + 92}px;border:14px solid ${R};border-radius:50%;box-sizing:border-box;z-index:1"></div>
+      ${s.foto ? img(`circle(${r}px at ${cx - l}px ${cy - top}px)`) + img(`inset(0 0 ${h - (cy - top)}px 0)`) : ''}
+      <div style="position:absolute;left:90px;top:100px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:4">
+        ${s.pre ? `<div style="background:${A};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <div style="${TITULO};font-size:${s.tr || 96}px;line-height:.9;color:${COR.navy}">${esc(s.rotulo || 'Presidente eleito')}</div>
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 150}px;line-height:1.02">${lista(s.nome).map(l => `<span style="background:${A};color:#fff;padding:0 18px;box-decoration-break:clone;-webkit-box-decoration-break:clone">${esc(l)}</span>`).join('<br>')}</h1></div>
+      ${s.texto ? `<div style="position:absolute;left:90px;bottom:150px;max-width:${s.textoW || 360}px;font-size:34px;font-weight:600;line-height:1.3;color:${COR.navy};z-index:4">${rico(s.texto, TEMAS.light)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      ${s.credito ? `<div style="position:absolute;left:90px;bottom:24px;font-size:18px;font-weight:600;color:#8A93A6;z-index:4">${esc(s.credito)}</div>` : ''}`;
+  },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
   // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
