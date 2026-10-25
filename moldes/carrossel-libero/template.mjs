@@ -448,6 +448,33 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       ${s.semArraste ? '' : `<div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`}`;
   },
+  // Encerrada: fundo navy com a urna desligada ("FIM" na tela), fita vermelha de lacre e cadeado, e etiquetas de
+  // estados embaixo. Para avisos de urna fechada, votação encerrada. Campos: pre, titulo, ts, tela (texto da tela,
+  // padrão "FIM"), lacre (texto da fita), estadosRotulo, estados (siglas), texto, urnaY.
+  encerrada(s, t) {
+    const R = COR.vermelho, y = s.urnaY || 500;
+    const tecla = (n, bg = '#20242C', cor = '#fff', w = 58) => `<div style="width:${w}px;height:46px;border-radius:8px;background:${bg};color:${cor};display:flex;align-items:center;justify-content:center;font-size:${w > 58 ? 13 : 25}px;font-weight:800;box-shadow:inset 0 -5px 0 rgba(0,0,0,.28)">${n}</div>`;
+    return `<div style="position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 45%,#1d2c4f 0%,${COR.navyFundo} 70%);z-index:0"></div>
+      <div style="position:absolute;left:90px;right:90px;top:90px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.navyFundo};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 124}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      <div data-objeto style="position:absolute;left:110px;top:${y}px;width:860px;height:420px;transform:rotate(-2deg);border-radius:30px;background:linear-gradient(160deg,#E9EBEF 0%,#B9BEC7 100%);box-shadow:0 40px 70px rgba(0,0,0,.55),inset 0 -12px 0 rgba(0,0,0,.08);z-index:3">
+        <div style="position:absolute;left:30px;top:30px;width:510px;height:360px;border-radius:14px;background:#14171C;padding:16px">
+          <div style="width:100%;height:100%;border-radius:8px;background:radial-gradient(90% 90% at 30% 20%,#2A2F38 0%,#0B0D10 80%);display:flex;align-items:center;justify-content:center">
+            <span style="${TITULO};font-size:150px;color:#6B7584;letter-spacing:.06em;margin-top:-90px">${esc(s.tela || 'FIM')}</span></div></div>
+        <div style="position:absolute;left:566px;top:30px;width:264px;height:360px;border-radius:14px;background:#2B3038;padding:20px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;align-items:center;filter:saturate(.35) brightness(.85)">
+          <div style="font-size:13px;font-weight:800;letter-spacing:.2em;color:#9AA3B2">JUSTIÇA ELEITORAL</div>
+          <div style="display:grid;grid-template-columns:repeat(3,58px);gap:9px">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => tecla(n)).join('')}<div></div>${tecla(0)}<div></div></div>
+          <div style="display:flex;gap:5px">${tecla('BRANCO', '#fff', '#20242C', 66)}${tecla('CORRIGE', '#F28C28', '#20242C', 66)}${tecla('CONFIRMA', '#2E9E44', '#fff', 80)}</div></div>
+        <div style="position:absolute;left:-90px;right:-90px;top:250px;height:84px;transform:rotate(-7deg);background:repeating-linear-gradient(-45deg,${R} 0 34px,#C8102E 34px 68px);box-shadow:0 14px 30px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center">
+          <span style="background:#fff;color:${R};${TITULO};font-size:50px;line-height:1;padding:8px 24px 2px;letter-spacing:.06em">${esc(s.lacre || 'Encerrada')}</span></div>
+        <svg viewBox="0 0 64 80" style="position:absolute;right:-24px;top:-70px;width:120px;transform:rotate(10deg);filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))"><path d="M16 36V24a16 16 0 0 1 32 0v12" fill="none" stroke="#D9DEE6" stroke-width="8"/><rect x="6" y="34" width="52" height="42" rx="8" fill="${R}" stroke="#fff" stroke-width="4"/><circle cx="32" cy="52" r="6" fill="#fff"/><rect x="29" y="54" width="6" height="12" rx="3" fill="#fff"/></svg></div>
+      ${lista(s.estados).length ? `<div style="position:absolute;left:90px;right:90px;top:${y + 480}px;display:flex;align-items:center;flex-wrap:wrap;gap:14px;z-index:4">
+        <span style="font-size:30px;font-weight:700;color:#C9D4EA;width:100%">${esc(s.estadosRotulo || 'Também disseram o mesmo:')}</span>
+        ${lista(s.estados).map(e => `<span style="${TITULO};font-size:44px;line-height:1;color:#fff;border:3px solid ${R};padding:8px 16px 2px;border-radius:10px">${esc(e)}</span>`).join('')}</div>` : ''}
+      ${s.texto ? `<div data-corpo style="position:absolute;left:90px;right:90px;top:${y + 640}px;font-size:34px;font-weight:600;line-height:1.3;color:#fff;z-index:4">${rico(s.texto, TEMAS.dark)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:56px;background:${COR.azul};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>`;
+  },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
   // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
