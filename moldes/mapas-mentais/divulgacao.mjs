@@ -43,30 +43,66 @@ const numeros = (itens, cor = C.floresta, sub = C.texto) => `<div style="display
 const brilho = `<div style="position:absolute;right:-220px;top:-260px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 70%)"></div>`;
 const box = (w, h, bg, html) => `<div style="position:relative;width:${w}px;height:${h}px;overflow:hidden;background:${bg}">${html}</div>`;
 
-const PUBLICO = '1ª fase da OAB e concursos';
+// Símbolo: nó central com três ramos que terminam em cabeçalhos de cartão (o desenho dos mapas).
+// fundo: quadrado verde de ícone; tom 'escuro' (para fundo claro) ou 'claro' (para fundo verde) quando sem fundo.
+let nSimb = 0;
+const simbolo = (px, { fundo = true, tom = 'escuro' } = {}) => {
+  const g = `sg${nSimb++}`, claro = fundo || tom === 'claro';
+  const no = claro ? '#fff' : C.floresta, linha = claro ? 'rgba(255,255,255,.6)' : C.folha;
+  const pills = claro ? ['#A7E8C3', '#7DD3FC', '#FCD34D'] : [RAMOS[0], RAMOS[2], RAMOS[5]];
+  const ys = [27, 50, 73];
+  return `<svg width="${px}" height="${px}" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display:block;flex:none">
+    ${fundo ? `<defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B4A30"/><stop offset="1" stop-color="#138A55"/></linearGradient></defs><rect width="100" height="100" rx="24" fill="url(#${g})"/>` : ''}
+    ${ys.map(y => `<path d="M33 50 C47 50 46 ${y} 58 ${y}" fill="none" stroke="${linha}" stroke-width="4.2" stroke-linecap="round"/>`).join('')}
+    ${ys.map((y, i) => `<rect x="57" y="${y - 6.5}" width="${i === 1 ? 29 : 24}" height="13" rx="6.5" fill="${pills[i]}"/>`).join('')}
+    <circle cx="28" cy="50" r="12" fill="${no}"/><circle cx="28" cy="50" r="4.6" fill="${claro ? '#138A55' : '#A7E8C3'}"/></svg>`;
+};
+const logo = (alt, cor = C.floresta, sub = C.verde, tom = 'escuro') => `<div style="display:flex;align-items:center;gap:${alt * .2}px">${simbolo(alt, { fundo: tom === 'escuro', tom })}
+  <div><div style="${I};font-size:${alt * .17}px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:${sub};white-space:nowrap">Constitucional com Líbero</div>
+  <div style="${T};font-size:${alt * .56}px;line-height:.9;color:${cor};margin-top:${alt * .05}px;white-space:nowrap">Mapas Mentais</div></div></div>`;
+
+const PUBLICO = 'OAB e Concursos';
 const PECAS = {
+  // ---------- Símbolo e logotipo (fundo transparente quando o 4º item é true) ----------
+  'simbolo': [512, 512, simbolo(512), true],
+  'simbolo-verde': [512, 512, simbolo(512, { fundo: false }), true],
+  'simbolo-branco': [512, 512, simbolo(512, { fundo: false, tom: 'claro' }), true],
+  'logo-600x120': [600, 120, `<div style="width:600px;height:120px;display:flex;align-items:center;justify-content:center">${logo(98)}</div>`, true],
+  'logo-600x120-branco': [600, 120, `<div style="width:600px;height:120px;display:flex;align-items:center;justify-content:center">${logo(98, '#fff', '#A7E8C3', 'claro')}</div>`, true],
+
   // ---------- Plataforma ----------
-  'produto-1x1': [1080, 1080, box(1080, 1080, FUNDO, `${brilho}
-    <div style="position:absolute;left:80px;top:80px">${marca()}${fio()}${titulo(124)}
+  'capa-produto': [1080, 1080, box(1080, 1080, FUNDO, `${brilho}
+    <div style="position:absolute;left:80px;top:80px">${simbolo(96)}<div style="height:34px"></div>${marca()}${fio()}${titulo(124)}
       <div style="${J};font-size:38px;line-height:1.1;color:${C.verde};margin-top:20px">100 mapas de<br>Direito Constitucional</div></div>
-    ${pilha(360, 640, 600)}
-    <div style="position:absolute;left:80px;bottom:70px;${I};font-size:20px;font-weight:700;color:${C.floresta}">Prof. Líbero Filho</div>`)],
+    ${pilha(420, 730, 560)}
+    <div style="position:absolute;left:80px;bottom:70px;${I};font-size:20px;font-weight:700;line-height:1.5;color:${C.floresta}">Prof. Líbero Filho<br><span style="color:${C.verde}">${PUBLICO}</span></div>`)],
+
+  'imagem-300x250': [300, 250, box(300, 250, FUNDO, `
+    <div style="position:absolute;left:24px;top:24px">${simbolo(46)}</div>
+    <div style="position:absolute;left:24px;right:20px;bottom:24px">
+      <div style="${T};font-size:50px;line-height:.86;color:${C.floresta}">100 Mapas<br>Mentais</div>
+      <div style="${J};font-size:19px;color:${C.verde};margin-top:6px">de Constitucional</div>
+      <div style="${I};font-size:13px;font-weight:700;color:${C.floresta};margin-top:10px">Prof. Líbero Filho</div></div>`)],
 
   'capa-16x9': [1920, 1080, box(1920, 1080, FUNDO, `${brilho}
-    <div style="position:absolute;left:130px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:760px">
-      ${marca()}${fio()}${titulo(220)}
-      <div style="${J};font-size:58px;line-height:1.08;color:${C.verde};margin-top:34px">100 mapas de<br>Direito Constitucional</div>
-      <div style="margin-top:40px">${etiquetas(['Teoria', 'Direitos', 'Poderes', 'Controle', 'Ordem social'], 22)}</div></div>
-    ${pilha(980, 360, 820)}
-    <div style="position:absolute;left:130px;bottom:70px;${I};font-size:22px;font-weight:700;color:${C.floresta}">Prof. Líbero Filho · ${PUBLICO}</div>`)],
+    <div style="position:absolute;left:130px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:780px">
+      ${logo(84)}
+      <div style="${J};font-size:76px;line-height:1.04;color:${C.floresta};margin-top:56px">100 mapas de<br>Direito Constitucional</div>
+      <div style="${J};font-size:34px;color:${C.folha};margin-top:18px">${PUBLICO}</div>
+      <div style="${I};font-size:24px;line-height:1.5;color:${C.texto};margin-top:28px;max-width:700px">Cada tema num mapa de uma página, com o artigo da Constituição, a regra, as exceções e uma pergunta para conferir.</div>
+      <div style="margin-top:36px">${etiquetas(['Teoria', 'Direitos', 'Poderes', 'Controle', 'Ordem social'], 22)}</div></div>
+    ${pilha(990, 380, 800)}
+    <div style="position:absolute;left:130px;bottom:64px;${I};font-size:22px;font-weight:700;color:${C.floresta}">Prof. Líbero Filho</div>`)],
 
   'banner-checkout': [1200, 400, box(1200, 400, FUNDO_ESC, `
-    <div style="position:absolute;left:60px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
-      ${marca('#A7E8C3')}<div style="height:14px"></div>${titulo(104, '#fff')}</div>
-    <div style="position:absolute;left:420px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
-      <div style="${J};font-size:36px;line-height:1.1;color:#fff">100 mapas de<br>Direito Constitucional</div>
-      <div style="${I};font-size:17px;color:#D7F0E1;margin-top:12px">Prof. Líbero Filho · ${PUBLICO}</div></div>
-    ${pilha(860, 150, 300)}`)],
+    <div style="position:absolute;right:-120px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(167,232,195,.22) 0%,rgba(167,232,195,0) 70%)"></div>
+    <div style="position:absolute;left:64px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+      ${logo(64, '#fff', '#A7E8C3', 'claro')}
+      <div style="${J};font-size:46px;line-height:1.06;color:#fff;margin-top:30px">100 mapas de<br>Direito Constitucional</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:20px">
+        <span style="${J};font-size:18px;color:${C.floresta};background:#A7E8C3;padding:8px 16px;border-radius:10px">${PUBLICO}</span>
+        <span style="${I};font-size:19px;font-weight:700;color:#D7F0E1">Prof. Líbero Filho</span></div></div>
+    ${pilha(800, 140, 330)}`)],
 
   // ---------- Feed ----------
   'feed-lancamento': [1080, 1350, box(1080, 1350, FUNDO, `${brilho}
@@ -115,7 +151,9 @@ const launch = { args: ['--allow-file-access-from-files'] };
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors', '--allow-file-access-from-files'] });
 const b = await chromium.launch(launch);
-for (const [id, [w, h, html]] of Object.entries(PECAS)) {
+for (const [id, s] of [['simbolo', simbolo(512)], ['simbolo-verde', simbolo(512, { fundo: false })], ['simbolo-branco', simbolo(512, { fundo: false, tom: 'claro' })]])
+  fs.writeFileSync(path.join(OUT, `mapas-mentais-${id}.svg`), s.replace(' style="display:block;flex:none"', ''));
+for (const [id, [w, h, html, transp]] of Object.entries(PECAS)) {
   if (process.argv[2] && id !== process.argv[2]) continue;
   const arq = path.join(BUILD, `div-${id}.html`);
   fs.writeFileSync(arq, `<!doctype html><html><head>${HEAD}</head><body>${html}</body></html>`);
@@ -124,7 +162,7 @@ for (const [id, [w, h, html]] of Object.entries(PECAS)) {
   await p.evaluate(() => document.fonts.ready);
   await p.evaluate(() => Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => (i.onload = i.onerror = r)))));
   await p.waitForTimeout(300);
-  await p.screenshot({ path: path.join(OUT, `mapas-mentais-${id}.png`) }); await p.close();
+  await p.screenshot({ path: path.join(OUT, `mapas-mentais-${id}.png`), omitBackground: !!transp }); await p.close();
   console.log('✓', id);
 }
 await b.close();
