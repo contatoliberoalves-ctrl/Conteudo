@@ -10,16 +10,21 @@ const CANETAS = [
   ['#1E8E5A', '#B9F2CF'], ['#2B6CB0', '#C7E2FF'], ['#E07B24', '#FFE08A'],
   ['#C2417A', '#FFC9DF'], ['#0F8C8C', '#BDF0EC'], ['#6B4FBB', '#DCD2FF'],
 ];
-export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter:wght@400;500;600;700;800&family=Kalam:wght@300;400;700&display=swap';
+export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter:wght@400;500;600;700;800&family=Kalam:wght@300;400;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap';
 const T = "font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase";
 const I = "font-family:'Inter',sans-serif";
 const K = "font-family:'Kalam',cursive";
+const J = "font-family:'Plus Jakarta Sans',sans-serif";
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 // **negrito** com marca-texto (cor do ramo) e [[sublinhado]] de caneta.
 const marca = (s, cor = '#FFE08A', tinta = COR.tinta) => esc(s)
   .replace(/\*\*(.+?)\*\*/g, `<b style="font-weight:700;color:${tinta};background:linear-gradient(transparent 52%,${cor} 52%,${cor} 92%,transparent 92%);padding:0 2px">$1</b>`)
   .replace(/\[\[(.+?)\]\]/g, `<span style="text-decoration:underline;text-decoration-color:${tinta};text-decoration-thickness:2px;text-underline-offset:3px">$1</span>`);
+
+// **negrito** na cor do ramo (com fundo bem claro) e [[texto]] sublinhado: usado no mapa moderno.
+const destaque = (s, cor) => esc(s).replace(/\*\*(.+?)\*\*/g, `<b style="font-weight:700;color:${cor};background:${cor}12;border-radius:3px;padding:0 2px">$1</b>`)
+  .replace(/\[\[(.+?)\]\]/g, `<span style="text-decoration:underline;text-decoration-color:${cor};text-decoration-thickness:2px;text-underline-offset:2px">$1</span>`);
 
 // ---------- Capas ----------
 // Curvas de nível (o "mapa") geradas de forma determinística.
@@ -42,12 +47,12 @@ const rodapeCapa = (c, m, cor) => `<div style="position:absolute;left:70px;right
 const CAPAS = {
   // Só tipografia: degradê verde bem claro, título grande em verde-escuro e o número do volume vazado.
   tipografica: (c, m) => `<section class="pagina" style="background:linear-gradient(120deg,#EEF8F1 0%,#D3EEDD 55%,#B4E0C5 100%)">
-    <div style="position:absolute;right:40px;top:40px;${T};font-size:420px;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(11,74,48,.22)">${esc(c.numero || '01')}</div>
-    <div style="position:absolute;left:70px;top:150px">
+    <div style="position:absolute;left:70px;top:0;bottom:0;right:70px;display:flex;flex-direction:column;justify-content:center">
       <div style="${I};font-size:15px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:${COR.verde}">${esc(c.pre || 'Constitucional com Líbero')}</div>
       <div style="width:70px;height:4px;background:${COR.verde};margin:18px 0 22px"></div>
-      <div style="${T};font-size:170px;line-height:.84;color:${COR.floresta}">Mapas<br>Mentais</div></div>
-    ${rodapeCapa(c, m, COR.floresta)}</section>`,
+      <div style="${T};font-size:${c.ts || 150}px;line-height:.84;color:${COR.floresta}">Mapas<br>Mentais</div>
+      ${c.tema ? `<div style="${J};font-weight:800;font-size:${c.tt || 54}px;line-height:1.05;letter-spacing:-.02em;color:${COR.verde};margin-top:34px;max-width:900px">${lista(c.tema).map(esc).join('<br>')}</div>` : ''}</div>
+    <div style="position:absolute;right:70px;bottom:56px;${I};font-size:14px;font-weight:700;color:${COR.floresta}">${esc(m.perfil || '@liberofilho')}</div></section>`,
 
   // Caderno: capa verde com espiral na lateral e etiqueta branca colada, preenchida à mão.
   caderno: (c, m) => `<section class="pagina" style="background:linear-gradient(135deg,#2C8C5A 0%,#1E7149 100%)">
@@ -84,68 +89,66 @@ const CAPAS = {
 const capa = (c, m) => (CAPAS[c.estilo] || CAPAS.tipografica)(c, m);
 
 // ---------- Página do mapa ----------
-// Ramos em 3 linhas × 2 lados; cada bloco tem título com marca-texto, etiqueta do artigo, sub-ramos em árvore
-// e, se houver, um post-it com a pegadinha.
+// Moderno: fundo branco com brilho verde nos cantos, nó central verde, ramos em curvas suaves na cor do ramo
+// (com ponto na saída e na chegada) e cartões com cabeçalho colorido (título + inciso), resumo, tópicos
+// numerados e uma faixa âmbar de "Pegadinha".
+const PALETA = ['#138A55', '#0E7C86', '#2563EB', '#0B5C3B', '#7C3AED', '#D97706'];
 function mapa(m, p, n) {
-  const ramos = lista(p.ramos).map((r, i) => ({ ...r, cor: CANETAS[i % CANETAS.length][0], grifo: CANETAS[i % CANETAS.length][1] }));
+  const ramos = lista(p.ramos).map((r, i) => ({ ...r, cor: r.cor || PALETA[i % PALETA.length] }));
   const metade = Math.ceil(ramos.length / 2), esq = ramos.slice(0, metade), dir = ramos.slice(metade);
-  const bloco = (r, lado) => `<div class="ramo" data-lado="${lado}" data-cor="${r.cor}" style="position:relative;padding:${lado === 'e' ? '0 18px 0 0' : '0 0 0 18px'}">
-      <div class="ancora" style="display:flex;align-items:center;gap:8px;${lado === 'e' ? 'justify-content:flex-end' : ''}">
-        ${lado === 'd' && r.artigo ? `<span style="${I};font-size:10px;font-weight:800;color:${r.cor};border:1.5px solid ${r.cor};border-radius:4px;padding:1px 6px;transform:rotate(-3deg)">${esc(r.artigo)}</span>` : ''}
-        <span class="tit" style="${K};font-weight:700;font-size:${r.ts || 25}px;line-height:1.05;color:${r.cor};background:linear-gradient(transparent 55%,${r.grifo} 55%,${r.grifo} 95%,transparent 95%);padding:0 4px">${esc(r.titulo)}</span>
-        ${lado === 'e' && r.artigo ? `<span style="${I};font-size:10px;font-weight:800;color:${r.cor};border:1.5px solid ${r.cor};border-radius:4px;padding:1px 6px;transform:rotate(3deg)">${esc(r.artigo)}</span>` : ''}</div>
-      <div style="margin-top:5px;${lado === 'e' ? `border-right:2px solid ${r.cor};padding-right:12px` : `border-left:2px solid ${r.cor};padding-left:12px`}">
-        ${r.resumo ? `<div style="${K};font-size:${p.corpo || 15}px;line-height:1.25;color:${COR.tinta};margin-bottom:3px">${marca(r.resumo, r.grifo)}</div>` : ''}
-        ${lista(r.itens).map(it => `<div style="position:relative;${K};font-weight:300;font-size:${(p.corpo || 15) - 1}px;line-height:1.25;color:${COR.texto};margin-top:3px">
-          <span style="position:absolute;${lado === 'e' ? 'right:-14px' : 'left:-14px'};top:9px;width:9px;height:2px;background:${r.cor}"></span>${marca(it, r.grifo)}</div>`).join('')}</div>
-      ${r.dica ? `<div style="margin-top:8px;${lado === 'e' ? 'margin-left:auto' : ''};width:${p.postit || 250}px;background:#FFF4A8;padding:8px 11px 9px;box-shadow:0 3px 8px rgba(0,0,0,.12);transform:rotate(${lado === 'e' ? -1.5 : 1.5}deg);position:relative">
-          <span style="position:absolute;left:50%;top:-7px;width:56px;height:14px;margin-left:-28px;background:rgba(200,215,205,.75);transform:rotate(-2deg)"></span>
-          <div style="${K};font-weight:700;font-size:13px;color:#B23A3A">Pegadinha!</div>
-          <div style="${K};font-size:13px;line-height:1.2;color:${COR.tinta}">${marca(r.dica, '#FFD54A')}</div></div>` : ''}</div>`;
-  const coluna = (rs, lado) => `<div style="width:${p.largura || 350}px;display:flex;flex-direction:column;justify-content:space-around;height:100%;gap:${p.gap || 10}px">${rs.map(r => bloco(r, lado)).join('')}</div>`;
-  return `<section class="pagina mapa" style="background:${COR.papel}">
-    <div style="position:absolute;inset:0;background-image:radial-gradient(#D5DED8 1px,transparent 1px);background-size:22px 22px"></div>
+  const fs = p.corpo || 11.5;
+  const cartao = (r, lado) => `<div class="ramo" data-lado="${lado}" data-cor="${r.cor}" style="position:relative;background:#fff;border-radius:16px;box-shadow:0 1px 0 rgba(15,42,30,.04),0 10px 26px rgba(15,42,30,.08);border:1px solid #E3ECE7;overflow:hidden">
+      <div class="cab" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;background:${r.cor}">
+        <span style="${J};font-weight:800;font-size:${r.ts || 16}px;letter-spacing:-.01em;color:#fff">${esc(r.titulo)}</span>
+        ${r.artigo ? `<span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.04em;color:${r.cor};background:#fff;padding:3px 8px;border-radius:999px">${esc(r.artigo)}</span>` : ''}</div>
+      <div style="padding:10px 14px 11px">
+        ${r.resumo ? `<div style="${I};font-size:${fs + .5}px;font-weight:600;line-height:1.38;color:${COR.tinta}">${destaque(r.resumo, r.cor)}</div>` : ''}
+        ${lista(r.itens).length ? `<div style="display:flex;flex-direction:column;gap:5px;margin-top:7px">${lista(r.itens).map((it, k) => `<div style="display:flex;gap:8px;${I};font-size:${fs}px;line-height:1.4;color:${COR.texto}">
+          <span style="flex:none;width:17px;height:17px;border-radius:5px;background:${r.cor}1A;color:${r.cor};${I};font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px">${k + 1}</span><span>${destaque(it, r.cor)}</span></div>`).join('')}</div>` : ''}</div>
+      ${r.dica ? `<div style="display:flex;gap:8px;align-items:flex-start;background:#FFF7E6;border-top:1px solid #F7E2B5;padding:8px 14px;${I};font-size:${fs - .5}px;line-height:1.38;color:#5A4210">
+          <svg viewBox="0 0 24 24" width="15" style="flex:none;margin-top:1px"><path d="M12 3 2 20h20L12 3z" fill="#F59E0B"/><rect x="11" y="9" width="2" height="6" rx="1" fill="#fff"/><circle cx="12" cy="17.2" r="1.1" fill="#fff"/></svg>
+          <span><b style="font-weight:800;color:#B45309">Pegadinha:</b> ${destaque(r.dica, '#B45309')}</span></div>` : ''}</div>`;
+  const coluna = (rs, lado) => `<div style="width:${p.largura || 345}px;display:flex;flex-direction:column;justify-content:center;gap:${p.gap || 14}px">${rs.map(r => cartao(r, lado)).join('')}</div>`;
+  return `<section class="pagina mapa" style="background:#fff">
+    <div style="position:absolute;left:-180px;top:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#DDF3E6 0%,rgba(221,243,230,0) 70%)"></div>
+    <div style="position:absolute;right:-200px;bottom:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,#DDF3E6 0%,rgba(221,243,230,0) 70%)"></div>
     <svg class="ligacoes" width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1"></svg>
-    <div style="position:absolute;left:40px;right:40px;top:20px;display:flex;justify-content:space-between;align-items:center;z-index:2">
+    <div style="position:absolute;left:36px;right:36px;top:22px;display:flex;justify-content:space-between;align-items:center;z-index:2">
       <span style="${I};font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:${COR.verde}">Constitucional com Líbero · Mapas Mentais</span>
       ${p.tema ? `<span style="${I};font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${COR.cinza}">${esc(p.tema)}</span>` : ''}</div>
-    <div style="position:absolute;left:30px;right:30px;top:44px;bottom:${p.rodape ? 46 : 28}px;display:flex;align-items:stretch;justify-content:space-between;z-index:2">
+    <div style="position:absolute;left:30px;right:30px;top:48px;bottom:${p.rodape ? 50 : 30}px;display:flex;align-items:center;justify-content:space-between;z-index:2">
       ${coluna(esq, 'e')}
       <div style="flex:1;display:flex;align-items:center;justify-content:center">
-        <div class="centro" style="position:relative;width:${p.centroW || 230}px;padding:20px 16px;text-align:center">
-          <div style="position:absolute;inset:0;border:3px solid ${COR.floresta};border-radius:46% 54% 50% 50% / 55% 48% 52% 45%;background:#fff"></div>
-          <div style="position:absolute;inset:-6px -4px -4px -7px;border:1.5px solid ${COR.floresta};border-radius:52% 48% 46% 54% / 48% 55% 45% 52%;opacity:.55"></div>
-          ${p.artigo ? `<div style="position:relative;${I};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.verde}">${esc(p.artigo)}</div>` : ''}
-          <div style="position:relative;${K};font-weight:700;font-size:${p.ts || 34}px;line-height:1;color:${COR.floresta};margin-top:4px">${lista(p.titulo).map(esc).join('<br>')}</div>
-          ${p.sub ? `<div style="position:relative;${K};font-size:13.5px;line-height:1.2;color:${COR.texto};margin-top:8px">${marca(p.sub, '#B9F2CF')}</div>` : ''}</div></div>
+        <div class="centro" style="position:relative;width:${p.centroW || 230}px;padding:24px 18px;text-align:center;border-radius:28px;background:linear-gradient(150deg,${COR.floresta} 0%,#138A55 100%);box-shadow:0 0 0 8px #E6F5EC,0 18px 40px rgba(11,74,48,.28)">
+          ${p.artigo ? `<div style="${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#A7E8C3">${esc(p.artigo)}</div>` : ''}
+          <div style="${J};font-weight:800;font-size:${p.ts || 28}px;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-top:6px">${lista(p.titulo).map(esc).join('<br>')}</div>
+          ${p.sub ? `<div style="${I};font-size:11.5px;line-height:1.45;color:#D7F0E1;margin-top:10px">${esc(p.sub).replace(/\*\*(.+?)\*\*/g, '<b style="color:#fff">$1</b>')}</div>` : ''}</div></div>
       ${coluna(dir, 'd')}</div>
-    ${p.rodape ? `<div style="position:absolute;left:40px;right:90px;bottom:16px;${K};font-size:14px;line-height:1.2;color:${COR.tinta};z-index:2"><b style="color:${COR.verde}">Pra fixar →</b> ${marca(p.rodape, '#B9F2CF')}</div>` : ''}
-    <div style="position:absolute;right:40px;bottom:16px;${I};font-size:10px;font-weight:700;color:${COR.cinza};z-index:2">${String(n).padStart(2, '0')}</div>
+    ${p.rodape ? `<div style="position:absolute;left:36px;right:80px;bottom:16px;display:flex;align-items:center;gap:10px;z-index:2">
+      <span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:${COR.verde};padding:5px 10px;border-radius:999px">Pra fixar</span>
+      <span style="${I};font-size:11px;line-height:1.35;color:${COR.tinta}">${destaque(p.rodape, COR.verde)}</span></div>` : ''}
+    <div style="position:absolute;right:36px;bottom:18px;${I};font-size:10px;font-weight:700;color:${COR.cinza};z-index:2">${String(n).padStart(2, '0')}</div>
   </section>`;
 }
 
-// Ramos de caneta do centro até a âncora de cada bloco: traço grosso que afina (dois traços sobrepostos).
+// Liga o centro a cada cartão: curva suave na cor do ramo, ponto branco com borda na saída e na chegada.
 const LIGAR = `<script>
 function ligar() {
   for (const pg of document.querySelectorAll('.pagina.mapa')) {
     const svg = pg.querySelector('.ligacoes'), base = pg.getBoundingClientRect(), c = pg.querySelector('.centro').getBoundingClientRect();
     let out = '';
     for (const r of pg.querySelectorAll('.ramo')) {
-      const a = r.querySelector('.tit').getBoundingClientRect(), b = r.getBoundingClientRect(), esq = r.dataset.lado === 'e', cor = r.dataset.cor;
-      const x1 = (esq ? c.left + 14 : c.right - 14) - base.left, y1 = c.top + c.height / 2 - base.top;
-      const x2 = (esq ? b.right + 2 : b.left - 2) - base.left, y2 = a.top + a.height - 3 - base.top, mx = (x1 + x2) / 2;
-      const d = 'M' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
-      // sublinha o título do ramo, como no mapa feito à mão
-      const xs = (esq ? a.left : a.right) - base.left;
-      out += '<path d="' + d + '" stroke="' + cor + '" stroke-width="9" fill="none" stroke-linecap="round" opacity=".35"/>'
-        + '<path d="' + d + '" stroke="' + cor + '" stroke-width="4" fill="none" stroke-linecap="round"/>'
-        + '<path d="M' + x2 + ' ' + y2 + ' L ' + xs + ' ' + y2 + '" stroke="' + cor + '" stroke-width="3" stroke-linecap="round"/>';
+      const b = r.getBoundingClientRect(), h = r.querySelector('.cab').getBoundingClientRect(), esq = r.dataset.lado === 'e', cor = r.dataset.cor;
+      const x1 = (esq ? c.left : c.right) - base.left, y1 = c.top + c.height / 2 - base.top;
+      const x2 = (esq ? b.right : b.left) - base.left, y2 = h.top + h.height / 2 - base.top, mx = (x1 + x2) / 2;
+      out += '<path d="M' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2 + '" stroke="' + cor + '" stroke-width="2.5" fill="none" stroke-linecap="round"/>'
+        + '<circle cx="' + x2 + '" cy="' + y2 + '" r="5" fill="#fff" stroke="' + cor + '" stroke-width="2.5"/>';
     }
     svg.innerHTML = out;
   }
   window.__avisos = [...document.querySelectorAll('.pagina.mapa')].flatMap((pg, i) => {
     const b = pg.getBoundingClientRect();
-    return [...pg.querySelectorAll('.ramo,.centro')].some(e => { const r = e.getBoundingClientRect(); return r.top < b.top + 40 || r.bottom > b.bottom - 24; }) ? ['mapa ' + (i + 1) + ': passa da área'] : [];
+    return [...pg.querySelectorAll('.ramo,.centro')].some(e => { const r = e.getBoundingClientRect(); return r.top < b.top + 44 || r.bottom > b.bottom - 30; }) ? ['mapa ' + (i + 1) + ': passa da área'] : [];
   });
   window.__pronto = true;
 }
