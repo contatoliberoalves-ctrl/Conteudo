@@ -101,7 +101,12 @@ const capa = (c, m) => (CAPAS[c.estilo] || CAPAS.tipografica)(c, m);
 // resposta) e a referência normativa. O tamanho do texto se ajusta para caber (variável --f).
 const PALETA = ['#138A55', '#0E7C86', '#2563EB', '#0B5C3B', '#7C3AED', '#D97706'];
 const OCRE = '#B58032';
-const frases = t => String(t || '').match(/[^.!?]+(?:[.!?]+|$)(?:\s+|$)/g)?.map(s => s.trim()).filter(Boolean) || [];
+// Separa frases só quando a pontuação é seguida de espaço + maiúscula e não fecha abreviação (art., inc., n.…).
+const ABREV = /(?:^|\s)(?:arts?|incs?|al|n|nº|p|pp|ex|cf|sr|sra|dr|dra|min|v|vs|etc)\.$/i;
+const frases = t => { const out = []; let ini = 0; const s = String(t || '');
+  for (const m of s.matchAll(/[.!?]+\s+(?=[A-ZÁÂÃÀÉÊÍÓÔÕÚÇ])/g)) { const fim = m.index + m[0].trimEnd().length;
+    if (ABREV.test(s.slice(ini, fim))) continue; out.push(s.slice(ini, fim).trim()); ini = m.index + m[0].length; }
+  if (s.slice(ini).trim()) out.push(s.slice(ini).trim()); return out; };
 function normalizar(p) {
   return lista(p.ramos).map((r, i) => {
     const cor = r.cor || (/exce|aten|cuidado|limite|ressalv|veda|proib|não |nao |sanç|perda|cassa/i.test(r.titulo) ? OCRE : PALETA[i % PALETA.length]);
@@ -132,7 +137,7 @@ const LAYOUTS = {
   radial: (p, rs) => {
     const metade = Math.ceil(rs.length / 2), col = (x, lado) => `<div style="width:${p.largura || 370}px;display:flex;flex-direction:column;justify-content:center;gap:12px">${x.map(r => cartao(r, '', `data-lado="${lado}"`)).join('')}</div>`;
     return `<div class="corpo" style="display:flex;align-items:center;justify-content:space-between;height:100%">
-      ${col(rs.slice(0, metade), 'e')}<div style="flex:1;display:flex;align-items:center;justify-content:center">${noTema(p)}</div>${col(rs.slice(metade), 'd')}</div>`;
+      ${col(rs.slice(0, metade), 'e')}<div style="flex:1;display:flex;align-items:center;justify-content:center">${noTema(p, 250)}</div>${col(rs.slice(metade), 'd')}</div>`;
   },
   arvore: (p, rs) => {
     const linhas = rs.length > 5 ? [rs.slice(0, Math.ceil(rs.length / 2)), rs.slice(Math.ceil(rs.length / 2))] : [rs];
@@ -163,9 +168,9 @@ const LAYOUTS = {
   perguntas: (p, rs) => `<div class="corpo" style="display:flex;flex-direction:column;gap:14px;height:100%">
       ${tituloTopo(p)}
       <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px">
-        ${rs.map(r => `<div class="ramo" data-cor="${r.cor}" style="display:flex;align-items:stretch;gap:0">
-          <div class="cab" style="flex:none;width:230px;background:${r.cor};border-radius:14px 0 0 14px;padding:10px 16px;display:flex;align-items:center;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:#fff;position:relative"><span class="tt">${esc(r.titulo)}</span>
-            <span style="position:absolute;right:-12px;top:50%;margin-top:-12px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:12px solid ${r.cor}"></span></div>
+        ${rs.map(r => `<div class="ramo" data-cor="${r.cor}" style="position:relative;display:flex;align-items:stretch;gap:0">
+          <div class="cab" style="flex:none;width:230px;background:${r.cor};border-radius:14px 0 0 14px;padding:10px 16px;display:flex;align-items:center;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:#fff;overflow:hidden"><span class="tt">${esc(r.titulo)}</span></div>
+          <span style="position:absolute;left:229px;top:50%;margin-top:-12px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:12px solid ${r.cor};z-index:1"></span>
           <div class="caixa" style="flex:1;min-width:0;background:#fff;border:1px solid #E3ECE7;border-left:none;border-radius:0 14px 14px 0;padding:9px 16px 10px 24px;box-shadow:0 6px 16px rgba(15,42,30,.05)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
   regra: (p, rs) => {
     const [base, ...resto] = rs;
