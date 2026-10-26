@@ -1,6 +1,6 @@
 ---
 name: molde-mapas-mentais
-description: Gera mapas mentais de Direito Constitucional em PDF A4 horizontal no molde "Mapas Mentais · Constitucional com Líbero" (capa em degradê verde com o livro da CF/88; páginas brancas com o tema no centro e ramos em cartões ligados por curvas, com inciso, resumo, tópicos e pegadinha). Use quando pedirem mapa mental, esquema ou resumo visual de Constitucional nessa identidade.
+description: Gera mapas mentais de Direito Constitucional em PDF A4 horizontal no molde "Mapas Mentais · Constitucional com Líbero" (capa em degradê verde leve, em 4 estilos; páginas com cara de mapa de estudo à mão: ramos de caneta, marca-texto, post-it de pegadinha). Use quando pedirem mapa mental, esquema ou resumo visual de Constitucional nessa identidade.
 ---
 
 # Molde: Mapas Mentais
