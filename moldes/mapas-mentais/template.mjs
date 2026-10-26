@@ -119,11 +119,11 @@ const pilula = (t, cor, inv = false) => t ? `<span style="flex:none;${I};font-si
 // Cartão padrão (cabeçalho colorido + corpo branco).
 const cartao = (r, extra = '', attrs = '') => `<div class="ramo" ${attrs} data-cor="${r.cor}" style="position:relative;background:#fff;border-radius:16px;box-shadow:0 1px 0 rgba(15,42,30,.04),0 10px 26px rgba(15,42,30,.08);border:1px solid #E3ECE7;overflow:hidden;${extra}">
     <div class="cab" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px;background:${r.cor}">
-      <span style="${J};font-weight:800;${fs(1.35)};letter-spacing:-.01em;line-height:1.1;color:#fff">${esc(r.titulo)}</span>${pilula(r.artigo, r.cor)}</div>
-    <div style="padding:9px 14px 11px">${corpoRamo(r)}</div></div>`;
+      <span class="tt" style="min-width:0;${J};font-weight:800;${fs(1.35)};letter-spacing:-.01em;line-height:1.1;color:#fff">${esc(r.titulo)}</span>${pilula(r.artigo, r.cor)}</div>
+    <div class="caixa" style="padding:9px 14px 11px">${corpoRamo(r)}</div></div>`;
 const noTema = (p, w = 230, extra = '') => `<div class="centro" style="position:relative;width:${w}px;padding:22px 18px;text-align:center;border-radius:28px;background:linear-gradient(150deg,${COR.floresta} 0%,#138A55 100%);box-shadow:0 0 0 8px #E6F5EC,0 18px 40px rgba(11,74,48,.28);${extra}">
     ${p.artigo ? `<div style="${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#A7E8C3">${esc(p.artigo)}</div>` : ''}
-    <div style="${J};font-weight:800;font-size:${p.ts ? p.ts + 'px' : 'calc(var(--f) * 1.65)'};line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:4px">${lista(p.titulo).map(esc).join('<br>')}</div>
+    <div class="tt" style="${J};font-weight:800;font-size:${p.ts ? p.ts + 'px' : 'calc(var(--f) * 1.65)'};line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:4px">${lista(p.titulo).map(esc).join('<br>')}</div>
     ${p.sub ? `<div style="${I};font-size:11.5px;line-height:1.45;color:#D7F0E1;margin-top:10px">${esc(p.sub).replace(/\*\*(.+?)\*\*/g, '<b style="color:#fff">$1</b>')}</div>` : ''}</div>`;
 const tituloTopo = p => `<div style="display:flex;align-items:baseline;gap:14px">${p.numero ? `<span style="${T};font-size:46px;line-height:.8;color:#BFE3CD">${String(p.numero).padStart(2, '0')}</span>` : ''}
     <span style="${J};font-weight:800;font-size:${p.ts || 28}px;line-height:1.05;letter-spacing:-.02em;color:${COR.floresta}">${lista(p.titulo).map(esc).join(' ')}</span></div>`;
@@ -138,35 +138,35 @@ const LAYOUTS = {
     const linhas = rs.length > 5 ? [rs.slice(0, Math.ceil(rs.length / 2)), rs.slice(Math.ceil(rs.length / 2))] : [rs];
     return `<div class="corpo" style="display:flex;flex-direction:column;align-items:center;gap:26px;height:100%">
       ${noTema(p, 420, 'padding:14px 22px;border-radius:20px')}
-      <div style="flex:1;width:100%;display:flex;flex-direction:column;gap:16px;justify-content:center">${linhas.map(l => `<div style="display:grid;grid-template-columns:repeat(${l.length},1fr);gap:14px;align-items:start">${l.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div>`).join('')}</div></div>`;
+      <div style="flex:1;width:100%;display:flex;flex-direction:column;gap:16px;justify-content:center">${linhas.map(l => `<div style="display:grid;grid-template-columns:repeat(${l.length},minmax(0,1fr));gap:14px;align-items:start">${l.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div>`).join('')}</div></div>`;
   },
   colunas: (p, rs) => `<div class="corpo" style="display:flex;gap:18px;height:100%">
       <div class="centro" style="flex:none;width:200px;border-radius:22px;background:linear-gradient(170deg,${COR.floresta} 0%,#138A55 100%);padding:24px 20px;display:flex;flex-direction:column;justify-content:flex-end">
         ${p.numero ? `<div style="${T};font-size:80px;line-height:.8;color:rgba(255,255,255,.22)">${String(p.numero).padStart(2, '0')}</div>` : ''}
-        <div style="${J};font-weight:800;font-size:${p.ts || 25}px;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-top:10px">${lista(p.titulo).map(esc).join('<br>')}</div>
+        <div class="tt" style="${J};font-weight:800;font-size:${p.ts || 25}px;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-top:10px">${lista(p.titulo).map(esc).join('<br>')}</div>
         <div style="width:40px;height:4px;border-radius:2px;background:#A7E8C3;margin-top:16px"></div></div>
-      <div style="flex:1;display:grid;grid-template-columns:repeat(${rs.length},1fr);border-radius:18px;overflow:hidden;border:1px solid #E3ECE7;background:#fff">
+      <div style="flex:1;display:grid;grid-template-columns:repeat(${rs.length},minmax(0,1fr));border-radius:18px;overflow:hidden;border:1px solid #E3ECE7;background:#fff">
         ${rs.map((r, i) => `<div class="ramo" data-cor="${r.cor}" style="display:flex;flex-direction:column;background:${i % 2 ? '#F6FBF8' : '#fff'};${i ? 'border-left:1px solid #E3ECE7' : ''}">
           <div class="cab" style="padding:14px 14px 12px;border-top:6px solid ${r.cor}">
             <div style="${I};font-size:10px;font-weight:800;letter-spacing:.16em;color:${r.cor}">${String(i + 1).padStart(2, '0')}</div>
-            <div style="${J};font-weight:800;${fs(1.4)};line-height:1.1;color:${COR.tinta};margin-top:3px">${esc(r.titulo)}</div></div>
-          <div style="padding:0 14px 14px">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+            <div class="tt" style="${J};font-weight:800;${fs(1.4)};line-height:1.1;color:${COR.tinta};margin-top:3px">${esc(r.titulo)}</div></div>
+          <div class="caixa" style="padding:0 14px 14px">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
   etapas: (p, rs) => `<div class="corpo" style="display:flex;flex-direction:column;gap:18px;height:100%">
       ${tituloTopo(p)}
-      <div style="position:relative;flex:1;display:grid;grid-template-columns:repeat(${rs.length},1fr);gap:16px;align-items:start;padding-top:8px">
+      <div style="position:relative;flex:1;display:grid;grid-template-columns:repeat(${rs.length},minmax(0,1fr));gap:16px;align-items:start;padding-top:8px">
         <div style="position:absolute;left:4%;right:4%;top:30px;height:3px;background:linear-gradient(90deg,${rs.map(r => r.cor).join(',')});border-radius:2px"></div>
         ${rs.map((r, i) => `<div class="ramo" data-cor="${r.cor}" style="position:relative;display:flex;flex-direction:column;align-items:center">
           <div style="width:46px;height:46px;border-radius:50%;background:#fff;border:3px solid ${r.cor};display:flex;align-items:center;justify-content:center;${T};font-size:24px;color:${r.cor};box-shadow:0 0 0 6px #fff">${i + 1}</div>
           ${i < rs.length - 1 ? `<svg viewBox="0 0 20 20" width="18" style="position:absolute;right:-17px;top:14px"><path d="M4 3l9 7-9 7" fill="none" stroke="${COR.cinza}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>` : ''}
-          <div class="cab" style="${J};font-weight:800;${fs(1.3)};line-height:1.12;color:${r.cor};text-align:center;margin:12px 0 8px">${esc(r.titulo)}</div>
-          <div style="width:100%;background:#fff;border:1px solid #E3ECE7;border-top:4px solid ${r.cor};border-radius:14px;padding:10px 12px;box-shadow:0 8px 20px rgba(15,42,30,.06)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+          <div class="cab" style="width:100%;text-align:center;margin:12px 0 8px"><span class="tt" style="display:inline-block;max-width:100%;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:${r.cor}">${esc(r.titulo)}</span></div>
+          <div class="caixa" style="width:100%;background:#fff;border:1px solid #E3ECE7;border-top:4px solid ${r.cor};border-radius:14px;padding:10px 12px;box-shadow:0 8px 20px rgba(15,42,30,.06)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
   perguntas: (p, rs) => `<div class="corpo" style="display:flex;flex-direction:column;gap:14px;height:100%">
       ${tituloTopo(p)}
       <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px">
         ${rs.map(r => `<div class="ramo" data-cor="${r.cor}" style="display:flex;align-items:stretch;gap:0">
-          <div class="cab" style="flex:none;width:230px;background:${r.cor};border-radius:14px 0 0 14px;padding:10px 16px;display:flex;align-items:center;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:#fff;position:relative">${esc(r.titulo)}
+          <div class="cab" style="flex:none;width:230px;background:${r.cor};border-radius:14px 0 0 14px;padding:10px 16px;display:flex;align-items:center;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:#fff;position:relative"><span class="tt">${esc(r.titulo)}</span>
             <span style="position:absolute;right:-12px;top:50%;margin-top:-12px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:12px solid ${r.cor}"></span></div>
-          <div style="flex:1;background:#fff;border:1px solid #E3ECE7;border-left:none;border-radius:0 14px 14px 0;padding:9px 16px 10px 24px;box-shadow:0 6px 16px rgba(15,42,30,.05)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+          <div class="caixa" style="flex:1;min-width:0;background:#fff;border:1px solid #E3ECE7;border-left:none;border-radius:0 14px 14px 0;padding:9px 16px 10px 24px;box-shadow:0 6px 16px rgba(15,42,30,.05)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
   regra: (p, rs) => {
     const [base, ...resto] = rs;
     return `<div class="corpo" style="display:flex;flex-direction:column;gap:12px;height:100%">
@@ -175,7 +175,7 @@ const LAYOUTS = {
         <span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.floresta};background:#A7E8C3;padding:5px 10px;border-radius:999px;margin-top:3px">Regra</span>
         <div><div style="${J};font-weight:800;${fs(1.5)};color:#fff">${esc(base.titulo)}</div>
           <div style="${I};${fs(1.08)};line-height:1.42;color:#E3F5EA;margin-top:4px">${esc([base.resumo, ...lista(base.itens)].join(' '))}</div></div></div>
-      <div style="flex:1;display:grid;grid-template-columns:repeat(${Math.min(resto.length, 4)},1fr);gap:14px;align-content:center;padding-top:14px">${resto.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div></div>`;
+      <div style="flex:1;display:grid;grid-template-columns:repeat(${Math.min(resto.length, 4)},minmax(0,1fr));gap:14px;align-content:center;padding-top:14px">${resto.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div></div>`;
   },
 };
 
@@ -210,11 +210,15 @@ function ajustar(pg) {
   const area = pg.querySelector('.area');
   const fora = () => { const b = area.getBoundingClientRect();
     return [...area.querySelectorAll('*')].some(e => e.getBoundingClientRect().bottom > b.bottom + 1)
-      || [...area.querySelectorAll('.ramo')].some(r => r.scrollHeight > r.clientHeight + 1 || r.scrollWidth > r.clientWidth + 1)
+      || [...area.querySelectorAll('.ramo')].some(r => r.scrollHeight > r.clientHeight + 1)
+      || [...area.querySelectorAll('.caixa')].some(r => r.scrollWidth > r.clientWidth + 1)
       || pg.querySelector('.rodape').getBoundingClientRect().bottom > pg.getBoundingClientRect().bottom - 8; };
   let f = parseFloat(pg.dataset.fmax || 22);
   pg.style.setProperty('--f', f + 'px');
   while (fora() && f > 8.5) { f -= .25; pg.style.setProperty('--f', f + 'px'); }
+  // título do tema: diminui sozinho até a palavra mais longa caber no balão
+  for (const t of pg.querySelectorAll('.tt')) { let px = parseFloat(getComputedStyle(t).fontSize); const box = t.closest('.cab') || t.parentElement;
+    while ((t.scrollWidth > t.clientWidth + 1 || box.scrollWidth > box.clientWidth + 1) && px > 9) { px -= .5; t.style.fontSize = px + 'px'; } }
   return fora() ? ['não coube (fonte mínima)'] : [];
 }
 function ligar() {

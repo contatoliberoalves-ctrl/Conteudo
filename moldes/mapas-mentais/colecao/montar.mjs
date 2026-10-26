@@ -17,9 +17,9 @@ const REGRAS = [
 const ALTERNA = ['radial', 'arvore', 'radial', 'perguntas'];
 let ant = '', k = 0;
 const saida = mapas.map(m => {
-  let layout = (REGRAS.find(([, re]) => re.test(m.composicao || '')) || [])[0] || ALTERNA[k++ % ALTERNA.length];
+  let layout = m.layout || (REGRAS.find(([, re]) => re.test(m.composicao || '')) || [])[0] || ALTERNA[k++ % ALTERNA.length];
   // colunas com mais de 5 ramos ficam apertadas; etapas com 6 também
-  if (layout === 'colunas' && m.ramos.length > 5) layout = 'arvore';
+  if (layout === 'colunas' && m.ramos.length > 4) layout = 'arvore';
   if (layout === ant) layout = { radial: 'arvore', arvore: 'radial', colunas: 'radial', etapas: 'arvore', perguntas: 'radial', regra: 'arvore' }[layout];
   ant = layout;
   const n = String(m.numero).padStart(2, '0');
