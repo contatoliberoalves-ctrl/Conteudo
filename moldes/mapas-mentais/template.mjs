@@ -1,8 +1,7 @@
 // Molde "Mapas Mentais · Constitucional com Líbero": A4 horizontal (1123×794 px = 297×210 mm).
 // Capa em degradê verde leve, em 4 estilos (capa.estilo): tipografica, caderno, topografico e marcatexto.
-// Página do mapa com cara de mapa de estudo feito à mão: papel pontilhado, tema no centro num balão de traço
-// duplo, ramos grossos de caneta saindo do centro, títulos com marca-texto, sub-ramos em árvore, artigo numa
-// etiqueta e a pegadinha num post-it. Os ramos são desenhados no navegador depois do layout (ver ligar()).
+// Página do mapa moderna, em seis desenhos (ver LAYOUTS). As ligações são desenhadas no navegador depois do
+// layout (ver ligar()).
 export const W = 1123, H = 794;
 const COR = { floresta: '#0B4A30', verde: '#16804F', tinta: '#1C2B24', texto: '#2E3B35', cinza: '#7A8A82', papel: '#FCFDFB' };
 // Canetas dos ramos e o marca-texto que combina com cada uma.
@@ -89,66 +88,157 @@ const CAPAS = {
 const capa = (c, m) => (CAPAS[c.estilo] || CAPAS.tipografica)(c, m);
 
 // ---------- Página do mapa ----------
-// Moderno: fundo branco com brilho verde nos cantos, nó central verde, ramos em curvas suaves na cor do ramo
-// (com ponto na saída e na chegada) e cartões com cabeçalho colorido (título + inciso), resumo, tópicos
-// numerados e uma faixa âmbar de "Pegadinha".
+// Identidade aprovada: fundo branco com brilho verde nos cantos, verde no nó do tema, cartões com cabeçalho
+// colorido. Seis desenhos (p.layout), para os mapas não ficarem iguais:
+//   radial    tema no centro, ramos em cartões dos dois lados, ligados por curvas
+//   arvore    tema no alto, ramos numa fileira embaixo, ligados em chave (organograma)
+//   colunas   tema num painel verde à esquerda e ramos como colunas de um quadro comparativo
+//   etapas    ramos como passos numerados numa linha, com setas (procedimentos, sequências)
+//   perguntas cada ramo é uma linha "rótulo → resposta" (escolha de instrumento, quem/quando/o quê)
+//   regra     o 1º ramo é a regra, num quadro largo; os demais são condições/exceções ligados a ela
+// Ramo: {titulo, texto} (1ª frase vira o resumo e as demais, tópicos) ou {titulo, resumo, itens, dica, artigo}.
+// Rótulos de exceção/atenção/limite saem em ocre. Rodapé: "Na prova" (aplicação), "Confira" (pergunta e
+// resposta) e a referência normativa. O tamanho do texto se ajusta para caber (variável --f).
 const PALETA = ['#138A55', '#0E7C86', '#2563EB', '#0B5C3B', '#7C3AED', '#D97706'];
+const OCRE = '#B58032';
+const frases = t => String(t || '').match(/[^.!?]+(?:[.!?]+|$)(?:\s+|$)/g)?.map(s => s.trim()).filter(Boolean) || [];
+function normalizar(p) {
+  return lista(p.ramos).map((r, i) => {
+    const cor = r.cor || (/exce|aten|cuidado|limite|ressalv|veda|proib|não |nao |sanç|perda|cassa/i.test(r.titulo) ? OCRE : PALETA[i % PALETA.length]);
+    if (r.texto != null) { const f = frases(r.texto); return { ...r, cor, resumo: f[0] || '', itens: f.slice(1) }; }
+    return { ...r, cor };
+  });
+}
+const fs = (k = 1) => `font-size:calc(var(--f) * ${k})`;
+// Corpo de um ramo (resumo em destaque e tópicos numerados ou com marcador).
+const corpoRamo = (r, num = true) => (num = num && lista(r.itens).length > 1, `${r.resumo ? `<div style="${I};${fs(1.04)};font-weight:600;line-height:1.36;color:${COR.tinta}">${destaque(r.resumo, r.cor)}</div>` : ''}
+  ${lista(r.itens).length ? `<div style="display:flex;flex-direction:column;gap:4px;margin-top:6px">${lista(r.itens).map((it, k) => `<div style="display:flex;gap:7px;${I};${fs()};line-height:1.38;color:${COR.texto}">
+    ${num ? `<span style="flex:none;width:1.45em;height:1.45em;border-radius:5px;background:${r.cor}1A;color:${r.cor};font-size:.82em;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:.05em">${k + 1}</span>` : `<span style="flex:none;width:6px;height:6px;border-radius:50%;background:${r.cor};margin-top:.5em"></span>`}<span>${destaque(it, r.cor)}</span></div>`).join('')}</div>` : ''}
+  ${r.dica ? `<div style="margin-top:7px;display:flex;gap:7px;background:#FFF7E6;border-radius:8px;padding:6px 9px;${I};${fs(.95)};line-height:1.36;color:#5A4210"><b style="color:#B45309">Pegadinha:</b><span>${destaque(r.dica, '#B45309')}</span></div>` : ''}`);
+const pilula = (t, cor, inv = false) => t ? `<span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.04em;color:${inv ? '#fff' : cor};background:${inv ? cor : '#fff'};padding:3px 8px;border-radius:999px">${esc(t)}</span>` : '';
+// Cartão padrão (cabeçalho colorido + corpo branco).
+const cartao = (r, extra = '', attrs = '') => `<div class="ramo" ${attrs} data-cor="${r.cor}" style="position:relative;background:#fff;border-radius:16px;box-shadow:0 1px 0 rgba(15,42,30,.04),0 10px 26px rgba(15,42,30,.08);border:1px solid #E3ECE7;overflow:hidden;${extra}">
+    <div class="cab" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px;background:${r.cor}">
+      <span style="${J};font-weight:800;${fs(1.35)};letter-spacing:-.01em;line-height:1.1;color:#fff">${esc(r.titulo)}</span>${pilula(r.artigo, r.cor)}</div>
+    <div style="padding:9px 14px 11px">${corpoRamo(r)}</div></div>`;
+const noTema = (p, w = 230, extra = '') => `<div class="centro" style="position:relative;width:${w}px;padding:22px 18px;text-align:center;border-radius:28px;background:linear-gradient(150deg,${COR.floresta} 0%,#138A55 100%);box-shadow:0 0 0 8px #E6F5EC,0 18px 40px rgba(11,74,48,.28);${extra}">
+    ${p.artigo ? `<div style="${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#A7E8C3">${esc(p.artigo)}</div>` : ''}
+    <div style="${J};font-weight:800;font-size:${p.ts ? p.ts + 'px' : 'calc(var(--f) * 1.65)'};line-height:1.08;letter-spacing:-.02em;color:#fff;margin-top:4px">${lista(p.titulo).map(esc).join('<br>')}</div>
+    ${p.sub ? `<div style="${I};font-size:11.5px;line-height:1.45;color:#D7F0E1;margin-top:10px">${esc(p.sub).replace(/\*\*(.+?)\*\*/g, '<b style="color:#fff">$1</b>')}</div>` : ''}</div>`;
+const tituloTopo = p => `<div style="display:flex;align-items:baseline;gap:14px">${p.numero ? `<span style="${T};font-size:46px;line-height:.8;color:#BFE3CD">${String(p.numero).padStart(2, '0')}</span>` : ''}
+    <span style="${J};font-weight:800;font-size:${p.ts || 28}px;line-height:1.05;letter-spacing:-.02em;color:${COR.floresta}">${lista(p.titulo).map(esc).join(' ')}</span></div>`;
+
+const LAYOUTS = {
+  radial: (p, rs) => {
+    const metade = Math.ceil(rs.length / 2), col = (x, lado) => `<div style="width:${p.largura || 370}px;display:flex;flex-direction:column;justify-content:center;gap:12px">${x.map(r => cartao(r, '', `data-lado="${lado}"`)).join('')}</div>`;
+    return `<div class="corpo" style="display:flex;align-items:center;justify-content:space-between;height:100%">
+      ${col(rs.slice(0, metade), 'e')}<div style="flex:1;display:flex;align-items:center;justify-content:center">${noTema(p)}</div>${col(rs.slice(metade), 'd')}</div>`;
+  },
+  arvore: (p, rs) => {
+    const linhas = rs.length > 5 ? [rs.slice(0, Math.ceil(rs.length / 2)), rs.slice(Math.ceil(rs.length / 2))] : [rs];
+    return `<div class="corpo" style="display:flex;flex-direction:column;align-items:center;gap:26px;height:100%">
+      ${noTema(p, 420, 'padding:14px 22px;border-radius:20px')}
+      <div style="flex:1;width:100%;display:flex;flex-direction:column;gap:16px;justify-content:center">${linhas.map(l => `<div style="display:grid;grid-template-columns:repeat(${l.length},1fr);gap:14px;align-items:start">${l.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div>`).join('')}</div></div>`;
+  },
+  colunas: (p, rs) => `<div class="corpo" style="display:flex;gap:18px;height:100%">
+      <div class="centro" style="flex:none;width:200px;border-radius:22px;background:linear-gradient(170deg,${COR.floresta} 0%,#138A55 100%);padding:24px 20px;display:flex;flex-direction:column;justify-content:flex-end">
+        ${p.numero ? `<div style="${T};font-size:80px;line-height:.8;color:rgba(255,255,255,.22)">${String(p.numero).padStart(2, '0')}</div>` : ''}
+        <div style="${J};font-weight:800;font-size:${p.ts || 25}px;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-top:10px">${lista(p.titulo).map(esc).join('<br>')}</div>
+        <div style="width:40px;height:4px;border-radius:2px;background:#A7E8C3;margin-top:16px"></div></div>
+      <div style="flex:1;display:grid;grid-template-columns:repeat(${rs.length},1fr);border-radius:18px;overflow:hidden;border:1px solid #E3ECE7;background:#fff">
+        ${rs.map((r, i) => `<div class="ramo" data-cor="${r.cor}" style="display:flex;flex-direction:column;background:${i % 2 ? '#F6FBF8' : '#fff'};${i ? 'border-left:1px solid #E3ECE7' : ''}">
+          <div class="cab" style="padding:14px 14px 12px;border-top:6px solid ${r.cor}">
+            <div style="${I};font-size:10px;font-weight:800;letter-spacing:.16em;color:${r.cor}">${String(i + 1).padStart(2, '0')}</div>
+            <div style="${J};font-weight:800;${fs(1.4)};line-height:1.1;color:${COR.tinta};margin-top:3px">${esc(r.titulo)}</div></div>
+          <div style="padding:0 14px 14px">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+  etapas: (p, rs) => `<div class="corpo" style="display:flex;flex-direction:column;gap:18px;height:100%">
+      ${tituloTopo(p)}
+      <div style="position:relative;flex:1;display:grid;grid-template-columns:repeat(${rs.length},1fr);gap:16px;align-items:start;padding-top:8px">
+        <div style="position:absolute;left:4%;right:4%;top:30px;height:3px;background:linear-gradient(90deg,${rs.map(r => r.cor).join(',')});border-radius:2px"></div>
+        ${rs.map((r, i) => `<div class="ramo" data-cor="${r.cor}" style="position:relative;display:flex;flex-direction:column;align-items:center">
+          <div style="width:46px;height:46px;border-radius:50%;background:#fff;border:3px solid ${r.cor};display:flex;align-items:center;justify-content:center;${T};font-size:24px;color:${r.cor};box-shadow:0 0 0 6px #fff">${i + 1}</div>
+          ${i < rs.length - 1 ? `<svg viewBox="0 0 20 20" width="18" style="position:absolute;right:-17px;top:14px"><path d="M4 3l9 7-9 7" fill="none" stroke="${COR.cinza}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>` : ''}
+          <div class="cab" style="${J};font-weight:800;${fs(1.3)};line-height:1.12;color:${r.cor};text-align:center;margin:12px 0 8px">${esc(r.titulo)}</div>
+          <div style="width:100%;background:#fff;border:1px solid #E3ECE7;border-top:4px solid ${r.cor};border-radius:14px;padding:10px 12px;box-shadow:0 8px 20px rgba(15,42,30,.06)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+  perguntas: (p, rs) => `<div class="corpo" style="display:flex;flex-direction:column;gap:14px;height:100%">
+      ${tituloTopo(p)}
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px">
+        ${rs.map(r => `<div class="ramo" data-cor="${r.cor}" style="display:flex;align-items:stretch;gap:0">
+          <div class="cab" style="flex:none;width:230px;background:${r.cor};border-radius:14px 0 0 14px;padding:10px 16px;display:flex;align-items:center;${J};font-weight:800;${fs(1.3)};line-height:1.12;color:#fff;position:relative">${esc(r.titulo)}
+            <span style="position:absolute;right:-12px;top:50%;margin-top:-12px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:12px solid ${r.cor}"></span></div>
+          <div style="flex:1;background:#fff;border:1px solid #E3ECE7;border-left:none;border-radius:0 14px 14px 0;padding:9px 16px 10px 24px;box-shadow:0 6px 16px rgba(15,42,30,.05)">${corpoRamo(r, false)}</div></div>`).join('')}</div></div>`,
+  regra: (p, rs) => {
+    const [base, ...resto] = rs;
+    return `<div class="corpo" style="display:flex;flex-direction:column;gap:12px;height:100%">
+      ${tituloTopo(p)}
+      <div class="centro" style="background:linear-gradient(150deg,${COR.floresta} 0%,#138A55 100%);border-radius:20px;padding:16px 22px;box-shadow:0 14px 30px rgba(11,74,48,.22);display:flex;gap:18px;align-items:flex-start">
+        <span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.floresta};background:#A7E8C3;padding:5px 10px;border-radius:999px;margin-top:3px">Regra</span>
+        <div><div style="${J};font-weight:800;${fs(1.5)};color:#fff">${esc(base.titulo)}</div>
+          <div style="${I};${fs(1.08)};line-height:1.42;color:#E3F5EA;margin-top:4px">${esc([base.resumo, ...lista(base.itens)].join(' '))}</div></div></div>
+      <div style="flex:1;display:grid;grid-template-columns:repeat(${Math.min(resto.length, 4)},1fr);gap:14px;align-content:center;padding-top:14px">${resto.map(r => cartao(r, '', 'data-lado="b"')).join('')}</div></div>`;
+  },
+};
+
 function mapa(m, p, n) {
-  const ramos = lista(p.ramos).map((r, i) => ({ ...r, cor: r.cor || PALETA[i % PALETA.length] }));
-  const metade = Math.ceil(ramos.length / 2), esq = ramos.slice(0, metade), dir = ramos.slice(metade);
-  const fs = p.corpo || 11.5;
-  const cartao = (r, lado) => `<div class="ramo" data-lado="${lado}" data-cor="${r.cor}" style="position:relative;background:#fff;border-radius:16px;box-shadow:0 1px 0 rgba(15,42,30,.04),0 10px 26px rgba(15,42,30,.08);border:1px solid #E3ECE7;overflow:hidden">
-      <div class="cab" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;background:${r.cor}">
-        <span style="${J};font-weight:800;font-size:${r.ts || 16}px;letter-spacing:-.01em;color:#fff">${esc(r.titulo)}</span>
-        ${r.artigo ? `<span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.04em;color:${r.cor};background:#fff;padding:3px 8px;border-radius:999px">${esc(r.artigo)}</span>` : ''}</div>
-      <div style="padding:10px 14px 11px">
-        ${r.resumo ? `<div style="${I};font-size:${fs + .5}px;font-weight:600;line-height:1.38;color:${COR.tinta}">${destaque(r.resumo, r.cor)}</div>` : ''}
-        ${lista(r.itens).length ? `<div style="display:flex;flex-direction:column;gap:5px;margin-top:7px">${lista(r.itens).map((it, k) => `<div style="display:flex;gap:8px;${I};font-size:${fs}px;line-height:1.4;color:${COR.texto}">
-          <span style="flex:none;width:17px;height:17px;border-radius:5px;background:${r.cor}1A;color:${r.cor};${I};font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px">${k + 1}</span><span>${destaque(it, r.cor)}</span></div>`).join('')}</div>` : ''}</div>
-      ${r.dica ? `<div style="display:flex;gap:8px;align-items:flex-start;background:#FFF7E6;border-top:1px solid #F7E2B5;padding:8px 14px;${I};font-size:${fs - .5}px;line-height:1.38;color:#5A4210">
-          <svg viewBox="0 0 24 24" width="15" style="flex:none;margin-top:1px"><path d="M12 3 2 20h20L12 3z" fill="#F59E0B"/><rect x="11" y="9" width="2" height="6" rx="1" fill="#fff"/><circle cx="12" cy="17.2" r="1.1" fill="#fff"/></svg>
-          <span><b style="font-weight:800;color:#B45309">Pegadinha:</b> ${destaque(r.dica, '#B45309')}</span></div>` : ''}</div>`;
-  const coluna = (rs, lado) => `<div style="width:${p.largura || 345}px;display:flex;flex-direction:column;justify-content:center;gap:${p.gap || 14}px">${rs.map(r => cartao(r, lado)).join('')}</div>`;
-  return `<section class="pagina mapa" style="background:#fff">
+  const rs = normalizar(p), layout = LAYOUTS[p.layout] ? p.layout : 'radial';
+  const temRodape = p.aplicacao || p.pergunta;
+  return `<section class="pagina mapa" data-layout="${layout}" data-fmax="${p.corpo || 22}" style="background:#fff;--f:${p.corpo || 11.5}px">
     <div style="position:absolute;left:-180px;top:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#DDF3E6 0%,rgba(221,243,230,0) 70%)"></div>
     <div style="position:absolute;right:-200px;bottom:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,#DDF3E6 0%,rgba(221,243,230,0) 70%)"></div>
     <svg class="ligacoes" width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1"></svg>
-    <div style="position:absolute;left:36px;right:36px;top:22px;display:flex;justify-content:space-between;align-items:center;z-index:2">
-      <span style="${I};font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:${COR.verde}">Constitucional com Líbero · Mapas Mentais</span>
-      ${p.tema ? `<span style="${I};font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${COR.cinza}">${esc(p.tema)}</span>` : ''}</div>
-    <div style="position:absolute;left:30px;right:30px;top:48px;bottom:${p.rodape ? 50 : 30}px;display:flex;align-items:center;justify-content:space-between;z-index:2">
-      ${coluna(esq, 'e')}
-      <div style="flex:1;display:flex;align-items:center;justify-content:center">
-        <div class="centro" style="position:relative;width:${p.centroW || 230}px;padding:24px 18px;text-align:center;border-radius:28px;background:linear-gradient(150deg,${COR.floresta} 0%,#138A55 100%);box-shadow:0 0 0 8px #E6F5EC,0 18px 40px rgba(11,74,48,.28)">
-          ${p.artigo ? `<div style="${I};font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#A7E8C3">${esc(p.artigo)}</div>` : ''}
-          <div style="${J};font-weight:800;font-size:${p.ts || 28}px;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-top:6px">${lista(p.titulo).map(esc).join('<br>')}</div>
-          ${p.sub ? `<div style="${I};font-size:11.5px;line-height:1.45;color:#D7F0E1;margin-top:10px">${esc(p.sub).replace(/\*\*(.+?)\*\*/g, '<b style="color:#fff">$1</b>')}</div>` : ''}</div></div>
-      ${coluna(dir, 'd')}</div>
-    ${p.rodape ? `<div style="position:absolute;left:36px;right:80px;bottom:16px;display:flex;align-items:center;gap:10px;z-index:2">
-      <span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:${COR.verde};padding:5px 10px;border-radius:999px">Pra fixar</span>
-      <span style="${I};font-size:11px;line-height:1.35;color:${COR.tinta}">${destaque(p.rodape, COR.verde)}</span></div>` : ''}
-    <div style="position:absolute;right:36px;bottom:18px;${I};font-size:10px;font-weight:700;color:${COR.cinza};z-index:2">${String(n).padStart(2, '0')}</div>
+    <div style="position:absolute;inset:0;padding:20px 32px 14px;display:flex;flex-direction:column;gap:12px;z-index:2">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="${I};font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:${COR.verde}">Constitucional com Líbero · Mapas Mentais</span>
+        <span style="${I};font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${COR.cinza}">${esc(p.tema || (p.numero ? `Mapa ${String(p.numero).padStart(2, '0')}` : ''))}</span></div>
+      <div class="area" style="flex:1;min-height:0">${LAYOUTS[layout](p, rs)}</div>
+      ${temRodape ? `<div style="display:grid;grid-template-columns:${p.aplicacao && p.pergunta ? '1.35fr 1fr' : '1fr'};gap:12px">
+        ${p.aplicacao ? `<div style="display:flex;gap:10px;align-items:flex-start;background:#FFF7E6;border:1px solid #F7E2B5;border-radius:12px;padding:8px 12px;${I};font-size:min(calc(var(--f) * .9),13px);line-height:1.38;color:#4A3A12">
+          <span style="flex:none;font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#D97706;padding:4px 8px;border-radius:999px">Na prova</span><span>${destaque(p.aplicacao, '#B45309')}</span></div>` : ''}
+        ${p.pergunta ? `<div style="display:flex;gap:10px;align-items:flex-start;background:#EEF8F2;border:1px solid #D2EBDD;border-radius:12px;padding:8px 12px;${I};font-size:min(calc(var(--f) * .9),13px);line-height:1.38;color:${COR.tinta}">
+          <span style="flex:none;font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:${COR.verde};padding:4px 8px;border-radius:999px">Confira</span><span>${esc(p.pergunta)} <b style="color:${COR.verde}">${esc(p.resposta || '')}</b></span></div>` : ''}</div>` : ''}
+      ${p.rodape ? `<div style="display:flex;align-items:center;gap:10px"><span style="flex:none;${I};font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:${COR.verde};padding:5px 10px;border-radius:999px">Pra fixar</span><span style="${I};font-size:11px;line-height:1.35;color:${COR.tinta}">${destaque(p.rodape, COR.verde)}</span></div>` : ''}
+      <div class="rodape" style="display:flex;justify-content:space-between;align-items:center;${I};font-size:9.5px;color:${COR.cinza}">
+        <span>${p.referencia ? `<b style="font-weight:700">Referência:</b> ${esc(p.referencia)}` : ''}</span><span style="font-weight:700">${String(n).padStart(2, '0')}</span></div></div>
   </section>`;
 }
 
-// Liga o centro a cada cartão: curva suave na cor do ramo, ponto branco com borda na saída e na chegada.
+// Liga o tema aos ramos (radial: curvas laterais; arvore/regra: chaves de cima para baixo) e ajusta o texto:
+// diminui --f até tudo caber na área (mínimo 8,5 px).
 const LIGAR = `<script>
+function ajustar(pg) {
+  // Começa grande e diminui --f até nada passar da área (nem dos cartões de altura fixa).
+  const area = pg.querySelector('.area');
+  const fora = () => { const b = area.getBoundingClientRect();
+    return [...area.querySelectorAll('*')].some(e => e.getBoundingClientRect().bottom > b.bottom + 1)
+      || [...area.querySelectorAll('.ramo')].some(r => r.scrollHeight > r.clientHeight + 1 || r.scrollWidth > r.clientWidth + 1)
+      || pg.querySelector('.rodape').getBoundingClientRect().bottom > pg.getBoundingClientRect().bottom - 8; };
+  let f = parseFloat(pg.dataset.fmax || 22);
+  pg.style.setProperty('--f', f + 'px');
+  while (fora() && f > 8.5) { f -= .25; pg.style.setProperty('--f', f + 'px'); }
+  return fora() ? ['não coube (fonte mínima)'] : [];
+}
 function ligar() {
-  for (const pg of document.querySelectorAll('.pagina.mapa')) {
-    const svg = pg.querySelector('.ligacoes'), base = pg.getBoundingClientRect(), c = pg.querySelector('.centro').getBoundingClientRect();
+  window.__avisos = [];
+  [...document.querySelectorAll('.pagina.mapa')].forEach((pg, i) => {
+    ajustar(pg).forEach(a => window.__avisos.push('mapa ' + (i + 1) + ': ' + a));
+    const svg = pg.querySelector('.ligacoes'), base = pg.getBoundingClientRect(), centro = pg.querySelector('.centro'), lay = pg.dataset.layout;
+    if (!centro || !['radial', 'arvore', 'regra'].includes(lay)) return;
+    const c = centro.getBoundingClientRect();
     let out = '';
     for (const r of pg.querySelectorAll('.ramo')) {
-      const b = r.getBoundingClientRect(), h = r.querySelector('.cab').getBoundingClientRect(), esq = r.dataset.lado === 'e', cor = r.dataset.cor;
-      const x1 = (esq ? c.left : c.right) - base.left, y1 = c.top + c.height / 2 - base.top;
-      const x2 = (esq ? b.right : b.left) - base.left, y2 = h.top + h.height / 2 - base.top, mx = (x1 + x2) / 2;
-      out += '<path d="M' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2 + '" stroke="' + cor + '" stroke-width="2.5" fill="none" stroke-linecap="round"/>'
-        + '<circle cx="' + x2 + '" cy="' + y2 + '" r="5" fill="#fff" stroke="' + cor + '" stroke-width="2.5"/>';
+      const b = r.getBoundingClientRect(), h = r.querySelector('.cab').getBoundingClientRect(), cor = r.dataset.cor;
+      if (r.dataset.lado === 'b') {
+        const x1 = c.left + c.width / 2 - base.left, y1 = c.bottom - base.top, x2 = b.left + b.width / 2 - base.left, y2 = b.top - base.top, ym = (y1 + y2) / 2;
+        out += '<path d="M' + x1 + ' ' + y1 + ' L ' + x1 + ' ' + ym + ' L ' + x2 + ' ' + ym + ' L ' + x2 + ' ' + y2 + '" stroke="' + cor + '" stroke-width="2.5" fill="none" stroke-linejoin="round"/>'
+          + '<circle cx="' + x2 + '" cy="' + y2 + '" r="4.5" fill="#fff" stroke="' + cor + '" stroke-width="2.5"/>';
+      } else {
+        const esq = r.dataset.lado === 'e', x1 = (esq ? c.left : c.right) - base.left, y1 = c.top + c.height / 2 - base.top;
+        const x2 = (esq ? b.right : b.left) - base.left, y2 = h.top + h.height / 2 - base.top, mx = (x1 + x2) / 2;
+        out += '<path d="M' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2 + '" stroke="' + cor + '" stroke-width="2.5" fill="none" stroke-linecap="round"/>'
+          + '<circle cx="' + x2 + '" cy="' + y2 + '" r="5" fill="#fff" stroke="' + cor + '" stroke-width="2.5"/>';
+      }
     }
     svg.innerHTML = out;
-  }
-  window.__avisos = [...document.querySelectorAll('.pagina.mapa')].flatMap((pg, i) => {
-    const b = pg.getBoundingClientRect();
-    return [...pg.querySelectorAll('.ramo,.centro')].some(e => { const r = e.getBoundingClientRect(); return r.top < b.top + 44 || r.bottom > b.bottom - 30; }) ? ['mapa ' + (i + 1) + ': passa da área'] : [];
   });
   window.__pronto = true;
 }

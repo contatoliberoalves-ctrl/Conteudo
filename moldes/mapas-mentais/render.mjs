@@ -1,4 +1,4 @@
-// Uso: node render.mjs [id] -> saida/<id>/<n>.png (2×), saida/<id>/<id>.pdf (A4 horizontal) e painel.png.
+// Uso: node render.mjs [id] (ou [número] na coleção) -> saida/<id>/<n>.png (2×), saida/<id>/<id>.pdf (A4 horizontal) e painel.png.
 // O PDF é montado com as imagens das páginas (sombras e degradês saem iguais em qualquer leitor).
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
@@ -7,7 +7,9 @@ import { renderMapas, W, H } from './template.mjs';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire(path.join(root, 'package.json'))('playwright');
 
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')).filter(m => !process.argv[2] || m.id === process.argv[2]);
+// DADOS e SAIDA trocam o arquivo de entrada e a pasta de saída (a coleção usa colecao/dados-colecao.json).
+const dados = JSON.parse(fs.readFileSync(path.join(root, process.env.DADOS || 'dados.json'), 'utf8')).filter(m => !process.argv[2] || m.id === process.argv[2] || m.id.startsWith(process.argv[2] + '-'));
+const SAIDA = path.join(root, process.env.SAIDA || 'saida');
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
@@ -22,7 +24,7 @@ for (const m of dados) {
   await page.waitForFunction(() => window.__pronto === true, null, { timeout: 30000 });
   await page.waitForTimeout(200);
   const avisos = await page.evaluate(() => window.__avisos || []);
-  const out = path.join(root, 'saida', m.id);
+  const out = path.join(SAIDA, m.id);
   fs.rmSync(out, { recursive: true, force: true });
   fs.mkdirSync(out, { recursive: true });
   const pags = await page.$$('section.pagina');
