@@ -362,7 +362,7 @@ const CAPAS = {
       <div style="position:absolute;left:0;right:0;bottom:70px;height:70px;background:${COR.vermelho};display:flex;align-items:center;overflow:hidden;z-index:4">
         <span style="flex:none;height:100%;display:flex;align-items:center;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:800;padding:0 26px">${PERFIL}</span>
         <span style="white-space:nowrap;font-size:30px;font-weight:700;color:#fff;padding-left:26px">${esc(s.letreiro || '')}</span></div>
-      <div style="position:absolute;right:70px;bottom:18px;font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+      ${s.semArraste ? '' : `<div style="position:absolute;right:70px;bottom:18px;font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`}`;
   },
   // Número gigante vazado (listas: "5 erros…", "3 dicas…").
   numero(s, t) {
