@@ -38,4 +38,5 @@ Todos têm `type` e `bg` (`dark`, `light` ou `mint`; nunca dois iguais seguidos;
 - `mnemo`: `kicker`, `word` (o macete), `cols` (`"1fr"` ou `"1fr 1fr"`), `rows: [{l, t}]`.
 - `compare`: `kicker`, `title`, `cols: [{title, items: []}, {title, items: []}]` (1º vazado, 2º cheio).
 - `vitrine`: `kicker`, `title`, `img` (arquivo em `imagens/`, ocupa a coluna), `sangra` (px que a imagem passa da coluna de cada lado), `legenda`. Para mostrar um produto ou material (ex.: páginas dos mapas mentais).
+- `oferta`: último slide de venda: `kicker`, `img` (produto em `imagens/`; `imgW`), `pre` ("Tudo isso por"), `preco` ("R$ 29,99", o R$ sai menor), `itens` (selos curtos), `botao`, `nota`. Com selo.
 - `cta`: `summary: [{k, v}]` (resumo de bolso), `title`, `body`. Com selo.

@@ -111,6 +111,18 @@ const TIPOS = {
       <div class="vit" style="margin:0 ${-(s.sangra || 0)}px"><img src="../imagens/${esc(s.img)}"></div>
       ${s.legenda ? `<p class="corpo" style="color:${t.fg};font-size:32px">${md(s.legenda)}</p>` : ''}`;
   },
+  // Oferta (último slide de venda): o produto, o preço grande, o que vem e um botão.
+  oferta(s, t, col) {
+    return `<div class="bloco" style="align-items:center;text-align:center;gap:22px">
+      ${kicker(s.kicker, t)}
+      ${s.img ? `<img class="of-img" src="../imagens/${esc(s.img)}" style="width:${s.imgW || 760}px">` : ''}
+      <div class="of-pre" style="color:${t.fg}">${md(s.pre || 'Tudo isso por')}</div>
+      <div class="of-preco" data-titulo style="color:${t.accent}">${md(s.preco).replace(/^R\$\s*/, '<small>R$</small>')}</div>
+      ${s.itens ? `<div class="of-itens">${s.itens.map(i => `<span style="border:2px solid ${t.border};color:${t.fg}"><i style="color:${t.accent}">✓</i> ${md(i)}</span>`).join('')}</div>` : ''}
+      <div class="of-botao" style="background:${t.pillBg};color:${t.pillFg}">${md(s.botao || 'Quero os meus')} <span>→</span></div>
+      ${s.nota ? `<p style="color:${t.fg};font-size:28px">${md(s.nota)}</p>` : ''}
+    </div>`;
+  },
   cta(s, t, col) {
     return `<div class="bloco" style="align-items:center;text-align:center">
       ${s.summary ? `<div class="kicker" style="color:${t.accent}">Resumo de bolso</div>
@@ -148,10 +160,10 @@ export function renderCarrossel(c) {
     const col = W - pl - pr;
     const corpo = (TIPOS[s.type] || TIPOS.text)(s, t, col);
     return `<section id="slide-${i + 1}" style="background:${t.bg}">
-      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px${s.type === 'cover' && s.img ? ';top:130px;justify-content:flex-start' : ''}">${corpo}</div>
+      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px${s.type === 'cover' && s.img ? ';top:130px;justify-content:flex-start' : ''}${s.type === 'oferta' ? ';top:96px;bottom:160px' : ''}">${corpo}</div>
       ${s.type === 'cover' && s.img ? `<img class="capa-img" src="../imagens/${esc(s.img)}" style="left:${s.imgX ?? 40}px;top:${s.imgY ?? 640}px;width:${s.imgW || 1100}px;transform:rotate(${s.imgRot ?? -4}deg)">` : ''}
       ${s.type === 'cover' && c.icone && !s.img ? `<div class="marca-d" style="opacity:${bgs[i] === 'mint' ? .22 : .14}">${icone(c.icone, 600, bgs[i] === 'mint' ? '#0b2619' : t.accent, 4)}</div>` : ''}
-      ${(s.type === 'cover' && !s.img) || s.type === 'cta' ? selo(t) : ''}
+      ${(s.type === 'cover' && !s.img) || s.type === 'cta' || s.type === 'oferta' ? selo(t) : ''}
     </section>`;
   }).join('');
 
@@ -231,6 +243,15 @@ h1 mark{color:#5fbf8e}
 .lig{position:absolute;z-index:2;pointer-events:none}
 .vit img{display:block;width:100%;border-radius:18px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.28))}
 .capa-img{position:absolute;z-index:4;max-width:none}
+.of-img{display:block;max-width:none;margin:-10px 0 -6px}
+.of-pre{font:600 30px Poppins;letter-spacing:3px;text-transform:uppercase}
+.of-preco{font-family:Antonio,sans-serif;font-weight:700;font-size:210px;line-height:1;margin:-30px 0 18px;display:flex;align-items:flex-start;gap:14px}
+.of-preco small{font-size:84px;line-height:1;margin-top:28px}
+.of-itens{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:860px}
+.of-itens span{padding:8px 20px;border-radius:40px;font-size:27px;line-height:1.2}
+.of-itens i{font-style:normal;font-weight:700}
+.of-botao{display:flex;align-items:center;gap:18px;padding:24px 56px;border-radius:60px;font:700 40px Poppins;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.of-botao span{font-size:44px}
 .selo-ic{border-radius:50%;background:${VERDE};border:10px solid #f4f8f6;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px rgba(0,0,0,.28)}
 .marca-d{position:absolute;right:-150px;bottom:-190px;transform:rotate(-12deg);z-index:1;pointer-events:none}
 .tracinho{display:block;width:96px;height:10px;border-radius:5px}

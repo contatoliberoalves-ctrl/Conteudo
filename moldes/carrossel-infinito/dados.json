@@ -2682,9 +2682,7 @@
   "id": "mapas-mentais-venda",
   "name": "Mapas Mentais de Constitucional",
   "tema": "Venda dos 100 Mapas Mentais de Constitucional (R$ 29,99)",
-  "seams": [
-   5
-  ],
+  "seams": [],
   "rail": "solid",
   "link": "icones",
   "icone": "camadas",
@@ -2763,28 +2761,22 @@
     ]
    },
    {
-    "type": "cta",
-    "bg": "mint",
-    "summary": [
-     {
-      "k": "100",
-      "v": "mapas mentais"
-     },
-     {
-      "k": "PDF",
-      "v": "um por tema, em A4"
-     },
-     {
-      "k": "OAB",
-      "v": "e concursos"
-     }
+    "type": "oferta",
+    "bg": "dark",
+    "kicker": "Mapas Mentais · OAB e concursos",
+    "img": "pilha.png",
+    "imgW": 560,
+    "pre": "Os 100 mapas por",
+    "preco": "R$ 29,99",
+    "itens": [
+     "100 mapas mentais",
+     "um PDF por tema",
+     "celular, tablet ou impresso"
     ],
-    "title": "R$ 29,99",
-    "body": "Garanta os seus. **O link tá na bio.**"
+    "botao": "Quero os mapas",
+    "nota": "O link tá na bio."
    }
   ],
-  "icones": [
-   "check"
-  ]
+  "icones": []
  }
 ]
