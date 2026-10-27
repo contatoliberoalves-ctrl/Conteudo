@@ -2683,29 +2683,58 @@
   "name": "Mapas Mentais de Constitucional",
   "tema": "Venda dos 100 Mapas Mentais de Constitucional (R$ 29,99)",
   "seams": [
-   1,
-   3
+   5
   ],
-  "rail": "dashed",
-  "link": "photo",
+  "rail": "solid",
+  "link": "icones",
   "icone": "camadas",
-  "fotos": [
-   "mapa-42.png",
-   "mapa-56.png"
-  ],
   "slides": [
    {
     "type": "cover",
     "bg": "dark",
     "align": "flex-start",
-    "title": "Constitucional em 100 mapas",
-    "sub": "Um mapa mental por tema, pra **OAB e concursos**."
+    "title": "100 mapas mentais de ==Constitucional==",
+    "sub": "Um PDF por tema, pra **OAB e concursos**.",
+    "ts": 140,
+    "img": "leque.png",
+    "imgX": 60,
+    "imgY": 700,
+    "imgW": 1100,
+    "imgRot": 0
+   },
+   {
+    "type": "vitrine",
+    "bg": "light",
+    "kicker": "Por dentro",
+    "title": "Um tema, uma página",
+    "img": "mapa-42.png",
+    "sangra": 40,
+    "legenda": "Habeas corpus num mapa só: objeto, espécies, sujeitos, acesso e gratuidade."
+   },
+   {
+    "type": "vitrine",
+    "bg": "mint",
+    "kicker": "Nada de mapa igual",
+    "title": "Um desenho por tema",
+    "img": "mosaico.png",
+    "sangra": 40,
+    "legenda": "Comparação vira colunas, rito vira etapas, regra com exceção vira quadro."
+   },
+   {
+    "type": "vitrine",
+    "bg": "dark",
+    "kicker": "Artigo, prova e pergunta",
+    "title": "Feito pra revisar",
+    "img": "mapa-67.png",
+    "sangra": 40,
+    "legenda": "Em cada mapa: a referência da CF, o ponto que cai **na prova** e uma pergunta com resposta pra **conferir**."
    },
    {
     "type": "list",
     "bg": "light",
-    "kicker": "O que vem nos mapas",
+    "kicker": "O que vem nos 100 mapas",
     "title": "Da teoria ao controle",
+    "ts": 76,
     "items": [
      {
       "n": "1",
@@ -2731,45 +2760,11 @@
       "n": "6",
       "t": "**Controle de constitucionalidade** e ordem social"
      }
-    ],
-    "ts": 76
-   },
-   {
-    "type": "item",
-    "bg": "mint",
-    "num": "4",
-    "ref": "Partes de cada mapa",
-    "title": "Como é por dentro",
-    "rows": [
-     {
-      "k": "Ramos",
-      "v": "regra, condição e exceção separadas"
-     },
-     {
-      "k": "Artigo",
-      "v": "a referência da CF em cada mapa"
-     },
-     {
-      "k": "Na prova",
-      "v": "o ponto que costuma confundir"
-     },
-     {
-      "k": "Confira",
-      "v": "uma pergunta com resposta pra testar"
-     }
     ]
    },
    {
-    "type": "text",
-    "bg": "dark",
-    "kicker": "Formato",
-    "title": "Um PDF por tema",
-    "lead": "São 100 PDFs em A4 horizontal.",
-    "body": "Dá pra estudar no **celular** ou no **tablet**, ou imprimir e levar pra revisão."
-   },
-   {
     "type": "cta",
-    "bg": "light",
+    "bg": "mint",
     "summary": [
      {
       "k": "100",
@@ -2782,15 +2777,14 @@
      {
       "k": "OAB",
       "v": "e concursos"
-     },
-     {
-      "k": "R$",
-      "v": "==29,99=="
      }
     ],
-    "title": "Garanta os seus",
-    "body": "Por **R$ 29,99**. O link tá na bio."
+    "title": "R$ 29,99",
+    "body": "Garanta os seus. **O link tá na bio.**"
    }
+  ],
+  "icones": [
+   "check"
   ]
  }
 ]

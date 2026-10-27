@@ -31,10 +31,11 @@ O lado do slide que encosta numa divisão com figura/foto ganha 300px de margem 
 
 Todos têm `type` e `bg` (`dark`, `light` ou `mint`; nunca dois iguais seguidos; se faltar, alterna sozinho) e aceitam `ts` (tamanho base do título; o título encolhe sozinho para a maior palavra caber). Nos textos: `**negrito**`, `==destaque==` e `\n` para quebrar linha.
 
-- `cover`: só `title` e `sub` (no máximo isso: sem kicker, pre ou faixa), `align`, `ts`. Com selo e o `icone` do carrossel no fundo.
+- `cover`: só `title` e `sub` (no máximo isso: sem kicker, pre ou faixa), `align`, `ts`. Com selo e o `icone` do carrossel no fundo. Com `img` (arquivo em `imagens/`; `imgX`, `imgY`, `imgW`, `imgRot`), o texto sobe, a imagem entra grande embaixo e o selo e o ícone saem.
 - `text`: `kicker`, `title`, `lead` (negrito inicial), `body`, `box` (caixa vazada, opcional).
 - `item`: `num`, `ref` (artigo), `title`, `rows: [{k, v}]`, `tip` (caixa "Pegadinha:", opcional).
 - `list`: `kicker`, `title`, `items: [{n, t}]` (até 6 itens curtos).
 - `mnemo`: `kicker`, `word` (o macete), `cols` (`"1fr"` ou `"1fr 1fr"`), `rows: [{l, t}]`.
 - `compare`: `kicker`, `title`, `cols: [{title, items: []}, {title, items: []}]` (1º vazado, 2º cheio).
+- `vitrine`: `kicker`, `title`, `img` (arquivo em `imagens/`, ocupa a coluna), `sangra` (px que a imagem passa da coluna de cada lado), `legenda`. Para mostrar um produto ou material (ex.: páginas dos mapas mentais).
 - `cta`: `summary: [{k, v}]` (resumo de bolso), `title`, `body`. Com selo.

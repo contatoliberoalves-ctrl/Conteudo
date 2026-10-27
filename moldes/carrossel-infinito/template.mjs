@@ -50,7 +50,7 @@ const ICONES = {
   camadas: '<path d="M50 12 L90 32 L50 52 L10 32 Z"/><path d="M10 50 L50 70 L90 50"/><path d="M10 68 L50 88 L90 68"/>',
 };
 const icone = (nome, px, cor, traco = 6) => ICONES[nome] ? `<svg viewBox="0 0 100 100" width="${px}" height="${px}" fill="none" stroke="${cor}" stroke-width="${traco}" stroke-linecap="round" stroke-linejoin="round">${ICONES[nome]}</svg>` : '';
-const TS_BASE = { cover: 190, text: 120, item: 110, list: 100, mnemo: 150, compare: 100, cta: 112 };
+const TS_BASE = { cover: 190, text: 120, item: 110, list: 100, mnemo: 150, compare: 100, cta: 112, vitrine: 100 };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Texto: **negrito**, ==destaque== e quebra de linha com \n.
@@ -105,6 +105,12 @@ const TIPOS = {
       <ul>${(c.items || []).map(i => `<li><i style="background:${cheio ? t.cardAccent : t.accent}"></i>${md(i)}</li>`).join('')}</ul></div>`;
     return `${kicker(s.kicker, t)}${titulo(s, t, TS_BASE.compare, col)}${(s.cols || []).map((c, k) => cartao(c, k === 1)).join('')}`;
   },
+  // Vitrine: kicker, título e uma imagem grande (imagens/, fora do git) ocupando a coluna, com legenda opcional.
+  vitrine(s, t, col) {
+    return `${kicker(s.kicker, t)}${titulo(s, t, TS_BASE.vitrine, col)}
+      <div class="vit" style="margin:0 ${-(s.sangra || 0)}px"><img src="../imagens/${esc(s.img)}"></div>
+      ${s.legenda ? `<p class="corpo" style="color:${t.fg};font-size:32px">${md(s.legenda)}</p>` : ''}`;
+  },
   cta(s, t, col) {
     return `<div class="bloco" style="align-items:center;text-align:center">
       ${s.summary ? `<div class="kicker" style="color:${t.accent}">Resumo de bolso</div>
@@ -142,9 +148,10 @@ export function renderCarrossel(c) {
     const col = W - pl - pr;
     const corpo = (TIPOS[s.type] || TIPOS.text)(s, t, col);
     return `<section id="slide-${i + 1}" style="background:${t.bg}">
-      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px">${corpo}</div>
-      ${s.type === 'cover' && c.icone ? `<div class="marca-d" style="opacity:${bgs[i] === 'mint' ? .22 : .14}">${icone(c.icone, 600, bgs[i] === 'mint' ? '#0b2619' : t.accent, 4)}</div>` : ''}
-      ${s.type === 'cover' || s.type === 'cta' ? selo(t) : ''}
+      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px${s.type === 'cover' && s.img ? ';top:130px;justify-content:flex-start' : ''}">${corpo}</div>
+      ${s.type === 'cover' && s.img ? `<img class="capa-img" src="../imagens/${esc(s.img)}" style="left:${s.imgX ?? 40}px;top:${s.imgY ?? 640}px;width:${s.imgW || 1100}px;transform:rotate(${s.imgRot ?? -4}deg)">` : ''}
+      ${s.type === 'cover' && c.icone && !s.img ? `<div class="marca-d" style="opacity:${bgs[i] === 'mint' ? .22 : .14}">${icone(c.icone, 600, bgs[i] === 'mint' ? '#0b2619' : t.accent, 4)}</div>` : ''}
+      ${(s.type === 'cover' && !s.img) || s.type === 'cta' ? selo(t) : ''}
     </section>`;
   }).join('');
 
@@ -200,6 +207,7 @@ h1{overflow-wrap:normal;line-height:1.02}
 .corpo{font-size:35px;line-height:1.45;text-wrap:pretty}
 .corpo b{font-weight:700}
 mark{background:none;color:inherit;font-weight:700}
+h1 mark{color:#5fbf8e}
 .caixa{padding:28px 32px;border-radius:20px;font-size:31px;line-height:1.45;text-wrap:pretty}
 .cab{display:flex;align-items:baseline;gap:28px}
 .num{font-size:180px;line-height:.8}
@@ -221,6 +229,8 @@ mark{background:none;color:inherit;font-weight:700}
 .resumo{display:grid;grid-template-columns:auto auto;gap:12px 28px;text-align:left;font-size:30px;line-height:1.3}
 .resumo b{font-family:Antonio,sans-serif;text-transform:uppercase;font-size:36px}
 .lig{position:absolute;z-index:2;pointer-events:none}
+.vit img{display:block;width:100%;border-radius:18px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.28))}
+.capa-img{position:absolute;z-index:4;max-width:none}
 .selo-ic{border-radius:50%;background:${VERDE};border:10px solid #f4f8f6;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px rgba(0,0,0,.28)}
 .marca-d{position:absolute;right:-150px;bottom:-190px;transform:rotate(-12deg);z-index:1;pointer-events:none}
 .tracinho{display:block;width:96px;height:10px;border-radius:5px}
