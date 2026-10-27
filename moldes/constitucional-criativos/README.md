@@ -25,4 +25,5 @@ Marcação: `**negrito**`, `{{destaque}}` (verde) e `~~riscado~~` (preço "de").
 | `oferta` | "Inscrições abertas" | `foto`, `linhas`, `caixa` (ex.: `~~R$ 247~~ {{R$ 119}}`), `sub`, `prova`, `acao` |
 | `duvida` | dúvida de aluno | `pergunta` (no balão; `{{destaque}}`), `selo` (NÃO, SIM, CALMA…; `ts`), `resposta`, `foto` (recorte PNG em `fotos/`), `lado` (`direita`/`esquerda`: onde fica a foto), `fundo` (`escuro`, `verde`, `gelo`, `medio`), `tp`, `tr`, `largura` |
 | `duvidaSimples` | dúvida de aluno sem foto, nos fundos dos carrosséis | `fundo` (`caderno`, `noturno`, `documento`), `pergunta` (`{{marca-texto}}`), `selo`, `resposta`, `marca` (texto gigante translúcido), `tp`, `ts`, `tr` |
+| `produto` | venda de produto com mockup | `foto` (PNG sem fundo do produto, aparece inteiro), `kicker`, `linhas`, `ts`, `sub`, `precoDe` (linha acima do preço), `preco`, `botao` |
 | `lista` | lista de benefícios | `foto`, `kicker`, `linhas`, `itens`, `ti`, `preco`, `botao` |

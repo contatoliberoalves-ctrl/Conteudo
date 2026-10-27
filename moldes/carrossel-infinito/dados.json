@@ -1,2681 +1,2796 @@
 [
-  {
-    "id": "pecas-que-cairam",
-    "name": "Peças que caíram",
-    "tema": "Peças cobradas do 32º ao 46º Exame (Direito Constitucional)",
-    "seams": [
-      2,
-      4
-    ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "O que caiu na peça",
-        "sub": "Do 32º ao 46º Exame: as peças que a FGV mais cobra."
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Ranking",
-        "title": "As que mais caem",
-        "items": [
-          {
-            "n": "4X",
-            "t": "**Mandado de segurança** (34º, 43º, 45º e o coletivo no 39º)"
-          },
-          {
-            "n": "3X",
-            "t": "**ADI** (35º, 36º e 40º)"
-          },
-          {
-            "n": "2X",
-            "t": "**ADC** (33º e 41º)"
-          },
-          {
-            "n": "2X",
-            "t": "**Reclamação constitucional** (32º e 42º)"
-          },
-          {
-            "n": "2X",
-            "t": "**Ação popular** (37º e 44º)"
-          },
-          {
-            "n": "1X",
-            "t": "**MI coletivo** (38º) e **ADPF** (46º)"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "01",
-        "ref": "Art. 5º, LXIX",
-        "title": "Mandado de segurança",
-        "rows": [
-          {
-            "k": "Exames",
-            "v": "34º, 39º (coletivo), 43º e 45º"
-          },
-          {
-            "k": "Pista",
-            "v": "“procedimento mais célere”, sem instrução probatória e sem honorários"
-          },
-          {
-            "k": "Endereço",
-            "v": "Juízo Cível ou de Fazenda Pública da Comarca X"
-          }
-        ],
-        "tip": "no 39º a impetrante era uma associação: MS coletivo (art. 5º, LXX, “b”)."
-      },
-      {
-        "type": "compare",
-        "bg": "dark",
-        "kicker": "Controle concentrado",
-        "title": "ADI, ADC ou ADPF?",
-        "cols": [
-          {
-            "title": "ADI · 35º, 36º e 40º",
-            "items": [
-              "Lei estadual (35º e 36º) ou federal (40º)",
-              "Pedido: declarar a inconstitucionalidade",
-              "Art. 102, I, “a”"
-            ]
-          },
-          {
-            "title": "ADC e ADPF",
-            "items": [
-              "ADC (33º e 41º): lei federal com controvérsia judicial",
-              "ADPF (46º): lei estadual de 1984, anterior à CF/88",
-              "Art. 102, § 1º, e Lei 9.882/99"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Também caíram",
-        "title": "Reclamação e ação popular",
-        "lead": "Reclamação (32º e 42º):",
-        "body": "ato administrativo que contraria súmula vinculante vai direto ao STF (art. 103-A, § 3º). **Ação popular (37º e 44º):** o cidadão ataca ato lesivo ao patrimônio público e à moralidade (art. 5º, LXXIII).",
-        "box": "Pista da ação popular no 44º: autora eleitora, precisa de instrução probatória e quer isenção de custas e sucumbência."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "MS",
-            "v": "4 vezes"
-          },
-          {
-            "k": "ADI",
-            "v": "3 vezes"
-          },
-          {
-            "k": "ADC",
-            "v": "2 vezes"
-          },
-          {
-            "k": "RCL",
-            "v": "2 vezes"
-          },
-          {
-            "k": "AP",
-            "v": "2 vezes"
-          }
-        ],
-        "title": "Treina essas 5",
-        "body": "Salva e comenta qual peça você aposta para o próximo exame."
-      }
-    ],
-    "icone": "documento",
-    "icones": [
-      "grafico",
-      "coluna"
+ {
+  "id": "pecas-que-cairam",
+  "name": "Peças que caíram",
+  "tema": "Peças cobradas do 32º ao 46º Exame (Direito Constitucional)",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "O que caiu na peça",
+    "sub": "Do 32º ao 46º Exame: as peças que a FGV mais cobra."
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Ranking",
+    "title": "As que mais caem",
+    "items": [
+     {
+      "n": "4X",
+      "t": "**Mandado de segurança** (34º, 43º, 45º e o coletivo no 39º)"
+     },
+     {
+      "n": "3X",
+      "t": "**ADI** (35º, 36º e 40º)"
+     },
+     {
+      "n": "2X",
+      "t": "**ADC** (33º e 41º)"
+     },
+     {
+      "n": "2X",
+      "t": "**Reclamação constitucional** (32º e 42º)"
+     },
+     {
+      "n": "2X",
+      "t": "**Ação popular** (37º e 44º)"
+     },
+     {
+      "n": "1X",
+      "t": "**MI coletivo** (38º) e **ADPF** (46º)"
+     }
     ]
-  },
-  {
-    "id": "remedios-constitucionais",
-    "name": "Remédios constitucionais",
-    "tema": "Remédios constitucionais (art. 5º, LXVIII a LXXIII)",
-    "seams": [
-      1,
-      3
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "01",
+    "ref": "Art. 5º, LXIX",
+    "title": "Mandado de segurança",
+    "rows": [
+     {
+      "k": "Exames",
+      "v": "34º, 39º (coletivo), 43º e 45º"
+     },
+     {
+      "k": "Pista",
+      "v": "“procedimento mais célere”, sem instrução probatória e sem honorários"
+     },
+     {
+      "k": "Endereço",
+      "v": "Juízo Cível ou de Fazenda Pública da Comarca X"
+     }
     ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Remédios constitucionais",
-        "sub": "O que cada um protege e quando usar."
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Conceito",
-        "title": "Cada um protege uma coisa",
-        "items": [
-          {
-            "n": "HC",
-            "t": "**Liberdade de locomoção** (LXVIII)"
-          },
-          {
-            "n": "MS",
-            "t": "**Direito líquido e certo** não amparado por HC ou HD (LXIX)"
-          },
-          {
-            "n": "MI",
-            "t": "**Falta de norma regulamentadora** que inviabiliza um direito (LXXI)"
-          },
-          {
-            "n": "HD",
-            "t": "**Informações pessoais** em bancos de dados (LXXII)"
-          },
-          {
-            "n": "AP",
-            "t": "**Patrimônio público**, moralidade, meio ambiente e patrimônio histórico e cultural (LXXIII)"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "01",
-        "ref": "Art. 5º, LXIX",
-        "title": "Mandado de segurança",
-        "rows": [
-          {
-            "k": "Protege",
-            "v": "Direito líquido e certo, provado de plano"
-          },
-          {
-            "k": "Contra",
-            "v": "Ilegalidade ou abuso de poder de autoridade pública"
-          },
-          {
-            "k": "Prazo",
-            "v": "120 dias da ciência do ato (Lei 12.016/09, art. 23)"
-          }
-        ],
-        "tip": "o MS é residual. Se o caso é de HC ou HD, não cabe MS."
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "02",
-        "ref": "Art. 5º, LXXIII",
-        "title": "Ação popular",
-        "rows": [
-          {
-            "k": "Quem",
-            "v": "Qualquer cidadão (eleitor)"
-          },
-          {
-            "k": "Objeto",
-            "v": "Anular ato lesivo ao patrimônio público, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural"
-          },
-          {
-            "k": "Custas",
-            "v": "Isento, salvo comprovada má-fé"
-          }
-        ],
-        "tip": "pessoa jurídica não pode propor ação popular (Súmula 365 do STF)."
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "Não confunda",
-        "title": "MI x ADO",
-        "cols": [
-          {
-            "title": "Mandado de injunção",
-            "items": [
-              "Art. 5º, LXXI",
-              "Controle difuso, caso concreto",
-              "Proposto por quem é prejudicado pela falta da norma"
-            ]
-          },
-          {
-            "title": "ADO",
-            "items": [
-              "Art. 103, § 2º",
-              "Controle concentrado, no STF",
-              "Só os legitimados do art. 103"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "HC",
-            "v": "liberdade de locomoção"
-          },
-          {
-            "k": "MS",
-            "v": "direito líquido e certo"
-          },
-          {
-            "k": "MI",
-            "v": "falta de norma"
-          },
-          {
-            "k": "HD",
-            "v": "dados pessoais"
-          },
-          {
-            "k": "AP",
-            "v": "patrimônio público"
-          }
-        ],
-        "title": "Salva pra revisar",
-        "body": "E manda pra quem vai fazer a 2ª fase com você."
-      }
-    ],
-    "icone": "escudo",
-    "icones": [
-      "escudo",
-      "balanca"
+    "tip": "no 39º a impetrante era uma associação: MS coletivo (art. 5º, LXX, “b”)."
+   },
+   {
+    "type": "compare",
+    "bg": "dark",
+    "kicker": "Controle concentrado",
+    "title": "ADI, ADC ou ADPF?",
+    "cols": [
+     {
+      "title": "ADI · 35º, 36º e 40º",
+      "items": [
+       "Lei estadual (35º e 36º) ou federal (40º)",
+       "Pedido: declarar a inconstitucionalidade",
+       "Art. 102, I, “a”"
+      ]
+     },
+     {
+      "title": "ADC e ADPF",
+      "items": [
+       "ADC (33º e 41º): lei federal com controvérsia judicial",
+       "ADPF (46º): lei estadual de 1984, anterior à CF/88",
+       "Art. 102, § 1º, e Lei 9.882/99"
+      ]
+     }
     ]
-  },
-  {
-    "id": "controle-concentrado",
-    "name": "Controle concentrado",
-    "tema": "ADI, ADC, ADO e ADPF",
-    "seams": [
-      2,
-      4
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Também caíram",
+    "title": "Reclamação e ação popular",
+    "lead": "Reclamação (32º e 42º):",
+    "body": "ato administrativo que contraria súmula vinculante vai direto ao STF (art. 103-A, § 3º). **Ação popular (37º e 44º):** o cidadão ataca ato lesivo ao patrimônio público e à moralidade (art. 5º, LXXIII).",
+    "box": "Pista da ação popular no 44º: autora eleitora, precisa de instrução probatória e quer isenção de custas e sucumbência."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "MS",
+      "v": "4 vezes"
+     },
+     {
+      "k": "ADI",
+      "v": "3 vezes"
+     },
+     {
+      "k": "ADC",
+      "v": "2 vezes"
+     },
+     {
+      "k": "RCL",
+      "v": "2 vezes"
+     },
+     {
+      "k": "AP",
+      "v": "2 vezes"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Controle concentrado",
-        "sub": "ADI, ADC, ADO e ADPF direto ao ponto.",
-        "ts": 150
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Conceito",
-        "title": "Quem julga?",
-        "lead": "O STF, originariamente.",
-        "body": "É controle abstrato: discute-se a lei em tese, sem caso concreto. ADI e ADC estão no art. 102, I, “a”; a ADO, no art. 103, § 2º; a ADPF, no art. 102, § 1º.",
-        "box": "ADI e ADC: eficácia contra todos e efeito vinculante (art. 102, § 2º)."
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "01",
-        "ref": "Art. 102, I, “a”",
-        "title": "ADI",
-        "rows": [
-          {
-            "k": "Objeto",
-            "v": "Lei ou ato normativo federal ou estadual"
-          },
-          {
-            "k": "Pedido",
-            "v": "Declaração de inconstitucionalidade"
-          }
-        ],
-        "tip": "lei municipal não é objeto de ADI no STF. O caminho é a ADPF."
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "02",
-        "ref": "Art. 102, I, “a”",
-        "title": "ADC",
-        "rows": [
-          {
-            "k": "Objeto",
-            "v": "Lei ou ato normativo federal"
-          },
-          {
-            "k": "Requisito",
-            "v": "Relevante controvérsia judicial (Lei 9.868/99, art. 14, III)"
-          }
-        ],
-        "tip": "não cabe ADC de lei estadual: só federal."
-      },
-      {
-        "type": "compare",
-        "bg": "dark",
-        "kicker": "Não confunda",
-        "title": "ADO x ADPF",
-        "cols": [
-          {
-            "title": "ADO · art. 103, § 2º",
-            "items": [
-              "Omissão que impede a efetividade de norma constitucional",
-              "Dá ciência ao Poder competente",
-              "Órgão administrativo: 30 dias"
-            ]
-          },
-          {
-            "title": "ADPF · art. 102, § 1º",
-            "items": [
-              "Descumprimento de preceito fundamental",
-              "Subsidiária (Lei 9.882/99, art. 4º, § 1º)",
-              "Cabe contra lei municipal e anterior à CF/88"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "ADI",
-            "v": "lei federal ou estadual"
-          },
-          {
-            "k": "ADC",
-            "v": "só lei federal"
-          },
-          {
-            "k": "ADO",
-            "v": "omissão"
-          },
-          {
-            "k": "ADPF",
-            "v": "subsidiária"
-          }
-        ],
-        "title": "Salva e revisa",
-        "body": "Comenta qual dessas mais te confunde."
-      }
-    ],
-    "icone": "coluna",
-    "icones": [
-      "martelo",
-      "balanca"
+    "title": "Treina essas 5",
+    "body": "Salva e comenta qual peça você aposta para o próximo exame."
+   }
+  ],
+  "icone": "documento",
+  "icones": [
+   "grafico",
+   "coluna"
+  ]
+ },
+ {
+  "id": "remedios-constitucionais",
+  "name": "Remédios constitucionais",
+  "tema": "Remédios constitucionais (art. 5º, LXVIII a LXXIII)",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Remédios constitucionais",
+    "sub": "O que cada um protege e quando usar."
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Conceito",
+    "title": "Cada um protege uma coisa",
+    "items": [
+     {
+      "n": "HC",
+      "t": "**Liberdade de locomoção** (LXVIII)"
+     },
+     {
+      "n": "MS",
+      "t": "**Direito líquido e certo** não amparado por HC ou HD (LXIX)"
+     },
+     {
+      "n": "MI",
+      "t": "**Falta de norma regulamentadora** que inviabiliza um direito (LXXI)"
+     },
+     {
+      "n": "HD",
+      "t": "**Informações pessoais** em bancos de dados (LXXII)"
+     },
+     {
+      "n": "AP",
+      "t": "**Patrimônio público**, moralidade, meio ambiente e patrimônio histórico e cultural (LXXIII)"
+     }
     ]
-  },
-  {
-    "id": "legitimados-art-103",
-    "name": "Legitimados do art. 103",
-    "tema": "Quem pode propor ADI, ADC, ADO e ADPF",
-    "seams": [
-      1,
-      3
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "01",
+    "ref": "Art. 5º, LXIX",
+    "title": "Mandado de segurança",
+    "rows": [
+     {
+      "k": "Protege",
+      "v": "Direito líquido e certo, provado de plano"
+     },
+     {
+      "k": "Contra",
+      "v": "Ilegalidade ou abuso de poder de autoridade pública"
+     },
+     {
+      "k": "Prazo",
+      "v": "120 dias da ciência do ato (Lei 12.016/09, art. 23)"
+     }
     ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Quem pode propor ADI?",
-        "sub": "Os 9 legitimados do art. 103 e a pertinência temática."
-      },
-      {
-        "type": "mnemo",
-        "bg": "mint",
-        "kicker": "Macete",
-        "word": "3 · 3 · 3",
-        "cols": "1fr",
-        "rows": [
-          {
-            "l": "3",
-            "t": "**Pessoas**: Presidente da República, Governador e PGR"
-          },
-          {
-            "l": "3",
-            "t": "**Mesas**: do Senado, da Câmara e da Assembleia Legislativa (ou Câmara Legislativa do DF)"
-          },
-          {
-            "l": "3",
-            "t": "**Entidades**: Conselho Federal da OAB, partido político e confederação sindical ou entidade de classe nacional"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Legitimados universais",
-        "title": "Não provam interesse",
-        "items": [
-          {
-            "n": "I",
-            "t": "Presidente da República"
-          },
-          {
-            "n": "II",
-            "t": "Mesa do Senado Federal"
-          },
-          {
-            "n": "III",
-            "t": "Mesa da Câmara dos Deputados"
-          },
-          {
-            "n": "VI",
-            "t": "Procurador-Geral da República"
-          },
-          {
-            "n": "VII",
-            "t": "Conselho Federal da OAB"
-          },
-          {
-            "n": "VIII",
-            "t": "Partido político com representação no Congresso"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Legitimados especiais",
-        "title": "Pertinência temática",
-        "lead": "Precisam mostrar que a norma atinge seus interesses:",
-        "body": "Mesa de Assembleia Legislativa ou da Câmara Legislativa do DF (IV), Governador de Estado ou do DF (V) e confederação sindical ou entidade de classe de âmbito nacional (IX).",
-        "box": "Sem ligação entre a norma e as finalidades do autor, a ação não é conhecida."
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "VIII",
-        "ref": "Art. 103, VIII",
-        "title": "Partido político",
-        "rows": [
-          {
-            "k": "Requisito",
-            "v": "Representação no Congresso Nacional"
-          },
-          {
-            "k": "Momento",
-            "v": "Aferida na propositura: perder a bancada depois não prejudica a ação"
-          },
-          {
-            "k": "Quem assina",
-            "v": "O diretório nacional"
-          }
-        ],
-        "tip": "diretório estadual ou municipal não tem legitimidade."
-      },
-      {
-        "type": "cta",
-        "bg": "light",
-        "summary": [
-          {
-            "k": "3",
-            "v": "pessoas"
-          },
-          {
-            "k": "3",
-            "v": "mesas"
-          },
-          {
-            "k": "3",
-            "v": "entidades"
-          }
-        ],
-        "title": "Salva o macete",
-        "body": "E envia pra quem sempre esquece um legitimado."
-      }
+    "tip": "o MS é residual. Se o caso é de HC ou HD, não cabe MS."
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "02",
+    "ref": "Art. 5º, LXXIII",
+    "title": "Ação popular",
+    "rows": [
+     {
+      "k": "Quem",
+      "v": "Qualquer cidadão (eleitor)"
+     },
+     {
+      "k": "Objeto",
+      "v": "Anular ato lesivo ao patrimônio público, à moralidade administrativa, ao meio ambiente e ao patrimônio histórico e cultural"
+     },
+     {
+      "k": "Custas",
+      "v": "Isento, salvo comprovada má-fé"
+     }
     ],
-    "icone": "pessoas",
-    "icones": [
-      "pessoas",
-      "alvo"
+    "tip": "pessoa jurídica não pode propor ação popular (Súmula 365 do STF)."
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "Não confunda",
+    "title": "MI x ADO",
+    "cols": [
+     {
+      "title": "Mandado de injunção",
+      "items": [
+       "Art. 5º, LXXI",
+       "Controle difuso, caso concreto",
+       "Proposto por quem é prejudicado pela falta da norma"
+      ]
+     },
+     {
+      "title": "ADO",
+      "items": [
+       "Art. 103, § 2º",
+       "Controle concentrado, no STF",
+       "Só os legitimados do art. 103"
+      ]
+     }
     ]
-  },
-  {
-    "id": "nacionalidade",
-    "name": "Nacionalidade",
-    "tema": "Brasileiro nato x naturalizado (art. 12)",
-    "seams": [
-      1,
-      4
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "HC",
+      "v": "liberdade de locomoção"
+     },
+     {
+      "k": "MS",
+      "v": "direito líquido e certo"
+     },
+     {
+      "k": "MI",
+      "v": "falta de norma"
+     },
+     {
+      "k": "HD",
+      "v": "dados pessoais"
+     },
+     {
+      "k": "AP",
+      "v": "patrimônio público"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Nato ou naturalizado?",
-        "sub": "O que muda entre eles no art. 12 da CF."
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "Conceito",
-        "title": "Nato x naturalizado",
-        "cols": [
-          {
-            "title": "Natos · art. 12, I",
-            "items": [
-              "Nasceu no Brasil, salvo pais estrangeiros a serviço do seu país",
-              "Nasceu fora, filho de brasileiro a serviço do Brasil",
-              "Nasceu fora, filho de brasileiro, com registro ou opção"
-            ]
-          },
-          {
-            "title": "Naturalizados · art. 12, II",
-            "items": [
-              "Países de língua portuguesa: 1 ano de residência e idoneidade moral",
-              "Demais: mais de 15 anos de residência e sem condenação penal"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "mnemo",
-        "bg": "mint",
-        "kicker": "Privativos de nato · art. 12, § 3º",
-        "word": "MP3.COM",
-        "cols": "1fr",
-        "rows": [
-          {
-            "l": "M",
-            "t": "Ministro do STF"
-          },
-          {
-            "l": "P",
-            "t": "Presidente e Vice-Presidente da República"
-          },
-          {
-            "l": "P",
-            "t": "Presidente da Câmara dos Deputados"
-          },
-          {
-            "l": "P",
-            "t": "Presidente do Senado Federal"
-          },
-          {
-            "l": "C",
-            "t": "Carreira diplomática"
-          },
-          {
-            "l": "O",
-            "t": "Oficial das Forças Armadas"
-          },
-          {
-            "l": "M",
-            "t": "Ministro de Estado da Defesa"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "LI",
-        "ref": "Art. 5º, LI e LII",
-        "title": "Extradição",
-        "rows": [
-          {
-            "k": "Nato",
-            "v": "Nunca é extraditado"
-          },
-          {
-            "k": "Naturalizado",
-            "v": "Só por crime comum anterior à naturalização ou tráfico de drogas comprovado"
-          },
-          {
-            "k": "Estrangeiro",
-            "v": "Nunca por crime político ou de opinião"
-          }
-        ],
-        "tip": "quem julga o pedido de extradição é o STF (art. 102, I, “g”)."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Art. 12, § 2º",
-        "title": "Sem distinção",
-        "lead": "A lei não pode diferenciar natos e naturalizados.",
-        "body": "Só a própria Constituição pode, como nos cargos privativos e na extradição.",
-        "box": "Na prova: distinção criada por lei, e não pela CF, é inconstitucional."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Nato",
-            "v": "art. 12, I"
-          },
-          {
-            "k": "Naturalizado",
-            "v": "art. 12, II"
-          },
-          {
-            "k": "MP3.COM",
-            "v": "cargos privativos"
-          },
-          {
-            "k": "Extradição",
-            "v": "art. 5º, LI"
-          }
-        ],
-        "title": "Salva pra revisar",
-        "body": "E marca quem confunde nato com naturalizado."
-      }
+    "title": "Salva pra revisar",
+    "body": "E manda pra quem vai fazer a 2ª fase com você."
+   }
+  ],
+  "icone": "escudo",
+  "icones": [
+   "escudo",
+   "balanca"
+  ]
+ },
+ {
+  "id": "controle-concentrado",
+  "name": "Controle concentrado",
+  "tema": "ADI, ADC, ADO e ADPF",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Controle concentrado",
+    "sub": "ADI, ADC, ADO e ADPF direto ao ponto.",
+    "ts": 150
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Conceito",
+    "title": "Quem julga?",
+    "lead": "O STF, originariamente.",
+    "body": "É controle abstrato: discute-se a lei em tese, sem caso concreto. ADI e ADC estão no art. 102, I, “a”; a ADO, no art. 103, § 2º; a ADPF, no art. 102, § 1º.",
+    "box": "ADI e ADC: eficácia contra todos e efeito vinculante (art. 102, § 2º)."
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "01",
+    "ref": "Art. 102, I, “a”",
+    "title": "ADI",
+    "rows": [
+     {
+      "k": "Objeto",
+      "v": "Lei ou ato normativo federal ou estadual"
+     },
+     {
+      "k": "Pedido",
+      "v": "Declaração de inconstitucionalidade"
+     }
     ],
-    "icone": "passaporte",
-    "icones": [
-      "passaporte",
-      "balanca"
+    "tip": "lei municipal não é objeto de ADI no STF. O caminho é a ADPF."
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "02",
+    "ref": "Art. 102, I, “a”",
+    "title": "ADC",
+    "rows": [
+     {
+      "k": "Objeto",
+      "v": "Lei ou ato normativo federal"
+     },
+     {
+      "k": "Requisito",
+      "v": "Relevante controvérsia judicial (Lei 9.868/99, art. 14, III)"
+     }
+    ],
+    "tip": "não cabe ADC de lei estadual: só federal."
+   },
+   {
+    "type": "compare",
+    "bg": "dark",
+    "kicker": "Não confunda",
+    "title": "ADO x ADPF",
+    "cols": [
+     {
+      "title": "ADO · art. 103, § 2º",
+      "items": [
+       "Omissão que impede a efetividade de norma constitucional",
+       "Dá ciência ao Poder competente",
+       "Órgão administrativo: 30 dias"
+      ]
+     },
+     {
+      "title": "ADPF · art. 102, § 1º",
+      "items": [
+       "Descumprimento de preceito fundamental",
+       "Subsidiária (Lei 9.882/99, art. 4º, § 1º)",
+       "Cabe contra lei municipal e anterior à CF/88"
+      ]
+     }
     ]
-  },
-  {
-    "id": "direitos-politicos",
-    "name": "Direitos políticos",
-    "tema": "Idade mínima, alistamento, perda e suspensão (arts. 14 e 15)",
-    "seams": [
-      2,
-      4
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "ADI",
+      "v": "lei federal ou estadual"
+     },
+     {
+      "k": "ADC",
+      "v": "só lei federal"
+     },
+     {
+      "k": "ADO",
+      "v": "omissão"
+     },
+     {
+      "k": "ADPF",
+      "v": "subsidiária"
+     }
     ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Quem pode ser votado?",
-        "sub": "Idades mínimas, perda e suspensão dos direitos políticos."
-      },
-      {
-        "type": "list",
-        "bg": "dark",
-        "kicker": "Condição de elegibilidade",
-        "title": "Idade por cargo",
-        "items": [
-          {
-            "n": "35",
-            "t": "**Presidente**, Vice-Presidente e **Senador**"
-          },
-          {
-            "n": "30",
-            "t": "**Governador** e Vice-Governador"
-          },
-          {
-            "n": "21",
-            "t": "**Deputados**, Prefeito, Vice-Prefeito e juiz de paz"
-          },
-          {
-            "n": "18",
-            "t": "**Vereador**"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "mint",
-        "kicker": "Alistamento e voto · art. 14, §§ 1º e 2º",
-        "title": "Obrigatório x facultativo",
-        "cols": [
-          {
-            "title": "Obrigatório",
-            "items": [
-              "Maiores de 18 anos",
-              "Não se alistam: estrangeiros e conscritos no serviço militar obrigatório"
-            ]
-          },
-          {
-            "title": "Facultativo",
-            "items": [
-              "Analfabetos",
-              "Maiores de 70 anos",
-              "Entre 16 e 18 anos"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Art. 15",
-        "title": "Cassação? Nunca.",
-        "lead": "A CF proíbe a cassação de direitos políticos.",
-        "body": "Só cabe perda ou suspensão nos casos do art. 15: cancelamento da naturalização, incapacidade civil absoluta, condenação criminal transitada em julgado, recusa de obrigação a todos imposta e improbidade."
-      },
-      {
-        "type": "compare",
-        "bg": "dark",
-        "kicker": "Não confunda",
-        "title": "Perda x suspensão",
-        "cols": [
-          {
-            "title": "Perda",
-            "items": [
-              "Cancelamento da naturalização por sentença transitada em julgado (I)",
-              "Recusa de obrigação a todos imposta (IV), para parte da doutrina"
-            ]
-          },
-          {
-            "title": "Suspensão",
-            "items": [
-              "Incapacidade civil absoluta (II)",
-              "Condenação criminal, enquanto durarem os efeitos (III)",
-              "Improbidade administrativa (V)"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "35",
-            "v": "Presidente e Senador"
-          },
-          {
-            "k": "30",
-            "v": "Governador"
-          },
-          {
-            "k": "21",
-            "v": "Deputado e Prefeito"
-          },
-          {
-            "k": "18",
-            "v": "Vereador"
-          }
-        ],
-        "title": "Salva e revisa",
-        "body": "Envia pra quem vai fazer a 2ª fase com você."
-      }
-    ],
-    "icone": "urna",
-    "icones": [
-      "urna",
-      "alerta"
+    "title": "Salva e revisa",
+    "body": "Comenta qual dessas mais te confunde."
+   }
+  ],
+  "icone": "coluna",
+  "icones": [
+   "martelo",
+   "balanca"
+  ]
+ },
+ {
+  "id": "legitimados-art-103",
+  "name": "Legitimados do art. 103",
+  "tema": "Quem pode propor ADI, ADC, ADO e ADPF",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Quem pode propor ADI?",
+    "sub": "Os 9 legitimados do art. 103 e a pertinência temática."
+   },
+   {
+    "type": "mnemo",
+    "bg": "mint",
+    "kicker": "Macete",
+    "word": "3 · 3 · 3",
+    "cols": "1fr",
+    "rows": [
+     {
+      "l": "3",
+      "t": "**Pessoas**: Presidente da República, Governador e PGR"
+     },
+     {
+      "l": "3",
+      "t": "**Mesas**: do Senado, da Câmara e da Assembleia Legislativa (ou Câmara Legislativa do DF)"
+     },
+     {
+      "l": "3",
+      "t": "**Entidades**: Conselho Federal da OAB, partido político e confederação sindical ou entidade de classe nacional"
+     }
     ]
-  },
-  {
-    "id": "competencias-legislativas",
-    "name": "Competências legislativas",
-    "tema": "Privativa (art. 22), concorrente (art. 24) e municipal (art. 30)",
-    "seams": [
-      2,
-      5
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "mint",
-        "align": "flex-start",
-        "title": "Quem legisla sobre o quê?",
-        "sub": "União, Estados e Municípios com dois macetes."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Conceito",
-        "title": "Privativa x concorrente",
-        "lead": "Privativa (art. 22):",
-        "body": "só a União legisla, mas lei complementar pode autorizar os Estados em questões específicas. **Concorrente (art. 24):** a União faz as normas gerais e os Estados suplementam."
-      },
-      {
-        "type": "mnemo",
-        "bg": "light",
-        "kicker": "Privativa da União · art. 22, I",
-        "word": "CAPACETE DE PM",
-        "cols": "1fr 1fr",
-        "rows": [
-          {
-            "l": "C",
-            "t": "Civil"
-          },
-          {
-            "l": "A",
-            "t": "Agrário"
-          },
-          {
-            "l": "P",
-            "t": "Penal"
-          },
-          {
-            "l": "A",
-            "t": "Aeronáutico"
-          },
-          {
-            "l": "C",
-            "t": "Comercial"
-          },
-          {
-            "l": "E",
-            "t": "Eleitoral"
-          },
-          {
-            "l": "T",
-            "t": "Trabalho"
-          },
-          {
-            "l": "E",
-            "t": "Espacial"
-          },
-          {
-            "l": "P",
-            "t": "Processual"
-          },
-          {
-            "l": "M",
-            "t": "Marítimo"
-          }
-        ]
-      },
-      {
-        "type": "mnemo",
-        "bg": "mint",
-        "kicker": "Concorrente · art. 24, I e II",
-        "word": "PUFETO",
-        "cols": "1fr 1fr",
-        "rows": [
-          {
-            "l": "P",
-            "t": "Penitenciário"
-          },
-          {
-            "l": "U",
-            "t": "Urbanístico"
-          },
-          {
-            "l": "F",
-            "t": "Financeiro"
-          },
-          {
-            "l": "E",
-            "t": "Econômico"
-          },
-          {
-            "l": "T",
-            "t": "Tributário"
-          },
-          {
-            "l": "O",
-            "t": "Orçamento"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "dark",
-        "kicker": "Art. 24, §§ 1º a 4º",
-        "title": "Como funciona",
-        "items": [
-          {
-            "n": "1",
-            "t": "A União edita **normas gerais**"
-          },
-          {
-            "n": "2",
-            "t": "Os Estados **suplementam**"
-          },
-          {
-            "n": "3",
-            "t": "Sem lei federal, o Estado tem **competência plena**"
-          },
-          {
-            "n": "4",
-            "t": "Lei federal posterior **suspende a eficácia** da estadual no que for contrária"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "30",
-        "ref": "Art. 30, I e II",
-        "title": "Municípios",
-        "rows": [
-          {
-            "k": "Legislam",
-            "v": "Sobre assuntos de interesse local"
-          },
-          {
-            "k": "Suplementam",
-            "v": "A legislação federal e estadual, no que couber"
-          },
-          {
-            "k": "Exemplo",
-            "v": "Horário do comércio local (Súmula Vinculante 38)"
-          }
-        ],
-        "tip": "horário de atendimento bancário é da União (Súmula 19 do STJ)."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Capacete de PM",
-            "v": "art. 22"
-          },
-          {
-            "k": "PUFETO",
-            "v": "art. 24"
-          },
-          {
-            "k": "Interesse local",
-            "v": "art. 30"
-          }
-        ],
-        "title": "Salva os macetes",
-        "body": "Comenta qual competência mais te pega na prova."
-      }
-    ],
-    "icone": "camadas",
-    "icones": [
-      "documento",
-      "casa"
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Legitimados universais",
+    "title": "Não provam interesse",
+    "items": [
+     {
+      "n": "I",
+      "t": "Presidente da República"
+     },
+     {
+      "n": "II",
+      "t": "Mesa do Senado Federal"
+     },
+     {
+      "n": "III",
+      "t": "Mesa da Câmara dos Deputados"
+     },
+     {
+      "n": "VI",
+      "t": "Procurador-Geral da República"
+     },
+     {
+      "n": "VII",
+      "t": "Conselho Federal da OAB"
+     },
+     {
+      "n": "VIII",
+      "t": "Partido político com representação no Congresso"
+     }
     ]
-  },
-  {
-    "id": "intervencao-federal",
-    "name": "Intervenção federal",
-    "tema": "Hipóteses, iniciativa e controle (arts. 34 a 36)",
-    "seams": [
-      1,
-      3
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Legitimados especiais",
+    "title": "Pertinência temática",
+    "lead": "Precisam mostrar que a norma atinge seus interesses:",
+    "body": "Mesa de Assembleia Legislativa ou da Câmara Legislativa do DF (IV), Governador de Estado ou do DF (V) e confederação sindical ou entidade de classe de âmbito nacional (IX).",
+    "box": "Sem ligação entre a norma e as finalidades do autor, a ação não é conhecida."
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "VIII",
+    "ref": "Art. 103, VIII",
+    "title": "Partido político",
+    "rows": [
+     {
+      "k": "Requisito",
+      "v": "Representação no Congresso Nacional"
+     },
+     {
+      "k": "Momento",
+      "v": "Aferida na propositura: perder a bancada depois não prejudica a ação"
+     },
+     {
+      "k": "Quem assina",
+      "v": "O diretório nacional"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Intervenção federal",
-        "sub": "Quando a União pode intervir nos Estados."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Regra",
-        "title": "Exceção, não regra",
-        "lead": "A União não intervirá nos Estados nem no DF,",
-        "body": "salvo nas hipóteses do art. 34. Quem decreta e executa a intervenção é o **Presidente da República** (art. 84, X)."
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "Art. 34",
-        "title": "Hipóteses",
-        "items": [
-          {
-            "n": "I·II",
-            "t": "Manter a **integridade nacional** e repelir **invasão**"
-          },
-          {
-            "n": "III",
-            "t": "Pôr termo a grave comprometimento da **ordem pública**"
-          },
-          {
-            "n": "IV",
-            "t": "Garantir o livre exercício dos **Poderes**"
-          },
-          {
-            "n": "V",
-            "t": "Reorganizar as **finanças** da unidade"
-          },
-          {
-            "n": "VI",
-            "t": "Prover a execução de **lei federal ou decisão judicial**"
-          },
-          {
-            "n": "VII",
-            "t": "Assegurar os **princípios sensíveis**"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "dark",
-        "kicker": "Art. 36",
-        "title": "Quem provoca?",
-        "cols": [
-          {
-            "title": "Solicitação ou requisição",
-            "items": [
-              "Poder coacto ou impedido solicita (inciso IV)",
-              "Coação contra o Judiciário: requisição do STF",
-              "Ordem judicial descumprida: requisição do STF, STJ ou TSE"
-            ]
-          },
-          {
-            "title": "Representação do PGR",
-            "items": [
-              "Princípios sensíveis e recusa à execução de lei federal",
-              "Julgada pelo STF: é a ADI interventiva"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "24H",
-        "ref": "Art. 36, §§ 1º e 3º",
-        "title": "Controle político",
-        "rows": [
-          {
-            "k": "Regra",
-            "v": "O decreto vai ao Congresso Nacional em 24 horas"
-          },
-          {
-            "k": "Dispensa",
-            "v": "Art. 34, VI e VII, se bastar suspender o ato impugnado"
-          },
-          {
-            "k": "Emendas",
-            "v": "A CF não pode ser emendada durante a intervenção (art. 60, § 1º)"
-          }
-        ],
-        "tip": "a União não intervém em Município de Estado; quem intervém é o Estado (art. 35)."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Decreta",
-            "v": "Presidente"
-          },
-          {
-            "k": "Controla",
-            "v": "Congresso, em 24 h"
-          },
-          {
-            "k": "Sensíveis",
-            "v": "ADI interventiva"
-          }
-        ],
-        "title": "Salva pra revisar",
-        "body": "Envia pra quem está estudando organização do Estado."
-      }
+    "tip": "diretório estadual ou municipal não tem legitimidade."
+   },
+   {
+    "type": "cta",
+    "bg": "light",
+    "summary": [
+     {
+      "k": "3",
+      "v": "pessoas"
+     },
+     {
+      "k": "3",
+      "v": "mesas"
+     },
+     {
+      "k": "3",
+      "v": "entidades"
+     }
     ],
-    "icone": "bandeira",
-    "icones": [
-      "bandeira",
-      "martelo"
+    "title": "Salva o macete",
+    "body": "E envia pra quem sempre esquece um legitimado."
+   }
+  ],
+  "icone": "pessoas",
+  "icones": [
+   "pessoas",
+   "alvo"
+  ]
+ },
+ {
+  "id": "nacionalidade",
+  "name": "Nacionalidade",
+  "tema": "Brasileiro nato x naturalizado (art. 12)",
+  "seams": [
+   1,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Nato ou naturalizado?",
+    "sub": "O que muda entre eles no art. 12 da CF."
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "Conceito",
+    "title": "Nato x naturalizado",
+    "cols": [
+     {
+      "title": "Natos · art. 12, I",
+      "items": [
+       "Nasceu no Brasil, salvo pais estrangeiros a serviço do seu país",
+       "Nasceu fora, filho de brasileiro a serviço do Brasil",
+       "Nasceu fora, filho de brasileiro, com registro ou opção"
+      ]
+     },
+     {
+      "title": "Naturalizados · art. 12, II",
+      "items": [
+       "Países de língua portuguesa: 1 ano de residência e idoneidade moral",
+       "Demais: mais de 15 anos de residência e sem condenação penal"
+      ]
+     }
     ]
-  },
-  {
-    "id": "estado-de-defesa-x-sitio",
-    "name": "Estado de defesa x sítio",
-    "tema": "Estado de defesa e estado de sítio (arts. 136 a 139)",
-    "seams": [
-      2,
-      4
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Defesa x sítio",
-        "sub": "Quem decreta, quem autoriza e por quanto tempo."
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "01",
-        "ref": "Art. 136",
-        "title": "Estado de defesa",
-        "rows": [
-          {
-            "k": "Quando",
-            "v": "Ordem pública ou paz social ameaçadas, em locais restritos, ou calamidade de grandes proporções"
-          },
-          {
-            "k": "Prazo",
-            "v": "Até 30 dias, prorrogável uma vez"
-          },
-          {
-            "k": "Controle",
-            "v": "Decreto vai ao CN em 24 horas; o CN decide em 10 dias"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "02",
-        "ref": "Art. 137",
-        "title": "Estado de sítio",
-        "rows": [
-          {
-            "k": "Quando",
-            "v": "Comoção grave nacional, ineficácia do estado de defesa, guerra ou agressão estrangeira"
-          },
-          {
-            "k": "Prazo",
-            "v": "30 dias por vez ou enquanto durar a guerra"
-          },
-          {
-            "k": "Controle",
-            "v": "Autorização prévia do CN, por maioria absoluta"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "A diferença que cai",
-        "title": "Antes ou depois?",
-        "cols": [
-          {
-            "title": "Estado de defesa",
-            "items": [
-              "O Presidente decreta e o CN aprecia depois",
-              "Locais restritos e determinados"
-            ]
-          },
-          {
-            "title": "Estado de sítio",
-            "items": [
-              "O CN autoriza antes do decreto",
-              "O decreto indica as áreas abrangidas (art. 138)"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Nos dois",
-        "title": "Pontos em comum",
-        "lead": "O Presidente ouve o Conselho da República e o Conselho de Defesa Nacional,",
-        "body": "mas a opinião deles não vincula. E a CF não pode ser emendada durante estado de defesa ou de sítio (art. 60, § 1º)."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Defesa",
-            "v": "controle posterior"
-          },
-          {
-            "k": "Sítio",
-            "v": "autorização prévia"
-          },
-          {
-            "k": "Prazo",
-            "v": "30 dias"
-          }
-        ],
-        "title": "Salva e compartilha",
-        "body": "Comenta: defesa ou sítio, qual mais te confunde?"
-      }
-    ],
-    "icone": "alerta",
-    "icones": [
-      "escudo",
-      "relogio"
+   },
+   {
+    "type": "mnemo",
+    "bg": "mint",
+    "kicker": "Privativos de nato · art. 12, § 3º",
+    "word": "MP3.COM",
+    "cols": "1fr",
+    "rows": [
+     {
+      "l": "M",
+      "t": "Ministro do STF"
+     },
+     {
+      "l": "P",
+      "t": "Presidente e Vice-Presidente da República"
+     },
+     {
+      "l": "P",
+      "t": "Presidente da Câmara dos Deputados"
+     },
+     {
+      "l": "P",
+      "t": "Presidente do Senado Federal"
+     },
+     {
+      "l": "C",
+      "t": "Carreira diplomática"
+     },
+     {
+      "l": "O",
+      "t": "Oficial das Forças Armadas"
+     },
+     {
+      "l": "M",
+      "t": "Ministro de Estado da Defesa"
+     }
     ]
-  },
-  {
-    "id": "placar-controle-x-remedios",
-    "name": "Placar: controle x remédios",
-    "tema": "Dados das peças do 32º ao 46º Exame, por família",
-    "seams": [
-      1,
-      4
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "LI",
+    "ref": "Art. 5º, LI e LII",
+    "title": "Extradição",
+    "rows": [
+     {
+      "k": "Nato",
+      "v": "Nunca é extraditado"
+     },
+     {
+      "k": "Naturalizado",
+      "v": "Só por crime comum anterior à naturalização ou tráfico de drogas comprovado"
+     },
+     {
+      "k": "Estrangeiro",
+      "v": "Nunca por crime político ou de opinião"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Controle x remédios",
-        "sub": "O placar das peças do 32º ao 46º Exame."
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Linha do tempo",
-        "title": "Exame a exame",
-        "items": [
-          {
-            "n": "32–34",
-            "t": "**Reclamação**, **ADC**, **MS**"
-          },
-          {
-            "n": "35–37",
-            "t": "**ADI**, **ADI**, **ação popular**"
-          },
-          {
-            "n": "38–40",
-            "t": "**MI coletivo**, **MS coletivo**, **ADI**"
-          },
-          {
-            "n": "41–43",
-            "t": "**ADC**, **reclamação**, **MS**"
-          },
-          {
-            "n": "44–46",
-            "t": "**Ação popular**, **MS**, **ADPF**"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "mint",
-        "kicker": "O placar",
-        "title": "7 x 6 x 2",
-        "cols": [
-          {
-            "title": "Remédios · 7",
-            "items": [
-              "MS: 4 (um coletivo)",
-              "Ação popular: 2",
-              "MI coletivo: 1",
-              "Art. 5º, LXIX a LXXIII"
-            ]
-          },
-          {
-            "title": "Controle · 6 + RCL 2",
-            "items": [
-              "ADI: 3 · ADC: 2 · ADPF: 1",
-              "Art. 102, I, “a”, e § 1º",
-              "Reclamação: 2 (art. 103-A, § 3º)"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "MS",
-        "ref": "Art. 5º, LXIX",
-        "title": "A peça do período",
-        "rows": [
-          {
-            "k": "Vezes",
-            "v": "4 em 15 exames (34º, 39º, 43º e 45º)"
-          },
-          {
-            "k": "Intervalo",
-            "v": "Caiu no 43º e voltou no 45º"
-          },
-          {
-            "k": "Coletivo",
-            "v": "No 39º, por associação (art. 5º, LXX, “b”)"
-          }
-        ],
-        "tip": "a ADI caiu em dois exames seguidos (35º e 36º): peça que acabou de cair pode voltar."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Não caíram de 32 a 46",
-        "title": "Não abandone",
-        "lead": "HC, habeas data, ACP, RE, ROC e procedimento comum",
-        "body": "não apareceram nesses 15 exames, mas seguem no edital. **Treine todas**, com mais repetições nas que mais caem.",
-        "box": "Dado mostra tendência, não garante a próxima peça."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Remédios",
-            "v": "7 peças"
-          },
-          {
-            "k": "Controle",
-            "v": "6 peças"
-          },
-          {
-            "k": "Reclamação",
-            "v": "2 peças"
-          },
-          {
-            "k": "MS",
-            "v": "o campeão"
-          }
-        ],
-        "title": "Salva o placar",
-        "body": "E comenta qual família você aposta para o próximo exame."
-      }
+    "tip": "quem julga o pedido de extradição é o STF (art. 102, I, “g”)."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Art. 12, § 2º",
+    "title": "Sem distinção",
+    "lead": "A lei não pode diferenciar natos e naturalizados.",
+    "body": "Só a própria Constituição pode, como nos cargos privativos e na extradição.",
+    "box": "Na prova: distinção criada por lei, e não pela CF, é inconstitucional."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Nato",
+      "v": "art. 12, I"
+     },
+     {
+      "k": "Naturalizado",
+      "v": "art. 12, II"
+     },
+     {
+      "k": "MP3.COM",
+      "v": "cargos privativos"
+     },
+     {
+      "k": "Extradição",
+      "v": "art. 5º, LI"
+     }
     ],
-    "icone": "grafico",
-    "icones": [
-      "grafico",
-      "trofeu"
+    "title": "Salva pra revisar",
+    "body": "E marca quem confunde nato com naturalizado."
+   }
+  ],
+  "icone": "passaporte",
+  "icones": [
+   "passaporte",
+   "balanca"
+  ]
+ },
+ {
+  "id": "direitos-politicos",
+  "name": "Direitos políticos",
+  "tema": "Idade mínima, alistamento, perda e suspensão (arts. 14 e 15)",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Quem pode ser votado?",
+    "sub": "Idades mínimas, perda e suspensão dos direitos políticos."
+   },
+   {
+    "type": "list",
+    "bg": "dark",
+    "kicker": "Condição de elegibilidade",
+    "title": "Idade por cargo",
+    "items": [
+     {
+      "n": "35",
+      "t": "**Presidente**, Vice-Presidente e **Senador**"
+     },
+     {
+      "n": "30",
+      "t": "**Governador** e Vice-Governador"
+     },
+     {
+      "n": "21",
+      "t": "**Deputados**, Prefeito, Vice-Prefeito e juiz de paz"
+     },
+     {
+      "n": "18",
+      "t": "**Vereador**"
+     }
     ]
-  },
-  {
-    "id": "grifar-para-se-salvar",
-    "name": "Grifar para se salvar",
-    "tema": "Técnica de estudo: grifos no caso da peça",
-    "seams": [
-      2
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Grifar para se salvar",
-        "sub": "O que grifar no caso para achar a peça certa."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Por quê?",
-        "title": "O rascunho é seu",
-        "lead": "A folha com o caso não é entregue como resposta.",
-        "body": "Então dá para fazer **riscos e anotações com tranquilidade**. Comece a grifar e circular na **2ª ou 3ª leitura**, nas palavras e frases que parecem relevantes."
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "O que grifar",
-        "title": "5 alvos",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Pessoas envolvidas** (entes, pessoas físicas)"
-          },
-          {
-            "n": "2",
-            "t": "**Questões de direito** (ex.: valores da administração violados, art. 37)"
-          },
-          {
-            "n": "3",
-            "t": "**Expressões que remetem ao problema**"
-          },
-          {
-            "n": "4",
-            "t": "**Informações da peça** (prazos, juízos)"
-          },
-          {
-            "n": "5",
-            "t": "**Informes do cliente** (para ver se é legitimado)"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "05",
-        "ref": "Art. 103, VIII",
-        "title": "Exemplo: o cliente",
-        "rows": [
-          {
-            "k": "Grifo",
-            "v": "“partido político com representação no Congresso”"
-          },
-          {
-            "k": "Leitura",
-            "v": "Legitimado universal para ADI e ADC"
-          },
-          {
-            "k": "Resultado",
-            "v": "O controle concentrado entra no radar"
-          }
-        ],
-        "tip": "informe do cliente sozinho não fecha a peça: cruze com juízo e pedido."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Seja coerente",
-        "title": "Menos é mais",
-        "lead": "Grifo sem sentido só confunde.",
-        "body": "Os grifos e círculos precisam ser **coerentes**, para facilitar a compreensão e dar **mais precisão para procurar a peça** que melhor se amolda ao caso."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Quando",
-            "v": "2ª ou 3ª leitura"
-          },
-          {
-            "k": "O quê",
-            "v": "pessoas, direito, peça, cliente"
-          },
-          {
-            "k": "Como",
-            "v": "com coerência"
-          }
-        ],
-        "title": "Salva pra revisar",
-        "body": "E envia pra quem grifa o caso inteiro de amarelo."
-      }
-    ],
-    "icone": "marcador",
-    "icones": [
-      "marcador"
+   },
+   {
+    "type": "compare",
+    "bg": "mint",
+    "kicker": "Alistamento e voto · art. 14, §§ 1º e 2º",
+    "title": "Obrigatório x facultativo",
+    "cols": [
+     {
+      "title": "Obrigatório",
+      "items": [
+       "Maiores de 18 anos",
+       "Não se alistam: estrangeiros e conscritos no serviço militar obrigatório"
+      ]
+     },
+     {
+      "title": "Facultativo",
+      "items": [
+       "Analfabetos",
+       "Maiores de 70 anos",
+       "Entre 16 e 18 anos"
+      ]
+     }
     ]
-  },
-  {
-    "id": "tecnica-de-exclusao",
-    "name": "Técnica de exclusão",
-    "tema": "Técnica de estudo: excluir peças até sobrar uma",
-    "seams": [
-      1,
-      3
-    ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Técnica de exclusão",
-        "sub": "Na dúvida sobre a peça, compare e elimine."
-      },
-      {
-        "type": "text",
-        "bg": "mint",
-        "kicker": "Como funciona",
-        "title": "Compatibilidade",
-        "lead": "Você compara os termos e circunstâncias do caso",
-        "body": "com as **características principais de cada peça** e verifica o que é compatível. O que não bate, sai."
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "STF",
-        "ref": "Art. 102, I, “a”",
-        "title": "Exemplo prático",
-        "rows": [
-          {
-            "k": "Caso",
-            "v": "Lei inconstitucional questionada no STF, em controle concentrado"
-          },
-          {
-            "k": "Exclua",
-            "v": "Remédios constitucionais, recursos e peças à parte"
-          },
-          {
-            "k": "Sobra",
-            "v": "ADI, ADC, ADO ou ADPF"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "dark",
-        "kicker": "Exclua assim",
-        "title": "Pistas rápidas",
-        "items": [
-          {
-            "n": "Réu",
-            "t": "Cliente se defende de processo: **contestação ou reconvenção**"
-          },
-          {
-            "n": "Omissão",
-            "t": "Omissão a suprir: **MI ou ADO** (art. 5º, LXXI, e art. 103, § 2º)"
-          },
-          {
-            "n": "Opinião",
-            "t": "Pediram opinião fundamentada: **parecer**"
-          },
-          {
-            "n": "Foro",
-            "t": "Sem foro por prerrogativa: saem quase todos os remédios"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Não é nenhuma?",
-        "title": "Residual",
-        "lead": "Excluiu tudo e nada encaixou?",
-        "body": "É **ação de procedimento comum**.",
-        "box": "Ela é a peça residual: entra quando nenhuma específica cabe."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "1",
-            "v": "compare o caso"
-          },
-          {
-            "k": "2",
-            "v": "exclua o que não bate"
-          },
-          {
-            "k": "3",
-            "v": "nada? procedimento comum"
-          }
-        ],
-        "title": "Salva a técnica",
-        "body": "E comenta qual dupla de peças mais te confunde."
-      }
-    ],
-    "icone": "filtro",
-    "icones": [
-      "lupa",
-      "filtro"
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Art. 15",
+    "title": "Cassação? Nunca.",
+    "lead": "A CF proíbe a cassação de direitos políticos.",
+    "body": "Só cabe perda ou suspensão nos casos do art. 15: cancelamento da naturalização, incapacidade civil absoluta, condenação criminal transitada em julgado, recusa de obrigação a todos imposta e improbidade."
+   },
+   {
+    "type": "compare",
+    "bg": "dark",
+    "kicker": "Não confunda",
+    "title": "Perda x suspensão",
+    "cols": [
+     {
+      "title": "Perda",
+      "items": [
+       "Cancelamento da naturalização por sentença transitada em julgado (I)",
+       "Recusa de obrigação a todos imposta (IV), para parte da doutrina"
+      ]
+     },
+     {
+      "title": "Suspensão",
+      "items": [
+       "Incapacidade civil absoluta (II)",
+       "Condenação criminal, enquanto durarem os efeitos (III)",
+       "Improbidade administrativa (V)"
+      ]
+     }
     ]
-  },
-  {
-    "id": "palavras-chave-da-banca",
-    "name": "Palavras-chave da banca",
-    "tema": "Técnica de estudo: a palavra que indica a peça",
-    "seams": [
-      2,
-      4
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "35",
+      "v": "Presidente e Senador"
+     },
+     {
+      "k": "30",
+      "v": "Governador"
+     },
+     {
+      "k": "21",
+      "v": "Deputado e Prefeito"
+     },
+     {
+      "k": "18",
+      "v": "Vereador"
+     }
     ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "mint",
-        "align": "flex-start",
-        "title": "Palavras-chave da banca",
-        "sub": "A FGV sempre deixa uma pista da peça no enunciado."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Por quê?",
-        "title": "Prova à prova de recurso",
-        "lead": "Para evitar recursos, a banca coloca",
-        "body": "no mínimo **uma palavra ou expressão que impossibilita o ajuizamento de outras peças**. Você **consegue** saber qual é a peça."
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "Exemplo 1",
-        "title": "MI ou ADO?",
-        "cols": [
-          {
-            "title": "MI · art. 5º, LXXI",
-            "items": [
-              "Omissão que inviabiliza direito",
-              "Caso concreto do cliente"
-            ]
-          },
-          {
-            "title": "ADO · art. 103, § 2º",
-            "items": [
-              "Aparece “controle concentrado”",
-              "Legitimado do art. 103"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "200",
-        "ref": "Art. 5º, LXX",
-        "title": "Exemplo 2: o prazo",
-        "rows": [
-          {
-            "k": "Dúvida",
-            "v": "ACP ou MS coletivo?"
-          },
-          {
-            "k": "Pista",
-            "v": "“Se passaram 200 dias”"
-          },
-          {
-            "k": "Leitura",
-            "v": "Passou o prazo de 120 dias do MS: é ACP"
-          }
-        ],
-        "tip": "o MS tem 120 dias (Lei 12.016/09, art. 23); a ACP, 5 anos."
-      },
-      {
-        "type": "text",
-        "bg": "mint",
-        "kicker": "E se eu não achar?",
-        "title": "Procure até achar",
-        "lead": "Geralmente é uma informação explícita no texto:",
-        "body": "**legitimados, juízo, prazo** ou uma **característica essencial da peça**."
-      },
-      {
-        "type": "cta",
-        "bg": "light",
-        "summary": [
-          {
-            "k": "Regra",
-            "v": "sempre há pista"
-          },
-          {
-            "k": "ADO",
-            "v": "“controle concentrado”"
-          },
-          {
-            "k": "ACP",
-            "v": "prazo do MS vencido"
-          }
-        ],
-        "title": "Salva e treina",
-        "body": "E envia pra quem ainda chuta a peça."
-      }
-    ],
-    "icone": "chave",
-    "icones": [
-      "chave",
-      "lupa"
+    "title": "Salva e revisa",
+    "body": "Envia pra quem vai fazer a 2ª fase com você."
+   }
+  ],
+  "icone": "urna",
+  "icones": [
+   "urna",
+   "alerta"
+  ]
+ },
+ {
+  "id": "competencias-legislativas",
+  "name": "Competências legislativas",
+  "tema": "Privativa (art. 22), concorrente (art. 24) e municipal (art. 30)",
+  "seams": [
+   2,
+   5
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "mint",
+    "align": "flex-start",
+    "title": "Quem legisla sobre o quê?",
+    "sub": "União, Estados e Municípios com dois macetes."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Conceito",
+    "title": "Privativa x concorrente",
+    "lead": "Privativa (art. 22):",
+    "body": "só a União legisla, mas lei complementar pode autorizar os Estados em questões específicas. **Concorrente (art. 24):** a União faz as normas gerais e os Estados suplementam."
+   },
+   {
+    "type": "mnemo",
+    "bg": "light",
+    "kicker": "Privativa da União · art. 22, I",
+    "word": "CAPACETE DE PM",
+    "cols": "1fr 1fr",
+    "rows": [
+     {
+      "l": "C",
+      "t": "Civil"
+     },
+     {
+      "l": "A",
+      "t": "Agrário"
+     },
+     {
+      "l": "P",
+      "t": "Penal"
+     },
+     {
+      "l": "A",
+      "t": "Aeronáutico"
+     },
+     {
+      "l": "C",
+      "t": "Comercial"
+     },
+     {
+      "l": "E",
+      "t": "Eleitoral"
+     },
+     {
+      "l": "T",
+      "t": "Trabalho"
+     },
+     {
+      "l": "E",
+      "t": "Espacial"
+     },
+     {
+      "l": "P",
+      "t": "Processual"
+     },
+     {
+      "l": "M",
+      "t": "Marítimo"
+     }
     ]
-  },
-  {
-    "id": "vade-mecum-clipes-e-remissoes",
-    "name": "Vade Mecum: clipes e remissões",
-    "tema": "Técnica de estudo: preparar o Vade Mecum",
-    "seams": [
-      1,
-      4
-    ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Clipes, grifos e remissões",
-        "sub": "Seu Vade Mecum pronto para achar tudo rápido."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "O básico",
-        "title": "Índice remissivo",
-        "lead": "É o “Google” que você pode levar pra prova.",
-        "body": "Tenha um Vade Mecum **de acordo com o edital** e com um **excelente índice remissivo**: nele você encontra as respostas das questões."
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "O segredo dos clipes",
-        "title": "Onde colocar",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Foro e competência** (ex.: art. 102 e art. 109)"
-          },
-          {
-            "n": "2",
-            "t": "**Recurso**: tem folha de rosto x não tem"
-          },
-          {
-            "n": "3",
-            "t": "**Pedidos** das peças"
-          },
-          {
-            "n": "4",
-            "t": "**Legitimados** (ex.: art. 103)"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "Marcações",
-        "title": "Grifo x remissão",
-        "cols": [
-          {
-            "title": "Grifo",
-            "items": [
-              "Marca-texto, lápis ou giz",
-              "Destaca o mais relevante",
-              "Ex.: os pedidos de uma peça"
-            ]
-          },
-          {
-            "title": "Remissão",
-            "items": [
-              "Citação a outro artigo ligado",
-              "Feita a lápis",
-              "Ex.: no art. 5º, LXIX, anote “Lei 12.016/09”"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Por quê?",
-        "title": "Pontos fracos",
-        "lead": "Clipe no ponto fraco",
-        "body": "faz você achar rápido as características para **comparar as peças**. Bônus: marcar as folhas dos **pedidos** ajuda no final da peça."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Índice",
-            "v": "seu Google"
-          },
-          {
-            "k": "Clipes",
-            "v": "foro, recurso, pedidos, legitimados"
-          },
-          {
-            "k": "Remissão",
-            "v": "a lápis"
-          }
-        ],
-        "title": "Salva o checklist",
-        "body": "E comenta quantos clipes tem o seu Vade Mecum."
-      }
-    ],
-    "icone": "livro",
-    "icones": [
-      "livro",
-      "clipe"
+   },
+   {
+    "type": "mnemo",
+    "bg": "mint",
+    "kicker": "Concorrente · art. 24, I e II",
+    "word": "PUFETO",
+    "cols": "1fr 1fr",
+    "rows": [
+     {
+      "l": "P",
+      "t": "Penitenciário"
+     },
+     {
+      "l": "U",
+      "t": "Urbanístico"
+     },
+     {
+      "l": "F",
+      "t": "Financeiro"
+     },
+     {
+      "l": "E",
+      "t": "Econômico"
+     },
+     {
+      "l": "T",
+      "t": "Tributário"
+     },
+     {
+      "l": "O",
+      "t": "Orçamento"
+     }
     ]
-  },
-  {
-    "id": "como-treinar-com-as-provas",
-    "name": "Como treinar com as provas",
-    "tema": "Técnica de estudo: usar as provas da FGV (32º ao 46º)",
-    "seams": [
-      2
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Treine com a FGV",
-        "sub": "As provas anteriores como seu melhor material."
-      },
-      {
-        "type": "mnemo",
-        "bg": "light",
-        "kicker": "Roteiro",
-        "word": "LER · GRIFAR · EXCLUIR",
-        "cols": "1fr",
-        "rows": [
-          {
-            "l": "1",
-            "t": "**Ler** o caso até a 2ª leitura sem escrever"
-          },
-          {
-            "l": "2",
-            "t": "**Grifar** pessoas, direito, peça e cliente"
-          },
-          {
-            "l": "3",
-            "t": "**Excluir** o que não bate até sobrar uma peça"
-          },
-          {
-            "l": "4",
-            "t": "**Conferir** com o gabarito da FGV"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "Comece pelas que mais caem",
-        "title": "Ordem de treino",
-        "items": [
-          {
-            "n": "MS",
-            "t": "34º, 39º, 43º e 45º (art. 5º, LXIX e LXX)"
-          },
-          {
-            "n": "ADI",
-            "t": "35º, 36º e 40º (art. 102, I, “a”)"
-          },
-          {
-            "n": "ADC",
-            "t": "33º e 41º"
-          },
-          {
-            "n": "RCL",
-            "t": "32º e 42º (art. 103-A, § 3º)"
-          },
-          {
-            "n": "AP",
-            "t": "37º e 44º (art. 5º, LXXIII)"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "MS",
-        "ref": "Art. 5º, LXIX",
-        "title": "Compare pares",
-        "rows": [
-          {
-            "k": "Individual",
-            "v": "34º, 43º e 45º"
-          },
-          {
-            "k": "Coletivo",
-            "v": "39º, impetrado por associação"
-          },
-          {
-            "k": "Olhe",
-            "v": "O que muda na legitimidade e nos pedidos"
-          }
-        ],
-        "tip": "refazer a mesma peça em exames diferentes mostra o que a banca repete."
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Depois do treino",
-        "title": "Anote o erro",
-        "lead": "Errou a peça?",
-        "body": "Escreva **qual palavra-chave** deixou passar e **coloque um clipe** nesse ponto do Vade Mecum. É assim que o ponto fraco vira ponto forte."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "1",
-            "v": "ler e grifar"
-          },
-          {
-            "k": "2",
-            "v": "excluir"
-          },
-          {
-            "k": "3",
-            "v": "conferir o gabarito"
-          },
-          {
-            "k": "4",
-            "v": "anotar o erro"
-          }
-        ],
-        "title": "Salva o roteiro",
-        "body": "E comenta qual exame você vai refazer primeiro."
-      }
-    ],
-    "icone": "check",
-    "icones": [
-      "lapis"
+   },
+   {
+    "type": "list",
+    "bg": "dark",
+    "kicker": "Art. 24, §§ 1º a 4º",
+    "title": "Como funciona",
+    "items": [
+     {
+      "n": "1",
+      "t": "A União edita **normas gerais**"
+     },
+     {
+      "n": "2",
+      "t": "Os Estados **suplementam**"
+     },
+     {
+      "n": "3",
+      "t": "Sem lei federal, o Estado tem **competência plena**"
+     },
+     {
+      "n": "4",
+      "t": "Lei federal posterior **suspende a eficácia** da estadual no que for contrária"
+     }
     ]
-  },
-  {
-    "id": "argumentacao-estrutura-que-pontua",
-    "name": "A estrutura que pontua",
-    "tema": "Argumentação: resposta direta, aplicação ao caso e fundamento",
-    "seams": [
-      1,
-      4
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "30",
+    "ref": "Art. 30, I e II",
+    "title": "Municípios",
+    "rows": [
+     {
+      "k": "Legislam",
+      "v": "Sobre assuntos de interesse local"
+     },
+     {
+      "k": "Suplementam",
+      "v": "A legislação federal e estadual, no que couber"
+     },
+     {
+      "k": "Exemplo",
+      "v": "Horário do comércio local (Súmula Vinculante 38)"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "A estrutura que pontua",
-        "sub": "Três funções para qualquer resposta discursiva."
-      },
-      {
-        "type": "compare",
-        "bg": "light",
-        "kicker": "Informar não é argumentar",
-        "title": "Informação x argumento",
-        "cols": [
-          {
-            "title": "Informação isolada",
-            "items": [
-              "“A Constituição protege a liberdade de expressão.”",
-              "Pode estar correta, mas não resolve sozinha o caso"
-            ]
-          },
-          {
-            "title": "Argumento jurídico",
-            "items": [
-              "“A proibição é incompatível com a liberdade de expressão, pois impede previamente a manifestação do candidato.”"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "As três funções",
-        "title": "Resposta, caso, norma",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Resposta direta**: “Sim”, “Não”, “É cabível”, “O ato é inconstitucional”"
-          },
-          {
-            "n": "2",
-            "t": "**Aplicação ao caso**: o fato decisivo e por que ele preenche, viola ou afasta a hipótese"
-          },
-          {
-            "n": "3",
-            "t": "**Fundamento**: dispositivo, princípio, súmula ou tese, a serviço da conclusão"
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "✓",
-        "ref": "Art. 5º, IX",
-        "title": "Modelo base",
-        "rows": [
-          {
-            "k": "Resposta",
-            "v": "“Não, a medida não é válida,"
-          },
-          {
-            "k": "Caso",
-            "v": "pois restringe previamente a manifestação sem hipótese constitucional autorizadora,"
-          },
-          {
-            "k": "Fundamento",
-            "v": "em desacordo com a liberdade de expressão.”"
-          }
-        ],
-        "tip": "a ordem pode variar, mas nenhuma das três funções pode faltar nem se contradizer."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Dica do Líbero",
-        "title": "Teste do copia e cola",
-        "lead": "Sua resposta serviria em qualquer questão do mesmo tema?",
-        "body": "Então provavelmente **falta aplicação ao caso concreto**.",
-        "box": "Clareza vale mais que ornamentação."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "1",
-            "v": "resposta direta"
-          },
-          {
-            "k": "2",
-            "v": "aplicação ao caso"
-          },
-          {
-            "k": "3",
-            "v": "fundamento"
-          }
-        ],
-        "title": "Salva a estrutura",
-        "body": "E comenta qual das três você mais esquece na prova."
-      }
+    "tip": "horário de atendimento bancário é da União (Súmula 19 do STJ)."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Capacete de PM",
+      "v": "art. 22"
+     },
+     {
+      "k": "PUFETO",
+      "v": "art. 24"
+     },
+     {
+      "k": "Interesse local",
+      "v": "art. 30"
+     }
     ],
-    "icone": "documento",
-    "icones": [
-      "balao",
-      "check"
+    "title": "Salva os macetes",
+    "body": "Comenta qual competência mais te pega na prova."
+   }
+  ],
+  "icone": "camadas",
+  "icones": [
+   "documento",
+   "casa"
+  ]
+ },
+ {
+  "id": "intervencao-federal",
+  "name": "Intervenção federal",
+  "tema": "Hipóteses, iniciativa e controle (arts. 34 a 36)",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Intervenção federal",
+    "sub": "Quando a União pode intervir nos Estados."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Regra",
+    "title": "Exceção, não regra",
+    "lead": "A União não intervirá nos Estados nem no DF,",
+    "body": "salvo nas hipóteses do art. 34. Quem decreta e executa a intervenção é o **Presidente da República** (art. 84, X)."
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "Art. 34",
+    "title": "Hipóteses",
+    "items": [
+     {
+      "n": "I·II",
+      "t": "Manter a **integridade nacional** e repelir **invasão**"
+     },
+     {
+      "n": "III",
+      "t": "Pôr termo a grave comprometimento da **ordem pública**"
+     },
+     {
+      "n": "IV",
+      "t": "Garantir o livre exercício dos **Poderes**"
+     },
+     {
+      "n": "V",
+      "t": "Reorganizar as **finanças** da unidade"
+     },
+     {
+      "n": "VI",
+      "t": "Prover a execução de **lei federal ou decisão judicial**"
+     },
+     {
+      "n": "VII",
+      "t": "Assegurar os **princípios sensíveis**"
+     }
     ]
-  },
-  {
-    "id": "argumentacao-verbos-da-banca",
-    "name": "Os verbos da banca",
-    "tema": "Argumentação: ler o comando antes de procurar a resposta",
-    "seams": [
-      2
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Os verbos da banca",
-        "sub": "O comando diz o que o examinador quer receber."
-      },
-      {
-        "type": "list",
-        "bg": "dark",
-        "kicker": "Leia o comando",
-        "title": "4 movimentos",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Circule o verbo** principal do comando"
-          },
-          {
-            "n": "2",
-            "t": "**Separe cada pergunta** (itens A, B e subitens)"
-          },
-          {
-            "n": "3",
-            "t": "Veja se pede **conclusão, justificativa, medida ou fundamento**"
-          },
-          {
-            "n": "4",
-            "t": "**Reescreva o comando** como pergunta simples"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "mint",
-        "kicker": "Verbos que pedem pouco",
-        "title": "Diga o quê",
-        "items": [
-          {
-            "n": "Indique",
-            "t": "Nomeie instituto, órgão, medida ou fundamento"
-          },
-          {
-            "n": "Fundamente",
-            "t": "Aponte a base normativa ou jurisprudencial"
-          },
-          {
-            "n": "Diferencie",
-            "t": "Dê o critério que separa e aplique"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Verbos que pedem mais",
-        "title": "Mostre o porquê",
-        "items": [
-          {
-            "n": "Justifique",
-            "t": "Dê a razão jurídica ligada ao fato decisivo"
-          },
-          {
-            "n": "Explique",
-            "t": "Mostre o caminho da regra à consequência"
-          },
-          {
-            "n": "Analise",
-            "t": "Validade, requisitos, limites e consequências"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Não confunda",
-        "title": "Indique e justifique",
-        "lead": "“Indique” pode aceitar resposta mais curta.",
-        "body": "“Justifique”, “explique” e “analise” exigem desenvolvimento. Se o comando reúne **“indique e justifique”**, cumpra as duas tarefas."
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "?",
-        "ref": "CF/88",
-        "title": "Decomponha",
-        "rows": [
-          {
-            "k": "Comando",
-            "v": "“É cabível a medida? Justifique à luz da Constituição.”"
-          },
-          {
-            "k": "1",
-            "v": "A medida é cabível ou não?"
-          },
-          {
-            "k": "2",
-            "v": "Qual fato determina a conclusão?"
-          },
-          {
-            "k": "3",
-            "v": "Qual norma constitucional sustenta a resposta?"
-          }
-        ],
-        "tip": "começar narrando o tema sem dizer se a medida é cabível."
-      },
-      {
-        "type": "cta",
-        "bg": "light",
-        "summary": [
-          {
-            "k": "Verbo",
-            "v": "circule"
-          },
-          {
-            "k": "Itens",
-            "v": "separe"
-          },
-          {
-            "k": "Comando",
-            "v": "reescreva"
-          }
-        ],
-        "title": "Salva e treina",
-        "body": "Pegue 5 comandos e escreva só a primeira frase de cada resposta."
-      }
-    ],
-    "icone": "balao",
-    "icones": [
-      "balao"
+   },
+   {
+    "type": "compare",
+    "bg": "dark",
+    "kicker": "Art. 36",
+    "title": "Quem provoca?",
+    "cols": [
+     {
+      "title": "Solicitação ou requisição",
+      "items": [
+       "Poder coacto ou impedido solicita (inciso IV)",
+       "Coação contra o Judiciário: requisição do STF",
+       "Ordem judicial descumprida: requisição do STF, STJ ou TSE"
+      ]
+     },
+     {
+      "title": "Representação do PGR",
+      "items": [
+       "Princípios sensíveis e recusa à execução de lei federal",
+       "Julgada pelo STF: é a ADI interventiva"
+      ]
+     }
     ]
-  },
-  {
-    "id": "argumentacao-fato-decisivo",
-    "name": "Fato decisivo",
-    "tema": "Argumentação: separar fatos relevantes e achar o problema jurídico",
-    "seams": [
-      1,
-      3
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "24H",
+    "ref": "Art. 36, §§ 1º e 3º",
+    "title": "Controle político",
+    "rows": [
+     {
+      "k": "Regra",
+      "v": "O decreto vai ao Congresso Nacional em 24 horas"
+     },
+     {
+      "k": "Dispensa",
+      "v": "Art. 34, VI e VII, se bastar suspender o ato impugnado"
+     },
+     {
+      "k": "Emendas",
+      "v": "A CF não pode ser emendada durante a intervenção (art. 60, § 1º)"
+     }
     ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "mint",
-        "align": "flex-start",
-        "title": "O fato decisivo",
-        "sub": "Nem todo dado do enunciado muda a solução."
-      },
-      {
-        "type": "compare",
-        "bg": "dark",
-        "kicker": "Separe",
-        "title": "Secundário x decisivo",
-        "cols": [
-          {
-            "title": "Fato secundário",
-            "items": [
-              "A personagem tem 52 anos",
-              "Nunca havia se envolvido em situação semelhante"
-            ]
-          },
-          {
-            "title": "Fato decisivo",
-            "items": [
-              "A autoridade negou acesso a dados pessoais em banco público",
-              "Mesmo após requerimento administrativo"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Marcação inteligente",
-        "title": "Poucas categorias",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Personagem** e qualidade jurídica"
-          },
-          {
-            "n": "2",
-            "t": "**Conduta ou omissão**"
-          },
-          {
-            "n": "3",
-            "t": "**Direito afetado**"
-          },
-          {
-            "n": "4",
-            "t": "**Prazo**"
-          },
-          {
-            "n": "5",
-            "t": "**Comando**"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Teste de relevância",
-        "title": "Tire o fato",
-        "lead": "Se eu retirar este fato, a conclusão jurídica muda?",
-        "body": "Se muda, ele é **relevante**. Se não muda, provavelmente só **contextualiza** o caso.",
-        "box": "Marcar tudo equivale a não priorizar nada."
-      },
-      {
-        "type": "item",
-        "bg": "mint",
-        "num": "HD",
-        "ref": "Art. 5º, LXXII",
-        "title": "Do fato ao problema",
-        "rows": [
-          {
-            "k": "Fato",
-            "v": "Órgão público nega retificar dado pessoal incorreto"
-          },
-          {
-            "k": "Direito",
-            "v": "Conhecimento e correção de informação pessoal"
-          },
-          {
-            "k": "Problema",
-            "v": "Qual instrumento permite retificar o dado?"
-          }
-        ],
-        "tip": "escreva o problema como pergunta. Se não consegue, não está pronto para o índice."
-      },
-      {
-        "type": "cta",
-        "bg": "light",
-        "summary": [
-          {
-            "k": "Fato",
-            "v": "decisivo"
-          },
-          {
-            "k": "Direito",
-            "v": "afetado"
-          },
-          {
-            "k": "Problema",
-            "v": "jurídico"
-          }
-        ],
-        "title": "Salva o método",
-        "body": "E envia pra quem grifa o enunciado inteiro."
-      }
+    "tip": "a União não intervém em Município de Estado; quem intervém é o Estado (art. 35)."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Decreta",
+      "v": "Presidente"
+     },
+     {
+      "k": "Controla",
+      "v": "Congresso, em 24 h"
+     },
+     {
+      "k": "Sensíveis",
+      "v": "ADI interventiva"
+     }
     ],
-    "icone": "lupa",
-    "icones": [
-      "lupa",
-      "alvo"
+    "title": "Salva pra revisar",
+    "body": "Envia pra quem está estudando organização do Estado."
+   }
+  ],
+  "icone": "bandeira",
+  "icones": [
+   "bandeira",
+   "martelo"
+  ]
+ },
+ {
+  "id": "estado-de-defesa-x-sitio",
+  "name": "Estado de defesa x sítio",
+  "tema": "Estado de defesa e estado de sítio (arts. 136 a 139)",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Defesa x sítio",
+    "sub": "Quem decreta, quem autoriza e por quanto tempo."
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "01",
+    "ref": "Art. 136",
+    "title": "Estado de defesa",
+    "rows": [
+     {
+      "k": "Quando",
+      "v": "Ordem pública ou paz social ameaçadas, em locais restritos, ou calamidade de grandes proporções"
+     },
+     {
+      "k": "Prazo",
+      "v": "Até 30 dias, prorrogável uma vez"
+     },
+     {
+      "k": "Controle",
+      "v": "Decreto vai ao CN em 24 horas; o CN decide em 10 dias"
+     }
     ]
-  },
-  {
-    "id": "argumentacao-ponte-fato-norma",
-    "name": "A ponte entre fato e norma",
-    "tema": "Argumentação: ligar a conclusão aos fatos",
-    "seams": [
-      2,
-      4
-    ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "A ponte fato-norma",
-        "sub": "O coração da argumentação."
-      },
-      {
-        "type": "compare",
-        "bg": "mint",
-        "kicker": "Veja a diferença",
-        "title": "Sem ponte x com ponte",
-        "cols": [
-          {
-            "title": "Sem ponte",
-            "items": [
-              "“É cabível habeas data, conforme o art. 5º, LXXII, da Constituição.”"
-            ]
-          },
-          {
-            "title": "Com ponte",
-            "items": [
-              "“É cabível habeas data, pois a interessada busca retificar dado pessoal incorreto mantido em registro público, hipótese protegida pelo art. 5º, LXXII.”"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Perguntas da aplicação",
-        "title": "Teste a ponte",
-        "items": [
-          {
-            "n": "1",
-            "t": "Qual **expressão da norma** corresponde ao fato?"
-          },
-          {
-            "n": "2",
-            "t": "O fato **cumpre os requisitos** ou viola a regra?"
-          },
-          {
-            "n": "3",
-            "t": "Existe **exceção ou limite** relevante?"
-          },
-          {
-            "n": "4",
-            "t": "Qual **consequência** a norma determina?"
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "bg": "dark",
-        "kicker": "Dica do Líbero",
-        "title": "Conectivos-ponte",
-        "lead": "“Pois, no caso”, “uma vez que”, “tendo em vista que”, “porque”.",
-        "body": "Eles **obrigam você a explicar** a relação entre a conclusão e os fatos."
-      },
-      {
-        "type": "item",
-        "bg": "light",
-        "num": "3",
-        "ref": "Art. 5º, LXXII",
-        "title": "Roteiro de 3 frases",
-        "rows": [
-          {
-            "k": "Frase 1",
-            "v": "“É cabível habeas data.”"
-          },
-          {
-            "k": "Frase 2",
-            "v": "“A interessada pretende retificar informação pessoal incorreta em banco de caráter público.”"
-          },
-          {
-            "k": "Frase 3",
-            "v": "“A garantia está no art. 5º, LXXII, da Constituição.”"
-          }
-        ]
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Modelo",
-            "v": "“É cabível ___, pois ___, nos termos de ___.”"
-          }
-        ],
-        "title": "Salva o modelo",
-        "body": "E comenta “ponte” se você costuma citar artigo solto."
-      }
-    ],
-    "icone": "ponte",
-    "icones": [
-      "ponte",
-      "lapis"
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "02",
+    "ref": "Art. 137",
+    "title": "Estado de sítio",
+    "rows": [
+     {
+      "k": "Quando",
+      "v": "Comoção grave nacional, ineficácia do estado de defesa, guerra ou agressão estrangeira"
+     },
+     {
+      "k": "Prazo",
+      "v": "30 dias por vez ou enquanto durar a guerra"
+     },
+     {
+      "k": "Controle",
+      "v": "Autorização prévia do CN, por maioria absoluta"
+     }
     ]
-  },
-  {
-    "id": "argumentacao-nao-lembra-o-artigo",
-    "name": "Não lembra o artigo?",
-    "tema": "Argumentação: estratégia de segurança para o fundamento",
-    "seams": [
-      1,
-      4
-    ],
-    "rail": "dashed",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "light",
-        "align": "flex-start",
-        "title": "Esqueceu o artigo?",
-        "sub": "Não abandone a tese nem invente numeração."
-      },
-      {
-        "type": "list",
-        "bg": "dark",
-        "kicker": "Ordem de reação",
-        "title": "5 passos",
-        "items": [
-          {
-            "n": "1",
-            "t": "Defina a **conclusão** e o instituto correto"
-          },
-          {
-            "n": "2",
-            "t": "Explique a **aplicação aos fatos**"
-          },
-          {
-            "n": "3",
-            "t": "Procure pelo **índice** ou pela organização da CF"
-          },
-          {
-            "n": "4",
-            "t": "Não achou? Cite o **diploma e a garantia**"
-          },
-          {
-            "n": "5",
-            "t": "Nunca troque fundamento seguro por **número duvidoso**"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "mint",
-        "kicker": "Na prática",
-        "title": "Arriscado x seguro",
-        "cols": [
-          {
-            "title": "Conduta arriscada",
-            "items": [
-              "“Conforme o art. 5º, inciso XLI”, sem segurança sobre o número ou o conteúdo"
-            ]
-          },
-          {
-            "title": "Conduta segura",
-            "items": [
-              "“Conforme a garantia constitucional do habeas data”, com o instituto certo e a numeração não confirmada"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "HD",
-        "ref": "Art. 5º, LXXII",
-        "title": "Busca em camadas",
-        "rows": [
-          {
-            "k": "1ª",
-            "v": "Termo mais específico: habeas data"
-          },
-          {
-            "k": "2ª",
-            "v": "Direito afetado: dados pessoais"
-          },
-          {
-            "k": "3ª",
-            "v": "Sinônimo ou gênero mais amplo"
-          },
-          {
-            "k": "4ª",
-            "v": "Capítulo constitucional relacionado"
-          }
-        ],
-        "tip": "fundamento genérico não substitui o dispositivo quando o espelho exige indicação específica."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Memória por famílias",
-        "title": "Agrupe por tema",
-        "lead": "Remédios, direitos fundamentais, competências, controle e processo legislativo.",
-        "body": "A **memória temática** facilita a localização do dispositivo no Vade Mecum."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "Tese",
-            "v": "preserve"
-          },
-          {
-            "k": "Artigo",
-            "v": "procure no índice"
-          },
-          {
-            "k": "Dúvida",
-            "v": "cite a garantia"
-          }
-        ],
-        "title": "Salva pra prova",
-        "body": "E envia pra quem trava quando esquece um inciso."
-      }
-    ],
-    "icone": "livro",
-    "icones": [
-      "lampada",
-      "livro"
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "A diferença que cai",
+    "title": "Antes ou depois?",
+    "cols": [
+     {
+      "title": "Estado de defesa",
+      "items": [
+       "O Presidente decreta e o CN aprecia depois",
+       "Locais restritos e determinados"
+      ]
+     },
+     {
+      "title": "Estado de sítio",
+      "items": [
+       "O CN autoriza antes do decreto",
+       "O decreto indica as áreas abrangidas (art. 138)"
+      ]
+     }
     ]
-  },
-  {
-    "id": "argumentacao-erros-que-tiram-pontos",
-    "name": "Erros que tiram pontos",
-    "tema": "Argumentação: erros comuns e como reescrever a resposta fraca",
-    "seams": [
-      2
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Nos dois",
+    "title": "Pontos em comum",
+    "lead": "O Presidente ouve o Conselho da República e o Conselho de Defesa Nacional,",
+    "body": "mas a opinião deles não vincula. E a CF não pode ser emendada durante estado de defesa ou de sítio (art. 60, § 1º)."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Defesa",
+      "v": "controle posterior"
+     },
+     {
+      "k": "Sítio",
+      "v": "autorização prévia"
+     },
+     {
+      "k": "Prazo",
+      "v": "30 dias"
+     }
     ],
-    "rail": "solid",
-    "link": "icones",
-    "slides": [
-      {
-        "type": "cover",
-        "bg": "dark",
-        "align": "flex-start",
-        "title": "Erros que tiram pontos",
-        "sub": "E como transformar uma resposta fraca."
-      },
-      {
-        "type": "list",
-        "bg": "light",
-        "kicker": "Os mais comuns",
-        "title": "Evite",
-        "items": [
-          {
-            "n": "1",
-            "t": "**Responder sem concluir**: não diz sim, não ou qual medida"
-          },
-          {
-            "n": "2",
-            "t": "**Copiar o enunciado** sem explicar a relevância"
-          },
-          {
-            "n": "3",
-            "t": "**Citar artigo solto**, sem relação com a conclusão"
-          },
-          {
-            "n": "4",
-            "t": "**Misturar itens** A e B no mesmo bloco"
-          },
-          {
-            "n": "5",
-            "t": "**Inventar numeração** que não conferiu"
-          },
-          {
-            "n": "6",
-            "t": "**Contradizer-se** entre conclusão e justificativa"
-          }
-        ]
-      },
-      {
-        "type": "compare",
-        "bg": "mint",
-        "kicker": "Reescrita",
-        "title": "Fraca x melhorada",
-        "cols": [
-          {
-            "title": "Versão fraca",
-            "items": [
-              "“Sim, porque é um direito fundamental.”"
-            ]
-          },
-          {
-            "title": "Versão melhorada",
-            "items": [
-              "“Sim. É cabível a medida porque a interessada pretende conhecer informação pessoal mantida em banco público, situação protegida pela garantia constitucional correspondente.”"
-            ]
-          }
-        ]
-      },
-      {
-        "type": "item",
-        "bg": "dark",
-        "num": "4",
-        "ref": "Art. 5º, LXXII",
-        "title": "Método de reescrita",
-        "rows": [
-          {
-            "k": "1",
-            "v": "Troque palavras vagas pelo instituto correto"
-          },
-          {
-            "k": "2",
-            "v": "Inclua o fato que ativa a regra"
-          },
-          {
-            "k": "3",
-            "v": "Acrescente o fundamento confirmado"
-          },
-          {
-            "k": "4",
-            "v": "Retire o que não muda a conclusão"
-          }
-        ],
-        "tip": "deixar o examinador inferir sozinho o que é essencial. Escreva expressamente."
-      },
-      {
-        "type": "text",
-        "bg": "light",
-        "kicker": "Resposta objetiva",
-        "title": "Nem mais, nem menos",
-        "lead": "Objetividade não é superficialidade.",
-        "body": "É dizer **tudo o que pontua** e retirar **tudo o que não contribui** para a solução."
-      },
-      {
-        "type": "cta",
-        "bg": "mint",
-        "summary": [
-          {
-            "k": "✓",
-            "v": "conclusão visível"
-          },
-          {
-            "k": "✓",
-            "v": "fato decisivo"
-          },
-          {
-            "k": "✓",
-            "v": "fundamento específico"
-          },
-          {
-            "k": "✓",
-            "v": "sem contradição"
-          }
-        ],
-        "title": "Checklist relâmpago",
-        "body": "Salva e confere antes de entregar a resposta."
-      }
-    ],
-    "icone": "erro",
-    "icones": [
-      "lapis"
+    "title": "Salva e compartilha",
+    "body": "Comenta: defesa ou sítio, qual mais te confunde?"
+   }
+  ],
+  "icone": "alerta",
+  "icones": [
+   "escudo",
+   "relogio"
+  ]
+ },
+ {
+  "id": "placar-controle-x-remedios",
+  "name": "Placar: controle x remédios",
+  "tema": "Dados das peças do 32º ao 46º Exame, por família",
+  "seams": [
+   1,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Controle x remédios",
+    "sub": "O placar das peças do 32º ao 46º Exame."
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Linha do tempo",
+    "title": "Exame a exame",
+    "items": [
+     {
+      "n": "32–34",
+      "t": "**Reclamação**, **ADC**, **MS**"
+     },
+     {
+      "n": "35–37",
+      "t": "**ADI**, **ADI**, **ação popular**"
+     },
+     {
+      "n": "38–40",
+      "t": "**MI coletivo**, **MS coletivo**, **ADI**"
+     },
+     {
+      "n": "41–43",
+      "t": "**ADC**, **reclamação**, **MS**"
+     },
+     {
+      "n": "44–46",
+      "t": "**Ação popular**, **MS**, **ADPF**"
+     }
     ]
-  }
+   },
+   {
+    "type": "compare",
+    "bg": "mint",
+    "kicker": "O placar",
+    "title": "7 x 6 x 2",
+    "cols": [
+     {
+      "title": "Remédios · 7",
+      "items": [
+       "MS: 4 (um coletivo)",
+       "Ação popular: 2",
+       "MI coletivo: 1",
+       "Art. 5º, LXIX a LXXIII"
+      ]
+     },
+     {
+      "title": "Controle · 6 + RCL 2",
+      "items": [
+       "ADI: 3 · ADC: 2 · ADPF: 1",
+       "Art. 102, I, “a”, e § 1º",
+       "Reclamação: 2 (art. 103-A, § 3º)"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "MS",
+    "ref": "Art. 5º, LXIX",
+    "title": "A peça do período",
+    "rows": [
+     {
+      "k": "Vezes",
+      "v": "4 em 15 exames (34º, 39º, 43º e 45º)"
+     },
+     {
+      "k": "Intervalo",
+      "v": "Caiu no 43º e voltou no 45º"
+     },
+     {
+      "k": "Coletivo",
+      "v": "No 39º, por associação (art. 5º, LXX, “b”)"
+     }
+    ],
+    "tip": "a ADI caiu em dois exames seguidos (35º e 36º): peça que acabou de cair pode voltar."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Não caíram de 32 a 46",
+    "title": "Não abandone",
+    "lead": "HC, habeas data, ACP, RE, ROC e procedimento comum",
+    "body": "não apareceram nesses 15 exames, mas seguem no edital. **Treine todas**, com mais repetições nas que mais caem.",
+    "box": "Dado mostra tendência, não garante a próxima peça."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Remédios",
+      "v": "7 peças"
+     },
+     {
+      "k": "Controle",
+      "v": "6 peças"
+     },
+     {
+      "k": "Reclamação",
+      "v": "2 peças"
+     },
+     {
+      "k": "MS",
+      "v": "o campeão"
+     }
+    ],
+    "title": "Salva o placar",
+    "body": "E comenta qual família você aposta para o próximo exame."
+   }
+  ],
+  "icone": "grafico",
+  "icones": [
+   "grafico",
+   "trofeu"
+  ]
+ },
+ {
+  "id": "grifar-para-se-salvar",
+  "name": "Grifar para se salvar",
+  "tema": "Técnica de estudo: grifos no caso da peça",
+  "seams": [
+   2
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Grifar para se salvar",
+    "sub": "O que grifar no caso para achar a peça certa."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Por quê?",
+    "title": "O rascunho é seu",
+    "lead": "A folha com o caso não é entregue como resposta.",
+    "body": "Então dá para fazer **riscos e anotações com tranquilidade**. Comece a grifar e circular na **2ª ou 3ª leitura**, nas palavras e frases que parecem relevantes."
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "O que grifar",
+    "title": "5 alvos",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Pessoas envolvidas** (entes, pessoas físicas)"
+     },
+     {
+      "n": "2",
+      "t": "**Questões de direito** (ex.: valores da administração violados, art. 37)"
+     },
+     {
+      "n": "3",
+      "t": "**Expressões que remetem ao problema**"
+     },
+     {
+      "n": "4",
+      "t": "**Informações da peça** (prazos, juízos)"
+     },
+     {
+      "n": "5",
+      "t": "**Informes do cliente** (para ver se é legitimado)"
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "05",
+    "ref": "Art. 103, VIII",
+    "title": "Exemplo: o cliente",
+    "rows": [
+     {
+      "k": "Grifo",
+      "v": "“partido político com representação no Congresso”"
+     },
+     {
+      "k": "Leitura",
+      "v": "Legitimado universal para ADI e ADC"
+     },
+     {
+      "k": "Resultado",
+      "v": "O controle concentrado entra no radar"
+     }
+    ],
+    "tip": "informe do cliente sozinho não fecha a peça: cruze com juízo e pedido."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Seja coerente",
+    "title": "Menos é mais",
+    "lead": "Grifo sem sentido só confunde.",
+    "body": "Os grifos e círculos precisam ser **coerentes**, para facilitar a compreensão e dar **mais precisão para procurar a peça** que melhor se amolda ao caso."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Quando",
+      "v": "2ª ou 3ª leitura"
+     },
+     {
+      "k": "O quê",
+      "v": "pessoas, direito, peça, cliente"
+     },
+     {
+      "k": "Como",
+      "v": "com coerência"
+     }
+    ],
+    "title": "Salva pra revisar",
+    "body": "E envia pra quem grifa o caso inteiro de amarelo."
+   }
+  ],
+  "icone": "marcador",
+  "icones": [
+   "marcador"
+  ]
+ },
+ {
+  "id": "tecnica-de-exclusao",
+  "name": "Técnica de exclusão",
+  "tema": "Técnica de estudo: excluir peças até sobrar uma",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Técnica de exclusão",
+    "sub": "Na dúvida sobre a peça, compare e elimine."
+   },
+   {
+    "type": "text",
+    "bg": "mint",
+    "kicker": "Como funciona",
+    "title": "Compatibilidade",
+    "lead": "Você compara os termos e circunstâncias do caso",
+    "body": "com as **características principais de cada peça** e verifica o que é compatível. O que não bate, sai."
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "STF",
+    "ref": "Art. 102, I, “a”",
+    "title": "Exemplo prático",
+    "rows": [
+     {
+      "k": "Caso",
+      "v": "Lei inconstitucional questionada no STF, em controle concentrado"
+     },
+     {
+      "k": "Exclua",
+      "v": "Remédios constitucionais, recursos e peças à parte"
+     },
+     {
+      "k": "Sobra",
+      "v": "ADI, ADC, ADO ou ADPF"
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "dark",
+    "kicker": "Exclua assim",
+    "title": "Pistas rápidas",
+    "items": [
+     {
+      "n": "Réu",
+      "t": "Cliente se defende de processo: **contestação ou reconvenção**"
+     },
+     {
+      "n": "Omissão",
+      "t": "Omissão a suprir: **MI ou ADO** (art. 5º, LXXI, e art. 103, § 2º)"
+     },
+     {
+      "n": "Opinião",
+      "t": "Pediram opinião fundamentada: **parecer**"
+     },
+     {
+      "n": "Foro",
+      "t": "Sem foro por prerrogativa: saem quase todos os remédios"
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Não é nenhuma?",
+    "title": "Residual",
+    "lead": "Excluiu tudo e nada encaixou?",
+    "body": "É **ação de procedimento comum**.",
+    "box": "Ela é a peça residual: entra quando nenhuma específica cabe."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "1",
+      "v": "compare o caso"
+     },
+     {
+      "k": "2",
+      "v": "exclua o que não bate"
+     },
+     {
+      "k": "3",
+      "v": "nada? procedimento comum"
+     }
+    ],
+    "title": "Salva a técnica",
+    "body": "E comenta qual dupla de peças mais te confunde."
+   }
+  ],
+  "icone": "filtro",
+  "icones": [
+   "lupa",
+   "filtro"
+  ]
+ },
+ {
+  "id": "palavras-chave-da-banca",
+  "name": "Palavras-chave da banca",
+  "tema": "Técnica de estudo: a palavra que indica a peça",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "mint",
+    "align": "flex-start",
+    "title": "Palavras-chave da banca",
+    "sub": "A FGV sempre deixa uma pista da peça no enunciado."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Por quê?",
+    "title": "Prova à prova de recurso",
+    "lead": "Para evitar recursos, a banca coloca",
+    "body": "no mínimo **uma palavra ou expressão que impossibilita o ajuizamento de outras peças**. Você **consegue** saber qual é a peça."
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "Exemplo 1",
+    "title": "MI ou ADO?",
+    "cols": [
+     {
+      "title": "MI · art. 5º, LXXI",
+      "items": [
+       "Omissão que inviabiliza direito",
+       "Caso concreto do cliente"
+      ]
+     },
+     {
+      "title": "ADO · art. 103, § 2º",
+      "items": [
+       "Aparece “controle concentrado”",
+       "Legitimado do art. 103"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "200",
+    "ref": "Art. 5º, LXX",
+    "title": "Exemplo 2: o prazo",
+    "rows": [
+     {
+      "k": "Dúvida",
+      "v": "ACP ou MS coletivo?"
+     },
+     {
+      "k": "Pista",
+      "v": "“Se passaram 200 dias”"
+     },
+     {
+      "k": "Leitura",
+      "v": "Passou o prazo de 120 dias do MS: é ACP"
+     }
+    ],
+    "tip": "o MS tem 120 dias (Lei 12.016/09, art. 23); a ACP, 5 anos."
+   },
+   {
+    "type": "text",
+    "bg": "mint",
+    "kicker": "E se eu não achar?",
+    "title": "Procure até achar",
+    "lead": "Geralmente é uma informação explícita no texto:",
+    "body": "**legitimados, juízo, prazo** ou uma **característica essencial da peça**."
+   },
+   {
+    "type": "cta",
+    "bg": "light",
+    "summary": [
+     {
+      "k": "Regra",
+      "v": "sempre há pista"
+     },
+     {
+      "k": "ADO",
+      "v": "“controle concentrado”"
+     },
+     {
+      "k": "ACP",
+      "v": "prazo do MS vencido"
+     }
+    ],
+    "title": "Salva e treina",
+    "body": "E envia pra quem ainda chuta a peça."
+   }
+  ],
+  "icone": "chave",
+  "icones": [
+   "chave",
+   "lupa"
+  ]
+ },
+ {
+  "id": "vade-mecum-clipes-e-remissoes",
+  "name": "Vade Mecum: clipes e remissões",
+  "tema": "Técnica de estudo: preparar o Vade Mecum",
+  "seams": [
+   1,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Clipes, grifos e remissões",
+    "sub": "Seu Vade Mecum pronto para achar tudo rápido."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "O básico",
+    "title": "Índice remissivo",
+    "lead": "É o “Google” que você pode levar pra prova.",
+    "body": "Tenha um Vade Mecum **de acordo com o edital** e com um **excelente índice remissivo**: nele você encontra as respostas das questões."
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "O segredo dos clipes",
+    "title": "Onde colocar",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Foro e competência** (ex.: art. 102 e art. 109)"
+     },
+     {
+      "n": "2",
+      "t": "**Recurso**: tem folha de rosto x não tem"
+     },
+     {
+      "n": "3",
+      "t": "**Pedidos** das peças"
+     },
+     {
+      "n": "4",
+      "t": "**Legitimados** (ex.: art. 103)"
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "Marcações",
+    "title": "Grifo x remissão",
+    "cols": [
+     {
+      "title": "Grifo",
+      "items": [
+       "Marca-texto, lápis ou giz",
+       "Destaca o mais relevante",
+       "Ex.: os pedidos de uma peça"
+      ]
+     },
+     {
+      "title": "Remissão",
+      "items": [
+       "Citação a outro artigo ligado",
+       "Feita a lápis",
+       "Ex.: no art. 5º, LXIX, anote “Lei 12.016/09”"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Por quê?",
+    "title": "Pontos fracos",
+    "lead": "Clipe no ponto fraco",
+    "body": "faz você achar rápido as características para **comparar as peças**. Bônus: marcar as folhas dos **pedidos** ajuda no final da peça."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Índice",
+      "v": "seu Google"
+     },
+     {
+      "k": "Clipes",
+      "v": "foro, recurso, pedidos, legitimados"
+     },
+     {
+      "k": "Remissão",
+      "v": "a lápis"
+     }
+    ],
+    "title": "Salva o checklist",
+    "body": "E comenta quantos clipes tem o seu Vade Mecum."
+   }
+  ],
+  "icone": "livro",
+  "icones": [
+   "livro",
+   "clipe"
+  ]
+ },
+ {
+  "id": "como-treinar-com-as-provas",
+  "name": "Como treinar com as provas",
+  "tema": "Técnica de estudo: usar as provas da FGV (32º ao 46º)",
+  "seams": [
+   2
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Treine com a FGV",
+    "sub": "As provas anteriores como seu melhor material."
+   },
+   {
+    "type": "mnemo",
+    "bg": "light",
+    "kicker": "Roteiro",
+    "word": "LER · GRIFAR · EXCLUIR",
+    "cols": "1fr",
+    "rows": [
+     {
+      "l": "1",
+      "t": "**Ler** o caso até a 2ª leitura sem escrever"
+     },
+     {
+      "l": "2",
+      "t": "**Grifar** pessoas, direito, peça e cliente"
+     },
+     {
+      "l": "3",
+      "t": "**Excluir** o que não bate até sobrar uma peça"
+     },
+     {
+      "l": "4",
+      "t": "**Conferir** com o gabarito da FGV"
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "Comece pelas que mais caem",
+    "title": "Ordem de treino",
+    "items": [
+     {
+      "n": "MS",
+      "t": "34º, 39º, 43º e 45º (art. 5º, LXIX e LXX)"
+     },
+     {
+      "n": "ADI",
+      "t": "35º, 36º e 40º (art. 102, I, “a”)"
+     },
+     {
+      "n": "ADC",
+      "t": "33º e 41º"
+     },
+     {
+      "n": "RCL",
+      "t": "32º e 42º (art. 103-A, § 3º)"
+     },
+     {
+      "n": "AP",
+      "t": "37º e 44º (art. 5º, LXXIII)"
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "MS",
+    "ref": "Art. 5º, LXIX",
+    "title": "Compare pares",
+    "rows": [
+     {
+      "k": "Individual",
+      "v": "34º, 43º e 45º"
+     },
+     {
+      "k": "Coletivo",
+      "v": "39º, impetrado por associação"
+     },
+     {
+      "k": "Olhe",
+      "v": "O que muda na legitimidade e nos pedidos"
+     }
+    ],
+    "tip": "refazer a mesma peça em exames diferentes mostra o que a banca repete."
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Depois do treino",
+    "title": "Anote o erro",
+    "lead": "Errou a peça?",
+    "body": "Escreva **qual palavra-chave** deixou passar e **coloque um clipe** nesse ponto do Vade Mecum. É assim que o ponto fraco vira ponto forte."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "1",
+      "v": "ler e grifar"
+     },
+     {
+      "k": "2",
+      "v": "excluir"
+     },
+     {
+      "k": "3",
+      "v": "conferir o gabarito"
+     },
+     {
+      "k": "4",
+      "v": "anotar o erro"
+     }
+    ],
+    "title": "Salva o roteiro",
+    "body": "E comenta qual exame você vai refazer primeiro."
+   }
+  ],
+  "icone": "check",
+  "icones": [
+   "lapis"
+  ]
+ },
+ {
+  "id": "argumentacao-estrutura-que-pontua",
+  "name": "A estrutura que pontua",
+  "tema": "Argumentação: resposta direta, aplicação ao caso e fundamento",
+  "seams": [
+   1,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "A estrutura que pontua",
+    "sub": "Três funções para qualquer resposta discursiva."
+   },
+   {
+    "type": "compare",
+    "bg": "light",
+    "kicker": "Informar não é argumentar",
+    "title": "Informação x argumento",
+    "cols": [
+     {
+      "title": "Informação isolada",
+      "items": [
+       "“A Constituição protege a liberdade de expressão.”",
+       "Pode estar correta, mas não resolve sozinha o caso"
+      ]
+     },
+     {
+      "title": "Argumento jurídico",
+      "items": [
+       "“A proibição é incompatível com a liberdade de expressão, pois impede previamente a manifestação do candidato.”"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "As três funções",
+    "title": "Resposta, caso, norma",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Resposta direta**: “Sim”, “Não”, “É cabível”, “O ato é inconstitucional”"
+     },
+     {
+      "n": "2",
+      "t": "**Aplicação ao caso**: o fato decisivo e por que ele preenche, viola ou afasta a hipótese"
+     },
+     {
+      "n": "3",
+      "t": "**Fundamento**: dispositivo, princípio, súmula ou tese, a serviço da conclusão"
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "✓",
+    "ref": "Art. 5º, IX",
+    "title": "Modelo base",
+    "rows": [
+     {
+      "k": "Resposta",
+      "v": "“Não, a medida não é válida,"
+     },
+     {
+      "k": "Caso",
+      "v": "pois restringe previamente a manifestação sem hipótese constitucional autorizadora,"
+     },
+     {
+      "k": "Fundamento",
+      "v": "em desacordo com a liberdade de expressão.”"
+     }
+    ],
+    "tip": "a ordem pode variar, mas nenhuma das três funções pode faltar nem se contradizer."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Dica do Líbero",
+    "title": "Teste do copia e cola",
+    "lead": "Sua resposta serviria em qualquer questão do mesmo tema?",
+    "body": "Então provavelmente **falta aplicação ao caso concreto**.",
+    "box": "Clareza vale mais que ornamentação."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "1",
+      "v": "resposta direta"
+     },
+     {
+      "k": "2",
+      "v": "aplicação ao caso"
+     },
+     {
+      "k": "3",
+      "v": "fundamento"
+     }
+    ],
+    "title": "Salva a estrutura",
+    "body": "E comenta qual das três você mais esquece na prova."
+   }
+  ],
+  "icone": "documento",
+  "icones": [
+   "balao",
+   "check"
+  ]
+ },
+ {
+  "id": "argumentacao-verbos-da-banca",
+  "name": "Os verbos da banca",
+  "tema": "Argumentação: ler o comando antes de procurar a resposta",
+  "seams": [
+   2
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Os verbos da banca",
+    "sub": "O comando diz o que o examinador quer receber."
+   },
+   {
+    "type": "list",
+    "bg": "dark",
+    "kicker": "Leia o comando",
+    "title": "4 movimentos",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Circule o verbo** principal do comando"
+     },
+     {
+      "n": "2",
+      "t": "**Separe cada pergunta** (itens A, B e subitens)"
+     },
+     {
+      "n": "3",
+      "t": "Veja se pede **conclusão, justificativa, medida ou fundamento**"
+     },
+     {
+      "n": "4",
+      "t": "**Reescreva o comando** como pergunta simples"
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "mint",
+    "kicker": "Verbos que pedem pouco",
+    "title": "Diga o quê",
+    "items": [
+     {
+      "n": "Indique",
+      "t": "Nomeie instituto, órgão, medida ou fundamento"
+     },
+     {
+      "n": "Fundamente",
+      "t": "Aponte a base normativa ou jurisprudencial"
+     },
+     {
+      "n": "Diferencie",
+      "t": "Dê o critério que separa e aplique"
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Verbos que pedem mais",
+    "title": "Mostre o porquê",
+    "items": [
+     {
+      "n": "Justifique",
+      "t": "Dê a razão jurídica ligada ao fato decisivo"
+     },
+     {
+      "n": "Explique",
+      "t": "Mostre o caminho da regra à consequência"
+     },
+     {
+      "n": "Analise",
+      "t": "Validade, requisitos, limites e consequências"
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Não confunda",
+    "title": "Indique e justifique",
+    "lead": "“Indique” pode aceitar resposta mais curta.",
+    "body": "“Justifique”, “explique” e “analise” exigem desenvolvimento. Se o comando reúne **“indique e justifique”**, cumpra as duas tarefas."
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "?",
+    "ref": "CF/88",
+    "title": "Decomponha",
+    "rows": [
+     {
+      "k": "Comando",
+      "v": "“É cabível a medida? Justifique à luz da Constituição.”"
+     },
+     {
+      "k": "1",
+      "v": "A medida é cabível ou não?"
+     },
+     {
+      "k": "2",
+      "v": "Qual fato determina a conclusão?"
+     },
+     {
+      "k": "3",
+      "v": "Qual norma constitucional sustenta a resposta?"
+     }
+    ],
+    "tip": "começar narrando o tema sem dizer se a medida é cabível."
+   },
+   {
+    "type": "cta",
+    "bg": "light",
+    "summary": [
+     {
+      "k": "Verbo",
+      "v": "circule"
+     },
+     {
+      "k": "Itens",
+      "v": "separe"
+     },
+     {
+      "k": "Comando",
+      "v": "reescreva"
+     }
+    ],
+    "title": "Salva e treina",
+    "body": "Pegue 5 comandos e escreva só a primeira frase de cada resposta."
+   }
+  ],
+  "icone": "balao",
+  "icones": [
+   "balao"
+  ]
+ },
+ {
+  "id": "argumentacao-fato-decisivo",
+  "name": "Fato decisivo",
+  "tema": "Argumentação: separar fatos relevantes e achar o problema jurídico",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "mint",
+    "align": "flex-start",
+    "title": "O fato decisivo",
+    "sub": "Nem todo dado do enunciado muda a solução."
+   },
+   {
+    "type": "compare",
+    "bg": "dark",
+    "kicker": "Separe",
+    "title": "Secundário x decisivo",
+    "cols": [
+     {
+      "title": "Fato secundário",
+      "items": [
+       "A personagem tem 52 anos",
+       "Nunca havia se envolvido em situação semelhante"
+      ]
+     },
+     {
+      "title": "Fato decisivo",
+      "items": [
+       "A autoridade negou acesso a dados pessoais em banco público",
+       "Mesmo após requerimento administrativo"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Marcação inteligente",
+    "title": "Poucas categorias",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Personagem** e qualidade jurídica"
+     },
+     {
+      "n": "2",
+      "t": "**Conduta ou omissão**"
+     },
+     {
+      "n": "3",
+      "t": "**Direito afetado**"
+     },
+     {
+      "n": "4",
+      "t": "**Prazo**"
+     },
+     {
+      "n": "5",
+      "t": "**Comando**"
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Teste de relevância",
+    "title": "Tire o fato",
+    "lead": "Se eu retirar este fato, a conclusão jurídica muda?",
+    "body": "Se muda, ele é **relevante**. Se não muda, provavelmente só **contextualiza** o caso.",
+    "box": "Marcar tudo equivale a não priorizar nada."
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "HD",
+    "ref": "Art. 5º, LXXII",
+    "title": "Do fato ao problema",
+    "rows": [
+     {
+      "k": "Fato",
+      "v": "Órgão público nega retificar dado pessoal incorreto"
+     },
+     {
+      "k": "Direito",
+      "v": "Conhecimento e correção de informação pessoal"
+     },
+     {
+      "k": "Problema",
+      "v": "Qual instrumento permite retificar o dado?"
+     }
+    ],
+    "tip": "escreva o problema como pergunta. Se não consegue, não está pronto para o índice."
+   },
+   {
+    "type": "cta",
+    "bg": "light",
+    "summary": [
+     {
+      "k": "Fato",
+      "v": "decisivo"
+     },
+     {
+      "k": "Direito",
+      "v": "afetado"
+     },
+     {
+      "k": "Problema",
+      "v": "jurídico"
+     }
+    ],
+    "title": "Salva o método",
+    "body": "E envia pra quem grifa o enunciado inteiro."
+   }
+  ],
+  "icone": "lupa",
+  "icones": [
+   "lupa",
+   "alvo"
+  ]
+ },
+ {
+  "id": "argumentacao-ponte-fato-norma",
+  "name": "A ponte entre fato e norma",
+  "tema": "Argumentação: ligar a conclusão aos fatos",
+  "seams": [
+   2,
+   4
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "A ponte fato-norma",
+    "sub": "O coração da argumentação."
+   },
+   {
+    "type": "compare",
+    "bg": "mint",
+    "kicker": "Veja a diferença",
+    "title": "Sem ponte x com ponte",
+    "cols": [
+     {
+      "title": "Sem ponte",
+      "items": [
+       "“É cabível habeas data, conforme o art. 5º, LXXII, da Constituição.”"
+      ]
+     },
+     {
+      "title": "Com ponte",
+      "items": [
+       "“É cabível habeas data, pois a interessada busca retificar dado pessoal incorreto mantido em registro público, hipótese protegida pelo art. 5º, LXXII.”"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Perguntas da aplicação",
+    "title": "Teste a ponte",
+    "items": [
+     {
+      "n": "1",
+      "t": "Qual **expressão da norma** corresponde ao fato?"
+     },
+     {
+      "n": "2",
+      "t": "O fato **cumpre os requisitos** ou viola a regra?"
+     },
+     {
+      "n": "3",
+      "t": "Existe **exceção ou limite** relevante?"
+     },
+     {
+      "n": "4",
+      "t": "Qual **consequência** a norma determina?"
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Dica do Líbero",
+    "title": "Conectivos-ponte",
+    "lead": "“Pois, no caso”, “uma vez que”, “tendo em vista que”, “porque”.",
+    "body": "Eles **obrigam você a explicar** a relação entre a conclusão e os fatos."
+   },
+   {
+    "type": "item",
+    "bg": "light",
+    "num": "3",
+    "ref": "Art. 5º, LXXII",
+    "title": "Roteiro de 3 frases",
+    "rows": [
+     {
+      "k": "Frase 1",
+      "v": "“É cabível habeas data.”"
+     },
+     {
+      "k": "Frase 2",
+      "v": "“A interessada pretende retificar informação pessoal incorreta em banco de caráter público.”"
+     },
+     {
+      "k": "Frase 3",
+      "v": "“A garantia está no art. 5º, LXXII, da Constituição.”"
+     }
+    ]
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Modelo",
+      "v": "“É cabível ___, pois ___, nos termos de ___.”"
+     }
+    ],
+    "title": "Salva o modelo",
+    "body": "E comenta “ponte” se você costuma citar artigo solto."
+   }
+  ],
+  "icone": "ponte",
+  "icones": [
+   "ponte",
+   "lapis"
+  ]
+ },
+ {
+  "id": "argumentacao-nao-lembra-o-artigo",
+  "name": "Não lembra o artigo?",
+  "tema": "Argumentação: estratégia de segurança para o fundamento",
+  "seams": [
+   1,
+   4
+  ],
+  "rail": "dashed",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "light",
+    "align": "flex-start",
+    "title": "Esqueceu o artigo?",
+    "sub": "Não abandone a tese nem invente numeração."
+   },
+   {
+    "type": "list",
+    "bg": "dark",
+    "kicker": "Ordem de reação",
+    "title": "5 passos",
+    "items": [
+     {
+      "n": "1",
+      "t": "Defina a **conclusão** e o instituto correto"
+     },
+     {
+      "n": "2",
+      "t": "Explique a **aplicação aos fatos**"
+     },
+     {
+      "n": "3",
+      "t": "Procure pelo **índice** ou pela organização da CF"
+     },
+     {
+      "n": "4",
+      "t": "Não achou? Cite o **diploma e a garantia**"
+     },
+     {
+      "n": "5",
+      "t": "Nunca troque fundamento seguro por **número duvidoso**"
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "bg": "mint",
+    "kicker": "Na prática",
+    "title": "Arriscado x seguro",
+    "cols": [
+     {
+      "title": "Conduta arriscada",
+      "items": [
+       "“Conforme o art. 5º, inciso XLI”, sem segurança sobre o número ou o conteúdo"
+      ]
+     },
+     {
+      "title": "Conduta segura",
+      "items": [
+       "“Conforme a garantia constitucional do habeas data”, com o instituto certo e a numeração não confirmada"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "HD",
+    "ref": "Art. 5º, LXXII",
+    "title": "Busca em camadas",
+    "rows": [
+     {
+      "k": "1ª",
+      "v": "Termo mais específico: habeas data"
+     },
+     {
+      "k": "2ª",
+      "v": "Direito afetado: dados pessoais"
+     },
+     {
+      "k": "3ª",
+      "v": "Sinônimo ou gênero mais amplo"
+     },
+     {
+      "k": "4ª",
+      "v": "Capítulo constitucional relacionado"
+     }
+    ],
+    "tip": "fundamento genérico não substitui o dispositivo quando o espelho exige indicação específica."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Memória por famílias",
+    "title": "Agrupe por tema",
+    "lead": "Remédios, direitos fundamentais, competências, controle e processo legislativo.",
+    "body": "A **memória temática** facilita a localização do dispositivo no Vade Mecum."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "Tese",
+      "v": "preserve"
+     },
+     {
+      "k": "Artigo",
+      "v": "procure no índice"
+     },
+     {
+      "k": "Dúvida",
+      "v": "cite a garantia"
+     }
+    ],
+    "title": "Salva pra prova",
+    "body": "E envia pra quem trava quando esquece um inciso."
+   }
+  ],
+  "icone": "livro",
+  "icones": [
+   "lampada",
+   "livro"
+  ]
+ },
+ {
+  "id": "argumentacao-erros-que-tiram-pontos",
+  "name": "Erros que tiram pontos",
+  "tema": "Argumentação: erros comuns e como reescrever a resposta fraca",
+  "seams": [
+   2
+  ],
+  "rail": "solid",
+  "link": "icones",
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Erros que tiram pontos",
+    "sub": "E como transformar uma resposta fraca."
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "Os mais comuns",
+    "title": "Evite",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Responder sem concluir**: não diz sim, não ou qual medida"
+     },
+     {
+      "n": "2",
+      "t": "**Copiar o enunciado** sem explicar a relevância"
+     },
+     {
+      "n": "3",
+      "t": "**Citar artigo solto**, sem relação com a conclusão"
+     },
+     {
+      "n": "4",
+      "t": "**Misturar itens** A e B no mesmo bloco"
+     },
+     {
+      "n": "5",
+      "t": "**Inventar numeração** que não conferiu"
+     },
+     {
+      "n": "6",
+      "t": "**Contradizer-se** entre conclusão e justificativa"
+     }
+    ]
+   },
+   {
+    "type": "compare",
+    "bg": "mint",
+    "kicker": "Reescrita",
+    "title": "Fraca x melhorada",
+    "cols": [
+     {
+      "title": "Versão fraca",
+      "items": [
+       "“Sim, porque é um direito fundamental.”"
+      ]
+     },
+     {
+      "title": "Versão melhorada",
+      "items": [
+       "“Sim. É cabível a medida porque a interessada pretende conhecer informação pessoal mantida em banco público, situação protegida pela garantia constitucional correspondente.”"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "item",
+    "bg": "dark",
+    "num": "4",
+    "ref": "Art. 5º, LXXII",
+    "title": "Método de reescrita",
+    "rows": [
+     {
+      "k": "1",
+      "v": "Troque palavras vagas pelo instituto correto"
+     },
+     {
+      "k": "2",
+      "v": "Inclua o fato que ativa a regra"
+     },
+     {
+      "k": "3",
+      "v": "Acrescente o fundamento confirmado"
+     },
+     {
+      "k": "4",
+      "v": "Retire o que não muda a conclusão"
+     }
+    ],
+    "tip": "deixar o examinador inferir sozinho o que é essencial. Escreva expressamente."
+   },
+   {
+    "type": "text",
+    "bg": "light",
+    "kicker": "Resposta objetiva",
+    "title": "Nem mais, nem menos",
+    "lead": "Objetividade não é superficialidade.",
+    "body": "É dizer **tudo o que pontua** e retirar **tudo o que não contribui** para a solução."
+   },
+   {
+    "type": "cta",
+    "bg": "mint",
+    "summary": [
+     {
+      "k": "✓",
+      "v": "conclusão visível"
+     },
+     {
+      "k": "✓",
+      "v": "fato decisivo"
+     },
+     {
+      "k": "✓",
+      "v": "fundamento específico"
+     },
+     {
+      "k": "✓",
+      "v": "sem contradição"
+     }
+    ],
+    "title": "Checklist relâmpago",
+    "body": "Salva e confere antes de entregar a resposta."
+   }
+  ],
+  "icone": "erro",
+  "icones": [
+   "lapis"
+  ]
+ },
+ {
+  "id": "mapas-mentais-venda",
+  "name": "Mapas Mentais de Constitucional",
+  "tema": "Venda dos 100 Mapas Mentais de Constitucional (R$ 29,99)",
+  "seams": [
+   1,
+   3
+  ],
+  "rail": "dashed",
+  "link": "photo",
+  "icone": "camadas",
+  "fotos": [
+   "mapa-42.png",
+   "mapa-56.png"
+  ],
+  "slides": [
+   {
+    "type": "cover",
+    "bg": "dark",
+    "align": "flex-start",
+    "title": "Constitucional em 100 mapas",
+    "sub": "Um mapa mental por tema, pra **OAB e concursos**."
+   },
+   {
+    "type": "list",
+    "bg": "light",
+    "kicker": "O que vem nos mapas",
+    "title": "Da teoria ao controle",
+    "items": [
+     {
+      "n": "1",
+      "t": "**Teoria da Constituição** e princípios fundamentais"
+     },
+     {
+      "n": "2",
+      "t": "**Direitos fundamentais**, nacionalidade e cidadania"
+     },
+     {
+      "n": "3",
+      "t": "**Remédios constitucionais**"
+     },
+     {
+      "n": "4",
+      "t": "**Organização do Estado** e Administração Pública"
+     },
+     {
+      "n": "5",
+      "t": "**Poderes** e funções essenciais à Justiça"
+     },
+     {
+      "n": "6",
+      "t": "**Controle de constitucionalidade** e ordem social"
+     }
+    ],
+    "ts": 76
+   },
+   {
+    "type": "item",
+    "bg": "mint",
+    "num": "4",
+    "ref": "Partes de cada mapa",
+    "title": "Como é por dentro",
+    "rows": [
+     {
+      "k": "Ramos",
+      "v": "regra, condição e exceção separadas"
+     },
+     {
+      "k": "Artigo",
+      "v": "a referência da CF em cada mapa"
+     },
+     {
+      "k": "Na prova",
+      "v": "o ponto que costuma confundir"
+     },
+     {
+      "k": "Confira",
+      "v": "uma pergunta com resposta pra testar"
+     }
+    ]
+   },
+   {
+    "type": "text",
+    "bg": "dark",
+    "kicker": "Formato",
+    "title": "Um PDF por tema",
+    "lead": "São 100 PDFs em A4 horizontal.",
+    "body": "Dá pra estudar no **celular** ou no **tablet**, ou imprimir e levar pra revisão."
+   },
+   {
+    "type": "cta",
+    "bg": "light",
+    "summary": [
+     {
+      "k": "100",
+      "v": "mapas mentais"
+     },
+     {
+      "k": "PDF",
+      "v": "um por tema, em A4"
+     },
+     {
+      "k": "OAB",
+      "v": "e concursos"
+     },
+     {
+      "k": "R$",
+      "v": "==29,99=="
+     }
+    ],
+    "title": "Garanta os seus",
+    "body": "Por **R$ 29,99**. O link tá na bio."
+   }
+  ]
+ }
 ]

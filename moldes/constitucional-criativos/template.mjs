@@ -120,6 +120,23 @@ const LAYOUTS = {
       <div style="position:absolute;left:${story ? 120 : 70}px;right:${story ? 120 : 70}px;bottom:0;height:${painel}px;background:linear-gradient(160deg,${COR.claro},${COR.medio});border-radius:40px 40px 0 0;padding:${story ? 60 : 44}px 56px;z-index:5;${TEXTO};font-size:${story ? 46 : 40}px;font-weight:700;line-height:1.2;color:${COR.base};text-align:center">${rico(p.acao || 'Toque em “Saiba mais” e garanta sua vaga.', '#fff')}</div>
       ${textura(.3)}`;
   },
+  // Venda de produto: marca, chamada, mockup do produto sem fundo (PNG em fotos/, inteiro), preço e botão.
+  produto(p, c, H, story) {
+    const src = foto(c, p.foto);
+    return `<div style="position:absolute;inset:0;background:${ESCURO}"></div><div style="position:absolute;inset:0;background:${GRADE}"></div>
+      <div data-area style="position:absolute;left:70px;right:70px;top:${story ? 290 : 80}px;bottom:${story ? 340 : 70}px;display:flex;flex-direction:column;gap:${story ? 24 : 16}px;z-index:4">
+        ${marca()}
+        ${p.kicker ? `<div style="${TEXTO};font-size:26px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${COR.claro};margin-top:${story ? 30 : 18}px">${esc(p.kicker)}</div>` : ''}
+        <div style="${TITULO};font-size:${p.ts || (story ? 170 : 150)}px;line-height:.86;color:#fff">${lista(p.linhas).map(l => rico(l, COR.claro)).join('<br>')}</div>
+        ${p.sub ? `<div style="${TEXTO};font-size:${story ? 34 : 30}px;font-weight:500;line-height:1.3;color:#DDE7E2">${rico(p.sub, COR.claro)}</div>` : ''}
+        <div style="flex:1 1 0;min-height:0;position:relative;margin:0 -40px">${src ? `<img src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain">` : ''}</div>
+        <div style="flex:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:14px">
+          <div>${p.precoDe ? `<div style="${TEXTO};font-size:26px;font-weight:600;color:#DDE7E2">${rico(p.precoDe, COR.claro)}</div>` : ''}
+            <div style="${TITULO};font-size:${story ? 120 : 104}px;line-height:1;color:${COR.claro}">${rico(p.preco || '', '#fff')}</div></div>
+          <span style="background:${COR.claro};color:${COR.base};${TEXTO};font-size:${story ? 36 : 32}px;font-weight:800;border-radius:44px 44px 44px 0;padding:20px 36px;white-space:nowrap">${esc(p.botao || 'Quero o meu')}</span>
+        </div>
+      </div>${textura(.3)}`;
+  },
   // Lista de benefícios (✅) com título, preço e botão; foto opcional no canto.
   lista(p, c, H, story) {
     const src = foto(c, p.foto);

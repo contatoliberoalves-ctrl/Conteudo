@@ -70,6 +70,9 @@ const PECAS = {
   'logo-600x120': [600, 120, `<div style="width:600px;height:120px;display:flex;align-items:center;justify-content:center">${logo(98)}</div>`, true],
   'logo-600x120-branco': [600, 120, `<div style="width:600px;height:120px;display:flex;align-items:center;justify-content:center">${logo(98, '#fff', '#A7E8C3', 'claro')}</div>`, true],
 
+  // Mockup sem fundo (pilha de páginas) para os criativos de outros moldes.
+  'mockup-pilha': [1240, 920, `<div style="position:relative;width:1240px;height:920px">${pilha(90, 250, 920)}</div>`, true],
+
   // ---------- Plataforma ----------
   'capa-produto': [1080, 1080, box(1080, 1080, FUNDO, `${brilho}
     <div style="position:absolute;left:80px;top:80px">${simbolo(96)}<div style="height:34px"></div>${marca()}${fio()}${titulo(124)}

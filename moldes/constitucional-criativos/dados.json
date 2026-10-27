@@ -264,5 +264,61 @@
     "foto": "recorte-0561.png",
     "lado": "esquerda",
     "fundo": "escuro"
+  },
+  {
+    "id": "mapas-mentais-venda-feed",
+    "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (feed)",
+    "tema": "Venda dos Mapas Mentais de Constitucional",
+    "formato": "feed",
+    "layout": "produto",
+    "foto": "mapas-pilha.png",
+    "kicker": "Material novo",
+    "linhas": [
+      "100 mapas mentais",
+      "{{de Constitucional}}"
+    ],
+    "sub": "Um PDF por tema, para **OAB e concursos**.",
+    "preco": "R$ 29,99",
+    "botao": "Quero os mapas",
+    "ts": 128
+  },
+  {
+    "id": "mapas-mentais-venda-story",
+    "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (stories)",
+    "de": "mapas-mentais-venda-feed",
+    "formato": "story"
+  },
+  {
+    "id": "mapas-mentais-conteudo-feed",
+    "titulo": "Mapas Mentais: o que vem nos 100 mapas (feed)",
+    "tema": "Venda dos Mapas Mentais de Constitucional",
+    "formato": "feed",
+    "layout": "lista",
+    "kicker": "Mapas mentais · OAB e concursos",
+    "linhas": [
+      "Constitucional",
+      "{{em 100 mapas}}"
+    ],
+    "itens": [
+      "**Teoria da Constituição** e princípios fundamentais",
+      "**Direitos fundamentais**, nacionalidade e direitos políticos",
+      "**Remédios constitucionais**, do HC à ação popular",
+      "**Organização do Estado** e Administração Pública",
+      "**Poderes**, processo legislativo e funções essenciais",
+      "**Controle de constitucionalidade** e ordem social",
+      "Em cada mapa: o artigo, o **ponto de prova** e uma pergunta pra conferir"
+    ],
+    "preco": "R$ 29,99",
+    "botao": "Quero os mapas",
+    "ts": 160,
+    "ti": 34
+  },
+  {
+    "id": "mapas-mentais-conteudo-story",
+    "titulo": "Mapas Mentais: o que vem nos 100 mapas (stories)",
+    "de": "mapas-mentais-conteudo-feed",
+    "formato": "story",
+    "ts": 150,
+    "ti": 32
   }
 ]
