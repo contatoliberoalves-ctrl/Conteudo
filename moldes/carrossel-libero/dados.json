@@ -1,5 +1,100 @@
 [
   {
+    "id": "votacao-capa-livro",
+    "titulo": "Me ajudem: qual é a melhor capa?",
+    "tema": "votação",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "votacao",
+        "tema": "blue",
+        "pre": "Meu livro",
+        "titulo": [
+          "Me ajudem:",
+          "qual é a",
+          "[[melhor capa]]?"
+        ],
+        "capas": [
+          "capa-livro-1.jpg",
+          "capa-livro-2.jpg",
+          "capa-livro-3.jpg",
+          "capa-livro-4.jpg",
+          "capa-livro-5.jpg",
+          "capa-livro-6.jpg",
+          "capa-livro-7.jpg",
+          "capa-livro-8.jpg",
+          "capa-livro-9.jpg"
+        ],
+        "colunas": 5
+      },
+      {
+        "tipo": "opcao",
+        "tema": "light",
+        "numero": "1",
+        "img": "capa-livro-1.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "blue",
+        "numero": "2",
+        "img": "capa-livro-2.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "light",
+        "numero": "3",
+        "img": "capa-livro-3.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "blue",
+        "numero": "4",
+        "img": "capa-livro-4.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "light",
+        "numero": "5",
+        "img": "capa-livro-5.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "blue",
+        "numero": "6",
+        "img": "capa-livro-6.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "light",
+        "numero": "7",
+        "img": "capa-livro-7.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "blue",
+        "numero": "8",
+        "img": "capa-livro-8.jpg"
+      },
+      {
+        "tipo": "opcao",
+        "tema": "light",
+        "numero": "9",
+        "img": "capa-livro-9.jpg"
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "Qual é a",
+          "[[sua favorita]]?"
+        ],
+        "texto": "Comenta aqui embaixo o **número** da capa que você escolheria.",
+        "botao": "Comente o número"
+      }
+    ]
+  },
+  {
     "id": "repescagem-tudo-que-precisa-saber",
     "titulo": "Tudo que você precisa saber sobre a repescagem",
     "tema": "Repescagem da OAB (reaproveitamento da 1ª fase do 47º no 48º): inscrição, taxa, dúvidas, Constitucional, como não perder a chance e o Método VDE Repescagem",
@@ -5861,101 +5956,6 @@
           "É **SIM** pra mim!"
         ],
         "aneis": "baixo"
-      }
-    ]
-  },
-  {
-    "id": "votacao-capa-livro",
-    "titulo": "Me ajudem: qual é a melhor capa?",
-    "tema": "votação",
-    "slides": [
-      {
-        "tipo": "capa",
-        "estilo": "votacao",
-        "tema": "blue",
-        "pre": "Meu livro",
-        "titulo": [
-          "Me ajudem:",
-          "qual é a",
-          "[[melhor capa]]?"
-        ],
-        "capas": [
-          "capa-livro-1.jpg",
-          "capa-livro-2.jpg",
-          "capa-livro-3.jpg",
-          "capa-livro-4.jpg",
-          "capa-livro-5.jpg",
-          "capa-livro-6.jpg",
-          "capa-livro-7.jpg",
-          "capa-livro-8.jpg",
-          "capa-livro-9.jpg"
-        ],
-        "colunas": 5
-      },
-      {
-        "tipo": "opcao",
-        "tema": "light",
-        "numero": "1",
-        "img": "capa-livro-1.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "blue",
-        "numero": "2",
-        "img": "capa-livro-2.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "light",
-        "numero": "3",
-        "img": "capa-livro-3.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "blue",
-        "numero": "4",
-        "img": "capa-livro-4.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "light",
-        "numero": "5",
-        "img": "capa-livro-5.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "blue",
-        "numero": "6",
-        "img": "capa-livro-6.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "light",
-        "numero": "7",
-        "img": "capa-livro-7.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "blue",
-        "numero": "8",
-        "img": "capa-livro-8.jpg"
-      },
-      {
-        "tipo": "opcao",
-        "tema": "light",
-        "numero": "9",
-        "img": "capa-livro-9.jpg"
-      },
-      {
-        "tipo": "cta",
-        "tema": "blue",
-        "centro": true,
-        "titulo": [
-          "Qual é a",
-          "[[sua favorita]]?"
-        ],
-        "texto": "Comenta aqui embaixo o **número** da capa que você escolheria.",
-        "botao": "Comente o número"
       }
     ]
   }
