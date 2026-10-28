@@ -547,7 +547,7 @@ const CAPAS = {
   // Distrital: o mapa do estado em colmeia de distritos (um deles em vermelho, com o pino "seu distrito") e dois
   // cartões de voto numerados por cima. Para reforma eleitoral, voto distrital, sistema de votação. Com "foto"
   // (recorte PNG), a pessoa entra à direita e os cartões empilham à esquerda. Campos: pre, titulo, ts, votos
-  // ([{rotulo, texto}], 2), mapaY, cartoesY, distrito ([linha, coluna] do hexágono vermelho), texto (nota no pé), foto, fotoH, fotoX.
+  // ([{rotulo, texto}], 2), mapaY, cartoesY, distrito ([linha, coluna] do hexágono vermelho), texto (nota no pé), foto, fotoH, fotoX; com circulo (diâmetro em px), a foto inteira entra num círculo com moldura branca e anel vermelho (fotoX, fotoY, fotoPos).
   distrital(s, t, c) {
     const R = COR.vermelho, F = !!s.foto, y0 = s.mapaY || 600, votos = lista(s.votos);
     // Colmeia de hexágonos (ponta para cima) cobrindo do mapaY ao pé; um deles é o "seu distrito".
@@ -568,7 +568,8 @@ const CAPAS = {
         <div style="font-size:${F ? 27 : 29}px;font-weight:600;line-height:1.25;color:#45506A;margin-top:8px">${rico(v.texto, TEMAS.light)}</div></div></div>`;
     return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 85% 10%,#2B6BF0 0%,${COR.azul} 40%,${COR.azulFundo} 100%);z-index:0"></div>
       <svg width="1080" height="1350" style="position:absolute;inset:0;z-index:1;-webkit-mask-image:linear-gradient(180deg,transparent ${y0 - 120}px,#000 ${y0 + 160}px)">${hexs.join('')}</svg>
-      ${F ? `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;right:${s.fotoX ?? -60}px;bottom:0;height:${s.fotoH || 780}px;z-index:2;filter:drop-shadow(0 30px 40px rgba(8,16,40,.5))">` : ''}
+      ${F && s.circulo ? `<div data-foto style="position:absolute;right:${s.fotoX ?? 50}px;top:${s.fotoY ?? 700}px;width:${s.circulo}px;height:${s.circulo}px;border-radius:50%;padding:12px;background:#fff;box-shadow:0 0 0 12px ${R},0 30px 60px rgba(8,16,40,.5);z-index:2"><img src="${foto(c, s.foto)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:${s.fotoPos || 'center 20%'}"></div>`
+        : F ? `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;right:${s.fotoX ?? -60}px;bottom:0;height:${s.fotoH || 780}px;z-index:2;filter:drop-shadow(0 30px 40px rgba(8,16,40,.5))">` : ''}
       <div style="position:absolute;left:90px;right:90px;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:4">
         ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
         <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 128}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
