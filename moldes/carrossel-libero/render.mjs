@@ -42,8 +42,9 @@ for (const c of dados) {
     return s2;
   });
   const fotos = {}, faltando = [];
+  const lista2 = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
   // Fotos do slide: foto, print e os recortes da capa "ringue" e as fotos da "apuracao".
-  for (const s of c.slides) for (const n of [s.foto, s.print, ...['esquerda', 'direita', 'centro'].map(k => s[k]?.img), ...(s.candidatos || []).map(k => k.foto), ...(s.cartas || []).map(k => k.foto), s.recorte?.img, ...(s.assentos || []).map(k => k.foto), ...(s.pessoas || []).map(k => k.foto), s.produto?.img]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
+  for (const s of c.slides) for (const n of [s.foto, s.print, ...['esquerda', 'direita', 'centro'].map(k => s[k]?.img), ...(s.candidatos || []).map(k => k.foto), ...(s.cartas || []).map(k => k.foto), s.recorte?.img, ...(s.assentos || []).map(k => k.foto), ...(s.pessoas || []).map(k => k.foto), s.produto?.img, s.img, ...lista2(s.capas)]) if (n) { const f = acharFoto(n); if (f) fotos[n] = 'file://' + f; else faltando.push(n); }
   const { html, total, avisos } = renderCarrossel({ ...c, _fotos: fotos });
   faltando.forEach(f => avisos.push(`foto não encontrada: ${f} (coloque em fotos/)`));
   pendentes.forEach(f => avisos.push(`imagem pendente: imagens/${f} (gere com python3 gerar_imagens_ia.py ou coloque o arquivo)`));

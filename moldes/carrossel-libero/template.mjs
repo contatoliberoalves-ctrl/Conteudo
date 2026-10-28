@@ -106,6 +106,18 @@ const ttl = (linhas, t, px, extra = '') => `<h1 data-titulo style="${TITULO};mar
 
 // Capas alternativas ("estilo" no slide de capa), para cada tipo de post ter cara própria.
 const CAPAS = {
+  // Votação ("qual é a melhor?"): pre, titulo e as opções em miniatura ("capas": imagens em fotos/), numeradas.
+  votacao(s, t, c) {
+    const cs = lista(s.capas), cols = s.colunas || Math.ceil(cs.length / 2), gap = 26, larg = s.largura || 960;
+    const w = Math.floor((larg - gap * (cols - 1)) / cols);
+    return `<div data-area style="position:absolute;left:110px;right:110px;top:120px;height:${s.alturaTitulo || 440}px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:24px;z-index:3">
+        ${s.pre ? `<span style="background:${COR.navyFundo};color:#fff;font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 18px">${esc(s.pre)}</span>` : ''}
+        ${ttl(s.titulo, t, s.ts || 120, ';line-height:1.02')}</div>
+      <div style="position:absolute;left:${(1080 - larg) / 2}px;width:${larg}px;bottom:${s.base || 190}px;display:flex;flex-wrap:wrap;justify-content:center;gap:${gap + 14}px ${gap}px;z-index:3">
+        ${cs.map((n, i) => `<div style="position:relative;width:${w}px"><img data-foto src="${foto(c, n)}" style="display:block;width:100%;aspect-ratio:17/24;object-fit:cover;box-shadow:0 14px 28px rgba(8,16,40,.35)">
+          <span style="position:absolute;left:-14px;top:-14px;width:54px;height:54px;border-radius:50%;background:${COR.vermelho};color:#fff;display:flex;align-items:center;justify-content:center;${TITULO};font-size:34px;line-height:1">${i + 1}</span></div>`).join('')}</div>
+      ${pe(t)}`;
+  },
   // "Teses que caíram na <peça>": sigla gigante, nome por extenso, fichas dos exames e carimbo JÁ CAIU.
   teses(s, t) {
     const exames = lista(s.exames);
@@ -406,6 +418,13 @@ const printCta = (src, d) => `<div data-print style="position:relative;align-sel
   ${d ? `<div style="position:absolute;left:${d[0]}%;top:${d[1]}%;width:${d[2]}%;height:${d[3]}%;border:8px solid ${COR.vermelho};border-radius:999px;transform:scale(1.18)"></div>` : ''}</div>`;
 
 const TIPOS = {
+  // Uma opção da votação: a imagem grande ("img", em fotos/) com o número numa bola vermelha.
+  opcao(s, t, c) {
+    const h = s.h || 900, w = Math.round(h * (s.proporcao || 17 / 24));
+    return `<div style="position:absolute;left:${(1080 - w) / 2}px;top:${s.topo || 170}px;width:${w}px;height:${h}px;z-index:3">
+        <img data-foto src="${foto(c, s.img)}" style="display:block;width:100%;height:100%;object-fit:cover;box-shadow:0 30px 60px rgba(8,16,40,.4)">
+        <span style="position:absolute;left:-60px;top:-50px;width:150px;height:150px;border-radius:50%;background:${COR.vermelho};color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;${TITULO};line-height:.9;box-shadow:0 16px 30px rgba(8,16,40,.35);transform:rotate(-8deg)"><span style="font-size:26px;letter-spacing:.08em">${esc(s.rotulo || 'Opção')}</span><span style="font-size:80px">${esc(s.numero)}</span></span></div>`;
+  },
   capa(s, t, c) {
     if (s.estilo && CAPAS[s.estilo]) return CAPAS[s.estilo](s, t, c);
     const tag = `<div style="position:absolute;left:110px;bottom:72px;background:${t === TEMAS.blue ? COR.navyFundo : COR.azul};color:#fff;font-size:30px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
