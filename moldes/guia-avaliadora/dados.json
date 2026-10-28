@@ -1,0 +1,777 @@
+[
+  {
+    "id": "roteiro-dra-sefora",
+    "titulo": "Roteiro da avaliadora · Dra. Séfora",
+    "clinica": "Odonto News",
+    "rodape": "Guia de bolso · Dra. Séfora · Odonto News",
+    "paginas": [
+      {
+        "tipo": "capa",
+        "etiqueta": "Guia de bolso",
+        "kicker": "Protocolo de avaliação",
+        "titulo": [
+          "Roteiro",
+          "da [[avaliadora]]"
+        ],
+        "sub": [
+          "**Dra. Séfora** · dentista avaliadora",
+          "Odonto News"
+        ],
+        "pilulas": [
+          "Implantes",
+          "Prótese protocolo",
+          "Teoria do Y",
+          "Escova do merecimento"
+        ]
+      },
+      {
+        "etiqueta": "Mapa",
+        "titulo": [
+          "O caminho da",
+          "[[avaliação]]"
+        ],
+        "gap": 14,
+        "blocos": [
+          {
+            "tipo": "fluxo",
+            "vertical": true,
+            "passos": [
+              "**Antes de buscar:** leio o handoff da CRC",
+              "**Abertura** e minha apresentação",
+              "**Descoberta:** o paciente fala mais que eu",
+              "**A clínica:** panorâmico e câmera intraoral",
+              "**Exame** e escova do merecimento",
+              "**Diagnóstico** na imagem dele",
+              "**Teoria do Y:** qual caminho ele quer",
+              "**Plano mestre** e valor antes do preço",
+              "**Investimento** e pedido de decisão",
+              "**Objeções** e próximo passo"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 01 · Antes",
+        "titulo": [
+          "Antes de buscar",
+          "o [[paciente]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "check",
+            "itens": [
+              "Li todo o **handoff da CRC**",
+              "Sei **por que ele veio**, a dor, o desejo e o medo",
+              "Sei **quem influencia** a decisão",
+              "Anotei a **frase exata** que ele usou",
+              "Analisei a **panorâmica** antes do encontro",
+              "Separei 2 assuntos da anamnese para puxar conversa (time, música, família)",
+              "Consulta do CPF **só com autorização** dele",
+              "Sala pronta, sem interrupções"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "O paciente não começa a história do zero."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 02 · Abertura",
+        "titulo": [
+          "Abertura e",
+          "[[conexão]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "check",
+            "itens": [
+              "Eu mesma busquei, **chamei pelo nome**, sorriso e olho no olho",
+              "Convidei o acompanhante com respeito",
+              "Conversei **na mesa**, antes da cadeira",
+              "Expliquei como vai ser a avaliação",
+              "Pedi **permissão** para fazer perguntas"
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "Minha apresentação",
+            "texto": [
+              "“Muito prazer, ___! Eu sou a **Dra. Séfora**, dentista avaliadora aqui da Odonto News. Meu trabalho é fazer **todas as avaliações da clínica**, planejar o seu **tratamento completo** e depois te encaminhar para o **especialista de cada área**.",
+              "Hoje eu vou te ouvir, examinar com calma e te mostrar tudo o que eu encontrar. Posso te fazer algumas perguntas antes?”"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 02 · Abertura",
+        "titulo": [
+          "Minha",
+          "[[história]]"
+        ],
+        "intro": "Uma história verdadeira cria conexão. Escreva a sua e conte em menos de um minuto.",
+        "gap": 6,
+        "blocos": [
+          {
+            "tipo": "linhas",
+            "n": 2,
+            "itens": [
+              "Quem sou",
+              "Por que escolhi a odontologia",
+              "Um paciente que me marcou",
+              "Como vou te ajudar hoje"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 03 · Descoberta",
+        "titulo": [
+          "Descubra a pessoa",
+          "antes do [[problema]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Pergunta de ouro",
+            "texto": [
+              "“Me conta um pouco da sua história. **O que fez você procurar uma solução justamente agora?**”"
+            ]
+          },
+          {
+            "tipo": "perguntas",
+            "itens": [
+              {
+                "k": "Dor",
+                "q": "“O que mais te incomoda hoje?”"
+              },
+              {
+                "k": "Tempo",
+                "q": "“Há quanto tempo você convive com isso?”"
+              },
+              {
+                "k": "Impacto",
+                "q": "“Como isso atrapalha o seu dia a dia?”"
+              },
+              {
+                "k": "Desejo",
+                "q": "“Se a gente resolver isso, o que muda pra você?”"
+              },
+              {
+                "k": "Medo",
+                "q": "“O que mais te preocupa num tratamento?”"
+              }
+            ]
+          }
+        ],
+        "ts": 38
+      },
+      {
+        "etiqueta": "Etapa 03 · Descoberta",
+        "titulo": [
+          "Antes de examinar,",
+          "eu [[preciso saber]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "perguntas",
+            "largura": 100,
+            "itens": [
+              {
+                "k": "Experiência",
+                "q": "“Já fez avaliação em outro lugar? Como foi? O que te fez não continuar?”"
+              },
+              {
+                "k": "Critério",
+                "q": "“Ao escolher uma clínica, do que você não abre mão?”"
+              },
+              {
+                "k": "Influência",
+                "q": "“Alguém participa dessa decisão com você?”"
+              },
+              {
+                "k": "Obstáculo",
+                "q": "“Tirando o valor, o que poderia te impedir de começar?”"
+              },
+              {
+                "k": "Prazo",
+                "q": "“Tem alguma data importante chegando?”"
+              }
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "passos": [
+              "Pergunta aberta",
+              "Escuta",
+              "Aprofunda",
+              "Valida"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Não pare na primeira resposta: “Me conta mais sobre isso.” Guarde a **frase exata** dele."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 03 · Implante e protocolo",
+        "titulo": [
+          "Perguntas para",
+          "[[implante e protocolo]]"
+        ],
+        "ts": 40,
+        "blocos": [
+          {
+            "tipo": "check",
+            "itens": [
+              "“O que você **deixou de comer** por causa disso?”",
+              "“A prótese **mexe ou solta** quando você fala ou come?”",
+              "“Usa algum **adesivo** pra segurar a prótese?”",
+              "“Sente dor ou **machucado** onde a prótese apoia?”",
+              "“Já evitou **sorrir numa foto** ou falar em público?”",
+              "“Se tivesse **dentes fixos**, qual a primeira coisa que faria?”"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "O paciente fala mais que a dentista."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 04 · A clínica",
+        "titulo": [
+          "A única da cidade",
+          "com [[panorâmico]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Raio-x panorâmico",
+            "texto": [
+              "“Você já fez a sua radiografia panorâmica aqui, né? A Odonto News é **a única clínica da cidade que faz o raio-x panorâmico aqui dentro**, e ele é **totalmente gratuito** pra você.",
+              "Em outro lugar você teria que ir a outro endereço, pagar o exame à parte e voltar. Aqui eu já tenho **a sua boca inteira** na tela antes de te examinar.”"
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "rotulo": "Sempre nesta ordem",
+            "passos": [
+              "Característica",
+              "Benefício",
+              "Por que importa pra ele"
+            ]
+          },
+          {
+            "tipo": "texto",
+            "texto": "Não diga só “temos panorâmico”: diga **o que isso muda para aquele paciente**."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 04 · A clínica",
+        "titulo": [
+          "Câmera",
+          "[[intraoral]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Antes de usar",
+            "texto": [
+              "“Essa é a **câmera intraoral**. Ela mostra na tela, ampliado, cada dente e cada pedacinho da gengiva.",
+              "Você vai ver **exatamente o que eu estou vendo**: nada de achismo. O que eu te falar, você vai ver com os seus olhos.”"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Expliquei: **tecnologia, transparência e segurança**",
+              "Mostrei na tela **a boca dele**, não uma foto qualquer",
+              "Um achado por vez, sem pressa"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Imagem genérica explica. **A imagem do paciente prova o diagnóstico.**"
+          }
+        ]
+      },
+      {
+        "tema": "vinho",
+        "etiqueta": "Etapa 05 · Exame",
+        "titulo": [
+          "Escova do",
+          "[[merecimento]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Com ele sentado na cadeira",
+            "texto": [
+              "“Antes de começar, isso aqui é seu: é a **escova do merecimento**.",
+              "Ela não é pra hoje. Ela vai **estrear no dia em que você terminar o seu tratamento** aqui, porque aí você vai ter merecido esse sorriso novo.”"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Entreguei na hora certa, com carinho",
+              "Se havia dor, **cuidei disso primeiro**",
+              "Avaliação **completa**, não só a queixa"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Nunca converse com o paciente deitado. Conversa importante é **na mesa, frente a frente**."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 06 · Diagnóstico",
+        "titulo": [
+          "Explique sempre",
+          "nesta [[ordem]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fluxo",
+            "vertical": true,
+            "passos": [
+              "**O que estou vendo** (na panorâmica e na câmera)",
+              "**O que isso significa**, em linguagem simples",
+              "**Como se conecta** ao que ele me contou",
+              "**O que podemos fazer**"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Usei as **palavras dele** ao explicar",
+              "Perguntei: “**Ficou claro até aqui?**”"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 06 · Diagnóstico",
+        "titulo": [
+          "Explicando em",
+          "[[palavras simples]]"
+        ],
+        "ts": 40,
+        "blocos": [
+          {
+            "tipo": "perguntas",
+            "largura": 96,
+            "itens": [
+              {
+                "k": "Implante",
+                "q": "“É uma **raiz nova, de titânio**, que fica no osso e segura o dente por cima.”"
+              },
+              {
+                "k": "Protocolo",
+                "q": "“São os dentes de cima ou de baixo **todos juntos e fixos**, parafusados nos implantes. Não sai pra dormir nem pra limpar.”"
+              },
+              {
+                "k": "Dentadura x protocolo",
+                "q": "“A dentadura **apoia na gengiva** e pode mexer. O protocolo fica **preso nos implantes**.”"
+              },
+              {
+                "k": "Osso",
+                "q": "“Quando o dente sai, o osso daquele lugar **vai diminuindo com o tempo**. Quanto antes a gente planeja, mais opções você tem.”"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 07 · Teoria do Y",
+        "titulo": [
+          "Teoria",
+          "do [[Y]]"
+        ],
+        "intro": "Ele veio por um caminho, foi deixando pra depois e chegou na bifurcação. Agora decide: **seguir igual** ou **mudar de caminho**.",
+        "blocos": [
+          {
+            "tipo": "y",
+            "altura": 400,
+            "esquerda": "Seguir igual",
+            "esquerdaTexto": "O que ele disse que incomoda **continua**: a prótese mexe, a comida fica de lado, o sorriso escondido.",
+            "direita": "Mudar o caminho",
+            "direitaTexto": "O que ele disse que **quer**: comer de tudo, sorrir na foto, segurança.",
+            "base": "Até aqui",
+            "baseTexto": "O caminho que **ele mesmo** contou."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 07 · Teoria do Y",
+        "titulo": [
+          "Qual caminho",
+          "você [[quer seguir]]?"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Depois do diagnóstico",
+            "texto": [
+              "“___, até aqui você veio por um caminho. A vida foi acontecendo, você foi deixando pra depois... e hoje chegou **neste ponto**.",
+              "Daqui saem dois caminhos. Um é **seguir igual**: ___ continua. O outro é **mudar de caminho**: ___.",
+              "**Qual dos dois você quer seguir?**”"
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "rotulo": "Confronto empático",
+            "passos": [
+              "Fala dele",
+              "Contradição",
+              "Pergunta"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Use só o que **ele disse**. Não invente dor, não crie culpa, não ameace."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 08 · Plano mestre",
+        "titulo": [
+          "Valor antes",
+          "do [[preço]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fluxo",
+            "rotulo": "Ponte de valor",
+            "passos": [
+              "Problema",
+              "Impacto",
+              "Desejo",
+              "Plano",
+              "Diferencial",
+              "Resultado"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Apresentei o **plano mestre completo** antes de dividir",
+              "Não julguei o bolso pela aparência",
+              "Procedimento é **caminho para um resultado**"
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "Exemplo",
+            "texto": [
+              "“Seu João, o senhor me disse que a prótese mexe, que deixou de comer carne e que quer sorrir no casamento da filha. **Este planejamento foi feito justamente pra isso.**”"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 08 · Plano mestre",
+        "titulo": [
+          "Valide o",
+          "[[plano]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "check",
+            "rotulo": "Antes do preço, pergunte",
+            "itens": [
+              "“Até aqui, o planejamento **faz sentido** pra você?”",
+              "“É isso que você **veio buscar**?”",
+              "“Ficou alguma **dúvida clínica** antes de falarmos do investimento?”"
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "O especialista",
+            "texto": [
+              "“Quem vai cuidar do seu tratamento é o(a) **Dr(a). ___**, especialista em ___. Eu planejo tudo e acompanho com ele(a).”"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Se não validou o plano, **não fale o preço**."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 09 · Investimento",
+        "titulo": [
+          "Fale o valor",
+          "com [[segurança]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "check",
+            "itens": [
+              "Sem interrupção, ele olhando pra mim",
+              "Estou presente, segura e com voz tranquila"
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "Ao apresentar",
+            "texto": [
+              "“Para fazer todo esse planejamento e devolver ___, o investimento é de **R$ ___**. A entrada fica em R$ ___ e o restante em ___ parcelas de R$ ___.",
+              "**Você prefere a entrada no dinheiro, no cartão ou no Pix?**”"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "rotulo": "Depois",
+            "texto": "CALE-SE. Mais de 5 segundos de silêncio: “Ficou alguma dúvida?” e silêncio de novo."
+          }
+        ]
+      },
+      {
+        "tema": "marinho",
+        "etiqueta": "Etapa 09 · Decisão",
+        "titulo": [
+          "Peça a",
+          "[[decisão]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "Eu realmente pedi?",
+            "texto": [
+              "“Diante de tudo que conversamos, **faz sentido começarmos agora?**”",
+              "ou: “Quer que a gente **já organize o início**?”"
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "passos": [
+              "Preço",
+              "Silêncio",
+              "Decisão"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Não justifiquei o preço",
+              "Não pedi desculpas",
+              "Não ofereci desconto sozinha"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Se ele disser sim: **pare de vender.**"
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 10 · Objeções",
+        "titulo": [
+          "Não rebata.",
+          "[[Investigue]]."
+        ],
+        "blocos": [
+          {
+            "tipo": "fluxo",
+            "passos": [
+              "Acolher",
+              "Investigar",
+              "Isolar",
+              "Responder",
+              "Verificar",
+              "Pedir decisão"
+            ]
+          },
+          {
+            "tipo": "perguntas",
+            "largura": 104,
+            "itens": [
+              {
+                "k": "“Está caro”",
+                "q": "“O que pesou: o **total**, a **entrada** ou a **parcela**?”"
+              },
+              {
+                "k": "“Vou pensar”",
+                "q": "“Claro. Pensar em qual parte? O que ainda ficou em dúvida?”"
+              },
+              {
+                "k": "“Vou falar com meu marido”",
+                "q": "“Faz todo sentido. **Vamos ligar pra ele agora** e eu explico junto?”"
+              }
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "Isolar",
+            "texto": [
+              "“Fora isso, existe **mais alguma coisa** que te impediria de começar?”"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 10 · Objeções",
+        "titulo": [
+          "Medos",
+          "[[comuns]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "perguntas",
+            "largura": 104,
+            "itens": [
+              {
+                "k": "Medo de dor",
+                "q": "“Me conta de onde vem esse medo.” Mostre o **depoimento** de alguém que tinha o mesmo medo."
+              },
+              {
+                "k": "Medo de ficar artificial",
+                "q": "Mostre **casos parecidos** com o dele, em foto e vídeo."
+              },
+              {
+                "k": "Medo de não conseguir pagar",
+                "q": "Volte ao que pesou (entrada ou parcela) e apresente a **condição normal**."
+              }
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "A primeira objeção é uma **hipótese**. Investigue."
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "Depois de resolver",
+            "texto": [
+              "“Perfeito. Resolvida essa questão, **podemos organizar o início?**”"
+            ]
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 10 · Negociação",
+        "titulo": [
+          "Negociar sem",
+          "[[desconto no pânico]]"
+        ],
+        "ts": 40,
+        "blocos": [
+          {
+            "tipo": "fluxo",
+            "vertical": true,
+            "passos": [
+              "Valor",
+              "Objeção real",
+              "Condição normal",
+              "Ajuste autorizado",
+              "Nova decisão"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "Estou dentro da **política comercial**",
+              "Só uso condição com **prazo real**",
+              "Toda concessão pede um **avanço** em troca"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "Nunca: preço → pânico → desconto."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Saída",
+        "titulo": [
+          "Ninguém sai",
+          "[[solto]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "check",
+            "rotulo": "Se não fechou, antes de sair eu sei",
+            "itens": [
+              "A **objeção real**",
+              "O plano mestre, o valor e a condição apresentados",
+              "Quem **influencia** a decisão",
+              "O **próximo passo**, a **data** e o responsável",
+              "Fiz o **handoff quente** para a CRC"
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "rotulo": "Resultados possíveis",
+            "passos": [
+              "Fechou",
+              "Fechou uma etapa",
+              "Retorno com data",
+              "Handoff quente"
+            ],
+            "sep": "ou"
+          },
+          {
+            "tipo": "regra",
+            "texto": "Nunca: “Qualquer coisa chama a gente.”"
+          }
+        ]
+      },
+      {
+        "tema": "vinho",
+        "etiqueta": "Na mesa",
+        "titulo": [
+          "Antes do preço,",
+          "[[eu sei]]?"
+        ],
+        "gap": 8,
+        "blocos": [
+          {
+            "tipo": "grandes",
+            "itens": [
+              "Por que agora?",
+              "Qual a dor?",
+              "Qual o impacto?",
+              "Qual o desejo?",
+              "Qual a frase exata?",
+              "Qual o medo?",
+              "Quem influencia?",
+              "O que ele valoriza?",
+              "Ele entendeu o diagnóstico?",
+              "Ele validou o plano?"
+            ]
+          }
+        ]
+      },
+      {
+        "tema": "marinho",
+        "etiqueta": "Na mesa",
+        "titulo": [
+          "Depois do",
+          "[[preço]]"
+        ],
+        "gap": 22,
+        "blocos": [
+          {
+            "tipo": "grandes",
+            "itens": [
+              "Falei com segurança?",
+              "Fiquei em silêncio?",
+              "Pedi a decisão?",
+              "Achei a objeção real?",
+              "Pedi de novo?",
+              "Defini o próximo passo?"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "texto": "A avaliadora de alta performance **constrói a decisão antes** de apresentar o preço."
+          }
+        ]
+      }
+    ]
+  }
+]
