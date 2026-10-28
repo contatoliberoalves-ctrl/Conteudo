@@ -508,6 +508,7 @@
           "Fale o valor",
           "com [[segurança]]"
         ],
+        "gap": 14,
         "blocos": [
           {
             "tipo": "check",
@@ -518,15 +519,59 @@
           },
           {
             "tipo": "fala",
-            "rotulo": "Ao apresentar",
+            "rotulo": "1 · O valor e as formas",
             "texto": [
-              "“Para fazer todo esse planejamento e devolver ___, o investimento é de **R$ ___**. A entrada fica em R$ ___ e o restante em ___ parcelas de R$ ___.",
-              "**Você prefere a entrada no dinheiro, no cartão ou no Pix?**”"
+              "“Para fazer todo esse planejamento e devolver ___, o investimento é de **R$ ___**.",
+              "Aqui na clínica você pode pagar **à vista, no Pix, no cartão ou no boleto parcelado**. O boleto é o que a maioria dos pacientes escolhe, porque facilita, e **em alguns casos conseguimos parcelar em até 24 meses**.”"
+            ]
+          },
+          {
+            "tipo": "fala",
+            "rotulo": "2 · As parcelas",
+            "texto": [
+              "“Parcelado, fica em ___ vezes de **R$ ___**. **Esse valor cabe no seu orçamento?**”"
             ]
           },
           {
             "tipo": "regra",
-            "rotulo": "Depois",
+            "texto": "Coube no orçamento? Vá direto para a **entrada**."
+          }
+        ]
+      },
+      {
+        "etiqueta": "Etapa 09 · Investimento",
+        "titulo": [
+          "Combine a",
+          "[[entrada]]"
+        ],
+        "blocos": [
+          {
+            "tipo": "fala",
+            "rotulo": "3 · A entrada",
+            "texto": [
+              "“Aqui na clínica o sistema pede **30% de entrada** para liberar o contrato, que fica em **R$ ___**. **Esse valor fica bom pra você?**",
+              "Se precisar, também conseguimos **parcelar a entrada em ___ vezes**.”"
+            ]
+          },
+          {
+            "tipo": "check",
+            "itens": [
+              "As parcelas da entrada dependem do **valor** e de **quanto ele pode dar no dia**",
+              "Não justifiquei o preço nem pedi desculpas"
+            ]
+          },
+          {
+            "tipo": "fluxo",
+            "passos": [
+              "Valor e formas",
+              "Parcelas",
+              "Entrada",
+              "Decisão"
+            ]
+          },
+          {
+            "tipo": "regra",
+            "rotulo": "Depois de cada pergunta",
             "texto": "CALE-SE. Mais de 5 segundos de silêncio: “Ficou alguma dúvida?” e silêncio de novo."
           }
         ]
