@@ -544,6 +544,41 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
   },
+  // Distrital: o mapa do estado em colmeia de distritos (um deles em vermelho, com o pino "seu distrito") e dois
+  // cartões de voto numerados por cima. Para reforma eleitoral, voto distrital, sistema de votação. Com "foto"
+  // (recorte PNG), a pessoa entra à direita e os cartões empilham à esquerda. Campos: pre, titulo, ts, votos
+  // ([{rotulo, texto}], 2), mapaY, cartoesY, distrito ([linha, coluna] do hexágono vermelho), texto (nota no pé), foto, fotoH, fotoX.
+  distrital(s, t, c) {
+    const R = COR.vermelho, F = !!s.foto, y0 = s.mapaY || 600, votos = lista(s.votos);
+    // Colmeia de hexágonos (ponta para cima) cobrindo do mapaY ao pé; um deles é o "seu distrito".
+    const r = 74, w = Math.sqrt(3) * r, hexs = [];
+    const alvo = s.distrito || (F ? [4, 1] : [4, 3]);
+    for (let lin = 0; lin * r * 1.5 < 1350 - y0 + r; lin++)
+      for (let col = -1; col * w < 1080 + w; col++) {
+        const cx = col * w + (lin % 2 ? w / 2 : 0), cy = y0 + lin * r * 1.5;
+        const pts = [...Array(6)].map((_, k) => { const a = Math.PI / 180 * (60 * k - 90); return `${(cx + (r - 5) * Math.cos(a)).toFixed(1)},${(cy + (r - 5) * Math.sin(a)).toFixed(1)}`; }).join(' ');
+        const eh = lin === alvo[0] && col === alvo[1];
+        hexs.push(`<polygon points="${pts}" fill="${eh ? R : `rgba(255,255,255,${[.05, .09, .14][(lin * 3 + col * 5) % 3]})`}" stroke="${eh ? '#fff' : 'rgba(255,255,255,.38)'}" stroke-width="${eh ? 6 : 3}"/>`);
+        if (eh) hexs.push(`<g transform="translate(${cx - 34} ${cy - 62})"><path d="M34 0C15 0 0 15 0 34c0 25 34 58 34 58s34-33 34-58C68 15 53 0 34 0z" fill="#fff"/><circle cx="34" cy="33" r="13" fill="${R}"/></g>
+          <rect x="${cx - 104}" y="${cy + r + 2}" width="208" height="40" rx="20" fill="#fff"/><text x="${cx}" y="${cy + r + 29}" text-anchor="middle" font-family="Schibsted Grotesk" font-weight="800" font-size="20" letter-spacing="2" fill="${R}">SEU DISTRITO</text>`);
+      }
+    const cartao = (v, i, rot) => `<div style="position:relative;width:${F ? 470 : 420}px;background:#fff;border-radius:26px;padding:${F ? '26px 30px 26px 30px' : '30px 32px'};box-shadow:0 30px 60px rgba(8,16,40,.45);transform:rotate(${rot}deg);display:flex;${F ? 'align-items:center;gap:22px' : 'flex-direction:column;gap:14px'}">
+        <span style="flex:none;width:${F ? 96 : 104}px;height:${F ? 96 : 104}px;border-radius:50%;background:${i ? COR.navyFundo : R};color:#fff;${TITULO};font-size:${F ? 70 : 76}px;line-height:1;display:flex;align-items:center;justify-content:center;padding-top:6px">${i + 1}</span>
+        <div><div style="${TITULO};font-size:${F ? 54 : 58}px;line-height:.95;color:${COR.navy}">${rico(v.rotulo, TEMAS.light)}</div>
+        <div style="font-size:${F ? 27 : 29}px;font-weight:600;line-height:1.25;color:#45506A;margin-top:8px">${rico(v.texto, TEMAS.light)}</div></div></div>`;
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 85% 10%,#2B6BF0 0%,${COR.azul} 40%,${COR.azulFundo} 100%);z-index:0"></div>
+      <svg width="1080" height="1350" style="position:absolute;inset:0;z-index:1;-webkit-mask-image:linear-gradient(180deg,transparent ${y0 - 120}px,#000 ${y0 + 160}px)">${hexs.join('')}</svg>
+      ${F ? `<img data-foto src="${foto(c, s.foto)}" style="position:absolute;right:${s.fotoX ?? -60}px;bottom:0;height:${s.fotoH || 780}px;z-index:2;filter:drop-shadow(0 30px 40px rgba(8,16,40,.5))">` : ''}
+      <div style="position:absolute;left:90px;right:90px;top:96px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 128}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      ${F ? `<div data-objeto style="position:absolute;left:70px;top:${s.cartoesY || y0 + 20}px;display:flex;flex-direction:column;gap:30px;z-index:3">${votos.map((v, i) => cartao(v, i, i ? 2 : -3)).join('')}</div>`
+        : `<div data-objeto style="position:absolute;left:70px;top:${s.cartoesY || y0 - 10}px;z-index:3">${votos[0] ? cartao(votos[0], 0, -5) : ''}</div>
+      <div data-objeto style="position:absolute;right:70px;top:${(s.cartoesY || y0 - 10) + 70}px;z-index:3">${votos[1] ? cartao(votos[1], 1, 4) : ''}</div>`}
+      ${s.texto ? `<div style="position:absolute;left:90px;right:${F ? 520 : 90}px;bottom:140px;font-size:34px;font-weight:700;line-height:1.3;color:#fff;text-shadow:0 2px 12px rgba(8,16,40,.6);z-index:4">${rico(s.texto, t)}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      ${F ? '' : `<div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`}`;
+  },
   // Convite: aviso "Atenção!" em selo vermelho, título com o público, um ingresso branco (canhoto "Grátis",
   // picote e furos laterais) com o recado e o logo do parceiro, e um comentário do Insta com a palavra-chave.
   // Com "foto" (recorte PNG sem fundo), a pessoa entra à direita e o ingresso fica mais estreito.
