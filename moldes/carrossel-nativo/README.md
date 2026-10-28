@@ -29,5 +29,6 @@ Blocos:
 - `y`: topo do bloco em px (0 a 1440) ou `topo`, `meio`, `base`.
 - `tam`: tamanho da letra em px (padrão 80, como nos exemplos do Insta; textos longos ficam bons com 55–68). Se uma linha não couber, o render diminui a letra sozinho, e blocos (ou o print) que se encostarem são afastados automaticamente.
 - `largura`: largura máxima da frase (padrão 1000).
+- `caixa`: `true` põe o texto todo numa caixa única arredondada, centralizado (para texto longo, como um prompt inteiro; bom com `tam` 32–36).
 
 O render avisa se um bloco sair da tela ou encostar em outro.

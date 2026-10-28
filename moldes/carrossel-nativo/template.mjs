@@ -23,6 +23,9 @@ function bloco(b) {
   const [bg, fg] = CORES[b.cor] || CORES.preto;
   const tam = b.tam || 80, y = typeof b.y === 'number' ? b.y : POS[b.y] ?? POS.meio;
   const linhas = esc(b.texto).replace(/\*\*(.+?)\*\*/g, '$1').split('\n');
+  // caixa: texto longo (ex.: um prompt inteiro) numa caixa única arredondada, centralizado.
+  if (b.caixa) return `<div data-bloco style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;z-index:3">
+    <div style="width:${b.largura || 960}px;background:${bg};color:${fg};border-radius:34px;padding:34px 40px;text-align:center;font-family:${FONTE};font-weight:800;font-size:${tam}px;line-height:1.38;text-wrap:pretty">${linhas.join('<br>')}</div></div>`;
   return `<div data-bloco style="position:absolute;left:0;right:0;top:${y}px;display:flex;justify-content:center;z-index:3">
     <div style="max-width:${b.largura || 1000}px;text-align:center;font-family:${FONTE};font-weight:800;font-size:${tam}px;line-height:1.32;letter-spacing:-.005em">
       ${linhas.map(l => `<span style="background:${bg};color:${fg};padding:.16em .48em .2em;border-radius:.34em;box-decoration-break:clone;-webkit-box-decoration-break:clone">${l}</span>`).join('<br>')}
