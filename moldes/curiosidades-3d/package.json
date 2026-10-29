@@ -1,0 +1,12 @@
+{
+  "name": "curiosidades-3d",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && pip install kokoro-onnx soundfile",
+    "gerar": "node gerar.mjs"
+  },
+  "dependencies": {
+    "three": "0.170.0"
+  }
+}

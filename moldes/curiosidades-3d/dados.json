@@ -1,0 +1,506 @@
+[
+  {
+    "id": "polvo-alienigena",
+    "titulo": "O polvo é praticamente um alienígena",
+    "voz": "pf_dora",
+    "selo": "VOCÊ SABIA?",
+    "elenco": {
+      "guia": {
+        "tipo": "guia",
+        "cor": "#ffb703",
+        "acessorio": "mascara"
+      },
+      "polvo": {
+        "tipo": "polvo",
+        "cor": "#e76f51"
+      }
+    },
+    "cenas": [
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "O polvo é praticamente um alienígena. Olha só!",
+        "texto": "O POLVO É UM *ALIEN*?",
+        "atores": [
+          {
+            "id": "polvo",
+            "pos": [
+              0.55,
+              -0.6
+            ],
+            "acao": "nadar"
+          },
+          {
+            "id": "guia",
+            "pos": [
+              -0.85,
+              0.7
+            ],
+            "acao": "entrar",
+            "de": "esquerda",
+            "olhar": "polvo"
+          }
+        ],
+        "camera": {
+          "tipo": "mergulho",
+          "alvo": [
+            0,
+            1.05,
+            0.3
+          ],
+          "dist": 6.2,
+          "altura": 0.6
+        }
+      },
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "Pra começar, ele tem três corações.",
+        "texto": "*3* CORAÇÕES",
+        "atores": [
+          {
+            "id": "polvo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "parado",
+            "humor": "feliz"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "coracoes",
+            "alvo": "polvo",
+            "quantidade": 3
+          }
+        ],
+        "camera": {
+          "tipo": "orbitar",
+          "alvo": "polvo",
+          "dist": 5.6,
+          "altura": 0.9,
+          "foco": 1.6
+        }
+      },
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "E o sangue dele é azul: ele usa cobre, e não ferro, pra carregar oxigênio.",
+        "texto": "SANGUE *AZUL*",
+        "atores": [
+          {
+            "id": "polvo",
+            "pos": [
+              -0.5,
+              0
+            ],
+            "acao": "nadar"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "gota",
+            "alvo": "polvo",
+            "cor": "#1e6bff",
+            "x": 1.35
+          }
+        ],
+        "camera": {
+          "tipo": "travelling",
+          "alvo": [
+            0.15,
+            1.2,
+            0
+          ],
+          "dist": 5.8,
+          "altura": 0.4
+        }
+      },
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "Ele muda de cor em menos de um segundo pra se esconder.",
+        "texto": "MUDA DE COR EM *< 1 s*",
+        "atores": [
+          {
+            "id": "polvo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "parado",
+            "camuflar": "#7d8f98",
+            "camuflarEm": 1.0
+          }
+        ],
+        "camera": {
+          "tipo": "aproximar",
+          "alvo": "polvo",
+          "dist": 4.6,
+          "altura": 0.7,
+          "angulo": -15
+        }
+      },
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "E dois terços dos neurônios ficam nos braços. Cada braço meio que pensa sozinho!",
+        "texto": "*2/3* DOS NEURÔNIOS NOS BRAÇOS",
+        "atores": [
+          {
+            "id": "polvo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "pensar",
+            "humor": "surpreso"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "neuronios",
+            "alvo": "polvo"
+          }
+        ],
+        "camera": {
+          "tipo": "subida",
+          "alvo": "polvo",
+          "dist": 5.2,
+          "altura": 0.8,
+          "foco": 0.6
+        }
+      },
+      {
+        "cenario": "fundo-do-mar",
+        "fala": "Segue pra mais curiosidades assim!",
+        "selo": "SEGUE PRA MAIS",
+        "atores": [
+          {
+            "id": "guia",
+            "pos": [
+              -0.55,
+              0.9
+            ],
+            "acao": "acenar+pular"
+          },
+          {
+            "id": "polvo",
+            "pos": [
+              0.85,
+              -0.6
+            ],
+            "acao": "nadar",
+            "olhar": "guia"
+          }
+        ],
+        "camera": {
+          "tipo": "afastar",
+          "alvo": [
+            0.1,
+            1.1,
+            0.2
+          ],
+          "dist": 5.6,
+          "altura": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "venus-dia-maior-que-ano",
+    "titulo": "Em Vênus, um dia dura mais que um ano",
+    "voz": "pf_dora",
+    "selo": "VOCÊ SABIA?",
+    "elenco": {
+      "guia": {
+        "tipo": "guia",
+        "cor": "#f1faee",
+        "calca": "#457b9d",
+        "acessorio": "capacete"
+      },
+      "venus": {
+        "tipo": "planeta",
+        "raio": 1.15,
+        "cor": "#f4d58d",
+        "cor2": "#e9a23b",
+        "faixas": true,
+        "rosto": true,
+        "crateras": 0,
+        "giro": -0.15
+      }
+    },
+    "cenas": [
+      {
+        "cenario": "espaco",
+        "fala": "Em Vênus, um dia dura mais do que um ano inteiro.",
+        "texto": "1 DIA > 1 *ANO*",
+        "atores": [
+          {
+            "id": "venus",
+            "pos": [
+              0.75,
+              -1.2
+            ],
+            "acao": "parado",
+            "humor": "feliz"
+          },
+          {
+            "id": "guia",
+            "pos": [
+              -0.7,
+              1.2
+            ],
+            "acao": "entrar",
+            "de": "cima",
+            "olhar": "venus"
+          }
+        ],
+        "camera": {
+          "tipo": "aproximar",
+          "alvo": [
+            0,
+            1.2,
+            0
+          ],
+          "dist": 6.4,
+          "altura": 0.5
+        }
+      },
+      {
+        "cenario": "espaco",
+        "fala": "Ele leva duzentos e quarenta e três dias pra dar uma volta em torno de si mesmo.",
+        "texto": "GIRAR UMA VEZ: *243 DIAS*",
+        "atores": [
+          {
+            "id": "venus",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "girar"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "numero",
+            "alvo": "venus",
+            "valor": "243",
+            "y": 3.4,
+            "tamanho": 1.3
+          }
+        ],
+        "camera": {
+          "tipo": "orbitar",
+          "alvo": "venus",
+          "dist": 6.3,
+          "altura": 0.9,
+          "foco": 1.5
+        }
+      },
+      {
+        "cenario": "espaco",
+        "fala": "Mas só duzentos e vinte e cinco pra dar a volta no Sol.",
+        "texto": "VOLTA NO SOL: *225 DIAS*",
+        "atores": [
+          {
+            "id": "venus",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "parado",
+            "humor": "surpreso"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "numero",
+            "alvo": "venus",
+            "valor": "225",
+            "y": 3.4,
+            "tamanho": 1.3,
+            "cor": "#4cc9f0"
+          }
+        ],
+        "camera": {
+          "tipo": "aproximar",
+          "alvo": "venus",
+          "dist": 6,
+          "altura": 0.6,
+          "foco": 1.5,
+          "angulo": 20
+        }
+      },
+      {
+        "cenario": "espaco",
+        "fala": "E lá o Sol nasce no oeste, porque Vênus gira ao contrário.",
+        "texto": "O SOL NASCE NO *OESTE*",
+        "atores": [
+          {
+            "id": "guia",
+            "pos": [
+              -0.6,
+              1.2
+            ],
+            "acao": "apontar+surpreso",
+            "olhar": "venus"
+          },
+          {
+            "id": "venus",
+            "pos": [
+              0.9,
+              -0.8
+            ],
+            "acao": "girar"
+          }
+        ],
+        "efeitos": [
+          {
+            "tipo": "simbolos",
+            "alvo": "guia",
+            "texto": "?",
+            "cor": "#ffd60a"
+          }
+        ],
+        "camera": {
+          "tipo": "travelling",
+          "alvo": [
+            0.1,
+            1.3,
+            0.2
+          ],
+          "dist": 6.2,
+          "altura": 0.4
+        }
+      },
+      {
+        "cenario": "espaco",
+        "fala": "Segue pra mais curiosidades assim!",
+        "selo": "SEGUE PRA MAIS",
+        "atores": [
+          {
+            "id": "guia",
+            "pos": [
+              -0.6,
+              1
+            ],
+            "acao": "acenar+pular"
+          },
+          {
+            "id": "venus",
+            "pos": [
+              0.9,
+              -0.9
+            ],
+            "acao": "parado",
+            "humor": "feliz"
+          }
+        ],
+        "camera": {
+          "tipo": "afastar",
+          "alvo": [
+            0.1,
+            1.2,
+            0.2
+          ],
+          "dist": 5.8,
+          "altura": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "personagem-teste",
+    "titulo": "Personagem teste: Téo",
+    "voz": "pm_alex",
+    "selo": "PERSONAGEM TESTE",
+    "narrador": "teo",
+    "fov": 34,
+    "elenco": {
+      "teo": {
+        "tipo": "garoto"
+      }
+    },
+    "cenas": [
+      {
+        "cenario": "estudio",
+        "cenarioOpcoes": {
+          "cor": "#cdd2da",
+          "objetos": false
+        },
+        "fala": "Oi! Eu sou o Téo, o personagem teste.",
+        "texto": "OI, EU SOU O *TÉO*",
+        "atores": [
+          {
+            "id": "teo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "parado",
+            "humor": "feliz"
+          }
+        ],
+        "camera": {
+          "tipo": "aproximar",
+          "alvo": "teo",
+          "dist": 2.7,
+          "altura": 0.05,
+          "foco": 0.9
+        }
+      },
+      {
+        "cenario": "estudio",
+        "cenarioOpcoes": {
+          "cor": "#cdd2da",
+          "objetos": false
+        },
+        "fala": "Fui feito só com código: sem editor de vídeo e sem modelagem.",
+        "texto": "FEITO SÓ COM *CÓDIGO*",
+        "atores": [
+          {
+            "id": "teo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "parado",
+            "humor": "surpreso"
+          }
+        ],
+        "camera": {
+          "tipo": "orbitar",
+          "alvo": "teo",
+          "dist": 3.0,
+          "altura": 0.1,
+          "foco": 0.75,
+          "angulo": 10
+        }
+      },
+      {
+        "cenario": "estudio",
+        "cenarioOpcoes": {
+          "cor": "#cdd2da",
+          "objetos": false
+        },
+        "fala": "Gostou? Então me diz o que mudar!",
+        "selo": "E AÍ, GOSTOU?",
+        "atores": [
+          {
+            "id": "teo",
+            "pos": [
+              0,
+              0
+            ],
+            "acao": "acenar",
+            "humor": "feliz"
+          }
+        ],
+        "camera": {
+          "tipo": "afastar",
+          "alvo": "teo",
+          "dist": 3.6,
+          "altura": 0.2,
+          "foco": 0.5
+        }
+      }
+    ]
+  }
+]
