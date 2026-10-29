@@ -2,6 +2,7 @@
 import * as THREE from "three";
 import { material, cor, rng, TuboVivo, ruido, hash } from "./util.js";
 import { peixe, planeta } from "./personagens.js";
+import { toon, contornar } from "./toon.js";
 
 function degrade(cores, alto = 512) {
   const c = document.createElement("canvas");
@@ -311,4 +312,132 @@ export function estudio(op = {}) {
   };
 }
 
-export const CENARIOS = { "fundo-do-mar": fundoDoMar, espaco, estudio };
+
+
+// ---------------------------------------------------------------- Quarto (ilustração, noite chuvosa)
+
+export function quarto(op = {}) {
+  const grupo = new THREE.Group();
+  const parede = toon(op.parede || "#56606b");
+  const piso = toon(op.piso || "#4a3d33");
+  const madeira = toon("#6b4f3a");
+  const tecidoSofa = toon(op.sofa || "#5e5650");
+  const caixa = (w, h, d, mat, x, y, z) => {
+    const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+    o.position.set(x, y, z);
+    o.castShadow = o.receiveShadow = true;
+    grupo.add(o);
+    return o;
+  };
+
+  // Piso de tábuas (faixas alternadas) e paredes.
+  for (let i = -8; i <= 8; i++) caixa(0.5, 0.02, 9, i % 2 ? piso : toon("#43372e"), i * 0.5, -0.01, -0.5).userData.semContorno = true;
+  caixa(9, 5, 0.1, parede, 0, 2.5, -3.2).userData.semContorno = true;
+  caixa(0.1, 5, 9, toon("#4b545e"), -3.6, 2.5, 0).userData.semContorno = true;
+  caixa(9, 0.12, 0.06, toon("#3c434b"), 0, 0.06, -3.13);
+
+  // Janela com grade e chuva lá fora.
+  const jx = 1.3, jy = 2.0;
+  const vidro = new THREE.Mesh(new THREE.PlaneGeometry(2.0, 1.9), new THREE.MeshBasicMaterial({ color: op.ceu || "#2d4763" }));
+  vidro.position.set(jx, jy, -3.14);
+  vidro.userData.semContorno = true;
+  grupo.add(vidro);
+  const moldura = toon("#c9cdd2");
+  caixa(2.2, 0.1, 0.12, moldura, jx, jy + 1.0, -3.1);
+  caixa(2.2, 0.14, 0.25, moldura, jx, jy - 1.0, -3.05);
+  caixa(0.1, 2.0, 0.12, moldura, jx - 1.05, jy, -3.1);
+  caixa(0.1, 2.0, 0.12, moldura, jx + 1.05, jy, -3.1);
+  caixa(0.06, 1.9, 0.1, moldura, jx, jy, -3.1);
+  for (let i = 1; i < 5; i++) caixa(0.025, 1.9, 0.05, toon("#8d939b"), jx - 1 + i * 0.4, jy, -3.07);
+  caixa(2.0, 0.04, 0.08, moldura, jx, jy + 0.2, -3.08);
+  // Prédios ao longe.
+  const predio = new THREE.MeshBasicMaterial({ color: "#1f3048" });
+  [[-0.7, 0.9, 0.35], [-0.25, 0.6, 0.3], [0.2, 1.1, 0.4], [0.65, 0.7, 0.3]].forEach(([x, h, w]) => {
+    const o = new THREE.Mesh(new THREE.PlaneGeometry(w, h), predio);
+    o.position.set(jx + x, jy - 0.95 + h / 2, -3.13);
+    o.userData.semContorno = true;
+    grupo.add(o);
+  });
+  const chuva = [];
+  const mChuva = new THREE.MeshBasicMaterial({ color: "#8fb3d9", transparent: true, opacity: 0.55 });
+  for (let i = 0; i < 40; i++) {
+    const o = new THREE.Mesh(new THREE.PlaneGeometry(0.008, 0.12), mChuva);
+    o.rotation.z = 0.15;
+    grupo.add(o);
+    chuva.push({ o, x: jx - 0.95 + hash(i, 1) * 1.9, v: 2.5 + hash(i, 2) * 1.5, f: hash(i, 3) * 2 });
+  }
+
+  // Sofá à direita, mesa lateral com abajur à esquerda, quadro na parede.
+  const sofa = new THREE.Group();
+  sofa.position.set(op.sofaX ?? 2.2, 0, -2.3);
+  grupo.add(sofa);
+  const add = (geo, mat, x, y, z) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; sofa.add(o); return o; };
+  add(new THREE.BoxGeometry(2.2, 0.42, 0.9), tecidoSofa, 0, 0.3, 0);
+  add(new THREE.BoxGeometry(2.2, 0.7, 0.25), tecidoSofa, 0, 0.75, -0.35);
+  add(new THREE.CapsuleGeometry(0.16, 0.6, 8, 16), tecidoSofa, -1.08, 0.62, 0.0).rotation.x = Math.PI / 2;
+  add(new THREE.BoxGeometry(0.95, 0.14, 0.75), toon("#6a625b"), -0.5, 0.56, 0.05);
+  add(new THREE.BoxGeometry(0.95, 0.14, 0.75), toon("#6a625b"), 0.5, 0.56, 0.05);
+
+  const mesa = new THREE.Group();
+  mesa.position.set(-2.3, 0, -2.4);
+  grupo.add(mesa);
+  const tampo = new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.06, 0.5), madeira);
+  tampo.position.y = 0.62;
+  mesa.add(tampo);
+  [[-0.3, -0.2], [0.3, -0.2], [-0.3, 0.2], [0.3, 0.2]].forEach(([x, z]) => {
+    const p = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.6, 0.05), madeira);
+    p.position.set(x, 0.3, z);
+    mesa.add(p);
+  });
+  const haste = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.45, 12), toon("#2e3035"));
+  haste.position.y = 0.88;
+  mesa.add(haste);
+  const cupula = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.22, 0.26, 32, 1, true), toon("#e8cf9f", { side: THREE.DoubleSide, emissive: new THREE.Color("#7a5a2a") }));
+  cupula.position.y = 1.15;
+  mesa.add(cupula);
+  const luzAbajur = new THREE.PointLight("#ffb46b", 4.5, 6, 1.6);
+  luzAbajur.position.set(0, 1.1, 0.1);
+  luzAbajur.castShadow = true;
+  luzAbajur.shadow.mapSize.set(512, 512);
+  mesa.add(luzAbajur);
+
+  const quadro = new THREE.Group();
+  quadro.position.set(-1.2, 2.3, -3.12);
+  grupo.add(quadro);
+  quadro.add(new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.75, 0.05), toon("#2f2a26")));
+  const arte = new THREE.Mesh(new THREE.PlaneGeometry(0.46, 0.6), toon("#7d8a73"));
+  arte.position.z = 0.03;
+  quadro.add(arte);
+
+  contornar(grupo, 0.012);
+
+  // Luz: azul fria da janela + abajur quente + preenchimento fraco.
+  grupo.add(new THREE.AmbientLight(new THREE.Color("#a9b8cc"), 1.0));
+  const janela = new THREE.DirectionalLight(new THREE.Color("#a9c7ee"), 1.6);
+  janela.position.set(jx + 1, 4, -6);
+  janela.target.position.set(0, 0, 1);
+  grupo.add(janela, janela.target);
+  const frente = new THREE.DirectionalLight(new THREE.Color("#dfe6f0"), 2.0);
+  frente.position.set(2, 4, 6);
+  frente.castShadow = true;
+  frente.shadow.mapSize.set(1024, 1024);
+  frente.shadow.bias = -0.0006;
+  frente.shadow.normalBias = 0.03;
+  frente.shadow.camera.left = -5; frente.shadow.camera.right = 5; frente.shadow.camera.top = 5; frente.shadow.camera.bottom = -5;
+  grupo.add(frente, frente.target);
+
+  return {
+    grupo,
+    fundo: new THREE.Color("#1d2229"),
+    neblina: null,
+    atualizar(t) {
+      for (const c of chuva) {
+        const y = 1.9 - (((t + c.f) * c.v) % 1.9);
+        c.o.position.set(c.x - (1.9 - y) * 0.15 + 0.15, jy - 0.95 + y, -3.12);
+      }
+    },
+  };
+}
+
+
+export const CENARIOS = { "fundo-do-mar": fundoDoMar, espaco, estudio, quarto };

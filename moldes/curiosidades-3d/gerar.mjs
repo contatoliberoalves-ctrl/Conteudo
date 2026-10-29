@@ -157,7 +157,8 @@ function montar(r) {
   // Voz contínua: cada fala no início da sua cena.
   const narracao = path.join(dest, "voz", "narracao.wav");
   const entradas = cenas.filter((c) => c.arquivo);
-  ffmpeg([
+  if (!entradas.length) ffmpeg(["-f", "lavfi", "-t", String(total), "-i", "anullsrc=r=48000:cl=mono", narracao]);
+  else ffmpeg([
     "-f", "lavfi", "-t", String(total), "-i", "anullsrc=r=24000:cl=mono",
     ...entradas.flatMap((c) => ["-i", c.arquivo]),
     "-filter_complex",
@@ -197,6 +198,8 @@ function montar(r) {
     selo: r.selo,
     narrador: r.narrador || "guia",
     fov: r.fov,
+    descer: r.descer,
+    estilo: r.estilo,
     exposicao: r.exposicao,
     elenco: r.elenco,
     envelope: env,

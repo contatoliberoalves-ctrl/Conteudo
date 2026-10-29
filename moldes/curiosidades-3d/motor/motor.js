@@ -25,6 +25,11 @@ const cena = new THREE.Scene();
 const pmrem = new THREE.PMREMGenerator(renderer);
 cena.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 cena.environmentIntensity = 0.45;
+if (R.estilo === "ilustracao") {
+  // Ilustração: sem reflexo de ambiente nem curva de filme, cores chapadas.
+  cena.environment = null;
+  renderer.toneMapping = THREE.NoToneMapping;
+}
 
 const camera = new THREE.PerspectiveCamera(R.fov || 42, W / H, 0.1, 200);
 const fonte = new Font(window.FONTE3D);
@@ -254,6 +259,7 @@ function atualizarTexto(t, c, tl) {
     });
   }
   elBarra.style.transform = `scaleX(${clamp(t / R.duracao)})`;
+  elBarra.style.display = R.cenas.some((x) => x.fala) ? "block" : "none";
 }
 
 // ---------------------------------------------------------------- Quadro

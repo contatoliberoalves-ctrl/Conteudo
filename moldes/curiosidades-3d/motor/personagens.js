@@ -4,6 +4,7 @@
 //   piscar (0–1), humor ("normal" | "feliz" | "surpreso"), cor (cor de camuflagem ou null).
 import * as THREE from "three";
 import { garoto } from "./garoto.js";
+import { cabecudo } from "./cabecudo.js";
 import { material, cor, lerp, clamp, smooth, ruido, rng, TuboVivo, hash } from "./util.js";
 
 const esfera = (r, seg = 32) => new THREE.SphereGeometry(r, seg, Math.round(seg * 0.75));
@@ -373,4 +374,4 @@ export function peixe(op = {}) {
   };
 }
 
-export const PERSONAGENS = { guia, polvo, planeta, peixe, garoto };
+export const PERSONAGENS = { guia, polvo, planeta, peixe, garoto, cabecudo };

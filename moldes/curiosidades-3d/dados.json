@@ -502,5 +502,80 @@
         }
       }
     ]
+  },
+  {
+    "id": "cabecudo-teste",
+    "titulo": "Personagem estilo ilustração",
+    "narrador": "nenhum",
+    "fov": 34,
+    "descer": 0.0,
+    "elenco": {
+      "kaique": {
+        "tipo": "cabecudo",
+        "cabelo": "topete",
+        "corRoupa": "#d9a43f",
+        "pose": "celular"
+      },
+      "benji": {
+        "tipo": "cabecudo",
+        "cabelo": "gorro",
+        "roupa": "jaqueta",
+        "corRoupa": "#d8dbde",
+        "cachecol": "#7a5236",
+        "calca": "#2f3b4f",
+        "tenis": "#2a2b30",
+        "sola": "#d9d6cf"
+      }
+    },
+    "cenas": [
+      {
+        "cenario": "quarto",
+        "minimo": 2,
+        "atores": [
+          {
+            "id": "kaique",
+            "pos": [
+              0,
+              0.2
+            ],
+            "acao": "parado",
+            "humor": "desconfiado"
+          }
+        ],
+        "camera": {
+          "tipo": "fixa",
+          "alvo": "kaique",
+          "dist": 5.4,
+          "altura": 0.35,
+          "foco": 0.5,
+          "tremor": 0
+        }
+      },
+      {
+        "cenario": "quarto",
+        "minimo": 2,
+        "atores": [
+          {
+            "id": "benji",
+            "pos": [
+              0,
+              0.2
+            ],
+            "acao": "parado",
+            "humor": "preocupado",
+            "giro": -20
+          }
+        ],
+        "camera": {
+          "tipo": "fixa",
+          "alvo": "benji",
+          "dist": 5.4,
+          "altura": 0.35,
+          "foco": 0.5,
+          "tremor": 0
+        }
+      }
+    ],
+    "estilo": "ilustracao"
   }
 ]
