@@ -1,9 +1,10 @@
-"""Suporte para Vade Mecum, versão leve (econômica e mais bonita).
+"""Suporte para Vade Mecum, versão leve (econômica).
 
 Peças:
-  - lateral.stl  (imprimir 2x): perfil fino de traço arredondado, base em arco
-    que só toca a mesa nos dois pés.
-  - placa.stl    (imprimir 1x): travessa da frente, chata, com o nome gravado.
+  - lateral.stl  (imprimir 2x): perfil em vela, de contorno contínuo com uma
+    janela só e base em arco que só toca a mesa nos dois pés.
+  - placa.stl    (imprimir 1x): travessa da frente, chata, com o nome em relevo
+    (troque o filamento na camada do relevo para o nome sair em outra cor).
     Fica de pé sob o aparador, virada para quem estuda.
   - travessa.stl (imprimir 1x): travessa de trás.
 
@@ -21,30 +22,36 @@ import trimesh
 from matplotlib.font_manager import FontProperties
 from matplotlib.textpath import TextPath
 from shapely import affinity
-from shapely.geometry import LineString, Polygon, box
+from shapely.geometry import Polygon, box
 from shapely.ops import unary_union
 
 # ---------- parâmetros ----------
 ANGULO = 62          # inclinação da rampa (graus)
-RAMPA = 170          # comprimento da rampa onde o livro encosta
-TRACO = 8            # largura do traço do perfil
-APARADOR = 46        # fundo do aparador (meio Vade Mecum aberto, ~4 cm)
+RAMPA = 172          # comprimento da face onde o livro encosta
+ESP = 9              # espessura do contorno da lateral
+APARADOR = 72        # fundo do aparador: cabe o lado grosso do Vade Mecum
+                     # aberto no começo ou no fim (até ~7 cm)
 ABA = 14             # altura da aba que segura o livro
-ARCO = 7             # quanto a base sobe no meio (só os pés tocam a mesa)
-LARGURA = 16         # espessura de cada lateral (altura de impressão)
+ARCO = 5             # quanto a base sobe no meio (só os pés tocam a mesa)
+LARGURA = 15         # espessura de cada lateral (altura de impressão)
 VAO = 150            # vão livre entre as laterais
-PLACA = (22, 7)      # placa da frente: altura x espessura
+PLACA = (24, 7)      # placa da frente: altura x espessura
 BARRA = 9            # travessa de trás, seção quadrada
 FOLGA = 0.2          # folga de cada lado nos encaixes
-GRAVACAO = 0.8       # profundidade do nome gravado na placa
-NOME = sys.argv[1] if len(sys.argv) > 1 else "VADE MECUM"
+RELEVO = 1.0         # altura do nome em relevo na placa (troca de cor nessa camada)
+NOME = sys.argv[1] if len(sys.argv) > 1 else "@liberofilho"
 
 SAIDA = Path(__file__).parent
-r = TRACO / 2
 
 
-def traco(*pts):
-    return LineString(pts).buffer(r, cap_style=1, join_style=1, quad_segs=24)
+def arredondar(p, convexo, concavo):
+    p = p.buffer(-convexo, quad_segs=24).buffer(convexo, quad_segs=24)
+    return p.buffer(concavo, quad_segs=24).buffer(-concavo, quad_segs=24)
+
+
+def bezier(p0, c, p1, k=24):
+    t = np.linspace(0, 1, k)[:, None]
+    return (1 - t) ** 2 * p0 + 2 * (1 - t) * t * c + t ** 2 * p1
 
 
 def perfil():
@@ -52,53 +59,41 @@ def perfil():
     u = np.array([-math.cos(a), math.sin(a)])   # sobe a rampa
     n = np.array([math.sin(a), math.cos(a)])    # para o leitor
 
-    # o = pé da face da rampa; a placa da frente fica sob o aparador
-    altura_aparador = PLACA[0] + TRACO + 6
-    o = np.array([0.0, altura_aparador + r])
-    c_ramp = -n * r                                  # eixo da rampa (atrás da face)
-    topo = o + c_ramp + u * RAMPA
-    canto = o + c_ramp - u * r                       # junção rampa/aparador
-    ponta = o - u * r + n * (APARADOR + r)           # fim do aparador
-    aba = ponta + u * (ABA + r)
+    # o = canto onde o livro encosta (face da rampa x aparador)
+    o = np.array([0.0, PLACA[0] + 18])
+    topo = o + u * RAMPA                         # alto da face
+    topo_tras = topo - n * 13
+    ponta = o + n * APARADOR                     # fim do aparador (base da aba)
+    aba_in = ponta + u * ABA
+    aba_out = aba_in + n * 9
+    frente = ponta + n * 9 - u * ESP             # quina de baixo da aba, por fora
+    pe_frente = np.array([frente[0], 0.0])
+    pe_tras = np.array([topo_tras[0] - 18, 0.0])
 
-    pe_tras = np.array([topo[0] - 6, r])
-    pe_frente = np.array([ponta[0], r])
-    meio = (pe_tras + pe_frente) / 2 + (0, ARCO)
-    base = [pe_tras + (0, 0), pe_tras + (18, ARCO * 0.55), meio,
-            pe_frente - (18, -ARCO * 0.55), pe_frente]
+    costas = bezier(topo_tras, np.array([topo_tras[0] - 6, 55]), pe_tras + (0, 0.01))
+    base = bezier(pe_tras + (22, 0), np.array([(pe_tras[0] + pe_frente[0]) / 2, ARCO * 2]),
+                  pe_frente - (22, 0))
+    contorno = [o, topo, topo_tras, *costas, pe_tras, *base, pe_frente, frente,
+                aba_out, aba_in, ponta]
+    casca = arredondar(Polygon(contorno).buffer(0), 3.5, 6)
 
-    escora_ini = canto + u * (RAMPA * 0.45)
-    escora_fim = np.array([escora_ini[0] - 8, ARCO + r * 0.6])
-
-    p = unary_union([
-        traco(canto, topo),                  # rampa
-        traco(canto, ponta, aba),            # aparador e aba
-        traco(topo, pe_tras),                # perna de trás
-        traco(*base),                        # base em arco
-        traco(ponta, pe_frente),             # perna da frente
-        traco(escora_ini, escora_fim),       # escora
-    ])
-    # concordâncias nas junções internas
-    p = p.buffer(5, quad_segs=24).buffer(-5, quad_segs=24)
-
-    # encaixe da placa (de pé, sob o aparador) e da travessa de trás (no pé)
+    # encaixes: placa de pé na frente, sob o aparador; travessa no pé de trás
     pw, ph = PLACA[1] + 2 * FOLGA, PLACA[0] + 2 * FOLGA
-    px = ponta[0] - r - 3                     # rente à perna da frente, por dentro
-    reforco_p = box(px - pw - 4, ARCO, px + 0.1, ARCO + ph + 8).buffer(3, quad_segs=12)
+    px1 = pe_frente[0] - ESP
+    furo_p = box(px1 - pw, ARCO + 6, px1, ARCO + 6 + ph)
     b = BARRA + 2 * FOLGA
-    bx, by = pe_tras[0] + r + b / 2 + 3, ARCO + b / 2 + 4
-    reforco_b = box(bx - b / 2 - 4, by - b / 2 - 4, bx + b / 2 + 4, by + b / 2 + 4).buffer(3, quad_segs=12)
-    p = unary_union([p, reforco_p, reforco_b]).buffer(3, quad_segs=12).buffer(-3, quad_segs=12)
-    # janelas pequenas que sobram perto dos reforços ficam cheias
-    p = Polygon(p.exterior, [i for i in p.interiors if Polygon(i).area > 600])
-    furo_p = box(px - pw, ARCO + 4, px, ARCO + 4 + ph)
+    bx, by = pe_tras[0] + ESP + 4 + b / 2, ARCO + 4 + b / 2
     furo_b = box(bx - b / 2, by - b / 2, bx + b / 2, by + b / 2)
-    p = p.difference(furo_p).difference(furo_b)
-    # apoio plano nos pés (1 mm) para não balançar
+
+    # uma janela só, acompanhando o contorno, longe dos encaixes
+    janela = casca.buffer(-ESP, join_style=1)
+    janela = janela.difference(furo_p.buffer(ESP)).difference(furo_b.buffer(ESP))
+    janela = janela.difference(box(-500, -10, 500, ARCO + ESP))
+    janela = max(getattr(janela, "geoms", [janela]), key=lambda g: g.area)
+    janela = arredondar(janela, 12, 0.01)
+    p = casca.difference(janela).difference(furo_p).difference(furo_b)
     p = p.difference(box(-500, -10, 500, 0))
-    p = affinity.translate(p, 0, -p.bounds[1])
-    return p, dict(o=o, u=u, n=n, placa=(px - pw / 2, ARCO + 4 + ph / 2 - p.bounds[1]),
-                   barra=(bx, by))
+    return p, dict(o=o, u=u, n=n, placa=((px1 - pw / 2), ARCO + 6 + ph / 2), barra=(bx, by))
 
 
 def extrudar(poly, altura):
@@ -133,14 +128,14 @@ def main():
     comp = VAO + 2 * LARGURA
     placa = trimesh.creation.box((comp, PLACA[0], PLACA[1]))
     placa.apply_translation(-placa.bounds[0])
-    # nome gravado no centro, só na parte visível (entre as laterais)
+    # nome em relevo no centro, só na parte visível (entre as laterais)
     t = texto(NOME, PLACA[0] * 0.5, VAO - 24)
-    tx = (comp - t.bounds[2]) / 2
-    ty = (PLACA[0] - t.bounds[3]) / 2
-    t = affinity.translate(t, tx, ty)
-    corte = extrudar(t, GRAVACAO + 1)
-    corte.apply_translation((0, 0, PLACA[1] - GRAVACAO))
-    placa = placa.difference(corte)
+    t = affinity.translate(t, (comp - t.bounds[2]) / 2, (PLACA[0] - t.bounds[3]) / 2)
+    letras = extrudar(t, RELEVO)
+    letras.apply_translation((0, 0, PLACA[1]))
+    placa.export(SAIDA / "render" / "placa-base.stl")      # só para as imagens 3D,
+    letras.export(SAIDA / "render" / "placa-letras.stl")   # com o nome em outra cor
+    placa = placa.union(letras)
     placa.export(SAIDA / "placa.stl")
 
     travessa = trimesh.creation.box((comp, BARRA, BARRA))
@@ -158,7 +153,7 @@ def main():
     (SAIDA / "montagem.json").write_text(json.dumps({
         "largura": LARGURA, "vao": VAO, "comp": comp, "placa": PLACA, "barra": BARRA,
         "pos_placa": info["placa"], "pos_barra": info["barra"], "angulo": ANGULO,
-        "o": info["o"].tolist(), "aparador": APARADOR, "traco": TRACO,
+        "o": info["o"].tolist(), "aparador": APARADOR, "relevo": RELEVO,
     }, indent=1))
     desenho(p)
 
@@ -169,17 +164,17 @@ def desenho(p):
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(figsize=(6, 7))
     x, y = p.exterior.xy
-    ax.fill(x, y, color="#dbe5f1", ec="#1f3a5f", lw=1.4)
+    ax.fill(x, y, color="#e4dbf3", ec="#4b2a7a", lw=1.4)
     for i in p.interiors:
         x, y = i.xy
-        ax.fill(x, y, color="white", ec="#1f3a5f", lw=1.2)
+        ax.fill(x, y, color="white", ec="#4b2a7a", lw=1.2)
     minx, miny, maxx, maxy = p.bounds
-    kw = dict(arrowprops=dict(arrowstyle="<->", color="#b23a3a", lw=1))
+    kw = dict(arrowprops=dict(arrowstyle="<->", color="#7d4cc2", lw=1))
     ax.annotate("", (minx, -9), (maxx, -9), **kw)
-    ax.text((minx + maxx) / 2, -17, f"{maxx - minx:.0f} mm", color="#b23a3a", ha="center",
+    ax.text((minx + maxx) / 2, -17, f"{maxx - minx:.0f} mm", color="#7d4cc2", ha="center",
             fontsize=10, fontweight="bold")
     ax.annotate("", (minx - 9, 0), (minx - 9, maxy), **kw)
-    ax.text(minx - 14, maxy / 2, f"{maxy:.0f} mm", color="#b23a3a", ha="right", va="center",
+    ax.text(minx - 14, maxy / 2, f"{maxy:.0f} mm", color="#7d4cc2", ha="right", va="center",
             fontsize=10, fontweight="bold")
     ax.set_aspect("equal")
     ax.axis("off")

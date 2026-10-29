@@ -11,7 +11,7 @@ const q = new URLSearchParams(location.search);
 const comLivro = q.get('livro') === '1';
 const vista = q.get('vista') || 'frente';
 const W = +q.get('w') || 1600, H = +q.get('h') || 1200;
-const cor = { lateral: q.get('cl') || '#24426b', placa: q.get('cp') || '#d9a441' };
+const cor = { lateral: q.get('cl') || '#8a5cd6', placa: q.get('cp') || '#3f1f73', letras: q.get('ct') || '#efe6ff' };
 const M = await (await fetch('../montagem.json')).json();
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
@@ -27,15 +27,15 @@ sol.position.set(260, 420, 320); sol.castShadow = true;
 sol.shadow.mapSize.set(4096, 4096); sol.shadow.radius = 6; sol.shadow.bias = -0.0004;
 Object.assign(sol.shadow.camera, { left: -700, right: 700, top: 700, bottom: -700, near: 1, far: 1500 });
 sol.target.position.set(0, 0, M.comp / 2); scene.add(sol, sol.target);
-scene.add(new THREE.HemisphereLight(0xffffff, 0xd8d2c8, 0.6));
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd9d0ec, 0.6));
 
 const chao = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), new THREE.ShadowMaterial({ opacity: 0.22 }));
 chao.rotation.x = -Math.PI / 2; chao.receiveShadow = true; scene.add(chao);
 
 const plast = c => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.55, metalness: 0, clearcoat: 0.15, clearcoatRoughness: 0.6 });
 const loader = new STLLoader();
-const carregar = n => new Promise(r => loader.load('../' + n + '.stl', g => { g.computeVertexNormals(); r(g); }));
-const [gLat, gPlaca, gTrav] = await Promise.all(['lateral', 'placa', 'travessa'].map(carregar));
+const carregar = n => new Promise(r => loader.load(n, g => { g.computeVertexNormals(); r(g); }));
+const [gLat, gPlaca, gLetras, gTrav] = await Promise.all(['../lateral.stl', 'placa-base.stl', 'placa-letras.stl', '../travessa.stl'].map(carregar));
 const malha = (g, c) => { const m = new THREE.Mesh(g, plast(c)); m.castShadow = m.receiveShadow = true; return m; };
 
 const grupo = new THREE.Group(); scene.add(grupo);
@@ -46,6 +46,7 @@ function barra(g, c, cx, cy, alt, esp) {
   m.position.set(cx - esp / 2, cy - alt / 2, M.comp); grupo.add(m);
 }
 barra(gPlaca, cor.placa, M.pos_placa[0], M.pos_placa[1], M.placa[0], M.placa[1]);
+barra(gLetras, cor.letras, M.pos_placa[0], M.pos_placa[1], M.placa[0], M.placa[1]);
 barra(gTrav, cor.placa, M.pos_barra[0], M.pos_barra[1], M.barra, M.barra);
 
 if (comLivro) {
@@ -65,7 +66,7 @@ if (comLivro) {
     }
     const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
   })();
-  const capa = new THREE.MeshStandardMaterial({ color: '#7a1f24', roughness: 0.7 });
+  const capa = new THREE.MeshStandardMaterial({ color: '#2a1846', roughness: 0.7 });
   const miolo = new THREE.MeshStandardMaterial({ color: '#efe8d8', roughness: 0.9 });
   const pagina = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85 });
   const esp = 34, alt = 240, larg = 165, meio = M.comp / 2;

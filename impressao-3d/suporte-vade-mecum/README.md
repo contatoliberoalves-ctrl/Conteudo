@@ -1,17 +1,17 @@
 # Suporte para Vade Mecum (impressão 3D)
 
 ## Versão leve (recomendada para vender)
-Pasta `leve/`: laterais finas de cantos arredondados, base em arco, placa da frente com o nome gravado. Gasta ~120 g e ~8 h (PrusaSlicer, camada 0,28, 2 paredes, 15% giroide), contra ~390 g e ~30 h da versão robusta abaixo.
+Pasta `leve/`: laterais em forma de vela (contorno contínuo, base em arco), em tons de roxo, placa da frente com @liberofilho em relevo (troca de filamento na camada do relevo para o @ sair em outra cor). Aparador de 72 mm: cabe o lado grosso do Vade Mecum aberto no começo ou no fim. Gasta ~130 g e ~9 h (PrusaSlicer, camada 0,28, 2 paredes, 15% giroide), contra ~390 g e ~30 h da versão robusta abaixo. Aguenta 3 kg com folga de ~15× no ponto mais exigido.
 
 ![suporte com o livro](leve/render/com-livro.png)
 
 | Arquivo | Qtd. | Medidas |
 |---|---|---|
-| `leve/lateral.stl` | 2 | 143 × 192 × 16 mm |
-| `leve/placa.stl` | 1 | 182 × 22 × 7 mm (nome para cima na impressão) |
-| `leve/travessa.stl` | 1 | 182 × 9 × 9 mm |
+| `leve/lateral.stl` | 2 | 185 × 193 × 15 mm |
+| `leve/placa.stl` | 1 | 180 × 24 × 8 mm (@ para cima na impressão) |
+| `leve/travessa.stl` | 1 | 180 × 9 × 9 mm |
 
-Gerar com outro nome na placa: `python3 leve/gerar.py "OAB 2027"`. Imagens 3D (three.js): `python3 -m http.server 8765 -d leve` e, em outro terminal, `node leve/render/fotos.mjs`.
+Gerar com outro texto na placa: `python3 leve/gerar.py "OAB 2027"` (padrão: @liberofilho). Imagens 3D (three.js): `python3 -m http.server 8765 -d leve` e, em outro terminal, `node leve/render/fotos.mjs`.
 
 ## Versão robusta (a primeira)
 
