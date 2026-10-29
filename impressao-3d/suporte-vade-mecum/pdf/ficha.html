@@ -34,110 +34,126 @@ tr.total td{font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy
 .nota{background:#fff8ea;border-left:3px solid var(--ouro);padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
 ol,ul{padding-left:5mm;margin-bottom:2mm} li{margin-bottom:1.5mm}
 .destaque{color:var(--navy);font-weight:700}
+.capa img.hero{position:absolute;left:50%;transform:translateX(-50%);bottom:32mm;width:190mm;right:auto;filter:drop-shadow(0 6mm 8mm rgba(0,0,0,.25))}
+.foto{width:100%;display:block}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 2mm}
+.fotos div{background:var(--fundo);border-radius:3mm;overflow:hidden}
+.selo{display:inline-block;background:var(--ouro);color:#1b2a3d;font-weight:800;font-size:8.5pt;border-radius:20px;padding:1mm 3.5mm;margin-left:2mm;vertical-align:middle;letter-spacing:.3px}
+td.ok{color:#1d7a4a;font-weight:700}
 </style></head><body>
 
 <section class="pg capa">
   <div class="rot">Projeto · impressão 3D</div>
   <h1>Suporte para<br><em>Vade Mecum</em></h1>
-  <p class="sub">Atril para estudar com o código aberto e inclinado. Ficha técnica, custo de produção e preço de venda.</p>
-  <img src="montado.png">
-  <div class="chips"><span class="chip">4 peças</span><span class="chip">sem suporte de impressão</span><span class="chip">mesa 220 × 220 mm</span><span class="chip">rampa a 62°</span></div>
+  <p class="sub">Versão leve: traço fino, base em arco e plaquinha com nome gravado. Ficha técnica, custo real de impressão e preço de venda.</p>
+  <img class="hero" src="../leve/render/com-livro.png">
+  <div class="chips"><span class="chip">~120 g de filamento</span><span class="chip">sem suporte de impressão</span><span class="chip">mesa 220 × 220 mm</span><span class="chip">nome personalizável</span></div>
 </section>
 
 <section class="pg">
-  <div class="rot">1 · Ficha técnica</div>
-  <h2>O produto</h2>
+  <div class="rot">1 · O produto</div>
+  <h2>Versão leve <span class="selo">NOVA</span></h2>
+  <div class="fotos"><div><img class="foto" src="../leve/render/suporte.png"></div><div><img class="foto" src="../leve/render/lado.png"></div></div>
   <div class="duas">
     <div>
-      <p>Duas laterais em treliça, ligadas por duas travessas. O livro aberto apoia a borda de baixo no <b>aparador</b> (48 mm de fundo, cabe meia lombada de um Vade Mecum) e encosta na rampa inclinada a 62°. A aba da frente impede que ele escorregue.</p>
+      <p>Duas laterais finas de cantos arredondados, com a base em arco (só os pés tocam a mesa e o suporte não balança). Na frente, uma <b>placa com o nome gravado</b>, que também trava as laterais; atrás, uma travessa fina.</p>
+      <p>O livro aberto apoia a borda de baixo no aparador (46 mm de fundo) e encosta na rampa a 62°. A aba segura o livro.</p>
       <h3>Peças</h3>
       <table>
         <tr><th>Arquivo</th><th class="v">Qtd.</th><th class="v">Medidas</th></tr>
-        <tr><td>lateral.stl</td><td class="v">2</td><td class="v">149 × 203 × 40 mm</td></tr>
-        <tr><td>travessa.stl</td><td class="v">2</td><td class="v">210 × 12 × 12 mm</td></tr>
+        <tr><td>lateral.stl</td><td class="v">2</td><td class="v">143 × 192 × 16 mm</td></tr>
+        <tr><td>placa.stl</td><td class="v">1</td><td class="v">182 × 22 × 7 mm</td></tr>
+        <tr><td>travessa.stl</td><td class="v">1</td><td class="v">182 × 9 × 9 mm</td></tr>
       </table>
-      <h3>Montado</h3>
-      <p>210 mm de largura × 149 mm de profundidade × 203 mm de altura. O livro aberto (~34 cm) passa um pouco para cada lado.</p>
+      <p style="font-size:9pt;color:var(--cinza)">Montado: 182 × 143 × 192 mm (largura × fundo × altura).</p>
     </div>
-    <div><img src="perfil.png" style="width:100%"></div>
+    <div><img src="../leve/perfil.png" style="width:100%"></div>
   </div>
-  <h3>Configuração de impressão</h3>
-  <table>
-    <tr><th>Item</th><th>Recomendado</th></tr>
-    <tr><td>Material</td><td>PLA (mais barato) ou PETG (mais resistente a calor e impacto)</td></tr>
-    <tr><td>Orientação</td><td>Laterais deitadas, com o perfil na mesa (como o STL já vem). Travessas deitadas.</td></tr>
-    <tr><td>Camada / paredes / preenchimento</td><td>0,2 mm · 3 paredes · 20% giroide ou grade</td></tr>
-    <tr><td>Suportes</td><td>Não precisa</td></tr>
-    <tr><td>Tempo e material (estimativa)</td><td>~12 h e ~300–350 g para o conjunto</td></tr>
-  </table>
-  <h3>Montagem</h3>
-  <ol><li>Passe as duas travessas pelos furos quadrados das bases das duas laterais.</li>
-  <li>Deixe as pontas rentes por fora. Se ficar frouxo, uma gota de cola resolve; se não entrar, lixe a ponta da travessa.</li></ol>
   <div class="rodape"><span>Suporte para Vade Mecum</span><span>2</span></div>
 </section>
 
 <section class="pg">
-  <div class="rot">2 · Custo e preço</div>
+  <div class="rot">2 · Impressão</div>
+  <h2>Quanto gasta, medido no fatiador</h2>
+  <p>Números do PrusaSlicer, com bico de 0,4 mm e PLA. O tempo vale para uma impressora comum (60–80 mm/s); numa impressora rápida (Bambu Lab, Ender 3 V3, K1) cai para mais ou menos a metade.</p>
+  <table>
+    <tr><th>Configuração</th><th class="v">Filamento</th><th class="v">Tempo</th></tr>
+    <tr><td><b>Leve · econômica</b>: camada 0,28 mm, 2 paredes, 15% giroide</td><td class="v ok">≈ 120 g</td><td class="v ok">≈ 8 h</td></tr>
+    <tr><td>Leve · reforçada: camada 0,2 mm, 3 paredes, 20% giroide</td><td class="v">≈ 150 g</td><td class="v">≈ 12 h</td></tr>
+    <tr><td>Versão anterior (robusta): camada 0,2 mm, 3 paredes, 20%</td><td class="v">≈ 390 g</td><td class="v">≈ 30 h</td></tr>
+  </table>
+  <div class="nota">A versão anterior gasta mais do que a estimativa do primeiro PDF (300 g e 12 h). A leve usa <b>1/3 do filamento</b> e <b>1/4 do tempo</b>, e é a indicada para vender.</div>
+
+  <h3>Configuração recomendada</h3>
+  <table>
+    <tr><th>Item</th><th>Recomendado</th></tr>
+    <tr><td>Material</td><td>PLA (mais barato) ou PETG (aguenta mais calor e impacto). Laterais numa cor e placa em outra fica bonito.</td></tr>
+    <tr><td>Orientação</td><td>Tudo deitado, do jeito que o STL vem. A placa com o nome virado para cima.</td></tr>
+    <tr><td>Suportes</td><td>Não precisa</td></tr>
+    <tr><td>Na mesma mesa</td><td>As 2 laterais cabem juntas; placa e travessa juntas noutra impressão</td></tr>
+  </table>
+  <h3>Montagem</h3>
+  <ol><li>Encaixe a placa (nome para a frente) no rasgo da frente das duas laterais e a travessa no furo de trás.</li>
+  <li>Deixe as pontas rentes por fora. Uma gota de cola em cada encaixe deixa o suporte firme como peça única.</li></ol>
+  <h3>Nome personalizado</h3>
+  <p>O nome da placa é gerado pelo script: <code>python3 gerar.py "OAB 2027"</code> ou o nome do aluno. Até uns 14 caracteres ficam legíveis.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>3</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">3 · Custo e preço</div>
   <h2>Quanto custa fazer</h2>
   <table>
-    <tr><th>Item por unidade</th><th class="v">Valor</th></tr>
-    <tr><td>Filamento (~300 g a R$ 110/kg)</td><td class="v">R$ 35</td></tr>
-    <tr><td>Energia (~12 h a 120 W)</td><td class="v">R$ 2</td></tr>
-    <tr><td>Desgaste da impressora (~R$ 0,70/h, bico e peças)</td><td class="v">R$ 10</td></tr>
-    <tr><td>Peças que falham (~10%)</td><td class="v">R$ 4</td></tr>
-    <tr><td>Embalagem (caixa e proteção)</td><td class="v">R$ 6</td></tr>
-    <tr><td>Seu tempo (acabamento e embalar, ~20 min)</td><td class="v">R$ 5</td></tr>
-    <tr class="total"><td>Custo total</td><td class="v">≈ R$ 60</td></tr>
+    <tr><th>Item por unidade (versão leve, econômica)</th><th class="v">Valor</th></tr>
+    <tr><td>Filamento (~120 g a R$ 110/kg)</td><td class="v">R$ 13</td></tr>
+    <tr><td>Energia (~8 h a 120 W)</td><td class="v">R$ 1</td></tr>
+    <tr><td>Desgaste da impressora (~R$ 0,70/h, bico e peças)</td><td class="v">R$ 6</td></tr>
+    <tr><td>Peças que falham (~10%)</td><td class="v">R$ 2</td></tr>
+    <tr><td>Embalagem (caixa chata, vai desmontado)</td><td class="v">R$ 4</td></tr>
+    <tr><td>Seu tempo (tirar da mesa, conferir, embalar)</td><td class="v">R$ 5</td></tr>
+    <tr class="total"><td>Custo total</td><td class="v">≈ R$ 31</td></tr>
   </table>
+  <p style="font-size:9pt;color:var(--cinza)">Na versão anterior o mesmo cálculo dá ≈ R$ 85 por unidade.</p>
 
-  <h2 style="margin-top:7mm">Quanto cobrar</h2>
+  <h2 style="margin-top:6mm">Quanto cobrar</h2>
   <table>
     <tr><th>Canal</th><th class="v">Preço</th><th class="v">Taxas</th><th class="v">Lucro</th><th class="v">Margem</th></tr>
-    <tr><td>Direto (Instagram + Pix)</td><td class="v">R$ 129</td><td class="v">—</td><td class="v destaque">≈ R$ 70</td><td class="v">54%</td></tr>
-    <tr><td>Mercado Livre (Clássico, ~13%)</td><td class="v">R$ 149</td><td class="v">≈ R$ 20</td><td class="v destaque">≈ R$ 69</td><td class="v">46%</td></tr>
-    <tr><td>Shopee (~20% + taxa fixa)</td><td class="v">R$ 149</td><td class="v">≈ R$ 34</td><td class="v destaque">≈ R$ 55</td><td class="v">37%</td></tr>
+    <tr><td>Direto (Instagram + Pix)</td><td class="v">R$ 99</td><td class="v">—</td><td class="v destaque">≈ R$ 68</td><td class="v">69%</td></tr>
+    <tr><td>Mercado Livre (Clássico, ~13%)</td><td class="v">R$ 119</td><td class="v">≈ R$ 16</td><td class="v destaque">≈ R$ 72</td><td class="v">61%</td></tr>
+    <tr><td>Shopee (~20% + taxa fixa)</td><td class="v">R$ 119</td><td class="v">≈ R$ 28</td><td class="v destaque">≈ R$ 60</td><td class="v">50%</td></tr>
+    <tr><td>Com nome personalizado</td><td class="v">+ R$ 20–30</td><td class="v">—</td><td class="v destaque">+ R$ 20–30</td><td class="v">—</td></tr>
   </table>
   <p style="font-size:9pt;color:var(--cinza)">Frete por conta do comprador ou embutido no preço. As taxas dos marketplaces mudam com frequência: confira as atuais antes de anunciar.</p>
 
   <h3>Capacidade por impressora</h3>
   <div class="cards">
-    <div class="card"><div class="num">~2</div><div class="leg">unidades por dia (12 h cada)</div></div>
-    <div class="card"><div class="num">~50</div><div class="leg">unidades por mês, no máximo</div></div>
-    <div class="card ouro"><div class="num">~R$ 3 mil</div><div class="leg">lucro por mês com a impressora rodando direto</div></div>
+    <div class="card"><div class="num">~3</div><div class="leg">unidades por dia (impressora comum)</div></div>
+    <div class="card"><div class="num">~80</div><div class="leg">unidades por mês, no máximo</div></div>
+    <div class="card ouro"><div class="num">~R$ 5 mil</div><div class="leg">lucro por mês com a impressora rodando direto</div></div>
   </div>
-  <div class="nota">Valores estimados pelo volume das peças, sem fatiador. Abra os STLs no Cura ou no PrusaSlicer com a sua configuração para ver peso e tempo exatos e refazer a conta.</div>
-  <div class="rodape"><span>Suporte para Vade Mecum</span><span>3</span></div>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>4</span></div>
 </section>
 
 <section class="pg">
-  <div class="rot">3 · Venda</div>
+  <div class="rot">4 · Venda</div>
   <h2>Como lucrar com ele</h2>
   <h3>A concorrência</h3>
-  <p>Nos marketplaces já há suportes de livro de madeira ou metal por <b>R$ 40 a 80</b>. Um suporte genérico de plástico perde nessa briga. O que justifica cobrar R$ 129 ou mais:</p>
+  <p>Nos marketplaces há suportes de livro de madeira ou metal por <b>R$ 40 a 80</b>. Para cobrar R$ 99–119, o produto precisa ser mais que um suporte genérico:</p>
   <ul>
-    <li><span class="destaque">Nicho:</span> feito sob medida para o Vade Mecum, para quem estuda para OAB e concursos.</li>
-    <li><span class="destaque">Personalização:</span> nome do aluno ou "OAB 2027" em relevo na lateral. Dá para cobrar R$ 20–30 a mais.</li>
-    <li><span class="destaque">Público próprio:</span> vender para quem já segue os perfis (@constitucionalgabaritado, @liberofilho, @concursocomlibero) é o canal de maior margem, sem taxa de marketplace.</li>
-    <li><span class="destaque">Kit:</span> brinde para quem compra curso ou mentoria, ou venda casada com material.</li>
+    <li><span class="destaque">Nicho:</span> feito sob medida para o Vade Mecum aberto, para quem estuda para OAB e concursos.</li>
+    <li><span class="destaque">Personalização:</span> nome do aluno, "OAB 2027" ou o nome do curso gravado na placa.</li>
+    <li><span class="destaque">Cores:</span> laterais e placa em cores diferentes (azul e dourado, verde e branco…), combinando com cada perfil.</li>
+    <li><span class="destaque">Público próprio:</span> vender para quem já segue @constitucionalgabaritado, @liberofilho e @concursocomlibero é o canal de maior margem.</li>
+    <li><span class="destaque">Kit:</span> brinde para quem compra curso ou mentoria, com o nome do curso na placa.</li>
   </ul>
-
-  <h3>Versão de produção (próximo passo)</h3>
-  <table>
-    <tr><th>Mudança</th><th>Ganho</th></tr>
-    <tr><td>Peças mais leves, com menos material</td><td>~6–7 h por unidade: o dobro de produção por impressora</td></tr>
-    <tr><td>Desmontável e plano na caixa</td><td>Frete mais barato e caixa menor</td></tr>
-    <tr><td>Espaço para nome ou logo em relevo</td><td>Preço maior e produto que não se compara ao genérico</td></tr>
-    <tr><td>Cores do perfil (ex.: verde do Constitucional Gabaritado)</td><td>Produto de marca, bom para foto e divulgação</td></tr>
-  </table>
-
   <h3>Para começar</h3>
   <ol>
-    <li>Imprima 1 unidade de teste e confira encaixe, firmeza e tempo real.</li>
-    <li>Fotografe com um Vade Mecum aberto e faça um story ou criativo de pré-venda.</li>
+    <li>Imprima 1 unidade de teste e confira encaixe, firmeza com o Vade Mecum e o tempo real na sua impressora.</li>
+    <li>Fotografe com o livro aberto (ou use a imagem 3D da capa) e faça um story de pré-venda.</li>
     <li>Venda os primeiros direto, por Pix e sob encomenda, antes de montar estoque.</li>
     <li>Com a demanda confirmada, anuncie no Mercado Livre e na Shopee.</li>
     <li>Formalize como MEI para vender como empresa e emitir nota fiscal.</li>
   </ol>
-  <div class="rodape"><span>Suporte para Vade Mecum</span><span>4</span></div>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>5</span></div>
 </section>
 </body></html>
