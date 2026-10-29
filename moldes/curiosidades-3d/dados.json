@@ -577,5 +577,98 @@
       }
     ],
     "estilo": "ilustracao"
+  },
+  {
+    "id": "estudante-teste",
+    "titulo": "Estudante (estilo ilustração)",
+    "narrador": "nenhum",
+    "fov": 32,
+    "descer": 0.0,
+    "estilo": "ilustracao",
+    "elenco": {
+      "estudante": {
+        "tipo": "cabecudo",
+        "cabelo": "topete",
+        "corRoupa": "#d29a3c",
+        "pose": "celular",
+        "sentado": true,
+        "calca": "#4a4c55",
+        "tenis": "#b23a37",
+        "olhar": [
+          0.2,
+          -0.25
+        ]
+      }
+    },
+    "cenas": [
+      {
+        "cenario": "quarto",
+        "cenarioOpcoes": {
+          "estudo": {
+            "x": 0,
+            "z": 0.2
+          },
+          "sofaX": 2.6
+        },
+        "minimo": 2,
+        "atores": [
+          {
+            "id": "estudante",
+            "pos": [
+              0,
+              0.2
+            ],
+            "acao": "parado",
+            "humor": "desconfiado",
+            "giro": -8
+          }
+        ],
+        "camera": {
+          "tipo": "fixa",
+          "alvo": [
+            -0.25,
+            0.95,
+            0.2
+          ],
+          "dist": 4.6,
+          "altura": 0.35,
+          "tremor": 0
+        }
+      },
+      {
+        "cenario": "quarto",
+        "cenarioOpcoes": {
+          "estudo": {
+            "x": 0,
+            "z": 0.2
+          },
+          "sofaX": 2.6
+        },
+        "minimo": 2,
+        "atores": [
+          {
+            "id": "estudante",
+            "pos": [
+              0,
+              0.2
+            ],
+            "acao": "parado",
+            "humor": "desconfiado",
+            "giro": -8
+          }
+        ],
+        "camera": {
+          "tipo": "fixa",
+          "alvo": [
+            0,
+            1.4,
+            0.2
+          ],
+          "dist": 2.4,
+          "altura": 0.0,
+          "tremor": 0
+        }
+      }
+    ]
   }
 ]

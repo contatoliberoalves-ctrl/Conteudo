@@ -409,15 +409,70 @@ export function quarto(op = {}) {
   arte.position.z = 0.03;
   quadro.add(arte);
 
+  // Canto de estudo: cadeira (onde o personagem senta), escrivaninha com livros e mochila no chão.
+  if (op.estudo) {
+    const e = new THREE.Group();
+    e.position.set(op.estudo.x ?? 0, 0, op.estudo.z ?? 0);
+    grupo.add(e);
+    const peca = (geo, mat, x, y, z, pai = e) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; pai.add(o); return o; };
+    const madeiraClara = toon("#8a6a4c");
+    // Cadeira.
+    peca(new THREE.BoxGeometry(0.5, 0.05, 0.46), madeiraClara, 0, 0.375, 0.02);
+    [[-0.21, -0.18], [0.21, -0.18], [-0.21, 0.22], [0.21, 0.22]].forEach(([x, z]) => peca(new THREE.BoxGeometry(0.04, 0.37, 0.04), madeiraClara, x, 0.185, z));
+    peca(new THREE.BoxGeometry(0.04, 0.55, 0.04), madeiraClara, -0.21, 0.66, -0.2);
+    peca(new THREE.BoxGeometry(0.04, 0.55, 0.04), madeiraClara, 0.21, 0.66, -0.2);
+    peca(new THREE.BoxGeometry(0.46, 0.14, 0.03), madeiraClara, 0, 0.82, -0.2);
+    // Escrivaninha ao lado.
+    const mx = op.estudo.mesaX ?? -0.95;
+    peca(new THREE.BoxGeometry(0.95, 0.05, 0.62), madeira, mx, 0.74, -0.05);
+    [[-0.43, -0.32], [0.43, -0.32], [-0.43, 0.22], [0.43, 0.22]].forEach(([x, z]) => peca(new THREE.BoxGeometry(0.05, 0.72, 0.05), madeira, mx + x, 0.36, z - 0.05));
+    // Pilha de livros.
+    [["#b5483d", 0.36, 0.07], ["#3f6e8c", 0.33, 0.06], ["#d8b44a", 0.3, 0.05]].reduce((y, [c, w, h], i) => {
+      const l = peca(new THREE.BoxGeometry(w, h, 0.24), toon(c), mx - 0.22 + i * 0.01, y + h / 2, -0.12);
+      l.rotation.y = (i - 1) * 0.12;
+      peca(new THREE.BoxGeometry(w - 0.02, h - 0.02, 0.245), toon("#efe7d6"), 0, 0, 0.002, l).userData.semContorno = true;
+      return y + h;
+    }, 0.765);
+    // Caderno aberto e lápis.
+    const caderno = new THREE.Group();
+    caderno.position.set(mx + 0.2, 0.772, 0.05);
+    caderno.rotation.y = -0.25;
+    e.add(caderno);
+    [-1, 1].forEach((s) => {
+      const f = peca(new THREE.BoxGeometry(0.17, 0.012, 0.24), toon("#f4efe3"), 0.087 * s, 0, 0, caderno);
+      f.rotation.z = 0.05 * -s;
+      for (let k = 0; k < 6; k++) {
+        const linha = peca(new THREE.BoxGeometry(0.13, 0.002, 0.004), toon("#9db3c9"), 0.087 * s, 0.007, -0.08 + k * 0.032, caderno);
+        linha.userData.semContorno = true;
+      }
+    });
+    const lapis = peca(new THREE.CylinderGeometry(0.007, 0.007, 0.17, 8), toon("#e3b23c"), mx + 0.38, 0.79, 0.08);
+    lapis.rotation.set(Math.PI / 2, 0, 0.6);
+    // Caneca com canetas.
+    peca(new THREE.CylinderGeometry(0.045, 0.04, 0.1, 20), toon("#4f7a6a"), mx + 0.33, 0.815, -0.2);
+    ["#c0392b", "#2c3e50", "#2980b9"].forEach((c, i) => {
+      const cn = peca(new THREE.CylinderGeometry(0.006, 0.006, 0.15, 8), toon(c), mx + 0.32 + i * 0.012, 0.88, -0.2 + (i - 1) * 0.012);
+      cn.rotation.z = (i - 1) * 0.2;
+    });
+    // Mochila encostada na cadeira.
+    const mo = new THREE.Group();
+    mo.position.set(0.42, 0, 0.18);
+    mo.rotation.set(-0.15, -0.6, 0);
+    e.add(mo);
+    peca(new THREE.CapsuleGeometry(0.17, 0.18, 10, 24), toon(op.estudo.mochila || "#c0473e"), 0, 0.27, 0, mo).scale.set(1.05, 1, 0.6);
+    peca(new THREE.CapsuleGeometry(0.11, 0.06, 8, 20), toon(op.estudo.mochila || "#c0473e"), 0, 0.18, 0.1, mo).scale.set(1.1, 1, 0.45);
+    peca(new THREE.TorusGeometry(0.05, 0.012, 8, 20, Math.PI), toon("#2b2f38"), 0, 0.53, 0, mo);
+  }
+
   contornar(grupo, 0.012);
 
   // Luz: azul fria da janela + abajur quente + preenchimento fraco.
-  grupo.add(new THREE.AmbientLight(new THREE.Color("#a9b8cc"), 1.0));
+  grupo.add(new THREE.AmbientLight(new THREE.Color("#c3c7cf"), 1.0));
   const janela = new THREE.DirectionalLight(new THREE.Color("#a9c7ee"), 1.6);
   janela.position.set(jx + 1, 4, -6);
   janela.target.position.set(0, 0, 1);
   grupo.add(janela, janela.target);
-  const frente = new THREE.DirectionalLight(new THREE.Color("#dfe6f0"), 2.0);
+  const frente = new THREE.DirectionalLight(new THREE.Color("#fff0dc"), 2.0);
   frente.position.set(2, 4, 6);
   frente.castShadow = true;
   frente.shadow.mapSize.set(1024, 1024);
