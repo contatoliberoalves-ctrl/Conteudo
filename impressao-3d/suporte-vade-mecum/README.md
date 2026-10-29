@@ -22,3 +22,6 @@ python3 gerar.py
 ```
 
 Se a travessa ficar frouxa, diminua `FOLGA` (0,25 mm por lado); se não entrar, aumente para 0,35. Para um livro mais grosso, aumente `APARADOR`.
+
+## PDF
+`suporte-vade-mecum.pdf`: ficha técnica, custo de produção, preço de venda e estratégia. Fonte em `pdf/` (`python3 pdf/imagens.py`, depois `node pdf/gerar-pdf.mjs`).

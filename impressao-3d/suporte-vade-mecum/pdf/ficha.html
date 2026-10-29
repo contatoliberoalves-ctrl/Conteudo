@@ -1,0 +1,143 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1b3556;--azul:#2f5d8a;--ouro:#e0a63a;--tinta:#1d2733;--cinza:#5d6875;--linha:#dde3ea;--fundo:#f4f6f9}
+body{font-family:Inter,sans-serif;color:var(--tinta);font-size:10.5pt;line-height:1.5}
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;padding:20mm 18mm 18mm;page-break-after:always;background:#fff}
+.pg:last-child{page-break-after:auto}
+h1,h2,.num{font-family:'Space Grotesk',Inter,sans-serif}
+h2{font-size:20pt;color:var(--navy);margin-bottom:4mm;letter-spacing:-.3px}
+h3{font-size:11pt;color:var(--navy);margin:6mm 0 2mm;text-transform:uppercase;letter-spacing:.8px}
+p{margin-bottom:2.5mm}
+.rot{font-size:8.5pt;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro)}
+.rodape{position:absolute;bottom:10mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--cinza);border-top:1px solid var(--linha);padding-top:3mm}
+table{width:100%;border-collapse:collapse;margin:2mm 0 3mm;font-size:10pt}
+th{text-align:left;font-size:8.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);border-bottom:2px solid var(--navy);padding:2mm 2.5mm}
+td{padding:2.2mm 2.5mm;border-bottom:1px solid var(--linha);vertical-align:top}
+td.v,th.v{text-align:right;white-space:nowrap}
+tr.total td{font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy);background:var(--fundo)}
+.capa{background:linear-gradient(160deg,var(--navy) 0%,#10233b 100%);color:#fff;padding:22mm 18mm}
+.capa h1{font-size:44pt;line-height:1.02;letter-spacing:-1px;margin:5mm 0 5mm}
+.capa h1 em{font-style:normal;color:var(--ouro)}
+.capa .sub{font-size:13pt;color:#c9d6e8;max-width:150mm}
+.capa img{position:absolute;right:-6mm;bottom:38mm;width:165mm;filter:drop-shadow(0 8mm 10mm rgba(0,0,0,.35))}
+.capa .chips{position:absolute;left:18mm;bottom:20mm;display:flex;gap:3mm}
+.chip{border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:1.6mm 4mm;font-size:9pt;color:#e6edf5}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:8mm;align-items:start}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 2mm}
+.card{background:var(--fundo);border-radius:3mm;padding:4mm;border-top:3px solid var(--azul)}
+.card.ouro{border-top-color:var(--ouro)}
+.card .num{font-size:20pt;color:var(--navy);line-height:1.1}
+.card .leg{font-size:8.5pt;color:var(--cinza)}
+.nota{background:#fff8ea;border-left:3px solid var(--ouro);padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
+ol,ul{padding-left:5mm;margin-bottom:2mm} li{margin-bottom:1.5mm}
+.destaque{color:var(--navy);font-weight:700}
+</style></head><body>
+
+<section class="pg capa">
+  <div class="rot">Projeto · impressão 3D</div>
+  <h1>Suporte para<br><em>Vade Mecum</em></h1>
+  <p class="sub">Atril para estudar com o código aberto e inclinado. Ficha técnica, custo de produção e preço de venda.</p>
+  <img src="montado.png">
+  <div class="chips"><span class="chip">4 peças</span><span class="chip">sem suporte de impressão</span><span class="chip">mesa 220 × 220 mm</span><span class="chip">rampa a 62°</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">1 · Ficha técnica</div>
+  <h2>O produto</h2>
+  <div class="duas">
+    <div>
+      <p>Duas laterais em treliça, ligadas por duas travessas. O livro aberto apoia a borda de baixo no <b>aparador</b> (48 mm de fundo, cabe meia lombada de um Vade Mecum) e encosta na rampa inclinada a 62°. A aba da frente impede que ele escorregue.</p>
+      <h3>Peças</h3>
+      <table>
+        <tr><th>Arquivo</th><th class="v">Qtd.</th><th class="v">Medidas</th></tr>
+        <tr><td>lateral.stl</td><td class="v">2</td><td class="v">149 × 203 × 40 mm</td></tr>
+        <tr><td>travessa.stl</td><td class="v">2</td><td class="v">210 × 12 × 12 mm</td></tr>
+      </table>
+      <h3>Montado</h3>
+      <p>210 mm de largura × 149 mm de profundidade × 203 mm de altura. O livro aberto (~34 cm) passa um pouco para cada lado.</p>
+    </div>
+    <div><img src="perfil.png" style="width:100%"></div>
+  </div>
+  <h3>Configuração de impressão</h3>
+  <table>
+    <tr><th>Item</th><th>Recomendado</th></tr>
+    <tr><td>Material</td><td>PLA (mais barato) ou PETG (mais resistente a calor e impacto)</td></tr>
+    <tr><td>Orientação</td><td>Laterais deitadas, com o perfil na mesa (como o STL já vem). Travessas deitadas.</td></tr>
+    <tr><td>Camada / paredes / preenchimento</td><td>0,2 mm · 3 paredes · 20% giroide ou grade</td></tr>
+    <tr><td>Suportes</td><td>Não precisa</td></tr>
+    <tr><td>Tempo e material (estimativa)</td><td>~12 h e ~300–350 g para o conjunto</td></tr>
+  </table>
+  <h3>Montagem</h3>
+  <ol><li>Passe as duas travessas pelos furos quadrados das bases das duas laterais.</li>
+  <li>Deixe as pontas rentes por fora. Se ficar frouxo, uma gota de cola resolve; se não entrar, lixe a ponta da travessa.</li></ol>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>2</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">2 · Custo e preço</div>
+  <h2>Quanto custa fazer</h2>
+  <table>
+    <tr><th>Item por unidade</th><th class="v">Valor</th></tr>
+    <tr><td>Filamento (~300 g a R$ 110/kg)</td><td class="v">R$ 35</td></tr>
+    <tr><td>Energia (~12 h a 120 W)</td><td class="v">R$ 2</td></tr>
+    <tr><td>Desgaste da impressora (~R$ 0,70/h, bico e peças)</td><td class="v">R$ 10</td></tr>
+    <tr><td>Peças que falham (~10%)</td><td class="v">R$ 4</td></tr>
+    <tr><td>Embalagem (caixa e proteção)</td><td class="v">R$ 6</td></tr>
+    <tr><td>Seu tempo (acabamento e embalar, ~20 min)</td><td class="v">R$ 5</td></tr>
+    <tr class="total"><td>Custo total</td><td class="v">≈ R$ 60</td></tr>
+  </table>
+
+  <h2 style="margin-top:7mm">Quanto cobrar</h2>
+  <table>
+    <tr><th>Canal</th><th class="v">Preço</th><th class="v">Taxas</th><th class="v">Lucro</th><th class="v">Margem</th></tr>
+    <tr><td>Direto (Instagram + Pix)</td><td class="v">R$ 129</td><td class="v">—</td><td class="v destaque">≈ R$ 70</td><td class="v">54%</td></tr>
+    <tr><td>Mercado Livre (Clássico, ~13%)</td><td class="v">R$ 149</td><td class="v">≈ R$ 20</td><td class="v destaque">≈ R$ 69</td><td class="v">46%</td></tr>
+    <tr><td>Shopee (~20% + taxa fixa)</td><td class="v">R$ 149</td><td class="v">≈ R$ 34</td><td class="v destaque">≈ R$ 55</td><td class="v">37%</td></tr>
+  </table>
+  <p style="font-size:9pt;color:var(--cinza)">Frete por conta do comprador ou embutido no preço. As taxas dos marketplaces mudam com frequência: confira as atuais antes de anunciar.</p>
+
+  <h3>Capacidade por impressora</h3>
+  <div class="cards">
+    <div class="card"><div class="num">~2</div><div class="leg">unidades por dia (12 h cada)</div></div>
+    <div class="card"><div class="num">~50</div><div class="leg">unidades por mês, no máximo</div></div>
+    <div class="card ouro"><div class="num">~R$ 3 mil</div><div class="leg">lucro por mês com a impressora rodando direto</div></div>
+  </div>
+  <div class="nota">Valores estimados pelo volume das peças, sem fatiador. Abra os STLs no Cura ou no PrusaSlicer com a sua configuração para ver peso e tempo exatos e refazer a conta.</div>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>3</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">3 · Venda</div>
+  <h2>Como lucrar com ele</h2>
+  <h3>A concorrência</h3>
+  <p>Nos marketplaces já há suportes de livro de madeira ou metal por <b>R$ 40 a 80</b>. Um suporte genérico de plástico perde nessa briga. O que justifica cobrar R$ 129 ou mais:</p>
+  <ul>
+    <li><span class="destaque">Nicho:</span> feito sob medida para o Vade Mecum, para quem estuda para OAB e concursos.</li>
+    <li><span class="destaque">Personalização:</span> nome do aluno ou "OAB 2027" em relevo na lateral. Dá para cobrar R$ 20–30 a mais.</li>
+    <li><span class="destaque">Público próprio:</span> vender para quem já segue os perfis (@constitucionalgabaritado, @liberofilho, @concursocomlibero) é o canal de maior margem, sem taxa de marketplace.</li>
+    <li><span class="destaque">Kit:</span> brinde para quem compra curso ou mentoria, ou venda casada com material.</li>
+  </ul>
+
+  <h3>Versão de produção (próximo passo)</h3>
+  <table>
+    <tr><th>Mudança</th><th>Ganho</th></tr>
+    <tr><td>Peças mais leves, com menos material</td><td>~6–7 h por unidade: o dobro de produção por impressora</td></tr>
+    <tr><td>Desmontável e plano na caixa</td><td>Frete mais barato e caixa menor</td></tr>
+    <tr><td>Espaço para nome ou logo em relevo</td><td>Preço maior e produto que não se compara ao genérico</td></tr>
+    <tr><td>Cores do perfil (ex.: verde do Constitucional Gabaritado)</td><td>Produto de marca, bom para foto e divulgação</td></tr>
+  </table>
+
+  <h3>Para começar</h3>
+  <ol>
+    <li>Imprima 1 unidade de teste e confira encaixe, firmeza e tempo real.</li>
+    <li>Fotografe com um Vade Mecum aberto e faça um story ou criativo de pré-venda.</li>
+    <li>Venda os primeiros direto, por Pix e sob encomenda, antes de montar estoque.</li>
+    <li>Com a demanda confirmada, anuncie no Mercado Livre e na Shopee.</li>
+    <li>Formalize como MEI para vender como empresa e emitir nota fiscal.</li>
+  </ol>
+  <div class="rodape"><span>Suporte para Vade Mecum</span><span>4</span></div>
+</section>
+</body></html>
