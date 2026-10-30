@@ -1,1011 +1,1816 @@
 [
-  {
-    "id": "tjsp-saiu-edital",
-    "titulo": "Saiu o edital do TJ SP · tela única",
-    "tipo": "post",
-    "selo": "Edital publicado",
-    "manchete": [
-      "Saiu o edital",
-      "do [[TJ SP]]"
+ {
+  "id": "tjsp-saiu-edital",
+  "titulo": "Saiu o edital do TJ SP · tela única",
+  "tipo": "post",
+  "selo": "Edital publicado",
+  "manchete": [
+   "Saiu o edital",
+   "do [[TJ SP]]"
+  ],
+  "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
+  "numeros": [
+   {
+    "n": "132",
+    "rot": "vagas para Oficial"
+   },
+   {
+    "n": "R$ 9,8 mil",
+    "px": 50,
+    "rot": "Oficial de Justiça"
+   },
+   {
+    "n": "R$ 6,7 mil",
+    "px": 50,
+    "rot": "Escrevente"
+   }
+  ],
+  "comenta": "TJSP",
+  "comentaTexto": "e receba o link do curso"
+ },
+ {
+  "id": "tjsp-tudo-alternado",
+  "titulo": "Tudo sobre o concurso do TJ SP · verde e branco",
+  "estilo": "alternado",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Tudo que você precisa saber sobre o",
+    "titulo": [
+     "Concurso do",
+     "[[TJ São Paulo]]"
     ],
     "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
-    "numeros": [
-      {
-        "n": "132",
-        "rot": "vagas para Oficial"
-      },
-      {
-        "n": "R$ 9,8 mil",
-        "px": 50,
-        "rot": "Oficial de Justiça"
-      },
-      {
-        "n": "R$ 6,7 mil",
-        "px": 50,
-        "rot": "Escrevente"
-      }
-    ],
-    "comenta": "TJSP",
-    "comentaTexto": "e receba o link do curso"
-  },
-  {
-    "id": "tjsp-tudo-alternado",
-    "titulo": "Tudo sobre o concurso do TJ SP · verde e branco",
-    "estilo": "alternado",
-    "slides": [
-      {
-        "tipo": "capa",
-        "pre": "Tudo que você precisa saber sobre o",
-        "titulo": [
-          "Concurso do",
-          "[[TJ São Paulo]]"
-        ],
-        "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
-        "alerta": "Inscrições até 10/12",
-        "ts": 150
-      },
-      {
-        "tipo": "numeros",
-        "aba": "EDITAIS 01 E 02/2026",
-        "titulo": [
-          "Vagas e",
-          "[[salários]]"
-        ],
-        "itens": [
-          {
-            "n": "132",
-            "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
-          },
-          {
-            "n": "R$ 9.856",
-            "px": 76,
-            "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
-          },
-          {
-            "n": "R$ 6.782",
-            "px": 76,
-            "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
-          },
-          {
-            "n": "14/03",
-            "rot": "data da prova, em **2027**, para os dois cargos"
-          }
-        ],
-        "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
-      },
-      {
-        "tipo": "comparativo",
-        "aba": "CARGOS",
-        "titulo": [
-          "Oficial x",
-          "[[Escrevente]]"
-        ],
-        "colunas": [
-          "Oficial de Justiça",
-          "Escrevente"
-        ],
-        "linhas": [
-          [
-            "Escolaridade",
-            "Superior em qualquer área",
-            "Ensino médio"
-          ],
-          [
-            "Vagas",
-            "132 imediatas + cadastro reserva",
-            "Só cadastro reserva"
-          ],
-          [
-            "Onde",
-            "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
-            "2ª a 10ª RAJ, **sem a Capital**"
-          ],
-          [
-            "Salário",
-            "R$ 9.856,95",
-            "R$ 6.782,54"
-          ],
-          [
-            "Taxa",
-            "R$ 96,00",
-            "R$ 81,00"
-          ],
-          [
-            "Jornada",
-            "40 horas semanais",
-            "40 horas semanais"
-          ]
-        ],
-        "fonte": "Banca: Fundação Vunesp."
-      },
-      {
-        "tipo": "datas",
-        "aba": "CRONOGRAMA",
-        "titulo": [
-          "Datas do",
-          "[[concurso]]"
-        ],
-        "itens": [
-          {
-            "data": "28/10 a 30/10",
-            "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
-          },
-          {
-            "data": "28/10 a 10/12",
-            "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
-          },
-          {
-            "data": "11/12",
-            "t": "Último dia para pagar o boleto"
-          },
-          {
-            "data": "14/03/2027",
-            "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
-            "destaque": true
-          },
-          {
-            "data": "17/03/2027",
-            "t": "Gabarito da prova objetiva"
-          }
-        ]
-      },
-      {
-        "tipo": "lista",
-        "aba": "A PROVA",
-        "titulo": [
-          "Como é",
-          "a [[prova]]"
-        ],
-        "itens": [
-          {
-            "t": "Objetiva com 70 questões",
-            "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
-          },
-          {
-            "t": "Nota mínima 5 de 10",
-            "d": "Somando os três blocos da objetiva."
-          },
-          {
-            "t": "Discursiva de 0 a 40 pontos",
-            "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
-          },
-          {
-            "t": "Só os mais bem colocados têm a discursiva corrigida",
-            "d": "Conforme o número definido para cada circunscrição."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "ESCREVENTE",
-        "titulo": [
-          "O que cai:",
-          "[[Escrevente]]"
-        ],
-        "itens": [
-          {
-            "n": "16",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "30",
-            "nome": "Bloco II · Direito",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
-          },
-          {
-            "n": "24",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "OFICIAL DE JUSTIÇA",
-        "titulo": [
-          "O que cai:",
-          "[[Oficial]]"
-        ],
-        "itens": [
-          {
-            "n": "15",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "40",
-            "nome": "Bloco II · Específicos",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
-          },
-          {
-            "n": "15",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
-          }
-        ]
-      },
-      {
-        "tipo": "texto",
-        "aba": "ATENÇÃO",
-        "titulo": [
-          "[[Atenção]]"
-        ],
-        "paragrafos": [
-          "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
-          "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
-          "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
-        ],
-        "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
-      },
-      {
-        "tipo": "cta",
-        "titulo": [
-          "Bora pro",
-          "[[TJ SP]]?"
-        ],
-        "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
-        "comenta": "TJSP"
-      }
-    ]
-  },
-  {
-    "id": "tjsp-tudo-claro",
-    "titulo": "Tudo sobre o concurso do TJ SP · claro",
-    "estilo": "claro",
-    "slides": [
-      {
-        "tipo": "capa",
-        "pre": "Tudo que você precisa saber sobre o",
-        "titulo": [
-          "Concurso do",
-          "[[TJ São Paulo]]"
-        ],
-        "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
-        "alerta": "Inscrições até 10/12",
-        "ts": 150
-      },
-      {
-        "tipo": "numeros",
-        "aba": "EDITAIS 01 E 02/2026",
-        "titulo": [
-          "Vagas e",
-          "[[salários]]"
-        ],
-        "itens": [
-          {
-            "n": "132",
-            "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
-          },
-          {
-            "n": "R$ 9.856",
-            "px": 76,
-            "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
-          },
-          {
-            "n": "R$ 6.782",
-            "px": 76,
-            "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
-          },
-          {
-            "n": "14/03",
-            "rot": "data da prova, em **2027**, para os dois cargos"
-          }
-        ],
-        "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
-      },
-      {
-        "tipo": "comparativo",
-        "aba": "CARGOS",
-        "titulo": [
-          "Oficial x",
-          "[[Escrevente]]"
-        ],
-        "colunas": [
-          "Oficial de Justiça",
-          "Escrevente"
-        ],
-        "linhas": [
-          [
-            "Escolaridade",
-            "Superior em qualquer área",
-            "Ensino médio"
-          ],
-          [
-            "Vagas",
-            "132 imediatas + cadastro reserva",
-            "Só cadastro reserva"
-          ],
-          [
-            "Onde",
-            "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
-            "2ª a 10ª RAJ, **sem a Capital**"
-          ],
-          [
-            "Salário",
-            "R$ 9.856,95",
-            "R$ 6.782,54"
-          ],
-          [
-            "Taxa",
-            "R$ 96,00",
-            "R$ 81,00"
-          ],
-          [
-            "Jornada",
-            "40 horas semanais",
-            "40 horas semanais"
-          ]
-        ],
-        "fonte": "Banca: Fundação Vunesp."
-      },
-      {
-        "tipo": "datas",
-        "aba": "CRONOGRAMA",
-        "titulo": [
-          "Datas do",
-          "[[concurso]]"
-        ],
-        "itens": [
-          {
-            "data": "28/10 a 30/10",
-            "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
-          },
-          {
-            "data": "28/10 a 10/12",
-            "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
-          },
-          {
-            "data": "11/12",
-            "t": "Último dia para pagar o boleto"
-          },
-          {
-            "data": "14/03/2027",
-            "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
-            "destaque": true
-          },
-          {
-            "data": "17/03/2027",
-            "t": "Gabarito da prova objetiva"
-          }
-        ]
-      },
-      {
-        "tipo": "lista",
-        "aba": "A PROVA",
-        "titulo": [
-          "Como é",
-          "a [[prova]]"
-        ],
-        "itens": [
-          {
-            "t": "Objetiva com 70 questões",
-            "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
-          },
-          {
-            "t": "Nota mínima 5 de 10",
-            "d": "Somando os três blocos da objetiva."
-          },
-          {
-            "t": "Discursiva de 0 a 40 pontos",
-            "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
-          },
-          {
-            "t": "Só os mais bem colocados têm a discursiva corrigida",
-            "d": "Conforme o número definido para cada circunscrição."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "ESCREVENTE",
-        "titulo": [
-          "O que cai:",
-          "[[Escrevente]]"
-        ],
-        "itens": [
-          {
-            "n": "16",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "30",
-            "nome": "Bloco II · Direito",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
-          },
-          {
-            "n": "24",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "OFICIAL DE JUSTIÇA",
-        "titulo": [
-          "O que cai:",
-          "[[Oficial]]"
-        ],
-        "itens": [
-          {
-            "n": "15",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "40",
-            "nome": "Bloco II · Específicos",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
-          },
-          {
-            "n": "15",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
-          }
-        ]
-      },
-      {
-        "tipo": "texto",
-        "aba": "ATENÇÃO",
-        "titulo": [
-          "[[Atenção]]"
-        ],
-        "paragrafos": [
-          "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
-          "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
-          "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
-        ],
-        "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
-      },
-      {
-        "tipo": "cta",
-        "titulo": [
-          "Bora pro",
-          "[[TJ SP]]?"
-        ],
-        "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
-        "comenta": "TJSP"
-      }
-    ]
-  },
-  {
-    "id": "tjsp-tudo-ficha",
-    "titulo": "Tudo sobre o concurso do TJ SP · ficha do edital",
-    "estilo": "ficha",
-    "slides": [
-      {
-        "tipo": "capa",
-        "pre": "Tudo que você precisa saber sobre o",
-        "titulo": [
-          "Concurso do",
-          "[[TJ São Paulo]]"
-        ],
-        "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
-        "alerta": "Inscrições até 10/12",
-        "ts": 150
-      },
-      {
-        "tipo": "numeros",
-        "aba": "EDITAIS 01 E 02/2026",
-        "titulo": [
-          "Vagas e",
-          "[[salários]]"
-        ],
-        "itens": [
-          {
-            "n": "132",
-            "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
-          },
-          {
-            "n": "R$ 9.856",
-            "px": 76,
-            "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
-          },
-          {
-            "n": "R$ 6.782",
-            "px": 76,
-            "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
-          },
-          {
-            "n": "14/03",
-            "rot": "data da prova, em **2027**, para os dois cargos"
-          }
-        ],
-        "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
-      },
-      {
-        "tipo": "comparativo",
-        "aba": "CARGOS",
-        "titulo": [
-          "Oficial x",
-          "[[Escrevente]]"
-        ],
-        "colunas": [
-          "Oficial de Justiça",
-          "Escrevente"
-        ],
-        "linhas": [
-          [
-            "Escolaridade",
-            "Superior em qualquer área",
-            "Ensino médio"
-          ],
-          [
-            "Vagas",
-            "132 imediatas + cadastro reserva",
-            "Só cadastro reserva"
-          ],
-          [
-            "Onde",
-            "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
-            "2ª a 10ª RAJ, **sem a Capital**"
-          ],
-          [
-            "Salário",
-            "R$ 9.856,95",
-            "R$ 6.782,54"
-          ],
-          [
-            "Taxa",
-            "R$ 96,00",
-            "R$ 81,00"
-          ],
-          [
-            "Jornada",
-            "40 horas semanais",
-            "40 horas semanais"
-          ]
-        ],
-        "fonte": "Banca: Fundação Vunesp."
-      },
-      {
-        "tipo": "datas",
-        "aba": "CRONOGRAMA",
-        "titulo": [
-          "Datas do",
-          "[[concurso]]"
-        ],
-        "itens": [
-          {
-            "data": "28/10 a 30/10",
-            "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
-          },
-          {
-            "data": "28/10 a 10/12",
-            "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
-          },
-          {
-            "data": "11/12",
-            "t": "Último dia para pagar o boleto"
-          },
-          {
-            "data": "14/03/2027",
-            "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
-            "destaque": true
-          },
-          {
-            "data": "17/03/2027",
-            "t": "Gabarito da prova objetiva"
-          }
-        ]
-      },
-      {
-        "tipo": "lista",
-        "aba": "A PROVA",
-        "titulo": [
-          "Como é",
-          "a [[prova]]"
-        ],
-        "itens": [
-          {
-            "t": "Objetiva com 70 questões",
-            "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
-          },
-          {
-            "t": "Nota mínima 5 de 10",
-            "d": "Somando os três blocos da objetiva."
-          },
-          {
-            "t": "Discursiva de 0 a 40 pontos",
-            "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
-          },
-          {
-            "t": "Só os mais bem colocados têm a discursiva corrigida",
-            "d": "Conforme o número definido para cada circunscrição."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "ESCREVENTE",
-        "titulo": [
-          "O que cai:",
-          "[[Escrevente]]"
-        ],
-        "itens": [
-          {
-            "n": "16",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "30",
-            "nome": "Bloco II · Direito",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
-          },
-          {
-            "n": "24",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
-          }
-        ]
-      },
-      {
-        "tipo": "blocos",
-        "aba": "OFICIAL DE JUSTIÇA",
-        "titulo": [
-          "O que cai:",
-          "[[Oficial]]"
-        ],
-        "itens": [
-          {
-            "n": "15",
-            "nome": "Bloco I · Português",
-            "elim": true,
-            "d": "Língua Portuguesa."
-          },
-          {
-            "n": "40",
-            "nome": "Bloco II · Específicos",
-            "elim": true,
-            "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
-          },
-          {
-            "n": "15",
-            "nome": "Bloco III · Gerais",
-            "elim": false,
-            "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
-          }
-        ]
-      },
-      {
-        "tipo": "texto",
-        "aba": "ATENÇÃO",
-        "titulo": [
-          "[[Atenção]]"
-        ],
-        "paragrafos": [
-          "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
-          "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
-          "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
-        ],
-        "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
-      },
-      {
-        "tipo": "cta",
-        "titulo": [
-          "Bora pro",
-          "[[TJ SP]]?"
-        ],
-        "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
-        "comenta": "TJSP"
-      }
-    ]
-  },
-  {
-    "id": "grupo-estudos-tjsp",
-    "titulo": "Grupo de estudos TJ SP · capa do grupo",
-    "tipo": "grupo",
-    "bandeira": "sp",
-    "manchete": [
-      "[[TJ SP]]"
-    ]
-  },
-  {
-    "id": "grupo-estudos-pe",
-    "titulo": "Grupo de estudos Pernambuco · capa do grupo",
-    "tipo": "grupo",
-    "bandeira": "pe",
-    "manchete": [
-      "[[Pernambuco]]"
-    ],
+    "alerta": "Inscrições até 10/12",
     "ts": 150
-  },
-  {
-    "id": "tjsp-como-estudar",
-    "titulo": "Como estudar pro TJ SP até a prova · claro",
-    "estilo": "claro",
-    "slides": [
-      {
-        "tipo": "capa",
-        "pre": "Faltam menos de 5 meses",
-        "titulo": [
-          "Como estudar",
-          "pro [[TJ SP]]"
-        ],
-        "sub": "Plano em 3 fases até a prova de 14/03/2027",
-        "ts": 150
-      },
-      {
-        "tipo": "numeros",
-        "titulo": [
-          "Onde estão",
-          "os [[pontos]]"
-        ],
-        "itens": [
-          {
-            "n": "46/70",
-            "px": 90,
-            "rot": "questões de **Português e Direito** no Escrevente"
-          },
-          {
-            "n": "55/70",
-            "px": 90,
-            "rot": "questões de **Português e específicos** no Oficial"
-          },
-          {
-            "n": "50%",
-            "rot": "mínimo em **cada** bloco eliminatório (I e II)"
-          },
-          {
-            "n": "5/10",
-            "rot": "nota mínima somando a objetiva"
-          }
-        ],
-        "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, 19/10/2026."
-      },
-      {
-        "tipo": "datas",
-        "titulo": [
-          "O plano em",
-          "[[3 fases]]"
-        ],
-        "itens": [
-          {
-            "data": "Nov e dez",
-            "t": "**Base:** Português todo dia e a teoria de Direito dos blocos eliminatórios"
-          },
-          {
-            "data": "Jan e fev",
-            "t": "**Questões da Vunesp** e lei seca. Escrevente: **normas internas do TJSP**"
-          },
-          {
-            "data": "Março",
-            "t": "**Revisão**, simulados com tempo e treino de **redação/discursiva**"
-          },
-          {
-            "data": "14/03/2027",
-            "t": "**Prova** objetiva e discursiva, à tarde, 5 horas",
-            "destaque": true
-          }
-        ]
-      },
-      {
-        "tipo": "lista",
-        "titulo": [
-          "Suas",
-          "[[prioridades]]"
-        ],
-        "itens": [
-          {
-            "t": "Português todo dia",
-            "d": "O bloco I elimina: abaixo de 50%, acabou."
-          },
-          {
-            "t": "Direito pela letra da lei",
-            "d": "Leia o artigo e resolva questões sobre ele no mesmo dia."
-          },
-          {
-            "t": "Normas internas do TJSP",
-            "d": "Estão no bloco II do Escrevente: pouca gente estuda, ponto garantido pra quem estuda."
-          },
-          {
-            "t": "Uma discursiva por semana",
-            "d": "Mínimo de 24 de 40 pontos (19,2 nas vagas reservadas)."
-          },
-          {
-            "t": "Bloco III por último",
-            "d": "Informática, RLM e Matemática classificam, mas não eliminam."
-          }
-        ]
-      },
-      {
-        "tipo": "texto",
-        "titulo": [
-          "O erro",
-          "[[clássico]]"
-        ],
-        "paragrafos": [
-          "Começar por Informática e Raciocínio Lógico porque parecem mais fáceis.",
-          "Eles **não eliminam**. Português e Direito eliminam."
-        ],
-        "destaque": "Primeiro garanta os 50% dos blocos I e II. Depois busque a classificação."
-      },
-      {
-        "tipo": "cta",
-        "titulo": [
-          "Bora pro",
-          "[[TJ SP]]?"
-        ],
-        "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
-        "comenta": "TJSP"
-      }
+   },
+   {
+    "tipo": "numeros",
+    "aba": "EDITAIS 01 E 02/2026",
+    "titulo": [
+     "Vagas e",
+     "[[salários]]"
+    ],
+    "itens": [
+     {
+      "n": "132",
+      "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
+     },
+     {
+      "n": "R$ 9.856",
+      "px": 76,
+      "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
+     },
+     {
+      "n": "R$ 6.782",
+      "px": 76,
+      "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
+     },
+     {
+      "n": "14/03",
+      "rot": "data da prova, em **2027**, para os dois cargos"
+     }
+    ],
+    "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
+   },
+   {
+    "tipo": "comparativo",
+    "aba": "CARGOS",
+    "titulo": [
+     "Oficial x",
+     "[[Escrevente]]"
+    ],
+    "colunas": [
+     "Oficial de Justiça",
+     "Escrevente"
+    ],
+    "linhas": [
+     [
+      "Escolaridade",
+      "Superior em qualquer área",
+      "Ensino médio"
+     ],
+     [
+      "Vagas",
+      "132 imediatas + cadastro reserva",
+      "Só cadastro reserva"
+     ],
+     [
+      "Onde",
+      "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
+      "2ª a 10ª RAJ, **sem a Capital**"
+     ],
+     [
+      "Salário",
+      "R$ 9.856,95",
+      "R$ 6.782,54"
+     ],
+     [
+      "Taxa",
+      "R$ 96,00",
+      "R$ 81,00"
+     ],
+     [
+      "Jornada",
+      "40 horas semanais",
+      "40 horas semanais"
+     ]
+    ],
+    "fonte": "Banca: Fundação Vunesp."
+   },
+   {
+    "tipo": "datas",
+    "aba": "CRONOGRAMA",
+    "titulo": [
+     "Datas do",
+     "[[concurso]]"
+    ],
+    "itens": [
+     {
+      "data": "28/10 a 30/10",
+      "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
+     },
+     {
+      "data": "28/10 a 10/12",
+      "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
+     },
+     {
+      "data": "11/12",
+      "t": "Último dia para pagar o boleto"
+     },
+     {
+      "data": "14/03/2027",
+      "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
+      "destaque": true
+     },
+     {
+      "data": "17/03/2027",
+      "t": "Gabarito da prova objetiva"
+     }
     ]
-  },
-  {
-    "id": "tjsp-eliminacao",
-    "titulo": "5 jeitos de ser eliminado no TJ SP · ficha",
-    "estilo": "ficha",
-    "slides": [
-      {
-        "tipo": "capa",
-        "pre": "Não caia nessas",
-        "titulo": [
-          "5 jeitos de ser",
-          "[[eliminado]] no TJ SP"
-        ],
-        "sub": "Escrevente e Oficial de Justiça · Vunesp",
-        "ts": 140
-      },
-      {
-        "tipo": "lista",
-        "aba": "ELIMINAÇÃO",
-        "titulo": [
-          "Fica de",
-          "[[fora]] quem"
-        ],
-        "itens": [
-          {
-            "t": "Faz menos de 50% em Português",
-            "d": "Bloco I é eliminatório."
-          },
-          {
-            "t": "Faz menos de 50% em Direito",
-            "d": "Bloco II também elimina, nos dois cargos."
-          },
-          {
-            "t": "Fica abaixo de 5 na objetiva",
-            "d": "A nota mínima soma os três blocos."
-          },
-          {
-            "t": "Tira menos de 24 na discursiva",
-            "d": "De 0 a 40 pontos (19,2 nas vagas reservadas)."
-          },
-          {
-            "t": "Não paga o boleto até 11/12",
-            "d": "Sem pagamento, não há inscrição."
-          }
-        ],
-        "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, 19/10/2026."
-      },
-      {
-        "tipo": "datas",
-        "aba": "PRAZOS",
-        "titulo": [
-          "Não perca",
-          "esses [[prazos]]"
-        ],
-        "itens": [
-          {
-            "data": "28/10 a 30/10",
-            "t": "Pedido de **redução de 50% da taxa**"
-          },
-          {
-            "data": "28/10 a 10/12",
-            "t": "**Inscrições** no site da Vunesp"
-          },
-          {
-            "data": "11/12",
-            "t": "Último dia para **pagar o boleto**",
-            "destaque": true
-          },
-          {
-            "data": "14/03/2027",
-            "t": "**Prova**"
-          }
-        ]
-      },
-      {
-        "tipo": "texto",
-        "aba": "ATENÇÃO",
-        "titulo": [
-          "Escolha bem a",
-          "[[circunscrição]]"
-        ],
-        "paragrafos": [
-          "No **Escrevente**, o concurso é só para **cadastro reserva**, da 2ª à 10ª RAJ, **sem a Capital**.",
-          "Leia o edital antes de escolher onde concorrer."
-        ],
-        "destaque": "Não existe isenção total da taxa: só a redução de 50%, pedida de 28 a 30/10."
-      },
-      {
-        "tipo": "cta",
-        "titulo": [
-          "Manda pra quem",
-          "vai [[prestar]]"
-        ],
-        "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
-        "comenta": "TJSP"
-      }
+   },
+   {
+    "tipo": "lista",
+    "aba": "A PROVA",
+    "titulo": [
+     "Como é",
+     "a [[prova]]"
+    ],
+    "itens": [
+     {
+      "t": "Objetiva com 70 questões",
+      "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
+     },
+     {
+      "t": "Nota mínima 5 de 10",
+      "d": "Somando os três blocos da objetiva."
+     },
+     {
+      "t": "Discursiva de 0 a 40 pontos",
+      "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
+     },
+     {
+      "t": "Só os mais bem colocados têm a discursiva corrigida",
+      "d": "Conforme o número definido para cada circunscrição."
+     }
     ]
-  },
-  {
-    "id": "tjsp-onde-estao-os-pontos",
-    "titulo": "TJ SP: 2 de cada 3 questões · tela única",
-    "tipo": "post",
-    "selo": "Estratégia",
-    "manchete": [
-      "2 de cada 3",
-      "questões são de",
-      "[[Português e Direito]]"
+   },
+   {
+    "tipo": "blocos",
+    "aba": "ESCREVENTE",
+    "titulo": [
+     "O que cai:",
+     "[[Escrevente]]"
     ],
-    "sub": "E os dois blocos eliminam abaixo de 50%",
-    "numeros": [
-      {
-        "n": "46/70",
-        "px": 64,
-        "rot": "Escrevente"
-      },
-      {
-        "n": "55/70",
-        "px": 64,
-        "rot": "Oficial de Justiça"
-      },
-      {
-        "n": "50%",
-        "px": 64,
-        "rot": "mínimo em cada bloco"
-      }
+    "itens": [
+     {
+      "n": "16",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "30",
+      "nome": "Bloco II · Direito",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
+     },
+     {
+      "n": "24",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
+     }
+    ]
+   },
+   {
+    "tipo": "blocos",
+    "aba": "OFICIAL DE JUSTIÇA",
+    "titulo": [
+     "O que cai:",
+     "[[Oficial]]"
     ],
-    "comenta": "TJSP",
-    "comentaTexto": "e entre no grupo de estudos"
-  },
-  {
-    "id": "tjsp-pdf-analise-vunesp",
-    "titulo": "PDF Análise da banca Vunesp · tela única",
-    "tipo": "post",
-    "selo": "PDF gratuito",
-    "manchete": [
-      "Análise da",
-      "banca [[Vunesp]]",
-      "pro TJ SP"
+    "itens": [
+     {
+      "n": "15",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "40",
+      "nome": "Bloco II · Específicos",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
+     },
+     {
+      "n": "15",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "[[Atenção]]"
     ],
-    "sub": "Peso de cada bloco, o que cai, como a Vunesp cobra e o plano de estudo",
-    "numeros": [
-      {
-        "n": "6",
-        "px": 64,
-        "rot": "páginas em A4"
-      },
-      {
-        "n": "2",
-        "px": 64,
-        "rot": "cargos analisados"
-      },
-      {
-        "n": "3",
-        "px": 64,
-        "rot": "fases de estudo"
-      }
+    "paragrafos": [
+     "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
+     "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
+     "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
     ],
-    "comenta": "VUNESP",
-    "comentaTexto": "e receba o PDF no direct"
-  }
+    "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Bora pro",
+     "[[TJ SP]]?"
+    ],
+    "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
+    "comenta": "TJSP"
+   }
+  ]
+ },
+ {
+  "id": "tjsp-tudo-claro",
+  "titulo": "Tudo sobre o concurso do TJ SP · claro",
+  "estilo": "claro",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Tudo que você precisa saber sobre o",
+    "titulo": [
+     "Concurso do",
+     "[[TJ São Paulo]]"
+    ],
+    "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
+    "alerta": "Inscrições até 10/12",
+    "ts": 150
+   },
+   {
+    "tipo": "numeros",
+    "aba": "EDITAIS 01 E 02/2026",
+    "titulo": [
+     "Vagas e",
+     "[[salários]]"
+    ],
+    "itens": [
+     {
+      "n": "132",
+      "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
+     },
+     {
+      "n": "R$ 9.856",
+      "px": 76,
+      "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
+     },
+     {
+      "n": "R$ 6.782",
+      "px": 76,
+      "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
+     },
+     {
+      "n": "14/03",
+      "rot": "data da prova, em **2027**, para os dois cargos"
+     }
+    ],
+    "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
+   },
+   {
+    "tipo": "comparativo",
+    "aba": "CARGOS",
+    "titulo": [
+     "Oficial x",
+     "[[Escrevente]]"
+    ],
+    "colunas": [
+     "Oficial de Justiça",
+     "Escrevente"
+    ],
+    "linhas": [
+     [
+      "Escolaridade",
+      "Superior em qualquer área",
+      "Ensino médio"
+     ],
+     [
+      "Vagas",
+      "132 imediatas + cadastro reserva",
+      "Só cadastro reserva"
+     ],
+     [
+      "Onde",
+      "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
+      "2ª a 10ª RAJ, **sem a Capital**"
+     ],
+     [
+      "Salário",
+      "R$ 9.856,95",
+      "R$ 6.782,54"
+     ],
+     [
+      "Taxa",
+      "R$ 96,00",
+      "R$ 81,00"
+     ],
+     [
+      "Jornada",
+      "40 horas semanais",
+      "40 horas semanais"
+     ]
+    ],
+    "fonte": "Banca: Fundação Vunesp."
+   },
+   {
+    "tipo": "datas",
+    "aba": "CRONOGRAMA",
+    "titulo": [
+     "Datas do",
+     "[[concurso]]"
+    ],
+    "itens": [
+     {
+      "data": "28/10 a 30/10",
+      "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
+     },
+     {
+      "data": "28/10 a 10/12",
+      "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
+     },
+     {
+      "data": "11/12",
+      "t": "Último dia para pagar o boleto"
+     },
+     {
+      "data": "14/03/2027",
+      "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
+      "destaque": true
+     },
+     {
+      "data": "17/03/2027",
+      "t": "Gabarito da prova objetiva"
+     }
+    ]
+   },
+   {
+    "tipo": "lista",
+    "aba": "A PROVA",
+    "titulo": [
+     "Como é",
+     "a [[prova]]"
+    ],
+    "itens": [
+     {
+      "t": "Objetiva com 70 questões",
+      "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
+     },
+     {
+      "t": "Nota mínima 5 de 10",
+      "d": "Somando os três blocos da objetiva."
+     },
+     {
+      "t": "Discursiva de 0 a 40 pontos",
+      "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
+     },
+     {
+      "t": "Só os mais bem colocados têm a discursiva corrigida",
+      "d": "Conforme o número definido para cada circunscrição."
+     }
+    ]
+   },
+   {
+    "tipo": "blocos",
+    "aba": "ESCREVENTE",
+    "titulo": [
+     "O que cai:",
+     "[[Escrevente]]"
+    ],
+    "itens": [
+     {
+      "n": "16",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "30",
+      "nome": "Bloco II · Direito",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
+     },
+     {
+      "n": "24",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
+     }
+    ]
+   },
+   {
+    "tipo": "blocos",
+    "aba": "OFICIAL DE JUSTIÇA",
+    "titulo": [
+     "O que cai:",
+     "[[Oficial]]"
+    ],
+    "itens": [
+     {
+      "n": "15",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "40",
+      "nome": "Bloco II · Específicos",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
+     },
+     {
+      "n": "15",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "[[Atenção]]"
+    ],
+    "paragrafos": [
+     "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
+     "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
+     "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
+    ],
+    "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Bora pro",
+     "[[TJ SP]]?"
+    ],
+    "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
+    "comenta": "TJSP"
+   }
+  ]
+ },
+ {
+  "id": "tjsp-tudo-ficha",
+  "titulo": "Tudo sobre o concurso do TJ SP · ficha do edital",
+  "estilo": "ficha",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Tudo que você precisa saber sobre o",
+    "titulo": [
+     "Concurso do",
+     "[[TJ São Paulo]]"
+    ],
+    "sub": "Oficial de Justiça e Escrevente Técnico Judiciário",
+    "alerta": "Inscrições até 10/12",
+    "ts": 150
+   },
+   {
+    "tipo": "numeros",
+    "aba": "EDITAIS 01 E 02/2026",
+    "titulo": [
+     "Vagas e",
+     "[[salários]]"
+    ],
+    "itens": [
+     {
+      "n": "132",
+      "rot": "vagas imediatas para **Oficial de Justiça**, mais cadastro reserva"
+     },
+     {
+      "n": "R$ 9.856",
+      "px": 76,
+      "rot": "remuneração inicial de **Oficial de Justiça** (R$ 9.856,95)"
+     },
+     {
+      "n": "R$ 6.782",
+      "px": 76,
+      "rot": "remuneração inicial de **Escrevente** (R$ 6.782,54)"
+     },
+     {
+      "n": "14/03",
+      "rot": "data da prova, em **2027**, para os dois cargos"
+     }
+    ],
+    "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, publicados em 19/10/2026. Confira sempre o edital."
+   },
+   {
+    "tipo": "comparativo",
+    "aba": "CARGOS",
+    "titulo": [
+     "Oficial x",
+     "[[Escrevente]]"
+    ],
+    "colunas": [
+     "Oficial de Justiça",
+     "Escrevente"
+    ],
+    "linhas": [
+     [
+      "Escolaridade",
+      "Superior em qualquer área",
+      "Ensino médio"
+     ],
+     [
+      "Vagas",
+      "132 imediatas + cadastro reserva",
+      "Só cadastro reserva"
+     ],
+     [
+      "Onde",
+      "Capital e 1ª a 10ª RAJ (vagas imediatas na 1ª e 4ª RAJ)",
+      "2ª a 10ª RAJ, **sem a Capital**"
+     ],
+     [
+      "Salário",
+      "R$ 9.856,95",
+      "R$ 6.782,54"
+     ],
+     [
+      "Taxa",
+      "R$ 96,00",
+      "R$ 81,00"
+     ],
+     [
+      "Jornada",
+      "40 horas semanais",
+      "40 horas semanais"
+     ]
+    ],
+    "fonte": "Banca: Fundação Vunesp."
+   },
+   {
+    "tipo": "datas",
+    "aba": "CRONOGRAMA",
+    "titulo": [
+     "Datas do",
+     "[[concurso]]"
+    ],
+    "itens": [
+     {
+      "data": "28/10 a 30/10",
+      "t": "Pedido de **redução de 50% da taxa** (Lei Estadual 12.782/2007)"
+     },
+     {
+      "data": "28/10 a 10/12",
+      "t": "**Inscrições** no site da Vunesp (até 23h59 do dia 10/12)"
+     },
+     {
+      "data": "11/12",
+      "t": "Último dia para pagar o boleto"
+     },
+     {
+      "data": "14/03/2027",
+      "t": "**Prova** objetiva e discursiva, no mesmo dia, à tarde (5 horas)",
+      "destaque": true
+     },
+     {
+      "data": "17/03/2027",
+      "t": "Gabarito da prova objetiva"
+     }
+    ]
+   },
+   {
+    "tipo": "lista",
+    "aba": "A PROVA",
+    "titulo": [
+     "Como é",
+     "a [[prova]]"
+    ],
+    "itens": [
+     {
+      "t": "Objetiva com 70 questões",
+      "d": "Cinco alternativas, divididas em três blocos. Blocos I e II eliminatórios (mínimo de **50%** em cada); bloco III só classifica."
+     },
+     {
+      "t": "Nota mínima 5 de 10",
+      "d": "Somando os três blocos da objetiva."
+     },
+     {
+      "t": "Discursiva de 0 a 40 pontos",
+      "d": "**Oficial:** 2 questões de conhecimentos específicos. **Escrevente:** redação dissertativo-argumentativa. Mínimo de 24 pontos (19,2 nas vagas reservadas)."
+     },
+     {
+      "t": "Só os mais bem colocados têm a discursiva corrigida",
+      "d": "Conforme o número definido para cada circunscrição."
+     }
+    ]
+   },
+   {
+    "tipo": "blocos",
+    "aba": "ESCREVENTE",
+    "titulo": [
+     "O que cai:",
+     "[[Escrevente]]"
+    ],
+    "itens": [
+     {
+      "n": "16",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "30",
+      "nome": "Bloco II · Direito",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil (com as Leis 9.099/95 e 12.153/09), Constitucional, Administrativo e **normas internas do TJSP**."
+     },
+     {
+      "n": "24",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Informática (9), Raciocínio Lógico (7), Atualidades e Estatuto da Pessoa com Deficiência (4) e Matemática (4)."
+     }
+    ]
+   },
+   {
+    "tipo": "blocos",
+    "aba": "OFICIAL DE JUSTIÇA",
+    "titulo": [
+     "O que cai:",
+     "[[Oficial]]"
+    ],
+    "itens": [
+     {
+      "n": "15",
+      "nome": "Bloco I · Português",
+      "elim": true,
+      "d": "Língua Portuguesa."
+     },
+     {
+      "n": "40",
+      "nome": "Bloco II · Específicos",
+      "elim": true,
+      "d": "Penal, Processo Penal, Processo Civil, Constitucional, Administrativo (com o Estatuto dos Servidores de SP e a Lei de Improbidade), Civil e legislação especial."
+     },
+     {
+      "n": "15",
+      "nome": "Bloco III · Gerais",
+      "elim": false,
+      "d": "Matemática e Raciocínio Lógico (7), Informática (5), Atualidades e Estatuto da Pessoa com Deficiência (3)."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "[[Atenção]]"
+    ],
+    "paragrafos": [
+     "**Escrevente é só cadastro reserva**, nas circunscrições da 2ª à 10ª RAJ. Escolha bem a circunscrição.",
+     "Reserva de **5%** para pessoas com deficiência e **30%** para candidatos negros (25%), indígenas (3%) e quilombolas (2%).",
+     "Não há isenção total da taxa: só **redução de 50%**, pedida de 28 a 30/10."
+    ],
+    "destaque": "Português e Direito eliminam: abaixo de 50% nos blocos I ou II, o candidato está fora."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Bora pro",
+     "[[TJ SP]]?"
+    ],
+    "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
+    "comenta": "TJSP"
+   }
+  ]
+ },
+ {
+  "id": "grupo-estudos-tjsp",
+  "titulo": "Grupo de estudos TJ SP · capa do grupo",
+  "tipo": "grupo",
+  "bandeira": "sp",
+  "manchete": [
+   "[[TJ SP]]"
+  ]
+ },
+ {
+  "id": "grupo-estudos-pe",
+  "titulo": "Grupo de estudos Pernambuco · capa do grupo",
+  "tipo": "grupo",
+  "bandeira": "pe",
+  "manchete": [
+   "[[Pernambuco]]"
+  ],
+  "ts": 150
+ },
+ {
+  "id": "tjsp-como-estudar",
+  "titulo": "Como estudar pro TJ SP até a prova · claro",
+  "estilo": "claro",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Faltam menos de 5 meses",
+    "titulo": [
+     "Como estudar",
+     "pro [[TJ SP]]"
+    ],
+    "sub": "Plano em 3 fases até a prova de 14/03/2027",
+    "ts": 150
+   },
+   {
+    "tipo": "numeros",
+    "titulo": [
+     "Onde estão",
+     "os [[pontos]]"
+    ],
+    "itens": [
+     {
+      "n": "46/70",
+      "px": 90,
+      "rot": "questões de **Português e Direito** no Escrevente"
+     },
+     {
+      "n": "55/70",
+      "px": 90,
+      "rot": "questões de **Português e específicos** no Oficial"
+     },
+     {
+      "n": "50%",
+      "rot": "mínimo em **cada** bloco eliminatório (I e II)"
+     },
+     {
+      "n": "5/10",
+      "rot": "nota mínima somando a objetiva"
+     }
+    ],
+    "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, 19/10/2026."
+   },
+   {
+    "tipo": "datas",
+    "titulo": [
+     "O plano em",
+     "[[3 fases]]"
+    ],
+    "itens": [
+     {
+      "data": "Nov e dez",
+      "t": "**Base:** Português todo dia e a teoria de Direito dos blocos eliminatórios"
+     },
+     {
+      "data": "Jan e fev",
+      "t": "**Questões da Vunesp** e lei seca. Escrevente: **normas internas do TJSP**"
+     },
+     {
+      "data": "Março",
+      "t": "**Revisão**, simulados com tempo e treino de **redação/discursiva**"
+     },
+     {
+      "data": "14/03/2027",
+      "t": "**Prova** objetiva e discursiva, à tarde, 5 horas",
+      "destaque": true
+     }
+    ]
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "Suas",
+     "[[prioridades]]"
+    ],
+    "itens": [
+     {
+      "t": "Português todo dia",
+      "d": "O bloco I elimina: abaixo de 50%, acabou."
+     },
+     {
+      "t": "Direito pela letra da lei",
+      "d": "Leia o artigo e resolva questões sobre ele no mesmo dia."
+     },
+     {
+      "t": "Normas internas do TJSP",
+      "d": "Estão no bloco II do Escrevente: pouca gente estuda, ponto garantido pra quem estuda."
+     },
+     {
+      "t": "Uma discursiva por semana",
+      "d": "Mínimo de 24 de 40 pontos (19,2 nas vagas reservadas)."
+     },
+     {
+      "t": "Bloco III por último",
+      "d": "Informática, RLM e Matemática classificam, mas não eliminam."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "O erro",
+     "[[clássico]]"
+    ],
+    "paragrafos": [
+     "Começar por Informática e Raciocínio Lógico porque parecem mais fáceis.",
+     "Eles **não eliminam**. Português e Direito eliminam."
+    ],
+    "destaque": "Primeiro garanta os 50% dos blocos I e II. Depois busque a classificação."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Bora pro",
+     "[[TJ SP]]?"
+    ],
+    "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
+    "comenta": "TJSP"
+   }
+  ]
+ },
+ {
+  "id": "tjsp-eliminacao",
+  "titulo": "5 jeitos de ser eliminado no TJ SP · ficha",
+  "estilo": "ficha",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Não caia nessas",
+    "titulo": [
+     "5 jeitos de ser",
+     "[[eliminado]] no TJ SP"
+    ],
+    "sub": "Escrevente e Oficial de Justiça · Vunesp",
+    "ts": 140
+   },
+   {
+    "tipo": "lista",
+    "aba": "ELIMINAÇÃO",
+    "titulo": [
+     "Fica de",
+     "[[fora]] quem"
+    ],
+    "itens": [
+     {
+      "t": "Faz menos de 50% em Português",
+      "d": "Bloco I é eliminatório."
+     },
+     {
+      "t": "Faz menos de 50% em Direito",
+      "d": "Bloco II também elimina, nos dois cargos."
+     },
+     {
+      "t": "Fica abaixo de 5 na objetiva",
+      "d": "A nota mínima soma os três blocos."
+     },
+     {
+      "t": "Tira menos de 24 na discursiva",
+      "d": "De 0 a 40 pontos (19,2 nas vagas reservadas)."
+     },
+     {
+      "t": "Não paga o boleto até 11/12",
+      "d": "Sem pagamento, não há inscrição."
+     }
+    ],
+    "fonte": "Fonte: editais TJSP nº 01/2026 (Oficial de Justiça) e nº 02/2026 (Escrevente), Vunesp, 19/10/2026."
+   },
+   {
+    "tipo": "datas",
+    "aba": "PRAZOS",
+    "titulo": [
+     "Não perca",
+     "esses [[prazos]]"
+    ],
+    "itens": [
+     {
+      "data": "28/10 a 30/10",
+      "t": "Pedido de **redução de 50% da taxa**"
+     },
+     {
+      "data": "28/10 a 10/12",
+      "t": "**Inscrições** no site da Vunesp"
+     },
+     {
+      "data": "11/12",
+      "t": "Último dia para **pagar o boleto**",
+      "destaque": true
+     },
+     {
+      "data": "14/03/2027",
+      "t": "**Prova**"
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "Escolha bem a",
+     "[[circunscrição]]"
+    ],
+    "paragrafos": [
+     "No **Escrevente**, o concurso é só para **cadastro reserva**, da 2ª à 10ª RAJ, **sem a Capital**.",
+     "Leia o edital antes de escolher onde concorrer."
+    ],
+    "destaque": "Não existe isenção total da taxa: só a redução de 50%, pedida de 28 a 30/10."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Manda pra quem",
+     "vai [[prestar]]"
+    ],
+    "texto": "Comenta **TJSP** que eu te mando o link do nosso grupo de estudos.",
+    "comenta": "TJSP"
+   }
+  ]
+ },
+ {
+  "id": "tjsp-onde-estao-os-pontos",
+  "titulo": "TJ SP: 2 de cada 3 questões · tela única",
+  "tipo": "post",
+  "selo": "Estratégia",
+  "manchete": [
+   "2 de cada 3",
+   "questões são de",
+   "[[Português e Direito]]"
+  ],
+  "sub": "E os dois blocos eliminam abaixo de 50%",
+  "numeros": [
+   {
+    "n": "46/70",
+    "px": 64,
+    "rot": "Escrevente"
+   },
+   {
+    "n": "55/70",
+    "px": 64,
+    "rot": "Oficial de Justiça"
+   },
+   {
+    "n": "50%",
+    "px": 64,
+    "rot": "mínimo em cada bloco"
+   }
+  ],
+  "comenta": "TJSP",
+  "comentaTexto": "e entre no grupo de estudos"
+ },
+ {
+  "id": "tjsp-pdf-analise-vunesp",
+  "titulo": "PDF Análise da banca Vunesp · tela única",
+  "tipo": "post",
+  "selo": "PDF gratuito",
+  "manchete": [
+   "Análise da",
+   "banca [[Vunesp]]",
+   "pro TJ SP"
+  ],
+  "sub": "Peso de cada bloco, o que cai, como a Vunesp cobra e o plano de estudo",
+  "numeros": [
+   {
+    "n": "6",
+    "px": 64,
+    "rot": "páginas em A4"
+   },
+   {
+    "n": "2",
+    "px": 64,
+    "rot": "cargos analisados"
+   },
+   {
+    "n": "3",
+    "px": 64,
+    "rot": "fases de estudo"
+   }
+  ],
+  "comenta": "VUNESP",
+  "comentaTexto": "e receba o PDF no direct"
+ },
+ {
+  "id": "enac-2026-2",
+  "titulo": "ENAC 2026.2: o que você precisa saber",
+  "estilo": "claro",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Exame Nacional dos Cartórios",
+    "titulo": [
+     "ENAC: o que",
+     "você [[precisa]] saber"
+    ],
+    "sub": "4ª edição · FGV · prova em 22/11",
+    "ts": 130
+   },
+   {
+    "tipo": "numeros",
+    "titulo": [
+     "A prova em",
+     "[[números]]"
+    ],
+    "itens": [
+     {
+      "n": "100",
+      "rot": "questões de múltipla escolha"
+     },
+     {
+      "n": "60",
+      "rot": "acertos para ser habilitado"
+     },
+     {
+      "n": "50",
+      "rot": "acertos nas vagas reservadas"
+     },
+     {
+      "n": "6 anos",
+      "px": 70,
+      "rot": "de validade da habilitação"
+     }
+    ],
+    "fonte": "Fonte: edital do 4º ENAC (2026.2), FGV."
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Pra que",
+     "[[serve]]"
+    ],
+    "paragrafos": [
+     "O ENAC é **requisito obrigatório** para se inscrever nos concursos de cartório, de provimento ou de remoção.",
+     "Ele **não dá vaga**: só habilita. Quem passa pode disputar os concursos dos Tribunais de Justiça durante 6 anos."
+    ],
+    "destaque": "Sem habilitação no ENAC, não dá para concorrer a nenhuma serventia."
+   },
+   {
+    "tipo": "blocos",
+    "titulo": [
+     "Onde estão",
+     "as [[questões]]"
+    ],
+    "itens": [
+     {
+      "n": "60",
+      "nome": "Notarial e Registral",
+      "d": "Mais da metade da prova"
+     },
+     {
+      "n": "14",
+      "nome": "Direito Civil",
+      "d": "A segunda matéria em peso"
+     },
+     {
+      "n": "8",
+      "nome": "Direito Constitucional",
+      "d": ""
+     },
+     {
+      "n": "18",
+      "nome": "Demais matérias",
+      "d": "Administrativo, Tributário e Empresarial (4 cada), Processo Civil (2) e Penal, Processo Penal, Trabalho e Processo do Trabalho (1 cada)"
+     }
+    ],
+    "fonte": "Fonte: edital do 4º ENAC (2026.2), FGV."
+   },
+   {
+    "tipo": "datas",
+    "titulo": [
+     "Datas do",
+     "[[ENAC 2026.2]]"
+    ],
+    "itens": [
+     {
+      "data": "16/11",
+      "t": "Divulgação dos **locais de prova**"
+     },
+     {
+      "data": "22/11",
+      "t": "**Prova objetiva**",
+      "destaque": true
+     }
+    ],
+    "fonte": "Datas prováveis do edital. Confira no site da FGV."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "enam-2026-2",
+  "titulo": "ENAM 2026.2: a porta de entrada da magistratura",
+  "estilo": "ficha",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Exame Nacional da Magistratura",
+    "titulo": [
+     "ENAM: a porta",
+     "da [[magistratura]]"
+    ],
+    "sub": "6ª edição · ENFAM e FGV · prova em 29/11",
+    "ts": 130
+   },
+   {
+    "tipo": "numeros",
+    "aba": "A PROVA",
+    "titulo": [
+     "Como é",
+     "a [[prova]]"
+    ],
+    "itens": [
+     {
+      "n": "80",
+      "rot": "questões objetivas"
+     },
+     {
+      "n": "56",
+      "rot": "acertos para habilitar (ampla)"
+     },
+     {
+      "n": "5h",
+      "rot": "de prova, das 13h às 18h"
+     },
+     {
+      "n": "2 anos",
+      "px": 70,
+      "rot": "de validade, prorrogável 1 vez"
+     }
+    ],
+    "fonte": "Fonte: edital do 6º ENAM (2026.2), ENFAM e FGV."
+   },
+   {
+    "tipo": "blocos",
+    "aba": "O QUE CAI",
+    "titulo": [
+     "Questões por",
+     "[[matéria]]"
+    ],
+    "itens": [
+     {
+      "n": "16",
+      "nome": "Constitucional",
+      "d": "A matéria com mais questões"
+     },
+     {
+      "n": "12",
+      "nome": "Civil, Processo Civil e Penal",
+      "d": "12 questões cada"
+     },
+     {
+      "n": "10",
+      "nome": "Administrativo",
+      "d": ""
+     },
+     {
+      "n": "6",
+      "nome": "Humanística, DH e Empresarial",
+      "d": "6 questões cada"
+     }
+    ],
+    "fonte": "Fonte: edital do 6º ENAM (2026.2)."
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "Habilita,",
+     "[[não classifica]]"
+    ],
+    "paragrafos": [
+     "O ENAM é **eliminatório**: quem passa recebe o certificado da ENFAM e pode se inscrever nos concursos para **juiz** dos tribunais.",
+     "Como não há disputa por vagas, a meta é uma só: **bater a nota mínima**."
+    ],
+    "destaque": "Gabarito preliminar previsto para 1º/12."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "enap-agu",
+  "titulo": "ENAP da AGU: o que já se sabe",
+  "estilo": "alternado",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Exame Nacional da Advocacia Pública",
+    "titulo": [
+     "ENAP: o que",
+     "já se [[sabe]]"
+    ],
+    "sub": "O novo exame dos concursos da AGU",
+    "ts": 140
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "O que já",
+     "está [[definido]]"
+    ],
+    "itens": [
+     {
+      "t": "Aprovado em 4/9/2026",
+      "d": "Pelo Conselho Superior da AGU."
+     },
+     {
+      "t": "Etapa prévia e eliminatória",
+      "d": "Obrigatória para entrar nos concursos das carreiras da AGU."
+     },
+     {
+      "t": "Nota não conta na classificação",
+      "d": "Só habilita para as próximas fases."
+     },
+     {
+      "t": "Uma taxa para quatro provas",
+      "d": "O habilitado faz as objetivas das quatro carreiras pagando uma só inscrição."
+     }
+    ]
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "As quatro",
+     "[[carreiras]]"
+    ],
+    "itens": [
+     {
+      "t": "Advogado da União",
+      "d": "50 vagas autorizadas"
+     },
+     {
+      "t": "Procurador Federal",
+      "d": "50 vagas autorizadas"
+     },
+     {
+      "t": "Procurador da Fazenda Nacional",
+      "d": "50 vagas autorizadas"
+     },
+     {
+      "t": "Procurador do Banco Central",
+      "d": "20 vagas autorizadas"
+     }
+    ],
+    "fonte": "Total de 170 vagas autorizadas. Fonte: AGU, set./2026."
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "O que ainda",
+     "[[não se sabe]]"
+    ],
+    "paragrafos": [
+     "**Banca**, **data da prova**, **conteúdo** e **valor da taxa** ainda não foram divulgados.",
+     "A AGU prevê os editais até o fim de 2026. Antes da discursiva, o candidato escolhe a carreira, e no final há curso de formação."
+    ],
+    "destaque": "Apesar do nome, por enquanto o ENAP vale só para as carreiras federais da AGU."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "cartorio-caminho",
+  "titulo": "Concurso de cartório: o caminho até a delegação",
+  "estilo": "claro",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Concurso de cartório",
+    "titulo": [
+     "O caminho até",
+     "o [[cartório]]"
+    ],
+    "sub": "Do ENAC à outorga da delegação",
+    "ts": 140
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "Passo a",
+     "[[passo]]"
+    ],
+    "itens": [
+     {
+      "t": "Passar no ENAC",
+      "d": "60 acertos em 100 (50 nas vagas reservadas). Vale por 6 anos."
+     },
+     {
+      "t": "Escolher o concurso",
+      "d": "Cada Tribunal de Justiça abre o seu, com vagas de provimento e de remoção."
+     },
+     {
+      "t": "Fazer as fases do TJ",
+      "d": "Objetiva, escrita e prática, oral e títulos, conforme o edital."
+     },
+     {
+      "t": "Escolher a serventia",
+      "d": "Pela ordem de classificação, e receber a outorga."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Concursos",
+     "[[em andamento]]"
+    ],
+    "paragrafos": [
+     "O **TJRS** tem concurso com **247 vagas** (165 de provimento e 82 de remoção). TJMT e TJBA também têm certames em andamento.",
+     "O **TJSP** autorizou o 14º concurso, com edital previsto para 2026 e banca ainda não definida."
+    ],
+    "destaque": "O CNJ reúne todos os editais no portal de acompanhamento de concursos cartorários.",
+    "fonte": "Fontes: editais dos TJs e portal do CNJ. Confira datas no edital de cada tribunal."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "tjpb-analista-2026",
+  "titulo": "Concurso TJ PB: 50 vagas para Analista",
+  "estilo": "alternado",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Edital publicado · FGV",
+    "titulo": [
+     "Concurso",
+     "[[TJ PB]]"
+    ],
+    "sub": "Analista Judiciário · nível superior",
+    "alerta": "Inscrições até 18/11, às 16h",
+    "ts": 170
+   },
+   {
+    "tipo": "numeros",
+    "titulo": [
+     "Vagas e",
+     "[[salário]]"
+    ],
+    "itens": [
+     {
+      "n": "50",
+      "rot": "vagas para Analista"
+     },
+     {
+      "n": "25",
+      "rot": "vagas na área Judiciária (Direito)"
+     },
+     {
+      "n": "R$ 7.526",
+      "px": 70,
+      "rot": "de vencimento inicial"
+     },
+     {
+      "n": "R$ 11,5 mil",
+      "px": 62,
+      "rot": "com auxílios alimentação e saúde"
+     }
+    ],
+    "fonte": "Fonte: edital TJPB nº 01/2026, FGV."
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "As outras",
+     "[[especialidades]]"
+    ],
+    "itens": [
+     {
+      "t": "Desenvolvimento de Sistemas",
+      "d": "10 vagas"
+     },
+     {
+      "t": "Contabilidade",
+      "d": "5 vagas (exige registro no CRC)"
+     },
+     {
+      "t": "Inteligência Artificial",
+      "d": "3 vagas"
+     },
+     {
+      "t": "Segurança da Informação e Governança de TI",
+      "d": "2 vagas cada"
+     },
+     {
+      "t": "Banco de Dados, Infraestrutura e Ciência de Dados",
+      "d": "1 vaga cada"
+     }
+    ]
+   },
+   {
+    "tipo": "datas",
+    "titulo": [
+     "Datas do",
+     "[[concurso]]"
+    ],
+    "itens": [
+     {
+      "data": "20/10 a 18/11",
+      "t": "**Inscrições** no site da FGV (taxa de R$ 120)"
+     },
+     {
+      "data": "19/11",
+      "t": "Último dia para **pagar o boleto**",
+      "destaque": true
+     },
+     {
+      "data": "24/01/2027",
+      "t": "**Provas**, das 13h às 18h, em João Pessoa"
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Como é",
+     "a [[prova]]"
+    ],
+    "paragrafos": [
+     "**Objetiva** com nota mínima de 60% e uma **discursiva** de até 30 linhas, valendo 40 pontos.",
+     "A discursiva só é corrigida para os aprovados na objetiva e mais bem classificados em cada especialidade."
+    ],
+    "destaque": "Confira no edital a quantidade de questões por matéria da sua especialidade."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "seguranca-pe-2026",
+  "titulo": "Concursos da segurança pública de PE",
+  "estilo": "ficha",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Pernambuco",
+    "titulo": [
+     "Segurança",
+     "pública [[PE]]"
+    ],
+    "sub": "PM, Polícia Civil, Bombeiros e Polícia Penal",
+    "alerta": "PM: inscrições até 23/11",
+    "ts": 150
+   },
+   {
+    "tipo": "numeros",
+    "aba": "VISÃO GERAL",
+    "titulo": [
+     "3.905",
+     "[[vagas]]"
+    ],
+    "itens": [
+     {
+      "n": "1.320",
+      "rot": "Polícia Militar"
+     },
+     {
+      "n": "1.315",
+      "rot": "Polícia Civil"
+     },
+     {
+      "n": "700",
+      "rot": "Polícia Penal"
+     },
+     {
+      "n": "570",
+      "rot": "Bombeiros"
+     }
+    ],
+    "fonte": "Vagas anunciadas pelo governo de PE (set./2026)."
+   },
+   {
+    "tipo": "comparativo",
+    "aba": "PM PE",
+    "titulo": [
+     "Polícia",
+     "[[Militar]]"
+    ],
+    "colunas": [
+     "Soldado",
+     "Oficial"
+    ],
+    "linhas": [
+     [
+      "Vagas",
+      "1.250",
+      "70"
+     ],
+     [
+      "Escolaridade",
+      "Nível médio",
+      "Nível superior"
+     ],
+     [
+      "Salário",
+      "R$ 5.617,92",
+      "R$ 12.937,33"
+     ],
+     [
+      "Taxa",
+      "R$ 180",
+      "R$ 220"
+     ]
+    ],
+    "fonte": "Edital PMPE nº 001/2026, Instituto AOCP. Inscrições prorrogadas até 23/11, às 14h. Prova prevista para 21/02/2027."
+   },
+   {
+    "tipo": "comparativo",
+    "aba": "PC PE",
+    "titulo": [
+     "Polícia",
+     "[[Civil]]"
+    ],
+    "colunas": [
+     "Agente e Escrivão",
+     "Delegado"
+    ],
+    "linhas": [
+     [
+      "Vagas",
+      "1.200 e 70",
+      "45"
+     ],
+     [
+      "Salário",
+      "R$ 5.667,92",
+      "R$ 13.560"
+     ],
+     [
+      "Taxa",
+      "R$ 250",
+      "R$ 350"
+     ],
+     [
+      "Prova",
+      "07/03/2027",
+      "14/03/2027"
+     ]
+    ],
+    "fonte": "Edital PCPE 2026, Cebraspe. Inscrições de 15/10 a 16/12/2026."
+   },
+   {
+    "tipo": "texto",
+    "aba": "ATENÇÃO",
+    "titulo": [
+     "E Bombeiros e",
+     "[[Polícia Penal]]?"
+    ],
+    "paragrafos": [
+     "**Bombeiros** (AOCP) e **Polícia Penal** (Cebraspe) já têm banca definida.",
+     "Fique de olho no Diário Oficial e no site das bancas para a publicação dos editais."
+    ],
+    "destaque": "Na PM, o Soldado precisa ter de 18 a 30 anos, CNH B e altura mínima de 1,60 m (homens) ou 1,55 m (mulheres)."
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "id": "duvidas-concurseiros",
+  "titulo": "5 dúvidas de quem está começando",
+  "estilo": "alternado",
+  "slides": [
+   {
+    "tipo": "capa",
+    "pre": "Concurso público",
+    "titulo": [
+     "5 dúvidas de quem",
+     "está [[começando]]"
+    ],
+    "sub": "E o que fazer em cada uma",
+    "ts": 130
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Por onde",
+     "[[começo]]?"
+    ],
+    "paragrafos": [
+     "Escolha uma **área** (tribunais, polícia, cartório) e pegue o **último edital** dela.",
+     "As matérias se repetem muito entre os concursos da mesma área. O que você estuda agora vale para os próximos."
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Quantas horas",
+     "por [[dia]]?"
+    ],
+    "paragrafos": [
+     "Constância vale mais que maratona: **2 horas todo dia** rendem mais do que 10 horas no domingo.",
+     "Comece com o tempo que você **consegue manter** e aumente aos poucos."
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Teoria ou",
+     "[[questões]]?"
+    ],
+    "paragrafos": [
+     "As duas. Estude a teoria e, no mesmo dia, resolva **questões da banca** do seu concurso.",
+     "É a questão que mostra como o assunto é cobrado e o que você ainda não entendeu."
+    ]
+   },
+   {
+    "tipo": "lista",
+    "titulo": [
+     "Como",
+     "[[revisar]]?"
+    ],
+    "itens": [
+     {
+      "t": "Em 24 horas",
+      "d": "Uma revisão rápida do que estudou ontem."
+     },
+     {
+      "t": "Em 7 dias",
+      "d": "Resumo, mapa ou questões do assunto."
+     },
+     {
+      "t": "Em 30 dias",
+      "d": "Só questões. Errou? Volta pra teoria."
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "titulo": [
+     "Dá pra estudar",
+     "[[trabalhando]]?"
+    ],
+    "paragrafos": [
+     "Dá. Use um **ciclo de estudos**: uma lista de matérias que você vai cumprindo na ordem, sem depender do dia da semana.",
+     "Perdeu um dia? Você continua de onde parou, sem refazer o cronograma."
+    ]
+   },
+   {
+    "tipo": "cta",
+    "titulo": [
+     "Estude com",
+     "[[método]]"
+    ],
+    "texto": "Na **plataforma Concurso com Líbero** o plano de estudos se adapta à sua rotina, e a **mentoria** acompanha você até a prova. Comenta **PLANO** que eu te mando o link.",
+    "comenta": "PLANO"
+   }
+  ]
+ },
+ {
+  "tipo": "post",
+  "id": "prazos-novembro",
+  "titulo": "Prazos de novembro · tela única",
+  "selo": "Não perca",
+  "manchete": [
+   "Prazos de",
+   "[[novembro]]"
+  ],
+  "sub": "Inscrições e provas que acontecem este mês",
+  "numeros": [
+   {
+    "n": "18/11",
+    "px": 64,
+    "rot": "fim das inscrições TJ PB"
+   },
+   {
+    "n": "22/11",
+    "px": 64,
+    "rot": "prova do ENAC"
+   },
+   {
+    "n": "23/11",
+    "px": 64,
+    "rot": "fim das inscrições PM PE"
+   },
+   {
+    "n": "29/11",
+    "px": 64,
+    "rot": "prova do ENAM"
+   }
+  ],
+  "comenta": "PLANO",
+  "comentaTexto": "e receba o link da plataforma"
+ },
+ {
+  "tipo": "post",
+  "id": "pcpe-inscricoes",
+  "titulo": "PC PE: inscrições abertas · tela única",
+  "selo": "Inscrições abertas",
+  "manchete": [
+   "Concurso",
+   "[[PC PE]]"
+  ],
+  "sub": "Agente, Escrivão e Delegado · Cebraspe",
+  "numeros": [
+   {
+    "n": "1.315",
+    "rot": "vagas"
+   },
+   {
+    "n": "16/12",
+    "px": 64,
+    "rot": "fim das inscrições"
+   },
+   {
+    "n": "R$ 13,5 mil",
+    "px": 52,
+    "rot": "Delegado"
+   }
+  ],
+  "comenta": "PCPE",
+  "comentaTexto": "e receba o link da plataforma"
+ },
+ {
+  "tipo": "post",
+  "id": "tjsp-escrevente-prazo",
+  "titulo": "TJ SP Escrevente: inscrições até 10/12 · tela única",
+  "selo": "Inscrições abertas",
+  "manchete": [
+   "Escrevente",
+   "[[TJ SP]]"
+  ],
+  "sub": "Vunesp · nível médio · prova em 14/03/2027",
+  "numeros": [
+   {
+    "n": "R$ 6,7 mil",
+    "px": 56,
+    "rot": "salário inicial"
+   },
+   {
+    "n": "10/12",
+    "px": 64,
+    "rot": "fim das inscrições"
+   },
+   {
+    "n": "R$ 81",
+    "px": 64,
+    "rot": "taxa"
+   }
+  ],
+  "comenta": "TJSP",
+  "comentaTexto": "e receba o link da plataforma"
+ }
 ]
