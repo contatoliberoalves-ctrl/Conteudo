@@ -39,7 +39,8 @@ const [gLat, gPlaca, gLetras, gTrav] = await Promise.all(['../lateral.stl', 'pla
 const malha = (g, c) => { const m = new THREE.Mesh(g, plast(c)); m.castShadow = m.receiveShadow = true; return m; };
 
 const grupo = new THREE.Group(); scene.add(grupo);
-for (const z of [0, M.largura + M.vao]) { const m = malha(gLat, cor.lateral); m.position.z = z; grupo.add(m); }
+const ab = +q.get('explode') || 0;
+for (const [z, d] of [[0, -ab], [M.largura + M.vao, ab]]) { const m = malha(gLat, cor.lateral); m.position.z = z + d; grupo.add(m); }
 // placa e travessa: comprimento em x no STL -> eixo z; face gravada (z do STL) -> +x
 function barra(g, c, cx, cy, alt, esp) {
   const m = malha(g, c); m.rotation.y = Math.PI / 2;

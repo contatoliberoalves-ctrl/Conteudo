@@ -1,0 +1,237 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#3b1d6e;--azul:#7d4cc2;--ouro:#9b6ce0;--tinta:#231a33;--cinza:#675e78;--linha:#e6e0f0;--fundo:#f6f2fc}
+body{font-family:Inter,sans-serif;color:var(--tinta);font-size:10.5pt;line-height:1.5}
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;padding:20mm 18mm 18mm;page-break-after:always;background:#fff}
+.pg:last-child{page-break-after:auto}
+h1,h2,.num{font-family:'Space Grotesk',Inter,sans-serif}
+h2{font-size:20pt;color:var(--navy);margin-bottom:4mm;letter-spacing:-.3px}
+h3{font-size:11pt;color:var(--navy);margin:6mm 0 2mm;text-transform:uppercase;letter-spacing:.8px}
+p{margin-bottom:2.5mm}
+.rot{font-size:8.5pt;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro)}
+.capa .rot{color:#cdb2fb}
+.rodape{position:absolute;bottom:10mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--cinza);border-top:1px solid var(--linha);padding-top:3mm}
+table{width:100%;border-collapse:collapse;margin:2mm 0 3mm;font-size:10pt}
+th{text-align:left;font-size:8.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);border-bottom:2px solid var(--navy);padding:2mm 2.5mm}
+td{padding:2.2mm 2.5mm;border-bottom:1px solid var(--linha);vertical-align:top}
+td.v,th.v{text-align:right;white-space:nowrap}
+tr.total td{font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy);background:var(--fundo)}
+.capa{background:linear-gradient(160deg,#5a2ca0 0%,#2a1250 60%,#1b0b36 100%);color:#fff;padding:22mm 18mm}
+.capa h1{font-size:44pt;line-height:1.02;letter-spacing:-1px;margin:5mm 0 5mm}
+.capa h1 em{font-style:normal;color:#cdb2fb}
+.capa .sub{font-size:13pt;color:#ddd0f7;max-width:150mm}
+.capa img{position:absolute;right:-6mm;bottom:38mm;width:165mm;filter:drop-shadow(0 8mm 10mm rgba(0,0,0,.35))}
+.capa .chips{position:absolute;left:18mm;bottom:20mm;display:flex;gap:3mm}
+.chip{border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:1.6mm 4mm;font-size:9pt;color:#e6edf5}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:8mm;align-items:start}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 2mm}
+.card{background:var(--fundo);border-radius:3mm;padding:4mm;border-top:3px solid var(--azul)}
+.card.ouro{border-top-color:var(--ouro)}
+.card .num{font-size:20pt;color:var(--navy);line-height:1.1}
+.card .leg{font-size:8.5pt;color:var(--cinza)}
+.nota{background:#f4eefe;border-left:3px solid var(--ouro);padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
+ol,ul{padding-left:5mm;margin-bottom:2mm} li{margin-bottom:1.5mm}
+.destaque{color:var(--navy);font-weight:700}
+.capa img.hero{position:absolute;left:50%;transform:translateX(-50%);bottom:32mm;width:190mm;right:auto;filter:drop-shadow(0 6mm 8mm rgba(0,0,0,.25))}
+.foto{width:100%;display:block}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 2mm}
+.fotos div{background:var(--fundo);border-radius:3mm;overflow:hidden}
+.selo{display:inline-block;background:var(--ouro);color:#fff;font-weight:800;font-size:8.5pt;border-radius:20px;padding:1mm 3.5mm;margin-left:2mm;vertical-align:middle;letter-spacing:.3px}
+td.ok{color:var(--azul);font-weight:800}
+a{color:var(--azul);text-decoration:none;font-weight:700}
+.passos{counter-reset:p;list-style:none;padding:0}
+.passos li{counter-increment:p;position:relative;padding:0 0 0 13mm;margin-bottom:3.5mm;min-height:9mm}
+.passos li::before{content:counter(p);position:absolute;left:0;top:-1mm;width:9mm;height:9mm;border-radius:50%;background:var(--navy);color:#fff;font:700 12pt 'Space Grotesk';display:grid;place-items:center}
+.alerta{background:#fff3f3;border-left:3px solid #c0392b;padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
+.mini{font-size:9pt;color:var(--cinza)}
+.chk{list-style:none;padding:0}.chk li::before{content:"☐ ";color:var(--azul);font-weight:800}
+.foto2{background:var(--fundo);border-radius:3mm;overflow:hidden}
+</style></head><body><section class="pg capa">
+  <div class="rot">Guia de produção</div>
+  <h1>Suporte para<br><em>Vade Mecum</em></h1>
+  <p class="sub">Impressoras, orçamentos, impressão, montagem, envio e quanto aguenta. Tudo para produzir e vender.</p>
+  <img class="hero" src="../leve/render/com-livro.png">
+  <div class="chips"><span class="chip">aguenta 3 kg com folga de 15×</span><span class="chip">~130 g · ~9 h</span><span class="chip">custo ≈ R$ 33</span><span class="chip">vai desmontado</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">1 · Resistência</div>
+  <h2>Quanto aguenta</h2>
+  <p><b>Uso normal: qualquer Vade Mecum, com muita folga.</b> O mais pesado (Saraiva, ~2.700 páginas) tem 2,5–3 kg. A conta abaixo usa 3 kg apoiados numa lateral só, que é o pior caso.</p>
+  <table>
+    <tr><th>Situação</th><th>Esforço no ponto mais exigido</th><th class="v">Folga</th></tr>
+    <tr><td>Vade Mecum de 3 kg</td><td>~2 MPa (o PLA impresso aguenta ~40 MPa)</td><td class="v ok">15–20×</td></tr>
+    <tr><td>Livro + cotovelo apoiado (~6 kg)</td><td>~4 MPa</td><td class="v ok">~10×</td></tr>
+    <tr><td>Quebra do aparador, na conta</td><td colspan="2">só acima de ~40 kg concentrados</td></tr>
+  </table>
+  <div class="cards">
+    <div class="card"><div class="num">3 kg</div><div class="leg">Vade Mecum mais pesado: folga de 15×</div></div>
+    <div class="card"><div class="num">~10 kg</div><div class="leg">carga do teste recomendado antes de vender</div></div>
+    <div class="card ouro"><div class="num">72 mm</div><div class="leg">de aparador: cabe o lado grosso do livro aberto no começo ou no fim</div></div>
+  </div>
+  <h3>O que pode dar problema (e como evitar)</h3>
+  <table>
+    <tr><th>Ponto fraco</th><th>Como evitar</th></tr>
+    <tr><td>Encaixe folgado: o suporte "dança" para os lados</td><td>Ajuste a folga no primeiro teste; se ficar frouxo, uma gota de cola em cada encaixe</td></tr>
+    <tr><td>Calor: PLA amolece acima de ~55 °C (carro, janela com sol)</td><td>Use <b>PETG</b> para quem vai deixar no carro ou perto da janela</td></tr>
+    <tr><td>Camadas mal grudadas (impressão fria ou úmida)</td><td>Filamento seco, temperatura certa, 2–3 paredes</td></tr>
+    <tr><td>Queda no chão com o livro em cima</td><td>Pode trincar a aba; é o mesmo risco de qualquer peça plástica</td></tr>
+  </table>
+  <h3>Teste de carga (faça no primeiro e de vez em quando)</h3>
+  <ol class="passos">
+    <li>Monte o suporte e coloque o Vade Mecum aberto no começo (lado grosso) por 1 dia.</li>
+    <li>Depois, apoie <b>~10 kg</b> por 1 hora (2 pacotes de arroz de 5 kg, encostados na rampa e no aparador).</li>
+    <li>Passou se não houver trinca, nem aba torta, nem encaixe frouxo. Tire uma foto: ela serve de prova no anúncio.</li>
+  </ol>
+  <p class="mini">As contas são de engenharia (resistência do material e forma da peça), não de um ensaio. O teste acima é o que confirma.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>2</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">2 · Impressoras</div>
+  <h2>Qual impressora comprar</h2>
+  <p>A lateral mede 185 × 193 mm: a mesa precisa ter pelo menos ~200 × 200 mm. O @ em outra cor não exige impressora multicolor (basta uma pausa para trocar o filamento).</p>
+  <table>
+    <tr><th>Impressora</th><th>Mesa</th><th class="v">Preço (aprox.)</th><th>Para quem</th></tr>
+    <tr><td><b>Creality Ender-3 V3 SE</b><br><a href="https://lista.mercadolivre.com.br/creality-ender-3-v3-se_OrderId_PRICE">ver no Mercado Livre ›</a></td><td>220 × 220</td><td class="v">R$ 1.550–2.000</td><td>Gastar menos. Pede mais ajuste.</td></tr>
+    <tr><td><b>Bambu Lab A1</b> <span class="selo">RECOMENDADA</span><br><a href="https://lista.mercadolivre.com.br/bambu-lab-a1-sem-ams_OrderId_PRICE">ver no Mercado Livre ›</a></td><td>256 × 256</td><td class="v">R$ 2.800–3.600</td><td>Vender em quantidade: ~2× mais rápida, falha menos.</td></tr>
+    <tr><td><b>Anycubic Kobra 3 V2 Combo</b><br><a href="https://lista.mercadolivre.com.br/impressora-3d-anycubic-kobra-3-v2-combo_OrderId_PRICE">ver no Mercado Livre ›</a></td><td>250 × 250</td><td class="v">R$ 3.600–3.800</td><td>Já vem com 4 cores (o @ sai colorido sem pausa).</td></tr>
+    <tr><td style="color:#c0392b"><b>Bambu Lab A1 mini</b></td><td>180 × 180</td><td class="v">R$ 2.100–2.500</td><td style="color:#c0392b"><b>Não serve:</b> a lateral não cabe.</td></tr>
+  </table>
+  <div class="nota">A Bambu A1 sem AMS costuma estar <b>mais cara no Mercado Livre</b> (~R$ 4.100) do que fora dele: já apareceu por ~R$ 2.830 na Fast Shop. Compare também Kabum e Magalu.</div>
+  <h3>Em quanto tempo se paga</h3>
+  <table>
+    <tr><th>Impressora</th><th class="v">Suportes por dia</th><th class="v">Lucro/unid.</th><th class="v">Se paga em</th></tr>
+    <tr><td>Ender-3 V3 SE (~R$ 1.750)</td><td class="v">2–3</td><td class="v">~R$ 60</td><td class="v ok">~30 suportes</td></tr>
+    <tr><td>Bambu A1 (~R$ 2.900)</td><td class="v">4–5</td><td class="v">~R$ 60</td><td class="v ok">~50 suportes</td></tr>
+  </table>
+  <h3>Antes de comprar</h3>
+  <ul class="chk" style="margin-bottom:1mm"><li>Loja oficial ou anúncio com nota fiscal e garantia no Brasil</li><li>Voltagem certa (127 V, 220 V ou bivolt)</li><li>Produto <b>novo</b> (há usados e recondicionados na mesma busca)</li></ul>
+  <p class="mini">Preços vistos em buscas de outubro de 2026, em datas e lojas diferentes. Os links abrem a busca já ordenada do mais barato para o mais caro.</p>
+  <h3>E se mandar imprimir fora?</h3>
+  <p>Serviços de impressão 3D cobram por peso, por hora de máquina ou por peça, quase sempre com valor mínimo. Para este suporte (4 peças, ~130 g, ~9 h), espere algo entre <b>R$ 60 e 150 por conjunto</b>. Serve para <b>validar a venda</b> nos primeiros pedidos, mas come quase todo o lucro.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>3</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">3 · Orçamentos</div>
+  <h2>Quanto investir e quanto custa cada um</h2>
+  <h3>Kit para começar (além da impressora)</h3>
+  <table>
+    <tr><th>Item</th><th class="v">Valor (aprox.)</th></tr>
+    <tr><td>3 rolos de PLA 1 kg: lilás ou roxo médio (laterais), roxo escuro (placa) e branco (o @). <a href="https://lista.mercadolivre.com.br/filamento-pla-roxo-1kg_OrderId_PRICE">ver ›</a></td><td class="v">R$ 300–400</td></tr>
+    <tr><td>Cola instantânea (gel), espátula, lixa fina e alicate de corte</td><td class="v">R$ 40–60</td></tr>
+    <tr><td>20 caixas de papelão ~22 × 22 × 6 cm + plástico bolha</td><td class="v">R$ 60–90</td></tr>
+    <tr class="total"><td>Total do kit</td><td class="v">≈ R$ 400–550</td></tr>
+  </table>
+  <p class="mini">Um rolo de 1 kg faz ~7 suportes. Os 3 rolos rendem ~15–20 suportes (o roxo das laterais acaba primeiro).</p>
+  <h3>Custo por suporte</h3>
+  <table>
+    <tr><th>Item</th><th class="v">Valor</th></tr>
+    <tr><td>Filamento (~130 g a R$ 110/kg)</td><td class="v">R$ 14</td></tr>
+    <tr><td>Energia (~9 h a 120 W)</td><td class="v">R$ 1</td></tr>
+    <tr><td>Desgaste da impressora (bico, mesa, peças)</td><td class="v">R$ 6</td></tr>
+    <tr><td>Peças que falham (~10%)</td><td class="v">R$ 2</td></tr>
+    <tr><td>Embalagem e cartão de montagem</td><td class="v">R$ 5</td></tr>
+    <tr><td>Seu tempo (conferir, embalar)</td><td class="v">R$ 5</td></tr>
+    <tr class="total"><td>Custo por suporte</td><td class="v">≈ R$ 33</td></tr>
+  </table>
+  <h3>Preço e lucro</h3>
+  <table>
+    <tr><th>Canal</th><th class="v">Preço</th><th class="v">Taxas</th><th class="v">Lucro</th></tr>
+    <tr><td>Direto (Instagram + Pix)</td><td class="v">R$ 99</td><td class="v">—</td><td class="v destaque">≈ R$ 66</td></tr>
+    <tr><td>Mercado Livre (Clássico, ~13%)</td><td class="v">R$ 119</td><td class="v">≈ R$ 16</td><td class="v destaque">≈ R$ 70</td></tr>
+    <tr><td>Shopee (~20% + taxa fixa)</td><td class="v">R$ 119</td><td class="v">≈ R$ 28</td><td class="v destaque">≈ R$ 58</td></tr>
+  </table>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>4</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">4 · Impressão</div>
+  <h2>Como imprimir</h2>
+  <table>
+    <tr><th>Arquivo</th><th class="v">Qtd.</th><th class="v">Medidas</th><th>Cor sugerida</th></tr>
+    <tr><td>lateral.stl</td><td class="v">2</td><td class="v">185 × 193 × 15 mm</td><td>lilás ou roxo médio</td></tr>
+    <tr><td>placa.stl</td><td class="v">1</td><td class="v">180 × 24 × 8 mm</td><td>roxo escuro + @ branco</td></tr>
+    <tr><td>travessa.stl</td><td class="v">1</td><td class="v">180 × 9 × 9 mm</td><td>roxo escuro</td></tr>
+  </table>
+  <h3>Configuração do fatiador</h3>
+  <table>
+    <tr><th>Item</th><th>Valor</th></tr>
+    <tr><td>Material</td><td>PLA (210 °C, mesa 60 °C) ou PETG (240 °C, mesa 75 °C)</td></tr>
+    <tr><td>Camada</td><td>0,28 mm (econômica) ou 0,2 mm (acabamento melhor)</td></tr>
+    <tr><td>Paredes / preenchimento</td><td>2 paredes e 15% giroide (econômica) · 3 paredes e 20% (reforçada)</td></tr>
+    <tr><td>Suportes / aba (brim)</td><td>Não precisa</td></tr>
+    <tr><td>Orientação</td><td>Tudo deitado, como o STL vem. Placa com o @ para cima.</td></tr>
+  </table>
+  <h3>O @ em outra cor</h3>
+  <ol class="passos">
+    <li>No fatiador, vá até a <b>primeira camada acima de 7 mm</b> da placa (onde só aparecem as letras).</li>
+    <li>Adicione uma <b>pausa / troca de filamento</b> nessa camada (Bambu Studio e Orca: clique direito na barra de camadas › "Adicionar pausa" ou troca de cor; Cura: plugin "Filament Change").</li>
+    <li>Quando a impressora parar, troque o roxo escuro pelo branco e continue. Na Bambu com AMS ou na Kobra Combo é automático: é só pintar as letras.</li>
+  </ol>
+  <h3>Rotina de produção</h3>
+  <ul class="chk">
+    <li><b>Lote 1:</b> as 2 laterais juntas na mesa (~7 h). <b>Lote 2:</b> placa + travessa (~2 h).</li>
+    <li>Primeira vez: imprima um conjunto, monte e faça o teste de carga antes de produzir em série.</li>
+    <li>Limpe a mesa com álcool isopropílico a cada 3–4 impressões; guarde o filamento fechado e seco.</li>
+    <li>Controle de qualidade: sem fios (stringing), aba inteira, encaixes entrando com firmeza.</li>
+  </ul>
+  <p class="mini">Tempos medidos no PrusaSlicer para impressora comum (60–80 mm/s). Na Bambu A1 ou na Kobra 3 caem mais ou menos pela metade.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>5</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">5 · Montagem</div>
+  <h2>Como montar</h2>
+  <div class="foto2"><img class="foto" src="../leve/render/montagem.png" style="width:78%;margin:0 auto"></div>
+  <ol class="passos" style="margin-top:6mm">
+    <li><b>Confira as peças:</b> 2 laterais, 1 placa com @liberofilho, 1 travessa.</li>
+    <li><b>Placa na frente:</b> encaixe as pontas da placa no rasgo retangular da frente de cada lateral, com o @ virado para quem vai ler.</li>
+    <li><b>Travessa atrás:</b> encaixe a travessa nos furos quadrados do pé de trás das duas laterais.</li>
+    <li><b>Acerte as pontas</b> rentes por fora e confira se o suporte fica firme e sem balançar na mesa.</li>
+    <li><b>Opcional:</b> uma gota de cola em gel em cada encaixe deixa o suporte firme como peça única (aí ele não desmonta mais).</li>
+  </ol>
+  <div class="nota"><b>Como usar:</b> abra o Vade Mecum, apoie a borda de baixo no aparador e encoste o livro na rampa. A aba da frente segura o livro. Cabe aberto em qualquer página, até no começo ou no fim, quando um lado fica bem mais grosso.</div>
+  <p class="mini">Encaixe duro demais: lixe de leve a ponta da placa ou da travessa. Folgado: uma gota de cola resolve (ou diminua a folga no arquivo).</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>6</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">6 · Envio</div>
+  <h2>Como embalar e enviar</h2>
+  <p>O suporte vai <b>desmontado</b>, numa caixa chata. Assim o frete fica barato e as peças não quebram.</p>
+  <div class="cards">
+    <div class="card"><div class="num">22×22×6</div><div class="leg">cm, caixa sugerida</div></div>
+    <div class="card"><div class="num">~350 g</div><div class="leg">peso com caixa e proteção</div></div>
+    <div class="card ouro"><div class="num">R$ 20–35</div><div class="leg">frete típico (PAC); Sedex um pouco mais</div></div>
+  </div>
+  <h3>Como embalar</h3>
+  <ol class="passos">
+    <li>As 2 laterais deitadas, uma sobre a outra, com uma folha de papel entre elas.</li>
+    <li>Placa e travessa ao lado, embrulhadas em plástico bolha (a aba e o @ são as partes mais delicadas).</li>
+    <li>Cartão de montagem por cima (a página anterior, impressa em meia folha, ou um QR code para um vídeo).</li>
+    <li>Preencha os vazios com papel amassado: nada pode chacoalhar. Feche com fita nas duas direções.</li>
+  </ol>
+  <h3>Frete</h3>
+  <table>
+    <tr><th>Canal</th><th>Como funciona</th></tr>
+    <tr><td>Venda direta</td><td>Correios PAC ou Sedex. Simule no site dos Correios com 22 × 22 × 6 cm e 0,4 kg e cobre o frete à parte (ou embuta no preço).</td></tr>
+    <tr><td>Mercado Livre</td><td>Mercado Envios: acima de R$ 79 o frete é grátis para o comprador e você paga uma parte com desconto. Cadastre as medidas da caixa no anúncio.</td></tr>
+    <tr><td>Shopee</td><td>Envio pela Shopee: imprima a etiqueta e poste na agência ou ponto de coleta.</td></tr>
+  </table>
+  <h3>Checklist de cada envio</h3>
+  <ul class="chk">
+    <li>4 peças conferidas (2 laterais, placa, travessa) e encaixes testados</li>
+    <li>Cartão de montagem e agradecimento com @liberofilho</li>
+    <li>Caixa sem folga, fechada com fita</li>
+    <li>Nota fiscal (MEI), quando vender como empresa</li>
+    <li>Código de rastreio enviado ao comprador</li>
+  </ul>
+  <p class="mini">Valores de frete aproximados: variam com a distância e mudam com frequência. Simule sempre antes de fechar o preço.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · guia de produção</span><span>7</span></div>
+</section>
+</body></html>

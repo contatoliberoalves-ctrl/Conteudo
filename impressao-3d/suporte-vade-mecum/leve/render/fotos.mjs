@@ -8,7 +8,7 @@ const launch = { args: ['--use-gl=angle', '--use-angle=swiftshader', '--ignore-g
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) { launch.proxy = { server: process.env.RENDER_PROXY, bypass: 'localhost,127.0.0.1' }; launch.args.push('--ignore-certificate-errors'); }
 const b = await chromium.launch(launch);
-const fotos = process.argv.slice(2).length ? process.argv.slice(2) : ['suporte:vista=frente', 'com-livro:vista=livro&livro=1', 'lado:vista=lado'];
+const fotos = process.argv.slice(2).length ? process.argv.slice(2) : ['suporte:vista=frente', 'com-livro:vista=livro&livro=1', 'lado:vista=lado', 'montagem:vista=frente&explode=70'];
 for (const f of fotos) {
   const [nome, qs] = f.split(':');
   const p = await b.newPage({ viewport: { width: 1600, height: 1200 } });

@@ -40,3 +40,5 @@ Se a travessa ficar frouxa, diminua `FOLGA` (0,25 mm por lado); se não entrar, 
 
 ## PDF
 `suporte-vade-mecum.pdf`: ficha técnica da versão leve, gasto medido no fatiador, custo, preço de venda e estratégia. Fonte em `pdf/ficha.html` (`node pdf/gerar-pdf.mjs`, depois de gerar as imagens da versão leve).
+
+`guia-producao.pdf`: guia para produzir e vender (quanto aguenta, impressoras com links, orçamentos, impressão, montagem e envio). Fonte em `pdf/guia.html` (`node pdf/gerar-guia.mjs`).
