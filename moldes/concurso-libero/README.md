@@ -15,3 +15,14 @@ Dados de edital: pesquise e confira em mais de uma fonte; cite os editais (núme
 Capa objetiva: só o título que o usuário pediu (e o subtítulo dele); nada de chips, selos ou números na capa. Títulos do miolo diretos ("Vagas e salários", "Datas do concurso"), sem kicker nem frases de efeito genéricas.
 O conteúdo de cada página (e da tela única) se ajusta sozinho ao espaço: cresce até ocupar ~92% da altura (no máximo 1,3x) e fica centralizado; o render avisa se não couber.
 - **Capa de grupo:** `{ id, titulo, tipo: "grupo", bandeira: "sp" | "pe", manchete[], rotulo (padrão "Grupo de estudos"), ts }`, 1080×1080 com tudo no círculo central (recorte do WhatsApp).
+
+## Capas com elemento gráfico (`visual` na capa)
+Para chamar atenção no feed, a capa aceita `visual` (mantém o logo no topo e o fundo do estilo):
+- `numero`: número gigante vazado (`numero`, `tn`), etiqueta (`numeroSub`) e título embaixo. Ex.: "60% da prova do ENAC é uma matéria só".
+- `trio`: título e três fichas brancas inclinadas (`fichas: [{sigla, nome}]`). Ex.: ENAC × ENAM × ENAP.
+- `versus`: título e duas metades (branca e petróleo) com o selo VS (`lados: [linhas, linhas]`).
+- `contagem`: folhinha de calendário com os dias que faltam (`dias`, `diasRotulo`, `data`) e título embaixo.
+- `curva`: título e o gráfico da curva do esquecimento com as revisões (`rotulos`: 3 marcas do eixo).
+
+## Tela única de material grátis (`tipo: "post"`, `visual: "pdf"`)
+Fundo petróleo com grade, manchete (`manchete`, `ts`, `selo`, `sub`), capa do PDF desenhada à direita (`pdf: {titulo[], sub, itens[]}`, `pdfY`) com o selo "PDF grátis" e a caixa de comentário com a palavra (`comenta`, `comentaTexto`, padrão "e receba o PDF").

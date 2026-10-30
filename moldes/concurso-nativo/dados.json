@@ -480,5 +480,175 @@
     ]
    }
   ]
+ },
+ {
+  "id": "quiz-idade-pmpe",
+  "titulo": "Quiz: idade para Soldado da PM PE",
+  "slides": [
+   {
+    "foto": "viagem-07.jpg",
+    "fotoPos": "center 30%",
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "PM PE: inscrições até 23/11",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 70,
+      "tam": 72
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "Até que idade dá pra se inscrever pra Soldado da PM PE?",
+      "opcoes": [
+       "Até 25 anos",
+       "Até 30 anos",
+       "Até 35 anos"
+      ],
+      "certa": 1,
+      "y": 800,
+      "largura": 820
+     },
+     {
+      "tipo": "link",
+      "texto": "Resposta no próximo",
+      "y": 1210
+     }
+    ]
+   },
+   {
+    "foto": "viagem-03.jpg",
+    "fotoPos": "center 35%",
+    "tom": 0.2,
+    "elementos": [
+     {
+      "tipo": "quiz",
+      "pergunta": "Até que idade dá pra se inscrever pra Soldado da PM PE?",
+      "opcoes": [
+       "Até 25 anos",
+       "Até 30 anos",
+       "Até 35 anos"
+      ],
+      "certa": 1,
+      "revelar": true,
+      "y": 760,
+      "largura": 820
+     },
+     {
+      "texto": "Até o dia anterior a completar 31,\nna data da inscrição.",
+      "cor": "branco",
+      "y": 1150,
+      "tam": 40
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-tempo-por-questao",
+  "titulo": "ENAM: quanto tempo por questão?",
+  "slides": [
+   {
+    "foto": "viagem-33.jpg",
+    "fotoPos": "center 40%",
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "ENAM: 3min45s\npor questão",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 70,
+      "tam": 84
+     },
+     {
+      "texto": "São 5 horas para 80 questões.\nTreine os simulados com esse tempo.",
+      "cor": "escuro",
+      "y": 1060,
+      "tam": 40
+     }
+    ]
+   },
+   {
+    "foto": "viagem-80.jpg",
+    "fotoPos": "center 40%",
+    "tom": 0.1,
+    "elementos": [
+     {
+      "tipo": "enquete",
+      "pergunta": "Você já treina com tempo de prova?",
+      "opcoes": [
+       "Sim",
+       "Ainda não"
+      ],
+      "y": 960
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "pdf-ou-videoaula",
+  "titulo": "PDF ou videoaula?",
+  "slides": [
+   {
+    "foto": "viagem-14.jpg",
+    "fotoPos": "center 30%",
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "PDF ou videoaula?",
+      "estilo": "forte",
+      "cor": "branco",
+      "y": 820,
+      "tam": 90
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Como você estuda mais?",
+      "opcoes": [
+       "PDF",
+       "Videoaula"
+      ],
+      "y": 1020
+     }
+    ]
+   },
+   {
+    "foto": "viagem-53.jpg",
+    "fotoPos": "center 30%",
+    "tom": 0.2,
+    "elementos": [
+     {
+      "texto": "Os dois funcionam.",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 70,
+      "tam": 84
+     },
+     {
+      "texto": "O que não funciona é\nnão resolver questão\ndepois da aula.",
+      "cor": "escuro",
+      "y": 880,
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "viagem-89.jpg",
+    "fotoPos": "center 30%",
+    "tom": 0.15,
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual concurso você vai fazer?",
+      "y": 920
+     },
+     {
+      "tipo": "mencao",
+      "y": 1200
+     }
+    ]
+   }
+  ]
  }
 ]

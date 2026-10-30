@@ -96,8 +96,50 @@ const secao = (bg, corpo) => `<section style="background:${bg}">${corpo}</sectio
 const relogio = (px, cor, fundo) => `<svg width="${px}" height="${px}" viewBox="0 0 100 100" style="display:block"><path d="M16 26 L28 14 M84 26 L72 14" stroke="${cor}" stroke-width="8" stroke-linecap="round"/><circle cx="50" cy="55" r="34" fill="${fundo}" stroke="${cor}" stroke-width="8"/><path d="M50 36 V56 L64 64" fill="none" stroke="${cor}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 92 L34 84 M72 92 L66 84" stroke="${cor}" stroke-width="8" stroke-linecap="round"/></svg>`;
 // Capa: só o título (centralizado) e, se houver, o alerta de prazo. Fundo verde (alternado), papel (claro) ou petróleo (ficha).
 const CAPA_BG = { alternado: [VERDE_BG, TEMA.escuro], claro: [COR.papel, TEMA.claro], ficha: [PETROLEO_BG, { ...TEMA.escuro, caixaBg: '#0BA457' }] };
+// Capas com elemento gráfico (`visual` na capa), para chamar atenção no feed:
+// numero (número gigante vazado + título), trio (três fichas lado a lado com "?"), versus (duas metades com o
+// selo VS), contagem (folhinha de calendário com os dias que faltam) e curva (gráfico da curva do esquecimento
+// com as revisões). Campos comuns: pre, titulo, ts, sub; e os do visual: numero, numeroSub | fichas [{sigla, nome}]
+// | lados [a, b] | dias, diasRotulo, data | rotulos (eixo).
+const CAPAS = {
+  numero: (s, t) => `<div style="${T};font-size:${s.tn || 470}px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${t.escuro ? '#fff' : '#0BA457'};letter-spacing:-.02em">${esc(s.numero)}</div>
+    ${s.numeroSub ? `<div style="display:inline-block;margin-top:24px;${S};font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:${t.escuro ? COR.petroleo : COR.tinta};color:#fff;padding:12px 24px;border-radius:12px">${esc(s.numeroSub)}</div>` : ''}
+    <div style="${T};font-size:${s.ts || 110}px;line-height:1.02;color:${t.tit};margin-top:40px">${linhas(s.titulo, t)}</div>`,
+  trio: (s, t) => `<div style="${T};font-size:${s.ts || 130}px;line-height:1.02;color:${t.tit}">${linhas(s.titulo, t)}</div>
+    <div style="display:flex;justify-content:center;gap:26px;margin-top:64px">${lista(s.fichas).map((f, i) => `<div style="width:270px;background:#fff;border-radius:26px;padding:34px 14px 30px;box-shadow:0 26px 50px rgba(0,0,0,.28);transform:rotate(${[-5, 0, 5][i] || 0}deg) translateY(${[20, 0, 20][i] || 0}px)">
+      <div style="${T};font-size:104px;line-height:.9;color:${['#0BA457', COR.petroleo, '#078A4A'][i]}">${esc(f.sigla)}</div>
+      <div style="${I};font-size:23px;font-weight:600;line-height:1.3;color:#1E3A35;margin-top:14px">${esc(f.nome)}</div></div>`).join('')}</div>`,
+  versus: (s, t) => `<div style="${T};font-size:${s.ts || 120}px;line-height:1.02;color:${t.tit}">${linhas(s.titulo, t)}</div>
+    <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;margin-top:60px;border-radius:30px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.3)">
+      ${lista(s.lados).map((l, i) => `<div style="background:${i ? COR.petroleo : '#fff'};padding:70px 20px;${T};font-size:118px;line-height:.95;color:${i ? '#fff' : COR.tinta}">${linhas(l, TEMA.claro)}</div>`).join('')}
+      <div style="position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-50%) rotate(-8deg);border-radius:50%;background:#FFB511;border:8px solid #fff;display:flex;align-items:center;justify-content:center;${T};font-size:76px;color:${COR.tinta}">VS</div></div>`,
+  contagem: (s, t) => `<div style="display:flex;justify-content:center"><div style="width:470px;background:#fff;border-radius:34px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.32);transform:rotate(-4deg)">
+      <div style="position:relative;background:${COR.petroleo};padding:26px 0 20px;${S};font-size:30px;font-weight:800;letter-spacing:.2em;color:#fff">${esc(s.data || '')}
+        ${[.25, .75].map(x => `<span style="position:absolute;top:-14px;left:${x * 100}%;width:22px;height:46px;margin-left:-11px;border-radius:11px;background:#9FB7B1;border:4px solid #fff"></span>`).join('')}</div>
+      <div style="${T};font-size:300px;line-height:.95;color:${COR.tinta};padding-top:20px">${esc(s.dias)}</div>
+      <div style="${S};font-size:34px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#D93A30;padding-bottom:34px">${esc(s.diasRotulo || 'dias')}</div></div></div>
+    <div style="${T};font-size:${s.ts || 110}px;line-height:1.02;color:${t.tit};margin-top:60px">${linhas(s.titulo, t)}</div>`,
+  curva: (s, t) => {
+    const c = t.escuro ? '#fff' : COR.tinta, a = t.escuro ? '#FFB511' : '#0BA457';
+    return `<div style="${T};font-size:${s.ts || 120}px;line-height:1.02;color:${t.tit}">${linhas(s.titulo, t)}</div>
+    <svg viewBox="0 0 900 470" width="900" height="470" style="display:block;margin:50px auto 0;overflow:visible">
+      <path d="M60 20 V420 H880" fill="none" stroke="${c}" stroke-width="5" opacity=".55"/>
+      <path d="M60 40 C140 300 260 380 880 400" fill="none" stroke="${c}" stroke-width="8" stroke-dasharray="4 18" stroke-linecap="round" opacity=".7"/>
+      <path d="M60 40 C110 170 150 210 190 230 L190 60 C250 170 300 190 360 200 L360 70 C460 150 540 160 600 165 L600 80 C700 120 800 130 880 132" fill="none" stroke="${a}" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+      ${[190, 360, 600].map((x, i) => `<circle cx="${x}" cy="${[60, 70, 80][i]}" r="16" fill="${a}" stroke="${t.escuro ? '#078A4A' : '#fff'}" stroke-width="5"/>`).join('')}
+      ${lista(s.rotulos).map((r, i) => `<text x="${[190, 360, 600][i]}" y="460" text-anchor="middle" font-family="Sora" font-weight="800" font-size="30" fill="${c}">${esc(r)}</text>`).join('')}
+      <text x="870" y="380" text-anchor="end" font-family="Sora" font-weight="700" font-size="26" fill="${c}" opacity=".8">sem revisão</text>
+    </svg>`;
+  },
+};
 function capa(s, estilo) {
   const [bg, t] = CAPA_BG[estilo] || CAPA_BG.alternado;
+  if (s.visual && CAPAS[s.visual]) return secao(bg, `${textura(t.escuro)}${topo(t)}
+    <div style="position:absolute;left:${M - 20}px;right:${M - 20}px;top:52%;transform:translateY(-46%);text-align:center;z-index:5">
+      ${s.pre ? `<div style="${S};font-size:34px;font-weight:600;color:${t.escuro ? '#DFFFEA' : '#078A4A'};margin-bottom:22px">${esc(s.pre)}</div>` : ''}
+      ${CAPAS[s.visual](s, t)}
+      ${s.sub ? `<p style="${S};font-size:32px;font-weight:600;line-height:1.35;color:${t.escuro ? '#fff' : COR.tinta};margin:34px auto 0;max-width:820px">${rico(s.sub, t)}</p>` : ''}
+    </div>`);
   const alerta = s.alerta ? `<div style="display:inline-flex;align-items:center;gap:18px;margin-top:56px;background:${t.escuro ? '#fff' : COR.tinta};border-radius:20px;padding:14px 28px 14px 18px">
       ${relogio(64, t.escuro ? '#D93A30' : '#FFB511', t.escuro ? '#fff' : COR.tinta)}<span style="${S};font-size:32px;font-weight:800;color:${t.escuro ? COR.tinta : '#fff'}">${rico(s.alerta, t)}</span></div>` : '';
   return secao(bg, `${textura(t.escuro)}${topo(t)}
@@ -134,8 +176,33 @@ function conteudo(s, estilo, i) {
       <div class="caixa" style="position:absolute;left:46px;right:46px;top:50px;bottom:46px;display:flex;align-items:center"><div class="enc" style="width:100%">${CONTEUDO[s.tipo](s, t)}</div></div></div>${rodape(TEMA.escuro)}`);
 }
 
+// Tela única de material grátis: manchete, capa do PDF desenhada (papel com faixa verde, título e selo
+// "PDF grátis") e a caixa de comentário com a palavra. Campos: selo, manchete, ts, sub, pdf {titulo[], sub, itens[]},
+// comenta, comentaTexto.
+function postPdf(p) {
+  const t = TEMA.escuro, f = p.pdf || {};
+  return secao(PETROLEO_BG, `${textura(true)}
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.06) 1px,transparent 1px);background-size:54px 54px"></div>${topo(t)}
+    <div style="position:absolute;left:${M}px;right:${M}px;top:180px;z-index:5">
+      ${p.selo ? `<span style="display:inline-block;${S};font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.tinta};background:#FFB511;padding:10px 18px;border-radius:10px;transform:rotate(-2deg)">${esc(p.selo)}</span>` : ''}
+      <div style="${T};font-size:${p.ts || 130}px;line-height:1;color:#fff;margin-top:22px">${linhas(p.manchete, { ...t, caixaBg: '#0BA457' })}</div>
+      ${p.sub ? `<p style="${I};font-size:30px;font-weight:500;line-height:1.4;color:#CFEDE6;margin:22px 0 0;max-width:430px">${rico(p.sub, t)}</p>` : ''}</div>
+    <div style="position:absolute;right:70px;top:${p.pdfY || 620}px;width:470px;height:560px;transform:rotate(5deg);z-index:4">
+      <div style="position:absolute;inset:0;transform:translate(26px,18px) rotate(3deg);background:#CFE0DB;border-radius:18px"></div>
+      <div style="position:absolute;inset:0;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)">
+        <div style="background:${VERDE_BG};padding:30px 30px 26px">${marca(22)}<div style="${T};font-size:64px;line-height:.98;color:#fff;margin-top:22px">${linhas(f.titulo, t)}</div></div>
+        <div style="padding:26px 30px">${f.sub ? `<div style="${S};font-size:21px;font-weight:700;color:#078A4A;letter-spacing:.06em">${esc(f.sub)}</div>` : ''}
+          ${lista(f.itens).map(x => `<div style="display:flex;gap:12px;align-items:center;margin-top:16px;${I};font-size:21px;font-weight:600;color:#1E3A35"><span style="flex:none;width:26px;height:26px;border-radius:7px;border:3px solid #0BA457"></span>${esc(x)}</div>`).join('')}
+          <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px">${[90, 76, 84].map(w => `<span style="height:10px;width:${w}%;border-radius:5px;background:#E4EEEB"></span>`).join('')}</div></div></div>
+      <div style="position:absolute;right:-50px;top:-60px;width:170px;height:170px;border-radius:50%;background:#FFB511;border:6px solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);box-shadow:0 18px 30px rgba(0,0,0,.35)"><span style="${T};font-size:54px;line-height:.9;color:${COR.tinta}">PDF</span><span style="${S};font-size:22px;font-weight:800;letter-spacing:.12em;color:${COR.tinta}">GRÁTIS</span></div></div>
+    ${p.comenta ? `<div style="position:absolute;left:${M}px;right:${M}px;bottom:80px;display:flex;align-items:center;gap:20px;background:#fff;border-radius:999px;padding:16px 22px 16px 16px;z-index:6;box-shadow:0 18px 40px rgba(0,0,0,.35)">
+      <span style="flex:none;width:58px;height:58px;border-radius:50%;background:${VERDE_BG}"></span>
+      <span style="${S};font-size:32px;font-weight:700;color:${COR.tinta}">Comenta <span style="color:#078A4A">${esc(p.comenta)}</span><span style="display:inline-block;width:3px;height:32px;background:${COR.tinta};margin-left:6px;vertical-align:-6px"></span></span><span style="margin-left:auto;${I};font-size:22px;font-weight:700;color:#078A4A">${esc(p.comentaTexto || 'e receba o PDF')}</span></div>` : ''}`);
+}
+
 // Tela única: manchete com números e CTA.
 function post(p) {
+  if (p.visual === 'pdf') return postPdf(p);
   const t = TEMA.escuro;
   return secao(VERDE_BG, `${textura(true)}${topo(t)}
     <div class="caixa" style="position:absolute;left:${M}px;right:${M}px;top:170px;bottom:90px;display:flex;align-items:center;z-index:5"><div class="enc" style="width:100%">
