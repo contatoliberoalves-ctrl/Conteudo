@@ -16,7 +16,7 @@ O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os
 ## Galeria
 São duas, para caber no limite de 511 arquivos por versão; `galeria/galerias.json` diz quais moldes vão em cada uma (os não listados ficam na principal):
 - **Principal** ("Galeria de moldes"): https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq, pasta `galeria/dist`.
-- **Galeria do Líbero** (moldes do @liberofilho, Argumenta, PodConst, Método VDE): https://claude.ai/artifact/6KjmpAJr3nJb7v2k2UiSPM, pasta `galeria/dist-libero`.
+- **Galeria do Líbero** (moldes do @liberofilho, @concursocomlibero, Argumenta, PodConst, Método VDE): https://claude.ai/artifact/6KjmpAJr3nJb7v2k2UiSPM, pasta `galeria/dist-libero`.
 
 Dentro de cada molde, a galeria mostra os posts do mais novo para o mais antigo (o último do `dados.json` aparece primeiro; `gerar.py` e `atualizar.py` já invertem). Post novo vai sempre no fim do `dados.json`.
 
