@@ -2,7 +2,7 @@
 # (1sYc4JFOVpYtBksBDZKI4EhB3vzJ2zIRX). Uso: python3 recortar_prints.py <pasta-com-os-png>
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageFilter
 
 NOMES = {'01 - Constitucional - Visão geral.png': 'visao', '02 - Constitucional - Aulas.png': 'aulas',
          '03 - Constitucional - Cronograma.png': 'cronograma', '04 - Constitucional - Banco de Questões.png': 'questoes',
@@ -14,8 +14,13 @@ RECORTES = {'contagem': ('visao', (1170, 392, 1420, 534)), 'player': ('cap1422',
             'banco': ('questoes', (352, 140, 1470, 1039)), 'crono': ('cronograma', (352, 140, 1470, 1039))}
 src, out = Path(sys.argv[1]), Path(__file__).parent / 'prints'
 out.mkdir(exist_ok=True)
+# Trechos com quantidade de aulas/questões, borrados (o autor não quer números nos posts).
+BORRAR = {'visao': [(380, 780, 700, 830)], 'questoes': [(378, 546, 530, 591)]}
 for arq, n in NOMES.items():
-    Image.open(src / arq).convert('RGB').save(out / f'{n}.jpg', quality=90)
+    im = Image.open(src / arq).convert('RGB')
+    for caixa in BORRAR.get(n, []):
+        im.paste(im.crop(caixa).filter(ImageFilter.GaussianBlur(9)), caixa[:2])
+    im.save(out / f'{n}.jpg', quality=90)
 for n, (base, caixa) in RECORTES.items():
     Image.open(out / f'{base}.jpg').crop(caixa).save(out / f'c_{n}.jpg', quality=92)
 print('ok')

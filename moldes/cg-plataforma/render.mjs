@@ -39,15 +39,15 @@ const C1 = [
     ${abs('left:90px;top:410px;width:900px', txt('Ao entrar, você já vê a **contagem regressiva** pra prova e o que tem pra estudar:', 'gelo', 32))}
     ${abs('left:90px;top:540px', janela(P('c_cards'), 900))}
     ${abs('left:90px;top:1040px;width:900px;display:flex;flex-wrap:wrap;gap:14px', ['Aulas', 'Ao vivo', 'Materiais', 'Cronograma', 'Ranking', 'Progresso'].map(c => chip(c, 'gelo')).join(''))}`),
-  fundo('base', `${abs('left:90px;top:110px;width:900px', T('{{22 aulas}}\ngravadas', 'base', 160))}
+  fundo('base', `${abs('left:90px;top:110px;width:900px', T('{{Diversas aulas}}\ngravadas', 'base', 150))}
     ${abs('left:90px;top:420px;width:900px', txt('Aulas **temáticas** e de **resolução de questões**. Você marca o que assistiu, avalia a aula e tira dúvida nos comentários.', 'base', 32))}
     ${abs('left:90px;top:610px', janela(P('c_aulasgrid'), 680, { rot: -2 }))}
     ${abs('left:400px;top:830px', janela(P('c_player'), 600, { rot: 3 }))}`),
   fundo('gelo', `${abs('left:90px;top:110px;width:900px', T('Cronograma\n{{sob medida}}', 'gelo', 160))}
     ${abs('left:90px;top:420px;width:900px', txt('Você diz **quantos dias e quantas horas** tem pra estudar, e a plataforma monta o plano **semana a semana até o dia da prova**.', 'gelo', 32))}
     ${abs('left:90px;top:620px', janela(P('c_crono'), 900, { h: 600 }))}`),
-  fundo('verde', `${abs('left:90px;top:110px;width:900px', T('{{340 questões}}\noficiais da FGV', 'verde', 150))}
-    ${abs('left:90px;top:400px;width:900px', txt('Filtre por **tema, prova e dificuldade**, faça treinos de 10, 20 ou 30 e veja o **gabarito comentado**. O que errar vai pro **caderno de erros**.', 'verde', 31))}
+  fundo('verde', `${abs('left:90px;top:110px;width:900px', T('Banco de questões\n{{completo}}', 'verde', 120))}
+    ${abs('left:90px;top:400px;width:900px', txt('Questões oficiais da FGV. Filtre por **tema, prova e dificuldade**, faça treinos de 10, 20 ou 30 e veja o **gabarito comentado**. O que errar vai pro **caderno de erros**.', 'verde', 31))}
     ${abs('left:90px;top:640px', janela(P('c_banco'), 640, { h: 470, rot: -2 }))}
     ${abs('left:500px;top:720px', janela(P('c_questao'), 500, { rot: 3 }))}`),
   fundo('gelo', `${abs('left:90px;top:110px;width:900px', T('Dicas rápidas\ne {{resumos}}', 'gelo', 160))}
@@ -93,8 +93,8 @@ const C2 = [
 // ---------- cards de tela única ----------
 const CARDS = [
   ['card-340-questoes', fundo('verde', `${abs('left:90px;top:100px', marca('verde'))}
-    ${abs('left:80px;top:150px', `<div style="${TITULO};font-size:440px;line-height:.9;color:${COR.claro}">340</div>`)}
-    ${abs('left:90px;top:540px;width:900px', T('questões oficiais da FGV\npra você treinar Constitucional', 'verde', 80))}
+    ${abs('left:90px;top:170px;width:900px', T('Um banco de\nquestões\n{{completo}}', 'verde', 150))}
+    ${abs('left:90px;top:600px;width:900px', T('pra treinar no estilo da FGV', 'verde', 70))}
     ${abs('left:90px;top:740px;width:560px', txt('Por **tema, prova e dificuldade**, com gabarito comentado e caderno de erros.', 'verde', 30))}
     ${abs('left:690px;top:720px', janela(P('c_questao'), 330, { rot: 4 }))}
     ${abs('left:90px;top:960px;z-index:7', cta('verde', 34))}`)],
@@ -137,23 +137,23 @@ const V3 = [
   fundoV(`${abs('left:0;right:0;top:110px;display:flex;justify-content:center', marca('base'))}
     ${abs('left:0;right:0;top:200px;text-align:center', `<div style="${TEXTO};font-size:30px;font-weight:600;letter-spacing:.3em;color:${COR.claro}">POR DENTRO DA PLATAFORMA</div>${TV('Constitucional\n{{com Líbero}}', 170)}`)}
     ${abs('left:150px;top:640px', notebook(P('visao'), 780))}
-    ${abs('left:40px;top:590px;transform:rotate(-4deg)', pilula('22 aulas', { n: 'aula' }))}
-    ${abs('right:40px;top:700px;transform:rotate(3deg)', pilula('340 questões FGV', { n: 'questao' }))}
+    ${abs('left:40px;top:590px;transform:rotate(-4deg)', pilula('Aulas gravadas', { n: 'aula' }))}
+    ${abs('right:40px;top:700px;transform:rotate(3deg)', pilula('Banco de questões', { n: 'questao' }))}
     ${abs('left:70px;top:1100px;transform:rotate(2deg)', pilula('Cronograma sob medida', { n: 'crono' }))}`, '50% 70%'),
   fundoV(`${abs('left:90px;top:100px', rotulo('01', 'AULAS'))}
-    ${abs('left:90px;top:180px;width:900px', TV('{{22 aulas}} gravadas', 118))}
-    ${abs('left:90px;top:320px;width:900px', lin('Temáticas e de resolução de questões, no seu ritmo.'))}
-    ${abs('left:90px;top:470px', janela(P('c_aulasgrid'), 900))}
-    ${abs('left:330px;top:820px', janela(P('c_player'), 680, { rot: 2 }))}
-    ${abs('left:60px;top:1090px;transform:rotate(-3deg)', pilula('Marque como assistida · +50 pts', { n: 'check' }))}`, '50% 75%'),
+    ${abs('left:90px;top:180px;width:900px', TV('{{Diversas aulas}}\ngravadas', 120))}
+    ${abs('left:90px;top:410px;width:900px', lin('Temáticas e de resolução de questões, no seu ritmo.'))}
+    ${abs('left:90px;top:520px', janela(P('c_aulasgrid'), 900))}
+    ${abs('left:330px;top:850px', janela(P('c_player'), 680, { rot: 2 }))}
+    ${abs('left:60px;top:1110px;transform:rotate(-3deg)', pilula('Marque como assistida · +50 pts', { n: 'check' }))}`, '50% 75%'),
   fundoV(`${abs('left:90px;top:100px', rotulo('02', 'CRONOGRAMA'))}
     ${abs('left:90px;top:180px;width:900px', TV('Seu plano até\no {{dia da prova}}', 140))}
     ${abs('left:90px;top:460px;width:900px', lin('Você diz o tempo que tem. A plataforma organiza semana a semana.'))}
     ${abs('left:90px;top:620px', janela(P('c_crono'), 900, { h: 600 }))}
     ${abs('left:700px;top:555px;z-index:6', `<div style="width:300px;border-radius:20px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.45);transform:rotate(4deg)"><img src="${P('c_contagem')}" style="display:block;width:100%"></div>`)}`, '50% 80%'),
   fundoV(`${abs('left:90px;top:100px', rotulo('03', 'BANCO DE QUESTÕES'))}
-    ${abs('left:80px;top:150px', `<div style="${TITULO};font-size:330px;line-height:.9;color:${COR.claro}">340</div>`)}
-    ${abs('left:90px;top:445px;width:440px', TV('questões oficiais da FGV', 74))}
+    ${abs('left:90px;top:170px;width:450px', TV('Banco de\nquestões\n{{completo}}', 128))}
+    ${abs('left:90px;top:560px;width:440px', lin('Questões oficiais das provas da FGV.', 30))}
     ${abs('left:560px;top:170px', janela(P('c_questao'), 470, { rot: 3 }))}
     ${abs('left:90px;top:800px;width:900px;display:grid;grid-template-columns:1fr 1fr;gap:22px', [['Filtro por tema, prova e dificuldade', 'questao'], ['Treinos de 10, 20 ou 30', 'progresso'], ['Gabarito comentado', 'check'], ['Caderno de erros', 'material']].map(([t, n]) => `<div style="background:rgba(255,255,255,.06);border:2px solid rgba(155,224,163,.25);border-radius:22px;padding:44px 28px;display:flex;gap:18px;align-items:center"><span style="width:62px;height:62px;border-radius:16px;background:${COR.claro};display:grid;place-items:center;flex:none">${ico(n, 34, COR.base)}</span><span style="${TEXTO};font-size:28px;font-weight:600;line-height:1.25;color:#fff">${t}</span></div>`).join(''))}`, '70% 30%'),
   fundoV(`${abs('left:90px;top:100px', rotulo('04', 'REVISÃO'))}
@@ -165,7 +165,7 @@ const V3 = [
     ${abs('left:90px;top:180px;width:900px', TV('O que faz você\n{{não desistir}}', 140))}
     ${abs('left:90px;top:500px;width:900px;display:grid;grid-template-columns:1fr 1fr;gap:22px', [['vivo', 'Ao vivo', 'Plantões de dúvida e revisões no YouTube'], ['ranking', 'Ranking', 'Cada aula e questão vira ponto'], ['progresso', 'Progresso', 'O que você já fez e o que falta'], ['material', 'Materiais', 'Questões autorais, resumos e mapas mentais']].map(([n, a, b]) => `<div style="background:rgba(255,255,255,.06);border:2px solid rgba(155,224,163,.25);border-radius:26px;padding:34px 30px;height:300px;display:flex;flex-direction:column;gap:18px"><span style="width:84px;height:84px;border-radius:22px;background:${COR.claro};display:grid;place-items:center">${ico(n, 46, COR.base)}</span><div style="${TITULO};font-size:58px;line-height:1;color:#fff">${a}</div>${lin(b, 26)}</div>`).join(''))}`, '50% 70%'),
   fundoV(`${abs('left:0;right:0;top:200px;text-align:center', TV('Tudo isso\n{{num lugar só}}', 150))}
-    ${abs('left:120px;right:120px;top:570px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px', [['aula', '22 aulas gravadas'], ['crono', 'Cronograma sob medida'], ['questao', '340 questões FGV'], ['dica', 'Dicas e resumos'], ['vivo', 'Encontros ao vivo'], ['ranking', 'Ranking e progresso']].map(([n, t]) => `<div style="display:flex;align-items:center;gap:18px">${ico(n, 46, COR.claro)}<span style="${TEXTO};font-size:30px;font-weight:600;color:#fff">${t}</span></div>`).join(''))}
+    ${abs('left:120px;right:120px;top:570px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px', [['aula', 'Diversas aulas gravadas'], ['crono', 'Cronograma sob medida'], ['questao', 'Banco de questões completo'], ['dica', 'Dicas e resumos'], ['vivo', 'Encontros ao vivo'], ['ranking', 'Ranking e progresso']].map(([n, t]) => `<div style="display:flex;align-items:center;gap:18px">${ico(n, 46, COR.claro)}<span style="${TEXTO};font-size:30px;font-weight:600;color:#fff">${t}</span></div>`).join(''))}
     ${abs('left:0;right:0;top:990px;display:flex;justify-content:center', botao())}`, '50% 75%'),
 ];
 
@@ -189,10 +189,10 @@ const V4 = [
     ${abs('left:110px;top:930px', janela(P('cap1423b'), 470, { rot: 3 }))}
     ${abs('left:590px;top:900px', janela(P('c_questao'), 400, { rot: -3 }))}`),
   fundoC(`${abs('left:90px;top:110px;width:900px', T('O que tem\n{{dentro}}', 'gelo', 150))}
-    ${abs('left:90px;top:440px;width:900px;display:grid;grid-template-columns:1fr 1fr;gap:24px', [['aula', 'Aulas', '22 gravadas, temáticas e de questões'], ['crono', 'Cronograma', 'Montado pro seu tempo'], ['questao', 'Questões', '340 oficiais da FGV'], ['dica', 'Revisão', 'Dicas rápidas e resumos'], ['vivo', 'Ao vivo', 'Plantões e revisões'], ['ranking', 'Ranking', 'Pontos e progresso']].map(([n, a, b]) => `<div style="background:#fff;border:2px solid ${GELO.borda};border-radius:24px;padding:46px 26px;display:flex;gap:20px;align-items:center"><span style="width:76px;height:76px;border-radius:20px;background:${COR.verde};display:grid;place-items:center;flex:none">${ico(n, 42, COR.claro)}</span><div><div style="${TITULO};font-size:50px;line-height:1;color:${COR.texto}">${a}</div><div style="${TEXTO};font-size:23px;line-height:1.3;color:${COR.cinza};margin-top:4px">${b}</div></div></div>`).join(''))}`),
-  recurso('AULAS', '{{22 aulas}} gravadas', ['Temáticas e resolução de questões', 'Marque o que já assistiu', 'Tire dúvidas nos comentários'], abs('left:90px;top:620px', janela(P('c_player'), 900))),
+    ${abs('left:90px;top:440px;width:900px;display:grid;grid-template-columns:1fr 1fr;gap:24px', [['aula', 'Aulas', 'Diversas aulas gravadas'], ['crono', 'Cronograma', 'Montado pro seu tempo'], ['questao', 'Questões', 'Banco completo da FGV'], ['dica', 'Revisão', 'Dicas rápidas e resumos'], ['vivo', 'Ao vivo', 'Plantões e revisões'], ['ranking', 'Ranking', 'Pontos e progresso']].map(([n, a, b]) => `<div style="background:#fff;border:2px solid ${GELO.borda};border-radius:24px;padding:46px 26px;display:flex;gap:20px;align-items:center"><span style="width:76px;height:76px;border-radius:20px;background:${COR.verde};display:grid;place-items:center;flex:none">${ico(n, 42, COR.claro)}</span><div><div style="${TITULO};font-size:50px;line-height:1;color:${COR.texto}">${a}</div><div style="${TEXTO};font-size:23px;line-height:1.3;color:${COR.cinza};margin-top:4px">${b}</div></div></div>`).join(''))}`),
+  recurso('AULAS', '{{Diversas aulas}}\ngravadas', ['Temáticas e resolução de questões', 'Marque o que já assistiu', 'Tire dúvidas nos comentários'], abs('left:90px;top:620px', janela(P('c_player'), 900))),
   recurso('CRONOGRAMA', 'Plano até o\n{{dia da prova}}', ['Feito pro tempo que você tem', 'Semana a semana, com progresso'], `${abs('left:90px;top:720px', janela(P('c_crono'), 900, { h: 460 }))}${abs('left:720px;top:640px;z-index:6', `<div style="width:280px;border-radius:20px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.35);transform:rotate(4deg)"><img src="${P('c_contagem')}" style="display:block;width:100%"></div>`)}`),
-  recurso('QUESTÕES', '{{340}} questões FGV', ['Filtro por tema, prova e dificuldade', 'Gabarito comentado', 'Caderno de erros'], `${abs('left:70px;top:650px', janela(P('c_banco'), 560, { h: 520, rot: -2 }))}${abs('left:520px;top:700px', janela(P('c_questao'), 480, { rot: 3 }))}`),
+  recurso('QUESTÕES', 'Banco de questões\n{{completo}}', ['Filtro por tema, prova e dificuldade', 'Gabarito comentado', 'Caderno de erros'], `${abs('left:70px;top:650px', janela(P('c_banco'), 560, { h: 520, rot: -2 }))}${abs('left:520px;top:700px', janela(P('c_questao'), 480, { rot: 3 }))}`),
   recurso('REVISÃO', 'Dicas e {{resumos}}', ['As pegadinhas da FGV', 'Cards curtos pra revisar no celular'], `${abs('left:60px;top:620px', janela(P('cap1423b'), 660, { rot: -2 }))}${abs('left:690px;top:480px;z-index:5', celular(P('cap1423a'), 320, 660, 4))}`),
   fundo('verde', `${abs('left:0;right:0;top:200px;text-align:center', `${TV('Bora gabaritar\n{{Constitucional}}?', 150)}`)}
     ${abs('left:0;right:0;top:600px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;padding:0 80px', ['Aulas', 'Cronograma', 'Questões', 'Revisão', 'Ao vivo', 'Ranking'].map(c => `<span style="${TEXTO};font-size:26px;font-weight:600;color:#fff;border:2px solid rgba(155,224,163,.5);border-radius:999px;padding:10px 24px">${c}</span>`).join(''))}
