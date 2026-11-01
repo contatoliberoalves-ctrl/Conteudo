@@ -119,7 +119,7 @@ L.material = t => {
       <div><div style="display:inline-flex;align-items:center;gap:10px;font:800 16px Manrope;letter-spacing:.2em;color:#121212;background:${C.areia};border-radius:6px;padding:5px 10px"><span style="width:10px;height:10px;border-radius:50%;background:#C8372D"></span>${esc(t.bonus.selo)}</div><div style="font:700 25px/1.3 Manrope;color:${C.txt};margin-top:10px">${esc(t.bonus.texto)}</div></div></div>` : ''}
   </div>
   <div style="position:absolute;left:80px;right:80px;bottom:70px;display:flex;align-items:center;gap:18px">
-    <span style="flex:1;background:${C.areia};color:#111;border-radius:16px;padding:26px 30px;font:800 30px Manrope;text-align:center">${esc(t.botao)}</span></div>`;
+    <span style="flex:1;background:${C.areia};color:#111;border-radius:16px;padding:26px 30px;font:800 30px Manrope;text-align:center">${esc(t.botao).replace(/(#\S+)/, '<b style="font-weight:800;background:#121212;color:#E3D6B4;border-radius:8px;padding:2px 10px">$1</b>')}</span></div>`;
 };
 
 export function renderTela(t) {
