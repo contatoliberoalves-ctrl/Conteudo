@@ -55,16 +55,22 @@ mkdir -p modelos
 [ -f modelos/modnet.onnx ] || curl -sfL -o modelos/modnet.onnx https://huggingface.co/Xenova/modnet/resolve/main/onnx/model.onnx
 ok "detector de rosto + recorte de pessoa (MODNet)"
 
-# 5. Skills oficiais (ficam em .claude/skills/, fora do git)
+# 5. Projeto de motion (Remotion + GSAP)
+if command -v npm >/dev/null && [ ! -d motion/node_modules/remotion ]; then
+  (cd motion && npm install --no-audit --no-fund >/dev/null 2>&1) && ok "motion: Remotion + GSAP instalados"
+fi
+
+# 6. Skills oficiais (ficam em .claude/skills/, fora do git)
 if [ $SKILLS = 1 ]; then
   cd "$RAIZ"
   [ -d .claude/skills/hyperframes ] || npx -y skills add heygen-com/hyperframes --agent claude-code -y >/dev/null 2>&1
   [ -d .claude/skills/remotion-best-practices ] || npx -y skills add remotion-dev/skills --agent claude-code -y >/dev/null 2>&1
+  [ -d .claude/skills/gsap-core ] || npx -y skills add greensock/gsap-skills --agent claude-code -y >/dev/null 2>&1
   cd "$EST"
-  ok "skills HyperFrames + Remotion em .claude/skills/"
+  ok "skills HyperFrames + Remotion + GSAP em .claude/skills/"
 fi
 
-# 6. Clonagem de voz
+# 7. Clonagem de voz
 if [ $VOZ = 1 ]; then
   python3 -c "import chatterbox" 2>/dev/null || pip install -q chatterbox-tts 2>&1 | grep -v -i warning || true
   ok "Chatterbox (clonagem de voz)"

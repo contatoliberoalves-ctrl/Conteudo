@@ -1,6 +1,6 @@
 ---
 name: estudio-video
-description: Estúdio de vídeo com modelos (Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
+description: Estúdio de vídeo com modelos (motion Remotion+GSAP com 6 controles — espaçamento, tipografia, desfoque, easing, follow-through, antecipação —, Reels com motion, Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
 ---
 
 # Estúdio de vídeo
@@ -18,6 +18,8 @@ Quando o usuário citar um modelo pelo nome, siga a receita dele abaixo.
 | Uma palavra por vez | `palavra-pop` | idem Reels |
 | Legenda em caixa | `eduarda` | `--formato feed` |
 | Explicativo animado narrado | `<perfil>` | `ev.py explicativo roteiro.json` (seção própria) |
+| Motion com 6 controles | `<perfil>` | `ev.py motion …` (seção própria) |
+| Reels com motion | `<perfil>` | motion transparente (`"transparente": true`) → `sobreposicoes` do EDL → render |
 | Aula no YouTube | `aula-youtube` | `--formato youtube` + `ev.py texto` para capítulos |
 
 Modelo novo = estilo novo em `estudio/estilos/` (+ código só se o visual pedir) + entrada em
@@ -120,6 +122,54 @@ render avisa as palavras que continuaram cobertas (`edit/atras-relatorio.json`).
 Trilha por bloco: `"musica": [{"arquivo": "a.mp3", "inicio": 0, "fim": 18, "db": -20}, …]` (tempo
 final; ducking automático; fade em cada bloco). Cor `petroleo`: ambiente frio, pele protegida.
 
+## Motion com 6 controles (`ev.py motion`, Remotion + GSAP)
+Projeto Remotion em `estudio/motion/` (GSAP pela integração oficial `useGsapTimeline` do
+`@remotion/gsap`: a timeline segue o relógio de quadros do Remotion; nada de play/seek/callback/
+Math.random). Tudo sai de UM `controles.json`:
+```json
+{"estilo": "constitucionalgabaritado", "formato": "reels", "fps": 30, "transparente": false, "som": true,
+ "controles": {
+  "espacamento":   {"distancia": 140, "direcao": "baixo"},
+  "tipografia":    {"escala": 1.0, "rastreamento": -0.01, "altura_linha": 0.92, "max_caracteres": 12, "caixa_alta": true},
+  "desfoque":      {"obturador": 180, "amostras": 6},
+  "easing":        {"entrada": "expo.out", "saida": "power3.in", "duracao_entrada": 18, "duracao_saida": 9, "escalonar": 3},
+  "followthrough": {"atraso_cauda": 2, "overshoot": 0.12, "oscilacoes": 1, "arrasto": 0.35},
+  "antecipacao":   {"frames": 4, "recuo": 0.15}},
+ "cenas": [
+  {"tipo": "titulo", "kicker": "1ª fase OAB", "texto": "Inscrições|abertas", "destaque": ["abertas"], "segura": 1.0, "posicao": "topo", "placa": true},
+  {"tipo": "sequencia", "palavras": ["Reforço", "em", "Constitucional"], "segura": 0.5},
+  {"tipo": "numero", "numero": 6, "rotulo": "questões para gabaritar", "segura": 1.0},
+  {"tipo": "cta", "texto": "Valor promocional", "botao": "Inscreva-se", "segura": 1.4,
+   "controles": {"antecipacao": {"frames": 6}}}]}
+```
+Quadros (q) para tempo de animação; `segura` em segundos. Cada cena pode sobrescrever qualquer controle.
+O corpo (linha/palavra) faz antecipação → movimento principal; a cauda (letras, barra, seta) chega
+`atraso_cauda` quadros depois, com overshoot/oscilação. `"|"` força quebra de linha; palavra longa
+encolhe para caber. `placa: true` põe fundo atrás do título (para usar sobre vídeo claro).
+
+Ciclo **construir → renderizar → esfregar → ajustar → repetir**:
+1. `ev.py motion novo <pasta>` (ou escreva o json) · 2. `ev.py motion render <pasta>/controles.json --rascunho`
+   (metade da resolução; imprime a agenda com o quadro de cada cena) · 3. `ev.py motion esfregar …`
+   (folha com quadros NUMERADOS; `--cena 0 --passo 2`, `--de 10 --ate 40`, `--frames 0,4,8`) → abra o JPG
+   e confira contra a checklist abaixo · 4. traduza o feedback em ajuste e rode de novo:
+   - "adicione 4 frames de antecipação" → `ev.py motion ajustar <json> antecipacao.frames=+4`
+   - "atrasar a cauda em 3 frames" → `followthrough.atraso_cauda=+3`
+   - "manter o título por 1 segundo" → `cenas.0.segura=1`
+   - "mais longe" → `espacamento.distancia=+60` · "mais rápido" → `easing.duracao_entrada=-4`
+   - "sem borrão" → `desfoque.obturador=0` · "mais elástico" → `followthrough.oscilacoes=3`
+   - "título maior / mais apertado" → `tipografia.escala=+0.2`, `tipografia.rastreamento=-0.02`
+5. Final: `ev.py motion render <json>` (resolução cheia; mp4 com som, ou `.webm` transparente para
+   sobrepor a um vídeo com o `render` do estúdio).
+Checklist da folha: um foco por quadro; nada colidindo na troca de cenas; nada a menos de ~60 px da
+borda; texto não se mexe enquanto deve ser lido (segura ≥ 1 s, +0,25 s por palavra além de 3);
+saídas mais rápidas que entradas; nada congelado (o bloco "respira" 2,5%); primeiro quadro não vazio
+quando o vídeo começar pelo motion (ou escolha a capa no Instagram).
+Som: `ev/sfx.py` sintetiza whoosh no arranque, pop no pouso, impacto no CTA e uma cama suave, no quadro
+de cada evento (desligue com `"som": false` ou `--sem-som`). Abrir no Studio: `cd estudio/motion && npx remotion studio`.
+Gosto (das skills claude-motion e LottieFiles): entrada `expo.out`/`(0.16,1,0.3,1)`, saída `power3.in`
+com metade da duração, escalonar palavras ~3 q, uma cor de acento que significa algo, um momento
+"herói" por vídeo, nada linear em algo que começa ou para.
+
 ## Explicativo animado narrado (`ev.py explicativo`)
 Para vídeo sem gravação (o estilo "Manda Boa" do tutorial do X). `roteiro.json`:
 ```json
@@ -213,6 +263,10 @@ tamanho em px na tela 1920, cor, destaque, caixa alta, palavras por bloco, posi�
   (`auto-editor bruto.mp4 --export premiere`).
 - OpenCut (opencut.app): editor de timeline no navegador para retoques manuais.
 - Skill `video-use` (browser-use): mesma filosofia, transcrição paga (ElevenLabs).
+- Motion (lidos e aproveitados como ideia, código próprio): whaleyxbt/claude-motion (gosto, ciclo de
+  revisão por folhas, som em código), howseen-ai/claude-motion-design (obturador 180°, nada congelado,
+  saídas mais rápidas), LottieFiles/motion-design-skill (12 princípios, personalidades de movimento),
+  remotion-dev/skills e greensock/gsap-skills (instalados com `instalar.sh --skills`).
 - `appariciojunior/video-editor-skills` (DaVinci Resolve Studio): de onde vieram as regras de pausa,
   zoom, legenda limpa e EQ de voz. Licença CC BY-NC: só a ideia foi usada, nada copiado.
 - Manim (diagramas e fórmulas animadas), Three.js e Anime.js (cenas 3D e números animados

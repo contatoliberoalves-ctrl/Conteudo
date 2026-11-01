@@ -30,6 +30,8 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Palavra gigante atrás da cabeça | MODNet (recorte de pessoa, ONNX na CPU) + Archivo Expanded | estilo `palavra-atras` |
 | Faixa 9:16 com título fixo, master 1440p | ffmpeg | `--formato faixa`, `--formato youtube-1440` |
 | Explicativo animado narrado (sem gravar) | edge-tts/ElevenLabs/Chatterbox + HyperFrames | `ev.py explicativo roteiro.json` |
+| Motion com 6 controles (antecipação, follow-through, easing, desfoque…) | Remotion + GSAP (`@remotion/gsap`) + `@remotion/motion-blur` | `ev.py motion novo/render/esfregar/ajustar` |
+| Som de motion escrito em código | numpy (whoosh, pop, impacto, cama) | automático no `motion render` |
 | Fala no tempo final (capítulos, títulos, post) | — | `ev.py texto` |
 | Autoavaliação | folha de quadros + onda + LUFS | `ev.py verificar` |
 
@@ -66,6 +68,11 @@ Pesquisados além disso:
   zoom só dentro da tomada, legenda limpa, EQ de voz). Licença CC BY-NC: só as ideias, nada copiado.
 - Tutorial do X (@jotage0410): vídeo de produto feito todo por código, com voz clonada no ElevenLabs e
   telas reais animadas no Remotion. Virou o modelo "Explicativo animado narrado".
+- Motion: [claude-motion](https://github.com/whaleyxbt/claude-motion), [claude-motion-design](https://github.com/howseen-ai/claude-motion-design),
+  [motion-design-skill](https://github.com/LottieFiles/motion-design-skill), [gsap-skills](https://github.com/greensock/gsap-skills),
+  [Remotion skills](https://github.com/remotion-dev/skills) e a lista [awesome-motion-design-agent-skills](https://github.com/frankxai/awesome-motion-design-agent-skills)
+  (todos MIT, lidos; o código do estúdio é próprio). Outros da lista (animate, product-launch-motion,
+  motion-graphics, hyperframes-student-kit) ficam como referência para estilos novos.
 - [auto-editor](https://github.com/WyattBlue/auto-editor): corte por silêncio em lote e exportação
   de timeline para Premiere/DaVinci/Final Cut.
 

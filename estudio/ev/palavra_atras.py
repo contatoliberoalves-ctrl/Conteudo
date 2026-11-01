@@ -99,7 +99,7 @@ def processar(entrada, ws, cfg, saida, preview=False):
         cache[txt] = (np.asarray(img, np.float32) / 255.0, base, hb[3] - hb[1])
         return cache[txt]
 
-    rec = Recorte(W, H, 256 if preview else 384)
+    rec = Recorte(W, H, 512)   # abaixo de 512 o MODNet perde a pessoa em close
     passo = 3 if preview else 2
     ler = subprocess.Popen(["ffmpeg", "-v", "error", "-i", str(entrada), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
                            stdout=subprocess.PIPE)

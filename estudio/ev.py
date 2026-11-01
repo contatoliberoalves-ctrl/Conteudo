@@ -10,6 +10,7 @@
   ev.py referencia <arquivo|link>                   → ritmo, cortes/min, folha de quadros
   ev.py narrar roteiro.txt --saida narracao.mp3 [--voz ...] [--clonar minha-voz.wav]
   ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
+  ev.py motion novo|render|esfregar|ajustar ...      → motion Remotion+GSAP com 6 controles
   ev.py texto edit/edl.json                         → fala no tempo do vídeo final (capítulos, títulos)
   ev.py estilos                                     → lista os estilos
 """
@@ -92,6 +93,19 @@ def main():
     a.add_argument("--so-montar", action="store_true", help="só gera a composição (sem render)")
     a.add_argument("--saida")
 
+    a = s.add_parser("motion", help="motion design Remotion + GSAP com 6 controles")
+    a.add_argument("acao", choices=["novo", "render", "esfregar", "ajustar"])
+    a.add_argument("controles", help="controles.json (no 'novo', a pasta)")
+    a.add_argument("mudancas", nargs="*", help="ajustar: caminho=valor, +N/-N soma")
+    a.add_argument("--estilo", default="constitucionalgabaritado")
+    a.add_argument("--rascunho", action="store_true")
+    a.add_argument("--sem-som", action="store_true")
+    a.add_argument("--frames")
+    a.add_argument("--de", type=int)
+    a.add_argument("--ate", type=int)
+    a.add_argument("--passo", type=int)
+    a.add_argument("--cena", type=int)
+
     a = s.add_parser("texto")
     a.add_argument("edl")
 
@@ -114,6 +128,10 @@ def main():
         from ev.referencia import main as m
     elif args.cmd == "explicativo":
         from ev.explicativo import main as m
+    elif args.cmd == "motion":
+        from ev.motion import main as m
+        if args.acao == "novo":
+            args.pasta = args.controles
     elif args.cmd == "texto":
         from ev.cortar import texto_final as m
     elif args.cmd == "narrar":

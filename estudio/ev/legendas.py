@@ -140,8 +140,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
                 alt = tam / altura * 1.2
                 if y - alt < base and y > topo:
                     novo = base + alt + 0.03
-                    if novo > 0.9:
-                        novo = max(topo - 0.03, alt + 0.05)
+                    if novo > 0.93:   # close: prefere a base (sobre a roupa) a ir para cima da cabeça
+                        novo = 0.93 if topo < 0.2 else max(topo - 0.03, alt + 0.05)
                     return f"{{\\an2\\pos({largura // 2},{int(novo * altura)})}}"
         return ""
 

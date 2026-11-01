@@ -78,8 +78,9 @@ def extrair(i, r, fonte, info, rostos, estilo, W, H, preview, cache):
     grade = GRADES.get(grade, grade)
     dur = r["fim"] - r["inicio"]
     landscape_para_vertical = info["largura"] / info["altura"] > 1.2 and W / H < 0.9
-    desfoque = landscape_para_vertical and (r.get("modo") == "desfoque" or
-                                            (rosto is None and e.get("sem_rosto") == "desfoque"))
+    vertical_para_horizontal = info["largura"] / info["altura"] < 0.8 and W / H > 1.2
+    desfoque = r.get("modo") == "desfoque" or vertical_para_horizontal and r.get("modo") != "recorte" or (
+        landscape_para_vertical and rosto is None and e.get("sem_rosto") == "desfoque")
     chave = json.dumps([assinatura(fonte), r["inicio"], r["fim"], z, rosto, grade, desfoque,
                         W, H, preview, estilo["audio"]], sort_keys=True)
     nome = cache / f"{i:03d}-{hashlib.sha1(chave.encode()).hexdigest()[:10]}.mp4"
@@ -87,7 +88,7 @@ def extrair(i, r, fonte, info, rostos, estilo, W, H, preview, cache):
         return nome
     if desfoque:
         vf = (f"[0:v]split[a][b];[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
-              f"gblur=sigma=30,eq=brightness=-0.08[fundo];[b]scale={W}:-2[frente];"
+              f"gblur=sigma=30,eq=brightness=-0.08[fundo];[b]scale={W}:{H}:force_original_aspect_ratio=decrease[frente];"
               f"[fundo][frente]overlay=(W-w)/2:(H-h)/2")
     else:
         vf = "[0:v]" + enquadrar(info, W, H, z, rosto, e)
@@ -202,7 +203,7 @@ def main(args):
     # palavra gigante atrás da cabeça: desenhada nos quadros antes da passada final
     if legenda_on and L.get("animacao") == "atras":
         from .palavra_atras import processar
-        k_atr = chave_arquivo([str(p) for p in partes], ws, L, preview)
+        k_atr = chave_arquivo([str(p) for p in partes], ws, L, preview, "v2-512")
         atras = edit / f"atras-{k_atr}.mp4"
         if not atras.exists():
             so_video = edit / "atras-tmp.mp4"
