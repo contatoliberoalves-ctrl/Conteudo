@@ -1,6 +1,6 @@
 ---
 name: estudio-video
-description: Estúdio de vídeo com modelos (motion Remotion+GSAP com 6 controles — espaçamento, tipografia, desfoque, easing, follow-through, antecipação —, Reels com motion, Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
+description: Estúdio de vídeo com modelos (cartoon narrado com personagens desenhados por código, Reels com inserções — personagens, imagens, ícones, cards, tela dividida e recorte na frente de cenário entrando na palavra dita —, motion Remotion+GSAP com 6 controles — espaçamento, tipografia, desfoque, easing, follow-through, antecipação —, Reels com motion, Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
 ---
 
 # Estúdio de vídeo
@@ -19,6 +19,8 @@ Quando o usuário citar um modelo pelo nome, siga a receita dele abaixo.
 | Legenda em caixa | `eduarda` | `--formato feed` |
 | Explicativo animado narrado | `<perfil>` | `ev.py explicativo roteiro.json` (seção própria) |
 | Motion com 6 controles | `<perfil>` | `ev.py motion …` (seção própria) |
+| Cartoon narrado | `<perfil>` | `ev.py cartoon roteiro.json` (seção própria) |
+| Reels com inserções | `<perfil>` | `insercoes` + `layout` no edl.json → `render` (seção própria) |
 | Reels com motion | `<perfil>` | motion transparente (`"transparente": true`) → `sobreposicoes` do EDL → render |
 | Aula no YouTube | `aula-youtube` | `--formato youtube` + `ev.py texto` para capítulos |
 
@@ -121,6 +123,63 @@ render avisa as palavras que continuaram cobertas (`edit/atras-relatorio.json`).
    `verificar`), relatório de cobertura e loudness.
 Trilha por bloco: `"musica": [{"arquivo": "a.mp3", "inicio": 0, "fim": 18, "db": -20}, …]` (tempo
 final; ducking automático; fade em cada bloco). Cor `petroleo`: ambiente frio, pele protegida.
+
+## Inserções: o que aparece além de você (`insercoes` e `layout` no edl.json)
+Não entregue só legenda: todo vídeo gravado pede pelo menos 3–5 inserções ligadas ao que é dito.
+Cada item tem `gatilho` (a palavra dita no vídeo final; `ocorrencia`, `antes`, `duracao`) ou
+`inicio`/`fim` em segundos. Renderizadas no Remotion (camada transparente) e compostas no `render`.
+```json
+"insercoes": [
+ {"tipo": "personagem", "personagem": "ana", "pose": "pensando", "expressao": "surpreso", "balao": "Eu não sei nada!", "posicao": "canto-dir", "gatilho": "ideal", "duracao": 2.2},
+ {"tipo": "icone", "icone": "scale", "texto": "Constitucional", "posicao": "topo", "gatilho": "constitucional", "duracao": 1.6},
+ {"tipo": "lista", "titulo": "É para você que:", "itens": ["…", "…"], "posicao": "metade-topo", "gatilho": "até", "duracao": 2.7},
+ {"tipo": "objeto", "objeto": {"tipo": "carimbo", "texto": "6 / 6", "x": 0.5, "y": 0.2}, "gatilho": "gabaritar"},
+ {"tipo": "card", "titulo": "Art. 5º, LXIX", "texto": "…", "posicao": "topo", "gatilho": "…"},
+ {"tipo": "imagem", "arquivo": "print.png", "rotulo": "…", "posicao": "topo", "gatilho": "…", "duracao": 3},
+ {"tipo": "video", "arquivo": "broll.mp4", "posicao": "metade-topo", "gatilho": "…", "duracao": 3}],
+"layout": [
+ {"tipo": "recorte", "gatilho": "inscrições", "antes": 0.6, "duracao": 3.5, "cenario": "sala", "quadro": "REFORÇO 1ª FASE", "escala": 0.84},
+ {"tipo": "dividida", "gatilho": "até", "duracao": 2.7}]
+```
+- Personagens: `lex`, `martelo`, `ana`, `beto`; poses `parado, acena, aponta, joinha, pensando, comemora,
+  explica, bracos-cruzados`; expressões `feliz, neutro, surpreso, bravo, triste, confiante`.
+- Objetos: `calendario` (numero, rotulo), `carimbo`/`certo`/`errado` (texto), `documento`, `balanca`, `relogio`, `placa`, `imagem`.
+- Ícones: qualquer nome do Lucide (lucide.dev/icons: `scale`, `gavel`, `calendar-days`, `tag`,
+  `mouse-pointer-click`, `book-open`, `alarm-clock`, `badge-check`…).
+- `recorte`: você recortado (MODNet) na frente de um cenário desenhado (`sala`, `tribunal`, `estudo`,
+  `palco`) ou de uma `arquivo` de imagem; `escala` < 1 deixa o cenário aparecer.
+- `dividida`: você vai para a metade de baixo; use inserções `"posicao": "metade-topo"` em cima. A
+  legenda vai para o meio sozinha.
+- Imagens/vídeos de apoio: do usuário (Drive/upload), prints que você fizer (Playwright) ou bancos com
+  licença (Pexels/Pixabay pedem chave de API: peça ao usuário). Unsplash e Openverse bloqueiam daqui.
+  Nunca use imagem sem licença clara.
+- Evite empilhar no rodapé: personagem no canto + legenda + botão brigam. Uma coisa por canto.
+
+## Cartoon narrado (`ev.py cartoon`)
+Desenho animado inteiro por código (Remotion): `estudio/motion/src/personagens.tsx` (os 4 personagens,
+rubber hose, rosto, poses) e `Cartoon.tsx` (cenários, objetos, balões, câmera). Roteiro:
+```json
+{"estilo": "constitucionalgabaritado", "formato": "reels", "velocidade": "+8%",
+ "vozes": {"ana": "pt-BR-FranciscaNeural", "lex": "pt-BR-AntonioNeural"},
+ "cenas": [
+  {"cenario": "estudo", "camera": "zoom-in", "titulo": "Prova da OAB amanhã",
+   "personagens": [{"id": "ana", "x": 0.5, "pose": "pensando", "expressao": "triste"}],
+   "falas": [{"quem": "ana", "texto": "…", "expressao": "surpreso"}]},
+  {"cenario": "sala", "quadro": "ART. 5º, LXIX", "camera": "pan",
+   "personagens": [{"id": "ana", "x": 0.28}, {"id": "lex", "x": 0.72, "entra_na_fala": 0, "virado": true}],
+   "falas": [{"quem": "lex", "texto": "…", "pose": "explica", "balao": "Calma, Ana!"}],
+   "objetos": [{"tipo": "calendario", "numero": 120, "rotulo": "dias", "x": 0.5, "y": 0.26, "gatilho": "cento", "fala": 0}]}]}
+```
+- Cada fala é narrada com a voz do personagem (edge-tts; ou troque por ElevenLabs/voz clonada como no
+  explicativo); a boca segue o áudio quadro a quadro; quem escuta olha para quem fala.
+- `pose`/`expressao` por fala mudam o personagem enquanto ele fala; `x` de 0 a 1; `virado` olha para a
+  esquerda (o texto da capa do Lex não espelha). `camera`: parada, zoom-in, zoom-out, pan.
+- Objetos entram com mola na palavra `gatilho` da fala indicada (`fala`: índice). Cada cena tem
+  `titulo` opcional nos primeiros 2,6 s.
+- Legenda no chão, abaixo dos pés; `"legenda": false` desliga. ~1 min de render para 40 s em rascunho.
+- Personagem novo: desenhe em `personagens.tsx` na mesma caixa 400×600 (pés em y=590), com `Olhos`,
+  `Boca` e `Braco`; registre o tipo. Elenco para conferir: composição `Elenco` (`npx remotion still src/index.ts Elenco`).
+- Exemplo: `estudio/exemplos/cartoon-ms/roteiro.json`.
 
 ## Motion com 6 controles (`ev.py motion`, Remotion + GSAP)
 Projeto Remotion em `estudio/motion/` (GSAP pela integração oficial `useGsapTimeline` do

@@ -1,0 +1,28 @@
+{
+ "estilo": "constitucionalgabaritado",
+ "formato": "reels",
+ "vozes": {"ana": "pt-BR-FranciscaNeural", "lex": "pt-BR-AntonioNeural", "martelo": "pt-BR-AntonioNeural"},
+ "velocidade": "+8%",
+ "cenas": [
+  {"cenario": "estudo", "camera": "zoom-in", "titulo": "Prova da OAB amanhã",
+   "personagens": [{"id": "ana", "x": 0.5, "pose": "pensando", "expressao": "triste"}],
+   "falas": [{"quem": "ana", "texto": "A prova é amanhã e eu ainda confundo mandado de segurança com habeas corpus!", "expressao": "surpreso", "pose": "pensando"}]},
+  {"cenario": "estudo", "camera": "parada",
+   "personagens": [{"id": "ana", "x": 0.28, "pose": "parado", "expressao": "surpreso"}, {"id": "lex", "x": 0.73, "entra": 0.2}],
+   "falas": [{"quem": "lex", "texto": "Calma, Ana. Eu sou a Constituição e te explico em trinta segundos.", "pose": "acena", "balao": "Calma, Ana!"},
+             {"quem": "ana", "texto": "Uma Constituição que fala?", "expressao": "surpreso"}]},
+  {"cenario": "sala", "quadro": "ART. 5º, LXIX", "camera": "pan",
+   "personagens": [{"id": "lex", "x": 0.68, "pose": "aponta", "virado": true}],
+   "falas": [{"quem": "lex", "texto": "O mandado de segurança protege direito líquido e certo, contra ato ilegal de autoridade.", "pose": "explica"}],
+   "objetos": [{"tipo": "documento", "texto": "PROVA PRONTA", "rotulo": "líquido e certo", "x": 0.3, "y": 0.52, "escala": 0.9, "gatilho": "líquido"}]},
+  {"cenario": "tribunal", "camera": "zoom-out",
+   "personagens": [{"id": "martelo", "x": 0.5, "entra": 0.1}],
+   "falas": [{"quem": "martelo", "texto": "E atenção ao prazo: cento e vinte dias, contados da ciência do ato!", "pose": "aponta", "expressao": "confiante"}],
+   "objetos": [{"tipo": "calendario", "numero": 120, "rotulo": "dias", "x": 0.5, "y": 0.26, "gatilho": "cento"}]},
+  {"cenario": "sala", "quadro": "MS x HC", "camera": "zoom-in",
+   "personagens": [{"id": "ana", "x": 0.3, "pose": "joinha"}, {"id": "lex", "x": 0.72, "pose": "joinha", "virado": true}],
+   "falas": [{"quem": "ana", "texto": "Então habeas corpus é para a liberdade de locomoção. O resto, mandado de segurança!", "pose": "explica", "expressao": "feliz"},
+             {"quem": "lex", "texto": "Isso! Agora comenta MS que eu te mando o resumo.", "pose": "comemora", "expressao": "feliz"}],
+   "objetos": [{"tipo": "certo", "x": 0.5, "y": 0.36, "gatilho": "isso", "fala": 1}]}
+ ]
+}

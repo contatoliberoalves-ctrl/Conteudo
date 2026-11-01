@@ -31,6 +31,8 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Faixa 9:16 com título fixo, master 1440p | ffmpeg | `--formato faixa`, `--formato youtube-1440` |
 | Explicativo animado narrado (sem gravar) | edge-tts/ElevenLabs/Chatterbox + HyperFrames | `ev.py explicativo roteiro.json` |
 | Motion com 6 controles (antecipação, follow-through, easing, desfoque…) | Remotion + GSAP (`@remotion/gsap`) + `@remotion/motion-blur` | `ev.py motion novo/render/esfregar/ajustar` |
+| Cartoon narrado com personagens desenhados (Lex, Martelo, Ana, Beto) | Remotion + SVG, boca pelo envelope da voz | `ev.py cartoon roteiro.json` |
+| Inserções no vídeo gravado (personagens, ícones, cards, imagens, b-roll, tela dividida, recorte na frente de cenário) | Remotion (camada transparente) + MODNet + ffmpeg | `insercoes` e `layout` no `edl.json` |
 | Som de motion escrito em código | numpy (whoosh, pop, impacto, cama) | automático no `motion render` |
 | Fala no tempo final (capítulos, títulos, post) | — | `ev.py texto` |
 | Autoavaliação | folha de quadros + onda + LUFS | `ev.py verificar` |

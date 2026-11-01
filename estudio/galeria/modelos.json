@@ -1,5 +1,49 @@
 [
  {
+  "id": "reels-insercoes",
+  "nome": "Reels com inserções",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16",
+   "4:5",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Quando o vídeo pede mais que legenda",
+  "descricao": "O seu vídeo com coisas entrando na hora em que você fala delas: você recortado na frente de um cenário desenhado, personagens que surgem reagindo com balão, tela dividida com checklist em cima, carimbo, ícones, cards, imagens e vídeos de apoio (b-roll) em quadro com zoom lento. Cada inserção tem um gatilho: a palavra dita.",
+  "passos": [
+   "transcrever",
+   "cortar",
+   "insercoes + layout no edl.json (gatilho = palavra)",
+   "render --formato reels"
+  ],
+  "pedido": "Edita esse anúncio com inserções: me põe na frente de uma sala de aula no começo, a Ana aparece quando eu falo 'quem não sabe nada', tela dividida com checklist, carimbo 6/6 no 'gabaritar' e o Lex apontando no 'clique aqui'.",
+  "video": "reels-insercoes.mp4",
+  "amostra": "seu vídeo IMG_0223 com 8 inserções e 2 layouts"
+ },
+ {
+  "id": "cartoon-narrado",
+  "nome": "Cartoon narrado",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Explicar um tema com personagens",
+  "descricao": "Desenho animado feito do zero: personagens originais (Lex, a Constituição; Martelo; Ana, a concurseira; Beto, o professor) conversando em cenários desenhados (sala de aula, tribunal, mesa de estudo, palco). Cada um tem a sua voz, a boca abre com o áudio, piscam, respiram, fazem poses (acena, aponta, joinha, pensando, comemora) e quem escuta olha para quem fala. Calendário, carimbo, documento e balança entram na palavra certa; balões, câmera que anda, efeitos e legenda.",
+  "passos": [
+   "roteiro.json (cenas, falas, poses)",
+   "cartoon roteiro.json --rascunho",
+   "verificar",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 40 s em que a Ana confunde mandado de segurança com habeas corpus e o Lex, a Constituição, explica. Termina com 'comenta MS'.",
+  "video": "cartoon-narrado.mp4",
+  "amostra": "feito do zero; vozes pt-BR grátis (Francisca e Antonio)"
+ },
+ {
   "id": "reels-destaque",
   "nome": "Reels com legenda destaque",
   "grupo": "Talking head",

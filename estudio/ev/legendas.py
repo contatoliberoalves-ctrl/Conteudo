@@ -93,7 +93,7 @@ def ts(t):
     return f"{int(h)}:{int(m):02d}:{s:05.2f}"
 
 
-def gerar_ass(ws, estilo, largura, altura, evitar=()):
+def gerar_ass(ws, estilo, largura, altura, evitar=(), fixas=()):
     """evitar: [(ini, fim, rosto_y, rosto_h)] no tempo final; a legenda sai de cima do rosto."""
     L = estilo["legenda"]
     esc = min(largura, altura) / 1080      # tamanhos pensados para 1080 de largura
@@ -134,6 +134,9 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     def posicao(t):
         """\\pos quando a legenda cairia no rosto: vai para baixo do queixo (ou acima da cabeça)."""
         y = L["posicao_y"]
+        for a, b, yf in fixas:            # janelas com posição imposta (ex.: tela dividida)
+            if a <= t < b:
+                return f"{{\\an2\\pos({largura // 2},{int(yf * altura)})}}"
         for a, b, fy, fh in evitar:
             if a <= t < b:
                 topo, base = fy - 0.75 * fh, fy + 0.95 * fh       # testa ... queixo

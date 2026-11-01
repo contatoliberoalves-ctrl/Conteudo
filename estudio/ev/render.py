@@ -233,6 +233,9 @@ def main(args):
             fc.append(f"{v}[{k}:v]overlay=0:0[vt]")
             v = "[vt]"
             k += 1
+    # inserções (personagens, imagens, ícones, cards…) e layouts (tela dividida, recorte)
+    from .insercoes import aplicar
+    v, k, fixas = aplicar(edl, ws, dur, montagem, edit, CW, CH, preview, estilo, rostos_saida, entradas, fc, v, k)
     esc = CW / FORMATOS[args.formato][0]
     for j, o in enumerate(edl.get("sobreposicoes", [])):
         arq = str((edit / o["arquivo"]).resolve()) if not Path(o["arquivo"]).is_absolute() else o["arquivo"]
@@ -259,7 +262,7 @@ def main(args):
     srt = gerar_srt(ws) if ws else None
     if legenda_on and L.get("animacao") != "atras":
         evitar = [] if faixa else rostos_saida
-        (edit / "legendas.ass").write_text(gerar_ass(ws, estilo, CW, CH, evitar))
+        (edit / "legendas.ass").write_text(gerar_ass(ws, estilo, CW, CH, evitar, fixas))
         fdir = str(FONTES).replace(":", r"\:")
         fc.append(f"{v}subtitles=legendas.ass:fontsdir='{fdir}'[vf]")
         v = "[vf]"

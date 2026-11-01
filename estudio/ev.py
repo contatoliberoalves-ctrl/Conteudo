@@ -11,6 +11,7 @@
   ev.py narrar roteiro.txt --saida narracao.mp3 [--voz ...] [--clonar minha-voz.wav]
   ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
   ev.py motion novo|render|esfregar|ajustar ...      → motion Remotion+GSAP com 6 controles
+  ev.py cartoon roteiro.json [--rascunho]          → cartoon narrado com personagens desenhados
   ev.py texto edit/edl.json                         → fala no tempo do vídeo final (capítulos, títulos)
   ev.py estilos                                     → lista os estilos
 """
@@ -106,6 +107,13 @@ def main():
     a.add_argument("--passo", type=int)
     a.add_argument("--cena", type=int)
 
+    a = s.add_parser("cartoon", help="cartoon narrado com personagens desenhados")
+    a.add_argument("roteiro")
+    a.add_argument("--formato", choices=["reels", "feed", "quadrado", "youtube"])
+    a.add_argument("--rascunho", action="store_true")
+    a.add_argument("--sem-legenda", action="store_true")
+    a.add_argument("--saida")
+
     a = s.add_parser("texto")
     a.add_argument("edl")
 
@@ -132,6 +140,8 @@ def main():
         from ev.motion import main as m
         if args.acao == "novo":
             args.pasta = args.controles
+    elif args.cmd == "cartoon":
+        from ev.cartoon import main as m
     elif args.cmd == "texto":
         from ev.cortar import texto_final as m
     elif args.cmd == "narrar":
