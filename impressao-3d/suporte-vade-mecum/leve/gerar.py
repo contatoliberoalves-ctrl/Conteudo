@@ -33,12 +33,13 @@ APARADOR = 72        # fundo do aparador: cabe o lado grosso do Vade Mecum
                      # aberto no começo ou no fim (até ~7 cm)
 ABA = 14             # altura da aba que segura o livro
 ARCO = 5             # quanto a base sobe no meio (só os pés tocam a mesa)
-LARGURA = 15         # espessura de cada lateral (altura de impressão)
+LARGURA = 12         # espessura de cada lateral (altura de impressão)
 VAO = 150            # vão livre entre as laterais
-PLACA = (24, 7)      # placa da frente: altura x espessura
-BARRA = 9            # travessa de trás, seção quadrada
+PLACA = (16, 5)      # placa da frente: altura x espessura
+BARRA = 8            # travessa de trás, seção quadrada
 FOLGA = 0.2          # folga de cada lado nos encaixes
-RELEVO = 1.0         # altura do nome em relevo na placa (troca de cor nessa camada)
+RELEVO = 0.6         # altura do nome em relevo na placa (troca de cor nessa camada, se quiser)
+LETRA = 7            # altura das letras do nome
 NOME = sys.argv[1] if len(sys.argv) > 1 else "@liberofilho"
 
 SAIDA = Path(__file__).parent
@@ -129,7 +130,7 @@ def main():
     placa = trimesh.creation.box((comp, PLACA[0], PLACA[1]))
     placa.apply_translation(-placa.bounds[0])
     # nome em relevo no centro, só na parte visível (entre as laterais)
-    t = texto(NOME, PLACA[0] * 0.5, VAO - 24)
+    t = texto(NOME, LETRA, VAO - 24)
     t = affinity.translate(t, (comp - t.bounds[2]) / 2, (PLACA[0] - t.bounds[3]) / 2)
     letras = extrudar(t, RELEVO)
     letras.apply_translation((0, 0, PLACA[1]))

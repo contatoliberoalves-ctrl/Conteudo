@@ -1,17 +1,17 @@
 # Suporte para Vade Mecum (impressão 3D)
 
 ## Versão leve (recomendada para vender)
-Pasta `leve/`: laterais em forma de vela (contorno contínuo, base em arco), em tons de roxo, placa da frente com @liberofilho em relevo (troca de filamento na camada do relevo para o @ sair em outra cor). Aparador de 72 mm: cabe o lado grosso do Vade Mecum aberto no começo ou no fim. Gasta ~130 g e ~9 h (PrusaSlicer, camada 0,28, 2 paredes, 15% giroide), contra ~390 g e ~30 h da versão robusta abaixo. Aguenta 3 kg com folga de ~15× no ponto mais exigido.
+Pasta `leve/`: laterais em forma de vela (contorno contínuo, base em arco) e placa da frente com @liberofilho em relevo pequeno (letras de 7 mm). Versão econômica: preto, tudo numa cor só (ou o @ em branco, com uma troca de filamento). Aparador de 72 mm: cabe o lado grosso do Vade Mecum aberto no começo ou no fim. Gasta ~116 g e ~3,5 h numa impressora rápida (Bambu A1 / Kobra X; PrusaSlicer, camada 0,28, 3 paredes, 15% giroide): ~8 suportes por rolo de 1 kg. Aguenta 3 kg com folga de ~12–15× no ponto mais exigido.
 
-![suporte com o livro](leve/render/com-livro.png)
+![suporte preto](leve/render/preto-branco.png)
 
 | Arquivo | Qtd. | Medidas |
 |---|---|---|
-| `leve/lateral.stl` | 2 | 185 × 193 × 15 mm |
-| `leve/placa.stl` | 1 | 180 × 24 × 8 mm (@ para cima na impressão) |
-| `leve/travessa.stl` | 1 | 180 × 9 × 9 mm |
+| `leve/lateral.stl` | 2 | 185 × 185 × 12 mm |
+| `leve/placa.stl` | 1 | 174 × 16 × 6 mm (@ para cima na impressão) |
+| `leve/travessa.stl` | 1 | 174 × 8 × 8 mm |
 
-Gerar com outro texto na placa: `python3 leve/gerar.py "OAB 2027"` (padrão: @liberofilho). Imagens 3D (three.js): `python3 -m http.server 8765 -d leve` e, em outro terminal, `node leve/render/fotos.mjs`.
+Gerar com outro texto na placa: `python3 leve/gerar.py "OAB 2027"` (padrão: @liberofilho). Imagens 3D (three.js): `python3 -m http.server 8765 -d leve` e, em outro terminal, `node leve/render/fotos.mjs` (cores por parâmetro: `cl`, `cp`, `ct`). Os PDFs abaixo foram feitos com a versão roxa anterior (laterais de 15 mm, placa 24 × 7 mm, ~157 g).
 
 ## Versão robusta (a primeira)
 
