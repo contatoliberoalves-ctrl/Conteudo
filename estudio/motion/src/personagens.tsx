@@ -6,7 +6,7 @@ import {interpolate, random} from 'remotion';
 
 export type Pose = 'parado' | 'acena' | 'aponta' | 'joinha' | 'pensando' | 'comemora' | 'explica' | 'bracos-cruzados';
 export type Expressao = 'feliz' | 'neutro' | 'surpreso' | 'bravo' | 'triste' | 'confiante';
-export type TipoPersonagem = 'lex' | 'martelo' | 'ana' | 'beto';
+export type TipoPersonagem = 'lex' | 'martelo' | 'ana' | 'beto' | 'libero';
 
 export type PersonagemProps = {
   tipo: TipoPersonagem;
@@ -26,6 +26,8 @@ const PADRAO: Record<TipoPersonagem, Cores> = {
   martelo: {pele: '#B9773F', roupa: '#8E5527', roupa2: '#E7B57A', cabelo: '#5B3417', tinta: '#2A1709', luva: '#FFFFFF', acento: '#E8C17F'},
   ana: {pele: '#B97A52', roupa: '#2F8F5B', roupa2: '#1D3A2E', cabelo: '#2B1B14', tinta: '#1B1210', luva: '#B97A52', acento: '#9BE0A3'},
   beto: {pele: '#E8B48F', roupa: '#2C4A86', roupa2: '#1A2338', cabelo: '#6B4A2E', tinta: '#1B1210', luva: '#E8B48F', acento: '#FFD52E'},
+  // inspirado no Líbero: terno marinho, camisa clara, gravata azul de bolinhas, óculos de tartaruga
+  libero: {pele: '#C9946E', roupa: '#1E2A44', roupa2: '#18213A', cabelo: '#231A16', tinta: '#1B1210', luva: '#C9946E', acento: '#2F5BB5'},
 };
 
 // ---------- rosto ----------
@@ -40,8 +42,8 @@ function piscando(frame: number, semente: string) {
   return 0;
 }
 
-const Olhos: React.FC<{cx: number; cy: number; sep: number; r: number; frame: number; semente: string; olhar: number; expressao: Expressao; tinta: string}> =
-  ({cx, cy, sep, r, frame, semente, olhar, expressao, tinta}) => {
+const Olhos: React.FC<{cx: number; cy: number; sep: number; r: number; frame: number; semente: string; olhar: number; expressao: Expressao; tinta: string; sobrancelha?: number}> =
+  ({cx, cy, sep, r, frame, semente, olhar, expressao, tinta, sobrancelha = 0.2}) => {
     const fecha = piscando(frame, semente);
     const surpreso = expressao === 'surpreso';
     const ry = r * (surpreso ? 1.15 : 1) * (1 - 0.92 * fecha);
@@ -57,7 +59,7 @@ const Olhos: React.FC<{cx: number; cy: number; sep: number; r: number; frame: nu
             {/* sobrancelha: inclinação pela expressão */}
             <path d={`M ${cx + lado * sep - r * 0.7} ${cy - r * 1.35 + sob[0] * (r / 30) - lado * sob[1] * (r / 60) * -1}
                       Q ${cx + lado * sep} ${cy - r * 1.6 + sob[0] * (r / 30)} ${cx + lado * sep + r * 0.7} ${cy - r * 1.35 + sob[0] * (r / 30) + lado * sob[1] * (r / 60) * -1}`}
-              stroke={tinta} strokeWidth={r * 0.2} strokeLinecap="round" fill="none"
+              stroke={tinta} strokeWidth={r * sobrancelha} strokeLinecap="round" fill="none"
               transform={sob[1] ? `rotate(${lado * sob[1] * 0.6} ${cx + lado * sep} ${cy - r * 1.4})` : undefined} />
           </g>
         ))}
@@ -99,7 +101,7 @@ function maoDaPose(pose: Pose, lado: -1 | 1, ombro: Ponto, comp: number, frame: 
     case 'joinha':
       return lado === 1 ? {mao: [ox + comp * 0.62, oy - comp * 0.15 + lento * 5], luva: 'joinha'} : {mao: descanso, luva: 'aberta'};
     case 'pensando':
-      return lado === 1 ? {mao: [ox - comp * 0.42, oy - comp * 0.18], luva: 'punho'} : {mao: [ox + comp * 0.35, oy + comp * 0.42], luva: 'punho'};
+      return lado === 1 ? {mao: [ox - comp * 0.42, oy - comp * 0.06], luva: 'punho'} : {mao: [ox + comp * 0.35, oy + comp * 0.42], luva: 'punho'};
     case 'comemora': {
       const pulo = Math.abs(Math.sin(frame / 5)) * comp * 0.1;
       return {mao: [ox + lado * comp * 0.5, oy - comp * 0.95 - pulo], luva: 'punho'};
@@ -212,6 +214,77 @@ export const Personagem: React.FC<PersonagemProps> = ({tipo, frame, boca, pose =
           <Boca cx={200} cy={274} w={58} abre={boca} expressao={expressao} tinta={t} />
         </g>
         <Braco ombro={ombroD} mao={bD.mao} luva={bD.luva} grossura={15} cor={C.roupa} corLuva={C.luva} tinta={t} lado={1} />
+      </g>
+    );
+  }
+
+  if (tipo === 'libero') {
+    // Líbero: cabeça oval com cabelo raspado (entradas leves), sobrancelhas grossas, óculos redondos
+    // de tartaruga, sombra de bigode; terno marinho, camisa clara e gravata azul de bolinhas.
+    const ombroE: Ponto = [136, 336 + corpoY], ombroD: Ponto = [264, 336 + corpoY];
+    const bE = maoDaPose(pose, -1, ombroE, 150, frame), bD = maoDaPose(pose, 1, ombroD, 150, frame);
+    const cab = Math.sin(frame / 18) * 1.6 + (boca > 0.3 ? Math.sin(frame / 3) * 0.9 : 0);
+    const tart = '#7A3E17', tartClaro = '#B5652A';
+    return (
+      <g>
+        <ellipse cx={200} cy={592} rx={115} ry={15} fill="#000" opacity={0.18} />
+        <Pernas x={200} y={482 + corpoY} abertura={32} comp={96} grossura={23} cor={C.roupa2} sapato="#141414" tinta={t} frame={frame} pula={pose === 'comemora'} />
+        <Braco ombro={ombroE} mao={bE.mao} luva={bE.luva} grossura={25} cor={C.roupa} corLuva={C.luva} tinta={t} lado={-1} />
+        <g transform={`translate(0 ${corpoY})`}>
+          {/* paletó */}
+          <path d="M 122 336 Q 200 304 278 336 L 292 494 Q 200 510 108 494 Z" fill={C.roupa} stroke={t} strokeWidth={7} strokeLinejoin="round" />
+          {/* camisa e gravata */}
+          <path d="M 170 318 L 200 420 L 230 318 Z" fill="#E9EDF2" stroke={t} strokeWidth={5} strokeLinejoin="round" />
+          <path d="M 190 336 L 210 336 L 216 352 L 206 360 L 214 440 L 200 456 L 186 440 L 194 360 L 184 352 Z" fill={C.acento} stroke={t} strokeWidth={4} strokeLinejoin="round" />
+          {[[198, 372], [205, 392], [195, 410], [204, 428], [199, 446]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={2.6} fill="#fff" />)}
+          {/* lapelas */}
+          <path d="M 168 320 L 196 420 L 150 360 L 162 340 Z" fill={C.roupa2} stroke={t} strokeWidth={5} strokeLinejoin="round" />
+          <path d="M 232 320 L 204 420 L 250 360 L 238 340 Z" fill={C.roupa2} stroke={t} strokeWidth={5} strokeLinejoin="round" />
+          <path d="M 252 380 L 270 378" stroke="#E9EDF2" strokeWidth={5} strokeLinecap="round" />
+          <g transform={`rotate(${cab} 200 300)`}>
+            <rect x={182} y={270} width={36} height={50} fill={C.pele} stroke={t} strokeWidth={6} />
+            {/* orelhas */}
+            <ellipse cx={100} cy={206} rx={15} ry={22} fill={C.pele} stroke={t} strokeWidth={6} />
+            <ellipse cx={300} cy={206} rx={15} ry={22} fill={C.pele} stroke={t} strokeWidth={6} />
+            {/* cabeça oval, testa alta */}
+            <ellipse cx={200} cy={180} rx={98} ry={114} fill={C.pele} stroke={t} strokeWidth={8} />
+            {/* cabelo raspado: sombra escura com textura, entradas leves nas têmporas */}
+            <path d="M 106 168 Q 100 76 200 64 Q 300 76 294 168 Q 286 124 262 112 Q 236 96 200 98 Q 164 96 138 112 Q 114 124 106 168 Z"
+              fill={C.cabelo} opacity={0.82} />
+            {Array.from({length: 46}).map((_, i) => {
+              const a = Math.PI * (0.08 + 0.84 * ((i * 37) % 46) / 46), rr = 92 + (i % 3) * 3;
+              return <circle key={i} cx={200 - Math.cos(a) * rr * 0.98} cy={176 - Math.sin(a) * rr * 1.12 + 4} r={1.6} fill={C.pele} opacity={0.35} />;
+            })}
+            <ellipse cx={200} cy={180} rx={98} ry={114} fill="none" stroke={t} strokeWidth={8} />
+            {/* sobrancelhas grossas + olhos */}
+            <Olhos cx={200} cy={203} sep={42} r={18} frame={frame} semente={s} olhar={olhar} expressao={expressao} tinta={t} sobrancelha={0} />
+            {/* sobrancelhas grossas, acima dos óculos, mudando com a expressão */}
+            {[-1, 1].map((l) => {
+              const [sobe, inclina] = {feliz: [-3, 0], neutro: [0, 0], surpreso: [-12, -2], bravo: [6, 9], triste: [0, -8], confiante: [-2, 5]}[expressao];
+              const x0 = 200 + l * 22, x1 = 200 + l * 66, y = 160 + sobe;
+              return <path key={l} d={`M ${x0} ${y + inclina} Q ${(x0 + x1) / 2} ${y - 9} ${x1} ${y + 3}`} stroke={C.cabelo} strokeWidth={11} strokeLinecap="round" fill="none" />;
+            })}
+            {/* óculos redondos de tartaruga */}
+            <g fill="none">
+              <circle cx={158} cy={203} r={33} fill="#DDEAF2" fillOpacity={0.18} stroke={tart} strokeWidth={8} />
+              <circle cx={242} cy={203} r={33} fill="#DDEAF2" fillOpacity={0.18} stroke={tart} strokeWidth={8} />
+              <path d="M 186 196 Q 200 188 214 196" stroke={tart} strokeWidth={7} strokeLinecap="round" />
+              <path d="M 125 198 L 104 192" stroke={tart} strokeWidth={6} strokeLinecap="round" />
+              <path d="M 275 198 L 296 192" stroke={tart} strokeWidth={6} strokeLinecap="round" />
+              {[[134, 186], [150, 172], [176, 180], [228, 174], [262, 184], [270, 214], [140, 226], [250, 232]].map(([x, y], i) =>
+                <circle key={i} cx={x} cy={y} r={3.2} fill={tartClaro} />)}
+              <path d="M 140 186 Q 148 178 158 176" stroke="#fff" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
+              <path d="M 224 186 Q 232 178 242 176" stroke="#fff" strokeWidth={4} strokeLinecap="round" opacity={0.7} />
+            </g>
+            {/* nariz arredondado */}
+            <path d="M 196 214 Q 186 240 190 248 Q 200 256 212 248" stroke={t} strokeWidth={5} fill="none" strokeLinecap="round" />
+            {/* sombra de bigode */}
+            <path d="M 172 262 Q 200 254 228 262" stroke={C.cabelo} strokeWidth={7} strokeLinecap="round" fill="none" opacity={0.08} />
+            <Boca cx={200} cy={274} w={58} abre={boca} expressao={expressao} tinta={t} />
+            <circle cx={140} cy={252} r={11} fill="#E07A6A" opacity={0.25} /><circle cx={260} cy={252} r={11} fill="#E07A6A" opacity={0.25} />
+          </g>
+        </g>
+        <Braco ombro={ombroD} mao={bD.mao} luva={bD.luva} grossura={25} cor={C.roupa} corLuva={C.luva} tinta={t} lado={1} />
       </g>
     );
   }

@@ -9,7 +9,7 @@ import {Camada, CamadaProps} from './Camada';
 // As props reais vêm do ev.py motion (--props). O exemplo só serve para abrir o Studio.
 export const Root: React.FC = () => (
   <>
-  <Composition id="Elenco" component={Elenco} width={1600} height={700} fps={30} durationInFrames={60} />
+  <Composition id="Elenco" component={Elenco} width={2000} height={700} fps={30} durationInFrames={60} />
   <Composition
     id="Motion"
     component={Motion as unknown as React.FC<Record<string, unknown>>}

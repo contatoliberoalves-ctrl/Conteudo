@@ -22,6 +22,27 @@
   "amostra": "seu vídeo IMG_0223 com 8 inserções e 2 layouts"
  },
  {
+  "id": "cartoon-libero",
+  "nome": "Cartoon com o Líbero",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Anúncios e explicações com você em desenho",
+  "descricao": "O Líbero em desenho como protagonista: cabelo raspado, sobrancelhas grossas, óculos redondos de tartaruga, terno marinho e gravata azul de bolinhas. Faz as mesmas poses e expressões do elenco, contracena com a Ana, o Lex, o Martelo e o Beto, e fala com a boca sincronizada.",
+  "passos": [
+   "roteiro.json com \"libero\" nas cenas",
+   "cartoon roteiro.json --rascunho",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 25 s comigo convidando para o reforço de Constitucional: eu apresento, a Ana diz que não sabe nada, eu explico e fecho com 'inscrições abertas'.",
+  "video": "cartoon-libero.mp4",
+  "amostra": "voz neutra grátis (pt-BR-AntonioNeural); dá para trocar pela sua voz clonada"
+ },
+ {
   "id": "cartoon-narrado",
   "nome": "Cartoon narrado",
   "grupo": "Motion design",

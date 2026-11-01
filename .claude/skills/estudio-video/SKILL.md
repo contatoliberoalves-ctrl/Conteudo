@@ -141,7 +141,8 @@ Cada item tem `gatilho` (a palavra dita no vídeo final; `ocorrencia`, `antes`, 
  {"tipo": "recorte", "gatilho": "inscrições", "antes": 0.6, "duracao": 3.5, "cenario": "sala", "quadro": "REFORÇO 1ª FASE", "escala": 0.84},
  {"tipo": "dividida", "gatilho": "até", "duracao": 2.7}]
 ```
-- Personagens: `lex`, `martelo`, `ana`, `beto`; poses `parado, acena, aponta, joinha, pensando, comemora,
+- Personagens: `libero` (o autor em desenho: cabelo raspado, sobrancelhas grossas, óculos redondos de
+  tartaruga, terno marinho, gravata azul de bolinhas), `lex`, `martelo`, `ana`, `beto`; poses `parado, acena, aponta, joinha, pensando, comemora,
   explica, bracos-cruzados`; expressões `feliz, neutro, surpreso, bravo, triste, confiante`.
 - Objetos: `calendario` (numero, rotulo), `carimbo`/`certo`/`errado` (texto), `documento`, `balanca`, `relogio`, `placa`, `imagem`.
 - Ícones: qualquer nome do Lucide (lucide.dev/icons: `scale`, `gavel`, `calendar-days`, `tag`,
@@ -156,7 +157,8 @@ Cada item tem `gatilho` (a palavra dita no vídeo final; `ocorrencia`, `antes`, 
 - Evite empilhar no rodapé: personagem no canto + legenda + botão brigam. Uma coisa por canto.
 
 ## Cartoon narrado (`ev.py cartoon`)
-Desenho animado inteiro por código (Remotion): `estudio/motion/src/personagens.tsx` (os 4 personagens,
+Desenho animado inteiro por código (Remotion): `estudio/motion/src/personagens.tsx` (os 5 personagens, com o
+`libero` como protagonista quando o vídeo é do autor,
 rubber hose, rosto, poses) e `Cartoon.tsx` (cenários, objetos, balões, câmera). Roteiro:
 ```json
 {"estilo": "constitucionalgabaritado", "formato": "reels", "velocidade": "+8%",

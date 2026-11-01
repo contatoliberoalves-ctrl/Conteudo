@@ -29,7 +29,7 @@ from .motion import NAVEGADOR, PROJETO, garantir_projeto
 from .sfx import Mix, cama, pop, whoosh
 
 FPS = 30
-VOZ_PADRAO = {"ana": "pt-BR-FranciscaNeural", "beto": "pt-BR-AntonioNeural", "lex": "pt-BR-AntonioNeural",
+VOZ_PADRAO = {"libero": "pt-BR-AntonioNeural", "ana": "pt-BR-FranciscaNeural", "beto": "pt-BR-AntonioNeural", "lex": "pt-BR-AntonioNeural",
               "martelo": "pt-BR-AntonioNeural"}
 
 
