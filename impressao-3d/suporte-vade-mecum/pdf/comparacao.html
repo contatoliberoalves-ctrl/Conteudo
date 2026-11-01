@@ -1,0 +1,153 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#3b1d6e;--azul:#7d4cc2;--ouro:#9b6ce0;--tinta:#231a33;--cinza:#675e78;--linha:#e6e0f0;--fundo:#f6f2fc}
+body{font-family:Inter,sans-serif;color:var(--tinta);font-size:10.5pt;line-height:1.5}
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;padding:20mm 18mm 18mm;page-break-after:always;background:#fff}
+.pg:last-child{page-break-after:auto}
+h1,h2,.num{font-family:'Space Grotesk',Inter,sans-serif}
+h2{font-size:20pt;color:var(--navy);margin-bottom:4mm;letter-spacing:-.3px}
+h3{font-size:11pt;color:var(--navy);margin:6mm 0 2mm;text-transform:uppercase;letter-spacing:.8px}
+p{margin-bottom:2.5mm}
+.rot{font-size:8.5pt;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ouro)}
+.capa .rot{color:#cdb2fb}
+.rodape{position:absolute;bottom:10mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-size:8pt;color:var(--cinza);border-top:1px solid var(--linha);padding-top:3mm}
+table{width:100%;border-collapse:collapse;margin:2mm 0 3mm;font-size:10pt}
+th{text-align:left;font-size:8.5pt;text-transform:uppercase;letter-spacing:.6px;color:var(--cinza);border-bottom:2px solid var(--navy);padding:2mm 2.5mm}
+td{padding:2.2mm 2.5mm;border-bottom:1px solid var(--linha);vertical-align:top}
+td.v,th.v{text-align:right;white-space:nowrap}
+tr.total td{font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy);background:var(--fundo)}
+.capa{background:linear-gradient(160deg,#5a2ca0 0%,#2a1250 60%,#1b0b36 100%);color:#fff;padding:22mm 18mm}
+.capa h1{font-size:44pt;line-height:1.02;letter-spacing:-1px;margin:5mm 0 5mm}
+.capa h1 em{font-style:normal;color:#cdb2fb}
+.capa .sub{font-size:13pt;color:#ddd0f7;max-width:150mm}
+.capa img{position:absolute;right:-6mm;bottom:38mm;width:165mm;filter:drop-shadow(0 8mm 10mm rgba(0,0,0,.35))}
+.capa .chips{position:absolute;left:18mm;bottom:20mm;display:flex;gap:3mm}
+.chip{border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:1.6mm 4mm;font-size:9pt;color:#e6edf5}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:8mm;align-items:start}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 2mm}
+.card{background:var(--fundo);border-radius:3mm;padding:4mm;border-top:3px solid var(--azul)}
+.card.ouro{border-top-color:var(--ouro)}
+.card .num{font-size:20pt;color:var(--navy);line-height:1.1}
+.card .leg{font-size:8.5pt;color:var(--cinza)}
+.nota{background:#f4eefe;border-left:3px solid var(--ouro);padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
+ol,ul{padding-left:5mm;margin-bottom:2mm} li{margin-bottom:1.5mm}
+.destaque{color:var(--navy);font-weight:700}
+.capa img.hero{position:absolute;left:50%;transform:translateX(-50%);bottom:32mm;width:190mm;right:auto;filter:drop-shadow(0 6mm 8mm rgba(0,0,0,.25))}
+.foto{width:100%;display:block}
+.fotos{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 2mm}
+.fotos div{background:var(--fundo);border-radius:3mm;overflow:hidden}
+.selo{display:inline-block;background:var(--ouro);color:#fff;font-weight:800;font-size:8.5pt;border-radius:20px;padding:1mm 3.5mm;margin-left:2mm;vertical-align:middle;letter-spacing:.3px}
+td.ok{color:var(--azul);font-weight:800}
+a{color:var(--azul);text-decoration:none;font-weight:700}
+.passos{counter-reset:p;list-style:none;padding:0}
+.passos li{counter-increment:p;position:relative;padding:0 0 0 13mm;margin-bottom:3.5mm;min-height:9mm}
+.passos li::before{content:counter(p);position:absolute;left:0;top:-1mm;width:9mm;height:9mm;border-radius:50%;background:var(--navy);color:#fff;font:700 12pt 'Space Grotesk';display:grid;place-items:center}
+.alerta{background:#fff3f3;border-left:3px solid #c0392b;padding:3mm 4mm;font-size:9.5pt;margin:3mm 0}
+.mini{font-size:9pt;color:var(--cinza)}
+.chk{list-style:none;padding:0}.chk li::before{content:"☐ ";color:var(--azul);font-weight:800}
+.foto2{background:var(--fundo);border-radius:3mm;overflow:hidden}
+.topo{background:linear-gradient(160deg,#5a2ca0 0%,#2a1250 70%,#1b0b36 100%);color:#fff;margin:-20mm -18mm 6mm;padding:16mm 18mm 10mm;position:relative;overflow:hidden}
+.topo h1{font-size:28pt;line-height:1.05;margin:3mm 0 2mm}.topo h1 em{font-style:normal;color:#cdb2fb}.topo p{color:#ddd0f7;font-size:10.5pt}
+.topo img{position:absolute;right:-4mm;bottom:-6mm;width:62mm;opacity:.95}
+.veredito{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:3mm 0}
+.v1{background:var(--fundo);border-radius:3mm;padding:4mm;border-top:3px solid var(--azul)}.v1.ouro{border-top-color:var(--ouro)}
+.v1 b.t{display:block;font-family:'Space Grotesk';font-size:13pt;color:var(--navy);margin-bottom:1mm}
+th.c,td.c{text-align:center}
+</style></head><body><section class="pg">
+  <div class="topo"><div class="rot" style="color:#cdb2fb">Comparação · gastos · projeções</div>
+    <h1>Bambu A1 Combo<br><em>× Anycubic Kobra X</em></h1>
+    <p>Para produzir e vender o suporte de Vade Mecum.</p>
+    <img src="../leve/render/suporte.png"></div>
+  <div class="veredito">
+    <div class="v1"><b class="t">Recomendada: Bambu A1 Combo</b>Mais testada, falha menos, fatiador mais fácil, vendedor verificado e frete Full. Custa R$ 299 a mais.</div>
+    <div class="v1 ouro"><b class="t">Alternativa: Kobra X</b>Faz o mesmo suporte, com a mesma resistência e no mesmo tempo. É mais nova, com menos histórico de uso.</div>
+  </div>
+  <h3>Lado a lado</h3>
+  <table>
+    <tr><th></th><th class="c">Bambu A1 Combo</th><th class="c">Anycubic Kobra X</th></tr>
+    <tr><td>Preço no anúncio</td><td class="c"><b>R$ 4.048</b><br><span class="mini">12x R$ 389</span></td><td class="c"><b>R$ 3.749</b><br><span class="mini">ou R$ 3.886 em 10x sem juros</span></td></tr>
+    <tr><td>Área de impressão</td><td class="c">256 × 256 × 256 mm</td><td class="c">260 × 260 × 260 mm</td></tr>
+    <tr><td>Cores automáticas</td><td class="c">4 (AMS Lite)</td><td class="c">4 (ACE incluso)</td></tr>
+    <tr><td>Cabe o suporte (lateral 185 × 193 mm)</td><td class="c ok">sim</td><td class="c ok">sim</td></tr>
+    <tr><td>Tempo por suporte (reforçado)</td><td class="c">~5,5–6 h</td><td class="c">~5,5–6 h</td></tr>
+    <tr><td>Suportes por dia</td><td class="c">4–5</td><td class="c">4–5</td></tr>
+    <tr><td>Resistência do suporte</td><td class="c">aguenta 3 kg com folga de 15×</td><td class="c">igual</td></tr>
+    <tr><td>@ colorido</td><td class="c">automático (1 troca de cor)</td><td class="c">automático (1 troca de cor)</td></tr>
+    <tr><td>Se paga em (com material inicial)</td><td class="c"><b>~80 suportes</b></td><td class="c"><b>~75 suportes</b></td></tr>
+  </table>
+  <h3>Antes de comprar</h3>
+  <ul class="chk"><li>Bivolt (ou a voltagem da sua tomada)</li><li>Nota fiscal e garantia no Brasil (no anúncio da Kobra X o vendedor não aparece)</li></ul>
+  <p class="mini">Tempos calculados no PrusaSlicer com velocidades típicas dessas impressoras, mais ~20% de margem. A resistência depende do material e do desenho, não da marca: é a mesma nas duas.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · Bambu A1 Combo × Kobra X</span><span>1</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">Gastos</div>
+  <h2>Quanto investir e quanto custa cada suporte</h2>
+  <h3>Investimento inicial</h3>
+  <table>
+    <tr><th>Item</th><th class="v">A1 Combo</th><th class="v">Kobra X</th></tr>
+    <tr><td>Impressora</td><td class="v">R$ 4.048</td><td class="v">R$ 3.749</td></tr>
+    <tr><td>4 rolos de PLA 1 kg (2 lilás/roxo médio, 1 roxo escuro, 1 branco)</td><td class="v">R$ 440</td><td class="v">R$ 440</td></tr>
+    <tr><td>Extras: cola em gel, álcool isopropílico, espátula, lixa, 20 caixas + plástico bolha</td><td class="v">R$ 150</td><td class="v">R$ 150</td></tr>
+    <tr class="total"><td>Total para começar</td><td class="v">≈ R$ 4.640</td><td class="v">≈ R$ 4.340</td></tr>
+  </table>
+  <p class="mini">Os 4 rolos rendem ~25 suportes (1 kg ≈ 6 suportes na versão reforçada).</p>
+  <h3>Custo de cada suporte (igual nas duas)</h3>
+  <table>
+    <tr><th>Item</th><th>Base</th><th class="v">Valor</th></tr>
+    <tr><td>Filamento</td><td>~160 g a R$ 110/kg</td><td class="v">R$ 17,60</td></tr>
+    <tr><td>Energia</td><td>~0,11 kW × 5,75 h × R$ 0,95/kWh</td><td class="v">R$ 0,60</td></tr>
+    <tr><td>Desgaste</td><td>bico e mesa, ~R$ 0,50 por hora</td><td class="v">R$ 2,90</td></tr>
+    <tr><td>Falhas</td><td>~5% das impressões</td><td class="v">R$ 1,00</td></tr>
+    <tr><td>Embalagem</td><td>caixa, plástico bolha, fita, cartão</td><td class="v">R$ 5,00</td></tr>
+    <tr><td>Seu tempo</td><td>tirar da mesa, conferir, embalar</td><td class="v">R$ 5,00</td></tr>
+    <tr class="total"><td colspan="2">Custo por suporte</td><td class="v">≈ R$ 32</td></tr>
+  </table>
+  <h3>Frete (caixa 22 × 22 × 6 cm, ~0,4 kg)</h3>
+  <table>
+    <tr><th>Envio a partir de Petrolina</th><th class="v">Estimativa</th><th>Quem paga</th></tr>
+    <tr><td>Correios PAC: Nordeste</td><td class="v">R$ 20–30</td><td>comprador (venda direta)</td></tr>
+    <tr><td>Correios PAC: Sudeste, Sul, Norte</td><td class="v">R$ 30–45</td><td>comprador (venda direta)</td></tr>
+    <tr><td>Correios Sedex</td><td class="v">R$ 35–60</td><td>comprador (venda direta)</td></tr>
+    <tr><td>Mercado Envios (venda acima de R$ 79)</td><td class="v">~R$ 22</td><td>você (frete grátis para o comprador)</td></tr>
+  </table>
+  <p class="mini">Frete varia com o destino e muda com frequência: simule no site dos Correios e no anúncio do Mercado Livre.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · Bambu A1 Combo × Kobra X</span><span>2</span></div>
+</section>
+
+<section class="pg">
+  <div class="rot">Projeções</div>
+  <h2>Preço, lucro e retorno</h2>
+  <h3>Lucro por venda</h3>
+  <table>
+    <tr><th>Canal</th><th class="v">Preço</th><th class="v">Taxa</th><th class="v">Frete (você)</th><th class="v">Custo</th><th class="v">Lucro</th></tr>
+    <tr><td>Direto (Instagram + Pix)</td><td class="v">R$ 99</td><td class="v">—</td><td class="v">—</td><td class="v">R$ 32</td><td class="v destaque">R$ 67</td></tr>
+    <tr><td>Mercado Livre (Clássico ~13%)</td><td class="v">R$ 119</td><td class="v">R$ 15</td><td class="v">R$ 22</td><td class="v">R$ 32</td><td class="v destaque">R$ 50</td></tr>
+    <tr><td>Shopee (~20% + R$ 4)</td><td class="v">R$ 119</td><td class="v">R$ 28</td><td class="v">—</td><td class="v">R$ 32</td><td class="v destaque">R$ 59</td></tr>
+  </table>
+  <p class="mini">As projeções abaixo usam metade das vendas diretas e metade no Mercado Livre: <b>lucro médio ≈ R$ 58</b> e preço médio R$ 109.</p>
+  <h3>Por mês</h3>
+  <table>
+    <tr><th></th><th class="v">20 suportes</th><th class="v">50 suportes</th><th class="v">100 suportes</th></tr>
+    <tr><td>Faturamento</td><td class="v">R$ 2.180</td><td class="v">R$ 5.450</td><td class="v">R$ 10.900</td></tr>
+    <tr><td>Filamento (kg · valor)</td><td class="v">3,2 kg · R$ 352</td><td class="v">8 kg · R$ 880</td><td class="v">16 kg · R$ 1.760</td></tr>
+    <tr><td>Energia</td><td class="v">R$ 12</td><td class="v">R$ 30</td><td class="v">R$ 60</td></tr>
+    <tr><td>Embalagem</td><td class="v">R$ 100</td><td class="v">R$ 250</td><td class="v">R$ 500</td></tr>
+    <tr class="total"><td>Lucro (já descontados todos os custos, taxas e frete)</td><td class="v">≈ R$ 1.160</td><td class="v">≈ R$ 2.900</td><td class="v">≈ R$ 5.800</td></tr>
+    <tr><td>Impressora ocupada</td><td class="v">~5 dias</td><td class="v">~12 dias</td><td class="v">~24 dias</td></tr>
+  </table>
+  <h3>Em quanto tempo o investimento volta</h3>
+  <table>
+    <tr><th></th><th class="v">20/mês</th><th class="v">50/mês</th><th class="v">100/mês</th></tr>
+    <tr><td>A1 Combo (≈ R$ 4.640)</td><td class="v">~4 meses</td><td class="v">~1,6 mês</td><td class="v">~3 semanas</td></tr>
+    <tr><td>Kobra X (≈ R$ 4.340)</td><td class="v">~3,7 meses</td><td class="v">~1,5 mês</td><td class="v">~3 semanas</td></tr>
+  </table>
+  <div class="nota">100 suportes por mês é perto do limite de <b>uma</b> impressora. Acima disso, uma segunda impressora dobra a produção.</div>
+  <p class="mini">Preços das impressoras dos anúncios enviados (31/10/2026). Filamento, energia (tarifa ~R$ 0,95/kWh), taxas e frete são estimativas: confira os valores atuais.</p>
+  <div class="rodape"><span>Suporte para Vade Mecum · Bambu A1 Combo × Kobra X</span><span>3</span></div>
+</section>
+</body></html>
