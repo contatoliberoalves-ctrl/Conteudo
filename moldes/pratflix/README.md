@@ -15,4 +15,5 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `claro` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag` |
 | `comenta` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag`, `cta` ("Comenta #x pra receber o link") |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
+| `material` | 1080×1350 | `foto` (arquivo em `fotos/`, pessoal: `fotos/libero-*.jpg` fica fora do git), `fotoPos`, `rotulo`, `titulo`, `ts`, `top`, `texto` (opcional), `pdf` (título do checklist desenhado), `itens` (nº de linhas numeradas), `pdfTop`, `bonus` (`{dia, data, hora, selo, texto}`: cartão da live), `botao` |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |

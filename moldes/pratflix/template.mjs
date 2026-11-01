@@ -10,7 +10,7 @@ const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos',
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080] };
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -96,6 +96,31 @@ L.simbolo = t => `<div style="position:absolute;inset:0;background:radial-gradie
     <div style="width:190px;height:190px;border-radius:46px;background:linear-gradient(135deg,${C.areia},${C.areia2});display:grid;place-items:center;box-shadow:0 24px 60px rgba(0,0,0,.5)"><span style="font:800 150px/1 Manrope;letter-spacing:-.06em;color:#121212;margin:-24px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
     <div style="${T};font-size:${t.ts ?? 132}px;line-height:.86;color:${C.txt};margin-top:46px">${tit(t.titulo)}</div>
     <div style="margin-top:34px">${logo(44)}</div></div>`;
+
+// Material gratuito com foto do autor no alto (identidade do Post Libero "material" nas cores da PratFlix): foto em
+// tons de areia, rótulo, título, o PDF desenhado (checklist com `itens` linhas numeradas), o bônus (live) e o botão.
+// Foto em fotos/<t.foto> (pessoal, fora do git).
+L.material = t => {
+  const fotoAutor = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos', t.foto)).toString('base64');
+  const n = t.itens ?? 9;
+  const linhas = Array.from({ length: n }, (_, i) => `<div style="display:flex;align-items:center;gap:12px;padding:5px 0;border-bottom:1px solid #d8ccae"><span style="width:22px;height:22px;border:2px solid #7d6a3e;border-radius:5px;flex:none"></span><span style="font:800 15px Manrope;color:#7d6a3e">${String(i + 1).padStart(2, '0')}</span><span style="height:9px;border-radius:5px;background:#cdbf9c;width:${[78, 62, 85, 55, 70, 80, 60, 74, 66][i % 9]}%"></span></div>`).join('');
+  return `<img src="${fotoAutor}" style="position:absolute;left:0;top:0;width:100%;height:760px;object-fit:cover;object-position:${t.fotoPos ?? '50% 18%'};filter:grayscale(.55) sepia(.35) brightness(.78) contrast(1.05)">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.55) 0%,rgba(18,18,18,0) 16%,rgba(18,18,18,.15) 30%,rgba(18,18,18,.92) 44%,${C.bg} 50%)"></div>${grao}
+  <div style="position:absolute;left:80px;right:80px;top:70px;display:flex;justify-content:space-between;align-items:flex-start">${logo(46)}${perfil()}</div>
+  <div style="position:absolute;right:66px;top:${t.pdfTop ?? 190}px;width:300px;transform:rotate(4deg);background:#EFE6CF;border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.55);padding:26px 26px 22px;z-index:3">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:800 13px Manrope;letter-spacing:.2em;color:#7d6a3e">CHECKLIST · PDF</span><span style="font:800 13px Manrope;color:#fff;background:#121212;border-radius:6px;padding:4px 8px">${n} DOCS</span></div>
+    <div style="${T};font-size:40px;line-height:.9;color:#121212;margin:14px 0 10px">${tit(t.pdf, x => `<span style="color:${C.ouro}">${x}</span>`)}</div>${linhas}</div>
+  <div style="position:absolute;left:80px;right:80px;top:${t.top ?? 560}px">
+    ${rotulo(t.rotulo)}
+    <div style="${T};font-size:${t.ts ?? 96}px;line-height:.9;color:${C.txt};margin-top:24px">${tit(t.titulo)}</div>
+    ${t.texto ? `<div style="font:500 29px/1.4 Manrope;color:${C.txt};opacity:.8;margin-top:22px;max-width:880px">${esc(t.texto)}</div>` : ''}
+    ${t.bonus ? `<div style="display:flex;align-items:center;gap:22px;margin-top:30px;border:1px solid #3a3a38;background:#1A1A19;border-radius:18px;padding:20px 26px">
+      <div style="flex:none;text-align:center;border-right:1px solid #3a3a38;padding-right:22px"><div style="font:800 15px Manrope;letter-spacing:.2em;color:${C.areia}">${esc(t.bonus.dia)}</div><div style="${T};font-size:50px;line-height:.95;color:#fff">${esc(t.bonus.data)}</div><div style="font:700 20px Manrope;color:${C.txt};opacity:.75">${esc(t.bonus.hora)}</div></div>
+      <div><div style="display:inline-flex;align-items:center;gap:10px;font:800 16px Manrope;letter-spacing:.2em;color:#121212;background:${C.areia};border-radius:6px;padding:5px 10px"><span style="width:10px;height:10px;border-radius:50%;background:#C8372D"></span>${esc(t.bonus.selo)}</div><div style="font:700 25px/1.3 Manrope;color:${C.txt};margin-top:10px">${esc(t.bonus.texto)}</div></div></div>` : ''}
+  </div>
+  <div style="position:absolute;left:80px;right:80px;bottom:70px;display:flex;align-items:center;gap:18px">
+    <span style="flex:1;background:${C.areia};color:#111;border-radius:16px;padding:26px 30px;font:800 30px Manrope;text-align:center">${esc(t.botao)}</span></div>`;
+};
 
 export function renderTela(t) {
   if (!L[t.layout]) throw new Error(`layout desconhecido: ${t.layout}`);
