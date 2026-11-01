@@ -152,10 +152,17 @@ def ver(args):
 def texto_final(args):
     """A fala no tempo do vídeo FINAL, em frases: base para capítulos, títulos, descrição e post."""
     from .legendas import palavras_saida
-    from .transcrever import frases
+    from .transcrever import frases  # noqa: F401
     edl = ler_json(args.edl)
     pasta = Path(args.edl).parent
     trs = {n: ler_json(pasta / "transcricoes" / f"{n}.json") for n in edl["fontes"]}
     ws = palavras_saida(edl, trs, edl.get("correcoes", {}))
     for g in frases(ws, 0.45):
-        print(f"[{tempo(g[0]['s'])}] {' '.join(w['w'] for w in g)}")
+        atual = []
+        for w in g:                          # quebra também no fim de cada frase
+            atual.append(w)
+            if re.search(r"[.!?]$", w["w"]):
+                print(f"[{tempo(atual[0]['s'])}] {' '.join(x['w'] for x in atual)}")
+                atual = []
+        if atual:
+            print(f"[{tempo(atual[0]['s'])}] {' '.join(x['w'] for x in atual)}")
