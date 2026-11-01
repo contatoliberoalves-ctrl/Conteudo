@@ -24,7 +24,7 @@ from pathlib import Path
 import numpy as np
 
 from .comum import FONTES, FORMATOS, carregar_estilo, ler_json, pasta_edit, rodar, sonda
-from .explicativo import edge_com_tempos, norm
+from .explicativo import norm, sintetizar
 from .motion import NAVEGADOR, PROJETO, garantir_projeto
 from .sfx import Mix, cama, pop, whoosh
 
@@ -70,7 +70,7 @@ def montar(rot, edit, W, H):
             k = hashlib.sha1(json.dumps([fl["texto"], voz, rot.get("velocidade", "+0%")]).encode()).hexdigest()[:10]
             mp3, js = cache / f"{k}.mp3", cache / f"{k}.json"
             if not js.exists():
-                ws = edge_com_tempos(fl["texto"], voz, mp3, rot.get("velocidade", "+0%"))
+                ws = sintetizar(fl["texto"], voz, mp3, rot.get("velocidade", "+0%"))
                 js.write_text(json.dumps(ws, ensure_ascii=False))
             ws = json.loads(js.read_text())
             audio = decodificar(mp3)

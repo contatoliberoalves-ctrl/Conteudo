@@ -156,6 +156,21 @@ Cada item tem `gatilho` (a palavra dita no vídeo final; `ocorrencia`, `antes`, 
   Nunca use imagem sem licença clara.
 - Evite empilhar no rodapé: personagem no canto + legenda + botão brigam. Uma coisa por canto.
 
+## Voz clonada do autor (cartoon, explicativo, narração)
+1. Áudio: vídeos só com a voz dele (sem música), somando 3–10 min. O YouTube bloqueia o yt-dlp daqui
+   ("confirme que não é um robô"): peça os arquivos (YouTube Studio → Conteúdo → ⋮ → Baixar, ou o
+   original no Drive) e baixe pelo link do Drive como os outros vídeos, em `estudio/projetos/`.
+2. `ev.py voz preparar <vídeos ou pasta>` → `estudio/projetos/voz/` (fora do git): `amostras/NN.wav`
+   (trechos limpos de 3–12 s), `referencia.wav` (~90 s) e `referencia-curta.wav` (~15 s).
+3. Motor:
+   - ElevenLabs (melhor em pt-BR): o usuário cria a voz no site (Voice Clone, sobe as amostras) e
+     guarda a chave como variável `ELEVENLABS_API_KEY` nas configurações do ambiente (nunca no chat
+     nem no git). No roteiro: `"vozes": {"libero": {"elevenlabs": "<voice_id>"}}` (cartoon) ou
+     `"voz": {"elevenlabs": "<voice_id>"}` (explicativo).
+   - Chatterbox (grátis, local): `bash estudio/instalar.sh --voz`, depois
+     `{"clonar": "estudio/projetos/voz/referencia-curta.wav"}`. Sem GPU é lento.
+4. Só a voz do próprio usuário ou de quem autorizou.
+
 ## Cartoon narrado (`ev.py cartoon`)
 Desenho animado inteiro por código (Remotion): `estudio/motion/src/personagens.tsx` (os 5 personagens, com o
 `libero` como protagonista quando o vídeo é do autor,

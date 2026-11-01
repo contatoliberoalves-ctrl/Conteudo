@@ -12,6 +12,7 @@
   ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
   ev.py motion novo|render|esfregar|ajustar ...      → motion Remotion+GSAP com 6 controles
   ev.py cartoon roteiro.json [--rascunho]          → cartoon narrado com personagens desenhados
+  ev.py voz preparar <vídeos>                      → trechos limpos da sua voz para clonar
   ev.py texto edit/edl.json                         → fala no tempo do vídeo final (capítulos, títulos)
   ev.py estilos                                     → lista os estilos
 """
@@ -114,6 +115,13 @@ def main():
     a.add_argument("--sem-legenda", action="store_true")
     a.add_argument("--saida")
 
+    a = s.add_parser("voz", help="prepara a sua voz para clonagem")
+    a.add_argument("acao", choices=["preparar"])
+    a.add_argument("videos", nargs="+")
+    a.add_argument("--saida")
+    a.add_argument("--modelo")
+    a.add_argument("--max-min", type=float, default=10)
+
     a = s.add_parser("texto")
     a.add_argument("edl")
 
@@ -142,6 +150,8 @@ def main():
             args.pasta = args.controles
     elif args.cmd == "cartoon":
         from ev.cartoon import main as m
+    elif args.cmd == "voz":
+        from ev.voz import main as m
     elif args.cmd == "texto":
         from ev.cortar import texto_final as m
     elif args.cmd == "narrar":

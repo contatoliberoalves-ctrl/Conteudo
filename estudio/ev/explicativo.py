@@ -84,6 +84,23 @@ def elevenlabs(texto, voz_id, saida, modelo):
     Path(saida).write_bytes(r.content)
 
 
+def sintetizar(texto, voz, mp3, velocidade="+0%"):
+    """Gera a fala em mp3 e devolve as palavras com tempo. `voz` pode ser:
+    - "pt-BR-AntonioNeural" (edge-tts, grátis)
+    - {"elevenlabs": "<voice_id>", "modelo": "eleven_multilingual_v2"} (precisa de ELEVENLABS_API_KEY)
+    - {"clonar": "estudio/projetos/voz/referencia-curta.wav"} (Chatterbox, local)"""
+    if isinstance(voz, dict) and voz.get("elevenlabs"):
+        elevenlabs(texto, voz["elevenlabs"], mp3, voz.get("modelo", "eleven_multilingual_v2"))
+        return whisper_palavras(mp3)
+    if isinstance(voz, dict) and voz.get("clonar"):
+        from .narrar import chatterbox
+        wav = Path(mp3).with_suffix(".wav")
+        chatterbox(texto, voz["clonar"], wav)
+        rodar(["ffmpeg", "-y", "-v", "error", "-i", wav, mp3])
+        return whisper_palavras(mp3)
+    return edge_com_tempos(texto, voz, mp3, velocidade)
+
+
 def narrar_cenas(roteiro, pasta):
     voz = roteiro.get("voz", "pt-BR-AntonioNeural")
     cache = pasta / "narracao"
@@ -94,17 +111,7 @@ def narrar_cenas(roteiro, pasta):
         chave = hashlib.sha1(json.dumps([texto, voz], ensure_ascii=False).encode()).hexdigest()[:10]
         mp3, js = cache / f"{i:02d}-{chave}.mp3", cache / f"{i:02d}-{chave}.json"
         if not js.exists():
-            if isinstance(voz, dict) and voz.get("elevenlabs"):
-                elevenlabs(texto, voz["elevenlabs"], mp3, voz.get("modelo", "eleven_multilingual_v2"))
-                ws = whisper_palavras(mp3)
-            elif isinstance(voz, dict) and voz.get("clonar"):
-                from .narrar import chatterbox
-                wav = mp3.with_suffix(".wav")
-                chatterbox(texto, voz["clonar"], wav)
-                rodar(["ffmpeg", "-y", "-v", "error", "-i", wav, mp3])
-                ws = whisper_palavras(mp3)
-            else:
-                ws = edge_com_tempos(texto, voz, mp3, roteiro.get("velocidade", "+0%"))
+            ws = sintetizar(texto, voz, mp3, roteiro.get("velocidade", "+0%"))
             js.write_text(json.dumps(ws, ensure_ascii=False))
         out.append((mp3, json.loads(js.read_text()), sonda(mp3)["duracao"]))
         print(f"\r  narração {i + 1}/{len(roteiro['cenas'])}", end="", flush=True)
