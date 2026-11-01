@@ -1,0 +1,137 @@
+<title>Estúdio de Vídeo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mesa de corte: faixa de cabeçalho como monitor de gravação, modelos em grade, cada cartão = monitor + ficha técnica */
+:root{
+  --bg:#ECEEF1; --superficie:#FFFFFF; --tinta:#14181E; --apagado:#5A6372; --linha:#D5DAE1;
+  --rec:#D8432B; --rec-suave:#F8E3DE; --monitor:#0E1116;
+  --f-titulo:"Archivo","Arial Black",system-ui,sans-serif;
+  --f-corpo:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111419; --superficie:#191D24; --tinta:#ECEFF3; --apagado:#9AA3B0; --linha:#2A303A;
+  --rec:#FF6A50; --rec-suave:#3A211C; --monitor:#07090C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111419; --superficie:#191D24; --tinta:#ECEFF3; --apagado:#9AA3B0; --linha:#2A303A;
+  --rec:#FF6A50; --rec-suave:#3A211C; --monitor:#07090C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--tinta);font-family:var(--f-corpo);font-size:15px;line-height:1.5}
+.pagina{max-width:1240px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+header{display:grid;gap:14px}
+.rec{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--rec)}
+.rec i{width:9px;height:9px;border-radius:50%;background:var(--rec);animation:pisca 1.6s steps(2,start) infinite}
+@keyframes pisca{to{visibility:hidden}}
+h1{font-family:var(--f-titulo);font-stretch:125%;font-weight:900;font-size:clamp(34px,6vw,64px);line-height:.95;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.lead{max-width:68ch;color:var(--apagado);margin:0;font-size:16px}
+.lead code{font-family:var(--f-mono);font-size:.9em;color:var(--tinta)}
+.filtros{display:flex;flex-wrap:wrap;gap:8px}
+.filtros button{font:500 13px var(--f-corpo);border:1px solid var(--linha);background:var(--superficie);color:var(--tinta);padding:7px 14px;border-radius:999px;cursor:pointer}
+.filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--bg);border-color:var(--tinta)}
+.filtros button:focus-visible,.copiar:focus-visible,.som:focus-visible{outline:2px solid var(--rec);outline-offset:2px}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,370px),1fr));gap:20px;align-items:start}
+.cartao{background:var(--superficie);border:1px solid var(--linha);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.monitor{background:var(--monitor);display:flex;justify-content:center;align-items:center;height:420px;position:relative}
+.monitor video{max-height:100%;max-width:100%;display:block}
+.tc{position:absolute;left:10px;top:10px;font-family:var(--f-mono);font-size:11px;color:#E9EDF2;background:rgba(0,0,0,.55);padding:3px 7px;border-radius:5px;font-variant-numeric:tabular-nums}
+.som{position:absolute;right:10px;bottom:10px;font:500 12px var(--f-corpo);color:#fff;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;cursor:pointer}
+.ficha{padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.grupo{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--apagado)}
+h2{font-family:var(--f-titulo);font-stretch:112%;font-weight:800;font-size:22px;line-height:1.1;margin:0;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:11.5px;border:1px solid var(--linha);border-radius:6px;padding:2px 7px;color:var(--tinta)}
+.chip.estilo{background:var(--rec-suave);border-color:transparent}
+.desc{margin:0;color:var(--tinta)}
+.perfis{margin:0;font-size:13px;color:var(--apagado)}
+ol.passos{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 0;font-family:var(--f-mono);font-size:12px;counter-reset:p}
+ol.passos li{counter-increment:p;display:inline-flex;align-items:center}
+ol.passos li::before{content:counter(p);display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--tinta);color:var(--superficie);font-size:10px;margin-right:6px}
+ol.passos li:not(:last-child)::after{content:"→";color:var(--apagado);margin:0 8px}
+.pedido{border-top:1px dashed var(--linha);padding-top:12px;display:grid;gap:8px}
+.pedido span{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--apagado)}
+.pedido blockquote{margin:0;font-size:14px;line-height:1.45}
+.copiar{justify-self:start;font:600 13px var(--f-corpo);background:var(--tinta);color:var(--superficie);border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.amostra{margin:0;font-size:12px;color:var(--apagado)}
+footer{color:var(--apagado);font-size:13px;max-width:70ch}
+footer code{font-family:var(--f-mono);font-size:.92em;color:var(--tinta)}
+@media (max-width:480px){.monitor{height:360px}}
+@media (prefers-reduced-motion:reduce){.rec i{animation:none}}
+</style>
+
+<div class="pagina">
+  <header>
+    <span class="rec"><i></i>Estúdio · modelos de vídeo</span>
+    <h1>Estúdio de Vídeo</h1>
+    <p class="lead">Cada modelo é um jeito pronto de editar. Mande o vídeo bruto (ou um roteiro) e diga qual modelo usar: o Claude transcreve, corta, enquadra, legenda, mixa e entrega. Toque no vídeo para ouvir. As amostras usam uma foto da NASA e voz sintética só para teste.</p>
+    <nav class="filtros" id="filtros" aria-label="Filtrar por tipo"></nav>
+  </header>
+  <main class="grade" id="grade"></main>
+  <footer>Comandos no repositório: <code>python3 estudio/ev.py</code>. Estilos de cada perfil em <code>estudio/estilos/</code>; cada correção que você pedir é gravada no estilo para o próximo vídeo já sair certo.</footer>
+</div>
+
+<script>
+const MODELOS = __MODELOS__;
+const grade = document.getElementById('grade');
+const filtros = document.getElementById('filtros');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tc = s => { const m = Math.floor(s/60), r = Math.round(s%60); return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; };
+
+function cartao(m){
+  const el = document.createElement('article');
+  el.className = 'cartao'; el.dataset.grupo = m.grupo; el.id = m.id;
+  el.innerHTML = `
+    <div class="monitor">
+      <video src="videos/${esc(m.video)}" poster="videos/${esc(m.poster)}" muted loop playsinline preload="none"></video>
+      <span class="tc">${esc(m.res)} · ${tc(m.dur)}</span>
+      <button class="som" type="button" aria-pressed="false">Ouvir</button>
+    </div>
+    <div class="ficha">
+      <span class="grupo">${esc(m.grupo)}</span>
+      <h2>${esc(m.nome)}</h2>
+      <div class="chips">${m.formatos.map(f=>`<span class="chip">${esc(f)}</span>`).join('')}<span class="chip estilo">estilo ${esc(m.estilo)}</span></div>
+      <p class="desc">${esc(m.descricao)}</p>
+      <p class="perfis">${esc(m.perfis)}</p>
+      <ol class="passos">${m.passos.map(p=>`<li>${esc(p)}</li>`).join('')}</ol>
+      <div class="pedido"><span>Como pedir</span><blockquote>${esc(m.pedido)}</blockquote><button class="copiar" type="button">Copiar pedido</button></div>
+      <p class="amostra">Amostra: ${esc(m.amostra)}</p>
+    </div>`;
+  const v = el.querySelector('video');
+  const som = el.querySelector('.som');
+  som.addEventListener('click', () => {
+    const ligar = v.muted;
+    document.querySelectorAll('video').forEach(o => { if (o !== v) { o.muted = true; } });
+    document.querySelectorAll('.som').forEach(b => { if (b !== som) { b.textContent = 'Ouvir'; b.setAttribute('aria-pressed','false'); } });
+    v.muted = !ligar; som.textContent = ligar ? 'Silenciar' : 'Ouvir'; som.setAttribute('aria-pressed', String(ligar));
+    if (ligar) { v.currentTime = 0; v.play().catch(()=>{}); }
+  });
+  el.querySelector('.copiar').addEventListener('click', e => {
+    const b = e.currentTarget, q = el.querySelector('blockquote');
+    navigator.clipboard.writeText(m.pedido).then(() => { b.textContent = 'Copiado'; setTimeout(()=>b.textContent='Copiar pedido',1600); })
+      .catch(() => { const r = document.createRange(); r.selectNodeContents(q); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Texto selecionado'; });
+  });
+  return el;
+}
+MODELOS.forEach(m => grade.appendChild(cartao(m)));
+
+const grupos = ['Todos', ...new Set(MODELOS.map(m => m.grupo))];
+grupos.forEach((g,i) => {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = g; b.setAttribute('aria-pressed', String(i===0));
+  b.addEventListener('click', () => {
+    filtros.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x===b)));
+    grade.querySelectorAll('.cartao').forEach(c => { c.hidden = !(g==='Todos' || c.dataset.grupo===g); });
+  });
+  filtros.appendChild(b);
+});
+
+// toca (mudo) só o que está na tela
+const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if ('IntersectionObserver' in window && !reduz){
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(()=>{}); } else v.pause();
+  }), {threshold: .4});
+  document.querySelectorAll('video').forEach(v => io.observe(v));
+}
+</script>

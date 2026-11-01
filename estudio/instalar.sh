@@ -22,8 +22,8 @@ grep -qE " subtitles +V" <<<"$FILTROS" || echo "  ⚠ ffmpeg sem libass: as lege
 ok "ffmpeg $(ffmpeg -version | head -1 | cut -d' ' -f3)"
 
 # 2. Python
-python3 - <<'EOF' 2>/dev/null || pip install -q faster-whisper opencv-python-headless numpy pillow edge-tts aiohttp yt-dlp fonttools 2>&1 | grep -v -i warning || true
-import faster_whisper, cv2, numpy, PIL, edge_tts, aiohttp, fontTools
+python3 - <<'EOF' 2>/dev/null || pip install -q faster-whisper opencv-python-headless numpy pillow edge-tts aiohttp yt-dlp fonttools onnxruntime requests 2>&1 | grep -v -i warning || true
+import faster_whisper, cv2, numpy, PIL, edge_tts, aiohttp, fontTools, onnxruntime, requests
 assert hasattr(cv2, "FaceDetectorYN")
 EOF
 command -v yt-dlp >/dev/null || pip install -q yt-dlp
@@ -44,13 +44,16 @@ estatica bigshouldersdisplay/BigShouldersDisplay 900 BigShouldersDisplay-Black
 estatica playfairdisplay/PlayfairDisplay 900 PlayfairDisplay-Black
 estatica intertight/InterTight 800 InterTight-ExtraBold
 estatica montserrat/Montserrat 800 Montserrat-ExtraBold
+[ -f fontes/ArchivoExpanded-Black.ttf ] || { curl -sfL "https://raw.githubusercontent.com/google/fonts/main/ofl/archivo/Archivo%5Bwdth%2Cwght%5D.ttf" -o /tmp/arch.ttf && \
+  fonttools varLib.instancer /tmp/arch.ttf wght=900 wdth=125 --update-name-table -q -o fontes/ArchivoExpanded-Black.ttf; rm -f /tmp/arch.ttf; }
 ok "fontes: $(ls fontes/*.ttf | wc -l) arquivos"
 
 # 4. Detector de rosto (YuNet, 230 KB)
 mkdir -p modelos
 [ -f modelos/yunet.onnx ] || curl -sfL -o modelos/yunet.onnx \
   https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx
-ok "detector de rosto"
+[ -f modelos/modnet.onnx ] || curl -sfL -o modelos/modnet.onnx https://huggingface.co/Xenova/modnet/resolve/main/onnx/model.onnx
+ok "detector de rosto + recorte de pessoa (MODNet)"
 
 # 5. Skills oficiais (ficam em .claude/skills/, fora do git)
 if [ $SKILLS = 1 ]; then

@@ -34,7 +34,10 @@ def blocos(palavras, silencio_max):
 
 
 def auto_edl(transcricoes, estilo, fontes_ordem):
-    c = estilo["corte"]
+    c = dict(estilo["corte"])
+    if c.get("pausa_manter"):
+        c["respiro_depois"] = 0.4 * c["pausa_manter"]
+        c["respiro_antes"] = 0.6 * c["pausa_manter"]
     ranges = []
     for nome in fontes_ordem:
         d = transcricoes[nome]
@@ -63,7 +66,7 @@ def auto_edl(transcricoes, estilo, fontes_ordem):
             junt.append(r)
     marcar_suspeitos(junt)
     if estilo["zoom"]["alternar"]:
-        alternar_zoom(junt, estilo["zoom"]["fator"])
+        alternar_zoom(junt, estilo["zoom"]["fator"], estilo["zoom"].get("intervalo_min", 0))
     return junt
 
 
@@ -83,13 +86,21 @@ def marcar_suspeitos(ranges):
                 break
 
 
-def alternar_zoom(ranges, fator):
-    """Punch-in alternado: esconde o pulo do jump cut (corte seco no mesmo plano)."""
-    z = 1.0
+def alternar_zoom(ranges, fator, intervalo_min=0.0):
+    """Punch-in alternado (ex.: 100% ↔ 112%): o jump cut parece troca de câmera.
+    Só em corte DENTRO da mesma tomada; troca de fonte volta a 100%; no máximo uma
+    troca a cada `intervalo_min` segundos (senão o vídeo "pula")."""
+    z, desde, t = 1.0, 1e9, 0.0
     for i, r in enumerate(ranges):
-        if i > 0 and ranges[i - 1]["fonte"] == r["fonte"] and r["inicio"] - ranges[i - 1]["fim"] > 0.4:
-            z = fator if z == 1.0 else 1.0
+        mesmo = i > 0 and ranges[i - 1]["fonte"] == r["fonte"]
+        if not mesmo:
+            z, desde = 1.0, 1e9
+        elif r["inicio"] - ranges[i - 1]["fim"] > 0.25 and desde >= intervalo_min:
+            z, desde = (fator if z == 1.0 else 1.0), 0.0
         r["zoom"] = z
+        d = r["fim"] - r["inicio"]
+        desde += d
+        t += d
 
 
 def total(edl):
@@ -136,3 +147,15 @@ def ver(args):
             print("      " + " ".join(f"{w['w']}@{w['s']:.2f}" for w in ws))
         t_out += dur
     print(f"total {tempo(t_out)}")
+
+
+def texto_final(args):
+    """A fala no tempo do vídeo FINAL, em frases: base para capítulos, títulos, descrição e post."""
+    from .legendas import palavras_saida
+    from .transcrever import frases
+    edl = ler_json(args.edl)
+    pasta = Path(args.edl).parent
+    trs = {n: ler_json(pasta / "transcricoes" / f"{n}.json") for n in edl["fontes"]}
+    ws = palavras_saida(edl, trs, edl.get("correcoes", {}))
+    for g in frases(ws, 0.45):
+        print(f"[{tempo(g[0]['s'])}] {' '.join(w['w'] for w in g)}")

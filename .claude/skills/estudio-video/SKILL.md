@@ -1,9 +1,30 @@
 ---
 name: estudio-video
-description: Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
+description: Estúdio de vídeo com modelos (Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
 ---
 
 # Estúdio de vídeo
+
+**Galeria de modelos**: https://claude.ai/artifact/54aB1qgWLkk6ajNfJie6FY (página `estudio/galeria/`).
+Quando o usuário citar um modelo pelo nome, siga a receita dele abaixo.
+
+## Modelos
+| Modelo | Estilo | Receita |
+|---|---|---|
+| Reels com legenda destaque | `<perfil>` | transcrever → cortar → revisar → `render --formato reels` |
+| Reels do insta pessoal | `liberofilho` | idem |
+| Palavra gigante atrás da cabeça | `palavra-atras` | ver seção própria |
+| Faixa 9:16 com título fixo | qualquer | `render --formato faixa --titulo "…"` (ou `titulo_fixo` no EDL) |
+| Uma palavra por vez | `palavra-pop` | idem Reels |
+| Legenda em caixa | `eduarda` | `--formato feed` |
+| Explicativo animado narrado | `<perfil>` | `ev.py explicativo roteiro.json` (seção própria) |
+| Aula no YouTube | `aula-youtube` | `--formato youtube` + `ev.py texto` para capítulos |
+
+Modelo novo = estilo novo em `estudio/estilos/` (+ código só se o visual pedir) + entrada em
+`estudio/galeria/modelos.json` com amostra em `estudio/galeria/amostras/<id>.mp4` (preview, ~1 MB) →
+`python3 estudio/galeria/gerar.py` → publique `estudio/galeria/dist/index.html` com `root:
+estudio/galeria/dist` e o `files` que ele imprime, sempre no MESMO link acima (Artifact com `url`).
+Numa sessão nova sem amostras, baixe as publicadas (Artifact read, `path: videos/<id>.mp4`).
 
 Tudo roda pelo `estudio/ev.py` (Python + ffmpeg). O vídeo nunca é "assistido":
 o Claude lê o **texto** (`falas.md`, `ev.py ver`) e olha **uma imagem** por checagem
@@ -38,7 +59,7 @@ o Claude lê o **texto** (`falas.md`, `ev.py ver`) e olha **uma imagem** por che
    Corrija e refaça (no máx. 3 rodadas; depois avise o que ficou).
 7. **Final**: `ev.py render edit/edl.json --formato reels` → `edit/final-reels.mp4` + `.srt`.
    Envie com `SendUserFile` (ou suba no Drive). Outros formatos do mesmo EDL:
-   `--formato feed|quadrado|youtube`.
+   `--formato feed|quadrado|youtube|youtube-1440|faixa`.
 8. **Memória**: acrescente em `edit/projeto.md` (data, estratégia, decisões, pendências) e
    grave as preferências novas no estilo do perfil (ver "Aprender o estilo").
 
@@ -78,6 +99,53 @@ o Claude lê o **texto** (`falas.md`, `ev.py ver`) e olha **uma imagem** por che
   fala continua).
 - `musica`: entra em loop, com ducking automático sob a voz (`--musica-vol -16` dB por padrão).
 
+## Palavra gigante atrás da cabeça (`palavra-atras`)
+Talking head horizontal. A legenda é o único grafismo: uma palavra por vez (curtas como É/O/DE grudam
+na seguinte), Archivo Expanded Black com a maiúscula a ~13% da altura, base no topo da cabeça, a
+pessoa NA FRENTE (recorte MODNet quadro a quadro, `estudio/modelos/modnet.onnx`), letra com o fundo
+invertido e desfocado puxado para bronze. Se a cabeça cobre mais de 50% da palavra, ela sobe; o
+render avisa as palavras que continuaram cobertas (`edit/atras-relatorio.json`).
+1. `cortar --estilo palavra-atras` (pausas > 0,6 s encurtadas para 0,3 s, sem picotar a respiração;
+   zoom 100/112% no máximo a cada 5 s).
+2. Gancho de 15–20 s: copie para o INÍCIO do `trechos` os trechos com as frases mais fortes (a
+   promessa/história), depois a ordem normal. Os trechos copiados repetem mais adiante, tudo bem.
+3. `render --formato youtube-1440` (master 2560×1440, 30 fps, H.264 CRF 16, BT.709) e
+   `render --formato faixa --titulo "<gancho>"` (9:16, vídeo inteiro no meio, título creme em cima;
+   o processamento da palavra é reaproveitado). Confira o tamanho (< 300 MB).
+4. Entregas de texto: `ev.py texto edit/edl.json` dá a fala no tempo final. Escreva em
+   `edit/entregas.md`: 5–7 títulos (marque o recomendado), descrição curta com capítulos
+   (`00:00 Título`), um post para o X. Só fatos ditos no vídeo.
+5. Conferir: sincronia (cortes pegam vídeo e áudio juntos; olhe um quadro de boca aberta no
+   `verificar`), relatório de cobertura e loudness.
+Trilha por bloco: `"musica": [{"arquivo": "a.mp3", "inicio": 0, "fim": 18, "db": -20}, …]` (tempo
+final; ducking automático; fade em cada bloco). Cor `petroleo`: ambiente frio, pele protegida.
+
+## Explicativo animado narrado (`ev.py explicativo`)
+Para vídeo sem gravação (o estilo "Manda Boa" do tutorial do X). `roteiro.json`:
+```json
+{"estilo": "constitucionalgabaritado", "formato": "reels", "voz": "pt-BR-AntonioNeural", "musica": "trilha.mp3",
+ "cenas": [
+  {"tipo": "titulo", "kicker": "2ª fase OAB", "titulo": "A peça que *mais cai*", "sub": "…", "fala": "…"},
+  {"tipo": "artigo", "ref": "Art. 5º, LXIX", "texto": "…", "destaque": "direito líquido e certo", "fala": "…"},
+  {"tipo": "lista", "titulo": "Quando cabe", "itens": [{"texto": "Ato de *autoridade*", "gatilho": "autoridade"}], "fala": "…"},
+  {"tipo": "numero", "numero": "120", "rotulo": "dias", "gatilho": "cento", "fala": "…"},
+  {"tipo": "comparacao", "titulo": "…", "esquerda": {"titulo": "MS", "itens": ["…"]}, "direita": {"titulo": "HC", "itens": ["…"]}, "fala": "…"},
+  {"tipo": "frase", "texto": "…*destaque*…", "autor": "…", "fala": "…"},
+  {"tipo": "tela", "imagem": "print.png", "marcar": {"x": .1, "y": .3, "w": .5, "h": .1}, "gatilho": "…", "legenda": "…", "fala": "…"},
+  {"tipo": "cta", "titulo": "Quer o *resumo*?", "botao": "Comenta MS", "arroba": "@…", "fala": "…"}
+ ]}
+```
+- Cada elemento entra quando a voz fala o `gatilho` (ou a própria palavra); `*palavra*` = cor de acento.
+- Cerca de 19 palavras por cena; uma ideia por cena; comece pela dor, termine numa linha.
+- Voz: edge-tts (grátis, com tempo de cada palavra), `{"elevenlabs": "<voice_id>", "modelo": "…"}` com
+  `ELEVENLABS_API_KEY` no ambiente (nunca no git), ou `{"clonar": "minha-voz.wav"}` (Chatterbox).
+- `--preview` renderiza em qualidade de rascunho; `--so-montar` só escreve a composição.
+- O projeto fica em `edit/explicativo/` (abre no HyperFrames Studio). Para cenas fora do padrão,
+  edite o `index.html` gerado seguindo a skill `hyperframes` e rode o render de novo.
+- Prints reais do painel/site (`tipo: tela`) valem mais que desenho: peça-os ou capture com
+  `npx hyperframes capture <url>`.
+- Exemplo pronto: `estudio/exemplos/explicativo-ms/roteiro.json`. Leva ~5 min para 45 s na CPU.
+
 ## Cartelas e animações
 - **Rápido (PIL)**: `ev.py cartela <pasta> --tipo gancho|nome|selo|cta --texto "…" --estilo <perfil>
   --inicio 0 --fim 2.8` → PNG nas cores e fontes do perfil + a linha pronta para `sobreposicoes`.
@@ -99,7 +167,7 @@ o Claude lê o **texto** (`falas.md`, `ev.py ver`) e olha **uma imagem** por che
 
 ## Estilos (um por perfil) e "aprender o estilo"
 `ev.py estilos` lista: `padrao`, `constitucionalgabaritado`, `liberofilho`, `eticagabaritada`,
-`concursocomlibero`, `eduarda`, `aula-youtube`. Cada `estudio/estilos/<perfil>.json` só muda o que
+`concursocomlibero`, `eduarda`, `aula-youtube`, `palavra-atras`, `palavra-pop`. Cada `estudio/estilos/<perfil>.json` só muda o que
 difere do `padrao.json`: `corte` (silêncio máximo, respiros), `zoom`, `enquadro`, `cor`
 (`natural|quente|frio|cinema|vivo|pb|nenhum` ou filtro ffmpeg), `audio`, `legenda` (fonte,
 tamanho em px na tela 1920, cor, destaque, caixa alta, palavras por bloco, posição 0–1,
@@ -123,6 +191,14 @@ tamanho em px na tela 1920, cor, destaque, caixa alta, palavras por bloco, posi�
   o fluxo normal para ter legenda.
 
 ## Dicas de edição que funcionam
+- Corte pelo texto, nunca só pelo volume (corte por silêncio puro gera centenas de picotes).
+  Pausas longas são ENCURTADAS (`pausa_manter`), não zeradas: aula 0,3 s, vlog 0,6 s.
+- Zoom alternado só dentro da mesma tomada; troca de cena volta a 100%. Se reclamarem de "picotado",
+  meça a causa (pausas? zoom?) antes de mexer.
+- Punch-in de 115% só na frase de efeito (um trecho com `"zoom": 1.15` do começo ao fim da frase).
+- Legenda limpa, não literal: o render tira gaguejo ("pro-produto"), palavra abandonada e repetição
+  colada. `"escrita_correta": true` no estilo troca cê/tá/pra por você/está/para (aula, texto formal).
+- A legenda desvia do rosto sozinha (vai para baixo do queixo ou acima da cabeça).
 - Gancho nos 2 primeiros segundos: a frase mais forte vai para o começo (mesmo que fora de ordem)
   e uma cartela `gancho` reforça. Nada de "Olá, pessoal" no início do Reels.
 - Punch-in alternado (1.0 ↔ 1.12) esconde o pulo do jump cut. Em aula longa, desligue
@@ -137,6 +213,8 @@ tamanho em px na tela 1920, cor, destaque, caixa alta, palavras por bloco, posi�
   (`auto-editor bruto.mp4 --export premiere`).
 - OpenCut (opencut.app): editor de timeline no navegador para retoques manuais.
 - Skill `video-use` (browser-use): mesma filosofia, transcrição paga (ElevenLabs).
+- `appariciojunior/video-editor-skills` (DaVinci Resolve Studio): de onde vieram as regras de pausa,
+  zoom, legenda limpa e EQ de voz. Licença CC BY-NC: só a ideia foi usada, nada copiado.
 - Manim (diagramas e fórmulas animadas), Three.js e Anime.js (cenas 3D e números animados
   em HTML, gravados com o HyperFrames).
 - Detalhes, links e comparativos: `estudio/README.md`.

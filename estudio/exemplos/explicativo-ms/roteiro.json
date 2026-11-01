@@ -1,0 +1,19 @@
+{
+ "estilo": "constitucionalgabaritado",
+ "formato": "reels",
+ "voz": "pt-BR-AntonioNeural",
+ "cenas": [
+  {"tipo": "titulo", "kicker": "2ª fase OAB", "titulo": "A peça que *mais cai*", "sub": "e quase todo mundo erra o prazo",
+   "fala": "Essa é a peça que mais cai na segunda fase da OAB. E quase todo mundo erra o prazo."},
+  {"tipo": "artigo", "ref": "Art. 5º, LXIX", "texto": "conceder-se-á mandado de segurança para proteger direito líquido e certo, não amparado por habeas corpus ou habeas data", "destaque": "direito líquido e certo",
+   "fala": "O mandado de segurança está no artigo quinto, inciso sessenta e nove. Ele protege direito líquido e certo."},
+  {"tipo": "lista", "titulo": "Quando cabe", "itens": [{"texto": "Ato de *autoridade*", "gatilho": "autoridade"}, {"texto": "Ilegal ou abusivo", "gatilho": "ilegal"}, {"texto": "Prova *pré-constituída*", "gatilho": "prova"}],
+   "fala": "Você precisa de três coisas: um ato de autoridade, que seja ilegal ou abusivo, e prova pré-constituída."},
+  {"tipo": "numero", "numero": "120", "rotulo": "dias para impetrar", "gatilho": "cento",
+   "fala": "E o prazo? São cento e vinte dias, contados da ciência do ato."},
+  {"tipo": "comparacao", "titulo": "Não confunda", "esquerda": {"titulo": "MS", "itens": ["direito líquido e certo", "120 dias"], "gatilho": "segurança"}, "direita": {"titulo": "HC", "itens": ["liberdade de locomoção", "sem prazo"], "gatilho": "habeas"},
+   "fala": "Não confunda: mandado de segurança protege direito líquido e certo. Habeas corpus protege a liberdade de locomoção."},
+  {"tipo": "cta", "titulo": "Quer o *resumo*?", "botao": "Comenta MS", "arroba": "@constitucionalgabaritado", "gatilho": "comenta",
+   "fala": "Comenta MS que eu te mando o resumo completo."}
+ ]
+}

@@ -9,6 +9,8 @@
   ev.py cartela <pasta> --tipo gancho --texto "..." --estilo <perfil>
   ev.py referencia <arquivo|link>                   → ritmo, cortes/min, folha de quadros
   ev.py narrar roteiro.txt --saida narracao.mp3 [--voz ...] [--clonar minha-voz.wav]
+  ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
+  ev.py texto edit/edl.json                         → fala no tempo do vídeo final (capítulos, títulos)
   ev.py estilos                                     → lista os estilos
 """
 import argparse
@@ -40,7 +42,9 @@ def main():
 
     a = s.add_parser("render")
     a.add_argument("edl")
-    a.add_argument("--formato", default="reels", choices=["reels", "feed", "quadrado", "youtube"])
+    a.add_argument("--formato", default="reels",
+                   choices=["reels", "feed", "quadrado", "youtube", "youtube-1440", "faixa"])
+    a.add_argument("--titulo", help="título fixo em cima (formato faixa)")
     a.add_argument("--estilo")
     a.add_argument("--preview", action="store_true")
     a.add_argument("--musica")
@@ -78,6 +82,19 @@ def main():
     a.add_argument("--velocidade", default="+0%")
     a.add_argument("--clonar")
 
+    a = s.add_parser("explicativo")
+    a.add_argument("roteiro")
+    a.add_argument("--estilo")
+    a.add_argument("--formato", choices=["reels", "feed", "quadrado", "youtube"])
+    a.add_argument("--musica")
+    a.add_argument("--legenda", action="store_true")
+    a.add_argument("--preview", action="store_true")
+    a.add_argument("--so-montar", action="store_true", help="só gera a composição (sem render)")
+    a.add_argument("--saida")
+
+    a = s.add_parser("texto")
+    a.add_argument("edl")
+
     s.add_parser("estilos")
 
     args = p.parse_args()
@@ -95,6 +112,10 @@ def main():
         from ev.cartela import main as m
     elif args.cmd == "referencia":
         from ev.referencia import main as m
+    elif args.cmd == "explicativo":
+        from ev.explicativo import main as m
+    elif args.cmd == "texto":
+        from ev.cortar import texto_final as m
     elif args.cmd == "narrar":
         from ev.narrar import main as m
     else:

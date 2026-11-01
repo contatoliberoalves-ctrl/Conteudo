@@ -1,5 +1,7 @@
 # Estúdio de vídeo
 
+Galeria dos modelos: https://claude.ai/artifact/54aB1qgWLkk6ajNfJie6FY
+
 Edição de vídeo profissional feita pelo Claude Code, com ferramentas gratuitas e
 poucos tokens: o Claude lê o **texto** da fala e olha **uma imagem** por checagem,
 em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-video/`.
@@ -25,6 +27,10 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Animações e motion design | HyperFrames (HeyGen), Remotion, Manim | `instalar.sh --skills` |
 | Referência de estilo | yt-dlp + detecção de cena | `ev.py referencia` |
 | Narração / clonagem de voz | edge-tts (vozes pt-BR) / Chatterbox | `ev.py narrar` |
+| Palavra gigante atrás da cabeça | MODNet (recorte de pessoa, ONNX na CPU) + Archivo Expanded | estilo `palavra-atras` |
+| Faixa 9:16 com título fixo, master 1440p | ffmpeg | `--formato faixa`, `--formato youtube-1440` |
+| Explicativo animado narrado (sem gravar) | edge-tts/ElevenLabs/Chatterbox + HyperFrames | `ev.py explicativo roteiro.json` |
+| Fala no tempo final (capítulos, títulos, post) | — | `ev.py texto` |
 | Autoavaliação | folha de quadros + onda + LUFS | `ev.py verificar` |
 
 Estilos por perfil em `estilos/` (cores e fontes tiradas dos moldes de post).
@@ -55,6 +61,11 @@ Pesquisados além disso:
 - [video-use](https://github.com/browser-use/video-use) (browser-use): de onde vêm as regras de
   produção (legenda por último, fade de 30 ms, cortes entre palavras, autoavaliação). Usa
   ElevenLabs (pago); aqui trocamos por faster-whisper (grátis).
+- [video-editor-skills](https://github.com/appariciojunior/video-editor-skills): 12 skills para
+  DaVinci Resolve Studio. Aproveitamos as regras (cortar pelo texto, encurtar pausas em vez de zerar,
+  zoom só dentro da tomada, legenda limpa, EQ de voz). Licença CC BY-NC: só as ideias, nada copiado.
+- Tutorial do X (@jotage0410): vídeo de produto feito todo por código, com voz clonada no ElevenLabs e
+  telas reais animadas no Remotion. Virou o modelo "Explicativo animado narrado".
 - [auto-editor](https://github.com/WyattBlue/auto-editor): corte por silêncio em lote e exportação
   de timeline para Premiere/DaVinci/Final Cut.
 

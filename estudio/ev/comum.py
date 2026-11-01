@@ -16,6 +16,8 @@ FORMATOS = {
     "feed":     (1080, 1350),   # feed 4:5
     "quadrado": (1080, 1080),
     "youtube":  (1920, 1080),
+    "youtube-1440": (2560, 1440),  # master do YouTube (1440p recebe o codec melhor, VP9)
+    "faixa":    (1080, 1920),   # 9:16 com o vídeo 16:9 inteiro numa faixa no meio + título fixo
 }
 
 
