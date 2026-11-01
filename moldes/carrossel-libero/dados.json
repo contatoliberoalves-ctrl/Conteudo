@@ -7719,5 +7719,126 @@
     "rot": -6
    }
   ]
+ },
+ {
+  "id": "reeleicao-presidente-congresso",
+  "titulo": "É possível reeleição para presidente no Congresso?",
+  "tema": "Mesas da Câmara e do Senado: mandato de 2 anos, vedada a recondução na eleição imediatamente subsequente (art. 57, § 4º), só dentro da mesma legislatura (ADI 6524); caso Davi Alcolumbre em 2027",
+  "fonte": "CF, arts. 44, parágrafo único, e 57, § 4º; STF, ADI 6524; notícias de out./2026 sobre a candidatura de Davi Alcolumbre",
+  "slides": [
+   {
+    "tipo": "capa",
+    "estilo": "mesa",
+    "tema": "dark",
+    "pre": "Congresso Nacional",
+    "titulo": [
+     "É possível",
+     "[[reeleição]] para",
+     "presidente?"
+    ],
+    "ts": 118,
+    "foto": "davi-oficial.jpg",
+    "fotoPos": "center 25%",
+    "linha": [
+     {
+      "periodo": "2019–21",
+      "nome": "Davi",
+      "marca": "ok"
+     },
+     {
+      "periodo": "2025–27",
+      "nome": "Davi",
+      "marca": "ok"
+     },
+     {
+      "periodo": "2027–29",
+      "nome": "Davi de novo?",
+      "marca": "?"
+     }
+    ]
+   },
+   {
+    "tipo": "texto",
+    "tema": "light",
+    "kicker": "A regra",
+    "titulo": [
+     "Em tese,",
+     "[[não pode]]"
+    ],
+    "palavra": "Mesa",
+    "texto": [
+     "Os presidentes da **Câmara** e do **Senado** são eleitos para um mandato de **2 anos**.",
+     "E a Constituição proíbe a **recondução para o mesmo cargo** na eleição seguinte. Ou seja: terminou o mandato, não dá pra emendar outro logo em seguida."
+    ]
+   },
+   {
+    "tipo": "lei",
+    "tema": "blue",
+    "kicker": "CF · art. 57, § 4º",
+    "titulo": [
+     "O que diz a",
+     "[[Constituição]]"
+    ],
+    "citacao": "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subsequente.",
+    "traducao": "Mandato de **2 anos** e **proibição de recondução** na eleição logo depois."
+   },
+   {
+    "tipo": "texto",
+    "tema": "dark",
+    "kicker": "A exceção",
+    "titulo": [
+     "Legislaturas",
+     "[[diferentes]]"
+    ],
+    "palavra": "Exceção",
+    "texto": [
+     "Uma legislatura dura **4 anos** (art. 44, parágrafo único). Cabem nela **duas Mesas** de 2 anos cada.",
+     "A proibição vale **dentro da mesma legislatura**. Se a eleição seguinte já é de uma **legislatura nova**, a reeleição é possível. Foi o que o STF fixou na **ADI 6524**."
+    ]
+   },
+   {
+    "tipo": "lista",
+    "tema": "light",
+    "kicker": "O caso Davi",
+    "titulo": [
+     "Por que ele",
+     "[[pode]] tentar"
+    ],
+    "itens": [
+     "**2019–2021:** Davi preside o Senado na 1ª metade da 56ª legislatura",
+     "**2021:** não pôde tentar a reeleição, porque era a mesma legislatura",
+     "**2025–2027:** volta à presidência, na 2ª metade da 57ª legislatura",
+     "**1º/2/2027:** a eleição já é da **58ª legislatura**, então ele pode concorrer de novo"
+    ]
+   },
+   {
+    "tipo": "texto",
+    "tema": "blue",
+    "kicker": "Resumindo",
+    "titulo": [
+     "Mesma legislatura:",
+     "[[não]]. Outra: [[pode]]"
+    ],
+    "palavra": "Regra",
+    "texto": [
+     "A regra vale igual para a **Câmara** e para o **Senado**.",
+     "Em fevereiro de 2027 começa uma nova legislatura, e Davi Alcolumbre já articula a candidatura para continuar no comando do Senado."
+    ]
+   },
+   {
+    "tipo": "cta",
+    "tema": "light",
+    "centro": true,
+    "titulo": [
+     "Você",
+     "[[concorda]]?"
+    ],
+    "texto": [
+     "Reeleição na mesa do Congresso deveria ser permitida?",
+     "Me conta aqui nos comentários."
+    ],
+    "botao": "Comenta: sim ou não?"
+   }
+  ]
  }
 ]

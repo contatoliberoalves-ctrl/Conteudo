@@ -580,6 +580,33 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       ${F ? '' : `<div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`}`;
   },
+  // Mesa: o plenário em semicírculo (81 cadeiras, como o Senado; `cadeiras` muda), a foto num círculo com anel
+  // vermelho no lugar da presidência e, no pé, a linha do tempo dos mandatos (`linha`: [{periodo, nome, marca:
+  // "ok" | "x" | "?"}]). Para eleição da Mesa, presidência de Casa, reeleição. Campos: pre, titulo, ts, foto,
+  // fotoPos, cadeiras, texto.
+  mesa(s, t, c) {
+    const R = COR.vermelho, cx = 540, cy = 1060, n = s.cadeiras || 81, filas = [17, 19, 22, 23];
+    const tot = filas.reduce((a, b) => a + b, 0), esc0 = n / tot;
+    let dots = '', k = 0;
+    filas.forEach((q0, f) => { const q = Math.round(q0 * esc0), r = 330 + f * 52;
+      for (let i = 0; i < q; i++) { const a = Math.PI * (1 - i / (q - 1)); const x = cx + r * Math.cos(a), y = cy - r * Math.sin(a);
+        dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13" fill="${(k++ * 7) % 5 ? 'rgba(143,176,255,.55)' : 'rgba(255,255,255,.85)'}"/>`; } });
+    const marca = m => m === 'ok' ? `<svg viewBox="0 0 24 24" width="30"><circle cx="12" cy="12" r="12" fill="#2BB673"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+      : m === 'x' ? `<svg viewBox="0 0 24 24" width="30"><circle cx="12" cy="12" r="12" fill="${R}"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`
+      : `<span style="display:inline-flex;width:30px;height:30px;border-radius:50%;background:#FFD52E;color:${COR.navyFundo};align-items:center;justify-content:center;${TITULO};font-size:24px">?</span>`;
+    const linha = lista(s.linha);
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 75%,#1d3566 0%,${COR.navyFundo} 70%);z-index:0"></div>
+      <svg width="1080" height="1350" style="position:absolute;inset:0;z-index:1">${dots}</svg>
+      <div style="position:absolute;left:90px;right:90px;top:90px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;z-index:4">
+        ${s.pre ? `<div style="background:${R};color:#fff;font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 112}px;line-height:${lista(s.titulo).some(l => l.includes('[[')) ? 1.04 : .92};color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: COR.azul })).join('<br>')}</h1></div>
+      <div data-foto style="position:absolute;left:${cx - 175}px;top:${cy - 330}px;width:350px;height:350px;border-radius:50%;padding:10px;background:#fff;box-shadow:0 0 0 12px ${R},0 30px 60px rgba(0,0,0,.5);z-index:3"><img src="${foto(c, s.foto)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:${esc(s.fotoPos || 'center 20%')}"></div>
+      <div style="position:absolute;left:70px;right:70px;top:${cy + 50}px;display:grid;grid-template-columns:repeat(${linha.length || 1},1fr);gap:14px;z-index:4">
+        ${linha.map(l => `<div style="background:${l.marca === '?' ? '#fff' : 'rgba(255,255,255,.1)'};border:2px solid ${l.marca === '?' ? '#FFD52E' : 'rgba(255,255,255,.25)'};border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+          ${marca(l.marca)}<div><div style="${TITULO};font-size:38px;line-height:1;color:${l.marca === '?' ? COR.navyFundo : '#fff'}">${esc(l.periodo)}</div><div style="font-size:21px;font-weight:700;color:${l.marca === '?' ? COR.azul : '#C9D4EA'}">${esc(l.nome)}</div></div></div>`).join('')}</div>
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.azul};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:4">Arraste →</div>`;
+  },
   // Convite: aviso "Atenção!" em selo vermelho, título com o público, um ingresso branco (canhoto "Grátis",
   // picote e furos laterais) com o recado e o logo do parceiro, e um comentário do Insta com a palavra-chave.
   // Com "foto" (recorte PNG sem fundo), a pessoa entra à direita e o ingresso fica mais estreito.
