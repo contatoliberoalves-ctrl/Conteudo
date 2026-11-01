@@ -1,3 +1,18 @@
 __pycache__/
 node_modules/
 entregas/
+# Estúdio de vídeo: fontes e modelos são baixados pelo estudio/instalar.sh; vídeos do usuário nunca vão para o git
+estudio/fontes/
+estudio/modelos/
+estudio/projetos/
+**/edit/
+*.mp4
+*.mov
+*.webm
+# skills de terceiros instaladas pelo estudio/instalar.sh --skills
+.claude/skills/hyperframes*/
+.claude/skills/figma/
+.claude/skills/media-use/
+.claude/skills/remotion-*/
+.claude/skills/slideshow/
+skills-lock.json

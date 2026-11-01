@@ -1,0 +1,60 @@
+{
+ "descricao": "Base de todos os estilos (os outros só mudam o que precisam)",
+ "corte": {
+  "silencio_max": 0.35,
+  "respiro_antes": 0.06,
+  "respiro_depois": 0.09
+ },
+ "zoom": {
+  "alternar": true,
+  "fator": 1.12
+ },
+ "enquadro": {
+  "seguir_rosto": true,
+  "rosto_y": 0.36,
+  "sem_rosto": "desfoque"
+ },
+ "cor": "natural",
+ "audio": {
+  "limpar_voz": true,
+  "reduzir_ruido": true,
+  "lufs": -14,
+  "musica_db": -16
+ },
+ "legenda": {
+  "ativa": true,
+  "animacao": "destaque",
+  "fonte": "Poppins ExtraBold",
+  "tamanho": 92,
+  "cor": "#FFFFFF",
+  "destaque": "#FFD52E",
+  "contorno_cor": "#000000",
+  "contorno": 7,
+  "sombra": 3,
+  "caixa_alta": true,
+  "palavras_por_bloco": 3,
+  "max_caracteres": 22,
+  "posicao_y": 0.7,
+  "pop": 1.12,
+  "sem_pontuacao": true,
+  "correcoes": {
+   "oab": "OAB",
+   "stf": "STF",
+   "stj": "STJ",
+   "cf": "CF",
+   "pec": "PEC",
+   "cpc": "CPC",
+   "fgv": "FGV"
+  }
+ },
+ "cartela": {
+  "fundo": "#111111",
+  "texto": "#FFFFFF",
+  "acento": "#FFD52E",
+  "raio": 28,
+  "arquivo_titulo": "BebasNeue-Regular.ttf",
+  "arquivo_corpo": "Poppins-Bold.ttf",
+  "caixa_alta": true
+ },
+ "notas": []
+}
