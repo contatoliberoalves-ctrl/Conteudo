@@ -10,6 +10,9 @@ Slides comuns (cg-comum): `texto` (texto, artigo) · `destaque` (`grande`: núme
 
 Fotos do autor (fora do git): `fotos/` do molde, `../carrossel-libero/fotos` ou `../carrossel-explicativo/fotos`.
 
+## Passo a passo (ritos em etapas)
+Posts de rito (PEC, impeachment, veto…) têm `etapas` no carrossel: `[{nome, quorum, resumo}]`. A `capa` sem `fotos`, `fundo` e `icone` vira a capa de passo a passo: selo "PLANTÃO · PASSO A PASSO", título em faixa, `pergunta` e a trilha das etapas com o quórum em etiqueta (sem foto). Slides: `etapa` (`etapa`: nº, `quorum`, `quorumTexto`, texto, artigo; trilha vertical com a etapa acesa) e `trilha` (o rito inteiro com resumo e quórum).
+
 ## Tipos próprios
 - `capa`: `selo` (padrão "PLANTÃO CONSTITUCIONAL"), `titulo` (cada linha numa faixa verde), `pergunta` (pílula), `fotos` (1 ou 2 recortes PNG sem fundo das autoridades, em `fotos/`: saem em preto e branco; `alturaFotos`) ou `icone` (`congresso`, `stf`, `planalto`, `cpi`, `relogio`, `escudo`, `sirene`, `passaporte`) quando não houver foto; `fundo` (imagem em `fotos/`, ex.: arte de IA, com `fundoPos`) vira o fundo da capa, escurecido e puxado para o verde. Prompts prontos em `PROMPTS-CAPAS.md`.
 - `linha`: passos ligados por uma linha (`itens`: [{`titulo`, `texto`, `artigo`, `n`}], `atual` acende um passo).

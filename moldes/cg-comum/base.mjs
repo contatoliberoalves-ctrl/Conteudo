@@ -1,4 +1,4 @@
-// Base comum dos moldes de série do @constitucionalgabaritado (Plantão Constitucional, Macete e Passo a passo):
+// Base comum dos moldes de série do @constitucionalgabaritado (Plantão Constitucional, com os posts de passo a passo, e Macete):
 // cores e fontes do perfil (base escura, verde, verde-claro, gelo; Bebas Neue + Poppins), fundo de colmeia,
 // textura, rodapé e os slides internos que os três compartilham. Gerados por libero-comum/render-base.mjs
 // (cada slide é um <section>; elementos com data-fit encolhem a fonte até caber).

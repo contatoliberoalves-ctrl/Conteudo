@@ -14,3 +14,10 @@ Pasta: `moldes/constitucional-criativos/`. O visual está em `template.mjs`; par
 3. Crie o item de feed e o de stories (`"de": "<id-feed>"`, `"formato": "story"`).
 4. Gere: `cd moldes/constitucional-criativos && CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs <id>` (precisa terminar com ✓) e confira os PNGs (rosto livre do texto; nos stories, nada importante nas faixas de cima e de baixo).
 5. Atualize a galeria (seção "Galeria" do `CLAUDE.md`, mesmo link) e faça commit.
+
+## Divulgação da plataforma (antigo molde "Plataforma (divulgação)")
+Carrosséis e cards que divulgam a plataforma Constitucional com Líbero (Reforço) com prints dela ficam em `moldes/constitucional-criativos/plataforma/` (leia o `README.md` de lá) e aparecem na galeria dentro de Constitucional Criativos.
+1. Prints em `plataforma/prints/` (fora do git): baixe da pasta do Drive indicada no README e rode `python3 recortar_prints.py <pasta>`.
+2. Os posts são funções em `plataforma/render.mjs` (`POSTS`); o id vai em `plataforma/dados.json`.
+3. Só afirme o que aparece nos prints. Sem quantidade de aulas nem de questões ("diversas aulas", "banco de questões completo"); números dos prints borrados. Sem preço sem confirmação.
+4. Gere com `cd moldes/constitucional-criativos/plataforma && node render.mjs <id>` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY`).

@@ -33,9 +33,28 @@ const PREDIOS = {
     <text x="500" y="370" font-family="Bebas Neue" font-size="64" fill="#9be0a3" text-anchor="middle" letter-spacing="8">BRASIL</text>`,
 };
 
+// Etapas do rito (campo "etapas" do carrossel: [{nome, quorum, resumo}]) para as trilhas dos posts de passo a passo.
+const bola = (n, aceso, t, tam = 70) => `<span style="flex:none;width:${tam}px;height:${tam}px;border-radius:50%;background:${aceso ? COR.claro : t.escuro ? COR.base : '#fff'};border:4px solid ${aceso ? COR.claro : t.destaque};display:flex;align-items:center;justify-content:center;${TITULO};font-size:${Math.round(tam * .6)}px;color:${aceso ? COR.base : t.destaque};z-index:2;box-shadow:${aceso ? '0 0 0 10px rgba(155,224,163,.22)' : 'none'}">${n}</span>`;
+// Trilha da capa: as etapas como estações numa linha, com o quórum numa etiqueta acima de quem vota.
+function trilhaCapa(et) {
+  const n = et.length;
+  return `<div style="position:absolute;left:70px;right:70px;bottom:190px;height:420px;z-index:3">
+    <div style="position:absolute;left:${50 / n}%;right:${50 / n}%;top:228px;height:6px;background:${COR.claro};border-radius:3px"></div>
+    <div style="position:absolute;left:${50 / n}%;right:${50 / n}%;top:228px;height:6px;background:repeating-linear-gradient(90deg,transparent 0 26px,${COR.base} 26px 34px);opacity:.55"></div>
+    <div style="position:relative;display:grid;grid-template-columns:repeat(${n},1fr);height:100%">
+      ${et.map((e, i) => `<div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <div style="height:120px;display:flex;align-items:flex-end;padding-bottom:22px">${e.quorum ? `<span style="background:${COR.claro};color:${COR.base};${TITULO};font-size:58px;line-height:1;padding:8px 18px 2px;border-radius:12px">${esc(e.quorum)}</span>` : ''}</div>
+        <span style="width:${n > 3 ? 116 : 136}px;height:${n > 3 ? 116 : 136}px;border-radius:50%;background:${i === n - 1 ? COR.claro : COR.base};border:6px solid ${COR.claro};display:flex;align-items:center;justify-content:center;${TITULO};font-size:${n > 3 ? 70 : 82}px;line-height:1;padding-top:6px;color:${i === n - 1 ? COR.base : COR.claro};margin-top:${n > 3 ? 4 : -6}px">${i + 1}</span>
+        <span style="margin-top:22px;${TITULO};font-size:${n > 3 ? 46 : 54}px;line-height:1;color:#fff;max-width:240px">${esc(e.nome)}</span>
+      </div>`).join('')}
+    </div></div>`;
+}
+
 const TIPOS = {
-  capa(s, t, ctx) {
+  capa(s, t, ctx, c) {
     const fotos = lista(s.fotos);
+    const et = lista(c && c.etapas);
+    if (!fotos.length && !s.fundo && !s.icone && et.length) return capaTrilha(s, t, et);
     const imgs = fotos.length
       ? `<div style="position:absolute;left:0;right:0;bottom:0;height:${s.alturaFotos || 760}px;display:flex;justify-content:center;align-items:flex-end;z-index:3">${fotos.map((f, i) => `<img src="${ctx.foto(f)}" style="height:100%;max-width:${fotos.length > 1 ? 620 : 900}px;object-fit:contain;object-position:bottom;filter:grayscale(1) contrast(1.12);margin-left:${i ? -140 : 0}px">`).join('')}</div>`
       : s.fundo ? '' : `<svg viewBox="20 30 960 410" style="position:absolute;left:30px;bottom:140px;width:1020px;z-index:3">${PREDIOS[s.icone] || PREDIOS.congresso}</svg>`;
@@ -46,6 +65,27 @@ const TIPOS = {
         ${s.pergunta ? `<div style="border:2px solid rgba(255,255,255,.55);border-radius:20px;padding:12px 30px;${TEXTO};font-size:36px;font-weight:400;color:#fff;max-width:900px">${rico(s.pergunta, t)}</div>` : ''}
       </div>${imgs}
       <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center;z-index:6"><span style="display:inline-block;background:${COR.base};border:1px solid rgba(155,224,163,.35);border-radius:14px;padding:10px 26px;${TEXTO};font-size:30px;font-weight:500;color:#fff">@CONSTITUCIONAL<b style="font-weight:800">GABARITADO</b></span></div>`;
+  },
+  // Uma etapa do rito: trilha vertical à esquerda (a atual acesa) e o conteúdo à direita.
+  etapa(s, t, ctx, c) {
+    const et = lista(c.etapas), at = (s.etapa ?? 1) - 1;
+    const trilha = `<div style="position:absolute;left:70px;top:200px;bottom:200px;width:90px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;z-index:4">
+        <span style="position:absolute;top:40px;bottom:40px;left:43px;width:4px;background:${t.destaque};opacity:.35"></span>
+        ${et.map((e, k) => `<div style="opacity:${k === at ? 1 : .55}">${bola(k + 1, k === at, t, k === at ? 86 : 64)}</div>`).join('')}</div>`;
+    return trilha + `<div style="position:absolute;left:220px;right:90px;top:150px;bottom:170px;display:flex;flex-direction:column;justify-content:center;gap:26px;z-index:5">
+        ${kicker(`Etapa ${at + 1} de ${et.length}${et[at] ? ' · ' + et[at].nome : ''}`, t)}
+        ${tit(s, t, 120, 300)}
+        ${s.quorum ? `<div style="display:flex;align-items:baseline;gap:18px"><span data-fit="${esc(s.quorum)}" data-min="80" style="${TITULO};font-size:${s.tq || 190}px;line-height:.85;color:${t.destaque};white-space:nowrap">${esc(s.quorum)}</span><span style="${TEXTO};font-size:30px;font-weight:600;line-height:1.2;color:${t.txt};max-width:340px">${rico(s.quorumTexto || '', t)}</span></div>` : ''}
+        <div data-fit="texto" data-min="26" style="font-size:${s.corpo || 36}px;max-height:520px;overflow:hidden">${par(s.texto, t)}</div>${artigo(s.artigo, t)}
+      </div>${rodape(t)}`;
+  },
+  // O rito inteiro: cada etapa com o resumo e o quórum.
+  trilha(s, t, ctx, c) {
+    const et = lista(c.etapas);
+    const linhas = et.map((e, i) => `<div style="display:flex;gap:26px;align-items:flex-start">${bola(i + 1, false, t, 64)}
+        <div style="display:flex;flex-direction:column;gap:2px;padding-top:4px"><span style="${TITULO};font-size:1.4em;line-height:1;color:${t.tit}">${esc(e.nome)}${e.quorum ? ` <span style="color:${t.destaque}">· ${esc(e.quorum)}</span>` : ''}</span>
+        ${e.resumo ? `<span style="${TEXTO};font-weight:400;line-height:1.3;color:${t.txt}">${rico(e.resumo, t)}</span>` : ''}</div></div>`).join('');
+    return area(`${kicker(s.kicker, t)}${tit(s, t, 110, 240)}<div data-fit="trilha" data-min="22" style="position:relative;display:flex;flex-direction:column;gap:30px;font-size:${s.corpo || 32}px;max-height:880px;overflow:hidden"><span style="position:absolute;left:30px;top:30px;bottom:30px;width:4px;background:${t.destaque};opacity:.4"></span>${linhas}</div>`) + rodape(t);
   },
   // Comparação: "lados" [a, b] e "linhas" [[critério, a, b]].
   versus(s, t) {
@@ -70,5 +110,16 @@ const TIPOS = {
         <span style="position:absolute;left:36px;top:30px;bottom:30px;width:4px;background:${t.destaque};opacity:.5"></span>${passos}</div>${artigo(s.artigo, t)}`) + rodape(t);
   },
 };
+
+// Capa dos posts de passo a passo: selo, título em faixa verde e a pergunta, como as outras capas do plantão,
+// e embaixo a trilha das etapas (sem foto).
+function capaTrilha(s, t, et) {
+  return `<div style="position:absolute;left:0;right:0;top:110px;display:flex;flex-direction:column;align-items:center;gap:26px;z-index:5;text-align:center">
+      <span style="display:inline-flex;align-items:center;gap:12px;background:${COR.base};border:2px solid ${COR.claro};color:${COR.claro};${TEXTO};font-size:24px;font-weight:700;letter-spacing:.18em;border-radius:999px;padding:8px 22px"><span style="width:14px;height:14px;border-radius:50%;background:${COR.claro};box-shadow:0 0 0 6px rgba(155,224,163,.25)"></span>${esc(s.selo || 'PLANTÃO · PASSO A PASSO')}</span>
+      <div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="70" style="${TITULO};font-size:${s.ts || 150}px;line-height:.95;padding-top:.12em;color:#fff;max-width:980px;max-height:420px;overflow:hidden">${lista(s.titulo).map(l => `<span style="background:linear-gradient(180deg,transparent 52%,rgba(155,224,163,.55) 52%,rgba(155,224,163,.55) 92%,transparent 92%);padding:0 .1em">${rico(l, t)}</span>`).join('<br>')}</div>
+      ${s.pergunta ? `<div style="border:2px solid rgba(255,255,255,.55);border-radius:20px;padding:12px 30px;${TEXTO};font-size:36px;font-weight:400;color:#fff;max-width:900px">${rico(s.pergunta, t)}</div>` : ''}
+    </div>${trilhaCapa(et)}
+    <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center;z-index:6"><span style="display:inline-block;background:${COR.base};border:1px solid rgba(155,224,163,.35);border-radius:14px;padding:10px 26px;${TEXTO};font-size:30px;font-weight:500;color:#fff">@CONSTITUCIONAL<b style="font-weight:800">GABARITADO</b></span></div>`;
+}
 
 export const renderCarrossel = (c, ctx) => pagina(c.slides, TIPOS, ctx, c);

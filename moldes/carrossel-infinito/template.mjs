@@ -50,7 +50,7 @@ const ICONES = {
   camadas: '<path d="M50 12 L90 32 L50 52 L10 32 Z"/><path d="M10 50 L50 70 L90 50"/><path d="M10 68 L50 88 L90 68"/>',
 };
 const icone = (nome, px, cor, traco = 6) => ICONES[nome] ? `<svg viewBox="0 0 100 100" width="${px}" height="${px}" fill="none" stroke="${cor}" stroke-width="${traco}" stroke-linecap="round" stroke-linejoin="round">${ICONES[nome]}</svg>` : '';
-const TS_BASE = { cover: 190, text: 120, item: 110, list: 100, mnemo: 150, compare: 100, cta: 112, vitrine: 100 };
+const TS_BASE = { cover: 176, text: 120, item: 110, list: 100, mnemo: 150, compare: 100, cta: 112, vitrine: 100 };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Texto: **negrito**, ==destaque== e quebra de linha com \n.
@@ -64,18 +64,23 @@ function tamanho(texto, base, coluna, fator = 0.46) {
 }
 
 const selo = t => `<div class="selo" style="background:${t.pillBg};color:${t.pillFg}"><b>@CONSTITUCIONAL</b>GABARITADO</div>`;
+// Cabeçalho da capa: perfil, fio e o ícone do tema inteiro num círculo vazado.
+const cabecalho = (c, t, bg) => `<div class="capa-cab" style="color:${bg === 'mint' ? '#0b2619' : t.accent};border-bottom:2px solid ${bg === 'mint' ? 'rgba(11,38,25,.25)' : bg === 'light' ? 'rgba(11,38,25,.15)' : 'rgba(95,191,142,.3)'}">
+    <span><b>@CONSTITUCIONAL</b>GABARITADO</span>
+    ${c.icone ? `<span class="capa-ic" style="border-color:${bg === 'mint' ? '#0b2619' : t.accent}">${icone(c.icone, 64, bg === 'mint' ? '#0b2619' : t.accent, 6)}</span>` : ''}
+  </div>`;
 const kicker = (txt, t, traco) => txt ? `<div class="kicker" style="color:${t.accent}">${traco ? `<i style="background:${t.accent}"></i>` : ''}${md(txt)}</div>` : '';
 const titulo = (s, t, ts, col, extra = '') => `<h1 data-titulo style="color:${t.title};font-size:${tamanho(s.title, s.ts || ts, col)}px${extra}">${md(s.title)}</h1>`;
 
 const TIPOS = {
-  // Capa: só título e subtítulo (kicker, pre e hl ficam de fora, a pedido). O ícone do tema entra grande e
-  // vazado no fundo, saindo pelo canto (campo "icone" do carrossel).
+  // Capa: só título e subtítulo, sem enfeite. Cabeçalho fino (perfil à esquerda, ícone do tema num círculo à
+  // direita), título grande ancorado embaixo e o subtítulo separado por um fio. Todas as capas têm a mesma estrutura;
+  // muda só o fundo. Com "img", o título fica no alto e a imagem entra embaixo.
   cover(s, t, col) {
     const centro = s.align === 'center';
-    return `<div class="bloco" style="align-items:${centro ? 'center' : 'flex-start'};text-align:${centro ? 'center' : 'left'};gap:36px">
-      <i class="tracinho" style="background:${t.accent}"></i>
-      ${titulo(s, t, TS_BASE.cover, col, ';line-height:.98')}
-      ${s.sub ? `<p class="sub" style="color:${t.fg};font-size:38px">${md(s.sub)}</p>` : ''}
+    return `<div class="bloco capa-bloco" style="align-items:${centro ? 'center' : 'flex-start'};text-align:${centro ? 'center' : 'left'}">
+      ${titulo(s, t, TS_BASE.cover, col, ';line-height:1.08;text-wrap:balance')}
+      ${s.sub ? `<p class="sub" style="color:${t.fg};border-top:3px solid ${t.accent}">${md(s.sub)}</p>` : ''}
     </div>`;
   },
   text(s, t, col) {
@@ -147,7 +152,8 @@ function temas(slides) {
 export function renderCarrossel(c) {
   const slides = c.slides;
   const n = slides.length;
-  const seams = c.seams || [];
+  // A capa fica limpa: a figura da divisão 1 (que cortaria a capa ao meio) não entra.
+  const seams = (c.seams || []).filter(x => !(x === 1 && (slides[0] || {}).type === 'cover'));
   const bgs = temas(slides);
   const avisos = [];
   bgs.forEach((b, i) => { if (!TEMAS[b]) avisos.push(`slide ${i + 1}: tema "${b}" não existe`); if (i && b === bgs[i - 1]) avisos.push(`slides ${i} e ${i + 1} com o mesmo tema (${b})`); });
@@ -160,10 +166,10 @@ export function renderCarrossel(c) {
     const col = W - pl - pr;
     const corpo = (TIPOS[s.type] || TIPOS.text)(s, t, col);
     return `<section id="slide-${i + 1}" style="background:${t.bg}">
-      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px${s.type === 'cover' && s.img ? ';top:130px;justify-content:flex-start' : ''}${s.type === 'oferta' ? ';top:96px;bottom:160px' : ''}">${corpo}</div>
+      <div class="conteudo tipo-${s.type}" data-conteudo style="left:${pl}px;right:${pr}px${s.type === 'cover' ? (s.img ? ';top:210px;justify-content:flex-start' : ';top:230px;bottom:190px;justify-content:flex-end') : ''}${s.type === 'oferta' ? ';top:96px;bottom:160px' : ''}">${corpo}</div>
       ${s.type === 'cover' && s.img ? `<img class="capa-img" src="../imagens/${esc(s.img)}" style="left:${s.imgX ?? 40}px;top:${s.imgY ?? 640}px;width:${s.imgW || 1100}px;transform:rotate(${s.imgRot ?? -4}deg)">` : ''}
-      ${s.type === 'cover' && c.icone && !s.img ? `<div class="marca-d" style="opacity:${bgs[i] === 'mint' ? .22 : .14}">${icone(c.icone, 600, bgs[i] === 'mint' ? '#0b2619' : t.accent, 4)}</div>` : ''}
-      ${(s.type === 'cover' && !s.img) || s.type === 'cta' || s.type === 'oferta' ? selo(t) : ''}
+      ${s.type === 'cover' ? cabecalho(c, t, bgs[i]) : ''}
+      ${s.type === 'cta' || s.type === 'oferta' ? selo(t) : ''}
     </section>`;
   }).join('');
 
@@ -253,8 +259,11 @@ h1 mark{color:#5fbf8e}
 .of-botao{display:flex;align-items:center;gap:18px;padding:24px 56px;border-radius:60px;font:700 40px Poppins;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .of-botao span{font-size:44px}
 .selo-ic{border-radius:50%;background:${VERDE};border:10px solid #f4f8f6;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 50px rgba(0,0,0,.28)}
-.marca-d{position:absolute;right:-150px;bottom:-190px;transform:rotate(-12deg);z-index:1;pointer-events:none}
-.tracinho{display:block;width:96px;height:10px;border-radius:5px}
+.capa-cab{position:absolute;left:96px;right:96px;top:96px;height:96px;display:flex;align-items:center;justify-content:space-between;font:400 24px Poppins;letter-spacing:2px;z-index:3}
+.capa-cab b{font-weight:700}
+.capa-ic{width:86px;height:86px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;margin-bottom:-6px}
+.capa-bloco{gap:40px}
+.capa-bloco .sub{padding-top:30px;font-size:36px;max-width:700px}
 .foto{border-radius:24px}
 .foto.vazia{border:4px dashed ${VERDE};background:rgba(232,238,238,.85)}
 .ph{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:30px;text-align:center;font:400 28px Poppins;color:#1f3a2e}
