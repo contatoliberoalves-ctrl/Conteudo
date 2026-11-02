@@ -72,7 +72,11 @@ fi
 
 # 7. Clonagem de voz
 if [ $VOZ = 1 ]; then
-  python3 -c "import chatterbox" 2>/dev/null || pip install -q chatterbox-tts 2>&1 | grep -v -i warning || true
+  if ! python3 -c "import chatterbox" 2>/dev/null; then
+    # sem placa de vídeo: torch de CPU (bem menor que o de CUDA)
+    command -v nvidia-smi >/dev/null || pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu 2>&1 | grep -v -i warning || true
+    pip install -q chatterbox-tts 2>&1 | grep -v -i warning || true
+  fi
   ok "Chatterbox (clonagem de voz)"
 fi
 

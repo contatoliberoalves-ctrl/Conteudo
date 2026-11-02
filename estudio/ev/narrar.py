@@ -35,7 +35,10 @@ def chatterbox(texto, referencia, saida):
     import torch
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     m = ChatterboxMultilingualTTS.from_pretrained(device=dev)
-    partes = [p.strip() for p in texto.replace("\n", " ").split(". ") if p.strip()]
+    import re
+    # uma frase por vez (o modelo perde o fim em frases longas); siglas soletradas soam melhor
+    texto = re.sub(r"\bOAB\b", "Ó A BÊ", texto)
+    partes = [p.strip() for p in re.split(r"(?<=[.!?])\s+", texto.replace("\n", " ")) if p.strip()]
     wavs = [m.generate(p if p.endswith((".", "!", "?")) else p + ".", language_id="pt",
                        audio_prompt_path=str(referencia)) for p in partes]
     torchaudio.save(str(saida), torch.cat(wavs, dim=-1), m.sr)
