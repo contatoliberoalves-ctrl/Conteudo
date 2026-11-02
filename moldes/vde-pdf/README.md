@@ -15,3 +15,6 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 
 ## Guia de cabimento (`"tipo": "guia"`)
 Capa, mapa de decisão (`mapa[]`: `{pergunta, respostas: [[situação, peça]]}`), fichas por peça, 2 por página (`fichas[]`: `{sigla, nome, cabe[], quem, contra, onde, prazo, naoCabe[], artigos[], pista}`), duelos das peças que se confundem, 2 por página (`duelos[]`: `{a, b, linhas: [[critério, a, b]], macete}`), tabela-resumo automática (sigla, quem, onde, prazo) e `fim`. Só CF e leis (sem jurisprudência, salvo pedido).
+
+## Documento de propostas (`proposta.mjs` + `proposta.json`)
+Propostas de formatos de mentoria para professores e coordenação: capa, visão geral, uma abertura por proposta (valor, ideia, missão, itens e `jornada` com 4 etapas), trilha de `encontros`, página de `relatorio` (com um trecho de página do tipo `analise`, conteúdo ilustrativo), `decisao` dos professores, formulários (mockups do Checkup e da aula Da leitura à resposta), `comparativo` e `fim`. Gerar: `node proposta.mjs [id]` → `saida/<id>/<id>.pdf` (montado a partir dos PNGs) e `1.png … N.png`.

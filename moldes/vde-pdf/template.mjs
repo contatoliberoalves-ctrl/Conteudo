@@ -263,7 +263,7 @@ const par = t => `<p style="${F};font-size:13px;line-height:1.6;color:${COR.tint
 const caixaTexto = (rot, itens, bg = COR.lavandaClara, cor = COR.roxo) => `<div style="background:${bg};border-radius:14px;padding:12px 16px;margin-top:10px">
     <div style="${F};font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${cor};margin-bottom:5px">${esc(rot)}</div>
     ${lista(itens).map(t => `<div style="display:flex;gap:8px;${F};font-size:12.4px;line-height:1.5;color:${COR.tinta};margin-top:3px"><span style="flex:none;width:5px;height:5px;border-radius:2px;background:${cor};margin-top:7px"></span><span>${rico(t)}</span></div>`).join('')}</div>`;
-function pecaAluno(a, n) {
+export function pecaAluno(a, n) {
   const pc = a.peca || {};
   const linhas = lista(pc.itens).map(i => `<div style="display:grid;grid-template-columns:1fr 1.15fr;gap:14px;padding:11px 0;border-bottom:1px dashed ${COR.borda}">
       <div style="${F};font-size:12.4px;line-height:1.45;color:${COR.tinta}"><div style="${F};font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:${COR.indigo};margin-bottom:2px">${esc(i.tema)}</div>${rico(i.viu)}</div>
