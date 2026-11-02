@@ -160,20 +160,25 @@ Cada item tem `gatilho` (a palavra dita no vídeo final; `ocorrencia`, `antes`, 
   Nunca use imagem sem licença clara.
 - Evite empilhar no rodapé: personagem no canto + legenda + botão brigam. Uma coisa por canto.
 
-## Voz clonada do autor (cartoon, explicativo, narração)
-1. Áudio: vídeos só com a voz dele (sem música), somando 3–10 min. O YouTube bloqueia o yt-dlp daqui
-   ("confirme que não é um robô"): peça os arquivos (YouTube Studio → Conteúdo → ⋮ → Baixar, ou o
-   original no Drive) e baixe pelo link do Drive como os outros vídeos, em `estudio/projetos/`.
-2. `ev.py voz preparar <vídeos ou pasta>` → `estudio/projetos/voz/` (fora do git): `amostras/NN.wav`
-   (trechos limpos de 3–12 s), `referencia.wav` (~90 s) e `referencia-curta.wav` (~15 s).
-3. Motor:
-   - ElevenLabs (melhor em pt-BR): o usuário cria a voz no site (Voice Clone, sobe as amostras) e
-     guarda a chave como variável `ELEVENLABS_API_KEY` nas configurações do ambiente (nunca no chat
-     nem no git). No roteiro: `"vozes": {"libero": {"elevenlabs": "<voice_id>"}}` (cartoon) ou
-     `"voz": {"elevenlabs": "<voice_id>"}` (explicativo).
-   - Chatterbox (grátis, local): `bash estudio/instalar.sh --voz`, depois
-     `{"clonar": "estudio/projetos/voz/referencia-curta.wav"}`. Sem GPU é lento.
-4. Só a voz do próprio usuário ou de quem autorizou.
+## Estúdio de voz (clonar a voz do autor) — `ev.py voz`
+Aprendido do VoiceStudio (app AGPL; não copiamos código, usamos os mesmos motores abertos):
+a semelhança vem de uma referência LIMPA de 6–12 s com a TRANSCRIÇÃO EXATA, num motor que faz
+clone por continuação. Motores (`bash estudio/instalar.sh --voz`): `omnivoice` (k2-fsa, Apache-2.0,
+24 kHz), `voxcpm` (VoxCPM2, Apache-2.0, 48 kHz, português) e `chatterbox` (MIT, sem transcrição).
+1. Áudio: vídeos só com a voz do autor (pasta do Drive com link aberto enquanto baixa; o YouTube
+   bloqueia daqui). Ficam em `estudio/projetos/` (fora do git).
+2. `ev.py voz preparar <vídeos>` → trechos limpos em `estudio/projetos/voz/amostras/` + `amostras.txt`.
+3. `ev.py voz comparar "frase de teste"` → a mesma frase em cada motor × 2 referências
+   (as referências são retranscritas com o Whisper medium), em `projetos/voz/comparar/*.mp3`.
+   Mande os mp3 para o usuário OUVIR e escolher (você não ouve).
+4. `ev.py voz escolher voxcpm-ref1` → grava `projetos/voz/perfil.json`.
+5. Use em qualquer roteiro: `"voz": "perfil"` (explicativo, blocos, caminho, neon) ou
+   `"vozes": {"libero": "perfil"}` (cartoon); avulso: `ev.py voz falar "texto" --saida x.wav`.
+- Siglas são escritas como se leem (OAB → "Ó A BÊ", STF…) e o texto vai frase a frase.
+- Na CPU é lento (dezenas de segundos por frase); com GPU é rápido. Para ficar ainda mais igual:
+  treino com 15–30 min de áudio (notebook `estudio/voz/treinar_voz_colab.ipynb`, RVC no Colab grátis)
+  ou o clone profissional do ElevenLabs (pago).
+- Só a voz do próprio usuário ou de quem autorizou.
 
 ## Cartoon narrado (`ev.py cartoon`)
 Desenho animado inteiro por código (Remotion): `estudio/motion/src/personagens.tsx` (os 5 personagens, com o

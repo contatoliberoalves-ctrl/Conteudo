@@ -79,4 +79,47 @@ def preparar(args):
 
 
 def main(args):
-    preparar(args)
+    {"preparar": preparar, "comparar": comparar, "escolher": escolher, "falar": falar}[args.acao](args)
+
+
+def comparar(args):
+    """Mesma frase em cada motor e em cada referência candidata, para escolher de ouvido."""
+    import time
+    from . import vozes
+    refs = vozes.melhores_refs(n=args.refs)
+    if not refs:
+        raise SystemExit("rode antes: ev.py voz preparar <vídeos>")
+    pasta = vozes.PASTA / "comparar"
+    pasta.mkdir(parents=True, exist_ok=True)
+    lista = []
+    for motor in args.motores.split(","):
+        for i, (ref, txt, d) in enumerate(refs, 1):
+            nome = pasta / f"{motor}-ref{i}.wav"
+            t0 = time.time()
+            try:
+                vozes.gerar(args.frase, motor, ref, txt, nome)
+            except Exception as e:      # motor não instalado ou falhou: segue com os outros
+                print(f"✗ {motor}: {str(e)[:200]}")
+                break
+            lista.append({"arquivo": str(vozes.mp3(nome)), "motor": motor, "ref": str(ref), "ref_texto": txt})
+            print(f"✓ {nome.stem} ({time.time() - t0:.0f}s)")
+    (pasta / "opcoes.json").write_text(json.dumps(lista, ensure_ascii=False, indent=1))
+    print(f"→ ouça os mp3 em {pasta} e escolha: ev.py voz escolher <motor>-ref<N>")
+
+
+def escolher(args):
+    from . import vozes
+    opcoes = json.loads((vozes.PASTA / "comparar" / "opcoes.json").read_text())
+    op = next((o for o in opcoes if Path(o["arquivo"]).stem == args.opcao), None)
+    if not op:
+        raise SystemExit(f"opção não encontrada. Existem: {[Path(o['arquivo']).stem for o in opcoes]}")
+    perfil = {"nome": args.nome, "motor": op["motor"], "ref": op["ref"], "ref_texto": op["ref_texto"], "parametros": {}}
+    vozes.PERFIL.write_text(json.dumps(perfil, ensure_ascii=False, indent=1))
+    print(f"✓ perfil de voz '{args.nome}': {op['motor']} com {Path(op['ref']).name}. No roteiro: \"voz\": \"perfil\"")
+
+
+def falar(args):
+    from . import vozes
+    texto = Path(args.texto).read_text() if Path(args.texto).exists() else args.texto
+    out = vozes.falar(texto, Path(args.saida))
+    print(f"✓ {out}")

@@ -89,6 +89,12 @@ def sintetizar(texto, voz, mp3, velocidade="+0%"):
     - "pt-BR-AntonioNeural" (edge-tts, grátis)
     - {"elevenlabs": "<voice_id>", "modelo": "eleven_multilingual_v2"} (precisa de ELEVENLABS_API_KEY)
     - {"clonar": "estudio/projetos/voz/referencia-curta.wav"} (Chatterbox, local)"""
+    if voz == "perfil" or (isinstance(voz, dict) and voz.get("perfil")):
+        from .vozes import falar
+        wav = Path(mp3).with_suffix(".wav")
+        falar(texto, wav)
+        rodar(["ffmpeg", "-y", "-v", "error", "-i", wav, mp3])
+        return whisper_palavras(mp3)
     if isinstance(voz, dict) and voz.get("elevenlabs"):
         elevenlabs(texto, voz["elevenlabs"], mp3, voz.get("modelo", "eleven_multilingual_v2"))
         return whisper_palavras(mp3)

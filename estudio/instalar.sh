@@ -80,7 +80,8 @@ if [ $VOZ = 1 ]; then
     command -v nvidia-smi >/dev/null || pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu 2>&1 | grep -v -i warning || true
     pip install -q chatterbox-tts 2>&1 | grep -v -i warning || true
   fi
-  ok "Chatterbox (clonagem de voz)"
+  python3 -c "import omnivoice, voxcpm" 2>/dev/null || pip install -q omnivoice voxcpm 2>&1 | grep -v -i warning || true
+  ok "estúdio de voz: OmniVoice, VoxCPM2 e Chatterbox (Apache-2.0/MIT)"
 fi
 
 echo "Pronto. Comece com: python3 estudio/ev.py transcrever <pasta-dos-videos>"

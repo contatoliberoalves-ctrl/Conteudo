@@ -115,24 +115,25 @@ def main():
     a.add_argument("--sem-legenda", action="store_true")
     a.add_argument("--saida")
 
-    a = s.add_parser("voz", help="prepara a sua voz para clonagem")
-    a.add_argument("acao", choices=["preparar"])
-    a.add_argument("videos", nargs="+")
-    a.add_argument("--saida")
-    a.add_argument("--modelo")
-    a.add_argument("--max-min", type=float, default=10)
-    a.add_argument("--treino", action="store_true", help="pacote para treinar um clone (aceita mais trechos)")
-    a.add_argument("--conf", type=float, default=0.7, help="confiança média mínima da transcrição")
-
-    for nome, ajuda in [("blocos", "mapa do Brasil em blocos, capítulo por capítulo"),
-                        ("caminho", "processo em estações ligadas por um fio de luz"),
-                        ("neon", "promo escura estilo Apple + synthwave, cartões de vidro"),
-                        ("aura", "edit cinematográfico 'aura' com personagem")]:
-        a = s.add_parser(nome, help=ajuda)
-        a.add_argument("roteiro")
-        a.add_argument("--formato", choices=["reels", "feed", "quadrado", "youtube"])
-        a.add_argument("--rascunho", action="store_true")
-        a.add_argument("--saida")
+    a = s.add_parser("voz", help="estúdio de voz: preparar, comparar motores, escolher perfil, falar")
+    sv = a.add_subparsers(dest="acao", required=True)
+    b = sv.add_parser("preparar")
+    b.add_argument("videos", nargs="+")
+    b.add_argument("--saida")
+    b.add_argument("--modelo")
+    b.add_argument("--max-min", type=float, default=10)
+    b.add_argument("--treino", action="store_true", help="pacote para treinar um clone (aceita mais trechos)")
+    b.add_argument("--conf", type=float, default=0.7, help="confiança média mínima da transcrição")
+    b = sv.add_parser("comparar")
+    b.add_argument("frase")
+    b.add_argument("--motores", default="omnivoice,voxcpm,chatterbox")
+    b.add_argument("--refs", type=int, default=2)
+    b = sv.add_parser("escolher")
+    b.add_argument("opcao", help="ex.: voxcpm-ref1")
+    b.add_argument("--nome", default="libero")
+    b = sv.add_parser("falar")
+    b.add_argument("texto")
+    b.add_argument("--saida", default="fala.wav")
 
     a = s.add_parser("texto")
     a.add_argument("edl")
