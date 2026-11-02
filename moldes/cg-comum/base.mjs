@@ -4,11 +4,13 @@
 // (cada slide é um <section>; elementos com data-fit encolhem a fonte até caber).
 
 export const W = 1080, H = 1350;
-export const COR = { base: '#1c1f1e', verde: '#3b4c49', cartao: '#2f3d3a', claro: '#9be0a3', medio: '#3f9a4d', gelo: '#f6f7f6', texto: '#1f2a28', cinza: '#5e6b66' };
-export const TITULO = "font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em";
+import { CG, DEGRADE } from './identidade.mjs';
+// Cores da identidade única (identidade.mjs).
+export const COR = { base: CG.escuro, verde: CG.verde, cartao: CG.escuro2, claro: CG.claro, medio: CG.verde, gelo: CG.papel, texto: CG.tinta, cinza: CG.cinza };
+export const TITULO = "font-family:'Antonio',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.005em";
 export const TEXTO = "font-family:'Poppins','Noto Color Emoji',sans-serif";
 export const PERFIL = '@constitucionalgabaritado';
-export const FONTES = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap';
+export const FONTES = 'https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap';
 // Imagem SVG embutida com aspas simples e tudo codificado (aspas duplas quebrariam o atributo style).
 const svgUrl = svg => `url('data:image/svg+xml,${encodeURIComponent(svg).replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29')}')`;
 const RUIDO = svgUrl("<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .35 0'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>");
@@ -17,9 +19,9 @@ const COLMEIA = cor => svgUrl(`<svg xmlns='http://www.w3.org/2000/svg' width='18
 
 // Fundos: "verde" (escuro com colmeia), "base" (quase preto), "gelo" (claro).
 export const TEMAS = {
-  verde: { bg: `${COLMEIA('rgba(155,224,163,.09)')} 0 0/180px 312px, radial-gradient(110% 80% at 80% 0%,#4a5e5a 0%,${COR.verde} 45%,#26302e 100%)`, tit: '#fff', txt: '#E3EBE7', destaque: COR.claro, kicker: COR.claro, cartao: 'rgba(28,31,30,.45)', borda: 'rgba(155,224,163,.22)', linha: 'rgba(255,255,255,.18)', escuro: true },
-  base: { bg: `${COLMEIA('rgba(155,224,163,.06)')} 0 0/180px 312px, ${COR.base}`, tit: '#fff', txt: '#DDE5E1', destaque: COR.claro, kicker: COR.claro, cartao: COR.cartao, borda: 'rgba(155,224,163,.2)', linha: 'rgba(255,255,255,.16)', escuro: true },
-  gelo: { bg: `${COLMEIA('rgba(59,76,73,.07)')} 0 0/180px 312px, ${COR.gelo}`, tit: COR.texto, txt: COR.texto, destaque: COR.medio, kicker: COR.medio, cartao: '#fff', borda: '#D9E3DE', linha: '#D9E3DE', escuro: false },
+  verde: { bg: `${COLMEIA('rgba(111,211,155,.08)')} 0 0/180px 312px, ${DEGRADE}`, tit: '#fff', txt: '#E3EBE7', destaque: COR.claro, kicker: COR.claro, cartao: 'rgba(28,31,30,.45)', borda: 'rgba(111,211,155,.22)', linha: 'rgba(255,255,255,.18)', escuro: true },
+  base: { bg: `${COLMEIA('rgba(111,211,155,.06)')} 0 0/180px 312px, ${COR.base}`, tit: '#fff', txt: '#DDE5E1', destaque: COR.claro, kicker: COR.claro, cartao: COR.cartao, borda: 'rgba(111,211,155,.2)', linha: 'rgba(255,255,255,.16)', escuro: true },
+  gelo: { bg: `${COLMEIA('rgba(31,138,85,.07)')} 0 0/180px 312px, #FFFFFF`, tit: COR.texto, txt: COR.texto, destaque: COR.medio, kicker: COR.medio, cartao: '#fff', borda: '#D9E3DE', linha: '#D9E3DE', escuro: false },
 };
 
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -34,7 +36,7 @@ export const textura = t => `<div style="position:absolute;inset:0;pointer-event
 export const kicker = (txt, t) => txt ? `<div style="${TEXTO};font-size:26px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${t.kicker}">${esc(txt)}</div>` : '';
 export const tit = (s, t, px, alt, extra = '') => lista(s.titulo).length ? `<div data-fit="${esc(lista(s.titulo).join(' '))}" data-min="56" style="${TITULO};font-size:${s.ts || px}px;line-height:.92;padding-top:.14em;color:${t.tit};max-height:${alt}px;overflow:hidden${extra}">${linhas(s.titulo, t)}</div>` : '';
 export const par = (v, t) => lista(v).map(p => `<p style="margin:0 0 .6em;${TEXTO};font-weight:400;line-height:1.38;color:${t.txt}">${rico(p, t)}</p>`).join('');
-export const artigo = (a, t) => a ? `<span style="align-self:flex-start;${TEXTO};font-size:24px;font-weight:700;letter-spacing:.04em;color:${t.escuro ? COR.base : '#fff'};background:${t.escuro ? COR.claro : COR.verde};border-radius:999px;padding:8px 20px">${esc(a)}</span>` : '';
+export const artigo = (a, t) => a ? `<span style="align-self:flex-start;${TEXTO};font-size:24px;font-weight:700;letter-spacing:.04em;color:${t.escuro ? COR.base : '#fff'};background:${t.escuro ? COR.claro : COR.verde};padding:8px 20px">${esc(a)}</span>` : '';
 export const barra = t => `<span style="display:block;width:90px;height:8px;background:${t.destaque}"></span>`;
 // Rodapé: @ centralizado, como nos posts do perfil.
 export const rodape = (t, alto = 56) => `<div style="position:absolute;left:0;right:0;bottom:${alto}px;text-align:center;${TEXTO};font-size:24px;font-weight:500;letter-spacing:.06em;color:${t.escuro ? 'rgba(255,255,255,.75)' : COR.cinza};z-index:30">@CONSTITUCIONAL<b style="font-weight:700">GABARITADO</b></div>`;
@@ -49,7 +51,7 @@ export const COMUNS = {
   },
   // Número ou palavra gigante ("2 anos", "90 dias") com a explicação.
   destaque(s, t) {
-    return area(`${kicker(s.kicker, t)}<div data-fit="${esc(s.grande)}" data-min="90" style="${TITULO};font-size:${s.tg || 300}px;line-height:.82;color:${t.destaque};max-height:330px;overflow:hidden;white-space:nowrap">${esc(s.grande)}</div>${tit(s, t, 96, 220)}<div data-fit="texto" data-min="28" style="font-size:${s.corpo || 38}px;max-height:420px;overflow:hidden">${par(s.texto, t)}</div>${artigo(s.artigo, t)}`) + rodape(t);
+    return area(`${kicker(s.kicker, t)}<div data-fit="${esc(s.grande)}" data-min="90" style="${TITULO};font-size:${s.tg || 280}px;line-height:1;padding-top:.04em;color:${t.destaque};max-height:340px;overflow:hidden;white-space:nowrap">${esc(s.grande)}</div>${tit(s, t, 96, 220)}<div data-fit="texto" data-min="28" style="font-size:${s.corpo || 38}px;max-height:420px;overflow:hidden">${par(s.texto, t)}</div>${artigo(s.artigo, t)}`) + rodape(t);
   },
   // Lei literal num quadro com barra verde e a tradução embaixo.
   lei(s, t) {
@@ -73,7 +75,7 @@ export const COMUNS = {
   // CTA: título, texto e botão.
   cta(s, t) {
     return area(`${kicker(s.kicker, t)}${tit(s, t, 130, 380)}${barra(t)}<div style="font-size:40px">${par(s.texto, t)}</div>
-      ${s.botao ? `<span style="align-self:flex-start;background:${t.escuro ? COR.claro : COR.verde};color:${t.escuro ? COR.base : '#fff'};${TEXTO};font-size:36px;font-weight:700;border-radius:44px 44px 44px 0;padding:22px 40px">${esc(s.botao)}</span>` : ''}`) + rodape(t);
+      ${s.botao ? `<span style="align-self:flex-start;background:${t.escuro ? COR.claro : COR.verde};color:${t.escuro ? COR.base : '#fff'};${TEXTO};font-size:36px;font-weight:700;padding:22px 40px">${esc(s.botao)}</span>` : ''}`) + rodape(t);
   },
 };
 

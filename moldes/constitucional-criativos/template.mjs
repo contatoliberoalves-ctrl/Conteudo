@@ -4,16 +4,18 @@
 // story nativo, nota do iPhone, tweet, oferta com "Saiba mais" e lista de benefícios com preço.
 // Fotos do autor (1080×1350) vêm de fotos/ ou de ../carrossel-explicativo/fotos (fora do git).
 
-const COR = { base: '#1c1f1e', verde: '#3b4c49', cartao: '#2f3d3a', claro: '#9be0a3', medio: '#3f9a4d', gelo: '#f6f7f6', texto: '#1f2a28' };
+import { CG, DEGRADE } from '../cg-comum/identidade.mjs';
+// Identidade única do @constitucionalgabaritado (cg-comum/identidade.mjs).
+const COR = { base: CG.escuro, verde: CG.verde, cartao: CG.escuro2, claro: CG.claro, medio: CG.verde, gelo: CG.papel, texto: CG.tinta };
 const W = 1080;
 const ALTURA = { feed: 1350, story: 1920 };
-const TITULO = "font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em";
+const TITULO = "font-family:'Antonio',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.005em";
 const TEXTO = "font-family:'Poppins','Noto Color Emoji',sans-serif";
 const IOS = "font-family:'Inter','Noto Color Emoji',sans-serif";
 const PERFIL = '@constitucionalgabaritado';
 const RUIDO = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
-const ESCURO = `radial-gradient(90% 55% at 50% 28%,${COR.verde} 0%,#26302e 55%,#141716 100%)`;
-const GRADE = `linear-gradient(rgba(155,224,163,.07) 2px,transparent 2px) 0 0/54px 54px,linear-gradient(90deg,rgba(155,224,163,.07) 2px,transparent 2px) 0 0/54px 54px`;
+const ESCURO = DEGRADE;
+const GRADE = `linear-gradient(rgba(111,211,155,.07) 2px,transparent 2px) 0 0/54px 54px,linear-gradient(90deg,rgba(111,211,155,.07) 2px,transparent 2px) 0 0/54px 54px`;
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
@@ -27,7 +29,7 @@ const fotoTopo = (p, c, H, ate = .55) => {
   const src = foto(c, p.foto);
   if (!src) return `<div style="position:absolute;left:0;right:0;top:0;height:1350px;display:flex;align-items:center;justify-content:center;color:${COR.claro};${TEXTO};font-size:28px">foto em fotos/${esc(p.foto || '')}</div>`;
   return `<img src="${src}" style="position:absolute;left:0;top:${p.fotoY ?? 0}px;width:1080px;height:1350px;object-fit:cover;transform:scale(${p.fotoEscala || 1});transform-origin:50% 20%;filter:saturate(.92)">
-    <div style="position:absolute;left:0;right:0;top:0;height:${H}px;background:linear-gradient(180deg,rgba(20,23,22,0) ${Math.round(ate * 100 - 25)}%,rgba(20,23,22,.86) ${Math.round(ate * 100)}%,#141716 ${Math.min(100, Math.round(ate * 100 + 18))}%);z-index:1"></div>`;
+    <div style="position:absolute;left:0;right:0;top:0;height:${H}px;background:linear-gradient(180deg,rgba(11,38,25,0) ${Math.round(ate * 100 - 25)}%,rgba(11,38,25,.86) ${Math.round(ate * 100)}%,#0B2619 ${Math.min(100, Math.round(ate * 100 + 18))}%);z-index:1"></div>`;
 };
 const marca = (cor = '#fff') => `<div style="display:flex;align-items:center;gap:16px">
     <span style="width:78px;height:78px;border-radius:20px;background:linear-gradient(150deg,${COR.claro},${COR.medio});display:flex;align-items:center;justify-content:center;${TITULO};font-size:46px;color:${COR.base}">CG</span>
@@ -39,19 +41,19 @@ const LAYOUTS = {
   // degradê verde, acento manuscrito e linha de apoio.
   manchete(p, c, H, story) {
     const t = lista(p.linhas);
-    return `<div style="position:absolute;inset:0;background:#141716"></div>${fotoTopo(p, c, H, story ? .62 : .55)}
+    return `<div style="position:absolute;inset:0;background:#0B2619"></div>${fotoTopo(p, c, H, story ? .62 : .55)}
       <div data-area style="position:absolute;left:60px;right:60px;bottom:${story ? 330 : 110}px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:4">
-        ${t.map((l, i) => i === p.destaque ? `<div style="${TITULO};font-size:${p.td || 190}px;line-height:.86;background:linear-gradient(180deg,#d6f8d9,${COR.claro} 50%,${COR.medio});-webkit-background-clip:text;background-clip:text;color:transparent">${esc(l)}</div>`
+        ${t.map((l, i) => i === p.destaque ? `<div style="${TITULO};font-size:${p.td || 190}px;line-height:.86;background:linear-gradient(180deg,#E6F7EC,${COR.claro} 50%,${COR.medio});-webkit-background-clip:text;background-clip:text;color:transparent">${esc(l)}</div>`
           : `<div style="${TITULO};font-size:${p.ts || 104}px;line-height:.92;color:#fff">${esc(l)}</div>`).join('')}
         ${p.acento ? `<div style="align-self:flex-end;margin:-4px 30px 0 0;font-family:'Caveat',cursive;font-weight:700;font-size:66px;line-height:1;color:#fff;transform:rotate(-6deg)">${esc(p.acento)}</div>` : ''}
-        ${p.sub ? `<div style="${TEXTO};font-size:34px;font-weight:500;line-height:1.3;color:#DDE7E2;margin-top:18px;max-width:880px">${rico(p.sub, COR.claro)}</div>` : ''}
-      </div>${p.semArroba ? '' : arroba('rgba(155,224,163,.85)', story ? 230 : 44)}${textura()}`;
+        ${p.sub ? `<div style="${TEXTO};font-size:34px;font-weight:500;line-height:1.3;color:#DCEFE3;margin-top:18px;max-width:880px">${rico(p.sub, COR.claro)}</div>` : ''}
+      </div>${p.semArroba ? '' : arroba('rgba(111,211,155,.85)', story ? 230 : 44)}${textura()}`;
   },
   // Ref. "Rápido antes que saia do ar": etiquetas do texto nativo do story (máquina de escrever), brancas e a
   // última em verde, sobre a foto.
   etiquetas(p, c, H, story) {
     const src = foto(c, p.foto);
-    const fundo = src ? `<img src="${src}" style="position:absolute;left:0;top:0;width:1080px;height:${H}px;object-fit:cover;object-position:${esc(p.fotoPos || 'center top')}"><div style="position:absolute;inset:0;background:rgba(20,23,22,.28)"></div>` : `<div style="position:absolute;inset:0;background:${ESCURO}"></div>`;
+    const fundo = src ? `<img src="${src}" style="position:absolute;left:0;top:0;width:1080px;height:${H}px;object-fit:cover;object-position:${esc(p.fotoPos || 'center top')}"><div style="position:absolute;inset:0;background:rgba(11,38,25,.28)"></div>` : `<div style="position:absolute;inset:0;background:${ESCURO}"></div>`;
     const blocos = lista(p.etiquetas).map((b, i, arr) => {
       const ultimo = i === arr.length - 1;
       return `<div style="display:flex;flex-direction:column;align-items:center">${lista(b).map(l => `<span style="display:inline-block;background:${ultimo ? COR.medio : '#fff'};color:${ultimo ? '#fff' : '#000'};font-family:'Courier Prime','Noto Color Emoji',monospace;font-weight:700;font-size:${p.tl || 44}px;line-height:1.18;padding:4px 16px;border-radius:6px;text-align:center">${esc(l)}</span>`).join('')}</div>`;
@@ -114,7 +116,7 @@ const LAYOUTS = {
         ${marca()}
         <div style="${TITULO};font-size:${p.ts || (story ? 190 : 170)}px;line-height:.86;color:#fff;margin-top:12px">${lista(p.linhas).map(l => rico(l, COR.claro)).join('<br>')}</div>
         ${p.caixa ? `<div style="border:4px solid ${COR.claro};border-radius:14px;padding:8px 20px 4px;${TITULO};font-size:${story ? 66 : 58}px;line-height:1;color:${COR.claro}">${rico(p.caixa, '#fff')}</div>` : ''}
-        ${p.sub ? `<div style="${TEXTO};font-size:30px;font-style:italic;font-weight:500;color:#DDE7E2">${esc(p.sub)}</div>` : ''}
+        ${p.sub ? `<div style="${TEXTO};font-size:30px;font-style:italic;font-weight:500;color:#DCEFE3">${esc(p.sub)}</div>` : ''}
         ${p.prova ? `<div style="${TITULO};font-size:${story ? 60 : 50}px;line-height:1;color:#fff;margin-top:${story ? 30 : 12}px">${lista(p.prova).map(l => rico(l, COR.claro)).join('<br>')}</div>` : ''}
       </div>
       <div style="position:absolute;left:${story ? 120 : 70}px;right:${story ? 120 : 70}px;bottom:0;height:${painel}px;background:linear-gradient(160deg,${COR.claro},${COR.medio});border-radius:40px 40px 0 0;padding:${story ? 60 : 44}px 56px;z-index:5;${TEXTO};font-size:${story ? 46 : 40}px;font-weight:700;line-height:1.2;color:${COR.base};text-align:center">${rico(p.acao || 'Toque em “Saiba mais” e garanta sua vaga.', '#fff')}</div>
@@ -128,11 +130,11 @@ const LAYOUTS = {
         ${marca()}
         ${p.kicker ? `<div style="${TEXTO};font-size:26px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${COR.claro};margin-top:${story ? 30 : 18}px">${esc(p.kicker)}</div>` : ''}
         <div style="${TITULO};font-size:${p.ts || (story ? 170 : 150)}px;line-height:.86;color:#fff">${lista(p.linhas).map(l => rico(l, COR.claro)).join('<br>')}</div>
-        ${p.sub ? `<div style="${TEXTO};font-size:${story ? 34 : 30}px;font-weight:500;line-height:1.3;color:#DDE7E2">${rico(p.sub, COR.claro)}</div>` : ''}
+        ${p.sub ? `<div style="${TEXTO};font-size:${story ? 34 : 30}px;font-weight:500;line-height:1.3;color:#DCEFE3">${rico(p.sub, COR.claro)}</div>` : ''}
         <div style="flex:1 1 0;min-height:0;position:relative;margin:0 -40px">${src ? `<img src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain">` : ''}</div>
         <div style="flex:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:14px">
-          <div>${p.precoDe ? `<div style="${TEXTO};font-size:26px;font-weight:600;color:#DDE7E2">${rico(p.precoDe, COR.claro)}</div>` : ''}
-            <div style="${TITULO};font-size:${story ? 120 : 104}px;line-height:1;color:${COR.claro}">${rico(p.preco || '', '#fff')}</div></div>
+          <div>${p.precoDe ? `<div style="${TEXTO};font-size:26px;font-weight:600;color:#DCEFE3">${rico(p.precoDe, COR.claro)}</div>` : ''}
+            <div style="${TITULO};font-size:${story ? 110 : 100}px;line-height:1.05;white-space:nowrap;color:${COR.claro}">${rico(p.preco || '', '#fff')}</div></div>
           <span style="background:${COR.claro};color:${COR.base};${TEXTO};font-size:${story ? 36 : 32}px;font-weight:800;border-radius:44px 44px 44px 0;padding:20px 36px;white-space:nowrap">${esc(p.botao || 'Quero o meu')}</span>
         </div>
       </div>${textura(.3)}`;
@@ -141,18 +143,18 @@ const LAYOUTS = {
   lista(p, c, H, story) {
     const src = foto(c, p.foto);
     const itens = lista(p.itens);
-    return `<div style="position:absolute;inset:0;background:#141716"></div><div style="position:absolute;inset:0;background:${GRADE}"></div>
+    return `<div style="position:absolute;inset:0;background:#0B2619"></div><div style="position:absolute;inset:0;background:${GRADE}"></div>
       ${src ? `<img src="${src}" style="position:absolute;right:${story ? -170 : -60}px;top:${story ? 250 : 0}px;width:${story ? 640 : 560}px;height:${story ? 800 : 700}px;object-fit:cover;z-index:1;-webkit-mask-image:linear-gradient(270deg,#000 35%,transparent 80%),linear-gradient(180deg,#000 50%,transparent 88%);-webkit-mask-composite:source-in;mask-composite:intersect">` : ''}
       <div data-area style="position:absolute;left:70px;right:70px;top:${story ? 290 : 80}px;bottom:${story ? 340 : 70}px;display:flex;flex-direction:column;gap:${story ? 24 : 16}px;z-index:4">
         <div style="${TEXTO};font-size:26px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:${COR.claro}">${esc(p.kicker || 'Vagas abertas')}</div>
         <div style="${TITULO};font-size:${p.ts || (story ? 150 : 128)}px;line-height:.86;color:#fff">${lista(p.linhas).map(l => rico(l, COR.claro)).join('<br>')}</div>
         <div style="display:flex;flex-direction:column;gap:${story ? 14 : 8}px;margin-top:${story ? 30 : 10}px;max-width:${src && !story ? 660 : 940}px">
-          ${itens.map(it => `<div style="display:flex;gap:16px;align-items:center;background:rgba(47,61,58,.82);border:1px solid rgba(155,224,163,.18);border-radius:16px;padding:${story ? '16px 22px' : '10px 18px'}">
+          ${itens.map(it => `<div style="display:flex;gap:16px;align-items:center;background:rgba(47,61,58,.82);border:1px solid rgba(111,211,155,.18);border-radius:16px;padding:${story ? '16px 22px' : '10px 18px'}">
             <span style="flex:none;width:${story ? 40 : 34}px;height:${story ? 40 : 34}px;border-radius:10px;background:${COR.medio};color:#fff;display:flex;align-items:center;justify-content:center;font-size:${story ? 26 : 22}px;font-weight:800">✓</span>
             <span style="${TEXTO};font-size:${p.ti || (story ? 32 : 28)}px;font-weight:500;line-height:1.2;color:#fff">${rico(it, COR.claro)}</span></div>`).join('')}
         </div>
         <div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:20px">
-          ${p.preco ? `<div style="${TITULO};font-size:${story ? 72 : 60}px;line-height:1;color:#fff">${rico(p.preco, COR.claro)}</div>` : ''}
+          ${p.preco ? `<div style="${TITULO};font-size:${story ? 60 : 56}px;line-height:1;white-space:nowrap;color:#fff">${rico(p.preco, COR.claro)}</div>` : ''}
           <span style="background:${COR.claro};color:${COR.base};${TEXTO};font-size:${story ? 34 : 30}px;font-weight:800;border-radius:44px 44px 44px 0;padding:18px 34px;white-space:nowrap">${esc(p.botao || 'Quero minha vaga')}</span>
         </div>
       </div>${textura(.3)}`;
@@ -163,7 +165,7 @@ const LAYOUTS = {
 // resposta (NÃO, SIM, CALMA…) gigante com a explicação. Campos: pergunta, selo, resposta, foto (recorte PNG),
 // lado ("esquerda" | "direita", onde fica a foto), fundo ("escuro" | "verde" | "gelo" | "medio"), tp (px da pergunta).
 const FUNDOS_DUVIDA = {
-  escuro: { bg: `${GRADE},${ESCURO}`, balao: '#fff', tBalao: COR.base, selo: COR.claro, txt: '#E6EEEA', chip: COR.claro, tChip: COR.base, arroba: 'rgba(155,224,163,.85)' },
+  escuro: { bg: `${GRADE},${ESCURO}`, balao: '#fff', tBalao: COR.base, selo: COR.claro, txt: '#E6EEEA', chip: COR.claro, tChip: COR.base, arroba: 'rgba(111,211,155,.85)' },
   verde: { bg: `linear-gradient(160deg,#b4ecba 0%,${COR.claro} 60%,#7fd08a 100%)`, balao: COR.base, tBalao: '#fff', selo: COR.base, txt: COR.texto, chip: COR.base, tChip: COR.claro, arroba: 'rgba(28,31,30,.7)' },
   gelo: { bg: `radial-gradient(rgba(59,76,73,.10) 2px,transparent 2px) 0 0/30px 30px,${COR.gelo}`, balao: COR.verde, tBalao: '#fff', selo: COR.medio, txt: COR.texto, chip: COR.medio, tChip: '#fff', arroba: 'rgba(59,76,73,.75)' },
   medio: { bg: `linear-gradient(165deg,${COR.medio} 0%,${COR.verde} 100%)`, balao: '#fff', tBalao: COR.base, selo: '#fff', txt: '#EAF5EC', chip: '#fff', tChip: COR.verde, arroba: 'rgba(255,255,255,.8)' },
@@ -204,17 +206,17 @@ LAYOUTS.duvidaSimples = (p, c, H, story) => {
         <div style="${TEXTO};font-size:22px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${COR.medio};border-bottom:2px solid #e2e6e3;padding-bottom:14px;margin-bottom:22px">${esc(p.rotuloDoc || 'Resposta do professor')}</div>
         <div style="${TEXTO};font-size:${p.tr || 40}px;font-weight:600;line-height:1.35;color:${COR.texto}">${rico(p.resposta, COR.medio)}</div>
         <div style="position:absolute;right:30px;top:-70px;transform:rotate(9deg);border:8px solid #d64545;color:#d64545;${TITULO};font-size:${p.ts || 74}px;line-height:1;padding:12px 24px 4px;border-radius:12px;background:rgba(251,250,246,.95)">${esc(p.selo)}</div>
-      </div>${assinatura('rgba(155,224,163,.85)')}${textura(.22)}`;
+      </div>${assinatura('rgba(111,211,155,.85)')}${textura(.22)}`;
   }
   if (tipo === 'noturno') {
     return `<div style="position:absolute;inset:0;background:#171a19"></div>
-      <div style="position:absolute;inset:34px;border:2px solid rgba(155,224,163,.45);border-radius:6px"></div>${marca('rgba(155,224,163,.08)')}
+      <div style="position:absolute;inset:34px;border:2px solid rgba(111,211,155,.45);border-radius:6px"></div>${marca('rgba(111,211,155,.08)')}
       <div data-area style="position:absolute;left:96px;right:96px;top:${topo + 30}px;bottom:${story ? 360 : 140}px;display:flex;flex-direction:column;gap:34px;z-index:4">${chip(COR.claro, COR.base)}
         <div style="${TITULO};font-size:${p.tp || 112}px;line-height:.95;color:#fff">${marcaTxt(COR.base, COR.claro)}</div>
         <div style="width:110px;height:8px;background:${COR.claro};border-radius:4px"></div>
         <div style="margin-top:auto"><div style="${TITULO};font-size:${p.ts || 190}px;line-height:.82;color:${COR.claro}">${esc(p.selo)}</div>
         <div style="${TEXTO};font-size:${p.tr || 42}px;font-weight:600;line-height:1.3;color:#E6EEEA;margin-top:18px">${rico(p.resposta, COR.claro)}</div></div>
-      </div>${assinatura('rgba(155,224,163,.8)')}${textura(.25)}`;
+      </div>${assinatura('rgba(111,211,155,.8)')}${textura(.25)}`;
   }
   // caderno
   return `<div style="position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 62px,rgba(59,76,73,.16) 62px 64px),${COR.gelo}"></div>
@@ -234,7 +236,7 @@ export function renderCriativo(c) {
   if (!LAYOUTS[c.layout]) avisos.push(`layout "${c.layout}" não existe (${Object.keys(LAYOUTS).join(', ')})`);
   const corpo = (LAYOUTS[c.layout] || LAYOUTS.manchete)(c, c, H, story);
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;700;800&family=Caveat:wght@700&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@600;700&family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;700;800&family=Caveat:wght@700&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0}</style></head><body>
 <div id="slide-1" style="position:relative;width:${W}px;height:${H}px;overflow:hidden">${corpo}</div></body></html>`;
   return { html, largura: W, altura: H, avisos };

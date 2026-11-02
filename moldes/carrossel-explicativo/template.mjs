@@ -4,11 +4,13 @@
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 
+import { CG, DEGRADE, FONTES_CG, TIT_CG } from '../cg-comum/identidade.mjs';
+// Identidade única do @constitucionalgabaritado (cg-comum/identidade.mjs).
 const COR = {
-  verde: '#3b4c49', cartao: '#2f3d3a', base: '#1c1f1e', gelo: '#f6f7f6',
-  texto: '#1f2a28', claro: '#9be0a3', medio: '#3f9a4d',
+  verde: CG.verde, cartao: CG.escuro2, base: CG.escuro, gelo: CG.branco,
+  texto: CG.tinta, claro: CG.claro, medio: CG.verde,
 };
-const bebas = `font-family:'Bebas Neue',sans-serif;font-weight:400`;
+const bebas = TIT_CG;
 const HANDLE = '@CONSTITUCIONALGABARITADO';
 // Ritmo de fundos dos slides de conteúdo: 2 claros, 2 verdes, 1 claro.
 const RITMO = ['claro', 'claro', 'verde', 'verde', 'claro'];
@@ -19,7 +21,7 @@ const rico = (s, corNegrito) => esc(s).replace(/\*\*(.+?)\*\*/g, `<b style="font
 // Tamanho de fonte Bebas para caber na largura útil (888px), dentro de [min, max].
 const caber = (linhas, max, min, largura = 888) => {
   const n = Math.max(...linhas.map(l => l.length), 1);
-  return Math.max(min, Math.min(max, Math.floor(largura / (n * 0.42))));
+  return Math.max(min, Math.min(max, Math.floor(largura / (n * 0.46))));
 };
 
 function handle(cor, posicao) {
@@ -69,13 +71,13 @@ function capaA(c) {
   const apoio = lista(c.apoio);
   return `
   ${caixaFoto(c, 0, 0, 1080, 1350)}
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,31,30,0) 45%,rgba(28,31,30,.85) 68%,${COR.base} 82%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,38,25,0) 42%,rgba(11,38,25,.85) 66%,${COR.base} 82%)"></div>
   ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
   <div data-bloco data-rosto style="position:absolute;left:96px;right:96px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
-    ${c.etiqueta ? `<span style="background:#fff;color:${COR.verde};padding:12px 24px;border-radius:999px;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
+    ${c.etiqueta ? `<span style="background:#fff;color:${COR.base};padding:12px 22px;font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-left:8px solid ${COR.claro}">${esc(c.etiqueta)}</span>` : ''}
     ${apoio.length ? `<div style="${bebas};font-size:${caber(apoio, 112, 90)}px;line-height:.9;color:#fff;margin-top:6px;text-shadow:0 2px 18px rgba(20,22,21,.55)">${apoio.map(esc).join('<br>')}</div>` : ''}
     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:4px">
-      ${destaque.map(l => `<span style="display:inline-block;${bebas};font-size:${tam}px;line-height:.9;color:${COR.base};background:${COR.claro};padding:16px 26px 0;border-radius:10px;transform:rotate(-2deg)">${esc(l)}</span>`).join('')}
+      ${destaque.map(l => `<span style="display:inline-block;${bebas};font-size:${tam}px;line-height:.9;color:${COR.base};background:${COR.claro};padding:14px 24px 6px">${esc(l)}</span>`).join('')}
     </div>
     ${c.subtitulo ? `<div style="display:flex;flex-direction:column;gap:18px;margin-top:10px"><span style="width:96px;height:6px;background:${COR.claro}"></span><span style="font-size:52px;font-weight:500;line-height:1.2;color:#fff;text-wrap:pretty;text-shadow:0 2px 14px rgba(20,22,21,.55)">${esc(c.subtitulo)}</span></div>` : ''}
   </div>
@@ -91,7 +93,7 @@ function capaB(c) {
   ${caixaFoto(c, 0, 0, 1080, 800)}
   <div style="position:absolute;left:0;right:0;top:800px;height:14px;background:${COR.claro}"></div>
   ${c.elemento ? `<div style="position:absolute;top:120px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
-  ${c.etiqueta ? `<span style="position:absolute;left:96px;top:780px;background:${COR.verde};color:#fff;padding:14px 26px;border-radius:999px;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
+  ${c.etiqueta ? `<span style="position:absolute;left:96px;top:780px;background:${COR.base};color:#fff;padding:14px 26px;border-left:8px solid ${COR.claro};font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
   <div data-bloco style="position:absolute;left:96px;right:96px;top:870px;bottom:120px;display:flex;flex-direction:column;justify-content:center;gap:14px">
     ${apoio ? `<div style="font-size:34px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:${COR.medio}">${esc(apoio)}</div>` : ''}
     <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:${COR.verde}">${d.map(esc).join('<br>')}</div>
@@ -106,7 +108,7 @@ function capaC(c) {
   const tam = tamanho(d, 180, 90, 860, 330 - (apoio ? 60 : 0) - (c.subtitulo ? 60 : 0));
   const x = 150, y = 110, w = 780, h = 720, o = 26;
   return `
-  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(59,76,73,.14) 2px,transparent 2.6px);background-size:30px 30px"></div>
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(31,138,85,.16) 2px,transparent 2.6px);background-size:30px 30px"></div>
   <div style="position:absolute;left:${x + w}px;top:${y + o}px;width:${o}px;height:${h}px;background:${COR.claro}"></div>
   <div style="position:absolute;left:${x + o}px;top:${y + h}px;width:${w}px;height:${o}px;background:${COR.claro}"></div>
   ${caixaFoto(c, x, y, w, h)}
@@ -119,22 +121,22 @@ function capaC(c) {
   ${handle(COR.verde, 'bottom:50px')}`;
 }
 
-// D · Balão: foto em tela cheia e o título dentro de um balão de fala branco.
+// D · Painel: foto no alto e um painel em degradê (escuro → verde) com o título, de borda reta.
 function capaD(c) {
   const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = caber(d, 180, 96, 824);
+  const tam = tamanho(d, 200, 96, 888, 330 - (apoio ? 56 : 0) - (c.subtitulo ? 60 : 0));
   return `
-  ${caixaFoto(c, 0, 0, 1080, 1350)}
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,31,30,0) 55%,rgba(28,31,30,.55) 100%)"></div>
+  ${caixaFoto(c, 0, 0, 1080, 860, 0.36)}
+  <div style="position:absolute;left:0;right:0;top:800px;bottom:0;background:${DEGRADE}"></div>
+  <div style="position:absolute;left:96px;top:784px;width:180px;height:32px;background:${COR.claro}"></div>
   ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
-  <div data-bloco data-rosto style="position:absolute;left:72px;right:72px;bottom:140px;background:#fff;border-radius:44px;padding:44px 56px 48px;display:flex;flex-direction:column;gap:12px;box-shadow:0 24px 60px rgba(20,26,24,.35)">
-    <span style="position:absolute;top:-38px;right:190px;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:40px solid #fff"></span>
-    ${c.etiqueta ? `<div style="font-size:22px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:${COR.medio}">${esc(c.etiqueta)}</div>` : ''}
-    ${apoio ? `<div style="font-size:40px;font-weight:600;color:${COR.texto}">${esc(apoio)}</div>` : ''}
-    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:${COR.verde}">${d.map(esc).join('<br>')}</div>
-    ${c.subtitulo ? `<div style="font-size:32px;font-weight:500;color:${COR.texto};opacity:.8">${esc(c.subtitulo)}</div>` : ''}
+  <div data-bloco style="position:absolute;left:96px;right:96px;top:850px;bottom:130px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+    ${c.etiqueta ? `<div style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:${COR.claro}">${esc(c.etiqueta)}</div>` : ''}
+    ${apoio ? `<div style="font-size:38px;font-weight:600;color:#fff">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.92;color:#fff">${d.map(esc).join('<br>')}</div>
+    ${c.subtitulo ? `<div style="font-size:32px;font-weight:500;color:${CG.nevoa}">${esc(c.subtitulo)}</div>` : ''}
   </div>
-  ${handle('rgba(255,255,255,.85)', 'bottom:56px')}`;
+  ${handle('rgba(255,255,255,.8)', 'bottom:56px')}`;
 }
 
 // F · Manchete: página de jornal, título em preto e a foto como imagem da matéria.
@@ -144,7 +146,7 @@ function capaF(c) {
   const x = 96, y = 740, w = 888, h = 460;
   return `
   <div style="position:absolute;left:96px;right:96px;top:70px;height:8px;background:${COR.base}"></div>
-  <div style="position:absolute;left:96px;right:96px;top:90px;text-align:center;${bebas};font-size:84px;line-height:1;color:${COR.base}">CONSTITUCIONAL GABARITADO</div>
+  <div style="position:absolute;left:96px;right:96px;top:90px;text-align:center;${bebas};font-size:76px;line-height:1;white-space:nowrap;color:${COR.base}">CONSTITUCIONAL GABARITADO</div>
   <div style="position:absolute;left:96px;right:96px;top:186px;height:2px;background:${COR.base}"></div>
   <div style="position:absolute;left:96px;right:96px;top:196px;display:flex;justify-content:space-between;font-size:22px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:${COR.texto}"><span>${esc(c.etiqueta || '')}</span><span>Direito Constitucional</span></div>
   <div style="position:absolute;left:96px;right:96px;top:238px;height:2px;background:${COR.base}"></div>
@@ -153,7 +155,7 @@ function capaF(c) {
     <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:${COR.base}">${d.map(esc).join('<br>')}</div>
   </div>
   ${caixaFoto(c, x, y, w, h, 0.4)}
-  <div style="position:absolute;left:${x + w - 250}px;top:${y - 40}px;transform:rotate(-8deg);background:${COR.claro};color:${COR.base};${bebas};font-size:54px;line-height:1;padding:14px 26px 8px;border-radius:8px">ENTENDA</div>
+  <div style="position:absolute;left:${x + w - 250}px;top:${y - 40}px;transform:rotate(-8deg);background:${COR.claro};color:${COR.base};${bebas};font-size:54px;line-height:1;padding:12px 26px 8px">ENTENDA</div>
   <div style="position:absolute;left:96px;right:96px;top:${y + h + 16}px;display:flex;justify-content:space-between;font-size:22px;color:${COR.texto}"><i>${esc(c.subtitulo || '')}</i><span style="font-weight:600">${HANDLE}</span></div>`;
 }
 
@@ -168,9 +170,9 @@ function capaG(c) {
     .replace(/\{\{(.+?)\}\}/g, `<span style="font-family:Caveat,cursive;font-weight:700;font-size:1.7em;line-height:.6;color:${COR.medio};margin:0 4px">$1</span>`)
     .replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:700">$1</b>');
   return `
-  <div style="position:absolute;inset:0;background:linear-gradient(rgba(155,224,163,.06) 2px,transparent 2px) 0 0/54px 54px,linear-gradient(90deg,rgba(155,224,163,.06) 2px,transparent 2px) 0 0/54px 54px,radial-gradient(90% 60% at 30% 25%,${COR.verde} 0%,#222927 60%,#141716 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(rgba(111,211,155,.06) 2px,transparent 2px) 0 0/54px 54px,linear-gradient(90deg,rgba(111,211,155,.06) 2px,transparent 2px) 0 0/54px 54px,${DEGRADE}"></div>
   ${c.recorte ? `<img src="../fotos/${esc(c.recorte)}" style="position:absolute;right:-70px;bottom:0;height:${c.recorteH || 800}px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45));z-index:2">` : ''}
-  <div style="position:absolute;left:70px;top:80px;z-index:4">${c.etiqueta ? `<span style="background:${COR.claro};color:${COR.base};font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:10px 22px;border-radius:999px">${esc(c.etiqueta)}</span>` : ''}</div>
+  <div style="position:absolute;left:70px;top:80px;z-index:4">${c.etiqueta ? `<span style="background:${COR.claro};color:${COR.base};font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:10px 22px">${esc(c.etiqueta)}</span>` : ''}</div>
   <div data-bloco style="position:absolute;left:70px;right:70px;top:150px;z-index:4">
     ${apoio ? `<div style="font-size:38px;font-weight:600;color:${COR.claro}">${esc(apoio)}</div>` : ''}
     <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:#fff">${d.map((l, i) => i === d.length - 1 ? `<span style="color:${COR.claro}">${esc(l)}</span>` : esc(l)).join('<br>')}</div>
@@ -181,10 +183,10 @@ function capaG(c) {
     ${[86, 70, 92].map(w => `<div style="height:12px;border-radius:6px;background:#e6e9e7;width:${w}%;margin-top:18px"></div>`).join('')}
   </div>
   ${c.carimbo ? `<div style="position:absolute;left:${c.carimboX ?? 420}px;top:${c.carimboY ?? 980}px;transform:rotate(-12deg);border:8px solid #d64545;color:#d64545;${bebas};font-size:${c.carimboT || 86}px;line-height:1;padding:12px 26px 4px;border-radius:12px;background:rgba(251,250,246,.9);z-index:5">${esc(c.carimbo)}</div>` : ''}
-  <div style="position:absolute;left:70px;bottom:44px;font-size:24px;font-weight:500;letter-spacing:1px;color:rgba(155,224,163,.85);z-index:6">${HANDLE}</div>`;
+  <div style="position:absolute;left:70px;bottom:44px;font-size:24px;font-weight:500;letter-spacing:1px;color:rgba(111,211,155,.9);z-index:6">${HANDLE}</div>`;
 }
 
-const CAPAS = { G: [capaG, COR.base], A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, COR.gelo], D: [capaD, COR.base], F: [capaF, '#f3f1ea'] };
+const CAPAS = { G: [capaG, COR.base], A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, CG.papel], D: [capaD, COR.base], F: [capaF, CG.papel] };
 
 function conteudo(s, k, estilo) {
   const fundo = s.fundo || RITMO[k % RITMO.length];
@@ -232,49 +234,47 @@ function conteudo(s, k, estilo) {
 
 // ——— Estilos do miolo ——— (campo "estilo": classico, caderno ou noturno). Cada um define as cores
 // dos slides "claro" e "verde" do ritmo e a decoração de fundo.
-const CLARO = { bg: COR.gelo, txt: COR.texto, tit: COR.verde, acento: COR.verde, negrito: COR.texto, marca: 'rgba(59,76,73,.08)', handle: COR.verde, rotulo: COR.verde };
-const VERDE = { bg: COR.verde, txt: 'rgba(255,255,255,.92)', tit: '#fff', acento: COR.claro, negrito: COR.claro, marca: 'rgba(155,224,163,.16)', handle: 'rgba(255,255,255,.85)', rotulo: COR.claro };
+// Uma família só: branco (ou papel), degradê e escuro. O "estilo" muda só a ordem dos fundos.
+const CLARO = { bg: COR.gelo, txt: COR.texto, tit: COR.base, acento: COR.verde, negrito: COR.base, marca: 'rgba(31,138,85,.07)', handle: COR.verde, rotulo: COR.verde };
+const PAPEL = { ...CLARO, bg: CG.papel };
+const DEG = { bg: DEGRADE, txt: 'rgba(255,255,255,.93)', tit: '#fff', acento: COR.claro, negrito: COR.claro, marca: 'rgba(111,211,155,.12)', handle: 'rgba(255,255,255,.8)', rotulo: COR.claro };
+const ESC = { ...DEG, bg: COR.base };
 const TEMA = {
-  classico: { claro: CLARO, verde: VERDE },
-  caderno: {
-    claro: { ...CLARO, bg: '#fbfaf5', acento: COR.medio, grifo: 'rgba(155,224,163,.85)', marca: 'rgba(59,76,73,.06)',
-      decor: `<div style="position:absolute;inset:0;background-image:repeating-linear-gradient(transparent 0 63px,rgba(59,76,73,.10) 63px 64px)"></div><div style="position:absolute;top:0;bottom:0;left:64px;width:3px;background:rgba(155,224,163,.9)"></div>` },
-    verde: { bg: COR.claro, txt: COR.texto, tit: COR.base, acento: COR.verde, negrito: COR.base, marca: 'rgba(28,31,30,.08)', handle: COR.verde, rotulo: COR.verde },
-  },
-  noturno: {
-    claro: { bg: COR.base, txt: 'rgba(255,255,255,.88)', tit: '#fff', acento: COR.claro, negrito: COR.claro, marca: 'rgba(155,224,163,.09)', handle: 'rgba(255,255,255,.7)', rotulo: COR.claro,
-      decor: `<div style="position:absolute;inset:36px;border:2px solid rgba(155,224,163,.35);border-radius:28px"></div>` },
-    verde: { ...CLARO, decor: `<div style="position:absolute;left:0;right:0;top:0;height:16px;background:${COR.claro}"></div>` },
-  },
+  classico: { claro: CLARO, verde: DEG },
+  caderno: { claro: PAPEL, verde: ESC },
+  noturno: { claro: ESC, verde: CLARO },
 };
-const CTA = { classico: [COR.verde, 'escuro'], caderno: [COR.claro, 'branco'], noturno: [COR.base, 'escuro'] };
 
+// CTA: tela cheia em degradê, tudo centralizado: rótulo, pergunta grande, chamada e as 3 ações do Instagram.
+const ICONE = {
+  comentar: '<path d="M8 10h32v22H20l-8 7v-7H8z"/>',
+  salvar: '<path d="M13 7h22v34l-11-8-11 8z"/>',
+  enviar: '<path d="M6 22 42 7 30 42l-7-14z"/><path d="M23 28 42 7"/>',
+};
 function cta(c) {
-  const branco = c.cartao === 'branco';
+  const acoes = [['comentar', c.acao1 || 'Comente'], ['salvar', 'Salve'], ['enviar', 'Envie pra alguém']];
   return `
-  ${handle('rgba(255,255,255,.85)', 'top:64px')}
-  <div data-bloco style="position:absolute;left:140px;right:140px;top:300px;border-radius:36px;padding:72px 64px;background:${branco ? '#fff' : COR.cartao};box-shadow:0 30px 80px rgba(20,26,24,.35);display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center">
-    <span style="width:80px;height:6px;background:${branco ? COR.medio : COR.claro}"></span>
-    <div style="${bebas};font-size:${caber([c.pergunta || ''], 120, 96, 660)}px;line-height:.9;color:${branco ? COR.verde : '#fff'};text-wrap:balance">${esc((c.pergunta || 'Gostou da explicação?').toUpperCase())}</div>
-    <div style="font-size:38px;font-weight:700;line-height:1.3;color:${branco ? COR.medio : COR.claro};text-wrap:balance">${esc(c.chamada || 'Salva pra revisar depois')}</div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:90px 90px"></div>
+  <div data-bloco style="position:absolute;left:96px;right:96px;top:120px;bottom:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;text-align:center">
+    <span style="display:inline-flex;align-items:center;gap:16px;font-size:24px;font-weight:700;letter-spacing:5px;color:${COR.claro}"><i style="display:block;width:48px;height:4px;background:${COR.claro}"></i>${esc(c.rotulo || 'ANTES DE SAIR')}<i style="display:block;width:48px;height:4px;background:${COR.claro}"></i></span>
+    <div style="${bebas};font-size:${caber([c.pergunta || ''], 170, 110, 860)}px;line-height:.95;color:#fff;text-wrap:balance">${esc((c.pergunta || 'Gostou da explicação?').toUpperCase())}</div>
+    <div style="font-size:40px;font-weight:600;line-height:1.3;color:${CG.nevoa};text-wrap:balance;max-width:820px">${esc(c.chamada || 'Salva pra revisar depois')}</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;margin-top:10px">${acoes.map(([ic, t]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px 10px;background:rgba(11,38,25,.45);border-top:4px solid ${COR.claro}"><svg viewBox="0 0 48 48" width="84" height="84" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">${ICONE[ic]}</svg><span style="font-size:30px;font-weight:600;color:#fff">${esc(t)}</span></div>`).join('')}</div>
   </div>
-  <div style="position:absolute;left:50%;bottom:130px;width:140px;height:140px;margin-left:-70px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(20,26,24,.3)">
-    <img src="../assets/logo.png" style="width:118px;height:118px;object-fit:contain">
-  </div>`;
+  ${handle('rgba(255,255,255,.85)', 'bottom:64px')}`;
 }
 
 export function renderCarrossel(c) {
   const [fazCapa, fundoCapa] = CAPAS[c.capa] || CAPAS.A;
   const estilo = TEMA[c.estilo] ? c.estilo : 'classico';
-  const [fundoCta, cartao] = CTA[estilo];
   const slides = [
     { bg: fundoCapa, html: fazCapa(c) },
     ...lista(c.slides).map((s, k) => conteudo(s, k, estilo)),
-    { bg: c.cta?.fundo || fundoCta, html: cta({ cartao, ...(c.cta || {}) }) },
+    { bg: DEGRADE, html: cta({ ...(c.cta || {}) }) },
   ];
   const total = slides.length;
   const html = `<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="${FONTES_CG}" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif}</style></head><body>
 <div id="painel" style="position:relative;width:${total * 1080}px;height:1350px;overflow:hidden">
 ${slides.map((s, i) => `<div id="slide-${i + 1}" style="position:absolute;left:${i * 1080}px;top:0;width:1080px;height:1350px;overflow:hidden;background:${s.bg}">${s.html}</div>`).join('\n')}

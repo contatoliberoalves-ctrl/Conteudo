@@ -6,7 +6,7 @@ no `dados.json`: o molde escurece a imagem, puxa para o verde do perfil e escrev
 então a imagem precisa de **espaço vazio no terço de cima** e o assunto no centro/baixo.
 
 **Estilo base** (cole no fim de todo prompt):
-> dark moody cinematic photo, deep green and charcoal color palette (#1c1f1e, #3b4c49, mint #9be0a3 accents), dramatic rim light, shallow depth of field, editorial magazine cover look, empty negative space in the top third for a headline, 4:5 vertical, no text, no letters, no logos, no flags with text, no real people's faces
+> dark moody cinematic photo, deep forest green palette (#0B2619 dark green, #1F8A55 brand green, #6FD39B light green accents, white highlights), dramatic rim light, shallow depth of field, editorial magazine cover look, empty negative space in the top third for a headline, 4:5 vertical, no text, no letters, no logos, no flags with text, no real people's faces
 
 | Post | Arquivo | Prompt (antes do estilo base) |
 |---|---|---|

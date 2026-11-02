@@ -33,13 +33,14 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
   - `A` Marca-texto: foto em tela cheia, destaque no marca-texto verde (o original).
   - `B` Revista: foto no alto, faixa clara embaixo com o título em verde.
   - `C` Moldura: fundo claro pontilhado, foto emoldurada com sombra verde, etiqueta numa fita, título grifado.
-  - `D` Balão: foto em tela cheia e o título num balão de fala branco.
+  - `D` Painel: foto no alto e painel em degradê (verde-escuro → verde) com o título, borda reta. (O antigo balão arredondado saiu.)
   - `F` Manchete: página de jornal, título em preto e a foto como imagem da matéria.
   - `G` Documento: fundo escuro com grade, título no alto, folha inclinada (`doc`: `rotulo`, `linhas` com `~~riscado~~` e `{{correção à mão}}`), `carimbo` vermelho e o autor recortado à direita (`recorte`: PNG sem fundo em `fotos/`, `recorteH`). Boa para retificação, anulação e erro no gabarito.
-- `estilo`: visual dos slides de conteúdo e do CTA:
-  - `classico`: gelo e verde (o original).
-  - `caderno`: papel pautado com margem verde e títulos grifados; os slides "verde" viram verde-claro; CTA branco sobre verde-claro.
-  - `noturno`: fundo quase preto com moldura fina verde-clara; os slides "verde" viram gelo; CTA escuro.
+- `estilo`: ordem dos fundos dos slides de conteúdo, sempre na mesma paleta:
+  - `classico`: branco e degradê.
+  - `caderno`: papel e verde-escuro.
+  - `noturno`: verde-escuro e branco.
+  O CTA é sempre o mesmo: tela em degradê, tudo centralizado (rótulo, pergunta, chamada e os botões Comente/Salve/Envie).
 - Regra: **nunca repita a capa do post anterior nem o estilo dos dois anteriores**. Rodízio automático (posts novos do Diário): capas B, C, D, F, A e estilos caderno, noturno, clássico.
 - Nas capas B, C e F o título tem área fixa: o render diminui o destaque até caber e avisa se nem assim couber.
 
@@ -63,9 +64,10 @@ Cada slide aceita, nesta ordem na tela: `titulo` (curto, Bebas), `texto` (parág
 - `gabarito` (no post, não no slide): vira `saida/<id>/gabarito.txt`.
 
 ### CTA
-`cta.pergunta`, `cta.chamada`. O fundo e o cartão vêm do `estilo`; no `classico` dá para trocar com `cta.cartao` (`"escuro"` ou `"branco"`) e `cta.fundo`.
+`cta.pergunta`, `cta.chamada`, `cta.rotulo` (padrão "ANTES DE SAIR"), `cta.acao1` (padrão "Comente").
 
 ## Regras do modelo
 - Texto do conteúdo usado **literalmente**: só distribuir entre slides e marcar negritos.
 - Sem emoji, ícones ou numeração de página.
-- Tokens: verde `#3b4c49`, cartão `#2f3d3a`, base da capa `#1c1f1e`, gelo `#f6f7f6`, texto `#1f2a28`, verde-claro `#9be0a3`, verde médio `#3f9a4d`. Fontes Bebas Neue + Poppins (Google Fonts, precisa de internet ao gerar).
+- Identidade única do perfil em `../cg-comum/identidade.mjs`: verde-escuro `#0B2619`, verde `#1F8A55`, verde-claro `#6FD39B`, branco/papel e o degradê; Antonio + Poppins. Sem pílulas e sem títulos em balão arredondado.
+- Posts do Diário: a "Dica de ouro" fica no fim (último slide antes do CTA) e os títulos dizem o assunto (nada de "Explicação" ou "Tabelinha").

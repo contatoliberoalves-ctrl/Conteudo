@@ -4,11 +4,11 @@
 // no seguinte, o gabarito com a explicação e o fundamento. O trilho continua de um story para o outro.
 
 const TEMAS = {
-  dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', accent: '#5fbf8e', cardBg: '#143a29', cardFg: '#e8eeee', pillBg: '#5fbf8e', pillFg: '#0b2619', vazado: 'rgba(95,191,142,.22)', no: '#0b2619' },
-  light: { bg: '#e8eeee', title: '#0b2619', fg: '#1f3a2e', accent: '#2f8a5e', cardBg: '#0b2619', cardFg: '#e8eeee', pillBg: '#0b2619', pillFg: '#e8eeee', vazado: 'rgba(47,138,94,.20)', no: '#e8eeee' },
-  mint:  { bg: '#5fbf8e', title: '#0b2619', fg: '#0b2619', accent: '#0b2619', cardBg: '#0b2619', cardFg: '#e8eeee', pillBg: '#0b2619', pillFg: '#e8eeee', vazado: 'rgba(11,38,25,.16)', no: '#5fbf8e' },
+  dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', accent: '#6FD39B', cardBg: '#123A27', cardFg: '#e8eeee', pillBg: '#6FD39B', pillFg: '#0b2619', vazado: 'rgba(111,211,155,.22)', no: '#0b2619' },
+  light: { bg: '#FFFFFF', title: '#0b2619', fg: '#1f3a2e', accent: '#1F8A55', cardBg: '#0b2619', cardFg: '#e8eeee', pillBg: '#0b2619', pillFg: '#e8eeee', vazado: 'rgba(31,138,85,.20)', no: '#e8eeee' },
+  mint:  { bg: 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)', title: '#FFFFFF', fg: '#DCEFE3', accent: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', pillBg: '#0B2619', pillFg: '#F2F6F3', vazado: 'rgba(111,211,155,.22)', no: '#1F8A55' },
 };
-const VERDE = '#2f8a5e', MENTA = '#5fbf8e', ESCURO = '#0b2619', GELO = '#e8eeee', ERRO = '#e2574c';
+const VERDE = '#1F8A55', MENTA = '#6FD39B', ESCURO = '#0b2619', GELO = '#e8eeee', ERRO = '#e2574c';
 // Pergunta e gabarito em temas diferentes, alternando entre os quizzes.
 const PARES = [['dark', 'light'], ['mint', 'dark'], ['light', 'dark']];
 const W = 1080, H = 1920;

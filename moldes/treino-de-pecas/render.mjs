@@ -32,7 +32,7 @@ for (const [idx, c] of dados.entries()) {
 
   // Letra do enunciado: "px" fixo no dados.json, ou a maior entre 40 e 34px (Autoral) / 34 e 30px (Treino)
   // que usa o menor número de slides.
-  const [maior, menor] = c.px ? [c.px, c.px] : c.tipo === 'autoral' ? [40, 34] : [34, 30];
+  const [maior, menor] = c.px ? [c.px, c.px] : c.tipo === 'autoral' ? [48, 42] : [38, 33];
   const tentativas = [];
   for (let t = maior; t >= menor; t -= 1) tentativas.push([t, (await page.evaluate(px => window.__paginar(px), t)).enunciados]);
   const minimo = Math.min(...tentativas.map(t => t[1]));

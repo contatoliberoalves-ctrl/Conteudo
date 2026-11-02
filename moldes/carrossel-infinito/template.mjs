@@ -3,12 +3,12 @@
 // renderCarrossel(c) devolve { html, total }; o render.mjs fotografa a faixa e recorta de 1080 em 1080.
 
 const TEMAS = {
-  dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', strong: '#e8eeee', accent: '#5fbf8e', num: '#5fbf8e', cardBg: '#143a29', cardFg: '#e8eeee', cardAccent: '#5fbf8e', border: '#5fbf8e', counter: '#5fbf8e', hlBg: '#5fbf8e', hlFg: '#0b2619', pillBg: '#5fbf8e', pillFg: '#0b2619' },
-  light: { bg: '#e8eeee', title: '#0b2619', fg: '#1f3a2e', strong: '#0b2619', accent: '#2f8a5e', num: '#5fbf8e', cardBg: '#0b2619', cardFg: '#e8eeee', cardAccent: '#5fbf8e', border: '#5fbf8e', counter: '#2f8a5e', hlBg: '#5fbf8e', hlFg: '#0b2619', pillBg: '#5fbf8e', pillFg: '#0b2619' },
-  mint:  { bg: '#5fbf8e', title: '#f4f8f6', fg: '#0b2619', strong: '#0b2619', accent: '#0b2619', num: '#0b2619', cardBg: '#0b2619', cardFg: '#e8eeee', cardAccent: '#5fbf8e', border: '#0b2619', counter: '#0b2619', hlBg: '#0b2619', hlFg: '#f4f8f6', pillBg: '#0b2619', pillFg: '#e8eeee' },
+  dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', strong: '#e8eeee', accent: '#6FD39B', num: '#6FD39B', cardBg: '#123A27', cardFg: '#e8eeee', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#6FD39B', hlBg: '#6FD39B', hlFg: '#0b2619', pillBg: '#6FD39B', pillFg: '#0b2619' },
+  light: { bg: '#FFFFFF', title: '#0b2619', fg: '#1f3a2e', strong: '#0b2619', accent: '#1F8A55', num: '#6FD39B', cardBg: '#0b2619', cardFg: '#e8eeee', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#1F8A55', hlBg: '#6FD39B', hlFg: '#0b2619', pillBg: '#6FD39B', pillFg: '#0b2619' },
+  mint:  { bg: 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)', title: '#FFFFFF', fg: '#DCEFE3', strong: '#FFFFFF', accent: '#6FD39B', num: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#6FD39B', hlBg: '#6FD39B', hlFg: '#0B2619', pillBg: '#0B2619', pillFg: '#F2F6F3' },
 };
 const ORDEM = ['dark', 'light', 'mint'];
-const VERDE = '#2f8a5e';
+const VERDE = '#1F8A55';
 const W = 1080, H = 1350;
 const PAD = 96, PAD_LIGACAO = 300;
 const TOPOS = [420, 640, 360, 700]; // y do topo da figura/foto, em rodízio pelas divisões
@@ -65,9 +65,9 @@ function tamanho(texto, base, coluna, fator = 0.46) {
 
 const selo = t => `<div class="selo" style="background:${t.pillBg};color:${t.pillFg}"><b>@CONSTITUCIONAL</b>GABARITADO</div>`;
 // Cabeçalho da capa: perfil, fio e o ícone do tema inteiro num círculo vazado.
-const cabecalho = (c, t, bg) => `<div class="capa-cab" style="color:${bg === 'mint' ? '#0b2619' : t.accent};border-bottom:2px solid ${bg === 'mint' ? 'rgba(11,38,25,.25)' : bg === 'light' ? 'rgba(11,38,25,.15)' : 'rgba(95,191,142,.3)'}">
+const cabecalho = (c, t, bg) => `<div class="capa-cab" style="color:${t.accent};border-bottom:2px solid ${bg === 'mint' ? 'rgba(255,255,255,.25)' : bg === 'light' ? 'rgba(11,38,25,.15)' : 'rgba(111,211,155,.3)'}">
     <span><b>@CONSTITUCIONAL</b>GABARITADO</span>
-    ${c.icone ? `<span class="capa-ic" style="border-color:${bg === 'mint' ? '#0b2619' : t.accent}">${icone(c.icone, 64, bg === 'mint' ? '#0b2619' : t.accent, 6)}</span>` : ''}
+    ${c.icone ? `<span class="capa-ic" style="border-color:${t.accent}">${icone(c.icone, 64, t.accent, 6)}</span>` : ''}
   </div>`;
 const kicker = (txt, t, traco) => txt ? `<div class="kicker" style="color:${t.accent}">${traco ? `<i style="background:${t.accent}"></i>` : ''}${md(txt)}</div>` : '';
 const titulo = (s, t, ts, col, extra = '') => `<h1 data-titulo style="color:${t.title};font-size:${tamanho(s.title, s.ts || ts, col)}px${extra}">${md(s.title)}</h1>`;
@@ -225,7 +225,7 @@ h1{overflow-wrap:normal;line-height:1.02}
 .corpo{font-size:35px;line-height:1.45;text-wrap:pretty}
 .corpo b{font-weight:700}
 mark{background:none;color:inherit;font-weight:700}
-h1 mark{color:#5fbf8e}
+h1 mark{color:#6FD39B}
 .caixa{padding:28px 32px;border-radius:20px;font-size:31px;line-height:1.45;text-wrap:pretty}
 .cab{display:flex;align-items:baseline;gap:28px}
 .num{font-size:180px;line-height:.8}
