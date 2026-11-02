@@ -121,6 +121,8 @@ def main():
     a.add_argument("--saida")
     a.add_argument("--modelo")
     a.add_argument("--max-min", type=float, default=10)
+    a.add_argument("--treino", action="store_true", help="pacote para treinar um clone (aceita mais trechos)")
+    a.add_argument("--conf", type=float, default=0.7, help="confiança média mínima da transcrição")
 
     a = s.add_parser("texto")
     a.add_argument("edl")

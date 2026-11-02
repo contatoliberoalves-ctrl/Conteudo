@@ -35,13 +35,14 @@ def preparar(args):
                 atual.append(w)
                 prox = g[i + 1] if i + 1 < len(g) else None
                 d_at = atual[-1]["e"] - atual[0]["s"]
-                if prox is None or (d_at >= 5 and prox["s"] - w["e"] >= 0.12) or d_at >= 11:
+                if prox is None or (d_at >= 5 and prox["s"] - w["e"] >= 0.12) or d_at >= (14 if args.treino else 11):
                     grupos.append(atual)
                     atual = []
         for g in grupos:
             dur = g[-1]["e"] - g[0]["s"]
             conf = sum(w["p"] for w in g) / len(g)
-            if 3.0 <= dur <= 12.0 and conf >= 0.7 and min(w["p"] for w in g) >= 0.3:
+            lo, hi = (2.0, 15.0) if args.treino else (3.0, 12.0)
+            if lo <= dur <= hi and conf >= args.conf and min(w["p"] for w in g) >= 0.25:
                 trechos.append((conf * dur, f, g[0]["s"] - 0.08, g[-1]["e"] + 0.15, " ".join(w["w"] for w in g)))
     if not trechos:
         raise SystemExit("nenhum trecho limpo de 3–12 s encontrado")
