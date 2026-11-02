@@ -1,19 +1,17 @@
 [
  {
   "id": "pode-acumular-cargos",
-  "titulo": "Pode acumular dois cargos públicos?",
+  "titulo": "Professor pode ter outro cargo público? (atualizado com a EC 138/2025)",
   "slides": [
    {
     "foto": "viagem-02.jpg",
-    "fotoPos": "center 0%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "Pode acumular dois\ncargos públicos?",
+      "texto": "Sou professor.\nPosso ter outro\ncargo público?",
       "estilo": "forte",
-      "cor": "amarelo",
       "y": 100,
-      "tam": 70
+      "tam": 70,
+      "cor": "amarelo"
      },
      {
       "tipo": "enquete",
@@ -25,78 +23,113 @@
       "y": 940,
       "largura": 480
      }
-    ]
+    ],
+    "fotoPos": "center 0%",
+    "tom": 0.15
    },
    {
-    "foto": "viagem-63.jpg",
-    "fotoPos": "center 30%",
-    "escurecer": 0.1,
+    "foto": "viagem-42.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
     "elementos": [
      {
       "texto": "A regra:",
       "estilo": "forte",
-      "cor": "escuro",
-      "y": 650,
-      "tam": 76
+      "y": 300,
+      "tam": 80,
+      "cor": "escuro"
      },
      {
-      "texto": "É vedada a acumulação\nremunerada de cargos\npúblicos, exceto quando\nhouver compatibilidade\nde horários.",
-      "cor": "branco",
-      "y": 770,
-      "tam": 44
+      "texto": "Acumular cargo público\nremunerado é proibido.\nSó cabe nas exceções\ne com horários compatíveis.",
+      "y": 430,
+      "tam": 44,
+      "cor": "branco"
      },
      {
       "texto": "Art. 37, XVI, CF/88",
-      "cor": "verde",
-      "y": 1130,
-      "tam": 38
+      "y": 800,
+      "tam": 38,
+      "cor": "verde"
      }
     ]
    },
    {
     "foto": "viagem-27.jpg",
-    "escurecer": 0.2,
     "elementos": [
      {
       "texto": "As 3 exceções",
       "estilo": "forte",
-      "cor": "amarelo",
       "y": 130,
-      "tam": 86
+      "tam": 86,
+      "cor": "amarelo"
      },
      {
       "texto": "a) dois cargos de professor",
-      "cor": "branco",
       "y": 330,
-      "tam": 44
+      "tam": 44,
+      "cor": "branco"
      },
      {
-      "texto": "b) um de professor com outro\ntécnico ou científico",
-      "cor": "branco",
-      "y": 460,
-      "tam": 44
+      "texto": "b) um de professor com\noutro de qualquer natureza",
+      "y": 450,
+      "tam": 44,
+      "cor": "branco"
      },
      {
       "texto": "c) dois cargos ou empregos de\nprofissionais de saúde, com\nprofissões regulamentadas",
-      "cor": "branco",
-      "y": 640,
-      "tam": 44
+      "y": 620,
+      "tam": 44,
+      "cor": "branco"
      },
      {
-      "texto": "Sempre com compatibilidade\nde horários",
-      "cor": "escuro",
-      "y": 900,
-      "tam": 46
+      "texto": "Sempre com horários\ncompatíveis e dentro do teto",
+      "y": 890,
+      "tam": 46,
+      "cor": "escuro"
+     }
+    ],
+    "escurecer": 0.2
+   },
+   {
+    "foto": "viagem-29.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Mudou em\ndezembro de 2025",
+      "estilo": "forte",
+      "y": 220,
+      "tam": 82,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Antes: professor só podia\nsomar com cargo técnico\nou científico.",
+      "y": 520,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Agora: com cargo de\nqualquer natureza.",
+      "y": 760,
+      "tam": 44,
+      "cor": "escuro"
+     },
+     {
+      "texto": "EC 138/2025",
+      "y": 960,
+      "tam": 38,
+      "cor": "verde"
      }
     ]
    },
    {
     "foto": "viagem-14.jpg",
-    "fotoPos": "center 20%",
     "elementos": [
      {
       "tipo": "quiz",
-      "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+      "pergunta": "Professor da rede estadual e agente administrativo do INSS, com horários compatíveis. Pode?",
       "opcoes": [
        "Pode",
        "Não pode"
@@ -104,64 +137,64 @@
       "certa": 0,
       "y": 680
      }
-    ]
+    ],
+    "fotoPos": "center 20%"
    },
    {
     "foto": "viagem-56.jpg",
-    "fotoPos": "center 0%",
     "elementos": [
      {
       "tipo": "quiz",
-      "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+      "pergunta": "Professor da rede estadual e agente administrativo do INSS, com horários compatíveis. Pode?",
       "opcoes": [
        "Pode",
        "Não pode"
       ],
       "certa": 0,
       "revelar": true,
-      "y": 810
+      "y": 760
      },
      {
-      "texto": "Alínea c: profissionais de saúde",
-      "cor": "escuro",
-      "y": 1255,
-      "tam": 38
+      "texto": "Antes da EC 138, não podia.",
+      "y": 1230,
+      "tam": 38,
+      "cor": "escuro"
      }
-    ]
+    ],
+    "fotoPos": "center 0%"
    },
    {
     "foto": "viagem-80.jpg",
-    "fotoPos": "center 30%",
-    "escurecer": 0.15,
     "elementos": [
      {
       "texto": "Pegadinha",
       "estilo": "forte",
-      "cor": "vermelho",
       "y": 640,
-      "tam": 76
+      "tam": 76,
+      "cor": "vermelho"
      },
      {
       "texto": "A proibição vale também\npara empregos e funções\nem autarquias, fundações,\nempresas públicas e\nsociedades de economia mista.",
-      "cor": "branco",
       "y": 770,
-      "tam": 42
+      "tam": 42,
+      "cor": "branco"
      },
      {
       "texto": "Art. 37, XVII, CF/88",
-      "cor": "verde",
       "y": 1130,
-      "tam": 38
+      "tam": 38,
+      "cor": "verde"
      }
-    ]
+    ],
+    "fotoPos": "center 30%",
+    "escurecer": 0.15
    },
    {
     "foto": "viagem-53.jpg",
-    "fotoPos": "center 25%",
     "elementos": [
      {
       "tipo": "pergunta",
-      "titulo": "Ficou alguma dúvida sobre acumulação?",
+      "titulo": "Qual cargo você quer somar com o de professor?",
       "y": 770,
       "largura": 660
      },
@@ -169,7 +202,8 @@
       "tipo": "mencao",
       "y": 1140
      }
-    ]
+    ],
+    "fotoPos": "center 25%"
    }
   ]
  },
@@ -348,19 +382,17 @@
  },
  {
   "id": "quiz-enac",
-  "titulo": "Quiz: nota de corte do ENAC",
+  "titulo": "ENAC: quanto preciso acertar?",
   "slides": [
    {
     "foto": "viagem-16.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "ENAC dia 22/11",
+      "texto": "ENAC: quanto eu\npreciso acertar?",
       "estilo": "forte",
-      "cor": "amarelo",
       "y": 70,
-      "tam": 84
+      "tam": 80,
+      "cor": "amarelo"
      },
      {
       "tipo": "quiz",
@@ -379,12 +411,12 @@
       "texto": "Resposta no próximo",
       "y": 1200
      }
-    ]
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.15
    },
    {
     "foto": "viagem-56.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
       "tipo": "quiz",
@@ -400,30 +432,130 @@
       "largura": 820
      },
      {
-      "texto": "Nas vagas reservadas, 50.\nA habilitação vale 6 anos.",
-      "cor": "branco",
-      "y": 1130,
-      "tam": 44
+      "texto": "Nas vagas reservadas, 50.",
+      "y": 1150,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.15
+   },
+   {
+    "foto": "viagem-59.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Não tem classificação",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "O ENAC habilita.\nQuem chega na nota fica\napto a se inscrever nos\nconcursos de cartório.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "A habilitação vale 6 anos.",
+      "y": 800,
+      "tam": 44,
+      "cor": "escuro"
      }
     ]
+   },
+   {
+    "foto": "viagem-47.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Onde estão os 60",
+      "estilo": "forte",
+      "y": 230,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "60 das 100 questões\nsão de Notarial e Registral.",
+      "y": 400,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Acertou 45 delas?\nFaltam só 15 nas\noutras 40 questões.",
+      "y": 600,
+      "tam": 44,
+      "cor": "escuro"
+     },
+     {
+      "texto": "Edital do 4º ENAC, FGV",
+      "y": 920,
+      "tam": 36,
+      "cor": "verde"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-02.jpg",
+    "elementos": [
+     {
+      "texto": "Já treinou com\n100 questões seguidas?",
+      "estilo": "forte",
+      "y": 100,
+      "tam": 66,
+      "cor": "amarelo"
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Você já fez um simulado completo?",
+      "opcoes": [
+       "Já fiz",
+       "Ainda não"
+      ],
+      "y": 960,
+      "largura": 520
+     }
+    ],
+    "fotoPos": "center 0%",
+    "tom": 0.15
+   },
+   {
+    "foto": "viagem-53.jpg",
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "O que mais te preocupa no ENAC?",
+      "y": 770,
+      "largura": 660
+     },
+     {
+      "tipo": "mencao",
+      "y": 1140
+     }
+    ],
+    "fotoPos": "center 25%"
    }
   ]
  },
  {
   "id": "estudar-2h-por-dia",
-  "titulo": "Dá pra passar estudando 2h por dia?",
+  "titulo": "Trabalho o dia todo. Dá pra passar com 2h por dia?",
   "slides": [
    {
     "foto": "viagem-02.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "Dá pra passar\nestudando 2h por dia?",
+      "texto": "Trabalho o dia todo.\nDá pra passar\ncom 2h por dia?",
       "estilo": "forte",
-      "cor": "branco",
-      "y": 880,
-      "tam": 78
+      "y": 800,
+      "tam": 72,
+      "cor": "branco"
      },
      {
       "tipo": "enquete",
@@ -432,70 +564,134 @@
        "Dá",
        "Não dá"
       ],
-      "y": 1110
+      "y": 1130
+     }
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.15
+   },
+   {
+    "foto": "viagem-04.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Dá. Com uma condição:",
+      "estilo": "forte",
+      "y": 300,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "2 horas todo dia\nrendem mais que\n8 horas só no sábado.",
+      "y": 470,
+      "tam": 48,
+      "cor": "branco"
      }
     ]
    },
    {
-    "foto": "viagem-63.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.2,
+    "foto": "viagem-44.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
     "elementos": [
      {
-      "texto": "Dá, se for todo dia.",
+      "texto": "1. Ciclo, não grade",
       "estilo": "forte",
-      "cor": "amarelo",
-      "y": 70,
-      "tam": 80
+      "y": 260,
+      "tam": 78,
+      "cor": "amarelo"
      },
      {
-      "texto": "Use um ciclo de estudos:\numa lista de matérias\nque você cumpre na ordem,\nsem depender do dia da semana.",
-      "cor": "escuro",
-      "y": 880,
-      "tam": 40
+      "texto": "Faça uma lista de matérias\ne vá cumprindo na ordem.\nPerdeu um dia? Continua\nde onde parou.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-61.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "2. Questão no mesmo dia",
+      "estilo": "forte",
+      "y": 240,
+      "tam": 72,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Terminou a aula?\nResolve questão da banca\nsobre o mesmo assunto\nantes de dormir.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-67.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "3. Revisão marcada",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 78,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "24 horas, 7 dias e 30 dias\ndepois de estudar o tema.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Revisar é tentar lembrar,\nnão reler.",
+      "y": 640,
+      "tam": 44,
+      "cor": "escuro"
      }
     ]
    },
    {
     "foto": "viagem-71.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "Revisão que funciona:\n24 horas, 7 dias, 30 dias.",
-      "cor": "branco",
-      "y": 830,
-      "tam": 40
-     },
-     {
       "tipo": "pergunta",
-      "titulo": "Qual é a sua maior dúvida pra começar?",
-      "y": 990,
-      "escala": 0.85
+      "titulo": "Quantas horas por dia você consegue hoje?",
+      "y": 900,
+      "escala": 0.9
      },
      {
       "tipo": "mencao",
-      "y": 1240
+      "y": 1220
      }
-    ]
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.15
    }
   ]
  },
  {
   "id": "quiz-idade-pmpe",
-  "titulo": "Quiz: idade para Soldado da PM PE",
+  "titulo": "Tenho 30 anos. Ainda dá pra PM PE?",
   "slides": [
    {
     "foto": "viagem-07.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "PM PE: inscrições até 23/11",
+      "texto": "Tenho 30 anos.\nAinda dá pra PM PE?",
       "estilo": "forte",
-      "cor": "amarelo",
       "y": 70,
-      "tam": 72
+      "tam": 74,
+      "cor": "amarelo"
      },
      {
       "tipo": "quiz",
@@ -507,19 +703,19 @@
       ],
       "certa": 1,
       "y": 800,
-      "largura": 820
+      "largura": 800
      },
      {
       "tipo": "link",
       "texto": "Resposta no próximo",
-      "y": 1210
+      "y": 1200
      }
-    ]
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.1
    },
    {
     "foto": "viagem-03.jpg",
-    "fotoPos": "center 35%",
-    "tom": 0.2,
     "elementos": [
      {
       "tipo": "quiz",
@@ -532,46 +728,228 @@
       "certa": 1,
       "revelar": true,
       "y": 760,
-      "largura": 820
+      "largura": 800
      },
      {
       "texto": "Até o dia anterior a completar 31,\nna data da inscrição.",
-      "cor": "branco",
-      "y": 1150,
-      "tam": 40
+      "y": 1140,
+      "tam": 38,
+      "cor": "escuro"
+     }
+    ],
+    "fotoPos": "center 20%"
+   },
+   {
+    "foto": "viagem-54.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Outros requisitos",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 78,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Nível médio\nCNH categoria B\nAltura mínima: 1,60 m (homens)\ne 1,55 m (mulheres)",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
      }
     ]
+   },
+   {
+    "foto": "viagem-30.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "As datas",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 84,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Inscrições até 23/11, às 14h",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Prova prevista para 21/02/2027",
+      "y": 560,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Edital PMPE nº 001/2026, AOCP",
+      "y": 760,
+      "tam": 36,
+      "cor": "verde"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-14.jpg",
+    "elementos": [
+     {
+      "texto": "Vai fazer?",
+      "estilo": "forte",
+      "y": 110,
+      "tam": 90,
+      "cor": "amarelo"
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Já se inscreveu na PM PE?",
+      "opcoes": [
+       "Já",
+       "Vou fazer"
+      ],
+      "y": 930,
+      "largura": 520
+     }
+    ],
+    "fotoPos": "center 20%"
+   },
+   {
+    "foto": "viagem-53.jpg",
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual sua dúvida sobre o edital da PM PE?",
+      "y": 770,
+      "largura": 660
+     },
+     {
+      "tipo": "mencao",
+      "y": 1140
+     }
+    ],
+    "fotoPos": "center 25%"
    }
   ]
  },
  {
   "id": "enam-tempo-por-questao",
-  "titulo": "ENAM: quanto tempo por questão?",
+  "titulo": "Não termino a prova a tempo. E no ENAM?",
   "slides": [
    {
     "foto": "viagem-33.jpg",
+    "elementos": [
+     {
+      "texto": "Nunca termino\na prova a tempo",
+      "estilo": "forte",
+      "y": 70,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "No ENAM você tem\n3min45s por questão.",
+      "y": 1040,
+      "tam": 44,
+      "cor": "escuro"
+     }
+    ],
     "fotoPos": "center 40%",
+    "tom": 0.15
+   },
+   {
+    "foto": "viagem-87.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
     "tom": 0.15,
     "elementos": [
      {
-      "texto": "ENAM: 3min45s\npor questão",
+      "texto": "A conta",
       "estilo": "forte",
-      "cor": "amarelo",
-      "y": 70,
-      "tam": 84
+      "y": 280,
+      "tam": 90,
+      "cor": "amarelo"
      },
      {
-      "texto": "São 5 horas para 80 questões.\nTreine os simulados com esse tempo.",
-      "cor": "escuro",
-      "y": 1060,
-      "tam": 40
+      "texto": "5 horas de prova\n80 questões",
+      "y": 440,
+      "tam": 50,
+      "cor": "branco"
+     },
+     {
+      "texto": "300 minutos ÷ 80 = 3min45s\njá contando o gabarito",
+      "y": 640,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-74.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "1. Treine no relógio",
+      "estilo": "forte",
+      "y": 240,
+      "tam": 76,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Todo simulado com o tempo\nda prova. Sem pausa pra\nconferir resposta.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-98.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "2. Travou? Pula",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Marca a questão e volta\nno fim. Uma questão difícil\nnão pode roubar o tempo\nde três fáceis.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-88.jpg",
+    "fotoPos": "center 30%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "3. Gabarito no meio",
+      "estilo": "forte",
+      "y": 240,
+      "tam": 76,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Não deixe pra marcar\ntudo nos últimos minutos.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
      }
     ]
    },
    {
     "foto": "viagem-80.jpg",
-    "fotoPos": "center 40%",
-    "tom": 0.1,
     "elementos": [
      {
       "tipo": "enquete",
@@ -581,26 +959,30 @@
        "Ainda não"
       ],
       "y": 960
+     },
+     {
+      "tipo": "mencao",
+      "y": 1220
      }
-    ]
+    ],
+    "fotoPos": "center 40%",
+    "tom": 0.1
    }
   ]
  },
  {
   "id": "pdf-ou-videoaula",
-  "titulo": "PDF ou videoaula?",
+  "titulo": "PDF ou videoaula: qual rende mais?",
   "slides": [
    {
     "foto": "viagem-14.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.15,
     "elementos": [
      {
-      "texto": "PDF ou videoaula?",
+      "texto": "PDF ou videoaula:\nqual rende mais?",
       "estilo": "forte",
-      "cor": "branco",
-      "y": 820,
-      "tam": 90
+      "y": 90,
+      "tam": 78,
+      "cor": "amarelo"
      },
      {
       "tipo": "enquete",
@@ -609,45 +991,380 @@
        "PDF",
        "Videoaula"
       ],
-      "y": 1020
+      "y": 930,
+      "largura": 520
      }
-    ]
+    ],
+    "fotoPos": "center 20%"
    },
    {
-    "foto": "viagem-53.jpg",
-    "fotoPos": "center 30%",
-    "tom": 0.2,
-    "elementos": [
-     {
-      "texto": "Os dois funcionam.",
-      "estilo": "forte",
-      "cor": "amarelo",
-      "y": 70,
-      "tam": 84
-     },
-     {
-      "texto": "O que não funciona é\nnão resolver questão\ndepois da aula.",
-      "cor": "escuro",
-      "y": 880,
-      "tam": 44
-     }
-    ]
-   },
-   {
-    "foto": "viagem-89.jpg",
-    "fotoPos": "center 30%",
+    "foto": "viagem-57.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
     "tom": 0.15,
     "elementos": [
      {
+      "texto": "Os dois funcionam",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "O que não funciona é\nassistir ou ler e não\nresolver questão depois.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-94.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Videoaula",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 86,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Boa pra começar matéria\nnova ou tema difícil.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Dica: 1,5x e caderno aberto.",
+      "y": 580,
+      "tam": 44,
+      "cor": "escuro"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-29.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "PDF",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 96,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Bom pra revisar e pra\nquem já conhece o tema.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     },
+     {
+      "texto": "Dica: leia com a lei do lado.",
+      "y": 590,
+      "tam": 44,
+      "cor": "escuro"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-47.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "O que eu faria",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 82,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Matéria nova: videoaula.\nRevisão: PDF ou resumo.\nTodo dia: questão.",
+      "y": 420,
+      "tam": 48,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-07.jpg",
+    "elementos": [
+     {
       "tipo": "pergunta",
-      "titulo": "Qual concurso você vai fazer?",
-      "y": 920
+      "titulo": "Qual matéria você mais trava?",
+      "y": 770,
+      "largura": 660
      },
      {
       "tipo": "mencao",
-      "y": 1200
+      "y": 1140
+     }
+    ],
+    "fotoPos": "center 30%"
+   }
+  ]
+ },
+ {
+  "id": "comecei-agora-qual-materia",
+  "titulo": "Comecei agora. Por qual matéria eu começo?",
+  "slides": [
+   {
+    "foto": "viagem-16.jpg",
+    "elementos": [
+     {
+      "texto": "Comecei agora.\nPor qual matéria\neu começo?",
+      "estilo": "forte",
+      "y": 70,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Você já escolheu o concurso?",
+      "opcoes": [
+       "Já",
+       "Ainda não"
+      ],
+      "y": 960,
+      "largura": 520
+     }
+    ],
+    "fotoPos": "center 30%",
+    "tom": 0.15
+   },
+   {
+    "foto": "viagem-42.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Antes da matéria,\na área",
+      "estilo": "forte",
+      "y": 240,
+      "tam": 78,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Tribunal, polícia, cartório,\nfiscal. Escolha uma.\nAs matérias se repetem\nmuito dentro da área.",
+      "y": 470,
+      "tam": 44,
+      "cor": "branco"
      }
     ]
+   },
+   {
+    "foto": "viagem-59.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Pegue o último edital",
+      "estilo": "forte",
+      "y": 240,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Veja quantas questões\ncada matéria tem.\nComece pelas que mais pesam.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-61.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "E uma por vez?",
+      "estilo": "forte",
+      "y": 260,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Não. Duas ou três matérias\npor dia, girando num ciclo.\nAssim nenhuma fica\nesquecida.",
+      "y": 420,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-03.jpg",
+    "elementos": [
+     {
+      "texto": "Começar é a parte\nmais difícil",
+      "estilo": "forte",
+      "y": 90,
+      "tam": 72,
+      "cor": "branco"
+     },
+     {
+      "texto": "Depois vira rotina.",
+      "y": 1150,
+      "tam": 44,
+      "cor": "escuro"
+     }
+    ],
+    "fotoPos": "center 20%"
+   },
+   {
+    "foto": "viagem-53.jpg",
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual concurso você quer fazer?",
+      "y": 770,
+      "largura": 660
+     },
+     {
+      "tipo": "mencao",
+      "y": 1140
+     }
+    ],
+    "fotoPos": "center 25%"
+   }
+  ]
+ },
+ {
+  "id": "errei-muita-questao",
+  "titulo": "Errei metade das questões. Volto pra teoria?",
+  "slides": [
+   {
+    "foto": "viagem-56.jpg",
+    "elementos": [
+     {
+      "texto": "Errei metade\ndas questões.\nVolto pra teoria?",
+      "estilo": "forte",
+      "y": 70,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Isso já aconteceu com você?",
+      "opcoes": [
+       "Toda semana",
+       "Às vezes"
+      ],
+      "y": 1000,
+      "largura": 520
+     }
+    ],
+    "fotoPos": "center 0%"
+   },
+   {
+    "foto": "viagem-04.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Errar é o treino",
+      "estilo": "forte",
+      "y": 280,
+      "tam": 80,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Questão é pra mostrar\no que você não sabe\nainda. Antes da prova,\nnão na prova.",
+      "y": 440,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-44.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "1. Leia o comentário",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 74,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Antes de voltar pro\nmaterial, entenda por que\na certa é a certa.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-67.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "2. Caderno de erros",
+      "estilo": "forte",
+      "y": 250,
+      "tam": 76,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Anote o erro numa linha:\no que caiu e o que\nvocê confundiu.",
+      "y": 410,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-74.jpg",
+    "fotoPos": "center 40%",
+    "escurecer": 0.35,
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "3. Teoria só do que errou",
+      "estilo": "forte",
+      "y": 230,
+      "tam": 70,
+      "cor": "amarelo"
+     },
+     {
+      "texto": "Não precisa refazer a aula\ninteira. Volte só no ponto\nque derrubou você.",
+      "y": 400,
+      "tam": 44,
+      "cor": "branco"
+     }
+    ]
+   },
+   {
+    "foto": "viagem-63.jpg",
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual matéria você mais erra?",
+      "y": 770,
+      "largura": 660
+     },
+     {
+      "tipo": "mencao",
+      "y": 1140
+     }
+    ],
+    "fotoPos": "center 25%"
    }
   ]
  }
