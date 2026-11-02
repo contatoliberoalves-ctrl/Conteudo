@@ -41,7 +41,12 @@ def main():
                       "res": f"{info['largura']}×{info['altura']}"})
         arquivos[f"videos/{m['video']}"] = str(dst)
         arquivos[f"videos/{poster}"] = str(DIST / "videos" / poster)
-    html = (AQUI / "template.html").read_text().replace("__MODELOS__", json.dumps(saida, ensure_ascii=False))
+    # personagens do editor (PNG transparente por tipo+pose, feitos pela composição Retrato do motion)
+    pers = sorted(f.stem for f in (DIST / "personagens").glob("*.png"))
+    for f in pers:
+        arquivos[f"personagens/{f}.png"] = str(DIST / "personagens" / f"{f}.png")
+    html = ((AQUI / "template.html").read_text().replace("__MODELOS__", json.dumps(saida, ensure_ascii=False))
+            .replace("__PERSONAGENS__", json.dumps(pers)))
     (DIST / "index.html").write_text(html)
     print(f"✓ {DIST / 'index.html'} ({len(saida)} modelos)")
     print(json.dumps({k: str(Path(v).relative_to(DIST)) for k, v in arquivos.items()}, ensure_ascii=False))

@@ -33,6 +33,33 @@ Modelo novo = estilo novo em `estudio/estilos/` (+ código só se o visual pedir
 `python3 estudio/galeria/gerar.py` → publique `estudio/galeria/dist/index.html` com `root:
 estudio/galeria/dist` e o `files` que ele imprime, sempre no MESMO link acima (Artifact com `url`).
 Numa sessão nova sem amostras, baixe as publicadas (Artifact read, `path: videos/<id>.mp4`).
+Publique com `capabilities: {db: {}, user: {}, assets: {}}`. Os personagens do editor
+(`dist/personagens/<tipo>-<pose>.png`, fora do git) saem da composição `Retrato` do motion:
+`npx remotion still src/index.ts Retrato dist/personagens/libero-acena.png --props='{"tipo":"libero","pose":"acena"}'`
+(com `REMOTION_BROWSER` como nos outros renders); o `gerar.py` lista os que existirem.
+
+### O editor da galeria (estilo CapCut/DaVinci) e os bancos dele
+A galeria é um editor: biblioteca (Modelos/Projetos), monitor com elementos arrastáveis, linha do
+tempo (V1, ELEM., PEDIDOS) e inspetor (Adicionar, Propriedades, Alterações, Modelo). Tudo que o
+usuário faz vai para o banco da página (leia com `ArtifactData`, `url` acima):
+- `edicoes/<video>`: `{video, nome, arquivo, elementos[], status}`; `status: "render-pedido"` = ele
+  clicou em "Pedir render". Cada elemento: `{tipo: texto|emoji|personagem|imagem, inicio, fim, x, y`
+  (0–1, centro do elemento no quadro)`, escala, animacao: pop|deslizar|fade|nenhuma, texto, estilo:
+  titulo|legenda|selo|caixa|cta, cor, emoji, personagem, pose, balao, assetId, url}`. Vira
+  `insercoes` do `edl.json` (texto → card/cartela; personagem → `personagem` com pose e fala;
+  imagem → baixe o asset com Artifact read `path: <assetId>`) ou cenas extras no roteiro do motion.
+- `pedidos`: `{video, nome, t, fim?, x?, y?, tipo: alterar|remover|adicionar|cortar, texto, status}`:
+  "no segundo t (no ponto x,y), faça isso"; `cortar` traz o trecho `t`–`fim`.
+- `solicitacoes`: vídeos novos `{modelo, perfil, formato, duracao, voz, tema, material, personagens,
+  extras, obs, status: "nova"}`.
+- `projetos` (escrito pelo Claude): `{titulo, video, poster, status, descricao}`, para o usuário
+  abrir o vídeo pronto no editor e pedir ajustes. Publique o mp4 do projeto como asset (Artifact
+  `asset: true`) e grave o `url` em `video`.
+
+Quando pedirem **"aplica as edições/pedidos do estúdio"** ou **"faz os vídeos novos do estúdio"**:
+leia as coleções, faça (render, confira com `ev.py verificar`), publique o resultado em `projetos`
+e marque `status: "feito"` (pedidos e solicitações) ou `"pronto"` (edições). Pedido ambíguo:
+pergunte e deixe como está.
 
 Tudo roda pelo `estudio/ev.py` (Python + ffmpeg). O vídeo nunca é "assistido":
 o Claude lê o **texto** (`falas.md`, `ev.py ver`) e olha **uma imagem** por checagem

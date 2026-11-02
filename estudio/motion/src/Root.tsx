@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {Motion, Props} from './Motion';
 import exemplo from './exemplo-props.json';
 import {Elenco} from './Elenco';
+import {Retrato} from './Retrato';
 import {Cartoon, CartoonProps} from './Cartoon';
 import {Camada, CamadaProps} from './Camada';
 import {Blocos, BlocosProps} from './Blocos';
@@ -87,5 +88,7 @@ export const Root: React.FC = () => (
       return {width: p.largura, height: p.altura, fps: p.fps, durationInFrames: p.total};
     }}
   />
+  <Composition id="Retrato" component={Retrato as unknown as React.FC<Record<string, unknown>>} width={440} height={620} fps={30} durationInFrames={1}
+    defaultProps={{tipo: 'libero', pose: 'acena', expressao: 'feliz'} as unknown as Record<string, unknown>} />
   </>
 );
