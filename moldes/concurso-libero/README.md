@@ -26,3 +26,6 @@ Para chamar atenção no feed, a capa aceita `visual` (mantém o logo no topo e 
 
 ## Tela única de material grátis (`tipo: "post"`, `visual: "pdf"`)
 Fundo petróleo com grade, manchete (`manchete`, `ts`, `selo`, `sub`), capa do PDF desenhada à direita (`pdf: {titulo[], sub, itens[]}`, `pdfY`) com o selo "PDF grátis" e a caixa de comentário com a palavra (`comenta`, `comentaTexto`, padrão "e receba o PDF").
+
+## Quiz rápido de uma página (`tipo: "post"`, `visual: "quiz"`)
+Fundo petróleo com grade, selo "Quiz rápido" (`selo`), `assunto` numa pílula, `pergunta` (linhas, `[[palavra]]` em caixa verde; `ts`), `contexto` opcional, `opcoes` (2 a 4, viram A–D em cartões brancos; `to` = px do texto), barra "Comenta a letra" (`rodape`, padrão "gabarito nos comentários") e `fonte` em letra pequena. O `gabarito` fica só no dados.json, para a legenda ou o comentário fixado. Só pergunte o que está na lei ou no edital.

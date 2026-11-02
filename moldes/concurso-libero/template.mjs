@@ -200,9 +200,35 @@ function postPdf(p) {
       <span style="${S};font-size:32px;font-weight:700;color:${COR.tinta}">Comenta <span style="color:#078A4A">${esc(p.comenta)}</span><span style="display:inline-block;width:3px;height:32px;background:${COR.tinta};margin-left:6px;vertical-align:-6px"></span></span><span style="margin-left:auto;${I};font-size:22px;font-weight:700;color:#078A4A">${esc(p.comentaTexto || 'e receba o PDF')}</span></div>` : ''}`);
 }
 
+// Quiz rápido de uma página (tela única, visual "quiz"): pergunta, alternativas A–D em cartões e a barra
+// "Comenta a letra". O gabarito fica no dados.json (campo "gabarito", para a legenda ou o comentário fixado).
+function postQuiz(p) {
+  const t = TEMA.escuro, ops = lista(p.opcoes);
+  const L = 'ABCDE';
+  return secao(PETROLEO_BG, `${textura(true)}
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.05) 1px,transparent 1px);background-size:54px 54px"></div>${topo(t)}
+    <div class="caixa" style="position:absolute;left:${M}px;right:${M}px;top:170px;bottom:200px;display:flex;align-items:center;z-index:5"><div class="enc" style="width:100%">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <span style="display:inline-block;${S};font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.tinta};background:#FFB511;padding:10px 18px;border-radius:10px;transform:rotate(-2deg)">${esc(p.selo || 'Quiz rápido')}</span>
+        ${p.assunto ? `<span style="${S};font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B9FFF1;border:2px solid rgba(185,255,241,.45);border-radius:999px;padding:8px 18px">${esc(p.assunto)}</span>` : ''}
+      </div>
+      <div style="${T};font-size:${p.ts || 86}px;line-height:1.02;color:#fff;margin-top:30px">${linhas(p.pergunta, { ...t, caixaBg: '#0BA457' })}</div>
+      ${p.contexto ? `<p style="${I};font-size:28px;font-weight:500;line-height:1.4;color:#CFEDE6;margin:20px 0 0">${rico(p.contexto, t)}</p>` : ''}
+      <div style="display:flex;flex-direction:column;gap:16px;margin-top:38px">${ops.map((o, k) => `<div style="display:flex;align-items:center;gap:22px;background:#fff;border-radius:20px;padding:18px 24px;box-shadow:0 10px 24px rgba(0,0,0,.25)">
+        <span style="flex:none;width:58px;height:58px;border-radius:14px;background:${VERDE_BG};display:flex;align-items:center;justify-content:center;${T};font-size:40px;line-height:1;padding-top:4px;color:#fff">${L[k]}</span>
+        <span style="${I};font-size:${p.to || 32}px;font-weight:600;line-height:1.3;color:${COR.tinta}">${rico(o, TEMA.claro || t)}</span></div>`).join('')}</div>
+    </div></div>
+    <div style="position:absolute;left:${M}px;right:${M}px;bottom:80px;display:flex;align-items:center;gap:20px;background:#fff;border-radius:999px;padding:16px 26px 16px 16px;z-index:6;box-shadow:0 18px 40px rgba(0,0,0,.35)">
+      <span style="flex:none;width:58px;height:58px;border-radius:50%;background:${VERDE_BG}"></span>
+      <span style="${S};font-size:32px;font-weight:700;color:${COR.tinta}">Comenta <span style="color:#078A4A">a letra</span><span style="display:inline-block;width:3px;height:32px;background:${COR.tinta};margin-left:6px;vertical-align:-6px"></span></span>
+      <span style="margin-left:auto;${I};font-size:22px;font-weight:700;color:#078A4A">${esc(p.rodape || 'gabarito nos comentários')}</span></div>
+    ${p.fonte ? `<div style="position:absolute;left:${M}px;right:${M}px;bottom:36px;text-align:center;${I};font-size:18px;font-weight:500;color:rgba(207,237,230,.7);z-index:6">${esc(p.fonte)}</div>` : ''}`);
+}
+
 // Tela única: manchete com números e CTA.
 function post(p) {
   if (p.visual === 'pdf') return postPdf(p);
+  if (p.visual === 'quiz') return postQuiz(p);
   const t = TEMA.escuro;
   return secao(VERDE_BG, `${textura(true)}${topo(t)}
     <div class="caixa" style="position:absolute;left:${M}px;right:${M}px;top:170px;bottom:90px;display:flex;align-items:center;z-index:5"><div class="enc" style="width:100%">

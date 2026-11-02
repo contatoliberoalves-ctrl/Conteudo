@@ -2376,5 +2376,124 @@
   },
   "comenta": "CRONOGRAMA",
   "comentaTexto": "e receba o PDF"
+ },
+ {
+  "id": "quiz-validade-concurso",
+  "titulo": "Quiz: validade do concurso",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "Constitucional",
+  "pergunta": [
+   "Quanto tempo vale",
+   "um [[concurso]]?"
+  ],
+  "opcoes": [
+   "Até 1 ano, sem prorrogação",
+   "Até 2 anos, prorrogável uma vez por igual período",
+   "Até 4 anos, sem prorrogação",
+   "Até 5 anos, prorrogável uma vez"
+  ],
+  "gabarito": "B",
+  "fonte": "Art. 37, III, CF/88"
+ },
+ {
+  "id": "quiz-estabilidade",
+  "titulo": "Quiz: quando vem a estabilidade",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "Constitucional",
+  "pergunta": [
+   "Depois de quanto",
+   "tempo o servidor",
+   "fica [[estável]]?"
+  ],
+  "opcoes": [
+   "2 anos de efetivo exercício",
+   "3 anos de efetivo exercício",
+   "4 anos de efetivo exercício",
+   "Logo na posse"
+  ],
+  "gabarito": "B",
+  "fonte": "Art. 41, CF/88",
+  "ts": 80
+ },
+ {
+  "id": "quiz-cargo-em-comissao",
+  "titulo": "Quiz: qual cargo dispensa concurso",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "Constitucional",
+  "pergunta": [
+   "Qual destes",
+   "[[dispensa]] concurso?"
+  ],
+  "opcoes": [
+   "Técnico judiciário",
+   "Cargo em comissão de livre nomeação e exoneração",
+   "Escrevente do TJ",
+   "Soldado da PM"
+  ],
+  "gabarito": "B",
+  "fonte": "Art. 37, II, CF/88"
+ },
+ {
+  "id": "quiz-professor-acumula",
+  "titulo": "Quiz: professor pode acumular?",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "Constitucional · EC 138/2025",
+  "pergunta": [
+   "Professor pode ter",
+   "outro cargo [[público]]?"
+  ],
+  "opcoes": [
+   "Só com outro cargo de professor",
+   "Só com cargo técnico ou científico",
+   "Com cargo de qualquer natureza, se os horários forem compatíveis",
+   "Não pode acumular"
+  ],
+  "gabarito": "C",
+  "fonte": "Art. 37, XVI, b, CF/88 (redação da EC 138/2025)",
+  "to": 29
+ },
+ {
+  "id": "quiz-enac-acertos",
+  "titulo": "Quiz: acertos para habilitar no ENAC",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "ENAC",
+  "pergunta": [
+   "Quantos acertos",
+   "habilitam no [[ENAC]]?"
+  ],
+  "opcoes": [
+   "50 de 100",
+   "60 de 100",
+   "70 de 100",
+   "Não tem nota mínima"
+  ],
+  "gabarito": "B (60 na ampla concorrência; 50 nas vagas reservadas)",
+  "fonte": "Edital do 4º ENAC (2026.2), FGV",
+  "contexto": "Ampla concorrência, prova de 100 questões."
+ },
+ {
+  "id": "quiz-enam-tempo",
+  "titulo": "Quiz: tempo por questão no ENAM",
+  "tipo": "post",
+  "visual": "quiz",
+  "assunto": "ENAM",
+  "pergunta": [
+   "Quanto tempo você",
+   "tem por [[questão]]?"
+  ],
+  "opcoes": [
+   "2min30s",
+   "3min45s",
+   "4min30s",
+   "5 minutos"
+  ],
+  "gabarito": "B (5 horas para 80 questões)",
+  "fonte": "Edital do 6º ENAM (2026.2): 80 questões em 5 horas",
+  "contexto": "No ENAM são 80 questões em 5 horas de prova."
  }
 ]
