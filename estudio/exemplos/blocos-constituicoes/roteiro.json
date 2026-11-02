@@ -1,0 +1,187 @@
+{
+ "formato": "reels",
+ "serie": "Constituições do Brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "velocidade": "+15%",
+ "capitulos": [
+  {
+   "data": "MAR 1824",
+   "titulo": "O Império",
+   "cor": "#7B4BB7",
+   "origem": "Rio de Janeiro",
+   "capital": "Rio de Janeiro",
+   "camera": "brasil",
+   "fala": "1824. Dom Pedro Primeiro dissolve a Constituinte e outorga a primeira Constituição, com o Poder Moderador.",
+   "rotulos": [
+    {
+     "texto": "Corte",
+     "cidade": "Rio de Janeiro",
+     "destaque": true
+    },
+    "Salvador",
+    "Recife"
+   ],
+   "legenda": [
+    [
+     "#7B4BB7",
+     "Império do Brasil"
+    ]
+   ]
+  },
+  {
+   "data": "FEV 1891",
+   "titulo": "A República",
+   "cor": "#B8963A",
+   "cores_uf": {
+    "SP": "#7A4A22",
+    "MG": "#EDE4D3"
+   },
+   "origem": "Rio de Janeiro",
+   "capital": "Rio de Janeiro",
+   "camera": "Ouro Preto",
+   "fala": "1891. Vem a República: federalismo, presidencialismo e Estado laico.",
+   "rotulos": [
+    "São Paulo",
+    "Ouro Preto",
+    {
+     "texto": "Capital",
+     "cidade": "Rio de Janeiro",
+     "destaque": true
+    }
+   ],
+   "legenda": [
+    [
+     "#B8963A",
+     "República"
+    ],
+    [
+     "#7A4A22",
+     "São Paulo (café)"
+    ],
+    [
+     "#EDE4D3",
+     "Minas (leite)"
+    ]
+   ]
+  },
+  {
+   "data": "JUL 1934",
+   "titulo": "Voto feminino",
+   "cor": "#3FA34D",
+   "origem": "São Paulo",
+   "capital": "Rio de Janeiro",
+   "camera": "São Paulo",
+   "fala": "1934. Depois das revoluções de 30 e 32: voto secreto, voto feminino e direitos trabalhistas.",
+   "rotulos": [
+    {
+     "texto": "Revolução de 1932",
+     "cidade": "São Paulo",
+     "destaque": true
+    },
+    "Rio de Janeiro"
+   ],
+   "legenda": [
+    [
+     "#3FA34D",
+     "Segunda República"
+    ]
+   ]
+  },
+  {
+   "data": "NOV 1937",
+   "titulo": "Estado Novo",
+   "cor": "#8E2B2B",
+   "origem": "Rio de Janeiro",
+   "capital": "Rio de Janeiro",
+   "camera": "brasil",
+   "fumaca": true,
+   "fala": "1937. Vargas fecha o Congresso e outorga a Polaca. É o Estado Novo.",
+   "rotulos": [
+    {
+     "texto": "Congresso fechado",
+     "cidade": "Rio de Janeiro",
+     "destaque": true
+    }
+   ],
+   "legenda": [
+    [
+     "#8E2B2B",
+     "Estado Novo (ditadura)"
+    ]
+   ]
+  },
+  {
+   "data": "SET 1946",
+   "titulo": "Redemocratização",
+   "cor": "#2F6FB5",
+   "origem": "Rio de Janeiro",
+   "capital": "Rio de Janeiro",
+   "camera": "brasil",
+   "fala": "1946. Vargas cai e o Brasil volta à democracia.",
+   "rotulos": [
+    "Rio de Janeiro",
+    "Porto Alegre",
+    "Belém"
+   ],
+   "legenda": [
+    [
+     "#2F6FB5",
+     "Democracia de 1946"
+    ]
+   ]
+  },
+  {
+   "data": "JAN 1967",
+   "titulo": "Regime militar",
+   "cor": "#55602F",
+   "origem": "Brasília",
+   "capital": "Brasília",
+   "camera": "Brasília",
+   "fumaca": true,
+   "fala": "1967. Com a capital em Brasília, o regime militar impõe sua Constituição.",
+   "rotulos": [
+    {
+     "texto": "Nova capital",
+     "cidade": "Brasília",
+     "destaque": true
+    },
+    "Rio de Janeiro"
+   ],
+   "legenda": [
+    [
+     "#55602F",
+     "Regime militar"
+    ]
+   ]
+  },
+  {
+   "data": "OUT 1988",
+   "titulo": "A Cidadã",
+   "cor": "#2F9E4F",
+   "origem": "Brasília",
+   "capital": "Brasília",
+   "camera": "brasil",
+   "fala": "1988. A Constituição Cidadã: direitos fundamentais, cláusulas pétreas e a democracia de hoje.",
+   "rotulos": [
+    {
+     "texto": "Constituição Cidadã",
+     "cidade": "Brasília",
+     "destaque": true
+    },
+    "Manaus",
+    "Salvador",
+    "Porto Alegre"
+   ],
+   "legenda": [
+    [
+     "#2F9E4F",
+     "Constituição de 1988"
+    ],
+    [
+     "#F2D33C",
+     "Em vigor"
+    ]
+   ]
+  }
+ ]
+}

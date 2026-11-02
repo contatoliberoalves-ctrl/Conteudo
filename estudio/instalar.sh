@@ -35,6 +35,9 @@ baixa() { [ -f "fontes/$2" ] || curl -sfL "https://raw.githubusercontent.com/goo
 baixa bebasneue/BebasNeue-Regular.ttf BebasNeue-Regular.ttf
 baixa poppins/Poppins-ExtraBold.ttf Poppins-ExtraBold.ttf
 baixa poppins/Poppins-Bold.ttf Poppins-Bold.ttf
+baixa silkscreen/Silkscreen-Bold.ttf Silkscreen-Bold.ttf
+baixa silkscreen/Silkscreen-Regular.ttf Silkscreen-Regular.ttf
+baixa vt323/VT323-Regular.ttf VT323-Regular.ttf
 estatica() {  # família-variável peso nome-final
   [ -f "fontes/$3.ttf" ] && return
   curl -sfL "https://raw.githubusercontent.com/google/fonts/main/ofl/$1%5Bwght%5D.ttf" -o /tmp/var.ttf

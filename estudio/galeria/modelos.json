@@ -1,5 +1,106 @@
 [
  {
+  "id": "mapa-blocos",
+  "nome": "Mapa em blocos",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "História, linha do tempo, Constituições",
+  "descricao": "O Brasil em blocos 3D, com os 27 estados, contando uma história capítulo por capítulo: o mapa repinta a partir de uma cidade, a torre da capital sobe (e muda do Rio para Brasília), aparece fumaça nos golpes, e na tela ficam o placar da data em fonte pixel, a legenda, a caixa de texto que digita no tempo da narração e a barra de capítulos.",
+  "passos": [
+   "roteiro.json (capítulos: data, cor, cidade de origem, capital, rótulos, fala)",
+   "blocos roteiro.json --rascunho",
+   "blocos roteiro.json"
+  ],
+  "pedido": "Faz um mapa em blocos contando as 7 Constituições do Brasil em menos de 1 minuto.",
+  "video": "mapa-blocos.mp4",
+  "amostra": "feito do zero; contornos dos estados de dados públicos (geojson)"
+ },
+ {
+  "id": "caminho-luz",
+  "nome": "Caminho de luz",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Ritos e processos em etapas (PEC, lei, ADI, impeachment)",
+  "descricao": "Um fio de luz contínuo liga as estações de um processo; a câmera voa de uma à outra sem cortes. Cada estação é um botão gordinho com borda, que acende quando o fio chega. O conteúdo entra no tempo da fala: chips de quem propõe, contador com dígitos (308 de 513), check, carimbo sobre o veto riscado. Abre com o Lex batendo na tela e fecha abrindo para o caminho inteiro.",
+  "passos": [
+   "roteiro.json (estações: abertura, chips, contador, check, carimbo, final)",
+   "caminho roteiro.json --rascunho",
+   "caminho roteiro.json"
+  ],
+  "pedido": "Faz um caminho de luz explicando o rito da PEC, do quem propõe até a promulgação.",
+  "video": "caminho-luz.mp4",
+  "amostra": "feito do zero; estilo inspirado no anúncio 'The Path', sem marca nem personagem de terceiros"
+ },
+ {
+  "id": "neon-vidro",
+  "nome": "Neon e vidro",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "livre",
+  "perfis": "Anúncios e lançamentos de curso",
+  "descricao": "Promo escura no estilo anúncio Apple com synthwave: grade em perspectiva correndo, sol em degradê, cartões de vidro fosco com borda de luz, títulos com brilho que varre, números que contam e botão final pulsando.",
+  "passos": [
+   "roteiro.json (cenas: titulo, cartao, numero, pilulas, cta)",
+   "neon roteiro.json --rascunho",
+   "neon roteiro.json"
+  ],
+  "pedido": "Faz uma promo de 30 s em neon e vidro do reforço de Constitucional, fechando com 'Inscreva-se'.",
+  "video": "neon-vidro.mp4",
+  "amostra": "feito do zero"
+ },
+ {
+  "id": "aura",
+  "nome": "Aura",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "Vídeos de impacto, chamadas, hype",
+  "descricao": "Edit cinematográfico curto no ritmo da batida, com o Líbero em desenho: luz de recorte, aura que pulsa no grave, raios de luz, fumaça, faíscas subindo, tarja de cinema, closes e contra-plongée, flash nos cortes e letreiros que batem na tela com aberração cromática. Trilha (grave, subida e impactos) feita em código.",
+  "passos": [
+   "roteiro.json (tomadas em batidas, letreiros, cores)",
+   "aura roteiro.json --rascunho",
+   "aura roteiro.json"
+  ],
+  "pedido": "Faz um edit 'aura' de 15 s comigo em desenho: 'quem gabarita constitucional', 6/6 e link na bio.",
+  "video": "aura.mp4",
+  "amostra": "feito do zero, sem narração"
+ },
+ {
+  "id": "cartoon-poderes",
+  "nome": "Cartoon: os 3 Poderes",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Explicar um tema com personagens",
+  "descricao": "Episódio de cartoon com cada personagem sendo um Poder: o Beto é o Legislativo (faz as leis), a Ana o Executivo, o Martelo o Judiciário com a balança, e o Líbero apresenta e fecha com 'freios e contrapesos' e o carimbo de cláusula pétrea.",
+  "passos": [
+   "roteiro.json",
+   "cartoon roteiro.json --rascunho",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 40 s explicando os 3 Poderes, cada personagem sendo um Poder.",
+  "video": "cartoon-poderes.mp4",
+  "amostra": "feito do zero; vozes pt-BR grátis"
+ },
+ {
   "id": "reels-insercoes",
   "nome": "Reels com inserções",
   "grupo": "Talking head",

@@ -219,7 +219,7 @@ const Cena: React.FC<{c: CenaCartoon; p: CartoonProps}> = ({c, p}) => {
   const pan = c.camera === 'pan' ? (prog - 0.5) * -W * 0.06 : 0;
   const entra = interpolate(f, [0, 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   const vertical = H > W;
-  const escPers = Math.min(W, H * 0.62) / 1080 * (vertical ? 1.45 : 1.05);
+  const escPers = Math.min(W, H * 0.62) / 1080 * (vertical ? 1.45 : 1.05) * (c.personagens.length >= 3 ? 0.72 : 1);
   const chao = H * (vertical ? 0.84 : 0.86);
   const falaAgora = c.falas.find((fl) => f >= fl.inicio && f < fl.fim);
   return (

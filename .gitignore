@@ -23,4 +23,6 @@ estudio/motion/node_modules/
 estudio/motion/public/fonts/
 estudio/motion/out/
 .claude/skills/gsap-*/
-estudio/motion/public/
+estudio/motion/public/*
+!estudio/motion/public/geo/
+estudio/motion/public/geo/*.geojson

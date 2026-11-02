@@ -1,0 +1,20 @@
+{
+ "formato": "reels", "bpm": 120, "queda": 8,
+ "cores": {"aura": "#3DFF8B", "fundo": "#04070A", "luz": "#9FE8FF"},
+ "tomadas": [
+  {"batidas": 4, "personagem": "libero", "pose": "parado", "expressao": "neutro", "angulo": "lado"},
+  {"batidas": 4, "personagem": "libero", "pose": "pensando", "expressao": "confiante", "angulo": "close"},
+  {"batidas": 4, "personagem": "libero", "pose": "bracos-cruzados", "expressao": "confiante", "angulo": "baixo"},
+  {"batidas": 4, "personagem": "libero", "pose": "joinha", "expressao": "confiante", "angulo": "frente", "cor": "#FFD27A"},
+  {"batidas": 4, "personagem": "libero", "pose": "comemora", "expressao": "feliz", "angulo": "baixo"},
+  {"batidas": 6, "personagem": "libero", "pose": "bracos-cruzados", "expressao": "confiante", "angulo": "close"}
+ ],
+ "letreiros": [
+  {"batida": 2, "batidas": 2, "texto": "6 QUESTÕES", "tamanho": 150},
+  {"batida": 8, "batidas": 2, "texto": "QUEM\nGABARITA", "tamanho": 190},
+  {"batida": 12, "batidas": 2, "texto": "CONSTI\nTUCIONAL", "tamanho": 190},
+  {"batida": 16, "batidas": 2, "texto": "6/6", "tamanho": 330, "cor": "#FFD27A"},
+  {"batida": 20, "batidas": 4, "texto": "REFORÇO\n1ª FASE", "tamanho": 180},
+  {"batida": 24, "batidas": 3, "texto": "LINK NA BIO", "tamanho": 140}
+ ]
+}

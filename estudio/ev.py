@@ -124,6 +124,16 @@ def main():
     a.add_argument("--treino", action="store_true", help="pacote para treinar um clone (aceita mais trechos)")
     a.add_argument("--conf", type=float, default=0.7, help="confiança média mínima da transcrição")
 
+    for nome, ajuda in [("blocos", "mapa do Brasil em blocos, capítulo por capítulo"),
+                        ("caminho", "processo em estações ligadas por um fio de luz"),
+                        ("neon", "promo escura estilo Apple + synthwave, cartões de vidro"),
+                        ("aura", "edit cinematográfico 'aura' com personagem")]:
+        a = s.add_parser(nome, help=ajuda)
+        a.add_argument("roteiro")
+        a.add_argument("--formato", choices=["reels", "feed", "quadrado", "youtube"])
+        a.add_argument("--rascunho", action="store_true")
+        a.add_argument("--saida")
+
     a = s.add_parser("texto")
     a.add_argument("edl")
 
@@ -154,6 +164,14 @@ def main():
         from ev.cartoon import main as m
     elif args.cmd == "voz":
         from ev.voz import main as m
+    elif args.cmd == "neon":
+        from ev.neon import main as m
+    elif args.cmd == "aura":
+        from ev.aura import main as m
+    elif args.cmd == "caminho":
+        from ev.caminho import main as m
+    elif args.cmd == "blocos":
+        from ev.blocos import main as m
     elif args.cmd == "texto":
         from ev.cortar import texto_final as m
     elif args.cmd == "narrar":

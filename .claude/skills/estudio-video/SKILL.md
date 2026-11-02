@@ -1,6 +1,6 @@
 ---
 name: estudio-video
-description: Estúdio de vídeo com modelos (cartoon narrado com personagens desenhados por código, Reels com inserções — personagens, imagens, ícones, cards, tela dividida e recorte na frente de cenário entrando na palavra dita —, motion Remotion+GSAP com 6 controles — espaçamento, tipografia, desfoque, easing, follow-through, antecipação —, Reels com motion, Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
+description: Estúdio de vídeo com modelos (mapa do Brasil em blocos, caminho de luz, neon e vidro, aura, cartoon narrado com personagens desenhados por código, Reels com inserções — personagens, imagens, ícones, cards, tela dividida e recorte na frente de cenário entrando na palavra dita —, motion Remotion+GSAP com 6 controles — espaçamento, tipografia, desfoque, easing, follow-through, antecipação —, Reels com motion, Reels destaque, palavra gigante atrás da cabeça, faixa 9:16 com título, uma palavra por vez, legenda em caixa, aula do YouTube e explicativo animado narrado feito por código). Edita vídeos de verdade (Reels, Shorts, Stories, aulas do YouTube) a partir do vídeo bruto gravado: transcreve local e grátis, corta silêncios, hesitações e regravações, reenquadra 16:9 → 9:16 seguindo o rosto, dá punch-in nos cortes, corrige cor e áudio (-14 LUFS), queima legenda palavra a palavra nas cores de cada perfil, põe cartelas, animações (HyperFrames/Remotion), b-roll e música com ducking, e aprende o estilo de cada perfil. Use quando pedirem para editar, cortar, legendar ou montar um vídeo/reels, "tirar as pausas", "colocar legenda", "deixar no formato do Reels", analisar um vídeo de referência ou narrar um roteiro.
 ---
 
 # Estúdio de vídeo
@@ -20,6 +20,10 @@ Quando o usuário citar um modelo pelo nome, siga a receita dele abaixo.
 | Explicativo animado narrado | `<perfil>` | `ev.py explicativo roteiro.json` (seção própria) |
 | Motion com 6 controles | `<perfil>` | `ev.py motion …` (seção própria) |
 | Cartoon narrado | `<perfil>` | `ev.py cartoon roteiro.json` (seção própria) |
+| Mapa em blocos | livre | `ev.py blocos roteiro.json` (seção "Motion narrado por roteiro") |
+| Caminho de luz | `<perfil>` | `ev.py caminho roteiro.json` |
+| Neon e vidro | livre | `ev.py neon roteiro.json` |
+| Aura | livre | `ev.py aura roteiro.json` |
 | Reels com inserções | `<perfil>` | `insercoes` + `layout` no edl.json → `render` (seção própria) |
 | Reels com motion | `<perfil>` | motion transparente (`"transparente": true`) → `sobreposicoes` do EDL → render |
 | Aula no YouTube | `aula-youtube` | `--formato youtube` + `ev.py texto` para capítulos |
@@ -197,6 +201,27 @@ rubber hose, rosto, poses) e `Cartoon.tsx` (cenários, objetos, balões, câmera
 - Personagem novo: desenhe em `personagens.tsx` na mesma caixa 400×600 (pés em y=590), com `Olhos`,
   `Boca` e `Braco`; registre o tipo. Elenco para conferir: composição `Elenco` (`npx remotion still src/index.ts Elenco`).
 - Exemplo: `estudio/exemplos/cartoon-ms/roteiro.json`.
+
+## Motion narrado por roteiro (blocos, caminho, neon, aura)
+Todos no Remotion (`estudio/motion/src/Blocos.tsx`, `Caminho.tsx`, `Neon.tsx`, `Aura.tsx`), som feito em
+código, narração pelo mesmo `sintetizar` (edge-tts, ElevenLabs ou voz clonada via `"voz"`), máx. ~1 min.
+O formato de cada roteiro está no cabeçalho do `ev/<modelo>.py`; exemplos em `estudio/exemplos/`
+(`blocos-constituicoes`, `caminho-pec`, `neon-reforco`, `aura-libero`, `cartoon-poderes`).
+- **Mapa em blocos** (história/linha do tempo): Brasil em blocos 3D com os 27 estados
+  (`motion/public/geo/brasil-grade.json`, gerado do geojson dos estados), capítulos com `data` (placar
+  pixel), `cor` e `cores_uf` (ex.: SP e MG), `origem` (de onde a cor se espalha), `capital` (torre),
+  `rotulos` (cidades conhecidas: Rio de Janeiro, Brasília, Salvador, São Paulo, Recife, Manaus, Belém,
+  Porto Alegre, Ouro Preto, Petrolina, ou siglas de UF), `camera` (`brasil`, uma cidade, ou x/y/zoom) e
+  `fumaca`. Fatos e datas conferidos antes de narrar.
+- **Caminho de luz** (rito em etapas): `abertura` (o Lex bate na tela), `chips` (com `gatilho` por chip),
+  `contador` (número/de, dígitos em células), `check`, `carimbo` (`riscado` + `carimbo`), `final` (frase de
+  3 linhas e o caminho inteiro). Ideal para PEC, processo legislativo, ADI, impeachment.
+- **Neon e vidro** (promo/anúncio): `titulo` (linhas com `|`), `cartao` (ícone + título + sub), `numero`,
+  `pilulas` (itens com `gatilho`), `cta` (botão). 20–30 s.
+- **Aura** (impacto/hype, sem narração): `tomadas` em batidas (personagem, pose, expressão, ângulo
+  `frente|baixo|close|lado`, cor da aura), `letreiros` (batida, batidas, texto com `\n`), `bpm`, `queda`.
+- Não copie marca ou personagem de terceiros (Minecraft, Duolingo…): use o estilo, com nossos personagens
+  e cores. Higgsfield/KATANA é geração de vídeo por IA paga; aqui o equivalente é o modelo Aura, feito em código.
 
 ## Motion com 6 controles (`ev.py motion`, Remotion + GSAP)
 Projeto Remotion em `estudio/motion/` (GSAP pela integração oficial `useGsapTimeline` do
