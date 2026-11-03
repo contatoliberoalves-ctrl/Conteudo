@@ -29,7 +29,7 @@ const fotoTopo = (p, c, H, ate = .55) => {
   const src = foto(c, p.foto);
   if (!src) return `<div style="position:absolute;left:0;right:0;top:0;height:1350px;display:flex;align-items:center;justify-content:center;color:${COR.claro};${TEXTO};font-size:28px">foto em fotos/${esc(p.foto || '')}</div>`;
   return `<img src="${src}" style="position:absolute;left:0;top:${p.fotoY ?? 0}px;width:1080px;height:1350px;object-fit:cover;transform:scale(${p.fotoEscala || 1});transform-origin:50% 20%;filter:saturate(.92)">
-    <div style="position:absolute;left:0;right:0;top:0;height:${H}px;background:linear-gradient(180deg,rgba(11,38,25,0) ${Math.round(ate * 100 - 25)}%,rgba(11,38,25,.86) ${Math.round(ate * 100)}%,#0B2619 ${Math.min(100, Math.round(ate * 100 + 18))}%);z-index:1"></div>`;
+    <div style="position:absolute;left:0;right:0;top:0;height:${H}px;background:linear-gradient(180deg,rgba(8,12,10,0) ${Math.round(ate * 100 - 25)}%,rgba(8,12,10,.86) ${Math.round(ate * 100)}%,#0A0F0C ${Math.min(100, Math.round(ate * 100 + 18))}%);z-index:1"></div>`;
 };
 const marca = (cor = '#fff') => `<div style="display:flex;align-items:center;gap:16px">
     <span style="width:78px;height:78px;border-radius:20px;background:linear-gradient(150deg,${COR.claro},${COR.medio});display:flex;align-items:center;justify-content:center;${TITULO};font-size:46px;color:${COR.base}">CG</span>
@@ -53,7 +53,7 @@ const LAYOUTS = {
   // última em verde, sobre a foto.
   etiquetas(p, c, H, story) {
     const src = foto(c, p.foto);
-    const fundo = src ? `<img src="${src}" style="position:absolute;left:0;top:0;width:1080px;height:${H}px;object-fit:cover;object-position:${esc(p.fotoPos || 'center top')}"><div style="position:absolute;inset:0;background:rgba(11,38,25,.28)"></div>` : `<div style="position:absolute;inset:0;background:${ESCURO}"></div>`;
+    const fundo = src ? `<img src="${src}" style="position:absolute;left:0;top:0;width:1080px;height:${H}px;object-fit:cover;object-position:${esc(p.fotoPos || 'center top')}"><div style="position:absolute;inset:0;background:rgba(8,12,10,.28)"></div>` : `<div style="position:absolute;inset:0;background:${ESCURO}"></div>`;
     const blocos = lista(p.etiquetas).map((b, i, arr) => {
       const ultimo = i === arr.length - 1;
       return `<div style="display:flex;flex-direction:column;align-items:center">${lista(b).map(l => `<span style="display:inline-block;background:${ultimo ? COR.medio : '#fff'};color:${ultimo ? '#fff' : '#000'};font-family:'Courier Prime','Noto Color Emoji',monospace;font-weight:700;font-size:${p.tl || 44}px;line-height:1.18;padding:4px 16px;border-radius:6px;text-align:center">${esc(l)}</span>`).join('')}</div>`;

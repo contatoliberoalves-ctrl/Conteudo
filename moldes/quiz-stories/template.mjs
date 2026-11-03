@@ -6,7 +6,7 @@
 const TEMAS = {
   dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', accent: '#6FD39B', cardBg: '#123A27', cardFg: '#e8eeee', pillBg: '#6FD39B', pillFg: '#0b2619', vazado: 'rgba(111,211,155,.22)', no: '#0b2619' },
   light: { bg: '#FFFFFF', title: '#0b2619', fg: '#1f3a2e', accent: '#1F8A55', cardBg: '#0b2619', cardFg: '#e8eeee', pillBg: '#0b2619', pillFg: '#e8eeee', vazado: 'rgba(31,138,85,.20)', no: '#e8eeee' },
-  mint:  { bg: 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)', title: '#FFFFFF', fg: '#DCEFE3', accent: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', pillBg: '#0B2619', pillFg: '#F2F6F3', vazado: 'rgba(111,211,155,.22)', no: '#1F8A55' },
+  mint:  { bg: 'linear-gradient(160deg,#173F2D 0%,#1B4F37 55%,#225F40 100%)', title: '#FFFFFF', fg: '#DCEFE3', accent: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', pillBg: '#0B2619', pillFg: '#F2F6F3', vazado: 'rgba(111,211,155,.22)', no: '#1F8A55' },
 };
 const VERDE = '#1F8A55', MENTA = '#6FD39B', ESCURO = '#0b2619', GELO = '#e8eeee', ERRO = '#e2574c';
 // Pergunta e gabarito em temas diferentes, alternando entre os quizzes.

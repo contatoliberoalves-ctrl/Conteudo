@@ -2,7 +2,7 @@
 
 Para gerar a capa em outra IA (ChatGPT, Gemini, Midjourney, Ideogram, Leonardo, FLUX…). Formato **4:5 (1080×1350)**.
 Salve a imagem em `moldes/cg-macete/fotos/<nome>.jpg` (fora do git) e ponha na capa do post: `"foto": "<nome>.jpg"`.
-Se a arte já vier com as cores certas, acrescente `"semFiltro": true` (tira o véu verde). O molde escreve a sigla
+O molde não põe filtro nem véu colorido na imagem (só escurece de leve embaixo, onde entra o texto). O molde escreve a sigla
 grande **embaixo**, então a imagem precisa de **espaço vazio no terço de baixo**.
 
 Há duas versões de cada prompt:

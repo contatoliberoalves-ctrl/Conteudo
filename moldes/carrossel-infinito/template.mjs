@@ -5,7 +5,7 @@
 const TEMAS = {
   dark:  { bg: '#0b2619', title: '#e8eeee', fg: '#b9cbc3', strong: '#e8eeee', accent: '#6FD39B', num: '#6FD39B', cardBg: '#123A27', cardFg: '#e8eeee', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#6FD39B', hlBg: '#6FD39B', hlFg: '#0b2619', pillBg: '#6FD39B', pillFg: '#0b2619' },
   light: { bg: '#FFFFFF', title: '#0b2619', fg: '#1f3a2e', strong: '#0b2619', accent: '#1F8A55', num: '#6FD39B', cardBg: '#0b2619', cardFg: '#e8eeee', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#1F8A55', hlBg: '#6FD39B', hlFg: '#0b2619', pillBg: '#6FD39B', pillFg: '#0b2619' },
-  mint:  { bg: 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)', title: '#FFFFFF', fg: '#DCEFE3', strong: '#FFFFFF', accent: '#6FD39B', num: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#6FD39B', hlBg: '#6FD39B', hlFg: '#0B2619', pillBg: '#0B2619', pillFg: '#F2F6F3' },
+  mint:  { bg: 'linear-gradient(160deg,#173F2D 0%,#1B4F37 55%,#225F40 100%)', title: '#FFFFFF', fg: '#DCEFE3', strong: '#FFFFFF', accent: '#6FD39B', num: '#6FD39B', cardBg: '#0B2619', cardFg: '#F2F6F3', cardAccent: '#6FD39B', border: '#6FD39B', counter: '#6FD39B', hlBg: '#6FD39B', hlFg: '#0B2619', pillBg: '#0B2619', pillFg: '#F2F6F3' },
 };
 const ORDEM = ['dark', 'light', 'mint'];
 const VERDE = '#1F8A55';

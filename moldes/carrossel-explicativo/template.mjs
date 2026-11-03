@@ -71,7 +71,7 @@ function capaA(c) {
   const apoio = lista(c.apoio);
   return `
   ${caixaFoto(c, 0, 0, 1080, 1350)}
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,38,25,0) 42%,rgba(11,38,25,.85) 66%,${COR.base} 82%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,10,0) 42%,rgba(8,12,10,.8) 66%,#0A0F0C 84%)"></div>
   ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
   <div data-bloco data-rosto style="position:absolute;left:96px;right:96px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
     ${c.etiqueta ? `<span style="background:#fff;color:${COR.base};padding:12px 22px;font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-left:8px solid ${COR.claro}">${esc(c.etiqueta)}</span>` : ''}

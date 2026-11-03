@@ -15,9 +15,9 @@ function fotoNaCaixa(c, x0, y0, W, H, estiloRecorte) {
 export function renderCarrossel(c) {
   const light = c.tema === 'claro';
   const T = {
-    cardBg: light ? '#F2F6F3' : 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)', cardInk: light ? '#0B2619' : '#F2F6F3', cardHead: light ? '#0B2619' : '#FFFFFF',
+    cardBg: light ? '#F2F6F3' : 'linear-gradient(160deg,#173F2D 0%,#1B4F37 55%,#225F40 100%)', cardInk: light ? '#0B2619' : '#F2F6F3', cardHead: light ? '#0B2619' : '#FFFFFF',
     cardRule: light ? 'rgba(11,38,25,.16)' : 'rgba(255,255,255,.14)', cardLine: light ? 'rgba(11,38,25,.07)' : 'rgba(255,255,255,.05)',
-    s3Bg: light ? 'linear-gradient(160deg,#0B2619 0%,#134A31 45%,#1F8A55 80%,#3FB277 100%)' : '#F2F6F3', s3Ink: light ? '#FFFFFF' : '#0B2619', s3Line: light ? 'rgba(255,255,255,.05)' : 'rgba(11,38,25,.07)',
+    s3Bg: light ? 'linear-gradient(160deg,#173F2D 0%,#1B4F37 55%,#225F40 100%)' : '#F2F6F3', s3Ink: light ? '#FFFFFF' : '#0B2619', s3Line: light ? 'rgba(255,255,255,.05)' : 'rgba(11,38,25,.07)',
     ctaBg: light ? '#FFFFFF' : '#0B2619', ctaInk: light ? '#0B2619' : '#FFFFFF',
     acc: light ? '#1F8A55' : '#6FD39B', accCta: light ? '#1F8A55' : '#6FD39B',
   };
@@ -46,7 +46,7 @@ export function renderCarrossel(c) {
     <div data-foto style="position:absolute;left:0;top:0;width:1020px;height:${c.fotoAltura || 1000}px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%)">
       ${fotoNaCaixa(c, 0, 0, 1020, c.fotoAltura || 1000, `position:absolute;left:0;top:0;width:1020px;height:${c.fotoAltura || 1000}px;object-fit:cover;object-position:center top`)}
     </div>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,38,25,.15) 0%,rgba(11,38,25,0) 30%,rgba(11,38,25,.55) 50%,#0B2619 66%)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,10,.15) 0%,rgba(8,12,10,0) 30%,rgba(8,12,10,.55) 50%,#0A0F0C 66%)"></div>
     <div style="position:absolute;left:84px;right:120px;bottom:190px;display:flex;flex-direction:column;gap:20px">
       <div style="display:flex;align-items:center;gap:18px">
         <span style="width:64px;height:5px;background:#6FD39B"></span>
