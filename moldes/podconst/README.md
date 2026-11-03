@@ -31,3 +31,10 @@ Os grupos 3a–3f não estão no kit: são gerados por `posts.mjs`, com os mesmo
 - 3e Tela única sem foto (certo ou errado) · 3f Tela única com foto (checklist da véspera)
 
 Fotos: `"fotos": {"capa": "...", "recorte": "PNG sem fundo", "libero": "...", "natalia": "..."}`. Sem o arquivo, a moldura mostra a inicial e o @ no lugar. Prova social só com dado real (print, número oficial): nunca invente depoimento.
+
+## Elementos e apresentação
+
+- `elementos/`: objetos 3D do Fluent Emoji (Microsoft, licença MIT) para espaços sem foto (microfone, relógio, troféu, livros, fone, check). O `render.mjs` procura cada arquivo do campo `fotos` em `fotos/` e depois em `elementos/`.
+- Os espaços de foto dos carrosséis do kit (1a–1f) já apontam para fotos do Líbero (`fotos/`, fora do git; recortes com `../carrossel-libero/recortar_pessoa.py`). Quando chegarem fotos da Natália ou da dupla, troque no `dados.json`; nos grupos 3a/3c, o campo `natalia` preenche a polaroide dela (sem foto, aparece o fone 3D).
+- `node apresentacao.mjs` gera `saida/apresentacao-podconst.pdf` (16:9): identidade (paleta, tipografia, elementos, regras) e uma página por post. Antes, gere as miniaturas em `build/pdf/` (uma JPG por slide + `lista.json`).
+- 2f–2h (pedido de anulação da 3B, repescagem e capa do grupo) vieram de outra sessão; os grupos foram renomeados para não colidir com 2c–2e.

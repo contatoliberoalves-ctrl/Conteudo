@@ -35,7 +35,7 @@ for (const c of dados) {
     const pg = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
     await pg.goto('file://' + arq);
     for (const [nome, f] of Object.entries(c.fotos || {})) {
-      const caminho = path.join(root, 'fotos', f);
+      const caminho = [path.join(root, 'fotos', f), path.join(root, 'elementos', f)].find(fs.existsSync) || path.join(root, 'fotos', f);
       if (!fs.existsSync(caminho)) { avisos.push(`foto não encontrada: fotos/${f} (fica o @ no lugar)`); continue; }
       await pg.evaluate(([n, src]) => document.querySelectorAll(`img[data-foto="${n}"]`).forEach(i => i.setAttribute('src', src)), [nome, 'file://' + caminho]);
     }
@@ -52,7 +52,7 @@ for (const c of dados) {
     continue;
   }
   for (const [slot, arq] of Object.entries(c.fotos || {})) {
-    const f = path.join(root, 'fotos', arq);
+    const f = [path.join(root, 'fotos', arq), path.join(root, 'elementos', arq)].find(fs.existsSync) || path.join(root, 'fotos', arq);
     if (!fs.existsSync(f)) { avisos.push(`foto não encontrada: fotos/${arq}`); continue; }
     await page.evaluate(([id, src]) => document.getElementById(id)?.setAttribute('src', src), [slot, 'file://' + f]);
   }

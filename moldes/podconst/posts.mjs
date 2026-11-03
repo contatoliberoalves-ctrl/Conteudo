@@ -41,7 +41,7 @@ const LINHAS = (cor = '#fff') => `<div style="position:absolute;top:60px;left:78
 const tela = (fundo, corpo, cor = '#fff') => `<div class="tela" data-tela style="background:${fundo};color:${cor}">${corpo}</div>`;
 
 // Moldura de foto. "quem" aparece no lugar se a foto não vier.
-const FOTO = (nome, estilo, quem = '', posImg = 'center top', borda = '') => `<div class="foto" style="${estilo}${borda}">${quem ? `<div class="vazio" style="background:${MAG}"><div class="bb" style="font-size:150px;line-height:.8;color:${AMAR}">${quem[0]}</div><div style="font-weight:700;font-size:24px;letter-spacing:3px">@${quem.toUpperCase()}</div></div>` : ''}<img data-foto="${nome}" alt="" style="object-position:${posImg}"></div>`;
+const FOTO = (nome, estilo, quem = '', posImg = 'center top', borda = '') => `<div class="foto" style="${estilo}${borda}">${quem ? `<div class="vazio" style="background:${MAG}"><img src="../elementos/headphone_3d.png" alt="" style="width:62%;filter:drop-shadow(0 14px 20px rgba(60,0,60,.35))"></div>` : ''}<img data-foto="${nome}" alt="" style="object-position:${posImg}"></div>`;
 const RECORTE = (nome, estilo) => `<img data-foto="${nome}" alt="" style="position:absolute;${estilo};object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 40px rgba(5,15,50,.45))">`;
 
 // Polaroide da dupla (CTA com foto)
@@ -141,14 +141,16 @@ const progresso = (h, cor) => `<div class="ab" style="top:150px;left:100px;right
 const g3b = [
   tela(AZUL, `
 ${ETIQ()}
-<div class="ab" style="left:50%;top:520px;width:760px;height:760px;transform:translateX(-50%);border-radius:50%;border:4px solid rgba(255,255,255,.18)"></div>
-${[0, 1, 2, 3, 4].map(i => `<div class="ab" style="left:536px;top:520px;width:8px;height:380px;transform-origin:4px 380px;transform:rotate(${i * 72}deg)"><div style="width:8px;height:44px;background:${AMAR}"></div></div>`).join('')}
-<div class="ab" style="left:0;right:0;top:200px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:3">
+<div class="ab" style="left:0;right:0;top:190px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:3">
 <div class="bb" style="font-size:120px;line-height:.9">A 2ª FASE EM</div>
 <div class="bb" style="background:#e224d6;font-size:250px;line-height:1;padding:16px 40px 0;transform:rotate(-2deg);margin:10px 0">5 HORAS</div>
 <div class="bb" style="font-size:96px;line-height:.95">CONTADA HORA A HORA</div>
 </div>
-<div class="ab" style="left:0;right:0;top:1000px;text-align:center;font-weight:700;font-size:32px;z-index:3">Arrasta e vê onde você perde tempo →</div>
+<div class="ab" style="left:50%;top:700px;width:560px;height:560px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(247,244,0,.35) 0%,rgba(247,244,0,0) 65%)"></div>
+<img src="../elementos/alarm_clock_3d.png" alt="" style="position:absolute;left:50%;top:740px;width:400px;transform:translateX(-50%) rotate(-8deg);filter:drop-shadow(0 30px 40px rgba(5,15,50,.55));z-index:2">
+<div class="ab" style="left:70px;top:820px;display:flex;flex-direction:column;gap:12px;z-index:4">${['LER', 'ACHAR', 'ESCREVER'].map((t, i) => `<div class="bb" style="align-self:flex-start;background:${i % 2 ? AMAR : TINTA};color:${i % 2 ? TINTA : AMAR};font-size:52px;line-height:1;padding:8px 16px 0;transform:rotate(-4deg)">${i + 1}. ${t}</div>`).join('')}</div>
+<div class="ab" style="right:70px;top:880px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:4">${['QUESTÕES', 'REVISAR'].map((t, i) => `<div class="bb" style="background:${i % 2 ? TINTA : AMAR};color:${i % 2 ? AMAR : TINTA};font-size:52px;line-height:1;padding:8px 16px 0;transform:rotate(4deg)">${i + 4}. ${t}</div>`).join('')}</div>
+<div class="ab" style="left:70px;bottom:72px;font-weight:700;font-size:30px;z-index:4">Arrasta →</div>
 ${LOGO(44)}`),
   ...HORAS.map(([tit, txt, fundo, cor, dest], i) => tela(fundo, `
 <div class="marca" style="top:120px;right:-30px;font-size:1250px;line-height:.85;color:transparent;-webkit-text-stroke:4px ${cor === TINTA ? 'rgba(11,26,74,.12)' : 'rgba(255,255,255,.14)'}">${i + 1}</div>
@@ -254,16 +256,21 @@ ${LOGO(40)}`),
 
 // ---------------------------------------------------------------- 3d · Método sem foto (questões)
 const g3d = [
-  tela(MAG, `
-<div class="marca" style="top:-140px;right:-80px;font-size:1300px;line-height:1;color:transparent;-webkit-text-stroke:5px rgba(255,255,255,.18)">?</div>
-${ETIQ()}
-<div class="ab" style="left:90px;right:90px;top:330px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
-<div class="bb" style="font-size:150px;line-height:.88">COMO RESPONDER</div>
-<div class="bb" style="background:${TINTA};color:${AMAR};font-size:190px;line-height:1;padding:14px 30px 0;transform:rotate(-2deg);margin:12px 0 20px">QUESTÃO</div>
-<div class="bb" style="font-size:120px;line-height:.9">DISCURSIVA SEM<br>PERDER PONTO</div>
+  tela(AZUL, `
+<div class="blur" style="bottom:-120px;right:-60px;font-size:460px;color:#e224d6">FGV</div>
+${ETIQ('top:56px;left:80px', 'flex-start', 0)}
+<div class="ab" style="left:80px;right:80px;top:220px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
+<div class="bb" style="font-size:132px;line-height:.88">COMO RESPONDER</div>
+<div class="bb" style="background:#e224d6;font-size:178px;line-height:1;padding:12px 30px 0;transform:rotate(-2deg);margin:10px 0 6px">QUESTÃO DISCURSIVA</div>
+<div class="bb" style="background:${AMAR};color:${TINTA};font-size:72px;line-height:1;padding:10px 20px 0;margin-top:10px">SEM PERDER PONTO</div>
 </div>
-<div class="ab" style="left:90px;bottom:72px;font-weight:700;font-size:30px">Arrasta →</div>
-${LOGO(44)}`),
+<div class="ab" style="left:150px;top:830px;width:740px;height:440px;background:#fff;transform:rotate(-4deg);box-shadow:0 30px 60px rgba(5,15,50,.45);padding:40px 70px 40px 46px;color:${TINTA};z-index:2;background-image:repeating-linear-gradient(180deg,transparent 0 58px,rgba(11,42,140,.14) 58px 60px);background-position:0 96px">
+<div style="font-weight:700;font-size:22px;letter-spacing:4px;color:#0b2a8c;margin-bottom:22px">CADERNO DE RESPOSTAS · QUESTÃO 1</div>
+<div style="font-family:'Caveat',cursive;font-size:44px;line-height:60px"><span style="position:relative;display:inline-block;padding:0 10px">Não.<span style="position:absolute;inset:-8px -12px;border:5px solid #e224d6;border-radius:50%;transform:rotate(-6deg)"></span></span> Legislar sobre direito penal é competência privativa da União, conforme o art. 22, I, da CF…</div>
+</div>
+<div class="ab" style="left:790px;top:760px;width:220px;height:220px;border-radius:50%;border:8px solid #e224d6;color:#e224d6;background:rgba(255,255,255,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);z-index:4;box-shadow:0 14px 30px rgba(5,15,50,.3)"><div class="bb" style="font-size:96px;line-height:.85">1,25</div><div style="font-weight:700;font-size:20px;letter-spacing:3px">NOTA CHEIA</div></div>
+<img src="../elementos/check_mark_button_3d.png" alt="" style="position:absolute;left:70px;top:1100px;width:160px;transform:rotate(-10deg);z-index:5;filter:drop-shadow(0 16px 24px rgba(5,15,50,.4))">
+${LOGO(42, 'bottom:44px;right:70px')}`),
 
   tela(NAVY, `
 <div class="blur" style="top:-80px;right:-60px;font-size:400px;color:#e224d6">ERRO</div>
@@ -365,6 +372,7 @@ export function paginaHtml(grupo) {
   const telas = GRUPOS[grupo];
   if (!telas) return null;
   return `<!DOCTYPE html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@900&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>${css}</style></head><body>${telas.join('\n')}</body></html>`;
 }
+export { LOGO, ETIQ, LINHAS, AZUL, MAG, NAVY, AMAR, BRANCO, TINTA };
