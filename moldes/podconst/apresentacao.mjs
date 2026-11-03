@@ -74,7 +74,23 @@ ${regra('4', 'Prova social só real', 'Print, número oficial ou resultado da pr
 // posts
 const fundosPost = [AZUL, MAG, NAVY, BRANCO];
 const ordem = [...dados].reverse();
-ordem.forEach((p, k) => {
+const quizzes = dados.filter(p => p.id.startsWith('quiz-'));
+let k = 0;
+function paginasQuiz() {
+  for (let g = 0; g < quizzes.length; g += 5) {
+    const grupo = quizzes.slice(g, g + 5);
+    const fundo = fundosPost[k % 4], cor = fundo === BRANCO ? TINTA : '#fff';
+    const cols = grupo.map(p => { const [a, b] = lista[p.id]; return `<div style="display:flex;flex-direction:column;gap:14px;align-items:center"><span style="background:${AMAR};color:${TINTA};font-weight:700;font-size:20px;padding:2px 10px">${p.id.slice(5)}</span><img src="${a}" style="width:224px;height:398px;box-shadow:0 14px 26px rgba(0,0,0,.25)"><img src="${b}" style="width:224px;height:398px;box-shadow:0 14px 26px rgba(0,0,0,.25)"></div>`; }).join('');
+    paginas.push(pag(fundo, `${cab(String(paginas.length + 1).padStart(2, '0'), `QUIZ DE STORIES — ${grupo[0].id.slice(5)} A ${grupo[grupo.length - 1].id.slice(5)}`, cor, false)}
+<div style="position:absolute;left:110px;right:110px;top:150px;font-size:23px;opacity:.85">Em cima, a pergunta com espaço para a enquete SIM/NÃO; embaixo, a resposta com o fundamento e espaço para a enquete “Você acertou?” · 1080×1920</div>
+<div style="position:absolute;left:110px;right:110px;top:200px;display:flex;justify-content:center;gap:40px">${cols}</div>`, cor));
+    k++;
+  }
+}
+let quizFeito = false;
+ordem.forEach(p => {
+  if (p.id.startsWith('quiz-')) { if (!quizFeito) { quizFeito = true; paginasQuiz(); } return; }
+  k++;
   const imgs = lista[p.id] || [];
   const n = imgs.length;
   const escuro = fundosPost[k % 4] !== BRANCO;
@@ -88,9 +104,9 @@ ordem.forEach((p, k) => {
     grade = `<div style="position:absolute;left:110px;right:110px;top:${rows === 1 ? 300 : 230}px;display:flex;flex-wrap:wrap;gap:22px;justify-content:center">${imgs.map((s, i) => `<div style="position:relative"><img src="${s}" style="width:${w}px;height:${h}px;display:block;box-shadow:0 16px 30px rgba(0,0,0,.25)"><span style="position:absolute;top:-14px;left:-14px;background:${AMAR};color:${TINTA};font-weight:700;font-size:20px;padding:2px 10px">${i + 1}</span></div>`).join('')}</div>`;
   }
   const info = n === 1
-    ? `<div style="position:absolute;left:110px;top:260px;width:860px;display:flex;flex-direction:column;gap:26px"><div class="bb" style="font-size:96px;line-height:.9">${p.titulo.replace(/^Tela única · /, '')}</div><div style="width:86px;height:16px;background:${AMAR}"></div><div style="font-size:30px;line-height:1.4;font-weight:600">${p.tema}</div><div style="font-size:24px;opacity:.75">Tela única · 1080×1350</div></div>`
+    ? `<div style="position:absolute;left:110px;top:260px;width:860px;display:flex;flex-direction:column;gap:26px"><div class="bb" style="font-size:96px;line-height:.9">${p.titulo.replace(/^(Tela única|Linha calma) · /, '')}</div><div style="width:86px;height:16px;background:${AMAR}"></div><div style="font-size:30px;line-height:1.4;font-weight:600">${p.tema}</div><div style="font-size:24px;opacity:.75">Tela única · 1080×1350</div></div>`
     : `<div style="position:absolute;left:110px;right:110px;top:150px;font-size:23px;line-height:1.35;opacity:.85">${p.tema} · ${n} slides</div>`;
-  paginas.push(pag(fundosPost[k % 4], `${cab(String(k + 5).padStart(2, '0'), n === 1 ? 'TELA ÚNICA' : p.titulo.replace(/ · /, ' — '), cor, false)}${info}${grade}`, cor));
+  paginas.push(pag(fundosPost[k % 4], `${cab(String(paginas.length + 1).padStart(2, '0'), n === 1 ? 'TELA ÚNICA' : p.titulo.replace(/ · /, ' — '), cor, false)}${info}${grade}`, cor));
 });
 
 const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
