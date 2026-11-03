@@ -5,6 +5,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { paginaHtml } from './posts.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
@@ -24,13 +25,42 @@ let problemas = 0;
 for (const c of dados) {
   if (filtro && c.id !== filtro) continue;
   const avisos = [];
+  // Grupos escritos em código (posts.mjs): página própria; fotos entram nos <img data-foto="nome">.
+  const html = paginaHtml(c.grupo);
+  if (html) {
+    const build = path.join(root, 'build');
+    fs.mkdirSync(build, { recursive: true });
+    const arq = path.join(build, `${c.id}.html`);
+    fs.writeFileSync(arq, html);
+    const pg = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
+    await pg.goto('file://' + arq);
+    for (const [nome, f] of Object.entries(c.fotos || {})) {
+      const caminho = path.join(root, 'fotos', f);
+      if (!fs.existsSync(caminho)) { avisos.push(`foto não encontrada: fotos/${f} (fica o @ no lugar)`); continue; }
+      await pg.evaluate(([n, src]) => document.querySelectorAll(`img[data-foto="${n}"]`).forEach(i => i.setAttribute('src', src)), [nome, 'file://' + caminho]);
+    }
+    await pg.evaluate(() => Promise.all([document.fonts.ready, ...[...document.images].filter(i => i.src).map(i => i.decode().catch(() => {}))]));
+    await pg.waitForTimeout(400);
+    const telas = await pg.$$('[data-tela]');
+    const outDir = path.join(root, 'saida', c.id);
+    fs.rmSync(outDir, { recursive: true, force: true });
+    fs.mkdirSync(outDir, { recursive: true });
+    for (let i = 0; i < telas.length; i++) await telas[i].screenshot({ path: path.join(outDir, `${i + 1}.png`) });
+    await pg.close();
+    console.log(avisos.length ? '!' : '✓', c.id, `(${telas.length} slides)`);
+    avisos.forEach(a => console.log('   ', a));
+    continue;
+  }
   for (const [slot, arq] of Object.entries(c.fotos || {})) {
     const f = path.join(root, 'fotos', arq);
     if (!fs.existsSync(f)) { avisos.push(`foto não encontrada: fotos/${arq}`); continue; }
     await page.evaluate(([id, src]) => document.getElementById(id)?.setAttribute('src', src), [slot, 'file://' + f]);
   }
   if (c.fotos) await page.waitForTimeout(500);
-  const telas = await page.$$(`[data-screen-label="${c.grupo}"], [data-screen-label^="${c.grupo}-"]`);
+  // O kit repete algumas telas (1d, 1e, 1f aparecem duas vezes): fica só a primeira de cada rótulo.
+  const todas = await page.$$(`[data-screen-label="${c.grupo}"], [data-screen-label^="${c.grupo}-"]`);
+  const vistos = new Set(), telas = [];
+  for (const t of todas) { const r = await t.getAttribute('data-screen-label'); if (!vistos.has(r)) { vistos.add(r); telas.push(t); } }
   if (!telas.length) avisos.push(`grupo "${c.grupo}" não existe no kit`);
   const outDir = path.join(root, 'saida', c.id);
   fs.rmSync(outDir, { recursive: true, force: true });

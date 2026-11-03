@@ -21,3 +21,13 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 Para um post com conteúdo próprio: copie as telas do grupo no HTML do kit com um prefixo novo (ex.: `2a-01…`), troque os textos e aponte o `grupo` para ele.
 
 `kit/sapo.png`: sapo 3D do Fluent Emoji (Microsoft, licença MIT), usado na tela 2d (#Sapoconst).
+
+## Grupos escritos em código (`posts.mjs`)
+
+Os grupos 3a–3f não estão no kit: são gerados por `posts.mjs`, com os mesmos elementos (fundos azul, magenta, amarelo, navy e branco alternados; @ em etiquetas na capa e em linhas nas páginas; logo PODCONST).
+
+- 3a Storytelling com foto · 3b Storytelling sem foto (a prova em 5 horas, barra de progresso)
+- 3c Método e prova social com foto · 3d Método e prova social sem foto (questão discursiva)
+- 3e Tela única sem foto (certo ou errado) · 3f Tela única com foto (checklist da véspera)
+
+Fotos: `"fotos": {"capa": "...", "recorte": "PNG sem fundo", "libero": "...", "natalia": "..."}`. Sem o arquivo, a moldura mostra a inicial e o @ no lugar. Prova social só com dado real (print, número oficial): nunca invente depoimento.
