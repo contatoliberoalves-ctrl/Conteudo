@@ -234,6 +234,31 @@ rubber hose, rosto, poses) e `Cartoon.tsx` (cenários, objetos, balões, câmera
   `Boca` e `Braco`; registre o tipo. Elenco para conferir: composição `Elenco` (`npx remotion still src/index.ts Elenco`).
 - Exemplo: `estudio/exemplos/cartoon-ms/roteiro.json`.
 
+## Documentário estilo Vox (`ev.py documentario`)
+Reels de 20–45 s que contam UMA história com início surpreendente, virada e final que paga (ex.: Ulysses
+ergue a Constituição em 1988 → 4 anos depois o helicóptero cai no mar → o corpo nunca foi achado → ficou
+o livro). Visual: papel com fibra, fotos P&B recortadas em colagem (sombra, papel rasgado, moldura),
+palavras grandes em serifada itálica (Instrument Serif) no instante em que a voz as diz, marcas à mão
+(`circulo`, `sublinhado`, `seta`, `risco`, desenhadas em degraus) e movimento em stop motion (`passo`: 3 =
+10 poses/s, com tremidinha). Roteiro no docstring de `ev/documentario.py`; exemplo em
+`estudio/exemplos/documentario-ulysses/`.
+
+Método (aprendido do guia "Vox-style reels" da Naomi Metzger, só as ideias):
+1. **Fatos checados antes de gravar**; se as fontes divergem, a frase diz menos ("quase não ouvia").
+   Roteiro curto: 45–60 palavras.
+2. **Áudio primeiro**: a narração define a duração de cada cena (o `ev.py` já faz assim). Ouça e troque
+   palavra que soa ambígua.
+3. **Uma ideia visual por frase** (decompor uma referência pausando cena a cena: "papel, moldura com
+   retrato, casarão ao fundo"). Mostre o rascunho em folha de quadros antes do render final.
+4. **Imagens**: mesma luz e mesmo tom em todas (`tom: pb|sepia`); fundos vazios e pessoas/objetos à parte
+   (`recorte: pessoa` com MODNet, `verde` se a imagem vier com fundo verde, `rasgado` para fotos inteiras);
+   **rosto de pessoa real só de foto real**. Fontes livres: Wikimedia Commons (CC BY/domínio público),
+   Agência Brasil (CC BY 3.0 BR); crédito na legenda do post. Gerador de imagem por IA só com o OK do
+   usuário (custa créditos).
+5. Notas do usuário: uma ou duas por vez; refaça primeiro a cena mais fraca (quase sempre a 1ª).
+Checklist "não parece IA": textura de papel · recorte que parece colado · palavra no tempo exato · marca à
+mão · movimento em passos. Notas musicais, assinaturas, rabiscos: desenho/imagem, nunca símbolo de fonte.
+
 ## Motion narrado por roteiro (blocos, caminho, neon, aura)
 Todos no Remotion (`estudio/motion/src/Blocos.tsx`, `Caminho.tsx`, `Neon.tsx`, `Aura.tsx`), som feito em
 código, narração pelo mesmo `sintetizar` (edge-tts, ElevenLabs ou voz clonada via `"voz"`), máx. ~1 min.

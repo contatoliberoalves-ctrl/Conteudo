@@ -34,6 +34,7 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Cartoon narrado com personagens desenhados (Lex, Martelo, Ana, Beto) | Remotion + SVG, boca pelo envelope da voz | `ev.py cartoon roteiro.json` |
 | Inserções no vídeo gravado (personagens, ícones, cards, imagens, b-roll, tela dividida, recorte na frente de cenário) | Remotion (camada transparente) + MODNet + ffmpeg | `insercoes` e `layout` no `edl.json` |
 | Mapa do Brasil em blocos, caminho de luz, neon e vidro, aura | Remotion + canvas/SVG | `ev.py blocos/caminho/neon/aura roteiro.json` |
+| Documentário estilo Vox: papel, recortes em colagem, palavras no tempo da voz, círculo à mão, stop motion | Remotion + MODNet | `ev.py documentario roteiro.json` |
 | Som de motion escrito em código | numpy (whoosh, pop, impacto, cama) | automático no `motion render` |
 | Fala no tempo final (capítulos, títulos, post) | — | `ev.py texto` |
 | Autoavaliação | folha de quadros + onda + LUFS | `ev.py verificar` |

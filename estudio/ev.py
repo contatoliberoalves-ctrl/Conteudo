@@ -11,6 +11,7 @@
   ev.py narrar roteiro.txt --saida narracao.mp3 [--voz ...] [--clonar minha-voz.wav]
   ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
   ev.py motion novo|render|esfregar|ajustar ...      → motion Remotion+GSAP com 6 controles
+  ev.py documentario roteiro.json [--rascunho]     → documentário estilo Vox (papel, recortes, palavras no tempo da voz)
   ev.py cartoon roteiro.json [--rascunho]          → cartoon narrado com personagens desenhados
   ev.py voz preparar <vídeos>                      → trechos limpos da sua voz para clonar
   ev.py texto edit/edl.json                         → fala no tempo do vídeo final (capítulos, títulos)
@@ -115,6 +116,15 @@ def main():
     a.add_argument("--sem-legenda", action="store_true")
     a.add_argument("--saida")
 
+    for nome, ajuda in [("blocos", "mapa do Brasil em blocos"), ("caminho", "caminho de luz"), ("neon", "neon e vidro"),
+                        ("aura", "aura cinematográfica no ritmo da batida"),
+                        ("documentario", "documentário estilo Vox: papel, recortes, palavras e círculos à mão")]:
+        a = s.add_parser(nome, help=ajuda)
+        a.add_argument("roteiro")
+        a.add_argument("--formato", choices=["reels", "feed", "quadrado", "youtube"])
+        a.add_argument("--rascunho", action="store_true")
+        a.add_argument("--saida")
+
     a = s.add_parser("voz", help="estúdio de voz: preparar, comparar motores, escolher perfil, falar")
     sv = a.add_subparsers(dest="acao", required=True)
     b = sv.add_parser("preparar")
@@ -169,6 +179,8 @@ def main():
         from ev.neon import main as m
     elif args.cmd == "aura":
         from ev.aura import main as m
+    elif args.cmd == "documentario":
+        from ev.documentario import main as m
     elif args.cmd == "caminho":
         from ev.caminho import main as m
     elif args.cmd == "blocos":
