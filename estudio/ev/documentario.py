@@ -146,7 +146,8 @@ def main(args):
                 m["t"] = _q(ws, m.pop("gatilho", None), 0.4)
             q["marcas"].append(m)
         if c.get("rodape"):
-            q["rodape"] = {"texto": c["rodape"]["texto"], "t": _q(ws, c["rodape"].get("gatilho"), 0.3)}
+            q["rodape"] = {"texto": c["rodape"]["texto"], "t": _q(ws, c["rodape"].get("gatilho"), 0.3),
+                           **{k: c["rodape"][k] for k in ("y", "cor") if k in c["rodape"]}}
         out.append(q)
         t += dur
     serif, reto = rot.get("fonte_serif", "InstrumentSerif-Italic.ttf"), rot.get("fonte_reta", "InstrumentSerif-Regular.ttf")

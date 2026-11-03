@@ -1,5 +1,26 @@
 [
  {
+  "id": "documentario-vox",
+  "nome": "Documentário estilo Vox",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "História, bastidores do Direito, casos reais",
+  "descricao": "Uma história curta com início que prende, virada e final que paga, contada como documentário: papel com fibra, fotos reais em preto e branco recortadas em colagem (papel rasgado, moldura, sombra), palavras grandes em serifada itálica no instante em que a voz as diz, círculo, seta e sublinhado desenhados à mão e movimento em passos de stop motion. Fotos de licença livre (Commons, Agência Brasil) com crédito.",
+  "passos": [
+   "história + fatos conferidos (45–60 palavras)",
+   "roteiro.json: uma ideia visual por frase",
+   "documentario roteiro.json --rascunho",
+   "notas (1–2 por vez) → documentario roteiro.json"
+  ],
+  "pedido": "Faz um documentário estilo Vox sobre o Ulysses Guimarães e a Constituição de 1988, com menos de 40 segundos.",
+  "video": "documentario-vox.mp4",
+  "amostra": "exemplo feito do zero com fotos de licença livre (Agência Brasil CC BY 3.0 BR, Senado Federal CC BY 2.0, capa da CF em domínio público)"
+ },
+ {
   "id": "mapa-blocos",
   "nome": "Mapa em blocos",
   "grupo": "Motion design",

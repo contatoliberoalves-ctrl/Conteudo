@@ -16,7 +16,7 @@ type CenaDoc = {
   inicio: number; duracao: number;
   fundo?: {img?: string; papel?: boolean; zoom?: [number, number]; escurecer?: number; cor?: boolean; x?: number; y?: number};
   camadas?: CamadaDoc[]; palavras?: PalavraDoc[]; marcas?: MarcaDoc[];
-  rodape?: {texto: string; t: number};
+  rodape?: {texto: string; t: number; y?: number; cor?: string};
 };
 export type DocumentarioProps = {
   largura: number; altura: number; fps: number; total: number;
@@ -88,7 +88,7 @@ const Camada: React.FC<{c: CamadaDoc; lf: number; W: number; H: number; tom?: st
       <div style={borda}>
         <Img src={staticFile(c.img)} style={{width: '100%', display: 'block', filter: filtroTom(tom, c.cor)}} />
       </div>
-      {c.legenda ? <div style={{fontFamily: 'Serif', fontSize: 0.03 * W, color: '#222', textAlign: 'center', marginTop: 0.008 * W}}>{c.legenda}</div> : null}
+      {c.legenda ? <div style={{fontFamily: 'DocSerif', fontSize: 0.03 * W, color: '#222', textAlign: 'center', marginTop: 0.008 * W}}>{c.legenda}</div> : null}
     </div>
   );
 };
@@ -100,7 +100,7 @@ const Palavra: React.FC<{p: PalavraDoc; lf: number; W: number; H: number}> = ({p
   const claro = cor.toLowerCase() === '#fff' || cor.toLowerCase() === '#ffffff';
   return (
     <div style={{position: 'absolute', left: p.x * W, top: p.y * H, transform: `translate(-50%,-50%) scale(${1.06 - 0.06 * k})`, opacity: k,
-      fontFamily: p.reto ? 'Reto' : 'Serif', fontSize: p.tam * W, lineHeight: 0.95, color: cor, whiteSpace: 'pre', textAlign: 'center',
+      fontFamily: p.reto ? 'DocReto' : 'DocSerif', fontSize: p.tam * W, lineHeight: 0.95, color: cor, whiteSpace: 'pre', textAlign: 'center',
       letterSpacing: '-0.01em', textShadow: claro ? `0 ${0.004 * W}px ${0.02 * W}px rgba(0,0,0,.55)` : 'none'}}>{p.texto}</div>
   );
 };
@@ -168,8 +168,8 @@ const Cena: React.FC<{c: CenaDoc; f: number; p: DocumentarioProps; i: number}> =
       {(c.palavras ?? []).map((w, j) => <Palavra key={j} p={w} lf={lf} W={W} H={H} />)}
       {(c.marcas ?? []).map((m, j) => <Marca key={j} m={m} lf={lf} W={W} H={H} seed={i * 50 + j} />)}
       {c.rodape && lf >= c.rodape.t ? (
-        <div style={{position: 'absolute', left: 0, right: 0, bottom: 0.16 * H, textAlign: 'center', fontFamily: 'Serif', fontSize: 0.034 * W, color: '#f4efe4',
-          opacity: Math.min(1, (lf - c.rodape.t) / 6), textShadow: '0 2px 8px rgba(0,0,0,.6)'}}>{c.rodape.texto}</div>
+        <div style={{position: 'absolute', left: 0, right: 0, top: (c.rodape.y ?? 0.84) * H, textAlign: 'center', fontFamily: 'DocSerif', fontSize: 0.036 * W,
+          color: c.rodape.cor ?? (fu.img ? '#f4efe4' : '#2a2620'), opacity: Math.min(1, (lf - c.rodape.t) / 6), textShadow: fu.img ? '0 2px 8px rgba(0,0,0,.6)' : 'none'}}>{c.rodape.texto}</div>
       ) : null}
     </AbsoluteFill>
   );
@@ -179,7 +179,7 @@ export const Documentario: React.FC<DocumentarioProps> = (p) => {
   const f = useCurrentFrame();
   const [h] = useState(() => delayRender('fontes'));
   useEffect(() => {
-    const fs = [new FontFace('Serif', `url(${staticFile(p.fontes.serif)})`), new FontFace('Reto', `url(${staticFile(p.fontes.reto)})`)];
+    const fs = [new FontFace('DocSerif', `url(${staticFile(p.fontes.serif)})`), new FontFace('DocReto', `url(${staticFile(p.fontes.reto)})`)];
     Promise.all(fs.map((x) => x.load())).then((r) => { r.forEach((x) => document.fonts.add(x)); continueRender(h); });
   }, [h, p.fontes.serif, p.fontes.reto]);
   const i = Math.max(0, p.cenas.findIndex((x) => f >= x.inicio && f < x.inicio + x.duracao));
