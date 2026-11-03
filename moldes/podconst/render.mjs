@@ -10,7 +10,7 @@ import { quizHtml } from './quiz.mjs';
 import { calmoHtml } from './calmo.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
+const dados = JSON.parse(fs.readFileSync(process.env.DADOS || path.join(root, 'dados.json'), 'utf8'));  // DADOS=outro.json para prévias fora da galeria
 const filtro = process.argv[2];
 const kit = path.join(root, 'kit', 'Moldes PodConst.dc.html');
 

@@ -1,7 +1,8 @@
 // Quiz de stories do PodConst (1080×1920): story 1 = pergunta com espaço para a enquete SIM/NÃO do Instagram;
 // story 2 = resposta com o fundamento e espaço para a enquete "Você acertou?".
 // Visual mais sóbrio que os carrosséis: navy, azul e gelo; magenta e amarelo só em detalhes.
-import { LOGO, TINTA, AMAR } from './posts.mjs';
+import { TINTA, AMAR } from './posts.mjs';
+import { faixa, logo } from './calmo.mjs';
 
 const NAVY = 'linear-gradient(180deg,#0b1a4a 0%,#0a1e56 60%,#0b2470 100%)';
 const AZUL = 'radial-gradient(120% 80% at 80% 0%,#0c4bbd 0%,#0a3aa0 45%,#0a2a7c 100%)';
@@ -29,46 +30,55 @@ export const QUIZ = [
 const css = `
 .st{position:relative;width:1080px;height:1920px;overflow:hidden;margin-bottom:40px;font-family:'Space Grotesk',sans-serif}
 .st .bb{font-family:'Bebas Neue';font-weight:400}
-.vaga{position:absolute;left:190px;right:190px;height:300px;border-radius:40px}
+.vaga{position:absolute;left:170px;right:170px;}
+.vaga2{align-self:center;width:740px;height:330px;border-radius:44px;border:3px dashed currentColor;opacity:.18}
 `;
 
-const topo = (n, cor) => `<div style="position:absolute;top:150px;left:90px;right:90px;display:flex;align-items:center;gap:20px;color:${cor};font-size:30px">
-<span style="font-weight:700;letter-spacing:4px">QUIZ PODCONST</span><span style="flex:1;height:2px;background:currentColor;opacity:.35"></span><span style="font-weight:700">${String(n).padStart(2, '0')}/${QUIZ.length}</span></div>`;
-const rodape = cor => `<div style="position:absolute;bottom:150px;left:90px;right:90px;display:flex;justify-content:space-between;font-size:28px;color:${cor};opacity:.85"><span><b>@libero</b>filho</span><span><b>@natalia</b>valenca</span></div>`;
+// Topo comum: faixa do padrão geométrico e o selo "QUIZ PODCONST" (sem numeração).
+const topo = (cor, desloc) => `<div style="position:absolute;left:0;top:0">${faixa(9, 120, 'row', desloc)}</div>
+<div style="position:absolute;top:190px;left:80px;right:80px;display:flex;align-items:center;justify-content:space-between;color:${cor}">
+<span style="font-weight:700;font-size:30px;letter-spacing:6px">QUIZ · CONSTITUCIONAL</span>${logo('1-POD.png', 92, 'top:-28px;right:0')}</div>`;
+const rodape = cor => `<div style="position:absolute;bottom:120px;left:80px;right:80px;display:flex;justify-content:space-between;font-size:28px;color:${cor};opacity:.85"><span><b>@libero</b>filho</span><span><b>@natalia</b>valenca</span></div>`;
 
 function pergunta([q], i) {
-  const claro = i % 3 === 2;
-  const fundo = claro ? GELO : i % 3 === 1 ? AZUL : NAVY;
-  const cor = claro ? TINTA : '#fff';
-  const tam = q.length > 80 ? 92 : q.length > 55 ? 104 : 120;
+  const v = i % 3;  // 0 navy, 1 azul, 2 gelo
+  const fundo = [NAVY, AZUL, GELO][v];
+  const cor = v === 2 ? TINTA : '#fff';
+  const tam = q.length > 85 ? 104 : q.length > 60 ? 116 : q.length > 40 ? 132 : 150;
   return `<div class="st" data-tela style="background:${fundo};color:${cor}">
-${topo(i + 1, cor)}
-<div style="position:absolute;top:330px;left:90px;right:90px;display:flex;flex-direction:column;gap:34px">
-<div style="align-self:flex-start;background:${claro ? TINTA : '#fff'};color:${claro ? '#fff' : TINTA};font-weight:700;font-size:28px;letter-spacing:4px;padding:8px 18px">SIM OU NÃO?</div>
-<div class="bb" style="font-size:${tam}px;line-height:.96">${q}</div>
-<div style="width:90px;height:12px;background:${MAGENTA}"></div>
+<div class="bb" style="position:absolute;right:-90px;top:250px;font-size:1500px;line-height:.8;color:transparent;-webkit-text-stroke:5px ${v === 2 ? 'rgba(11,26,74,.07)' : 'rgba(255,255,255,.08)'}">?</div>
+${topo(cor, i * 2)}
+<div class="bb" style="position:absolute;left:80px;top:330px;background:${AMAR};color:${TINTA};font-size:84px;line-height:1;padding:10px 26px 0;transform:rotate(-4deg);z-index:3;box-shadow:0 14px 28px rgba(0,0,0,.18)">SIM OU NÃO?</div>
+<div style="position:absolute;left:60px;right:60px;top:410px;display:flex;flex-direction:column;gap:40px">
+<div style="min-height:640px;background:#fff;color:${TINTA};border-radius:44px;padding:110px 64px 60px;display:flex;flex-direction:column;justify-content:center;gap:34px;box-shadow:0 30px 60px rgba(5,15,50,.28);transform:rotate(1deg)">
+<div class="bb" style="font-size:${tam}px;line-height:.95">${q}</div>
+<div style="display:flex;gap:12px"><span style="width:70px;height:12px;background:${MAGENTA}"></span><span style="width:24px;height:12px;background:${AMAR}"></span><span style="width:12px;height:12px;background:#19c6dc"></span></div>
 </div>
-<div class="vaga" style="top:1240px;background:${claro ? 'rgba(11,26,74,.05)' : 'rgba(255,255,255,.06)'}"></div>
-<div style="position:absolute;top:1570px;left:0;right:0;text-align:center;font-size:30px;font-weight:600;opacity:.8">Vota e passa pro próximo story →</div>
+<div style="text-align:center;font-weight:700;font-size:34px;margin-top:20px">👇 Vota antes de passar</div>
+<div class="vaga2" style="height:330px;border-radius:44px;border:3px dashed currentColor;opacity:.18"></div>
+</div>
 ${rodape(cor)}
 </div>`;
 }
 
 function resposta([q, r, porque, fund], i) {
   const sim = r === 'SIM';
-  return `<div class="st" data-tela style="background:${NAVY};color:#fff">
-${topo(i + 1, '#fff')}
-<div style="position:absolute;top:300px;left:90px;right:90px;display:flex;flex-direction:column;gap:30px">
-<div style="font-size:30px;line-height:1.35;opacity:.75">${q}</div>
-<div style="display:flex;align-items:center;gap:30px">
-<div class="bb" style="font-size:300px;line-height:.82;color:${sim ? AMAR : '#fff'}">${r}</div>
-<div style="width:120px;height:120px;border-radius:50%;border:6px solid ${sim ? AMAR : MAGENTA};display:flex;align-items:center;justify-content:center;font-size:70px;color:${sim ? AMAR : MAGENTA};font-weight:700">${sim ? '✓' : '✕'}</div>
+  const tinta = sim ? AMAR : '#ffffff';
+  return `<div class="st" data-tela style="background:${sim ? AZUL : NAVY};color:#fff">
+${topo('#fff', i * 2 + 5)}
+<div style="position:absolute;left:80px;right:80px;top:300px;font-size:32px;line-height:1.35;opacity:.8">${q}</div>
+<div style="position:absolute;left:60px;top:470px;display:flex;align-items:center;gap:20px">
+<div style="position:relative;transform:rotate(-6deg)">
+<div class="bb" style="font-size:400px;line-height:.78;color:${tinta};padding:24px 40px 0;border:12px solid ${tinta};border-radius:30px">${r}</div>
 </div>
-<div style="font-weight:600;font-size:44px;line-height:1.28">${porque}</div>
-<div style="align-self:flex-start;border-left:6px solid ${MAGENTA};padding:6px 0 6px 20px;font-weight:700;font-size:32px;line-height:1.3;color:#cfd6ee">${fund}</div>
+${sim ? `<img src="../elementos/check_mark_button_3d.png" alt="" style="width:220px;transform:rotate(10deg);filter:drop-shadow(0 20px 30px rgba(0,0,0,.35))">` : `<div style="width:200px;height:200px;border-radius:50%;background:${MAGENTA};display:flex;align-items:center;justify-content:center;font-size:120px;font-weight:700;color:#fff;transform:rotate(8deg);box-shadow:0 20px 30px rgba(0,0,0,.3)">✕</div>`}
 </div>
-<div class="vaga" style="top:1300px;background:rgba(255,255,255,.06)"></div>
-${LOGO(40, 'bottom:240px;right:90px')}
+<div style="position:absolute;left:60px;right:60px;top:920px;background:#fff;color:${TINTA};border-radius:36px;padding:44px 48px;display:flex;flex-direction:column;gap:22px;box-shadow:0 30px 60px rgba(5,15,50,.3)">
+<div style="font-weight:700;font-size:48px;line-height:1.22">${porque}</div>
+<div style="align-self:flex-start;background:${TINTA};color:#fff;font-weight:700;font-size:28px;line-height:1.3;padding:10px 18px;border-radius:12px">${fund}</div>
+</div>
+<div style="position:absolute;top:1360px;left:0;right:0;text-align:center;font-weight:700;font-size:34px">E aí, acertou? 👇</div>
+<div class="vaga" style="top:1430px"></div>
 ${rodape('#fff')}
 </div>`;
 }

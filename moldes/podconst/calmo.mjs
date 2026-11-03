@@ -95,21 +95,25 @@ ${arrobas(cor)}`, cor);
 ${logo('1-POD.png', 120, 'bottom:180px;left:50%;transform:translateX(-50%)')}`),
 ];
 
-// 4b · tela única: MS x ação popular
-const linha = (rot, a, b) => `<div style="display:grid;grid-template-columns:220px 1fr 1fr;border-top:2px solid rgba(11,26,74,.12)"><div style="padding:22px 0;font-weight:700;font-size:24px;letter-spacing:3px;color:${AZUL}">${rot}</div><div style="padding:22px 20px;font-size:28px;line-height:1.3">${a}</div><div style="padding:22px 20px;font-size:28px;line-height:1.3;background:rgba(10,58,166,.04)">${b}</div></div>`;
-const g4b = [tela('#ffffff', `
+// 4b · tela única: MS x ação popular, em duas fichas lado a lado e a pergunta-chave no fim
+const fichaItem = (ic, rot, txt, cor) => `<div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:52px;height:52px;border-radius:50%;background:${cor};display:flex;align-items:center;justify-content:center;font-size:26px">${ic}</span><div><div style="font-weight:700;font-size:20px;letter-spacing:3px;opacity:.7">${rot}</div><div style="font-weight:600;font-size:29px;line-height:1.25">${txt}</div></div></div>`;
+const ficha = (nome, sub, cor, fundo, tinta, itens, rot) => `<div style="flex:1;background:${fundo};color:${tinta};border-radius:28px;padding:34px 30px;display:flex;flex-direction:column;gap:22px;transform:rotate(${rot}deg);box-shadow:0 20px 40px rgba(11,26,74,.14)">
+<div><div class="bb" style="font-size:78px;line-height:.9">${nome}</div><div style="font-size:22px;font-weight:600;opacity:.75">${sub}</div></div>
+${itens.map(([ic, r, t]) => fichaItem(ic, r, t, cor)).join('')}</div>`;
+const g4b = [tela(GELO, `
 <div style="position:absolute;left:0;top:0">${faixa(9, 120, 'row', 2)}</div>
-<div style="position:absolute;left:80px;right:80px;top:200px;color:${NAVY}">
-<span class="kick" style="color:${AZUL}">NA DÚVIDA ENTRE AS DUAS?</span>
-<div class="bb" style="font-size:136px;line-height:.9;margin:14px 0 40px">MANDADO DE SEGURANÇA<br><span style="color:${AZUL}">×</span> AÇÃO POPULAR</div>
-<div style="display:grid;grid-template-columns:220px 1fr 1fr;margin-bottom:6px"><div></div><div class="bb" style="font-size:48px;padding:0 20px">MS</div><div class="bb" style="font-size:48px;padding:0 20px">AÇÃO POPULAR</div></div>
-${linha('QUEM', 'Titular do direito líquido e certo', 'Qualquer cidadão (Súmula 365 do STF)')}
-${linha('CONTRA', 'Ato ilegal ou abusivo de autoridade', 'Ato lesivo ao patrimônio público, à moralidade, ao meio ambiente')}
-${linha('PRAZO', '120 dias da ciência do ato', 'Prescreve em 5 anos')}
-${linha('BASE', 'Art. 5º, LXIX, CF · Lei 12.016/09', 'Art. 5º, LXXIII, CF · Lei 4.717/65')}
+<div style="position:absolute;left:80px;right:80px;top:170px;display:flex;align-items:baseline;gap:20px;color:${NAVY}">
+<div class="bb" style="font-size:84px;line-height:1">MS OU AÇÃO POPULAR?</div><span class="kick" style="color:${AZUL}">EM 10 SEGUNDOS</span></div>
+<div style="position:absolute;left:60px;right:60px;top:290px;display:flex;gap:26px;align-items:flex-start">
+${ficha('MANDADO DE SEGURANÇA', 'Lei 12.016/09', 'rgba(255,255,255,.18)', AZUL, '#fff', [['👤', 'QUEM', 'O titular do direito violado'], ['🎯', 'CONTRA', 'Ato ilegal ou abusivo de autoridade'], ['⏳', 'PRAZO', '120 dias da ciência do ato'], ['📌', 'BASE', 'Art. 5º, LXIX, CF']], -1.2)}
+${ficha('AÇÃO POPULAR', 'Lei 4.717/65', 'rgba(11,26,74,.1)', AMAR, NAVY, [['🗳️', 'QUEM', 'Qualquer cidadão (Súmula 365 do STF)'], ['🏛️', 'CONTRA', 'Ato lesivo ao patrimônio público ou à moralidade'], ['⏳', 'PRAZO', 'Prescreve em 5 anos'], ['📌', 'BASE', 'Art. 5º, LXXIII, CF']], 1.2)}
+</div>
+<div style="position:absolute;left:80px;right:80px;bottom:150px;background:${NAVY};color:#fff;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px">
+<span class="kick" style="color:${AMAR}">A PERGUNTA-CHAVE</span>
+<div style="font-weight:600;font-size:30px;line-height:1.3">Direito <b>seu</b>, líquido e certo, violado por autoridade? <b style="color:${AMAR}">MS.</b> Dinheiro ou moralidade públicos lesados e você é cidadão? <b style="color:${AMAR}">Ação popular.</b></div>
 </div>
 ${arrobas(TINTA, 'bottom:58px;left:80px')}
-${logo('1-POD.png', 104, 'bottom:36px;right:70px')}`)];
+${logo('1-POD.png', 96, 'bottom:36px;right:70px')}`)];
 
 // 4c · tela única com a dupla recortada sobre o arco amarelo do material original
 const g4c = [tela(GELO, `
@@ -123,7 +127,20 @@ const g4c = [tela(GELO, `
 <div style="position:absolute;left:80px;bottom:56px;z-index:4;background:#fff;color:${NAVY};font-weight:700;font-size:30px;padding:14px 24px;border-radius:40px;box-shadow:0 10px 24px rgba(0,0,0,.2)">Comenta aqui embaixo 👇</div>
 ${logo('1-POD.png', 104, 'bottom:36px;right:70px')}`)];
 
-export const GRUPOS_CALMO = { '4a': g4a, '4b': g4b, '4c': g4c };
+// 4c v2 (proposta): caixinha de perguntas do Instagram em destaque, dupla recortada embaixo
+const g4c2 = [tela(GELO, `
+<div style="position:absolute;left:0;bottom:0">${faixa(9, 120, 'row', 4)}</div>
+<img data-foto="recorte" alt="" style="position:absolute;left:50%;bottom:0;height:720px;transform:translateX(-50%);z-index:2;filter:drop-shadow(0 20px 30px rgba(11,26,74,.25))">
+<div style="position:absolute;left:110px;right:110px;top:200px;background:#fff;border-radius:36px;box-shadow:0 24px 50px rgba(11,26,74,.16);overflow:hidden;z-index:3;transform:rotate(-2deg)">
+<div style="background:linear-gradient(120deg,${AZUL},#0c4bbd);color:#fff;padding:40px 44px 34px;text-align:center">
+<div style="font-weight:700;font-size:24px;letter-spacing:5px;opacity:.85;margin-bottom:12px">FAZ SEU PEDIDO</div>
+<div class="bb" style="font-size:92px;line-height:.92">QUAL TEMA DE CONSTITUCIONAL VOCÊ QUER VER AQUI?</div></div>
+<div style="padding:30px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px">
+<span style="font-size:32px;color:#8a93a8">Escreve nos comentários…</span><span style="background:${AMAR};color:${NAVY};font-weight:700;font-size:26px;padding:10px 20px;border-radius:30px">👇</span></div>
+</div>
+${logo('1-POD.png', 96, 'top:52px;right:70px')}`)];
+
+export const GRUPOS_CALMO = { '4a': g4a, '4b': g4b, '4c': g4c, '4c2': g4c2 };
 export function calmoHtml(grupo) {
   const telas = GRUPOS_CALMO[grupo];
   if (!telas) return null;
@@ -131,3 +148,4 @@ export function calmoHtml(grupo) {
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@900&display=swap" rel="stylesheet">
 <style>${css}</style></head><body>${telas.join('\n')}</body></html>`;
 }
+export { faixa, logo };

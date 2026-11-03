@@ -89,8 +89,8 @@ ${LINHAS(TINTA)}
 
   tela(NAVY, `
 <div class="blur" style="top:-80px;left:-60px;font-size:400px;color:#e224d6">MÉTODO</div>
-${RECORTE('recorte', 'right:-40px;bottom:0;width:520px;height:1150px')}
-<div class="meio" style="left:96px;width:560px;gap:30px;z-index:3">
+${RECORTE('recorte', 'right:-30px;bottom:0;width:600px;height:820px')}
+<div class="ab" style="top:170px;left:96px;width:520px;display:flex;flex-direction:column;gap:30px;z-index:3">
 <div class="bb" style="font-size:124px;line-height:.9">O PROBLEMA<br>NÃO ERA<br><span style="background:#e224d6;padding:0 12px">ESTUDO.</span></div>
 <div class="barra"></div>
 <div class="txt">Era método. O conteúdo estava na cabeça; faltava saber <b style="color:${AMAR}">achar no Vade Mecum</b> na hora da prova.</div>
@@ -180,16 +180,15 @@ ${LOGO(40, 'bottom:120px;right:80px')}`),
 // ---------------------------------------------------------------- 3c · Método com foto
 const g3c = [
   tela(NAVY, `
-${FOTO('capa', 'top:0;right:0;width:700px;height:1350px;', '', '62% top')}
-<div class="ab" style="top:0;left:0;width:400px;height:1350px;background:${MAG}"></div>
-<div class="ab" style="top:0;left:390px;width:80px;height:1350px;background:linear-gradient(90deg,#c515c2,rgba(197,21,194,0))"></div>
-${ETIQ('top:56px;left:70px', 'flex-start', 0)}
-<div class="ab" style="left:70px;top:330px;width:760px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
-<div class="bb" style="font-size:130px;line-height:.88">O MÉTODO<br>PRA PEÇA DE</div>
-<div class="bb" style="background:${TINTA};color:${AMAR};font-size:150px;line-height:1;padding:12px 24px 0;transform:rotate(-2deg);margin:12px 0 18px">CONSTITUCIONAL</div>
-<div class="bb" style="background:${AMAR};color:${TINTA};font-size:90px;line-height:1;padding:8px 20px 0">EM 3 PASSOS</div>
+${FOTO('capa', 'top:0;left:0;width:1080px;height:860px;', '', 'center top')}
+<div class="ab" style="left:0;right:0;top:760px;bottom:0;background:${MAG};clip-path:polygon(0 100px,100% 0,100% 100%,0 100%)"></div>
+${ETIQ('top:56px;right:60px', 'flex-end', 0)}
+<div class="ab" style="left:80px;top:880px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
+<div class="bb" style="font-size:104px;line-height:.9">O MÉTODO PRA PEÇA DE</div>
+<div class="bb" style="background:${TINTA};color:${AMAR};font-size:140px;line-height:1;padding:10px 24px 0;transform:rotate(-2deg);margin:10px 0 16px">CONSTITUCIONAL</div>
+<div class="bb" style="background:${AMAR};color:${TINTA};font-size:72px;line-height:1;padding:8px 18px 0">EM 3 PASSOS →</div>
 </div>
-${LOGO(44, 'bottom:60px;left:110px')}`),
+${LOGO(44, 'bottom:56px;right:70px')}`),
 
   tela(AZUL2, `
 <div class="blur" style="bottom:-110px;left:-60px;font-size:420px;color:#e224d6">MÉTODO</div>
@@ -201,10 +200,10 @@ ${LINHAS()}
 </div>`),
 
   tela(MAG, `
-${RECORTE('recorte', 'left:-60px;bottom:0;width:470px;height:1100px')}
+${RECORTE('recorte', 'right:-30px;bottom:0;width:600px;height:800px')}
 <div class="marca" style="top:-60px;right:-30px;font-size:700px;color:rgba(120,0,120,.18)">01</div>
 ${LINHAS()}
-<div class="meio" style="left:440px;right:80px;gap:30px;z-index:3">
+<div class="ab" style="top:170px;left:96px;width:540px;display:flex;flex-direction:column;gap:30px;z-index:3">
 <div class="kick">PASSO 1</div>
 <div class="bb" style="font-size:150px;line-height:.88">IDENTIFICA.</div>
 <div class="barra"></div>
@@ -260,9 +259,9 @@ const g3d = [
 <div class="blur" style="bottom:-120px;right:-60px;font-size:460px;color:#e224d6">FGV</div>
 ${ETIQ('top:56px;left:80px', 'flex-start', 0)}
 <div class="ab" style="left:80px;right:80px;top:220px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
-<div class="bb" style="font-size:132px;line-height:.88">COMO RESPONDER</div>
-<div class="bb" style="background:#e224d6;font-size:178px;line-height:1;padding:12px 30px 0;transform:rotate(-2deg);margin:10px 0 6px">QUESTÃO DISCURSIVA</div>
-<div class="bb" style="background:${AMAR};color:${TINTA};font-size:72px;line-height:1;padding:10px 20px 0;margin-top:10px">SEM PERDER PONTO</div>
+<div class="bb" style="font-size:150px;line-height:.88">SABIA A RESPOSTA</div>
+<div class="bb" style="background:#e224d6;font-size:178px;line-height:1;padding:12px 30px 0;transform:rotate(-2deg);margin:10px 0 6px">E PERDEU PONTO?</div>
+<div class="bb" style="background:${AMAR};color:${TINTA};font-size:58px;line-height:1;padding:10px 20px 0;margin-top:14px">COMO RESPONDER A QUESTÃO DISCURSIVA</div>
 </div>
 <div class="ab" style="left:150px;top:830px;width:740px;height:440px;background:#fff;transform:rotate(-4deg);box-shadow:0 30px 60px rgba(5,15,50,.45);padding:40px 70px 40px 46px;color:${TINTA};z-index:2;background-image:repeating-linear-gradient(180deg,transparent 0 58px,rgba(11,42,140,.14) 58px 60px);background-position:0 96px">
 <div style="font-weight:700;font-size:22px;letter-spacing:4px;color:#0b2a8c;margin-bottom:22px">CADERNO DE RESPOSTAS · QUESTÃO 1</div>
@@ -355,16 +354,16 @@ ${LOGO(36, 'bottom:44px;right:60px')}`)];
 // ---------------------------------------------------------------- 3f · Tela única com foto: checklist da véspera
 const g3f = [tela(MAG, `
 <div class="marca" style="top:-60px;left:-40px;font-size:620px;color:rgba(120,0,120,.16)">VÉSPERA</div>
-${RECORTE('recorte', 'right:-70px;bottom:0;width:470px;height:1080px')}
+<img src="../elementos/alarm_clock_3d.png" alt="" style="position:absolute;right:60px;top:150px;width:300px;transform:rotate(10deg);filter:drop-shadow(0 24px 30px rgba(60,0,60,.35))">
 ${ETIQ('top:56px;left:80px', 'flex-start', 0)}
-<div class="meio" style="left:80px;width:640px;gap:22px;z-index:3">
-<div class="bb" style="font-size:118px;line-height:.88">CHECKLIST DA VÉSPERA</div>
+<div class="meio" style="left:80px;right:80px;top:200px;bottom:150px;gap:22px;z-index:3">
+<div class="bb" style="font-size:132px;line-height:.86">CHECKLIST<br>DA VÉSPERA</div>
 <div class="bb" style="align-self:flex-start;background:${TINTA};color:${AMAR};font-size:72px;line-height:1;padding:10px 20px 0;transform:rotate(-2deg);margin-bottom:14px">2ª FASE DA OAB</div>
-${['Documento oficial com foto', 'Caneta azul ou preta, de corpo transparente', 'Vade Mecum dentro das regras do edital', 'Horário dos portões conferido', 'Dormir. Sério.'].map(t => `<div style="display:flex;gap:18px;align-items:center;font-weight:700;font-size:36px;line-height:1.15"><span style="flex:none;width:46px;height:46px;border:4px solid #fff;display:flex;align-items:center;justify-content:center;color:${AMAR};font-size:34px">✓</span>${t}</div>`).join('')}
+${['Documento oficial com foto', 'Caneta azul ou preta, de corpo transparente', 'Vade Mecum dentro das regras do edital', 'Horário dos portões conferido', 'Dormir. Sério.'].map(t => `<div style="display:flex;gap:18px;align-items:center;font-weight:700;font-size:40px;line-height:1.15;background:rgba(80,0,80,.18);padding:12px 20px"><span style="flex:none;width:50px;height:50px;border:4px solid #fff;display:flex;align-items:center;justify-content:center;color:${AMAR};font-size:34px">✓</span>${t}</div>`).join('')}
 <div style="font-weight:600;font-size:28px;opacity:.9;margin-top:8px">Confira tudo no edital do seu exame.</div>
 </div>
 <div class="ab" style="left:80px;bottom:70px;background:${AMAR};color:${TINTA};font-weight:700;font-size:30px;padding:10px 20px;z-index:3">Marca quem vai fazer a prova 👇</div>
-${LOGO(40, 'bottom:60px;right:300px')}`)];
+${LOGO(40, 'bottom:60px;right:80px')}`)];
 
 export const GRUPOS = { '3a': g3a, '3b': g3b, '3c': g3c, '3d': g3d, '3e': g3e, '3f': g3f };
 
