@@ -6,6 +6,8 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { paginaHtml } from './posts.mjs';
+import { quizHtml } from './quiz.mjs';
+import { calmoHtml } from './calmo.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8'));
@@ -26,7 +28,7 @@ for (const c of dados) {
   if (filtro && c.id !== filtro) continue;
   const avisos = [];
   // Grupos escritos em código (posts.mjs): página própria; fotos entram nos <img data-foto="nome">.
-  const html = paginaHtml(c.grupo);
+  const html = paginaHtml(c.grupo) || quizHtml(c.grupo) || calmoHtml(c.grupo);
   if (html) {
     const build = path.join(root, 'build');
     fs.mkdirSync(build, { recursive: true });

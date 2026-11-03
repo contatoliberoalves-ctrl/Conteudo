@@ -180,9 +180,9 @@ ${LOGO(40, 'bottom:120px;right:80px')}`),
 // ---------------------------------------------------------------- 3c · Método com foto
 const g3c = [
   tela(NAVY, `
-${FOTO('capa', 'top:0;right:0;width:600px;height:1350px;', '', 'center top')}
-<div class="ab" style="top:0;left:0;width:560px;height:1350px;background:${MAG}"></div>
-<div class="ab" style="top:0;left:540px;width:120px;height:1350px;background:linear-gradient(90deg,#c515c2,rgba(197,21,194,0))"></div>
+${FOTO('capa', 'top:0;right:0;width:700px;height:1350px;', '', '62% top')}
+<div class="ab" style="top:0;left:0;width:400px;height:1350px;background:${MAG}"></div>
+<div class="ab" style="top:0;left:390px;width:80px;height:1350px;background:linear-gradient(90deg,#c515c2,rgba(197,21,194,0))"></div>
 ${ETIQ('top:56px;left:70px', 'flex-start', 0)}
 <div class="ab" style="left:70px;top:330px;width:760px;display:flex;flex-direction:column;align-items:flex-start;z-index:3">
 <div class="bb" style="font-size:130px;line-height:.88">O MÉTODO<br>PRA PEÇA DE</div>

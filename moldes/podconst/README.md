@@ -38,3 +38,10 @@ Fotos: `"fotos": {"capa": "...", "recorte": "PNG sem fundo", "libero": "...", "n
 - Os espaços de foto dos carrosséis do kit (1a–1f) já apontam para fotos do Líbero (`fotos/`, fora do git; recortes com `../carrossel-libero/recortar_pessoa.py`). Quando chegarem fotos da Natália ou da dupla, troque no `dados.json`; nos grupos 3a/3c, o campo `natalia` preenche a polaroide dela (sem foto, aparece o fone 3D).
 - `node apresentacao.mjs` gera `saida/apresentacao-podconst.pdf` (16:9): identidade (paleta, tipografia, elementos, regras) e uma página por post. Antes, gere as miniaturas em `build/pdf/` (uma JPG por slide + `lista.json`).
 - 2f–2h (pedido de anulação da 3B, repescagem e capa do grupo) vieram de outra sessão; os grupos foram renomeados para não colidir com 2c–2e.
+
+## Quiz de stories e linha calma
+
+- `quiz.mjs`: 15 quizzes de stories 1080×1920 (grupos `qz01`…`qz15`, posts `quiz-01`…). Story 1: pergunta com espaço vazio para a enquete SIM/NÃO do Instagram; story 2: resposta, fundamento legal e espaço para a enquete "Você acertou?". Navy, azul e gelo; magenta só em detalhe. Para um quiz novo, acrescente uma linha em `QUIZ` e um post no fim do `dados.json`.
+- `calmo.mjs`: linha menos chamativa (grupos 4a–4c), fundo claro, padrão geométrico do material original só em faixa e logo oficial em PNG.
+- `marca/` (fora do git): logos oficiais (`1-POD.png`… azul, amarelo, magenta), arco, microfone e fundos do material original do PodConst. Pasta no Drive: https://drive.google.com/drive/folders/1RjDRrXqPgO8t_2Z5cEivm13LmWWojs8- . Sem eles, entra o logo em CSS.
+- Fotos da dupla (`fotos/dupla_-0039.jpg`…, fora do git): https://drive.google.com/drive/folders/1vNqvGj4w3AnHqYDSQCCFAzmaPrHdNV8X . As de mais de ~5 MB não descem pela ferramenta do Drive. `_-0305` e `_-0525` têm os óculos de meme: só para posts de humor.

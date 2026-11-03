@@ -9,7 +9,7 @@ Pasta: `moldes/podconst/`. O visual é o kit do autor em `kit/Moldes PodConst.dc
 
 ## Passo a passo
 
-0. Para storytelling, método e prova social ou tela única no visual refinado, prefira os grupos de `posts.mjs` (3a–3f, ver README): copie o array do grupo com um nome novo (`4a`…), troque os textos e registre em `GRUPOS`. Alterne o fundo a cada página e nunca repita dois fundos iguais seguidos.
+0. Quiz de stories: `quiz.mjs` (linha em `QUIZ` + post `quiz-NN` no `dados.json`, grupo `qzNN`). Post discreto, fundo claro: `calmo.mjs` (grupos 4a–4c). Para storytelling, método e prova social ou tela única no visual refinado, prefira os grupos de `posts.mjs` (3a–3f, ver README): copie o array do grupo com um nome novo (`4a`…), troque os textos e registre em `GRUPOS`. Alterne o fundo a cada página e nunca repita dois fundos iguais seguidos.
 1. Ou escolha o formato do kit: 1a dados e argumentos, 1b lista numerada, 1c storytelling, 1d método e prova social (10 páginas) ou 1e aviso/urgência, 1f anúncio/isca (tela única).
 2. No HTML do kit, copie as telas desse grupo com um prefixo novo (`2a-01`…), trocando `data-screen-label` e os ids dos `<image-slot>` (precisam ser únicos). Troque só os textos; mantenha estilos, cores e tamanhos. Textos com o mesmo tamanho dos originais cabem; mais longos, encurte.
 3. Acrescente em `dados.json`: `{"id", "grupo": "2a", "titulo", "tema", "fotos": {"<slot>": "arquivo"}}`. Fotos da dupla ficam em `fotos/` (fora do git; o repositório é público). Pessoas recortadas: PNG sem fundo.
