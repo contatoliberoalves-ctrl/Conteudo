@@ -10,7 +10,8 @@ escondida. Peças e cores:
 Os dois "texto-*" formam um bloco só: com AMS, carregue os dois juntos como um
 objeto de duas partes; sem AMS, imprima separado e cole a linha amarela entre as azuis.
 
-Fonte: Archivo Black (SIL Open Font License), ArchivoBlack.ttf nesta pasta.
+Medidas tiradas da foto do letreiro (orla de Santa Maria da Boa Vista).
+Fonte: Arimo Bold (SIL Open Font License; desenho igual ao Arial Bold), Arimo-Bold.ttf nesta pasta.
 Uso: pip install trimesh shapely manifold3d mapbox_earcut matplotlib
      python3 gerar.py
 """
@@ -26,9 +27,10 @@ from shapely.geometry import Point, Polygon, box
 from shapely.ops import unary_union
 
 PASTA = Path(__file__).parent
-FONTE = FontProperties(fname=str(PASTA / "ArchivoBlack.ttf"))
+FONTE = FontProperties(fname=str(PASTA / "Arimo-Bold.ttf"))
 
 # ---------- parâmetros (mm) ----------
+# Posições e tamanhos medidos na foto (x a partir da ponta esquerda da base, y a partir do topo da base).
 COMPRIMENTO = 240     # base
 FUNDO = 30            # profundidade da base
 ALTURA_BASE = 8
@@ -36,14 +38,15 @@ CHANFRO = 1.2         # quina de cima da base
 ESPESSURA = 8         # profundidade das letras e do coração
 ABA = 3               # aba escondida que entra na base
 FOLGA = 0.2           # folga de cada lado no rasgo
-EU_ALTURA = 31        # altura das letras EU
-EU_LARGURA = 48       # largura do EU (a fonte é estreitada para caber, como na arte)
-CORACAO = 41          # lado do quadrado do coração (fica com ~62 × 62 mm)
-CORACAO_TRACO = 13
-LINHA = 14.4          # altura das letras do bloco de texto
-LARGURA_TEXTO = 99    # largura da linha mais longa (BOA VISTA)
-ENTRELINHA = -0.6     # negativo: as linhas se encostam e viram um bloco só
-ESPACO_LETRAS = -0.4  # letras de cada palavra encostadas
+EU = {"E": (5.2, 20.0), "U": (30.4, 23.5)}   # letra: (x, largura)
+EU_ALTURA = 27.8
+CORACAO = (58.3, 60.8, 60.0)   # x, largura, altura
+CORACAO_TRACO = 10.5
+TEXTO_X = 123.5
+LINHAS = [("SANTA", 71.3), ("MARIA DA", 104.3), ("BOA VISTA", 110.4)]   # (texto, largura)
+LINHA = 14.2          # altura das letras do bloco
+ENTRELINHA = -0.4     # negativo: as linhas se encostam e o bloco fica firme
+FILETE = (1.6, 1.6)   # filete atrás das letras de cada linha, na linha de base: altura x profundidade
 
 
 def contorno(texto):
@@ -55,27 +58,21 @@ def contorno(texto):
     return g
 
 
-def palavra(texto, altura, espaco=None):
-    """letras uma a uma, encostadas, com a altura da maiúscula = altura"""
+def palavra(texto, altura, largura):
+    """texto na fonte, com a altura da maiúscula = altura e esticado/encolhido até a largura"""
     cap = contorno("H").bounds[3]
-    k = altura / cap
-    x, partes = 0.0, []
-    for ch in texto:
-        if ch == " ":
-            x += 0.28 * altura
-            continue
-        g = affinity.scale(contorno(ch), k, k, origin=(0, 0))
-        g = affinity.translate(g, x - g.bounds[0], 0)
-        partes.append(g)
-        x = g.bounds[2] + (ESPACO_LETRAS if espaco is None else espaco)
-    return unary_union(partes)
+    g = affinity.scale(contorno(texto), altura / cap, altura / cap, origin=(0, 0))
+    g = affinity.translate(g, -g.bounds[0], 0)
+    return affinity.scale(g, largura / g.bounds[2], 1, origin=(0, 0))
 
 
-def coracao(s):
-    """coração com a ponta no canto de baixo à direita (como na arte)"""
+def coracao(largura, altura):
+    """coração com a ponta no canto de baixo à direita (como no letreiro)"""
+    s = 1.0
     h = unary_union([box(0, 0, s, s), Point(0, s / 2).buffer(s / 2, 128),
                      Point(s / 2, s).buffer(s / 2, 128)])
     h = affinity.translate(h, -h.bounds[0], 0)
+    h = affinity.scale(h, largura / 1.5, altura / 1.5, origin=(0, 0))
     return h.difference(h.buffer(-CORACAO_TRACO, join_style=1))
 
 
@@ -94,25 +91,17 @@ def extrudar(g, h):
 
 def main():
     # ---------- frente (x para a direita, y para cima, y = 0 no topo da base) ----------
-    eu = palavra("EU", EU_ALTURA, espaco=2)
-    eu = affinity.scale(eu, EU_LARGURA / (eu.bounds[2] - eu.bounds[0]), 1, origin=(0, 0))
-    cor = coracao(CORACAO)
-    linhas = [palavra(t, LINHA) for t in ("SANTA", "MARIA DA", "BOA VISTA")]
-    k = LARGURA_TEXTO / (linhas[2].bounds[2] - linhas[2].bounds[0])
-    linhas = [affinity.scale(l, k, k, origin=(0, 0)) for l in linhas]
-    passo = LINHA * k + ENTRELINHA
-    linhas = [affinity.translate(l, -l.bounds[0], (2 - i) * passo) for i, l in enumerate(linhas)]
+    eu = unary_union([affinity.translate(palavra(l, EU_ALTURA, w), x, 0) for l, (x, w) in EU.items()])
+    cor = affinity.translate(coracao(CORACAO[1], CORACAO[2]), CORACAO[0], 0)
+    passo = LINHA + ENTRELINHA
+    linhas = [affinity.translate(palavra(t, LINHA, w), TEXTO_X, (2 - i) * passo) for i, (t, w) in enumerate(LINHAS)]
     azul = unary_union([linhas[0], linhas[2]])
     amarelo = linhas[1].difference(azul)   # onde encostam, fica o azul
-
-    # posições ao longo da base (da arte original)
-    x_eu, x_cor, x_txt = 23.7, 73.3, 136.0
-    eu = affinity.translate(eu, x_eu, 0)
-    cor = affinity.translate(cor, x_cor - cor.bounds[0], 0)
     bloco = unary_union([azul, amarelo])
-    dx = x_txt - bloco.bounds[0]
-    azul, amarelo = (affinity.translate(g, dx, 0) for g in (azul, amarelo))
-    bloco = unary_union([azul, amarelo])
+    # filete atrás de cada linha: une as letras soltas da linha numa peça só
+    filetes = [box(l.bounds[0] + 1, (2 - i) * passo, l.bounds[2] - 1, (2 - i) * passo + FILETE[0]) for i, l in enumerate(linhas)]
+    filete_azul = unary_union([filetes[0], filetes[2]])
+    filete_amarelo = filetes[1].difference(azul).difference(filete_azul)
 
     pecas = {"eu": com_aba(eu), "coracao": com_aba(cor)}
     aba_txt = box(bloco.bounds[0] + 1, -ABA, bloco.bounds[2] - 1, 0.5)
@@ -140,8 +129,11 @@ def main():
 
     info = {"comprimento": COMPRIMENTO, "fundo": FUNDO, "altura_base": ALTURA_BASE, "espessura": ESPESSURA, "aba": ABA, "y0": y0}
     print(f"base: {base.extents.round(1)} mm, {base.volume / 1000:.1f} cm³, estanque={base.is_watertight}")
+    filetes = {"texto-azul": filete_azul, "texto-amarelo": filete_amarelo}
     for nome, g in pecas.items():
         m = extrudar(g, ESPESSURA)
+        if nome in filetes:   # z = 0 é a face de trás
+            m = m.union(extrudar(filetes[nome], FILETE[1]))
         m.export(PASTA / f"{nome}.stl")
         e = m.extents
         print(f"{nome}: {e[0]:.0f} × {e[1]:.0f} × {e[2]:.0f} mm, {m.volume / 1000:.1f} cm³, estanque={m.is_watertight}")

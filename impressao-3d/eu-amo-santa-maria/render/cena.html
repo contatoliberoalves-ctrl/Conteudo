@@ -31,7 +31,7 @@ for (const [n, c] of Object.entries(cores)) {
   else { m.position.set(0, M.altura_base, M.y0); }
   cena.add(m);
 }
-const cam = new THREE.PerspectiveCamera(22, W / H, 10, 4000);
-cam.position.set(170, 95, 330); cam.lookAt(122, 30, 15);
+const cam = new THREE.PerspectiveCamera(16, W / H, 10, 4000);
+cam.position.set(120, 60, 560); cam.lookAt(120, 28, 15);
 r.render(cena, cam); window.__pronto = true;
 </script></body></html>
