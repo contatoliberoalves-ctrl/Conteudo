@@ -29,13 +29,14 @@ Carrossel de Instagram para explicar um tema em 6 ou 7 slides de 1080×1350: **c
 ```
 
 ### Variações (para o feed não parecer repetido)
-- `capa`: layout da capa (A, B, C, D ou F; a antiga E, tipográfica, foi retirada a pedido do autor), todos com os mesmos campos (etiqueta, apoio, destaque, subtitulo, elemento):
-  - `A` Marca-texto: foto em tela cheia, destaque no marca-texto verde (o original).
-  - `B` Revista: foto no alto, faixa clara embaixo com o título em verde.
-  - `C` Moldura: fundo claro pontilhado, foto emoldurada com sombra verde, etiqueta numa fita, título grifado.
-  - `D` Painel: foto no alto e painel em degradê (verde-escuro → verde) com o título, borda reta. (O antigo balão arredondado saiu.)
-  - `F` Manchete: página de jornal, título em preto e a foto como imagem da matéria.
-  - `G` Documento: fundo escuro com grade, título no alto, folha inclinada (`doc`: `rotulo`, `linhas` com `~~riscado~~` e `{{correção à mão}}`), `carimbo` vermelho e o autor recortado à direita (`recorte`: PNG sem fundo em `fotos/`, `recorteH`). Boa para retificação, anulação e erro no gabarito.
+- `capa`: layout da capa (todas com os mesmos campos: etiqueta, apoio, destaque, subtitulo; fotos sem filtro colorido):
+  - `A` Editorial: foto em tela cheia, escurecimento neutro embaixo e o título grande solto (última linha em verde-claro).
+  - `B` Dividida: foto à esquerda em altura cheia, coluna da direita em degradê com o título.
+  - `C` Quadro: foto num passe-partout branco e o título num bloco escuro reto sobre a borda.
+  - `D` Painel: foto no alto e painel em degradê com o título.
+  - `F` Número: degradê com o número do dia vazado ao fundo (tirado da etiqueta "Dia N"), foto num retângulo com fio claro e título embaixo.
+  - `G` Documento: fundo em degradê, folha inclinada com riscos e correções, carimbo e o autor recortado (`recorte`). Para retificação e anulação.
+  (Saíram, a pedido: marca-texto, fita, página de jornal e balão.)
 - `estilo`: ordem dos fundos dos slides de conteúdo, sempre na mesma paleta:
   - `classico`: branco e degradê.
   - `caderno`: papel e verde-escuro.

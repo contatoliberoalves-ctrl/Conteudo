@@ -2,23 +2,32 @@
 // Capa com a foto do autor (fotos fora do git), a sigla gigante e "regra para…" ao lado; um slide por pedaço da
 // sigla ("letra": pedaço vazado gigante, a palavra com o pedaço em verde, explicação e artigo); "resumo" com a
 // sigla inteira; e os slides comuns de cg-comum (pegadinha, lista, lei, cta…).
+import { DEGRADE as DEGRADE_CG } from '../cg-comum/identidade.mjs';
 import { COR, TITULO, TEXTO, esc, lista, rico, kicker, par, artigo, area, rodape, pagina } from '../cg-comum/base.mjs';
 
 const PESADO = "font-family:'Poppins',sans-serif;font-weight:900;letter-spacing:-.04em";
 
 const TIPOS = {
+  // Capa: a foto no alto, sem filtro, e embaixo um painel em degradê com a sigla grande (cada pedaço numa
+  // caixa reta, quando "pedacos" vier) e a regra. Borda reta entre foto e painel, com um fio verde-claro.
   capa(s, t, ctx) {
     const src = s.foto ? ctx.foto(s.foto) : '';
     const sigla = String(s.sigla || '');
-    const px = s.tsigla || Math.min(330, Math.floor(940 / (Math.max(sigla.length, 1) * .66)));
-    return `${src ? `<img src="${src}" style="position:absolute;left:0;top:${s.fotoY ?? 0}px;width:1080px;height:1350px;object-fit:cover;transform:scale(${s.fotoEscala || 1});transform-origin:50% 15%">` : ''}
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,10,0) 35%,rgba(8,12,10,.72) 60%,#0A0F0C 88%);z-index:1"></div>
-      <div style="position:absolute;left:70px;right:70px;bottom:150px;display:flex;flex-wrap:wrap;align-items:center;column-gap:30px;row-gap:6px;z-index:5">
-        <div style="${PESADO};font-size:${px}px;line-height:.9;color:#fff;white-space:nowrap;padding-top:.06em">${esc(sigla)}</div>
-        <div style="display:flex;flex-direction:column;gap:2px;${TEXTO};font-size:${s.tregra || 46}px;font-weight:800;line-height:1.08;text-transform:uppercase;color:#fff">${lista(s.regra).map(l => `<span>${rico(l, t)}</span>`).join('')}
-          ${s.artigo ? `<span style="margin-top:12px;align-self:flex-start;font-size:24px;font-weight:700;letter-spacing:.06em;text-transform:none;background:${COR.claro};color:${COR.base};padding:6px 18px">${esc(s.artigo)}</span>` : ''}</div>
+    const ped = lista(s.pedacos);
+    const px = s.tsigla || Math.min(250, Math.floor(920 / (Math.max(sigla.length, 1) * .5)));
+    const siglaHtml = ped.length
+      ? `<div style="display:flex;gap:12px;flex-wrap:nowrap">${ped.map((p, i) => `<span style="${TITULO};font-size:${s.tped || 150}px;line-height:1;padding:10px 22px 6px;${i % 2 ? `background:${COR.claro};color:${COR.base}` : 'background:#fff;color:' + COR.base}">${esc(p)}</span>`).join('')}</div>`
+      : `<div style="${TITULO};font-size:${px}px;line-height:1;color:#fff;white-space:nowrap;letter-spacing:.02em">${esc(sigla)}</div>`;
+    return `${src ? `<div style="position:absolute;left:0;top:0;width:1080px;height:${s.alturaFoto || 820}px;overflow:hidden"><img src="${src}" style="position:absolute;left:0;top:${s.fotoY ?? 0}px;width:1080px;height:1350px;object-fit:cover;transform:scale(${s.fotoEscala || 1});transform-origin:50% 15%"></div>` : ''}
+      <div style="position:absolute;left:0;right:0;top:${s.alturaFoto || 820}px;bottom:0;background:${DEGRADE_CG};z-index:2"></div>
+      <div style="position:absolute;left:0;right:0;top:${(s.alturaFoto || 820) - 4}px;height:8px;background:${COR.claro};z-index:3"></div>
+      <div style="position:absolute;left:80px;top:${(s.alturaFoto || 820) - 26}px;background:${COR.base};color:${COR.claro};${TEXTO};font-size:22px;font-weight:800;letter-spacing:.2em;padding:10px 20px;z-index:4">MACETE</div>
+      <div style="position:absolute;left:80px;right:80px;top:${(s.alturaFoto || 820) + 60}px;bottom:120px;display:flex;flex-direction:column;justify-content:center;gap:20px;z-index:5">
+        ${siglaHtml}
+        <div style="${TEXTO};font-size:${s.tregra || 40}px;font-weight:700;line-height:1.15;text-transform:uppercase;color:#fff">${lista(s.regra).map(l => rico(l, t)).join(' ')}</div>
+        ${s.artigo ? `<div style="${TEXTO};font-size:26px;font-weight:600;color:${COR.claro}">${esc(s.artigo)}</div>` : ''}
       </div>
-      <div style="position:absolute;left:0;right:0;bottom:62px;text-align:center;${TEXTO};font-size:26px;font-weight:600;letter-spacing:.06em;color:#fff;z-index:6">@CONSTITUCIONAL<b style="font-weight:800">GABARITADO</b> <span style="color:${COR.claro}">✔</span></div>`;
+      <div style="position:absolute;left:0;right:0;bottom:56px;text-align:center;${TEXTO};font-size:24px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.85);z-index:6">@CONSTITUCIONAL<b style="font-weight:800">GABARITADO</b></div>`;
   },
   // Um pedaço da sigla: "letra" vazada gigante, "palavra" (com {{pedaço}} em verde), texto e artigo.
   letra(s, t) {

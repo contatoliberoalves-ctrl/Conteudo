@@ -11,6 +11,6 @@ Slides comuns (cg-comum): `texto` (texto, artigo) · `destaque` (`grande`: núme
 Fotos do autor (fora do git): `fotos/` do molde, `../carrossel-libero/fotos` ou `../carrossel-explicativo/fotos`.
 
 ## Tipos próprios
-- `capa`: `foto` (do autor), `fotoY`, `fotoEscala`, `sigla` (gigante; `tsigla`), `regra` (linhas ao lado/embaixo: "Regra para…"), `artigo`.
+- `capa`: foto do autor no alto, sem filtro (`foto`, `fotoY`, `fotoEscala`, `alturaFoto`), e painel em degradê com a sigla: em blocos alternando branco e verde-claro se vier `pedacos` (ex.: ["SO","CI","DI","VA","PLU"], `tped` = px) ou inteira (`sigla`, `tsigla`); `regra` e `artigo` embaixo. Prompts para gerar a foto da capa em outra IA: `PROMPTS-CAPAS.md`.
 - `letra`: `letra` (o pedaço, vazado e gigante no canto), `palavra` (com `{{pedaço}}` em verde), `texto`, `artigo`.
 - `resumo`: `sigla` e `itens` ([pedaço, palavra]), `artigo`.

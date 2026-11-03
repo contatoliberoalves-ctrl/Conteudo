@@ -79,6 +79,7 @@ const TIPOS = {
   cover(s, t, col) {
     const centro = s.align === 'center';
     return `<div class="bloco capa-bloco" style="align-items:${centro ? 'center' : 'flex-start'};text-align:${centro ? 'center' : 'left'}">
+      ${s.numero ? `<div style="font-family:Antonio,sans-serif;font-weight:700;font-size:${s.tn || 330}px;line-height:.86;color:${t.accent};margin-bottom:-10px">${esc(s.numero)}</div>` : ''}
       ${titulo(s, t, TS_BASE.cover, col, ';line-height:1.08;text-wrap:balance')}
       ${s.sub ? `<p class="sub" style="color:${t.fg};border-top:3px solid ${t.accent}">${md(s.sub)}</p>` : ''}
     </div>`;

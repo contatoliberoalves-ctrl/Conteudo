@@ -64,61 +64,56 @@ const tamanho = (linhas, max, min, largura, altura) => Math.max(min, Math.min(ca
 
 // ——— Capas ——— (campo "capa": A, B, C, D ou F; todas usam os mesmos campos: etiqueta, apoio, destaque, subtitulo, elemento)
 
-// A · Marca-texto: foto em tela cheia, destaque no marca-texto verde.
+// Capas novas (sem marca-texto, sem fita, sem página de jornal; fotos sem filtro colorido).
+const kick = (t, cor) => t ? `<div style="display:flex;align-items:center;gap:16px;font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:${cor}"><i style="display:block;width:44px;height:4px;background:${cor}"></i>${esc(t)}</div>` : '';
+const numeroDe = c => (String(c.etiqueta || '').match(/dia\s*(\d+)/i) || [])[1] || '';
+
+// A · Editorial: foto em tela cheia, escurecimento neutro embaixo e o título grande solto, sem caixas.
 function capaA(c) {
-  const destaque = linhasDe(c);
-  const tam = caber(destaque, 300, 120, 836);
-  const apoio = lista(c.apoio);
+  const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
+  const tam = tamanho(d, 220, 110, 888, 420);
   return `
   ${caixaFoto(c, 0, 0, 1080, 1350)}
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,10,0) 42%,rgba(8,12,10,.8) 66%,#0A0F0C 84%)"></div>
-  ${c.elemento ? `<div style="position:absolute;top:130px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
-  <div data-bloco data-rosto style="position:absolute;left:96px;right:96px;bottom:150px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">
-    ${c.etiqueta ? `<span style="background:#fff;color:${COR.base};padding:12px 22px;font-size:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border-left:8px solid ${COR.claro}">${esc(c.etiqueta)}</span>` : ''}
-    ${apoio.length ? `<div style="${bebas};font-size:${caber(apoio, 112, 90)}px;line-height:.9;color:#fff;margin-top:6px;text-shadow:0 2px 18px rgba(20,22,21,.55)">${apoio.map(esc).join('<br>')}</div>` : ''}
-    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:4px">
-      ${destaque.map(l => `<span style="display:inline-block;${bebas};font-size:${tam}px;line-height:.9;color:${COR.base};background:${COR.claro};padding:14px 24px 6px">${esc(l)}</span>`).join('')}
-    </div>
-    ${c.subtitulo ? `<div style="display:flex;flex-direction:column;gap:18px;margin-top:10px"><span style="width:96px;height:6px;background:${COR.claro}"></span><span style="font-size:52px;font-weight:500;line-height:1.2;color:#fff;text-wrap:pretty;text-shadow:0 2px 14px rgba(20,22,21,.55)">${esc(c.subtitulo)}</span></div>` : ''}
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,10,0) 40%,rgba(8,12,10,.78) 64%,rgba(8,12,10,.94) 100%)"></div>
+  <div data-bloco data-rosto style="position:absolute;left:96px;right:96px;bottom:140px;display:flex;flex-direction:column;gap:18px">
+    ${kick(c.etiqueta, COR.claro)}
+    ${apoio ? `<div style="font-size:42px;font-weight:600;color:#fff;margin-top:8px">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:1.06;color:#fff">${d.map((l, i) => i === d.length - 1 ? `<span style="color:${COR.claro}">${esc(l)}</span>` : esc(l)).join('<br>')}</div>
+    ${c.subtitulo ? `<div style="font-size:32px;font-weight:500;color:${CG.nevoa}">${esc(c.subtitulo)}</div>` : ''}
   </div>
-  ${handle('rgba(255,255,255,.85)', 'bottom:64px')}`;
+  ${handle('rgba(255,255,255,.8)', 'bottom:60px')}`;
 }
 
-
-// B · Revista: foto no alto, faixa clara embaixo com o título em verde.
+// B · Dividida: foto à esquerda em altura cheia e o título na coluna da direita, sobre o degradê.
 function capaB(c) {
   const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = tamanho(d, 190, 96, 888, 360 - (apoio ? 64 : 0) - (c.subtitulo ? 70 : 0));
+  const tam = tamanho(d, 170, 96, 500, 620);
   return `
-  ${caixaFoto(c, 0, 0, 1080, 800)}
-  <div style="position:absolute;left:0;right:0;top:800px;height:14px;background:${COR.claro}"></div>
-  ${c.elemento ? `<div style="position:absolute;top:120px;right:96px;${bebas};font-size:120px;line-height:.9;color:${COR.claro}">${esc(c.elemento)}</div>` : ''}
-  ${c.etiqueta ? `<span style="position:absolute;left:96px;top:780px;background:${COR.base};color:#fff;padding:14px 26px;border-left:8px solid ${COR.claro};font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase">${esc(c.etiqueta)}</span>` : ''}
-  <div data-bloco style="position:absolute;left:96px;right:96px;top:870px;bottom:120px;display:flex;flex-direction:column;justify-content:center;gap:14px">
-    ${apoio ? `<div style="font-size:34px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:${COR.medio}">${esc(apoio)}</div>` : ''}
-    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:${COR.verde}">${d.map(esc).join('<br>')}</div>
-    ${c.subtitulo ? `<div style="font-size:34px;font-weight:500;line-height:1.25;color:${COR.texto}">${esc(c.subtitulo)}</div>` : ''}
+  ${caixaFoto(c, 0, 0, 480, 1350, 0.3)}
+  <div style="position:absolute;left:480px;right:0;top:0;bottom:0;background:${DEGRADE}"></div>
+  <div style="position:absolute;left:480px;top:0;bottom:0;width:8px;background:${COR.claro}"></div>
+  <div data-bloco style="position:absolute;left:532px;right:44px;top:120px;bottom:150px;display:flex;flex-direction:column;justify-content:center;gap:22px">
+    ${c.etiqueta ? `<div style="font-size:21px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:${COR.claro};line-height:1.4">${esc(c.etiqueta)}</div>` : ''}
+    <span style="width:70px;height:5px;background:${COR.claro}"></span>
+    ${apoio ? `<div style="font-size:32px;font-weight:600;color:#fff;line-height:1.25">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:1.08;color:#fff">${d.map(esc).join('<br>')}</div>
+    ${c.subtitulo ? `<div style="font-size:26px;font-weight:500;color:${CG.nevoa};line-height:1.35">${esc(c.subtitulo)}</div>` : ''}
   </div>
-  ${handle(COR.verde, 'bottom:56px')}`;
+  <div style="position:absolute;left:532px;right:44px;bottom:64px;font-size:20px;font-weight:500;letter-spacing:1px;color:rgba(255,255,255,.8)">${HANDLE}</div>`;
 }
 
-// C · Moldura: fundo claro pontilhado, foto emoldurada com sombra verde e fita com a etiqueta.
+// C · Quadro: a foto inteira dentro de um passe-partout branco e o título num bloco escuro reto que avança sobre a borda.
 function capaC(c) {
   const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = tamanho(d, 180, 90, 860, 330 - (apoio ? 60 : 0) - (c.subtitulo ? 60 : 0));
-  const x = 150, y = 110, w = 780, h = 720, o = 26;
+  const tam = tamanho(d, 150, 80, 800, 300);
   return `
-  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(31,138,85,.16) 2px,transparent 2.6px);background-size:30px 30px"></div>
-  <div style="position:absolute;left:${x + w}px;top:${y + o}px;width:${o}px;height:${h}px;background:${COR.claro}"></div>
-  <div style="position:absolute;left:${x + o}px;top:${y + h}px;width:${w}px;height:${o}px;background:${COR.claro}"></div>
-  ${caixaFoto(c, x, y, w, h)}
-  ${c.etiqueta ? `<span style="position:absolute;left:${x - 50}px;top:${y + 34}px;transform:rotate(-8deg);background:${COR.claro};color:${COR.base};padding:14px 30px;font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;box-shadow:0 8px 20px rgba(20,26,24,.18)">${esc(c.etiqueta)}</span>` : ''}
-  <div data-bloco style="position:absolute;left:110px;right:110px;top:890px;bottom:110px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;text-align:center">
-    ${apoio ? `<div style="font-size:40px;font-weight:500;font-style:italic;color:${COR.texto}">${esc(apoio)}</div>` : ''}
-    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.92;color:${COR.verde}">${d.map(l => `<span style="background:linear-gradient(transparent 58%,${COR.claro} 58%);padding:0 10px">${esc(l)}</span>`).join('<br>')}</div>
-    ${c.subtitulo ? `<div style="font-size:32px;font-weight:500;color:${COR.medio}">${esc(c.subtitulo)}</div>` : ''}
+  ${caixaFoto(c, 54, 54, 972, 1000)}
+  <div data-bloco style="position:absolute;left:54px;right:150px;bottom:110px;background:${COR.base};padding:40px 48px 44px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px rgba(0,0,0,.25)">
+    ${kick(c.etiqueta, COR.claro)}
+    ${apoio ? `<div style="font-size:36px;font-weight:600;color:#fff">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:1.08;color:#fff">${d.map((l, i) => i === d.length - 1 ? `<span style="color:${COR.claro}">${esc(l)}</span>` : esc(l)).join('<br>')}</div>
   </div>
-  ${handle(COR.verde, 'bottom:50px')}`;
+  <div style="position:absolute;right:54px;bottom:44px;font-size:22px;font-weight:600;letter-spacing:1px;color:${COR.base}">${HANDLE}</div>`;
 }
 
 // D · Painel: foto no alto e um painel em degradê (escuro → verde) com o título, de borda reta.
@@ -139,26 +134,22 @@ function capaD(c) {
   ${handle('rgba(255,255,255,.8)', 'bottom:56px')}`;
 }
 
-// F · Manchete: página de jornal, título em preto e a foto como imagem da matéria.
+// F · Número: degradê com o número do dia vazado ao fundo, a foto num retângulo com fio claro e o título embaixo.
 function capaF(c) {
-  const d = linhasDe(c), apoio = lista(c.apoio).join(' ');
-  const tam = tamanho(d, 340, 90, 888, 440 - (apoio ? 60 : 0));
-  const x = 96, y = 740, w = 888, h = 460;
+  const d = linhasDe(c), apoio = lista(c.apoio).join(' '), n = numeroDe(c);
+  const tam = tamanho(d, 170, 90, 888, 300);
   return `
-  <div style="position:absolute;left:96px;right:96px;top:70px;height:8px;background:${COR.base}"></div>
-  <div style="position:absolute;left:96px;right:96px;top:90px;text-align:center;${bebas};font-size:76px;line-height:1;white-space:nowrap;color:${COR.base}">CONSTITUCIONAL GABARITADO</div>
-  <div style="position:absolute;left:96px;right:96px;top:186px;height:2px;background:${COR.base}"></div>
-  <div style="position:absolute;left:96px;right:96px;top:196px;display:flex;justify-content:space-between;font-size:22px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:${COR.texto}"><span>${esc(c.etiqueta || '')}</span><span>Direito Constitucional</span></div>
-  <div style="position:absolute;left:96px;right:96px;top:238px;height:2px;background:${COR.base}"></div>
-  <div data-bloco style="position:absolute;left:96px;right:96px;top:262px;height:450px;display:flex;flex-direction:column;justify-content:center;gap:10px">
-    ${apoio ? `<div style="font-size:38px;font-weight:600;font-style:italic;color:${COR.medio}">${esc(apoio)}</div>` : ''}
-    <div data-destaque style="${bebas};font-size:${tam}px;line-height:.9;color:${COR.base}">${d.map(esc).join('<br>')}</div>
+  ${n ? `<div style="position:absolute;left:40px;top:40px;${bebas};font-size:620px;line-height:.85;color:transparent;-webkit-text-stroke:3px rgba(111,211,155,.22)">${esc(n)}</div>` : ''}
+  <div style="position:absolute;left:470px;top:110px;width:540px;height:660px;border:3px solid ${COR.claro};transform:translate(-26px,26px)"></div>
+  ${caixaFoto(c, 470, 110, 540, 660, 0.36)}
+  <div data-bloco style="position:absolute;left:96px;right:96px;top:810px;bottom:120px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+    ${kick(c.etiqueta, COR.claro)}
+    ${apoio ? `<div style="font-size:38px;font-weight:600;color:#fff">${esc(apoio)}</div>` : ''}
+    <div data-destaque style="${bebas};font-size:${tam}px;line-height:1.08;color:#fff">${d.map(esc).join('<br>')}</div>
+    ${c.subtitulo ? `<div style="font-size:30px;font-weight:500;color:${CG.nevoa}">${esc(c.subtitulo)}</div>` : ''}
   </div>
-  ${caixaFoto(c, x, y, w, h, 0.4)}
-  <div style="position:absolute;left:${x + w - 250}px;top:${y - 40}px;transform:rotate(-8deg);background:${COR.claro};color:${COR.base};${bebas};font-size:54px;line-height:1;padding:12px 26px 8px">ENTENDA</div>
-  <div style="position:absolute;left:96px;right:96px;top:${y + h + 16}px;display:flex;justify-content:space-between;font-size:22px;color:${COR.texto}"><i>${esc(c.subtitulo || '')}</i><span style="font-weight:600">${HANDLE}</span></div>`;
+  ${handle('rgba(255,255,255,.8)', 'bottom:56px')}`;
 }
-
 
 // G · Documento: fundo escuro com grade, título no alto, uma folha (ex.: padrão de resposta) inclinada com
 // trechos riscados (~~x~~) e corrigidos à mão ({{x}}), carimbo e o autor recortado (PNG sem fundo) à direita.
@@ -186,7 +177,7 @@ function capaG(c) {
   <div style="position:absolute;left:70px;bottom:44px;font-size:24px;font-weight:500;letter-spacing:1px;color:rgba(111,211,155,.9);z-index:6">${HANDLE}</div>`;
 }
 
-const CAPAS = { G: [capaG, COR.base], A: [capaA, COR.base], B: [capaB, COR.gelo], C: [capaC, CG.papel], D: [capaD, COR.base], F: [capaF, CG.papel] };
+const CAPAS = { G: [capaG, COR.base], A: [capaA, COR.base], B: [capaB, COR.base], C: [capaC, '#FFFFFF'], D: [capaD, COR.base], F: [capaF, DEGRADE] };
 
 function conteudo(s, k, estilo) {
   const fundo = s.fundo || RITMO[k % RITMO.length];
