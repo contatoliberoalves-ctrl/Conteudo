@@ -1,7 +1,7 @@
 // index.html do vídeo "Presença confirmada", na linha da arte de referência:
 // topo rosado claro, arco vinho com textura de nuvem, laterais rosa em diagonal,
-// "PRESENÇA" condensado em vinho e "confirmada" em pincel branco.
-// O arco vira a janela da pregação no meio do vídeo. Toda a animação está numa
+// nome do pregador grande em letra condensada e "Presença confirmada" em pincel embaixo.
+// No meio do vídeo a pregação ocupa a tela inteira, por cima do cenário. Toda a animação está numa
 // timeline GSAP pausada (o HyperFrames busca quadro a quadro).
 
 const W = 1080, H = 1920;
@@ -38,11 +38,12 @@ export function pagina(r, t) {
       <div class="nomes">${l.linhas.map(([n, cargo]) => `<div class="lider-nome">${esc(n)}</div><div class="lider-cargo">${esc(cargo)}</div>`).join("")}</div>
     </div>`).join("");
   const logos = r.logos.map((_, i) => `<img class="logo" id="logo${i + 1}" src="assets/img/logo-${i + 1}.png" alt="">`).join("");
-  const letras = [...r.selo[0]].map((l, i) => `<span class="mascara"><span class="le" id="le${i}">${esc(l)}</span></span>`).join("");
+  const letras = (txt, cls) => [...txt].map((l) => `<span class="mascara"><span class="le ${cls}">${l === " " ? "&nbsp;" : esc(l)}</span></span>`).join("");
   const dataLinha = [ev.data, ev.horario].filter(Boolean).join(" · ");
 
   // Arco: x 172–908, topo em 640, cantos de cima bem arredondados.
   const A = { x: 172, y: 640, w: 736, h: 1000, raio: 120 };
+  const TELA = 1260;
 
   return `<!doctype html>
 <html lang="pt-BR">
@@ -51,7 +52,7 @@ export function pagina(r, t) {
 <title>${esc(r.selo.join(" "))} · ${esc(pg.titulo)} ${esc(pg.nome)} ${esc(pg.sobrenome)}</title>
 <script src="lib/gsap.min.js"></script>
 <style>
-  @font-face { font-family: "Mr Dafoe"; src: url("assets/fonts/mr-dafoe.woff2") format("woff2"); }
+  @font-face { font-family: "Great Vibes"; src: url("assets/fonts/great-vibes.woff2") format("woff2"); }
   :root { --vinho-escuro: ${c.vinhoEscuro}; --vinho: ${c.vinho}; --titulo: ${c.titulo}; --rosa-escuro: ${c.rosaEscuro}; --rosa: ${c.rosa}; --rosa-claro: ${c.rosaClaro}; --branco: ${c.branco}; }
   html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: #fbeef4; }
   #root { position: relative; width: ${W}px; height: ${H}px; overflow: hidden; font-family: Montserrat; }
@@ -84,10 +85,17 @@ export function pagina(r, t) {
     -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 96%); mask-image: linear-gradient(180deg, #000 55%, transparent 96%);
     box-shadow: 0 0 0 1px rgba(0,0,0,0.05); }
   #arco .tex { inset: -50px; background-image: url("assets/img/arco.png"); }
-  #janela { position: absolute; inset: 0; opacity: 0; }
-  #camera { position: absolute; left: 0; top: 0; width: ${A.w}px; height: ${A.h}px; transform-origin: 50% 35%; }
-  #pregacao { position: absolute; left: 0; top: -10px; width: ${A.w}px; height: ${Math.round((A.w * 940) / 720)}px; object-fit: cover; }
-  #tinta { background: linear-gradient(180deg, rgba(78,7,22,0.35) 0%, transparent 18%, transparent 52%, rgba(126,13,35,0.85) 100%); }
+  /* Pregação em tela cheia (largura toda, até o nome). */
+  #tela { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; overflow: hidden; opacity: 0; transform-origin: 50% 62%;
+    -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 100%); mask-image: linear-gradient(180deg, #000 74%, transparent 100%); }
+  #camera { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; transform-origin: 50% 35%; }
+  #pregacao { position: absolute; left: 0; top: 0; width: ${W}px; height: ${Math.round((W * 940) / 720)}px; object-fit: cover; }
+  #tinta { background: linear-gradient(180deg, rgba(78,7,22,0.45) 0%, transparent 16%, transparent 60%, rgba(126,13,35,0.55) 100%); }
+  #brilho-tela { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(18deg); }
+  #logos-tela { position: absolute; top: 44px; left: 44px; display: flex; gap: 18px; opacity: 0; }
+  #logos-tela .logo { height: 84px; filter: drop-shadow(0 4px 12px rgba(78,7,22,0.5)); }
+  #logo-rodape { position: absolute; left: ${(W - 215) / 2}px; top: 1772px; width: 215px; opacity: 0; filter: drop-shadow(0 0 10px rgba(255,255,255,0.85)) drop-shadow(0 0 3px #fff); }
   #brilho-arco { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transform: rotate(18deg); }
 
@@ -101,21 +109,20 @@ export function pagina(r, t) {
   #logo-evento { position: absolute; left: 270px; top: 132px; width: 540px; }
   #faixa { position: absolute; left: 0; right: 0; top: 500px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.26em; color: var(--titulo); }
 
-  /* Título. */
-  #presenca { position: absolute; z-index: 2; left: 0; right: 0; top: 1112px; text-align: center; font: 400 330px/0.86 "League Gothic"; letter-spacing: 0.005em;
-    color: var(--titulo); text-shadow: 0 10px 30px rgba(78,7,22,0.25); }
-  .mascara { display: inline-block; overflow: hidden; vertical-align: top; padding: 14px 0 70px; margin-bottom: -70px; }
-  .le { display: inline-block; background: linear-gradient(180deg, ${c.titulo} 0%, ${c.vinho} 55%, ${c.vinhoEscuro} 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  #confirmada { position: absolute; left: 96px; top: 1462px; z-index: 3; font: 400 196px/1 "Mr Dafoe"; color: var(--branco); transform: rotate(-6deg); transform-origin: 0% 50%;
-    text-shadow: 0 8px 24px rgba(78,7,22,0.35); padding: 0 40px; }
-
-  /* Nome, cidade e líderes. */
-  #nome { position: absolute; left: 0; right: 0; top: 1668px; text-align: center; font: 800 46px/1 Montserrat; letter-spacing: 0.08em; color: var(--branco); }
-  #nome .sob { color: #ffe1ea; }
-  .traco { display: inline-block; width: 70px; height: 3px; background: rgba(255,255,255,0.7); vertical-align: middle; margin: 0 22px; }
-  #cidade { position: absolute; left: 0; right: 0; top: 1734px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: #ffe1ea; }
-  #data { position: absolute; left: 0; right: 0; top: 1622px; text-align: center; font: 800 34px/1 Montserrat; letter-spacing: 0.1em; color: var(--branco); }
-  .lider { position: absolute; top: 1784px; display: flex; align-items: center; gap: 14px; }
+  /* Título: nome grande e, embaixo, "Presença confirmada". */
+  #ev { position: absolute; z-index: 2; left: 0; right: 0; top: 1192px; text-align: center; font: 800 40px/1 Montserrat; letter-spacing: 0.42em; color: var(--branco);
+    text-shadow: 0 3px 12px rgba(78,7,22,0.6); }
+  #nome-grande { position: absolute; z-index: 2; left: 0; right: 0; top: 1236px; text-align: center; font: 400 206px/0.84 "League Gothic"; letter-spacing: 0.01em; }
+  #nome-grande .linha { display: block; white-space: nowrap; }
+  .mascara { display: inline-block; overflow: hidden; vertical-align: top; padding: 46px 0 40px; margin: -46px 0 -40px; }
+  .le { display: inline-block; filter: drop-shadow(0 8px 18px rgba(78,7,22,0.35)); }
+  .le.vinho { background: linear-gradient(180deg, ${c.titulo} 0%, ${c.vinho} 55%, ${c.vinhoEscuro} 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .le.branca { color: var(--branco); }
+  #pc { position: absolute; z-index: 3; left: 0; right: 0; top: 1590px; text-align: center; font: 400 128px/1 "Great Vibes"; color: var(--branco);
+    transform: rotate(-2deg); text-shadow: 0 6px 20px rgba(78,7,22,0.4); }
+  #cidade { position: absolute; left: 0; right: 0; top: 1738px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: #ffe1ea; }
+  #data { position: absolute; left: 0; right: 0; top: 1150px; text-align: center; font: 800 34px/1 Montserrat; letter-spacing: 0.1em; color: var(--branco); }
+  .lider { position: absolute; top: 1790px; display: flex; align-items: center; gap: 14px; }
   .lider.esq { left: 36px; }
   .lider.dir { right: 36px; flex-direction: row-reverse; text-align: right; }
   .foto-lider { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; background: #fff; flex: none; box-shadow: 0 6px 16px rgba(78,7,22,0.3); }
@@ -137,12 +144,6 @@ export function pagina(r, t) {
   <div class="borda dir" id="borda-dir"></div>
   <div id="arco">
     <div class="tex" id="arco-tex"></div>
-    <div id="janela">
-      <div id="camera">
-        <video id="pregacao" class="clip" src="assets/pregacao.mp4" data-start="${t.voz}" data-duration="${t.fala}" data-track-index="0" muted playsinline></video>
-      </div>
-      <div id="tinta" class="cheio"></div>
-    </div>
     <div id="brilho-arco"></div>
   </div>
   <div id="base"><div class="tex" id="base-tex"></div></div>
@@ -152,16 +153,26 @@ export function pagina(r, t) {
 
   <img id="pregador" src="assets/img/pregador.png" alt="">
 
+  <div id="tela">
+    <div id="camera">
+      <video id="pregacao" class="clip" src="assets/pregacao.mp4" data-start="${t.voz}" data-duration="${t.fala}" data-track-index="0" muted playsinline></video>
+    </div>
+    <div id="tinta" class="cheio"></div>
+    <div id="brilho-tela"></div>
+  </div>
+  <div id="logos-tela">${r.logos.map((_, i) => `<img class="logo" id="tlogo${i + 1}" src="assets/img/logo-${i + 1}.png" alt="">`).join("")}</div>
+
   <div id="logos">${logos}</div>
   <img id="logo-evento" src="assets/img/logo-evento.png" alt="">
   <div id="faixa">${esc(ev.faixa)}</div>
 
-  <div id="presenca">${letras}</div>
-  <div id="confirmada">${esc(r.selo[1])}</div>
   ${dataLinha ? `<div id="data">${esc(dataLinha)}</div>` : ""}
-  <div id="nome"><span class="traco" id="traco1"></span>${esc(pg.titulo)} ${esc(pg.nome)} <span class="sob">${esc(pg.sobrenome)}</span><span class="traco" id="traco2"></span></div>
+  <div id="ev">${esc(pg.titulo)}</div>
+  <div id="nome-grande"><span class="linha">${letras(pg.nome, "vinho")}</span><span class="linha">${letras(pg.sobrenome, "branca")}</span></div>
+  <div id="pc">${esc(r.selo.join(" "))}</div>
   <div id="cidade">${esc(ev.local)}</div>
   ${lideres}
+  <img id="logo-rodape" src="assets/img/logo-evento.png" alt="">
 
   <div id="luz"></div>
   <div id="clarao" class="cheio"></div>
@@ -194,24 +205,27 @@ export function pagina(r, t) {
   tl.fromTo("#logos .logo", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power3.out" }, 0.8);
   tl.fromTo("#logo-evento", { clipPath: "inset(0% 100% 0% 0%)", scale: 0.96 }, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 1.3, ease: "power2.inOut" }, 1.0);
   tl.fromTo("#faixa", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 2.0);
-  tl.fromTo("#presenca .le", { yPercent: 105, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: "power4.out" }, 2.0);
-  tl.fromTo("#confirmada", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(-20% -10% -20% 0%)", duration: 1.1, ease: "power1.inOut" }, 2.6);
-  tl.fromTo("#nome", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 3.4);
-  tl.fromTo(["#traco1", "#traco2"], { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 3.6);
-  tl.fromTo("#cidade", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.8);
+  tl.fromTo("#ev", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.9);
+  tl.fromTo("#nome-grande .le", { yPercent: 105, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.7, stagger: 0.05, ease: "power4.out" }, 2.0);
+  tl.fromTo("#pc", { clipPath: "inset(-30% 100% -30% 0%)" }, { clipPath: "inset(-30% -5% -30% 0%)", duration: 1.1, ease: "power1.inOut" }, 2.9);
+  tl.fromTo("#cidade", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.7);
   ${dataLinha ? `tl.fromTo("#data", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6 }, 3.2);` : ""}
   tl.fromTo(".lider", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out" }, 4.0);
-  tl.fromTo("#luz", { left: "-50%", opacity: 0.9 }, { left: "120%", opacity: 0.9, duration: 1.4, ease: "power2.inOut" }, 2.2);
+  tl.fromTo("#luz", { xPercent: 0, opacity: 0.9 }, { xPercent: 490, opacity: 0.9, duration: 1.4, ease: "power2.inOut" }, 2.2);
 
   // ---- Virada: o pregador desce, o arco acende e vira a janela da pregação
   function virada(t0) {
-    tl.fromTo("#brilho-arco", { left: "-60%", opacity: 1 }, { left: "130%", opacity: 1, duration: 0.7, ease: "power2.inOut", immediateRender: false }, t0 - 0.3);
+    tl.fromTo("#brilho-arco", { xPercent: 0, opacity: 1 }, { xPercent: 475, opacity: 1, duration: 0.7, ease: "power2.inOut", immediateRender: false }, t0 - 0.3);
     tl.fromTo("#clarao", { opacity: 0 }, { opacity: 0.35, duration: 0.15, yoyo: true, repeat: 1, ease: "power1.inOut", immediateRender: false }, t0 - 0.1);
   }
   virada(VIRADA);
   tl.to("#pregador", { y: 240, opacity: 0, duration: 0.7, ease: "power2.in" }, VIRADA - 0.4);
   tl.to(".lider", { opacity: 0, y: 30, duration: 0.4, ease: "power2.in" }, VIRADA - 0.4);
-  tl.fromTo("#janela", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, VIRADA);
+  tl.to(["#logos", "#logo-evento", "#faixa"], { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, VIRADA - 0.35);
+  tl.fromTo("#tela", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.85, ease: "power3.inOut" }, VIRADA - 0.25);
+  tl.to("#arco", { opacity: 0, duration: 0.5 }, VIRADA + 0.5);
+  tl.fromTo("#logos-tela", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, VIRADA + 0.5);
+  tl.fromTo("#logo-rodape", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, VIRADA + 0.6);
 
   // "Cortes" na janela: enquadramento muda de repente e segue num zoom lento.
   const cortes = [];
@@ -220,16 +234,18 @@ export function pagina(r, t) {
     const s0 = [1.05, 1.24, 1.12, 1.32, 1.08][i % 5], dx = [0, -60, 40, -30, 60][i % 5], dy = [0, 40, -10, 70, 20][i % 5];
     const fim = Math.min(t0 + 3.6, FINAL + 0.6);
     tl.fromTo("#camera", { scale: s0, x: dx, y: dy }, { scale: s0 + 0.05, x: dx * 0.8, y: dy - 8, duration: fim - t0, ease: "none", immediateRender: false }, t0);
-    if (i > 0) tl.fromTo("#brilho-arco", { left: "-60%", opacity: 0.8 }, { left: "130%", opacity: 0.8, duration: 0.5, ease: "power2.inOut", immediateRender: false }, t0 - 0.2);
+    if (i > 0) tl.fromTo("#brilho-tela", { xPercent: 0, opacity: 0.8 }, { xPercent: 475, opacity: 0.8, duration: 0.5, ease: "power2.inOut", immediateRender: false }, t0 - 0.2);
   });
-  tl.fromTo(["#presenca", "#confirmada"], { scale: 1 }, { scale: 0.985, duration: FINAL - VIRADA, ease: "sine.inOut", immediateRender: false }, VIRADA);
 
   // ---- Fim: a janela apaga, o pregador volta e os líderes reaparecem
   virada(FINAL);
-  tl.to("#janela", { opacity: 0, duration: 0.6, ease: "power2.inOut" }, FINAL - 0.1);
+  tl.to("#tela", { opacity: 0, scale: 0.9, duration: 0.6, ease: "power2.inOut" }, FINAL - 0.1);
+  tl.to(["#logos-tela", "#logo-rodape"], { opacity: 0, duration: 0.4 }, FINAL - 0.1);
+  tl.to(["#logos", "#logo-evento", "#faixa"], { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, FINAL + 0.2);
+  tl.to("#arco", { opacity: 1, duration: 0.6 }, FINAL - 0.3);
   tl.fromTo("#pregador", { y: 160, opacity: 0, scale: 1.04 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power3.out", immediateRender: false }, FINAL);
   tl.fromTo(".lider", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", immediateRender: false }, FINAL + 0.4);
-  tl.fromTo("#luz", { left: "-50%", opacity: 0.9 }, { left: "120%", opacity: 0.9, duration: 1.4, ease: "power2.inOut", immediateRender: false }, FINAL + 0.8);
+  tl.fromTo("#luz", { xPercent: 0, opacity: 0.9 }, { xPercent: 490, opacity: 0.9, duration: 1.4, ease: "power2.inOut", immediateRender: false }, FINAL + 0.8);
 
   window.__timelines = window.__timelines || {};
   window.__timelines["${r.id}"] = tl;

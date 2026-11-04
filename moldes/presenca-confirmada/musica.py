@@ -1,8 +1,14 @@
-"""Fundo musical sintetizado (sem direitos autorais): pad de louvor para ficar
-por baixo da pregação. Acordes longos I–V–vi–IV, baixo suave, brilho agudo,
-notas de piano esparsas e reverb longo.
+"""Trilha sintetizada (sem direitos autorais) para ficar por baixo da pregação,
+em três partes como trilha de louvor/cinema:
 
-    python3 musica.py <saida.wav> <duracao_s> [tom=D] [bpm=70]
+  introdução  piano em arpejo + pad suave
+  crescendo   ruído subindo e glissando até a virada
+  explosão    impacto + prato, cordas, baixo e pulso grave (bumbo) no 1 e no 3
+  final       outro impacto, volta ao piano e pad, fade
+
+Progressão vi–IV–I–V (Si menor – Sol – Ré – Lá em Ré), que soa mais emocionante.
+
+    python3 musica.py <saida.wav> <duracao_s> <virada_s> <final_s> [tom=D] [bpm=72]
 """
 import sys
 import wave
@@ -17,132 +23,161 @@ def hz(midi):
     return 440.0 * 2 ** ((midi - 69) / 12)
 
 
-def tom_para_acordes(tom):
-    """I, V/7, vi, IV do tom maior, em MIDI (raiz na oitava 3)."""
+def acordes(tom):
+    """vi, IV, I, V do tom maior, em MIDI (raiz na oitava 3)."""
     r = 48 + NOTAS[tom]
-    tri_maior = [0, 4, 7]
-    tri_menor = [0, 3, 7]
-    return [
-        [r + i for i in tri_maior],          # I
-        [r + 7 + i for i in tri_maior],      # V
-        [r + 9 + i for i in tri_menor],      # vi
-        [r + 5 + i for i in tri_maior],      # IV
-    ]
+    maior, menor = [0, 4, 7], [0, 3, 7]
+    return [[r + 9 + i - 12 for i in menor], [r + 5 + i for i in maior], [r + i for i in maior], [r + 7 + i - 12 for i in maior]]
 
 
-def envelope(n, ataque, soltura):
+def env(n, ataque, soltura):
     e = np.ones(n)
     a, s = min(int(ataque * SR), n // 2), min(int(soltura * SR), n // 2)
-    e[:a] = np.linspace(0, 1, a) ** 2
-    e[-s:] *= np.linspace(1, 0, s) ** 1.5
+    if a:
+        e[:a] = np.linspace(0, 1, a) ** 2
+    if s:
+        e[-s:] *= np.linspace(1, 0, s) ** 1.5
     return e
 
 
-def pad(freq, dur, detune=(-6, 0, 6), harm=10, inclinacao=1.7, fase=0.0):
-    """Onda rica (soma de harmônicos com queda) com 3 vozes desafinadas: calor sem aspereza."""
-    t = np.arange(int(dur * SR)) / SR
-    l = np.zeros_like(t)
-    r = np.zeros_like(t)
-    for k, cents in enumerate(detune):
-        f = freq * 2 ** (cents / 1200)
-        onda = np.zeros_like(t)
-        for h in range(1, harm + 1):
-            onda += np.sin(2 * np.pi * f * h * t + fase * h + k) / h ** inclinacao
-        pan = 0.5 + (k - 1) * 0.35
-        l += onda * (1 - pan)
-        r += onda * pan
-    return l, r
+def somar(L, R, x, t0, pan=0.5, ganho=1.0):
+    i = int(t0 * SR)
+    if i >= len(L):
+        return
+    x = x[: len(L) - i] * ganho
+    L[i:i + len(x)] += x * np.sqrt(1 - pan)
+    R[i:i + len(x)] += x * np.sqrt(pan)
 
 
-def reverb(sinal, segundos=3.2, semente=1):
-    """Convolução com ruído de decaimento exponencial (sala grande)."""
+def rica(freq, n, harm=10, queda=1.7, vibrato=0.0, fase=0.0):
+    t = np.arange(n) / SR
+    f = freq * (1 + vibrato * np.sin(2 * np.pi * 5.2 * t + fase))
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    return sum(np.sin(ph * h + fase * h) / h ** queda for h in range(1, harm + 1))
+
+
+def piano(freq, dur=2.2):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = np.sin(2 * np.pi * freq * t) + 0.45 * np.sin(4 * np.pi * freq * t) * np.exp(-t * 3) + 0.15 * np.sin(6 * np.pi * freq * t) * np.exp(-t * 5)
+    return x * np.exp(-t * 1.8) * (1 - np.exp(-t * 400))
+
+
+def bumbo():
+    n = int(0.6 * SR)
+    t = np.arange(n) / SR
+    f = 45 + 90 * np.exp(-t * 28)
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 7)
+
+
+def impacto(rng):
+    n = int(4.0 * SR)
+    t = np.arange(n) / SR
+    sub = np.sin(2 * np.pi * np.cumsum(35 + 70 * np.exp(-t * 5)) / SR) * np.exp(-t * 1.3)
+    prato = rng.standard_normal(n) * np.exp(-t * 1.6)
+    prato = np.diff(prato, prepend=0)  # tira o grave (fica "chiado" de prato)
+    return sub * 0.9 + prato * 0.18
+
+
+def subida(dur, rng):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    k = (t / dur) ** 2.2
+    ruido = np.diff(rng.standard_normal(n), prepend=0) * k * 0.25
+    tom = np.sin(2 * np.pi * np.cumsum(200 + 900 * k) / SR) * k * 0.08
+    return ruido + tom
+
+
+def reverb(x, seg=3.0, semente=1):
     rng = np.random.default_rng(semente)
-    n = int(segundos * SR)
-    ir = rng.standard_normal(n) * np.exp(-np.arange(n) / SR * (6.9 / segundos))
-    ir[: int(0.012 * SR)] = 0  # pré-atraso
+    n = int(seg * SR)
+    ir = rng.standard_normal(n) * np.exp(-np.arange(n) / SR * (6.9 / seg))
+    ir[: int(0.015 * SR)] = 0
     ir /= np.sqrt(np.sum(ir ** 2))
-    tam = 1 << int(np.ceil(np.log2(len(sinal) + n)))
-    y = np.fft.irfft(np.fft.rfft(sinal, tam) * np.fft.rfft(ir, tam), tam)[: len(sinal)]
-    return y
+    tam = 1 << int(np.ceil(np.log2(len(x) + n)))
+    return np.fft.irfft(np.fft.rfft(x, tam) * np.fft.rfft(ir, tam), tam)[: len(x)]
 
 
-def gerar(dur, tom="D", bpm=70):
+def gerar(dur, virada, final, tom="D", bpm=72):
     total = int(dur * SR)
-    L = np.zeros(total)
-    R = np.zeros(total)
-    compasso = 4 * 60 / bpm
-    acordes = tom_para_acordes(tom)
+    L, R = np.zeros(total), np.zeros(total)
+    rng = np.random.default_rng(3)
+    ac = acordes(tom)
+    batida = 60 / bpm
+    compasso = 4 * batida
 
-    # Pad: cada acorde dura um compasso e sobrepõe 1,6 s com o próximo.
-    i, t0 = 0, 0.0
-    while t0 < dur:
-        notas = acordes[i % 4]
-        d = min(compasso + 1.6, dur - t0)
-        if d < 0.2:
-            break
+    def parte(t):
+        return "intro" if t < virada else ("explosao" if t < final else "fim")
+
+    # Pad (sempre) e cordas (só na explosão), um acorde por compasso.
+    t0, i = 0.0, 0
+    while t0 < dur - 0.2:
+        notas = ac[i % 4]
+        d = min(compasso + 1.8, dur - t0)
         n = int(d * SR)
-        ini = int(t0 * SR)
-        env = envelope(n, 1.3, 1.6)
+        e = env(n, 1.0, 1.8)
         for j, m in enumerate(notas + [notas[0] + 12]):
-            l, r = pad(hz(m), d, fase=j * 0.7)
-            L[ini:ini + n] += l * env * 0.16
-            R[ini:ini + n] += r * env * 0.16
-        # Baixo: raiz uma oitava abaixo, senoidal.
-        tb = np.arange(n) / SR
-        baixo = np.sin(2 * np.pi * hz(notas[0] - 12) * tb) * env * 0.22
-        L[ini:ini + n] += baixo
-        R[ini:ini + n] += baixo
-        # Brilho: terça e quinta duas oitavas acima, com tremolo lento.
-        for m, p in ((notas[1] + 24, 0.3), (notas[2] + 24, 0.7)):
-            br = np.sin(2 * np.pi * hz(m) * tb) * (0.5 + 0.5 * np.sin(2 * np.pi * 0.25 * tb + p * 6)) * env * 0.035
-            L[ini:ini + n] += br * (1 - p)
-            R[ini:ini + n] += br * p
+            somar(L, R, rica(hz(m), n, harm=8, queda=2.0, fase=j) * e, t0, 0.3 + 0.13 * j, 0.10)
+        if parte(t0) == "explosao" or parte(t0 + compasso) == "explosao":
+            ini = max(t0, virada)
+            fim = min(t0 + d, final + 1.5)
+            if fim > ini:
+                nn = int((fim - ini) * SR)
+                ee = env(nn, 0.9, 1.4)
+                for j, m in enumerate([notas[1] + 12, notas[2] + 12, notas[0] + 24, notas[1] + 24]):
+                    somar(L, R, rica(hz(m), nn, harm=12, queda=1.25, vibrato=0.004, fase=j * 1.3) * ee, ini, 0.2 + 0.2 * j, 0.1)
+                # Baixo.
+                somar(L, R, np.sin(2 * np.pi * hz(notas[0] - 12) * np.arange(nn) / SR) * ee, ini, 0.5, 0.34)
         i += 1
         t0 += compasso
 
-    # Piano esparso: uma nota do acorde a cada tempo, oitava 5, decaimento rápido.
-    batida = 60 / bpm
-    k = 0
-    rng = np.random.default_rng(7)
-    t0 = compasso  # entra depois do primeiro compasso
-    while t0 < dur - 1:
-        notas = acordes[int(t0 // compasso) % 4]
-        m = notas[[0, 2, 1, 2][k % 4]] + 24
-        n = int(min(2.5, dur - t0) * SR)
-        tt = np.arange(n) / SR
-        nota = (np.sin(2 * np.pi * hz(m) * tt) + 0.35 * np.sin(4 * np.pi * hz(m) * tt) + 0.1 * np.sin(6 * np.pi * hz(m) * tt))
-        nota *= np.exp(-tt * 2.2) * (1 - np.exp(-tt * 300)) * (0.055 + rng.random() * 0.02)
-        ini = int(t0 * SR)
-        pan = 0.35 + 0.3 * rng.random()
-        L[ini:ini + n] += nota * (1 - pan)
-        R[ini:ini + n] += nota * pan
+    # Piano em arpejo de colcheias (mais forte na introdução e no fim).
+    padrao = [0, 2, 3, 1, 2, 3, 1, 2]
+    t0, k = 0.15, 0
+    while t0 < dur - 1.2:
+        notas = ac[int(t0 // compasso) % 4]
+        escala = [notas[0] + 12, notas[1] + 12, notas[2] + 12, notas[0] + 24]
+        m = escala[padrao[k % 8]]
+        g = 0.07 if parte(t0) != "explosao" else 0.045
+        if k % 8 == 0:
+            g *= 1.35
+        somar(L, R, piano(hz(m)), t0, 0.35 + 0.3 * rng.random(), g)
         k += 1
-        t0 += batida
+        t0 += batida / 2
 
-    # Reverb e fades.
-    L = L * 0.65 + reverb(L, semente=1) * 0.55
-    R = R * 0.65 + reverb(R, semente=2) * 0.55
+    # Pulso grave no 1 e no 3 durante a explosão.
+    t0 = virada
+    while t0 < final - 0.1:
+        somar(L, R, bumbo(), t0, 0.5, 0.42)
+        t0 += batida * 2
+
+    # Crescendo até a virada e impactos na virada e no final.
+    for alvo in (virada, final):
+        d = 2.2
+        somar(L, R, subida(d, rng), max(0, alvo - d), 0.5, 1.0)
+        somar(L, R, impacto(rng), alvo, 0.5, 0.75)
+
+    L = L * 0.7 + reverb(L, semente=1) * 0.5
+    R = R * 0.7 + reverb(R, semente=2) * 0.5
     fade = np.ones(total)
-    fi, fo = int(2.5 * SR), int(2.5 * SR)
-    fade[:fi] = np.linspace(0, 1, fi) ** 2
+    fi, fo = int(0.6 * SR), int(2.2 * SR)
+    fade[:fi] = np.linspace(0, 1, fi)
     fade[-fo:] = np.linspace(1, 0, fo) ** 2
-    L *= fade
-    R *= fade
+    L, R = L * fade, R * fade
     pico = max(np.abs(L).max(), np.abs(R).max(), 1e-9)
-    return np.stack([L, R], axis=1) / pico * 0.8
+    return np.stack([L, R], axis=1) / pico * 0.85
 
 
 def main():
-    saida, dur = sys.argv[1], float(sys.argv[2])
-    tom = sys.argv[3] if len(sys.argv) > 3 else "D"
-    bpm = float(sys.argv[4]) if len(sys.argv) > 4 else 70
-    x = gerar(dur, tom, bpm)
-    pcm = (np.clip(x, -1, 1) * 32767).astype("<i2")
+    saida, dur, virada, final = sys.argv[1], float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4])
+    tom = sys.argv[5] if len(sys.argv) > 5 else "D"
+    bpm = float(sys.argv[6]) if len(sys.argv) > 6 else 72
+    x = gerar(dur, virada, final, tom, bpm)
     with wave.open(saida, "wb") as w:
         w.setnchannels(2)
         w.setsampwidth(2)
         w.setframerate(SR)
-        w.writeframes(pcm.tobytes())
+        w.writeframes((np.clip(x, -1, 1) * 32767).astype("<i2").tobytes())
 
 
 if __name__ == "__main__":

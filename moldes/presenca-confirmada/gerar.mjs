@@ -14,7 +14,7 @@ import { pagina, tempos } from "./pagina.mjs";
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const HF = "hyperframes@0.8.214";
 const FONTES = {
-  "mr-dafoe.woff2": "https://fonts.gstatic.com/s/mrdafoe/v15/lJwE-pIzkS5NXuMMrFitibI.woff2",
+  "great-vibes.woff2": "https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XFiaQ.woff2",
 };
 
 const args = process.argv.slice(2);
@@ -65,16 +65,6 @@ function fontes(dir) {
   }
 }
 
-// Efeitos sonoros sintetizados: grave suave na abertura e "swell" antes das viradas.
-function sons() {
-  const swell = path.join(cacheDir, "swell.wav"), grave = path.join(cacheDir, "grave.wav");
-  if (!fs.existsSync(swell))
-    ffmpeg(["-f", "lavfi", "-i", "anoisesrc=d=1.6:c=pink:a=0.5:r=48000", "-af", "highpass=f=500,lowpass=f=7000,afade=t=in:d=1.4:curve=qua,afade=t=out:st=1.4:d=0.2,aecho=0.8:0.6:60|120:0.3|0.2,volume=0.22", swell]);
-  if (!fs.existsSync(grave))
-    ffmpeg(["-f", "lavfi", "-i", "aevalsrc=0.8*sin(2*PI*(42+60*exp(-t*6))*t)*exp(-t*2.2):d=2.2:s=48000", "-af", "lowpass=f=300,volume=0.55", grave]);
-  return { swell, grave };
-}
-
 function montar(r) {
   const dest = path.join(AQUI, "saida", r.id);
   const assets = path.join(dest, "assets");
@@ -97,25 +87,22 @@ function montar(r) {
   const t = tempos(fala);
   ffmpeg(["-ss", String(ini), "-t", String(fala), "-i", origem(a.video), "-vf", `crop=${w}:${h}:${x}:${y},scale=1080:-2,fps=30`, "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", path.join(assets, "pregacao.mp4")]);
 
-  // Trilha: pregação tratada (EQ + compressão) por cima do pad, que abaixa quando ele fala.
+  // Trilha: pregação tratada (EQ + compressão) por cima da música, que abaixa um pouco
+  // quando ele fala e cresce nas pausas e na virada.
   fs.mkdirSync(cacheDir, { recursive: true });
   const m = r.musica || {};
-  const pad = path.join(cacheDir, `pad-${chave(t.duracao, m.tom || "D", m.bpm || 70)}.wav`);
-  if (!fs.existsSync(pad)) sh("python3", ["-I", path.join(AQUI, "musica.py"), pad, String(t.duracao), m.tom || "D", String(m.bpm || 70)]);
-  const s = sons();
+  const trilha = path.join(cacheDir, `trilha-${chave(fs.statSync(path.join(AQUI, "musica.py")).mtimeMs, t.duracao, t.virada, t.final, m.tom || "D", m.bpm || 72)}.wav`);
+  if (!fs.existsSync(trilha)) sh("python3", ["-I", path.join(AQUI, "musica.py"), trilha, String(t.duracao), String(t.virada), String(t.final), m.tom || "D", String(m.bpm || 72)]);
   const atrasoVoz = Math.round(t.voz * 1000);
-  const ev = [[s.grave, 0.05], [s.swell, t.virada - 1.4], [s.swell, t.final - 1.4]];
   ffmpeg([
     "-ss", String(ini), "-t", String(fala), "-i", origem(a.video),
-    "-i", pad,
-    ...ev.flatMap(([f]) => ["-i", f]),
+    "-i", trilha,
     "-filter_complex", [
       `[0]aformat=channel_layouts=stereo,highpass=f=90,lowpass=f=11000,acompressor=threshold=-22dB:ratio=3:attack=8:release=180:makeup=2,afade=t=in:d=0.25,afade=t=out:st=${fala - 0.5}:d=0.5,adelay=${atrasoVoz}:all=1,apad[voz]`,
       `[voz]asplit=2[voz1][chave]`,
-      `[1]volume=${m.volume ?? 0.42}[pad]`,
-      `[pad][chave]sidechaincompress=threshold=0.04:ratio=5:attack=40:release=700:makeup=1[musica]`,
-      ...ev.map(([, at], i) => `[${i + 2}]adelay=${Math.max(0, Math.round(at * 1000))}:all=1[e${i}]`),
-      `[voz1][musica]${ev.map((_, i) => `[e${i}]`).join("")}amix=inputs=${ev.length + 2}:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
+      `[1]volume=${m.volume ?? 0.55}[mus]`,
+      `[mus][chave]sidechaincompress=threshold=0.05:ratio=3:attack=60:release=900:makeup=1[musica]`,
+      `[voz1][musica]amix=inputs=2:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
     ].join(";"),
     "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav"),
   ]);
