@@ -65,6 +65,27 @@ function fontes(dir) {
   }
 }
 
+// Música pronta (ex.: Kevin MacLeod, CC BY 4.0): baixa uma vez e recorta de modo que
+// o ponto de explosão da música ("explosao", em s) caia na virada do vídeo.
+function musicaPronta(m, t) {
+  fs.mkdirSync(cacheDir, { recursive: true });
+  const fonte = path.join(cacheDir, `musica-${chave(m.url)}${path.extname(new URL(m.url).pathname) || ".mp3"}`);
+  if (!fs.existsSync(fonte)) sh("curl", ["-sSfL", "-o", fonte, m.url]);
+  const ini = Math.max(0, m.explosao - t.virada);
+  const saida = path.join(cacheDir, `trilha-${chave(m.url, ini, t.duracao)}.wav`);
+  if (!fs.existsSync(saida))
+    ffmpeg(["-ss", String(ini), "-t", String(t.duracao), "-i", fonte, "-af", `aformat=channel_layouts=stereo,afade=t=in:d=1.2,afade=t=out:st=${t.duracao - 2.5}:d=2.5`, "-ar", "48000", saida]);
+  return saida;
+}
+
+// Trilha sintetizada por musica.py (sem direitos autorais).
+function musicaSintetizada(m, t) {
+  fs.mkdirSync(cacheDir, { recursive: true });
+  const saida = path.join(cacheDir, `trilha-${chave(fs.statSync(path.join(AQUI, "musica.py")).mtimeMs, t.duracao, t.virada, t.final, m.tom || "D", m.bpm || 72)}.wav`);
+  if (!fs.existsSync(saida)) sh("python3", ["-I", path.join(AQUI, "musica.py"), saida, String(t.duracao), String(t.virada), String(t.final), m.tom || "D", String(m.bpm || 72)]);
+  return saida;
+}
+
 function montar(r) {
   const dest = path.join(AQUI, "saida", r.id);
   const assets = path.join(dest, "assets");
@@ -91,8 +112,7 @@ function montar(r) {
   // quando ele fala e cresce nas pausas e na virada.
   fs.mkdirSync(cacheDir, { recursive: true });
   const m = r.musica || {};
-  const trilha = path.join(cacheDir, `trilha-${chave(fs.statSync(path.join(AQUI, "musica.py")).mtimeMs, t.duracao, t.virada, t.final, m.tom || "D", m.bpm || 72)}.wav`);
-  if (!fs.existsSync(trilha)) sh("python3", ["-I", path.join(AQUI, "musica.py"), trilha, String(t.duracao), String(t.virada), String(t.final), m.tom || "D", String(m.bpm || 72)]);
+  const trilha = m.url ? musicaPronta(m, t) : musicaSintetizada(m, t);
   const atrasoVoz = Math.round(t.voz * 1000);
   ffmpeg([
     "-ss", String(ini), "-t", String(fala), "-i", origem(a.video),

@@ -55,7 +55,7 @@ export function pagina(r, t) {
 <style>
   @font-face { font-family: "Great Vibes"; src: url("assets/fonts/great-vibes.woff2") format("woff2"); }
   :root { --sombra: ${rgb(c.vinhoEscuro)}; --tinta: ${rgb(c.vinho)}; --nevoa: ${rgb(c.rosaClaro)}; --vinho-escuro: ${c.vinhoEscuro}; --vinho: ${c.vinho}; --titulo: ${c.titulo}; --rosa-escuro: ${c.rosaEscuro}; --rosa: ${c.rosa}; --rosa-claro: ${c.rosaClaro}; --branco: ${c.branco}; }
-  html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: var(--rosa-claro); }
+  html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: ${c.letraClara}; }
   #root { position: relative; width: ${W}px; height: ${H}px; overflow: hidden; font-family: Montserrat; }
   .cheio { position: absolute; inset: 0; }
   .tex { position: absolute; background-size: cover; }
@@ -97,7 +97,7 @@ export function pagina(r, t) {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(18deg); }
   #logos-tela { position: absolute; top: 44px; left: 44px; display: flex; gap: 18px; opacity: 0; }
   #logos-tela .logo { height: 84px; filter: drop-shadow(0 4px 12px rgba(var(--sombra),0.5)); }
-  #logo-rodape { position: absolute; left: ${(W - 215) / 2}px; top: 1772px; width: 215px; opacity: 0; filter: drop-shadow(0 0 10px rgba(255,255,255,0.85)) drop-shadow(0 0 3px #fff); }
+  #logo-rodape { position: absolute; left: ${(W - 215) / 2}px; top: 1772px; width: 215px; opacity: 0; filter: brightness(0) invert(1) drop-shadow(0 3px 10px rgba(var(--sombra),0.6)); }
   #brilho-arco { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transform: rotate(18deg); }
 
@@ -117,12 +117,13 @@ export function pagina(r, t) {
   #nome-grande { position: absolute; z-index: 2; left: 0; right: 0; top: 1236px; text-align: center; font: 400 206px/0.84 "League Gothic"; letter-spacing: 0.01em; }
   #nome-grande .linha { display: block; white-space: nowrap; }
   .mascara { display: inline-block; overflow: hidden; vertical-align: top; padding: 46px 0 40px; margin: -46px 0 -40px; }
-  .le { display: inline-block; filter: drop-shadow(0 8px 18px rgba(var(--sombra),0.35)); }
-  .le.vinho { background: linear-gradient(180deg, ${c.titulo} 0%, ${c.vinho} 55%, ${c.vinhoEscuro} 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .le { display: inline-block; }
+  .le { filter: drop-shadow(0 6px 0 rgba(var(--sombra),0.55)) drop-shadow(0 10px 22px rgba(var(--sombra),0.45)); }
+  .le.clara { color: ${c.letraPessego}; }
   .le.branca { color: var(--branco); }
-  #pc { position: absolute; z-index: 3; left: 0; right: 0; top: 1590px; text-align: center; font: 400 128px/1 "Great Vibes"; color: var(--branco);
+  #pc { position: absolute; z-index: 3; left: 0; right: 0; top: 1590px; text-align: center; font: 400 128px/1 "Great Vibes"; color: ${c.letraClara};
     transform: rotate(-2deg); text-shadow: 0 6px 20px rgba(var(--sombra),0.4); }
-  #cidade { position: absolute; left: 0; right: 0; top: 1738px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: var(--rosa-claro); }
+  #cidade { position: absolute; left: 0; right: 0; top: 1738px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: ${c.letraClara}; }
   #data { position: absolute; left: 0; right: 0; top: 1150px; text-align: center; font: 800 34px/1 Montserrat; letter-spacing: 0.1em; color: var(--branco); }
   .lider { position: absolute; top: 1790px; display: flex; align-items: center; gap: 14px; }
   .lider.esq { left: 36px; }
@@ -130,7 +131,7 @@ export function pagina(r, t) {
   .foto-lider { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; background: #fff; flex: none; box-shadow: 0 6px 16px rgba(var(--sombra),0.3); }
   .foto-lider img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
   .lider-nome { font: 800 19px/1.15 Montserrat; color: #fff; white-space: nowrap; }
-  .lider-cargo { font: 600 15px/1.2 Montserrat; color: var(--rosa-claro); margin-bottom: 6px; white-space: nowrap; }
+  .lider-cargo { font: 600 15px/1.2 Montserrat; color: ${c.letraPessego}; margin-bottom: 6px; white-space: nowrap; }
 
   #luz { position: absolute; top: -10%; left: -50%; width: 35%; height: 120%; opacity: 0; mix-blend-mode: soft-light;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); transform: rotate(14deg); }
@@ -170,7 +171,7 @@ export function pagina(r, t) {
 
   ${dataLinha ? `<div id="data">${esc(dataLinha)}</div>` : ""}
   <div id="ev">${esc(pg.titulo)}</div>
-  <div id="nome-grande"><span class="linha">${letras(pg.nome, "vinho")}</span><span class="linha">${letras(pg.sobrenome, "branca")}</span></div>
+  <div id="nome-grande"><span class="linha">${letras(pg.nome, "clara")}</span><span class="linha">${letras(pg.sobrenome, "branca")}</span></div>
   <div id="pc">${esc(r.selo.join(" "))}</div>
   <div id="cidade">${esc(ev.local)}</div>
   ${lideres}
@@ -183,7 +184,7 @@ export function pagina(r, t) {
 <script>
 (function () {
   const D = ${D}, VIRADA = ${t.virada}, FINAL = ${t.final};
-  const BATIDA = ${60 / ((r.musica && r.musica.bpm) || 72)}, COMPASSO = 4 * BATIDA;
+  const BATIDA = ${60 / ((r.musica && r.musica.bpm) || 72)}, CORTE = 4 * BATIDA * ${(r.musica && r.musica.compassosPorCorte) || 1};
   const tl = gsap.timeline({ paused: true });
   const q = (s) => document.querySelectorAll(s);
   let semente = 11;
@@ -232,15 +233,15 @@ export function pagina(r, t) {
 
   // "Cortes" na janela: enquadramento muda de repente e segue num zoom lento.
   const cortes = [];
-  for (let t0 = VIRADA; t0 < FINAL - 0.5; t0 += COMPASSO) cortes.push(t0);
+  for (let t0 = VIRADA; t0 < FINAL - 0.5; t0 += CORTE) cortes.push(t0);
   cortes.forEach((t0, i) => {
     const s0 = [1.05, 1.24, 1.12, 1.32, 1.08][i % 5], dx = [0, -60, 40, -30, 60][i % 5], dy = [0, 40, -10, 70, 20][i % 5];
-    const fim = Math.min(t0 + COMPASSO, FINAL + 0.6);
+    const fim = Math.min(t0 + CORTE, FINAL + 0.6);
     tl.fromTo("#camera", { scale: s0, x: dx, y: dy }, { scale: s0 + 0.05, x: dx * 0.8, y: dy - 8, duration: fim - t0, ease: "none", immediateRender: false }, t0);
-    // Pulso da imagem nos tambores (1 e 3 de cada compasso).
-    if (i > 0) for (const b of [0, 2]) {
+    // Pulso da imagem a cada 2 tempos (mais forte no início do corte).
+    if (i > 0) for (let b = 0; b * BATIDA < CORTE - 0.01; b += 2) {
       const tb = t0 + b * BATIDA;
-      if (tb < FINAL - 0.3) tl.fromTo("#pulso", { scale: b ? 1.012 : 1.025 }, { scale: 1, duration: 0.32, ease: "power2.out", immediateRender: false }, tb);
+      if (tb < FINAL - 0.3) tl.fromTo("#pulso", { scale: b ? 1.012 : 1.025 }, { scale: 1, duration: Math.min(0.32, 2 * BATIDA - 0.02), ease: "power2.out", immediateRender: false }, tb);
     }
     if (i > 0) tl.fromTo("#clarao", { opacity: 0.18 }, { opacity: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t0);
     if (i > 0) tl.fromTo("#brilho-tela", { xPercent: 0, opacity: 0.8 }, { xPercent: 475, opacity: 0.8, duration: 0.5, ease: "power2.inOut", immediateRender: false }, t0 - 0.2);
