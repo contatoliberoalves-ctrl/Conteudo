@@ -95,6 +95,9 @@ function montar(r) {
   console.log(`▸ ${r.id}: preparando material`);
 
   pregador(a, path.join(img, "pregador.png"));
+  // Tamanho e área ocupada (alfa) do recorte, para a página enquadrar qualquer foto.
+  const [fw, fh, ...caixa] = JSON.parse(sh("python3", ["-I", "-c", "import sys,json;from PIL import Image;im=Image.open(sys.argv[1]).convert('RGBA');a=im.getchannel('A').point(lambda v:255 if v>40 else 0);print(json.dumps([*im.size,*a.getbbox()]))", path.join(img, "pregador.png")]).toString());
+  r._foto = { w: fw, h: fh, caixa };
   fs.copyFileSync(origem(a.logoEvento), path.join(img, "logo-evento.png"));
   if (a.flores) fs.copyFileSync(origem(a.flores), path.join(img, "flores.png"));
   r.logos.forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `logo-${i + 1}.png`), 4));

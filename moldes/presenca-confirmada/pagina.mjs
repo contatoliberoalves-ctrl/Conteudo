@@ -46,6 +46,21 @@ export function pagina(r, t) {
   const A = { x: 172, y: 640, w: 736, h: 1000, raio: 120 };
   const TELA = 1260;
 
+  // Vídeo na tela cheia: cobre a largura e a altura da tela, centrado na horizontal.
+  const [vw, vh] = r.arquivos.videoRecorte;
+  const vs = Math.max(W / vw, TELA / vh);
+  const V = { w: Math.round(vw * vs), h: Math.round(vh * vs) };
+  V.x = Math.round((W - V.w) / 2);
+
+  // Pregador: a área visível do recorte ganha a largura pedida (foto.largura) e o alto da
+  // cabeça fica em foto.topo; centrado na horizontal.
+  const fp = { largura: 1010, topo: 560, ...(r.arquivos.foto || {}) };
+  const [x0, y0, x1] = r._foto.caixa;
+  const fs_ = fp.largura / (x1 - x0);
+  const F = { w: Math.round(r._foto.w * fs_) };
+  F.x = Math.round(W / 2 - ((x0 + x1) / 2) * fs_);
+  F.y = Math.round(fp.topo - y0 * fs_);
+
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -90,8 +105,10 @@ export function pagina(r, t) {
   #tela { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; overflow: hidden; opacity: 0; transform-origin: 50% 62%;
     -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 100%); mask-image: linear-gradient(180deg, #000 74%, transparent 100%); }
   #camera { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; transform-origin: 50% 35%; }
-  #pregacao { position: absolute; left: 0; top: 0; width: ${W}px; height: ${Math.round((W * 940) / 720)}px; object-fit: cover; }
+  #pregacao { position: absolute; left: ${V.x}px; top: 0; width: ${V.w}px; height: ${V.h}px; object-fit: cover; }
   #pulso { transform-origin: 50% 40%; }
+  #fundo-tela { opacity: 0; overflow: hidden; }
+  #fundo-tela .tex { inset: -40px; background-image: url("assets/img/rosa.png"); }
   #tinta { background: linear-gradient(180deg, rgba(var(--sombra),0.45) 0%, transparent 16%, transparent 60%, rgba(var(--tinta),0.55) 100%); }
   #brilho-tela { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(18deg); }
@@ -102,7 +119,8 @@ export function pagina(r, t) {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transform: rotate(18deg); }
 
   /* Pregador recortado (já vem com as flores esmaecidas embaixo). */
-  #pregador { position: absolute; left: -179px; top: 522px; width: 1480px; transform-origin: 50% 60%;
+  #pregador { position: absolute; left: ${F.x}px; top: ${F.y}px; width: ${F.w}px; transform-origin: 50% 60%;
+    -webkit-mask-image: linear-gradient(180deg, #000 ${1160 - F.y}px, transparent ${1470 - F.y}px); mask-image: linear-gradient(180deg, #000 ${1160 - F.y}px, transparent ${1470 - F.y}px);
     filter: drop-shadow(0 24px 40px rgba(var(--sombra),0.35)); }
 
   /* Topo: logos da igreja e logo do evento. */
@@ -156,6 +174,7 @@ export function pagina(r, t) {
 
   <img id="pregador" src="assets/img/pregador.png" alt="">
 
+  <div id="fundo-tela" class="cheio"><div class="tex"></div></div>
   <div id="tela">
     <div id="pulso" class="cheio"><div id="camera">
       <video id="pregacao" class="clip" src="assets/pregacao.mp4" data-start="${t.voz}" data-duration="${t.fala}" data-track-index="0" muted playsinline></video>
@@ -183,7 +202,7 @@ export function pagina(r, t) {
 </div>
 <script>
 (function () {
-  const D = ${D}, VIRADA = ${t.virada}, FINAL = ${t.final};
+  const D = ${D}, VIRADA = ${t.virada}, FINAL = ${t.final}, ZOOM = ${r.arquivos.zoomCortes ?? 1};
   const BATIDA = ${60 / ((r.musica && r.musica.bpm) || 72)}, CORTE = 4 * BATIDA * ${(r.musica && r.musica.compassosPorCorte) || 1};
   const tl = gsap.timeline({ paused: true });
   const q = (s) => document.querySelectorAll(s);
@@ -228,6 +247,7 @@ export function pagina(r, t) {
   tl.to(["#logos", "#logo-evento", "#faixa"], { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, VIRADA - 0.35);
   tl.fromTo("#tela", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.85, ease: "power3.inOut" }, VIRADA - 0.25);
   tl.to("#arco", { opacity: 0, duration: 0.5 }, VIRADA + 0.5);
+  tl.to("#fundo-tela", { opacity: 1, duration: 0.5 }, VIRADA + 0.3);
   tl.fromTo("#logos-tela", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, VIRADA + 0.5);
   tl.fromTo("#logo-rodape", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, VIRADA + 0.6);
 
@@ -235,9 +255,9 @@ export function pagina(r, t) {
   const cortes = [];
   for (let t0 = VIRADA; t0 < FINAL - 0.5; t0 += CORTE) cortes.push(t0);
   cortes.forEach((t0, i) => {
-    const s0 = [1.05, 1.24, 1.12, 1.32, 1.08][i % 5], dx = [0, -60, 40, -30, 60][i % 5], dy = [0, 40, -10, 70, 20][i % 5];
+    const s0 = 1 + ([0.05, 0.24, 0.12, 0.32, 0.08][i % 5]) * ZOOM, dx = [0, -60, 40, -30, 60][i % 5], dy = [0, 40, -10, 70, 20][i % 5];
     const fim = Math.min(t0 + CORTE, FINAL + 0.6);
-    tl.fromTo("#camera", { scale: s0, x: dx, y: dy }, { scale: s0 + 0.05, x: dx * 0.8, y: dy - 8, duration: fim - t0, ease: "none", immediateRender: false }, t0);
+    tl.fromTo("#camera", { scale: s0, x: dx * ZOOM, y: dy * ZOOM }, { scale: s0 + 0.05 * ZOOM, x: dx * 0.8 * ZOOM, y: (dy - 8) * ZOOM, duration: fim - t0, ease: "none", immediateRender: false }, t0);
     // Pulso da imagem a cada 2 tempos (mais forte no início do corte).
     if (i > 0) for (let b = 0; b * BATIDA < CORTE - 0.01; b += 2) {
       const tb = t0 + b * BATIDA;
@@ -253,6 +273,7 @@ export function pagina(r, t) {
   tl.to(["#logos-tela", "#logo-rodape"], { opacity: 0, duration: 0.4 }, FINAL - 0.1);
   tl.to(["#logos", "#logo-evento", "#faixa"], { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, FINAL + 0.2);
   tl.to("#arco", { opacity: 1, duration: 0.6 }, FINAL - 0.3);
+  tl.to("#fundo-tela", { opacity: 0, duration: 0.6 }, FINAL - 0.2);
   tl.fromTo("#pregador", { y: 160, opacity: 0, scale: 1.04 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power3.out", immediateRender: false }, FINAL);
   tl.fromTo(".lider", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: "power3.out", immediateRender: false }, FINAL + 0.4);
   tl.fromTo("#luz", { xPercent: 0, opacity: 0.9 }, { xPercent: 490, opacity: 0.9, duration: 1.4, ease: "power2.inOut", immediateRender: false }, FINAL + 0.8);
