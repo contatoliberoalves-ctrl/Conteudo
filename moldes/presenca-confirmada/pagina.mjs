@@ -90,6 +90,7 @@ export function pagina(r, t) {
     -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 100%); mask-image: linear-gradient(180deg, #000 74%, transparent 100%); }
   #camera { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; transform-origin: 50% 35%; }
   #pregacao { position: absolute; left: 0; top: 0; width: ${W}px; height: ${Math.round((W * 940) / 720)}px; object-fit: cover; }
+  #pulso { transform-origin: 50% 40%; }
   #tinta { background: linear-gradient(180deg, rgba(78,7,22,0.45) 0%, transparent 16%, transparent 60%, rgba(126,13,35,0.55) 100%); }
   #brilho-tela { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(18deg); }
@@ -154,9 +155,9 @@ export function pagina(r, t) {
   <img id="pregador" src="assets/img/pregador.png" alt="">
 
   <div id="tela">
-    <div id="camera">
+    <div id="pulso" class="cheio"><div id="camera">
       <video id="pregacao" class="clip" src="assets/pregacao.mp4" data-start="${t.voz}" data-duration="${t.fala}" data-track-index="0" muted playsinline></video>
-    </div>
+    </div></div>
     <div id="tinta" class="cheio"></div>
     <div id="brilho-tela"></div>
   </div>
@@ -181,6 +182,7 @@ export function pagina(r, t) {
 <script>
 (function () {
   const D = ${D}, VIRADA = ${t.virada}, FINAL = ${t.final};
+  const BATIDA = ${60 / ((r.musica && r.musica.bpm) || 72)}, COMPASSO = 4 * BATIDA;
   const tl = gsap.timeline({ paused: true });
   const q = (s) => document.querySelectorAll(s);
   let semente = 11;
@@ -229,11 +231,17 @@ export function pagina(r, t) {
 
   // "Cortes" na janela: enquadramento muda de repente e segue num zoom lento.
   const cortes = [];
-  for (let t0 = VIRADA; t0 < FINAL - 0.5; t0 += 3.6) cortes.push(t0);
+  for (let t0 = VIRADA; t0 < FINAL - 0.5; t0 += COMPASSO) cortes.push(t0);
   cortes.forEach((t0, i) => {
     const s0 = [1.05, 1.24, 1.12, 1.32, 1.08][i % 5], dx = [0, -60, 40, -30, 60][i % 5], dy = [0, 40, -10, 70, 20][i % 5];
-    const fim = Math.min(t0 + 3.6, FINAL + 0.6);
+    const fim = Math.min(t0 + COMPASSO, FINAL + 0.6);
     tl.fromTo("#camera", { scale: s0, x: dx, y: dy }, { scale: s0 + 0.05, x: dx * 0.8, y: dy - 8, duration: fim - t0, ease: "none", immediateRender: false }, t0);
+    // Pulso da imagem nos tambores (1 e 3 de cada compasso).
+    if (i > 0) for (const b of [0, 2]) {
+      const tb = t0 + b * BATIDA;
+      if (tb < FINAL - 0.3) tl.fromTo("#pulso", { scale: b ? 1.012 : 1.025 }, { scale: 1, duration: 0.32, ease: "power2.out", immediateRender: false }, tb);
+    }
+    if (i > 0) tl.fromTo("#clarao", { opacity: 0.18 }, { opacity: 0, duration: 0.25, ease: "power2.out", immediateRender: false }, t0);
     if (i > 0) tl.fromTo("#brilho-tela", { xPercent: 0, opacity: 0.8 }, { xPercent: 475, opacity: 0.8, duration: 0.5, ease: "power2.inOut", immediateRender: false }, t0 - 0.2);
   });
 

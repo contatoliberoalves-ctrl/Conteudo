@@ -1,10 +1,12 @@
 """Trilha sintetizada (sem direitos autorais) para ficar por baixo da pregação,
-em três partes como trilha de louvor/cinema:
+no estilo trailer épico:
 
-  introdução  piano em arpejo + pad suave
+  introdução  piano em arpejo + pad; coro entra nos 2 compassos antes da virada
   crescendo   ruído subindo e glissando até a virada
-  explosão    impacto + prato, cordas, baixo e pulso grave (bumbo) no 1 e no 3
-  final       outro impacto, volta ao piano e pad, fade
+  explosão    BRAAAM de metais + impacto; cordas longas e ostinato em semicolcheias,
+              coro, taikos, bumbo em todo tempo, palmas no 2 e no 4; a segunda
+              metade ganha chimbal e cordas mais agudas; virada de tambores no fim
+  final       outro BRAAAM + impacto, volta ao piano e pad, fade
 
 Progressão vi–IV–I–V (Si menor – Sol – Ré – Lá em Ré), que soa mais emocionante.
 
@@ -98,6 +100,73 @@ def reverb(x, seg=3.0, semente=1):
     return np.fft.irfft(np.fft.rfft(x, tam) * np.fft.rfft(ir, tam), tam)[: len(x)]
 
 
+def passa_baixa(x, corte):
+    """Filtro de 1 polo (suaviza ruído para tambor/palma)."""
+    a = np.exp(-2 * np.pi * corte / SR)
+    y = np.empty_like(x)
+    acc = 0.0
+    for k in range(len(x)):
+        acc = (1 - a) * x[k] + a * acc
+        y[k] = acc
+    return y
+
+
+def taiko(rng, grave=1.0):
+    n = int(1.2 * SR)
+    t = np.arange(n) / SR
+    corpo = np.sin(2 * np.pi * np.cumsum((58 + 60 * np.exp(-t * 18)) * grave) / SR) * np.exp(-t * 4.5)
+    pele = passa_baixa(rng.standard_normal(int(0.08 * SR)), 900) * 2.5
+    corpo[: len(pele)] += pele * np.exp(-np.arange(len(pele)) / SR * 40)
+    return corpo
+
+
+def palma(rng):
+    n = int(0.35 * SR)
+    t = np.arange(n) / SR
+    r = rng.standard_normal(n)
+    r = r - passa_baixa(r, 900)  # tira o grave
+    env_ = np.zeros(n)
+    for d in (0, 0.012, 0.024):
+        i = int(d * SR)
+        env_[i:] += np.exp(-(t[: n - i]) * 28)
+    return r * env_ * 0.6
+
+
+def chimbal(rng):
+    n = int(0.09 * SR)
+    r = np.diff(np.diff(rng.standard_normal(n + 2)))
+    return r * np.exp(-np.arange(n) / SR * 60) * 0.25
+
+
+def braaam(notas, dur=3.4):
+    """Metais graves com o filtro abrindo: o 'BRAAAM' de trailer."""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    abre = np.clip(t / 0.5, 0, 1)
+    x = np.zeros(n)
+    for m in (notas[0] - 24, notas[0] - 12, notas[2] - 12):
+        f = hz(m)
+        for h in range(1, 28):
+            peso = np.clip(abre * 26 - h, 0, 1) * (1 / h ** 0.9)
+            x += np.sin(2 * np.pi * f * h * t + h) * peso
+    return x * np.exp(-t * 0.9) * (1 - np.exp(-t * 30)) / 12
+
+
+def coro(freq, n, fase=0.0):
+    """'Ahh' de coro: harmônicos pesados por formantes da vogal A."""
+    t = np.arange(n) / SR
+    f = freq * (1 + 0.006 * np.sin(2 * np.pi * 5.0 * t + fase))
+    ph = 2 * np.pi * np.cumsum(f) / SR
+    x = np.zeros(n)
+    for h in range(1, 40):
+        fh = freq * h
+        if fh > 5000:
+            break
+        peso = sum(a * np.exp(-((fh - F) / bw) ** 2) for F, bw, a in ((750, 130, 1.0), (1200, 160, 0.55), (2600, 260, 0.25)))
+        x += np.sin(ph * h + fase * h) * peso
+    return x
+
+
 def gerar(dur, virada, final, tom="D", bpm=72):
     total = int(dur * SR)
     L, R = np.zeros(total), np.zeros(total)
@@ -105,67 +174,102 @@ def gerar(dur, virada, final, tom="D", bpm=72):
     ac = acordes(tom)
     batida = 60 / bpm
     compasso = 4 * batida
+    meio = virada + (final - virada) * 0.5  # a segunda metade cresce ainda mais
 
-    def parte(t):
-        return "intro" if t < virada else ("explosao" if t < final else "fim")
+    def acorde(t):
+        return ac[int(t // compasso) % 4]
 
-    # Pad (sempre) e cordas (só na explosão), um acorde por compasso.
-    t0, i = 0.0, 0
+    # Pad (sempre), um acorde por compasso.
+    t0 = 0.0
     while t0 < dur - 0.2:
-        notas = ac[i % 4]
+        notas = acorde(t0 + 0.01)
         d = min(compasso + 1.8, dur - t0)
         n = int(d * SR)
         e = env(n, 1.0, 1.8)
         for j, m in enumerate(notas + [notas[0] + 12]):
-            somar(L, R, rica(hz(m), n, harm=8, queda=2.0, fase=j) * e, t0, 0.3 + 0.13 * j, 0.10)
-        if parte(t0) == "explosao" or parte(t0 + compasso) == "explosao":
-            ini = max(t0, virada)
-            fim = min(t0 + d, final + 1.5)
-            if fim > ini:
-                nn = int((fim - ini) * SR)
-                ee = env(nn, 0.9, 1.4)
-                for j, m in enumerate([notas[1] + 12, notas[2] + 12, notas[0] + 24, notas[1] + 24]):
-                    somar(L, R, rica(hz(m), nn, harm=12, queda=1.25, vibrato=0.004, fase=j * 1.3) * ee, ini, 0.2 + 0.2 * j, 0.1)
-                # Baixo.
-                somar(L, R, np.sin(2 * np.pi * hz(notas[0] - 12) * np.arange(nn) / SR) * ee, ini, 0.5, 0.34)
-        i += 1
+            somar(L, R, rica(hz(m), n, harm=8, queda=2.0, fase=j) * e, t0, 0.3 + 0.13 * j, 0.09)
+        # Coro entra nos 2 compassos antes da virada e fica na explosão.
+        if virada - 2 * compasso <= t0 < final + 0.5:
+            forte = 1.0 if t0 >= virada else 0.5
+            for j, m in enumerate([notas[0] + 12, notas[1] + 12, notas[2] + 12]):
+                somar(L, R, coro(hz(m), n, fase=j * 2.1) * e, t0, 0.25 + 0.25 * j, 0.05 * forte)
+        # Cordas longas, baixo e ostinato só na explosão.
+        if virada - 0.01 <= t0 < final:
+            fim = min(t0 + d, final + 1.2)
+            nn = int((fim - t0) * SR)
+            ee = env(nn, 0.25, 1.2)
+            topo = [notas[1] + 12, notas[2] + 12, notas[0] + 24, notas[1] + 24] + ([notas[2] + 24, notas[0] + 36] if t0 >= meio else [])
+            for j, m in enumerate(topo):
+                somar(L, R, rica(hz(m), nn, harm=12, queda=1.2, vibrato=0.005, fase=j * 1.3) * ee, t0, 0.15 + 0.14 * j, 0.085)
+            somar(L, R, rica(hz(notas[0] - 12), nn, harm=4, queda=1.5) * ee, t0, 0.5, 0.3)
         t0 += compasso
 
-    # Piano em arpejo de colcheias (mais forte na introdução e no fim).
-    padrao = [0, 2, 3, 1, 2, 3, 1, 2]
+    # Ostinato de cordas em semicolcheias (empurra o ritmo) na explosão.
+    padrao = [0, 2, 3, 2, 0, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 2]
+    t0, k = virada, 0
+    while t0 < final - 0.05:
+        notas = acorde(t0 + 0.01)
+        escala = [notas[0], notas[1], notas[2], notas[0] + 12]
+        m = escala[padrao[k % 16]] + 12
+        n = int(0.2 * SR)
+        nota = rica(hz(m), n, harm=10, queda=1.3) * env(n, 0.005, 0.15)
+        acento = 1.4 if k % 4 == 0 else 1.0
+        somar(L, R, nota, t0, 0.3 if k % 2 else 0.7, 0.07 * acento * (1.2 if t0 >= meio else 1))
+        k += 1
+        t0 += batida / 4
+
+    # Piano em arpejo de colcheias: na introdução e no fim.
+    padrao_p = [0, 2, 3, 1, 2, 3, 1, 2]
     t0, k = 0.15, 0
     while t0 < dur - 1.2:
-        notas = ac[int(t0 // compasso) % 4]
-        escala = [notas[0] + 12, notas[1] + 12, notas[2] + 12, notas[0] + 24]
-        m = escala[padrao[k % 8]]
-        g = 0.07 if parte(t0) != "explosao" else 0.045
-        if k % 8 == 0:
-            g *= 1.35
-        somar(L, R, piano(hz(m)), t0, 0.35 + 0.3 * rng.random(), g)
+        if not (virada <= t0 < final):
+            notas = acorde(t0)
+            escala = [notas[0] + 12, notas[1] + 12, notas[2] + 12, notas[0] + 24]
+            g = 0.08 * (1.35 if k % 8 == 0 else 1)
+            somar(L, R, piano(hz(escala[padrao_p[k % 8]])), t0, 0.35 + 0.3 * rng.random(), g)
         k += 1
         t0 += batida / 2
 
-    # Pulso grave no 1 e no 3 durante a explosão.
+    # Percussão de trailer na explosão: taikos, bumbo em todo tempo, palmas no 2 e no 4,
+    # chimbal em semicolcheias na segunda metade e virada de tambores antes do fim.
     t0 = virada
-    while t0 < final - 0.1:
-        somar(L, R, bumbo(), t0, 0.5, 0.42)
-        t0 += batida * 2
+    while t0 < final - 0.05:
+        b = round((t0 - virada) / batida)
+        somar(L, R, bumbo(), t0, 0.5, 0.5)
+        if b % 2 == 1:
+            somar(L, R, palma(rng), t0, 0.5, 0.55)
+        pos = b % 4
+        if pos in (0, 2):
+            somar(L, R, taiko(rng), t0, 0.4 + 0.2 * rng.random(), 0.55)
+        if pos == 3:
+            somar(L, R, taiko(rng, 1.3), t0 + batida / 2, 0.65, 0.35)
+        if t0 >= meio:
+            for q in range(4):
+                somar(L, R, chimbal(rng), t0 + q * batida / 4, 0.7, 0.9 if q % 2 == 0 else 0.5)
+        t0 += batida
+    t0 = final - compasso / 2  # virada de tambores
+    for q in range(8):
+        somar(L, R, taiko(rng, 1.0 + q * 0.08), t0 + q * batida / 4, 0.3 + q * 0.05, 0.3 + q * 0.06)
 
-    # Crescendo até a virada e impactos na virada e no final.
+    # Crescendo até a virada, BRAAAM e impacto na virada e no final.
     for alvo in (virada, final):
-        d = 2.2
-        somar(L, R, subida(d, rng), max(0, alvo - d), 0.5, 1.0)
-        somar(L, R, impacto(rng), alvo, 0.5, 0.75)
+        d = 2.6
+        somar(L, R, subida(d, rng), max(0, alvo - d), 0.5, 1.4)
+        somar(L, R, impacto(rng), alvo, 0.5, 1.0)
+        somar(L, R, braaam(acorde(alvo + 0.01)), alvo, 0.5, 0.9)
 
-    L = L * 0.7 + reverb(L, semente=1) * 0.5
-    R = R * 0.7 + reverb(R, semente=2) * 0.5
+    L = L * 0.72 + reverb(L, semente=1) * 0.45
+    R = R * 0.72 + reverb(R, semente=2) * 0.45
     fade = np.ones(total)
-    fi, fo = int(0.6 * SR), int(2.2 * SR)
+    fi, fo = int(0.4 * SR), int(2.2 * SR)
     fade[:fi] = np.linspace(0, 1, fi)
     fade[-fo:] = np.linspace(1, 0, fo) ** 2
-    L, R = L * fade, R * fade
-    pico = max(np.abs(L).max(), np.abs(R).max(), 1e-9)
-    return np.stack([L, R], axis=1) / pico * 0.85
+    x = np.stack([L * fade, R * fade], axis=1)
+    # Volume por RMS da explosão + saturação suave (mais "pancada" sem estourar).
+    a, b = int(virada * SR), int(final * SR)
+    rms = np.sqrt(np.mean(x[a:b] ** 2)) + 1e-9
+    x = x / rms * 0.22
+    return np.tanh(x * 1.6) / np.tanh(1.6) * 0.95
 
 
 def main():

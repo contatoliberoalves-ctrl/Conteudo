@@ -100,8 +100,8 @@ function montar(r) {
     "-filter_complex", [
       `[0]aformat=channel_layouts=stereo,highpass=f=90,lowpass=f=11000,acompressor=threshold=-22dB:ratio=3:attack=8:release=180:makeup=2,afade=t=in:d=0.25,afade=t=out:st=${fala - 0.5}:d=0.5,adelay=${atrasoVoz}:all=1,apad[voz]`,
       `[voz]asplit=2[voz1][chave]`,
-      `[1]volume=${m.volume ?? 0.55}[mus]`,
-      `[mus][chave]sidechaincompress=threshold=0.05:ratio=3:attack=60:release=900:makeup=1[musica]`,
+      `[1]volume=${m.volume ?? 0.42}[mus]`,
+      `[mus][chave]sidechaincompress=threshold=0.06:ratio=2.5:attack=40:release=600:makeup=1[musica]`,
       `[voz1][musica]amix=inputs=2:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
     ].join(";"),
     "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav"),
