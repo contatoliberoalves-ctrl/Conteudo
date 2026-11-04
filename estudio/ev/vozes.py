@@ -124,9 +124,59 @@ def perfil():
     return json.loads(PERFIL.read_text())
 
 
-def falar(texto, saida, perfil_=None):
+ESTILOS = {"neutro": "Neutra (seu jeito normal)", "animado": "Animada (mais energia e ritmo)",
+           "calmo": "Calma (mais pausada)", "serio": "Séria (firme, pouca variação)"}
+
+
+def medir_amostras():
+    """Ritmo (palavras/s), energia e variação de tom de cada amostra (cache em estilos.json)."""
+    cache = PASTA / "estilos.json"
+    if cache.exists():
+        return json.loads(cache.read_text())
+    import librosa
+    out = []
+    for linha in (PASTA / "amostras.txt").read_text().splitlines():
+        nome, dur, _, txt = linha.split("\t", 3)
+        d = float(dur.rstrip("s"))
+        if not (6.0 <= d <= 12.5 and len(txt.split()) >= 8):
+            continue
+        y, sr = librosa.load(str(PASTA / "amostras" / nome), sr=16000)
+        f0 = librosa.yin(y, fmin=65, fmax=330, sr=sr)
+        rms = librosa.feature.rms(y=y)[0]
+        voz = f0[(f0 > 70) & (f0 < 320)]
+        out.append({"arquivo": nome, "dur": d, "ritmo": len(txt.split()) / d, "energia": float(np.median(rms)),
+                    "variacao": float(np.std(12 * np.log2(voz / np.median(voz)))) if len(voz) > 20 else 0.0})
+    cache.write_text(json.dumps(out, ensure_ascii=False, indent=1))
+    return out
+
+
+def ref_do_estilo(estilo):
+    """Escolhe, entre as suas amostras, a que tem o jeito de falar do estilo (o clone copia a entrega da referência)."""
+    p = perfil()
+    if not estilo or estilo == "neutro":
+        return p["ref"], p["ref_texto"]
+    a = medir_amostras()
+    if len(a) < 3:
+        return p["ref"], p["ref_texto"]
+    z = {k: (np.array([x[k] for x in a]) - np.mean([x[k] for x in a])) / (np.std([x[k] for x in a]) + 1e-9) for k in ("ritmo", "energia", "variacao")}
+    nota = {"animado": z["ritmo"] + z["variacao"] + z["energia"], "calmo": -z["ritmo"] - z["energia"] - .5 * z["variacao"],
+            "serio": -1.5 * z["variacao"] + .3 * z["energia"]}[estilo]
+    w = PASTA / "amostras" / a[int(np.argmax(nota))]["arquivo"]
+    return str(w), transcrever_ref(w)
+
+
+def falar(texto, saida, perfil_=None, estilo=None, efeito="nenhum", tom=0, vel=1.0):
+    """Fala `texto` com a voz do perfil; estilo escolhe a referência, depois aplica tom, velocidade e efeito."""
     p = perfil_ or perfil()
-    return gerar(texto, p["motor"], p["ref"], p["ref_texto"], saida, **p.get("parametros", {}))
+    ref, ref_txt = ref_do_estilo(estilo) if not perfil_ else (p["ref"], p["ref_texto"])
+    if (efeito and efeito != "nenhum") or abs(tom) > .01 or abs((vel or 1) - 1) > 1e-3:
+        from .efeitos_voz import aplicar
+        cru = Path(saida).with_name(Path(saida).stem + "-cru.wav")
+        gerar(texto, p["motor"], ref, ref_txt, cru, **p.get("parametros", {}))
+        aplicar(cru, saida, efeito, tom, vel)
+        cru.unlink()
+        return Path(saida)
+    return gerar(texto, p["motor"], ref, ref_txt, saida, **p.get("parametros", {}))
 
 
 def mp3(wav):

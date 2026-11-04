@@ -223,6 +223,14 @@ clone por continuação. Motores (`bash estudio/instalar.sh --voz`): `omnivoice`
    (explicativo, blocos, caminho, neon, documentário, narrações do editor) e o Líbero do cartoon fala
    com ela. Os outros personagens continuam com vozes edge-tts. Avulso: `ev.py voz falar "texto"`.
    `"velocidade": "+5%"` vale também para a voz clonada (atempo).
+- **Estilo, efeito, tom e velocidade** (`ev/vozes.py`, `ev/efeitos_voz.py`):
+  `ev.py voz falar "texto" --estilo animado|calmo|serio --efeito podcast|radio|telefone|megafone|eco|sala|robo|sussurro --tom 2 --velocidade 1.1`.
+  O estilo escolhe, entre as amostras do autor, a referência com aquele jeito de falar (ritmo, energia e
+  variação de tom medidos em `projetos/voz/estilos.json`); o clone copia a entrega da referência. Tom em
+  semitons (rubberband, sem mudar a duração), velocidade sem mudar o tom. Nos roteiros:
+  `"voz": {"perfil": true, "estilo": "animado", "efeito": "radio", "tom": 1, "vel": 1.05}`. No editor:
+  cada narração tem esses campos e `audio.vozVideo {efeito, tom}` muda a voz do próprio vídeo (o efeito
+  toca ao vivo na prévia; o `ev.py edicao` aplica tudo). `ev.py voz estilos "frase"` gera um exemplo de cada.
 - Confira a fala depois (transcreva o mp4): se uma palavra saiu errada ("copos" no lugar de
   "corpos"), apague o cache daquela frase em `edit/voz-*/` e gere de novo (cada geração varia).
 - Siglas são escritas como se leem (OAB → "Ó A BÊ", STF…) e o texto vai frase a frase.

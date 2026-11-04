@@ -92,7 +92,8 @@ def sintetizar(texto, voz, mp3, velocidade="+0%"):
     if voz == "perfil" or (isinstance(voz, dict) and voz.get("perfil")):
         from .vozes import falar
         wav = Path(mp3).with_suffix(".wav")
-        falar(texto, wav)
+        o = voz if isinstance(voz, dict) else {}       # {"perfil": true, "estilo", "efeito", "tom", "vel"}
+        falar(texto, wav, estilo=o.get("estilo"), efeito=o.get("efeito", "nenhum"), tom=o.get("tom", 0), vel=o.get("vel", 1.0))
         v = 1 + int(str(velocidade).rstrip("%") or 0) / 100       # "+5%" → 1.05, como na edge-tts
         rodar(["ffmpeg", "-y", "-v", "error", "-i", wav] + (["-af", f"atempo={v:.3f}"] if abs(v - 1) > 0.005 else []) + [mp3])
         return whisper_palavras(mp3)

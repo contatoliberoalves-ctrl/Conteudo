@@ -22,6 +22,7 @@ from pathlib import Path
 import numpy as np
 
 from .comum import RAIZ, rodar, sonda, voz_padrao
+from .efeitos_voz import cadeia
 from .motion import NAVEGADOR, PROJETO, garantir_projeto
 
 AR = {"9:16": (1080, 1920), "4:5": (1080, 1350), "1:1": (1080, 1080), "16:9": (1920, 1080)}
@@ -209,7 +210,9 @@ def main(args):
             fc = f"[0:v]{fv},fps={fps}[v]"
             entradas = ["-i", src]
         vol = 0 if A.get("mudo") else A.get("volOriginal", 1) * s.get("vol", 1)
-        fa = f"[0:a]atrim=start={s['ini']:.3f}:end={s['fim']:.3f},asetpts=PTS-STARTPTS,volume={vol:.3f},{_atempo(s.get('vel', 1))},aresample=48000[a]"
+        vv = A.get("vozVideo") or {}
+        fx = cadeia(vv.get("efeito", "nenhum"), vv.get("tom", 0), 1.0)
+        fa = f"[0:a]atrim=start={s['ini']:.3f}:end={s['fim']:.3f},asetpts=PTS-STARTPTS,volume={vol:.3f},{_atempo(s.get('vel', 1))}{',' + fx if fx else ''},aresample=48000[a]"
         cmd = ["ffmpeg", "-y", "-v", "error", *entradas, "-filter_complex", fc + (";" + fa if tem_audio else ""), "-map", "[v]"]
         cmd += (["-map", "[a]"] if tem_audio else ["-f", "lavfi", "-t", f"{(s['fim'] - s['ini']) / s.get('vel', 1):.3f}", "-i", "anullsrc=r=48000:cl=stereo"])
         cmd += ["-c:v", "libx264", "-preset", "veryfast" if args.rascunho else "medium", "-crf", "24" if args.rascunho else "17", "-c:a", "aac", "-b:a", "192k", "-shortest", out]
@@ -254,9 +257,16 @@ def main(args):
             t = mapear(ed, nr["t"])
             if t is None:
                 continue
-            mp3 = edit / f"narracao-{k:02d}.mp3"
+            o = {"estilo": nr.get("estilo", "neutro"), "efeito": nr.get("efeito", "nenhum"), "tom": nr.get("tom", 0), "vel": nr.get("vel", 1.0)}
+            mp3 = edit / f"narracao-{k:02d}-{abs(hash(json.dumps([nr['texto'], o], sort_keys=True))) % 10 ** 8}.mp3"
             if not mp3.exists():
-                sintetizar(nr["texto"], voz_padrao(), mp3)
+                if voz_padrao() == "perfil":
+                    sintetizar(nr["texto"], {"perfil": True, **o}, mp3)
+                else:                                   # sem voz clonada: voz grátis + os mesmos efeitos
+                    from .efeitos_voz import aplicar
+                    cru = mp3.with_name(mp3.stem + "-cru.mp3")
+                    sintetizar(nr["texto"], voz_padrao(), cru)
+                    aplicar(cru, mp3, o["efeito"], o["tom"], o["vel"])
             m.put(t, decodificar(mp3, SR), nr.get("vol", 1))
     wav = edit / "mix.wav"
     m.salvar(wav)

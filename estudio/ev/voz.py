@@ -80,7 +80,7 @@ def preparar(args):
 
 
 def main(args):
-    {"preparar": preparar, "comparar": comparar, "medir": medir, "escolher": escolher, "falar": falar}[args.acao](args)
+    {"preparar": preparar, "comparar": comparar, "medir": medir, "escolher": escolher, "falar": falar, "estilos": estilos}[args.acao](args)
 
 
 def comparar(args):
@@ -171,5 +171,22 @@ def escolher(args):
 def falar(args):
     from . import vozes
     texto = Path(args.texto).read_text() if Path(args.texto).exists() else args.texto
-    out = vozes.falar(texto, Path(args.saida))
+    out = vozes.falar(texto, Path(args.saida), estilo=args.estilo, efeito=args.efeito, tom=args.tom, vel=args.velocidade)
     print(f"✓ {out}")
+
+
+def estilos(args):
+    """A mesma frase em cada estilo (e alguns efeitos), para ouvir e escolher."""
+    from . import vozes
+    from .efeitos_voz import aplicar
+    pasta = vozes.PASTA / "estilos"
+    pasta.mkdir(parents=True, exist_ok=True)
+    for e in vozes.ESTILOS:
+        w = pasta / f"estilo-{e}.wav"
+        if not w.exists():
+            vozes.falar(args.frase, w, estilo=e)
+        print(f"✓ {vozes.mp3(w)}")
+    base = pasta / "estilo-neutro.wav"
+    for ef in args.efeitos.split(","):
+        print(f"✓ {vozes.mp3(aplicar(base, pasta / f'efeito-{ef}.wav', ef))}")
+    print(f"✓ {vozes.mp3(aplicar(base, pasta / 'tom-mais3.wav', 'nenhum', 3))}  ✓ {vozes.mp3(aplicar(base, pasta / 'tom-menos3.wav', 'nenhum', -3))}")

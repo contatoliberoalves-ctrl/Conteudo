@@ -153,6 +153,13 @@ def main():
     b = sv.add_parser("falar")
     b.add_argument("texto")
     b.add_argument("--saida", default="fala.wav")
+    b.add_argument("--estilo", choices=["neutro", "animado", "calmo", "serio"])
+    b.add_argument("--efeito", default="nenhum", choices=["nenhum", "podcast", "radio", "telefone", "megafone", "eco", "sala", "robo", "sussurro"])
+    b.add_argument("--tom", type=float, default=0, help="semitons (−12 a +12)")
+    b.add_argument("--velocidade", type=float, default=1.0)
+    b = sv.add_parser("estilos", help="a mesma frase em cada estilo e efeito, para ouvir")
+    b.add_argument("frase")
+    b.add_argument("--efeitos", default="podcast,radio,telefone,megafone,eco,robo")
 
     a = s.add_parser("texto")
     a.add_argument("edl")

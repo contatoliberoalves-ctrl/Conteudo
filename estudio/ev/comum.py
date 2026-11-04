@@ -114,7 +114,7 @@ def voz_padrao():
 
 def chave_voz(voz):
     """Parte da chave de cache da narração: com "perfil", muda quando o perfil muda."""
-    if voz == "perfil":
+    if voz == "perfil" or (isinstance(voz, dict) and voz.get("perfil")):
         p = RAIZ / "projetos" / "voz" / "perfil.json"
-        return ["perfil", p.read_text() if p.exists() else ""]
+        return ["perfil", p.read_text() if p.exists() else "", voz if isinstance(voz, dict) else {}]
     return voz
