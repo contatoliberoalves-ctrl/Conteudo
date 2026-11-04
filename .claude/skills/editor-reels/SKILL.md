@@ -56,6 +56,13 @@ Implementados no `gen.py`: `intro` (avião num arco tracejado, `eb`/`t1`/`t2`) �
 
 **Cards prontos para colar** em `references/card-snippets.md` (em inglês, código): gancho em etapas com logo · TERMINAL que digita · pílula por palavra + resultado · blocos numerados 1-2-3-4 · troca antes/depois · título com selo · número que "estoura" · CTA com palavra colorida. Mais ideias em `references/animacoes.md` (barras, velocímetro, rosca, mapa de calor, estrelas, tabela, diff de código, odômetro, linha do tempo, notificações, comparação com cortina…). Para Direito: artigo de lei com grifo, carimbo "CAI NA PROVA", balança, rito em trilha (PEC: 3/5, dois turnos), placar de votação (308/513).
 
+## Sem gravação: vídeos narrados (3 estilos prontos)
+Quando não há vídeo do Líbero, a voz sai do roteiro: `gTTS` (`pip install gTTS`; o edge-tts não passa no proxy daqui), com `silenceremove` + `atempo=1.5` para ficar no ritmo (~3 palavras/s), e o Whisper local dá o tempo de cada palavra. Exemplos em `references/examples/` (o roteiro "Presidente do Congresso", nov/2026):
+- **Plantão com faixa animada** (`faixa-plenario.py` + `batidas-presidente-congresso.json`): cards do `gen.py` em cima e, no lugar do rosto, uma faixa 1080×1056 animada (aqui o plenário com as 81 cadeiras acendendo nos números ditos). Renderize a faixa com `render_cards.mjs <pasta> <saida> 25 1056`, junte a voz e use o `compose.sh` com `crop_y=0`.
+- **Tipografia de tela cheia na identidade do CG** (`tipografia-cg.py`): uma cena por regra (número vazado gigante, título em Antonio, linhas extras nos gatilhos, barra de progresso) e legenda de 3 palavras com a palavra dita em verde, tudo no HTML (sem `captions.py`). `render_cards.mjs <pasta> <saida> 25 1920`.
+- **Cartoon em diálogo** (`cartoon-dialogo.py`): Ana e Lex (PNGs do Estúdio, pasta `personagens/`), uma voz por personagem (gTTS com `asetrate` mais agudo/grave), balão quadrado que acende palavra por palavra, quem fala balança e o outro escurece, cartões com o artigo. Espelhe a imagem (`img{transform:scaleX(-1)}`), nunca o contêiner que o GSAP anima: senão o personagem vira de cabeça para baixo.
+Publicação no Estúdio: se a página estiver sendo editada por outra sessão (versão mudou), não republique o index.html: suba os mp4/jpg como assets (`asset: true`) e grave os docs em `projetos` com as URLs `/_blob/...`.
+
 ## Copiar um reel de referência (quando vier um link)
 1. Baixe (`yt-dlp -o ref.%(ext)s "<url>"`, se o yt-dlp estiver disponível; senão peça o arquivo).
 2. Folha de contato a 2 fps: `ffmpeg -ss A -t 15 -i ref.mp4 -vf "fps=2,scale=216:384,tile=5x6:padding=4:color=black" folhaA.jpg` e LEIA: onde fica o talking head, que cards aparecem, de quanto em quanto tempo o card muda, estilo da legenda.
