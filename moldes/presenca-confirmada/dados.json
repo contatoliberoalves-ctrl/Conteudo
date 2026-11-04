@@ -7,33 +7,103 @@
       "horario": "",
       "local": "SANTA MARIA DA BOA VISTA · PE"
     },
-    "pregador": { "titulo": "EV.", "nome": "DOUGLAS", "sobrenome": "AMÂNCIO" },
-    "selo": ["Presença", "confirmada"],
-    "cores": {
-      "vinhoEscuro": "#4e0716", "vinho": "#9a1e3d", "titulo": "#7e0d23",
-      "rosaEscuro": "#b3345a", "rosa": "#e0678d", "rosaClaro": "#f6b9cb", "branco": "#ffffff"
+    "pregador": {
+      "titulo": "EV.",
+      "nome": "DOUGLAS",
+      "sobrenome": "AMÂNCIO"
     },
-    "musica": { "tom": "D", "bpm": 72, "volume": 0.42 },
+    "selo": [
+      "Presença",
+      "confirmada"
+    ],
+    "cores": {
+      "vinhoEscuro": "#5a0334",
+      "vinho": "#930653",
+      "titulo": "#6e0440",
+      "rosaEscuro": "#c4036f",
+      "rosa": "#f0048c",
+      "rosaClaro": "#f7bcbf",
+      "branco": "#ffffff"
+    },
+    "musica": {
+      "tom": "D",
+      "bpm": 72,
+      "volume": 0.42
+    },
     "arquivos": {
       "fotoRecortada": "fotos/douglas-recortado.png",
       "logoEvento": "fotos/logo-encontro-mulheres.png",
       "flores": "fotos/flores.png",
       "video": "fotos/douglas-pregacao.mp4",
-      "videoRecorte": [720, 940, 0, 60],
-      "audio": { "inicio": 0, "fim": 35.18 }
+      "videoRecorte": [
+        720,
+        940,
+        0,
+        60
+      ],
+      "audio": {
+        "inicio": 0,
+        "fim": 35.18
+      }
     },
     "logos": [
-      { "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [263, 2, 322, 73] },
-      { "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [343, 3, 404, 73] }
+      {
+        "arquivo": "fotos/cabecalho-ieadalpe.png",
+        "recorte": [
+          263,
+          2,
+          322,
+          73
+        ]
+      },
+      {
+        "arquivo": "fotos/cabecalho-ieadalpe.png",
+        "recorte": [
+          343,
+          3,
+          404,
+          73
+        ]
+      }
     ],
     "lideres": [
       {
-        "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [4, 40, 110, 166],
-        "linhas": [["PR. ROBERTO JOSÉ", "Pr. Presidente"], ["IR. IRACI SANTOS", "Coordenadora Estadual"]]
+        "arquivo": "fotos/cabecalho-ieadalpe.png",
+        "recorte": [
+          4,
+          40,
+          110,
+          166
+        ],
+        "linhas": [
+          [
+            "PR. ROBERTO JOSÉ",
+            "Pr. Presidente"
+          ],
+          [
+            "IR. IRACI SANTOS",
+            "Coordenadora Estadual"
+          ]
+        ]
       },
       {
-        "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [557, 40, 663, 166],
-        "linhas": [["PR. BENÍCIO BELARMINO", "Coordenador da Área"], ["IR. JANE RICHENE", "Coordenadora da Área"]]
+        "arquivo": "fotos/cabecalho-ieadalpe.png",
+        "recorte": [
+          557,
+          40,
+          663,
+          166
+        ],
+        "linhas": [
+          [
+            "PR. BENÍCIO BELARMINO",
+            "Coordenador da Área"
+          ],
+          [
+            "IR. JANE RICHENE",
+            "Coordenadora da Área"
+          ]
+        ]
       }
     ]
   }

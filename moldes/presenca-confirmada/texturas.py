@@ -71,9 +71,10 @@ def main():
     arr = arr * (1 - escuro[..., None] * 0.18)
     salvar(arr, f"{pasta}/rosa.png")
 
-    # Topo: rosado bem claro, quase branco, com névoa leve.
+    # Topo: rosa-claro da paleta clareado, com névoa leve.
     n = nuvem(w, h, 31, base=3)
-    topo = colorir(n, np.array([250, 232, 241], np.float32), np.array([255, 248, 252], np.float32), 1.2)
+    branco = np.array([255, 255, 255], np.float32)
+    topo = colorir(n, branco * 0.62 + rosa_claro * 0.38, branco * 0.88 + rosa_claro * 0.12, 1.2)
     salvar(topo, f"{pasta}/topo.png")
 
 

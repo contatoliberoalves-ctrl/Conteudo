@@ -24,6 +24,7 @@ function rng(seed) {
   };
 }
 
+const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)).join(",");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
 export function pagina(r, t) {
@@ -53,8 +54,8 @@ export function pagina(r, t) {
 <script src="lib/gsap.min.js"></script>
 <style>
   @font-face { font-family: "Great Vibes"; src: url("assets/fonts/great-vibes.woff2") format("woff2"); }
-  :root { --vinho-escuro: ${c.vinhoEscuro}; --vinho: ${c.vinho}; --titulo: ${c.titulo}; --rosa-escuro: ${c.rosaEscuro}; --rosa: ${c.rosa}; --rosa-claro: ${c.rosaClaro}; --branco: ${c.branco}; }
-  html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: #fbeef4; }
+  :root { --sombra: ${rgb(c.vinhoEscuro)}; --tinta: ${rgb(c.vinho)}; --nevoa: ${rgb(c.rosaClaro)}; --vinho-escuro: ${c.vinhoEscuro}; --vinho: ${c.vinho}; --titulo: ${c.titulo}; --rosa-escuro: ${c.rosaEscuro}; --rosa: ${c.rosa}; --rosa-claro: ${c.rosaClaro}; --branco: ${c.branco}; }
+  html, body { margin: 0; width: ${W}px; height: ${H}px; overflow: hidden; background: var(--rosa-claro); }
   #root { position: relative; width: ${W}px; height: ${H}px; overflow: hidden; font-family: Montserrat; }
   .cheio { position: absolute; inset: 0; }
   .tex { position: absolute; background-size: cover; }
@@ -73,7 +74,7 @@ export function pagina(r, t) {
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%); mask-image: linear-gradient(180deg, transparent 0%, #000 30%); }
   #base .tex { inset: -40px; background-image: url("assets/img/rosa.png"); background-position: center bottom; }
   #nevoa { position: absolute; left: -10%; top: 1180px; width: 120%; height: 700px; opacity: 0.55;
-    background: radial-gradient(50% 45% at 50% 40%, rgba(255,230,238,0.85) 0%, rgba(255,214,228,0.35) 50%, transparent 75%); }
+    background: radial-gradient(50% 45% at 50% 40%, rgba(var(--nevoa),0.85) 0%, rgba(var(--nevoa),0.35) 50%, transparent 75%); }
   .flores { position: absolute; top: 1430px; width: 760px; opacity: 0.22; mix-blend-mode: luminosity;
     -webkit-mask-image: radial-gradient(50% 50% at 50% 50%, #000 35%, transparent 75%); mask-image: radial-gradient(50% 50% at 50% 50%, #000 35%, transparent 75%); }
   #flores-esq { left: -260px; transform: rotate(-6deg); }
@@ -91,18 +92,18 @@ export function pagina(r, t) {
   #camera { position: absolute; left: 0; top: 0; width: ${W}px; height: ${TELA}px; transform-origin: 50% 35%; }
   #pregacao { position: absolute; left: 0; top: 0; width: ${W}px; height: ${Math.round((W * 940) / 720)}px; object-fit: cover; }
   #pulso { transform-origin: 50% 40%; }
-  #tinta { background: linear-gradient(180deg, rgba(78,7,22,0.45) 0%, transparent 16%, transparent 60%, rgba(126,13,35,0.55) 100%); }
+  #tinta { background: linear-gradient(180deg, rgba(var(--sombra),0.45) 0%, transparent 16%, transparent 60%, rgba(var(--tinta),0.55) 100%); }
   #brilho-tela { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); transform: rotate(18deg); }
   #logos-tela { position: absolute; top: 44px; left: 44px; display: flex; gap: 18px; opacity: 0; }
-  #logos-tela .logo { height: 84px; filter: drop-shadow(0 4px 12px rgba(78,7,22,0.5)); }
+  #logos-tela .logo { height: 84px; filter: drop-shadow(0 4px 12px rgba(var(--sombra),0.5)); }
   #logo-rodape { position: absolute; left: ${(W - 215) / 2}px; top: 1772px; width: 215px; opacity: 0; filter: drop-shadow(0 0 10px rgba(255,255,255,0.85)) drop-shadow(0 0 3px #fff); }
   #brilho-arco { position: absolute; top: -20%; left: -60%; width: 40%; height: 140%; opacity: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent); transform: rotate(18deg); }
 
   /* Pregador recortado (já vem com as flores esmaecidas embaixo). */
   #pregador { position: absolute; left: -179px; top: 522px; width: 1480px; transform-origin: 50% 60%;
-    filter: drop-shadow(0 24px 40px rgba(78,7,22,0.35)); }
+    filter: drop-shadow(0 24px 40px rgba(var(--sombra),0.35)); }
 
   /* Topo: logos da igreja e logo do evento. */
   #logos { position: absolute; top: 46px; left: 0; right: 0; display: flex; justify-content: center; gap: 26px; }
@@ -112,24 +113,24 @@ export function pagina(r, t) {
 
   /* Título: nome grande e, embaixo, "Presença confirmada". */
   #ev { position: absolute; z-index: 2; left: 0; right: 0; top: 1192px; text-align: center; font: 800 40px/1 Montserrat; letter-spacing: 0.42em; color: var(--branco);
-    text-shadow: 0 3px 12px rgba(78,7,22,0.6); }
+    text-shadow: 0 3px 12px rgba(var(--sombra),0.6); }
   #nome-grande { position: absolute; z-index: 2; left: 0; right: 0; top: 1236px; text-align: center; font: 400 206px/0.84 "League Gothic"; letter-spacing: 0.01em; }
   #nome-grande .linha { display: block; white-space: nowrap; }
   .mascara { display: inline-block; overflow: hidden; vertical-align: top; padding: 46px 0 40px; margin: -46px 0 -40px; }
-  .le { display: inline-block; filter: drop-shadow(0 8px 18px rgba(78,7,22,0.35)); }
+  .le { display: inline-block; filter: drop-shadow(0 8px 18px rgba(var(--sombra),0.35)); }
   .le.vinho { background: linear-gradient(180deg, ${c.titulo} 0%, ${c.vinho} 55%, ${c.vinhoEscuro} 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .le.branca { color: var(--branco); }
   #pc { position: absolute; z-index: 3; left: 0; right: 0; top: 1590px; text-align: center; font: 400 128px/1 "Great Vibes"; color: var(--branco);
-    transform: rotate(-2deg); text-shadow: 0 6px 20px rgba(78,7,22,0.4); }
-  #cidade { position: absolute; left: 0; right: 0; top: 1738px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: #ffe1ea; }
+    transform: rotate(-2deg); text-shadow: 0 6px 20px rgba(var(--sombra),0.4); }
+  #cidade { position: absolute; left: 0; right: 0; top: 1738px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.24em; color: var(--rosa-claro); }
   #data { position: absolute; left: 0; right: 0; top: 1150px; text-align: center; font: 800 34px/1 Montserrat; letter-spacing: 0.1em; color: var(--branco); }
   .lider { position: absolute; top: 1790px; display: flex; align-items: center; gap: 14px; }
   .lider.esq { left: 36px; }
   .lider.dir { right: 36px; flex-direction: row-reverse; text-align: right; }
-  .foto-lider { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; background: #fff; flex: none; box-shadow: 0 6px 16px rgba(78,7,22,0.3); }
+  .foto-lider { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; border: 4px solid #fff; background: #fff; flex: none; box-shadow: 0 6px 16px rgba(var(--sombra),0.3); }
   .foto-lider img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
   .lider-nome { font: 800 19px/1.15 Montserrat; color: #fff; white-space: nowrap; }
-  .lider-cargo { font: 600 15px/1.2 Montserrat; color: #ffe1ea; margin-bottom: 6px; white-space: nowrap; }
+  .lider-cargo { font: 600 15px/1.2 Montserrat; color: var(--rosa-claro); margin-bottom: 6px; white-space: nowrap; }
 
   #luz { position: absolute; top: -10%; left: -50%; width: 35%; height: 120%; opacity: 0; mix-blend-mode: soft-light;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent); transform: rotate(14deg); }
