@@ -105,27 +105,32 @@ function montar(r) {
   // Vídeo da pregação: tira as faixas gravadas por cima (recorte), mudo, 30 fps.
   const [w, h, x, y] = a.videoRecorte;
   const ini = a.audio.inicio, fala = Math.round((a.audio.fim - ini) * 1000) / 1000;
-  const t = tempos(fala);
+  const t = tempos(fala, r.musica !== false);
   ffmpeg(["-ss", String(ini), "-t", String(fala), "-i", origem(a.video), "-vf", `crop=${w}:${h}:${x}:${y},scale=1080:-2,fps=30`, "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", path.join(assets, "pregacao.mp4")]);
 
-  // Trilha: pregação tratada (EQ + compressão) por cima da música, que abaixa um pouco
-  // quando ele fala e cresce nas pausas e na virada.
+  // Áudio: pregação tratada (EQ + compressão). Com música ("musica" no dados.json),
+  // ela fica por baixo e abaixa um pouco quando ele fala; com "musica": false, só a voz.
   fs.mkdirSync(cacheDir, { recursive: true });
-  const m = r.musica || {};
-  const trilha = m.url ? musicaPronta(m, t) : musicaSintetizada(m, t);
   const atrasoVoz = Math.round(t.voz * 1000);
-  ffmpeg([
-    "-ss", String(ini), "-t", String(fala), "-i", origem(a.video),
-    "-i", trilha,
-    "-filter_complex", [
-      `[0]aformat=channel_layouts=stereo,highpass=f=90,lowpass=f=11000,acompressor=threshold=-22dB:ratio=3:attack=8:release=180:makeup=2,afade=t=in:d=0.25,afade=t=out:st=${fala - 0.5}:d=0.5,adelay=${atrasoVoz}:all=1,apad[voz]`,
-      `[voz]asplit=2[voz1][chave]`,
-      `[1]volume=${m.volume ?? 0.42}[mus]`,
-      `[mus][chave]sidechaincompress=threshold=0.06:ratio=2.5:attack=40:release=600:makeup=1[musica]`,
-      `[voz1][musica]amix=inputs=2:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
-    ].join(";"),
-    "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav"),
-  ]);
+  const vozFiltro = `[0]aformat=channel_layouts=stereo,highpass=f=90,lowpass=f=11000,acompressor=threshold=-22dB:ratio=3:attack=8:release=180:makeup=2,afade=t=in:d=0.25,afade=t=out:st=${fala - 0.5}:d=0.5,adelay=${atrasoVoz}:all=1,apad`;
+  if (r.musica === false) {
+    ffmpeg(["-ss", String(ini), "-t", String(fala), "-i", origem(a.video), "-filter_complex", `${vozFiltro},atrim=0:${t.duracao},alimiter=limit=0.93[s]`, "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav")]);
+  } else {
+    const m = r.musica || {};
+    const trilha = m.url ? musicaPronta(m, t) : musicaSintetizada(m, t);
+    ffmpeg([
+      "-ss", String(ini), "-t", String(fala), "-i", origem(a.video),
+      "-i", trilha,
+      "-filter_complex", [
+        `${vozFiltro}[voz]`,
+        `[voz]asplit=2[voz1][chave]`,
+        `[1]volume=${m.volume ?? 0.42}[mus]`,
+        `[mus][chave]sidechaincompress=threshold=0.06:ratio=2.5:attack=40:release=600:makeup=1[musica]`,
+        `[voz1][musica]amix=inputs=2:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
+      ].join(";"),
+      "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav"),
+    ]);
+  }
 
   fs.mkdirSync(path.join(dest, "lib"), { recursive: true });
   fs.copyFileSync(path.join(AQUI, "node_modules", "gsap", "dist", "gsap.min.js"), path.join(dest, "lib", "gsap.min.js"));

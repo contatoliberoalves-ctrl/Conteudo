@@ -6,10 +6,10 @@
 
 const W = 1080, H = 1920;
 
-// Momentos do roteiro (s): música abre sozinha, a voz entra, o arco vira janela da
-// pregação e no fim volta o cartaz.
-export function tempos(fala) {
-  const voz = 1.0;
+// Momentos do roteiro (s): a música abre sozinha e a voz entra (sem música, a voz entra
+// quase de imediato); na virada a pregação toma a tela e no fim volta o cartaz.
+export function tempos(fala, comMusica = true) {
+  const voz = comMusica ? 1.0 : 0.3;
   const duracao = Math.round((voz + fala + 1.6) * 1000) / 1000;
   return { voz, fala, duracao, virada: 6.4, final: duracao - 4.2 };
 }
