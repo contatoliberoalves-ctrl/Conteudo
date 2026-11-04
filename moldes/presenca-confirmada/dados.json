@@ -1,0 +1,38 @@
+[
+  {
+    "id": "encontro-mulheres-douglas-amancio",
+    "evento": {
+      "edicao": "12º",
+      "linha1": "ENCONTRO",
+      "linha2": "de Mulheres",
+      "faixa": "24 ANOS DO CÍRCULO DE ORAÇÃO",
+      "data": "",
+      "horario": "",
+      "local": "AD ABREU E LIMA · PE"
+    },
+    "pregador": { "titulo": "EV.", "nome": "DOUGLAS", "sobrenome": "AMÂNCIO" },
+    "selo": "PRESENÇA CONFIRMADA",
+    "cores": { "pink": "#f0048c", "vinho": "#930653", "escuro": "#4f0230", "claro": "#f7bcbf", "branco": "#ffffff" },
+    "arquivos": {
+      "foto": "fotos/douglas.webp",
+      "fotoRecorte": [300, 0, 1400, 1000],
+      "video": "fotos/douglas-pregacao.mp4",
+      "videoRecorte": [720, 940, 0, 60],
+      "audio": { "inicio": 0, "fim": 35.18 }
+    },
+    "logos": [
+      { "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [263, 2, 322, 73] },
+      { "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [343, 3, 404, 73] }
+    ],
+    "lideres": [
+      {
+        "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [4, 40, 110, 166],
+        "linhas": [["PR. ROBERTO JOSÉ", "Pr. Presidente"], ["IR. IRACI SANTOS", "Coordenadora Estadual"]]
+      },
+      {
+        "arquivo": "fotos/cabecalho-ieadalpe.png", "recorte": [557, 40, 663, 166],
+        "linhas": [["PR. BENÍCIO BELARMINO", "Coordenador da Área"], ["IR. JANE RICHENE", "Coordenadora da Área"]]
+      }
+    ]
+  }
+]

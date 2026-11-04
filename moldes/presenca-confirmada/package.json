@@ -1,0 +1,11 @@
+{
+  "name": "presenca-confirmada",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gerar": "node gerar.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.12.5"
+  }
+}
