@@ -1,5 +1,28 @@
 [
  {
+  "id": "reels-viral",
+  "nome": "Reels viral (roteiro + edição)",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "cor do perfil",
+  "perfis": "Todos os perfis (cor de destaque de cada um)",
+  "descricao": "Do zero ao reel pronto. Primeiro o roteiro: 5 ganchos, 3 rascunhos e um corretor que dá nota (gancho claro com número, re-gancho a cada 8 s, nada de frase com cara de IA, um CTA só), reescrito até 90+. Você grava e eu edito: tiro tomadas repetidas, recados e silêncios, você fica na metade de baixo e em cima entram cards animados no instante em que você fala (número que conta, gráfico que se desenha, checklist, carimbo, chat, CTA), na cor do perfil, com legenda de uma palavra.",
+  "passos": [
+   "roteiro-viral: 5 ganchos, 3 rascunhos, nota 90+ no corretor",
+   "você grava (teleprompter)",
+   "transcrever (Whisper)",
+   "cortar tomadas, recados e silêncios",
+   "batidas.json: um card por frase, gatilho = palavra dita",
+   "render dos cards na cor do perfil",
+   "legenda de uma palavra + composição + conferência"
+  ],
+  "pedido": "Escreve um reels viral sobre o prazo do mandado de segurança pro @constitucionalgabaritado. Quando eu mandar o vídeo gravado, edita com os cards em cima e 'Comenta MS' no fim.",
+  "video": "reels-viral.mp4",
+  "amostra": "seu vídeo IMG_0223 com 5 cards no verde do @constitucionalgabaritado e legenda de uma palavra"
+ },
+ {
   "id": "documentario-vox",
   "nome": "Documentário estilo Vox",
   "grupo": "Motion design",
@@ -18,7 +41,7 @@
   ],
   "pedido": "Faz um documentário estilo Vox sobre o Ulysses Guimarães e a Constituição de 1988, com menos de 40 segundos.",
   "video": "documentario-vox.mp4",
-  "amostra": "exemplo feito do zero com fotos de licença livre (Agência Brasil CC BY 3.0 BR, Senado Federal CC BY 2.0, capa da CF em domínio público)"
+  "amostra": "exemplo feito do zero, narrado com a voz clonada do Líbero; fotos de licença livre (Agência Brasil CC BY 3.0 BR, Senado Federal CC BY 2.0, capa da CF em domínio público)"
  },
  {
   "id": "mapa-blocos",

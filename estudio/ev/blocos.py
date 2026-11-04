@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .comum import FORMATOS, ler_json, pasta_edit, sonda
+from .comum import FORMATOS, ler_json, pasta_edit, sonda, voz_padrao
 from .motion import PROJETO
 from .remotion_util import FPS, decodificar, fontes_public, mixar, narrar, render
 from .sfx import Mix, cama, clique, pop, whoosh
@@ -45,7 +45,7 @@ def main(args):
         return {"x": x, "y": y, "zoom": 2.1}
 
     caps = rot["capitulos"]
-    falas = narrar([c["fala"] for c in caps], rot.get("voz", "pt-BR-AntonioNeural"), edit / "voz-blocos", rot.get("velocidade", "+5%"))
+    falas = narrar([c["fala"] for c in caps], rot.get("voz", voz_padrao()), edit / "voz-blocos", rot.get("velocidade", "+5%"))
     t, out = 0, []
     for c, (mp3, ws, d) in zip(caps, falas):
         dur = int((d + 0.7) * FPS)

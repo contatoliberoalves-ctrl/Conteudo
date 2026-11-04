@@ -11,6 +11,7 @@ import {Caminho, CaminhoProps} from './Caminho';
 import {Neon, NeonProps} from './Neon';
 import {Aura, AuraProps} from './Aura';
 import {Documentario, DocumentarioProps} from './Documentario';
+import {EditorCamada, EditorCamadaProps} from './EditorCamada';
 
 // As props reais vêm do ev.py motion (--props). O exemplo só serve para abrir o Studio.
 export const Root: React.FC = () => (
@@ -96,6 +97,16 @@ export const Root: React.FC = () => (
     width={1080} height={1920} fps={30} durationInFrames={60}
     calculateMetadata={({props}) => {
       const p = props as unknown as DocumentarioProps;
+      return {width: p.largura, height: p.altura, fps: p.fps, durationInFrames: p.total};
+    }}
+  />
+  <Composition
+    id="EditorCamada"
+    component={EditorCamada as unknown as React.FC<Record<string, unknown>>}
+    defaultProps={{largura: 1080, altura: 1920, fps: 30, total: 60, ed: {elementos: [], legendas: {}, efeitos: {}}, fontes: [], personagens: 'editor/personagens', midia: {}} as unknown as Record<string, unknown>}
+    width={1080} height={1920} fps={30} durationInFrames={60}
+    calculateMetadata={({props}) => {
+      const p = props as unknown as EditorCamadaProps;
       return {width: p.largura, height: p.altura, fps: p.fps, durationInFrames: p.total};
     }}
   />

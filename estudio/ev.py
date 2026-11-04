@@ -11,6 +11,7 @@
   ev.py narrar roteiro.txt --saida narracao.mp3 [--voz ...] [--clonar minha-voz.wav]
   ev.py explicativo roteiro.json [--formato reels]  → vídeo animado e narrado (HyperFrames)
   ev.py motion novo|render|esfregar|ajustar ...      → motion Remotion+GSAP com 6 controles
+  ev.py edicao edicao.json [--video original]     → render do que foi editado no editor da galeria
   ev.py documentario roteiro.json [--rascunho]     → documentário estilo Vox (papel, recortes, palavras no tempo da voz)
   ev.py cartoon roteiro.json [--rascunho]          → cartoon narrado com personagens desenhados
   ev.py voz preparar <vídeos>                      → trechos limpos da sua voz para clonar
@@ -125,6 +126,13 @@ def main():
         a.add_argument("--rascunho", action="store_true")
         a.add_argument("--saida")
 
+    a = s.add_parser("edicao", help="render de uma edição feita no editor da galeria (coleção edicoes)")
+    a.add_argument("edicao", help="JSON do documento edicoes/<video>")
+    a.add_argument("--video", help="vídeo original (senão, a amostra publicada)")
+    a.add_argument("--midia", help="pasta com as mídias enviadas (nome = assetId)")
+    a.add_argument("--rascunho", action="store_true")
+    a.add_argument("--saida")
+
     a = s.add_parser("voz", help="estúdio de voz: preparar, comparar motores, escolher perfil, falar")
     sv = a.add_subparsers(dest="acao", required=True)
     b = sv.add_parser("preparar")
@@ -138,6 +146,7 @@ def main():
     b.add_argument("frase")
     b.add_argument("--motores", default="omnivoice,voxcpm,chatterbox")
     b.add_argument("--refs", type=int, default=2)
+    sv.add_parser("medir", help="nota objetiva de semelhança de cada teste com a sua voz real")
     b = sv.add_parser("escolher")
     b.add_argument("opcao", help="ex.: voxcpm-ref1")
     b.add_argument("--nome", default="libero")
@@ -179,6 +188,8 @@ def main():
         from ev.neon import main as m
     elif args.cmd == "aura":
         from ev.aura import main as m
+    elif args.cmd == "edicao":
+        from ev.edicao import main as m
     elif args.cmd == "documentario":
         from ev.documentario import main as m
     elif args.cmd == "caminho":

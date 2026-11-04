@@ -26,7 +26,7 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Cartelas (gancho, nome, selo, CTA) | Pillow | `ev.py cartela` |
 | Animações e motion design | HyperFrames (HeyGen), Remotion, Manim | `instalar.sh --skills` |
 | Referência de estilo | yt-dlp + detecção de cena | `ev.py referencia` |
-| Narração / clonagem de voz | edge-tts (vozes pt-BR) / Chatterbox | `ev.py narrar` |
+| Narração / clonagem de voz (a clonada é o padrão quando há perfil) | edge-tts / VoxCPM2 / OmniVoice / Chatterbox | `ev.py voz comparar/medir/escolher`, `ev.py narrar` |
 | Palavra gigante atrás da cabeça | MODNet (recorte de pessoa, ONNX na CPU) + Archivo Expanded | estilo `palavra-atras` |
 | Faixa 9:16 com título fixo, master 1440p | ffmpeg | `--formato faixa`, `--formato youtube-1440` |
 | Explicativo animado narrado (sem gravar) | edge-tts/ElevenLabs/Chatterbox + HyperFrames | `ev.py explicativo roteiro.json` |
@@ -35,6 +35,7 @@ em vez de assistir o vídeo. Como usar está na skill `.claude/skills/estudio-vi
 | Inserções no vídeo gravado (personagens, ícones, cards, imagens, b-roll, tela dividida, recorte na frente de cenário) | Remotion (camada transparente) + MODNet + ffmpeg | `insercoes` e `layout` no `edl.json` |
 | Mapa do Brasil em blocos, caminho de luz, neon e vidro, aura | Remotion + canvas/SVG | `ev.py blocos/caminho/neon/aura roteiro.json` |
 | Documentário estilo Vox: papel, recortes em colagem, palavras no tempo da voz, círculo à mão, stop motion | Remotion + MODNet | `ev.py documentario roteiro.json` |
+| Editor completo na galeria (trilhas, lâmina, velocidade, cor, transições, keyframes, legenda automática, áudio, exportar) e render igual à prévia | HTML + Remotion (`EditorCamada`, `editor-desenho.js`) + ffmpeg | `ev.py edicao edicao.json` |
 | Som de motion escrito em código | numpy (whoosh, pop, impacto, cama) | automático no `motion render` |
 | Fala no tempo final (capítulos, títulos, post) | — | `ev.py texto` |
 | Autoavaliação | folha de quadros + onda + LUFS | `ev.py verificar` |

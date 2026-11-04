@@ -38,27 +38,45 @@ Publique com `capabilities: {db: {}, user: {}, assets: {}}`. Os personagens do e
 `npx remotion still src/index.ts Retrato dist/personagens/libero-acena.png --props='{"tipo":"libero","pose":"acena"}'`
 (com `REMOTION_BROWSER` como nos outros renders); o `gerar.py` lista os que existirem.
 
-### O editor da galeria (estilo CapCut/DaVinci) e os bancos dele
-A galeria é um editor: biblioteca (Modelos/Projetos), monitor com elementos arrastáveis, linha do
-tempo (V1, ELEM., PEDIDOS) e inspetor (Adicionar, Propriedades, Alterações, Modelo). Tudo que o
-usuário faz vai para o banco da página (leia com `ArtifactData`, `url` acima):
-- `edicoes/<video>`: `{video, nome, arquivo, elementos[], status}`; `status: "render-pedido"` = ele
-  clicou em "Pedir render". Cada elemento: `{tipo: texto|emoji|personagem|imagem, inicio, fim, x, y`
-  (0–1, centro do elemento no quadro)`, escala, animacao: pop|deslizar|fade|nenhuma, texto, estilo:
-  titulo|legenda|selo|caixa|cta, cor, emoji, personagem, pose, balao, assetId, url}`. Vira
-  `insercoes` do `edl.json` (texto → card/cartela; personagem → `personagem` com pose e fala;
-  imagem → baixe o asset com Artifact read `path: <assetId>`) ou cenas extras no roteiro do motion.
-- `pedidos`: `{video, nome, t, fim?, x?, y?, tipo: alterar|remover|adicionar|cortar, texto, status}`:
-  "no segundo t (no ponto x,y), faça isso"; `cortar` traz o trecho `t`–`fim`.
-- `solicitacoes`: vídeos novos `{modelo, perfil, formato, duracao, voz, tema, material, personagens,
-  extras, obs, status: "nova"}`.
-- `projetos` (escrito pelo Claude): `{titulo, video, poster, status, descricao}`, para o usuário
-  abrir o vídeo pronto no editor e pedir ajustes. Publique o mp4 do projeto como asset (Artifact
-  `asset: true`) e grave o `url` em `video`.
+### O editor da galeria (ilha de edição completa) e os bancos dele
+A galeria é um editor: trilho de painéis à esquerda (Modelos, Projetos, Mídia, Texto, Elementos,
+Legendas, Áudio, Efeitos, Transições), monitor (enquadrar, grade, zona segura do Reels, tela cheia),
+linha do tempo com trilhas T (texto), G (gráficos), L (legenda), V1 (vídeo com tira de miniaturas),
+A1 (onda do áudio), A2 (trilha, efeitos sonoros, narrações) e M (marcadores e pedidos), e inspetor
+contextual (trecho, elemento, bloco de legenda, trilha, efeito, narração, marcador ou projeto).
+Ferramentas: lâmina/dividir (S, B), remover trecho (Del, vira hachurado e some da prévia), "tirar
+pausas" (pela onda), velocidade por trecho, zoom/punch-in, cor (presets + brilho, contraste,
+saturação, temperatura), transição de entrada, keyframes de posição/tamanho/rotação/opacidade
+(Shift+K), animação de entrada e saída, ímã, I/O + repetir, J/K/L, versões, kit por perfil
+(fonte e cores de `estudio/estilos/`), formato 9:16/4:5/1:1/16:9 e exportar.
+O desenho dos elementos fica em `estudio/motion/src/editor-desenho.js`, usado pelo editor (o
+`gerar.py` insere no lugar de `__DESENHO__`) e pela composição `EditorCamada` do render: mude ali.
+O `gerar.py` também transcreve cada amostra (cache em `amostras/<id>.palavras.json`) para a
+"Legenda automática" do editor; apague o cache quando trocar a amostra.
 
-Quando pedirem **"aplica as edições/pedidos do estúdio"** ou **"faz os vídeos novos do estúdio"**:
-leia as coleções, faça (render, confira com `ev.py verificar`), publique o resultado em `projetos`
-e marque `status: "feito"` (pedidos e solicitações) ou `"pronto"` (edições). Pedido ambíguo:
+Banco da página (leia com `ArtifactData`, `url` acima):
+- `edicoes/<video>` (v2): `{v: 2, video, nome, arquivo, perfil, formato, enquadre {modo, x, y, fundo},
+  segmentos [{ini, fim, vel, vol, fora, trans, cor {preset, brilho, contraste, sat, temp}, zoom {de, para, x, y}}],
+  elementos [{tipo: texto|emoji|forma|personagem|imagem|video, inicio, fim, x, y, escala, rot, op, kf [{t, x, y, escala, rot, op}],
+  anim {entra, sai, dur}, …}], legendas {ativo, estilo, fonte, cor, destaque, contorno, caixaAlta, tam, y, blocos [{t0, t1, texto, palavras}]},
+  audio {volOriginal, mudo, musica {preset, ini, fim, vol, fadeIn, fadeOut, ducking}, sfx [{t, tipo, vol}], narracoes [{t, texto, vol}]},
+  efeitos {grao, vinheta, barras}, marcadores, exportar {res, fps, legenda, audio, destino, obs}, status}`.
+  `status: "render-pedido"` = clicou em Exportar. Tempos sempre no vídeo ORIGINAL.
+- `pedidos`: `{video, t, fim?, x?, y?, tipo, texto, status: "pendente"}`: o que o editor não faz sozinho.
+- `solicitacoes`: vídeos novos `{modelo, perfil, formato, duracao, voz, roteiro_pedido, tema, material, personagens, extras, obs, status}`;
+  no Reels viral, grave `roteiro` e `nota` no doc para o usuário ver antes de gravar.
+- `midia`: o que o usuário enviou `{tipo, assetId, url, nome}`. `versoes`: `{video, nome, criado, ed}`.
+- `projetos` (escrito pelo Claude): `{titulo, video, poster, status, descricao}`. Publique o mp4 como
+  asset (Artifact `asset: true`) e grave o `url` em `video`: o usuário abre o pronto e edita de novo.
+
+**"Aplica as edições do estúdio"**: para cada `edicoes` com `status: "render-pedido"`: salve o doc em
+`estudio/projetos/<video>/edicao.json`, baixe as mídias (`Artifact read path=<assetId>` para uma pasta)
+e rode `python3 estudio/ev.py edicao estudio/projetos/<video>/edicao.json [--video original.mp4]
+--midia <pasta>` (primeiro `--rascunho`). Ele corta e acelera trecho a trecho, aplica enquadre, zoom,
+cor e transição no vídeo, sobrepõe a camada `EditorCamada` (igual à prévia), mistura trilha com
+ducking, efeitos e narrações com a voz do perfil, normaliza o áudio e gera o `.srt` se pedido.
+Confira (`ev.py verificar`), entregue em `projetos`, marque `status: "pronto"`. Depois os `pedidos`
+pendentes e as `solicitacoes` ("faz os vídeos novos do estúdio"), marcando `"feito"`. Ambíguo:
 pergunte e deixe como está.
 
 Tudo roda pelo `estudio/ev.py` (Python + ffmpeg). O vídeo nunca é "assistido":
@@ -197,10 +215,16 @@ clone por continuação. Motores (`bash estudio/instalar.sh --voz`): `omnivoice`
 2. `ev.py voz preparar <vídeos>` → trechos limpos em `estudio/projetos/voz/amostras/` + `amostras.txt`.
 3. `ev.py voz comparar "frase de teste"` → a mesma frase em cada motor × 2 referências
    (as referências são retranscritas com o Whisper medium), em `projetos/voz/comparar/*.mp3`.
-   Mande os mp3 para o usuário OUVIR e escolher (você não ouve).
-4. `ev.py voz escolher voxcpm-ref1` → grava `projetos/voz/perfil.json`.
-5. Use em qualquer roteiro: `"voz": "perfil"` (explicativo, blocos, caminho, neon) ou
-   `"vozes": {"libero": "perfil"}` (cartoon); avulso: `ev.py voz falar "texto" --saida x.wav`.
+4. `ev.py voz medir` → nota objetiva de semelhança (impressão de voz de cada teste × trechos reais
+   que não foram referência; controle "você × você" ≈ 0,91). Mande os mp3 para o usuário ouvir também.
+5. `ev.py voz escolher melhor` (ou o nome que ele preferir de ouvido) → `projetos/voz/perfil.json`.
+   Hoje: `voxcpm-ref1`, nota 0,944.
+6. Com o perfil salvo, **a voz clonada é o padrão**: todo roteiro sem `"voz"` narra com ela
+   (explicativo, blocos, caminho, neon, documentário, narrações do editor) e o Líbero do cartoon fala
+   com ela. Os outros personagens continuam com vozes edge-tts. Avulso: `ev.py voz falar "texto"`.
+   `"velocidade": "+5%"` vale também para a voz clonada (atempo).
+- Confira a fala depois (transcreva o mp4): se uma palavra saiu errada ("copos" no lugar de
+  "corpos"), apague o cache daquela frase em `edit/voz-*/` e gere de novo (cada geração varia).
 - Siglas são escritas como se leem (OAB → "Ó A BÊ", STF…) e o texto vai frase a frase.
 - Na CPU é lento (dezenas de segundos por frase); com GPU é rápido. Para ficar ainda mais igual:
   treino com 15–30 min de áudio (notebook `estudio/voz/treinar_voz_colab.ipynb`, RVC no Colab grátis)

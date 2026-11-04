@@ -40,6 +40,8 @@ baixa silkscreen/Silkscreen-Regular.ttf Silkscreen-Regular.ttf
 baixa vt323/VT323-Regular.ttf VT323-Regular.ttf
 baixa instrumentserif/InstrumentSerif-Italic.ttf InstrumentSerif-Italic.ttf
 baixa instrumentserif/InstrumentSerif-Regular.ttf InstrumentSerif-Regular.ttf
+baixa anton/Anton-Regular.ttf Anton-Regular.ttf
+baixa ibmplexmono/IBMPlexMono-SemiBold.ttf IBMPlexMono-SemiBold.ttf
 estatica() {  # família-variável peso nome-final
   [ -f "fontes/$3.ttf" ] && return
   curl -sfL "https://raw.githubusercontent.com/google/fonts/main/ofl/$1%5Bwght%5D.ttf" -o /tmp/var.ttf

@@ -22,7 +22,7 @@ import subprocess
 import unicodedata
 from pathlib import Path
 
-from .comum import FONTES, FORMATOS, carregar_estilo, ler_json, pasta_edit, rodar, sonda
+from .comum import FONTES, FORMATOS, carregar_estilo, ler_json, pasta_edit, rodar, sonda, voz_padrao, chave_voz
 
 GAP = 0.35          # respiro entre cenas (s)
 FIM = 1.2           # segura o último quadro
@@ -93,7 +93,8 @@ def sintetizar(texto, voz, mp3, velocidade="+0%"):
         from .vozes import falar
         wav = Path(mp3).with_suffix(".wav")
         falar(texto, wav)
-        rodar(["ffmpeg", "-y", "-v", "error", "-i", wav, mp3])
+        v = 1 + int(str(velocidade).rstrip("%") or 0) / 100       # "+5%" → 1.05, como na edge-tts
+        rodar(["ffmpeg", "-y", "-v", "error", "-i", wav] + (["-af", f"atempo={v:.3f}"] if abs(v - 1) > 0.005 else []) + [mp3])
         return whisper_palavras(mp3)
     if isinstance(voz, dict) and voz.get("elevenlabs"):
         elevenlabs(texto, voz["elevenlabs"], mp3, voz.get("modelo", "eleven_multilingual_v2"))
@@ -108,13 +109,13 @@ def sintetizar(texto, voz, mp3, velocidade="+0%"):
 
 
 def narrar_cenas(roteiro, pasta):
-    voz = roteiro.get("voz", "pt-BR-AntonioNeural")
+    voz = roteiro.get("voz", voz_padrao())
     cache = pasta / "narracao"
     cache.mkdir(exist_ok=True)
     out = []
     for i, c in enumerate(roteiro["cenas"]):
         texto = c["fala"].strip()
-        chave = hashlib.sha1(json.dumps([texto, voz], ensure_ascii=False).encode()).hexdigest()[:10]
+        chave = hashlib.sha1(json.dumps([texto, chave_voz(voz)], ensure_ascii=False).encode()).hexdigest()[:10]
         mp3, js = cache / f"{i:02d}-{chave}.mp3", cache / f"{i:02d}-{chave}.json"
         if not js.exists():
             ws = sintetizar(texto, voz, mp3, roteiro.get("velocidade", "+0%"))

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .comum import FONTES, rodar, sonda
+from .comum import FONTES, chave_voz, rodar, sonda
 from .motion import NAVEGADOR, PROJETO, garantir_projeto
 
 FPS = 30
@@ -42,7 +42,7 @@ def narrar(textos, voz, pasta, velocidade="+0%"):
     pasta.mkdir(parents=True, exist_ok=True)
     out = []
     for t in textos:
-        k = hashlib.sha1(json.dumps([t, voz, velocidade], ensure_ascii=False).encode()).hexdigest()[:10]
+        k = hashlib.sha1(json.dumps([t, chave_voz(voz), velocidade], ensure_ascii=False).encode()).hexdigest()[:10]
         mp3, js = pasta / f"{k}.mp3", pasta / f"{k}.json"
         if not js.exists():
             ws = sintetizar(t, voz, mp3, velocidade)

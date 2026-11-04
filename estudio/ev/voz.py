@@ -10,6 +10,7 @@ tira grave de ruído (passa-alta), normaliza o volume e grava, FORA do git:
   amostras.txt             o que é dito em cada trecho
 Use vídeos só com a sua voz (sem música de fundo, sem outra pessoa falando).
 """
+import json
 from pathlib import Path
 
 from .comum import RAIZ, rodar
@@ -79,7 +80,7 @@ def preparar(args):
 
 
 def main(args):
-    {"preparar": preparar, "comparar": comparar, "escolher": escolher, "falar": falar}[args.acao](args)
+    {"preparar": preparar, "comparar": comparar, "medir": medir, "escolher": escolher, "falar": falar}[args.acao](args)
 
 
 def comparar(args):
@@ -107,9 +108,58 @@ def comparar(args):
     print(f"→ ouça os mp3 em {pasta} e escolha: ev.py voz escolher <motor>-ref<N>")
 
 
+def _opcoes():
+    """opcoes.json do `comparar`; se faltar (comparação interrompida), refaz pelos arquivos existentes."""
+    from . import vozes
+    pasta = vozes.PASTA / "comparar"
+    if (pasta / "opcoes.json").exists():
+        return json.loads((pasta / "opcoes.json").read_text())
+    refs = vozes.melhores_refs(n=5)
+    lista = []
+    for w in sorted(pasta.glob("*-ref*.wav")):
+        motor, n = w.stem.rsplit("-ref", 1)
+        ref, txt, _ = refs[int(n) - 1]
+        lista.append({"arquivo": str(w.with_suffix(".mp3")), "motor": motor, "ref": str(ref), "ref_texto": txt})
+    (pasta / "opcoes.json").write_text(json.dumps(lista, ensure_ascii=False, indent=1))
+    return lista
+
+
+def medir(args):
+    """Nota objetiva de semelhança: impressão de voz (encoder do Chatterbox) de cada teste x a média de
+    trechos reais que NÃO serviram de referência. Controle: um trecho real x a mesma média."""
+    import librosa
+    import numpy as np
+    import torch
+    from huggingface_hub import hf_hub_download
+    from chatterbox.models.voice_encoder import VoiceEncoder
+    from . import vozes
+    ve = VoiceEncoder()
+    ve.load_state_dict(torch.load(hf_hub_download("ResembleAI/chatterbox", "ve.pt"), map_location="cpu", weights_only=True))
+    ve.eval()
+    emb = lambda f: ve.embeds_from_wavs([librosa.load(str(f), sr=16000)[0]], sample_rate=16000)[0]
+    opcoes = _opcoes()
+    usadas = {Path(o["ref"]).name for o in opcoes}
+    reais = [w for w in sorted((vozes.PASTA / "amostras").glob("*.wav")) if w.name not in usadas]
+    ctrl, resto = reais[0], reais[1:9]
+    m = np.mean([emb(w) for w in resto], 0)
+    m /= np.linalg.norm(m)
+    nota = lambda f: float(emb(f) @ m / np.linalg.norm(emb(f)))
+    print(f"controle (você x você): {nota(ctrl):.3f}")
+    for o in opcoes:
+        o["nota"] = round(nota(Path(o["arquivo"]).with_suffix(".wav")), 3)
+    for o in sorted(opcoes, key=lambda o: -o["nota"]):
+        print(f"{Path(o['arquivo']).stem:18s} {o['nota']:.3f}")
+    (vozes.PASTA / "comparar" / "opcoes.json").write_text(json.dumps(opcoes, ensure_ascii=False, indent=1))
+    print("→ ev.py voz escolher melhor (ou o nome que soar melhor de ouvido)")
+
+
 def escolher(args):
     from . import vozes
-    opcoes = json.loads((vozes.PASTA / "comparar" / "opcoes.json").read_text())
+    opcoes = _opcoes()
+    if args.opcao == "melhor":
+        if not all("nota" in o for o in opcoes):
+            raise SystemExit("rode antes: ev.py voz medir")
+        args.opcao = Path(max(opcoes, key=lambda o: o["nota"])["arquivo"]).stem
     op = next((o for o in opcoes if Path(o["arquivo"]).stem == args.opcao), None)
     if not op:
         raise SystemExit(f"opção não encontrada. Existem: {[Path(o['arquivo']).stem for o in opcoes]}")

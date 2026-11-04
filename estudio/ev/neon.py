@@ -13,7 +13,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .comum import FORMATOS, ler_json, pasta_edit, sonda
+from .comum import FORMATOS, ler_json, pasta_edit, sonda, voz_padrao
 from .explicativo import quando
 from .remotion_util import FPS, decodificar, fontes_public, mixar, narrar, render
 from .sfx import Mix, cama, impacto, pop, subida, whoosh
@@ -27,7 +27,7 @@ def main(args):
     W, H = FORMATOS[args.formato or rot.get("formato", "reels")]
     edit = pasta_edit(rot_path)
     cenas = rot["cenas"]
-    falas = narrar([c["fala"] for c in cenas], rot.get("voz", "pt-BR-AntonioNeural"), edit / "voz-neon", rot.get("velocidade", "+5%"))
+    falas = narrar([c["fala"] for c in cenas], rot.get("voz", voz_padrao()), edit / "voz-neon", rot.get("velocidade", "+5%"))
     t, out = 0, []
     for c, (mp3, ws, d) in zip(cenas, falas):
         dur = int((d + (1.2 if c["tipo"] == "cta" else 0.45)) * FPS) + ATRASO

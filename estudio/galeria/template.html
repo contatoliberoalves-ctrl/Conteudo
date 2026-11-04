@@ -1,125 +1,195 @@
 <title>Estúdio de Vídeo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Bebas+Neue&family=Poppins:wght@600;700;800&family=Big+Shoulders+Display:wght@800;900&family=Playfair+Display:ital,wght@0,800;0,900;1,700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@700;800&family=Anton&family=Inter+Tight:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Ilha de edição: barra do app, biblioteca à esquerda, monitor no centro, inspetor à direita,
-   linha do tempo embaixo. Tema escuro deliberado (como CapCut/DaVinci), cores fixas. */
+/* Ilha de edição completa: barra do app, trilho de ferramentas + painel de mídia à esquerda,
+   monitor no centro, inspetor à direita, linha do tempo com várias trilhas embaixo.
+   Tema escuro deliberado (como DaVinci/CapCut), cores fixas. */
 :root{
   color-scheme:dark;
-  --fundo:#0E1014; --painel:#161920; --painel2:#1C2029; --borda:#272C36; --borda2:#323845;
+  --fundo:#0D0F13; --painel:#15181F; --painel2:#1B1F27; --painel3:#222733; --borda:#262B35; --borda2:#323845;
   --texto:#E8EBF1; --apagado:#8C95A6; --fraco:#5D6676;
-  --rec:#FF5A36; --rec2:#FF7A5C; --video:#3B6FD6; --elem:#E0A43A; --pedido:#FF5A36; --ok:#42B883;
+  --rec:#FF5A36; --rec2:#FF7A5C; --video:#3B6FD6; --texto-t:#8B5CF6; --elem:#E0A43A; --leg:#14B8A6; --aud:#22C55E; --sfx:#C084FC; --nar:#38BDF8; --pedido:#FF5A36; --ok:#42B883; --mk:#FACC15;
   --f-titulo:"Archivo","Arial Black",system-ui,sans-serif;
   --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html,body{height:100%}
+html,body{height:100%;margin:0}
 body{background:var(--fundo);color:var(--texto);font:13px/1.45 var(--f-ui)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--rec);outline-offset:2px}
-.app{display:grid;grid-template-rows:auto 1fr auto;min-height:100%;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+.app{display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;min-height:100%;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
 /* barra do app */
-.barra{display:flex;align-items:center;gap:12px;padding:10px max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--borda);background:var(--painel);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:8px;font-family:var(--f-titulo);font-stretch:118%;font-weight:900;font-size:17px;letter-spacing:.01em}
+.barra{display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid var(--borda);background:var(--painel);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--f-titulo);font-stretch:118%;font-weight:900;font-size:16px;letter-spacing:.01em}
 .logo i{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 10px var(--rec)}
-.projeto{color:var(--apagado);font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.projeto{color:var(--apagado);font-size:12.5px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
 .projeto b{color:var(--texto);font-weight:600}
 .status{font:500 11px var(--f-mono);padding:4px 9px;border-radius:999px;border:1px solid var(--borda2);color:var(--apagado);white-space:nowrap}
 .status.ok{color:var(--ok);border-color:#2C5E48}.status.salvando{color:var(--elem);border-color:#5E4A26}.status.off{color:var(--fraco)}
-.btn{border:1px solid var(--borda2);background:var(--painel2);border-radius:8px;padding:7px 12px;font-weight:600;font-size:12.5px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.sel-mini{background:var(--painel2);border:1px solid var(--borda2);border-radius:8px;padding:6px 8px;font-size:12px;max-width:190px}
+.btn{border:1px solid var(--borda2);background:var(--painel2);border-radius:8px;padding:6px 11px;font-weight:600;font-size:12.5px;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
 .btn:hover{border-color:#46506A}.btn.prim{background:var(--rec);border-color:var(--rec);color:#fff}.btn.prim:hover{background:var(--rec2)}
 .btn:disabled{opacity:.45;cursor:default}
-.btn.ic{padding:7px 9px}
+.btn.ic{padding:6px 8px;min-width:32px}
+.btn[aria-pressed="true"]{background:#2B3242;border-color:#5A6782;color:#fff}
+.btn.perigo{color:var(--rec)}
 /* área principal */
-.area{display:grid;grid-template-columns:260px minmax(0,1fr) 320px;min-height:0}
+.area{display:grid;grid-template-columns:56px 250px minmax(0,1fr) 330px;min-height:0}
+.trilho{background:var(--painel);border-right:1px solid var(--borda);display:flex;flex-direction:column;gap:2px;padding:8px 4px;overflow-y:auto}
+.trilho button{background:none;border:0;border-radius:8px;padding:7px 2px;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--apagado);font-size:10px;font-weight:600}
+.trilho button span{font-size:17px;line-height:1}
+.trilho button[aria-selected="true"]{background:var(--painel3);color:#fff}
 .lado{background:var(--painel);border-right:1px solid var(--borda);display:flex;flex-direction:column;min-height:0;min-width:0}
 .lado.dir{border-right:0;border-left:1px solid var(--borda)}
+.lado-cab{padding:10px 12px;border-bottom:1px solid var(--borda);font:700 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--apagado)}
 .abas{display:flex;border-bottom:1px solid var(--borda);overflow-x:auto}
 .abas button{flex:1;background:none;border:0;border-bottom:2px solid transparent;padding:10px 8px;color:var(--apagado);font-weight:600;font-size:12px;white-space:nowrap}
 .abas button[aria-selected="true"]{color:var(--texto);border-bottom-color:var(--rec)}
-.rolar{overflow:auto;padding:12px;display:flex;flex-direction:column;gap:10px;min-height:0;flex:1}
+.rolar{overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px;min-height:0;flex:1}
 .filtros{display:flex;gap:6px;flex-wrap:wrap}
 .chip{border:1px solid var(--borda2);background:none;border-radius:999px;padding:3px 9px;font-size:11.5px;color:var(--apagado)}
 .chip[aria-pressed="true"]{background:var(--texto);color:var(--fundo);border-color:var(--texto)}
-.cartao{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:center;padding:7px;border-radius:10px;border:1px solid transparent;background:none;text-align:left;width:100%}
+.cartao{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px;align-items:center;padding:6px;border-radius:10px;border:1px solid transparent;background:none;text-align:left;width:100%}
 .cartao:hover{background:var(--painel2)}
 .cartao[aria-current="true"]{border-color:var(--rec);background:var(--painel2)}
-.cartao img{width:64px;height:64px;object-fit:cover;border-radius:7px;background:#000}
+.cartao img{width:58px;height:58px;object-fit:cover;border-radius:7px;background:#000}
 .cartao b{display:block;font-size:12.5px;line-height:1.25}
 .cartao span{font-size:11px;color:var(--apagado)}
-.vazio{color:var(--apagado);font-size:12px;padding:8px 2px}
+.vazio{color:var(--apagado);font-size:12px;padding:6px 2px}
 /* centro */
-.centro{display:flex;flex-direction:column;min-width:0;min-height:0;background:#0A0C0F}
-.palco{flex:1;display:flex;align-items:center;justify-content:center;padding:14px;min-height:0}
-.monitor{position:relative;background:#000;max-height:100%;max-width:100%;aspect-ratio:9/16;height:100%;box-shadow:0 0 0 1px var(--borda2)}
-.monitor video{width:100%;height:100%;display:block;object-fit:contain}
-.camada{position:absolute;inset:0;overflow:hidden;container-type:inline-size}
+.centro{display:flex;flex-direction:column;min-width:0;min-height:0;background:#090B0E}
+.palco{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;min-height:0;position:relative}
+.monitor{position:relative;background:#000;max-height:100%;max-width:100%;aspect-ratio:9/16;height:100%;box-shadow:0 0 0 1px var(--borda2);overflow:hidden;container-type:inline-size}
+.monitor.largo{height:auto;width:min(100%,980px)}
+.monitor video.principal{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;transform-origin:50% 50%}
+.fundo-caber{position:absolute;inset:0}
+.sobre{position:absolute;inset:0;pointer-events:none}
+.camada{position:absolute;inset:0;overflow:hidden}
+.camada-vid{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .el{position:absolute;transform-origin:50% 50%;user-select:none;touch-action:none;cursor:grab;white-space:pre-wrap;text-align:center}
 .el.sel{outline:1.5px dashed #fff;outline-offset:4px}
+.el.trav{cursor:default}
 .el .alca{position:absolute;right:-9px;bottom:-9px;width:14px;height:14px;background:#fff;border:2px solid var(--rec);border-radius:3px;cursor:nwse-resize;display:none}
-.el.sel .alca{display:block}
-.marca{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--pedido);color:#fff;font:700 11px var(--f-mono);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,90,54,.35)}
+.el .giro{position:absolute;left:50%;top:-30px;width:14px;height:14px;margin-left:-7px;background:#fff;border:2px solid var(--rec);border-radius:50%;cursor:grab;display:none}
+.el.sel .alca,.el.sel .giro{display:block}
+.leg{position:absolute;left:5%;right:5%;text-align:center;transform:translateY(-50%);pointer-events:auto;cursor:ns-resize;user-select:none}
+.leg.sel{outline:1.5px dashed var(--leg);outline-offset:6px}
+.marca{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--pedido);color:#fff;font:700 11px var(--f-mono);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,90,54,.35);pointer-events:none}
 .mira{position:absolute;inset:0;cursor:crosshair;display:none;background:rgba(255,90,54,.06)}
 .mira.on{display:block}
-.transporte{display:flex;align-items:center;gap:8px;padding:8px 14px;border-top:1px solid var(--borda);background:var(--painel);flex-wrap:wrap}
+.guia-segura{position:absolute;inset:0;pointer-events:none;display:none}
+.guia-segura.on{display:block}
+.guia-segura i{position:absolute;background:rgba(255,90,54,.14);border:1px dashed rgba(255,90,54,.6)}
+.guia-grade{position:absolute;inset:0;pointer-events:none;display:none;background-image:linear-gradient(to right,transparent calc(33.33% - .5px),rgba(255,255,255,.35) calc(33.33% - .5px),rgba(255,255,255,.35) calc(33.33% + .5px),transparent calc(33.33% + .5px),transparent calc(66.66% - .5px),rgba(255,255,255,.35) calc(66.66% - .5px),rgba(255,255,255,.35) calc(66.66% + .5px),transparent calc(66.66% + .5px)),linear-gradient(to bottom,transparent calc(33.33% - .5px),rgba(255,255,255,.35) calc(33.33% - .5px),rgba(255,255,255,.35) calc(33.33% + .5px),transparent calc(33.33% + .5px),transparent calc(66.66% - .5px),rgba(255,255,255,.35) calc(66.66% - .5px),rgba(255,255,255,.35) calc(66.66% + .5px),transparent calc(66.66% + .5px))}
+.guia-grade.on{display:block}
+.enquadrando .camada{cursor:move;outline:2px solid var(--mk);outline-offset:-2px}
+.transporte{display:flex;align-items:center;gap:6px;padding:7px 12px;border-top:1px solid var(--borda);background:var(--painel);flex-wrap:wrap}
 .tc{font:600 13px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--texto);min-width:150px}
 .tc span{color:var(--fraco)}
 .espaco{flex:1}
+.final{font:500 11px var(--f-mono);color:var(--apagado)}
 /* linha do tempo */
-.tempo{border-top:1px solid var(--borda);background:var(--painel);display:grid;grid-template-columns:96px minmax(0,1fr);min-height:0}
-.rotulos{border-right:1px solid var(--borda)}
-.rotulos div{height:38px;display:flex;align-items:center;gap:6px;padding:0 10px;font:600 11px var(--f-mono);color:var(--apagado);border-bottom:1px solid var(--borda)}
-.rotulos div:first-child{height:26px}
-.rotulos i{width:8px;height:8px;border-radius:2px;display:inline-block}
+.ferr{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--painel);border-top:1px solid var(--borda);flex-wrap:wrap}
+.ferr .sep{width:1px;height:22px;background:var(--borda2);margin:0 4px}
+.tempo{background:var(--painel);display:grid;grid-template-columns:104px minmax(0,1fr);min-height:0;max-height:38vh;overflow-y:auto;border-top:1px solid var(--borda)}
+.rotulos{border-right:1px solid var(--borda);position:sticky;left:0;background:var(--painel);z-index:6}
+.rot{display:flex;align-items:center;gap:5px;padding:0 6px 0 9px;font:600 10.5px var(--f-mono);color:var(--apagado);border-bottom:1px solid var(--borda)}
+.rot i{width:8px;height:8px;border-radius:2px;display:inline-block;flex:none}
+.rot b{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rot button{background:none;border:0;padding:2px 3px;font-size:11px;color:var(--apagado);border-radius:4px}
+.rot button[aria-pressed="false"]{opacity:.35}
 .pista{overflow-x:auto;overflow-y:hidden;position:relative}
-.trilhas{position:relative;min-width:100%}
-.regua{height:26px;border-bottom:1px solid var(--borda);position:relative;cursor:pointer;background:var(--painel2)}
-.regua .tk{position:absolute;bottom:0;width:1px;background:var(--borda2);height:8px}
-.regua .tk.g{height:14px;background:#4A5263}
-.regua .tk b{position:absolute;left:4px;bottom:9px;font:500 10px var(--f-mono);color:var(--apagado);white-space:nowrap}
-.trilha{height:38px;border-bottom:1px solid var(--borda);position:relative}
-.barra-clip{position:absolute;top:5px;bottom:5px;border-radius:6px;font:600 11px var(--f-ui);display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap;color:#fff}
-.clip-video{background:linear-gradient(180deg,#4A7FE6,#2F5FC0);left:0}
-.clip-el{background:linear-gradient(180deg,#E8B04E,#C48A25);color:#2A1B05;cursor:grab;touch-action:none}
-.clip-el.sel{box-shadow:0 0 0 2px #fff}
-.clip-el .borda{position:absolute;top:0;bottom:0;width:8px;cursor:ew-resize}
-.clip-el .borda.e{left:0}.clip-el .borda.d{right:0}
-.ponto{position:absolute;top:6px;width:14px;height:26px;margin-left:-7px;border-radius:4px;background:var(--pedido);cursor:pointer}
+.trilhas{position:relative;min-width:100%;touch-action:none}
+.regua{height:24px;border-bottom:1px solid var(--borda);position:relative;cursor:pointer;background:var(--painel2)}
+.regua .tk{position:absolute;bottom:0;width:1px;background:var(--borda2);height:7px}
+.regua .tk.g{height:13px;background:#4A5263}
+.regua .tk b{position:absolute;left:4px;bottom:8px;font:500 10px var(--f-mono);color:var(--apagado);white-space:nowrap}
+.regua .io{position:absolute;top:0;bottom:0;background:rgba(250,204,21,.18);border-left:2px solid var(--mk);border-right:2px solid var(--mk);pointer-events:none}
+.trilha{border-bottom:1px solid var(--borda);position:relative}
+.trilha.oculta{opacity:.4}
+.clip{position:absolute;border-radius:5px;font:600 10.5px var(--f-ui);display:flex;align-items:center;padding:0 8px;overflow:hidden;white-space:nowrap;color:#fff;cursor:grab;touch-action:none;height:22px}
+.clip.sel{box-shadow:0 0 0 2px #fff;z-index:3}
+.clip .borda{position:absolute;top:0;bottom:0;width:7px;cursor:ew-resize;z-index:2}
+.clip .borda.e{left:0}.clip .borda.d{right:0}
+.clip .kf{position:absolute;bottom:1px;width:7px;height:7px;margin-left:-3.5px;background:#fff;transform:rotate(45deg);border:1px solid #000;pointer-events:none}
+.c-texto{background:linear-gradient(180deg,#9D74F8,#7445E0)}
+.c-elem{background:linear-gradient(180deg,#E8B04E,#C48A25);color:#2A1B05}
+.c-leg{background:linear-gradient(180deg,#2DD4BF,#0F9488);color:#03211D}
+.c-mus{background:linear-gradient(180deg,#34D399,#15803D);color:#052E16}
+.c-nar{background:linear-gradient(180deg,#7DD3FC,#0284C7);color:#062033}
+.seg{position:absolute;top:4px;bottom:4px;border-radius:5px;overflow:hidden;background:#2F5FC0;border:1px solid #5A86E0;cursor:pointer;touch-action:none}
+.seg.sel{box-shadow:0 0 0 2px #fff;z-index:2}
+.seg.fora{background:repeating-linear-gradient(-45deg,#3A1F1A 0 6px,#26140F 6px 12px);border-color:#7A3A2C}
+.seg .rot-seg{position:absolute;left:4px;top:3px;font:700 10px var(--f-mono);background:rgba(0,0,0,.55);padding:0 5px;border-radius:4px;z-index:2;white-space:nowrap}
+.seg .filme{position:absolute;inset:0;display:flex;pointer-events:none}
+.seg .filme img{height:100%;flex:none;object-fit:cover;opacity:.9}
+.seg.fora .filme{opacity:.2}
+.seg .corta{position:absolute;top:0;bottom:0;width:8px;cursor:ew-resize;z-index:3}
+.seg .corta.e{left:-1px}.seg .corta.d{right:-1px}
+.seg .trans{position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(90deg,rgba(255,255,255,.75),transparent);z-index:2;pointer-events:none}
+.onda{position:absolute;left:0;top:0;pointer-events:none}
+.sfx{position:absolute;top:6px;width:16px;height:16px;margin-left:-8px;border-radius:4px;background:var(--sfx);color:#1E0B33;font:700 10px var(--f-mono);display:grid;place-items:center;cursor:grab;touch-action:none}
+.sfx.sel{box-shadow:0 0 0 2px #fff}
+.mk{position:absolute;top:2px;width:12px;height:20px;margin-left:-1px;background:var(--mk);clip-path:polygon(0 0,100% 0,100% 70%,0 100%);cursor:pointer}
+.ponto{position:absolute;top:5px;width:14px;height:20px;margin-left:-7px;border-radius:4px;background:var(--pedido);cursor:pointer}
 .ponto.feito{background:var(--ok)}
-.cabeca{position:absolute;top:0;bottom:0;width:2px;background:var(--rec);pointer-events:none;z-index:5}
+.cabeca{position:absolute;top:0;bottom:0;width:2px;background:var(--rec);pointer-events:none;z-index:8}
 .cabeca::before{content:"";position:absolute;top:0;left:-6px;width:14px;height:12px;background:var(--rec);clip-path:polygon(0 0,100% 0,50% 100%)}
+.laminando .trilhas{cursor:crosshair}
 .zoom{display:flex;align-items:center;gap:6px;color:var(--apagado);font-size:11px}
 .zoom input{width:110px;accent-color:var(--rec)}
 /* inspetor */
 .grupo{display:flex;flex-direction:column;gap:8px}
-.grupo h3{margin:0;font:700 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--apagado)}
-.grade-add{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.add{border:1px solid var(--borda2);background:var(--painel2);border-radius:10px;padding:10px;text-align:left;display:flex;flex-direction:column;gap:3px}
+.grupo h3{margin:0;font:700 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--apagado);display:flex;align-items:center;gap:8px}
+.grupo h3 em{font-style:normal;color:var(--fraco);font-weight:500;letter-spacing:0;text-transform:none}
+.grade2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.grade3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.add{border:1px solid var(--borda2);background:var(--painel2);border-radius:10px;padding:9px;text-align:left;display:flex;flex-direction:column;gap:3px;min-width:0}
 .add:hover{border-color:#46506A}
 .add b{font-size:12.5px}.add span{font-size:11px;color:var(--apagado)}
+.amostra-txt{height:54px;border-radius:7px;background:#05070A;display:grid;place-items:center;overflow:hidden;font-size:18px;line-height:1;padding:4px}
+.forma-ic{height:42px;display:grid;place-items:center}
 .pers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
-.pers button{border:1px solid var(--borda2);background:var(--painel2);border-radius:8px;padding:4px;aspect-ratio:3/4}
+.pers button{border:1px solid var(--borda2);background:var(--painel2);border-radius:8px;padding:3px;aspect-ratio:3/4}
 .pers img{width:100%;height:100%;object-fit:contain}
-label.campo{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--apagado)}
-.campo input,.campo select,.campo textarea{background:#0F1217;border:1px solid var(--borda2);border-radius:7px;padding:7px 9px;color:var(--texto);width:100%}
-.campo textarea{min-height:70px;resize:vertical}
+.emojis{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px}
+.emojis button{background:var(--painel2);border:1px solid var(--borda2);border-radius:6px;font-size:18px;padding:3px 0}
+label.campo{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--apagado);min-width:0}
+.campo input:not([type=checkbox]):not([type=range]):not([type=color]),.campo select,.campo textarea{background:#0F1217;border:1px solid var(--borda2);border-radius:7px;padding:6px 8px;color:var(--texto);width:100%}
+.campo textarea{min-height:64px;resize:vertical}
+.campo input[type=range]{accent-color:var(--rec);width:100%}
+.campo .val{font:500 11px var(--f-mono);color:var(--texto)}
+.rotval{display:flex;justify-content:space-between;gap:6px}
 .linha2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cores{display:flex;gap:6px;flex-wrap:wrap}
-.cores button{width:24px;height:24px;border-radius:6px;border:2px solid var(--borda2)}
+.linha3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.check{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--texto)}
+.cores{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.cores button{width:22px;height:22px;border-radius:6px;border:2px solid var(--borda2)}
 .cores button[aria-pressed="true"]{border-color:#fff}
+.cores input[type=color]{width:26px;height:24px;border:0;background:none;padding:0}
 .ped{border:1px solid var(--borda);border-radius:10px;padding:9px 10px;display:flex;flex-direction:column;gap:4px;background:var(--painel2)}
-.ped .meta{display:flex;gap:8px;align-items:center;font:500 11px var(--f-mono);color:var(--apagado)}
+.ped .meta{display:flex;gap:8px;align-items:center;font:500 11px var(--f-mono);color:var(--apagado);flex-wrap:wrap}
 .ped .meta b{color:var(--texto)}
 .estado{padding:1px 7px;border-radius:999px;font:600 10.5px var(--f-mono);border:1px solid var(--borda2)}
-.estado.pendente,.estado.nova{color:var(--elem);border-color:#5E4A26}.estado.aplicado,.estado.pronta{color:var(--ok);border-color:#2C5E48}
+.estado.pendente,.estado.nova,.estado.roteiro,.estado.render-pedido{color:var(--elem);border-color:#5E4A26}.estado.aplicado,.estado.pronta,.estado.feito,.estado.pronto{color:var(--ok);border-color:#2C5E48}
 .nota{font-size:11.5px;color:var(--apagado);background:#12151B;border:1px dashed var(--borda2);border-radius:8px;padding:8px 10px}
 .desc{font-size:12.5px;color:#C9CED8}
 .dica{font-size:11px;color:var(--fraco)}
 .kbd{font:600 10.5px var(--f-mono);border:1px solid var(--borda2);border-radius:4px;padding:0 4px;color:var(--apagado)}
-/* modal */
+.camadas-lista{display:flex;flex-direction:column;gap:3px}
+.camadas-lista .item{display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:7px;background:var(--painel2);border:1px solid transparent}
+.camadas-lista .item.sel{border-color:var(--rec)}
+.camadas-lista .item b{flex:1;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.camadas-lista .item button{background:none;border:0;padding:2px 4px;color:var(--apagado)}
+.kfs{display:flex;flex-wrap:wrap;gap:5px}
+.kfs button{font:600 11px var(--f-mono);background:var(--painel2);border:1px solid var(--borda2);border-radius:6px;padding:2px 6px}
+.resumo{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:12px}
+.resumo dt{color:var(--apagado)}.resumo dd{margin:0}
+/* modais */
 dialog{background:var(--painel);color:var(--texto);border:1px solid var(--borda2);border-radius:14px;padding:0;width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 40px)}
 dialog::backdrop{background:rgba(4,5,8,.7)}
 .mod-cab{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--borda)}
@@ -128,23 +198,25 @@ dialog::backdrop{background:rgba(4,5,8,.7)}
 .mod-pe{display:flex;justify-content:flex-end;gap:8px;padding:12px 18px;border-top:1px solid var(--borda)}
 .opcoes{display:flex;flex-wrap:wrap;gap:6px}
 .opcoes label{display:flex;align-items:center;gap:6px;border:1px solid var(--borda2);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--texto)}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#22262F;border:1px solid var(--borda2);padding:9px 14px;border-radius:9px;font-weight:600;z-index:50;opacity:0;transition:opacity .2s;pointer-events:none}
+.atalhos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:12.5px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#22262F;border:1px solid var(--borda2);padding:9px 14px;border-radius:9px;font-weight:600;z-index:50;opacity:0;transition:opacity .2s;pointer-events:none;max-width:calc(100vw - 32px)}
 .toast.on{opacity:1}
-@media (min-width:1101px){.app{height:100vh;height:100dvh;overflow:hidden}.area{overflow:hidden}.lado{overflow:hidden}}
-@media (max-width:1100px){
-  .palco{min-height:300px}
+@media (min-width:1181px){.app{height:100vh;height:100dvh;overflow:hidden}.area{overflow:hidden}.lado{overflow:hidden}}
+@media (max-width:1180px){
+  .app{display:flex;flex-direction:column}
+  .area{display:contents}
+  .barra{order:0}.trilho{order:1}.lado.esq{order:2}.centro{order:3}.ferr{order:4}.tempo{order:5}.lado.dir{order:6}
+  .palco{min-height:320px}
   .area{grid-template-columns:minmax(0,1fr)}
-  .lado{border:0;border-bottom:1px solid var(--borda)}
-  .lado.esq .rolar{flex-direction:row;overflow-x:auto;padding:10px}
-  .lado.esq .filtros{display:none}
-  .lado.esq .cartao{grid-template-columns:1fr;width:96px;flex:none;text-align:center}
-  .lado.esq .cartao img{width:84px;height:84px;margin:0 auto}
-  .lado.esq .cartao span{display:none}
+  .trilho{flex-direction:row;border-right:0;border-bottom:1px solid var(--borda);overflow-x:auto;padding:4px}
+  .trilho button{min-width:58px}
+  .lado{border:0;border-bottom:1px solid var(--borda);max-height:none}
+  .lado.esq .rolar{max-height:300px}
   .lado.dir{border-top:1px solid var(--borda)}
-  .monitor{height:56vh;max-height:56vh}
-  .area .centro{order:1}.area .lado.esq{order:0}.area .lado.dir{order:2}
+  .monitor{height:58vh;max-height:58vh}
+  .tempo{max-height:none}
 }
-@media (max-width:520px){.tc{min-width:0}.tempo{grid-template-columns:70px minmax(0,1fr)}.rotulos div{padding:0 6px;font-size:10px}}
+@media (max-width:520px){.tc{min-width:0}.tempo{grid-template-columns:74px minmax(0,1fr)}.rot{padding:0 3px;font-size:9.5px}.rot button{display:none}.sel-mini{max-width:130px}}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 
@@ -152,48 +224,61 @@ dialog::backdrop{background:rgba(4,5,8,.7)}
   <header class="barra">
     <span class="logo"><i></i>Estúdio</span>
     <span class="projeto" id="nomeProjeto"></span>
+    <select class="sel-mini" id="perfilSel" title="Kit do perfil: fontes e cores" aria-label="Perfil"></select>
+    <select class="sel-mini" id="formatoSel" title="Formato do vídeo" aria-label="Formato">
+      <option value="9:16">9:16 Reels</option><option value="4:5">4:5 Feed</option><option value="1:1">1:1 Quadrado</option><option value="16:9">16:9 YouTube</option></select>
     <span class="status off" id="status">sem conexão</span>
     <button class="btn ic" id="desfazer" title="Desfazer (Ctrl+Z)" aria-label="Desfazer">↶</button>
     <button class="btn ic" id="refazer" title="Refazer (Ctrl+Shift+Z)" aria-label="Refazer">↷</button>
-    <button class="btn" id="aplicar" title="Avisa o Claude para renderizar com os elementos e pedidos">Pedir render</button>
-    <button class="btn prim" id="novoBtn">+ Novo vídeo</button>
+    <button class="btn" id="versoesBtn" title="Salvar e restaurar versões">Versões</button>
+    <button class="btn ic" id="atalhosBtn" title="Atalhos (?)" aria-label="Atalhos do teclado">⌨</button>
+    <button class="btn" id="novoBtn">+ Novo vídeo</button>
+    <button class="btn prim" id="exportarBtn">Exportar</button>
   </header>
 
   <div class="area">
+    <nav class="trilho" aria-label="Ferramentas" id="trilho"></nav>
     <aside class="lado esq" aria-label="Biblioteca">
-      <div class="abas" role="tablist">
-        <button role="tab" aria-selected="true" data-bib="modelos">Modelos</button>
-        <button role="tab" aria-selected="false" data-bib="projetos">Projetos</button>
-      </div>
-      <div class="rolar">
-        <div class="filtros" id="filtros"></div>
-        <div id="biblioteca" style="display:contents"></div>
-      </div>
+      <div class="lado-cab" id="cabEsq">Modelos</div>
+      <div class="rolar" id="painelEsq"></div>
     </aside>
 
     <main class="centro">
-      <div class="palco">
+      <div class="palco" id="palco">
         <div class="monitor" id="monitor">
-          <video id="video" playsinline preload="metadata"></video>
+          <div class="fundo-caber" id="fundoCaber"></div>
+          <video id="video" class="principal" playsinline preload="auto"></video>
+          <div class="sobre" id="tinta"></div>
+          <div class="sobre" id="transicao"></div>
+          <div class="camada-vid" id="camadaVid"></div>
           <div class="camada" id="camada"></div>
+          <div class="sobre" id="efeitos"></div>
+          <div class="guia-grade" id="grade"></div>
+          <div class="guia-segura" id="segura"><i style="right:0;top:0;bottom:0;width:15%"></i><i style="left:0;right:15%;bottom:0;height:20%"></i><i style="left:0;right:15%;top:0;height:9%"></i></div>
           <div class="mira" id="mira" title="Clique no ponto do vídeo"></div>
         </div>
       </div>
       <div class="transporte">
-        <button class="btn ic" id="voltaQ" title="Quadro anterior (←)" aria-label="Quadro anterior">⏮</button>
+        <button class="btn ic" id="inicioBtn" title="Início (Home)" aria-label="Início">⏮</button>
+        <button class="btn ic" id="voltaQ" title="Quadro anterior (←)" aria-label="Quadro anterior">◀︎</button>
         <button class="btn" id="play" title="Tocar/pausar (espaço)">▶ Tocar</button>
-        <button class="btn ic" id="avancaQ" title="Próximo quadro (→)" aria-label="Próximo quadro">⏭</button>
+        <button class="btn ic" id="avancaQ" title="Próximo quadro (→)" aria-label="Próximo quadro">▶︎</button>
+        <button class="btn ic" id="fimBtn" title="Fim (End)" aria-label="Fim">⏭</button>
         <span class="tc" id="tc">00:00:00 <span>/ 00:00:00</span></span>
+        <span class="final" id="final"></span>
         <span class="espaco"></span>
-        <button class="btn" id="somBtn">🔇 Som</button>
-        <button class="btn" id="cortarBtn" title="Pedir corte entre dois pontos">✂ Corte</button>
+        <button class="btn ic" id="loopBtn" aria-pressed="false" title="Repetir entre I e O">⟲</button>
+        <button class="btn ic" id="enquadrarBtn" aria-pressed="false" title="Enquadrar: arraste o vídeo para reposicionar">⤢</button>
+        <button class="btn ic" id="gradeBtn" aria-pressed="false" title="Grade de terços">#</button>
+        <button class="btn ic" id="seguraBtn" aria-pressed="false" title="Zona segura do Reels (onde a interface do Insta cobre)">▭</button>
+        <button class="btn" id="somBtn" aria-pressed="true">🔊 Som</button>
+        <button class="btn ic" id="telaBtn" title="Tela cheia" aria-label="Tela cheia">⛶</button>
       </div>
     </main>
 
     <aside class="lado dir" aria-label="Inspetor">
       <div class="abas" role="tablist" id="abasInsp">
-        <button role="tab" aria-selected="true" data-aba="adicionar">Adicionar</button>
-        <button role="tab" aria-selected="false" data-aba="prop">Propriedades</button>
+        <button role="tab" aria-selected="true" data-aba="prop">Propriedades</button>
         <button role="tab" aria-selected="false" data-aba="pedidos">Alterações</button>
         <button role="tab" aria-selected="false" data-aba="info">Modelo</button>
       </div>
@@ -201,27 +286,31 @@ dialog::backdrop{background:rgba(4,5,8,.7)}
     </aside>
   </div>
 
-  <section class="tempo" aria-label="Linha do tempo">
-    <div class="rotulos">
-      <div>TEMPO</div>
-      <div><i style="background:var(--video)"></i>V1</div>
-      <div><i style="background:var(--elem)"></i>ELEM.</div>
-      <div><i style="background:var(--pedido)"></i>PEDIDOS</div>
-    </div>
+  <div class="ferr" role="toolbar" aria-label="Ferramentas da linha do tempo">
+    <button class="btn ic" id="fSelecao" aria-pressed="true" title="Seleção (V)">↖</button>
+    <button class="btn ic" id="fLamina" aria-pressed="false" title="Lâmina: clique no vídeo da linha do tempo para cortar (B)">✂</button>
+    <span class="sep"></span>
+    <button class="btn" id="fDividir" title="Dividir no cursor (S)">⫼ Dividir</button>
+    <button class="btn" id="fRemover" title="Remover/restaurar o trecho selecionado (Del)">⌫ Remover trecho</button>
+    <button class="btn" id="fSilencios" title="Marca para remover as pausas longas da fala">⏸ Tirar pausas</button>
+    <button class="btn ic" id="fDupl" title="Duplicar (Ctrl+D)" aria-label="Duplicar">⧉</button>
+    <button class="btn ic" id="fKf" title="Keyframe no cursor (Shift+K)" aria-label="Keyframe">◆</button>
+    <button class="btn ic" id="fMarcador" title="Marcador (M)" aria-label="Marcador">⚑</button>
+    <button class="btn ic" id="fIn" title="Marcar entrada (I)">I</button>
+    <button class="btn ic" id="fOut" title="Marcar saída (O)">O</button>
+    <button class="btn ic" id="fIma" aria-pressed="true" title="Ímã: encaixar no cursor e nas bordas">🧲</button>
+    <span class="espaco"></span>
+    <button class="btn ic" id="zMenos" aria-label="Diminuir zoom">−</button>
+    <label class="zoom"><input type="range" id="zoom" min="8" max="400" value="60" aria-label="Zoom da linha do tempo"></label>
+    <button class="btn ic" id="zMais" aria-label="Aumentar zoom">+</button>
+    <button class="btn" id="zAjustar" title="Ajustar à tela (Shift+Z)">Ajustar</button>
+  </div>
+  <section class="tempo" aria-label="Linha do tempo" id="tempo">
+    <div class="rotulos" id="rotulos"></div>
     <div class="pista" id="pista">
-      <div class="trilhas" id="trilhas">
-        <div class="regua" id="regua"></div>
-        <div class="trilha" id="tV"></div>
-        <div class="trilha" id="tE"></div>
-        <div class="trilha" id="tP"></div>
-        <div class="cabeca" id="cabeca"></div>
-      </div>
+      <div class="trilhas" id="trilhas"></div>
     </div>
   </section>
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 14px calc(8px + env(safe-area-inset-bottom,0px));background:var(--painel);border-top:1px solid var(--borda);flex-wrap:wrap">
-    <span class="dica"><span class="kbd">espaço</span> tocar · <span class="kbd">←</span><span class="kbd">→</span> quadro · <span class="kbd">Del</span> apagar elemento · <span class="kbd">Ctrl Z</span> desfazer · arraste elementos no vídeo e as barras na linha do tempo</span>
-    <label class="zoom">zoom <input type="range" id="zoom" min="20" max="240" value="60" aria-label="Zoom da linha do tempo"></label>
-  </div>
 </div>
 
 <dialog id="novo">
@@ -239,340 +328,1118 @@ dialog::backdrop{background:rgba(4,5,8,.7)}
         <label class="campo">Duração<select id="nDur"><option>15 s</option><option selected>30 s</option><option>45 s</option><option>60 s</option><option>livre</option></select></label>
         <label class="campo">Voz<select id="nVoz"><option value="perfil">Minha voz clonada</option><option value="gratis">Voz sintética grátis</option><option value="gravada">Já está gravada no vídeo</option><option value="sem">Sem narração</option></select></label>
       </div>
+      <label class="campo">Roteiro<select id="nRoteiro"><option value="escrever">Escrever roteiro viral (5 ganchos, nota 90+)</option><option value="meu">Já tenho o roteiro (vai no campo abaixo)</option><option value="gravado">Não precisa: o vídeo já está gravado</option></select></label>
       <label class="campo">Tema, roteiro ou o que quer ver<textarea id="nTema" required placeholder="Ex.: explica o mandado de segurança em 30 s; começa com a Ana confusa e o Lex explicando; termina com 'comenta MS'."></textarea></label>
       <label class="campo">Material (link do Drive, vídeo bruto, referência)<input id="nLink" placeholder="https://drive.google.com/..."></label>
       <div class="campo">Personagens<div class="opcoes" id="nPers"></div></div>
-      <div class="campo">Extras<div class="opcoes">
+      <div class="campo">Extras<div class="opcoes" id="nExtras">
         <label><input type="checkbox" value="legenda" checked> Legenda</label><label><input type="checkbox" value="musica"> Trilha</label>
         <label><input type="checkbox" value="insercoes" checked> Inserções</label><label><input type="checkbox" value="cta" checked> Chamada final</label></div></div>
       <label class="campo">Observações<textarea id="nObs" placeholder="Cores, ritmo, o que evitar, referência de estilo…"></textarea></label>
-      <div class="nota" id="nAviso">O pedido fica salvo aqui e o Claude produz quando você pedir no chat ("faz os vídeos novos do estúdio").</div>
+      <div class="nota">O pedido fica salvo aqui e o Claude produz quando você pedir no chat ("faz os vídeos novos do estúdio"). No Reels viral, o roteiro aparece aqui embaixo com a nota antes de você gravar.</div>
       <div class="grupo"><h3>Seus pedidos de vídeo</h3><div id="listaNovos" class="grupo"></div></div>
     </div>
     <div class="mod-pe"><button class="btn" value="cancel">Fechar</button><button class="btn prim" id="enviarNovo" value="default">Enviar pedido</button></div>
   </form>
 </dialog>
+
+<dialog id="exportar">
+  <form method="dialog" id="formExp">
+    <div class="mod-cab"><h2>Exportar</h2><button class="btn ic" value="cancel" aria-label="Fechar">✕</button></div>
+    <div class="mod-corpo">
+      <dl class="resumo" id="expResumo"></dl>
+      <div class="linha2">
+        <label class="campo">Resolução<select id="eRes"><option value="1080">1080p (padrão)</option><option value="1440">1440p (melhor no Insta)</option><option value="2160">4K</option><option value="720">720p (rascunho)</option></select></label>
+        <label class="campo">Quadros por segundo<select id="eFps"><option>30</option><option>60</option><option>24</option></select></label>
+      </div>
+      <div class="linha2">
+        <label class="campo">Legenda<select id="eLeg"><option value="queimada">Queimada no vídeo</option><option value="ambas">Queimada + arquivo .srt</option><option value="srt">Só arquivo .srt</option><option value="sem">Sem legenda</option></select></label>
+        <label class="campo">Áudio<select id="eAud"><option value="-14">Normalizar −14 LUFS (Reels)</option><option value="-16">−16 LUFS (YouTube)</option><option value="original">Como está</option></select></label>
+      </div>
+      <label class="campo">Entregar em<select id="eDest"><option value="projetos">Aba Projetos deste estúdio</option><option value="drive">Google Drive (pasta Vídeos editados)</option><option value="ambos">Os dois</option></select></label>
+      <label class="campo">Recado para o Claude (opcional)<textarea id="eObs" placeholder="Ex.: deixa a música mais baixa no final; capricha na capa."></textarea></label>
+      <div class="nota">O render roda no Claude, com as fontes, cores e a voz do perfil. Depois de exportar, peça no chat: <b>"aplica as edições do estúdio"</b>.</div>
+    </div>
+    <div class="mod-pe"><button class="btn" value="cancel">Cancelar</button><button class="btn prim" value="default">Exportar</button></div>
+  </form>
+</dialog>
+
+<dialog id="versoes">
+  <form method="dialog">
+    <div class="mod-cab"><h2>Versões</h2><button class="btn ic" value="cancel" aria-label="Fechar">✕</button></div>
+    <div class="mod-corpo">
+      <div class="linha2"><label class="campo">Nome da versão<input id="vNome" placeholder="Ex.: antes de mudar a música"></label><div style="display:flex;align-items:end"><button class="btn prim" type="button" id="vSalvar" style="width:100%">Salvar versão agora</button></div></div>
+      <div class="grupo"><h3>Salvas</h3><div class="grupo" id="vLista"></div></div>
+    </div>
+    <div class="mod-pe"><button class="btn" value="cancel">Fechar</button></div>
+  </form>
+</dialog>
+
+<dialog id="atalhos">
+  <form method="dialog">
+    <div class="mod-cab"><h2>Atalhos</h2><button class="btn ic" value="cancel" aria-label="Fechar">✕</button></div>
+    <div class="mod-corpo"><div class="atalhos" id="listaAtalhos"></div></div>
+    <div class="mod-pe"><button class="btn" value="cancel">Fechar</button></div>
+  </form>
+</dialog>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+__DESENHO__
 const MODELOS = __MODELOS__;
 const PERSONAGENS = __PERSONAGENS__;
-const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const KITS = __KITS__;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const FPS = 30;
-const CORES = ['#FFFFFF', '#FFD52E', '#9BE0A3', '#FF5A36', '#5AA9FF', '#F7B6CF', '#111111'];
-const ESTILOS = {
-  titulo: {nome: 'Título', css: (e) => `font-family:var(--f-titulo);font-stretch:125%;font-weight:900;text-transform:uppercase;line-height:.95;color:${e.cor};text-shadow:0 .06em .18em rgba(0,0,0,.6)`, tam: 9},
-  legenda: {nome: 'Legenda', css: (e) => `font-family:var(--f-titulo);font-weight:800;text-transform:uppercase;color:${e.cor};-webkit-text-stroke:.06em #000;paint-order:stroke fill;line-height:1`, tam: 6.5},
-  selo: {nome: 'Selo', css: (e) => `font-family:var(--f-ui);font-weight:700;background:${e.cor};color:${claro(e.cor) ? '#111' : '#fff'};padding:.35em .9em;border-radius:999px`, tam: 4.4},
-  caixa: {nome: 'Caixa', css: (e) => `font-family:var(--f-ui);font-weight:700;background:#fff;color:#111;padding:.5em .8em;border-radius:.4em;box-shadow:0 .3em 0 ${e.cor}`, tam: 4.8},
-  cta: {nome: 'Botão', css: (e) => `font-family:var(--f-titulo);font-weight:900;text-transform:uppercase;background:${e.cor};color:${claro(e.cor) ? '#111' : '#fff'};padding:.45em 1.1em;border-radius:999px;box-shadow:0 .25em 0 rgba(0,0,0,.35)`, tam: 5.6},
-};
-function claro(h) { const n = parseInt(h.slice(1), 16); return ((n >> 16) * 299 + ((n >> 8) & 255) * 587 + (n & 255) * 114) / 1000 > 150; }
-
-const st = {aba: 'adicionar', bib: 'modelos', grupo: 'Todos', atual: null, elementos: [], sel: null, pedidos: [], novos: [], projetos: [],
-  zoom: 60, dur: 1, desfazer: [], refazer: [], db: null, assets: null, marcando: null, corte: null};
-const video = $('#video'), camada = $('#camada'), mira = $('#mira');
-
-function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 1800); }
-function tcode(s) { s = Math.max(0, s || 0); const f = Math.floor((s % 1) * FPS); const ss = Math.floor(s) % 60, m = Math.floor(s / 60);
-  return `${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')}:${String(f).padStart(2, '0')}`; }
-function status(t, c) { const el = $('#status'); el.textContent = t; el.className = 'status ' + (c || ''); }
+const r2 = (v) => Math.round(v * 100) / 100;
 const uid = () => Math.random().toString(36).slice(2, 9);
 
-/* ---------- biblioteca ---------- */
-function itensBib() {
-  if (st.bib === 'modelos') return MODELOS.map((m) => ({id: m.id, nome: m.nome, sub: m.grupo, poster: 'videos/' + m.poster, video: 'videos/' + m.video, grupo: m.grupo, modelo: m}));
-  return st.projetos.map((p) => ({id: p.id, nome: p.titulo || p.id, sub: p.status || 'projeto', poster: p.poster || '', video: p.video, grupo: 'Projeto', projeto: p}));
+/* ---------- catálogos ---------- */
+function fonteDoKit(nome) {
+  const n = (nome || '').toLowerCase();
+  if (n.includes('bebas')) return 'Bebas Neue'; if (n.includes('shoulders')) return 'Big Shoulders'; if (n.includes('inter')) return 'Inter Tight';
+  if (n.includes('archivo')) return 'Archivo Expanded'; if (n.includes('playfair')) return 'Playfair'; if (n.includes('montserrat')) return 'Montserrat';
+  if (n.includes('instrument')) return 'Instrument Serif'; return 'Poppins';
 }
-function renderBib() {
-  const grupos = ['Todos', ...new Set(MODELOS.map((m) => m.grupo))];
-  $('#filtros').innerHTML = st.bib === 'modelos' ? grupos.map((g) => `<button class="chip" aria-pressed="${g === st.grupo}" data-g="${esc(g)}">${esc(g)}</button>`).join('') : '';
-  const lista = itensBib().filter((i) => st.bib !== 'modelos' || st.grupo === 'Todos' || i.grupo === st.grupo);
-  $('#biblioteca').innerHTML = lista.length ? lista.map((i) => `<button class="cartao" data-id="${esc(i.id)}" aria-current="${st.atual && st.atual.id === i.id}">
-      ${i.poster ? `<img src="${esc(i.poster)}" alt="" loading="lazy">` : '<img alt="">'}<div><b>${esc(i.nome)}</b><span>${esc(i.sub)}</span></div></button>`).join('')
-    : `<div class="vazio">${st.bib === 'projetos' ? 'Seus vídeos editados aparecem aqui quando o Claude publicar um projeto.' : 'Nenhum modelo.'}</div>`;
-}
-$('#filtros').addEventListener('click', (e) => { const b = e.target.closest('[data-g]'); if (!b) return; st.grupo = b.dataset.g; renderBib(); });
-document.querySelectorAll('[data-bib]').forEach((b) => b.addEventListener('click', () => {
-  st.bib = b.dataset.bib; document.querySelectorAll('[data-bib]').forEach((x) => x.setAttribute('aria-selected', String(x === b))); renderBib();
-}));
-$('#biblioteca').addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (!b) return; abrir(itensBib().find((i) => i.id === b.dataset.id)); });
+const NOMES_PERFIL = {constitucionalgabaritado: '@constitucionalgabaritado', liberofilho: '@liberofilho', eticagabaritada: '@eticagabaritadanaoba',
+  concursocomlibero: '@concursocomlibero', eduarda: 'Eduarda Caraciolo', padrao: 'Padrão', 'palavra-pop': 'Palavra pop', 'aula-youtube': 'Aula YouTube'};
+const CORES_BASE = ['#FFFFFF', '#111111', '#FFD52E', '#9BE0A3', '#2BD576', '#FF5A36', '#5AA9FF', '#F7B6CF', '#EE2A8A', '#8B5CF6'];
+const TRANSICOES = {corte: 'Corte seco', fade: 'Fade do preto', flash: 'Flash branco', zoom: 'Zoom', desfoque: 'Desfoque', chicote: 'Chicote (whip)', deslizar: 'Deslizar'};
+const ANIM_ENTRA = {nenhuma: 'Nenhuma', pop: 'Pop', fade: 'Aparecer', subir: 'Subir', descer: 'Descer', esquerda: 'Da esquerda', direita: 'Da direita', zoom: 'Zoom', girar: 'Girar', quicar: 'Quicar', digitar: 'Digitar (texto)', palavras: 'Palavra a palavra (texto)', desenhar: 'Desenhar (formas)'};
+const ANIM_SAI = {nenhuma: 'Nenhuma', fade: 'Sumir', encolher: 'Encolher', subir: 'Subir', descer: 'Descer'};
+const EMOJIS = ['⚖️', '📘', '✅', '❌', '🔥', '⚠️', '💡', '📌', '🎯', '⏰', '📅', '🏛️', '👨‍⚖️', '📜', '🔍', '💬', '👉', '👀', '🤯', '🚨', '⭐', '💰', '🧠', '📝'];
+const MUSICAS = {cama: 'Cama suave (documentário)', tensao: 'Tensão (suspense)', animada: 'Animada (pop)', lofi: 'Lo-fi (estudo)', epica: 'Épica (chamada)'};
+const SFX = {whoosh: 'Whoosh', pop: 'Pop', impacto: 'Impacto', clique: 'Clique', ding: 'Ding', erro: 'Erro', caixa: 'Caixa registradora'};
+const LEG_ESTILOS = {pop: 'Palavra em destaque', karaoke: 'Karaokê', palavra: 'Uma palavra por vez', caixa: 'Caixa branca', linha: 'Linha simples (aula)', vox: 'Serifada itálica (documentário)'};
+const FORMATO_AR = {'9:16': [9, 16], '4:5': [4, 5], '1:1': [1, 1], '16:9': [16, 9]};
 
-let assinaturaEdicao = null;
-function abrir(item) {
-  if (!item) return;
-  st.atual = item; st.sel = null; st.desfazer = []; st.refazer = [];
-  st.elementos = [];
-  video.src = item.video; video.load();
-  $('#nomeProjeto').innerHTML = `<b>${esc(item.nome)}</b> · ${esc(item.sub)}`;
-  renderBib(); renderTudo();
-  try { localStorage.setItem('estudio-atual', item.id); } catch (e) {}
-  if (assinaturaEdicao) { assinaturaEdicao(); assinaturaEdicao = null; }
-  if (st.db) {
-    assinaturaEdicao = st.db.doc('edicoes/' + item.id).onSnapshot((snap) => {
-      if (snap.metadata.hasPendingWrites) return;
-      const d = snap.data();
-      if (d && Array.isArray(d.elementos) && !arrastando) { st.elementos = d.elementos.map((x) => ({...x})); st.edStatus = d.status || ''; renderTudo(); }
-    }, () => {});
-  } else {
-    try { st.elementos = JSON.parse(localStorage.getItem('estudio-el-' + item.id) || '[]'); } catch (e) {}
-    renderTudo();
+/* ---------- estado ---------- */
+const st = {painel: 'modelos', aba: 'prop', grupo: 'Todos', atual: null, ed: null, sel: null, pedidos: [], novos: [], projetos: [], midia: [], versoes: [],
+  zoom: 60, dur: 1, desfazer: [], refazer: [], db: null, assets: null, marcando: null, corte: null, ferramenta: 'selecao', ima: true,
+  som: true, loop: false, enquadrar: false, thumbs: [], picos: null, shuttle: 1, tAnt: 0, ocultas: {}};
+const video = $('#video'), camada = $('#camada'), mira = $('#mira'), monitor = $('#monitor');
+
+function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 2200); }
+function tcode(s) { s = Math.max(0, s || 0); const f = Math.floor((s % 1) * FPS + 1e-6); const ss = Math.floor(s) % 60, m = Math.floor(s / 60);
+  return `${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')}:${String(f).padStart(2, '0')}`; }
+function status(t, c) { const el = $('#status'); el.textContent = t; el.className = 'status ' + (c || ''); }
+const agora = () => video.currentTime || 0;
+const quadro = (t) => Math.round(t * FPS) / FPS;
+
+/* ---------- edição (documento salvo no banco) ---------- */
+function kitAtual() { return KITS[st.ed && st.ed.perfil] || KITS.padrao || Object.values(KITS)[0] || {fonte: 'Poppins', destaque: '#FFD52E', cor: '#FFFFFF', contorno: '#000000', caixa_alta: true}; }
+function perfilDoModelo(m) {
+  const e = (m && m.estilo) || '';
+  if (KITS[e]) return e;
+  return 'constitucionalgabaritado';
+}
+function edNova(item) {
+  const perfil = perfilDoModelo(item.modelo);
+  const k = KITS[perfil] || {};
+  return {v: 2, perfil, formato: '9:16', enquadre: {modo: 'preencher', x: .5, y: .5, fundo: 'desfoque'},
+    segmentos: [], elementos: [], marcadores: [], inOut: null,
+    legendas: {ativo: false, estilo: 'pop', fonte: fonteDoKit(k.fonte), cor: k.cor || '#FFFFFF', destaque: k.destaque || '#FFD52E', contorno: k.contorno || '#000000',
+      caixaAlta: k.caixa_alta !== false, tam: 1, y: .72, porBloco: 3, semPontuacao: true, blocos: []},
+    audio: {volOriginal: 1, mudo: false, musica: null, sfx: [], narracoes: [], previaVoz: false},
+    efeitos: {grao: 0, vinheta: 0, barras: false, nitidez: 0}};
+}
+function migrar(d, item) {
+  const ed = edNova(item);
+  if (d && d.v === 2) return {...ed, ...d, enquadre: {...ed.enquadre, ...(d.enquadre || {})}, legendas: {...ed.legendas, ...(d.legendas || {})},
+    audio: {...ed.audio, ...(d.audio || {})}, efeitos: {...ed.efeitos, ...(d.efeitos || {})}};
+  if (d && Array.isArray(d.elementos)) {   // versão 1 do editor
+    const est = {titulo: 'Archivo Expanded', legenda: 'Archivo Expanded', selo: 'Poppins', caixa: 'Poppins', cta: 'Archivo Expanded'};
+    ed.elementos = d.elementos.map((e) => ({...elBase(e.tipo), ...e, anim: {entra: e.animacao === 'deslizar' ? 'subir' : (e.animacao || 'pop'), sai: 'fade', dur: .35},
+      ...(e.tipo === 'texto' ? {fonte: est[e.estilo] || 'Poppins', fundo: ['selo', 'cta'].includes(e.estilo) ? e.cor : e.estilo === 'caixa' ? '#FFFFFF' : '',
+        cor: ['selo', 'cta'].includes(e.estilo) ? (claro(e.cor) ? '#111111' : '#FFFFFF') : e.estilo === 'caixa' ? '#111111' : e.cor,
+        contorno: e.estilo === 'legenda' ? '#000000' : '', maiusc: e.estilo !== 'caixa' && e.estilo !== 'selo'} : {})}));
   }
+  return ed;
 }
-video.addEventListener('loadedmetadata', () => {
-  st.dur = video.duration || 1;
-  const r = (video.videoWidth || 9) / (video.videoHeight || 16);
-  const mon = $('#monitor'); mon.style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
-  mon.style.height = r > 1 ? 'auto' : ''; mon.style.width = r > 1 ? 'min(100%, 980px)' : '';
-  if (st.zoom * st.dur < $('#pista').clientWidth - 20) { st.zoom = Math.max(20, ($('#pista').clientWidth - 20) / st.dur); $('#zoom').value = Math.min(240, st.zoom); }
-  renderTempo();
-});
+function elBase(tipo) {
+  return {id: uid(), tipo, inicio: 0, fim: 2.5, x: .5, y: .3, escala: 1, rot: 0, op: 1, kf: [], anim: {entra: 'pop', sai: 'fade', dur: .35}, oculto: false, travado: false};
+}
+function garantirSegmentos() {
+  const ed = st.ed; if (!ed) return;
+  if (!ed.segmentos.length && st.dur > 0.2) ed.segmentos = [novoSeg(0, st.dur)];
+  if (ed.segmentos.length) { ed.segmentos.sort((a, b) => a.ini - b.ini); ed.segmentos[ed.segmentos.length - 1].fim = Math.max(ed.segmentos[ed.segmentos.length - 1].fim, Math.min(st.dur, ed.segmentos[ed.segmentos.length - 1].fim)); }
+}
+function novoSeg(ini, fim) { return {id: uid(), ini: r2(ini), fim: r2(fim), vel: 1, vol: 1, fora: false, trans: 'corte', cor: {preset: 'natural', brilho: 0, contraste: 0, sat: 0, temp: 0}, zoom: {de: 1, para: 1, x: .5, y: .5}}; }
+function segAt(t) { const s = st.ed ? st.ed.segmentos : []; return s.find((x) => t >= x.ini && t < x.fim) || s[s.length - 1]; }
+function duracaoFinal() { return (st.ed ? st.ed.segmentos : []).filter((s) => !s.fora).reduce((a, s) => a + (s.fim - s.ini) / (s.vel || 1), 0); }
 
-/* ---------- elementos: estado, desfazer, salvar ---------- */
-function snapshot() { st.desfazer.push(JSON.stringify(st.elementos)); if (st.desfazer.length > 60) st.desfazer.shift(); st.refazer = []; }
-function desfazer() { if (!st.desfazer.length) return; st.refazer.push(JSON.stringify(st.elementos)); st.elementos = JSON.parse(st.desfazer.pop()); salvar(); renderTudo(); }
-function refazer() { if (!st.refazer.length) return; st.desfazer.push(JSON.stringify(st.elementos)); st.elementos = JSON.parse(st.refazer.pop()); salvar(); renderTudo(); }
+/* desfazer / refazer: o documento inteiro */
+function snapshot() { if (!st.ed) return; st.desfazer.push(JSON.stringify(st.ed)); if (st.desfazer.length > 80) st.desfazer.shift(); st.refazer = []; }
+function desfazer() { if (!st.desfazer.length) return; st.refazer.push(JSON.stringify(st.ed)); st.ed = JSON.parse(st.desfazer.pop()); salvar(); renderTudo(); toast('Desfeito'); }
+function refazer() { if (!st.refazer.length) return; st.desfazer.push(JSON.stringify(st.ed)); st.ed = JSON.parse(st.refazer.pop()); salvar(); renderTudo(); }
 $('#desfazer').onclick = desfazer; $('#refazer').onclick = refazer;
 
-let gravando = false, deNovo = false;
-async function salvar() {
-  if (!st.atual) return;
-  if (!st.db) { try { localStorage.setItem('estudio-el-' + st.atual.id, JSON.stringify(st.elementos)); } catch (e) {} status('salvo neste navegador', 'off'); return; }
+let gravando = false, deNovo = false, statusEd = 'editando';
+function docEdicao(extra) {
+  return {...st.ed, video: st.atual.id, nome: st.atual.nome, arquivo: st.atual.video, atualizado: new Date().toISOString(), status: statusEd, ...(extra || {})};
+}
+function salvar() {
+  if (!st.atual || !st.ed) return;
+  if (!st.db) { try { localStorage.setItem('estudio2-' + st.atual.id, JSON.stringify(st.ed)); } catch (e) {} status('salvo neste navegador', 'off'); return; }
   clearTimeout(salvar.t);
+  status('alterado', 'salvando');
   salvar.t = setTimeout(async () => {
     if (gravando) { deNovo = true; return; }
     gravando = true; status('salvando…', 'salvando');
-    try {
-      await st.db.doc('edicoes/' + st.atual.id).set({video: st.atual.id, nome: st.atual.nome, arquivo: st.atual.video, elementos: st.elementos, atualizado: new Date().toISOString(), status: st.edStatus === 'render-pedido' ? 'render-pedido' : 'editando'});
-      status('salvo', 'ok');
-    } catch (e) { status(e && e.code === 'permission_denied' ? 'só leitura' : 'não salvou', 'off'); }
+    try { await st.db.doc('edicoes/' + st.atual.id).set(docEdicao()); status('salvo', 'ok'); }
+    catch (e) { status(e && e.code === 'permission_denied' ? 'só leitura' : 'não salvou', 'off'); }
     gravando = false;
     if (deNovo) { deNovo = false; salvar(); }
-  }, 600);
+  }, 700);
 }
+function mudar(fn) { snapshot(); fn(); salvar(); renderTudo(); }
 
-function novoElemento(base) {
+/* ---------- trilho de ferramentas e painel esquerdo ---------- */
+const PAINEIS = [['modelos', '▦', 'Modelos'], ['projetos', '🎬', 'Projetos'], ['midia', '🖼', 'Mídia'], ['texto', 'T', 'Texto'], ['elementos', '✦', 'Elementos'],
+  ['legendas', '💬', 'Legendas'], ['audio', '♫', 'Áudio'], ['efeitos', '✺', 'Efeitos'], ['transicoes', '⇄', 'Transições']];
+function renderTrilho() {
+  $('#trilho').innerHTML = PAINEIS.map(([k, ic, n]) => `<button data-painel="${k}" aria-selected="${st.painel === k}" title="${n}"><span>${ic}</span>${n}</button>`).join('');
+}
+$('#trilho').addEventListener('click', (e) => { const b = e.target.closest('[data-painel]'); if (!b) return; st.painel = b.dataset.painel; renderTrilho(); renderEsq(); });
+
+function itensBib() {
+  if (st.painel === 'modelos') return MODELOS.map((m) => ({id: m.id, nome: m.nome, sub: m.grupo, poster: 'videos/' + m.poster, video: 'videos/' + m.video, grupo: m.grupo, modelo: m}));
+  return st.projetos.map((p) => ({id: 'proj-' + p.id, nome: p.titulo || p.id, sub: p.status || 'projeto', poster: p.poster || '', video: p.video, grupo: 'Projeto', projeto: p}));
+}
+const TEXTOS_PRONTOS = [
+  {n: 'Título forte', f: (k) => ({texto: 'SEU TÍTULO', fonte: fonteDoKit(k.fonte), cor: '#FFFFFF', contorno: '', sombra: true, maiusc: true, y: .2, escala: 1.1})},
+  {n: 'Destaque', f: (k) => ({texto: 'PALAVRA *CHAVE*', fonte: fonteDoKit(k.fonte), cor: '#FFFFFF', destaque: k.destaque, contorno: '#000000', maiusc: true, y: .7})},
+  {n: 'Selo do artigo', f: (k) => ({texto: 'Art. 5º, LXIX', fonte: 'Poppins', cor: claro(k.destaque) ? '#111111' : '#FFFFFF', fundo: k.destaque, raio: 1, maiusc: false, y: .14, escala: .75})},
+  {n: 'Nome (lower third)', f: (k) => ({texto: 'Líbero Filho\nProfessor de Constitucional', fonte: 'Poppins', cor: '#111111', fundo: '#FFFFFF', raio: .3, maiusc: false, alinhar: 'left', x: .34, y: .8, escala: .7, anim: {entra: 'esquerda', sai: 'fade', dur: .4}})},
+  {n: 'Pergunta', f: (k) => ({texto: 'VOCÊ SABIA?', fonte: 'Archivo Expanded', cor: '#111111', fundo: '#FFD52E', raio: .2, maiusc: true, y: .18, escala: .9, rot: -3})},
+  {n: 'Chamada (CTA)', f: (k) => ({texto: 'COMENTA "MS"', fonte: 'Archivo Expanded', cor: claro(k.destaque) ? '#111111' : '#FFFFFF', fundo: k.destaque, raio: 1, maiusc: true, y: .84, escala: .85, anim: {entra: 'quicar', sai: 'fade', dur: .45}})},
+  {n: 'Citação (documentário)', f: () => ({texto: 'ódio e nojo', fonte: 'Instrument Serif', cor: '#FFFFFF', sombra: true, maiusc: false, y: .45, escala: 1.4, anim: {entra: 'fade', sai: 'fade', dur: .3}})},
+  {n: 'Prazo / número', f: (k) => ({texto: '120 DIAS', fonte: 'Big Shoulders', cor: k.destaque, contorno: '#000000', maiusc: true, y: .35, escala: 1.6, anim: {entra: 'zoom', sai: 'encolher', dur: .35}})},
+  {n: 'Digitando', f: () => ({texto: 'O STF decidiu que…', fonte: 'Mono', cor: '#FFFFFF', fundo: '#111111', raio: .2, maiusc: false, y: .3, escala: .7, anim: {entra: 'digitar', sai: 'fade', dur: 1.2}})},
+  {n: 'Legenda manual', f: (k) => ({texto: 'texto da legenda', fonte: fonteDoKit(k.fonte), cor: k.cor || '#FFFFFF', contorno: k.contorno || '#000000', maiusc: k.caixa_alta !== false, y: .72, escala: .8, anim: {entra: 'pop', sai: 'nenhuma', dur: .2}})},
+];
+function renderEsq() {
+  const P = $('#painelEsq'); const nome = (PAINEIS.find((p) => p[0] === st.painel) || [])[2]; $('#cabEsq').textContent = nome;
+  const k = kitAtual();
+  if (st.painel === 'modelos' || st.painel === 'projetos') {
+    const grupos = ['Todos', ...new Set(MODELOS.map((m) => m.grupo))];
+    const lista = itensBib().filter((i) => st.painel !== 'modelos' || st.grupo === 'Todos' || i.grupo === st.grupo);
+    P.innerHTML = (st.painel === 'modelos' ? `<div class="filtros">${grupos.map((g) => `<button class="chip" aria-pressed="${g === st.grupo}" data-g="${esc(g)}">${esc(g)}</button>`).join('')}</div>` : '')
+      + (lista.length ? lista.map((i) => `<button class="cartao" data-abrir="${esc(i.id)}" aria-current="${st.atual && st.atual.id === i.id}">
+        ${i.poster ? `<img src="${esc(i.poster)}" alt="" loading="lazy">` : '<img alt="">'}<div><b>${esc(i.nome)}</b><span>${esc(i.sub)}</span></div></button>`).join('')
+        : `<div class="vazio">${st.painel === 'projetos' ? 'Seus vídeos editados aparecem aqui quando o Claude entregar um render.' : 'Nenhum modelo.'}</div>`);
+    return;
+  }
+  if (!st.atual) { P.innerHTML = '<div class="vazio">Abra um modelo ou projeto primeiro.</div>'; return; }
+  if (st.painel === 'midia') {
+    P.innerHTML = `<div class="grupo"><h3>Enviar</h3>${st.assets ? `<div class="grade2">
+        <label class="add" style="cursor:pointer"><b>Imagem</b><span>foto, print, logo</span><input type="file" accept="image/*" data-up="imagem" hidden></label>
+        <label class="add" style="cursor:pointer"><b>Vídeo (b-roll)</b><span>até 20 MB</span><input type="file" accept="video/*" data-up="video" hidden></label></div>`
+        : '<div class="nota">Envio de arquivo: só para quem pode editar esta página. Ou cole o link num pedido de alteração.</div>'}</div>
+      <div class="grupo"><h3>Sua mídia <em>${st.midia.length}</em></h3>${st.midia.length ? `<div class="grade2">${st.midia.map((m) => `<button class="add" data-midia="${esc(m.id)}" title="Pôr no vídeo">
+        ${m.tipo === 'video' ? `<video src="${esc(m.url)}" muted preload="metadata" style="width:100%;height:64px;object-fit:cover;border-radius:6px"></video>` : `<img src="${esc(m.url)}" alt="" style="width:100%;height:64px;object-fit:cover;border-radius:6px">`}
+        <span>${esc(m.nome || m.tipo)}</span></button>`).join('')}</div>` : '<div class="vazio">Nada enviado ainda.</div>'}</div>
+      <div class="dica">Clique para pôr no cursor. No inspetor escolha o layout: livre, tela cheia, picture-in-picture ou tela dividida.</div>`;
+    return;
+  }
+  if (st.painel === 'texto') {
+    P.innerHTML = `<div class="grupo"><h3>Textos prontos <em>kit ${esc(NOMES_PERFIL[st.ed.perfil] || st.ed.perfil)}</em></h3><div class="grade2">${TEXTOS_PRONTOS.map((t, i) => {
+      const e = {...elBase('texto'), ...t.f(k)}; return `<button class="add" data-texto="${i}"><div class="amostra-txt">${htmlTexto(e, 14)}</div><span>${esc(t.n)}</span></button>`; }).join('')}</div></div>
+      <div class="dica">Use *asteriscos* no texto para pintar uma palavra com a cor de destaque.</div>`;
+    return;
+  }
+  if (st.painel === 'elementos') {
+    P.innerHTML = `<div class="grupo"><h3>Formas e marcas</h3><div class="grade3">${Object.entries(FORMAS).map(([f, n]) => `<button class="add" data-forma="${f}" title="${n}"><div class="forma-ic">${svgForma({forma: f, cor: '#FFFFFF', espessura: 6, texto: 'Oi!', de: 0, ate: 9}, 1, 46)}</div><span>${n}</span></button>`).join('')}</div></div>
+      <div class="grupo"><h3>Emojis</h3><div class="emojis">${EMOJIS.map((e) => `<button data-emoji="${e}">${e}</button>`).join('')}</div></div>
+      <div class="grupo"><h3>Personagens</h3><div class="pers">${PERSONAGENS.map((p) => `<button data-pers="${esc(p)}" title="${esc(p)}"><img src="personagens/${esc(p)}.png" alt="${esc(p)}" loading="lazy"></button>`).join('')}</div></div>`;
+    return;
+  }
+  if (st.painel === 'legendas') {
+    const L = st.ed.legendas, tem = (st.atual.modelo && st.atual.modelo.palavras || []).length;
+    P.innerHTML = `<div class="grupo"><h3>Legenda automática</h3>
+        <div class="nota">${tem ? `A fala deste vídeo já está transcrita (${tem} palavras). Gere a legenda e edite bloco a bloco.` : 'Este vídeo não tem fala transcrita. Adicione blocos à mão ou peça a legenda no render.'}</div>
+        <button class="btn prim" id="gerarLeg" ${tem ? '' : 'disabled'}>Gerar legenda da fala</button>
+        <button class="btn" id="blocoLeg">+ Bloco no cursor</button>
+        <label class="check"><input type="checkbox" id="legAtivo" ${L.ativo ? 'checked' : ''}> Mostrar legenda</label></div>
+      <div class="grupo"><h3>Estilo</h3><div class="grade2">${Object.entries(LEG_ESTILOS).map(([e, n]) => `<button class="add" data-legest="${e}" style="${L.estilo === e ? 'border-color:var(--leg)' : ''}"><div class="amostra-txt">${amostraLeg(e)}</div><span>${n}</span></button>`).join('')}</div></div>`;
+    $('#gerarLeg').onclick = gerarLegenda;
+    $('#blocoLeg').onclick = () => mudar(() => { const t = agora(); const b = {id: uid(), t0: r2(t), t1: r2(Math.min(st.dur, t + 1.2)), texto: 'TEXTO'}; L.blocos.push(b); L.blocos.sort((a, c) => a.t0 - c.t0); L.ativo = true; st.sel = {tipo: 'leg', id: b.id}; });
+    $('#legAtivo').onchange = (e) => mudar(() => { L.ativo = e.target.checked; });
+    return;
+  }
+  if (st.painel === 'audio') {
+    const A = st.ed.audio;
+    P.innerHTML = `<div class="grupo"><h3>Trilha</h3><div class="grade2">${Object.entries(MUSICAS).map(([m, n]) => `<button class="add" data-musica="${m}" style="${A.musica && A.musica.preset === m ? 'border-color:var(--aud)' : ''}"><b>♫ ${esc(n.split(' (')[0])}</b><span>${esc((n.split('(')[1] || '').replace(')', ''))}</span></button>`).join('')}</div>
+        ${A.musica ? '<button class="btn perigo" id="tiraMusica">Tirar trilha</button>' : ''}
+        <div class="dica">Prévia sintetizada aqui; no render entra a trilha escolhida, com volume baixando sob a fala (ducking).</div></div>
+      <div class="grupo"><h3>Efeitos sonoros <em>no cursor</em></h3><div class="grade3">${Object.entries(SFX).map(([s, n]) => `<button class="add" data-sfx="${s}"><b>${n}</b></button>`).join('')}</div></div>
+      <div class="grupo"><h3>Narração com a sua voz</h3>
+        <label class="campo">Texto a narrar no cursor<textarea id="narTexto" placeholder="O Claude gera com a sua voz clonada e encaixa aqui."></textarea></label>
+        <button class="btn prim" id="narAdd">+ Narração no cursor</button>
+        <label class="check"><input type="checkbox" id="narPrevia" ${A.previaVoz ? 'checked' : ''}> Prévia com a voz do navegador</label></div>
+      <div class="grupo"><h3>Áudio original</h3>
+        <label class="campo"><span class="rotval">Volume <span class="val">${Math.round(A.volOriginal * 100)}%</span></span><input type="range" min="0" max="2" step="0.05" id="volOrig" value="${A.volOriginal}"></label>
+        <label class="check"><input type="checkbox" id="mudoOrig" ${A.mudo ? 'checked' : ''}> Silenciar o áudio do vídeo</label></div>`;
+    const tm = $('#tiraMusica'); if (tm) tm.onclick = () => mudar(() => { A.musica = null; st.sel = null; });
+    $('#narAdd').onclick = () => { const tx = $('#narTexto').value.trim(); if (!tx) { toast('Escreva o texto da narração'); return; } mudar(() => { const n = {id: uid(), t: r2(agora()), texto: tx, vol: 1}; A.narracoes.push(n); st.sel = {tipo: 'nar', id: n.id}; }); };
+    $('#narPrevia').onchange = (e) => mudar(() => { A.previaVoz = e.target.checked; });
+    $('#volOrig').oninput = (e) => { A.volOriginal = +e.target.value; e.target.previousElementSibling.querySelector('.val').textContent = Math.round(A.volOriginal * 100) + '%'; salvar(); };
+    $('#mudoOrig').onchange = (e) => mudar(() => { A.mudo = e.target.checked; });
+    return;
+  }
+  if (st.painel === 'efeitos') {
+    const s = selSeg(), E = st.ed.efeitos;
+    P.innerHTML = `<div class="grupo"><h3>Cor <em>${s ? 'no trecho selecionado' : 'em todos os trechos'}</em></h3><div class="grade2">${Object.keys(CORES_VIDEO).map((c) => `<button class="add" data-cor-preset="${c}"><div class="amostra-txt" style="padding:0"><img src="videos/${esc(st.atual.modelo ? st.atual.modelo.poster : '')}" alt="" style="width:100%;height:54px;object-fit:cover;filter:${filtroCor({preset: c, brilho: 0, contraste: 0, sat: 0, temp: 0})}"></div><span>${c}</span></button>`).join('')}</div></div>
+      <div class="grupo"><h3>Por cima do vídeo</h3>
+        <label class="campo"><span class="rotval">Grão de filme <span class="val">${Math.round(E.grao * 100)}%</span></span><input type="range" min="0" max="1" step="0.05" data-ef="grao" value="${E.grao}"></label>
+        <label class="campo"><span class="rotval">Vinheta <span class="val">${Math.round(E.vinheta * 100)}%</span></span><input type="range" min="0" max="1" step="0.05" data-ef="vinheta" value="${E.vinheta}"></label>
+        <label class="check"><input type="checkbox" data-ef="barras" ${E.barras ? 'checked' : ''}> Barras de cinema</label></div>`;
+    return;
+  }
+  if (st.painel === 'transicoes') {
+    P.innerHTML = `<div class="grupo"><h3>Transição na entrada do trecho</h3><div class="nota">Divida o vídeo (S ou ✂) e selecione um trecho; a transição entra no começo dele.</div>
+      <div class="grade2">${Object.entries(TRANSICOES).map(([t, n]) => `<button class="add" data-trans="${t}"><b>${n}</b><span>${t === 'corte' ? 'sem efeito' : '0,3 s'}</span></button>`).join('')}</div>
+      <button class="btn" id="transTodos">Aplicar a todos os cortes</button></div>`;
+    $('#transTodos').onclick = () => { const t = (selSeg() || {}).trans || 'fade'; mudar(() => st.ed.segmentos.forEach((s, i) => { if (i) s.trans = t; })); toast('Transição em todos os cortes'); };
+  }
+}
+$('#painelEsq').addEventListener('click', (e) => {
+  const g = e.target.closest('[data-g]'); if (g) { st.grupo = g.dataset.g; renderEsq(); return; }
+  const a = e.target.closest('[data-abrir]'); if (a) { abrir(itensBib().find((i) => i.id === a.dataset.abrir)); return; }
+  if (!st.ed) return;
+  const k = kitAtual();
+  const tx = e.target.closest('[data-texto]'); if (tx) { const t = TEXTOS_PRONTOS[+tx.dataset.texto]; novoEl('texto', {...t.f(k)}); return; }
+  const fo = e.target.closest('[data-forma]'); if (fo) { const f = fo.dataset.forma; novoEl('forma', {forma: f, cor: f === 'marca' ? '#FFD52E' : f === 'check' ? '#2BD576' : f === 'xis' ? '#FF3B30' : k.destaque || '#FF5A36', espessura: 6, texto: f === 'balao' ? 'Oi!' : '', de: 0, ate: 100, y: .45, anim: {entra: ['circulo', 'seta', 'sublinhado', 'retangulo', 'check', 'xis'].includes(f) ? 'desenhar' : 'pop', sai: 'fade', dur: .45}}); return; }
+  const em = e.target.closest('[data-emoji]'); if (em) { novoEl('emoji', {emoji: em.dataset.emoji, y: .4}); return; }
+  const pe = e.target.closest('[data-pers]'); if (pe) { const [p, pose] = pe.dataset.pers.split('-'); novoEl('personagem', {personagem: p, pose, x: .76, y: .76, balao: '', espelhar: false, anim: {entra: 'subir', sai: 'descer', dur: .4}}); return; }
+  const md = e.target.closest('[data-midia]'); if (md) { const m = st.midia.find((x) => x.id === md.dataset.midia); if (m) novoEl(m.tipo === 'video' ? 'video' : 'imagem', {url: m.url, assetId: m.assetId, layout: 'livre', moldura: 'borda', y: .38, vol: 0}); return; }
+  const ls = e.target.closest('[data-legest]'); if (ls) { mudar(() => { st.ed.legendas.estilo = ls.dataset.legest; st.ed.legendas.ativo = true; if (ls.dataset.legest === 'vox') st.ed.legendas.fonte = 'Instrument Serif'; }); return; }
+  const mu = e.target.closest('[data-musica]'); if (mu) { mudar(() => { st.ed.audio.musica = {...(st.ed.audio.musica || {ini: 0, fim: st.dur, vol: .35, fadeIn: 1, fadeOut: 1.5, ducking: true}), preset: mu.dataset.musica}; st.sel = {tipo: 'mus'}; }); return; }
+  const sf = e.target.closest('[data-sfx]'); if (sf) { mudar(() => { const s = {id: uid(), t: r2(agora()), tipo: sf.dataset.sfx, vol: .7}; st.ed.audio.sfx.push(s); st.sel = {tipo: 'sfx', id: s.id}; }); tocarSfx(sf.dataset.sfx, .7); return; }
+  const cp = e.target.closest('[data-cor-preset]'); if (cp) { const s = selSeg(); mudar(() => (s ? [s] : st.ed.segmentos).forEach((x) => { x.cor = {preset: cp.dataset.corPreset, brilho: 0, contraste: 0, sat: 0, temp: 0}; })); toast(s ? 'Cor no trecho' : 'Cor em todos os trechos'); return; }
+  const tr = e.target.closest('[data-trans]'); if (tr) { const s = selSeg(); if (!s) { toast('Selecione um trecho do vídeo na linha do tempo'); return; } mudar(() => { s.trans = tr.dataset.trans; }); previewTrans(s); return; }
+});
+$('#painelEsq').addEventListener('input', (e) => {
+  const ef = e.target.dataset.ef; if (!ef || !st.ed) return;
+  st.ed.efeitos[ef] = e.target.type === 'checkbox' ? e.target.checked : +e.target.value;
+  const v = e.target.closest('label').querySelector('.val'); if (v) v.textContent = Math.round(+e.target.value * 100) + '%';
+  salvar();
+});
+$('#painelEsq').addEventListener('change', async (e) => {
+  const up = e.target.dataset.up; if (!up) return;
+  const f = e.target.files[0]; if (!f) return;
+  status('enviando…', 'salvando');
+  try {
+    const a = await st.assets.upload(f);
+    const m = {tipo: up, assetId: a.id, url: a.url, nome: f.name.slice(0, 40), criado: new Date().toISOString()};
+    if (st.db) { const r = await st.db.collection('midia').add(m); m.id = r && r.id || uid(); } else m.id = uid();
+    if (!st.db) st.midia.push(m);
+    novoEl(up === 'video' ? 'video' : 'imagem', {url: a.url, assetId: a.id, layout: 'livre', moldura: 'borda', y: .38, vol: 0});
+    status('salvo', 'ok');
+  } catch (er) { status('não enviou', 'off'); toast(er && er.code === 'unsupported_type' ? 'Tipo de arquivo não aceito' : er && er.code === 'too_large' ? 'Arquivo grande demais (máx. 20 MB)' : 'Não deu para enviar'); }
+});
+
+/* ---------- abrir um vídeo ---------- */
+let assinaturaEdicao = null;
+function abrir(item) {
+  if (!item) return;
+  st.atual = item; st.sel = null; st.desfazer = []; st.refazer = []; st.thumbs = []; st.picos = null; statusEd = 'editando';
+  st.ed = edNova(item); st.dur = (item.modelo && item.modelo.dur) || 1;
+  video.src = item.video; video.load();
+  $('#nomeProjeto').innerHTML = `<b>${esc(item.nome)}</b> · ${esc(item.sub)}`;
+  try { localStorage.setItem('estudio-atual', item.id); } catch (e) {}
+  if (assinaturaEdicao) { assinaturaEdicao(); assinaturaEdicao = null; }
+  if (st.db) {
+    let primeira = true;
+    assinaturaEdicao = st.db.doc('edicoes/' + item.id).onSnapshot((snap) => {
+      if (snap.metadata && snap.metadata.hasPendingWrites) return;
+      const d = snap.data();
+      if (d && !arrasto) { st.ed = migrar(d, item); statusEd = d.status || 'editando'; garantirSegmentos(); renderTudo(); }
+      else if (primeira) { garantirSegmentos(); renderTudo(); }
+      primeira = false;
+    }, () => {});
+    st.db.collection('versoes').where('video', '==', item.id).onSnapshot((s) => { st.versoes = s.docs.map((d) => ({id: d.id, ...d.data()})); if ($('#versoes').open) renderVersoes(); }, () => {});
+  } else {
+    try { const d = JSON.parse(localStorage.getItem('estudio2-' + item.id) || 'null'); if (d) st.ed = migrar(d, item); } catch (e) {}
+  }
+  renderEsq(); renderTudo();
+}
+video.addEventListener('loadedmetadata', () => {
+  st.dur = video.duration || st.dur || 1;
+  garantirSegmentos();
+  ajustarMonitor(); ajustarZoom(); renderTudo();
+  gerarMiniaturas(); gerarOnda();
+});
+function ajustarMonitor() {
+  const ar = FORMATO_AR[(st.ed && st.ed.formato) || '9:16'];
+  monitor.style.aspectRatio = `${ar[0]} / ${ar[1]}`;
+  monitor.classList.toggle('largo', ar[0] > ar[1]);
+  $('#formatoSel').value = (st.ed && st.ed.formato) || '9:16';
+}
+function ajustarZoom() { const w = $('#pista').clientWidth - 30; st.zoom = clamp(w / Math.max(1, st.dur), 8, 400); $('#zoom').value = st.zoom; }
+
+/* miniaturas do vídeo (tira de filme na trilha V1) */
+async function gerarMiniaturas() {
+  const alvo = st.atual; const v = document.createElement('video'); v.muted = true; v.preload = 'auto'; v.src = video.currentSrc || video.src;
+  await new Promise((ok) => { v.onloadeddata = ok; v.onerror = ok; setTimeout(ok, 8000); });
+  if (!v.videoWidth) return;
+  const n = clamp(Math.ceil(st.dur / 1.2), 6, 48), passo = st.dur / n, H = 64, W = Math.round(H * v.videoWidth / v.videoHeight);
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const cx = cv.getContext('2d');
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    if (st.atual !== alvo) return;
+    v.currentTime = Math.min(st.dur - 0.05, i * passo + passo / 2);
+    await new Promise((ok) => { v.onseeked = ok; setTimeout(ok, 2500); });
+    try { cx.drawImage(v, 0, 0, W, H); out.push({t: i * passo, d: passo, url: cv.toDataURL('image/jpeg', .55)}); } catch (e) { return; }
+    if (i % 6 === 5) { st.thumbs = out.slice(); renderTempo(); }
+  }
+  st.thumbs = out; renderTempo();
+}
+/* forma de onda do áudio (trilha A1) e picos para o ducking da prévia */
+async function gerarOnda() {
+  const alvo = st.atual;
+  try {
+    const buf = await (await fetch(video.currentSrc || video.src)).arrayBuffer();
+    const ctx = new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, 44100, 44100);
+    const au = await ctx.decodeAudioData(buf);
+    if (st.atual !== alvo) return;
+    const d = au.getChannelData(0), por = Math.max(1, Math.floor(au.sampleRate / 50)), picos = new Float32Array(Math.ceil(d.length / por));
+    for (let i = 0; i < picos.length; i++) { let m = 0; for (let j = i * por, f = Math.min(d.length, j + por); j < f; j += 4) { const a = Math.abs(d[j]); if (a > m) m = a; } picos[i] = m; }
+    let mx = 0; for (const p of picos) if (p > mx) mx = p; if (mx > 0) for (let i = 0; i < picos.length; i++) picos[i] /= mx;
+    st.picos = picos; renderTempo();
+  } catch (e) { st.picos = null; }
+}
+const picoEm = (t) => st.picos ? st.picos[clamp(Math.floor(t * 50), 0, st.picos.length - 1)] || 0 : 0;
+
+/* ---------- elementos ---------- */
+function novoEl(tipo, base) {
+  if (!st.ed) return;
   snapshot();
-  const t = video.currentTime || 0;
-  const el = {id: uid(), inicio: +t.toFixed(2), fim: +Math.min(st.dur, t + 2.5).toFixed(2), x: 0.5, y: 0.3, escala: 1, animacao: 'pop', ...base};
-  st.elementos.push(el); st.sel = el.id; st.aba = 'prop';
+  const t = agora();
+  const anim = {entra: 'pop', sai: 'fade', dur: .35, ...(base.anim || {})};
+  const el = {...elBase(tipo), inicio: r2(t), fim: r2(Math.min(st.dur, t + 2.5)), ...base, anim};
+  if (tipo === 'texto') Object.assign(el, {fonte: 'Poppins', cor: '#FFFFFF', destaque: kitAtual().destaque || '#FFD52E', fundo: '', raio: .3, contorno: '', espContorno: .06, sombra: true, alinhar: 'center', maiusc: true, espac: 0, ...base, anim});
+  st.ed.elementos.push(el); st.sel = {tipo: 'el', id: el.id}; st.aba = 'prop';
   salvar(); renderTudo();
 }
-
-/* ---------- monitor: desenha os elementos no tempo atual ---------- */
-function easeBack(t) { const c = 1.7; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); }
-function renderCamada() {
-  const t = video.currentTime || 0;
-  const w = camada.clientWidth || 1;
-  const vis = st.elementos.filter((e) => t >= e.inicio && t <= e.fim || e.id === st.sel && video.paused);
-  camada.innerHTML = vis.map((e) => {
-    const lt = t - e.inicio, rest = e.fim - t;
-    let tr = '', op = 1;
-    // pausado mostra o elemento pronto (para editar); a animação aparece ao tocar
-    const k = video.paused ? 1 : Math.min(1, Math.max(0, lt / 0.35));
-    if (e.animacao === 'pop') tr = `scale(${0.2 + 0.8 * easeBack(k)})`;
-    if (e.animacao === 'deslizar') { tr = `translateY(${(1 - k) * 40}%)`; op = k; }
-    if (e.animacao === 'fade') op = k;
-    if (rest < 0.2) op *= Math.max(0, rest / 0.2);
-    if (t < e.inicio || t > e.fim) op = 0.35;
-    let corpo = '', estilo = '';
-    if (e.tipo === 'texto') { const s = ESTILOS[e.estilo] || ESTILOS.titulo; estilo = s.css(e) + `;font-size:${(s.tam * e.escala * w / 100).toFixed(1)}px;max-width:${(w * 0.9).toFixed(0)}px`; corpo = esc(e.texto); }
-    if (e.tipo === 'emoji') { estilo = `font-size:${(12 * e.escala * w / 100).toFixed(1)}px;line-height:1`; corpo = esc(e.emoji); }
-    if (e.tipo === 'personagem') { estilo = `width:${(34 * e.escala * w / 100).toFixed(1)}px`; corpo = `<img src="personagens/${esc(e.personagem)}-${esc(e.pose)}.png" alt="" draggable="false" style="width:100%;display:block">`; }
-    if (e.tipo === 'imagem') { estilo = `width:${(45 * e.escala * w / 100).toFixed(1)}px;border:${(w / 120).toFixed(1)}px solid #fff;border-radius:${(w / 60).toFixed(1)}px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.5)`; corpo = `<img src="${esc(e.url)}" alt="" draggable="false" style="width:100%;display:block">`; }
-    return `<div class="el${e.id === st.sel ? ' sel' : ''}" data-el="${e.id}" style="left:${e.x * 100}%;top:${e.y * 100}%;opacity:${op};transform:translate(-50%,-50%) ${tr};${estilo}">${corpo}<span class="alca" data-alca="${e.id}"></span></div>`;
-  }).join('') + st.pedidos.filter((p) => p.video === (st.atual && st.atual.id) && p.x != null && Math.abs(p.t - t) < 0.6)
-    .map((p, i) => `<div class="marca" style="left:${p.x * 100}%;top:${p.y * 100}%">!</div>`).join('');
+function elSel() { return st.sel && st.sel.tipo === 'el' ? st.ed.elementos.find((x) => x.id === st.sel.id) : null; }
+function selSeg() { return st.sel && st.sel.tipo === 'seg' ? st.ed.segmentos.find((x) => x.id === st.sel.id) : null; }
+function definir(e, t, patch) {
+  if (e.kf && e.kf.length) {
+    let k = e.kf.find((x) => Math.abs(x.t - t) < 0.5 / FPS);
+    if (!k) { k = {...propsEm(e, t), t: quadro(t)}; e.kf.push(k); e.kf.sort((a, c) => a.t - c.t); }
+    Object.assign(k, patch);
+  } else Object.assign(e, patch);
 }
-let arrastando = null;
+function addKf(e) {
+  const t = quadro(clamp(agora(), e.inicio, e.fim));
+  if (!e.kf) e.kf = [];
+  if (e.kf.some((x) => Math.abs(x.t - t) < 0.5 / FPS)) { toast('Já tem keyframe aqui'); return; }
+  e.kf.push({...propsEm(e, t), t}); e.kf.sort((a, c) => a.t - c.t);
+  toast(e.kf.length === 1 ? 'Keyframe criado. Vá para outro tempo, mova o elemento e ele anima sozinho.' : 'Keyframe criado');
+}
+
+/* texto em HTML (com *destaque*) */
+/* formas desenhadas (SVG) */
+function rotuloEl(e) {
+  if (e.tipo === 'texto') return 'T ' + (e.texto || '').replace(/\n/g, ' ');
+  if (e.tipo === 'emoji') return e.emoji;
+  if (e.tipo === 'personagem') return '☺ ' + e.personagem;
+  if (e.tipo === 'forma') return '✦ ' + (FORMAS[e.forma] || e.forma);
+  if (e.tipo === 'video') return '🎞 b-roll';
+  return '🖼 imagem';
+}
+
+/* ---------- monitor ---------- */
+const poolVid = {};
+function renderMonitor() {
+  if (!st.ed) { camada.innerHTML = ''; return; }
+  const t = agora(), w = camada.clientWidth || 1, h = camada.clientHeight || 1;
+  const s = segAt(t), ed = st.ed;
+  // vídeo principal: enquadre, zoom do trecho, cor, transição
+  if (s) {
+    const lk = clamp((t - s.ini) / Math.max(.01, s.fim - s.ini), 0, 1);
+    let z = lerp(s.zoom.de, s.zoom.para, suave(lk)), filtro = filtroCor(s.cor), tx = 0, opT = 0, corT = '#000';
+    const lt = t - s.ini, td = .3;
+    if (s.trans && s.trans !== 'corte' && lt < td && ed.segmentos.indexOf(s) > 0) {
+      const k = clamp(lt / td, 0, 1), q = 1 - suave(k);
+      if (s.trans === 'fade') { opT = q; corT = '#000'; }
+      if (s.trans === 'flash') { opT = q; corT = '#fff'; }
+      if (s.trans === 'zoom') z *= 1 + .35 * q;
+      if (s.trans === 'desfoque') filtro += ` blur(${(q * 14).toFixed(1)}px)`;
+      if (s.trans === 'chicote') { tx = -q * 35; filtro += ` blur(${(q * 10).toFixed(1)}px)`; }
+      if (s.trans === 'deslizar') tx = q * 100;
+    }
+    const en = ed.enquadre;
+    video.style.objectFit = en.modo === 'caber' ? 'contain' : 'cover';
+    video.style.objectPosition = `${(en.x * 100).toFixed(1)}% ${(en.y * 100).toFixed(1)}%`;
+    video.style.transformOrigin = `${(s.zoom.x * 100).toFixed(1)}% ${(s.zoom.y * 100).toFixed(1)}%`;
+    video.style.transform = `translateX(${tx.toFixed(1)}%) scale(${z.toFixed(4)})`;
+    video.style.filter = filtro;
+    const tp = tempCor(s.cor);
+    $('#tinta').style.cssText = `background:${tp > 0 ? '#FF8A2A' : '#2A7BFF'};mix-blend-mode:soft-light;opacity:${Math.min(.9, Math.abs(tp) * 1.4).toFixed(3)}`;
+    $('#transicao').style.cssText = `background:${corT};opacity:${opT.toFixed(3)}`;
+    $('#fundoCaber').style.cssText = en.modo === 'caber' ? (en.fundo === 'desfoque' ? `background:#111 url("videos/${esc(st.atual.modelo ? st.atual.modelo.poster : '')}") center/cover;filter:blur(18px) brightness(.6);transform:scale(1.2)` : `background:${en.fundo || '#000'}`) : 'display:none';
+  }
+  // efeitos globais
+  const E = ed.efeitos;
+  $('#efeitos').innerHTML = htmlEfeitos(E, t);
+  // elementos
+  const ocT = st.ocultas.T, ocG = st.ocultas.G;
+  const selId = st.sel && st.sel.tipo === 'el' ? st.sel.id : null;
+  const vis = ed.elementos.filter((e) => !e.oculto && !(e.tipo === 'texto' ? ocT : ocG) && ((t >= e.inicio && t <= e.fim) || (e.id === selId && video.paused)));
+  let html = '';
+  const vids = new Set();
+  const pausado = video.paused && !arrasto && !st.forcarAnim;
+  for (const e of vis) {
+    html += htmlElemento(e, t, w, {pausado, sel: e.id === selId, editor: true, z: ed.elementos.indexOf(e)});
+    if (e.tipo === 'video') vids.add(e.id);
+  }
+  // legenda
+  const L = ed.legendas;
+  if (L.ativo && !st.ocultas.L) { const b = L.blocos.find((x) => t >= x.t0 && t <= x.t1); if (b) html += htmlLegenda(L, b, t, w, st.sel && st.sel.tipo === 'leg' && st.sel.id === b.id); }
+  // pontos dos pedidos
+  html += st.pedidos.filter((p) => p.video === st.atual.id && p.x != null && Math.abs(p.t - t) < .6).map((p) => `<div class="marca" style="left:${p.x * 100}%;top:${p.y * 100}%">!</div>`).join('');
+  camada.innerHTML = html;
+  // vídeos de b-roll: elementos <video> persistentes, sincronizados ao cursor
+  for (const id of Object.keys(poolVid)) if (!vids.has(id)) { poolVid[id].pause(); poolVid[id].style.display = 'none'; }
+  for (const id of vids) {
+    const e = ed.elementos.find((x) => x.id === id), slot = camada.querySelector(`[data-vslot="${id}"]`); if (!e || !slot) continue;
+    let v = poolVid[id];
+    if (!v) { v = document.createElement('video'); v.src = e.url; v.muted = true; v.playsInline = true; v.preload = 'auto'; v.style.cssText = 'position:absolute;object-fit:cover;pointer-events:none'; $('#camadaVid').appendChild(v); poolVid[id] = v; }
+    const r = slot.getBoundingClientRect(), mr = camada.getBoundingClientRect();
+    v.style.display = 'block'; v.style.left = (r.left - mr.left) + 'px'; v.style.top = (r.top - mr.top) + 'px'; v.style.width = r.width + 'px'; v.style.height = r.height + 'px';
+    v.style.zIndex = 1; v.muted = !(e.vol > 0) || !st.som; v.volume = clamp(e.vol || 0, 0, 1);
+    const alvo = clamp(t - e.inicio, 0, (v.duration || 999) - .05);
+    if (video.paused) { if (!v.paused) v.pause(); if (Math.abs(v.currentTime - alvo) > .05) v.currentTime = alvo; }
+    else { if (v.paused) v.play().catch(() => {}); if (Math.abs(v.currentTime - alvo) > .3) v.currentTime = alvo; }
+  }
+}
+function amostraLeg(e) {
+  const k = kitAtual(), f = FONTES[fonteDoKit(k.fonte)];
+  if (e === 'caixa') return `<span style="${f};font-size:15px;background:#fff;color:#111;padding:2px 6px;border-radius:4px">ISSO <span style="background:${esc(k.destaque)}">CAI</span></span>`;
+  if (e === 'linha') return `<span style="font:700 11px Poppins;color:#fff">isso cai na prova</span>`;
+  if (e === 'vox') return `<span style="${FONTES['Instrument Serif']};font-size:20px;color:#fff">isso cai</span>`;
+  if (e === 'palavra') return `<span style="${f};font-size:24px;color:${esc(k.destaque)};-webkit-text-stroke:1px #000">CAI</span>`;
+  if (e === 'karaoke') return `<span style="${f};font-size:16px;color:${esc(k.destaque)};-webkit-text-stroke:1px #000">ISSO CAI</span> <span style="${f};font-size:16px;color:#fff;-webkit-text-stroke:1px #000">NA PROVA</span>`;
+  return `<span style="${f};font-size:16px;color:#fff;-webkit-text-stroke:1px #000">ISSO <span style="color:${esc(k.destaque)}">CAI</span></span>`;
+}
+function gerarLegenda() {
+  const ws = (st.atual.modelo && st.atual.modelo.palavras) || []; if (!ws.length) return;
+  mudar(() => {
+    const L = st.ed.legendas, n = L.porBloco || 3, blocos = [];
+    let cur = [];
+    const fecha = () => { if (!cur.length) return; const tx = cur.map((p) => L.semPontuacao ? p.w.replace(/[.,;:!?…"]+/g, '') : p.w).join(' ');
+      blocos.push({id: uid(), t0: r2(cur[0].s), t1: r2(cur[cur.length - 1].e + .08), texto: tx, palavras: cur.map((p) => ({s: p.s, e: p.e}))}); cur = []; };
+    ws.forEach((p, i) => { const prox = ws[i + 1]; cur.push(p); if (cur.length >= n || /[.!?]$/.test(p.w) || (prox && prox.s - p.e > .35)) fecha(); });
+    fecha();
+    for (let i = 0; i < blocos.length - 1; i++) blocos[i].t1 = Math.min(blocos[i].t1, blocos[i + 1].t0);
+    L.blocos = blocos; L.ativo = true;
+  });
+  toast(`Legenda gerada: ${st.ed.legendas.blocos.length} blocos. Clique num bloco para editar.`);
+}
+
+/* arrastar no monitor: mover, escalar, girar, enquadrar, legenda */
+let arrasto = null;
 camada.addEventListener('pointerdown', (ev) => {
-  const alca = ev.target.closest('[data-alca]'), alvo = ev.target.closest('[data-el]');
-  if (!alvo) { st.sel = null; renderTudo(); return; }
-  ev.preventDefault();
-  const el = st.elementos.find((x) => x.id === alvo.dataset.el); if (!el) return;
-  st.sel = el.id; st.aba = 'prop'; snapshot();
+  if (!st.ed) return;
   const r = camada.getBoundingClientRect();
-  arrastando = {el, alca: !!alca, x0: ev.clientX, y0: ev.clientY, ex: el.x, ey: el.y, esc0: el.escala, r};
-  camada.setPointerCapture(ev.pointerId); renderInspetor(); renderCamada(); renderTempo();
+  if (st.enquadrar) { ev.preventDefault(); snapshot(); arrasto = {tipo: 'enq', x0: ev.clientX, y0: ev.clientY, ex: st.ed.enquadre.x, ey: st.ed.enquadre.y, r}; camada.setPointerCapture(ev.pointerId); return; }
+  const lg = ev.target.closest('[data-leg]');
+  if (lg) { ev.preventDefault(); snapshot(); st.sel = {tipo: 'leg', id: lg.dataset.leg}; arrasto = {tipo: 'leg', y0: ev.clientY, ey: st.ed.legendas.y, r}; camada.setPointerCapture(ev.pointerId); st.aba = 'prop'; renderInspetor(); renderTempo(); return; }
+  const alca = ev.target.closest('[data-alca]'), giro = ev.target.closest('[data-giro]'), alvo = ev.target.closest('[data-el]');
+  if (!alvo) { st.sel = null; renderTudo(); return; }
+  const el = st.ed.elementos.find((x) => x.id === alvo.dataset.el); if (!el) return;
+  st.sel = {tipo: 'el', id: el.id}; st.aba = 'prop';
+  if (el.travado) { renderInspetor(); renderTempo(); return; }
+  ev.preventDefault(); snapshot();
+  const p = propsEm(el, agora()), b = alvo.getBoundingClientRect();
+  arrasto = {tipo: alca ? 'escala' : giro ? 'giro' : 'mover', el, x0: ev.clientX, y0: ev.clientY, p, r, cx: b.left + b.width / 2, cy: b.top + b.height / 2};
+  camada.setPointerCapture(ev.pointerId); renderInspetor(); renderTempo();
 });
 camada.addEventListener('pointermove', (ev) => {
-  if (!arrastando) return;
-  const a = arrastando, dx = (ev.clientX - a.x0) / a.r.width, dy = (ev.clientY - a.y0) / a.r.height;
-  if (a.alca) a.el.escala = Math.max(0.2, Math.min(4, +(a.esc0 * (1 + (dx + dy))).toFixed(2)));
-  else { a.el.x = +Math.min(1, Math.max(0, a.ex + dx)).toFixed(3); a.el.y = +Math.min(1, Math.max(0, a.ey + dy)).toFixed(3); }
-  renderCamada();
+  if (!arrasto) return;
+  const a = arrasto, dx = (ev.clientX - a.x0) / a.r.width, dy = (ev.clientY - a.y0) / a.r.height;
+  if (a.tipo === 'enq') { st.ed.enquadre.x = r2(clamp(a.ex - dx * 1.5, 0, 1)); st.ed.enquadre.y = r2(clamp(a.ey - dy * 1.5, 0, 1)); return; }
+  if (a.tipo === 'leg') { st.ed.legendas.y = +clamp(a.ey + (ev.clientY - a.y0) / a.r.height, .05, .95).toFixed(3); return; }
+  const t = agora();
+  if (a.tipo === 'escala') definir(a.el, t, {escala: +clamp(a.p.escala * (1 + dx + dy), .1, 6).toFixed(3)});
+  else if (a.tipo === 'giro') { const ang = Math.atan2(ev.clientY - a.cy, ev.clientX - a.cx) * 180 / Math.PI + 90; definir(a.el, t, {rot: Math.round(ev.shiftKey ? Math.round(ang / 15) * 15 : ang)}); }
+  else {
+    let nx = clamp(a.p.x + dx, 0, 1), ny = clamp(a.p.y + dy, 0, 1);
+    if (st.ima) { if (Math.abs(nx - .5) < .015) nx = .5; if (Math.abs(ny - .5) < .012) ny = .5; }
+    definir(a.el, t, {x: +nx.toFixed(4), y: +ny.toFixed(4)});
+  }
 });
-camada.addEventListener('pointerup', () => { if (arrastando) { arrastando = null; salvar(); renderInspetor(); } });
+camada.addEventListener('pointerup', () => { if (arrasto) { arrasto = null; salvar(); renderInspetor(); renderTempo(); } });
+camada.addEventListener('dblclick', (ev) => { const a = ev.target.closest('[data-el]'); if (!a) return; const e = st.ed.elementos.find((x) => x.id === a.dataset.el); if (e && e.tipo === 'texto') { st.aba = 'prop'; renderInspetor(); const ta = $('#inspetor textarea[data-c="texto"]'); if (ta) { ta.focus(); ta.select(); } } });
 
-/* ---------- transporte ---------- */
-function tocar() { if (!st.atual) return; video.paused ? video.play().catch(() => {}) : video.pause(); }
+/* ---------- transporte e prévia de áudio ---------- */
+let AC = null, musNo = null;
+function ac() { if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; } } if (AC && AC.state === 'suspended') AC.resume(); return AC; }
+function tocar() {
+  if (!st.atual) return;
+  if (video.paused) {
+    const s = segAt(agora()); if (s && s.fora) { const nx = st.ed.segmentos.find((x) => x.ini >= s.fim && !x.fora); if (nx) video.currentTime = nx.ini; }
+    if (st.loop && st.ed.inOut && (agora() < st.ed.inOut.ini || agora() >= st.ed.inOut.fim)) video.currentTime = st.ed.inOut.ini;
+    ac(); video.play().catch(() => {});
+  } else { video.pause(); st.shuttle = 1; }
+}
 $('#play').onclick = tocar;
-video.addEventListener('play', () => $('#play').textContent = '❚❚ Pausar');
-video.addEventListener('pause', () => $('#play').textContent = '▶ Tocar');
-$('#voltaQ').onclick = () => { video.pause(); video.currentTime = Math.max(0, video.currentTime - 1 / FPS); };
-$('#avancaQ').onclick = () => { video.pause(); video.currentTime = Math.min(st.dur, video.currentTime + 1 / FPS); };
-$('#somBtn').onclick = () => { video.muted = !video.muted; $('#somBtn').textContent = video.muted ? '🔇 Som' : '🔊 Som'; };
-video.muted = true;
-function laco() { renderCamada(); atualizarCabeca(); $('#tc').innerHTML = `${tcode(video.currentTime)} <span>/ ${tcode(st.dur)}</span>`; requestAnimationFrame(laco); }
+video.addEventListener('play', () => { $('#play').textContent = '❚❚ Pausar'; iniciarMusica(); });
+video.addEventListener('pause', () => { $('#play').textContent = '▶ Tocar'; pararMusica(); if (window.speechSynthesis) speechSynthesis.cancel(); });
+const irPara = (t) => { video.currentTime = clamp(t, 0, st.dur); };
+$('#voltaQ').onclick = () => { video.pause(); irPara(agora() - 1 / FPS); };
+$('#avancaQ').onclick = () => { video.pause(); irPara(agora() + 1 / FPS); };
+$('#inicioBtn').onclick = () => { video.pause(); irPara(0); };
+$('#fimBtn').onclick = () => { video.pause(); irPara(st.dur - .02); };
+$('#somBtn').onclick = () => { st.som = !st.som; $('#somBtn').setAttribute('aria-pressed', String(st.som)); $('#somBtn').textContent = st.som ? '🔊 Som' : '🔇 Som'; };
+$('#loopBtn').onclick = () => { st.loop = !st.loop; $('#loopBtn').setAttribute('aria-pressed', String(st.loop)); if (st.loop && !(st.ed && st.ed.inOut)) toast('Marque entrada (I) e saída (O) para repetir um trecho'); };
+$('#gradeBtn').onclick = () => { const on = !$('#grade').classList.contains('on'); $('#grade').classList.toggle('on', on); $('#gradeBtn').setAttribute('aria-pressed', String(on)); };
+$('#seguraBtn').onclick = () => { const on = !$('#segura').classList.contains('on'); $('#segura').classList.toggle('on', on); $('#seguraBtn').setAttribute('aria-pressed', String(on)); };
+$('#enquadrarBtn').onclick = () => { st.enquadrar = !st.enquadrar; monitor.classList.toggle('enquadrando', st.enquadrar); $('#enquadrarBtn').setAttribute('aria-pressed', String(st.enquadrar)); if (st.enquadrar) toast('Arraste o vídeo para reenquadrar. Clique ⤢ de novo para sair.'); };
+$('#telaBtn').onclick = () => { const p = $('#palco'); if (document.fullscreenElement) document.exitFullscreen(); else if (p.requestFullscreen) p.requestFullscreen().catch(() => toast('Tela cheia indisponível aqui')); };
+
+function ruido(ctx, dur) { const b = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * dur), ctx.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; const s = ctx.createBufferSource(); s.buffer = b; return s; }
+function tocarSfx(tipo, vol) {
+  const c = ac(); if (!c || !st.som) return;
+  const t0 = c.currentTime, g = c.createGain(); g.connect(c.destination); g.gain.value = 0;
+  const env = (a, d, pk) => { g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(pk * vol, t0 + a); g.gain.exponentialRampToValueAtTime(.0001, t0 + a + d); };
+  if (tipo === 'whoosh') { const n = ruido(c, .5), f = c.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 1.2; f.frequency.setValueAtTime(400, t0); f.frequency.exponentialRampToValueAtTime(3500, t0 + .4); n.connect(f); f.connect(g); env(.18, .3, .6); n.start(t0); n.stop(t0 + .5); }
+  else if (tipo === 'impacto') { const o = c.createOscillator(); o.frequency.setValueAtTime(120, t0); o.frequency.exponentialRampToValueAtTime(40, t0 + .5); o.connect(g); const n = ruido(c, .15), f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 900; n.connect(f); f.connect(g); env(.005, .6, .9); o.start(t0); o.stop(t0 + .7); n.start(t0); }
+  else if (tipo === 'clique') { const n = ruido(c, .03), f = c.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 2500; n.connect(f); f.connect(g); env(.001, .03, .7); n.start(t0); }
+  else { const o = c.createOscillator(); const fr = {pop: [900, 300], ding: [1320, 1320], erro: [220, 160], caixa: [1800, 2400]}[tipo] || [900, 300]; o.type = tipo === 'erro' ? 'square' : 'sine'; o.frequency.setValueAtTime(fr[0], t0); o.frequency.exponentialRampToValueAtTime(fr[1], t0 + .12); o.connect(g); env(.004, tipo === 'ding' ? .9 : .14, tipo === 'erro' ? .25 : .55); o.start(t0); o.stop(t0 + 1); }
+}
+const ACORDES = {cama: [110, 164.8, 220, 277.2], tensao: [73.4, 77.8, 146.8, 220], animada: [196, 246.9, 293.7, 392], lofi: [130.8, 164.8, 196, 246.9], epica: [65.4, 98, 130.8, 196]};
+function iniciarMusica() {
+  const m = st.ed && st.ed.audio.musica, c = ac(); if (!m || !c) return;
+  pararMusica();
+  const g = c.createGain(), f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = m.preset === 'animada' ? 2400 : 900; f.connect(g); g.connect(c.destination); g.gain.value = 0;
+  const osc = (ACORDES[m.preset] || ACORDES.cama).map((fr, i) => { const o = c.createOscillator(); o.type = m.preset === 'animada' || m.preset === 'epica' ? 'sawtooth' : 'sine'; o.frequency.value = fr; o.detune.value = (i - 1.5) * 6; const og = c.createGain(); og.gain.value = .12; o.connect(og); og.connect(f); o.start(); return o; });
+  let lfo = null; if (m.preset === 'animada' || m.preset === 'lofi') { lfo = c.createOscillator(); lfo.frequency.value = m.preset === 'animada' ? 4 : 1.2; const lg = c.createGain(); lg.gain.value = .5; lfo.connect(lg); lg.connect(g.gain); lfo.start(); }
+  musNo = {g, osc, lfo};
+}
+function pararMusica() { if (!musNo) return; try { musNo.osc.forEach((o) => o.stop()); if (musNo.lfo) musNo.lfo.stop(); musNo.g.disconnect(); } catch (e) {} musNo = null; }
+function atualizarAudio(t) {
+  const ed = st.ed; if (!ed) return;
+  const s = segAt(t);
+  video.muted = !st.som || ed.audio.mudo;
+  video.volume = clamp(ed.audio.volOriginal * (s ? s.vol : 1), 0, 1);
+  const m = ed.audio.musica;
+  if (musNo && m && AC) {
+    let g = 0;
+    if (t >= m.ini && t <= m.fim && st.som) { g = m.vol; if (t - m.ini < m.fadeIn) g *= (t - m.ini) / m.fadeIn; if (m.fim - t < m.fadeOut) g *= (m.fim - t) / m.fadeOut; if (m.ducking && !ed.audio.mudo && picoEm(t) > .12) g *= .35; }
+    musNo.g.gain.setTargetAtTime(g * .5, AC.currentTime, .08);
+  }
+}
+function laco() {
+  const t = agora();
+  if (st.ed && !video.paused) {
+    const s = segAt(t);
+    if (st.loop && st.ed.inOut && t >= st.ed.inOut.fim) video.currentTime = st.ed.inOut.ini;
+    else if (s && s.fora) { const nx = st.ed.segmentos.find((x) => x.ini >= s.fim - 1e-3 && !x.fora); if (nx) video.currentTime = nx.ini + .001; else video.pause(); }
+    const vel = (s ? s.vel : 1) * st.shuttle; if (Math.abs(video.playbackRate - vel) > .01) video.playbackRate = clamp(vel, .0625, 16);
+    if (t > st.tAnt && t - st.tAnt < .5) {
+      for (const x of st.ed.audio.sfx) if (x.t > st.tAnt && x.t <= t) tocarSfx(x.tipo, x.vol);
+      if (st.ed.audio.previaVoz && window.speechSynthesis) for (const n of st.ed.audio.narracoes) if (n.t > st.tAnt && n.t <= t) { const u = new SpeechSynthesisUtterance(n.texto); u.lang = 'pt-BR'; speechSynthesis.speak(u); }
+    }
+  }
+  st.tAnt = t;
+  atualizarAudio(t);
+  renderMonitor(); atualizarCabeca();
+  $('#tc').innerHTML = `${tcode(t)} <span>/ ${tcode(st.dur)}</span>`;
+  requestAnimationFrame(laco);
+}
 requestAnimationFrame(laco);
 
 /* ---------- linha do tempo ---------- */
-function renderTempo() {
-  const L = st.dur * st.zoom + 40;
-  $('#trilhas').style.width = L + 'px';
-  let reg = '';
-  const passo = st.zoom > 120 ? 0.5 : st.zoom > 50 ? 1 : st.zoom > 25 ? 2 : 5;
-  for (let s = 0; s <= st.dur + 0.001; s += passo) {
-    const g = Math.abs(s % (passo * 5)) < 0.001 || passo >= 2;
-    reg += `<div class="tk${g ? ' g' : ''}" style="left:${s * st.zoom}px">${g ? `<b>${tcode(s).slice(0, 5)}</b>` : ''}</div>`;
-  }
-  $('#regua').innerHTML = reg;
-  $('#tV').innerHTML = st.atual ? `<div class="barra-clip clip-video" style="width:${st.dur * st.zoom}px">🎞 ${esc(st.atual.nome)}</div>` : '';
-  $('#tE').innerHTML = st.elementos.map((e) => `<div class="barra-clip clip-el${e.id === st.sel ? ' sel' : ''}" data-clip="${e.id}" style="left:${e.inicio * st.zoom}px;width:${Math.max(10, (e.fim - e.inicio) * st.zoom)}px">
-     <span class="borda e" data-b="e"></span>${esc(rotulo(e))}<span class="borda d" data-b="d"></span></div>`).join('');
-  $('#tP').innerHTML = st.pedidos.filter((p) => st.atual && p.video === st.atual.id).map((p) =>
-    `<div class="ponto${p.status === 'aplicado' ? ' feito' : ''}" data-ped="${p.id}" title="${esc(p.tipo)}: ${esc(p.texto)}" style="left:${p.t * st.zoom}px;${p.fim ? `width:${Math.max(14, (p.fim - p.t) * st.zoom)}px;margin-left:0` : ''}"></div>`).join('');
+function faixas(itens, ini, fim) {   // distribui itens sobrepostos em sub-trilhas
+  const ord = itens.slice().sort((a, b) => ini(a) - ini(b)), ends = [], lane = new Map();
+  for (const it of ord) { let l = ends.findIndex((e) => e <= ini(it) + 1e-3); if (l < 0) { l = ends.length; ends.push(0); } ends[l] = fim(it); lane.set(it, l); }
+  return {lane, n: Math.max(1, ends.length)};
 }
-function rotulo(e) { return e.tipo === 'texto' ? `T ${e.texto}` : e.tipo === 'emoji' ? e.emoji : e.tipo === 'personagem' ? `☺ ${e.personagem}` : '🖼 imagem'; }
-function atualizarCabeca() { $('#cabeca').style.left = (video.currentTime || 0) * st.zoom + 'px'; }
-function buscarX(clientX) { const r = $('#trilhas').getBoundingClientRect(); video.currentTime = Math.min(st.dur, Math.max(0, (clientX - r.left) / st.zoom)); }
-let arrastaRegua = false;
-$('#regua').addEventListener('pointerdown', (e) => { arrastaRegua = true; $('#regua').setPointerCapture(e.pointerId); video.pause(); buscarX(e.clientX); });
-$('#regua').addEventListener('pointermove', (e) => { if (arrastaRegua) buscarX(e.clientX); });
-$('#regua').addEventListener('pointerup', () => { arrastaRegua = false; });
-let arrastaClip = null;
-$('#tE').addEventListener('pointerdown', (ev) => {
-  const c = ev.target.closest('[data-clip]'); if (!c) return;
-  const el = st.elementos.find((x) => x.id === c.dataset.clip); if (!el) return;
-  ev.preventDefault(); snapshot(); st.sel = el.id; st.aba = 'prop';
-  arrastaClip = {el, modo: ev.target.dataset.b || 'mover', x0: ev.clientX, i0: el.inicio, f0: el.fim};
-  $('#tE').setPointerCapture(ev.pointerId); renderInspetor(); renderTempo();
+const ALT = 30;
+function renderTempo() {
+  const ed = st.ed, Z = st.zoom, L = st.dur * Z + 60;
+  if (!ed) { $('#trilhas').innerHTML = ''; $('#rotulos').innerHTML = ''; return; }
+  const textos = ed.elementos.filter((e) => e.tipo === 'texto'), graf = ed.elementos.filter((e) => e.tipo !== 'texto');
+  const fT = faixas(textos, (e) => e.inicio, (e) => e.fim), fG = faixas(graf, (e) => e.inicio, (e) => e.fim);
+  const selId = st.sel && st.sel.id, selT = st.sel && st.sel.tipo;
+  const barraEl = (e, f) => `<div class="clip ${e.tipo === 'texto' ? 'c-texto' : 'c-elem'}${selT === 'el' && selId === e.id ? ' sel' : ''}" data-k="el" data-id="${e.id}" style="left:${e.inicio * Z}px;width:${Math.max(10, (e.fim - e.inicio) * Z)}px;top:${4 + f.lane.get(e) * 26}px;${e.oculto ? 'opacity:.45' : ''}">
+      <span class="borda e" data-b="e"></span>${e.travado ? '🔒 ' : ''}${esc(rotuloEl(e))}${(e.kf || []).map((k) => `<span class="kf" style="left:${(k.t - e.inicio) * Z}px"></span>`).join('')}<span class="borda d" data-b="d"></span></div>`;
+  let reg = '';
+  const passo = Z > 160 ? .5 : Z > 60 ? 1 : Z > 25 ? 2 : Z > 12 ? 5 : 10;
+  for (let s = 0; s <= st.dur + .001; s += passo) { const g = Math.abs((s / passo) % 5) < .001 || passo >= 2; reg += `<div class="tk${g ? ' g' : ''}" style="left:${s * Z}px">${g ? `<b>${tcode(s).slice(0, 5)}</b>` : ''}</div>`; }
+  if (ed.inOut) reg += `<div class="io" style="left:${ed.inOut.ini * Z}px;width:${Math.max(2, (ed.inOut.fim - ed.inOut.ini) * Z)}px"></div>`;
+  const segs = ed.segmentos.map((s, i) => {
+    const th = st.thumbs.filter((x) => x.t + x.d > s.ini && x.t < s.fim);
+    return `<div class="seg${s.fora ? ' fora' : ''}${selT === 'seg' && selId === s.id ? ' sel' : ''}" data-k="seg" data-id="${s.id}" style="left:${s.ini * Z}px;width:${Math.max(4, (s.fim - s.ini) * Z)}px">
+      <div class="filme" style="margin-left:${th.length ? (th[0].t - s.ini) * Z : 0}px">${th.map((x) => `<img src="${x.url}" alt="" style="width:${x.d * Z}px">`).join('')}</div>
+      ${s.trans && s.trans !== 'corte' && i ? '<span class="trans"></span>' : ''}
+      <span class="rot-seg">${s.fora ? '✕ removido' : `${i + 1}${s.vel !== 1 ? ` · ${s.vel}×` : ''}${s.cor.preset !== 'natural' ? ' · ' + s.cor.preset : ''}${s.zoom.de !== 1 || s.zoom.para !== 1 ? ' · zoom' : ''}`}</span>
+      ${i ? '<span class="corta e" data-b="e"></span>' : ''}${i < ed.segmentos.length - 1 ? '<span class="corta d" data-b="d"></span>' : ''}</div>`;
+  }).join('');
+  const L2 = ed.legendas;
+  const legs = L2.blocos.map((b) => `<div class="clip c-leg${selT === 'leg' && selId === b.id ? ' sel' : ''}" data-k="leg" data-id="${b.id}" style="left:${b.t0 * Z}px;width:${Math.max(8, (b.t1 - b.t0) * Z)}px;top:4px"><span class="borda e" data-b="e"></span>${esc(b.texto)}<span class="borda d" data-b="d"></span></div>`).join('');
+  const A = ed.audio;
+  const fA = faixas([...(A.musica ? [{k: 'mus', ini: A.musica.ini, fim: A.musica.fim}] : []), ...A.narracoes.map((n) => ({k: 'nar', n, ini: n.t, fim: n.t + estDur(n.texto)}))], (x) => x.ini, (x) => x.fim);
+  let aud = '';
+  for (const [x, l] of fA.lane) {
+    if (x.k === 'mus') aud += `<div class="clip c-mus${selT === 'mus' ? ' sel' : ''}" data-k="mus" style="left:${x.ini * Z}px;width:${Math.max(10, (x.fim - x.ini) * Z)}px;top:${4 + l * 26}px"><span class="borda e" data-b="e"></span>♫ ${esc(MUSICAS[A.musica.preset] || 'trilha')} · ${Math.round(A.musica.vol * 100)}%<span class="borda d" data-b="d"></span></div>`;
+    else aud += `<div class="clip c-nar${selT === 'nar' && selId === x.n.id ? ' sel' : ''}" data-k="nar" data-id="${x.n.id}" style="left:${x.ini * Z}px;width:${Math.max(10, (x.fim - x.ini) * Z)}px;top:${4 + l * 26}px">🎙 ${esc(x.n.texto)}</div>`;
+  }
+  aud += A.sfx.map((s) => `<div class="sfx${selT === 'sfx' && selId === s.id ? ' sel' : ''}" data-k="sfx" data-id="${s.id}" title="${esc(SFX[s.tipo])}" style="left:${s.t * Z}px;top:${4 + fA.n * 26 - 22}px">♪</div>`).join('');
+  const meus = st.pedidos.filter((p) => p.video === st.atual.id);
+  const mks = ed.marcadores.map((m) => `<div class="mk" data-k="mk" data-id="${m.id}" title="${esc(m.texto || 'marcador')}" style="left:${m.t * Z}px"></div>`).join('')
+    + meus.map((p) => `<div class="ponto${p.status === 'aplicado' || p.status === 'feito' ? ' feito' : ''}" data-k="ped" data-id="${p.id}" title="${esc(p.tipo)}: ${esc(p.texto)}" style="left:${p.t * Z}px;${p.fim ? `width:${Math.max(14, (p.fim - p.t) * Z)}px;margin-left:0` : ''}"></div>`).join('');
+  const hT = fT.n * 26 + 8, hG = fG.n * 26 + 8, hA = Math.max(1, fA.n) * 26 + 14;
+  const TR = [
+    ['T', 'Texto', 'var(--texto-t)', hT, textos.map((e) => barraEl(e, fT)).join(''), 'olho'],
+    ['G', 'Gráficos', 'var(--elem)', hG, graf.map((e) => barraEl(e, fG)).join(''), 'olho'],
+    ['L', 'Legenda', 'var(--leg)', 32, legs, 'olho'],
+    ['V1', 'Vídeo', 'var(--video)', 56, segs, ''],
+    ['A1', 'Áudio', 'var(--aud)', 40, `<canvas class="onda" id="onda" width="${Math.min(32000, Math.ceil(st.dur * Z))}" height="40"></canvas>`, 'som'],
+    ['A2', 'Música/voz', 'var(--nar)', hA, aud, ''],
+    ['M', 'Marcas', 'var(--mk)', 28, mks, ''],
+  ];
+  $('#rotulos').innerHTML = `<div class="rot" style="height:24px">TEMPO</div>` + TR.map(([k, n, c, h, , ctl]) => `<div class="rot" style="height:${h}px"><i style="background:${c}"></i><b>${k} <span style="color:var(--fraco);font-weight:500">${n}</span></b>${ctl === 'olho' ? `<button data-ocultar="${k}" aria-pressed="${!st.ocultas[k]}" title="Mostrar/ocultar">👁</button>` : ctl === 'som' ? `<button data-mudo="1" aria-pressed="${!ed.audio.mudo}" title="Som do vídeo">🔊</button>` : ''}</div>`).join('');
+  $('#trilhas').style.width = L + 'px';
+  $('#trilhas').innerHTML = `<div class="regua" data-k="regua">${reg}</div>` + TR.map(([k, , , h, html]) => `<div class="trilha${st.ocultas[k] ? ' oculta' : ''}" data-trilha="${k}" style="height:${h}px">${html}</div>`).join('') + '<div class="cabeca" id="cabeca"></div>';
+  desenharOnda();
+  atualizarCabeca();
+  $('#final').textContent = `final ${tcode(duracaoFinal())}`;
+  $('#tempo').parentElement.classList.toggle('laminando', st.ferramenta === 'lamina');
+  document.body.classList.toggle('laminando', st.ferramenta === 'lamina');
+}
+const estDur = (tx) => Math.max(1, (tx || '').split(/\s+/).filter(Boolean).length / 2.6);
+function desenharOnda() {
+  const cv = $('#onda'); if (!cv || !st.picos) return;
+  const cx = cv.getContext('2d'), W = cv.width, H = cv.height, pps = st.picos.length / st.dur, esc2 = W / (st.dur * st.zoom);
+  cx.clearRect(0, 0, W, H); cx.fillStyle = st.ed.audio.mudo ? '#3A4150' : '#3FBF73';
+  for (let x = 0; x < W; x++) { const t = x / (st.zoom * esc2), i = Math.floor(t * pps), v = st.picos[i] || 0, s = segAt(t); cx.globalAlpha = s && s.fora ? .25 : .9; const hh = Math.max(1, v * (H - 6) * Math.min(2, st.ed.audio.volOriginal)); cx.fillRect(x, (H - hh) / 2, 1, hh); }
+  cv.style.width = st.dur * st.zoom + 'px';
+}
+function atualizarCabeca() { const c = $('#cabeca'); if (c) c.style.left = agora() * st.zoom + 'px'; }
+function tempoX(clientX) { const r = $('#trilhas').getBoundingClientRect(); return clamp((clientX - r.left) / st.zoom, 0, st.dur); }
+function pontosIma(excluir) {
+  const ed = st.ed, p = [agora(), 0, st.dur];
+  ed.segmentos.forEach((s) => p.push(s.ini, s.fim)); ed.marcadores.forEach((m) => p.push(m.t));
+  ed.elementos.forEach((e) => { if (e !== excluir) p.push(e.inicio, e.fim); });
+  ed.legendas.blocos.forEach((b) => { if (b !== excluir) p.push(b.t0, b.t1); });
+  return p;
+}
+function ima(t, excluir) { if (!st.ima) return t; const tol = 8 / st.zoom; let best = t, d = tol; for (const p of pontosIma(excluir)) { const dd = Math.abs(p - t); if (dd < d) { d = dd; best = p; } } return best; }
+
+let arrTL = null;
+$('#trilhas').addEventListener('pointerdown', (ev) => {
+  if (!st.ed) return;
+  const alvo = ev.target.closest('[data-k]'); const k = alvo && alvo.dataset.k; const t = tempoX(ev.clientX);
+  const tr = $('#trilhas');
+  if (!alvo || k === 'regua') { video.pause(); irPara(t); arrTL = {k: 'cursor'}; tr.setPointerCapture(ev.pointerId); if (!alvo && !ev.target.closest('.trilha[data-trilha="V1"]')) { st.sel = null; renderInspetor(); renderTempo(); } return; }
+  const id = alvo.dataset.id, borda = ev.target.dataset.b;
+  ev.preventDefault();
+  if (k === 'seg') {
+    const s = st.ed.segmentos.find((x) => x.id === id);
+    if (st.ferramenta === 'lamina') { dividir(ima(t)); return; }
+    if (borda) { snapshot(); const i = st.ed.segmentos.indexOf(s); arrTL = {k: 'corte', a: borda === 'e' ? st.ed.segmentos[i - 1] : s, b: borda === 'e' ? s : st.ed.segmentos[i + 1]}; tr.setPointerCapture(ev.pointerId); return; }
+    st.sel = {tipo: 'seg', id}; st.aba = 'prop'; video.pause(); irPara(t); arrTL = {k: 'cursor'}; tr.setPointerCapture(ev.pointerId); renderInspetor(); renderTempo(); if (st.painel === 'efeitos' || st.painel === 'transicoes') renderEsq(); return;
+  }
+  if (k === 'ped') { const p = st.pedidos.find((x) => x.id === id); if (p) { irPara(p.t); st.aba = 'pedidos'; renderInspetor(); } return; }
+  if (k === 'mk') { const m = st.ed.marcadores.find((x) => x.id === id); if (m) { snapshot(); st.sel = {tipo: 'mk', id}; arrTL = {k, obj: m, campo: 't', x0: ev.clientX, v0: m.t}; tr.setPointerCapture(ev.pointerId); irPara(m.t); renderInspetor(); } return; }
+  snapshot();
+  let obj, ini, fim;
+  if (k === 'el') { obj = st.ed.elementos.find((x) => x.id === id); st.sel = {tipo: 'el', id}; ini = 'inicio'; fim = 'fim'; if (obj && obj.travado) { renderInspetor(); renderTempo(); return; } }
+  if (k === 'leg') { obj = st.ed.legendas.blocos.find((x) => x.id === id); st.sel = {tipo: 'leg', id}; ini = 't0'; fim = 't1'; }
+  if (k === 'mus') { obj = st.ed.audio.musica; st.sel = {tipo: 'mus'}; ini = 'ini'; fim = 'fim'; }
+  if (k === 'nar') { obj = st.ed.audio.narracoes.find((x) => x.id === id); st.sel = {tipo: 'nar', id}; ini = 't'; fim = null; }
+  if (k === 'sfx') { obj = st.ed.audio.sfx.find((x) => x.id === id); st.sel = {tipo: 'sfx', id}; ini = 't'; fim = null; }
+  if (!obj) return;
+  st.aba = 'prop';
+  arrTL = {k, obj, ini, fim, modo: borda || 'mover', x0: ev.clientX, i0: obj[ini], f0: fim ? obj[fim] : obj[ini], kf0: (obj.kf || []).map((x) => x.t)};
+  tr.setPointerCapture(ev.pointerId); renderInspetor(); renderTempo();
 });
-$('#tE').addEventListener('pointermove', (ev) => {
-  if (!arrastaClip) return;
-  const a = arrastaClip, d = (ev.clientX - a.x0) / st.zoom, dur = a.f0 - a.i0;
-  if (a.modo === 'mover') { a.el.inicio = +Math.min(st.dur - dur, Math.max(0, a.i0 + d)).toFixed(2); a.el.fim = +(a.el.inicio + dur).toFixed(2); }
-  if (a.modo === 'e') a.el.inicio = +Math.min(a.f0 - 0.2, Math.max(0, a.i0 + d)).toFixed(2);
-  if (a.modo === 'd') a.el.fim = +Math.max(a.i0 + 0.2, Math.min(st.dur, a.f0 + d)).toFixed(2);
+$('#trilhas').addEventListener('pointermove', (ev) => {
+  if (!arrTL) return;
+  const a = arrTL, t = tempoX(ev.clientX);
+  if (a.k === 'cursor') { irPara(t); return; }
+  if (a.k === 'corte') { const nt = r2(clamp(ima(t), a.a.ini + .1, a.b.fim - .1)); a.a.fim = nt; a.b.ini = nt; renderTempo(); return; }
+  if (a.k === 'mk') { a.obj.t = r2(ima(clamp(a.v0 + (ev.clientX - a.x0) / st.zoom, 0, st.dur))); renderTempo(); return; }
+  const d = (ev.clientX - a.x0) / st.zoom, o = a.obj;
+  if (!a.fim) { o[a.ini] = r2(ima(clamp(a.i0 + d, 0, st.dur))); renderTempo(); return; }
+  const dur = a.f0 - a.i0;
+  if (a.modo === 'mover') {
+    let ni = clamp(a.i0 + d, 0, st.dur - dur); const sn = ima(ni, o); if (sn !== ni) ni = sn; else { const sf = ima(ni + dur, o); if (sf !== ni + dur) ni = sf - dur; }
+    ni = clamp(ni, 0, st.dur - dur); o[a.ini] = r2(ni); o[a.fim] = r2(ni + dur);
+    if (o.kf && o.kf.length) o.kf.forEach((k, i) => { k.t = r2(a.kf0[i] + (ni - a.i0)); });
+  }
+  if (a.modo === 'e') o[a.ini] = r2(clamp(ima(a.i0 + d, o), 0, a.f0 - .1));
+  if (a.modo === 'd') o[a.fim] = r2(clamp(ima(a.f0 + d, o), a.i0 + .1, st.dur));
   renderTempo();
 });
-$('#tE').addEventListener('pointerup', () => { if (arrastaClip) { arrastaClip = null; salvar(); renderInspetor(); } });
-$('#tP').addEventListener('click', (ev) => { const p = ev.target.closest('[data-ped]'); if (!p) return; const ped = st.pedidos.find((x) => x.id === p.dataset.ped); if (ped) { video.currentTime = ped.t; st.aba = 'pedidos'; renderInspetor(); } });
+$('#trilhas').addEventListener('pointerup', () => { if (arrTL) { const mudou = arrTL.k !== 'cursor'; arrTL = null; if (mudou) { salvar(); renderInspetor(); } } });
+$('#rotulos').addEventListener('click', (ev) => {
+  const o = ev.target.closest('[data-ocultar]'); if (o) { const k = o.dataset.ocultar; st.ocultas[k] = !st.ocultas[k]; renderTempo(); return; }
+  if (ev.target.closest('[data-mudo]')) mudar(() => { st.ed.audio.mudo = !st.ed.audio.mudo; });
+});
 $('#zoom').addEventListener('input', (e) => { st.zoom = +e.target.value; renderTempo(); });
+$('#zMenos').onclick = () => { st.zoom = clamp(st.zoom / 1.4, 8, 400); $('#zoom').value = st.zoom; renderTempo(); };
+$('#zMais').onclick = () => { st.zoom = clamp(st.zoom * 1.4, 8, 400); $('#zoom').value = st.zoom; renderTempo(); };
+$('#zAjustar').onclick = () => { ajustarZoom(); renderTempo(); };
+$('#pista').addEventListener('wheel', (e) => { if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); st.zoom = clamp(st.zoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), 8, 400); $('#zoom').value = st.zoom; renderTempo(); }, {passive: false});
+
+/* ferramentas */
+function setFerramenta(f) { st.ferramenta = f; $('#fSelecao').setAttribute('aria-pressed', String(f === 'selecao')); $('#fLamina').setAttribute('aria-pressed', String(f === 'lamina')); renderTempo(); if (f === 'lamina') toast('Lâmina: clique no vídeo (V1) onde quer cortar'); }
+$('#fSelecao').onclick = () => setFerramenta('selecao');
+$('#fLamina').onclick = () => setFerramenta(st.ferramenta === 'lamina' ? 'selecao' : 'lamina');
+function dividir(t) {
+  const s = segAt(t); if (!s) return;
+  if (t - s.ini < .1 || s.fim - t < .1) { toast('Muito perto de outro corte'); return; }
+  mudar(() => { const n = {...JSON.parse(JSON.stringify(s)), id: uid(), ini: r2(t), trans: 'corte'}; s.fim = r2(t); st.ed.segmentos.splice(st.ed.segmentos.indexOf(s) + 1, 0, n); st.sel = {tipo: 'seg', id: n.id}; });
+  toast('Cortado em ' + tcode(t));
+}
+$('#fDividir').onclick = () => {
+  const e = elSel();
+  if (e && agora() > e.inicio + .1 && agora() < e.fim - .1) { mudar(() => { const c = JSON.parse(JSON.stringify(e)); c.id = uid(); c.inicio = r2(agora()); c.kf = (c.kf || []).filter((k) => k.t >= c.inicio); e.fim = r2(agora()); e.kf = (e.kf || []).filter((k) => k.t <= e.fim); st.ed.elementos.push(c); st.sel = {tipo: 'el', id: c.id}; }); return; }
+  dividir(quadro(agora()));
+};
+function removerSel() {
+  if (!st.sel || !st.ed) return;
+  const {tipo, id} = st.sel;
+  if (tipo === 'seg') { const s = selSeg(); if (!s) return; const vivos = st.ed.segmentos.filter((x) => !x.fora); if (!s.fora && vivos.length <= 1) { toast('Precisa sobrar pelo menos um trecho'); return; } mudar(() => { s.fora = !s.fora; }); toast(s.fora ? 'Trecho removido (some no vídeo final)' : 'Trecho restaurado'); return; }
+  mudar(() => {
+    if (tipo === 'el') st.ed.elementos = st.ed.elementos.filter((x) => x.id !== id);
+    if (tipo === 'leg') st.ed.legendas.blocos = st.ed.legendas.blocos.filter((x) => x.id !== id);
+    if (tipo === 'mus') st.ed.audio.musica = null;
+    if (tipo === 'sfx') st.ed.audio.sfx = st.ed.audio.sfx.filter((x) => x.id !== id);
+    if (tipo === 'nar') st.ed.audio.narracoes = st.ed.audio.narracoes.filter((x) => x.id !== id);
+    if (tipo === 'mk') st.ed.marcadores = st.ed.marcadores.filter((x) => x.id !== id);
+    st.sel = null;
+  });
+}
+$('#fRemover').onclick = () => { if (!selSeg()) { const s = segAt(agora()); if (s) st.sel = {tipo: 'seg', id: s.id}; } removerSel(); };
+$('#fSilencios').onclick = () => {
+  if (!st.picos) { toast('A forma de onda ainda está carregando'); return; }
+  const pausas = []; let ini = null;
+  for (let i = 0; i < st.picos.length; i++) { const t = i / 50, q = st.picos[i] < .06; if (q && ini == null) ini = t; if ((!q || i === st.picos.length - 1) && ini != null) { if (t - ini > .55) pausas.push([ini + .12, t - .12]); ini = null; } }
+  if (!pausas.length) { toast('Não achei pausas longas'); return; }
+  mudar(() => {
+    for (const [a, b] of pausas) {
+      for (const t of [a, b]) { const s = segAt(t); if (s && t - s.ini > .05 && s.fim - t > .05) { const n = {...JSON.parse(JSON.stringify(s)), id: uid(), ini: r2(t), trans: 'corte'}; s.fim = r2(t); st.ed.segmentos.splice(st.ed.segmentos.indexOf(s) + 1, 0, n); } }
+      st.ed.segmentos.forEach((s) => { if (s.ini >= a - .02 && s.fim <= b + .02) s.fora = true; });
+    }
+  });
+  toast(`${pausas.length} pausas marcadas para remover (hachurado). Del restaura um trecho.`);
+};
+$('#fDupl').onclick = () => { const e = elSel(); if (!e) { toast('Selecione um elemento'); return; } mudar(() => { const c = JSON.parse(JSON.stringify(e)); c.id = uid(); c.x = Math.min(1, c.x + .04); c.y = Math.min(1, c.y + .04); st.ed.elementos.push(c); st.sel = {tipo: 'el', id: c.id}; }); };
+$('#fKf').onclick = () => { const e = elSel(); if (!e) { toast('Selecione um elemento para animar'); return; } mudar(() => addKf(e)); };
+$('#fMarcador').onclick = () => { if (!st.ed) return; mudar(() => { const m = {id: uid(), t: r2(agora()), texto: ''}; st.ed.marcadores.push(m); st.sel = {tipo: 'mk', id: m.id}; }); };
+$('#fIn').onclick = () => { if (!st.ed) return; mudar(() => { const f = st.ed.inOut ? st.ed.inOut.fim : st.dur; st.ed.inOut = {ini: r2(agora()), fim: Math.max(r2(agora()) + .1, f)}; }); };
+$('#fOut').onclick = () => { if (!st.ed) return; mudar(() => { const i = st.ed.inOut ? st.ed.inOut.ini : 0; st.ed.inOut = {ini: Math.min(i, r2(agora()) - .1), fim: r2(agora())}; }); };
+$('#fIma').onclick = () => { st.ima = !st.ima; $('#fIma').setAttribute('aria-pressed', String(st.ima)); };
 
 /* ---------- inspetor ---------- */
-document.querySelectorAll('[data-aba]').forEach((b) => b.addEventListener('click', () => { st.aba = b.dataset.aba; renderInspetor(); }));
-function renderInspetor() {
-  document.querySelectorAll('[data-aba]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.aba === st.aba)));
-  const I = $('#inspetor');
-  if (!st.atual) { I.innerHTML = '<div class="vazio">Escolha um modelo ou projeto na biblioteca.</div>'; return; }
-  if (st.aba === 'adicionar') {
-    I.innerHTML = `
-      <div class="grupo"><h3>Texto</h3><div class="grade-add">
-        ${Object.entries(ESTILOS).map(([k, s]) => `<button class="add" data-add="texto" data-estilo="${k}"><b>${s.nome}</b><span>no tempo atual</span></button>`).join('')}
-        <button class="add" data-add="emoji"><b>Emoji / ícone</b><span>⚖️ 📘 ✅ 🔥</span></button></div></div>
-      <div class="grupo"><h3>Personagens</h3><div class="pers">${PERSONAGENS.map((p) => `<button data-add="personagem" data-p="${esc(p)}" title="${esc(p)}"><img src="personagens/${esc(p)}.png" alt="${esc(p)}"></button>`).join('')}</div></div>
-      <div class="grupo"><h3>Imagem</h3>${st.assets ? `<label class="add" style="cursor:pointer"><b>Enviar imagem</b><span>print, foto, logo (até 20 MB)</span><input type="file" accept="image/*" id="upImg" hidden></label>` : '<div class="nota">Envio de imagem: só para quem pode editar a página. Ou cole o link no pedido de alteração.</div>'}</div>
-      <div class="nota">Tudo que você adiciona fica salvo. Clique em <b>Pedir render</b> e o Claude gera o vídeo com os elementos, nas fontes e cores do perfil.</div>`;
-    const up = $('#upImg'); if (up) up.onchange = async () => {
-      const f = up.files[0]; if (!f) return; status('enviando imagem…', 'salvando');
-      try { const a = await st.assets.upload(f); novoElemento({tipo: 'imagem', assetId: a.id, url: a.url, y: 0.35}); status('salvo', 'ok'); } catch (e) { status('imagem não enviada', 'off'); toast('Não deu para enviar a imagem'); }
-    };
-    return;
-  }
-  if (st.aba === 'prop') {
-    const e = st.elementos.find((x) => x.id === st.sel);
-    if (!e) { I.innerHTML = `<div class="vazio">Selecione um elemento no vídeo ou na linha do tempo.</div><div class="grupo"><h3>Elementos (${st.elementos.length})</h3>${st.elementos.map((x) => `<button class="cartao" style="grid-template-columns:1fr" data-selec="${x.id}"><div><b>${esc(rotulo(x))}</b><span>${tcode(x.inicio)} → ${tcode(x.fim)}</span></div></button>`).join('') || '<div class="vazio">Nenhum ainda.</div>'}</div>`; return; }
-    I.innerHTML = `<div class="grupo"><h3>${esc(rotulo(e))}</h3>
-      ${e.tipo === 'texto' ? `<label class="campo">Texto<textarea data-c="texto">${esc(e.texto)}</textarea></label>
-        <label class="campo">Estilo<select data-c="estilo">${Object.entries(ESTILOS).map(([k, s]) => `<option value="${k}"${k === e.estilo ? ' selected' : ''}>${s.nome}</option>`).join('')}</select></label>
-        <div class="campo">Cor<div class="cores">${CORES.map((c) => `<button data-cor="${c}" aria-pressed="${c === e.cor}" style="background:${c}" aria-label="${c}"></button>`).join('')}</div></div>` : ''}
-      ${e.tipo === 'emoji' ? `<label class="campo">Emoji<input data-c="emoji" value="${esc(e.emoji)}"></label>` : ''}
-      ${e.tipo === 'personagem' ? `<label class="campo">Pose<select data-c="pose">${['acena', 'aponta', 'joinha', 'pensando'].map((p) => `<option${p === e.pose ? ' selected' : ''}>${p}</option>`).join('')}</select></label>
-        <label class="campo">Fala (balão, opcional)<input data-c="balao" value="${esc(e.balao || '')}"></label>` : ''}
-      <div class="linha2"><label class="campo">Entra (s)<input type="number" step="0.1" min="0" data-c="inicio" value="${e.inicio}"></label><label class="campo">Sai (s)<input type="number" step="0.1" min="0" data-c="fim" value="${e.fim}"></label></div>
-      <div class="linha2"><label class="campo">Tamanho<input type="range" min="0.2" max="4" step="0.05" data-c="escala" value="${e.escala}"></label>
-        <label class="campo">Animação<select data-c="animacao">${['pop', 'deslizar', 'fade', 'nenhuma'].map((a) => `<option${a === e.animacao ? ' selected' : ''}>${a}</option>`).join('')}</select></label></div>
-      <div class="linha2"><button class="btn" id="trazerT">⏱ Começar aqui</button><button class="btn" id="dupl">⧉ Duplicar</button></div>
-      <button class="btn" id="apagar" style="color:var(--rec)">Apagar elemento</button></div>`;
-    I.querySelectorAll('[data-c]').forEach((inp) => inp.addEventListener(inp.tagName === 'SELECT' || inp.type === 'range' ? 'input' : 'change', () => {
-      snapshot(); const k = inp.dataset.c; e[k] = ['inicio', 'fim', 'escala'].includes(k) ? +inp.value : inp.value;
-      if (e.fim <= e.inicio) e.fim = +(e.inicio + 0.5).toFixed(2);
-      salvar(); renderTempo(); renderCamada();
-    }));
-    I.querySelectorAll('[data-cor]').forEach((b) => b.onclick = () => { snapshot(); e.cor = b.dataset.cor; salvar(); renderInspetor(); });
-    $('#trazerT').onclick = () => { snapshot(); const d = e.fim - e.inicio; e.inicio = +video.currentTime.toFixed(2); e.fim = +Math.min(st.dur, e.inicio + d).toFixed(2); salvar(); renderTudo(); };
-    $('#dupl').onclick = () => { snapshot(); const c = {...e, id: uid(), x: Math.min(1, e.x + 0.04), y: Math.min(1, e.y + 0.04)}; st.elementos.push(c); st.sel = c.id; salvar(); renderTudo(); };
-    $('#apagar').onclick = () => apagarSel();
-    return;
-  }
-  if (st.aba === 'pedidos') {
-    const meus = st.pedidos.filter((p) => p.video === st.atual.id).sort((a, b) => a.t - b.t);
-    I.innerHTML = `<div class="grupo"><h3>Pedir alteração em ${tcode(video.currentTime)}</h3>
-      <label class="campo">Tipo<select id="pTipo"><option value="alterar">Alterar</option><option value="remover">Remover / cortar</option><option value="adicionar">Adicionar</option><option value="texto">Texto / legenda</option><option value="cor">Cor / visual</option><option value="audio">Áudio / voz / trilha</option><option value="ritmo">Ritmo / tempo</option></select></label>
-      <label class="campo">O que mudar<textarea id="pTexto" placeholder="Ex.: troca esse título por 'Prazo: 120 dias'; deixa a legenda maior; tira essa parte"></textarea></label>
-      <div class="linha2"><button class="btn" id="pPonto">🎯 Marcar ponto</button><button class="btn prim" id="pEnviar">Salvar pedido</button></div>
-      <div class="dica" id="pInfo">${st.marcando ? `Ponto marcado (${Math.round(st.marcando.x * 100)}%, ${Math.round(st.marcando.y * 100)}%)` : 'Opcional: marque o ponto exato no vídeo.'}${st.corte ? ` · corte de ${tcode(st.corte.ini)} a ${tcode(st.corte.fim ?? video.currentTime)}` : ''}</div></div>
-      <div class="grupo"><h3>Pedidos deste vídeo (${meus.length})</h3>${meus.map((p) => `<div class="ped"><div class="meta"><b>${tcode(p.t)}${p.fim ? ' → ' + tcode(p.fim) : ''}</b> ${esc(p.tipo)} <span class="estado ${esc(p.status)}">${esc(p.status)}</span></div><div>${esc(p.texto)}</div>
-        <div style="display:flex;gap:6px"><button class="btn" data-ir="${p.id}">Ir</button>${p.status !== 'aplicado' ? `<button class="btn" data-del="${p.id}">Apagar</button>` : ''}</div></div>`).join('') || '<div class="vazio">Nenhum pedido ainda.</div>'}</div>`;
-    $('#pPonto').onclick = () => { mira.classList.add('on'); video.pause(); toast('Clique no ponto do vídeo'); };
-    $('#pEnviar').onclick = enviarPedido;
-    I.querySelectorAll('[data-ir]').forEach((b) => b.onclick = () => { const p = st.pedidos.find((x) => x.id === b.dataset.ir); if (p) video.currentTime = p.t; });
-    I.querySelectorAll('[data-del]').forEach((b) => b.onclick = async () => { if (!st.db) return; try { await st.db.doc('pedidos/' + b.dataset.del).delete(); } catch (e) { toast('Não deu para apagar'); } });
-    return;
-  }
-  const m = st.atual.modelo, p = st.atual.projeto;
-  I.innerHTML = m ? `<div class="grupo"><h3>${esc(m.grupo)}</h3><div class="desc">${esc(m.descricao)}</div>
-      <div class="dica">${esc(m.formatos.join(' · '))} · estilo ${esc(m.estilo)} · ${esc(m.res)} · ${tcode(m.dur)}</div></div>
-      <div class="grupo"><h3>Como pedir</h3><div class="nota">${esc(m.pedido)}</div><button class="btn" id="copiar">Copiar pedido</button></div>
-      <div class="grupo"><h3>Passos</h3>${m.passos.map((s, i) => `<div class="dica">${i + 1}. ${esc(s)}</div>`).join('')}</div>
-      <div class="dica">Amostra: ${esc(m.amostra)}</div>`
-    : `<div class="grupo"><h3>Projeto</h3><div class="desc">${esc(p.descricao || '')}</div><div class="dica">Status: ${esc(p.status || '')}</div></div>`;
-  const c = $('#copiar'); if (c) c.onclick = () => navigator.clipboard.writeText(m.pedido).then(() => toast('Pedido copiado')).catch(() => toast('Selecione o texto e copie'));
+$$('[data-aba]').forEach((b) => b.addEventListener('click', () => { st.aba = b.dataset.aba; renderInspetor(); }));
+const rng = (rot, c, v, min, max, passo, fmt) => `<label class="campo"><span class="rotval">${rot} <span class="val">${fmt ? fmt(v) : v}</span></span><input type="range" min="${min}" max="${max}" step="${passo}" data-c="${c}" value="${v}"></label>`;
+const pct = (v) => Math.round(v * 100) + '%';
+const sel = (rot, c, v, ops) => `<label class="campo">${rot}<select data-c="${c}">${Object.entries(ops).map(([k, n]) => `<option value="${esc(k)}"${String(k) === String(v) ? ' selected' : ''}>${esc(n)}</option>`).join('')}</select></label>`;
+const num = (rot, c, v, passo = .1) => `<label class="campo">${rot}<input type="number" step="${passo}" data-c="${c}" value="${v}"></label>`;
+const cores = (c, v, extra) => `<div class="cores" data-cores="${c}">${[...new Set([...(extra || []), ...CORES_BASE])].map((x) => `<button data-cor="${x}" aria-pressed="${(v || '').toLowerCase() === x.toLowerCase()}" style="background:${x}" aria-label="${x}"></button>`).join('')}<input type="color" data-corlivre="${c}" value="${/^#[0-9a-f]{6}$/i.test(v || '') ? v : '#ffffff'}" aria-label="Outra cor"></div>`;
+function caminho(obj, c) { return c.split('.').reduce((o, k) => o && o[k], obj); }
+function definirCaminho(obj, c, v) { const ks = c.split('.'); let o = obj; for (const k of ks.slice(0, -1)) { if (o[k] == null) o[k] = {}; o = o[k]; } o[ks[ks.length - 1]] = v; }
+function ligar(I, obj, aoMudar) {
+  I.querySelectorAll('[data-c]').forEach((inp) => {
+    const ev = inp.tagName === 'SELECT' || inp.type === 'range' || inp.type === 'checkbox' ? 'input' : 'change';
+    if (inp.type === 'range') inp.addEventListener('pointerdown', () => snapshot());
+    inp.addEventListener(ev, () => {
+      if (inp.type !== 'range') snapshot();
+      const c = inp.dataset.c, v = inp.type === 'checkbox' ? inp.checked : (inp.type === 'number' || inp.type === 'range') ? +inp.value : inp.value;
+      if (obj.tipo && ['x', 'y', 'escala', 'rot', 'op'].includes(c) && obj.kf && obj.kf.length) definir(obj, agora(), {[c]: v}); else definirCaminho(obj, c, v);
+      const lab = inp.closest('label'); const val = lab && lab.querySelector('.val'); if (val) val.textContent = inp.dataset.fmt === 'pct' ? pct(v) : inp.type === 'range' ? (Math.abs(v) < 10 ? (+v).toFixed(2).replace(/\.?0+$/, '') : v) : v;
+      if (aoMudar) aoMudar(c, v);
+      salvar(); if (inp.type !== 'range') renderTempo();
+    });
+  });
+  I.querySelectorAll('[data-cores]').forEach((box) => {
+    const c = box.dataset.cores;
+    box.querySelectorAll('[data-cor]').forEach((b) => b.onclick = () => { snapshot(); definirCaminho(obj, c, b.dataset.cor); salvar(); renderInspetor(); renderEsq(); });
+    const livre = box.querySelector('[data-corlivre]'); if (livre) livre.oninput = () => { definirCaminho(obj, c, livre.value); salvar(); };
+  });
 }
-$('#inspetor').addEventListener('click', (ev) => {
-  const a = ev.target.closest('[data-add]');
-  if (a) {
-    if (a.dataset.add === 'texto') { const s = a.dataset.estilo; novoElemento({tipo: 'texto', estilo: s, texto: s === 'cta' ? 'Comenta MS' : s === 'selo' ? 'Art. 5º, LXIX' : s === 'legenda' ? 'PALAVRA-CHAVE' : 'SEU TÍTULO', cor: s === 'selo' || s === 'cta' ? '#9BE0A3' : '#FFFFFF', y: s === 'legenda' ? 0.72 : s === 'cta' ? 0.82 : 0.2}); }
-    if (a.dataset.add === 'emoji') novoElemento({tipo: 'emoji', emoji: '⚖️', y: 0.4});
-    if (a.dataset.add === 'personagem') { const [pers, pose] = a.dataset.p.split('-'); novoElemento({tipo: 'personagem', personagem: pers, pose, x: 0.78, y: 0.78, escala: 1, animacao: 'deslizar'}); }
+function blocoComum(e) {
+  const p = propsEm(e, agora()), temKf = e.kf && e.kf.length;
+  return `<div class="grupo"><h3>Tempo</h3><div class="linha2">${num('Entra (s)', 'inicio', e.inicio)}${num('Sai (s)', 'fim', e.fim)}</div>
+      <div class="linha2"><button class="btn" id="aqui">⏱ Começar no cursor</button><button class="btn" id="ateAqui">⏱ Terminar no cursor</button></div></div>
+    <div class="grupo"><h3>Transformar ${temKf ? '<em>animado por keyframes</em>' : ''}</h3>
+      ${e.tipo === 'imagem' || e.tipo === 'video' ? sel('Layout', 'layout', e.layout || 'livre', {livre: 'Livre (arraste)', 'tela-cheia': 'Tela cheia', pip: 'Picture-in-picture', cima: 'Tela dividida: em cima', baixo: 'Tela dividida: embaixo'}) : ''}
+      <div class="linha2">${rng('Posição X', 'x', +p.x.toFixed(3), 0, 1, .005)}${rng('Posição Y', 'y', +p.y.toFixed(3), 0, 1, .005)}</div>
+      <div class="linha2">${rng('Tamanho', 'escala', +p.escala.toFixed(2), .1, 5, .01)}${rng('Rotação', 'rot', Math.round(p.rot), -180, 180, 1)}</div>
+      ${rng('Opacidade', 'op', +p.op.toFixed(2), 0, 1, .01)}
+      <div class="linha3"><button class="btn" data-alinhar="h">↔ Centro</button><button class="btn" data-alinhar="v">↕ Centro</button><button class="btn" data-alinhar="reset">Zerar</button></div></div>
+    <div class="grupo"><h3>Keyframes <em>${(e.kf || []).length}</em></h3>
+      <div class="kfs">${(e.kf || []).map((k, i) => `<button data-kfir="${i}" title="Ir">◆ ${tcode(k.t)}</button>`).join('') || '<span class="dica">Sem animação por keyframe.</span>'}</div>
+      <div class="linha2"><button class="btn" id="kfAdd">◆ Keyframe no cursor</button>${temKf ? '<button class="btn" id="kfTira">Apagar keyframes</button>' : '<span></span>'}</div>
+      <div class="dica">Com keyframes, mover o elemento em outro tempo cria um novo keyframe (como no DaVinci).</div></div>
+    <div class="grupo"><h3>Animação</h3><div class="linha2">${sel('Entrada', 'anim.entra', e.anim.entra, ANIM_ENTRA)}${sel('Saída', 'anim.sai', e.anim.sai, ANIM_SAI)}</div>
+      ${rng('Duração da entrada', 'anim.dur', e.anim.dur, .1, 2, .05)}<button class="btn" id="verAnim">▶ Ver animação</button></div>
+    <div class="grupo"><h3>Camada</h3><div class="linha3"><button class="btn" data-ordem="frente">Frente</button><button class="btn" data-ordem="tras">Trás</button><button class="btn" data-trava="1">${e.travado ? '🔓 Destravar' : '🔒 Travar'}</button></div>
+      <div class="linha3"><button class="btn" id="dupl">⧉ Duplicar</button><button class="btn" data-oculta="1">${e.oculto ? '👁 Mostrar' : '🙈 Ocultar'}</button><button class="btn perigo" id="apagar">Apagar</button></div></div>`;
+}
+function ligarComum(I, e) {
+  $('#aqui', I).onclick = () => mudar(() => { const d = e.fim - e.inicio, dt = r2(agora()) - e.inicio; e.inicio = r2(agora()); e.fim = r2(Math.min(st.dur, e.inicio + d)); (e.kf || []).forEach((k) => { k.t = r2(k.t + dt); }); });
+  $('#ateAqui', I).onclick = () => mudar(() => { e.fim = r2(Math.max(e.inicio + .1, agora())); });
+  $('#kfAdd', I).onclick = () => mudar(() => addKf(e));
+  const kt = $('#kfTira', I); if (kt) kt.onclick = () => mudar(() => { const p = propsEm(e, agora()); Object.assign(e, p); e.kf = []; });
+  I.querySelectorAll('[data-kfir]').forEach((b) => b.onclick = () => { video.pause(); irPara(e.kf[+b.dataset.kfir].t); renderInspetor(); });
+  I.querySelectorAll('[data-alinhar]').forEach((b) => b.onclick = () => mudar(() => { const a = b.dataset.alinhar; if (a === 'h') definir(e, agora(), {x: .5}); if (a === 'v') definir(e, agora(), {y: .5}); if (a === 'reset') definir(e, agora(), {escala: 1, rot: 0, op: 1}); }));
+  I.querySelectorAll('[data-ordem]').forEach((b) => b.onclick = () => mudar(() => { const L = st.ed.elementos, i = L.indexOf(e); L.splice(i, 1); b.dataset.ordem === 'frente' ? L.push(e) : L.unshift(e); }));
+  $('[data-trava]', I).onclick = () => mudar(() => { e.travado = !e.travado; });
+  $('[data-oculta]', I).onclick = () => mudar(() => { e.oculto = !e.oculto; });
+  $('#dupl', I).onclick = () => $('#fDupl').click();
+  $('#apagar', I).onclick = removerSel;
+  $('#verAnim', I).onclick = () => { irPara(e.inicio); video.play().catch(() => {}); setTimeout(() => { if (agora() > e.inicio + (e.anim.dur || .35) + .6) video.pause(); }, ((e.anim.dur || .35) + .8) * 1000); };
+}
+function renderInspetor() {
+  $$('[data-aba]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.aba === st.aba)));
+  const I = $('#inspetor');
+  if (!st.atual || !st.ed) { I.innerHTML = '<div class="vazio">Escolha um modelo ou projeto na biblioteca.</div>'; return; }
+  if (st.aba === 'pedidos') return renderPedidos(I);
+  if (st.aba === 'info') return renderInfo(I);
+  const ed = st.ed, k = kitAtual(), kc = [k.destaque, k.cor, k.contorno].filter(Boolean);
+  const s = st.sel || {};
+  if (s.tipo === 'el') {
+    const e = elSel(); if (!e) { st.sel = null; return renderInspetor(); }
+    let esp = '';
+    if (e.tipo === 'texto') esp = `<div class="grupo"><h3>Texto</h3><label class="campo">Conteúdo <span class="dica">(*palavra* = destaque)</span><textarea data-c="texto">${esc(e.texto)}</textarea></label>
+        <div class="linha2">${sel('Fonte', 'fonte', e.fonte, Object.fromEntries(Object.keys(FONTES).map((f) => [f, f])))}${sel('Alinhar', 'alinhar', e.alinhar || 'center', {left: 'Esquerda', center: 'Centro', right: 'Direita'})}</div>
+        <div class="campo">Cor<span></span>${cores('cor', e.cor, kc)}</div>
+        <div class="campo">Destaque (*palavra*)${cores('destaque', e.destaque, kc)}</div>
+        <div class="campo">Fundo<div class="cores" style="margin-bottom:4px"><button class="btn" data-semfundo="1" style="width:auto;height:24px;padding:0 8px;font-size:11px">Sem fundo</button></div>${cores('fundo', e.fundo, kc)}</div>
+        <div class="campo">Contorno<div class="cores" style="margin-bottom:4px"><button class="btn" data-semcontorno="1" style="width:auto;height:24px;padding:0 8px;font-size:11px">Sem contorno</button></div>${cores('contorno', e.contorno, ['#000000', ...kc])}</div>
+        <div class="linha2">${rng('Espessura do contorno', 'espContorno', e.espContorno || .06, .02, .2, .01)}${rng('Espaçamento', 'espac', e.espac || 0, -.05, .3, .01)}</div>
+        ${e.fundo ? rng('Arredondar fundo', 'raio', e.raio ?? .3, 0, 1.5, .05) : ''}
+        <div class="linha2"><label class="check"><input type="checkbox" data-c="maiusc" ${e.maiusc ? 'checked' : ''}> MAIÚSCULAS</label><label class="check"><input type="checkbox" data-c="sombra" ${e.sombra ? 'checked' : ''}> Sombra</label></div></div>`;
+    if (e.tipo === 'emoji') esp = `<div class="grupo"><h3>Emoji</h3><label class="campo">Emoji<input data-c="emoji" value="${esc(e.emoji)}"></label><div class="emojis">${EMOJIS.map((x) => `<button data-troca-emoji="${x}">${x}</button>`).join('')}</div></div>`;
+    if (e.tipo === 'forma') esp = `<div class="grupo"><h3>${esc(FORMAS[e.forma])}</h3>${sel('Forma', 'forma', e.forma, FORMAS)}<div class="campo">Cor${cores('cor', e.cor, kc)}</div>
+        ${['seta', 'circulo', 'retangulo', 'sublinhado', 'check', 'xis'].includes(e.forma) ? rng('Espessura', 'espessura', e.espessura || 6, 2, 16, 1) : ''}
+        ${e.forma === 'balao' || e.forma === 'contador' ? `<label class="campo">${e.forma === 'balao' ? 'Texto do balão' : 'Sufixo (ex.: dias, %)'}<input data-c="texto" value="${esc(e.texto || '')}"></label>` : ''}
+        ${e.forma === 'contador' ? `<div class="linha2">${num('De', 'de', e.de || 0, 1)}${num('Até', 'ate', e.ate || 100, 1)}</div>` : ''}</div>`;
+    if (e.tipo === 'personagem') esp = `<div class="grupo"><h3>Personagem</h3><div class="linha2">${sel('Quem', 'personagem', e.personagem, Object.fromEntries([...new Set(PERSONAGENS.map((p) => p.split('-')[0]))].map((p) => [p, p])))}${sel('Pose', 'pose', e.pose, Object.fromEntries([...new Set(PERSONAGENS.map((p) => p.split('-')[1]))].map((p) => [p, p])))}</div>
+        <label class="campo">Fala (balão)<input data-c="balao" value="${esc(e.balao || '')}"></label><label class="check"><input type="checkbox" data-c="espelhar" ${e.espelhar ? 'checked' : ''}> Espelhar</label>
+        <div class="dica">No render, o personagem anima (boca, piscada, gesto) e pode falar com a sua voz.</div></div>`;
+    if (e.tipo === 'imagem' || e.tipo === 'video') esp = `<div class="grupo"><h3>${e.tipo === 'video' ? 'B-roll' : 'Imagem'}</h3>${sel('Moldura', 'moldura', e.moldura || 'borda', {nenhuma: 'Nenhuma', borda: 'Borda branca', polaroid: 'Polaroid', circulo: 'Círculo', sombra: 'Só sombra'})}
+        ${e.tipo === 'video' ? rng('Volume do b-roll', 'vol', e.vol || 0, 0, 1, .05) : ''}</div>`;
+    I.innerHTML = esp + blocoComum(e);
+    ligar(I, e, (c) => { if (['fonte', 'forma', 'personagem', 'pose', 'layout', 'moldura'].includes(c) || c === 'texto') renderTempo(); });
+    ligarComum(I, e);
+    I.querySelectorAll('[data-troca-emoji]').forEach((b) => b.onclick = () => mudar(() => { e.emoji = b.dataset.trocaEmoji; }));
+    const sf = $('[data-semfundo]', I); if (sf) sf.onclick = () => mudar(() => { e.fundo = ''; });
+    const sc = $('[data-semcontorno]', I); if (sc) sc.onclick = () => mudar(() => { e.contorno = ''; });
+    return;
   }
-  const s = ev.target.closest('[data-selec]'); if (s) { st.sel = s.dataset.selec; const e = st.elementos.find((x) => x.id === st.sel); if (e) video.currentTime = e.inicio + 0.05; renderTudo(); }
-});
-function apagarSel() { if (!st.sel) return; snapshot(); st.elementos = st.elementos.filter((x) => x.id !== st.sel); st.sel = null; salvar(); renderTudo(); }
+  if (s.tipo === 'seg') {
+    const g = selSeg(); if (!g) { st.sel = null; return renderInspetor(); }
+    const i = ed.segmentos.indexOf(g);
+    I.innerHTML = `<div class="grupo"><h3>Trecho ${i + 1} <em>${tcode(g.ini)} → ${tcode(g.fim)} · final ${tcode((g.fim - g.ini) / g.vel)}</em></h3>
+        ${g.fora ? '<div class="nota">Este trecho está removido e não entra no vídeo final.</div>' : ''}
+        <div class="linha2"><button class="btn" id="sDiv">⫼ Dividir no cursor</button><button class="btn ${g.fora ? '' : 'perigo'}" id="sFora">${g.fora ? '↺ Restaurar' : '⌫ Remover'}</button></div></div>
+      <div class="grupo"><h3>Velocidade</h3>${rng('Velocidade', 'vel', g.vel, .25, 4, .05, (v) => v + '×')}
+        <div class="linha3">${[.5, 1, 1.25, 1.5, 2, 3].map((v) => `<button class="btn" data-vel="${v}">${v}×</button>`).join('')}</div></div>
+      <div class="grupo"><h3>Zoom / punch-in</h3><div class="linha2">${rng('Zoom no início', 'zoom.de', g.zoom.de, 1, 2.5, .01, (v) => v + '×')}${rng('Zoom no fim', 'zoom.para', g.zoom.para, 1, 2.5, .01, (v) => v + '×')}</div>
+        <div class="linha2">${rng('Foco X', 'zoom.x', g.zoom.x, 0, 1, .01)}${rng('Foco Y', 'zoom.y', g.zoom.y, 0, 1, .01)}</div>
+        <div class="linha3"><button class="btn" data-zoom="punch">Punch-in</button><button class="btn" data-zoom="lento">Zoom lento</button><button class="btn" data-zoom="zero">Sem zoom</button></div></div>
+      <div class="grupo"><h3>Cor</h3>${sel('Preset', 'cor.preset', g.cor.preset, Object.fromEntries(Object.keys(CORES_VIDEO).map((c) => [c, c])))}
+        <div class="linha2">${rng('Brilho', 'cor.brilho', g.cor.brilho, -.5, .5, .01)}${rng('Contraste', 'cor.contraste', g.cor.contraste, -.5, .5, .01)}</div>
+        <div class="linha2">${rng('Saturação', 'cor.sat', g.cor.sat, -1, 1, .01)}${rng('Temperatura', 'cor.temp', g.cor.temp, -.6, .6, .01)}</div>
+        <button class="btn" id="corTodos">Aplicar esta cor em todos os trechos</button></div>
+      <div class="grupo"><h3>Transição de entrada</h3>${sel('Transição', 'trans', g.trans, TRANSICOES)}${i === 0 ? '<div class="dica">O primeiro trecho não tem transição de entrada.</div>' : ''}</div>
+      <div class="grupo"><h3>Áudio do trecho</h3>${rng('Volume', 'vol', g.vol, 0, 2, .05, pct)}</div>`;
+    ligar(I, g, (c) => { if (c === 'trans') previewTrans(g); });
+    $('#sDiv').onclick = () => dividir(quadro(agora()));
+    $('#sFora').onclick = removerSel;
+    I.querySelectorAll('[data-vel]').forEach((b) => b.onclick = () => mudar(() => { g.vel = +b.dataset.vel; }));
+    I.querySelectorAll('[data-zoom]').forEach((b) => b.onclick = () => mudar(() => { const z = b.dataset.zoom; g.zoom = z === 'punch' ? {de: 1.18, para: 1.18, x: .5, y: .38} : z === 'lento' ? {de: 1, para: 1.12, x: .5, y: .4} : {de: 1, para: 1, x: .5, y: .5}; }));
+    $('#corTodos').onclick = () => { mudar(() => ed.segmentos.forEach((x) => { x.cor = {...g.cor}; })); toast('Cor aplicada em todos os trechos'); };
+    return;
+  }
+  if (s.tipo === 'leg') {
+    const b = ed.legendas.blocos.find((x) => x.id === s.id); const L = ed.legendas;
+    if (!b) { st.sel = null; return renderInspetor(); }
+    const i = L.blocos.indexOf(b);
+    I.innerHTML = `<div class="grupo"><h3>Bloco ${i + 1} de ${L.blocos.length}</h3><label class="campo">Texto<textarea data-b="texto">${esc(b.texto)}</textarea></label>
+        <div class="linha2"><label class="campo">Entra<input type="number" step=".05" data-b="t0" value="${b.t0}"></label><label class="campo">Sai<input type="number" step=".05" data-b="t1" value="${b.t1}"></label></div>
+        <div class="linha3"><button class="btn" id="lAnt">← Anterior</button><button class="btn" id="lProx">Próximo →</button><button class="btn perigo" id="lDel">Apagar</button></div>
+        <div class="linha2"><button class="btn" id="lJuntar">Juntar com o próximo</button><button class="btn" id="lDividir">Dividir no cursor</button></div></div>
+      <div class="grupo"><h3>Estilo da legenda <em>todos os blocos</em></h3>${sel('Estilo', 'estilo', L.estilo, LEG_ESTILOS)}
+        ${sel('Fonte', 'fonte', L.fonte, Object.fromEntries(Object.keys(FONTES).map((f) => [f, f])))}
+        <div class="campo">Cor${cores('cor', L.cor, kc)}</div><div class="campo">Destaque${cores('destaque', L.destaque, kc)}</div>
+        <div class="campo">Contorno<div class="cores" style="margin-bottom:4px"><button class="btn" data-semcontorno="1" style="width:auto;height:24px;padding:0 8px;font-size:11px">Sem contorno</button></div>${cores('contorno', L.contorno, ['#000000', ...kc])}</div>
+        <div class="linha2">${rng('Tamanho', 'tam', L.tam, .4, 2.2, .05)}${rng('Altura', 'y', L.y, .05, .95, .01)}</div>
+        ${rng('Palavras por bloco', 'porBloco', L.porBloco, 1, 8, 1)}
+        <div class="linha2"><label class="check"><input type="checkbox" data-c="caixaAlta" ${L.caixaAlta ? 'checked' : ''}> MAIÚSCULAS</label><label class="check"><input type="checkbox" data-c="semPontuacao" ${L.semPontuacao ? 'checked' : ''}> Sem pontuação</label></div>
+        <button class="btn" id="lRefazer">Refazer blocos da fala</button></div>`;
+    ligar(I, L, (c) => { if (c === 'porBloco') { clearTimeout(ligar.tb); ligar.tb = setTimeout(() => { if ((st.atual.modelo && st.atual.modelo.palavras || []).length) gerarLegenda(); }, 400); } });
+    I.querySelectorAll('[data-b]').forEach((inp) => inp.addEventListener('change', () => mudar(() => { const c = inp.dataset.b; b[c] = c === 'texto' ? inp.value : +inp.value; })));
+    $('#lAnt').onclick = () => { const p = L.blocos[i - 1]; if (p) { st.sel = {tipo: 'leg', id: p.id}; irPara(p.t0 + .02); renderTudo(); } };
+    $('#lProx').onclick = () => { const p = L.blocos[i + 1]; if (p) { st.sel = {tipo: 'leg', id: p.id}; irPara(p.t0 + .02); renderTudo(); } };
+    $('#lDel').onclick = removerSel;
+    $('#lJuntar').onclick = () => { const p = L.blocos[i + 1]; if (!p) return; mudar(() => { b.texto = b.texto + ' ' + p.texto; b.t1 = p.t1; b.palavras = b.palavras && p.palavras ? [...b.palavras, ...p.palavras] : null; L.blocos.splice(i + 1, 1); }); };
+    $('#lDividir').onclick = () => { const t = agora(); if (t <= b.t0 + .05 || t >= b.t1 - .05) { toast('Ponha o cursor dentro do bloco'); return; }
+      mudar(() => { const ws = palavrasDoBloco(b), a = ws.filter((p) => p.s < t), c = ws.filter((p) => p.s >= t); if (!a.length || !c.length) return;
+        const n = {id: uid(), t0: r2(t), t1: b.t1, texto: c.map((p) => p.w).join(' '), palavras: c.map((p) => ({s: p.s, e: p.e}))}; b.t1 = r2(t); b.texto = a.map((p) => p.w).join(' '); b.palavras = a.map((p) => ({s: p.s, e: p.e})); L.blocos.splice(i + 1, 0, n); }); };
+    $('#lRefazer').onclick = gerarLegenda;
+    const sc = $('[data-semcontorno]', I); if (sc) sc.onclick = () => mudar(() => { L.contorno = ''; });
+    return;
+  }
+  if (s.tipo === 'mus') {
+    const m = ed.audio.musica; if (!m) { st.sel = null; return renderInspetor(); }
+    I.innerHTML = `<div class="grupo"><h3>Trilha</h3>${sel('Música', 'preset', m.preset, MUSICAS)}${rng('Volume', 'vol', m.vol, 0, 1, .01, pct)}
+        <div class="linha2">${num('Começa (s)', 'ini', m.ini)}${num('Termina (s)', 'fim', m.fim)}</div>
+        <div class="linha2">${rng('Fade in (s)', 'fadeIn', m.fadeIn, 0, 5, .1)}${rng('Fade out (s)', 'fadeOut', m.fadeOut, 0, 6, .1)}</div>
+        <label class="check"><input type="checkbox" data-c="ducking" ${m.ducking ? 'checked' : ''}> Baixar sob a fala (ducking)</label>
+        <button class="btn perigo" id="mDel">Tirar trilha</button>
+        <div class="dica">Quer uma música sua? Mande o arquivo no chat; o Claude põe no lugar desta.</div></div>`;
+    ligar(I, m, (c) => { if (c === 'preset' && !video.paused) iniciarMusica(); });
+    $('#mDel').onclick = removerSel; return;
+  }
+  if (s.tipo === 'sfx') {
+    const x = ed.audio.sfx.find((y) => y.id === s.id); if (!x) { st.sel = null; return renderInspetor(); }
+    I.innerHTML = `<div class="grupo"><h3>Efeito sonoro</h3>${sel('Som', 'tipo', x.tipo, SFX)}${rng('Volume', 'vol', x.vol, 0, 1, .05, pct)}${num('Tempo (s)', 't', x.t, .05)}
+      <div class="linha2"><button class="btn" id="xOuvir">▶ Ouvir</button><button class="btn perigo" id="xDel">Apagar</button></div></div>`;
+    ligar(I, x); $('#xOuvir').onclick = () => tocarSfx(x.tipo, x.vol); $('#xDel').onclick = removerSel; return;
+  }
+  if (s.tipo === 'nar') {
+    const n = ed.audio.narracoes.find((y) => y.id === s.id); if (!n) { st.sel = null; return renderInspetor(); }
+    I.innerHTML = `<div class="grupo"><h3>Narração com a sua voz</h3><label class="campo">Texto<textarea data-c="texto">${esc(n.texto)}</textarea></label>${num('Começa (s)', 't', n.t, .05)}
+      ${rng('Volume', 'vol', n.vol ?? 1, 0, 1.5, .05, pct)}<div class="dica">Duração estimada: ${estDur(n.texto).toFixed(1)} s. O Claude gera com a sua voz clonada no render.</div>
+      <button class="btn perigo" id="nDel">Apagar</button></div>`;
+    ligar(I, n); $('#nDel').onclick = removerSel; return;
+  }
+  if (s.tipo === 'mk') {
+    const m = ed.marcadores.find((y) => y.id === s.id); if (!m) { st.sel = null; return renderInspetor(); }
+    I.innerHTML = `<div class="grupo"><h3>Marcador em ${tcode(m.t)}</h3><label class="campo">Nota<input data-c="texto" value="${esc(m.texto || '')}" placeholder="Ex.: aqui entra o gancho"></label><button class="btn perigo" id="mkDel">Apagar marcador</button></div>`;
+    ligar(I, m); $('#mkDel').onclick = removerSel; return;
+  }
+  // nada selecionado: projeto
+  const en = ed.enquadre, E = ed.efeitos;
+  I.innerHTML = `<div class="grupo"><h3>Projeto</h3><dl class="resumo"><dt>Original</dt><dd>${tcode(st.dur)}</dd><dt>Final</dt><dd>${tcode(duracaoFinal())} · ${ed.segmentos.filter((x) => x.fora).length} trechos removidos</dd>
+      <dt>Elementos</dt><dd>${ed.elementos.length} · legenda ${ed.legendas.ativo ? ed.legendas.blocos.length + ' blocos' : 'desligada'}</dd><dt>Áudio</dt><dd>${ed.audio.musica ? 'trilha · ' : ''}${ed.audio.sfx.length} efeitos · ${ed.audio.narracoes.length} narrações</dd></dl></div>
+    <div class="grupo"><h3>Enquadramento <em>${esc(ed.formato)}</em></h3>${sel('Modo', 'enquadre.modo', en.modo, {preencher: 'Preencher (corta as sobras)', caber: 'Caber inteiro (com fundo)'})}
+      ${en.modo === 'caber' ? sel('Fundo', 'enquadre.fundo', en.fundo, {desfoque: 'Vídeo desfocado', '#000000': 'Preto', '#FFFFFF': 'Branco', '#0F3D2E': 'Verde do perfil'}) : `<div class="linha2">${rng('Posição X', 'enquadre.x', en.x, 0, 1, .01)}${rng('Posição Y', 'enquadre.y', en.y, 0, 1, .01)}</div><div class="dica">Ou clique em ⤢ e arraste o vídeo.</div>`}</div>
+    <div class="grupo"><h3>Efeitos gerais</h3>${rng('Grão de filme', 'efeitos.grao', E.grao, 0, 1, .05, pct)}${rng('Vinheta', 'efeitos.vinheta', E.vinheta, 0, 1, .05, pct)}
+      <label class="check"><input type="checkbox" data-c="efeitos.barras" ${E.barras ? 'checked' : ''}> Barras de cinema</label></div>
+    <div class="grupo"><h3>Camadas <em>${ed.elementos.length}</em></h3><div class="camadas-lista">${ed.elementos.slice().reverse().map((x) => `<div class="item"><b data-selec="${x.id}">${esc(rotuloEl(x))}</b><span class="dica">${tcode(x.inicio)}</span>
+      <button data-vis="${x.id}" title="Mostrar/ocultar">${x.oculto ? '🙈' : '👁'}</button><button data-trv="${x.id}" title="Travar">${x.travado ? '🔒' : '🔓'}</button></div>`).join('') || '<div class="vazio">Nenhum elemento. Use Texto, Elementos ou Mídia à esquerda.</div>'}</div></div>
+    <div class="nota">Dica: <span class="kbd">S</span> divide, <span class="kbd">B</span> lâmina, <span class="kbd">Del</span> remove, <span class="kbd">?</span> todos os atalhos.</div>`;
+  ligar(I, ed, (c) => { if (c === 'enquadre.modo') renderInspetor(); });
+  I.querySelectorAll('[data-selec]').forEach((b) => b.onclick = () => { const e = ed.elementos.find((x) => x.id === b.dataset.selec); if (!e) return; st.sel = {tipo: 'el', id: e.id}; irPara(e.inicio + .05); renderTudo(); });
+  I.querySelectorAll('[data-vis]').forEach((b) => b.onclick = () => mudar(() => { const e = ed.elementos.find((x) => x.id === b.dataset.vis); e.oculto = !e.oculto; }));
+  I.querySelectorAll('[data-trv]').forEach((b) => b.onclick = () => mudar(() => { const e = ed.elementos.find((x) => x.id === b.dataset.trv); e.travado = !e.travado; }));
+}
+function previewTrans(s) { if (!s) return; irPara(Math.max(0, s.ini - .4)); st.forcarAnim = true; video.play().catch(() => {}); setTimeout(() => { video.pause(); st.forcarAnim = false; }, 1100); }
 
-/* ---------- pedidos ---------- */
+/* ---------- pedidos de alteração ---------- */
+function renderPedidos(I) {
+  const meus = st.pedidos.filter((p) => p.video === st.atual.id).sort((a, b) => a.t - b.t);
+  I.innerHTML = `<div class="grupo"><h3>Pedir alteração em ${tcode(agora())}</h3>
+      <div class="nota">Para o que o editor não faz sozinho: trocar uma cena, refazer a narração, mudar o roteiro, outra música… O Claude aplica no render.</div>
+      <label class="campo">Tipo<select id="pTipo"><option value="alterar">Alterar</option><option value="remover">Remover / cortar</option><option value="adicionar">Adicionar</option><option value="texto">Texto / legenda</option><option value="cor">Cor / visual</option><option value="audio">Áudio / voz / trilha</option><option value="ritmo">Ritmo / tempo</option><option value="roteiro">Roteiro / fala</option></select></label>
+      <label class="campo">O que mudar<textarea id="pTexto" placeholder="Ex.: troca essa cena por uma foto do STF; refaz essa fala mais animado; deixa a legenda maior"></textarea></label>
+      <div class="linha2"><button class="btn" id="pPonto">🎯 Marcar ponto</button><button class="btn" id="pTrecho">✂ Marcar trecho</button></div>
+      <button class="btn prim" id="pEnviar">Salvar pedido</button>
+      <div class="dica">${st.marcando ? `Ponto marcado (${Math.round(st.marcando.x * 100)}%, ${Math.round(st.marcando.y * 100)}%)` : 'Opcional: marque o ponto exato no vídeo.'}${st.corte ? ` · trecho de ${tcode(st.corte.ini)} a ${st.corte.fim != null ? tcode(st.corte.fim) : '…'}` : ''}</div></div>
+    <div class="grupo"><h3>Pedidos deste vídeo <em>${meus.length}</em></h3>${meus.map((p) => `<div class="ped"><div class="meta"><b>${tcode(p.t)}${p.fim ? ' → ' + tcode(p.fim) : ''}</b> ${esc(p.tipo)} <span class="estado ${esc(p.status)}">${esc(p.status)}</span></div><div>${esc(p.texto)}</div>
+      <div style="display:flex;gap:6px"><button class="btn" data-ir="${p.id}">Ir</button>${p.status === 'pendente' ? `<button class="btn" data-del="${p.id}">Apagar</button>` : ''}</div></div>`).join('') || '<div class="vazio">Nenhum pedido ainda.</div>'}</div>`;
+  $('#pPonto').onclick = () => { mira.classList.add('on'); video.pause(); toast('Clique no ponto do vídeo'); };
+  $('#pTrecho').onclick = () => {
+    if (!st.corte || st.corte.fim != null) { st.corte = {ini: r2(agora())}; toast('Início marcado. Vá até o fim do trecho e clique de novo.'); }
+    else { st.corte.fim = r2(Math.max(st.corte.ini + .1, agora())); toast('Trecho marcado'); }
+    renderPedidos(I);
+  };
+  $('#pEnviar').onclick = enviarPedido;
+  I.querySelectorAll('[data-ir]').forEach((b) => b.onclick = () => { const p = st.pedidos.find((x) => x.id === b.dataset.ir); if (p) irPara(p.t); });
+  I.querySelectorAll('[data-del]').forEach((b) => b.onclick = async () => { if (!st.db) return; try { await st.db.doc('pedidos/' + b.dataset.del).delete(); } catch (e) { toast('Não deu para apagar'); } });
+}
 mira.addEventListener('click', (ev) => {
   const r = mira.getBoundingClientRect(); st.marcando = {x: +((ev.clientX - r.left) / r.width).toFixed(3), y: +((ev.clientY - r.top) / r.height).toFixed(3)};
   mira.classList.remove('on'); st.aba = 'pedidos'; renderInspetor(); toast('Ponto marcado');
 });
-$('#cortarBtn').onclick = () => {
-  if (!st.atual) return;
-  if (!st.corte || st.corte.fim != null) { st.corte = {ini: +video.currentTime.toFixed(2)}; toast('Início do corte marcado. Vá até o fim e clique de novo.'); }
-  else { st.corte.fim = +Math.max(st.corte.ini + 0.1, video.currentTime).toFixed(2); st.aba = 'pedidos'; renderInspetor(); const t = $('#pTipo'); if (t) t.value = 'remover'; toast('Trecho marcado: descreva e salve'); }
-};
 async function enviarPedido() {
   const texto = $('#pTexto').value.trim(); if (!texto) { toast('Descreva o que mudar'); return; }
-  const doc = {video: st.atual.id, nome: st.atual.nome, t: st.corte ? st.corte.ini : +video.currentTime.toFixed(2), tipo: $('#pTipo').value, texto, status: 'pendente', criado: new Date().toISOString()};
+  const doc = {video: st.atual.id, nome: st.atual.nome, t: st.corte ? st.corte.ini : r2(agora()), tipo: $('#pTipo').value, texto, status: 'pendente', criado: new Date().toISOString()};
   if (st.corte && st.corte.fim != null) doc.fim = st.corte.fim;
   if (st.marcando) { doc.x = st.marcando.x; doc.y = st.marcando.y; }
   if (!st.db) { toast('Sem conexão com o banco: não salvou'); return; }
   try { await st.db.collection('pedidos').add(doc); st.marcando = null; st.corte = null; toast('Pedido salvo'); renderInspetor(); }
   catch (e) { toast(e && e.code === 'permission_denied' ? 'Você só pode ver esta página' : 'Não salvou o pedido'); }
 }
-$('#aplicar').onclick = async () => {
-  if (!st.atual || !st.db) { toast('Abra um vídeo primeiro'); return; }
-  try { st.edStatus = 'render-pedido'; await st.db.doc('edicoes/' + st.atual.id).set({video: st.atual.id, nome: st.atual.nome, arquivo: st.atual.video, elementos: st.elementos, atualizado: new Date().toISOString(), status: 'render-pedido'});
-    toast('Pronto: peça no chat "aplica as edições do estúdio"'); status('render pedido', 'salvando'); }
-  catch (e) { toast('Não salvou'); }
+function renderInfo(I) {
+  const m = st.atual.modelo, p = st.atual.projeto;
+  I.innerHTML = m ? `<div class="grupo"><h3>${esc(m.nome)}</h3><div class="desc">${esc(m.descricao)}</div>
+      <div class="dica">${esc((m.formatos || []).join(' · '))} · estilo ${esc(m.estilo)} · ${esc(m.res || '')} · ${tcode(m.dur)}</div></div>
+      <div class="grupo"><h3>Como pedir</h3><div class="nota">${esc(m.pedido)}</div><button class="btn" id="copiar">Copiar pedido</button></div>
+      <div class="grupo"><h3>Passos</h3>${(m.passos || []).map((s, i) => `<div class="dica">${i + 1}. ${esc(s)}</div>`).join('')}</div>
+      <div class="dica">Amostra: ${esc(m.amostra || '')}</div>`
+    : `<div class="grupo"><h3>Projeto</h3><div class="desc">${esc(p.descricao || '')}</div><div class="dica">Status: ${esc(p.status || '')}</div></div>`;
+  const c = $('#copiar'); if (c) c.onclick = () => navigator.clipboard.writeText(m.pedido).then(() => toast('Pedido copiado')).catch(() => toast('Selecione o texto e copie'));
+}
+
+/* ---------- barra de cima: perfil, formato, exportar, versões, atalhos ---------- */
+const ORDEM_KITS = ['constitucionalgabaritado', 'liberofilho', 'eticagabaritada', 'concursocomlibero', 'eduarda'];
+$('#perfilSel').innerHTML = Object.keys(KITS).sort((a, b) => ((ORDEM_KITS.indexOf(a) + 1) || 99) - ((ORDEM_KITS.indexOf(b) + 1) || 99)).map((k) => `<option value="${esc(k)}">${esc(NOMES_PERFIL[k] || k)}</option>`).join('');
+$('#perfilSel').onchange = (e) => {
+  if (!st.ed) return;
+  mudar(() => { const k = KITS[e.target.value]; st.ed.perfil = e.target.value; const L = st.ed.legendas; L.fonte = fonteDoKit(k.fonte); L.cor = k.cor || '#FFFFFF'; L.destaque = k.destaque; L.contorno = k.contorno || '#000000'; L.caixaAlta = k.caixa_alta !== false; });
+  renderEsq(); toast('Kit do perfil aplicado na legenda e nos textos prontos');
 };
+$('#formatoSel').onchange = (e) => { if (!st.ed) return; mudar(() => { st.ed.formato = e.target.value; }); ajustarMonitor(); };
+const dlgExp = $('#exportar');
+$('#exportarBtn').onclick = () => {
+  if (!st.ed) return;
+  const ed = st.ed;
+  $('#expResumo').innerHTML = `<dt>Vídeo</dt><dd>${esc(st.atual.nome)}</dd><dt>Formato</dt><dd>${esc(ed.formato)} · ${ed.enquadre.modo}</dd><dt>Duração final</dt><dd>${tcode(duracaoFinal())} (original ${tcode(st.dur)})</dd>
+    <dt>Cortes</dt><dd>${ed.segmentos.length} trechos, ${ed.segmentos.filter((s) => s.fora).length} removidos</dd><dt>Elementos</dt><dd>${ed.elementos.length} (${ed.elementos.filter((e) => e.kf && e.kf.length).length} com keyframes)</dd>
+    <dt>Legenda</dt><dd>${ed.legendas.ativo ? `${ed.legendas.blocos.length} blocos · ${LEG_ESTILOS[ed.legendas.estilo]}` : 'desligada'}</dd><dt>Áudio</dt><dd>${ed.audio.musica ? MUSICAS[ed.audio.musica.preset] + ' · ' : ''}${ed.audio.sfx.length} efeitos · ${ed.audio.narracoes.length} narrações com a sua voz</dd>
+    <dt>Pedidos</dt><dd>${st.pedidos.filter((p) => p.video === st.atual.id && p.status === 'pendente').length} pendentes</dd>`;
+  const ex = ed.exportar || {}; if (ex.res) $('#eRes').value = ex.res; if (ex.fps) $('#eFps').value = ex.fps; if (ex.legenda) $('#eLeg').value = ex.legenda; if (ex.audio) $('#eAud').value = ex.audio; if (ex.destino) $('#eDest').value = ex.destino;
+  dlgExp.showModal();
+};
+$('#formExp').addEventListener('submit', async (ev) => {
+  if (ev.submitter && ev.submitter.value === 'cancel') return;
+  ev.preventDefault();
+  st.ed.exportar = {res: $('#eRes').value, fps: +$('#eFps').value, legenda: $('#eLeg').value, audio: $('#eAud').value, destino: $('#eDest').value, obs: $('#eObs').value.trim(), pedido: new Date().toISOString()};
+  statusEd = 'render-pedido';
+  if (!st.db) { toast('Sem conexão com o banco: não salvou'); return; }
+  try { await st.db.doc('edicoes/' + st.atual.id).set(docEdicao()); dlgExp.close(); status('render pedido', 'salvando'); toast('Exportação na fila. Peça no chat: "aplica as edições do estúdio"'); }
+  catch (e) { toast('Não salvou'); }
+});
+const dlgVer = $('#versoes');
+function renderVersoes() {
+  const vs = st.versoes.slice().sort((a, b) => (b.criado || '').localeCompare(a.criado || ''));
+  $('#vLista').innerHTML = vs.length ? vs.map((v) => `<div class="ped"><div class="meta"><b>${esc(v.nome || 'versão')}</b> ${esc((v.criado || '').slice(0, 16).replace('T', ' '))}</div>
+    <div style="display:flex;gap:6px"><button class="btn" type="button" data-restaura="${v.id}">Restaurar</button><button class="btn" type="button" data-tiraver="${v.id}">Apagar</button></div></div>`).join('') : '<div class="vazio">Nenhuma versão salva deste vídeo.</div>';
+}
+$('#versoesBtn').onclick = () => { if (!st.ed) return; renderVersoes(); dlgVer.showModal(); };
+$('#vSalvar').onclick = async () => {
+  if (!st.db) { toast('Sem conexão com o banco'); return; }
+  try { await st.db.collection('versoes').add({video: st.atual.id, nome: $('#vNome').value.trim() || 'versão ' + (st.versoes.length + 1), criado: new Date().toISOString(), ed: JSON.parse(JSON.stringify(st.ed))}); $('#vNome').value = ''; toast('Versão salva'); }
+  catch (e) { toast('Não salvou a versão'); }
+};
+$('#vLista').addEventListener('click', async (e) => {
+  const r = e.target.closest('[data-restaura]'); if (r) { const v = st.versoes.find((x) => x.id === r.dataset.restaura); if (v && v.ed) { snapshot(); st.ed = migrar(v.ed, st.atual); garantirSegmentos(); salvar(); renderTudo(); dlgVer.close(); toast('Versão restaurada (Ctrl+Z desfaz)'); } return; }
+  const d = e.target.closest('[data-tiraver]'); if (d && st.db) { try { await st.db.doc('versoes/' + d.dataset.tiraver).delete(); } catch (er) { toast('Não apagou'); } }
+});
+const ATALHOS = [['Espaço', 'Tocar / pausar'], ['J · K · L', 'Voltar 1 s · pausar · tocar (L de novo acelera)'], ['← →', 'Quadro anterior / próximo'], ['Shift + ← →', '1 segundo'], ['Home / End', 'Início / fim'],
+  ['S', 'Dividir no cursor (vídeo ou elemento selecionado)'], ['B / V', 'Lâmina / seleção'], ['Del', 'Remover trecho ou apagar elemento'], ['Ctrl + D', 'Duplicar'], ['Shift + K', 'Keyframe no cursor'],
+  ['M', 'Marcador'], ['I / O', 'Marcar entrada / saída (com ⟲ repete)'], ['+ / −', 'Zoom da linha do tempo'], ['Shift + Z', 'Ajustar à tela'], ['Ctrl + roda', 'Zoom na linha do tempo'], ['Ctrl + Z / Ctrl + Shift + Z', 'Desfazer / refazer'], ['Esc', 'Tirar seleção'], ['?', 'Esta lista']];
+$('#listaAtalhos').innerHTML = ATALHOS.map(([k, d]) => `<span class="kbd">${esc(k)}</span><span>${esc(d)}</span>`).join('');
+$('#atalhosBtn').onclick = () => $('#atalhos').showModal();
 
 /* ---------- novo vídeo ---------- */
 const dlg = $('#novo');
 $('#novoBtn').onclick = () => {
   $('#nModelo').innerHTML = MODELOS.map((m) => `<option value="${esc(m.id)}"${st.atual && st.atual.id === m.id ? ' selected' : ''}>${esc(m.nome)}</option>`).join('');
-  $('#nPers').innerHTML = ['libero', 'lex', 'ana', 'martelo', 'beto'].map((p) => `<label><input type="checkbox" value="${p}"> ${p}</label>`).join('');
+  $('#nPers').innerHTML = [...new Set(PERSONAGENS.map((p) => p.split('-')[0]))].map((p) => `<label><input type="checkbox" value="${p}"> ${p}</label>`).join('');
   renderNovos(); dlg.showModal();
 };
 $('#formNovo').addEventListener('submit', async (ev) => {
@@ -580,50 +1447,69 @@ $('#formNovo').addEventListener('submit', async (ev) => {
   ev.preventDefault();
   const tema = $('#nTema').value.trim(); if (!tema) { toast('Descreva o vídeo'); return; }
   const doc = {modelo: $('#nModelo').value, perfil: $('#nPerfil').value, formato: $('#nFormato').value, duracao: $('#nDur').value, voz: $('#nVoz').value,
-    tema, material: $('#nLink').value.trim(), personagens: [...document.querySelectorAll('#nPers input:checked')].map((i) => i.value),
-    extras: [...document.querySelectorAll('#formNovo .opcoes input[value]:checked')].map((i) => i.value).filter((v) => !['libero', 'lex', 'ana', 'martelo', 'beto'].includes(v)),
-    obs: $('#nObs').value.trim(), status: 'nova', criado: new Date().toISOString()};
+    tema, roteiro_pedido: $('#nRoteiro').value, material: $('#nLink').value.trim(), personagens: $$('#nPers input:checked').map((i) => i.value),
+    extras: $$('#nExtras input:checked').map((i) => i.value), obs: $('#nObs').value.trim(), status: 'nova', criado: new Date().toISOString()};
   if (!st.db) { toast('Sem conexão com o banco: não salvou'); return; }
   try { await st.db.collection('solicitacoes').add(doc); $('#nTema').value = ''; $('#nObs').value = ''; $('#nLink').value = ''; toast('Pedido de vídeo enviado'); renderNovos(); }
   catch (e) { toast(e && e.code === 'permission_denied' ? 'Você só pode ver esta página' : 'Não salvou'); }
 });
 function renderNovos() {
   $('#listaNovos').innerHTML = st.novos.length ? st.novos.slice().sort((a, b) => (b.criado || '').localeCompare(a.criado || '')).map((n) =>
-    `<div class="ped"><div class="meta"><b>${esc((MODELOS.find((m) => m.id === n.modelo) || {}).nome || n.modelo)}</b> ${esc(n.perfil)} <span class="estado ${esc(n.status)}">${esc(n.status)}</span></div><div>${esc(n.tema)}</div></div>`).join('')
+    `<div class="ped"><div class="meta"><b>${esc((MODELOS.find((m) => m.id === n.modelo) || {}).nome || n.modelo)}</b> ${esc(n.perfil)} <span class="estado ${esc(n.status)}">${esc(n.status)}</span></div><div>${esc(n.tema)}</div>${n.roteiro ? `<details><summary class="dica">Roteiro${n.nota != null ? ` · nota ${esc(n.nota)}/100` : ''}</summary><div class="desc" style="white-space:pre-wrap">${esc(n.roteiro)}</div></details>` : ''}</div>`).join('')
     : '<div class="vazio">Nenhum pedido de vídeo ainda.</div>';
 }
 
 /* ---------- teclado ---------- */
 document.addEventListener('keydown', (e) => {
   if (e.target.closest('input,textarea,select,dialog')) return;
-  if (e.code === 'Space') { e.preventDefault(); tocar(); }
-  if (e.key === 'ArrowLeft') $('#voltaQ').click();
-  if (e.key === 'ArrowRight') $('#avancaQ').click();
-  if ((e.key === 'Delete' || e.key === 'Backspace') && st.sel) { e.preventDefault(); apagarSel(); }
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? refazer() : desfazer(); }
+  const k = e.key, ctrl = e.ctrlKey || e.metaKey;
+  if (e.code === 'Space') { e.preventDefault(); tocar(); return; }
+  if (ctrl && k.toLowerCase() === 'z') { e.preventDefault(); e.shiftKey ? refazer() : desfazer(); return; }
+  if (ctrl && k.toLowerCase() === 'd') { e.preventDefault(); $('#fDupl').click(); return; }
+  if (ctrl) return;
+  if (k === 'ArrowLeft') { e.preventDefault(); video.pause(); irPara(agora() - (e.shiftKey ? 1 : 1 / FPS)); }
+  else if (k === 'ArrowRight') { e.preventDefault(); video.pause(); irPara(agora() + (e.shiftKey ? 1 : 1 / FPS)); }
+  else if (k === 'Home') irPara(0);
+  else if (k === 'End') irPara(st.dur - .02);
+  else if (k === 'Delete' || k === 'Backspace') { e.preventDefault(); removerSel(); }
+  else if (k === 'Escape') { st.sel = null; setFerramenta('selecao'); renderTudo(); }
+  else if (k === '?') $('#atalhos').showModal();
+  else if (k === 'K' && e.shiftKey) $('#fKf').click();
+  else if (k === 'Z' && e.shiftKey) $('#zAjustar').click();
+  else switch (k.toLowerCase()) {
+    case 's': $('#fDividir').click(); break;
+    case 'b': setFerramenta('lamina'); break;
+    case 'v': setFerramenta('selecao'); break;
+    case 'm': $('#fMarcador').click(); break;
+    case 'i': $('#fIn').click(); break;
+    case 'o': $('#fOut').click(); break;
+    case 'j': video.pause(); irPara(agora() - 1); break;
+    case 'k': video.pause(); st.shuttle = 1; break;
+    case 'l': if (video.paused) { st.shuttle = 1; tocar(); } else { st.shuttle = Math.min(4, st.shuttle * 2); toast(`Prévia ${st.shuttle}×`); } break;
+    case '+': case '=': $('#zMais').click(); break;
+    case '-': $('#zMenos').click(); break;
+  }
 });
 
-function renderTudo() { renderTempo(); renderInspetor(); renderCamada(); }
+function renderTudo() { if (st.ed) { $('#perfilSel').value = st.ed.perfil; $('#formatoSel').value = st.ed.formato; } renderTempo(); renderInspetor(); renderMonitor(); }
 
-/* ---------- conexão com o banco (pedidos, edições, vídeos novos, projetos) ---------- */
+/* ---------- conexão com o banco ---------- */
 async function conectar() {
   const use = window.claude && window.claude.use;
   if (!use) { status('salvo neste navegador', 'off'); return; }
   const espera = setTimeout(() => status('sem conexão', 'off'), 10000);
-  try {
-    st.db = await window.claude.use('db');
-    st.assets = await window.claude.use('assets');
-  } catch (e) { st.db = null; }
+  try { st.db = await window.claude.use('db'); st.assets = await window.claude.use('assets'); } catch (e) { st.db = null; }
   clearTimeout(espera);
   if (!st.db) { status('salvo neste navegador', 'off'); return; }
   status('conectado', 'ok');
   st.db.collection('pedidos').onSnapshot((s) => { st.pedidos = s.docs.map((d) => ({id: d.id, ...d.data()})); renderTempo(); if (st.aba === 'pedidos') renderInspetor(); }, () => {});
   st.db.collection('solicitacoes').onSnapshot((s) => { st.novos = s.docs.map((d) => ({id: d.id, ...d.data()})); if (dlg.open) renderNovos(); }, () => {});
-  st.db.collection('projetos').onSnapshot((s) => { st.projetos = s.docs.map((d) => ({id: d.id, ...d.data()})); if (st.bib === 'projetos') renderBib(); }, () => {});
+  st.db.collection('projetos').onSnapshot((s) => { st.projetos = s.docs.map((d) => ({id: d.id, ...d.data()})); if (st.painel === 'projetos') renderEsq(); }, () => {});
+  st.db.collection('midia').onSnapshot((s) => { st.midia = s.docs.map((d) => ({id: d.id, ...d.data()})); if (st.painel === 'midia') renderEsq(); }, () => {});
   if (st.atual) abrir(st.atual);
 }
 
-renderBib();
+renderTrilho(); renderEsq();
 let inicial = MODELOS[0].id;
 try { inicial = localStorage.getItem('estudio-atual') || inicial; } catch (e) {}
 abrir(itensBib().find((i) => i.id === inicial) || itensBib()[0]);

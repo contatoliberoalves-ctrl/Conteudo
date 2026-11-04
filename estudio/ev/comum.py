@@ -105,3 +105,16 @@ def gravar_json(p, dados):
 def tempo(s):
     m, s = divmod(max(s, 0), 60)
     return f"{int(m):02d}:{s:05.2f}"
+
+
+def voz_padrao():
+    """A voz clonada do autor (perfil do estúdio de voz) quando existe; senão, a edge-tts grátis."""
+    return "perfil" if (RAIZ / "projetos" / "voz" / "perfil.json").exists() else "pt-BR-AntonioNeural"
+
+
+def chave_voz(voz):
+    """Parte da chave de cache da narração: com "perfil", muda quando o perfil muda."""
+    if voz == "perfil":
+        p = RAIZ / "projetos" / "voz" / "perfil.json"
+        return ["perfil", p.read_text() if p.exists() else ""]
+    return voz
