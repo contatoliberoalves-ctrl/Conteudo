@@ -134,6 +134,7 @@ export function pagina(r, t) {
     text-shadow: 0 3px 12px rgba(var(--sombra),0.6); }
   #nome-grande { position: absolute; z-index: 2; left: 0; right: 0; top: 1236px; text-align: center; font: 400 206px/0.84 "League Gothic"; letter-spacing: 0.01em; }
   #nome-grande .linha { display: block; white-space: nowrap; }
+  #nome-grande.uma { top: 1262px; font-size: 290px; }
   .mascara { display: inline-block; overflow: hidden; vertical-align: top; padding: 46px 0 40px; margin: -46px 0 -40px; }
   .le { display: inline-block; }
   .le { filter: drop-shadow(0 6px 0 rgba(var(--sombra),0.55)) drop-shadow(0 10px 22px rgba(var(--sombra),0.45)); }
@@ -190,7 +191,9 @@ export function pagina(r, t) {
 
   ${dataLinha ? `<div id="data">${esc(dataLinha)}</div>` : ""}
   <div id="ev">${esc(pg.titulo)}</div>
-  <div id="nome-grande"><span class="linha">${letras(pg.nome, "clara")}</span><span class="linha">${letras(pg.sobrenome, "branca")}</span></div>
+  ${pg.sobrenome
+    ? `<div id="nome-grande"><span class="linha">${letras(pg.nome, "clara")}</span><span class="linha">${letras(pg.sobrenome, "branca")}</span></div>`
+    : `<div id="nome-grande" class="uma"><span class="linha">${letras(pg.nome, "branca")}</span></div>`}
   <div id="pc">${esc(r.selo.join(" "))}</div>
   <div id="cidade">${esc(ev.local)}</div>
   ${lideres}
