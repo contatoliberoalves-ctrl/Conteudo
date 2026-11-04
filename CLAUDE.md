@@ -38,6 +38,12 @@ A página baixa cada carrossel em .zip (ou só os slides marcados, um slide avul
 
 Pedidos de alteração: no visor, o usuário clica num ponto de um slide, ou usa o botão "✎ Pedir correção" (post inteiro ou um slide escolhido, sem ponto), e escreve o que está errado, o que não gostou ou o que alterar, remover ou adicionar. Cada pedido é um doc na coleção `pedidos` do banco da página (`molde, post, titulo, slide` (1 = capa; 0 = post inteiro), `x, y` (0–1, posição do clique no slide; `null` quando veio do botão), `tipo` (errado/nao gostei/alterar/remover/adicionar), `texto`, `criado`). "Não gostei" sem detalhe: proponha uma alternativa e mostre antes de trocar. Quando o usuário pedir para **aplicar os pedidos da galeria**: leia a coleção com `ArtifactData` (list `pedidos`), abra o PNG do slide em `moldes/<molde>/saida/<post>/<slide>.png` e veja o que está no ponto (x·1080, y·1350), faça a mudança no `dados.json` (ou no template, se for do visual do molde), gere de novo, confira, atualize a galeria e apague os docs aplicados. Pedido ambíguo: pergunte antes e deixe o doc.
 
+## Vídeo (Estúdio de Vídeo)
+O Estúdio de Vídeo é o artifact https://claude.ai/artifact/54aB1qgWLkk6ajNfJie6FY (modelos de vídeo com amostra, editor de elementos, pedidos de alteração e pedidos de vídeo novo na coleção `solicitacoes` do banco dele; vídeos prontos na coleção `projetos`). Sempre atualize esse mesmo link. Duas skills deste repositório alimentam o modelo "Reels viral (roteiro + edição)":
+- `roteiro-viral`: escreve o roteiro (5 ganchos, 3 rascunhos, corretor `scripts/score.py` até nota 90+).
+- `editor-reels`: edita o vídeo bruto num reel 9:16 com cards animados na cor do perfil (`perfis.json`) e legenda de uma palavra. Na nuvem: transcrição com `transcribe_local.py` (faster-whisper) e cards com `render_cards.mjs` (Playwright), não `npx hyperframes`.
+Vídeos brutos e renders são do Líbero: trabalhe em `estudio/` (fora do git) ou no scratchpad, nunca no repositório.
+
 ## Ambiente em nuvem do Claude Code
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`

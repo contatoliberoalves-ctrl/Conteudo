@@ -1,0 +1,10 @@
+{
+  "_doc": "Cor de destaque (A) dos cards por perfil, sobre a faixa preta. gen.py lê PERFIL=<chave> ou ACENTO=#hex. 'neg' = vermelho de 'não/perdeu/caro'. A legenda karaokê é sempre branca (Montserrat Black) para todos.",
+  "constitucionalgabaritado": {"A": "#6FD39B", "neg": "#FF5470", "nome": "@constitucionalgabaritado", "origem": "moldes/cg-comum/identidade.mjs (verde claro sobre escuro)"},
+  "liberofilho":             {"A": "#8FB0FF", "neg": "#FF2D55", "nome": "@liberofilho", "origem": "moldes/libero-comum/identidade.mjs (azul claro + vermelho dos anéis)"},
+  "eticagabaritadanaoba":    {"A": "#F06BA8", "neg": "#FF5470", "nome": "@eticagabaritadanaoba", "origem": "carrossel-etica (rosa/magenta do degradê)"},
+  "concursocomlibero":       {"A": "#14F0E4", "neg": "#FF5A5F", "nome": "@concursocomlibero", "origem": "moldes/concurso-libero (ciano do degradê)"},
+  "eduarda":                 {"A": "#E8B9B9", "neg": "#FF5470", "nome": "Eduarda Caraciolo", "origem": "carrossel-eduarda (rosé)"},
+  "podconst":                {"A": "#FFD52E", "neg": "#FF3B7F", "nome": "PodConst", "origem": "molde podconst (amarelo + magenta)"},
+  "ambra":                   {"A": "#2FE081", "neg": "#FF5470", "nome": "padrão original da skill (verde Ambra)", "origem": "famous-reel-editor"}
+}
