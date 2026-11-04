@@ -9,13 +9,12 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { pagina } from "./pagina.mjs";
+import { pagina, tempos } from "./pagina.mjs";
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const HF = "hyperframes@0.8.214";
 const FONTES = {
-  "great-vibes.woff2": "https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XFiaQ.woff2",
-  "cinzel-700.woff2": "https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgfY3lDQ.woff2",
+  "mr-dafoe.woff2": "https://fonts.gstatic.com/s/mrdafoe/v15/lJwE-pIzkS5NXuMMrFitibI.woff2",
 };
 
 const args = process.argv.slice(2);
@@ -43,13 +42,14 @@ function recortar(arquivo, [x0, y0, x1, y1], destino, escala = 3) {
   ffmpeg(["-i", origem(arquivo), "-vf", `crop=${x1 - x0}:${y1 - y0}:${x0}:${y0},scale=iw*${escala}:ih*${escala}:flags=lanczos`, destino]);
 }
 
-// Pregador sem fundo (modelo local do HyperFrames), com cache.
-function semFundo(arquivo, recorte, destino) {
+// Pregador sem fundo: usa o PNG já recortado ou recorta com o modelo local do HyperFrames.
+function pregador(a, destino) {
+  if (a.fotoRecortada) return fs.copyFileSync(origem(a.fotoRecortada), destino);
   fs.mkdirSync(cacheDir, { recursive: true });
-  const c = path.join(cacheDir, `semfundo-${chave(arquivo, fs.statSync(origem(arquivo)).size, recorte)}.png`);
+  const c = path.join(cacheDir, `semfundo-${chave(a.foto, fs.statSync(origem(a.foto)).size, a.fotoRecorte)}.png`);
   if (!fs.existsSync(c)) {
     const tmp = path.join(cacheDir, "recorte-tmp.png");
-    recortar(arquivo, recorte, tmp, 1);
+    recortar(a.foto, a.fotoRecorte, tmp, 1);
     sh("npx", ["-y", HF, "remove-background", tmp, "-o", c]);
   }
   fs.copyFileSync(c, destino);
@@ -65,59 +65,68 @@ function fontes(dir) {
   }
 }
 
-// Sons sintetizados: impacto na abertura e "whoosh" nas viradas.
+// Efeitos sonoros sintetizados: grave suave na abertura e "swell" antes das viradas.
 function sons() {
-  const whoosh = path.join(cacheDir, "whoosh.wav"), impacto = path.join(cacheDir, "impacto.wav");
-  if (!fs.existsSync(whoosh))
-    ffmpeg(["-f", "lavfi", "-i", "anoisesrc=d=0.6:c=pink:a=0.6:r=48000", "-af", "highpass=f=300,lowpass=f=6000,afade=t=in:d=0.35:curve=exp,afade=t=out:st=0.35:d=0.25,volume=0.35", whoosh]);
-  if (!fs.existsSync(impacto))
-    ffmpeg(["-f", "lavfi", "-i", "aevalsrc=0.9*sin(2*PI*(45+120*exp(-t*9))*t)*exp(-t*3.5):d=1.4:s=48000", "-af", "lowpass=f=400,volume=0.7", impacto]);
-  return { whoosh, impacto };
+  const swell = path.join(cacheDir, "swell.wav"), grave = path.join(cacheDir, "grave.wav");
+  if (!fs.existsSync(swell))
+    ffmpeg(["-f", "lavfi", "-i", "anoisesrc=d=1.6:c=pink:a=0.5:r=48000", "-af", "highpass=f=500,lowpass=f=7000,afade=t=in:d=1.4:curve=qua,afade=t=out:st=1.4:d=0.2,aecho=0.8:0.6:60|120:0.3|0.2,volume=0.22", swell]);
+  if (!fs.existsSync(grave))
+    ffmpeg(["-f", "lavfi", "-i", "aevalsrc=0.8*sin(2*PI*(42+60*exp(-t*6))*t)*exp(-t*2.2):d=2.2:s=48000", "-af", "lowpass=f=300,volume=0.55", grave]);
+  return { swell, grave };
 }
 
 function montar(r) {
   const dest = path.join(AQUI, "saida", r.id);
   const assets = path.join(dest, "assets");
-  fs.mkdirSync(path.join(assets, "img"), { recursive: true });
-  const a = r.arquivos;
+  const img = path.join(assets, "img");
+  fs.mkdirSync(img, { recursive: true });
+  const a = r.arquivos, c = r.cores;
   console.log(`▸ ${r.id}: preparando material`);
 
-  semFundo(a.foto, a.fotoRecorte, path.join(assets, "img", "pregador.png"));
-  r.logos.forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(assets, "img", `logo-${i + 1}.png`), 4));
-  (r.lideres || []).forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(assets, "img", `lider-${i + 1}.png`), 4));
+  pregador(a, path.join(img, "pregador.png"));
+  fs.copyFileSync(origem(a.logoEvento), path.join(img, "logo-evento.png"));
+  if (a.flores) fs.copyFileSync(origem(a.flores), path.join(img, "flores.png"));
+  r.logos.forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `logo-${i + 1}.png`), 4));
+  (r.lideres || []).forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `lider-${i + 1}.png`), 4));
+  sh("python3", ["-I", path.join(AQUI, "texturas.py"), img, c.vinhoEscuro, c.vinho, c.rosaEscuro, c.rosa, c.rosaClaro]);
   fontes(path.join(assets, "fonts"));
 
   // Vídeo da pregação: tira as faixas gravadas por cima (recorte), mudo, 30 fps.
   const [w, h, x, y] = a.videoRecorte;
-  const ini = a.audio.inicio, fim = a.audio.fim, dur = Math.round((fim - ini) * 1000) / 1000;
-  ffmpeg(["-ss", String(ini), "-t", String(dur), "-i", origem(a.video), "-vf", `crop=${w}:${h}:${x}:${y},scale=1080:-2,fps=30`, "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", path.join(assets, "pregacao.mp4")]);
+  const ini = a.audio.inicio, fala = Math.round((a.audio.fim - ini) * 1000) / 1000;
+  const t = tempos(fala);
+  ffmpeg(["-ss", String(ini), "-t", String(fala), "-i", origem(a.video), "-vf", `crop=${w}:${h}:${x}:${y},scale=1080:-2,fps=30`, "-an", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", path.join(assets, "pregacao.mp4")]);
 
-  // Áudio: a própria pregação + impacto na abertura + whoosh nas viradas.
-  const t = tempos(dur);
+  // Trilha: pregação tratada (EQ + compressão) por cima do pad, que abaixa quando ele fala.
+  fs.mkdirSync(cacheDir, { recursive: true });
+  const m = r.musica || {};
+  const pad = path.join(cacheDir, `pad-${chave(t.duracao, m.tom || "D", m.bpm || 70)}.wav`);
+  if (!fs.existsSync(pad)) sh("python3", ["-I", path.join(AQUI, "musica.py"), pad, String(t.duracao), m.tom || "D", String(m.bpm || 70)]);
   const s = sons();
-  const ev = [[s.impacto, 0], [s.whoosh, t.virada - 0.3], [s.whoosh, t.final - 0.3]];
+  const atrasoVoz = Math.round(t.voz * 1000);
+  const ev = [[s.grave, 0.05], [s.swell, t.virada - 1.4], [s.swell, t.final - 1.4]];
   ffmpeg([
-    "-ss", String(ini), "-t", String(dur), "-i", origem(a.video),
+    "-ss", String(ini), "-t", String(fala), "-i", origem(a.video),
+    "-i", pad,
     ...ev.flatMap(([f]) => ["-i", f]),
-    "-filter_complex",
-    ev.map(([, at], i) => `[${i + 1}]adelay=${Math.round(at * 1000)}:all=1[e${i}]`).join(";") +
-      `;[0]aformat=channel_layouts=stereo,afade=t=in:d=0.3,afade=t=out:st=${dur - 0.6}:d=0.6[v];[v]${ev.map((_, i) => `[e${i}]`).join("")}amix=inputs=${ev.length + 1}:normalize=0:duration=first,alimiter=limit=0.95[s]`,
+    "-filter_complex", [
+      `[0]aformat=channel_layouts=stereo,highpass=f=90,lowpass=f=11000,acompressor=threshold=-22dB:ratio=3:attack=8:release=180:makeup=2,afade=t=in:d=0.25,afade=t=out:st=${fala - 0.5}:d=0.5,adelay=${atrasoVoz}:all=1,apad[voz]`,
+      `[voz]asplit=2[voz1][chave]`,
+      `[1]volume=${m.volume ?? 0.42}[pad]`,
+      `[pad][chave]sidechaincompress=threshold=0.04:ratio=5:attack=40:release=700:makeup=1[musica]`,
+      ...ev.map(([, at], i) => `[${i + 2}]adelay=${Math.max(0, Math.round(at * 1000))}:all=1[e${i}]`),
+      `[voz1][musica]${ev.map((_, i) => `[e${i}]`).join("")}amix=inputs=${ev.length + 2}:normalize=0:duration=longest,atrim=0:${t.duracao},alimiter=limit=0.93[s]`,
+    ].join(";"),
     "-map", "[s]", "-ar", "48000", path.join(assets, "audio.wav"),
   ]);
 
   fs.mkdirSync(path.join(dest, "lib"), { recursive: true });
   fs.copyFileSync(path.join(AQUI, "node_modules", "gsap", "dist", "gsap.min.js"), path.join(dest, "lib", "gsap.min.js"));
-  fs.writeFileSync(path.join(dest, "index.html"), pagina(r, dur, t));
+  fs.writeFileSync(path.join(dest, "index.html"), pagina(r, t));
   fs.writeFileSync(path.join(dest, "hyperframes.json"), JSON.stringify({ $schema: "https://hyperframes.heygen.com/schema/hyperframes.json", paths: { blocks: "compositions", components: "compositions/components", assets: "assets" } }, null, 2));
   fs.writeFileSync(path.join(dest, "meta.json"), JSON.stringify({ id: r.id, name: r.id }, null, 2));
-  console.log(`  ${dur.toFixed(1)} s`);
+  console.log(`  ${t.duracao.toFixed(1)} s`);
   return dest;
-}
-
-// Momentos do roteiro: abertura com o cartaz, virada para o corpo (janela com a pregação)
-// e volta ao cartaz no fim.
-export function tempos(dur) {
-  return { virada: 5.6, final: Math.max(8, dur - 3.2) };
 }
 
 for (const r of escolhidos) {

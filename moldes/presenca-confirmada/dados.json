@@ -2,20 +2,22 @@
   {
     "id": "encontro-mulheres-douglas-amancio",
     "evento": {
-      "edicao": "12º",
-      "linha1": "ENCONTRO",
-      "linha2": "de Mulheres",
       "faixa": "24 ANOS DO CÍRCULO DE ORAÇÃO",
       "data": "",
       "horario": "",
-      "local": "AD ABREU E LIMA · PE"
+      "local": "SANTA MARIA DA BOA VISTA · PE"
     },
     "pregador": { "titulo": "EV.", "nome": "DOUGLAS", "sobrenome": "AMÂNCIO" },
-    "selo": "PRESENÇA CONFIRMADA",
-    "cores": { "pink": "#f0048c", "vinho": "#930653", "escuro": "#4f0230", "claro": "#f7bcbf", "branco": "#ffffff" },
+    "selo": ["PRESENÇA", "confirmada"],
+    "cores": {
+      "vinhoEscuro": "#4e0716", "vinho": "#9a1e3d", "titulo": "#7e0d23",
+      "rosaEscuro": "#b3345a", "rosa": "#e0678d", "rosaClaro": "#f6b9cb", "branco": "#ffffff"
+    },
+    "musica": { "tom": "D", "bpm": 70, "volume": 0.42 },
     "arquivos": {
-      "foto": "fotos/douglas.webp",
-      "fotoRecorte": [300, 0, 1400, 1000],
+      "fotoRecortada": "fotos/douglas-recortado.png",
+      "logoEvento": "fotos/logo-encontro-mulheres.png",
+      "flores": "fotos/flores.png",
       "video": "fotos/douglas-pregacao.mp4",
       "videoRecorte": [720, 940, 0, 60],
       "audio": { "inicio": 0, "fim": 35.18 }
