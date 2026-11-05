@@ -44,7 +44,7 @@ export function pagina(r, t) {
 
   // Arco: x 172–908, topo em 640, cantos de cima bem arredondados.
   const A = { x: 172, y: 640, w: 736, h: 1000, raio: 120 };
-  const TELA = 1260;
+  const TELA = r.arquivos.alturaTela || 1260; // altura da pregação em tela cheia
 
   // Vídeo na tela cheia: cobre a largura e a altura da tela, centrado na horizontal.
   const [vw, vh] = r.arquivos.videoRecorte;
@@ -130,7 +130,7 @@ export function pagina(r, t) {
   #faixa { position: absolute; left: 0; right: 0; top: 500px; text-align: center; font: 700 25px/1 Montserrat; letter-spacing: 0.26em; color: var(--titulo); }
 
   /* Título: nome grande e, embaixo, "Presença confirmada". */
-  #ev { position: absolute; z-index: 2; left: 0; right: 0; top: 1192px; text-align: center; font: 800 40px/1 Montserrat; letter-spacing: 0.42em; color: var(--branco);
+  #ev { position: absolute; z-index: 2; left: 0; right: 0; top: 1170px; text-align: center; font: 800 40px/1 Montserrat; letter-spacing: 0.42em; color: var(--branco);
     text-shadow: 0 3px 12px rgba(var(--sombra),0.6); }
   #nome-grande { position: absolute; z-index: 2; left: 0; right: 0; top: 1236px; text-align: center; font: 400 206px/0.84 "League Gothic"; letter-spacing: 0.01em; }
   #nome-grande .linha { display: block; white-space: nowrap; }
