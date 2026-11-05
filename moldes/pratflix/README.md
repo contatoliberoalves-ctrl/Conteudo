@@ -14,6 +14,10 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `tipo` | 1080×1350 | `rotulo`, `titulo`, `hashtag`, `cta` |
 | `claro` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag` |
 | `comenta` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag`, `cta` ("Comenta #x pra receber o link") |
+| `capa` | 1080×1350 | capa de carrossel: `rotulo`, `titulo`, `texto` (com "arrasta →") |
+| `lista` | 1080×1350 | `rotulo`, `titulo`, `itens: [{t, d}]` numerados; `claro: true` para a versão papel |
+| `passo` | 1080×1350 | passo de tutorial com prompt: `n`, `titulo`, `texto`, `prompt` (`[trecho]` sai em areia, para o que a pessoa troca), `tp` (px do prompt) |
+| `evento` | 1080×1350 | convite para live/evento: `dia`, `hora`, `rotulo`, `titulo`, `texto`, `hashtag`, `cta` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
 

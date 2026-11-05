@@ -29,5 +29,27 @@
    {"layout": "tipo", "rotulo": "Seu próximo passo", "titulo": ["Grupo de", "[[aperfei-]]", "[[çoamento]]", "na advocacia"], "hashtag": "#pratflix", "cta": "Comente e receba o link"},
    {"layout": "claro", "rotulo": "Grupo gratuito · PratFlix", "titulo": ["Grupo de", "aperfeiçoamento", "[[na advocacia]]"], "texto": "Dicas práticas, materiais e conversa com quem vive a advocacia de verdade.", "hashtag": "#pratflix"}
   ]
+ },
+ {
+  "id": "material-carteirinha-oab",
+  "titulo": "Material gratuito: carteirinha da OAB · Comente #CARTEIRA",
+  "telas": [
+   {"layout": "material", "foto": "libero-terno.jpg", "rotulo": "Material gratuito", "titulo": ["Documentos e passo a passo", "pra solicitar a", "[[carteirinha da OAB]]"], "pdf": ["Carteira da", "[[OAB]]"], "itens": 9, "bonus": {"dia": "DOMINGO", "data": "08/11", "hora": "20h", "selo": "LIVE GRATUITA", "texto": "Os 3 erros que os jovens advogados mais cometem e como fugir deles"}, "botao": "Comente #CARTEIRA pra receber o link", "ts": 80, "top": 650}
+  ]
+ },
+ {
+  "id": "dashboard-escritorio-ia",
+  "titulo": "Como montar o dashboard de gestão do seu escritório com IA · carrossel com prompts",
+  "telas": [
+   {"layout": "capa", "rotulo": "IA na advocacia", "titulo": ["Monte o", "[[dashboard]]", "do seu escritório", "com IA"], "ts": 128, "texto": "Prazos, processos, clientes e honorários num painel só. Com os prompts prontos."},
+   {"layout": "lista", "rotulo": "O que o painel mostra", "titulo": ["Num olhar,", "[[você vê]]"], "itens": [{"t": "Prazos da semana", "d": "O que vence nos próximos 7 dias e de quem é a tarefa."}, {"t": "Processos por fase", "d": "Quantos estão em conhecimento, recurso, execução…"}, {"t": "Honorários a receber", "d": "O que entra no mês e o que está atrasado."}, {"t": "Clientes novos e de onde vêm", "d": "Indicação, Instagram, Google, parceiros."}]},
+   {"layout": "passo", "n": 1, "titulo": ["A planilha", "[[base]]"], "texto": "Peça para a IA desenhar a estrutura. Pode ser Google Planilhas ou Excel.", "prompt": "Crie a estrutura de uma planilha de gestão para um escritório de advocacia com 4 abas: Processos, Prazos, Clientes e Financeiro. Para cada aba, liste as colunas com o tipo de dado e um exemplo. Use listas suspensas para status, fase e área do direito. Meu escritório atua em [suas áreas] e tem [nº] pessoas."},
+   {"layout": "passo", "n": 2, "titulo": ["Organize", "os [[dados]]"], "texto": "Copie a lista do seu sistema ou das anotações e peça para a IA arrumar.", "prompt": "Vou colar abaixo uma lista de processos. Organize em tabela com as colunas: código do cliente, área, fase, próximo prazo (dd/mm/aaaa), responsável e status. Não invente nada: deixe em branco o que não estiver no texto. [cole a lista]"},
+   {"layout": "passo", "n": 3, "titulo": ["As", "[[fórmulas]]"], "texto": "A IA escreve as fórmulas e diz onde colar cada uma.", "prompt": "Na minha planilha, a aba Prazos tem as colunas [liste] e a aba Financeiro tem [liste]. Escreva as fórmulas do Google Planilhas para: processos ativos por fase, prazos dos próximos 7 dias, honorários a receber no mês, valores em atraso e clientes novos por mês e por origem. Diga em qual célula colar cada uma.", "tp": 29},
+   {"layout": "passo", "n": 4, "titulo": ["Monte o", "[[painel]]"], "texto": "Uma aba só com os números que importam, pra abrir toda manhã.", "prompt": "Monte uma aba Painel com: 4 cartões no topo (processos ativos, prazos da semana, a receber no mês, clientes novos), gráfico de pizza por área, gráfico de barras com honorários por mês e a lista dos 10 próximos prazos, com o vencido em vermelho. Explique passo a passo como criar cada item no Google Planilhas.", "tp": 29},
+   {"layout": "passo", "n": 5, "titulo": ["A rotina da", "[[segunda]]"], "texto": "Toda semana, 10 minutos: cole o resumo do painel e peça a leitura.", "prompt": "Este é o resumo do painel do meu escritório nesta semana: [cole os números]. Me diga em tópicos curtos: os 3 prazos mais críticos, os clientes sem retorno há mais de 15 dias e onde o faturamento caiu em relação ao mês passado. No fim, sugira 3 prioridades para a semana."},
+   {"layout": "lista", "claro": true, "rotulo": "Antes de colar", "titulo": ["Cuidado com o", "[[sigilo]]"], "itens": [{"t": "Não cole nome, CPF ou detalhes do caso", "d": "Troque por códigos ou iniciais. O sigilo profissional e a LGPD continuam valendo."}, {"t": "Os dados ficam na sua planilha", "d": "A IA monta a estrutura e as fórmulas; o painel é seu."}, {"t": "Confira as fórmulas", "d": "Teste com dois ou três casos que você conhece antes de confiar no número."}]},
+   {"layout": "evento", "dia": "Domingo · 08/11", "hora": "20h", "rotulo": "Live gratuita", "titulo": ["Os 3 erros dos", "[[jovens advogados]]"], "ts": 120, "texto": "Os erros que os jovens advogados mais cometem e como fugir deles. E a gente vai ensinar bastante coisa: chega com caderno.", "hashtag": "#domingo", "cta": "Comenta #domingo pra receber o link do evento"}
+  ]
  }
 ]

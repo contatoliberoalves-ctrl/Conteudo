@@ -10,7 +10,7 @@ const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos',
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080] };
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -96,6 +96,75 @@ L.simbolo = t => `<div style="position:absolute;inset:0;background:radial-gradie
     <div style="width:190px;height:190px;border-radius:46px;background:linear-gradient(135deg,${C.areia},${C.areia2});display:grid;place-items:center;box-shadow:0 24px 60px rgba(0,0,0,.5)"><span style="font:800 150px/1 Manrope;letter-spacing:-.06em;color:#121212;margin:-24px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
     <div style="${T};font-size:${t.ts ?? 132}px;line-height:.86;color:${C.txt};margin-top:46px">${tit(t.titulo)}</div>
     <div style="margin-top:34px">${logo(44)}</div></div>`;
+
+// Material gratuito com foto do autor no alto (identidade do Post Libero "material" nas cores da PratFlix): foto em
+// tons de areia, rótulo, título, o PDF desenhado (checklist com `itens` linhas numeradas), o bônus (live) e o botão.
+// Foto em fotos/<t.foto> (pessoal, fora do git).
+L.material = t => {
+  const fotoAutor = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos', t.foto)).toString('base64');
+  const n = t.itens ?? 9;
+  const linhas = Array.from({ length: n }, (_, i) => `<div style="display:flex;align-items:center;gap:12px;padding:5px 0;border-bottom:1px solid #d8ccae"><span style="width:22px;height:22px;border:2px solid #7d6a3e;border-radius:5px;flex:none"></span><span style="font:800 15px Manrope;color:#7d6a3e">${String(i + 1).padStart(2, '0')}</span><span style="height:9px;border-radius:5px;background:#cdbf9c;width:${[78, 62, 85, 55, 70, 80, 60, 74, 66][i % 9]}%"></span></div>`).join('');
+  return `<img src="${fotoAutor}" style="position:absolute;left:0;top:0;width:100%;height:760px;object-fit:cover;object-position:${t.fotoPos ?? '50% 18%'};filter:grayscale(.55) sepia(.35) brightness(.78) contrast(1.05)">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.55) 0%,rgba(18,18,18,0) 16%,rgba(18,18,18,.15) 30%,rgba(18,18,18,.92) 44%,${C.bg} 50%)"></div>${grao}
+  <div style="position:absolute;left:80px;right:80px;top:70px;display:flex;justify-content:space-between;align-items:flex-start">${logo(46)}${perfil()}</div>
+  <div style="position:absolute;right:66px;top:${t.pdfTop ?? 190}px;width:300px;transform:rotate(4deg);background:#EFE6CF;border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.55);padding:26px 26px 22px;z-index:3">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:800 13px Manrope;letter-spacing:.2em;color:#7d6a3e">CHECKLIST · PDF</span><span style="font:800 13px Manrope;color:#fff;background:#121212;border-radius:6px;padding:4px 8px">${n} DOCS</span></div>
+    <div style="${T};font-size:40px;line-height:.9;color:#121212;margin:14px 0 10px">${tit(t.pdf, x => `<span style="color:${C.ouro}">${x}</span>`)}</div>${linhas}</div>
+  <div style="position:absolute;left:80px;right:80px;top:${t.top ?? 560}px">
+    ${rotulo(t.rotulo)}
+    <div style="${T};font-size:${t.ts ?? 96}px;line-height:.9;color:${C.txt};margin-top:24px">${tit(t.titulo)}</div>
+    ${t.texto ? `<div style="font:500 29px/1.4 Manrope;color:${C.txt};opacity:.8;margin-top:22px;max-width:880px">${esc(t.texto)}</div>` : ''}
+    ${t.bonus ? `<div style="display:flex;align-items:center;gap:22px;margin-top:30px;border:1px solid #3a3a38;background:#1A1A19;border-radius:18px;padding:20px 26px">
+      <div style="flex:none;text-align:center;border-right:1px solid #3a3a38;padding-right:22px"><div style="font:800 15px Manrope;letter-spacing:.2em;color:${C.areia}">${esc(t.bonus.dia)}</div><div style="${T};font-size:50px;line-height:.95;color:#fff">${esc(t.bonus.data)}</div><div style="font:700 20px Manrope;color:${C.txt};opacity:.75">${esc(t.bonus.hora)}</div></div>
+      <div><div style="display:inline-flex;align-items:center;gap:10px;font:800 16px Manrope;letter-spacing:.2em;color:#121212;background:${C.areia};border-radius:6px;padding:5px 10px"><span style="width:10px;height:10px;border-radius:50%;background:#C8372D"></span>${esc(t.bonus.selo)}</div><div style="font:700 25px/1.3 Manrope;color:${C.txt};margin-top:10px">${esc(t.bonus.texto)}</div></div></div>` : ''}
+  </div>
+  <div style="position:absolute;left:80px;right:80px;bottom:70px;display:flex;align-items:center;gap:18px">
+    <span style="flex:1;background:${C.areia};color:#111;border-radius:16px;padding:26px 30px;font:800 30px Manrope;text-align:center">${esc(t.botao).replace(/(#\S+)/, '<b style="font-weight:800;background:#121212;color:#E3D6B4;border-radius:8px;padding:2px 10px">$1</b>')}</span></div>`;
+};
+
+// ---- Carrossel ----
+const topoC = (dir = '') => `<div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:center">${logo(40)}<span style="font:700 22px Manrope;color:${C.mute};letter-spacing:.08em">${esc(dir)}</span></div>`;
+const pe = () => `<div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;align-items:center;font:600 24px Manrope;color:${C.mute}">${perfil(C.mute)}<span>arrasta →</span></div>`;
+// Capa do carrossel: foto do corredor, rótulo, título grande e subtítulo.
+L.capa = t => `${fundoFoto('100%', `rgba(18,18,18,.5) 0%,rgba(18,18,18,.3) 30%,${C.bg} 72%`)}
+  <div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:flex-start">${logo(54)}${perfil()}</div>
+  <div style="position:absolute;left:90px;right:90px;top:${t.top ?? 470}px">
+    ${rotulo(t.rotulo)}
+    <div style="${T};font-size:${t.ts ?? 140}px;line-height:.86;color:${C.txt};margin-top:30px">${tit(t.titulo)}</div>
+    <div style="font:500 32px/1.45 Manrope;color:${C.txt};opacity:.82;margin-top:32px">${esc(t.texto)}</div></div>
+  <div style="position:absolute;right:90px;bottom:80px;font:700 26px Manrope;color:${C.areia}">arrasta →</div>`;
+// Lista: título e itens numerados em cartões (escuro, ou papel com claro: true).
+L.lista = t => { const cl = t.claro; const cor = cl ? '#111' : C.txt;
+  return `<div style="position:absolute;inset:0;background:${cl ? '#F4F1EA' : `radial-gradient(110% 80% at 100% 0%,#2a271f 0%,${C.bg} 60%)`}"></div>${grao}
+  <div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:center">${logo(40, cor)}<span style="font:700 22px Manrope;color:${cl ? C.ouro : C.mute};letter-spacing:.2em">${esc(t.rotulo ?? '').toUpperCase()}</span></div>
+  <div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:34px">
+    <div style="${T};font-size:${t.ts ?? 124}px;line-height:.88;color:${cor}">${tit(t.titulo, x => `<span style="color:${cl ? C.ouro : C.areia}">${x}</span>`)}</div>
+    <div style="display:flex;flex-direction:column;gap:16px">${t.itens.map((it, i) => `<div style="display:flex;gap:24px;align-items:flex-start;background:${cl ? '#fff' : '#1B1B1A'};border:1px solid ${cl ? '#e3ddcf' : '#2f2f2c'};border-radius:20px;padding:30px 32px">
+      <span style="${T};font-size:52px;line-height:.9;color:${cl ? C.ouro : C.areia};min-width:56px">${String(i + 1).padStart(2, '0')}</span>
+      <div><div style="font:800 36px/1.25 Manrope;color:${cor}">${esc(it.t)}</div>${it.d ? `<div style="font:500 29px/1.4 Manrope;color:${cl ? '#555' : C.txt};opacity:${cl ? 1 : .75};margin-top:6px">${esc(it.d)}</div>` : ''}</div></div>`).join('')}</div>
+  </div>
+  <div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;font:600 24px Manrope;color:${cl ? '#777' : C.mute}">${perfil(cl ? '#777' : C.mute)}<span>arrasta →</span></div>`; };
+// Passo com prompt: número grande, título curto, explicação e a caixa "copie e cole" com o prompt.
+L.passo = t => `<div style="position:absolute;inset:0;background:${C.bg}"></div>${grao}
+  ${topoC(`PASSO ${t.n}`)}
+  <div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:34px">
+    <div style="display:flex;align-items:flex-end;gap:30px"><span style="${T};font-size:250px;line-height:.78;color:transparent;-webkit-text-stroke:3px ${C.areia}">${t.n}</span>
+      <div style="${T};font-size:${t.ts ?? 116}px;line-height:.88;color:${C.txt};padding-bottom:6px">${tit(t.titulo)}</div></div>
+    <div style="font:500 34px/1.45 Manrope;color:${C.txt};opacity:.85">${esc(t.texto)}</div>
+    <div style="background:#1C1B19;border:1px solid #3a372f;border-radius:24px;overflow:hidden">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 30px;background:#25231f;border-bottom:1px solid #3a372f;font:800 21px Manrope;letter-spacing:.24em;color:${C.areia}"><span>✦ PROMPT</span><span style="color:${C.mute};letter-spacing:.1em">copie e cole ⧉</span></div>
+      <div style="padding:32px 34px;font:500 ${t.tp ?? 31}px/1.5 Manrope;color:#E9E4D8">${esc(t.prompt).replace(/\[(.+?)\]/g, `<span style="color:${C.areia};font-weight:700">[$1]</span>`)}</div></div>
+  </div>${pe()}`;
+// Convite para evento: data em destaque, título, texto e caixa de comentário.
+L.evento = t => `${fundoFoto('100%', `rgba(18,18,18,.6) 0%,rgba(18,18,18,.4) 30%,${C.bg} 66%`)}
+  <div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:flex-start">${logo(54)}${perfil()}</div>
+  <div style="position:absolute;left:90px;right:90px;top:${t.top ?? 300}px">
+    <div style="display:inline-flex;align-items:stretch;border-radius:16px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4)"><span style="background:${C.areia};color:#111;padding:18px 26px;font:800 34px Manrope">${esc(t.dia)}</span><span style="background:#111;color:${C.areia};padding:18px 26px;font:800 34px Manrope;border:1px solid ${C.areia}55">${esc(t.hora)}</span></div>
+    <div style="font:700 22px Manrope;letter-spacing:.3em;color:${C.areia};margin-top:44px">${esc(t.rotulo).toUpperCase()}</div>
+    <div style="${T};font-size:${t.ts ?? 132}px;line-height:.86;color:${C.txt};margin-top:18px">${tit(t.titulo)}</div>
+    <div style="font:500 31px/1.45 Manrope;color:${C.txt};opacity:.85;margin-top:30px">${esc(t.texto)}</div></div>
+  <div style="position:absolute;left:90px;right:90px;bottom:90px">${comentario(t.hashtag, 34)}
+    <div style="text-align:center;font:600 30px Manrope;color:${C.txt};margin-top:24px">${esc(t.cta).replace(esc(t.hashtag), `<b style="color:${C.areia}">${esc(t.hashtag)}</b>`)}</div></div>`;
 
 export function renderTela(t) {
   if (!L[t.layout]) throw new Error(`layout desconhecido: ${t.layout}`);
