@@ -10,6 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { pagina, tempos } from "./pagina.mjs";
+import { pagina as paginaFestividade } from "./pagina-festividade.mjs";
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const HF = "hyperframes@0.8.214";
@@ -98,11 +99,23 @@ function montar(r) {
   // Tamanho e área ocupada (alfa) do recorte, para a página enquadrar qualquer foto.
   const [fw, fh, ...caixa] = JSON.parse(sh("python3", ["-I", "-c", "import sys,json;from PIL import Image;im=Image.open(sys.argv[1]).convert('RGBA');a=im.getchannel('A').point(lambda v:255 if v>40 else 0);print(json.dumps([*im.size,*a.getbbox()]))", path.join(img, "pregador.png")]).toString());
   r._foto = { w: fw, h: fh, caixa };
-  fs.copyFileSync(origem(a.logoEvento), path.join(img, "logo-evento.png"));
-  if (a.flores) fs.copyFileSync(origem(a.flores), path.join(img, "flores.png"));
-  r.logos.forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `logo-${i + 1}.png`), 4));
-  (r.lideres || []).forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `lider-${i + 1}.png`), 4));
-  sh("python3", ["-I", path.join(AQUI, "texturas.py"), img, c.vinhoEscuro, c.vinho, c.rosaEscuro, c.rosa, c.rosaClaro]);
+  // Logo inteiro (sem "recorte") ou recortado de uma arte maior.
+  r.logos.forEach((l, i) => {
+    const dest = path.join(img, `logo-${i + 1}.png`);
+    if (l.recorte) recortar(l.arquivo, l.recorte, dest, 4);
+    else ffmpeg(["-i", origem(l.arquivo), "-vf", "scale=-2:300:flags=lanczos", dest]);
+  });
+  if (r.modelo === "festividade") {
+    // Fundo do evento e as peças do letreiro (título, nome e destaque "13 anos").
+    fs.copyFileSync(origem(a.fundo), path.join(img, "fundo.png"));
+    r._fundo = JSON.parse(sh("python3", ["-I", "-c", "import sys,json;from PIL import Image;print(json.dumps(list(Image.open(sys.argv[1]).size)))", path.join(img, "fundo.png")]).toString());
+    for (const [nome, caixa] of Object.entries(a.letreiro.pecas)) recortar(a.letreiro.arquivo, caixa, path.join(img, `peca-${nome}.png`), 1);
+  } else {
+    fs.copyFileSync(origem(a.logoEvento), path.join(img, "logo-evento.png"));
+    if (a.flores) fs.copyFileSync(origem(a.flores), path.join(img, "flores.png"));
+    (r.lideres || []).forEach((l, i) => recortar(l.arquivo, l.recorte, path.join(img, `lider-${i + 1}.png`), 4));
+    sh("python3", ["-I", path.join(AQUI, "texturas.py"), img, c.vinhoEscuro, c.vinho, c.rosaEscuro, c.rosa, c.rosaClaro]);
+  }
   fontes(path.join(assets, "fonts"));
 
   // Vídeo da pregação: tira as faixas gravadas por cima (recorte), mudo, 30 fps.
@@ -137,7 +150,7 @@ function montar(r) {
 
   fs.mkdirSync(path.join(dest, "lib"), { recursive: true });
   fs.copyFileSync(path.join(AQUI, "node_modules", "gsap", "dist", "gsap.min.js"), path.join(dest, "lib", "gsap.min.js"));
-  fs.writeFileSync(path.join(dest, "index.html"), pagina(r, t));
+  fs.writeFileSync(path.join(dest, "index.html"), (r.modelo === "festividade" ? paginaFestividade : pagina)(r, t));
   fs.writeFileSync(path.join(dest, "hyperframes.json"), JSON.stringify({ $schema: "https://hyperframes.heygen.com/schema/hyperframes.json", paths: { blocks: "compositions", components: "compositions/components", assets: "assets" } }, null, 2));
   fs.writeFileSync(path.join(dest, "meta.json"), JSON.stringify({ id: r.id, name: r.id }, null, 2));
   console.log(`  ${t.duracao.toFixed(1)} s`);

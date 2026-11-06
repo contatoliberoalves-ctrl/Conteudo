@@ -440,5 +440,83 @@
         ]
       }
     ]
+  },
+  {
+    "id": "festividade-kelvin-klain",
+    "modelo": "festividade",
+    "evento": {
+      "data": "",
+      "horario": ""
+    },
+    "pregador": {
+      "titulo": "PR.",
+      "nome": "KELVIN",
+      "sobrenome": "KLAIN"
+    },
+    "selo": [
+      "Presença",
+      "confirmada"
+    ],
+    "cores": {
+      "creme": "#fbeec8",
+      "verde": "#0b5a3a",
+      "verdeEscuro": "#03281a",
+      "rosa": "#f48a9b"
+    },
+    "musica": false,
+    "arquivos": {
+      "fotoRecortada": "fotos/kelvin-recortado.png",
+      "foto": {
+        "largura": 620,
+        "topo": 300,
+        "centro": 470
+      },
+      "fundo": "fotos/festividade-fundo.png",
+      "letreiro": {
+        "arquivo": "fotos/festividade-letreiro.png",
+        "pecas": {
+          "titulo": [
+            0,
+            930,
+            1122,
+            1230
+          ],
+          "nome": [
+            150,
+            1230,
+            1000,
+            1385
+          ],
+          "destaque": [
+            855,
+            428,
+            1090,
+            720
+          ]
+        }
+      },
+      "video": "fotos/kelvin-pregacao.mp4",
+      "videoRecorte": [
+        1080,
+        1500,
+        0,
+        0
+      ],
+      "audio": {
+        "inicio": 0,
+        "fim": 38.38
+      }
+    },
+    "logos": [
+      {
+        "arquivo": "fotos/logo-ieadalpe.png"
+      },
+      {
+        "arquivo": "fotos/logo-dejeadalpe.png"
+      },
+      {
+        "arquivo": "fotos/logo-coadalpe.png"
+      }
+    ]
   }
 ]
