@@ -1,0 +1,159 @@
+// Molde "Concurso PDF" (@concursocomlibero): materiais em PDF A4 da coleção Concursos com Líbero, um concurso por
+// coleção. Identidade da plataforma Concurso com Líbero (verde, petróleo, menta, símbolo do L com visto, Sora) com o
+// jeito organizado e "de jogo" do insta pessoal (títulos em Big Shoulders caixa alta, [[palavra]] em caixa, granulado,
+// missões numeradas, barra de progresso, checkpoints) e o selo do concurso: um patch bordado com a bandeira do estado
+// (hoje `pe`) e a faixa de três cores do arco-íris da bandeira de PE como fio de seção.
+// Cada material do dados.json é um PDF: capa + páginas (`paginas: [{tipo, ...}]`).
+export const W = 794, H = 1123;
+export const COR = { verde: '#00A651', verde2: '#078A4A', ciano: '#00D2C8', petroleo: '#04312C', petroleo2: '#062A26', menta: '#B9FFF1', papel: '#F3F7F5', tinta: '#06201C', cinza: '#5E7A74', linha: '#D5E3DE', aviso: '#FFB511', erro: '#E5484D', pe: { azul: '#1F4E9C', vermelho: '#D62828', amarelo: '#FFC93C', verde: '#1E9E4A' } };
+export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap';
+const T = "font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
+const S = "font-family:'Sora',sans-serif", I = "font-family:'Inter',sans-serif", MO = "font-family:'JetBrains Mono',monospace";
+const RUIDO = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
+const textura = (escuro, op) => `<div style="position:absolute;inset:0;pointer-events:none;background-image:${RUIDO};opacity:${op ?? (escuro ? .35 : .18)};mix-blend-mode:${escuro ? 'overlay' : 'multiply'};z-index:30"></div>`;
+export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
+const dois = n => String(n).padStart(2, '0');
+const rico = (s, escuro = false) => esc(s).replace(/\*\*(.+?)\*\*/g, `<b style="font-weight:700;color:${escuro ? '#fff' : COR.tinta}">$1</b>`)
+  .replace(/\[\[(.+?)\]\]/g, `<span style="background:${escuro ? COR.menta : COR.petroleo};color:${escuro ? COR.petroleo : '#fff'};padding:0 .14em;box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`)
+  .replace(/\{\{(.+?)\}\}/g, `<span style="${MO};font-weight:700;font-size:.86em;color:${COR.verde2};background:#E3F5EC;border:1px dashed ${COR.verde};border-radius:5px;padding:0 6px;white-space:nowrap">$1</span>`);
+
+// ---------- marca e selo do concurso ----------
+let gid = 0;
+const simbolo = px => { const id = `s${++gid}`; return `<svg width="${px}" height="${px}" viewBox="0 0 100 100" style="flex:none;display:block"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient></defs><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#${id})"/><path d="M34 22 V66 H58 L76 34" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="20" r="5.5" fill="#fff" opacity=".9"/></svg>`; };
+const marca = (px, escuro) => `<div style="display:inline-flex;align-items:center;gap:${px * .3}px">${simbolo(px * 1.25)}<div style="display:flex;flex-direction:column;line-height:1"><span style="${S};font-weight:600;font-size:${px * .36}px;letter-spacing:.22em;text-transform:uppercase;color:${escuro ? COR.menta : COR.verde2}">Concurso com</span><span style="${S};font-weight:800;font-size:${px}px;letter-spacing:-.035em;color:${escuro ? '#fff' : COR.tinta};margin-top:${px * .08}px">Líbero</span></div></div>`;
+// Bandeira de Pernambuco estilizada (céu azul com arco-íris, estrela e sol; parte branca com a cruz vermelha).
+const bandeiraPE = w => `<svg width="${w}" height="${w * 2 / 3}" viewBox="0 0 300 200" style="display:block"><rect width="300" height="200" fill="#fff"/><rect width="300" height="134" fill="${COR.pe.azul}"/>
+  <path d="M86 122 A64 64 0 0 1 214 122" fill="none" stroke="${COR.pe.vermelho}" stroke-width="10"/><path d="M96 122 A54 54 0 0 1 204 122" fill="none" stroke="${COR.pe.amarelo}" stroke-width="10"/><path d="M106 122 A44 44 0 0 1 194 122" fill="none" stroke="${COR.pe.verde}" stroke-width="10"/>
+  <circle cx="150" cy="104" r="15" fill="${COR.pe.amarelo}"/><path d="M150 18 l5.3 11 12 1.6 -8.8 8.3 2.2 11.9 -10.7 -5.8 -10.7 5.8 2.2 -11.9 -8.8 -8.3 12 -1.6z" fill="${COR.pe.amarelo}"/>
+  <rect x="143" y="142" width="14" height="52" fill="${COR.pe.vermelho}"/><rect x="124" y="156" width="52" height="12" fill="${COR.pe.vermelho}"/></svg>`;
+// Patch bordado (como os da farda): bandeira dentro de um escudo arredondado com pesponto e a sigla embaixo.
+const patch = (w, sigla = 'PE', rot = -6) => `<div style="width:${w}px;padding:${w * .07}px ${w * .07}px ${w * .05}px;border-radius:${w * .12}px;background:${COR.petroleo};box-shadow:0 14px 30px rgba(0,0,0,.35),inset 0 0 0 ${w * .02}px #0B4A42;transform:rotate(${rot}deg);position:relative">
+  <div style="position:absolute;inset:${w * .035}px;border:${Math.max(1.5, w * .008)}px dashed rgba(185,255,241,.5);border-radius:${w * .09}px;pointer-events:none"></div>
+  <div style="border-radius:${w * .05}px;overflow:hidden">${bandeiraPE(w * .86)}</div>
+  <div style="text-align:center;${T};font-size:${w * .17}px;line-height:1;color:${COR.menta};margin-top:${w * .05}px;letter-spacing:.08em">${esc(sigla)}</div></div>`;
+// Fio de seção nas três cores do arco-íris da bandeira de PE.
+const fioPE = (w = '100%', h = 5) => `<div style="display:flex;width:${typeof w === 'number' ? w + 'px' : w};height:${h}px;border-radius:${h}px;overflow:hidden"><span style="flex:1;background:${COR.pe.vermelho}"></span><span style="flex:1;background:${COR.pe.amarelo}"></span><span style="flex:1;background:${COR.pe.verde}"></span></div>`;
+
+// ---------- elementos de jogo ----------
+const missao = (n, total, escuro) => `<span style="display:inline-flex;align-items:center;gap:10px;${MO};font-weight:800;font-size:13px;letter-spacing:.14em;color:${escuro ? COR.petroleo : '#fff'};background:${escuro ? COR.menta : COR.petroleo};border-radius:8px;padding:7px 12px">MISSÃO ${dois(n)}<span style="opacity:.55">/${dois(total)}</span></span>`;
+// Trilha da coleção: um nó por material, os anteriores com visto e o atual destacado.
+const trilha = (col, atual, escuro) => `<div style="display:grid;grid-template-columns:repeat(${col.length},1fr);position:relative">
+  <div style="position:absolute;left:${50 / col.length}%;right:${50 / col.length}%;top:21px;height:4px;background:${escuro ? 'rgba(185,255,241,.25)' : COR.linha};border-radius:2px"></div>
+  <div style="position:absolute;left:${50 / col.length}%;width:${(atual - 1) * 100 / col.length}%;top:21px;height:4px;background:${escuro ? COR.menta : COR.verde};border-radius:2px"></div>
+  ${col.map((m, i) => { const n = i + 1, fe = n < atual, at = n === atual; return `<div style="position:relative;text-align:center;padding:0 4px">
+    <span style="display:inline-grid;place-items:center;width:46px;height:46px;border-radius:14px;${at ? `background:${escuro ? COR.menta : COR.verde};color:${COR.petroleo};box-shadow:0 0 0 6px ${escuro ? 'rgba(185,255,241,.2)' : 'rgba(0,166,81,.18)'}` : fe ? `background:${escuro ? COR.verde : COR.petroleo};color:#fff` : `background:${escuro ? COR.petroleo2 : '#fff'};color:${escuro ? COR.menta : COR.cinza};border:2px solid ${escuro ? 'rgba(185,255,241,.35)' : COR.linha}`};${T};font-size:22px">${fe ? '✓' : n}</span>
+    <div style="${I};font-weight:${at ? 800 : 600};font-size:10.5px;line-height:1.25;color:${escuro ? (at ? '#fff' : 'rgba(239,255,246,.7)') : (at ? COR.tinta : COR.cinza)};margin-top:8px">${esc(m)}</div></div>`; }).join('')}</div>`;
+const caixa = (feito = false, s = 18) => `<span style="flex:none;width:${s}px;height:${s}px;border-radius:5px;border:2px solid ${COR.petroleo};background:${feito ? COR.verde : '#fff'};display:inline-grid;place-items:center;color:#fff;font-size:${s * .7}px;line-height:1;margin-top:2px">${feito ? '✓' : ''}</span>`;
+const kicker = t => `<div style="display:flex;align-items:center;gap:10px;${MO};font-weight:800;font-size:11.5px;letter-spacing:.2em;color:${COR.verde2}"><span style="width:22px;height:4px;border-radius:2px;background:${COR.verde}"></span>${esc(t).toUpperCase()}</div>`;
+const titulo = (t, px = 46) => `<div style="${T};font-size:${px}px;line-height:.92;color:${COR.tinta};margin-top:8px">${lista(t).map(x => rico(x)).join('<br>')}</div>`;
+const par = (t, px = 14) => `<div style="${I};font-size:${px}px;line-height:1.6;color:#2B3A36;margin-top:10px">${rico(t)}</div>`;
+const cartao = (h, extra = '') => `<div style="background:#fff;border:1.5px solid ${COR.linha};border-radius:16px;padding:16px 18px;${extra}">${h}</div>`;
+const checkpoint = t => `<div style="margin-top:16px;display:flex;align-items:center;gap:14px;background:${COR.petroleo};border-radius:14px;padding:14px 18px"><span style="flex:none;width:38px;height:38px;border-radius:50%;background:${COR.menta};display:grid;place-items:center;${T};font-size:20px;color:${COR.petroleo}">✓</span><div><div style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.2em;color:${COR.menta}">CHECKPOINT</div><div style="${I};font-weight:600;font-size:13.5px;line-height:1.45;color:#EFFFF6;margin-top:3px">${rico(t, true)}</div></div></div>`;
+
+// ---------- páginas ----------
+const P = {};
+// Capa: petróleo com grade fina, patch da bandeira, título, missão e trilha da coleção.
+P.capa = (c, m) => `<section class="pagina" style="background:radial-gradient(70% 55% at 85% 12%,rgba(0,210,200,.22),transparent 70%),radial-gradient(60% 50% at 0% 100%,rgba(0,166,81,.3),transparent 70%),${COR.petroleo2}">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.06) 1px,transparent 1px);background-size:40px 40px"></div>
+  <div style="position:absolute;left:56px;right:56px;top:52px;display:flex;justify-content:space-between;align-items:flex-start">${marca(30, true)}<span style="${MO};font-weight:700;font-size:11px;letter-spacing:.24em;color:${COR.menta};border:1px solid rgba(185,255,241,.4);border-radius:8px;padding:8px 12px">COLEÇÃO ${esc(c.colecao.sigla)}</span></div>
+  <div style="position:absolute;right:62px;top:150px">${patch(180, c.colecao.uf, 7)}</div>
+  <div style="position:absolute;left:56px;right:56px;top:420px">
+    ${missao(m.n, c.colecao.materiais.length, true)}
+    <div style="${T};font-size:30px;line-height:1;color:${COR.menta};margin-top:24px;letter-spacing:.02em">${esc(c.colecao.nome)}</div>
+    <div style="${T};font-size:${m.capa.ts || 92}px;line-height:.88;color:#fff;margin-top:10px">${lista(m.capa.titulo).map(x => rico(x, true)).join('<br>')}</div>
+    <div style="margin-top:22px">${fioPE(160, 6)}</div>
+    <div style="${I};font-weight:500;font-size:16px;line-height:1.55;color:rgba(239,255,246,.85);margin-top:18px;max-width:560px">${rico(m.capa.sub, true)}</div></div>
+  <div style="position:absolute;left:56px;right:56px;bottom:62px"><div style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.22em;color:${COR.menta};margin-bottom:16px">SUA TRILHA NA COLEÇÃO</div>${trilha(c.colecao.materiais, m.n, true)}</div>
+  ${textura(true)}</section>`;
+// Página de conteúdo: cabeçalho com marca, nome do material e patch pequeno; rodapé com barra de progresso.
+const pagina = (c, m, corpo, n, total) => `<section class="pagina" style="background:${COR.papel}">
+  <div style="position:absolute;left:44px;right:44px;top:28px;display:flex;align-items:center;gap:14px;padding-bottom:12px;border-bottom:1.5px solid ${COR.linha}">
+    ${simbolo(30)}<div style="line-height:1.2"><div style="${MO};font-weight:800;font-size:10px;letter-spacing:.2em;color:${COR.verde2}">${esc(c.colecao.nome).toUpperCase()} · MISSÃO ${dois(m.n)}</div><div style="${T};font-size:17px;color:${COR.tinta}">${esc(lista(m.capa.titulo).join(' ').replace(/\[\[|\]\]/g, ''))}</div></div>
+    <div style="margin-left:auto">${patch(44, c.colecao.uf, 0).replace(/font-size:[\d.]+px;line-height:1;color:#B9FFF1;margin-top:[\d.]+px;letter-spacing:.08em">[^<]*</, 'display:none"><')}</div></div>
+  <div class="corpo" style="position:absolute;left:44px;top:100px">${corpo}</div>
+  <div style="position:absolute;left:44px;right:44px;bottom:24px;display:flex;align-items:center;gap:14px">
+    <span style="${MO};font-weight:700;font-size:10px;letter-spacing:.2em;color:${COR.cinza}">@CONCURSOCOMLIBERO</span>
+    <div style="flex:1;height:5px;border-radius:3px;background:${COR.linha};overflow:hidden"><div style="width:${n * 100 / total}%;height:100%;background:linear-gradient(90deg,${COR.verde},${COR.ciano})"></div></div>
+    <span style="${MO};font-weight:800;font-size:11px;color:${COR.tinta}">${dois(n)}/${dois(total)}</span></div>
+  ${textura(false)}</section>`;
+
+// Trilha: como a coleção funciona e onde este material entra.
+P.trilha = (c, m, s) => `${kicker(s.kicker || 'Antes de começar')}${titulo(s.titulo)}${s.texto ? par(s.texto, 14.5) : ''}
+  <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">${c.colecao.materiais.map((t, i) => { const at = i + 1 === m.n; return `<div style="display:grid;grid-template-columns:58px 1fr auto;gap:16px;align-items:center;background:${at ? COR.petroleo : '#fff'};border:1.5px solid ${at ? COR.petroleo : COR.linha};border-radius:16px;padding:14px 18px">
+    <span style="${T};font-size:40px;line-height:.9;color:${at ? COR.menta : COR.verde}">${dois(i + 1)}</span>
+    <div><div style="${T};font-size:22px;line-height:1;color:${at ? '#fff' : COR.tinta}">${esc(t)}</div><div style="${I};font-size:12.5px;line-height:1.4;color:${at ? 'rgba(239,255,246,.75)' : COR.cinza};margin-top:4px">${esc(lista(s.descricoes)[i] || '')}</div></div>
+    ${at ? `<span style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.16em;color:${COR.petroleo};background:${COR.menta};border-radius:6px;padding:6px 10px">VOCÊ ESTÁ AQUI</span>` : caixa(false, 22)}</div>`; }).join('')}</div>
+  ${s.checkpoint ? checkpoint(s.checkpoint) : ''}`;
+// Regra difícil: regra resumida, significado, exemplo e providência; e o quadro de erros que eliminam.
+P.regra = (c, m, s) => `${kicker(s.kicker || 'Regra por regra')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  ${lista(s.regras).map((r, i) => `<div style="margin-top:16px;border-radius:18px;overflow:hidden;border:1.5px solid ${COR.linha};background:#fff">
+    <div style="display:flex;align-items:center;gap:12px;background:${COR.petroleo};padding:12px 18px"><span style="${T};font-size:24px;color:${COR.menta}">${dois(i + 1)}</span><span style="${T};font-size:22px;color:#fff">${rico(r.regra, true)}</span>${r.item ? `<span style="margin-left:auto;${MO};font-weight:700;font-size:11px;color:${COR.menta}">${esc(r.item)}</span>` : ''}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr">${[['O que significa', r.significa], ['Exemplo', r.exemplo], ['O que você faz', r.faca]].map(([a, b], j) => `<div style="padding:14px 16px;${j ? `border-left:1.5px solid ${COR.linha}` : ''};${j === 2 ? 'background:#E9F8F0' : ''}"><div style="${MO};font-weight:800;font-size:10px;letter-spacing:.16em;color:${j === 2 ? COR.verde2 : COR.cinza}">${a.toUpperCase()}</div><div style="${I};font-size:12.8px;line-height:1.5;color:#2B3A36;margin-top:6px">${rico(b)}</div></div>`).join('')}</div></div>`).join('')}
+  ${s.erros ? `<div style="margin-top:18px;border-radius:18px;border:2px solid ${COR.erro};background:#FFF5F5;padding:16px 18px"><div style="display:flex;align-items:center;gap:10px"><span style="width:30px;height:30px;border-radius:8px;background:${COR.erro};display:grid;place-items:center;${T};font-size:20px;color:#fff">!</span><span style="${T};font-size:22px;color:${COR.erro}">${esc(s.errosTitulo || 'Erros que podem eliminar')}</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:12px">${lista(s.erros).map(e => `<div style="display:flex;gap:9px;${I};font-size:13px;line-height:1.45;color:#3A2A2A"><span style="color:${COR.erro};font-weight:800">✕</span><span>${rico(e)}</span></div>`).join('')}</div></div>` : ''}`;
+// Checklist com contador de progresso.
+P.checklist = (c, m, s) => `${kicker(s.kicker || 'Checklist')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  <div style="display:grid;grid-template-columns:${lista(s.grupos).length > 1 ? '1fr 1fr' : '1fr'};gap:14px;margin-top:18px">${lista(s.grupos).map(g => `<div style="background:#fff;border:1.5px solid ${COR.linha};border-radius:16px;overflow:hidden">
+    <div style="display:flex;align-items:center;background:${COR.petroleo};padding:11px 16px"><span style="${T};font-size:19px;color:#fff">${esc(g.nome)}</span><span style="margin-left:auto;${MO};font-weight:800;font-size:11px;color:${COR.menta}">0/${lista(g.itens).length}</span></div>
+    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:10px">${lista(g.itens).map(x => `<div style="display:flex;gap:11px;${I};font-size:13px;line-height:1.45;color:#2B3A36">${caixa()}<span>${rico(x)}</span></div>`).join('')}</div></div>`).join('')}</div>
+  ${s.checkpoint ? checkpoint(s.checkpoint) : ''}`;
+// Provas analisadas + ranking de temas em barras (raio X).
+P.incidencia = (c, m, s) => `${kicker(s.kicker || 'Raio X')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  <div style="margin-top:16px;border-radius:14px;overflow:hidden;border:1.5px solid ${COR.linha}"><div style="display:grid;grid-template-columns:repeat(${s.provas.colunas.length},1fr);background:${COR.petroleo}">${s.provas.colunas.map(h => `<div style="padding:9px 12px;${MO};font-weight:800;font-size:10px;letter-spacing:.14em;color:${COR.menta}">${esc(h).toUpperCase()}</div>`).join('')}</div>
+    ${s.provas.linhas.map((l, i) => `<div style="display:grid;grid-template-columns:repeat(${s.provas.colunas.length},1fr);background:${i % 2 ? '#fff' : '#F8FBFA'}">${l.map(x => `<div style="padding:9px 12px;${I};font-size:12.5px;color:#2B3A36;border-top:1px solid ${COR.linha}">${rico(x)}</div>`).join('')}</div>`).join('')}</div>
+  ${lista(s.disciplinas).map(d => `<div style="margin-top:18px">${cartao(`<div style="display:flex;align-items:baseline;gap:10px"><span style="${T};font-size:22px;color:${COR.tinta}">${esc(d.nome)}</span><span style="margin-left:auto;${MO};font-weight:700;font-size:10.5px;color:${COR.cinza}">${esc(d.total || '')}</span></div>
+    <div style="display:flex;flex-direction:column;gap:9px;margin-top:12px">${lista(d.temas).map((t, i) => `<div style="display:grid;grid-template-columns:24px 190px 1fr 64px;gap:10px;align-items:center"><span style="${T};font-size:18px;color:${i ? COR.cinza : COR.verde}">${i + 1}</span><span style="${I};font-weight:600;font-size:12.8px;color:${COR.tinta}">${rico(t.t)}</span><div style="height:14px;border-radius:7px;background:#E7EFEC;overflow:hidden"><div style="width:${t.v}%;height:100%;border-radius:7px;background:${i ? `linear-gradient(90deg,${COR.verde2},${COR.verde})` : `linear-gradient(90deg,${COR.verde},${COR.ciano})`}"></div></div><span style="${MO};font-weight:800;font-size:12px;color:${COR.tinta};text-align:right">${esc(t.p)}</span></div>`).join('')}</div>`)}</div>`).join('')}
+  ${s.nota ? `<div style="${I};font-size:11.5px;line-height:1.5;color:${COR.cinza};margin-top:12px">${rico(s.nota)}</div>` : ''}`;
+// Semana do cronograma: tabela por dia + ficha semanal.
+P.semana = (c, m, s) => `<div style="display:flex;align-items:flex-end;gap:16px">${s.fase ? `<span style="${MO};font-weight:800;font-size:11px;letter-spacing:.16em;color:#fff;background:${COR.verde2};border-radius:6px;padding:6px 10px">FASE · ${esc(s.fase).toUpperCase()}</span>` : ''}${kicker(s.kicker || 'Plano da semana')}</div>${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  <div style="margin-top:14px;border-radius:14px;overflow:hidden;border:1.5px solid ${COR.linha}">
+    <div style="display:grid;grid-template-columns:62px 1.1fr 1.4fr 1.6fr 52px 78px;background:${COR.petroleo}">${['Dia', 'Disciplina', 'Tema e item', 'Tarefa', 'Min', 'Feito'].map(h => `<div style="padding:9px 10px;${MO};font-weight:800;font-size:9.5px;letter-spacing:.14em;color:${COR.menta}">${h.toUpperCase()}</div>`).join('')}</div>
+    ${lista(s.dias).map((d, i) => `<div style="display:grid;grid-template-columns:62px 1.1fr 1.4fr 1.6fr 52px 78px;background:${i % 2 ? '#fff' : '#F8FBFA'};border-top:1px solid ${COR.linha};align-items:center">
+      <div style="padding:10px;${T};font-size:18px;color:${COR.verde2}">${esc(d[0])}</div>${d.slice(1, 4).map(x => `<div style="padding:10px;${I};font-size:12px;line-height:1.4;color:#2B3A36">${rico(x)}</div>`).join('')}<div style="padding:10px;${MO};font-weight:700;font-size:12px;color:${COR.tinta}">${esc(d[4])}</div><div style="padding:10px">${caixa()}</div></div>`).join('')}</div>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:16px">
+    ${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Ficha da semana</div>${['Horas estudadas', 'Tarefas concluídas', 'Acertos por disciplina', 'Erros que se repetiram', 'Ajuste para a próxima semana'].map(x => `<div style="display:flex;align-items:flex-end;gap:10px;margin-top:11px"><span style="${I};font-weight:600;font-size:12px;color:${COR.tinta};white-space:nowrap">${x}</span><span style="flex:1;border-bottom:1.5px solid #B9C9C4;height:14px"></span></div>`).join('')}`)}
+    ${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Ficou para trás?</div>${par(s.atraso || 'Use a regra de recuperação deste plano. Não dobre a carga do dia seguinte.', 12.8)}<div style="display:flex;gap:6px;margin-top:12px">${['S', 'T', 'Q', 'Q', 'S', 'S', 'D'].map((x, i) => `<span style="flex:1;height:38px;border-radius:8px;border:1.5px solid ${i === 6 ? COR.aviso : COR.linha};background:${i === 6 ? '#FFF6E0' : '#fff'};display:grid;place-items:center;${T};font-size:15px;color:${i === 6 ? '#9A6A00' : COR.cinza}">${x}</span>`).join('')}</div><div style="${I};font-size:11px;color:${COR.cinza};margin-top:6px">Domingo: descanso, recuperação ou simulado.</div>`)}</div>`;
+// Tema de revisão: objetivo, explicação, regra/condição/exceção, exemplo e o medidor "retomar · explicar · resolver".
+P.tema = (c, m, s) => `<div style="display:flex;align-items:center;gap:12px"><span style="${T};font-size:64px;line-height:.8;color:transparent;-webkit-text-stroke:2px ${COR.verde}">${dois(s.n)}</span><div>${kicker(s.disciplina)}${titulo(s.titulo, 40)}</div></div>
+  ${cartao(`<div style="${MO};font-weight:800;font-size:10px;letter-spacing:.18em;color:${COR.verde2}">OBJETIVO</div>${par(s.objetivo, 13.5)}`, 'margin-top:16px;border-left:6px solid ' + COR.verde)}
+  ${par(s.explicacao, 14)}
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px">${[['Regra', s.regra, COR.petroleo, '#fff'], ['Condição', s.condicao, '#fff', COR.tinta], ['Exceção', s.excecao, '#fff', COR.tinta]].map(([a, b, bg, fg]) => `<div style="background:${bg};border:1.5px solid ${bg === '#fff' ? COR.linha : bg};border-radius:14px;padding:14px"><div style="${MO};font-weight:800;font-size:10px;letter-spacing:.18em;color:${bg === '#fff' ? COR.verde2 : COR.menta}">${a.toUpperCase()}</div><div style="${I};font-size:12.8px;line-height:1.5;color:${fg};margin-top:6px">${rico(b, bg !== '#fff')}</div></div>`).join('')}</div>
+  ${cartao(`<div style="${MO};font-weight:800;font-size:10px;letter-spacing:.18em;color:${COR.verde2}">EXEMPLO</div>${par(s.exemplo, 13.5)}`, 'margin-top:12px;background:#E9F8F0;border-color:#BFE6D0')}
+  <div style="margin-top:16px;display:grid;grid-template-columns:1.3fr 1fr;gap:12px">
+    ${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Recupere sem olhar</div>${lista(s.perguntas).map((q, i) => `<div style="display:flex;gap:10px;margin-top:9px;${I};font-size:12.8px;line-height:1.45;color:#2B3A36"><b style="${T};font-size:16px;color:${COR.verde}">${i + 1}</b><span>${rico(q)}</span></div>`).join('')}`)}
+    ${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Seu nível neste tema</div>${[['Preciso retomar', 1], ['Consigo explicar', 2], ['Consigo resolver', 3]].map(([t, k]) => `<div style="display:flex;align-items:center;gap:10px;margin-top:10px">${caixa(false, 20)}<span style="${I};font-weight:600;font-size:13px;color:${COR.tinta}">${t}</span><span style="margin-left:auto;display:flex;gap:3px">${[1, 2, 3].map(j => `<span style="width:12px;height:12px;border-radius:3px;background:${j <= k ? COR.verde : COR.linha}"></span>`).join('')}</span></div>`).join('')}`)}</div>`;
+// Questões objetivas (5 alternativas) e folha de respostas.
+P.questoes = (c, m, s) => `${kicker(s.kicker || 'Treino')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  ${lista(s.questoes).map(q => `<div style="margin-top:16px;background:#fff;border:1.5px solid ${COR.linha};border-radius:16px;padding:16px 18px">
+    <div style="display:flex;align-items:center;gap:10px"><span style="${T};font-size:20px;color:#fff;background:${COR.petroleo};border-radius:8px;padding:3px 10px">${dois(q.n)}</span><span style="${MO};font-weight:700;font-size:10.5px;letter-spacing:.14em;color:${COR.cinza}">${esc(q.disciplina).toUpperCase()}</span><span style="margin-left:auto;${MO};font-weight:700;font-size:10px;color:${COR.verde2};border:1px solid ${COR.verde};border-radius:5px;padding:3px 7px">${esc(q.nivel).toUpperCase()}</span></div>
+    ${par(q.enunciado, 13.5)}<div style="display:flex;flex-direction:column;gap:7px;margin-top:10px">${q.alternativas.map((a, i) => `<div style="display:flex;gap:10px;align-items:flex-start;${I};font-size:13px;line-height:1.45;color:#2B3A36"><span style="flex:none;width:24px;height:24px;border-radius:50%;border:1.8px solid ${COR.petroleo};display:grid;place-items:center;${MO};font-weight:800;font-size:11px;color:${COR.petroleo}">${'ABCDE'[i]}</span><span style="padding-top:2px">${rico(a)}</span></div>`).join('')}</div></div>`).join('')}
+  <div style="margin-top:16px">${cartao(`<div style="display:flex;align-items:center"><span style="${T};font-size:19px;color:${COR.tinta}">Folha de respostas</span><span style="margin-left:auto;${I};font-size:11.5px;color:${COR.cinza}">Marque só depois de terminar o bloco</span></div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px 16px;margin-top:12px">${Array.from({ length: s.folha || 10 }, (_, i) => `<div style="display:flex;align-items:center;gap:6px"><span style="${MO};font-weight:800;font-size:11px;width:20px;color:${COR.tinta}">${dois(i + 1)}</span>${'ABCDE'.split('').map(l => `<span style="width:16px;height:16px;border-radius:50%;border:1.5px solid #9DB3AD;display:grid;place-items:center;${MO};font-size:8px;color:#9DB3AD">${l}</span>`).join('')}</div>`).join('')}</div>`)}</div>`;
+// Folha de redação com linhas numeradas.
+P.redacao = (c, m, s) => `${kicker(s.kicker || 'Redação')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  <div style="margin-top:14px;background:#fff;border:1.5px solid ${COR.linha};border-radius:16px;padding:14px 18px 10px">
+    <div style="display:flex;gap:14px;margin-bottom:8px">${['Tema', 'Início', 'Fim'].map((x, i) => `<div style="flex:${i ? .5 : 2};display:flex;align-items:flex-end;gap:8px"><span style="${MO};font-weight:800;font-size:10px;letter-spacing:.14em;color:${COR.cinza}">${x.toUpperCase()}</span><span style="flex:1;border-bottom:1.5px solid #B9C9C4;height:14px"></span></div>`).join('')}</div>
+    ${Array.from({ length: s.linhas || 30 }, (_, i) => `<div style="display:flex;align-items:flex-end;height:${s.alturaLinha || 23}px;border-bottom:1px solid #D5E3DE"><span style="${MO};font-weight:700;font-size:9.5px;color:#9DB3AD;width:24px">${dois(i + 1)}</span></div>`).join('')}</div>
+  ${s.nota ? `<div style="${I};font-size:11.5px;color:${COR.cinza};margin-top:8px">${rico(s.nota)}</div>` : ''}`;
+// Ficha de resultados do treino.
+P.resultados = (c, m, s) => `${kicker(s.kicker || 'Depois do treino')}${titulo(s.titulo)}${s.texto ? par(s.texto) : ''}
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px">${['Acertos totais', 'Percentual', 'Minutos gastos', 'Questões em branco'].map((x, i) => `<div style="background:${i ? '#fff' : COR.petroleo};border:1.5px solid ${i ? COR.linha : COR.petroleo};border-radius:16px;padding:14px"><div style="${MO};font-weight:800;font-size:9.5px;letter-spacing:.14em;color:${i ? COR.cinza : COR.menta}">${x.toUpperCase()}</div><div style="height:46px;border-bottom:2px dashed ${i ? '#B9C9C4' : 'rgba(185,255,241,.5)'}"></div></div>`).join('')}</div>
+  <div style="margin-top:14px;border-radius:14px;overflow:hidden;border:1.5px solid ${COR.linha}"><div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1.6fr;background:${COR.petroleo}">${['Disciplina', 'Acertos', '%', 'Erros de conteúdo ou de leitura'].map(h => `<div style="padding:9px 12px;${MO};font-weight:800;font-size:9.5px;letter-spacing:.14em;color:${COR.menta}">${h.toUpperCase()}</div>`).join('')}</div>
+    ${lista(s.disciplinas).map((d, i) => `<div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1.6fr;background:${i % 2 ? '#fff' : '#F8FBFA'};border-top:1px solid ${COR.linha}"><div style="padding:11px 12px;${I};font-weight:600;font-size:12.5px;color:${COR.tinta}">${rico(d)}</div>${[0, 1, 2].map(() => `<div style="padding:11px 12px"><div style="border-bottom:1.5px solid #C9D7D2;height:12px"></div></div>`).join('')}</div>`).join('')}</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Dúvidas que ficaram</div>${Array.from({ length: 4 }, () => `<div style="border-bottom:1.5px solid #C9D7D2;height:26px"></div>`).join('')}`)}${cartao(`<div style="${T};font-size:19px;color:${COR.tinta}">Próximos 7 dias</div>${Array.from({ length: 4 }, (_, i) => `<div style="display:flex;gap:8px;align-items:flex-end;height:26px">${caixa(false, 16)}<span style="flex:1;border-bottom:1.5px solid #C9D7D2;height:14px"></span></div>`).join('')}`)}</div>
+  ${s.aviso ? checkpoint(s.aviso) : ''}`;
+
+export function render(c) {
+  const m = c;
+  const total = 1 + lista(m.paginas).length;
+  const paginas = [P.capa(m.base, m), ...lista(m.paginas).map((s, i) => pagina(m.base, m, P[s.tipo](m.base, m, s), i + 2, total))];
+  return `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
+<style>@page{size:210mm 297mm;margin:0}*{box-sizing:border-box;margin:0}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.pagina{position:relative;width:${W}px;height:${H}px;overflow:hidden;break-after:page}.pagina:last-child{break-after:auto}</style></head>
+<body>${paginas.join('')}<script>document.fonts.ready.then(()=>setTimeout(()=>{
+  // Cada página: o conteúdo cresce (até 1,3x) ou encolhe para ocupar a altura útil.
+  document.querySelectorAll('.corpo').forEach(c=>{const disp=${H}-100-76,larg=${W}-88;let lo=.6,hi=1.3;
+    const cabe=z=>{c.style.zoom=z;c.style.width=(larg/z)+'px';return c.scrollHeight*z<=disp;};
+    for(let k=0;k<16;k++){const m=(lo+hi)/2;cabe(m)?lo=m:hi=m;}cabe(lo);});
+  window.__pronto=true},300))</script></body></html>`;
+}

@@ -1,0 +1,88 @@
+[
+ {
+  "id": "ppe-edital",
+  "titulo": "Polícia Penal PE · por dentro do edital (modelo)",
+  "colecao": "ppe",
+  "n": 1,
+  "capa": { "titulo": ["Por dentro", "do [[edital]]"], "sub": "Cada regra importante do edital traduzida em uma decisão prática: o que fazer, até quando e o que pode eliminar." },
+  "paginas": [
+   { "tipo": "trilha", "kicker": "Como usar a coleção", "titulo": ["Cinco materiais,", "[[uma trilha]]"], "texto": "Siga os materiais na ordem. Cada um prepara o seguinte: primeiro você entende as regras, depois descobre o que priorizar, monta o plano, revisa e treina.",
+     "descricoes": ["Regras, datas, etapas e o programa verticalizado.", "Os assuntos que a banca mais cobrou nas provas analisadas.", "O que estudar em cada dia, com 1, 2 ou 3 horas.", "Os temas essenciais explicados, com questões autorais.", "Prova objetiva completa e proposta de redação."],
+     "checkpoint": "Ao terminar este material, você sabe **quais etapas existem**, **o que elimina** e **o que precisa providenciar** antes da prova." },
+   { "tipo": "regra", "kicker": "Regra por regra", "titulo": ["Do edital para a", "[[sua agenda]]"], "texto": "Modelo de página: cada regra difícil vem com o significado, um exemplo e a providência do candidato. Os dados entre chaves são preenchidos com o edital conferido.",
+     "regras": [
+      { "regra": "Pedir isenção não é ter isenção", "item": "{{item do edital}}", "significa": "O pedido só vale depois do **resultado definitivo**. Até lá, você continua com a taxa a pagar.", "exemplo": "Você pede a isenção dentro do prazo e o pedido é indeferido. A inscrição só se completa com o pagamento até {{data}}.", "faca": "Anote a data do resultado e a do último dia de pagamento. Confira o resultado no dia." },
+      { "regra": "Data prevista não é data confirmada", "item": "{{item do edital}}", "significa": "A data da prova pode ser alterada por comunicado oficial.", "exemplo": "O edital prevê a prova para {{data prevista}}. O local e o horário saem em comunicado posterior.", "faca": "Acompanhe os comunicados da banca e confira o local alguns dias antes." }
+     ],
+     "errosTitulo": "Erros que podem eliminar",
+     "erros": ["Perder o prazo de pagamento da inscrição.", "Ficar abaixo do mínimo exigido em uma etapa.", "Não levar o documento exigido no dia da prova.", "Deixar de entregar documentos nas fases seguintes."] },
+   { "tipo": "checklist", "kicker": "Checklist", "titulo": ["Inscrição e", "[[semana da prova]]"], "texto": "Marque cada item quando estiver resolvido. O contador ajuda a ver o que falta.",
+     "grupos": [
+      { "nome": "Inscrição e documentos", "itens": ["Ler o edital inteiro e as retificações.", "Fazer a inscrição e conferir os dados.", "Pedir isenção ou atendimento especializado, se for o caso.", "Pagar a taxa até {{data}}.", "Guardar o comprovante."] },
+      { "nome": "Semana da prova", "itens": ["Conferir o local e o horário.", "Separar o documento de identificação exigido.", "Testar o trajeto e o tempo de chegada.", "Revisar o caderno de erros.", "Dormir cedo na véspera."] }
+     ],
+     "checkpoint": "**Missão 01 concluída.** Próximo passo: o raio X do que mais cai." }
+  ]
+ },
+ {
+  "id": "ppe-raio-x",
+  "titulo": "Polícia Penal PE · o que priorizar na prova (modelo)",
+  "colecao": "ppe",
+  "n": 2,
+  "capa": { "titulo": ["O que", "[[priorizar]]", "na prova"], "sub": "Os assuntos cobrados nas provas analisadas, por disciplina, com o que estudar e como treinar cada um." },
+  "paginas": [
+   { "tipo": "incidencia", "kicker": "Raio X", "titulo": ["Provas analisadas e", "[[temas por frequência]]"], "texto": "Modelo de página: o quadro de provas dá contexto aos números; as barras mostram a frequência de cada tema dentro da disciplina.",
+     "provas": { "colunas": ["Concurso", "Cargo", "Banca", "Aplicação", "Questões"], "linhas": [["{{concurso}}", "{{cargo}}", "{{banca}}", "{{ano}}", "{{nº}}"], ["{{concurso}}", "{{cargo}}", "{{banca}}", "{{ano}}", "{{nº}}"], ["{{concurso}}", "{{cargo}}", "{{banca}}", "{{ano}}", "{{nº}}"]] },
+     "disciplinas": [
+      { "nome": "Disciplina A", "total": "{{nº}} questões analisadas", "temas": [{ "t": "Tema 1", "v": 86, "p": "00%" }, { "t": "Tema 2", "v": 64, "p": "00%" }, { "t": "Tema 3", "v": 48, "p": "00%" }, { "t": "Tema 4", "v": 30, "p": "00%" }] },
+      { "nome": "Disciplina B", "total": "{{nº}} questões analisadas", "temas": [{ "t": "Tema 1", "v": 74, "p": "00%" }, { "t": "Tema 2", "v": 52, "p": "00%" }, { "t": "Tema 3", "v": 36, "p": "00%" }] }
+     ],
+     "nota": "Percentual **dentro da disciplina**. Frequência passada orienta a ordem de estudo; não garante cobrança futura." }
+  ]
+ },
+ {
+  "id": "ppe-cronograma",
+  "titulo": "Polícia Penal PE · plano de estudo até a prova (modelo)",
+  "colecao": "ppe",
+  "n": 3,
+  "capa": { "titulo": ["Plano de", "[[estudo]]", "até a prova"], "sub": "Qual tema estudar, o que ler, como praticar e quando revisar, em versões de uma, duas e três horas por dia." },
+  "paginas": [
+   { "tipo": "semana", "fase": "Base", "kicker": "Semana 01 · 2 horas por dia", "titulo": ["Semana 01:", "[[primeiros passos]]"], "texto": "Modelo de página: cada linha diz o dia, a disciplina, o tema com o item do edital, a tarefa e os minutos. Marque quando concluir.",
+     "dias": [["Seg", "{{disciplina}}", "{{tema}} · item {{x.x}}", "Leitura guiada e 10 questões", "120"], ["Ter", "{{disciplina}}", "{{tema}} · item {{x.x}}", "Lei seca em blocos de artigos", "120"], ["Qua", "{{disciplina}}", "{{tema}} · item {{x.x}}", "Explicação e recuperação sem consulta", "120"], ["Qui", "{{disciplina}}", "{{tema}} · item {{x.x}}", "Questões e caderno de erros", "120"], ["Sex", "Redação", "Tema dentro do recorte", "Planejar e escrever um texto", "120"], ["Sáb", "Revisão", "Temas da semana", "Revisão ativa e ficha semanal", "120"]],
+     "atraso": "Atrasou um dia? Faça só a parte de questões da tarefa perdida no sábado. Não dobre a carga do dia seguinte." }
+  ]
+ },
+ {
+  "id": "ppe-revisao",
+  "titulo": "Polícia Penal PE · revisão por assunto (modelo)",
+  "colecao": "ppe",
+  "n": 4,
+  "capa": { "titulo": ["Revisão", "por [[assunto]]"], "sub": "Temas essenciais explicados em linguagem simples, com regra, exemplo, perguntas de recuperação e questões autorais." },
+  "paginas": [
+   { "tipo": "tema", "n": 1, "disciplina": "{{disciplina}}", "titulo": ["Título específico", "do [[tema]]"],
+     "objetivo": "Modelo de página: em uma frase, o que o aluno precisa conseguir fazer ao fim do tema.",
+     "explicacao": "Explicação em linguagem simples, em parágrafos curtos, com o **conceito principal em destaque** e a norma identificada quando ela ajuda a resolver a questão.",
+     "regra": "A regra geral, como cai na prova.", "condicao": "Quando a regra se aplica.", "excecao": "O caso que foge da regra, se houver.",
+     "exemplo": "Uma situação concreta, curta, em que a regra é aplicada passo a passo.",
+     "perguntas": ["Pergunta curta de recuperação 1.", "Pergunta curta de recuperação 2.", "Pergunta curta de recuperação 3."] }
+  ]
+ },
+ {
+  "id": "ppe-treino",
+  "titulo": "Polícia Penal PE · treino de prova (modelo)",
+  "colecao": "ppe",
+  "n": 5,
+  "capa": { "titulo": ["Treino", "de [[prova]]"], "sub": "Prova objetiva autoral no formato do edital e proposta de redação, com gabarito comentado em parte separada." },
+  "paginas": [
+   { "tipo": "questoes", "kicker": "Conhecimentos gerais", "titulo": ["Bloco 1:", "[[questões]]"], "texto": "Modelo de página: questões autorais preparadas para este concurso. Responda sem consultar e marque na folha de respostas.",
+     "questoes": [
+      { "n": 1, "disciplina": "{{disciplina}}", "nivel": "fácil", "enunciado": "Enunciado da questão com um comando claro e as informações necessárias para responder.", "alternativas": ["Alternativa plausível A.", "Alternativa plausível B.", "Alternativa plausível C.", "Alternativa plausível D.", "Alternativa plausível E."] },
+      { "n": 2, "disciplina": "{{disciplina}}", "nivel": "média", "enunciado": "Situação concreta em que o candidato precisa aplicar a regra, e não só reconhecê-la.", "alternativas": ["Alternativa plausível A.", "Alternativa plausível B.", "Alternativa plausível C.", "Alternativa plausível D.", "Alternativa plausível E."] }
+     ], "folha": 20 },
+   { "tipo": "redacao", "kicker": "Redação", "titulo": ["Folha de", "[[redação]]"], "texto": "Escreva o texto definitivo nesta folha, dentro do limite de linhas.", "linhas": 30, "alturaLinha": 25, "nota": "Número de linhas conforme o edital conferido: {{nº de linhas}}." },
+   { "tipo": "resultados", "kicker": "Depois do treino", "titulo": ["Ficha de", "[[resultados]]"], "texto": "Preencha depois de corrigir com o gabarito. Separe erro de conteúdo de erro de leitura.",
+     "disciplinas": ["{{disciplina 1}}", "{{disciplina 2}}", "{{disciplina 3}}", "{{disciplina 4}}", "{{disciplina 5}}"],
+     "aviso": "**Coleção concluída.** A nota do treino mostra onde ajustar o estudo; ela não é previsão de classificação." }
+  ]
+ }
+]
