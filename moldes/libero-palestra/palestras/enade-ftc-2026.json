@@ -1,0 +1,913 @@
+{
+  "titulo": "ENADE 2026 · Arquitetura e Urbanismo · capacitação UNIFTC",
+  "selo": "ENADE 2026 · UNIFTC",
+  "fases": [
+    "Conhecer a prova",
+    "Os dados",
+    "As objetivas",
+    "A discursiva",
+    "IA a seu favor",
+    "Reta final"
+  ],
+  "slides": [
+    {
+      "tipo": "capa",
+      "pre": "Capacitação ENADE 2026",
+      "titulo": [
+        "As melhores",
+        "técnicas e",
+        "[[estratégias]]",
+        "para a prova"
+      ],
+      "ts": 128,
+      "sub": "Arquitetura e Urbanismo · dados, método de prova, discursiva e IA",
+      "chips": [
+        "UNIFTC",
+        "06/11/2026"
+      ],
+      "autor": "Prof. Líbero Filho",
+      "foto": "fotos/libero-recorte.png",
+      "logo": "fotos/uniftc.png"
+    },
+    {
+      "tipo": "mapa",
+      "titulo": [
+        "O mapa do jogo"
+      ],
+      "texto": "Seis fases. Em cada uma, uma missão pra fazer **antes do exame**."
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "Conhecer",
+        "a prova"
+      ],
+      "texto": "Antes de estudar mais, entenda **como** você vai ser avaliado.",
+      "xp": [
+        "Estrutura 2026",
+        "Plano de 240 min"
+      ]
+    },
+    {
+      "tipo": "frase",
+      "fundo": "off",
+      "kicker": "A pergunta certa",
+      "titulo": [
+        "Não é “o que eu decorei?”.",
+        "É “que [[decisão técnica]]",
+        "eu consigo justificar?”"
+      ],
+      "ts": 104,
+      "texto": "Um bairro com alagamentos, calçadas descontínuas, calor intenso e verba limitada. A resposta boa exige **diagnóstico, critérios e efeito da decisão**.",
+      "missao": "Para esse bairro, liste **3 critérios** que você usaria para decidir o projeto."
+    },
+    {
+      "tipo": "cards",
+      "fundo": "navy",
+      "titulo": [
+        "O ENADE mede",
+        "[[competências]]"
+      ],
+      "texto": "Saber o que é acessibilidade é diferente de escolher a solução acessível para um percurso real.",
+      "cols": 5,
+      "tt": 40,
+      "itens": [
+        {
+          "icone": "🔍",
+          "t": "Interpretar"
+        },
+        {
+          "icone": "🔗",
+          "t": "Relacionar"
+        },
+        {
+          "icone": "⚖️",
+          "t": "Avaliar"
+        },
+        {
+          "icone": "🎯",
+          "t": "Decidir"
+        },
+        {
+          "icone": "🗣️",
+          "t": "Justificar"
+        }
+      ]
+    },
+    {
+      "tipo": "numeros",
+      "fundo": "azul",
+      "titulo": [
+        "O mapa da",
+        "prova 2026"
+      ],
+      "itens": [
+        {
+          "n": "15",
+          "rot": "objetivas de **Formação Geral**"
+        },
+        {
+          "op": "+"
+        },
+        {
+          "n": "30",
+          "rot": "objetivas do **Componente Específico**"
+        },
+        {
+          "op": "+"
+        },
+        {
+          "n": "1",
+          "rot": "**discursiva** específica",
+          "destaque": true
+        },
+        {
+          "op": "="
+        },
+        {
+          "n": "4h",
+          "rot": "46 itens no total"
+        }
+      ],
+      "fonte": "Fonte: Portaria Inep nº 155, de 14/04/2026, arts. 1º a 3º."
+    },
+    {
+      "tipo": "compara",
+      "fundo": "off",
+      "titulo": [
+        "Não copie a",
+        "[[estrutura antiga]]"
+      ],
+      "colunas": [
+        {
+          "rot": "PROVAS ANTERIORES",
+          "t": "Outra composição",
+          "d": "Ótimas para treinar **estilo, conteúdo e raciocínio**. Não servem de regra para 2026."
+        },
+        {
+          "rot": "ENADE 2026",
+          "t": "15 FG objetivas + 30 específicas + 1 discursiva",
+          "d": "Toda a Formação Geral é objetiva; só **uma** discursiva, do componente específico."
+        }
+      ],
+      "tc": 56
+    },
+    {
+      "tipo": "tempo",
+      "fundo": "navy",
+      "titulo": [
+        "240 minutos são",
+        "[[orçamento]], não pressa"
+      ],
+      "blocos": [
+        {
+          "min": 10,
+          "t": "Visão geral"
+        },
+        {
+          "min": 45,
+          "t": "15 de Formação Geral"
+        },
+        {
+          "min": 105,
+          "t": "30 objetivas específicas"
+        },
+        {
+          "min": 45,
+          "t": "Discursiva"
+        },
+        {
+          "min": 25,
+          "t": "Retorno aos marcados e cartão"
+        },
+        {
+          "min": 10,
+          "t": "Revisão"
+        }
+      ],
+      "texto": "Sugestão de estratégia, não regra do Inep. Ajuste ao seu perfil.",
+      "missao": "Monte o **seu** cronograma de prova e treine com ele no simulado."
+    },
+    {
+      "tipo": "meme",
+      "fundo": "azul",
+      "meme": "memes/deu-branco.jpg",
+      "memePos": "center 30%",
+      "legenda": "eu na questão 12",
+      "titulo": [
+        "Deu branco?"
+      ],
+      "itens": [
+        "Pare e respire.",
+        "Releia **só o comando**.",
+        "Anote 3 palavras-chave.",
+        "Pergunte: **qual dado foi dado?**"
+      ],
+      "texto": "Não é sobre o que você deveria saber. É sobre o que o enunciado entregou."
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "Os",
+        "dados"
+      ],
+      "texto": "O que o ENADE 2023 mostra, e como usar número **sem tirar conclusão errada**.",
+      "xp": [
+        "Ler médias",
+        "Diário de erros"
+      ]
+    },
+    {
+      "tipo": "barras",
+      "fundo": "off",
+      "titulo": [
+        "ENADE 2023",
+        "em [[Arquitetura]]"
+      ],
+      "grupos": [
+        {
+          "nome": "Média geral (0 a 100)",
+          "barras": [
+            {
+              "r": "Brasil",
+              "v": 56.9
+            },
+            {
+              "r": "Nordeste",
+              "v": 56.7,
+              "destaque": true
+            },
+            {
+              "r": "Sul",
+              "v": 58.5
+            },
+            {
+              "r": "Norte",
+              "v": 54.6
+            }
+          ]
+        },
+        {
+          "nome": "Componente específico",
+          "barras": [
+            {
+              "r": "Brasil",
+              "v": 57.4
+            },
+            {
+              "r": "Nordeste",
+              "v": 56.9,
+              "destaque": true
+            },
+            {
+              "r": "Sul",
+              "v": 59.6
+            },
+            {
+              "r": "Norte",
+              "v": 54.7
+            }
+          ]
+        }
+      ],
+      "texto": "A maioria dos resultados está **longe do teto de 100**: há muito espaço para crescer. São médias nacionais, não falam da turma nem da FTC.",
+      "fonte": "Fonte: Inep, Relatório Síntese de Área 2023, Arquitetura e Urbanismo, Tabelas 5.1 e 5.5."
+    },
+    {
+      "tipo": "compara",
+      "fundo": "navy",
+      "titulo": [
+        "Dificuldade",
+        "não é [[azar]]"
+      ],
+      "colunas": [
+        {
+          "rot": "QUESTÃO 6 · FG 2023",
+          "t": "84% de acerto",
+          "d": "Índice de facilidade 0,84."
+        },
+        {
+          "rot": "QUESTÃO 9 · FG 2023",
+          "t": "25% de acerto",
+          "d": "Índice de facilidade 0,25: cerca de **um em cada quatro** acertou."
+        }
+      ],
+      "missao": "Questão fácil e difícil convivem na mesma prova. **Ler bem** é o que decide os pontos.",
+      "fonte": "Fonte: Inep, Relatório Síntese 2023, Tabela 5.8. Não indica chance de o tema cair de novo."
+    },
+    {
+      "tipo": "cards",
+      "fundo": "off",
+      "titulo": [
+        "Por que você",
+        "[[errou]]?"
+      ],
+      "texto": "O diário de erros transforma chute em informação.",
+      "cols": 5,
+      "tt": 30,
+      "td": 23,
+      "itens": [
+        {
+          "icone": "📚",
+          "t": "Não sabia",
+          "d": "Volte à teoria daquele ponto."
+        },
+        {
+          "icone": "👀",
+          "t": "Li errado",
+          "d": "Treine a leitura do comando."
+        },
+        {
+          "icone": "📊",
+          "t": "Gráfico ou planta",
+          "d": "Escala, legenda, unidade."
+        },
+        {
+          "icone": "🔀",
+          "t": "Confundi conceitos",
+          "d": "Compare pares parecidos."
+        },
+        {
+          "icone": "⏱️",
+          "t": "Sem tempo",
+          "d": "Blocos cronometrados."
+        }
+      ],
+      "missao": "Pegue **1 erro recente**, classifique a causa e anote como evitar."
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "As",
+        "objetivas"
+      ],
+      "texto": "45 questões. Um método para ler, eliminar e decidir **com critério**.",
+      "xp": [
+        "Ler o comando",
+        "Eliminação técnica"
+      ]
+    },
+    {
+      "tipo": "fluxo",
+      "fundo": "off",
+      "titulo": [
+        "O DNA da",
+        "[[questão]]"
+      ],
+      "passos": [
+        {
+          "t": "Situação real",
+          "d": "Um caso concreto: escola, bairro, praça, obra."
+        },
+        {
+          "t": "Documento",
+          "d": "Foto, mapa, planta, tabela ou texto."
+        },
+        {
+          "t": "Problema",
+          "d": "O que precisa ser resolvido."
+        },
+        {
+          "t": "Decisão",
+          "d": "A alternativa **mais adequada ao caso**, não a “sempre melhor”."
+        }
+      ]
+    },
+    {
+      "tipo": "grade",
+      "fundo": "navy",
+      "titulo": [
+        "20 objetos de",
+        "conhecimento"
+      ],
+      "cols": 5,
+      "itens": [
+        "Estética e história das artes",
+        "Estudos sociais, econômicos e ambientais",
+        "Sustentabilidade",
+        "Desenho e representação",
+        "Teoria e história da arq., urb. e paisagem",
+        "Projeto de arquitetura",
+        "Projeto de urbanismo",
+        "Projeto de paisagem",
+        "Projeto de interiores",
+        "Planejamento urbano e regional",
+        "Políticas públicas e habitacionais",
+        "Tecnologia da construção",
+        "Infraestrutura urbana",
+        "Gestão de projetos e obras",
+        "Sistemas estruturais",
+        "Conforto ambiental e eficiência energética",
+        "Mobilidade urbana",
+        "Desenho universal e acessibilidade",
+        "Patrimônio cultural",
+        "Tecnologias digitais aplicadas"
+      ],
+      "texto": "A matriz é **mais ampla** que os seus assuntos favoritos.",
+      "fonte": "Fonte: Portaria Inep nº 155/2026, art. 6º."
+    },
+    {
+      "tipo": "fluxo",
+      "fundo": "azul",
+      "titulo": [
+        "Como ler",
+        "[[qualquer]] enunciado"
+      ],
+      "tp": 52,
+      "passos": [
+        {
+          "t": "Comando",
+          "d": "Grife o verbo: avaliar, selecionar, identificar."
+        },
+        {
+          "t": "Contexto",
+          "d": "Onde, quem, em que escala."
+        },
+        {
+          "t": "Restrições",
+          "d": "EXCETO, INCORRETA, prioritariamente, apenas."
+        },
+        {
+          "t": "Evidências",
+          "d": "O que o texto e a imagem mostram."
+        },
+        {
+          "t": "Solução",
+          "d": "A mais sustentada pelo enunciado."
+        }
+      ],
+      "missao": "Pegue uma questão oficial e faça essas **5 marcações**.",
+      "zoom": 0.98
+    },
+    {
+      "tipo": "meme",
+      "fundo": "off",
+      "meme": "memes/cachorro-rosa.jpg",
+      "memePos": "center 30%",
+      "legenda": "a alternativa com “sempre”",
+      "rot": -3,
+      "titulo": [
+        "“Sempre”, “nunca”,",
+        "“[[todos]]”"
+      ],
+      "ts": 104,
+      "texto": "Termo absoluto é **alerta**, não eliminação automática. Teste contra o contexto e a norma: às vezes a regra é mesmo absoluta.",
+      "itens": [
+        "Descarte o que contradiz o enunciado.",
+        "Descarte erro de escala ou unidade.",
+        "Desconfie da solução que resolve **só um** condicionante."
+      ]
+    },
+    {
+      "tipo": "cards",
+      "fundo": "navy",
+      "titulo": [
+        "Plantas, mapas",
+        "e [[gráficos]]"
+      ],
+      "cols": 2,
+      "tt": 38,
+      "td": 27,
+      "itens": [
+        {
+          "icone": "📐",
+          "t": "A figura faz parte do argumento",
+          "d": "Leia título, norte, escala, legenda, cotas e curvas de nível. Norte geográfico não é a direção do vento."
+        },
+        {
+          "icone": "📈",
+          "t": "Ponto percentual não é porcentagem",
+          "d": "De 40% para 60%: **+20 p.p.**, ou **+50%** em termos relativos. Confira denominador, unidade e período."
+        }
+      ]
+    },
+    {
+      "tipo": "quiz",
+      "fundo": "off",
+      "tema": "Acessibilidade",
+      "pergunta": "Em um prédio público, foi instalada uma rampa na entrada, mas o percurso até o atendimento tem degraus. A conclusão mais adequada é:",
+      "alternativas": [
+        "A acessibilidade foi integralmente resolvida.",
+        "Basta incluir uma placa de sinalização.",
+        "Deve-se assegurar a continuidade da rota acessível até os serviços.",
+        "O desnível interno não interfere no uso.",
+        "Qualquer rampa atende automaticamente à norma."
+      ],
+      "gabarito": "C"
+    },
+    {
+      "tipo": "quiz",
+      "fundo": "off",
+      "resposta": true,
+      "tema": "Acessibilidade",
+      "pergunta": "Em um prédio público, foi instalada uma rampa na entrada, mas o percurso até o atendimento tem degraus. A conclusão mais adequada é:",
+      "alternativas": [
+        "A acessibilidade foi integralmente resolvida.",
+        "Basta incluir uma placa de sinalização.",
+        "Deve-se assegurar a continuidade da rota acessível até os serviços.",
+        "O desnível interno não interfere no uso.",
+        "Qualquer rampa atende automaticamente à norma."
+      ],
+      "gabarito": "C",
+      "justificativa": "A rota acessível é um **sistema contínuo**: rampa isolada não resolve o caminho inteiro."
+    },
+    {
+      "tipo": "meme",
+      "fundo": "azul",
+      "meme": "memes/sapo.png",
+      "memePos": "center",
+      "legenda": "técnica do sapo: pula e volta",
+      "titulo": [
+        "Ficou na",
+        "[[dúvida]]?"
+      ],
+      "itens": [
+        "Elimine o que você **consegue provar** que está errado.",
+        "Ficou entre duas? Escolha a mais consistente com o enunciado.",
+        "Travou? **Marque e pule.** Volte no tempo de retorno.",
+        "Nunca deixe em branco no fim."
+      ]
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "O chefão:",
+        "a discursiva"
+      ],
+      "texto": "**Uma** questão específica. Planejamento e escrita contam ponto.",
+      "xp": [
+        "Método D-F-S-I",
+        "Checklist de entrega"
+      ]
+    },
+    {
+      "tipo": "cards",
+      "fundo": "off",
+      "titulo": [
+        "Método",
+        "[[D-F-S-I]]"
+      ],
+      "cols": 4,
+      "tt": 34,
+      "td": 25,
+      "itens": [
+        {
+          "icone": "D",
+          "t": "Diagnóstico",
+          "d": "Qual é o problema concreto, e em que escala?"
+        },
+        {
+          "icone": "F",
+          "t": "Fundamento",
+          "d": "Que conceito, critério ou condicionante justifica a escolha?"
+        },
+        {
+          "icone": "S",
+          "t": "Solução",
+          "d": "Medidas objetivas, viáveis e ligadas ao comando."
+        },
+        {
+          "icone": "I",
+          "t": "Impacto",
+          "d": "Efeitos esperados e limites da intervenção."
+        }
+      ],
+      "missao": "Pediu **duas medidas**? Apresente duas, separadas."
+    },
+    {
+      "tipo": "meme",
+      "fundo": "navy",
+      "meme": "memes/leitura-anime.jpg",
+      "memePos": "center",
+      "legenda": "1ª leitura: só enxergar",
+      "titulo": [
+        "A primeira",
+        "leitura é pra",
+        "[[enxergar]]"
+      ],
+      "ts": 110,
+      "itens": [
+        "Quem?",
+        "Onde?",
+        "Qual é o problema?",
+        "Que dados foram dados?",
+        "O que, **exatamente**, se pede?"
+      ],
+      "texto": "Na segunda leitura, separe os subitens e os verbos de comando."
+    },
+    {
+      "tipo": "compara",
+      "fundo": "off",
+      "titulo": [
+        "Cada frase precisa",
+        "[[pontuar]]"
+      ],
+      "colunas": [
+        {
+          "rot": "VAGO",
+          "t": "“Adotar arborização.”",
+          "d": "Não diz onde, por quê, nem com que efeito."
+        },
+        {
+          "rot": "TÉCNICO",
+          "t": "Árvores nas áreas de permanência para sombrear o percurso e reduzir a exposição ao calor.",
+          "d": "Diz **onde**, **por quê** e **o efeito**."
+        }
+      ],
+      "tc": 52,
+      "missao": "Corte “eu acho”, floreio e norma que você não tem certeza."
+    },
+    {
+      "tipo": "cards",
+      "fundo": "navy",
+      "titulo": [
+        "Modelo",
+        "comentado"
+      ],
+      "texto": "Treino: praça em clima quente, pouca sombra e acesso descontínuo. Proponha duas estratégias integradas.",
+      "cols": 4,
+      "tt": 30,
+      "td": 24,
+      "itens": [
+        {
+          "icone": "D",
+          "t": "Diagnóstico",
+          "d": "Exposição térmica alta e rota acessível descontínua."
+        },
+        {
+          "icone": "F",
+          "t": "Fundamento",
+          "d": "Permanência e uso por públicos diferentes."
+        },
+        {
+          "icone": "S",
+          "t": "Solução",
+          "d": "Percursos contínuos e acessíveis + árvores, sombra e superfícies permeáveis."
+        },
+        {
+          "icone": "I",
+          "t": "Impacto",
+          "d": "Conforto microclimático, verificado com levantamento e manutenção."
+        }
+      ],
+      "fonte": "Resposta-modelo autoral, só para treino. Não é padrão oficial do Inep."
+    },
+    {
+      "tipo": "checklist",
+      "fundo": "off",
+      "titulo": [
+        "Antes de",
+        "[[entregar]]"
+      ],
+      "cols": 2,
+      "tt": 30,
+      "itens": [
+        "Respondi **todos** os verbos do comando?",
+        "Citei dados que aparecem no texto e na imagem?",
+        "Apresentei medidas concretas, e não slogans?",
+        "Liguei cada medida a um problema e a um efeito?",
+        "Evitei norma ou medida de que não tenho certeza?",
+        "Está legível, objetivo e coerente?"
+      ]
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "IA a seu",
+        "favor"
+      ],
+      "texto": "A IA funciona bem como **tutora de perguntas**, e mal como autoridade final.",
+      "xp": [
+        "Tutor socrático",
+        "Corretor de discursiva"
+      ]
+    },
+    {
+      "tipo": "cards",
+      "fundo": "off",
+      "titulo": [
+        "As 5 regras da",
+        "[[IA confiável]]"
+      ],
+      "cols": 5,
+      "tt": 28,
+      "td": 22,
+      "itens": [
+        {
+          "icone": "📄",
+          "t": "Fonte primeiro",
+          "d": "Anexe portaria, prova e gabarito."
+        },
+        {
+          "icone": "🎚️",
+          "t": "Confiança calibrada",
+          "d": "Exija que diga quando não tem respaldo."
+        },
+        {
+          "icone": "✅",
+          "t": "Gabarito duplo",
+          "d": "Confira com o docente ou a fonte oficial."
+        },
+        {
+          "icone": "📏",
+          "t": "Norma atual",
+          "d": "Confirme a versão da ABNT e da lei."
+        },
+        {
+          "icone": "✍️",
+          "t": "Responda antes",
+          "d": "Tente sozinho, depois peça a solução."
+        }
+      ],
+      "missao": "Nunca envie dados pessoais. A IA orienta o treino; a resposta no dia é sua."
+    },
+    {
+      "tipo": "prompt",
+      "fundo": "navy",
+      "para": "para treinar objetivas",
+      "titulo": [
+        "Tutor",
+        "[[socrático]]"
+      ],
+      "prompt": "Você é meu tutor de ENADE Arquitetura e Urbanismo. Vou colar uma questão. NÃO revele o gabarito nem a letra correta antes de eu justificar. Faça uma pergunta por vez: comando, condicionantes, leitura da figura, descarte de alternativas e defesa da escolha. Ao final, compare meu raciocínio com o gabarito oficial que vou anexar e proponha 1 exercício de recuperação."
+    },
+    {
+      "tipo": "prompt",
+      "fundo": "navy",
+      "para": "para treinar a discursiva",
+      "titulo": [
+        "Corretor de",
+        "[[discursiva]]"
+      ],
+      "prompt": "Vou fornecer o enunciado, minha resposta e o padrão de resposta oficial (quando houver). Corrija pelos critérios do padrão, citando trechos da minha resposta, separando acertos, omissões e afirmações sem comprovação, e sugira uma reescrita. Não atribua nota oficial."
+    },
+    {
+      "tipo": "prompt",
+      "fundo": "navy",
+      "para": "para estudar o que você erra",
+      "titulo": [
+        "Caderno de",
+        "[[erros]]"
+      ],
+      "prompt": "Receba esta lista anônima: questão / competência / erro / motivo / tempo gasto. Agrupe em 3 causas principais, crie uma sequência de estudo de 20 minutos para cada causa e me reteste com questões equivalentes, sem revelar o gabarito antes do fim. [cole a lista]"
+    },
+    {
+      "tipo": "fase",
+      "titulo": [
+        "Reta",
+        "final"
+      ],
+      "texto": "Temas para revisar, um plano de 7 dias e a véspera.",
+      "xp": [
+        "Plano de 7 dias",
+        "Checklist da véspera"
+      ]
+    },
+    {
+      "tipo": "cards",
+      "fundo": "off",
+      "titulo": [
+        "Onde vale",
+        "[[revisar]]"
+      ],
+      "texto": "Hipóteses de estudo a partir da matriz 2026, **não profecia** sobre o que vai cair.",
+      "cols": 3,
+      "tt": 30,
+      "td": 23,
+      "itens": [
+        {
+          "icone": "🌡️",
+          "t": "Clima urbano e drenagem",
+          "d": "Ilhas de calor, alagamentos, soluções baseadas na natureza.",
+          "tag": "ALTA",
+          "tagCor": "#FF2D55"
+        },
+        {
+          "icone": "♿",
+          "t": "Acessibilidade",
+          "d": "Rota contínua, desenho universal.",
+          "tag": "ALTA",
+          "tagCor": "#FF2D55"
+        },
+        {
+          "icone": "🏘️",
+          "t": "Habitação e mobilidade",
+          "d": "Moradia, segregação, transporte.",
+          "tag": "ALTA",
+          "tagCor": "#FF2D55"
+        },
+        {
+          "icone": "☀️",
+          "t": "Conforto ambiental",
+          "d": "Orientação, sombreamento, ventilação.",
+          "tag": "ALTA",
+          "tagCor": "#FF2D55"
+        },
+        {
+          "icone": "🏛️",
+          "t": "Patrimônio e reuso",
+          "d": "Valores a preservar e limites de intervenção.",
+          "tag": "ALTA",
+          "tagCor": "#FF2D55"
+        },
+        {
+          "icone": "🧩",
+          "t": "BIM e tecnologias digitais",
+          "d": "Coordenação, compatibilização e limites.",
+          "tag": "MÉDIA-ALTA",
+          "tagCor": "#14213A"
+        }
+      ],
+      "fonte": "Prioridade didática qualitativa, não chance calculada de cair.",
+      "zoom": 1.02
+    },
+    {
+      "tipo": "fluxo",
+      "fundo": "navy",
+      "titulo": [
+        "Plano de",
+        "[[7 dias]]"
+      ],
+      "tp": 46,
+      "passos": [
+        {
+          "t": "Dia 1",
+          "d": "Simulado parcial e diagnóstico."
+        },
+        {
+          "t": "Dias 2 e 3",
+          "d": "Competências mais fracas, 15 a 20 questões por dia."
+        },
+        {
+          "t": "Dia 4",
+          "d": "2 discursivas com rubrica."
+        },
+        {
+          "t": "Dia 5",
+          "d": "Simulado cronometrado."
+        },
+        {
+          "t": "Dia 6",
+          "d": "Correção dos erros e revisão pontual."
+        },
+        {
+          "t": "Dia 7",
+          "d": "Logística, revisão leve e descanso."
+        }
+      ],
+      "zoom": 1.05
+    },
+    {
+      "tipo": "checklist",
+      "fundo": "azul",
+      "meme": "memes/cochilo.jpg",
+      "memePos": "center 70%",
+      "legenda": "dormir também é estratégia",
+      "titulo": [
+        "Checklist da",
+        "véspera"
+      ],
+      "itens": [
+        "Documento com foto",
+        "Local e horário conferidos",
+        "Logística de ida pensada",
+        "Alimentação de sempre",
+        "Caneta preta, de corpo transparente",
+        "**Sono**"
+      ],
+      "fonte": "Confira as regras exatas no edital e no cartão de confirmação da edição 2026."
+    },
+    {
+      "tipo": "meme",
+      "fundo": "off",
+      "meme": "memes/persistir.png",
+      "memePos": "center top",
+      "memeAlt": 560,
+      "legenda": "até o final",
+      "titulo": [
+        "Desafio",
+        "[[final]]"
+      ],
+      "texto": "Você não precisa adivinhar a prova. Precisa dominar **decisões fundamentadas**.",
+      "itens": [
+        "**20 questões** comentadas",
+        "**2 discursivas** com correção",
+        "**1 simulado** em condições reais"
+      ],
+      "missao": "Cumpra os três antes do exame. Esse é o seu “zerou o jogo”."
+    },
+    {
+      "tipo": "fim",
+      "titulo": [
+        "Não é decorar",
+        "o mundo.",
+        "É [[ler bem]] e",
+        "decidir com",
+        "evidências."
+      ],
+      "ts": 112,
+      "texto": "Obrigado! Mais dicas de estudo e conteúdo no meu perfil.",
+      "foto": "fotos/libero-recorte.png"
+    }
+  ]
+}
