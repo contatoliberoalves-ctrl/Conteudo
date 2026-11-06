@@ -220,6 +220,17 @@ L.fim = (s, deck) => ({
     <div style="${TEXTO};font-size:36px;font-weight:600;line-height:1.35;color:#fff;opacity:.92">${r(s.texto ?? '')}</div>
     <div style="${TEXTO};font-size:34px;font-weight:800;color:#fff;margin-top:20px">@liberofilho</div></div>` });
 
+L.qr = (s, deck) => ({
+  bg: FUNDOS.azul, escuro: true, html: `${hud(deck, s, 'azul')}
+  <div style="position:absolute;right:-200px;bottom:-300px;width:700px;height:700px;border:80px solid ${COR.vermelho};border-radius:50%"></div>
+  <div style="position:absolute;left:120px;top:220px;width:900px;display:flex;flex-direction:column;gap:34px;z-index:3">
+    <span style="align-self:flex-start;${TEXTO};font-size:28px;font-weight:800;letter-spacing:.2em;color:${COR.navy};background:${AMARELO};padding:10px 18px;border-radius:8px">🎁 BÔNUS DESBLOQUEADO</span>
+    <div style="${TITULO};font-size:${s.ts ?? 150}px;line-height:1;color:#fff">${[].concat(s.titulo).map(l => r(l, COR.navyFundo)).join('<br>')}</div>
+    <div style="${TEXTO};font-size:40px;font-weight:600;line-height:1.35;color:#fff;opacity:.92">${r(s.texto ?? '')}</div></div>
+  <div style="position:absolute;right:150px;top:190px;width:640px;background:#fff;border-radius:36px;padding:40px 40px 30px;box-shadow:0 40px 80px rgba(0,0,0,.35);z-index:3;text-align:center">
+    <img src="${arq(s.qr)}" style="display:block;width:560px;height:560px;image-rendering:pixelated">
+    <div style="${TEXTO};font-size:32px;font-weight:800;color:${COR.navy};margin-top:18px">📱 ${esc(s.legenda ?? 'Aponte a câmera')}</div></div>` });
+
 async function main() {
   const filtro = process.argv[2];
   const ids = fs.readdirSync(path.join(root, 'palestras')).filter(f => f.endsWith('.json')).map(f => f.replace('.json', ''));
