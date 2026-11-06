@@ -15,6 +15,7 @@ import { pagina as paginaFestividade } from "./pagina-festividade.mjs";
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const HF = "hyperframes@0.8.214";
 const FONTES = {
+  "cinzel-700.woff2": "https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-jHgfY3lDQ.woff2",
   "great-vibes.woff2": "https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XFiaQ.woff2",
 };
 
@@ -106,10 +107,15 @@ function montar(r) {
     else ffmpeg(["-i", origem(l.arquivo), "-vf", "scale=-2:300:flags=lanczos", dest]);
   });
   if (r.modelo === "festividade") {
-    // Fundo do evento e as peças do letreiro (título, nome e destaque "13 anos").
-    fs.copyFileSync(origem(a.fundo), path.join(img, "fundo.png"));
+    // Arte oficial separada em fundo (sem letreiro) + peças do letreiro, com cache.
+    const chaveArte = chave(a.arte, fs.statSync(origem(a.arte)).size, JSON.stringify(a.pecas), JSON.stringify(a.claras || []), fs.statSync(path.join(AQUI, "limpar-arte.py")).mtimeMs);
+    const cacheArte = path.join(cacheDir, `arte-${chaveArte}`);
+    if (!fs.existsSync(path.join(cacheArte, "fundo.png"))) {
+      fs.mkdirSync(cacheArte, { recursive: true });
+      sh("python3", ["-I", path.join(AQUI, "limpar-arte.py"), origem(a.arte), cacheArte, JSON.stringify(a.pecas), JSON.stringify(a.claras || [])]);
+    }
+    for (const f of fs.readdirSync(cacheArte)) fs.copyFileSync(path.join(cacheArte, f), path.join(img, f));
     r._fundo = JSON.parse(sh("python3", ["-I", "-c", "import sys,json;from PIL import Image;print(json.dumps(list(Image.open(sys.argv[1]).size)))", path.join(img, "fundo.png")]).toString());
-    for (const [nome, caixa] of Object.entries(a.letreiro.pecas)) recortar(a.letreiro.arquivo, caixa, path.join(img, `peca-${nome}.png`), 1);
   } else {
     fs.copyFileSync(origem(a.logoEvento), path.join(img, "logo-evento.png"));
     if (a.flores) fs.copyFileSync(origem(a.flores), path.join(img, "flores.png"));

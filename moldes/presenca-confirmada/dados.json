@@ -458,65 +458,64 @@
       "confirmada"
     ],
     "cores": {
-      "creme": "#fbeec8",
-      "verde": "#0b5a3a",
-      "verdeEscuro": "#03281a",
-      "rosa": "#f48a9b"
+      "rosa": "#c2185b",
+      "verdeEscuro": "#02251a"
     },
     "musica": false,
     "arquivos": {
-      "fotoRecortada": "fotos/kelvin-recortado.png",
+      "fotoRecortada": "fotos/kelvin-terno.png",
       "foto": {
-        "largura": 820,
-        "topo": 330,
-        "centro": 470
-      },
-      "fundo": "fotos/festividade-fundo.png",
-      "letreiro": {
-        "arquivo": "fotos/festividade-letreiro.png",
-        "pecas": {
-          "titulo": [
-            0,
-            930,
-            1122,
-            1230
-          ],
-          "nome": [
-            150,
-            1230,
-            1000,
-            1385
-          ],
-          "destaque": [
-            855,
-            428,
-            1090,
-            720
-          ]
-        }
+        "largura": 980,
+        "topo": 728,
+        "centro": 560
       },
       "video": "fotos/kelvin-pregacao.mp4",
       "videoRecorte": [
         1080,
-        1500,
+        1920,
         0,
         0
       ],
       "audio": {
         "inicio": 0,
         "fim": 38.38
-      }
+      },
+      "arte": "fotos/festividade-arte.png",
+      "pecas": {
+        "logos": [
+          255,
+          140,
+          835,
+          320
+        ],
+        "titulo": [
+          30,
+          355,
+          1005,
+          845
+        ],
+        "treze": [
+          55,
+          855,
+          1005,
+          1225
+        ],
+        "triunfo": [
+          95,
+          1230,
+          920,
+          1330
+        ]
+      },
+      "claras": [
+        [
+          680,
+          150,
+          835,
+          275
+        ]
+      ]
     },
-    "logos": [
-      {
-        "arquivo": "fotos/logo-ieadalpe.png"
-      },
-      {
-        "arquivo": "fotos/logo-dejeadalpe.png"
-      },
-      {
-        "arquivo": "fotos/logo-coadalpe.png"
-      }
-    ]
+    "logos": []
   }
 ]
