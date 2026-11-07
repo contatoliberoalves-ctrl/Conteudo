@@ -129,9 +129,8 @@ const inscricao = fs => `<div style="background:#fff;color:${I};display:flex;ali
 const tituloPrograma = fs => `<div class="tit" style="font-size:${fs}px">Cartórios na Prática</div><div style="font-size:${fs * .34}px;font-weight:300;margin-top:12px;opacity:.85">Programa de Aulas Práticas da ANOREG/PE</div>`;
 
 const aulaFeed = `<div class="p deg" style="width:${W}px;height:${H}px">
-  <div class="abs" style="left:0;right:0;top:0;height:1050px;${trama(.06)};-webkit-mask:linear-gradient(90deg,transparent 30%,#000 100%)"></div>
-  <div class="abs" style="left:72px;top:70px;right:330px">${tituloPrograma(78)}</div>
-  <div class="abs" style="right:72px;top:56px">${tileAula(220)}</div>
+  <div class="abs" style="left:72px;top:70px;right:260px">${tituloPrograma(78)}</div>
+  <div class="abs" style="right:72px;top:70px">${tileAula(150)}</div>
   <div class="abs" style="left:72px;top:330px;display:flex;gap:44px;align-items:flex-end;right:72px">
     ${arco(AULA.foto, 330, 420, 10, '', '50% 20%')}
     <div style="min-width:0"><div class="tit" style="font-size:54px;font-weight:600;line-height:1.08">${AULA.tema}</div>
@@ -142,10 +141,9 @@ const aulaFeed = `<div class="p deg" style="width:${W}px;height:${H}px">
   ${rodapeParceiros(400, 300)}</div>`;
 
 const aulaStory = `<div class="p deg" style="width:${W}px;height:${HS}px">
-  <div class="abs" style="left:0;right:0;top:0;height:1500px;${trama(.06)};-webkit-mask:linear-gradient(180deg,transparent 30%,#000 100%)"></div>
   <div class="abs" style="left:80px;right:80px;top:150px;text-align:center">${tituloPrograma(96)}</div>
   <div class="abs" style="left:0;right:0;top:420px;display:flex;justify-content:center;align-items:flex-end;gap:40px">
-    ${arco(AULA.foto, 440, 560, 12, '', '50% 20%')}<div style="margin-bottom:-20px">${tileAula(250)}</div></div>
+    ${arco(AULA.foto, 440, 560, 12, '', '50% 20%')}<div style="margin-bottom:-10px">${tileAula(170)}</div></div>
   <div class="abs" style="left:90px;right:90px;top:1030px;text-align:center"><div class="tit" style="font-size:60px;font-weight:600;line-height:1.1">${AULA.tema}</div>
     <div style="font-size:38px;font-weight:600;margin-top:34px">${AULA.nome}</div><div style="font-size:26px;font-weight:300;margin-top:8px;opacity:.9">${AULA.cv}</div></div>
   <div class="abs" style="left:0;right:0;top:1320px;display:flex;justify-content:center">${infoAula(30, 40)}</div>
@@ -167,27 +165,36 @@ const aviso = `<div class="p" style="width:${W}px;height:${H}px;${painel(270)}">
     <div style="font-size:34px;font-weight:300;line-height:1.5;margin-top:40px;opacity:.92">Dia da Consciência Negra. Os cartórios funcionam em regime de plantão: confira o atendimento com o cartório da sua cidade.</div>
     <div style="margin-top:auto">${logo('letreiroBranco', 210)}</div></div></div>`;
 
-const aniversario = `<div class="p deg" style="width:${W}px;height:${H}px">${confete(46, W, 520)}
-  <div class="abs" style="right:40px;top:60px">${sombrinha(300, 14)}</div>
-  <div class="abs" style="left:84px;top:200px">${arco('30781747', 420, 540, 12, '', '50% 25%')}</div>
-  <div class="abs" style="left:84px;right:84px;top:800px">
-    <div style="font-size:56px;font-weight:300">Feliz aniversário,</div>
-    <div class="tit" style="font-size:96px;margin-top:6px">Ana Paula Ferreira</div>
-    <div style="font-size:30px;font-weight:300;margin-top:16px;opacity:.85">Oficiala do Registro Civil de Caruaru</div>
-    <div style="font-size:32px;font-weight:300;line-height:1.45;margin-top:40px;max-width:820px">Que o novo ciclo seja de saúde, alegria e muitas conquistas.</div></div>
-  <div class="abs" style="right:84px;bottom:80px">${logo('letreiroBranco', 200)}</div></div>`;
+// foto quadrada com moldura branca e um azulejo deslocado atrás
+const quadro = (src, px, cinza) => `<div style="position:relative;width:${px}px;height:${px}px">
+  <div style="position:absolute;left:28px;top:28px;width:${px}px;height:${px}px;${cinza ? `background:#1C1C20;${trama(.12, px / 2)}` : painel(px / 2)}"></div>
+  <div style="position:absolute;inset:0;border:12px solid ${cinza ? '#E8E8EA' : '#fff'};overflow:hidden;background:#2A2A30">${src
+    ? `<img src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%;${cinza ? 'filter:grayscale(1)' : ''}">`
+    : `<div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#77777F;font-size:24px"><svg width="${px * .32}" height="${px * .32}" viewBox="0 0 24 24" fill="#55555C"><circle cx="12" cy="8.5" r="4.5"/><path d="M3.5 22c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5z"/></svg>Foto</div>`}</div></div>`;
 
-const laco = `<svg width="90" height="130" viewBox="0 0 90 130" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><path d="M45 52 C30 30 18 14 30 6 C42 -2 52 18 45 52 C38 18 48 -2 60 6 C72 14 60 30 45 52Z"/><path d="M45 52 L18 124 L34 116 L45 128 M45 52 L72 124 L56 116 L45 128"/></svg>`;
+const aniversario = `<div class="p deg" style="width:${W}px;height:${H}px">${confete(52, W, 420)}
+  <div class="abs" style="left:56px;top:70px">${sombrinha(190, -16)}</div>
+  <div class="abs" style="left:0;right:0;top:130px;display:flex;justify-content:center"><div style="margin-right:28px">${quadro(foto('30781747'), 470)}</div></div>
+  <div class="abs" style="left:84px;right:84px;top:690px;text-align:center">
+    <div style="font-size:50px;font-weight:300">Feliz aniversário,</div>
+    <div class="tit" style="font-size:92px;margin-top:6px">Ana Paula Ferreira</div>
+    <div style="font-size:30px;font-weight:300;margin-top:16px;opacity:.85">Oficiala do Registro Civil de Caruaru</div>
+    <div style="width:60px;height:5px;background:${AM};margin:38px auto"></div>
+    <div style="font-size:32px;font-weight:300;line-height:1.45">Que o novo ciclo seja de saúde, alegria e muitas conquistas.</div></div>
+  <div class="abs" style="left:0;right:0;bottom:70px;display:flex;justify-content:center">${logo('letreiroBranco', 200)}</div></div>`;
+
+const laco = (w = 90) => `<svg width="${w}" height="${w * 130 / 90}" viewBox="0 0 90 130" fill="none" stroke="#E8E8EA" stroke-width="5" stroke-linejoin="round"><path d="M45 52 C30 30 18 14 30 6 C42 -2 52 18 45 52 C38 18 48 -2 60 6 C72 14 60 30 45 52Z"/><path d="M45 52 L18 124 L34 116 L45 128 M45 52 L72 124 L56 116 L45 128"/></svg>`;
+const LUTO = { foto: '', nome: 'José Carlos de Albuquerque', cargo: 'Tabelião do 2º Ofício de Notas de Garanhuns' };
 const luto = `<div class="p" style="width:${W}px;height:${H}px;background:#0B0B0D">
-  <div class="abs" style="inset:0;${trama(.04, 260)};-webkit-mask:radial-gradient(70% 60% at 50% 45%,transparent 55%,#000 100%)"></div>
-  <div class="abs" style="left:0;right:0;top:170px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 110px;color:#E8E8EA">
-    ${laco}
-    <div style="font-size:34px;font-weight:300;letter-spacing:.06em;margin-top:56px;color:#A9A9B0">Nota de pesar</div>
-    <div class="tit" style="font-size:80px;font-weight:600;margin-top:30px">José Carlos de Albuquerque</div>
-    <div style="font-size:30px;font-weight:300;margin-top:18px;color:#A9A9B0">Tabelião do 2º Ofício de Notas de Garanhuns</div>
-    <div style="width:80px;height:1px;background:#55555C;margin:54px 0"></div>
-    <div style="font-size:34px;font-weight:300;line-height:1.55">A ANOREG/PE lamenta profundamente o falecimento e se solidariza com a família, os amigos e os colegas de serviço.</div></div>
-  <div class="abs" style="left:0;right:0;bottom:90px;display:flex;justify-content:center">${logo('mono', 300, 'opacity:.85')}</div></div>`;
+  <div class="abs" style="left:84px;top:84px">${laco(54)}</div>
+  <div class="abs" style="left:0;right:0;top:110px;display:flex;justify-content:center"><div style="margin-right:28px">${quadro(LUTO.foto && foto(LUTO.foto), 400, true)}</div></div>
+  <div class="abs" style="left:0;right:0;top:590px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 110px;color:#E8E8EA">
+    <div style="font-size:30px;font-weight:300;letter-spacing:.06em;color:#A9A9B0">Nota de pesar</div>
+    <div class="tit" style="font-size:70px;font-weight:600;margin-top:22px">${LUTO.nome}</div>
+    <div style="font-size:28px;font-weight:300;margin-top:16px;color:#A9A9B0">${LUTO.cargo}</div>
+    <div style="width:80px;height:1px;background:#55555C;margin:40px 0"></div>
+    <div style="font-size:31px;font-weight:300;line-height:1.55">A ANOREG/PE lamenta profundamente o falecimento e se solidariza com a família, os amigos e os colegas de serviço.</div></div>
+  <div class="abs" style="left:0;right:0;bottom:70px;display:flex;justify-content:center">${logo('mono', 260, 'opacity:.85')}</div></div>`;
 
 // ---------- capas de reels (1080×1920; texto no miolo que aparece no grid) ----------
 const reels1 = `<div class="p ind" style="width:${W}px;height:${HS}px">${img('35810442', 'object-position:50% 50%')}
