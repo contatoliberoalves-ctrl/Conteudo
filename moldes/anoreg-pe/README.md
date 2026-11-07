@@ -1,11 +1,12 @@
-# ANOREG/PE · Identidade visual
+# ANOREG/PE · Identidade das redes (estilo Azulejo)
 
-Quatro direções (azul, branco e um toque de vermelho) para as redes da ANOREG/PE, todas com o mesmo conteúdo para comparar:
-feed (serviço, agenda, frase), carrossel de 5 slides, 6 capas de destaque, banner e perfil do YouTube.
+Logo oficial, cores tiradas dele (índigo #0E1170, vermelho #E0070F, amarelo #FCF10C; vermelho e amarelo só dentro do logo),
+azulejo português pintado (Recife/Olinda), degradê índigo de fundo e Lexend.
 
-- `template.mjs`: as 4 direções (A Selo, B Grade, C Editorial, D Azulejo) e o conteúdo comum.
-- `render.mjs`: gera `saida/<A|B|C|D>/<peça>.png`. Uso: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [A B ...]`
-- `montar_apresentacao.py`: recorta as peças em `saida/apresentacao/img/` para a página de apresentação
-  (`saida/apresentacao/index.html`, publicada em https://claude.ai/artifact/EPcrN7twRh94KJN1fHSYw7).
+Peças: feed (serviço, agenda, frase), carrossel de 6 slides, 6 capas de destaque, banner e perfil do YouTube.
 
-As marcas são propostas desenhadas em código; troque pelo logo oficial se a associação mantiver o dela.
+1. Logo (fora do git): `python3 preparar_logo.py <pdf>` com um PDF da ANOREG/PE que traga o logo
+   (o boleto de contribuição no Drive, "ANOREG - REGISTRO CIVIL ... CURRAL QUEIMADO - PETROLINA.pdf") → `assets/`.
+2. `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [peça ...]` → `saida/<peça>.png`.
+3. `python3 montar_apresentacao.py` → `saida/apresentacao/img/`; a página é `apresentacao.html`
+   (publicada em https://claude.ai/artifact/EPcrN7twRh94KJN1fHSYw7, `root` = `saida/apresentacao`).

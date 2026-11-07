@@ -1,48 +1,37 @@
 <title>Identidade ANOREG/PE</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
 <style>
-/* Layout: uma coluna larga; cada direção é um capítulo com perfil do Instagram ao lado do feed, depois carrossel, destaques e YouTube */
+/* Layout: uma coluna; logo e cores no topo, depois perfil do Instagram ao lado do feed, carrossel, destaques e YouTube */
 :root{
-  --bg:#F2F4F7; --sup:#FFFFFF; --fg:#111827; --suave:#5B6474; --linha:#DCE1E8; --acento:#1E4A8C; --vm:#C8102E;
-  --sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'Geist Mono',ui-monospace,Menlo,monospace;
+  --bg:#F3F4F9; --sup:#FFFFFF; --fg:#12143F; --suave:#5A5E86; --linha:#DADCEB; --acento:#0E1170;
+  --sans:'Lexend',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1118;--sup:#151B25;--fg:#E8ECF2;--suave:#97A1B2;--linha:#263042;--acento:#8FB0FF;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0D1118;--sup:#151B25;--fg:#E8ECF2;--suave:#97A1B2;--linha:#263042;--acento:#8FB0FF;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0C24;--sup:#14163A;--fg:#E9EAF6;--suave:#A3A6CC;--linha:#262A5C;--acento:#A9B0FF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B0C24;--sup:#14163A;--fg:#E9EAF6;--suave:#A3A6CC;--linha:#262A5C;--acento:#A9B0FF;color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55;margin:0;font-weight:300}
 .envolve{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-header.topo{padding-block:56px 28px}
-.olho{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
-h1{font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.035em;margin:14px 0 18px;font-weight:600;text-wrap:balance}
-h1 i{font-style:normal;color:var(--acento)}
+header.topo{padding-block:56px 8px}
+.olho{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);font-weight:500}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 18px;font-weight:600;text-wrap:balance}
 .lead{max-width:680px;color:var(--suave);font-size:17px;margin:0}
-.entregas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.entregas span{font-family:var(--mono);font-size:12.5px;border:1px solid var(--linha);padding:6px 10px;border-radius:4px;color:var(--suave)}
-nav.abas{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-nav.abas .envolve{display:flex;gap:6px;padding-block:10px;overflow-x:auto}
-nav.abas a{flex:none;text-decoration:none;color:var(--fg);font-weight:500;font-size:14.5px;padding:8px 14px;border-radius:6px;display:flex;gap:10px;align-items:center}
-nav.abas a:hover,nav.abas a:focus-visible{background:var(--sup);outline:none;box-shadow:0 0 0 1px var(--linha)}
-nav.abas a b{font-family:var(--mono);font-weight:500;color:var(--suave)}
-nav.abas .mini{display:flex}nav.abas .mini i{width:10px;height:10px;display:block}
-section.op{padding-block:64px 20px;border-bottom:1px solid var(--linha);scroll-margin-top:60px}
-.cab{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
-.cab h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.03em;line-height:1;margin:8px 0 14px;font-weight:600}
-.cab p{margin:0;max-width:640px;color:var(--suave)}
-.paleta{display:flex;gap:0;border:1px solid var(--linha);border-radius:6px;overflow:hidden}
-.paleta div{width:76px;padding:48px 8px 8px;font-family:var(--mono);font-size:10.5px;line-height:1.3}
-.fontes{font-family:var(--mono);font-size:12.5px;color:var(--suave);margin-top:10px;text-align:right}
-.bloco{margin-top:40px}
-.bloco h3{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave);margin:0 0 14px;display:flex;justify-content:space-between;gap:12px}
-.bloco h3 span{letter-spacing:.04em;text-transform:none}
+.marca{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;margin-top:36px}
+.logo-caixa{background:#fff;border:1px solid var(--linha);border-radius:10px;padding:40px 36px;display:grid;place-items:center}
+.logo-caixa img{width:100%;max-width:460px;height:auto}
+.paleta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:10px;overflow:hidden;border:1px solid var(--linha)}
+.paleta div{padding:60px 12px 12px;font-size:12px;line-height:1.35}
+.paleta b{display:block;font-weight:500;font-size:13px}
+.notas-cor{grid-column:1/-1;color:var(--suave);font-size:14px;margin:0}
+.bloco{margin-top:48px}
+.bloco h3{font-weight:500;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin:0 0 14px;display:flex;justify-content:space-between;gap:12px}
+.bloco h3 span{letter-spacing:.02em;text-transform:none;font-weight:300}
 .dupla{display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:start}
 .feed3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .peca{display:block;padding:0;border:0;background:none;cursor:zoom-in;width:100%}
-.peca img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 1px 2px rgba(10,20,40,.12),0 8px 24px rgba(10,20,40,.10)}
+.peca img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 1px 2px rgba(10,12,60,.12),0 8px 24px rgba(10,12,60,.10)}
 .peca:focus-visible img{outline:3px solid var(--acento);outline-offset:3px}
-.trilho{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;overflow-x:auto;padding-bottom:8px}
-/* perfil do Instagram */
+.trilho{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);gap:12px;overflow-x:auto;padding-bottom:8px}
 .insta{background:var(--sup);border:1px solid var(--linha);border-radius:14px;padding:18px 16px 16px}
 .insta .id{display:flex;gap:14px;align-items:center}
 .insta .av{width:78px;height:78px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 2px var(--sup),0 0 0 3px var(--linha)}
@@ -58,89 +47,80 @@ section.op{padding-block:64px 20px;border-bottom:1px solid var(--linha);scroll-m
 .destaques figure{margin:0;text-align:center}
 .destaques img{width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 3px var(--bg),0 0 0 4.5px var(--linha)}
 .destaques figcaption{font-size:13px;margin-top:10px}
-/* YouTube */
 .yt{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;align-items:start}
 .canal{background:var(--sup);border:1px solid var(--linha);border-radius:12px;overflow:hidden}
 .canal>img{display:block;width:100%;height:auto}
 .canal .info{display:flex;gap:16px;align-items:center;padding:16px 18px}
 .canal .info img{width:72px;height:72px;border-radius:50%;flex:none}
-.canal .info b{display:block;font-size:17px}.canal .info small{color:var(--suave);font-size:13px}
+.canal .info b{display:block;font-size:17px;font-weight:600}.canal .info small{color:var(--suave);font-size:13px}
 .legenda{font-size:13px;color:var(--suave);margin-top:8px}
-footer{padding-block:48px 72px;color:var(--suave);font-size:14.5px}
+footer{padding-block:56px 72px;color:var(--suave);font-size:14.5px}
 footer ul{padding-left:18px;margin:10px 0 0;max-width:760px}footer li{margin:6px 0}
 dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1400px);max-height:94vh}
-dialog::backdrop{background:rgba(5,10,20,.86)}
+dialog::backdrop{background:rgba(5,6,30,.88)}
 dialog img{display:block;max-width:100%;max-height:90vh;width:auto;height:auto;border-radius:4px}
 dialog button{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));background:#fff;color:#111;border:0;border-radius:6px;padding:8px 14px;font:500 14px var(--sans);cursor:pointer}
-@media (max-width:900px){.dupla,.yt{grid-template-columns:minmax(0,1fr)}.insta{max-width:380px}.cab{grid-template-columns:minmax(0,1fr)}.fontes{text-align:left}}
-@media (max-width:620px){.feed3{grid-template-columns:repeat(2,minmax(0,1fr))}.destaques{grid-template-columns:repeat(3,minmax(0,1fr))}.paleta div{width:58px}.trilho{grid-auto-columns:72%}}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+@media (max-width:900px){.dupla,.yt,.marca{grid-template-columns:minmax(0,1fr)}.insta{max-width:380px}}
+@media (max-width:620px){.feed3{grid-template-columns:repeat(2,minmax(0,1fr))}.destaques{grid-template-columns:repeat(3,minmax(0,1fr))}.trilho{grid-auto-columns:72%}}
 </style>
 
 <header class="topo envolve">
-  <div class="olho">ANOREG/PE · Proposta de identidade visual · Nov 2026</div>
-  <h1>Quatro direções para as redes da <i>ANOREG/PE</i></h1>
-  <p class="lead">Todas em azul e branco, com o vermelho só como assinatura. O conteúdo é o mesmo nas quatro para comparar só o visual. Toque numa peça para ver em tamanho grande.</p>
-  <div class="entregas"><span>Feed 1080×1350</span><span>Carrossel 5 slides</span><span>Capas de destaque 1080×1920</span><span>Banner YouTube 2560×1440</span><span>Foto de perfil 800×800</span></div>
+  <div class="olho">ANOREG/PE · Identidade das redes · Estilo Azulejo</div>
+  <h1>Azulejo pernambucano no azul da ANOREG/PE</h1>
+  <p class="lead">Logo oficial, as cores exatas dele, o azulejo português de Recife e Olinda e o degradê índigo de fundo. Toque numa peça para ver em tamanho grande.</p>
+  <div class="marca">
+    <div class="logo-caixa"><img src="img/logo.png" alt="Logo oficial da ANOREG/PE"></div>
+    <div class="paleta">
+      <div style="background:#0E1170;color:#fff"><b>Índigo</b>#0E1170</div>
+      <div style="background:#fff;color:#0E1170"><b>Branco</b>#FFFFFF</div>
+      <div style="background:radial-gradient(120% 85% at 80% 0%,#2A2FA8,#0E1170 45%,#060845);color:#fff"><b>Degradê</b>#2A2FA8 → #060845</div>
+      <div style="background:#E0070F;color:#fff"><b>Vermelho</b>#E0070F</div>
+      <div style="background:#FCF10C;color:#0E1170"><b>Amarelo</b>#FCF10C</div>
+      <div style="background:#E9EAF6;color:#0E1170"><b>Gelo</b>#E9EAF6</div>
+    </div>
+    <p class="notas-cor">O índigo, o vermelho e o amarelo foram tirados do arquivo do logo oficial. Vermelho e amarelo aparecem só dentro do logo; o resto é índigo e branco. Fonte: Lexend, da mesma família da assinatura do logo.</p>
+  </div>
 </header>
-<nav class="abas" aria-label="Direções"><div class="envolve" id="abas"></div></nav>
-<main class="envolve" id="opcoes"></main>
+
+<main class="envolve">
+  <div class="bloco dupla">
+    <div><h3>Perfil no Instagram</h3>
+      <div class="insta"><div class="id"><div class="av"><img src="img/perfil.webp" alt="Foto de perfil"></div>
+        <div><div class="nome">ANOREG/PE</div><div class="bio">Associação dos Notários e Registradores do Estado de Pernambuco</div></div></div>
+        <div class="dest" id="destMini"></div>
+        <div class="grade" id="grade"></div></div></div>
+    <div><h3>Feed · tela única <span>1080×1350</span></h3><div class="feed3" id="feed"></div></div>
+  </div>
+  <div class="bloco"><h3>Carrossel <span>6 slides · 1080×1350</span></h3><div class="trilho" id="carrossel"></div></div>
+  <div class="bloco"><h3>Capas de destaque <span>1080×1920</span></h3><div class="destaques" id="destaques"></div></div>
+  <div class="bloco"><h3>YouTube <span>banner 2560×1440 · perfil 800×800</span></h3>
+    <div class="yt">
+      <div><div class="canal"><img src="img/yt-faixa.webp" alt="Banner como aparece no computador">
+        <div class="info"><img src="img/perfil.webp" alt=""><div><b>ANOREG/PE</b><small>Notários e Registradores de Pernambuco</small></div></div></div>
+        <div class="legenda">Como o canal aparece no computador (faixa central do banner).</div></div>
+      <div><button class="peca" type="button" data-src="img/yt.webp" aria-label="Ampliar o banner completo"><img src="img/yt.webp" alt="Banner completo"></button><div class="legenda">Banner inteiro, como aparece na TV.</div></div>
+    </div></div>
+</main>
 <footer class="envolve">
   <b style="color:var(--fg)">Notas</b>
   <ul>
-    <li>As marcas são propostas desenhadas para cada direção. Se a ANOREG/PE mantiver o logo atual, ele entra no lugar sem mudar o resto do sistema.</li>
-    <li>Os textos são ilustrativos (o encontro e a data do card de agenda são exemplo). As bases legais do carrossel são reais.</li>
-    <li>No banner do YouTube, a faixa central de 1546×423 é a área que aparece em todos os aparelhos. Todo o texto fica dentro dela.</li>
-    <li>Escolhida a direção, ela vira um molde com mais modelos de post (comunicado, nota de pesar, evento, data comemorativa, carrossel de dúvidas) e entra na galeria.</li>
+    <li>Os textos são de exemplo. O encontro de 27 e 28 de novembro é ilustrativo; as leis citadas no carrossel são reais.</li>
+    <li>Sem selos, setas de "arraste" nem rodapés repetidos: cada peça tem um título curto, o logo e o azulejo.</li>
+    <li>O degradê índigo fica para capas e slides alternados; o painel de azulejo branco, para peças de abertura e fecho.</li>
   </ul>
 </footer>
 <dialog id="zoom"><button type="button" id="fechar">Fechar</button><img id="zoomImg" alt=""></dialog>
-
 <script>
-const OP = [
-  {id:'A',nome:'Selo',tag:'Institucional clássica',resumo:'Navy e marfim, serifa Playfair Display, guilhochê de papel de segurança e um selo circular, como os de documento oficial. Passa tradição e fé pública.',cores:[['#0B1F3A','Navy'],['#1E4A8C','Azul'],['#F6F4EF','Marfim'],['#FFFFFF','Branco'],['#B5121B','Vermelho']],fontes:'Playfair Display + Inter'},
-  {id:'B',nome:'Grade',tag:'Moderna, linha suíça',resumo:'Azul royal em blocos, grade aparente, Inter Tight bem pesada, números enormes e o quadrado vermelho como assinatura. Passa agilidade e uma associação atual.',cores:[['#1340C8','Royal'],['#0A1633','Navy'],['#EEF2F8','Gelo'],['#FFFFFF','Branco'],['#E10600','Vermelho']],fontes:'Inter Tight + IBM Plex Mono'},
-  {id:'C',nome:'Editorial',tag:'Revista de alto padrão',resumo:'Papel claro, tinta navy, Fraunces itálica, filetes duplos, capitular, índice e o ponto vermelho como assinatura. Passa conhecimento e autoridade.',cores:[['#101C33','Tinta'],['#2B59C3','Azul'],['#F8F7F3','Papel'],['#FFFFFF','Branco'],['#D7263D','Vermelho']],fontes:'Fraunces + Inter'},
-  {id:'D',nome:'Azulejo',tag:'Pernambucana',resumo:'Azul cobalto com o padrão do azulejo português de Recife e Olinda, cartões brancos, Sora e o miolo vermelho no centro do ladrilho. Tem raiz local e é a mais calorosa.',cores:[['#0E3A8A','Cobalto'],['#081F4D','Navy'],['#D8E5FB','Céu'],['#FFFFFF','Branco'],['#D62F2F','Vermelho']],fontes:'Sora + Inter'},
-];
-const DEST = [['institucional','Institucional'],['noticias','Notícias'],['eventos','Eventos'],['servicos','Serviços'],['associados','Associados'],['contato','Contato']];
-const img = n => `img/${n}.webp`;
-const escuro = h => { const n = parseInt(h.slice(1),16); return ((n>>16)*.299 + (n>>8&255)*.587 + (n&255)*.114) < 140; };
-const peca = (n, alt) => `<button class="peca" type="button" data-src="${img(n)}" aria-label="Ampliar: ${alt}"><img src="${img(n)}" alt="${alt}" loading="lazy"></button>`;
-
-document.getElementById('abas').innerHTML = OP.map(o => `<a href="#opcao-${o.id.toLowerCase()}"><b>${o.id}</b>${o.nome}<span class="mini">${o.cores.slice(0,3).concat([o.cores[4]]).map(c=>`<i style="background:${c[0]}"></i>`).join('')}</span></a>`).join('');
-document.getElementById('opcoes').innerHTML = OP.map(o => `
-<section class="op" id="opcao-${o.id.toLowerCase()}">
-  <div class="cab"><div><div class="olho">Direção ${o.id} · ${o.tag}</div><h2>${o.nome}</h2><p>${o.resumo}</p></div>
-    <div><div class="paleta">${o.cores.map(([h,n])=>`<div style="background:${h};color:${escuro(h)?'#fff':'#111'};${h==='#FFFFFF'?'box-shadow:inset 0 0 0 1px #DCE1E8':''}">${n}<br>${h}</div>`).join('')}</div><div class="fontes">${o.fontes}</div></div></div>
-
-  <div class="bloco dupla">
-    <div><h3>Perfil no Instagram</h3>
-      <div class="insta"><div class="id"><div class="av"><img src="${img(o.id+'-perfil')}" alt="Foto de perfil, direção ${o.nome}"></div>
-        <div><div class="nome">anoregpe</div><div class="bio">Associação dos Notários e Registradores de Pernambuco</div></div></div>
-        <div class="dest">${DEST.map(([k,l])=>`<figure><img src="${img(o.id+'-destaque-'+k)}" alt=""><figcaption>${l}</figcaption></figure>`).join('')}</div>
-        <div class="grade">${['carrossel-1','feed-frase','feed-agenda','carrossel-4','feed-servico','carrossel-5'].map(n=>`<img src="${img(o.id+'-'+n)}" alt="" loading="lazy">`).join('')}</div></div></div>
-    <div><h3>Feed · tela única <span>1080×1350</span></h3>
-      <div class="feed3">${peca(o.id+'-feed-servico','Post de serviço')}${peca(o.id+'-feed-agenda','Post de agenda')}${peca(o.id+'-feed-frase','Post de frase')}</div></div>
-  </div>
-
-  <div class="bloco"><h3>Carrossel · 5 slides <span>1080×1350</span></h3>
-    <div class="trilho">${[1,2,3,4,5].map(i=>peca(o.id+'-carrossel-'+i,'Carrossel, slide '+i)).join('')}</div></div>
-
-  <div class="bloco"><h3>Capas de destaque <span>1080×1920, ícone no centro</span></h3>
-    <div class="destaques">${DEST.map(([k,l])=>`<figure><img src="${img(o.id+'-destaque-'+k)}" alt="Capa de destaque ${l}" loading="lazy"><figcaption>${l}</figcaption></figure>`).join('')}</div></div>
-
-  <div class="bloco"><h3>YouTube <span>banner 2560×1440 · perfil 800×800</span></h3>
-    <div class="yt">
-      <div><div class="canal"><img src="${img(o.id+'-yt-faixa')}" alt="Banner como aparece no computador" loading="lazy">
-        <div class="info"><img src="${img(o.id+'-perfil')}" alt=""><div><b>ANOREG/PE</b><small>@anoregpe</small></div></div></div>
-        <div class="legenda">Como o canal aparece no computador (faixa central do banner).</div></div>
-      <div>${peca(o.id+'-yt','Banner completo do YouTube')}<div class="legenda">Banner inteiro, como aparece na TV.</div></div>
-    </div></div>
-</section>`).join('');
-
-const dlg = document.getElementById('zoom'), zi = document.getElementById('zoomImg');
-document.addEventListener('click', e => { const b = e.target.closest('.peca'); if (!b) return; zi.src = b.dataset.src; zi.alt = b.getAttribute('aria-label'); dlg.showModal(); });
-document.getElementById('fechar').onclick = () => dlg.close();
-dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+const DEST=[['institucional','Institucional'],['noticias','Notícias'],['eventos','Eventos'],['servicos','Serviços'],['associados','Associados'],['contato','Contato']];
+const peca=(n,alt)=>`<button class="peca" type="button" data-src="img/${n}.webp" aria-label="Ampliar: ${alt}"><img src="img/${n}.webp" alt="${alt}" loading="lazy"></button>`;
+const $=id=>document.getElementById(id);
+$('destMini').innerHTML=DEST.map(([k,l])=>`<figure><img src="img/destaque-${k}.webp" alt=""><figcaption>${l}</figcaption></figure>`).join('');
+$('grade').innerHTML=['carrossel-1','feed-frase','feed-agenda','carrossel-3','feed-servico','carrossel-6'].map(n=>`<img src="img/${n}.webp" alt="">`).join('');
+$('feed').innerHTML=peca('feed-servico','Post de serviço')+peca('feed-agenda','Post de agenda')+peca('feed-frase','Post de frase');
+$('carrossel').innerHTML=[1,2,3,4,5,6].map(i=>peca('carrossel-'+i,'Carrossel, slide '+i)).join('');
+$('destaques').innerHTML=DEST.map(([k,l])=>`<figure><img src="img/destaque-${k}.webp" alt="Capa de destaque ${l}"><figcaption>${l}</figcaption></figure>`).join('');
+const dlg=$('zoom'),zi=$('zoomImg');
+document.addEventListener('click',e=>{const b=e.target.closest('.peca');if(!b)return;zi.src=b.dataset.src;zi.alt=b.getAttribute('aria-label');dlg.showModal();});
+$('fechar').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
 </script>
