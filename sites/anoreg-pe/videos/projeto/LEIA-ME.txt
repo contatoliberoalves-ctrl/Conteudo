@@ -1,0 +1,5 @@
+Projeto Remotion dos vídeos. Para recriar:
+1. Copie para public/ as capturas (img/), as fontes (fonts/) e gere a música: python3 music.py public/music.wav
+2. npm install
+3. npx remotion render src/index.ts Apresentacao16x9 out/apresentacao-16x9.mp4 --codec h264 --crf 17
+   npx remotion render src/index.ts Reels9x16 out/reels-9x16.mp4 --codec h264 --crf 17
