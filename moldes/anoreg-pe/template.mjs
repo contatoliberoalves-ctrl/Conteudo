@@ -6,7 +6,7 @@ import path from 'node:path';
 
 const R = path.dirname(new URL(import.meta.url).pathname);
 const png = n => { const f = path.join(R, 'assets', n + '.png'); return fs.existsSync(f) ? 'data:image/png;base64,' + fs.readFileSync(f).toString('base64') : ''; };
-const LOGO = { cor: png('logo-cor'), branco: png('logo-branco'), letreiroCor: png('letreiro-cor'), letreiroBranco: png('letreiro-branco') };
+export const LOGO = { cor: png('logo-cor'), branco: png('logo-branco'), letreiroCor: png('letreiro-cor'), letreiroBranco: png('letreiro-branco'), mono: png('logo-mono'), letreiroMono: png('letreiro-mono') };
 export const SEM_LOGO = !LOGO.cor;
 
 // cores oficiais (tiradas do logo)
@@ -25,7 +25,7 @@ export const head = `<link href="https://fonts.googleapis.com/css2?family=Lexend
 
 // ---------- azulejo ----------
 // ladrilho 200×200 pintado: flor central, rosáceas nos cantos (fecham ao repetir) e meias-luas nas bordas
-function ladrilho(c, op = 1) {
+export function ladrilho(c, op = 1) {
   const p = (d) => `<path d="${d}"/>`;
   const petala = (ang, L, W) => `<ellipse cx="100" cy="${100 - L / 2 - 12}" rx="${W / 2}" ry="${L / 2}" transform="rotate(${ang} 100 100)"/>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g fill="${c}" fill-opacity="${op}" stroke="none">
@@ -40,13 +40,13 @@ function ladrilho(c, op = 1) {
     ${p('M100 0 L100 26 M0 100 L26 100 M200 100 L174 100 M100 200 L100 174')}
   </g><circle cx="100" cy="100" r="5" fill="#fff" fill-opacity="${op >= 1 ? 1 : 0}"/></svg>`;
 }
-const uri = svg => `url('data:image/svg+xml,${encodeURIComponent(svg)}')`;
+export const uri = svg => `url('data:image/svg+xml,${encodeURIComponent(svg)}')`;
 // painel de azulejos pintados (fundo branco, desenho índigo, rejunte)
-const painel = (tam = 270) => `background-color:#fff;background-image:linear-gradient(90deg,rgba(14,17,112,.10) 2px,transparent 2px),linear-gradient(0deg,rgba(14,17,112,.10) 2px,transparent 2px),${uri(ladrilho(I))};background-size:${tam}px ${tam}px;background-position:-1px -1px`;
+export const painel = (tam = 270) => `background-color:#fff;background-image:linear-gradient(90deg,rgba(14,17,112,.10) 2px,transparent 2px),linear-gradient(0deg,rgba(14,17,112,.10) 2px,transparent 2px),${uri(ladrilho(I))};background-size:${tam}px ${tam}px;background-position:-1px -1px`;
 // trama discreta de azulejo sobre o índigo
-const trama = (op = .14, tam = 220) => `background-image:${uri(ladrilho('#fff', op))};background-size:${tam}px ${tam}px`;
+export const trama = (op = .14, tam = 220) => `background-image:${uri(ladrilho('#fff', op))};background-size:${tam}px ${tam}px`;
 
-const logo = (tipo, w, extra = '') => LOGO[tipo] ? `<img src="${LOGO[tipo]}" style="width:${w}px;display:block;${extra}">` : `<div style="font:800 ${w / 6}px Lexend;color:${tipo.includes('ranco') ? '#fff' : I}">ANOREG|PE</div>`;
+export const logo = (tipo, w, extra = '') => LOGO[tipo] ? `<img src="${LOGO[tipo]}" style="width:${w}px;display:block;${extra}">` : `<div style="font:800 ${w / 6}px Lexend;color:${tipo.includes('ranco') ? '#fff' : I}">ANOREG|PE</div>`;
 
 const W = 1080, H = 1350;
 export const C = {
@@ -107,7 +107,7 @@ const fecho = `<div class="p" style="width:${W}px;height:${H}px;${painel(270)}">
     ${logo('cor', 600)}<div style="font-size:36px;font-weight:400;color:${I}">Salve e envie para quem precisa.</div></div></div>`;
 
 // ---------- destaques, YouTube e perfil ----------
-const ICONES = {
+export const ICONES = {
   institucional: '<path d="M3 20.5h18M5 20.5v-9M9.7 20.5v-9M14.3 20.5v-9M19 20.5v-9M2.5 9h19L12 3.2z"/>',
   noticias: '<path d="M4 4.5h12.5v15H5.5A1.5 1.5 0 0 1 4 18z"/><path d="M16.5 8.5H20V18a1.5 1.5 0 0 1-3 0"/><path d="M7 8.5h6.5M7 12h6.5M7 15.5h4"/>',
   eventos: '<rect x="3.5" y="5" width="17" height="15.5" rx="1.2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',

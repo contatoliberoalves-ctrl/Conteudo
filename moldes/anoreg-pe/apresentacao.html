@@ -92,6 +92,11 @@ dialog button{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right
     <div><h3>Feed · tela única <span>1080×1350</span></h3><div class="feed3" id="feed"></div></div>
   </div>
   <div class="bloco"><h3>Carrossel <span>6 slides · 1080×1350</span></h3><div class="trilho" id="carrossel"></div></div>
+  <div class="bloco"><h3>Capas com foto para o cidadão <span>1080×1350</span></h3><div class="trilho" id="cidadao"></div></div>
+  <div class="bloco"><h3>Aula semanal · Cartórios na Prática <span>feed 1080×1350 · story 1080×1920</span></h3><div class="trilho" id="aula" style="grid-auto-columns:minmax(220px,300px)"></div></div>
+  <div class="bloco"><h3>Notícia, aviso, aniversário e luto <span>tela única 1080×1350</span></h3><div class="trilho" id="avisos"></div></div>
+  <div class="bloco"><h3>Capas de reels e de live <span>1080×1920</span></h3><div class="trilho" id="reels" style="grid-auto-columns:minmax(170px,1fr)"></div></div>
+  <div class="bloco"><h3>Carrossel para cartorários · Provimento 149 <span>7 slides</span></h3><div class="trilho" id="provimento"></div></div>
   <div class="bloco"><h3>Capas de destaque <span>1080×1920</span></h3><div class="destaques" id="destaques"></div></div>
   <div class="bloco"><h3>YouTube <span>banner 2560×1440 · perfil 800×800</span></h3>
     <div class="yt">
@@ -104,7 +109,10 @@ dialog button{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right
 <footer class="envolve">
   <b style="color:var(--fg)">Notas</b>
   <ul>
-    <li>Os textos são de exemplo. O encontro de 27 e 28 de novembro é ilustrativo; as leis citadas no carrossel são reais.</li>
+    <li>Os textos são de exemplo. O encontro de 27 e 28 de novembro, a notícia, a convidada da aula e da live, a aniversariante e a nota de pesar são fictícios; as leis e o Provimento 149/2023 são reais.</li>
+    <li>As fotos são de banco livre (Pexels). A da aula e a da live são de exemplo: no lugar entra a foto do convidado.</li>
+    <li>Rodapé da aula: Colégio Notarial PE e Registro de Imóveis do Brasil já estão com o logo oficial; ARPEN-PE e Protesto PE aparecem por escrito até receber os logos.</li>
+    <li>Pernambuco aparece no azulejo, na janela em arco colonial das fotos, na silhueta de Olinda (Sé, casario, farol, coqueiros), na sombrinha de frevo nas cores do logo e nas fotos do Recife e de Olinda.</li>
     <li>Sem selos, setas de "arraste" nem rodapés repetidos: cada peça tem um título curto, o logo e o azulejo.</li>
     <li>O degradê índigo fica para capas e slides alternados; o painel de azulejo branco, para peças de abertura e fecho.</li>
   </ul>
@@ -118,6 +126,12 @@ $('destMini').innerHTML=DEST.map(([k,l])=>`<figure><img src="img/destaque-${k}.w
 $('grade').innerHTML=['carrossel-1','feed-frase','feed-agenda','carrossel-3','feed-servico','carrossel-6'].map(n=>`<img src="img/${n}.webp" alt="">`).join('');
 $('feed').innerHTML=peca('feed-servico','Post de serviço')+peca('feed-agenda','Post de agenda')+peca('feed-frase','Post de frase');
 $('carrossel').innerHTML=[1,2,3,4,5,6].map(i=>peca('carrossel-'+i,'Carrossel, slide '+i)).join('');
+const lista=(id,ns)=>$(id).innerHTML=ns.map(([n,a])=>peca(n,a)).join('');
+lista('cidadao',[['cidadao-casamento','Vai casar?'],['cidadao-nascimento','Registro de nascimento'],['cidadao-imovel','Comprou um imóvel?'],['cidadao-recife','Do Recife ao Sertão'],['pe-olinda','Pernambuco registra a sua história']]);
+lista('aula',[['aula-feed','Aula no feed'],['aula-story','Aula no story']]);
+lista('avisos',[['noticia','Notícia'],['aviso','Aviso'],['aniversario','Aniversário'],['luto','Nota de pesar']]);
+lista('reels',[['reels-1','Reels: apostila de Haia'],['reels-2','Reels: divórcio'],['reels-3','Reels: usucapião'],['live-1','Live com convidada'],['live-2','Live com foto do Recife']]);
+lista('provimento',[1,2,3,4,5,6,7].map(i=>['provimento-'+i,'Provimento 149, slide '+i]));
 $('destaques').innerHTML=DEST.map(([k,l])=>`<figure><img src="img/destaque-${k}.webp" alt="Capa de destaque ${l}"><figcaption>${l}</figcaption></figure>`).join('');
 const dlg=$('zoom'),zi=$('zoomImg');
 document.addEventListener('click',e=>{const b=e.target.closest('.peca');if(!b)return;zi.src=b.dataset.src;zi.alt=b.getAttribute('aria-label');dlg.showModal();});

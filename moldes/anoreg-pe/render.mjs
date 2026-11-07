@@ -3,7 +3,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { abrirNavegador } from '../cartorio-comum/render-base.mjs';
-import { head, PECAS, SEM_LOGO } from './template.mjs';
+import { head, PECAS as BASE, SEM_LOGO } from './template.mjs';
+import { EXTRAS } from './extras.mjs';
+const PECAS = [...BASE, ...EXTRAS];
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 if (SEM_LOGO) console.log('! sem assets/logo-*.png: rode preparar_logo.py com um PDF da ANOREG/PE (ex.: o boleto de contribuição)');

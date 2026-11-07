@@ -9,7 +9,7 @@ def salvar(im, nome, w):
 a = lambda n: Image.open(os.path.join(S, n + '.png'))
 for f in sorted(os.listdir(S)):
     n = f[:-4]
-    if f.startswith(('feed-', 'carrossel-')): salvar(a(n), n + '.webp', 720)
+    if f.startswith(('feed-', 'carrossel-', 'cidadao-', 'pe-', 'aula-', 'noticia', 'aviso', 'aniversario', 'luto', 'reels-', 'live-', 'provimento-')): salvar(a(n), n + '.webp', 720)
     elif f.startswith('destaque-'): salvar(a(n).crop((0, 420, 1080, 1500)), n + '.webp', 240)
 yt = a('youtube-banner'); salvar(yt, 'yt.webp', 1600); salvar(yt.crop((0, 508, 2560, 931)), 'yt-faixa.webp', 1600)
 salvar(a('perfil'), 'perfil.webp', 320)
