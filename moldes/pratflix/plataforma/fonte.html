@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PratFlix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#121212">
+<meta name="description" content="PratFlix, a plataforma de Líbero Filho para estudar a prática da advocacia: biblioteca, trilhas, modelos de peças, dicas e comunidade.">
+<!--
+  PRATFLIX · APRESENTAÇÃO DA PLATAFORMA · versão 2 (07/11/2026)
+  Arquivo único: CSS, JavaScript e imagens embutidos. Abre direto no navegador.
+  Fonte editável: moldes/pratflix/plataforma/fonte.html  →  python3 montar.py
+
+  O QUE MUDOU NESTA VERSÃO
+  - Tour "Por dentro do PratFlix" com as abas da plataforma: Biblioteca (capas),
+    Trilhas (mapa de percurso), Modelos de peça (aba nova), Dicas práticas
+    (formato stories) e Comunidade.
+  - Checklist dos materiais refeito: etapas, progresso, "por que importa".
+  - Textos maiores em toda a página (base 17px, nada abaixo de 13px).
+
+  REGRAS DE CONTEÚDO (mantidas da versão anterior)
+  - Sem depoimentos, avaliações ou números de resultado inventados.
+  - Módulos "Em produção" continuam marcados assim até a publicação das aulas.
+  - Conversas da Comunidade aqui são exemplos de formato, marcados como tal.
+  - Preço não fixado: as condições são consultadas no checkout.
+  - Não substituir o site existente sem pedido do proprietário.
+
+  LINKS REAIS (centralizados em CONFIG, no fim do arquivo)
+  Plataforma: https://liberofilho.com/pratflix/aulas.html
+  Checkout:   https://pay.kiwify.com.br/Oe5yK3Y
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: sala de cinema — fundo grafite, capas como pôsteres, uma janela da plataforma no centro da página. */
+:root {
+  color-scheme: dark;
+  --bg:#121212; --bg-2:#171715; --surface:#1d1c19; --surface-2:#26241f; --surface-3:#2f2c26;
+  --line:#35322b; --line-soft:#2a2823;
+  --ink:#f4f1ea; --muted:#c3bdae; --faint:#948e80;
+  --areia:#e3d6b4; --areia-2:#efe5ca; --ouro:#c2a466; --ouro-velho:#7d6a3e;
+  --papel:#f4f1ea; --papel-ink:#1b1a17; --papel-muted:#5c584e;
+  --verde:#b7d3ae; --verde-bg:#1f2a1d; --aviso:#e8c37a;
+  --display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --text:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --max:1240px; --r:14px; --r-sm:9px;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+* { box-sizing:border-box }
+html { scroll-behavior:smooth; scroll-padding-top:90px; background:var(--bg) }
+body { margin:0; background:var(--bg); color:var(--ink); font:500 17px/1.65 var(--text); -webkit-font-smoothing:antialiased; overflow-x:hidden }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:60; background:var(--bg) }
+a { color:inherit; text-decoration:none }
+button,input,select,textarea { font:inherit; color:inherit }
+button { cursor:pointer; border:0; background:none; padding:0 }
+img,svg { display:block; max-width:100% }
+h1,h2,h3,h4,p { margin:0 }
+p { text-wrap:pretty }
+:focus-visible { outline:2px solid var(--areia); outline-offset:3px; border-radius:4px }
+::selection { background:var(--areia); color:var(--bg) }
+[hidden] { display:none!important }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap }
+.wrap { width:100%; max-width:calc(var(--max) + 64px); margin-inline:auto; padding-left:max(24px,env(safe-area-inset-left,0px)); padding-right:max(24px,env(safe-area-inset-right,0px)) }
+.ico { width:20px; height:20px; flex:none }
+
+/* Tipografia */
+.display { font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.005em; line-height:.92; text-wrap:balance }
+.h-sec { font-family:var(--display); font-weight:800; text-transform:uppercase; font-size:clamp(44px,6vw,84px); line-height:.9; text-wrap:balance }
+.h-sec em, .display em { font-style:normal; color:var(--areia) }
+.eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--areia) }
+.eyebrow::before { content:""; width:28px; height:1.5px; background:currentColor }
+.lead { font-size:clamp(18px,1.6vw,21px); line-height:1.6; color:var(--muted); max-width:640px }
+.sec { padding-block:clamp(72px,9vw,120px) }
+.sec-head { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:40px; align-items:end; margin-bottom:44px }
+.sec-head .h-sec { margin-top:18px }
+
+/* Botões e selos */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:54px; padding:14px 24px; border-radius:10px; font-size:16px; font-weight:700; line-height:1.2; transition:transform .2s, background .2s, border-color .2s; border:1.5px solid transparent; white-space:nowrap }
+.btn:hover { transform:translateY(-2px) }
+.btn-primary { background:var(--areia); color:var(--bg) }
+.btn-primary:hover { background:var(--areia-2) }
+.btn-ghost { border-color:#ffffff38; color:var(--ink); background:#ffffff08 }
+.btn-ghost:hover { border-color:var(--areia) }
+.btn-dark { background:var(--bg); color:var(--ink) }
+.btn-sm { min-height:44px; padding:10px 16px; font-size:15px }
+.tag { display:inline-flex; align-items:center; gap:7px; padding:5px 10px; border-radius:6px; font-size:12.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; line-height:1.3; border:1px solid var(--line); color:var(--muted); white-space:nowrap }
+.tag.ok { color:var(--verde); border-color:#b7d3ae40; background:#b7d3ae0d }
+.tag.ok::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor }
+.tag.soon { color:var(--aviso); border-color:#e8c37a40 }
+.tag.premium { color:var(--bg); background:var(--areia); border-color:var(--areia) }
+.tag.free { color:var(--ink); border-color:#ffffff30 }
+.tag.new { color:var(--bg); background:var(--verde); border-color:var(--verde) }
+.chip { min-height:44px; padding:9px 18px; border-radius:999px; border:1.5px solid var(--line); color:var(--muted); font-size:15px; font-weight:700; transition:.2s; white-space:nowrap }
+.chip:hover { border-color:#ffffff55; color:var(--ink) }
+.chip[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--bg) }
+.chips { display:flex; gap:10px; flex-wrap:wrap }
+
+/* Cabeçalho */
+.header { position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:#121212e8; backdrop-filter:blur(14px); border-bottom:1px solid #ffffff10 }
+.nav { display:flex; align-items:center; gap:28px; height:76px }
+.brand { display:inline-flex; align-items:center; gap:3px; font-weight:800; font-size:30px; letter-spacing:-1.6px; line-height:1 }
+.brand span { color:var(--areia) }
+.brand svg { width:13px; height:15px; color:var(--areia); margin-left:3px }
+.nav-links { display:flex; gap:4px; margin-left:12px }
+.nav-links a { padding:10px 13px; border-radius:8px; color:var(--muted); font-size:15px; font-weight:600 }
+.nav-links a:hover { color:var(--ink); background:#ffffff0a }
+.nav-links .new-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--verde); margin-left:6px; vertical-align:2px }
+.nav-end { margin-left:auto; display:flex; align-items:center; gap:18px }
+.nav-end .login { color:var(--muted); font-size:15px; font-weight:600 }
+.menu-btn { display:none; width:46px; height:46px; border:1.5px solid var(--line); border-radius:10px; align-items:center; justify-content:center }
+
+/* Herói */
+.hero { position:relative; isolation:isolate; overflow:hidden; padding-block:clamp(70px,9vw,120px) 0 }
+.hero-bg { position:absolute; inset:0; z-index:-2; background:url(img/office.webp) center 40%/cover no-repeat; filter:grayscale(.35) brightness(.55) }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#121212 0%,#121212e6 34%,#12121299 62%,#12121266 100%), linear-gradient(0deg,#121212 4%,#12121200 45%) }
+.hero::after { content:""; position:absolute; inset:0; z-index:-1; background:var(--grain); opacity:.06; mix-blend-mode:overlay; pointer-events:none }
+.hero h1 { font-family:var(--display); font-weight:900; text-transform:uppercase; font-size:clamp(68px,11vw,168px); line-height:.84; letter-spacing:-.005em; margin-top:26px; text-wrap:balance }
+.hero h1 em { font-style:normal; color:var(--areia); display:block }
+.hero-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:48px; align-items:end; margin-top:34px }
+.hero-row .lead { color:#ddd7c8 }
+.hero-cta { display:flex; flex-wrap:wrap; gap:12px }
+.hero-note { margin-top:14px; font-size:15px; color:var(--muted) }
+.hero-note b { color:var(--areia); font-weight:700 }
+.hero-facts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:64px; border-top:1px solid #ffffff1c }
+.hero-facts > div { padding:22px 22px 26px 0; display:grid; gap:4px }
+.hero-facts > div + div { padding-left:22px; border-left:1px solid #ffffff1c }
+.hero-facts strong { font-family:var(--display); font-size:44px; font-weight:800; line-height:1; color:var(--areia) }
+.hero-facts span { font-size:15px; color:var(--muted); line-height:1.4 }
+
+/* Linha de pôsteres (catálogo) */
+.row { margin-top:12px }
+.row + .row { margin-top:46px }
+.row-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:18px }
+.row-head h3 { font-size:24px; font-weight:800; letter-spacing:-.02em }
+.row-head p { color:var(--muted); font-size:15px; margin-top:2px }
+.row-nav { display:flex; gap:8px }
+.round { width:46px; height:46px; border-radius:50%; border:1.5px solid var(--line); display:grid; place-items:center; transition:.2s }
+.round:hover { border-color:var(--areia); color:var(--areia) }
+.rail { display:grid; grid-auto-flow:column; grid-auto-columns:clamp(200px,19vw,236px); gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; scrollbar-width:thin; scrollbar-color:var(--line) transparent }
+.rail > * { scroll-snap-align:start }
+.poster { display:grid; gap:12px; text-align:left; min-width:0 }
+.poster-art { position:relative; aspect-ratio:2/3; border-radius:12px; overflow:hidden; padding:18px; display:flex; flex-direction:column; justify-content:space-between; background:var(--surface-2); isolation:isolate; transition:transform .3s, box-shadow .3s; box-shadow:0 1px 0 #ffffff10 inset }
+.poster:hover .poster-art { transform:translateY(-4px); box-shadow:0 18px 40px -18px #000 }
+.poster-art::after { content:""; position:absolute; inset:0; background:var(--grain); opacity:.07; mix-blend-mode:overlay; z-index:-1; pointer-events:none }
+.poster-top { display:flex; justify-content:space-between; align-items:start; gap:6px; font-size:11.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--areia) }
+.poster-title { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:34px; line-height:.92; text-wrap:balance }
+.poster-prof { font-size:13px; font-weight:700; color:var(--muted); margin-top:10px }
+.poster-meta { display:flex; flex-wrap:wrap; gap:6px }
+.poster-name { font-size:16px; font-weight:700; line-height:1.35 }
+.poster-sub { font-size:14px; color:var(--muted); line-height:1.45; margin-top:-6px }
+.ph { position:absolute; inset:0; z-index:-2; background-size:cover; background-position:center; filter:grayscale(1) contrast(1.05) brightness(.5) }
+.ph-office { background-image:url(img/office.webp) }
+.ph-desk { background-image:url(img/desk.webp) }
+.ph-library { background-image:url(img/library.webp) }
+.ph-meeting { background-image:url(img/meeting.webp) }
+.ph-building { background-image:url(img/building.webp) }
+.shade { position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,#12121266 0%,#12121200 35%,#121212f0 100%) }
+.ring { position:absolute; border-radius:50%; border:1.5px solid currentColor; opacity:.22; z-index:-1; pointer-events:none }
+
+/* Paletas de capa */
+.v-areia { background:var(--areia); color:var(--papel-ink) }
+.v-areia .poster-top,.v-areia .cover-top { color:var(--ouro-velho) }
+.v-areia .poster-prof,.v-areia .cover-foot { color:#5a5140 }
+.v-papel { background:var(--papel); color:var(--papel-ink) }
+.v-papel .poster-top,.v-papel .cover-top { color:var(--ouro-velho) }
+.v-papel .poster-prof,.v-papel .cover-foot { color:var(--papel-muted) }
+.v-areia .tag:not(.premium):not(.new),.v-papel .tag:not(.premium):not(.new) { color:var(--papel-ink); border-color:#1b1a1745; background:transparent }
+.v-areia .tag.ok,.v-papel .tag.ok { color:#2f5a27; border-color:#2f5a2766 }
+.v-papel.path-card .meta { color:var(--papel-muted) }
+.v-areia .bar,.v-papel .bar { background:#1b1a1722 }
+.v-areia .bar i,.v-papel .bar i { background:var(--papel-ink) }
+.v-oliva { background:linear-gradient(160deg,#323a2c,#1c2019); color:var(--ink) }
+.v-bronze { background:linear-gradient(160deg,#4a3b22,#1f1a12); color:var(--ink) }
+.v-grafite { background:linear-gradient(160deg,#2c2a26,#161513); color:var(--ink) }
+.v-noite { background:linear-gradient(160deg,#25292c,#121416); color:var(--ink) }
+.v-foto { background:#151412; color:var(--ink) }
+
+/* Janela da plataforma (tour) */
+.tour { background:var(--bg-2); border-block:1px solid var(--line-soft) }
+.app { display:grid; grid-template-columns:272px minmax(0,1fr); border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--bg); box-shadow:0 40px 90px -40px #000 }
+.app-side { background:#161614; border-right:1px solid var(--line-soft); padding:22px 14px; display:flex; flex-direction:column; gap:4px }
+.app-side .brand { font-size:26px; padding:0 10px 18px }
+.side-label { font-size:12px; font-weight:800; letter-spacing:.16em; color:var(--faint); padding:14px 12px 6px }
+.tab { display:flex; align-items:center; gap:12px; width:100%; min-height:50px; padding:10px 12px; border-radius:10px; color:var(--muted); font-size:16px; font-weight:700; text-align:left; transition:.18s }
+.tab:hover { background:#ffffff08; color:var(--ink) }
+.tab[aria-selected="true"] { background:var(--surface-2); color:var(--ink); box-shadow:inset 3px 0 0 var(--areia) }
+.tab[aria-selected="true"] .ico { color:var(--areia) }
+.tab span { white-space:nowrap }
+.tab .tag { margin-left:auto; font-size:10.5px; padding:3px 7px }
+.side-card { margin-top:auto; padding:18px; border-radius:12px; background:linear-gradient(160deg,#2e2a20,#1b1a16); border:1px solid #e3d6b42a }
+.side-card strong { display:block; font-size:16px; color:var(--areia) }
+.side-card p { font-size:14px; color:var(--muted); margin-top:6px; line-height:1.45 }
+.app-main { min-width:0; padding:clamp(22px,3vw,40px); min-height:720px }
+.panel-head { display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap; margin-bottom:28px }
+.panel-head h2 { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(40px,4.4vw,60px); line-height:.92; margin-top:12px; text-wrap:balance }
+.panel-head h2 em { font-style:normal; color:var(--areia) }
+.panel-head p { color:var(--muted); font-size:17px; max-width:560px; margin-top:12px }
+.toolbar { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:26px }
+.search { display:flex; align-items:center; gap:10px; min-height:48px; padding:0 16px; border-radius:12px; border:1.5px solid var(--line); background:var(--surface); min-width:min(100%,300px) }
+.search input { flex:1; min-width:0; background:none; border:0; outline:0; font-size:16px; min-height:44px }
+.search input::placeholder { color:var(--faint) }
+.search:focus-within { border-color:var(--areia) }
+.count { font-size:15px; color:var(--faint) }
+.panel { animation:in .35s ease both }
+@keyframes in { from { opacity:.4; transform:translateY(8px) } to { opacity:1; transform:none } }
+
+/* Biblioteca */
+.shelf { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:30px 22px }
+.book { display:grid; gap:14px; text-align:left; min-width:0 }
+.cover { position:relative; aspect-ratio:3/4; border-radius:6px 12px 12px 6px; overflow:hidden; padding:20px 18px 18px 26px; display:flex; flex-direction:column; justify-content:space-between; isolation:isolate; box-shadow:0 22px 34px -22px #000, inset 0 1px 0 #ffffff14; transition:transform .3s, box-shadow .3s }
+.cover::before { content:""; position:absolute; left:0; top:0; bottom:0; width:12px; background:linear-gradient(90deg,#00000066,#0000001a 55%,#ffffff1a 70%,#00000014); z-index:2 }
+.cover::after { content:""; position:absolute; inset:0; background:var(--grain); opacity:.08; mix-blend-mode:overlay; z-index:-1; pointer-events:none }
+.book:hover .cover { transform:translateY(-6px) rotate(-.6deg); box-shadow:0 30px 44px -22px #000 }
+.cover-top { display:flex; justify-content:space-between; gap:8px; font-size:11.5px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:var(--areia) }
+.cover-kind { display:inline-flex; align-items:center; gap:7px }
+.cover-kind svg { width:15px; height:15px }
+.cover-title { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(30px,2.6vw,38px); line-height:.9; text-wrap:balance }
+.cover-foot { display:flex; justify-content:space-between; align-items:end; font-size:12.5px; font-weight:700; color:var(--muted) }
+.cover-foot .brand { font-size:16px; letter-spacing:-.6px }
+.cover-foot .brand svg { width:8px; height:9px }
+.cover-tag { font-size:11px; padding:4px 8px; background:#121212b3; color:var(--ink); border-color:transparent }
+.cover-tag.premium { background:var(--areia); color:var(--bg) }
+.cover-tag.soon { color:var(--aviso) }
+.v-areia .cover-tag:not(.premium),.v-papel .cover-tag:not(.premium) { background:var(--papel-ink); color:var(--papel) }
+.cover-top span { white-space:nowrap }
+.book-name { font-size:17px; font-weight:800; line-height:1.3 }
+.book-meta { display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-size:14px; color:var(--muted); margin-top:-4px }
+.book-meta i { width:4px; height:4px; border-radius:50%; background:var(--faint) }
+.book-desc { font-size:15px; color:var(--muted); line-height:1.5; margin-top:-4px }
+
+/* Modal */
+.modal { position:fixed; inset:0; z-index:80; display:grid; place-items:center; padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px)); background:#000000b8; backdrop-filter:blur(6px); animation:fade .2s ease both }
+@keyframes fade { from { opacity:0 } }
+.sheet { position:relative; width:min(1120px,100%); max-height:100%; overflow:auto; background:var(--bg-2); border:1px solid var(--line); border-radius:20px; animation:rise .3s cubic-bezier(.2,.8,.2,1) both }
+@keyframes rise { from { transform:translateY(24px); opacity:.6 } }
+.close { position:sticky; top:14px; float:right; margin:14px 14px 0 0; z-index:5; width:46px; height:46px; border-radius:50%; background:var(--surface-3); display:grid; place-items:center; border:1px solid var(--line) }
+.close:hover { background:var(--ink); color:var(--bg) }
+
+/* Material aberto */
+.mat { display:grid; grid-template-columns:minmax(0,340px) minmax(0,1fr); gap:clamp(24px,4vw,52px); padding:clamp(22px,4vw,48px) }
+.mat-aside { display:grid; gap:20px; align-content:start }
+.mat-aside .cover { aspect-ratio:3/4; width:100% }
+.mat-facts { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden }
+.mat-facts div { background:var(--surface); padding:14px 16px }
+.mat-facts small { display:block; font-size:12.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--faint) }
+.mat-facts b { font-size:16px; font-weight:700 }
+.mat-actions { display:grid; gap:10px }
+.mat-actions .btn { width:100% }
+.mat-main { min-width:0; display:grid; gap:26px; align-content:start }
+.mat-main h2 { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(40px,4.6vw,62px); line-height:.9; margin-top:10px; text-wrap:balance }
+.mat-main .lead { font-size:18px; margin-top:14px }
+.when { display:flex; gap:14px; padding:18px 20px; border-radius:12px; background:var(--surface); border:1px solid var(--line) }
+.when svg { color:var(--areia); width:24px; height:24px; flex:none; margin-top:2px }
+.when b { display:block; font-size:16px }
+.when p { color:var(--muted); font-size:16px; margin-top:2px }
+.progress { display:flex; align-items:center; gap:20px; padding:20px 22px; border-radius:14px; background:linear-gradient(120deg,#2b2820,#1d1c19); border:1px solid #e3d6b42e; position:sticky; top:0; z-index:3 }
+.ring-prog { width:68px; height:68px; flex:none; position:relative }
+.ring-prog svg { width:68px; height:68px; transform:rotate(-90deg) }
+.ring-prog circle { fill:none; stroke-width:6 }
+.ring-prog .bgc { stroke:#ffffff17 }
+.ring-prog .fgc { stroke:var(--areia); stroke-linecap:round; transition:stroke-dashoffset .5s cubic-bezier(.2,.8,.2,1) }
+.ring-prog span { position:absolute; inset:0; display:grid; place-items:center; font-weight:800; font-size:17px; font-variant-numeric:tabular-nums }
+.progress strong { display:block; font-size:19px; font-weight:800 }
+.progress p { color:var(--muted); font-size:15px }
+.progress .reset { margin-left:auto; font-size:14px; font-weight:700; color:var(--muted); text-decoration:underline; text-underline-offset:4px }
+.progress.done { border-color:#b7d3ae66; background:linear-gradient(120deg,#22301f,#1a1d17) }
+.progress.done .fgc { stroke:var(--verde) }
+.stage { border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden }
+.stage-head { display:flex; align-items:center; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line-soft); background:var(--surface-2) }
+.stage-num { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--areia); color:var(--bg); font-weight:800; font-size:15px; flex:none }
+.stage-head h3 { font-size:19px; font-weight:800 }
+.stage-head small { margin-left:auto; font-size:14px; font-weight:700; color:var(--faint); font-variant-numeric:tabular-nums }
+.stage.complete .stage-num { background:var(--verde) }
+.check { display:grid; grid-template-columns:30px minmax(0,1fr); gap:16px; padding:18px 20px; cursor:pointer; transition:background .15s; border-top:1px solid var(--line-soft) }
+.check:first-of-type { border-top:0 }
+.check:hover { background:#ffffff05 }
+.check input { position:absolute; opacity:0; pointer-events:none }
+.box { width:30px; height:30px; border-radius:8px; border:2px solid #ffffff40; display:grid; place-items:center; transition:.2s; margin-top:1px }
+.box svg { width:18px; height:18px; color:var(--bg); stroke-width:3; opacity:0; transform:scale(.4); transition:.25s cubic-bezier(.2,.8,.2,1.4) }
+.check input:checked + .box { background:var(--areia); border-color:var(--areia) }
+.check input:checked + .box svg { opacity:1; transform:none }
+.check input:focus-visible + .box { outline:2px solid var(--areia); outline-offset:3px }
+.check-t { font-size:17px; font-weight:700; line-height:1.4; transition:color .2s }
+.check-d { font-size:15.5px; color:var(--muted); margin-top:4px; line-height:1.5 }
+.check-d b { color:var(--areia); font-weight:700 }
+.check input:checked ~ div .check-t { color:var(--faint); text-decoration:line-through; text-decoration-color:#ffffff40 }
+.template-box { border:1px dashed #e3d6b45c; border-radius:14px; padding:20px 22px; background:#e3d6b408 }
+.template-box h3 { font-size:18px; font-weight:800; display:flex; align-items:center; gap:10px }
+.template-box pre { white-space:pre-wrap; font:500 15.5px/1.75 var(--text); color:#ddd7c8; margin:12px 0 0 }
+.template-box mark { background:#e3d6b433; color:var(--areia); padding:1px 5px; border-radius:4px }
+.soon-note { display:flex; gap:12px; padding:16px 18px; border-radius:12px; border:1px solid #e8c37a40; background:#e8c37a0d; color:#ecd9b0; font-size:16px }
+
+/* Trilhas */
+.paths-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; margin-top:30px }
+.path-card { position:relative; isolation:isolate; overflow:hidden; text-align:left; min-height:200px; padding:22px; border-radius:16px; display:flex; flex-direction:column; justify-content:space-between; gap:22px; border:1.5px solid transparent; transition:.25s }
+.path-card:hover { transform:translateY(-3px) }
+.path-card[aria-pressed="true"] { border-color:var(--areia); box-shadow:0 0 0 4px #e3d6b41f }
+.path-card .display { font-size:34px }
+.path-card .meta { display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:14px; font-weight:700; color:var(--muted) }
+.v-areia.path-card .meta { color:#5a5140 }
+.path-card .bar { height:5px; border-radius:5px; background:#ffffff1f; overflow:hidden; margin-top:10px }
+.path-card .bar i { display:block; height:100%; background:var(--areia) }
+.route { position:relative; isolation:isolate; overflow:hidden; border-radius:18px; border:1px solid var(--line); background:var(--surface) }
+.route-hero { position:relative; isolation:isolate; padding:clamp(24px,3.4vw,40px); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px; align-items:end; min-height:250px }
+.route-hero .ph { filter:grayscale(1) brightness(.38) }
+.route-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#1d1c19 10%,#1d1c19cc 50%,#1d1c1955) }
+.route-hero h3 { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(40px,4.6vw,64px); line-height:.9; margin-top:12px; text-wrap:balance; max-width:700px }
+.route-hero p { color:#d8d2c4; font-size:17px; margin-top:12px; max-width:620px }
+.route-stats { display:flex; gap:28px }
+.route-stats div { display:grid }
+.route-stats strong { font-family:var(--display); font-size:46px; line-height:1; color:var(--areia) }
+.route-stats span { font-size:14px; color:var(--muted); font-weight:700 }
+.stations { list-style:none; margin:0; padding:clamp(20px,3vw,34px); display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; position:relative }
+.station { position:relative; display:grid; gap:12px; align-content:start; padding:22px 20px 20px; border-radius:14px; background:var(--bg-2); border:1px solid var(--line) }
+.station-top { display:flex; align-items:center; gap:12px }
+.node { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; font-family:var(--display); font-size:22px; font-weight:800; border:2px solid var(--areia); color:var(--areia); background:var(--bg); flex:none }
+.station.ok .node { background:var(--areia); color:var(--bg) }
+.station .line { flex:1; height:2px; background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px) }
+.station.ok .line { background:var(--areia) }
+.station:last-child .line { display:none }
+.station h4 { font-size:19px; font-weight:800; line-height:1.25 }
+.station .prof { font-size:14px; font-weight:700; color:var(--areia) }
+.station p { font-size:15.5px; color:var(--muted); line-height:1.5 }
+.station .foot { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:4px; flex-wrap:wrap }
+.station .go { font-size:15px; font-weight:800; color:var(--areia); display:inline-flex; gap:8px; align-items:center }
+.route-foot { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:18px clamp(20px,3vw,34px); border-top:1px solid var(--line-soft); color:var(--muted); font-size:15.5px }
+
+/* Modelos de peça */
+.method { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:30px }
+.method div { padding:20px; border-radius:14px; background:var(--surface); border:1px solid var(--line); display:grid; gap:6px }
+.method b { font-family:var(--display); text-transform:uppercase; font-size:30px; font-weight:800; color:var(--areia); line-height:1 }
+.method p { font-size:15.5px; color:var(--muted); line-height:1.5 }
+.docs { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:22px }
+.doc { text-align:left; display:grid; gap:14px; min-width:0 }
+.paper { position:relative; aspect-ratio:1/1.15; border-radius:10px; background:var(--papel); color:var(--papel-ink); padding:22px 22px 0; overflow:hidden; box-shadow:0 20px 34px -24px #000; transition:transform .3s; isolation:isolate }
+.paper::before { content:""; position:absolute; right:-1px; top:-1px; width:34px; height:34px; background:linear-gradient(225deg,var(--bg-2) 50%,#d9d3c3 50%); z-index:2 }
+.doc:hover .paper { transform:translateY(-5px) }
+.paper .area { position:absolute; left:14px; top:14px; z-index:3 }
+.paper-body { margin-top:40px; display:grid; gap:7px; font-size:9px; line-height:1.3 }
+.paper-body .addr { font-weight:800; letter-spacing:.06em; font-size:9.5px }
+.paper-body .ttl { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:25px; line-height:.95; margin:8px 0 4px; text-wrap:balance }
+.paper-body .ln { height:5px; border-radius:3px; background:#1b1a1720 }
+.paper-body .ln.s { width:62% }
+.paper-body .ln.m { width:84% }
+.paper-body .hd { font-weight:800; font-size:9px; letter-spacing:.1em; color:var(--ouro-velho); margin-top:6px }
+.paper-body mark { background:#c2a46655; color:inherit; padding:0 3px; border-radius:2px }
+.paper::after { content:""; position:absolute; inset:auto 0 0; height:40%; background:linear-gradient(0deg,var(--papel),#f4f1ea00) }
+.doc-name { font-size:17px; font-weight:800; line-height:1.3 }
+.doc-when { font-size:15px; color:var(--muted); line-height:1.5; margin-top:-6px }
+.doc-tags { display:flex; flex-wrap:wrap; gap:6px }
+.model { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(22px,3.6vw,44px); padding:clamp(22px,4vw,48px) }
+.a4 { background:var(--papel); color:var(--papel-ink); border-radius:8px; padding:clamp(22px,3vw,40px); box-shadow:0 30px 60px -30px #000; font-size:15px; line-height:1.65; align-self:start }
+.a4 .stamp { display:flex; justify-content:space-between; align-items:center; gap:10px; font-size:12px; font-weight:800; letter-spacing:.14em; color:var(--ouro-velho); padding-bottom:14px; border-bottom:1.5px solid #1b1a1726; margin-bottom:18px }
+.a4 h4 { font-family:var(--display); text-transform:uppercase; font-size:30px; line-height:.95; font-weight:800; margin:4px 0 18px }
+.a4 ol { margin:0; padding:0; list-style:none; counter-reset:p; display:grid; gap:12px }
+.a4 li { counter-increment:p; display:grid; grid-template-columns:30px minmax(0,1fr); gap:8px }
+.a4 li::before { content:counter(p,upper-roman); font-weight:800; color:var(--ouro-velho); font-size:14px; padding-top:1px }
+.a4 li b { display:block; font-size:15.5px }
+.a4 li span { color:var(--papel-muted); font-size:14.5px }
+.a4 mark { background:#c2a46640; color:var(--papel-ink); padding:0 4px; border-radius:3px; font-weight:700 }
+.a4 .fine { margin-top:18px; font-size:13px; color:var(--papel-muted); border-top:1px solid #1b1a171f; padding-top:12px }
+.model-side { min-width:0; display:grid; gap:20px; align-content:start }
+.model-side h2 { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(38px,4.2vw,56px); line-height:.9; margin-top:10px; text-wrap:balance }
+.seg { display:flex; gap:4px; padding:4px; border-radius:12px; background:var(--surface); border:1px solid var(--line); overflow-x:auto }
+.seg button { flex:1; min-height:44px; padding:8px 14px; border-radius:9px; font-weight:800; font-size:15px; color:var(--muted); white-space:nowrap }
+.seg button[aria-selected="true"] { background:var(--areia); color:var(--bg) }
+.steps-list { list-style:none; margin:0; padding:0; display:grid; gap:12px }
+.steps-list li { display:grid; grid-template-columns:36px minmax(0,1fr); gap:14px; padding:16px 18px; border-radius:12px; background:var(--surface); border:1px solid var(--line) }
+.steps-list .n { width:36px; height:36px; border-radius:50%; background:var(--surface-3); color:var(--areia); display:grid; place-items:center; font-weight:800 }
+.steps-list b { display:block; font-size:16.5px }
+.steps-list span { display:block; font-size:15.5px; color:var(--muted); margin-top:2px; line-height:1.5 }
+
+/* Dicas: formato stories */
+.tips { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:28px; align-items:start }
+.story { position:relative; isolation:isolate; overflow:hidden; border-radius:22px; min-height:600px; padding:22px clamp(22px,3vw,36px) 26px; display:flex; flex-direction:column; transition:background .5s }
+.story::after { content:""; position:absolute; inset:0; background:var(--grain); opacity:.08; mix-blend-mode:overlay; z-index:-1; pointer-events:none }
+.story .ring { color:inherit }
+.bars { display:flex; gap:5px }
+.bars button { flex:1; height:5px; border-radius:5px; background:#ffffff2e; overflow:hidden; position:relative }
+.v-areia .bars button,.v-papel .bars button { background:#1b1a1726 }
+.bars i { position:absolute; inset:0; width:0; background:currentColor }
+.bars .seen i { width:100% }
+.bars .now i { animation:fill var(--dur,9s) linear forwards }
+.story.paused .bars .now i { animation-play-state:paused }
+@keyframes fill { to { width:100% } }
+.story-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:16px }
+.story-top .who { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:800 }
+.story-top .who .av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; background:var(--bg); color:var(--areia); font-size:13px; font-weight:800 }
+.story-top .who small { display:block; font-weight:600; opacity:.7; font-size:13px }
+.icon-btn { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:#ffffff14 }
+.v-areia .icon-btn,.v-papel .icon-btn { background:#1b1a1714 }
+.story-body { margin-block:auto; padding-block:26px; display:grid; gap:20px }
+.story-area { font-size:13px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; opacity:.85 }
+.story h3 { font-family:var(--display); text-transform:uppercase; font-weight:900; font-size:clamp(46px,5.4vw,78px); line-height:.88; text-wrap:balance }
+.story .body { font-size:clamp(18px,1.6vw,20px); line-height:1.55; opacity:.92; max-width:560px }
+.swap { display:grid; grid-template-columns:1fr 1fr; gap:10px }
+.swap div { padding:14px 16px; border-radius:12px; background:#0000002e; font-size:15.5px; line-height:1.45 }
+.v-areia .swap div,.v-papel .swap div { background:#1b1a170f }
+.swap small { display:block; font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; opacity:.75; margin-bottom:4px }
+.swap .yes { box-shadow:inset 0 0 0 1.5px currentColor }
+.story-foot { display:flex; gap:10px; flex-wrap:wrap; align-items:center }
+.story-ctrl { display:flex; gap:8px; margin-left:auto }
+.today { flex:1 1 100%; display:flex; gap:12px; align-items:center; padding:14px 16px; border-radius:14px; background:var(--bg); color:var(--ink); font-size:15.5px; line-height:1.4 }
+.today svg { color:var(--areia); width:24px; height:24px; flex:none }
+.today b { color:var(--areia) }
+.tap { position:absolute; top:90px; bottom:120px; width:30%; z-index:1 }
+.tap.l { left:0 } .tap.r { right:0 }
+.story-body,.story-foot,.story-top,.bars { position:relative; z-index:2 }
+.tip-list { display:grid; gap:10px; max-height:640px; overflow:auto; padding-right:4px; scrollbar-width:thin; scrollbar-color:var(--line) transparent }
+.tip-item { display:grid; grid-template-columns:54px minmax(0,1fr) auto; gap:14px; align-items:center; text-align:left; padding:12px 14px 12px 12px; border-radius:14px; background:var(--surface); border:1.5px solid var(--line); transition:.2s }
+.tip-item:hover { border-color:#ffffff40 }
+.tip-item[aria-current="true"] { border-color:var(--areia); background:var(--surface-2) }
+.tip-thumb { width:54px; height:68px; border-radius:9px; display:grid; place-items:center; font-family:var(--display); font-weight:800; font-size:24px }
+.tip-item b { display:block; font-size:16px; line-height:1.3 }
+.tip-item small { font-size:13px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--faint) }
+.tip-item .saved { color:var(--areia) }
+.tips-side h3 { font-size:20px; font-weight:800; margin-bottom:6px }
+.tips-side > p { color:var(--muted); font-size:15.5px; margin-bottom:16px }
+
+/* Comunidade */
+.comm { display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:26px; align-items:start }
+.comm-hero { position:relative; isolation:isolate; overflow:hidden; border-radius:18px; padding:clamp(24px,3vw,36px); margin-bottom:22px; min-height:200px; display:grid; align-content:end }
+.comm-hero .ph { filter:grayscale(1) brightness(.4) }
+.comm-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,#121212f0 20%,#12121288) }
+.comm-hero h3 { font-family:var(--display); text-transform:uppercase; font-weight:800; font-size:clamp(38px,4vw,54px); line-height:.9; text-wrap:balance; max-width:600px }
+.comm-hero p { color:#d8d2c4; font-size:17px; margin-top:12px; max-width:560px }
+.composer { border:1px solid var(--line); border-radius:16px; background:var(--surface); padding:18px; display:grid; gap:12px; margin-bottom:20px }
+.composer-top { display:flex; gap:14px; align-items:center }
+.av { width:46px; height:46px; border-radius:50%; flex:none; display:grid; place-items:center; font-weight:800; font-size:15px; background:var(--surface-3); color:var(--areia) }
+.composer input,.composer textarea,.composer select { width:100%; background:var(--bg); border:1.5px solid var(--line); border-radius:12px; padding:13px 15px; font-size:16.5px; outline:0 }
+.composer input:focus,.composer textarea:focus,.composer select:focus { border-color:var(--areia) }
+.composer textarea { min-height:96px; resize:vertical; line-height:1.55 }
+.composer-bot { display:flex; gap:10px; align-items:center; flex-wrap:wrap }
+.composer-bot select { width:auto; flex:1 1 200px }
+.composer .hint { font-size:14px; color:var(--faint); flex:1 1 100%; }
+.feed { display:grid; gap:14px; margin-top:18px }
+.post { border:1px solid var(--line); border-radius:16px; background:var(--surface); padding:22px 24px; display:grid; gap:12px; animation:in .35s ease both }
+.post.pinned { border-color:#e3d6b44d; background:linear-gradient(160deg,#25231d,#1d1c19) }
+.post-head { display:flex; gap:14px; align-items:center; flex-wrap:wrap }
+.post-head strong { font-size:17px; display:block; line-height:1.3 }
+.post-head small { font-size:14px; color:var(--faint) }
+.post-head .tag { margin-left:auto }
+.post h4 { font-size:21px; font-weight:800; line-height:1.3; letter-spacing:-.01em }
+.post p { font-size:17px; color:#d6d0c2; line-height:1.6 }
+.post-foot { display:flex; gap:22px; flex-wrap:wrap; color:var(--muted); font-size:15px; font-weight:700; padding-top:6px; border-top:1px solid var(--line-soft) }
+.post-foot button { display:inline-flex; align-items:center; gap:8px; min-height:40px }
+.post-foot button:hover,.post-foot button[aria-pressed="true"] { color:var(--areia) }
+.example-note { font-size:14px; color:var(--faint); margin-top:4px }
+.comm-side { display:grid; gap:16px; position:sticky; top:96px }
+.box-side { border:1px solid var(--line); border-radius:16px; background:var(--surface); padding:22px }
+.box-side h4 { font-size:19px; font-weight:800; margin:10px 0 8px; line-height:1.3 }
+.box-side p { font-size:15.5px; color:var(--muted); line-height:1.5 }
+.rule { display:flex; gap:12px; font-size:15.5px; line-height:1.45; padding:11px 0; border-top:1px solid var(--line-soft) }
+.rule:first-of-type { border-top:0 }
+.rule svg { color:var(--areia); margin-top:2px }
+.cats { display:grid; gap:8px; margin-top:10px }
+.cat { display:flex; justify-content:space-between; align-items:center; gap:10px; min-height:46px; padding:10px 14px; border-radius:10px; background:var(--bg-2); font-size:15.5px; font-weight:700; text-align:left; border:1.5px solid transparent }
+.cat:hover { border-color:var(--line) }
+.cat[aria-pressed="true"] { border-color:var(--areia); color:var(--areia) }
+.cat small { font-size:13px; color:var(--faint); font-weight:700 }
+
+/* Workshop */
+.ws-top { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:center; margin-bottom:46px }
+.ws-stats { display:flex; gap:36px; margin-top:30px; flex-wrap:wrap }
+.ws-stats strong { display:block; font-family:var(--display); font-size:62px; line-height:1; color:var(--areia); font-weight:800 }
+.ws-stats span { font-size:15px; color:var(--muted); font-weight:600 }
+.ws-art { position:relative; isolation:isolate; overflow:hidden; border-radius:18px; aspect-ratio:4/3; padding:28px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid var(--line) }
+.ws-art .ph { filter:grayscale(.6) brightness(.45) }
+.ws-art .shade { background:linear-gradient(180deg,#12121255,#121212f2) }
+.ws-art .display { font-size:clamp(46px,5vw,72px) }
+.lessons { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px }
+.lessons li { display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px; align-items:center; padding:16px 18px; border-radius:14px; background:var(--surface); border:1px solid var(--line); transition:.2s }
+.lessons li:hover { border-color:#e3d6b455 }
+.lessons .n { font-family:var(--display); font-size:34px; font-weight:800; color:var(--areia); line-height:1; min-width:40px }
+.lessons b { display:block; font-size:16px; line-height:1.35 }
+.lessons span { font-size:14px; color:var(--muted); font-weight:600 }
+
+/* Acesso, dúvidas, rodapé */
+.access { background:var(--areia); color:var(--papel-ink) }
+.access .eyebrow { color:var(--ouro-velho) }
+.access .h-sec em { color:var(--ouro-velho) }
+.access-grid { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:56px; align-items:center }
+.access .lead { color:#4d4639; margin-top:20px }
+.access-card { background:var(--bg); color:var(--ink); border-radius:20px; padding:clamp(24px,3vw,38px); box-shadow:0 40px 70px -40px #000 }
+.access-card h3 { font-family:var(--display); text-transform:uppercase; font-size:48px; line-height:.9; font-weight:800; margin-top:18px }
+.access-card ul { list-style:none; padding:0; margin:22px 0 }
+.access-card li { display:flex; gap:12px; font-size:16.5px; padding:12px 0; border-top:1px solid var(--line-soft) }
+.access-card li svg { color:var(--areia); margin-top:3px }
+.access-card .btn { width:100% }
+.access-card .fine { font-size:14px; color:var(--muted); margin-top:14px; line-height:1.5 }
+.faq-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:56px }
+.faq details { border-top:1px solid var(--line); padding:22px 0 }
+.faq details:last-child { border-bottom:1px solid var(--line) }
+.faq summary { list-style:none; cursor:pointer; display:flex; justify-content:space-between; gap:20px; align-items:center; font-size:19px; font-weight:700; line-height:1.4 }
+.faq summary::-webkit-details-marker { display:none }
+.faq summary::after { content:"+"; font-size:30px; font-weight:400; color:var(--areia); line-height:1 }
+.faq details[open] summary::after { content:"−" }
+.faq details p { color:var(--muted); font-size:17px; margin-top:12px; max-width:680px }
+.founder { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:56px; align-items:start }
+.founder .sig { font-family:var(--display); font-size:clamp(54px,6vw,86px); font-weight:800; text-transform:uppercase; line-height:.9; color:var(--areia); margin-top:16px }
+.founder .role { font-size:16px; color:var(--muted); margin-top:10px }
+.founder p.big { font-size:clamp(20px,2vw,25px); line-height:1.5; color:#e4dfd2; max-width:760px }
+.closing { text-align:center; padding-block:clamp(80px,10vw,130px); position:relative; isolation:isolate; overflow:hidden }
+.closing .ph { filter:grayscale(1) brightness(.3) }
+.closing::after { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at center,#12121299,#121212 75%) }
+.closing .h-sec { max-width:900px; margin:18px auto 30px }
+.closing .eyebrow { justify-content:center }
+.footer { border-top:1px solid var(--line); padding-block:34px 110px }
+.footer .wrap { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap }
+.footer p { font-size:14px; color:var(--faint) }
+.mobile-buy { display:none }
+.toast { position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,40px); opacity:0; z-index:90; padding:14px 20px; border-radius:12px; background:var(--ink); color:var(--bg); font-weight:700; font-size:15.5px; transition:.3s; pointer-events:none; max-width:calc(100% - 32px) }
+.toast.show { transform:translate(-50%,0); opacity:1 }
+
+/* Responsivo */
+@media (max-width:1100px) {
+  .nav-links a:nth-child(n+6) { display:none }
+  .app { grid-template-columns:1fr }
+  .app-side { flex-direction:row; align-items:center; gap:8px; padding:12px; overflow-x:auto; border-right:0; border-bottom:1px solid var(--line-soft); scrollbar-width:none }
+  .app-side .brand,.side-label,.side-card { display:none }
+  .tab { width:auto; flex:none; min-height:46px; border-radius:999px; padding:9px 16px; font-size:15px }
+  .tab[aria-selected="true"] { box-shadow:inset 0 0 0 1.5px var(--areia) }
+  .tips,.comm { grid-template-columns:1fr }
+  .comm-side { position:static }
+  .tip-list { max-height:none; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)) }
+}
+@media (max-width:860px) {
+  .nav-links,.nav-end .login,.nav-end .btn { display:none }
+  .menu-btn { display:flex }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:76px; left:0; right:0; margin:0; padding:12px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px)); background:var(--bg); border-bottom:1px solid var(--line) }
+  .nav-links.open a { display:block!important; font-size:17px; padding:14px 8px }
+  .sec-head,.hero-row,.ws-top,.access-grid,.faq-grid,.founder,.mat,.model { grid-template-columns:1fr }
+  .hero-facts { grid-template-columns:1fr 1fr }
+  .hero-facts > div:nth-child(3) { padding-left:0; border-left:0 }
+  .hero-facts > div:nth-child(n+3) { border-top:1px solid #ffffff1c }
+  .mat-aside { grid-template-columns:minmax(0,180px) minmax(0,1fr); align-items:start }
+  .mat-aside .mat-actions { grid-column:1/-1 }
+  .method { grid-template-columns:1fr }
+  .route-hero { grid-template-columns:1fr }
+  .mobile-buy { display:flex; position:fixed; z-index:45; left:0; right:0; bottom:0; align-items:center; justify-content:space-between; gap:14px; padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px)); background:#121212f2; border-top:1px solid var(--line); backdrop-filter:blur(12px) }
+  .mobile-buy strong { display:block; font-size:16px }
+  .mobile-buy span { font-size:14px; color:var(--muted) }
+}
+@media (max-width:560px) {
+  .wrap { padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)) }
+  .hero-cta .btn { width:100% }
+  .hero-facts strong { font-size:36px }
+  .shelf { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px 14px }
+  .cover { padding:14px 12px 12px 20px }
+  .cover-title { font-size:27px }
+  .cover-foot .brand { display:none }
+  .book-desc { display:none }
+  .docs { grid-template-columns:1fr 1fr; gap:16px }
+  .paper { padding:16px 14px 0 }
+  .paper-body .ttl { font-size:19px }
+  .doc-when { display:none }
+  .mat-aside { grid-template-columns:1fr }
+  .mat-aside .cover { max-width:240px }
+  .swap { grid-template-columns:1fr }
+  .story { min-height:640px }
+  .app-main { padding:20px 16px }
+  .stations { padding:16px }
+  .progress { gap:14px; padding:14px 16px }
+  .progress .reset { position:absolute; top:10px; right:14px; font-size:13px }
+  .progress > div:nth-child(2) { padding-right:70px }
+  .ring-prog,.ring-prog svg { width:52px; height:52px }
+  .ring-prog span { font-size:14px }
+  .progress strong { font-size:17px }
+  .progress p { font-size:14px }
+  .sheet { border-radius:16px }
+  .cover-top > span:last-child { display:none }
+  .a4 .stamp span:first-child { display:none }
+  .rail { grid-auto-columns:62% }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto }
+  *,*::before,*::after { animation:none!important; transition:none!important }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5 20 12 7 19.5Z" fill="currentColor"/></symbol>
+</defs></svg>
+
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="PratFlix, início">prat<span>flix</span><svg aria-hidden="true"><use href="#i-play"/></svg></a>
+    <nav class="nav-links" id="menu" aria-label="Navegação principal">
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#trilhas">Trilhas</a>
+      <a href="#modelos">Modelos de peça<span class="new-dot" aria-label="novo"></span></a>
+      <a href="#dicas">Dicas</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#acesso">Premium</a>
+    </nav>
+    <div class="nav-end">
+      <a class="login" data-platform href="https://liberofilho.com/pratflix/aulas.html">Já sou aluno ↗</a>
+      <a class="btn btn-primary btn-sm" data-checkout href="https://pay.kiwify.com.br/Oe5yK3Y">Quero o Premium</a>
+      <button class="menu-btn" id="menu-btn" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="hero-t">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">PratFlix · por Líbero Filho</p>
+      <h1 id="hero-t">A advocacia acontece <em>na prática.</em></h1>
+      <div class="hero-row">
+        <div>
+          <p class="lead">O cliente chegou, a audiência foi marcada e o escritório precisa funcionar. No PratFlix você encontra aulas, materiais, modelos e trilhas para o que vem a seguir.</p>
+          <p class="hero-note"><b>18 meses</b> de acesso Premium · conteúdos gratuitos para começar</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" data-checkout href="https://pay.kiwify.com.br/Oe5yK3Y">Conhecer o Premium <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#biblioteca">Ver por dentro <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-facts">
+        <div><strong>26</strong><span>cursos e módulos no catálogo</span></div>
+        <div><strong>14</strong><span>aulas do Workshop 2026, já liberadas</span></div>
+        <div><strong>7</strong><span>trilhas organizadas por área</span></div>
+        <div><strong>3</strong><span>cursos gratuitos para começar hoje</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOUR: as abas da plataforma -->
+  <section class="sec tour" id="por-dentro" aria-labelledby="tour-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Por dentro do PratFlix</p><h2 class="h-sec" id="tour-t">Tudo o que você usa <em>no dia a dia.</em></h2></div>
+        <p class="lead">Clique nas abas para navegar. Abra um material da biblioteca, escolha uma trilha, veja a estrutura de um modelo de peça ou passe as dicas.</p>
+      </div>
+
+      <div class="app">
+        <aside class="app-side">
+          <a class="brand" href="#inicio" tabindex="-1" aria-hidden="true">prat<span>flix</span><svg><use href="#i-play"/></svg></a>
+          <div class="side-label">PARA ESTUDAR E APLICAR</div>
+          <div role="tablist" aria-label="Áreas da plataforma" id="tabs" style="display:contents"></div>
+          <div class="side-card"><strong>PratFlix Premium</strong><p>18 meses para estudar no seu ritmo, com o catálogo crescendo.</p></div>
+        </aside>
+        <div class="app-main" id="app-main" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section class="sec" id="catalogo" aria-labelledby="cat-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Catálogo</p><h2 class="h-sec" id="cat-t">Escolha por onde <em>começar.</em></h2></div>
+        <p class="lead">Cada capa mostra o que já está liberado e o que está em produção. Os módulos em produção abrem quando as aulas forem publicadas.</p>
+      </div>
+      <div id="rows"></div>
+    </div>
+  </section>
+
+  <!-- WORKSHOP -->
+  <section class="sec tour" id="bonus" aria-labelledby="ws-t">
+    <div class="wrap">
+      <div class="ws-top">
+        <div>
+          <p class="eyebrow">Bônus já disponível · Premium</p>
+          <h2 class="h-sec" id="ws-t" style="margin-top:18px">Workshop Jovem Advogado <em>2026.</em></h2>
+          <p class="lead" style="margin-top:20px">As gravações do workshop de agosto de 2026 estão no PratFlix. Assista por tema, acompanhe seu progresso e volte às aulas quando precisar.</p>
+          <div class="ws-stats"><div><strong>14</strong><span>aulas gravadas</span></div><div><strong>14h45</strong><span>de conteúdo, aproximadamente</span></div><div><strong>13</strong><span>professores convidados</span></div></div>
+        </div>
+        <div class="ws-art"><div class="ph ph-meeting"></div><div class="shade"></div>
+          <div class="poster-top"><span>PratFlix original · bônus</span><span class="tag premium">Premium</span></div>
+          <div><p class="display">14 aulas.<br><em>Várias áreas.</em></p><p style="color:var(--muted);margin-top:12px;font-size:16px">17, 18 e 20 de agosto de 2026 · gravações completas</p></div>
+        </div>
+      </div>
+      <ol class="lessons" id="lessons"></ol>
+      <p style="margin-top:26px"><a class="btn btn-ghost" data-workshop href="https://liberofilho.com/pratflix/aulas.html#lesson/1c4c0f2c-fb7f-5981-314d-0470f2e3780c">Já tenho acesso: abrir o workshop ↗</a></p>
+    </div>
+  </section>
+
+  <!-- IDEALIZADOR -->
+  <section class="sec" aria-labelledby="f-t">
+    <div class="wrap founder">
+      <div><p class="eyebrow">Quem está por trás</p><p class="sig">Líbero Filho</p><p class="role">Professor e idealizador do PratFlix</p></div>
+      <div><h2 class="sr-only" id="f-t">Sobre o idealizador</h2><p class="big">O PratFlix reúne conteúdos sobre atuação profissional, organização do escritório e desenvolvimento na advocacia. A proposta é aproximar o estudo das situações que aparecem no trabalho, com professores de diferentes áreas do Direito.</p></div>
+    </div>
+  </section>
+
+  <!-- ACESSO -->
+  <section class="sec access" id="acesso" aria-labelledby="ac-t">
+    <div class="wrap access-grid">
+      <div>
+        <p class="eyebrow">PratFlix Premium</p>
+        <h2 class="h-sec" id="ac-t" style="margin-top:18px">Dê espaço à prática <em>na sua formação.</em></h2>
+        <p class="lead">Acesse os conteúdos Premium publicados durante o seu período de acesso e acompanhe a chegada de novos cursos, modelos e materiais.</p>
+      </div>
+      <div class="access-card">
+        <span class="tag premium">18 meses de acesso</span>
+        <h3>Seu próximo passo começa aqui.</h3>
+        <ul id="access-list"></ul>
+        <a class="btn btn-primary" data-checkout href="https://pay.kiwify.com.br/Oe5yK3Y">Ver condições no checkout ↗</a>
+        <p class="fine">O valor e as formas de pagamento aparecem no checkout da Kiwify. Os módulos em produção ficam disponíveis quando forem publicados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS -->
+  <section class="sec faq" id="duvidas" aria-labelledby="faq-t">
+    <div class="wrap faq-grid">
+      <div><p class="eyebrow">Antes de entrar</p><h2 class="h-sec" id="faq-t" style="margin-top:18px">Dúvidas <em>frequentes.</em></h2></div>
+      <div>
+        <details><summary>O que já posso assistir no Premium?</summary><p>O bônus Workshop Jovem Advogado 2026 está disponível com 14 aulas gravadas. O catálogo da plataforma mostra quais outros conteúdos já estão publicados e quais continuam em produção.</p></details>
+        <details><summary>As aulas são ao vivo ou gravadas?</summary><p>O bônus do workshop reúne as gravações das aulas de 17, 18 e 20 de agosto de 2026. Você assiste no seu ritmo durante o período de acesso.</p></details>
+        <details><summary>Os modelos de peça já estão liberados?</summary><p>Ainda não. O módulo Modelos de peças está em produção. Nesta página você vê a estrutura de cada modelo; os arquivos completos entram no Premium quando o módulo for publicado.</p></details>
+        <details><summary>Como recebo meu acesso depois da compra?</summary><p>Após a aprovação do pagamento pela Kiwify, o acesso é liberado na plataforma e as instruções chegam no e-mail usado na compra. Confira também as pastas de spam e promoções.</p></details>
+        <details><summary>Consigo conhecer o PratFlix de graça?</summary><p>Sim. A conta gratuita dá acesso aos cursos de boas-vindas, primeiro atendimento e organização do escritório, aos materiais gratuitos da biblioteca, às dicas e à comunidade.</p></details>
+        <details><summary>Posso assistir pelo celular?</summary><p>Sim. O acesso é pelo navegador, no celular ou no computador. É preciso estar conectado à internet para assistir às aulas.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="cl-t">
+    <div class="ph ph-office" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">A advocacia acontece na prática</p>
+      <h2 class="h-sec" id="cl-t">O próximo tema pode ser <em>o que você precisa hoje.</em></h2>
+      <a class="btn btn-primary" data-platform href="https://liberofilho.com/pratflix/aulas.html">Explorar o PratFlix ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap"><a class="brand" href="#inicio" style="font-size:24px">prat<span>flix</span><svg aria-hidden="true"><use href="#i-play"/></svg></a><p>© 2026 PratFlix · um projeto de Líbero Filho · disponibilidade dos conteúdos em novembro de 2026</p></div></footer>
+<aside class="mobile-buy" aria-label="PratFlix Premium"><div><strong>PratFlix Premium</strong><span>18 meses de acesso</span></div><a class="btn btn-primary btn-sm" data-checkout href="https://pay.kiwify.com.br/Oe5yK3Y">Ver condições ↗</a></aside>
+<div id="modal-root"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ CONFIGURAÇÃO: edite os links aqui ============ */
+const CONFIG = Object.freeze({
+  platform: 'https://liberofilho.com/pratflix/aulas.html',
+  checkout: 'https://pay.kiwify.com.br/Oe5yK3Y',
+  workshop: 'https://liberofilho.com/pratflix/aulas.html#lesson/1c4c0f2c-fb7f-5981-314d-0470f2e3780c'
+});
+for (const k of Object.keys(CONFIG)) document.querySelectorAll('[data-' + k + ']').forEach(a => a.href = CONFIG[k]);
+
+/* ============ Ícones ============ */
+const P = {
+  book:'M12 5C8 2 4 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-2-1-6-2-10 1z M12 5v16',
+  route:'M5 5h12a4 4 0 0 1 0 8H7a4 4 0 0 0 0 8h12 M5 2v6 M19 18v6',
+  doc:'M5 2h9l5 5v15H5z M14 2v6h5 M8 12h8 M8 16h8',
+  bulb:'M9 18h6 M9 21h6 M8 14a7 7 0 1 1 8 0l-1 2H9z',
+  users:'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M16 3a4 4 0 0 1 0 8 M22 21v-2a4 4 0 0 0-3-4 M13 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0',
+  check:'M5 12l4 4L19 6', checkCircle:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0 M8 12l3 3 5-6',
+  list:'M9 6h12 M9 12h12 M9 18h12 M4 6h.01 M4 12h.01 M4 18h.01',
+  pen:'M14 4l6 6 M3 21l5-1L21 7l-5-5L3 15z', flask:'M9 3h6 M10 3v6L4 20h16L14 9V3',
+  clock:'M12 8v5l3 2 M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0', lock:'M5 10h14v11H5z M8 10V6a4 4 0 0 1 8 0v4',
+  arrow:'M4 12h16 M14 6l6 6-6 6', close:'M6 6l12 12 M6 18L18 6', left:'M15 18l-6-6 6-6', right:'M9 18l6-6-6-6',
+  download:'M12 3v12 M7 10l5 5 5-5 M3 16v5h18v-5', copy:'M8 8h12v12H8z M16 8V4H4v12h4',
+  search:'M21 21l-6-6 M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0', target:'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0 M18 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0 M12 10v4 M10 12h4',
+  bookmark:'M5 3h14v19l-7-5-7 5z', pause:'M8 5v14 M16 5v14', play:'M8 4l13 8-13 8z', heart:'M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z',
+  message:'M3 3h18v14H9l-6 5z', shield:'M12 2L3 6v6c0 5 9 10 9 10s9-5 9-10V6z M8 12l3 3 5-6', spark:'M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z', info:'M12 8h.01 M11 12h1v5h1 M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0'
+};
+const I = (n, cls='ico') => `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${P[n]||P.doc}"/></svg>`;
+const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const store = { get(k, d){ try { return JSON.parse(localStorage.getItem('pf2.' + k)) ?? d } catch { return d } }, set(k, v){ try { localStorage.setItem('pf2.' + k, JSON.stringify(v)) } catch {} } };
+function toast(t){ const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 2600) }
+async function copy(text){ try { await navigator.clipboard.writeText(text); toast('Copiado.') } catch { toast('Não foi possível copiar. Selecione o texto e use Ctrl+C.') } }
+const brandMini = '<span class="brand">prat<span>flix</span><svg aria-hidden="true"><use href="#i-play"/></svg></span>';
+
+/* ============ CATÁLOGO REAL (pf_courses, novembro de 2026) ============ */
+const COURSES = [
+  {t:'Boas-vindas ao PratFlix', s:'Conheça a plataforma e organize seus primeiros estudos.', a:'Primeiros passos', acc:'free', st:'ok', v:'v-areia'},
+  {t:'O seu primeiro atendimento', s:'Da conversa inicial à organização do caso.', a:'Primeiros passos', acc:'free', st:'ok', v:'v-foto', ph:'meeting'},
+  {t:'Um escritório organizado desde o início', s:'Uma rotina simples para documentos, tarefas e comunicação.', a:'Gestão', acc:'free', st:'ok', v:'v-foto', ph:'desk'},
+  {t:'Workshop Jovem Advogado 2026', s:'14 aulas: áreas de atuação, gestão, marketing jurídico e IA.', a:'Bônus', acc:'premium', st:'ok', v:'v-foto', ph:'library'},
+  {t:'Modelos de peças', s:'Escolher, adaptar e revisar os modelos.', p:'Líbero Filho', a:'Modelos de peças', acc:'premium', st:'soon', v:'v-papel'},
+  {t:'Marketing jurídico', s:'Posicionamento e conteúdo com atenção à ética.', a:'Marketing', acc:'premium', st:'soon', v:'v-bronze'},
+  {t:'Construindo o sistema do seu escritório', s:'Atendimentos, tarefas, prazos e rotina com IA.', a:'IA', acc:'premium', st:'soon', v:'v-noite'},
+  {t:'Produzindo vídeos com Claude', s:'Do roteiro à revisão do vídeo.', a:'IA', acc:'premium', st:'soon', v:'v-grafite'},
+  {t:'Processo Civil', s:'Um mapa de atuação numa demanda cível simples, da análise inicial ao recurso e cumprimento.', p:'Profa. Agatha Gonçalves', a:'Cível', acc:'premium', st:'soon', v:'v-oliva'},
+  {t:'Direito de Família na prática', s:'Urgências, documentos e pedidos coerentes numa demanda familiar.', p:'Profa. Vitória Santos', a:'Família', acc:'premium', st:'soon', v:'v-areia'},
+  {t:'Direito do Consumidor na prática', s:'Avaliar a via adequada e preparar os atos iniciais.', p:'Prof. Paulo Victor', a:'Consumidor', acc:'premium', st:'soon', v:'v-bronze'},
+  {t:'Prática Criminal: delegacia e defesa', s:'Atendimento criminal, urgências e estratégia inicial de defesa.', p:'Profa. Luciana Bispo', a:'Criminal', acc:'premium', st:'soon', v:'v-noite'},
+  {t:'Atuação em Audiências', s:'Um roteiro de audiência adaptado ao rito e à posição processual.', p:'Prof. William Carvalho', a:'Audiências', acc:'premium', st:'soon', v:'v-foto', ph:'building'},
+  {t:'Oratória para a Advocacia', s:'Uma fala jurídica curta, com estrutura, clareza e uso da voz.', p:'Prof. Erick Machado', a:'Oratória', acc:'premium', st:'soon', v:'v-grafite'},
+  {t:'Prática trabalhista essencial', s:'Do atendimento à organização da atuação trabalhista.', a:'Trabalho', acc:'premium', st:'soon', v:'v-oliva'},
+  {t:'Direito Previdenciário na prática', s:'Atendimento previdenciário e requerimento com análise documental.', p:'Profa. Janikele', a:'Previdenciário', acc:'premium', st:'soon', v:'v-papel'},
+  {t:'Constitucional aplicado', s:'Do problema concreto à tutela constitucional.', a:'Constitucional', acc:'premium', st:'soon', v:'v-areia'},
+  {t:'Direito Público e Fazenda Pública', s:'A via de atuação e um caso simples contra a Fazenda Pública.', p:'Prof. Albert', a:'Público', acc:'premium', st:'soon', v:'v-noite'},
+  {t:'Direito Administrativo na prática', s:'Triagem, documentos, prazos e estratégia inicial.', p:'Prof. Alisson Melo', a:'Administrativo', acc:'premium', st:'soon', v:'v-grafite'},
+  {t:'Gestão de Escritório', s:'Operação mínima, precificação e acompanhamento financeiro.', p:'Prof. Diogo', a:'Gestão', acc:'premium', st:'soon', v:'v-foto', ph:'office'},
+  {t:'IA e Direito Digital', s:'Fluxo de trabalho com IA, conferência de resultados e demandas digitais.', p:'Prof. Iago Capistano', a:'Digital', acc:'premium', st:'soon', v:'v-noite'},
+  {t:'Direito Bancário na prática', s:'Analisar uma demanda bancária e montar o plano de atuação.', p:'Prof. Kalil Lage', a:'Bancário', acc:'premium', st:'soon', v:'v-bronze'},
+  {t:'Direito Médico e da Saúde', s:'Triagem de demandas de saúde suplementar, pública e responsabilidade médica.', p:'Prof. Leandro Lustosa', a:'Saúde', acc:'premium', st:'soon', v:'v-oliva'},
+  {t:'Advocacia Notarial e Extrajudicial', s:'Uma solução notarial possível, com documentação e acompanhamento.', p:'Prof. Júlio', a:'Notarial', acc:'premium', st:'soon', v:'v-papel'},
+  {t:'Registro de Marcas', s:'Análise inicial de uma marca e simulação de pedido no INPI.', p:'Profa. Rebeca', a:'Marcas', acc:'premium', st:'soon', v:'v-areia'},
+  {t:'Compliance', s:'Diagnóstico inicial e proposta de integridade para uma pequena empresa.', p:'Profa. Kesya', a:'Compliance', acc:'premium', st:'soon', v:'v-grafite'}
+];
+const C = Object.fromEntries(COURSES.map(c => [c.t, c]));
+
+/* ============ BIBLIOTECA ============ */
+const KINDS = { roteiro:{label:'Roteiro', icon:'list'}, checklist:{label:'Checklist', icon:'checkCircle'}, modelo:{label:'Modelo', icon:'pen'}, exercicio:{label:'Exercício', icon:'flask'} };
+const LIB = [
+  { id:'atendimento', kind:'roteiro', t:'Roteiro do primeiro atendimento', area:'Atendimento', min:15, acc:'free', v:'v-foto', ph:'meeting',
+    d:'Do primeiro contato ao resumo enviado: o que fazer antes, durante e depois da conversa.',
+    when:'Na véspera de receber uma pessoa no escritório ou por videochamada.',
+    stages:[
+      {h:'Antes da conversa', items:[
+        ['Confirme data, horário e formato', 'Mande a confirmação por escrito, com o endereço ou o link. <b>Evita</b> faltas e atrasos que desorganizam a agenda.'],
+        ['Peça os documentos que a pessoa já tem', 'Contratos, mensagens, notificações, comprovantes. Você chega à conversa sabendo o que existe.'],
+        ['Separe cinco perguntas iniciais', 'O que aconteceu, quando, quem está envolvido, o que já foi feito e o que a pessoa espera.']]},
+      {h:'Durante a conversa', items:[
+        ['Deixe a pessoa contar o caso sem interromper', 'Anote palavras-chave. As perguntas de detalhe ficam para o fim do relato.'],
+        ['Separe fatos, documentos e dúvidas', 'Três colunas na folha: <b>o que aconteceu</b>, o que comprova e o que ainda falta saber.'],
+        ['Resuma o que entendeu e pergunte se faltou algo', 'Evita registrar uma interpretação sua como se fosse um fato informado pela pessoa.'],
+        ['Explique os próximos passos, sem prometer resultado', 'Diga o que você vai analisar, o que precisa receber e quando retorna.']]},
+      {h:'Depois da conversa', items:[
+        ['Envie um resumo por escrito', 'Fatos principais, documentos pendentes e o combinado. Peça que a pessoa confirme.'],
+        ['Registre pendências e responsáveis', 'Quem envia o quê e até quando, numa lista que você consulta toda semana.'],
+        ['Marque a data do próximo contato', 'Coloque na agenda antes de encerrar o dia.']]}
+    ]},
+  { id:'reuniao', kind:'modelo', t:'Resumo de reunião', area:'Gestão', min:10, acc:'free', v:'v-papel',
+    d:'Um modelo para registrar decisões, pendências e o próximo contato em cinco campos.',
+    when:'Ao terminar qualquer reunião com cliente, colega ou parceiro.',
+    template:'RESUMO DE REUNIÃO\nData: [dd/mm/aaaa]   Formato: [presencial / vídeo]\nParticipantes: [nomes]\n\nAssunto\n[Em uma frase, do que tratamos.]\n\nO que ficou decidido\n1. [decisão]\n2. [decisão]\n\nPendências\n• [tarefa] · responsável: [nome] · até: [data]\n• [tarefa] · responsável: [nome] · até: [data]\n\nPróximo contato\n[data, canal e o que será tratado]',
+    stages:[
+      {h:'Antes de enviar o resumo', items:[
+        ['Preencha os campos ainda no dia da reunião', 'Com a conversa fresca, você escreve em poucos minutos.'],
+        ['Cada pendência tem responsável e data', 'Uma tarefa sem dono costuma ficar sem fazer.'],
+        ['Releia com os olhos do cliente', 'Troque termos técnicos por palavras que a pessoa reconhece.'],
+        ['Peça a confirmação por escrito', '"Se estiver tudo certo, me responda com um ok." Fica registrado.']]}
+    ]},
+  { id:'semanal', kind:'checklist', t:'Revisão semanal do escritório', area:'Gestão', min:20, acc:'free', v:'v-areia',
+    d:'Vinte minutos na sexta para fechar a semana: prazos, clientes, dinheiro e organização.',
+    when:'Toda sexta-feira, num horário fixo na agenda.',
+    stages:[
+      {h:'Prazos e agenda', items:[
+        ['Confira os prazos da próxima semana em duas fontes', 'Sistema do tribunal e sua agenda. <b>Divergência</b> é sinal para conferir de novo.'],
+        ['Atualize audiências e reuniões', 'Endereço, link, documentos e quem vai com você.']]},
+      {h:'Clientes', items:[
+        ['Responda as mensagens pendentes', 'Mesmo que seja para dizer quando você retorna.'],
+        ['Envie as atualizações combinadas', 'O cliente que recebe notícia sem pedir confia mais no seu trabalho.']]},
+      {h:'Financeiro', items:[
+        ['Confira honorários a receber', 'Quem pagou, quem está em atraso e quem precisa de lembrete.'],
+        ['Lance as despesas da semana', 'Custas, deslocamentos e assinaturas, separados por cliente quando for o caso.']]},
+      {h:'Organização', items:[
+        ['Arquive os documentos com o nome padrão', 'Ex.: <b>2026-11-07_Silva_contestacao_v2-revisada</b>.'],
+        ['Escolha as três prioridades da próxima semana', 'Escreva no topo da agenda de segunda.']]}
+    ]},
+  { id:'escopo', kind:'exercicio', t:'Delimitação de escopo do serviço', area:'Honorários', min:15, acc:'free', v:'v-bronze',
+    d:'Defina o que está incluído no serviço antes de montar uma proposta de honorários.',
+    when:'Antes de enviar uma proposta ou um contrato de honorários.',
+    stages:[
+      {h:'Defina as entregas', items:[
+        ['Escreva o serviço em uma frase', 'Ex.: "Ajuizar e acompanhar ação de alimentos em primeira instância."'],
+        ['Liste o que está incluído', 'Petições, audiências, reuniões e relatórios previstos.']]},
+      {h:'Registre os limites', items:[
+        ['Liste o que não está incluído', 'Recursos, execução, outras ações ou diligências fora da cidade.'],
+        ['Anote despesas e quem paga', 'Custas, perícias, cópias e deslocamentos.']]},
+      {h:'Confira a fonte e conclua', items:[
+        ['Revise o Código de Ética e Disciplina da OAB', 'Os arts. 48 a 50 tratam do contrato de honorários, que deve ser feito por escrito.'],
+        ['Transforme o escopo em cláusulas', 'Leve o texto para o modelo de contrato de honorários.']]}
+    ]},
+  { id:'digital', kind:'checklist', t:'Rotina digital do escritório', area:'Tecnologia', min:15, acc:'free', v:'v-noite',
+    d:'Canal oficial, nomes de arquivo, cópia de segurança e acesso às contas.',
+    when:'Ao montar o escritório e, depois, uma vez por mês.',
+    stages:[
+      {h:'Comunicação', items:[
+        ['Defina o canal oficial com cada cliente', 'E-mail para documentos e decisões; mensagem para avisos rápidos.'],
+        ['Use uma assinatura padrão', 'Nome, OAB, telefone e endereço do escritório.']]},
+      {h:'Arquivos', items:[
+        ['Crie um padrão de nomes e use sempre', 'Data, cliente, peça e versão. Rascunho e revisado nunca têm o mesmo nome.'],
+        ['Faça cópia de segurança automática', 'Em nuvem e em um segundo local.'],
+        ['Teste a recuperação de um arquivo', 'Uma cópia que você nunca restaurou pode não funcionar.']]},
+      {h:'Acesso e sigilo', items:[
+        ['Ative a verificação em duas etapas', 'E-mail, nuvem, certificado e sistemas dos tribunais.'],
+        ['Revise quem tem acesso a cada pasta', 'Estagiários e parceiros só onde precisam.']]}
+    ]},
+  { id:'mapa', kind:'exercicio', t:'Mapa de estudos da prática', area:'Carreira', min:15, acc:'free', v:'v-oliva',
+    d:'Saia com uma meta concreta, um exercício pequeno e um horário reservado na agenda.',
+    when:'No começo do mês ou ao entrar numa área nova.',
+    stages:[
+      {h:'Sua meta', items:[
+        ['Escreva o que você quer conseguir fazer', 'Ex.: "Fazer um atendimento previdenciário completo sozinho."'],
+        ['Escolha uma área e um curso para começar', 'Use as trilhas do PratFlix como ponto de partida.']]},
+      {h:'Seu exercício', items:[
+        ['Escolha um exercício pequeno', 'Uma peça curta, um roteiro ou um checklist preenchido com um caso fictício.'],
+        ['Reserve um horário fixo na agenda', 'Trinta minutos, duas vezes por semana, é um bom começo.']]},
+      {h:'Seu registro', items:[
+        ['Anote o que aprendeu ao fim de cada sessão', 'Uma frase basta. Use as anotações da aula.'],
+        ['Revise o mapa no fim do mês', 'Mantenha, ajuste ou troque a meta.']]}
+    ]},
+  { id:'laboratorio', kind:'exercicio', t:'Laboratório: seu primeiro roteiro de caso', area:'Atendimento', min:30, acc:'free', v:'v-foto', ph:'library',
+    d:'Um caso fictício para treinar: separar fatos, escrever perguntas e organizar o retorno.',
+    when:'Depois de assistir à aula O seu primeiro atendimento.',
+    stages:[
+      {h:'Leia o caso', items:[
+        ['Leia o caso fictício inteiro uma vez', 'Sem anotar. Só para entender a história.'],
+        ['Separe fatos, documentos e dúvidas', 'Na segunda leitura, preencha as três colunas.']]},
+      {h:'Prepare a conversa', items:[
+        ['Escreva cinco perguntas para o cliente', 'Comece pelas que mudam o caminho do caso.'],
+        ['Organize o retorno', 'O que você responde agora, o que vai estudar e quando volta a falar.']]},
+      {h:'Compare e conclua', items:[
+        ['Compare com o exemplo comentado', 'Veja o que você deixou de perguntar.'],
+        ['Registre uma melhoria para o próximo atendimento', 'Leve para o seu roteiro pessoal.']]}
+    ]},
+  { id:'audiencia', kind:'checklist', t:'Preparação para audiência', area:'Audiências', min:20, acc:'premium', soon:true, v:'v-foto', ph:'building',
+    d:'Do estudo do processo à conversa com o cliente e as testemunhas na véspera.',
+    when:'Uma semana antes da audiência, com revisão na véspera.',
+    stages:[
+      {h:'Uma semana antes', items:[
+        ['Releia o processo e marque os pontos controvertidos', 'Eles orientam suas perguntas.'],
+        ['Confirme o rito e o tipo de audiência', 'Conciliação, instrução ou una: cada uma pede uma preparação.'],
+        ['Confirme testemunhas e documentos', 'Intimação, rol e cópias.']]},
+      {h:'Na véspera', items:[
+        ['Converse com o cliente sobre o que vai acontecer', 'Horário, roupa, documentos e como funciona a audiência.'],
+        ['Monte o roteiro de uma página', 'Pedidos, perguntas, proposta de acordo e limites autorizados.']]}
+    ]},
+  { id:'documentos', kind:'checklist', t:'Documentos do cliente por área', area:'Atendimento', min:10, acc:'premium', soon:true, v:'v-grafite',
+    d:'Listas de documentos para pedir já no primeiro contato, separadas por área.',
+    when:'Ao agendar o primeiro atendimento.',
+    stages:[
+      {h:'Para todos os casos', items:[
+        ['Documento de identidade e CPF', 'Do cliente e, quando houver, do representante.'],
+        ['Comprovante de endereço', 'Ajuda a definir a competência.'],
+        ['Provas que a pessoa já tem', 'Mensagens, fotos, contratos e comprovantes.']]}
+    ]}
+];
+
+/* ============ TRILHAS (cursos reais agrupados por área) ============ */
+const PATHS = [
+  { id:'entrada', t:'Do primeiro atendimento à rotina do escritório', short:'Trilha de entrada', tag:'Gratuita', v:'v-areia', ph:'office', progress:33,
+    d:'A base para começar com clareza: conhecer a plataforma, atender bem e organizar documentos, tarefas e comunicação.',
+    steps:['Boas-vindas ao PratFlix','O seu primeiro atendimento','Um escritório organizado desde o início'] },
+  { id:'civel', t:'Prática cível', short:'Cível e família', tag:'Premium', v:'v-oliva', ph:'desk',
+    d:'Da demanda cível simples às questões de família e consumo, com a via extrajudicial como alternativa.',
+    steps:['Processo Civil','Direito de Família na prática','Direito do Consumidor na prática','Advocacia Notarial e Extrajudicial'] },
+  { id:'criminal', t:'Criminal e audiências', short:'Criminal', tag:'Premium', v:'v-noite', ph:'building',
+    d:'Atendimento criminal, preparo para audiência e uma fala clara diante do juiz.',
+    steps:['Prática Criminal: delegacia e defesa','Atuação em Audiências','Oratória para a Advocacia'] },
+  { id:'publico', t:'Público e constitucional', short:'Direito público', tag:'Premium', v:'v-grafite', ph:'building',
+    d:'Do problema concreto à tutela constitucional, contra a Fazenda e na via administrativa.',
+    steps:['Constitucional aplicado','Direito Público e Fazenda Pública','Direito Administrativo na prática'] },
+  { id:'trabalho', t:'Trabalho e previdência', short:'Trabalho', tag:'Premium', v:'v-papel', ph:'meeting',
+    d:'Atendimento trabalhista e previdenciário, com análise documental e requerimentos.',
+    steps:['Prática trabalhista essencial','Direito Previdenciário na prática'] },
+  { id:'escritorio', t:'Escritório, marketing e IA', short:'Negócio', tag:'Premium', v:'v-bronze', ph:'office',
+    d:'Operação, preço, presença digital ética e inteligência artificial na rotina.',
+    steps:['Gestão de Escritório','Marketing jurídico','Construindo o sistema do seu escritório','Produzindo vídeos com Claude','IA e Direito Digital'] },
+  { id:'nichos', t:'Novas frentes de atuação', short:'Nichos', tag:'Premium', v:'v-foto', ph:'library',
+    d:'Áreas com demanda crescente para quem quer se diferenciar no mercado.',
+    steps:['Direito Bancário na prática','Direito Médico e da Saúde','Registro de Marcas','Compliance'] }
+];
+
+/* ============ MODELOS DE PEÇA ============ */
+const MODELS = [
+  { id:'inicial', t:'Petição inicial cível', area:'Cível', base:'CPC, art. 319',
+    when:'Para iniciar uma ação pelo procedimento comum.',
+    parts:[['Endereçamento','Juízo competente: <mark>Vara Cível da Comarca de [cidade]</mark>'],['Qualificação das partes','Nome, estado civil, profissão, CPF/CNPJ, e-mail e endereço (art. 319, II)'],['Dos fatos','Narrativa em ordem cronológica, com referência a cada documento'],['Do direito','Fundamentos jurídicos que ligam os fatos aos pedidos'],['Da tutela de urgência','Se houver: probabilidade do direito e perigo de dano (art. 300)'],['Dos pedidos','Certos e determinados, com as especificações (arts. 322 e 324)'],['Do valor da causa','Conforme o art. 292'],['Das provas e da audiência','Provas que pretende produzir e opção pela audiência de conciliação (art. 319, VI e VII)']],
+    adapt:[['Confira a competência','Foro e juízo mudam conforme a matéria, o valor e o domicílio.'],['Troque todos os campos destacados','Busque por colchetes antes de finalizar.'],['Ligue cada fato a um documento','Cite o documento logo após o fato: "(doc. 3)".']],
+    review:['Endereçamento e competência conferidos','Qualificação completa das partes','Pedidos certos e determinados','Valor da causa calculado','Procuração e documentos anexados','Custas ou pedido de gratuidade'] },
+  { id:'contestacao', t:'Contestação', area:'Cível', base:'CPC, arts. 335 a 342',
+    when:'Para responder a uma ação no prazo de 15 dias úteis.',
+    parts:[['Endereçamento','Ao juízo do processo, com o número dos autos'],['Síntese da inicial','O que o autor alega e pede, em poucos parágrafos'],['Tempestividade','Termo inicial e contagem do prazo (art. 335)'],['Preliminares','As matérias do art. 337 que se aplicarem ao caso'],['Do mérito','Impugnação especificada de cada fato (art. 341)'],['Das provas','Provas que pretende produzir'],['Dos pedidos','Acolhimento das preliminares e improcedência dos pedidos']],
+    adapt:[['Leia a inicial com um marca-texto','Marque cada fato que precisa ser impugnado.'],['Não deixe fato sem resposta','O fato não impugnado se presume verdadeiro (art. 341).'],['Reúna toda a defesa agora','Pela eventualidade, alegações não feitas na contestação tendem a precluir (art. 336).']],
+    review:['Prazo conferido em duas fontes','Todas as preliminares cabíveis','Cada fato da inicial impugnado','Documentos anexados','Pedido de provas'] },
+  { id:'alimentos', t:'Ação de alimentos', area:'Família', base:'Lei 5.478/68 · CPC, art. 53, II',
+    when:'Para pedir pensão alimentícia a filho, ex-cônjuge ou outro parente.',
+    parts:[['Endereçamento','<mark>Vara de Família</mark> do domicílio de quem pede os alimentos (CPC, art. 53, II)'],['Qualificação','Alimentando representado ou assistido, e alimentante'],['Do vínculo','Certidão de nascimento ou casamento que prova a obrigação'],['Das necessidades','Despesas de quem recebe: escola, saúde, moradia, alimentação'],['Das possibilidades','Renda e sinais de padrão de vida de quem paga'],['Dos alimentos provisórios','Pedido de fixação inicial (Lei 5.478/68, art. 4º)'],['Dos pedidos e do valor da causa','Doze vezes a prestação mensal pedida (CPC, art. 292, III)']],
+    adapt:[['Monte a planilha de despesas','Ela sustenta o valor pedido.'],['Junte indícios da renda do alimentante','Contracheque, redes sociais, bens e atividade.'],['Defina a forma de pagamento','Desconto em folha ou depósito, com dados bancários.']],
+    review:['Certidão que prova o vínculo','Planilha de despesas anexada','Pedido de alimentos provisórios','Valor da causa = 12 prestações','Dados para pagamento'] },
+  { id:'saude', t:'Obrigação de fazer contra plano de saúde', area:'Saúde', base:'CDC · Lei 9.656/98 · Súmula 608/STJ',
+    when:'Quando o plano nega cobertura de tratamento, exame ou cirurgia.',
+    parts:[['Endereçamento','Juízo cível ou Juizado, conforme o valor e a complexidade'],['Qualificação','Beneficiário e operadora (CNPJ)'],['Dos fatos','Contrato, indicação médica e a negativa, com datas'],['Do direito','CDC aplicável ao contrato (Súmula 608/STJ, salvo autogestão) e Lei 9.656/98'],['Da tutela de urgência','Laudo médico mostrando o risco da espera (CPC, art. 300)'],['Dos pedidos','Autorização e custeio, multa diária e, se for o caso, danos morais']],
+    adapt:[['Confira se o plano é de autogestão','Muda a aplicação do CDC.'],['Peça a negativa por escrito','A operadora deve informar o motivo.'],['Use o relatório do médico','Com CID, urgência e o porquê da indicação.']],
+    review:['Carteirinha e contrato','Relatório médico atualizado','Negativa ou protocolo','Pedido de tutela de urgência','Multa diária pedida'] },
+  { id:'trabalhista', t:'Reclamação trabalhista', area:'Trabalho', base:'CLT, art. 840, § 1º',
+    when:'Para cobrar verbas e direitos de uma relação de emprego.',
+    parts:[['Endereçamento','<mark>Vara do Trabalho de [cidade]</mark>'],['Qualificação','Reclamante e reclamada'],['Do contrato de trabalho','Admissão, função, salário, jornada e saída'],['Dos fatos e fundamentos','Um tópico por pedido'],['Dos pedidos','Certos, determinados e com indicação de valor (art. 840, § 1º)'],['Requerimentos','Notificação, gratuidade e honorários de sucumbência'],['Valor da causa','Soma dos pedidos']],
+    adapt:[['Liquide cada pedido','Pedido sem valor pode ser extinto (art. 840, § 3º).'],['Confira a prescrição','Dois anos após a saída, cinco anos para trás.'],['Organize os documentos por pedido','CTPS, contracheques, cartões de ponto, mensagens.']],
+    review:['Pedidos com valor','Prescrição verificada','CTPS e TRCT anexados','Pedido de gratuidade, se cabível'] },
+  { id:'inss', t:'Requerimento administrativo ao INSS', area:'Previdenciário', base:'Lei 8.213/91',
+    when:'Antes de qualquer ação previdenciária, para pedir o benefício.',
+    parts:[['Identificação','Segurado, NIT e procurador'],['Benefício requerido','Espécie e data de entrada pretendida'],['Dos fatos','Períodos de trabalho e contribuição, com destaque para os controversos'],['Dos documentos','CNIS, CTPS, PPP, laudos, conforme o benefício'],['Do pedido','Concessão e, se for o caso, reconhecimento de períodos']],
+    adapt:[['Puxe o CNIS antes de tudo','Compare com a CTPS e marque as diferenças.'],['Liste o que precisa ser comprovado','Período rural, especial ou sem registro.'],['Guarde o protocolo','A data do requerimento importa para os atrasados.']],
+    review:['CNIS conferido','Documentos de cada período','Procuração e termo de representação','Protocolo salvo'] },
+  { id:'ms', t:'Mandado de segurança', area:'Público', base:'Lei 12.016/09',
+    when:'Contra ato ilegal de autoridade, com prova pronta, em até 120 dias.',
+    parts:[['Endereçamento','Competência definida pela <mark>autoridade coatora</mark>'],['Impetrante','Qualificação completa'],['Autoridade coatora e pessoa jurídica','Ambas indicadas (art. 6º)'],['Do ato coator e do prazo','Data da ciência e prazo de 120 dias (art. 23)'],['Do direito líquido e certo','Demonstrado com prova pré-constituída'],['Da liminar','Fundamento relevante e risco de ineficácia (art. 7º, III)'],['Dos pedidos','Notificação, ciência ao órgão de representação, oitiva do MP e concessão da segurança']],
+    adapt:[['Confirme que não depende de prova a produzir','Sem prova pronta, use outra via.'],['Conte o prazo de 120 dias','A partir da ciência do ato.'],['Identifique corretamente a autoridade','Erro aqui atrasa ou derruba o pedido.']],
+    review:['Prazo de 120 dias conferido','Autoridade e pessoa jurídica indicadas','Prova documental completa','Pedido de liminar'] },
+  { id:'hc', t:'Habeas corpus', area:'Criminal', base:'CF, art. 5º, LXVIII · CPP, arts. 647 a 667',
+    when:'Contra prisão ou ameaça ilegal à liberdade de locomoção.',
+    parts:[['Endereçamento','Tribunal ou juízo acima da autoridade coatora'],['Impetrante e paciente','Qualificação'],['Autoridade coatora','Quem praticou ou ameaça o constrangimento'],['Do constrangimento ilegal','Fatos e hipótese do art. 648 do CPP'],['Do pedido liminar','Urgência e plausibilidade'],['Do pedido','Expedição de alvará de soltura ou salvo-conduto']],
+    adapt:[['Identifique a hipótese do art. 648','Falta de justa causa, excesso de prazo, incompetência e outras.'],['Junte a decisão atacada','E os documentos que mostram a ilegalidade.'],['Seja objetivo','Quem julga lê muitos pedidos por dia.']],
+    review:['Decisão atacada anexada','Hipótese do art. 648 indicada','Pedido liminar','Dados do paciente'] },
+  { id:'inominado', t:'Recurso inominado', area:'Consumidor', base:'Lei 9.099/95, arts. 41 a 43',
+    when:'Contra sentença do Juizado Especial Cível, em 10 dias.',
+    parts:[['Petição de interposição','Ao juízo que deu a sentença'],['Tempestividade e preparo','Prazo de 10 dias e preparo em até 48 horas (art. 42)'],['Razões à Turma Recursal','Síntese, fundamentos e pontos da sentença atacados'],['Dos pedidos','Conhecimento e provimento para reformar a sentença']],
+    adapt:[['Lembre que há advogado obrigatório','No recurso, a parte precisa estar representada (art. 41, § 2º).'],['Confira o preparo','Inclui as custas dispensadas em primeiro grau.'],['Ataque os fundamentos da sentença','Um a um, com o trecho citado.']],
+    review:['Prazo de 10 dias','Preparo recolhido em 48 horas','Trechos da sentença citados'] },
+  { id:'notificacao', t:'Notificação extrajudicial', area:'Cível', base:'Prática contratual',
+    when:'Para registrar um pedido formal antes de entrar com uma ação.',
+    parts:[['Notificante e notificado','Qualificação'],['Dos fatos','O que aconteceu e qual obrigação não foi cumprida'],['Da solicitação','O que se pede, de forma clara'],['Do prazo','Prazo razoável para resposta ou cumprimento'],['Das consequências','Medidas que serão tomadas sem resposta'],['Local, data e assinatura','E forma de envio com comprovação de recebimento']],
+    adapt:[['Escolha um envio com prova','Cartório, AR ou e-mail com confirmação.'],['Use um tom firme e cordial','A notificação pode ser lida por um juiz depois.']],
+    review:['Prazo definido','Comprovante de recebimento','Cópia guardada'] },
+  { id:'honorarios', t:'Contrato de honorários', area:'Escritório', base:'Lei 8.906/94 · CED-OAB, arts. 48 a 50',
+    when:'Antes de começar qualquer serviço.',
+    parts:[['Partes','Cliente e advogado ou sociedade'],['Objeto e escopo','Serviço contratado e o que não está incluído'],['Honorários','Valor, forma e datas de pagamento'],['Despesas','Custas, deslocamentos e quem paga'],['Honorários de sucumbência','Pertencem ao advogado (Lei 8.906/94, art. 23)'],['Rescisão','Como cada parte pode encerrar e o que é devido'],['Foro','Comarca para dúvidas sobre o contrato']],
+    adapt:[['Use a delimitação de escopo da biblioteca','O escopo vira a cláusula de objeto.'],['Confira a tabela da seccional','Ela serve de referência para o valor.']],
+    review:['Escopo claro','Forma de pagamento definida','Assinatura das partes'] }
+];
+
+/* ============ DICAS ============ */
+const TIPS = [
+  { area:'Produtividade', t:'Troque “ver o caso” por uma próxima ação', b:'Uma tarefa vaga é fácil de adiar. Escreva exatamente o próximo passo: organizar os documentos recebidos, elaborar a linha do tempo ou listar as informações pendentes.', no:'Ver o caso da Maria', yes:'Montar a linha do tempo do caso da Maria até quinta', today:'Reescreva as três primeiras tarefas da sua lista começando por um verbo.', v:'v-areia' },
+  { area:'Atendimento', t:'Antes de responder, confirme o que você entendeu', b:'Ao final do relato, faça um resumo curto e pergunte se faltou algo. Isso evita que uma interpretação sua seja registrada como um fato informado pela pessoa.', no:'“Entendi, vou analisar.”', yes:'“Então o contrato venceu em março e o aviso chegou em abril. É isso?”', today:'No próximo atendimento, termine o relato com um resumo de três frases.', v:'v-noite' },
+  { area:'Gestão', t:'Dê nome às versões dos seus documentos', b:'Escolha um padrão de nomes e diferencie rascunhos de documentos revisados. Antes de enviar um arquivo, confira conteúdo, destinatário e versão.', no:'peticao_final_FINAL2.docx', yes:'2026-11-07_Silva_inicial_v3-revisada.docx', today:'Renomeie os arquivos de um processo ativo com o novo padrão.', v:'v-oliva' },
+  { area:'Carreira', t:'Termine a reunião com um combinado', b:'Anote quais são as pendências, quem cuida de cada uma e quando haverá uma nova comunicação. Um próximo passo claro deixa o acompanhamento mais organizado.', no:'“Qualquer coisa a gente se fala.”', yes:'“Você me envia o contrato até sexta e eu retorno na terça.”', today:'Use o modelo Resumo de reunião da biblioteca na próxima conversa.', v:'v-bronze' },
+  { area:'Prazos', t:'Conte o prazo duas vezes, por caminhos diferentes', b:'Calcule pelo sistema e confira à mão, ou peça a outra pessoa. Anote a data da intimação, o início e o fim. Feriados locais e suspensões mudam a conta.', no:'Confiar só no alerta do sistema', yes:'Sistema + calendário do tribunal + registro na agenda', today:'Confira os prazos da semana com uma segunda fonte.', v:'v-papel' },
+  { area:'Atendimento', t:'Mande um resumo por escrito depois da consulta', b:'Fatos principais, documentos pendentes e próximos passos, em uma mensagem curta. O cliente entende melhor o seu trabalho e você fica com um registro do combinado.', no:'Encerrar a consulta só com a conversa', yes:'Mensagem no mesmo dia, pedindo um “ok” de confirmação', today:'Envie o resumo da última consulta que ficou sem registro.', v:'v-grafite' },
+  { area:'Honorários', t:'Combine os honorários por escrito antes de começar', b:'O Código de Ética da OAB pede contrato de honorários por escrito. Deixe claro o serviço, o que não está incluído, o valor e a forma de pagamento.', no:'Combinar o valor só pelo WhatsApp', yes:'Contrato com escopo, valor, despesas e rescisão', today:'Revise o modelo de contrato que você usa hoje.', v:'v-areia' },
+  { area:'Audiências', t:'Leve um roteiro de uma página', b:'Pedidos, pontos controvertidos, perguntas para cada testemunha e os limites de acordo autorizados pelo cliente. Uma folha, letra grande, fácil de consultar na hora.', no:'Levar o processo inteiro e procurar na hora', yes:'Uma página com o essencial, em tópicos', today:'Monte o roteiro da sua próxima audiência.', v:'v-noite' },
+  { area:'Marketing', t:'Publique para explicar, não para captar', b:'O Provimento 205/2021 da OAB permite marketing de conteúdo informativo. Fica vedado oferecer serviço de forma mercantil ou captar clientela. Explique temas da sua área com clareza.', no:'“Ganhe sua causa! Chame no direct.”', yes:'“Três documentos para guardar depois de um acidente de trânsito.”', today:'Escreva um post respondendo a dúvida que você mais ouve.', v:'v-oliva' },
+  { area:'Produtividade', t:'Reserve um bloco para o trabalho que exige concentração', b:'Petições e pesquisas rendem mais em blocos sem interrupção. Marque na agenda, silencie as notificações e deixe as mensagens para depois.', no:'Escrever a peça entre uma mensagem e outra', yes:'Das 8h às 10h, só a peça. Mensagens às 10h', today:'Marque dois blocos de 90 minutos na agenda desta semana.', v:'v-bronze' }
+];
+
+/* ============ COMUNIDADE ============ */
+const CATS = ['Apresentações','Dúvidas práticas','Troca de experiências','Materiais e ideias','Conquistas','Avisos'];
+const POSTS = [
+  { a:'Equipe PratFlix', ini:'PF', cat:'Avisos', pinned:true, d:'fixado', t:'Boas-vindas à comunidade: comece se apresentando', b:'Conte sua cidade, sua área de interesse e o que você quer desenvolver na advocacia este ano. Use sempre casos fictícios e nunca publique dados de clientes. As publicações passam por aprovação antes de aparecer no mural.' },
+  { a:'Ana (exemplo)', ini:'AN', cat:'Dúvidas práticas', d:'há 2 horas', t:'Como vocês organizam os prazos no começo da carreira?', b:'Estou com poucos processos, mas já senti que a agenda do celular não dá conta. Vocês usam planilha, sistema ou as duas coisas? Como fazem a conferência?', r:6 },
+  { a:'Rafael (exemplo)', ini:'RA', cat:'Materiais e ideias', d:'ontem', t:'Adaptei o roteiro do primeiro atendimento para videochamada', b:'Acrescentei dois itens: testar o link 10 minutos antes e pedir que a pessoa esteja num lugar reservado. Fez diferença na qualidade da conversa.', r:3 },
+  { a:'Júlia (exemplo)', ini:'JU', cat:'Conquistas', d:'3 dias', t:'Fiz minha primeira audiência de instrução', b:'Levei o roteiro de uma página que vi nas dicas e consegui fazer todas as perguntas que tinha planejado. Ainda tenho muito a melhorar na oratória, então já salvei o curso.', r:11 }
+];
+
+/* ============ ABAS ============ */
+const TABS = [
+  { id:'biblioteca', label:'Biblioteca', icon:'book', render:renderLibrary },
+  { id:'trilhas', label:'Trilhas', icon:'route', render:renderPaths },
+  { id:'modelos', label:'Modelos de peça', icon:'doc', render:renderModels, badge:'Novo' },
+  { id:'dicas', label:'Dicas práticas', icon:'bulb', render:renderTips },
+  { id:'comunidade', label:'Comunidade', icon:'users', render:renderCommunity }
+];
+let current = null;
+$('#tabs').innerHTML = TABS.map(t => `<button class="tab" role="tab" id="tab-${t.id}" aria-controls="app-main" aria-selected="false" data-tab="${t.id}">${I(t.icon)}<span>${t.label}</span>${t.badge ? `<span class="tag new">${t.badge}</span>` : ''}</button>`).join('');
+function selectTab(id, scroll){
+  const tab = TABS.find(t => t.id === id) || TABS[0];
+  stopStory();
+  current = tab.id;
+  $$('.tab').forEach(b => { const on = b.dataset.tab === tab.id; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on) { const side = b.closest('.app-side'); if (side.scrollWidth > side.clientWidth) side.scrollTo({left: b.offsetLeft - 12, behavior:'smooth'}) } });
+  $('#app-main').setAttribute('aria-labelledby', 'tab-' + tab.id);
+  $('#app-main').innerHTML = `<div class="panel">${tab.render()}</div>`;
+  tab.after?.();
+  if (scroll) $('#por-dentro').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+}
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) { history.replaceState(null, '', '#' + b.dataset.tab); selectTab(b.dataset.tab) } });
+$('#tabs').addEventListener('keydown', e => {
+  if (!['ArrowDown','ArrowUp','ArrowLeft','ArrowRight'].includes(e.key)) return;
+  e.preventDefault(); const i = TABS.findIndex(t => t.id === current); const n = (i + (['ArrowDown','ArrowRight'].includes(e.key) ? 1 : -1) + TABS.length) % TABS.length;
+  selectTab(TABS[n].id); $('#tab-' + TABS[n].id).focus();
+});
+function fromHash(scroll){ const h = location.hash.slice(1); if (TABS.some(t => t.id === h)) selectTab(h, scroll); else if (!current) selectTab('biblioteca') }
+window.addEventListener('hashchange', () => fromHash(true));
+
+/* ---------- Capa de material ---------- */
+function cover(m, big){
+  const k = KINDS[m.kind];
+  return `<div class="cover ${m.v}">${m.ph ? `<div class="ph ph-${m.ph}"></div><div class="shade"></div>` : ''}<div class="ring" style="width:260px;height:260px;right:-120px;bottom:-90px"></div>
+    <div class="cover-top"><span class="cover-kind">${I(k.icon)}${k.label}</span><span>${m.min} min</span></div>
+    <p class="cover-title"${big ? ' style="font-size:clamp(40px,5vw,54px)"' : ''}>${E(m.t)}</p>
+    <div class="cover-foot"><span>${E(m.area)}</span>${m.soon ? '<span class="tag soon cover-tag">Em breve</span>' : m.acc === 'premium' ? '<span class="tag premium cover-tag">Premium</span>' : '<span class="tag cover-tag">Grátis</span>'}</div></div>`;
+}
+let libFilter = 'todos', libQuery = '';
+function libItems(){ return LIB.filter(m => (libFilter === 'todos' || m.kind === libFilter || (libFilter === 'gratis' && m.acc === 'free')) && (m.t + m.area + m.d).toLowerCase().includes(libQuery.toLowerCase())) }
+function renderLibrary(){
+  return `<div class="panel-head"><div><span class="eyebrow">Para aplicar no dia a dia</span><h2>Sua biblioteca <em>de prática.</em></h2><p>Roteiros, checklists, modelos e exercícios para levar a aula para a sua mesa. Abra uma capa para ver o passo a passo.</p></div></div>
+  <div class="toolbar"><div class="chips" role="group" aria-label="Filtrar materiais">${[['todos','Todos'],['gratis','Gratuitos'],['roteiro','Roteiros'],['checklist','Checklists'],['modelo','Modelos'],['exercicio','Exercícios']].map(([v,l]) => `<button class="chip" data-lib-filter="${v}" aria-pressed="${libFilter === v}">${l}</button>`).join('')}</div>
+  <label class="search">${I('search')}<span class="sr-only">Buscar material</span><input id="lib-q" type="search" placeholder="Buscar material" value="${E(libQuery)}"></label></div>
+  <div class="shelf" id="shelf">${shelf()}</div>`;
+}
+function shelf(){
+  const items = libItems();
+  if (!items.length) return `<p class="count">Nenhum material com esse filtro. Tente outra busca.</p>`;
+  return items.map(m => `<button class="book" data-open-mat="${m.id}" aria-label="Abrir ${E(m.t)}">${cover(m)}<div><p class="book-name">${E(m.t)}</p></div><p class="book-meta">${KINDS[m.kind].label}<i></i>${m.min} min</p><p class="book-desc">${E(m.d)}</p></button>`).join('');
+}
+
+/* ---------- Material aberto: checklist novo ---------- */
+function openMaterial(id){
+  const m = LIB.find(x => x.id === id); if (!m) return;
+  const total = m.stages.reduce((s, g) => s + g.items.length, 0);
+  const done = new Set(store.get('chk.' + m.id, []));
+  const html = `<div class="mat">
+    <aside class="mat-aside">${cover(m, true)}
+      <div class="mat-facts"><div><small>Tipo</small><b>${KINDS[m.kind].label}</b></div><div><small>Tempo</small><b>${m.min} minutos</b></div><div><small>Área</small><b>${E(m.area)}</b></div><div><small>Acesso</small><b>${m.soon ? 'Em breve' : m.acc === 'free' ? 'Gratuito' : 'Premium'}</b></div></div>
+      <div class="mat-actions">${m.soon ? `<a class="btn btn-primary" data-checkout href="${CONFIG.checkout}">Liberar no Premium ↗</a>` : `<a class="btn btn-primary" href="${CONFIG.platform}">${I('download')} Baixar na plataforma</a>`}<button class="btn btn-ghost" data-copy-mat="${m.id}">${I('copy')} Copiar o passo a passo</button></div>
+    </aside>
+    <div class="mat-main">
+      <div><span class="eyebrow">Biblioteca · ${KINDS[m.kind].label}</span><h2 id="m-title">${E(m.t)}</h2><p class="lead">${E(m.d)}</p></div>
+      <div class="when">${I('clock')}<div><b>Quando usar</b><p>${E(m.when)}</p></div></div>
+      ${m.soon ? `<div class="soon-note">${I('info')}<span>Material em produção. Abaixo você vê uma prévia do que ele vai trazer.</span></div>` : ''}
+      ${m.template ? `<div class="template-box"><h3>${I('pen')} Modelo para copiar</h3><pre>${E(m.template).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>')}</pre><p style="margin-top:12px"><button class="btn btn-ghost btn-sm" data-copy-template="${m.id}">${I('copy')} Copiar modelo</button></p></div>` : ''}
+      <div class="progress" id="prog"><div class="ring-prog"><svg viewBox="0 0 68 68"><circle class="bgc" cx="34" cy="34" r="28"/><circle class="fgc" cx="34" cy="34" r="28" stroke-dasharray="175.9" stroke-dashoffset="175.9"/></svg><span id="prog-n">0%</span></div><div><strong id="prog-t">Vamos começar</strong><p id="prog-s">0 de ${total} etapas concluídas</p></div><button class="reset" data-reset="${m.id}">Recomeçar</button></div>
+      ${m.stages.map((g, gi) => `<section class="stage" data-stage="${gi}"><div class="stage-head"><span class="stage-num">${gi + 1}</span><h3>${E(g.h)}</h3><small data-stage-count="${gi}"></small></div>
+        ${g.items.map((it, ii) => { const key = gi + '.' + ii; return `<label class="check"><input type="checkbox" data-chk="${m.id}" value="${key}" ${done.has(key) ? 'checked' : ''}><span class="box">${I('check')}</span><div><p class="check-t">${E(it[0])}</p><p class="check-d">${it[1]}</p></div></label>` }).join('')}</section>`).join('')}
+    </div></div>`;
+  openModal(html, 'm-title');
+  updateProgress(m);
+}
+function updateProgress(m){
+  const boxes = $$(`[data-chk="${m.id}"]`), done = boxes.filter(b => b.checked), total = boxes.length, pct = Math.round(done.length / total * 100);
+  store.set('chk.' + m.id, done.map(b => b.value));
+  $('.fgc').style.strokeDashoffset = 175.9 * (1 - done.length / total);
+  $('#prog-n').textContent = pct + '%';
+  $('#prog-s').textContent = `${done.length} de ${total} etapas concluídas`;
+  $('#prog-t').textContent = pct === 100 ? 'Tudo pronto. Bom trabalho!' : pct >= 50 ? 'Mais da metade feita' : done.length ? 'Bom começo' : 'Vamos começar';
+  $('#prog').classList.toggle('done', pct === 100);
+  m.stages.forEach((g, gi) => { const b = boxes.filter(x => x.value.startsWith(gi + '.')); const c = b.filter(x => x.checked).length; const el = $(`[data-stage-count="${gi}"]`); if (el) el.textContent = `${c}/${b.length}`; $(`[data-stage="${gi}"]`)?.classList.toggle('complete', c === b.length) });
+}
+
+/* ---------- Trilhas ---------- */
+let pathSel = 'entrada';
+function renderPaths(){
+  const p = PATHS.find(x => x.id === pathSel);
+  const steps = p.steps.map(t => C[t]);
+  const okCount = steps.filter(s => s.st === 'ok').length;
+  return `<div class="panel-head"><div><span class="eyebrow">Aprendizagem com direção</span><h2>Menos dúvida. <em>Mais próximo passo.</em></h2><p>Cada trilha organiza os cursos numa sequência. Escolha uma área e veja o percurso.</p></div></div>
+  <div class="route">
+    <div class="route-hero"><div class="ph ph-${p.ph}"></div>
+      <div><span class="tag ${p.tag === 'Gratuita' ? 'ok' : 'premium'}">${p.short} · ${p.tag}</span><h3>${E(p.t)}</h3><p>${E(p.d)}</p></div>
+      <div class="route-stats"><div><strong>${steps.length}</strong><span>cursos</span></div><div><strong>${okCount}</strong><span>liberados</span></div></div>
+    </div>
+    <ol class="stations">${steps.map((s, i) => `<li class="station ${s.st === 'ok' ? 'ok' : ''}"><div class="station-top"><span class="node">${i + 1}</span><span class="line"></span></div>
+      <h4>${E(s.t)}</h4>${s.p ? `<span class="prof">${E(s.p)}</span>` : ''}<p>${E(s.s)}</p>
+      <div class="foot">${s.st === 'ok' ? `<span class="tag ok">Disponível</span><a class="go" href="${CONFIG.platform}">Assistir ${I('arrow')}</a>` : '<span class="tag soon">Em produção</span>'}</div></li>`).join('')}</ol>
+    <div class="route-foot"><span>${okCount === steps.length ? 'Todos os cursos desta trilha já estão liberados.' : okCount ? `${okCount} de ${steps.length} cursos liberados. Os outros abrem quando forem publicados.` : 'Os cursos desta trilha estão em produção e abrem quando forem publicados.'}</span>${p.tag === 'Gratuita' ? `<a class="btn btn-primary btn-sm" href="${CONFIG.platform}">Começar de graça ↗</a>` : `<a class="btn btn-ghost btn-sm" href="${CONFIG.checkout}">Ver o Premium ↗</a>`}</div>
+  </div>
+  <div class="paths-grid" role="group" aria-label="Escolher trilha">${PATHS.map(x => { const n = x.steps.length; return `<button class="path-card ${x.v}" data-path="${x.id}" aria-pressed="${x.id === pathSel}">${x.v === 'v-foto' ? `<div class="ph ph-${x.ph}"></div><div class="shade"></div>` : ''}<div class="ring" style="width:220px;height:220px;right:-90px;top:-90px"></div>
+      <div><span class="tag ${x.tag === 'Gratuita' ? 'ok' : x.v === 'v-areia' || x.v === 'v-papel' ? '' : 'free'}">${x.tag}</span><p class="display" style="margin-top:14px">${E(x.t)}</p></div>
+      <div><div class="meta"><span>${n} cursos</span><span>${x.id === 'entrada' ? 'Comece aqui' : 'Em preparação'}</span></div>${x.progress ? `<div class="bar"><i style="width:${x.progress}%"></i></div>` : ''}</div></button>` }).join('')}</div>`;
+}
+
+/* ---------- Modelos de peça ---------- */
+let modelArea = 'Todas', modelQ = '';
+function renderModels(){
+  const areas = ['Todas', ...new Set(MODELS.map(m => m.area))];
+  return `<div class="panel-head"><div><span class="eyebrow">Novo · módulo em produção</span><h2>Modelos <em>de peça.</em></h2><p>Estruturas comentadas com a base legal, o que adaptar e o que revisar antes de protocolar. Os arquivos completos chegam com o módulo Modelos de peças, apresentado por Líbero Filho.</p></div><span class="tag soon">Em produção · Premium</span></div>
+  <div class="method"><div><b>Entenda</b><p>Cada parte da peça explicada, com o artigo que a fundamenta.</p></div><div><b>Adapte</b><p>Os campos que mudam em cada caso aparecem destacados.</p></div><div><b>Revise</b><p>Um checklist final para conferir antes de protocolar.</p></div></div>
+  <div class="toolbar"><div class="chips" role="group" aria-label="Filtrar por área">${areas.map(a => `<button class="chip" data-model-area="${a}" aria-pressed="${a === modelArea}">${a}</button>`).join('')}</div>
+  <label class="search">${I('search')}<span class="sr-only">Buscar modelo</span><input id="model-q" type="search" placeholder="Buscar peça" value="${E(modelQ)}"></label></div>
+  <div class="docs" id="docs">${docs()}</div>`;
+}
+function docs(){
+  const list = MODELS.filter(m => (modelArea === 'Todas' || m.area === modelArea) && (m.t + m.area + m.when).toLowerCase().includes(modelQ.toLowerCase()));
+  if (!list.length) return '<p class="count">Nenhuma peça encontrada. Tente outra palavra.</p>';
+  return list.map(m => `<button class="doc" data-open-model="${m.id}" aria-label="Ver estrutura de ${E(m.t)}"><div class="paper"><span class="tag area" style="background:var(--bg);color:var(--areia);border-color:var(--bg)">${E(m.area)}</span>
+    <div class="paper-body"><span class="addr">EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A)…</span><span class="ttl">${E(m.t)}</span><span class="ln"></span><span class="ln m"></span><span class="hd">${E(m.parts[2]?.[0] || 'DOS FATOS').toUpperCase()}</span><span class="ln"></span><span class="ln s"></span><span class="hd">${E(m.parts[3]?.[0] || 'DO DIREITO').toUpperCase()}</span><span class="ln m"></span><span class="ln"></span></div></div>
+    <p class="doc-name">${E(m.t)}</p><p class="doc-when">${E(m.when)}</p><div class="doc-tags"><span class="tag">${E(m.base)}</span></div></button>`).join('');
+}
+function openModel(id){
+  const m = MODELS.find(x => x.id === id); if (!m) return;
+  openModal(`<div class="model">
+    <div class="a4"><div class="stamp"><span>PRATFLIX · MODELOS DE PEÇAS</span><span>PRÉVIA DA ESTRUTURA</span></div><h4>${E(m.t)}</h4>
+      <ol>${m.parts.map(p => `<li><div><b>${E(p[0])}</b><span>${p[1]}</span></div></li>`).join('')}</ol>
+      <p class="fine">Base: ${E(m.base)}. Estrutura de referência para estudo. Confira a legislação e a jurisprudência atualizadas e adapte ao caso concreto.</p></div>
+    <div class="model-side"><div><span class="eyebrow">${E(m.area)} · ${E(m.base)}</span><h2 id="md-title">${E(m.t)}</h2><p class="lead" style="margin-top:12px;font-size:18px">${E(m.when)}</p></div>
+      <div class="seg" role="tablist" aria-label="Guia do modelo"><button role="tab" aria-selected="true" data-mseg="adapt">Como adaptar</button><button role="tab" aria-selected="false" data-mseg="review">Revisão final</button></div>
+      <div id="mseg-adapt"><ol class="steps-list">${m.adapt.map((a, i) => `<li><span class="n">${i + 1}</span><div><b>${E(a[0])}</b><span>${E(a[1])}</span></div></li>`).join('')}</ol></div>
+      <div id="mseg-review" hidden><div class="stage">${m.review.map((r, i) => `<label class="check"><input type="checkbox"><span class="box">${I('check')}</span><div><p class="check-t">${E(r)}</p></div></label>`).join('')}</div></div>
+      <div class="soon-note">${I('info')}<span>O arquivo editável deste modelo entra no Premium quando o módulo Modelos de peças for publicado.</span></div>
+      <a class="btn btn-primary" href="${CONFIG.checkout}">Quero os modelos completos ↗</a>
+    </div></div>`, 'md-title');
+}
+
+/* ---------- Dicas em formato stories ---------- */
+let tipIndex = 0, tipArea = 'Todas', storyTimer = null, storyPaused = false;
+const saved = new Set(store.get('tips.saved', []));
+const tipList = () => TIPS.map((t, i) => ({...t, i})).filter(t => tipArea === 'Todas' || t.area === tipArea);
+function renderTips(){
+  const areas = ['Todas', ...new Set(TIPS.map(t => t.area))];
+  return `<div class="panel-head"><div><span class="eyebrow">Uma dica por dia</span><h2>Dicas que cabem <em>na sua rotina.</em></h2><p>Cada dica traz um exemplo do que trocar e uma tarefa para fazer hoje. Toque nas laterais do cartão para avançar ou voltar.</p></div></div>
+  <div class="chips" role="group" aria-label="Filtrar dicas" style="margin-bottom:24px">${areas.map(a => `<button class="chip" data-tip-area="${a}" aria-pressed="${a === tipArea}">${a}</button>`).join('')}</div>
+  <div class="tips"><div id="story-wrap"></div><div class="tips-side"><h3>Todas as dicas</h3><p>Salve as que você quer aplicar esta semana.</p><div class="tip-list" id="tip-list"></div></div></div>`;
+}
+function drawStory(){
+  const list = tipList(); if (!list.length) return;
+  const pos = Math.max(0, list.findIndex(t => t.i === tipIndex)); const t = list[pos]; tipIndex = t.i;
+  const light = t.v === 'v-areia' || t.v === 'v-papel';
+  $('#story-wrap').innerHTML = `<article class="story ${t.v}${storyPaused ? ' paused' : ''}" aria-roledescription="dica" aria-label="Dica ${pos + 1} de ${list.length}">
+    <div class="ring" style="width:420px;height:420px;right:-200px;top:-160px"></div><div class="ring" style="width:600px;height:600px;right:-290px;top:-250px;opacity:.12"></div>
+    <div class="bars" style="color:${light ? 'var(--papel-ink)' : 'var(--areia)'}">${list.map((x, k) => `<button class="${k < pos ? 'seen' : k === pos ? 'now' : ''}" data-tip-go="${x.i}" aria-label="Ir para a dica ${k + 1}"><i></i></button>`).join('')}</div>
+    <div class="story-top"><div class="who"><span class="av">PF</span><span>Dica PratFlix<small>${pos + 1} de ${list.length}</small></span></div><div style="display:flex;gap:8px"><button class="icon-btn" data-story-pause aria-label="${storyPaused ? 'Continuar' : 'Pausar'}">${I(storyPaused ? 'play' : 'pause')}</button><button class="icon-btn" data-tip-save="${t.i}" aria-pressed="${saved.has(t.i)}" aria-label="Salvar dica">${I(saved.has(t.i) ? 'check' : 'bookmark')}</button></div></div>
+    <button class="tap l" data-tip-step="-1" aria-label="Dica anterior"></button><button class="tap r" data-tip-step="1" aria-label="Próxima dica"></button>
+    <div class="story-body"><span class="story-area">${E(t.area)}</span><h3>${E(t.t)}</h3><p class="body">${E(t.b)}</p>
+      <div class="swap"><div><small>Em vez de</small>${E(t.no)}</div><div class="yes"><small>Prefira</small>${E(t.yes)}</div></div></div>
+    <div class="story-foot"><div class="today">${I('target')}<span><b>Faça hoje:</b> ${E(t.today)}</span></div><div class="story-ctrl"><button class="icon-btn" data-copy-tip="${t.i}" aria-label="Copiar dica">${I('copy')}</button><button class="icon-btn" data-tip-step="-1" aria-label="Anterior">${I('left')}</button><button class="icon-btn" data-tip-step="1" aria-label="Próxima">${I('right')}</button></div></div>
+  </article>`;
+  $('#tip-list').innerHTML = list.map(x => `<button class="tip-item" data-tip-go="${x.i}" aria-current="${x.i === tipIndex}"><span class="tip-thumb ${x.v}">${String(x.i + 1).padStart(2, '0')}</span><span><small>${E(x.area)}</small><b>${E(x.t)}</b></span>${saved.has(x.i) ? `<span class="saved">${I('bookmark')}</span>` : '<span></span>'}</button>`).join('');
+  armStory();
+}
+function armStory(){
+  clearTimeout(storyTimer);
+  if (storyPaused || matchMedia('(prefers-reduced-motion: reduce)').matches) { $('.story')?.classList.add('paused'); return }
+  storyTimer = setTimeout(() => stepTip(1), 9000);
+}
+function stopStory(){ clearTimeout(storyTimer) }
+function stepTip(d){ const list = tipList(); const pos = list.findIndex(t => t.i === tipIndex); tipIndex = list[(pos + d + list.length) % list.length].i; drawStory() }
+TABS.find(t => t.id === 'dicas').after = drawStory;
+
+/* ---------- Comunidade ---------- */
+let commCat = 'Todas';
+const myPosts = [];
+function renderCommunity(){
+  return `<div class="comm-hero"><div class="ph ph-meeting"></div><span class="eyebrow">Conexões que viram prática</span><h3 style="margin-top:12px">Você não precisa descobrir tudo sozinho.</h3><p>Pergunte, compartilhe o que aprendeu e acompanhe quem também está construindo a própria advocacia. Aberta a membros gratuitos e Premium.</p></div>
+  <div class="comm"><div>
+    <form class="composer" id="composer"><div class="composer-top"><span class="av">VC</span><input id="c-title" placeholder="Sobre o que você quer conversar?" aria-label="Título da conversa" maxlength="120" required></div>
+      <textarea id="c-body" placeholder="Conte o contexto. Use um caso fictício e não inclua dados de clientes." aria-label="Texto da conversa" maxlength="1200" required></textarea>
+      <div class="composer-bot"><select id="c-cat" aria-label="Categoria">${CATS.filter(c => c !== 'Avisos').map(c => `<option>${c}</option>`).join('')}</select><button class="btn btn-primary btn-sm" type="submit">Publicar conversa</button><p class="hint">Toda publicação passa por aprovação da equipe antes de aparecer no mural.</p></div></form>
+    <div class="chips" role="group" aria-label="Filtrar conversas">${['Todas', ...CATS].map(c => `<button class="chip" data-comm-cat="${c}" aria-pressed="${c === commCat}">${c}</button>`).join('')}</div>
+    <div class="feed" id="feed">${feed()}</div>
+    <p class="example-note">As conversas acima são exemplos para mostrar o formato do mural.</p>
+  </div>
+  <aside class="comm-side">
+    <div class="box-side"><span class="eyebrow">Comece por aqui</span><h4>O primeiro passo é um oi.</h4><p>Conte sua área de interesse e o que você quer desenvolver na advocacia.</p><p style="margin-top:14px"><button class="btn btn-ghost btn-sm" data-present>Me apresentar</button></p></div>
+    <div class="box-side"><span class="eyebrow">Combinados</span><div style="margin-top:10px"><div class="rule">${I('heart')}Troque ideias com gentileza.</div><div class="rule">${I('lock')}Use casos fictícios, sem dados de clientes.</div><div class="rule">${I('shield')}Publicações e respostas passam por aprovação.</div><div class="rule">${I('book')}As conversas são educativas e não substituem a análise de um caso concreto.</div></div></div>
+    <div class="box-side"><span class="eyebrow">Categorias</span><div class="cats">${CATS.map(c => `<button class="cat" data-comm-cat="${c}" aria-pressed="${c === commCat}">${c}<small>${[...myPosts, ...POSTS].filter(p => p.cat === c).length}</small></button>`).join('')}</div></div>
+  </aside></div>`;
+}
+function feed(){
+  const list = [...myPosts, ...POSTS].filter(p => commCat === 'Todas' || p.cat === commCat);
+  if (!list.length) return `<div class="post"><h4>Nenhuma conversa nesta categoria ainda.</h4><p>Que tal começar a primeira?</p></div>`;
+  return list.map(p => `<article class="post${p.pinned ? ' pinned' : ''}"><div class="post-head"><span class="av">${E(p.ini)}</span><div><strong>${E(p.a)}</strong><small>${E(p.d)}</small></div><span class="tag ${p.cat === 'Avisos' ? 'premium' : ''}">${p.pinned ? 'Fixado · ' : ''}${E(p.cat)}</span></div>
+    <h4>${E(p.t)}</h4><p>${E(p.b)}</p>
+    <div class="post-foot">${p.pending ? '<span class="tag soon">Aguardando aprovação</span>' : `<button data-like aria-pressed="false">${I('heart')} Útil</button><button>${I('message')} ${p.r ? p.r + ' respostas' : 'Responder'}</button>`}</div></article>`).join('');
+}
+
+/* ---------- Modal ---------- */
+let lastFocus = null;
+function openModal(html, labelId){
+  lastFocus = document.activeElement; stopStory();
+  $('#modal-root').innerHTML = `<div class="modal" data-modal-bg><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="${labelId}"><button class="close" data-close aria-label="Fechar">${I('close')}</button>${html}</div></div>`;
+  document.body.style.overflow = 'hidden';
+  for (const k of Object.keys(CONFIG)) $$('#modal-root [data-' + k + ']').forEach(a => a.href = CONFIG[k]);
+  $('#modal-root .close').focus();
+}
+function closeModal(){ $('#modal-root').innerHTML = ''; document.body.style.overflow = ''; lastFocus?.focus?.(); if (current === 'dicas') armStory() }
+
+/* ---------- Eventos ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, a, [data-modal-bg]'); if (!t) return;
+  const d = t.dataset;
+  if (d.modalBg !== undefined && e.target === t) return closeModal();
+  if (d.close !== undefined) return closeModal();
+  if (d.libFilter) { libFilter = d.libFilter; $$('[data-lib-filter]').forEach(b => b.setAttribute('aria-pressed', b === t)); $('#shelf').innerHTML = shelf() }
+  if (d.openMat) openMaterial(d.openMat);
+  if (d.reset) { $$(`[data-chk="${d.reset}"]`).forEach(b => b.checked = false); updateProgress(LIB.find(m => m.id === d.reset)) }
+  if (d.copyMat) { const m = LIB.find(x => x.id === d.copyMat); copy(m.t.toUpperCase() + '\nPratFlix · Biblioteca\n\n' + m.stages.map((g, i) => `${i + 1}. ${g.h}\n` + g.items.map(it => `[ ] ${it[0]}`).join('\n')).join('\n\n')) }
+  if (d.copyTemplate) copy(LIB.find(x => x.id === d.copyTemplate).template);
+  if (d.path) { pathSel = d.path; $('#app-main').innerHTML = `<div class="panel">${renderPaths()}</div>`; $('.route').scrollIntoView({block:'nearest', behavior:'smooth'}) }
+  if (d.modelArea) { modelArea = d.modelArea; $$('[data-model-area]').forEach(b => b.setAttribute('aria-pressed', b === t)); $('#docs').innerHTML = docs() }
+  if (d.openModel) openModel(d.openModel);
+  if (d.mseg) { $$('[data-mseg]').forEach(b => b.setAttribute('aria-selected', b === t)); $('#mseg-adapt').hidden = d.mseg !== 'adapt'; $('#mseg-review').hidden = d.mseg !== 'review' }
+  if (d.tipArea) { tipArea = d.tipArea; $$('[data-tip-area]').forEach(b => b.setAttribute('aria-pressed', b === t)); tipIndex = tipList()[0]?.i ?? 0; drawStory() }
+  if (d.tipGo) { tipIndex = +d.tipGo; drawStory() }
+  if (d.tipStep) stepTip(+d.tipStep);
+  if (d.storyPause !== undefined) { storyPaused = !storyPaused; drawStory(); toast(storyPaused ? 'Dicas pausadas.' : 'Dicas em reprodução.') }
+  if (d.tipSave) { const i = +d.tipSave; saved.has(i) ? saved.delete(i) : saved.add(i); store.set('tips.saved', [...saved]); toast(saved.has(i) ? 'Dica salva na sua lista.' : 'Dica removida da lista.'); drawStory() }
+  if (d.copyTip) { const x = TIPS[+d.copyTip]; copy(`${x.t}\n\n${x.b}\n\nFaça hoje: ${x.today}\n\nPratFlix · Dicas práticas`) }
+  if (d.commCat) { commCat = d.commCat; $$('[data-comm-cat]').forEach(b => b.setAttribute('aria-pressed', b.dataset.commCat === commCat)); $('#feed').innerHTML = feed() }
+  if (d.like !== undefined) { const on = t.getAttribute('aria-pressed') !== 'true'; t.setAttribute('aria-pressed', on) }
+  if (d.present !== undefined) { $('#c-cat').value = 'Apresentações'; $('#c-title').value = 'Olá! Quero me apresentar'; $('#c-body').focus() }
+});
+document.addEventListener('change', e => { const c = e.target.closest('[data-chk]'); if (c) updateProgress(LIB.find(m => m.id === c.dataset.chk)) });
+document.addEventListener('input', e => {
+  if (e.target.id === 'lib-q') { libQuery = e.target.value; $('#shelf').innerHTML = shelf() }
+  if (e.target.id === 'model-q') { modelQ = e.target.value; $('#docs').innerHTML = docs() }
+});
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'composer') return; e.preventDefault();
+  myPosts.unshift({ a:'Você', ini:'VC', cat:$('#c-cat').value, d:'agora', t:$('#c-title').value.trim(), b:$('#c-body').value.trim(), pending:true });
+  commCat = 'Todas'; selectTab('comunidade'); toast('Conversa enviada para aprovação.');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && $('#modal-root').innerHTML) closeModal();
+  if (current === 'dicas' && !$('#modal-root').innerHTML && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && document.activeElement.closest?.('.story, .tips')) { if (e.key === 'ArrowRight') stepTip(1); if (e.key === 'ArrowLeft') stepTip(-1) }
+});
+
+/* ---------- Catálogo em fileiras ---------- */
+function posterHTML(c){
+  return `<a class="poster" href="${CONFIG.platform}"><div class="poster-art ${c.v}">${c.ph ? `<div class="ph ph-${c.ph}"></div><div class="shade"></div>` : ''}<div class="ring" style="width:240px;height:240px;right:-120px;bottom:-80px"></div>
+    <div class="poster-top"><span>${E(c.a)}</span>${c.acc === 'free' ? '<span class="tag free" style="font-size:10.5px;padding:3px 7px">Grátis</span>' : ''}</div>
+    <div><p class="poster-title">${E(c.t)}</p>${c.p ? `<p class="poster-prof">${E(c.p)}</p>` : ''}</div></div>
+    <div class="poster-meta">${c.st === 'ok' ? '<span class="tag ok">Disponível</span>' : '<span class="tag soon">Em produção</span>'}${c.acc === 'premium' ? '<span class="tag">Premium</span>' : '<span class="tag">Gratuito</span>'}</div>
+    <p class="poster-sub">${E(c.s)}</p></a>`;
+}
+const ROWS = [
+  { t:'Comece de graça', s:'Três cursos liberados com a conta gratuita.', f:c => c.acc === 'free' },
+  { t:'Já disponível no Premium', s:'O workshop de 2026 completo.', f:c => c.acc === 'premium' && c.st === 'ok' },
+  { t:'Prática por área', s:'Cursos com professores convidados, em produção.', f:c => c.st === 'soon' && c.p && c.a !== 'Modelos de peças' },
+  { t:'Escritório, modelos e IA', s:'Ferramentas para a rotina, em produção.', f:c => c.st === 'soon' && (!c.p || c.a === 'Modelos de peças') }
+];
+$('#rows').innerHTML = ROWS.map((r, i) => `<div class="row"><div class="row-head"><div><h3>${r.t}</h3><p>${r.s}</p></div><div class="row-nav"><button class="round" data-rail="${i}" data-dir="-1" aria-label="Voltar">${I('left')}</button><button class="round" data-rail="${i}" data-dir="1" aria-label="Avançar">${I('right')}</button></div></div><div class="rail" id="rail-${i}">${COURSES.filter(r.f).map(posterHTML).join('')}</div></div>`).join('');
+document.addEventListener('click', e => { const b = e.target.closest('[data-rail]'); if (b) { const r = $('#rail-' + b.dataset.rail); r.scrollBy({left: r.clientWidth * .8 * +b.dataset.dir, behavior:'smooth'}) } });
+
+/* ---------- Workshop e acesso ---------- */
+const LESSONS = [['Direito bancário para jovens advogados','Kalil Lage'],['Como atuar em audiências com confiança','William Carvalho'],['Marketing jurídico na prática','Líbero Filho'],['Notarial para advogados','Júlio'],['Como começar no previdenciário','Janikele'],['Registro de marcas e atuação no INPI','Rebeca'],['Como atuar no direito digital','Paloma'],['Direito criminal: proteção desde o primeiro momento','Victor Pontes'],['Gestão de escritório: organização, precificação e crescimento','Diogo Giestaa'],['Direito público: como advogar contra a Fazenda Pública','Albert'],['Mercado imobiliário e carteira de clientes','Maria Carolina Vidal'],['Como começar na área de compliance','Kesya'],['Oportunidades no Direito do Consumidor','Paulo Victor'],['Inteligência artificial para advogados iniciantes','Líbero Filho']];
+$('#lessons').innerHTML = LESSONS.map((l, i) => `<li><span class="n">${String(i + 1).padStart(2, '0')}</span><div><b>${E(l[0])}</b><span>${E(l[1])}</span></div></li>`).join('');
+$('#access-list').innerHTML = ['Workshop Jovem Advogado 2026, com 14 aulas','Cursos Premium publicados no seu período de acesso','Modelos de peças e materiais Premium da biblioteca, quando liberados','Trilhas, progresso, lista pessoal e anotações','Comunidade com membros gratuitos e Premium','Acesso pelo navegador, no celular ou no computador'].map(t => `<li>${I('check')}<span>${t}</span></li>`).join('');
+
+/* ---------- Menu do celular ---------- */
+const mb = $('#menu-btn'), menu = $('#menu');
+mb.addEventListener('click', () => { const o = !menu.classList.contains('open'); menu.classList.toggle('open', o); mb.setAttribute('aria-expanded', o) });
+menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); mb.setAttribute('aria-expanded', false) } });
+
+fromHash(TABS.some(t => t.id === location.hash.slice(1)));
+</script>
+</body>
+</html>
