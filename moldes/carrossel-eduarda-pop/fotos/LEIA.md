@@ -27,3 +27,5 @@ Fotos de artistas (mandadas pelo usuário, fora do git): diva-hannah.jpg, diva-s
 Recortes sem fundo (rembg, modelo u2net_human_seg; ver README do carrossel-eduarda-diva): eduarda-joinha-recorte.png, eduarda-surpresa-recorte.png e outros *-recorte.png.
 
 - eduarda-segredo.jpg, eduarda-escrevendo.jpg, eduarda-estudio-luz.jpg: fotos de estúdio (roxo) enviadas pelo usuário no chat em 23/10/2026 (capas de "Nomes de Civil que a banca deve aceitar" e "Ampliações na prova de Civil").
+
+Fotos enviadas pelo usuário em zip ("Bases Eduarda Caraciolo", nov/2026): eduarda-comemorando-recorte.png (resultado (3), sem fundo), eduarda-bracos-cruzados-recorte.png (resultado (2), sem fundo), eduarda-oculos-rindo.png (resultado.png).
