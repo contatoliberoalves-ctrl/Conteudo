@@ -22,3 +22,6 @@ Tudo sai de um arquivo só: `identidades/entre-notas-e-registros/kit.mjs`. O mol
 cd moldes/entre-notas-identidade && CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs
 ```
 Saída (fora do git): `identidades/entre-notas-e-registros/saida/` com `logos/` (PNG sem fundo), `pecas/`, `pranchas/` e o PDF do manual. Depois: `python3 galeria/atualizar.py entre-notas-identidade`, publique a galeria e faça commit.
+
+## Opções de logo
+`identidades/entre-notas-e-registros/opcoes.mjs` gera o PDF de apresentação com 6 caminhos (1 Selo sonoro, 2 Microfone pautado, 3 Diálogo, 4 Livro sonoro, 5 Carimbo, 6 Nota-pena), cada um com paleta e fontes próprias, mais os logos sem fundo em `saida/opcoes/logos/`. Escolhido um caminho, leve símbolo, cores e fontes dele para o `kit.mjs` e gere a identidade completa de novo.
