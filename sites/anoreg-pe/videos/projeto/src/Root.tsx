@@ -2,6 +2,9 @@ import React from "react";
 import { AbsoluteFill, Audio, Composition, Sequence, continueRender, delayRender, staticFile } from "remotion";
 import { BAR, FPS, TOTAL, fontFiles } from "./theme";
 import { BgMesh, Grade, Grain, SceneExit, Vignette } from "./components";
+import { StyleB, B_TOTAL } from "./styleB";
+import { StyleC, C_TOTAL } from "./styleC";
+import { StyleD, D_TOTAL } from "./styleD";
 import { Citizen, Commissions, Hero, Intro, Jornada, MembersTitle, Mobile, Outro, Painel, Scroll, Trilha } from "./scenes";
 
 const fontHandle = delayRender("fontes");
@@ -35,5 +38,11 @@ export const Root: React.FC = () => (
   <>
     <Composition id="Apresentacao16x9" component={Main} durationInFrames={TOTAL} fps={FPS} width={1920} height={1080} />
     <Composition id="Reels9x16" component={Main} durationInFrames={TOTAL} fps={FPS} width={1080} height={1920} />
+    <Composition id="DinamicoB16x9" component={StyleB} durationInFrames={B_TOTAL} fps={FPS} width={1920} height={1080} />
+    <Composition id="DinamicoB9x16" component={StyleB} durationInFrames={B_TOTAL} fps={FPS} width={1080} height={1920} />
+    <Composition id="CinemaC16x9" component={StyleC} durationInFrames={C_TOTAL} fps={FPS} width={1920} height={1080} />
+    <Composition id="CinemaC9x16" component={StyleC} durationInFrames={C_TOTAL} fps={FPS} width={1080} height={1920} />
+    <Composition id="MotionD16x9" component={StyleD} durationInFrames={D_TOTAL} fps={FPS} width={1920} height={1080} />
+    <Composition id="MotionD9x16" component={StyleD} durationInFrames={D_TOTAL} fps={FPS} width={1080} height={1920} />
   </>
 );

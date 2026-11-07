@@ -1,5 +1,12 @@
-Projeto Remotion dos vídeos. Para recriar:
-1. Copie para public/ as capturas (img/), as fontes (fonts/) e gere a música: python3 music.py public/music.wav
-2. npm install
-3. npx remotion render src/index.ts Apresentacao16x9 out/apresentacao-16x9.mp4 --codec h264 --crf 17
-   npx remotion render src/index.ts Reels9x16 out/reels-9x16.mp4 --codec h264 --crf 17
+Projeto Remotion dos vídeos de apresentação do portal ANOREG/PE.
+
+Estilos (composições em src/Root.tsx):
+  1 Clássico        Apresentacao16x9 / Reels9x16      music.py      -> public/music.wav
+  2 Dinâmico        DinamicoB16x9 / DinamicoB9x16      tracks.py b   -> public/music-b.wav
+  3 Cinematográfico CinemaC16x9 / CinemaC9x16          tracks.py c   -> public/music-c.wav
+  4 Motion          MotionD16x9 / MotionD9x16          tracks.py d   -> public/music-d.wav (usa d_events.json)
+
+Para recriar: coloque em public/ as capturas (img/) e as fontes (fonts/), gere as trilhas,
+nivele com ffmpeg -af loudnorm=I=-14:TP=-1.5 e rode:
+  npm install
+  npx remotion render src/index.ts <Composição> out/<nome>.mp4 --codec h264 --crf 17

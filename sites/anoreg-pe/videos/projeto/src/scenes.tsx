@@ -6,7 +6,7 @@ import {
 } from "./components";
 
 const C = theme.colors;
-const IMG = { siteFull: [2880, 13414], painel: [2880, 3656], trilha: [2880, 2372] } as const;
+const IMG = { siteFull: [2880, 13414], painel: [2880, 3656], trilha: [2880, 2356] } as const;
 const ratio = (k: keyof typeof IMG) => IMG[k][1] / IMG[k][0];
 
 const LogoPlate: React.FC<{ width: number; delay?: number }> = ({ width, delay = 0 }) => {
@@ -258,7 +258,7 @@ export const Jornada: React.FC = () => {
 export const Trilha: React.FC = () => {
   const v = useIsV();
   const f = useCurrentFrame();
-  const steps = ["Explorar", "Na prática", "Desafio"];
+  const steps = ["Conteúdo", "Aplicação", "Selo da trilha"];
   const active = Math.min(2, Math.floor(interpolate(f, [BEAT * 2, BEAT * 7], [0, 3], clamp)));
   const bw = v ? 940 : 1180, bh = v ? 720 : 740;
   return (
