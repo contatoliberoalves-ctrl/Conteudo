@@ -395,3 +395,10 @@ input:focus-visible + .pv-box { outline: 2px solid var(--accent); outline-offset
 .pv-cover .pv-tag-gold, .pv-route-hero .pv-tag-gold { background: var(--pv-areia); color: var(--pv-ink); border-color: var(--pv-areia) }
 .pv-cover .pv-tag-free, .pv-route-hero .pv-tag-free { color: #f4f1ea; border-color: #ffffff55 }
 .pv-v-areia.pv-cover .pv-tag-free, .pv-v-papel.pv-cover .pv-tag-free { color: var(--pv-ink); border-color: #1b1a1755 }
+
+.pv-paper-tags { display: flex; justify-content: space-between; gap: 6px; padding-right: 30px }
+.pv-tag-pdf { background: var(--pv-areia); color: var(--pv-ink); border-color: #1b1a1730 }
+.pv-pdf-box { display: flex; gap: 14px; padding: 18px; border-radius: 14px; background: linear-gradient(135deg, #e3d6b41c, var(--panel)); border: 1px solid var(--gold) }
+.pv-pdf-box strong { display: block; font-size: 17px; margin-bottom: 4px }
+.pv-pdf-box p { font-size: 15.5px !important; color: var(--muted); margin: 0 }
+a.btn svg { width: 18px; height: 18px }

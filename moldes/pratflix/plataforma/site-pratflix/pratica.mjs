@@ -215,20 +215,22 @@ export function initPratica(ctx) {
   /* ================= MODELOS DE PEÇA ================= */
   let modelArea = 'Todas', modelQ = '';
   const modelsCourse = () => courseByTitle('Modelos de peças');
+  const PDF_DIR = '/pratflix/modelos/', PDF_ALL = PDF_DIR + 'PratFlix-Modelos-de-peca.pdf';
+  const pdfLink = (id, label, cls = 'btn') => `<a class="${cls}" href="${PDF_DIR}${id}.pdf" target="_blank" rel="noopener">${I('download')}${label}</a>`;
   function docs() {
     const q = modelQ.toLowerCase(), list = MODELS.filter(m => (modelArea === 'Todas' || m.area === modelArea) && (!q || (m.t + m.area + m.when + m.base).toLowerCase().includes(q)));
     if (!list.length) return `<div class="pv-empty">${I('search')}<strong>Nenhuma peça encontrada</strong><p>Tente outra palavra ou outra área.</p></div>`;
     return list.map(m => `<button class="pv-doc" data-pf-model="${m.id}" aria-label="Ver a estrutura de ${E(m.t)}">
-      <span class="pv-paper"><span class="pv-tag pv-tag-ink">${E(m.area)}</span><span class="pv-paper-addr">EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A)…</span><span class="pv-paper-t">${E(m.t)}</span>
+      <span class="pv-paper"><span class="pv-paper-tags"><span class="pv-tag pv-tag-ink">${E(m.area)}</span><span class="pv-tag pv-tag-pdf">${I('download')}PDF</span></span><span class="pv-paper-addr">EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A)…</span><span class="pv-paper-t">${E(m.t)}</span>
         ${m.parts.slice(1, 4).map(p => `<span class="pv-paper-h">${E(p[0])}</span><span class="pv-ln"></span><span class="pv-ln pv-ln-s"></span>`).join('')}</span>
       <span class="pv-doc-name">${E(m.t)}</span><span class="pv-doc-when">${E(m.when)}</span><span class="pv-doc-base">${E(m.base)}</span></button>`).join('');
   }
   function models() {
     const c = modelsCourse(), ready = c?.status === 'available';
     const areas = ['Todas', ...new Set(MODELS.map(m => m.area))];
-    return `<section class="pv-models-hero"><div><span class="pv-eyebrow">Novo · ${ready ? 'Disponível' : 'Em produção'}</span><h1 class="pv-h1">Modelos de peça <em>para entender, adaptar e revisar.</em></h1>
-      <p class="pv-lead">Cada modelo mostra a estrutura da peça com a base legal, o que muda em cada caso e um checklist para conferir antes de protocolar.${ready ? '' : ' Os arquivos editáveis chegam com o módulo Modelos de peças, apresentado por Líbero Filho.'}</p>
-      <div class="pv-actions">${c ? `<button class="btn pv-btn-lg" data-course="${c.id}">${I('play')}${ready ? 'Assistir à apresentação' : 'Conhecer o módulo'}</button>` : ''}<span class="pv-tag ${ready ? 'pv-tag-ok' : 'pv-tag-soon'}">${MODELS.length} estruturas · ${ready ? 'liberado' : 'em produção'}</span></div></div>
+    return `<section class="pv-models-hero"><div><span class="pv-eyebrow">Novo · ${MODELS.length} modelos em PDF</span><h1 class="pv-h1">Modelos de peça <em>para entender, adaptar e revisar.</em></h1>
+      <p class="pv-lead">Cada modelo traz a estrutura comentada com a base legal, o que adaptar ao seu caso, o texto completo da peça para preencher e um checklist para conferir antes de protocolar. Abra uma peça para ver a estrutura ou baixe o PDF.</p>
+      <div class="pv-actions"><a class="btn pv-btn-lg" href="${PDF_ALL}" target="_blank" rel="noopener">${I('download')}Baixar todos os modelos (PDF)</a>${c ? `<button class="btn secondary pv-btn-lg" data-course="${c.id}">${I('play')}${ready ? 'Assistir às aulas' : 'Aulas em produção'}</button>` : ''}</div></div>
       <ol class="pv-method"><li><b>Entenda</b><span>Cada parte da peça explicada, com o artigo que a fundamenta.</span></li><li><b>Adapte</b><span>Os campos que mudam em cada caso aparecem destacados.</span></li><li><b>Revise</b><span>Um checklist final para conferir antes de protocolar.</span></li></ol></section>
     <div class="pv-toolbar"><div class="pv-chips" role="group" aria-label="Filtrar por área">${areas.map(a => `<button class="pv-chip" data-pf-area="${E(a)}" aria-pressed="${a === modelArea}">${E(a)}</button>`).join('')}</div>
       <label class="pv-search">${I('search')}<span class="sr-only">Buscar modelo</span><input id="pv-model-q" type="search" placeholder="Buscar peça, artigo ou área" value="${E(modelQ)}"></label></div>
@@ -245,8 +247,8 @@ export function initPratica(ctx) {
         <div class="pv-seg" role="tablist"><button role="tab" aria-selected="true" data-pf-seg="adapt">Como adaptar</button><button role="tab" aria-selected="false" data-pf-seg="review">Revisão final</button></div>
         <ol class="pv-adapt" id="pv-seg-adapt">${m.adapt.map((a, i) => `<li><span>${i + 1}</span><div><b>${E(a[0])}</b><p>${E(a[1])}</p></div></li>`).join('')}</ol>
         <ul class="pv-review" id="pv-seg-review" hidden>${m.review.map((t, i) => `<li><label><input type="checkbox" data-pf-rev="${id}" value="${i}" ${rv.has(String(i)) ? 'checked' : ''}><span class="pv-box">${I('check')}</span><span>${E(t)}</span></label></li>`).join('')}</ul>
-        ${c && c.status !== 'available' ? `<div class="pv-soon">${I('clock')}<span>O arquivo editável deste modelo entra no Premium quando o módulo Modelos de peças for publicado.</span></div>` : ''}
-        <div class="pv-actions"><button class="btn" data-pf-copymodel="${id}">${I('edit')}Copiar a estrutura</button>${c ? `<button class="btn secondary" data-course="${c.id}">Ver o módulo</button>` : ''}</div></div></div>`, true);
+        <div class="pv-pdf-box"><span class="pv-note-icon">${I('file')}</span><div><strong>O modelo completo em PDF</strong><p>Estrutura comentada, como adaptar, o texto da peça com os campos para preencher e o checklist antes de protocolar. O texto pode ser copiado para o seu editor.</p></div></div>
+        <div class="pv-actions">${pdfLink(id, 'Baixar o modelo (PDF)')}<button class="btn secondary" data-pf-copymodel="${id}">${I('edit')}Copiar a estrutura</button></div></div></div>`, true);
     $('.modal')?.classList.add('pv-modal');
   }
 
