@@ -1,0 +1,397 @@
+/* PratFlix · leitura maior e telas de prática (Biblioteca, Trilhas, Modelos de peça, Dicas)
+   Carregado depois de style.css. Usa as variáveis do tema (claro e escuro). */
+:root {
+  --pv-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --pv-areia: #e3d6b4; --pv-papel: #f4f1ea; --pv-ink: #1b1a17; --pv-ouro: #7d6a3e;
+  --pv-radius: 16px;
+}
+
+/* ---------- 1. Leitura: tamanhos mínimos em toda a plataforma ---------- */
+body { font-size: 16px; line-height: 1.6 }
+.brand-caption { font-size: 10px }
+.nav-label { font-size: 11px; letter-spacing: 2px }
+.nav-item { font-size: 14.5px; padding: 12px 12px; gap: 11px; white-space: nowrap }
+.nav-item b { font-size: 9px; padding: 2px 5px; margin-left: auto }
+.club-mini strong { font-size: 15px } .club-mini p { font-size: 13.5px; line-height: 1.5 } .club-mini button { font-size: 13px }
+.side-sign { font-size: 10.5px }
+.crumb { font-size: 14px } .searchbox input { font-size: 14px } .user-menu { font-size: 14px } .user-menu small { font-size: 12px } .avatar { font-size: 13px }
+.theme-toggle { font-size: 14px }
+.eyebrow { font-size: 12px; letter-spacing: 2px }
+.welcome p, .hero p, .page-title p, .section-head p, .panel p, .modal p, .empty p, .profile-card p, .premium-box p { font-size: 16.5px; line-height: 1.65 }
+.page-title h1 { font-size: clamp(32px, 3vw, 42px) }
+.date, .hero-meta, .tagline { font-size: 13.5px }
+.hero .pill, .pill { font-size: 11px; letter-spacing: 1.4px }
+.hero-index, .hero-corner { font-size: 11px }
+.btn { font-size: 15px; padding: 13px 22px; border-radius: 8px } .btn.small { font-size: 14px }
+.benefit strong { font-size: 16px } .benefit p { font-size: 14.5px }
+.text-link { font-size: 15px }
+.cover-top { font-size: 9px } .cover-title small { font-size: 10px } .course-badge.pill { font-size: 9px; letter-spacing: 1px }
+.course-foot h3 { font-size: 16.5px; line-height: 1.35 } .course-foot p, .course-foot .meta { font-size: 13.5px }
+.mini-label { font-size: 11.5px; letter-spacing: 1.4px }
+.chip { font-size: 14.5px; padding: 11px 18px; border-radius: 999px }
+.free-banner p { font-size: 15px } .free-banner .eyebrow { font-size: 11.5px }
+.tip-card p { font-size: 16px } .resource-row h3 { font-size: 16px } .resource-row p { font-size: 13px }
+.footer, .footer button { font-size: 13px }
+.stat label { font-size: 13px } .stat small { font-size: 13px }
+.panel h2 { font-size: 21px }
+.field { font-size: 15px } .field small { font-size: 13px } .check { font-size: 15px } .error, .hint { font-size: 14.5px }
+table { font-size: 14.5px } th { font-size: 12px }
+.path p { font-size: 15px } .path h3 { font-size: 18px }
+.auth-tabs button { font-size: 15px }
+.lesson-row>span:first-child { font-size: 14px } .lesson-row strong { font-size: 15.5px } .lesson-row small { font-size: 13px }
+.reading { font-size: 17px } .lesson-nav h3 { font-size: 16px } .lesson-nav .lesson-row strong { font-size: 14.5px }
+.premium-features div { font-size: 15.5px } .preview-bar, .preview-bar button { font-size: 14px }
+#toast { font-size: 15px } .notice { font-size: 15px; line-height: 1.55 } .loading p { font-size: 15px }
+.resume-intro strong { font-size: 16px } .resume-intro p, .resume-content>p { font-size: 14.5px } .resume-time, .resume-next { font-size: 13px } .resume-content .btn { font-size: 14px }
+.playback-bar { font-size: 14px } .next-step>span { font-size: 15px }
+.free-kicker, .free-dashboard .eyebrow { font-size: 12px } .free-hero-symbol p { font-size: 14px }
+.focus-selector span, .checkpoint-row a, .free-shortcuts a>span:last-child, .calendar-state { font-size: 14px }
+.calendar-card .pill, .journey-page .pill { font-size: 11px }
+.reading-topline, .reading-number { font-size: 13px }
+/* Comunidade */
+.community-welcome p { font-size: 16.5px; line-height: 1.6 } .community-welcome h2 { font-size: 24px }
+.community-rule { font-size: 15.5px; line-height: 1.5 }
+.discussion { padding: 28px }
+.discussion-head strong { font-size: 16px } .discussion-head small { font-size: 13.5px } .discussion-head .pill { font-size: 11px }
+.discussion-title { font-size: 23px; line-height: 1.3 }
+.discussion p { font-size: 17px; line-height: 1.65 }
+.discussion .text-link { font-size: 15px }
+.comment strong { font-size: 15.5px } .comment small { font-size: 13px } .comment p { font-size: 16px; line-height: 1.6 }
+.community-layout { grid-template-columns: minmax(0, 1fr) 320px }
+.community-side .panel h2 { font-size: 21px }
+#community-search input, .community-toolbar .btn { font-size: 15px }
+.modal textarea, .modal input, .modal select { font-size: 16px }
+
+/* ---------- 2. Peças comuns ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+.pv-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--gold) }
+.pv-eyebrow::before { content: ""; width: 26px; height: 1.5px; background: currentColor }
+.pv-h1 { font-family: Manrope, sans-serif; font-weight: 600; font-size: clamp(34px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -1.6px; margin: 14px 0 0; text-wrap: balance }
+.pv-h1 em { font-style: normal; color: var(--accent) }
+.pv-lead { font-size: 18px; line-height: 1.65; color: var(--muted); margin-top: 14px; max-width: 640px }
+.pv-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; margin-bottom: 34px }
+.pv-stats { display: flex; gap: 34px; margin-top: 26px; flex-wrap: wrap }
+.pv-stats div { display: grid; gap: 2px }
+.pv-stats strong { font-family: var(--pv-display); font-weight: 800; font-size: 48px; line-height: 1; color: var(--accent) }
+.pv-stats span { font-size: 14px; color: var(--muted); font-weight: 600 }
+.pv-stats-side { margin-top: 0 }
+.pv-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 26px }
+.pv-btn-lg { font-size: 16px; padding: 16px 26px }
+.pv-btn-lg svg, .pv-actions .btn svg { width: 18px; height: 18px }
+.pv-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin: 34px 0 30px }
+.pv-chips { display: flex; gap: 10px; flex-wrap: wrap }
+.pv-chip { min-height: 46px; padding: 10px 20px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--panel); color: var(--muted); font-size: 15px; font-weight: 600; transition: .2s }
+.pv-chip:hover { color: var(--text); border-color: var(--gold) }
+.pv-chip[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg) }
+.pv-search { display: flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 18px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--panel); min-width: min(100%, 320px); color: var(--muted) }
+.pv-search svg { width: 20px; height: 20px; flex: none }
+.pv-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; color: var(--text); font-size: 16px; min-height: 46px }
+.pv-search:focus-within { border-color: var(--accent) }
+.pv-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1.25; border: 1px solid var(--line); color: var(--muted); white-space: nowrap }
+.pv-tag svg { width: 13px; height: 13px }
+.pv-tag-free { color: var(--text); border-color: var(--ink-ffffff35, #ffffff35) }
+.pv-tag-gold { background: var(--accent); border-color: var(--accent); color: #1b1a17 }
+.pv-tag-ok { color: var(--green); border-color: currentColor }
+.pv-tag-soon { color: #d9b56a; border-color: #d9b56a66 }
+.pv-tag-lock { background: #121212d9; color: var(--pv-areia); border-color: transparent }
+.pv-tag-ink { background: var(--pv-ink); color: var(--pv-areia); border-color: var(--pv-ink) }
+.pv-empty { display: grid; justify-items: center; gap: 10px; text-align: center; padding: 60px 24px; border: 1.5px dashed var(--line); border-radius: var(--pv-radius); color: var(--muted) }
+.pv-empty svg { width: 34px; height: 34px; color: var(--gold) }
+.pv-empty strong { font-size: 20px; color: var(--text) }
+.pv-empty p { font-size: 16px }
+.pv-link { background: none; color: var(--muted); font-size: 14.5px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px }
+.pv-round, .pv-icon-btn { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--panel2); border: 1px solid var(--line); color: var(--text); transition: .2s }
+.pv-round svg, .pv-icon-btn svg { width: 20px; height: 20px }
+.pv-icon-btn:hover { border-color: var(--accent); color: var(--accent) }
+.pv-box { width: 30px; height: 30px; border-radius: 9px; border: 2px solid var(--ink-ffffff35, #ffffff40); display: grid; place-items: center; flex: none; transition: .2s; background: var(--bg) }
+.pv-box svg { width: 18px; height: 18px; stroke-width: 3; color: #1b1a17; opacity: 0; transform: scale(.3); transition: .25s cubic-bezier(.2, .8, .2, 1.4) }
+input:checked + .pv-box { background: var(--accent); border-color: var(--accent) }
+input:checked + .pv-box svg { opacity: 1; transform: none }
+input:focus-visible + .pv-box { outline: 2px solid var(--accent); outline-offset: 3px }
+.pv-box-sm { width: 24px; height: 24px; border-radius: 7px } .pv-box-sm svg { width: 14px; height: 14px }
+.pv-step-check input, .pv-sub input, .pv-review input { position: absolute; opacity: 0; pointer-events: none }
+
+/* Paletas de capa (arte: iguais nos dois temas) */
+.pv-v-areia { background: var(--pv-areia); color: var(--pv-ink) }
+.pv-v-papel { background: var(--pv-papel); color: var(--pv-ink) }
+.pv-v-oliva { background: linear-gradient(155deg, #3a4431, #1b2019); color: #f4f1ea }
+.pv-v-bronze { background: linear-gradient(155deg, #5a4527, #1f1a12); color: #f4f1ea }
+.pv-v-grafite { background: linear-gradient(155deg, #34322d, #151412); color: #f4f1ea }
+.pv-v-noite { background: linear-gradient(155deg, #28323a, #111518); color: #f4f1ea }
+.pv-v-foto { background: #151412; color: #f4f1ea }
+
+/* ---------- 3. Biblioteca ---------- */
+.pv-lib-hero { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 40px; align-items: center; padding: clamp(28px, 4vw, 52px); border-radius: 22px; border: 1px solid var(--line); background: radial-gradient(ellipse at 85% 30%, #e3d6b41f, transparent 60%), linear-gradient(135deg, var(--panel2), var(--panel)) }
+.pv-fan { position: relative; height: 340px }
+.pv-fan-card { position: absolute; width: 210px; top: 50%; left: 50%; transition: transform .5s cubic-bezier(.2, .8, .2, 1) }
+.pv-fan-0 { transform: translate(-50%, -50%) rotate(-2deg); z-index: 3 }
+.pv-fan-1 { transform: translate(-95%, -46%) rotate(-12deg); z-index: 2; opacity: .9 }
+.pv-fan-2 { transform: translate(-5%, -44%) rotate(9deg); z-index: 1; opacity: .85 }
+.pv-lib-hero:hover .pv-fan-1 { transform: translate(-110%, -48%) rotate(-15deg) }
+.pv-lib-hero:hover .pv-fan-2 { transform: translate(8%, -46%) rotate(12deg) }
+.pv-shelf-group + .pv-shelf-group { margin-top: 52px }
+.pv-shelf-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; padding-bottom: 16px; border-bottom: 1px solid var(--line) }
+.pv-shelf-icon { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; background: var(--panel2); color: var(--accent); border: 1px solid var(--line) }
+.pv-shelf-icon svg { width: 22px; height: 22px }
+.pv-shelf-head h2 { font-family: Manrope, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.6px; line-height: 1.2 }
+.pv-shelf-head p { font-size: 15.5px; color: var(--muted) }
+.pv-count { margin-left: auto; font-size: 14px; color: var(--muted); font-weight: 600 }
+.pv-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 34px 24px }
+.pv-book { display: grid; gap: 10px; text-align: left; background: none; padding: 0; color: var(--text); min-width: 0 }
+.pv-book-name { font-size: 17.5px; font-weight: 700; line-height: 1.3; margin-top: 6px }
+.pv-book-meta { font-size: 14.5px; color: var(--muted) }
+.pv-cover { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 3/4; border-radius: 5px 14px 14px 5px; padding: 20px 18px 18px 28px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 24px 40px -24px #000, inset 0 1px 0 #ffffff1c; transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s }
+.pv-cover::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 13px; z-index: 3; background: linear-gradient(90deg, #00000070, #0000001f 55%, #ffffff22 72%, #00000018) }
+.pv-cover::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .09; mix-blend-mode: overlay; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>") }
+.pv-book:hover .pv-cover, .pv-book:focus-visible .pv-cover { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 36px 50px -26px #000 }
+.pv-cover-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; filter: grayscale(1) contrast(1.05) brightness(.55) }
+.pv-cover-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(180deg, #1212128c, #12121222 40%, #121212f2) }
+.pv-cover-mark { position: absolute; right: -28px; bottom: 34px; z-index: -1; opacity: .1 }
+.pv-cover-mark svg { width: 170px; height: 170px; stroke-width: 1.2 }
+.pv-cover-top { display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--pv-areia) }
+.pv-cover-top span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap }
+.pv-cover-top svg { width: 14px; height: 14px }
+.pv-v-areia .pv-cover-top, .pv-v-papel .pv-cover-top { color: var(--pv-ouro) }
+.pv-cover-title { font-family: var(--pv-display); font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 2.4vw, 38px); line-height: .9; letter-spacing: .2px; text-wrap: balance; hyphens: manual }
+.pv-cover-title.is-mid { font-size: clamp(28px, 2.1vw, 34px) }
+.pv-cover-title.is-long { font-size: clamp(25px, 1.8vw, 30px) }
+.pv-cover-foot { display: flex; justify-content: space-between; align-items: end; gap: 8px; font-size: 13px; font-weight: 700; opacity: .92 }
+.pv-v-areia .pv-tag-free, .pv-v-papel .pv-tag-free { color: var(--pv-ink); border-color: #1b1a1755 }
+.pv-cover-sm { width: 200px; flex: none }
+.pv-cover-sm .pv-cover-title { font-size: 30px }
+
+/* ---------- 4. Material aberto ---------- */
+.modal.pv-modal { max-width: 1120px; padding: 0; background: var(--bg) }
+.modal.pv-modal > .close { position: sticky; top: 14px; float: right; margin: 14px 14px 0 0; z-index: 6; width: 46px; height: 46px; border-radius: 50%; background: var(--panel2); border: 1px solid var(--line) }
+.pv-res-head { display: flex; gap: 32px; align-items: start; padding: clamp(24px, 3.4vw, 44px); background: radial-gradient(ellipse at 10% 0%, #e3d6b414, transparent 60%), var(--panel); border-bottom: 1px solid var(--line) }
+.pv-res-title { min-width: 0 }
+.pv-res-title h2, .pv-model-side h2 { font-family: Manrope, sans-serif; font-size: clamp(30px, 3vw, 42px); font-weight: 600; letter-spacing: -1.2px; line-height: 1.1; margin: 12px 0 0; padding: 0 }
+.pv-res-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: 15px; color: var(--muted); font-weight: 600 }
+.pv-res-meta span { display: inline-flex; align-items: center; gap: 7px }
+.pv-res-meta svg { width: 17px; height: 17px; color: var(--gold) }
+.pv-progress { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; gap: 18px; padding: 16px clamp(24px, 3.4vw, 44px); background: var(--panel2); border-bottom: 1px solid var(--line) }
+.pv-ring { position: relative; width: 60px; height: 60px; flex: none }
+.pv-ring svg { width: 60px; height: 60px; transform: rotate(-90deg) }
+.pv-ring circle { fill: none; stroke-width: 6 }
+.pv-ring-bg { stroke: var(--line) } .pv-ring-fg { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset .5s cubic-bezier(.2, .8, .2, 1) }
+.pv-ring span { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: 15px }
+.pv-progress strong { display: block; font-size: 18px }
+.pv-progress p { font-size: 15px !important; color: var(--muted); margin: 0 }
+.pv-progress .pv-link { margin-left: auto }
+.pv-progress.is-done .pv-ring-fg { stroke: var(--green) }
+.pv-res-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: 28px; padding: clamp(22px, 3.4vw, 44px) }
+.pv-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: s }
+.pv-step { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 18px; padding: 22px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); transition: border-color .25s, background .25s }
+.pv-step.is-done { border-color: var(--accent); background: linear-gradient(135deg, #e3d6b40f, var(--panel)) }
+.pv-step-check { cursor: pointer; padding-top: 2px }
+.pv-step-n { font-size: 12.5px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold) }
+.pv-step h3 { font-family: Manrope, sans-serif; font-size: 21px; font-weight: 700; line-height: 1.3; margin: 6px 0 8px; transition: color .2s }
+.pv-step.is-done h3 { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--line) }
+.pv-step p { font-size: 16.5px !important; line-height: 1.65; color: var(--muted); margin: 0 0 6px }
+.pv-sub { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px }
+.pv-sub label { display: flex; gap: 12px; align-items: start; font-size: 16px; cursor: pointer; padding: 6px 0 }
+.pv-res-side { display: grid; gap: 14px; align-content: start }
+.pv-note { display: flex; gap: 14px; padding: 20px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line) }
+.pv-note-icon { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--panel2); color: var(--accent) }
+.pv-note-icon svg { width: 20px; height: 20px }
+.pv-note strong { display: block; font-size: 17px; margin-bottom: 4px }
+.pv-note p { font-size: 16px !important; color: var(--muted); margin: 0 }
+.pv-task { padding: 22px; border-radius: 14px; border: 1.5px dashed var(--gold); background: #e3d6b40a }
+.pv-task h3 { font-size: 21px; margin: 10px 0 6px; font-family: Manrope, sans-serif }
+.pv-task p { font-size: 16px !important; color: var(--muted) }
+.pv-field { display: grid; gap: 8px; margin-top: 16px; font-size: 14.5px; color: var(--muted); font-weight: 600 }
+.pv-field textarea { width: 100%; resize: vertical; border-radius: 12px; border: 1.5px solid var(--line); background: var(--bg); color: var(--text); padding: 14px; font-size: 16px; line-height: 1.6; outline: 0 }
+.pv-field textarea:focus { border-color: var(--accent) }
+.pv-done { display: flex; align-items: center; gap: 18px; margin: 0 clamp(22px, 3.4vw, 44px) clamp(22px, 3.4vw, 44px); padding: 22px 24px; border-radius: 16px; background: linear-gradient(120deg, #2a3a26, #1c231a); border: 1px solid #b4cba455; color: #f4f1ea; animation: pv-pop .5s cubic-bezier(.2, .8, .2, 1.3) }
+.pv-done > svg { width: 40px; height: 40px; color: #b4cba4; flex: none }
+.pv-done strong { font-size: 19px } .pv-done p { font-size: 15.5px !important; color: #d5dccd; margin: 0 }
+.pv-done .btn { margin-left: auto }
+@keyframes pv-pop { from { transform: scale(.94); opacity: 0 } }
+
+/* ---------- 5. Trilhas ---------- */
+.pv-path-picker { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 14px; overflow-x: auto; padding: 4px 4px 14px; margin: 0 -4px 26px; scroll-snap-type: x mandatory }
+.pv-path-pick { scroll-snap-align: start; text-align: left; border-radius: 16px; overflow: hidden; border: 2px solid transparent; padding: 0; display: grid; transition: transform .25s, border-color .25s; min-width: 0 }
+.pv-path-pick:hover { transform: translateY(-3px) }
+.pv-path-pick[aria-selected="true"] { border-color: var(--accent); box-shadow: 0 0 0 4px #e3d6b424 }
+.pv-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); height: 96px; gap: 2px; background: #0005 }
+.pv-mosaic img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 20% }
+.pv-mosaic img:only-child { grid-column: 1 / -1 }
+.pv-path-pick-body { display: grid; gap: 8px; padding: 16px 18px 18px; justify-items: start }
+.pv-path-pick-body strong { font-family: var(--pv-display); font-weight: 800; text-transform: uppercase; font-size: 28px; line-height: .95 }
+.pv-path-pick-body small { font-size: 14px; font-weight: 600; opacity: .8 }
+.pv-v-areia .pv-tag-free, .pv-v-papel .pv-tag-gold { border-color: #1b1a1755 }
+.pv-v-papel .pv-tag-gold, .pv-v-areia .pv-tag-gold { background: var(--pv-ink); color: var(--pv-areia); border-color: var(--pv-ink) }
+.pv-route { border-radius: 22px; border: 1px solid var(--line); background: var(--panel); overflow: hidden }
+.pv-route-hero { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 30px; align-items: end; padding: clamp(26px, 4vw, 48px); min-height: 320px; color: #f4f1ea }
+.pv-route-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 75% 25%; z-index: -2 }
+.pv-route-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #121212f7 25%, #121212c9 55%, #12121244), linear-gradient(0deg, #121212cc, transparent 60%) }
+.pv-route-copy h2 { font-family: var(--pv-display); font-weight: 800; text-transform: uppercase; font-size: clamp(44px, 5vw, 72px); line-height: .9; letter-spacing: .3px; margin: 14px 0 0; text-wrap: balance; max-width: 760px }
+.pv-route-copy p { font-size: 18px; line-height: 1.6; color: #ddd7c8; margin-top: 14px; max-width: 620px }
+.pv-outcome { display: inline-flex; gap: 12px; align-items: center; margin-top: 18px; padding: 12px 16px; border-radius: 12px; background: #ffffff14; border: 1px solid #ffffff22; font-size: 16px; max-width: 620px }
+.pv-outcome svg { width: 22px; height: 22px; color: var(--pv-areia); flex: none }
+.pv-outcome b { color: var(--pv-areia) }
+.pv-route-stats { display: grid; grid-template-columns: auto auto; gap: 10px 28px; min-width: 210px }
+.pv-route-stats div:not(.pv-route-bar) { display: grid }
+.pv-route-stats strong { font-family: var(--pv-display); font-size: 54px; font-weight: 800; line-height: 1; color: var(--pv-areia) }
+.pv-route-stats span { font-size: 14px; font-weight: 700; color: #c9c3b4 }
+.pv-route-bar { grid-column: 1 / -1; height: 7px; border-radius: 7px; background: #ffffff22; overflow: hidden }
+.pv-route-bar i { display: block; height: 100%; background: var(--pv-areia); border-radius: 7px }
+.pv-stations { list-style: none; margin: 0; padding: clamp(22px, 3.4vw, 40px); display: grid; gap: 22px; position: relative }
+.pv-station { position: relative; display: grid; grid-template-columns: 52px minmax(200px, 300px) minmax(0, 1fr); gap: 24px; align-items: center }
+.pv-station:not(:last-child)::before { content: ""; position: absolute; left: 25px; top: 52px; bottom: -22px; width: 2px; background: repeating-linear-gradient(180deg, var(--line) 0 8px, transparent 8px 14px) }
+.pv-station.is-ok:not(:last-child)::before { background: var(--accent) }
+.pv-node { position: relative; z-index: 1; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-family: var(--pv-display); font-size: 24px; font-weight: 800; border: 2px solid var(--accent); color: var(--accent); background: var(--panel); align-self: start; margin-top: 30px }
+.pv-node svg { width: 24px; height: 24px; stroke-width: 2.6 }
+.pv-station.is-ok .pv-node { background: var(--accent); color: #1b1a17 }
+.pv-station-img { position: relative; display: block; width: 100%; aspect-ratio: 3/2; border-radius: 14px; overflow: hidden; padding: 0; background: #151412; box-shadow: 0 20px 34px -24px #000; transition: transform .3s }
+.pv-station-img:hover { transform: translateY(-4px) }
+.pv-station-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.4) brightness(.6) }
+.pv-station-img img.is-designed { filter: none }
+.pv-station-cover { position: absolute; inset: auto 16px 14px; font-family: var(--pv-display); font-weight: 800; text-transform: uppercase; font-size: 28px; line-height: .92; color: #f4f1ea; text-align: left; text-wrap: balance }
+.pv-station-body h3 { font-family: Manrope, sans-serif; font-size: 23px; font-weight: 700; line-height: 1.25; margin: 6px 0 4px; letter-spacing: -.4px }
+.pv-prof { display: block; font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 6px }
+.pv-station-body p { font-size: 16.5px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 620px }
+.pv-station-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 16px }
+.pv-station-foot .btn { margin-left: 6px }
+
+/* ---------- 6. Modelos de peça ---------- */
+.pv-models-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 36px; align-items: center; padding: clamp(28px, 4vw, 52px); border-radius: 22px; border: 1px solid var(--line); background: radial-gradient(ellipse at 90% 10%, #e3d6b41a, transparent 60%), linear-gradient(135deg, var(--panel2), var(--panel)) }
+.pv-method { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: m }
+.pv-method li { counter-increment: m; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 18px 20px; border-radius: 14px; background: var(--bg); border: 1px solid var(--line) }
+.pv-method li::before { content: "0" counter(m); grid-row: span 2; font-family: var(--pv-display); font-size: 44px; font-weight: 800; color: var(--accent); line-height: 1 }
+.pv-method b { font-family: var(--pv-display); text-transform: uppercase; font-size: 26px; font-weight: 800; line-height: 1 }
+.pv-method span { font-size: 15.5px; color: var(--muted); line-height: 1.45 }
+.pv-docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px 24px }
+.pv-doc { display: grid; gap: 8px; text-align: left; background: none; padding: 0; color: var(--text); min-width: 0 }
+.pv-paper { position: relative; display: grid; align-content: start; gap: 8px; aspect-ratio: 1/1.2; padding: 20px 20px 0; overflow: hidden; border-radius: 10px; background: var(--pv-papel); color: var(--pv-ink); box-shadow: 0 24px 40px -26px #000, 0 0 0 1px #0000000f; transition: transform .3s; margin-bottom: 8px }
+.pv-paper::before { content: ""; position: absolute; top: 0; right: 0; width: 36px; height: 36px; background: linear-gradient(225deg, var(--bg) 50%, #d8d1bf 50%) }
+.pv-paper::after { content: ""; position: absolute; inset: auto 0 0; height: 42%; background: linear-gradient(0deg, var(--pv-papel), #f4f1ea00) }
+.pv-doc:hover .pv-paper { transform: translateY(-6px) }
+.pv-paper .pv-tag { justify-self: start }
+.pv-paper-addr { font-size: 9.5px; font-weight: 800; letter-spacing: .6px; margin-top: 8px; opacity: .8 }
+.pv-paper-t { font-family: var(--pv-display); font-weight: 800; text-transform: uppercase; font-size: 30px; line-height: .92; margin: 6px 0 4px; text-wrap: balance }
+.pv-paper-h { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--pv-ouro); margin-top: 6px }
+.pv-ln { height: 6px; border-radius: 3px; background: #1b1a171f } .pv-ln-s { width: 64% }
+.pv-doc-name { font-size: 18px; font-weight: 700; line-height: 1.3 }
+.pv-doc-when { font-size: 15.5px; color: var(--muted); line-height: 1.5 }
+.pv-doc-base { font-size: 12.5px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--gold) }
+.pv-model { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(22px, 3.4vw, 44px); padding: clamp(24px, 3.4vw, 44px) }
+.pv-a4 { background: var(--pv-papel); color: var(--pv-ink); border-radius: 10px; padding: clamp(22px, 3vw, 38px); box-shadow: 0 30px 60px -30px #000; align-self: start }
+.pv-a4-top { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 11.5px; font-weight: 800; letter-spacing: 1.6px; color: var(--pv-ouro); padding-bottom: 14px; border-bottom: 1.5px solid #1b1a1726 }
+.pv-a4 h3 { font-family: var(--pv-display); text-transform: uppercase; font-weight: 800; font-size: 36px; line-height: .95; margin: 18px 0 }
+.pv-a4 ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: p }
+.pv-a4 li { counter-increment: p; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 2px 8px }
+.pv-a4 li::before { content: counter(p, upper-roman); grid-row: span 2; font-weight: 800; color: var(--pv-ouro); font-size: 15px }
+.pv-a4 li b { font-size: 16.5px } .pv-a4 li span { font-size: 15.5px; color: #5c584e; line-height: 1.55 }
+.pv-a4 mark { background: #c2a46645; color: var(--pv-ink); padding: 0 4px; border-radius: 3px; font-weight: 700 }
+.pv-a4-fine { font-size: 13.5px !important; color: #5c584e; border-top: 1px solid #1b1a171f; padding-top: 14px; margin-top: 20px }
+.pv-model-side { display: grid; gap: 18px; align-content: start; min-width: 0 }
+.pv-model-side .pv-lead { margin-top: 0 }
+.pv-seg { display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line) }
+.pv-seg button { flex: 1; min-height: 46px; border-radius: 9px; font-size: 15.5px; font-weight: 700; background: none; color: var(--muted) }
+.pv-seg button[aria-selected="true"] { background: var(--accent); color: #1b1a17 }
+.pv-adapt { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px }
+.pv-adapt li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 14px; padding: 18px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line) }
+.pv-adapt li > span { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--panel2); color: var(--accent); font-weight: 800 }
+.pv-adapt b { font-size: 17px } .pv-adapt p { font-size: 16px !important; color: var(--muted); margin: 2px 0 0 }
+.pv-review { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel) }
+.pv-review li + li { border-top: 1px solid var(--line) }
+.pv-review label { display: flex; gap: 14px; align-items: center; padding: 16px 18px; font-size: 16.5px; cursor: pointer }
+.pv-review input:checked ~ span:last-child { color: var(--muted); text-decoration: line-through }
+.pv-soon { display: flex; gap: 12px; align-items: start; padding: 16px 18px; border-radius: 12px; border: 1px solid #d9b56a55; background: #d9b56a12; font-size: 15.5px; line-height: 1.5 }
+.pv-soon svg { width: 20px; height: 20px; color: #d9b56a; flex: none; margin-top: 2px }
+
+/* ---------- 7. Dicas (formato stories) ---------- */
+.pv-tips { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 30px; align-items: start }
+.pv-story { position: relative; isolation: isolate; overflow: hidden; min-height: 620px; border-radius: 26px; padding: 22px clamp(22px, 3vw, 38px) 26px; display: flex; flex-direction: column; box-shadow: 0 40px 70px -40px #000 }
+.pv-story.in-right { animation: pv-in-r .45s cubic-bezier(.2, .8, .2, 1) } .pv-story.in-left { animation: pv-in-l .45s cubic-bezier(.2, .8, .2, 1) }
+@keyframes pv-in-r { from { transform: translateX(40px); opacity: .2 } } @keyframes pv-in-l { from { transform: translateX(-40px); opacity: .2 } }
+.pv-story-ring { position: absolute; border-radius: 50%; border: 1.5px solid currentColor; opacity: .16; z-index: -1; pointer-events: none }
+.pv-r1 { width: 440px; height: 440px; right: -200px; top: -170px } .pv-r2 { width: 640px; height: 640px; right: -300px; top: -270px; opacity: .08 }
+.pv-bars { display: flex; gap: 5px; position: relative; z-index: 2 }
+.pv-bars button { flex: 1; height: 5px; border-radius: 5px; padding: 0; background: currentColor; opacity: .25; position: relative; overflow: hidden }
+.pv-bars button.is-seen, .pv-bars button.is-now { opacity: 1; background: color-mix(in srgb, currentColor 25%, transparent) }
+.pv-bars i { position: absolute; inset: 0; width: 0; background: currentColor }
+.pv-bars .is-seen i { width: 100% }
+.pv-bars .is-now i { animation: pv-fill 9s linear forwards }
+.pv-story.is-paused .pv-bars .is-now i { animation-play-state: paused }
+@keyframes pv-fill { to { width: 100% } }
+.pv-story-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px }
+.pv-story-who { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 800 }
+.pv-story-who small { display: block; font-size: 13.5px; font-weight: 600; opacity: .72 }
+.pv-story-av { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #121212; color: var(--pv-areia); font-size: 13px; font-weight: 800 }
+.pv-story-tools, .pv-story-nav { display: flex; gap: 8px }
+.pv-story .pv-round { background: #ffffff1c; border-color: transparent; color: inherit }
+.pv-v-areia .pv-round, .pv-v-papel .pv-round { background: #1b1a1714 }
+.pv-story-nav .pv-round:nth-child(2) svg { transform: scaleX(-1) }
+.pv-tap { position: absolute; top: 96px; bottom: 150px; width: 28%; z-index: 1; background: none; padding: 0 }
+.pv-tap-l { left: 0 } .pv-tap-r { right: 0 }
+.pv-story-body { position: relative; z-index: 2; margin-block: auto; padding-block: 28px; display: grid; gap: 18px; pointer-events: none }
+.pv-story-area { font-size: 13.5px; font-weight: 800; letter-spacing: 2.4px; text-transform: uppercase; opacity: .85 }
+.pv-story h2 { font-family: var(--pv-display); font-weight: 900; text-transform: uppercase; font-size: clamp(48px, 5.4vw, 82px); line-height: .88; letter-spacing: .3px; text-wrap: balance; margin: 0 }
+.pv-story p { font-size: clamp(18px, 1.5vw, 20px) !important; line-height: 1.55; opacity: .92; max-width: 580px; margin: 0; color: inherit }
+.pv-swap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.pv-swap div { padding: 14px 16px; border-radius: 14px; background: #00000030; font-size: 16px; line-height: 1.45 }
+.pv-v-areia .pv-swap div, .pv-v-papel .pv-swap div { background: #1b1a170f }
+.pv-swap small { display: block; font-size: 12px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; opacity: .72; margin-bottom: 4px }
+.pv-swap-yes { box-shadow: inset 0 0 0 1.5px currentColor }
+.pv-story-foot { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 10px; align-items: center }
+.pv-today { flex: 1 1 100%; display: flex; gap: 12px; align-items: center; padding: 15px 18px; border-radius: 14px; background: #121212; color: #f4f1ea; font-size: 16px; line-height: 1.45 }
+.pv-today svg { width: 24px; height: 24px; color: var(--pv-areia); flex: none }
+.pv-today b { color: var(--pv-areia) }
+.pv-story-foot .btn { min-height: 48px }
+.pv-v-areia .pv-story-foot .btn:not(.secondary), .pv-v-papel .pv-story-foot .btn:not(.secondary) { background: #121212; color: var(--pv-areia) }
+.pv-story-nav { margin-left: auto }
+.pv-tips-side h2 { font-family: Manrope, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -.4px }
+.pv-tips-side > p { font-size: 15.5px; color: var(--muted); margin: 4px 0 16px }
+.pv-tip-list { display: grid; gap: 10px; max-height: 620px; overflow: auto; padding-right: 4px }
+.pv-tip-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; text-align: left; padding: 12px 14px 12px 12px; border-radius: 14px; background: var(--panel); border: 1.5px solid var(--line); color: var(--text); transition: .2s }
+.pv-tip-item:hover { border-color: var(--gold) }
+.pv-tip-item[aria-current="true"] { border-color: var(--accent); background: var(--panel2) }
+.pv-tip-thumb { width: 56px; height: 70px; border-radius: 10px; display: grid; place-items: center; font-family: var(--pv-display); font-weight: 800; font-size: 26px }
+.pv-tip-txt small { display: block; font-size: 12px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gold) }
+.pv-tip-txt b { display: block; font-size: 16px; line-height: 1.35; margin-top: 2px }
+.pv-tip-flags { display: flex; gap: 4px; color: var(--accent) } .pv-tip-flags svg { width: 18px; height: 18px }
+
+/* ---------- 8. Telas menores ---------- */
+@media (max-width: 1150px) {
+  .pv-res-grid, .pv-tips, .pv-model { grid-template-columns: 1fr }
+  .pv-station { grid-template-columns: 52px minmax(0, 1fr) }
+  .pv-station-img { grid-column: 2; max-width: 420px }
+  .pv-station-body { grid-column: 2 }
+  .pv-tip-list { max-height: none; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) }
+}
+@media (max-width: 900px) {
+  .pv-lib-hero, .pv-models-hero, .pv-route-hero { grid-template-columns: 1fr }
+  .pv-fan { height: 300px }
+  .pv-res-head { flex-direction: column }
+  .pv-cover-sm { width: 170px }
+}
+@media (max-width: 600px) {
+  .pv-h1 { font-size: 32px; letter-spacing: -1px }
+  .pv-lead { font-size: 17px }
+  .pv-fan { display: none }
+  .pv-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px }
+  .pv-cover { padding: 14px 12px 12px 22px }
+  .pv-cover-top span:last-child { display: none }
+  .pv-cover-title { font-size: 26px }
+  .pv-book-name { font-size: 16px }
+  .pv-docs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 14px }
+  .pv-paper { padding: 14px 12px 0 } .pv-paper-t { font-size: 22px } .pv-doc-when { display: none }
+  .pv-swap { grid-template-columns: 1fr }
+  .pv-story { min-height: 660px; border-radius: 20px }
+  .pv-station { grid-template-columns: 40px minmax(0, 1fr); gap: 16px }
+  .pv-node { width: 40px; height: 40px; font-size: 20px; margin-top: 0 }
+  .pv-station:not(:last-child)::before { left: 19px; top: 40px }
+  .pv-progress { padding: 12px 18px; gap: 12px } .pv-ring, .pv-ring svg { width: 48px; height: 48px } .pv-progress strong { font-size: 16px }
+  .pv-done { flex-wrap: wrap } .pv-done .btn { margin-left: 0 }
+  .pv-station-foot .btn { margin-left: 0 }
+  .pv-toolbar .pv-search { width: 100% }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pv-cover, .pv-fan-card, .pv-story, .pv-paper, .pv-station-img { transition: none !important; animation: none !important }
+  .pv-bars .is-now i { animation: none; width: 100% }
+}
+.pv-cover .pv-tag-gold, .pv-route-hero .pv-tag-gold { background: var(--pv-areia); color: var(--pv-ink); border-color: var(--pv-areia) }
+.pv-cover .pv-tag-free, .pv-route-hero .pv-tag-free { color: #f4f1ea; border-color: #ffffff55 }
+.pv-v-areia.pv-cover .pv-tag-free, .pv-v-papel.pv-cover .pv-tag-free { color: var(--pv-ink); border-color: #1b1a1755 }
