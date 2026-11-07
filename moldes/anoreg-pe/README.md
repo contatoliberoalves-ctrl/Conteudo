@@ -19,3 +19,7 @@ capas de reels e de live e carrossel para cartorários (Provimento 149/2023).
 - Logos de parceiros (fora do git) em `assets/parceiros/`: `cnb-pe.png` (cnbpe.org.br) e `registro-imoveis-brasil.svg`
   (registrodeimoveis.org.br). ARPEN-PE e Protesto PE saem por escrito até virem os arquivos.
 - Os dados da aula ficam no objeto `AULA` de `extras.mjs`.
+
+## PDF de apresentação
+`CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node apresentacao-pdf.mjs` (precisa de `pip install img2pdf`
+e das imagens reduzidas em `saida/pdf-img/`, feitas a partir de `saida/*.png`) → `saida/ANOREG-PE-identidade-redes.pdf`, 17 páginas 16:9.

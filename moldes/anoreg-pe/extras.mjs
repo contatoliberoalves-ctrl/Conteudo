@@ -15,7 +15,7 @@ const arq = (n, tipo) => { const f = path.join(R, 'assets', 'parceiros', n); ret
 
 // ---------- Pernambuco ----------
 // silhueta de Olinda: Sé, Carmo, casario, farol e coqueiros (cor = desenho, rec = recortes de janelas)
-function olinda(cor = '#fff', rec = I, h = 300) {
+export function olinda(cor = '#fff', rec = I, h = 300) {
   const casas = [62, 48, 72, 54, 66, 46, 60, 52].map((a, i) => {
     const x = 520 + i * 50, top = 150 - a + i * 4;
     return `<rect x="${x}" y="${top}" width="46" height="${300 - top}" fill="${cor}"/>${i % 2 ? `<path d="M${x - 3} ${top} L${x + 23} ${top - 18} L${x + 49} ${top}Z" fill="${cor}"/>` : `<path d="M${x} ${top} h46 v-10 h-12 a11 11 0 0 0 -22 0 h-12z" fill="${cor}"/>`}
@@ -41,7 +41,7 @@ function olinda(cor = '#fff', rec = I, h = 300) {
     <path d="M0 300 L0 262 C160 244 280 226 420 228 C560 230 700 246 840 252 C960 256 1020 252 1080 248 L1080 300Z" fill="${cor}"/></svg>`;
 }
 // sombrinha de frevo nas cores do logo
-function sombrinha(px, giro = 0) {
+export function sombrinha(px, giro = 0) {
   const cores = [AM, VM, '#fff', I, AM, VM, '#fff', I];
   const fatias = cores.map((c, i) => {
     const a0 = Math.PI + i * Math.PI / 8, a1 = a0 + Math.PI / 8, r = 90;
