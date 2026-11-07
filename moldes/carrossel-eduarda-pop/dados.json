@@ -462,6 +462,12 @@
         "tipo": "capaIndice",
         "kicker": "Direito Civil",
         "titulo": "Prescrição ou\n{decadência}?",
+        "ts": 124,
+        "itens": [
+          "Onde a lei esconde **cada prazo**",
+          "O que **cada uma** extingue",
+          "Quando **já caiu** na OAB"
+        ],
         "texto": "O truque de **1 segundo** pra nunca mais confundir."
       },
       {
@@ -536,6 +542,13 @@
         "tipo": "capaIndice",
         "kicker": "2ª fase de Civil",
         "titulo": "4 erros que\n==tiram ponto==\nna sua peça",
+        "ts": 118,
+        "itens": [
+          "Errar o **endereçamento**",
+          "Copiar o **artigo inteiro**",
+          "**Inventar** dados",
+          "Pedidos **genéricos**"
+        ],
         "texto": "E dá pra evitar com **5 minutos** de revisão."
       },
       {
@@ -673,7 +686,13 @@
         "tipo": "capaIndice",
         "kicker": "OAB 2ª fase",
         "titulo": "Por que escolher\n==Direito Civil==?",
-        "texto": "**7 motivos** pra escolher a matéria sem medo."
+        "ts": 112,
+        "itens": [
+          "Você já estudou a matéria **inteira**",
+          "As peças **se repetem**",
+          "Os casos são do **dia a dia**"
+        ],
+        "texto": "E mais **4 motivos** pra escolher a matéria sem medo."
       },
       {
         "tipo": "item",
@@ -995,6 +1014,211 @@
         "titulo": "Quantas você ==acertou==?",
         "texto": "Comenta seu placar de 0 a 15 e salva pra treinar de novo.",
         "botao": "Comenta seu placar ↓"
+      }
+    ]
+  },
+  {
+    "id": "nomes-civil-banca-aceitar",
+    "titulo": "Nomes de Civil que a banca deve aceitar · trend com capa de foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-escrevendo.jpg",
+        "fotoPos": "center 95%",
+        "y": 820,
+        "kicker": "2ª fase de Civil",
+        "titulo": "Nomes de Civil que\na *banca deve aceitar*"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Peça de Civil",
+        "titulo": "O que a banca ==deve aceitar==",
+        "caixa": "Entendemos que seria possível que a banca aceitasse as seguintes **nomenclaturas**:"
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Nomenclaturas · 1 a 6",
+        "titulo": "Nomes {possíveis}",
+        "itens": [
+          "**Petição Inicial de Ação Indenizatória**",
+          "**Petição Inicial de Ação de Indenização**",
+          "**Ação Indenizatória**",
+          "**Ação de Indenização**",
+          "**Ação de Indenização por Danos Materiais**",
+          "**Ação de Indenização por Danos Materiais (Danos Emergentes e Lucros Cessantes)**"
+        ],
+        "contagem": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "gabarito",
+        "kicker": "Nomenclaturas · 7 a 11",
+        "titulo": "Nomes {possíveis}",
+        "itens": [
+          "**Ação de Reparação de Danos**",
+          "**Ação de Reparação de Danos Materiais**",
+          "**Ação de Reparação Civil**",
+          "**Ação de Ressarcimento de Danos**",
+          "**Ação de Responsabilidade Civil**"
+        ],
+        "contagem": [
+          "07",
+          "08",
+          "09",
+          "10",
+          "11"
+        ],
+        "ts": 84
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Colocou danos morais ou obrigação de fazer?",
+        "titulo": "Ainda ==dá pra torcer==",
+        "caixa": "Para quem colocou **danos morais** ou **obrigação de fazer** na nomenclatura: acredito que existe a possibilidade da banca aceitar e estamos torcendo para isso, porém precisamos aguardar a divulgação do espelho no dia **12/11** 🙏💜",
+        "destaque": true
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Me conta",
+        "titulo": "Qual nome ==você colocou==?",
+        "texto": "Responde aqui nos comentários 👇"
+      }
+    ]
+  },
+  {
+    "id": "ampliacoes-civil-capa",
+    "titulo": "Ampliações na prova de Civil · trend com capa de foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-segredo.jpg",
+        "fotoPos": "center 95%",
+        "y": 800,
+        "fonte": "serif",
+        "kicker": "2ª fase da OAB",
+        "titulo": "Ampliações na\n*prova de Civil*"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Na peça",
+        "titulo": "Teoria finalista ==mitigada==",
+        "caixa": "Entendemos que é possível que haja alteração do gabarito para que **não seja exigida a menção específica à teoria finalista mitigada**, porquanto bastaria identificar que Napoleão é consumidor, sendo desnecessária sua menção no caso em tela.",
+        "tc": 40
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Questão 2 · Letra A",
+        "titulo": "Art. 1.593 ==do CC==",
+        "caixa": "Menção também ao **artigo 1.593 do CC**, que dispõe que o parentesco resulta da consanguinidade ou de outra origem, o que abrange a **socioafetividade**.",
+        "tc": 44
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Questão 2 · Letra B",
+        "titulo": "Um artigo ==OU o outro==",
+        "caixa": "Alteração do gabarito para que, no lugar de se exigir os dois artigos, **se exija um OU o outro**. Com a possibilidade de desconsideração do **artigo 373, I, do CPC**.",
+        "tc": 44
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Questão 3 · Letra B",
+        "titulo": "Tutela de ==urgência==",
+        "caixa": "Ampliação para considerar o pedido de **tutela provisória de urgência**, conforme **artigo 300 do CPC**.",
+        "tc": 44
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Questão 4 · Letra B",
+        "titulo": "Ônus da prova no ==saneamento==",
+        "caixa": "Ampliação para aceitar também a resposta que abordasse que o momento processual adequado para a **distribuição do ônus da prova** é na **decisão de saneamento**, com fulcro no **art. 357, III, do CPC**.",
+        "tc": 40
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Me conta nos comentários",
+        "titulo": "Qual ampliação ==você quer== que a banca faça?",
+        "texto": "👇"
+      }
+    ]
+  },
+  {
+    "id": "recursos-civeis-capa",
+    "titulo": "Como funcionam os recursos · trend com capa de foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-explicando.jpg",
+        "fotoPos": "38% 30%",
+        "y": 800,
+        "fonte": "serif",
+        "kicker": "Processo civil · 2ª fase da OAB",
+        "titulo": "Como funcionam\n*os recursos*"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Antes de tudo, o prazo:",
+        "titulo": "==15 dias== úteis",
+        "caixa": "É o prazo de quase todos os recursos do CPC (**art. 1.003, § 5º**). A exceção são os **embargos de declaração: 5 dias** (art. 1.023).",
+        "tc": 36
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Quais existem?",
+        "titulo": "Os recursos ==do CPC==",
+        "subtitulo": "O rol do art. 994:",
+        "itens": [
+          "**Apelação** e **agravo de instrumento**",
+          "**Agravo interno** e **embargos de declaração**",
+          "**Recurso ordinário**",
+          "**Recurso especial** e **extraordinário**",
+          "**Agravo em REsp ou RE** e **embargos de divergência**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Apelação",
+        "titulo": "Contra a ==sentença==",
+        "caixa": "Cabe contra a **sentença** (art. 1.009). É interposta no **juízo de 1º grau**, que remete ao tribunal sem fazer juízo de admissibilidade (art. 1.010, § 3º). Em regra, tem **efeito suspensivo** (art. 1.012).",
+        "tc": 36
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Agravo de instrumento",
+        "titulo": "Contra ==decisão interlocutória==",
+        "caixa": "Nas hipóteses do **art. 1.015**, como a decisão sobre **tutela provisória**. Vai **direto ao tribunal** (art. 1.016). O STJ admite fora do rol quando há **urgência** (taxatividade mitigada, Tema 988).",
+        "tc": 36
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Embargos de declaração",
+        "titulo": "Contra ==qualquer decisão==",
+        "caixa": "Servem para corrigir **obscuridade, contradição, omissão** ou **erro material** (art. 1.022). O prazo é de **5 dias** e eles **interrompem** o prazo dos outros recursos (art. 1.026).",
+        "tc": 36,
+        "destaque": true
+      },
+      {
+        "tipo": "texto",
+        "kicker": "REsp e RE",
+        "titulo": "Aos tribunais ==superiores==",
+        "caixa": "**Recurso especial** (STJ): contra decisão de tribunal que contraria **lei federal** (art. 105, III, CF). **Recurso extraordinário** (STF): ofensa à **Constituição**, com **repercussão geral** (art. 102, III e § 3º, CF).",
+        "tc": 36
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Qual recurso mais te confunde?",
+        "titulo": "Salva pra ==revisar== antes da prova",
+        "texto": "E me conta nos comentários.",
+        "botao": "Salvar e compartilhar ✦"
       }
     ]
   }

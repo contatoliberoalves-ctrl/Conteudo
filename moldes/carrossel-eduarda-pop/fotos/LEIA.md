@@ -25,3 +25,5 @@ Fotos de artistas (mandadas pelo usuário, fora do git): diva-hannah.jpg, diva-s
 | eduarda-escrevendo.jpg | CIVIL/CIVIL-3.JPG |
 
 Recortes sem fundo (rembg, modelo u2net_human_seg; ver README do carrossel-eduarda-diva): eduarda-joinha-recorte.png, eduarda-surpresa-recorte.png e outros *-recorte.png.
+
+- eduarda-segredo.jpg, eduarda-escrevendo.jpg, eduarda-estudio-luz.jpg: fotos de estúdio (roxo) enviadas pelo usuário no chat em 23/10/2026 (capas de "Nomes de Civil que a banca deve aceitar" e "Ampliações na prova de Civil").
