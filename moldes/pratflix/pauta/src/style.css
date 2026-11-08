@@ -1,7 +1,7 @@
 /* Layout: painel de estúdio — barra lateral em degradê da cor da marca, área clara com brilho suave,
    cartões grandes e arredondados, números enormes, capas das peças como protagonistas. */
 :root {
-  --brand:#1D5BF0;
+  --brand:#E0457B;
   --bg:#EEF2FA; --surface:#FFFFFF; --surface2:#F3F6FC; --line:#E3E8F2; --ink:#0B1222; --muted:#5B6578; --faint:#8E97A8;
   --ok:#12A150; --ok-bg:#DDF7E7; --bad:#E5484D; --bad-bg:#FDE4E5; --warn:#C27A0E; --warn-bg:#FDF0D8;
   --text:"Figtree",-apple-system,"Segoe UI",Arial,sans-serif; --r:24px;
@@ -439,7 +439,7 @@ textarea { line-height:1.6; resize:vertical }
 .intro { display:grid; justify-items:center; align-content:center; gap:18px; text-align:center; max-width:620px; margin:0 auto; min-height:70vh }
 .intro-ic { width:84px; height:84px; border-radius:26px; display:grid; place-items:center; background:#ffffff2b; box-shadow:inset 0 0 0 1px #ffffff40 } .intro-ic .ic { width:38px; height:38px } .intro-ic.ok { background:#fff; color:var(--brand); border-radius:50% }
 .intro h1 { font-size:clamp(38px, 5vw, 60px); font-weight:800; letter-spacing:-.04em; line-height:1.05 } .intro p { font-size:18px; color:#ffffffd9 }
-.prev { --brand:#1D5BF0; background:#fff; color:#0B1222; border-radius:22px; overflow:hidden; box-shadow:0 50px 100px -30px #0009; transform:perspective(1600px) rotateY(-6deg) rotateX(2deg); transition:transform .4s }
+.prev { --brand:#E0457B; background:#fff; color:#0B1222; border-radius:22px; overflow:hidden; box-shadow:0 50px 100px -30px #0009; transform:perspective(1600px) rotateY(-6deg) rotateX(2deg); transition:transform .4s }
 .prev-bar { display:flex; gap:6px; padding:12px 14px; background:#F1F4FA } .prev-bar i { width:10px; height:10px; border-radius:50%; background:#D5DBE6 } .prev-bar i:first-child { background:#FF6159 } .prev-bar i:nth-child(2) { background:#FFBD2E } .prev-bar i:nth-child(3) { background:#28C840 }
 .prev-in { display:grid; grid-template-columns:22% 1fr; min-height:380px }
 .prev-side { background:linear-gradient(175deg, color-mix(in srgb, var(--brand) 78%, #000), var(--brand)); padding:14px 10px; display:grid; align-content:start; gap:8px; transition:background .4s }

@@ -6,7 +6,9 @@ const P = window.PAUTA, AREAS = window.AREAS, TD = window.TENDENCIAS, COLS = { e
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
-const KEY = 'pauta.v2', KEY1 = 'pauta.v1';
+const KEY0 = 'pauta.v2', KEY1 = 'pauta.v1', EMK = 'pauta.email';
+let EMAIL = (() => { try { return localStorage.getItem(EMK) || '' } catch { return '' } })();
+const chave = () => KEY0 + ':' + EMAIL.toLowerCase();
 const STATUS = [
   { id:'ideia', nome:'Ideia', chip:'IDEIA' }, { id:'roteiro', nome:'Roteiro', chip:'ROTEIRO' }, { id:'producao', nome:'Gravar / criar', chip:'EM PRODUÇÃO' },
   { id:'edicao', nome:'Em revisão', chip:'EM REVISÃO' }, { id:'agendado', nome:'Programado', chip:'PROGRAMADO' }, { id:'publicado', nome:'Publicado', chip:'PUBLICADO' }
@@ -14,7 +16,7 @@ const STATUS = [
 const STI = Object.fromEntries(STATUS.map((s, i) => [s.id, i]));
 const DIAS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-const CORES = ['#1D5BF0', '#6D3FE0', '#D6244F', '#E8590C', '#16A34A', '#0F766E', '#111827'];
+const CORES = ['#E0457B', '#1D5BF0', '#6D3FE0', '#E8590C', '#16A34A', '#0F766E', '#111827'];
 
 /* ---------- ícones ---------- */
 const IP = {
@@ -42,12 +44,13 @@ const I = (n, c = 'ic') => `<svg class="${c}" viewBox="0 0 24 24" fill="none" st
 const uid = () => Math.random().toString(36).slice(2, 10);
 const contaNova = (cor = CORES[0]) => ({ id:uid(), cor, perfil:null, posts:[], tarefas:{}, favoritas:[], metricas:[], identidade:{ paleta:'marca', fonte:'figtree' }, missoes:{}, passos:{}, nivelVisto:0, conqVistas:[], flags:{} });
 function carregar() {
-  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 2 && s.contas?.length) return s } catch {}
+  try { const s = JSON.parse(localStorage.getItem(chave())); if (s && s.v === 2 && s.contas?.length) return s } catch {}
+  try { const s = JSON.parse(localStorage.getItem(KEY0)); if (EMAIL && s && s.v === 2 && s.contas?.length && !localStorage.getItem(KEY0 + ':migrado')) { localStorage.setItem(KEY0 + ':migrado', EMAIL); return s } } catch {}
   try { const o = JSON.parse(localStorage.getItem(KEY1)); if (o?.perfil) { const c = { ...contaNova(), ...o, identidade:{ paleta:'marca', fonte:'figtree' } }; delete c.v; c.posts.forEach(p => p.versoes ||= []); return { v:2, contas:[c], atual:c.id } } } catch {}
   const c = contaNova(); return { v:2, contas:[c], atual:c.id };
 }
 let S = carregar(), C = S.contas.find(c => c.id === S.atual) || S.contas[0];
-function salvar() { try { localStorage.setItem(KEY, JSON.stringify(S)) } catch {} }
+function salvar() { if (!EMAIL) return; try { localStorage.setItem(chave(), JSON.stringify(S)) } catch (e) { toast('O navegador está sem espaço. Remova fotos ou exporte um backup.', 'close') } }
 let rota = 'inicio', toastT = null;
 function toast(t, ic = 'check') { const el = $('#toast'); el.innerHTML = `${I(ic)}<span>${E(t)}</span>`; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 2800) }
 async function copiar(t, ok = 'Copiado.') { try { await navigator.clipboard.writeText(t); toast(ok, 'copy') } catch { toast('Não foi possível copiar. Selecione o texto e copie.', 'close') } }
@@ -576,12 +579,35 @@ const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única',
 let abaMod = 'carrossel', ed = null;
 const mstate = () => { const m = (C.modelos ||= { col:'editorial', idt:{}, txt:{}, fotos:{} }); if (typeof m.idt !== 'object' || !m.idt) m.idt = m.idt ? { classica:m.idt } : {}; m.col ||= 'classica'; m.fotos ||= {}; m.txt ||= {}; return m };
 const MC = () => COLS[mstate().col] || COLS.editorial;
+const PADRAO = window.FOTOS_PADRAO || {};
+const fotosEf = () => { const F = mstate().fotos; return { f1:F.f1 || PADRAO.f1, f2:F.f2 || F.f1 || PADRAO.f2 || PADRAO.f1, f3:F.f3 || F.f1 || PADRAO.f3 || PADRAO.f1 } };
+const estDe = tid => ({ cores:{}, tk:1, fz:1, fx:50, fy:50, grao:true, ...(mstate().estilo?.[tid] || {}) });
+const lum = h => { const n = parseInt(h.slice(1), 16), [r, g, b] = [n >> 16, n >> 8 & 255, n & 255].map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4 }); return .2126 * r + .7152 * g + .0722 * b };
+function comCores(idt, ov) {
+  if (!ov || !Object.keys(ov).length) return idt; const c = { ...idt.c, ...ov };
+  if (mstate().col === 'editorial') {
+    if (ov.cl) c.ink = lum(c.cl) > .4 ? (lum(idt.c.ink) < .2 ? idt.c.ink : '#1A1A1A') : '#FFFFFF';
+    if (ov.es) c.on = lum(c.es) > .45 ? '#1A1A1A' : '#FFFFFF';
+    if (ov.ac) { c.aon = lum(c.ac) > .45 ? '#1A1A1A' : '#FFFFFF'; c.hcl = lum(c.ac) > .6 ? c.ink : c.ac; c.hca = c.aon }
+    if (ov.ac2 || ov.es || ov.ac) c.hce = lum(c.es) < .3 ? (lum(c.ac2) > .25 ? c.ac2 : '#FFFFFF') : c.ac;
+  } else {
+    if (ov.bg) { c.ink = lum(c.bg) > .4 ? '#141414' : '#F5F5F5'; c.mu = lum(c.bg) > .4 ? '#555555' : '#BBBBBB'; c.sf = lum(c.bg) > .4 ? '#FFFFFF' : '#1E1E1E' }
+    if (ov.cbg) c.cink = lum(c.cbg) > .4 ? '#141414' : '#F5F5F5';
+    if (ov.ac) c.on = lum(c.ac) > .45 ? '#141414' : '#FFFFFF';
+  }
+  return { ...idt, c };
+}
 const idtRec = () => MC().IDT.find(i => i.ideal.includes(C.perfil.principal)) || MC().IDT[0];
 const idtAtual = () => MC().IDT.find(i => i.id === mstate().idt[mstate().col]) || idtRec();
 const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
 function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
-function dadosMod(tid) { const base = JSON.parse(JSON.stringify(MC().PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
-const slidesDe = (tid, idt, edit = false) => MC().slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome, fotos:mstate().fotos });
+function dadosMod(tid) { const m = mstate(); if (m.dados?.[tid]) return JSON.parse(JSON.stringify(m.dados[tid])); const base = JSON.parse(JSON.stringify(MC().PACKS[tid])), ov = m.txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
+const materializa = tid => { const m = mstate(); m.dados ||= {}; if (!m.dados[tid]) { m.dados[tid] = dadosMod(tid); delete m.txt[tid] } return m.dados[tid] };
+function slidesDe(tid, idt, edit = false) {
+  const st = estDe(tid), aj = `--tk:${st.tk};--fx:${st.fx}%;--fy:${st.fy}%;--fz:${st.fz};`;
+  return MC().slides(tid, { idt:comCores(idt, st.cores), d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome, fotos:fotosEf() })
+    .map(h => h.replace('style="', 'style="' + aj).replace('class="mx ', `class="mx ${st.grao ? '' : 'sem-grao '}`));
+}
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
   const idt = idtAtual(), rec = idtRec(), lista = MC().TPL.filter(t => t.grupo === abaMod);
@@ -594,29 +620,54 @@ function modelos() {
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
     <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
     <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${fontes.map(f => E(f.split(',')[0].replace(/'/g, ''))).filter((x, i, l) => l.indexOf(x) === i).join(' + ')}</span></div>
-    ${ed2 ? `<div class="fotos-box">${['f1'].map(k => `<label class="fb" style="${F[k] ? `background-image:url(${F[k]})` : ''}" title="Sua foto">${F[k] ? '' : I('cam')}<input type="file" accept="image/*" data-upfoto="${k}" hidden></label>`).join('')}<div><b>${F.f1 ? 'Sua foto está em todos os modelos' : 'Ponha a sua foto'}</b><p class="muted small">Ela entra nas capas e slides com foto. Fica só neste navegador.${F.f1 ? ' <button class="link" data-delfoto="f1">Remover</button>' : ''}</p></div></div>` : ''}</section>
+    ${ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : ''}</section>
   <section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
     <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
       const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
       return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
 }
 function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
-function desenhaEd(manterScroll) {
-  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
-  const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40);
+const CAMPOS_COR = { editorial:[['cl', 'Fundo claro'], ['es', 'Fundo escuro'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']], classica:[['bg', 'Fundo'], ['cbg', 'Fundo da capa'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']] };
+function desenhaEd() {
+  const el = $('#ed'); if (!el || !ed) return; const t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), st = estDe(ed.tid), cor = comCores(idt, st.cores).c, ed2 = mstate().col === 'editorial', F = mstate().fotos, FE = fotosEf();
+  const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40), n = dadosMod(ed.tid).s?.length || slidesDe(ed.tid, idt).length;
+  const rg = (k, rot, min, max, passo, v, suf) => `<label class="ed-rg"><span>${rot}<b data-v="${k}">${Math.round(v * (suf === '%' && max <= 3 ? 100 : 1))}${suf}</b></span><input type="range" min="${min}" max="${max}" step="${passo}" value="${v}" data-est="${k}"></label>`;
   el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
     <select id="ed-idt" aria-label="Identidade">${MC().IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
     ${prox.length ? `<select id="ed-post" aria-label="Preencher com uma peça do cronograma"><option value="">Preencher com uma peça…</option>${prox.map(p => `<option value="${p.id}">${fmt(p.data)} · ${E(p.titulo.slice(0, 60))}</option>`).join('')}</select>` : ''}
-    <button class="btn ghost" data-edreset>${I('refresh')}Texto original</button><button class="btn" data-edbaixa>${I('download')}${sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
-    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra${mstate().col === 'editorial' ? ' e entre <b>_sublinhados_</b> para negrito. Toque na foto para trocar.' : '.'}</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
-    <div class="ed-sl">${sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><button data-edpng="${i}">${I('download')}PNG</button></footer></div>`).join('')}</div></div>`;
-  ajustaTextos(el); if (sx) $('.ed-sl').scrollLeft = sx;
+    <button class="btn ghost" data-edreset>${I('refresh')}Restaurar</button><button class="btn" data-edbaixa>${I('download')}<span id="ed-bx">${n > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</span></button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
+    <div class="ed-aj">
+      <div class="ed-g"><small>Cores</small><div class="ed-cores">${CAMPOS_COR[mstate().col].map(([k, r]) => `<label title="${r}"><input type="color" value="${cor[k]}" data-cor-ed="${k}"><span>${r}</span></label>`).join('')}${Object.keys(st.cores).length ? '<button class="link" data-edcores>Cores da identidade</button>' : ''}</div></div>
+      <div class="ed-g"><small>Texto</small>${rg('tk', 'Tamanho do título ', .7, 1.4, .05, st.tk, '%')}</div>
+      ${ed2 ? `<div class="ed-g"><small>Foto</small>${rg('fz', 'Zoom ', 1, 2.5, .05, st.fz, '%')}${rg('fx', 'Horizontal ', 0, 100, 1, st.fx, '%')}${rg('fy', 'Vertical ', 0, 100, 1, st.fy, '%')}</div>
+      <div class="ed-g"><small>Suas fotos</small><div class="ed-fotos">${['f1', 'f2', 'f3'].map((k, i) => `<label style="background-image:url(${FE[k] || ''})" title="Trocar a foto ${i + 1}"><span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>`).join('')}</div></div>` : ''}
+      <div class="ed-g"><small>Acabamento</small><label class="ed-ck"><input type="checkbox" data-est="grao" ${st.grao ? 'checked' : ''}> Textura de papel</label></div>
+    </div>
+    <p class="ed-dica">${I('pen')}<span>Clique no texto para editar. <b>*asteriscos*</b> destacam${ed2 ? ', <b>_sublinhados_</b> põem em negrito. Toque na foto para trocar. Em cada slide: mudar o fundo, duplicar, mover ou apagar' : ''}.</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
+    <div class="ed-sl"></div></div>`;
+  desenhaSlides();
 }
+function desenhaSlides(manterScroll = true) {
+  const box = $('.ed-sl'); if (!box || !ed) return; const sx = manterScroll ? box.scrollLeft : 0, sl = slidesDe(ed.tid, idtAtual(), true), ed2 = mstate().col === 'editorial' && dadosMod(ed.tid).s;
+  box.innerHTML = sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><span class="ed-ops">${ed2 ? `<button data-sop="tom" data-i="${i}" title="Mudar o fundo (claro, escuro, destaque)" aria-label="Mudar o fundo">◐</button><button data-sop="dup" data-i="${i}" title="Duplicar" aria-label="Duplicar slide">${I('copy')}</button>${i ? `<button data-sop="esq" data-i="${i}" title="Mover para a esquerda" aria-label="Mover para a esquerda">${I('left')}</button>` : ''}${i < sl.length - 1 ? `<button data-sop="dir" data-i="${i}" title="Mover para a direita" aria-label="Mover para a direita">${I('right')}</button>` : ''}${sl.length > 1 ? `<button data-sop="del" data-i="${i}" title="Apagar slide" aria-label="Apagar slide">${I('trash')}</button>` : ''}` : ''}<button data-edpng="${i}">${I('download')}PNG</button></span></footer></div>`).join('');
+  ajustaTextos(box); box.scrollLeft = sx; const bx = $('#ed-bx'); if (bx) bx.textContent = sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG';
+}
+function opSlide(op, i) {
+  const d = materializa(ed.tid), s = d.s, TOM = ['cl', 'es', 'ac'];
+  if (op === 'tom') s[i].tom = TOM[(TOM.indexOf(s[i].tom || 'cl') + 1) % 3];
+  if (op === 'dup') s.splice(i + 1, 0, JSON.parse(JSON.stringify(s[i])));
+  if (op === 'esq' && i) [s[i - 1], s[i]] = [s[i], s[i - 1]];
+  if (op === 'dir' && i < s.length - 1) [s[i + 1], s[i]] = [s[i], s[i + 1]];
+  if (op === 'del' && s.length > 1) s.splice(i, 1);
+  salvar(); desenhaSlides(); if (op === 'dup') toast('Slide duplicado. Edite o texto da cópia.', 'copy');
+}
+function setEst(k, v) { const m = mstate(); (m.estilo ||= {})[ed.tid] = { ...estDe(ed.tid), [k]:v }; salvar() }
 // Reduz a foto para no máximo 1100 px (JPEG) antes de salvar no navegador.
 function fotoDe(f) { return new Promise((ok, erro) => { const r = new FileReader(); r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, 1100 / Math.max(im.width, im.height)), cv = document.createElement('canvas'); cv.width = Math.round(im.width * k); cv.height = Math.round(im.height * k); cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height); ok(cv.toDataURL('image/jpeg', .84)) }; im.onerror = erro; im.src = r.result }; r.onerror = erro; r.readAsDataURL(f) }) }
 function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado'); render(false) }
 // Diminui o título quando o texto passa do tamanho do slide.
 function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
+  const tk = parseFloat(sl.style.getPropertyValue('--tk')) || 1; if (tk !== 1) sl.querySelectorAll('.mx-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * tk + 'px');
   const largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + 1);
   for (let n = 0, l; n < 8 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
   for (let n = 0; n < 10 && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
@@ -686,6 +737,7 @@ function ajustes() {
     <div class="acoes"><button class="btn" data-acao="editar">${I('pen')}Editar respostas e refazer o plano</button></div></section>
     <div class="coluna"><section class="card"><h2>Backup e calendário</h2><div class="acoes vert"><button class="btn ghost" data-acao="exportar">${I('download')}Exportar todas as contas (.json)</button><label class="btn ghost">${I('upload')}Importar dados<input type="file" id="imp" accept="application/json" hidden></label><button class="btn ghost" data-acao="ics">${I('cal')}Baixar o calendário (.ics)</button></div><p class="muted small">O .ics abre no Google Agenda, no Outlook e no celular.</p></section>
     <section class="card"><h2>Tema</h2><div class="seg">${[['auto', 'Automático'], ['light', 'Claro'], ['dark', 'Escuro']].map(([k, l]) => `<button data-tema="${k}" aria-pressed="${(S.tema || 'auto') === k}">${l}</button>`).join('')}</div></section>
+    <section class="card"><h2>Sua conta</h2><p class="muted">Conectado como <b>${E(EMAIL)}</b> (e-mail da PratFlix).</p><div class="acoes"><button class="btn ghost" data-acao="sair">${I('left')}Sair</button></div></section>
     <section class="card perigo"><h2>Recomeçar do zero</h2><p class="muted">Apaga todas as contas, planos e métricas deste navegador.</p><div id="zerar"><button class="btn ghost" data-acao="zerar1">${I('trash')}Apagar tudo</button></div></section></div></div>`;
 }
 
@@ -762,8 +814,24 @@ function ics() { const esc = s => String(s).replace(/[\\,;]/g, m => '\\' + m).re
 const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, tendencias, ajustes };
 const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis', reels:'Reels', outros:'Posts e stories', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', insights:'Insights', publicados:'Publicados', analytics:'Analytics', conquistas:'Conquistas', contas:'Contas', identidade:'Identidade', estudio:'Estúdio', etica:'Ética', modelos:'Modelos', tendencias:'Tendências', ajustes:'Ajustes' };
 function aplicaTema() { const t = S.tema || 'auto'; if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t }
+function telaEntrar(msg = '') {
+  document.documentElement.style.setProperty('--brand', CORES[0]);
+  $('#app').innerHTML = `<div class="wiz wiz-intro entrar"><div class="intro"><span class="brand-w grande">pauta<b>▸</b></span><h1>Entre com o seu e-mail da PratFlix</h1><p>Use o mesmo e-mail com que você acessa a PratFlix. É ele que guarda o seu cronograma, as suas ideias e os seus modelos.</p>
+    <form id="fentrar" class="entrar-f" novalidate><input id="w-email" type="email" inputmode="email" autocomplete="email" placeholder="seuemail@exemplo.com" aria-label="E-mail da PratFlix" required><button class="btn branco" type="submit">Entrar ${I('right')}</button></form>
+    <p class="entrar-msg" role="alert">${E(msg)}</p><small class="entrar-ps">Ainda não é aluno da PratFlix? A Pauta faz parte da plataforma.</small></div></div>`;
+  setTimeout(() => $('#w-email')?.focus(), 50);
+}
+async function entrar(email) {
+  email = email.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return telaEntrar('Confira o e-mail: parece incompleto.');
+  // No servidor, window.PAUTA_AUTH.verificar(email) confere se o e-mail é de um aluno da PratFlix (true/false).
+  if (window.PAUTA_AUTH?.verificar) { try { if (!(await window.PAUTA_AUTH.verificar(email))) return telaEntrar('Não encontramos esse e-mail na PratFlix. Use o e-mail da sua conta de aluno.') } catch { return telaEntrar('Não foi possível conferir agora. Tente de novo em instantes.') } }
+  EMAIL = email; try { localStorage.setItem(EMK, email) } catch {}
+  S = carregar(); C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); $('#app').innerHTML = ''; render();
+}
 function render(topo = true) {
   aplicaTema();
+  if (!EMAIL) return telaEntrar();
   if (!C.perfil) { if (!$('.wiz')) onboarding(S.contas.some(c => c.perfil) ? 'conta' : 'novo'); return }
   aplicaCor(); const h = location.hash.slice(1); rota = PAGS[h] ? h : 'inicio';
   const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Pauta`; window.scrollTo(0, topo ? 0 : y);
@@ -772,7 +840,7 @@ function render(topo = true) {
 window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
-document.addEventListener('click', e => { if (ed && e.target.closest('.ed [data-foto]')) { $('#ed-foto')?.click() } });
+document.addEventListener('click', e => { const f = ed && e.target.closest('.ed .ex [data-foto]'); if (f) { const inp = $('#ed-foto'); inp.dataset.upfoto = f.dataset.foto; inp.click() } });
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-principal], button, a, label, [data-ov]'); if (!t) return; const d = t.dataset;
   if (d.ov !== undefined && e.target === t) return fecharModal();
@@ -803,14 +871,16 @@ document.addEventListener('click', e => {
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
   // modelos e tendências
   if (d.col) { mstate().col = d.col; if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
-  if (d.delfoto) { delete mstate().fotos[d.delfoto]; salvar(); render(false); toast('Foto removida.', 'trash'); return }
+  if (d.delfoto) { if (d.delfoto === 'todas') mstate().fotos = {}; else delete mstate().fotos[d.delfoto]; salvar(); render(false); toast('Foto removida.', 'trash'); return }
   if (d.idt) { mstate().idt[mstate().col] = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
   if (d.mtab) { abaMod = d.mtab; render(false); return }
   if (d.mod) return abrirMod(d.mod);
   if (d.edx !== undefined) return fecharEd();
   if (d.edbaixa !== undefined) return exporta();
   if (d.edpng !== undefined) return exporta(+d.edpng);
-  if (d.edreset !== undefined) { delete mstate().txt[ed.tid]; salvar(); desenhaEd(true); toast('Texto original restaurado.', 'refresh'); return }
+  if (d.edreset !== undefined) { const m = mstate(); delete m.txt[ed.tid]; if (m.dados) delete m.dados[ed.tid]; if (m.estilo) delete m.estilo[ed.tid]; salvar(); desenhaEd(); toast('Modelo restaurado: texto, slides e ajustes originais.', 'refresh'); return }
+  if (d.sop) return opSlide(d.sop, +d.i);
+  if (d.edcores !== undefined) { setEst('cores', {}); desenhaEd(); return }
   if (d.fvir) { fVir = d.fvir; render(false); return }
   if (d.varea) { areaVir = d.varea; render(false); return }
   // app
@@ -851,8 +921,9 @@ document.addEventListener('click', e => {
   if (d.acao === 'editar') { wiz = { passo:0, d:{}, vistoIntro:true }; onboarding('editar'); return }
   if (d.acao === 'exportar') return baixar(`pauta-${iso(hoje())}.json`, JSON.stringify(S, null, 2), 'application/json');
   if (d.acao === 'ics') return baixar('pauta-calendario.ics', ics(), 'text/calendar');
+  if (d.acao === 'sair') { EMAIL = ''; try { localStorage.removeItem(EMK) } catch {} history.replaceState(null, '', location.pathname); render(); return }
   if (d.acao === 'zerar1') { $('#zerar').innerHTML = `<p><b>Tem certeza?</b> Isso não pode ser desfeito.</p><div class="acoes"><button class="btn perigo-b" data-acao="zerar2">Sim, apagar tudo</button><button class="btn ghost" data-acao="cancelar">Cancelar</button></div>`; return }
-  if (d.acao === 'zerar2') { try { localStorage.removeItem(KEY); localStorage.removeItem(KEY1) } catch {} S = carregar(); C = S.contas[0]; wiz = { passo:0, d:{} }; history.replaceState(null, '', location.pathname); onboarding('novo'); return }
+  if (d.acao === 'zerar2') { try { localStorage.removeItem(chave()); localStorage.removeItem(KEY1) } catch {} S = carregar(); C = S.contas[0]; wiz = { passo:0, d:{} }; history.replaceState(null, '', location.pathname); onboarding('novo'); return }
 });
 document.addEventListener('change', e => {
   const t = e.target;
@@ -861,24 +932,29 @@ document.addEventListener('change', e => {
   if (t.dataset.num && vw) { lerVw(); return }
   if (t.id === 'vw-data' || t.id === 'vw-fmt') { lerVw(); desenhaVw(); return }
   if (t.id === 'gt') { temaG = t.value; render(false); return }
-  if (t.dataset.upfoto) { const f = t.files[0]; if (f) fotoDe(f).then(u => { mstate().fotos[t.dataset.upfoto] = u; try { salvar(); toast('Foto aplicada nos modelos.', 'cam') } catch { toast('A foto é grande demais para salvar.', 'close') } ed ? desenhaEd(true) : render(false) }); return }
-  if (t.id === 'ed-idt') { mstate().idt[mstate().col] = t.value; salvar(); desenhaEd(true); return }
-  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; if (mstate().col === 'editorial') { o['s.0.titulo'] = p.titulo; o.area = AREA[p.area]?.nome || '' } else { o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || '' } salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
+  if (t.dataset.upfoto) { const f = t.files[0]; if (f) fotoDe(f).then(u => { mstate().fotos[t.dataset.upfoto] = u; try { salvar(); toast('Foto aplicada nos modelos.', 'cam') } catch { toast('A foto é grande demais para salvar.', 'close') } ed ? desenhaEd() : render(false) }); return }
+  if (ed && t.dataset?.est === 'grao') { setEst('grao', t.checked); desenhaSlides(); return }
+  if (ed && t.dataset?.corEd) { desenhaEd(); return }
+  if (t.id === 'ed-idt') { mstate().idt[mstate().col] = t.value; salvar(); desenhaEd(); return }
+  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; if (mstate().col === 'editorial') { if (mstate().dados?.[ed.tid]) { mstate().dados[ed.tid].s[0].titulo = p.titulo; mstate().dados[ed.tid].area = AREA[p.area]?.nome || '' } else { o['s.0.titulo'] = p.titulo; o.area = AREA[p.area]?.nome || '' } } else { o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || '' } salvar(); desenhaEd(); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
   if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }
 });
 document.addEventListener('input', e => {
   const t = e.target;
-  if (ed && t.dataset?.k) { (mstate().txt[ed.tid] ||= {})[t.dataset.k] = t.innerText.replace(/\n{3,}/g, '\n\n').replace(/\n$/, ''); salvar(); return }
+  if (ed && t.dataset?.k) { const v = t.innerText.replace(/\n{3,}/g, '\n\n').replace(/\n$/, ''), m = mstate(); if (m.dados?.[ed.tid]) setK(m.dados[ed.tid], t.dataset.k, v); else (m.txt[ed.tid] ||= {})[t.dataset.k] = v; salvar(); return }
+  if (ed && t.dataset?.est && t.type === 'range') { setEst(t.dataset.est, +t.value); const b = $(`[data-v="${t.dataset.est}"]`); if (b) b.textContent = (t.max <= 3 ? Math.round(t.value * 100) : t.value) + '%'; clearTimeout(t.__t); t.__t = setTimeout(desenhaSlides, 60); return }
+  if (ed && t.dataset?.corEd) { const st = estDe(ed.tid); setEst('cores', { ...st.cores, [t.dataset.corEd]:t.value }); clearTimeout(t.__t); t.__t = setTimeout(desenhaSlides, 80); return }
   if (t.id === 'fq' || t.id === 'fpq') { if (t.id === 'fq') fId.q = t.value; else filtroP.q = t.value; clearTimeout(t.__t); const id = t.id; t.__t = setTimeout(() => { const pos = t.selectionStart; render(false); const n = $('#' + id); n.focus(); n.setSelectionRange(pos, pos) }, 250); return }
   if (t.id === 'etx') return mostrarEtica(t.value, '#eres');
   if (t.id === 'w-nome' || t.id === 'w-marca') { lerWiz(); const b = $('[data-wiz="1"]'); if (t.id === 'w-nome' && b) b.disabled = t.value.trim().length < 2; const r = $('.wiz-r'); if (r) r.innerHTML = previa(); const lg = $('.w-logo'); if (lg) lg.textContent = (wiz.d.marca || wiz.d.nome || 'P')[0].toUpperCase(); return }
   if (t.id === 'vw-leg') { const p = C.posts.find(x => x.id === vw.id); p.legenda = t.value; const r = checagem(t.value + '\n' + p.roteiro); $('#vw-et').innerHTML = r.length ? r.map(x => `<div class="eitem ${x.nivel}">${I(x.nivel === 'proibido' ? 'close' : 'eye')}<span>${E(x.msg)}</span></div>`).join('') : `<div class="eitem ok">${I('shield')}<span>Nenhum alerta de ética.</span></div>`; $('.leg-f small').textContent = `${t.value.length} caracteres · ${(t.value.match(/#/g) || []).length} hashtags`; salvar() }
 });
 document.addEventListener('focusin', e => { const t = e.target; if (ed && t.dataset?.k && !t.dataset.cru) { const v = t.dataset.k.split('.').reduce((o, z) => o?.[z], dadosMod(ed.tid)); t.dataset.cru = '1'; t.textContent = String(v ?? ''); const r = document.createRange(); r.selectNodeContents(t); r.collapse(false); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r) } });
-document.addEventListener('focusout', e => { if (ed && e.target.dataset?.k && !e.relatedTarget?.dataset?.k) setTimeout(() => { if (ed && !document.activeElement?.dataset?.k) desenhaEd(true) }, 0) });
+document.addEventListener('focusout', e => { if (ed && e.target.dataset?.k && !e.relatedTarget?.dataset?.k) setTimeout(() => { if (ed && !document.activeElement?.dataset?.k) desenhaSlides() }, 0) });
 document.addEventListener('submit', e => {
+  if (e.target.id === 'fentrar') { e.preventDefault(); return entrar($('#w-email').value) }
   if (e.target.id !== 'fmet') return; e.preventDefault(); const r = Object.fromEntries(new FormData(e.target).entries());
   ['seguidores', 'alcance', 'salvos', 'compart', 'visitas', 'mensagens'].forEach(k => r[k] = +r[k] || 0);
   C.metricas = C.metricas.filter(m => m.data !== r.data).concat(r); salvar(); toast('Semana registrada! +30 XP', 'chart'); fecharModal();

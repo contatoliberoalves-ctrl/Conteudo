@@ -57,3 +57,13 @@ Para relatórios, painel do administrador e integração com o Instagram, usar a
 - Textos editados nos modelos ficam em `conta.modelos = { idt, txt:{ <modelo>: { <campo>: texto } } }` dentro do mesmo estado salvo; não precisa de tabela nova (vai junto no JSON da conta).
 - A exportação de PNG usa `fetch` nas fontes do Google para embutir a tipografia; se o servidor tiver CSP, libere `fonts.googleapis.com`, `fonts.gstatic.com`, `cdn.jsdelivr.net` e `cdnjs.cloudflare.com`.
 - A foto enviada nos modelos fica em `conta.modelos.fotos.f1` como JPEG reduzido (até 1100 px) em data URL. No servidor, o ideal é subir para o Storage do Supabase e guardar só a URL.
+
+## Entrada com o e-mail da PratFlix
+- A Pauta abre pedindo o e-mail da PratFlix e guarda os dados por e-mail (`localStorage` na chave `pauta.v2:<email>`).
+- Para conferir se o e-mail é de um aluno, defina antes do script da Pauta uma função que consulte a tabela de alunos da PratFlix:
+  `window.PAUTA_AUTH = { verificar: async email => { const { data } = await supabase.from('alunos').select('id').eq('email', email).maybeSingle(); return !!data } }`
+  Sem essa função, qualquer e-mail válido entra.
+- O ideal, com banco, é usar o login do Supabase (link mágico por e-mail) e trocar `carregar()`/`salvar()` pela tabela `pauta_estado` do `schema.sql`.
+
+## Fotos de exemplo
+- `pauta.html` desta pasta já vem com 3 fotos do Líbero como exemplo nos modelos. Cada pessoa troca pelas dela na aba Modelos (fotos 1, 2 e 3) ou tocando na foto dentro do editor.

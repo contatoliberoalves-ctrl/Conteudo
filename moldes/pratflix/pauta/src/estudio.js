@@ -53,11 +53,11 @@ const PACKS = {
     { t:'capa', v:'foto', tom:'cl', pill:'Antes de qualquer processo, existe uma', titulo:'História', nota:'Um pouco sobre quem sou e como eu trabalho', foto:'f1' },
     { t:'texto', tom:'es', lead:'Quem chega até o escritório _nem sempre sabe_ exatamente _o que precisa fazer._', titulo:'E tudo bem. *Caminhos* existem para o seu caso.', nota:'Às vezes chega uma dúvida. Às vezes, uma preocupação.' },
     { t:'caminho', tom:'cl', lead:'Por isso, _todo atendimento_ segue a mesma ordem:', titulo:'Primeiro eu escuto. Depois a gente traça o *caminho*', passos:['ouvir', 'entender', 'analisar', 'orientar', 'agir', 'acompanhar'], rodape:'Uma boa decisão começa por uma boa conversa.' },
-    { t:'pergunta', tom:'es', titulo:'Por que eu *escolhi* esta área?', bolha:'E aí?', texto:'Porque eu vi de perto como _uma informação na hora certa_ muda a vida de uma família inteira.', faixa:'Informação clara é a primeira forma de proteção.', foto:'f1' },
+    { t:'pergunta', tom:'es', titulo:'Por que eu *escolhi* esta área?', bolha:'E aí?', texto:'Porque eu vi de perto como _uma informação na hora certa_ muda a vida de uma família inteira.', faixa:'Informação clara é a primeira forma de proteção.', foto:'f3' },
     { t:'cta', tom:'cl', titulo:'Prazer, eu sou *você sabe quem*.', sub:'Salve este post e me conte nos comentários de onde você está me acompanhando.' }
   ] },
   ea2:{ area:'Previdenciário', s:[
-    { t:'capa', v:'manchete', tom:'cl', tag:'Finalmente cheguei na', titulo:'idade para me\n*aposentar*', pill:'Agora é só fazer o pedido, certo?', foto:'f1' },
+    { t:'capa', v:'manchete', tom:'cl', tag:'Finalmente cheguei na', titulo:'idade para me\n*aposentar*', pill:'Agora é só fazer o pedido, certo?', foto:'f2' },
     { t:'capa', v:'papel', tom:'ac', titulo:'Tudo parece certo até o momento em que o INSS diz', script:'não.', assin:'Por isso, vale investigar antes.' },
     { t:'lista', tom:'cl', titulo:'Os motivos mais comuns da *negativa*', itens:['_CNIS_ com períodos faltando', 'Tempo _rural_ sem documento', '_PPP_ que nunca foi pedido à empresa', 'Contribuição _abaixo do mínimo_', 'Pedido feito _antes da hora_'], postit:'Um detalhe esquecido pode mudar o resultado.' },
     { t:'caminho', tom:'es', lead:'Antes de clicar em _pedir_ no Meu INSS:', titulo:'Faça o seu pedido percorrer um *caminho*', passos:['puxar o CNIS', 'conferir', 'juntar provas', 'simular', 'pedir', 'acompanhar'], rodape:'Pedido bem preparado é pedido que anda.' },
@@ -79,7 +79,7 @@ const PACKS = {
     { t:'cta', tom:'es', titulo:'Mande para quem *precisa* ver isso.', sub:'Golpe evitado é melhor que golpe resolvido.' }
   ] },
   ea5:{ area:'Trabalhista', s:[
-    { t:'capa', v:'zine', tom:'cl', tag1:'Assédio moral', tag2:'no trabalho', titulo:'Você não está', baixo:'*exagerando.*', foto:'f1' },
+    { t:'capa', v:'zine', tom:'cl', tag1:'Assédio moral', tag2:'no trabalho', titulo:'Você não está', baixo:'*exagerando.*', foto:'f2' },
     { t:'texto', tom:'es', lead:'Assédio moral não é _uma bronca_ num dia ruim.', titulo:'É a *repetição* que adoece.', nota:'Humilhações, isolamento e cobranças abusivas, de forma constante, por um tempo.' },
     { t:'lista', tom:'cl', titulo:'5 sinais para *não* ignorar', itens:['Apelidos e _humilhação_ em público', 'Metas _impossíveis_ só para você', 'Ser _isolado_ da equipe', 'Tarefas abaixo da sua _função_', 'Ameaças _veladas_ de demissão'], postit:'Anote datas, horários e quem viu.' },
     { t:'texto', tom:'ac', lead:'O que fazer agora?', titulo:'Guarde as *provas* antes de qualquer conversa.', nota:'Mensagens, e-mails, testemunhas e atestados. Depois, procure orientação.' },
@@ -94,7 +94,7 @@ const PACKS = {
     { t:'cta', tom:'cl', titulo:'Salve: na hora do susto ninguém *lembra*.', sub:'Mande para os seus pais e avós.' }
   ] },
   ea7:{ area:'Sucessões', s:[
-    { t:'capa', v:'caderno', tom:'ac', titulo:'Inventário é\ncomo uma\n*receita*', nota:'E toda família tem o seu modo de preparo', rodape:'Não adianta ter os ingredientes se ninguém sabe como combiná-los.', foto:'f1' },
+    { t:'capa', v:'caderno', tom:'ac', titulo:'Inventário é\ncomo uma\n*receita*', nota:'E toda família tem o seu modo de preparo', rodape:'Não adianta ter os ingredientes se ninguém sabe como combiná-los.', foto:'f3' },
     { t:'lista', tom:'cl', titulo:'Os *ingredientes*', itens:['Certidão de _óbito_', 'Documentos dos _herdeiros_', 'Documentos dos _bens_', 'Certidões _negativas_ de dívidas', 'Comprovante do _ITCMD_'], postit:'Separe tudo antes da primeira conversa.' },
     { t:'caminho', tom:'es', lead:'Com tudo em mãos, o _modo de preparo_:', titulo:'Do luto à escritura, um *caminho*', passos:['reunir', 'conferir', 'calcular', 'pagar ITCMD', 'assinar', 'registrar'], rodape:'Em cartório, quando todos concordam, é mais rápido.' },
     { t:'texto', tom:'cl', lead:'E o prazo?', titulo:'Dois meses para *abrir*. Depois, multa.', nota:'O inventário deve começar em até 2 meses do falecimento (art. 611 do CPC). Muitos estados cobram multa no ITCMD.' },
@@ -108,10 +108,10 @@ const PACKS = {
   ] },
   eu1:{ area:'Prazos', s:[{ t:'capa', v:'papel', tom:'ac', titulo:'Prazos existem e _correm_ mesmo quando você não está olhando. O Direito não socorre os que', script:'dormem.', assin:'Brocardo jurídico' }] },
   eu2:{ area:'Criminal', s:[{ t:'capa', v:'pop', tom:'es', titulo:'Isso é\n*crime?*', selo:'explicando como se você tivesse 5 anos', baixo:'Gravar a conversa sem avisar', foto:'f1' }] },
-  eu3:{ area:'Previdenciário', s:[{ t:'capa', v:'data', tom:'es', antes:'O que todo', titulo:'aposentado', dias:['23', '24', '25'], rotulo:'Dia Nacional do Aposentado', depois:'deveria *saber*', sub:'3 direitos que quase ninguém usa', foto:'f1' }] },
+  eu3:{ area:'Previdenciário', s:[{ t:'capa', v:'data', tom:'es', antes:'O que todo', titulo:'aposentado', dias:['23', '24', '25'], rotulo:'Dia Nacional do Aposentado', depois:'deveria *saber*', sub:'3 direitos que quase ninguém usa', foto:'f3' }] },
   es1:{ area:'Stories', s:[{ t:'story', v:'caixa', tom:'es', titulo:'Me pergunte sobre *pensão*', caixa:'Digite algo…', topo:'Caixinha aberta até as 20h', foto:'f1' }] },
   es2:{ area:'Stories', s:[{ t:'story', v:'quiz', tom:'cl', titulo:'Mito ou *verdade*?', pergunta:'Quem pede demissão perde o FGTS inteiro.', ops:['Mito', 'Verdade', 'Depende'], certa:'0', nota:'Responda e veja amanhã' }] },
-  es3:{ area:'Stories', s:[{ t:'story', v:'bastidor', tom:'es', hora:'08:47', pre:'um dia no', titulo:'*escritório*', sub:'Tudo o que você não vê nos bastidores', foto:'f1' }] }
+  es3:{ area:'Stories', s:[{ t:'story', v:'bastidor', tom:'es', hora:'08:47', pre:'um dia no', titulo:'*escritório*', sub:'Tudo o que você não vê nos bastidores', foto:'f2' }] }
 };
 
 const TPL = [
