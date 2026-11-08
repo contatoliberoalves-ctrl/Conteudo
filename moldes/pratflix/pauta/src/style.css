@@ -505,3 +505,6 @@ textarea { line-height:1.6; resize:vertical }
 @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none !important; transition:none !important } }
 
 .capa.quad { aspect-ratio:4/5 } .prox-capas .capa-arrasta, .prox-capas .capa-tag, .prox-capas .capa-sub { display:none }
+.side-conta { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border-radius:14px; background:#ffffff1a; color:#ffffffd9; font-size:12.5px }
+.side-conta span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0 }
+.side-conta button { display:inline-flex; align-items:center; gap:4px; flex:none; color:#fff; font-weight:800; font-size:12.5px; padding:5px 9px; border-radius:9px; background:#ffffff26 } .side-conta .ic { width:14px; height:14px }

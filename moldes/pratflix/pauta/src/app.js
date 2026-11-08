@@ -45,7 +45,6 @@ const uid = () => Math.random().toString(36).slice(2, 10);
 const contaNova = (cor = CORES[0]) => ({ id:uid(), cor, perfil:null, posts:[], tarefas:{}, favoritas:[], metricas:[], identidade:{ paleta:'marca', fonte:'figtree' }, missoes:{}, passos:{}, nivelVisto:0, conqVistas:[], flags:{} });
 function carregar() {
   try { const s = JSON.parse(localStorage.getItem(chave())); if (s && s.v === 2 && s.contas?.length) return s } catch {}
-  try { const s = JSON.parse(localStorage.getItem(KEY0)); if (EMAIL && s && s.v === 2 && s.contas?.length && !localStorage.getItem(KEY0 + ':migrado')) { localStorage.setItem(KEY0 + ':migrado', EMAIL); return s } } catch {}
   try { const o = JSON.parse(localStorage.getItem(KEY1)); if (o?.perfil) { const c = { ...contaNova(), ...o, identidade:{ paleta:'marca', fonte:'figtree' } }; delete c.v; c.posts.forEach(p => p.versoes ||= []); return { v:2, contas:[c], atual:c.id } } } catch {}
   const c = contaNova(); return { v:2, contas:[c], atual:c.id };
 }
@@ -274,6 +273,7 @@ function shell(html) {
     <nav>${NAV().map(n => n.sep ? `<div class="side-sep">${n.sep}</div>` : `<a href="#${n.id}" class="nav ${rota === n.id ? 'on' : ''}" ${rota === n.id ? 'aria-current="page"' : ''}>${I(n.ic)}<span>${n.nome}</span>${n.tag ? `<em>${n.tag}</em>` : n.n ? `<b>${n.n}</b>` : ''}</a>`).join('')}</nav>
     <a href="#conquistas" class="nivel-card"><div class="nivel-top"><span class="nivel-n">${nv.n}</span><div><small>Nível ${nv.n}</small><strong>${E(nv.nome)}</strong></div><span class="fogo" title="Semanas completas seguidas">${I('flame')}${sequencia()}</span></div>
       <i class="barra"><b style="width:${Math.round(nv.pct * 100)}%"></b></i><small class="nivel-xp">${num(x)} XP${nv.prox ? ` · faltam ${num(nv.ate - x)}` : ''}</small></a>
+    <div class="side-conta"><span title="${E(EMAIL)}">${E(EMAIL)}</span><button data-acao="sair">${I('left')}Sair</button></div>
     <div class="side-marca">pauta<b>▸</b> <span>por PratFlix</span></div></aside>
   <main class="main"><div class="page">${html}</div></main>
   <nav class="tabbar">${MOBILE.map(id => { const n = NAV().find(x => x.id === id); return `<a href="#${id}" class="${rota === id ? 'on' : ''}">${I(n.ic)}<span>${n.nome.split(' ')[0]}</span></a>` }).join('')}<button data-acao="menu" aria-label="Mais seções">${I('menu')}<span>Mais</span></button></nav>`;
