@@ -1,14 +1,24 @@
-# Pauta · estúdio de conteúdo jurídico (PratFlix) — instruções para colocar online com banco de dados
+# Libs Production · estúdio de conteúdo jurídico (PratFlix) — como colocar no ar
+
+## Subir rápido (sem banco, em 5 minutos)
+O app é estático: um único `index.html`, sem servidor nem build.
+1. Envie a pasta `site/` para qualquer hospedagem estática: Netlify (arraste a pasta em app.netlify.com/drop), Vercel, Cloudflare Pages, GitHub Pages, ou a hospedagem da PratFlix (ex.: `liberofilho.com/pratflix/libs/index.html`).
+2. Pronto. A pessoa entra com o e-mail da PratFlix e os dados ficam no navegador dela.
+3. Se o site tiver CSP, libere `fonts.googleapis.com`, `fonts.gstatic.com`, `cdn.jsdelivr.net` e `cdnjs.cloudflare.com`.
+
+Limites desse modo: qualquer e-mail válido entra e os dados não passam de um aparelho para outro (há exportar/importar .json em Ajustes). Para restringir aos alunos e salvar na nuvem, siga as seções abaixo.
+
+# Versão com banco de dados
 
 ## O que está no pacote
-- `pauta.html` — o app inteiro em um arquivo (HTML + CSS + JS). Abre direto no navegador.
+- `site/index.html` — o app inteiro em um arquivo (HTML + CSS + JS + fotos de exemplo). Abre direto no navegador.
 - `src/` — o mesmo app em arquivos separados (é aqui que se edita):
   - `index.html` (casca), `style.css` (visual), `areas.js` (16 áreas × 10 temas), `conteudo.js` (formatos, cronograma de 26 semanas, ganchos, guias, regras de ética), `modelos.js` + `modelos.css` (15 identidades visuais e 19 modelos de posts editáveis, exportação PNG/ZIP com html-to-image e JSZip carregados sob demanda dos CDNs jsDelivr e cdnjs), `estudio.js` + `estudio.css` (Coleção Editorial: 14 identidades no estilo de estúdio de design, com colagem, papel, manuscrita e a foto da pessoa), `escritorio.js` + `escritorio.css` (Coleção Escritórios: 30 variações inspiradas em identidades de escritórios de advocacia no Behance), `tendencias.js` (análise do que engaja, 28 formatos virais e 8 ideias por área), `app.js` (lógica e telas).
-  - `montar.py` junta tudo em `pauta.html`.
+  - `montar.py` junta tudo em `dist/pauta.html` (e `dist/com-foto/pauta.html`, com as fotos de exemplo de `fotos-padrao/`).
 - `schema.sql` — proposta de tabelas no Supabase (Postgres) com RLS.
 
 ## Como o app guarda dados hoje
-Tudo fica no `localStorage`, numa chave só: `pauta.v2`. O formato é:
+Tudo fica no `localStorage`, numa chave por e-mail: `pauta.v2:<email>` (o e-mail logado fica em `pauta.email`). O formato é:
 
 ```json
 { "v": 2, "atual": "<id da conta aberta>", "tema": "auto|light|dark",
