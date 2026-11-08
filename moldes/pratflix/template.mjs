@@ -98,14 +98,14 @@ L.simbolo = t => `<div style="position:absolute;inset:0;background:radial-gradie
     <div style="margin-top:34px">${logo(44)}</div></div>`;
 
 // Símbolo em fundo branco (foto da comunidade do WhatsApp): selo grafite com o "p▸" em areia, título grafite com destaque ouro.
-L.simboloClaro = t => `<div style="position:absolute;inset:0;background:radial-gradient(75% 75% at 50% 42%,#FFFFFF 0%,#F7F4ED 100%)"></div>
-  <div style="position:absolute;left:50%;top:50%;width:840px;height:840px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${C.areia2}"></div>
-  <div style="position:absolute;left:50%;top:50%;width:720px;height:720px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${C.areia2}88"></div>
+L.simboloClaro = t => { const ac = t.cor || C.ouro, an = t.cor || C.areia2, pp = t.corP || C.areia; return `<div style="position:absolute;inset:0;background:radial-gradient(75% 75% at 50% 42%,#FFFFFF 0%,#F7F4ED 100%)"></div>
+  <div style="position:absolute;left:50%;top:50%;width:840px;height:840px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${an}"></div>
+  <div style="position:absolute;left:50%;top:50%;width:720px;height:720px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${an}88"></div>
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
-    <div style="width:180px;height:180px;border-radius:44px;background:#121212;display:grid;place-items:center;box-shadow:0 22px 50px rgba(18,18,18,.22)"><span style="font:800 142px/1 Manrope;letter-spacing:-.06em;color:${C.areia};margin:-22px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
-    ${t.rotulo ? `<div style="font:700 22px Manrope;letter-spacing:.34em;color:${C.ouro};margin-top:40px">${esc(t.rotulo).toUpperCase()}</div>` : ''}
-    <div style="${T};font-size:${t.ts ?? 124}px;line-height:.86;color:#121212;margin-top:${t.rotulo ? 18 : 42}px">${tit(t.titulo, x => `<span style="color:${C.ouro}">${x}</span>`)}</div>
-    <div style="margin-top:32px">${logo(42, '#121212')}</div></div>`;
+    <div style="width:180px;height:180px;border-radius:44px;background:#121212;display:grid;place-items:center;box-shadow:0 22px 50px rgba(18,18,18,.22)"><span style="font:800 142px/1 Manrope;letter-spacing:-.06em;color:${pp};margin:-22px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
+    ${t.rotulo ? `<div style="font:700 22px Manrope;letter-spacing:.34em;color:${ac};margin-top:40px">${esc(t.rotulo).toUpperCase()}</div>` : ''}
+    <div style="${T};font-size:${t.ts ?? 124}px;line-height:.86;color:#121212;margin-top:${t.rotulo ? 18 : 42}px">${tit(t.titulo, x => `<span style="color:${ac}">${x}</span>`)}</div>
+    <div style="margin-top:32px">${logo(42, '#121212')}</div></div>` };
 
 // Material gratuito com foto do autor no alto (identidade do Post Libero "material" nas cores da PratFlix): foto em
 // tons de areia, rótulo, título, o PDF desenhado (checklist com `itens` linhas numeradas), o bônus (live) e o botão.
