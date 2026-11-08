@@ -10,7 +10,7 @@ const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos',
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;700&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], catalogo: [1080, 1350], notinha: [1080, 1350], preco: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], catalogo: [1080, 1350], notinha: [1080, 1350], preco: [1080, 1350], frase: [1080, 1350], valores: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -202,6 +202,29 @@ L.preco = t => `${fundoFoto('100%', `rgba(18,18,18,.82) 0%,rgba(18,18,18,.78) 30
   <div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;align-items:center">
     <span style="display:inline-flex;align-items:center;gap:14px;background:#C8372D;color:#fff;border-radius:12px;padding:16px 24px;font:800 24px Manrope;letter-spacing:.12em"><span style="width:12px;height:12px;border-radius:50%;background:#fff"></span>${esc(t.prazo)}</span>
     <span style="font:700 26px Manrope;color:${C.areia}">arrasta →</span></div>`;
+
+// Frase de impacto: rótulo, título grande, texto e, opcional, um número/selo gigante vazado ao fundo (`fundo`).
+L.frase = t => { const cl = t.claro; const cor = cl ? '#111' : C.txt;
+  return `<div style="position:absolute;inset:0;background:${cl ? '#F4F1EA' : `radial-gradient(110% 80% at 100% 0%,#2a271f 0%,${C.bg} 60%)`}"></div>${grao}
+  ${t.fundo ? `<div style="position:absolute;right:-40px;bottom:120px;${T};font-size:${t.fs ?? 560}px;line-height:.8;color:transparent;-webkit-text-stroke:3px ${cl ? '#d9cfb6' : '#3a362c'}">${esc(t.fundo)}</div>` : ''}
+  <div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:center">${logo(40, cor)}<span style="font:700 22px Manrope;color:${cl ? C.ouro : C.mute};letter-spacing:.2em">${esc(t.topo ?? '').toUpperCase()}</span></div>
+  <div style="position:absolute;left:90px;right:90px;top:${t.top ?? 360}px">
+    ${t.rotulo ? rotulo(t.rotulo, cl ? C.ouro : C.areia) : ''}
+    <div style="${T};font-size:${t.ts ?? 130}px;line-height:.88;color:${cor};margin-top:30px">${tit(t.titulo, x => `<span style="color:${cl ? C.ouro : C.areia}">${x}</span>`)}</div>
+    ${t.texto ? `<div style="font:500 34px/1.45 Manrope;color:${cor};opacity:${cl ? .8 : .82};margin-top:34px;max-width:860px">${esc(t.texto)}</div>` : ''}
+    ${t.selos ? `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:40px">${t.selos.map(x => `<span style="border:1.5px solid ${cl ? '#111' : C.areia}88;border-radius:12px;padding:14px 22px;font:700 26px Manrope;color:${cl ? '#111' : C.areia}">${esc(x)}</span>`).join('')}</div>` : ''}
+  </div>
+  <div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;font:600 24px Manrope;color:${cl ? '#777' : C.mute}">${perfil(cl ? '#777' : C.mute)}<span>arrasta →</span></div>`; };
+// Tabela de valores ("quanto custaria sozinho"): linhas com nome, detalhe e valor, e o total embaixo.
+L.valores = t => `<div style="position:absolute;inset:0;background:#F4F1EA"></div>${grao}
+  <div style="position:absolute;left:90px;right:90px;top:80px;display:flex;justify-content:space-between;align-items:center">${logo(40, '#111')}<span style="font:700 22px Manrope;color:${C.ouro};letter-spacing:.2em">${esc(t.rotulo ?? '').toUpperCase()}</span></div>
+  <div style="position:absolute;left:90px;right:90px;top:180px">
+    <div style="${T};font-size:${t.ts ?? 104}px;line-height:.88;color:#111">${tit(t.titulo, x => `<span style="color:${C.ouro}">${x}</span>`)}</div>
+    <div style="margin-top:26px">${t.linhas.map(([n, d, v]) => `<div style="display:flex;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1.5px dashed #c9bfa6">
+      <div style="flex:1;font:800 29px Manrope;color:#111">${esc(n)} <span style="font:500 21px Manrope;color:#6f6a5f;margin-left:6px">${esc(d)}</span></div>
+      <div style="${T};font-size:48px;color:${C.ouro};white-space:nowrap">${esc(v)}</div></div>`).join('')}</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;background:#121212;border-radius:18px;padding:16px 30px"><span style="font:800 30px Manrope;color:#fff">SOMANDO TUDO</span><span style="${T};font-size:76px;color:${C.areia}">${esc(t.total)}</span></div></div>
+  <div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;font:600 24px Manrope;color:#777">${perfil('#777')}<span>arrasta →</span></div>`;
 
 export function renderTela(t) {
   if (!L[t.layout]) throw new Error(`layout desconhecido: ${t.layout}`);

@@ -287,6 +287,47 @@
     "ts": 132
    },
    {
+    "layout": "frase",
+    "topo": "A real",
+    "titulo": [
+     "A faculdade deu",
+     "diploma e carteira.",
+     "[[Não deu o]]",
+     "[[“e agora?”]]"
+    ],
+    "ts": 118,
+    "texto": "Petição, cliente, audiência, honorário… ninguém te mostrou como funciona na vida real. A PratFlix nasceu pra isso.",
+    "top": 330
+   },
+   {
+    "layout": "lista",
+    "claro": true,
+    "rotulo": "É pra você",
+    "titulo": [
+     "É pra você",
+     "[[que…]]"
+    ],
+    "ts": 120,
+    "itens": [
+     {
+      "t": "Tá esperando o resultado e já pensa “e agora?”"
+     },
+     {
+      "t": "Passou e não sabe por onde começar a advogar"
+     },
+     {
+      "t": "Nunca fez curso de prática"
+     },
+     {
+      "t": "Quer advogar por conta própria, mas cadê o cliente?"
+     },
+     {
+      "t": "Acha que com 35, 45 anos já é tarde",
+      "d": "Não é."
+     }
+    ]
+   },
+   {
     "layout": "lista",
     "rotulo": "O que você ganha",
     "titulo": [
@@ -401,6 +442,114 @@
     ]
    },
    {
+    "layout": "lista",
+    "rotulo": "Bônus de quem entra agora",
+    "titulo": [
+     "Dashboard de gestão",
+     "do [[escritório]]"
+    ],
+    "ts": 98,
+    "itens": [
+     {
+      "t": "O que vamos construir",
+      "d": "O painel e as ferramentas"
+     },
+     {
+      "t": "Preparando os dados",
+      "d": "Planilhas no formato certo"
+     },
+     {
+      "t": "O primeiro dashboard",
+      "d": "O prompt que monta tudo"
+     },
+     {
+      "t": "Com a cara do escritório",
+      "d": "Identidade, filtros e gráficos"
+     },
+     {
+      "t": "Rotina e segurança",
+      "d": "Atualizar e proteger os dados"
+     }
+    ]
+   },
+   {
+    "layout": "frase",
+    "topo": "Só os 20 primeiros",
+    "rotulo": "Bônus por tempo limitado",
+    "titulo": [
+     "Um site pro seu",
+     "escritório.",
+     "[[De graça.]]"
+    ],
+    "ts": 130,
+    "texto": "Feito com os seus gostos, os seus dados e as suas informações. Pra você já começar com cara de escritório.",
+    "fundo": "20",
+    "fs": 620,
+    "top": 330
+   },
+   {
+    "layout": "valores",
+    "rotulo": "Faz a conta",
+    "titulo": [
+     "Quanto custaria",
+     "[[montar sozinho?]]"
+    ],
+    "ts": 96,
+    "total": "R$ 8.882",
+    "linhas": [
+     [
+      "Curso de prática",
+      "por área",
+      "R$ 997"
+     ],
+     [
+      "Modelos de peças",
+      "R$ 99/mês × 12",
+      "R$ 1.188"
+     ],
+     [
+      "Capacitações",
+      "oratória e afins, por baixo",
+      "R$ 1.200"
+     ],
+     [
+      "Site do escritório",
+      "no mínimo",
+      "R$ 1.500"
+     ],
+     [
+      "Dashboard de gestão",
+      "o mais barato, sem recursos",
+      "R$ 397"
+     ],
+     [
+      "Conteúdo pras redes",
+      "R$ 50 × 12 artes/mês × 6 meses",
+      "R$ 3.600"
+     ],
+     [
+      "Comunidade e networking",
+      "fora as atualizações",
+      "Inestimável"
+     ]
+    ]
+   },
+   {
+    "layout": "frase",
+    "topo": "Bônus extra",
+    "rotulo": "Só pra turma fundadora",
+    "titulo": [
+     "1 ano",
+     "[[e 6 meses]]",
+     "de acesso"
+    ],
+    "ts": 150,
+    "texto": "Esperando a carteirinha? O acesso corre enquanto a OAB analisa. Não sabe se passou? Dá tempo de refazer a prova e não perder nenhum bônus.",
+    "fundo": "18",
+    "fs": 600,
+    "top": 300
+   },
+   {
     "layout": "preco",
     "rotulo": "Valor promocional · tempo limitado",
     "de": "R$ 8.882",
@@ -413,6 +562,21 @@
     ],
     "prazo": "SÓ ATÉ 16.11",
     "top": 330
+   },
+   {
+    "layout": "frase",
+    "claro": true,
+    "topo": "Risco zero",
+    "rotulo": "Garantia incondicional",
+    "titulo": [
+     "7 dias pra",
+     "[[testar tudo]]"
+    ],
+    "ts": 140,
+    "texto": "Entrou e não era o que esperava? Um clique e você recebe 100% de volta. Sem pergunta.",
+    "fundo": "7",
+    "fs": 700,
+    "top": 360
    },
    {
     "layout": "comenta",

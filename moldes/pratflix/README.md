@@ -21,6 +21,8 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `catalogo` | 1080×1350 | catálogo de cursos em grade de 2 colunas: `rotulo`, `titulo`, `texto`, `cursos: [nomes]`, `alt` (altura do cartão), `tc` (px do nome) |
 | `notinha` | 1080×1350 | cupom de bônus: `rotulo`, `titulo`, `itens: [[nome, selo]]`, `extras: [[nome, selo]]` (depois do tracejado, selo escuro), `top` |
 | `preco` | 1080×1350 | oferta: `rotulo`, `de` (riscado), `parcela`, `vista`, `extras: [textos com ✓]`, `prazo` (selo vermelho), `tp`, `top` |
+| `frase` | 1080×1350 | frase de impacto: `topo`, `rotulo`, `titulo`, `texto`, `selos`, `fundo` (número gigante vazado), `fs`, `claro`, `top` |
+| `valores` | 1080×1350 | "quanto custaria sozinho": `rotulo`, `titulo`, `linhas: [[nome, detalhe, valor]]`, `total` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
 
