@@ -152,6 +152,9 @@ def pre(txt):
             saida.append(f'<div class="caixa" style="height:{int(m.group(1)) * 8.5}mm"></div>'); i += 1; continue
         if l.strip() == '[[quebra]]':
             saida.append('<div class="quebra"></div>'); i += 1; continue
+        # lista logo depois de um parágrafo (sem linha em branco) também vira lista
+        if re.match(r'^(\s*[-*] |\s*\d+\. )', l) and saida and saida[-1].strip() and not re.match(r'^(\s*[-*] |\s*\d+\. |\|)', saida[-1]):
+            saida.append('')
         saida.append(l); i += 1
     return '\n'.join(saida)
 
