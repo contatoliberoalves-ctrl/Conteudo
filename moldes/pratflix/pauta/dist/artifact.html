@@ -1,6 +1,6 @@
-<title>Pauta</title>
+<title>Libs Production</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Pauta, o estúdio de conteúdo jurídico da PratFlix: cronograma de 6 meses, ideias e roteiros por área de atuação.">
+<meta name="description" content="Libs Production, o estúdio de conteúdo jurídico da PratFlix: cronograma de 6 meses, ideias e roteiros por área de atuação.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=Fraunces:wght@800&family=Inter:wght@500&family=Archivo+Black&family=Archivo:wght@500&family=Playfair+Display:wght@800&family=Lato:wght@400&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap">
@@ -518,6 +518,8 @@ textarea { line-height:1.6; resize:vertical }
 .side-conta span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0 }
 .side-conta button { display:inline-flex; align-items:center; gap:4px; flex:none; color:#fff; font-weight:800; font-size:12.5px; padding:5px 9px; border-radius:9px; background:#ffffff26 } .side-conta .ic { width:14px; height:14px }
 
+.brand-w i, .side-marca i { font-style:normal; font-weight:500; opacity:.85; letter-spacing:-.4px }
+
 /* ====== Modelos de posts: slides (tamanho fixo, exportam em 2×) ====== */
 .mx { position:relative; width:540px; height:675px; overflow:hidden; isolation:isolate; display:flex; flex-direction:column; gap:0; padding:42px 44px 36px;
   background:var(--bg); color:var(--ink); font-family:var(--fb); font-size:18px; line-height:1.4; font-weight:400; text-align:left; -webkit-font-smoothing:antialiased; letter-spacing:0 }
@@ -702,7 +704,7 @@ textarea { line-height:1.6; resize:vertical }
 .sinais { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:12px } .sinal { padding:16px; border-radius:16px; border:1.5px solid var(--line) } .sinal b { display:block; font-size:16px; margin-bottom:4px } .sinal span { font-size:14.5px; color:var(--muted) }
 .virais { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px }
 .viral { display:flex; flex-direction:column; gap:10px; padding:20px; border-radius:20px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--sombra) }
-.viral h3 { font-size:18px; font-weight:800; margin:0 } .viral .ex { font-size:15.5px; font-weight:700; padding:12px 14px; border-radius:14px; background:var(--brand-bg); line-height:1.4 } .viral p { font-size:15px; color:var(--muted); line-height:1.5 } .viral .acoes { margin-top:auto }
+.viral h3 { font-size:18px; font-weight:800; margin:0 } .viral .vex { font-size:15.5px; font-weight:700; padding:12px 14px; border-radius:14px; background:var(--brand-bg); line-height:1.4 } .viral p { font-size:15px; color:var(--muted); line-height:1.5 } .viral .acoes { margin-top:auto }
 .sinal-chip { display:inline-flex; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:800; background:var(--surface2); color:var(--ink) }
 .av-lista { display:grid; gap:10px } .av-it { display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:16px; background:var(--surface2); flex-wrap:wrap } .av-it b { flex:1; min-width:200px; font-size:16px; line-height:1.35 } .av-it .num-i { width:30px; height:30px; border-radius:10px; background:var(--surface); display:grid; place-items:center; font-weight:800; font-size:14px; color:var(--brand) }
 .ritmo { display:grid; gap:10px; margin:0; padding:0; list-style:none } .ritmo li { display:flex; gap:12px; font-size:16px; line-height:1.5 } .ritmo .ic { color:var(--brand); margin-top:3px }
@@ -2445,7 +2447,7 @@ const AREA_VIRAIS = {
 return { ANALISE, VIRAIS, AREA_VIRAIS };
 })();
 
-/* Pauta · estúdio de conteúdo jurídico (PratFlix) · v2
+/* Libs Production · estúdio de conteúdo jurídico (PratFlix) · v2
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
@@ -2767,12 +2769,12 @@ function shell(html) {
   const nv = nivel(), x = xp(), pf = C.perfil;
   $('#app').innerHTML = `<aside class="side">
     <div class="contas-sw">${S.contas.filter(c => c.perfil).map(c => `<button class="sw ${c.id === C.id ? 'on' : ''}" data-conta="${c.id}" title="${E(c.perfil.marca || c.perfil.nome)}" aria-label="Abrir ${E(c.perfil.marca || c.perfil.nome)}">${av(c)}</button>`).join('')}<button class="sw add" data-acao="novaconta" aria-label="Adicionar conta">${I('plus')}</button></div>
-    <div class="side-id">${E(pf.arroba || '@seuperfil')} · ${E(pf.marca || 'Pauta')}</div>
+    <div class="side-id">${E(pf.arroba || '@seuperfil')} · ${E(pf.marca || 'Libs Production')}</div>
     <nav>${NAV().map(n => n.sep ? `<div class="side-sep">${n.sep}</div>` : `<a href="#${n.id}" class="nav ${rota === n.id ? 'on' : ''}" ${rota === n.id ? 'aria-current="page"' : ''}>${I(n.ic)}<span>${n.nome}</span>${n.tag ? `<em>${n.tag}</em>` : n.n ? `<b>${n.n}</b>` : ''}</a>`).join('')}</nav>
     <a href="#conquistas" class="nivel-card"><div class="nivel-top"><span class="nivel-n">${nv.n}</span><div><small>Nível ${nv.n}</small><strong>${E(nv.nome)}</strong></div><span class="fogo" title="Semanas completas seguidas">${I('flame')}${sequencia()}</span></div>
       <i class="barra"><b style="width:${Math.round(nv.pct * 100)}%"></b></i><small class="nivel-xp">${num(x)} XP${nv.prox ? ` · faltam ${num(nv.ate - x)}` : ''}</small></a>
     <div class="side-conta"><span title="${E(EMAIL)}">${E(EMAIL)}</span><button data-acao="sair">${I('left')}Sair</button></div>
-    <div class="side-marca">pauta<b>▸</b> <span>por PratFlix</span></div></aside>
+    <div class="side-marca">libs <i>production</i><b>▸</b> <span>por PratFlix</span></div></aside>
   <main class="main"><div class="page">${html}</div></main>
   <nav class="tabbar">${MOBILE.map(id => { const n = NAV().find(x => x.id === id); return `<a href="#${id}" class="${rota === id ? 'on' : ''}">${I(n.ic)}<span>${n.nome.split(' ')[0]}</span></a>` }).join('')}<button data-acao="menu" aria-label="Mais seções">${I('menu')}<span>Mais</span></button></nav>`;
 }
@@ -2800,7 +2802,7 @@ function previa() {
 function desenhaWiz() {
   const d = wiz.d, p = wiz.passo;
   document.documentElement.style.setProperty('--brand', d.cor || CORES[0]);
-  if (p === -1) { $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="wiz-topo"><span class="brand-w">pauta<b>▸</b></span></div><div class="intro"><span class="intro-ic">${I('spark')}</span><h1>Sua Pauta chegou.</h1><p>Em 3 minutos ela fica com a cara da sua marca e monta 6 meses de conteúdo para a sua área. Depois, é só criar.</p><button class="btn branco" data-wiz="1">Começar ${I('right')}</button></div></div>`; return }
+  if (p === -1) { $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="wiz-topo"><span class="brand-w">libs <i>production</i><b>▸</b></span></div><div class="intro"><span class="intro-ic">${I('spark')}</span><h1>Sua Libs Production chegou.</h1><p>Em 3 minutos ela fica com a cara da sua marca e monta 6 meses de conteúdo para a sua área. Depois, é só criar.</p><button class="btn branco" data-wiz="1">Começar ${I('right')}</button></div></div>`; return }
   const op = (name, v, l, sub = '', multi = false) => { const on = multi ? (d[name] || []).includes(v) : d[name] === v;
     return `<button type="button" class="opt ${on ? 'on' : ''}" data-op="${name}" data-v="${v}" data-multi="${multi ? 1 : ''}" aria-pressed="${on}"><strong>${l}</strong>${sub ? `<small>${sub}</small>` : ''}</button>` };
   let corpo = '';
@@ -2827,7 +2829,7 @@ function desenhaWiz() {
     corpo = `<h2>Escolha o estilo das suas artes.</h2><p class="sub">Até 2 estilos. Eles aparecem primeiro nos seus modelos de post, carrossel e stories. Os outros continuam disponíveis.</p>
     ${gradeEstilos(d.estilos, d, 'wz')}`; }
   const ok = p === 0 ? (d.nome || '').trim().length > 1 : p === 2 ? d.areas.length > 0 : p === 5 ? d.estilos.length > 0 : true;
-  $('#app').innerHTML = `<div class="wiz"><div class="wiz-topo"><span class="brand-w">pauta<b>▸</b></span><i class="wiz-prog"><b style="width:${(p + 1) / 6 * 100}%"></b></i>${p > 0 ? `<button class="link-w" data-wiz="-1">${I('left')}Voltar</button>` : wiz.modo !== 'novo' ? `<button class="link-w" data-acao="cancelawiz">Cancelar</button>` : '<span></span>'}</div>
+  $('#app').innerHTML = `<div class="wiz"><div class="wiz-topo"><span class="brand-w">libs <i>production</i><b>▸</b></span><i class="wiz-prog"><b style="width:${(p + 1) / 6 * 100}%"></b></i>${p > 0 ? `<button class="link-w" data-wiz="-1">${I('left')}Voltar</button>` : wiz.modo !== 'novo' ? `<button class="link-w" data-acao="cancelawiz">Cancelar</button>` : '<span></span>'}</div>
     <div class="wiz-grid ${p === 5 ? 'larga' : ''}"><section class="wiz-l"><span class="passo">${p + 1} DE 6 · ${PASSOS[p].toUpperCase()}</span>${corpo}
       <button class="btn branco" data-wiz="1" ${ok ? '' : 'disabled'}>${p === 5 ? 'Salvar e gerar meu plano' : 'Continuar'} ${I(p === 5 ? 'check' : 'right')}</button></section>
       ${p === 5 ? '' : `<div class="wiz-r" aria-hidden="true">${previa()}</div>`}</div></div>`;
@@ -2842,7 +2844,7 @@ function concluirWiz() {
   const manter = wiz.modo === 'editar' && $('#w-manter')?.checked ? C.posts.filter(p => p.status !== 'ideia') : [];
   const { cor, estAuto, estMexeu, ...pf } = d; C.cor = cor; C.perfil = pf; aplicaEstilo(pf.estilos?.[0]); C.posts = gerarPlano(pf, manter); if (wiz.modo !== 'editar') C.tarefas = {};
   salvar(); aplicaCor();
-  $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="intro"><span class="intro-ic ok">${I('check')}</span><h1>Sua marca está no ar.</h1><p>${C.posts.length} peças distribuídas em 26 semanas, ${todasIdeias(pf.areas).length} ideias no seu banco e a primeira missão esperando por você.</p><button class="btn branco" data-acao="abrirpauta">Abrir minha Pauta ${I('right')}</button></div></div>`;
+  $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="intro"><span class="intro-ic ok">${I('check')}</span><h1>Sua marca está no ar.</h1><p>${C.posts.length} peças distribuídas em 26 semanas, ${todasIdeias(pf.areas).length} ideias no seu banco e a primeira missão esperando por você.</p><button class="btn branco" data-acao="abrirpauta">Abrir minha Libs Production ${I('right')}</button></div></div>`;
   confete(); wiz = { passo:0, d:{}, vistoIntro:true };
 }
 
@@ -2903,7 +2905,7 @@ function inicio() {
   const feitos = passos.filter(z => z.ok).length, iAt = passos.findIndex(z => !z.ok), prox = C.posts.filter(p => p.status !== 'publicado' && dataDe(p.data) >= hoje()).slice(0, 6), pub = ps.filter(p => p.status === 'publicado').length, conqs = CONQ.filter(c => c.ok()).slice(-3).reverse();
   const tag = s => s.href ? ['a', `href="${s.href}"`] : s.post ? ['button', `data-post="${s.post}"`] : ['div', ''];
   return cab('INÍCIO', `${h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite'}, <em>${E(pf.nome.split(' ')[0])}</em>`, sub, `<span class="semana-pill" style="--c:${fase.cor}">Semana ${w + 1} de 26 · ${E(fase.nome)}</span><a class="btn so-metricas" href="#insights">${I('spark')}Pedir leitura</a>`) +
-  (feitos < passos.length ? `<section class="card passos"><div class="card-h"><div><small class="muted">Primeiros passos · ${feitos} de ${passos.length}</small><h2>Deixe a Pauta com a sua cara.</h2></div><i class="barra"><b style="width:${feitos / passos.length * 100}%"></b></i></div>
+  (feitos < passos.length ? `<section class="card passos"><div class="card-h"><div><small class="muted">Primeiros passos · ${feitos} de ${passos.length}</small><h2>Deixe a Libs Production com a sua cara.</h2></div><i class="barra"><b style="width:${feitos / passos.length * 100}%"></b></i></div>
     <div class="passos-l">${passos.map((s, i) => { const [tg, at] = tag(s); return `<${tg} ${at} class="passo-i ${s.ok ? 'ok' : ''} ${i === iAt ? 'atual' : ''}"><span class="passo-n">${s.ok ? I('check') : i + 1}</span><div><strong>${s.t}</strong><small>${s.d}</small></div>${s.ok ? '' : '<em>+25 XP</em>'}</${tg}>` }).join('')}</div></section>` : '') +
   `<div class="g3"><section class="card azul so-metricas"><div class="card-h"><h2>Seguidores</h2><span class="pill-b">${E(pf.arroba || '@seuperfil')}</span></div>
       ${u ? `<div class="big-row"><div><strong class="big">${num(u.seguidores)}</strong><small>TOTAL NA ÚLTIMA SEMANA</small></div><div><strong class="mid">${a ? (u.seguidores - a.seguidores >= 0 ? '+' : '') + num(u.seguidores - a.seguidores) : '—'}</strong><small>NOVOS NA SEMANA</small></div></div>` : `<div class="big-row"><div><strong class="big">—</strong><small>REGISTRE A PRIMEIRA SEMANA</small></div></div>`}
@@ -3010,7 +3012,7 @@ function leitura() {
     texto = `Com ${comN.length} peças medidas, ${nomeF(melhorAl)} teve alcance médio de ${num(Math.round(media(porF[melhorAl], 'alcance')))} e ${nomeF(melhorSa)} teve ${num(Math.round(media(porF[melhorSa], 'salvos')))} salvamentos por peça.${u && a ? ` Na última semana, o alcance da conta ${+u.alcance >= +a.alcance ? 'subiu' : 'caiu'} ${String(Math.abs(delta(+u.alcance, +a.alcance))).replace('.', ',')}%.` : ''}` }
   else if (u && a) { const d = delta(+u.alcance, +a.alcance); titulo = d >= 0 ? `Alcance subiu ${String(d).replace('.', ',')}% na última semana.` : `Alcance caiu ${String(Math.abs(d)).replace('.', ',')}%: hora de testar ganchos.`;
     texto = `A conta alcançou ${num(u.alcance)} pessoas, com ${num(u.salvos)} salvamentos e ${num(u.compart)} compartilhamentos. Registre os números de cada peça publicada para a leitura comparar formatos.` }
-  else { titulo = 'Sua primeira leitura começa com os primeiros números.'; texto = 'Registre a semana em Analytics e os números de cada peça publicada (no visualizador da peça). Com 2 semanas e 3 peças medidas, a Pauta compara formatos e pilares e sugere o próximo passo.' }
+  else { titulo = 'Sua primeira leitura começa com os primeiros números.'; texto = 'Registre a semana em Analytics e os números de cada peça publicada (no visualizador da peça). Com 2 semanas e 3 peças medidas, a Libs Production compara formatos e pilares e sugere o próximo passo.' }
   const w = semanaAtual(), fase = P.FASES[P.SEMANAS[w].f - 1], seq = sequencia(), func = [], exp = [], temas = [];
   if (seq) func.push(`Constância: ${seq} ${seq === 1 ? 'semana completa' : 'semanas completas seguidas'}.`);
   if (melhorSa) func.push(`${P.cap(nomeF(melhorSa))} é o formato mais salvo: guarde esse molde.`);
@@ -3045,14 +3047,14 @@ Analise: 1) o que está crescendo e o que caiu; 2) quais formatos e temas funcio
 function comoConectar() {
   return `<section class="card conectar"><div class="card-h"><div><span class="eyebrow"><i></i>COMO ALIMENTAR OS NÚMEROS</span><h2>Seus dados, do jeito que for mais fácil</h2></div><button class="btn ghost sm" data-acao="modoproduzir">${I('pen')}Usar só para produzir e organizar</button></div>
     <div class="cx3"><div class="cx"><span class="cx-n">1</span><b>À mão, 2 minutos por semana</b><p class="muted">No Instagram: perfil › Painel profissional › Insights › últimos 7 dias. Copie os 6 números e toque em “Registrar semana”, sempre no mesmo dia.</p><button class="btn sm" data-acao="regmet">${I('plus')}Registrar semana</button></div>
-      <div class="cx"><span class="cx-n">2</span><b>Com IA, a partir de prints</b><p class="muted">Tire prints da tela de Insights, mande no ChatGPT ou no Claude com o texto abaixo e cole a resposta aqui. A Pauta preenche sozinha.</p><div class="acoes"><button class="btn sm ghost" data-copy="${E(PROMPT_PRINT)}">${I('copy')}Copiar o pedido</button><button class="btn sm" data-acao="colarmet">${I('upload')}Colar a resposta</button></div></div>
+      <div class="cx"><span class="cx-n">2</span><b>Com IA, a partir de prints</b><p class="muted">Tire prints da tela de Insights, mande no ChatGPT ou no Claude com o texto abaixo e cole a resposta aqui. A Libs Production preenche sozinha.</p><div class="acoes"><button class="btn sm ghost" data-copy="${E(PROMPT_PRINT)}">${I('copy')}Copiar o pedido</button><button class="btn sm" data-acao="colarmet">${I('upload')}Colar a resposta</button></div></div>
       <div class="cx"><span class="cx-n">3</span><b>Pedir uma análise à IA</b><p class="muted">Copie este pedido já com os seus números e as suas peças publicadas e cole no ChatGPT ou no Claude para receber uma leitura completa.</p><button class="btn sm ghost" data-copy="${E(promptAnalise())}">${I('copy')}Copiar o pedido de análise</button></div></div>
-    <p class="muted small">A ligação automática com o Instagram precisa de uma conta comercial e da API da Meta; quando a Pauta estiver no servidor da PratFlix, ela pode ser ativada. Enquanto isso, os caminhos acima funcionam sem conectar nada.</p></section>`;
+    <p class="muted small">A ligação automática com o Instagram precisa de uma conta comercial e da API da Meta; quando a Libs Production estiver no servidor da PratFlix, ela pode ser ativada. Enquanto isso, os caminhos acima funcionam sem conectar nada.</p></section>`;
 }
 function insights() {
   const l = leitura(), ini = somaDias(hoje(), -30);
   return cab('DESEMPENHO', 'Insights', 'Leitura automática dos seus números e do seu cronograma. Atualiza sempre que você registra dados.', `<button class="btn branco-b" data-acao="leitura">${I('spark')}Pedir leitura agora</button>`) + comoConectar() +
-  `<section class="card azul leitura"><div class="lt-top"><span class="pill-l">${I('spark')}Leitura da Pauta</span><span class="lt-data">${fmt(ini, { day:'2-digit', month:'2-digit', year:'numeric' })} a ${fmt(hoje(), { day:'2-digit', month:'2-digit', year:'numeric' })}</span></div>
+  `<section class="card azul leitura"><div class="lt-top"><span class="pill-l">${I('spark')}Leitura da Libs</span><span class="lt-data">${fmt(ini, { day:'2-digit', month:'2-digit', year:'numeric' })} a ${fmt(hoje(), { day:'2-digit', month:'2-digit', year:'numeric' })}</span></div>
     <h2>${E(l.titulo)}</h2><p>${E(l.texto)}</p>
     <div class="lt-cols"><div><h3 class="verde">O que está funcionando</h3><ul>${l.func.map(x => `<li>${E(x)}</li>`).join('')}</ul></div><div><h3>Experimentos para as próximas semanas</h3><ul>${l.exp.map(x => `<li>${E(x)}</li>`).join('')}</ul></div><div><h3>Próximos temas</h3><ul>${l.temas.map(x => `<li>${E(x)}</li>`).join('')}</ul></div></div></section>
   <div class="g3">${[['Peças publicadas', C.posts.filter(p => p.status === 'publicado').length, `de ${C.posts.length} no plano`], ['Em produção', C.posts.filter(p => ['roteiro', 'producao', 'edicao'].includes(p.status)).length, 'roteiro, gravação ou revisão'], ['Atrasadas', C.posts.filter(p => p.status !== 'publicado' && dataDe(p.data) < hoje()).length, 'a data passou sem publicar']].map(([t, v, s]) => `<section class="card kpi"><small class="muted">${t}</small><strong class="big ink">${v}</strong><small class="muted">${s}</small></section>`).join('')}</div>`;
@@ -3111,7 +3113,7 @@ function bios() {
 function identidade() {
   const pf = C.perfil, idt = C.identidade, pals = [{ id:'marca', nome:'Cor da marca', cores:PAL_MARCA().cores }, ...P.PALETAS];
   const dest = ['Sobre mim', ...pf.areas.flatMap(a => AREA[a].destaques.slice(0, pf.areas.length > 2 ? 1 : 2)), 'Dúvidas', 'Conteúdos'].slice(0, 7), pal = paleta();
-  return cab('MARCA', 'Identidade', 'Cor, paleta e fontes das capas. Tudo o que você cria na Pauta usa estas escolhas.') +
+  return cab('MARCA', 'Identidade', 'Cor, paleta e fontes das capas. Tudo o que você cria na Libs Production usa estas escolhas.') +
   `<div class="g2 idt"><section class="card"><h2>Cor da marca</h2><p class="muted">Muda a barra lateral, os botões e os destaques.</p><div class="cores">${CORES.map(c => `<button class="cor ${C.cor === c ? 'on' : ''}" style="--c:${c}" data-corconta="${C.id}" data-k="${c}" aria-label="Cor ${c}"></button>`).join('')}<label class="cor arco" aria-label="Outra cor"><input type="color" id="corlivre" value="${C.cor}"></label></div>
       <h3>Paleta das capas</h3><div class="pals">${pals.map(p => `<button class="pal ${p.id === idt.paleta ? 'on' : ''}" data-pal="${p.id}" aria-pressed="${p.id === idt.paleta}">${p.cores.map(c => `<i style="background:${c}"></i>`).join('')}<span>${p.nome}</span></button>`).join('')}</div>
       <h3>Fontes dos títulos</h3><div class="fons">${[{ id:'figtree', nome:'Figtree', titulo:"'Figtree', sans-serif" }, ...P.FONTES].map(f => `<button class="fon ${f.id === idt.fonte ? 'on' : ''}" data-fon="${f.id}" aria-pressed="${f.id === idt.fonte}"><b style="font-family:${f.titulo}">Aa</b><span>${f.nome}</span></button>`).join('')}</div></section>
@@ -3128,7 +3130,7 @@ function estudio() {
   <div class="guia ${fig ? 'com-fig' : ''}"><div class="guia-l">${g.secoes.map(s => `<section class="card"><h2>${E(s.h)}</h2><ul class="lista-ok">${s.itens.map(i => `<li>${I('check')}<span>${E(i)}</span></li>`).join('')}</ul></section>`).join('')}</div>${fig}</div>`;
 }
 function etica() {
-  return cab('MARCA', 'Ética', 'Cole o texto do post, roteiro ou legenda. A Pauta aponta trechos que costumam contrariar o Provimento 205/2021 e o Código de Ética e Disciplina da OAB.') +
+  return cab('MARCA', 'Ética', 'Cole o texto do post, roteiro ou legenda. A Libs Production aponta trechos que costumam contrariar o Provimento 205/2021 e o Código de Ética e Disciplina da OAB.') +
   `<div class="g2"><section class="card"><h2>Verificador de texto</h2><textarea id="etx" rows="9" placeholder="Cole aqui a legenda, o roteiro ou o texto do post."></textarea><div id="eres" class="eres"><p class="muted">O resultado aparece enquanto você digita.</p></div><p class="muted small">O verificador procura padrões comuns e não substitui a sua leitura das normas da OAB.</p></section>
     <div class="coluna"><section class="card"><h2>Pode</h2><ul class="lista-ok">${P.ETICA_PODE.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section><section class="card"><h2>Não pode</h2><ul class="lista-no">${P.ETICA_NAO.map(x => `<li>${I('close')}<span>${E(x)}</span></li>`).join('')}</ul></section></div></div>`;
 }
@@ -3173,9 +3175,9 @@ function modelos() {
   const ed2 = mstate().col !== 'classica', m = mstate(), F = m.fotos, meus = (C.perfil.estilos || []).map(achaEst).filter(Boolean);
   const fotosBox = ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : '';
   const atual = chEst(m.col, idt.id), chE = e => e.serie ? 'serie:' + e.serie : chEst(e.col, e.i.id), ativo = e => e.serie ? m.col === 'editorial' : chE(e) === atual, foraDosMeus = meus.length && !meus.some(ativo);
-  const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
+  const am = i => mstate().col === 'editorial' ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
     : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
-  const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
+  const fontes = [idt.f.d || idt.f.t, idt.f.s, idt.f.b].filter(Boolean);
   return cab('MARCA', 'Modelos', `Três coleções: <b>Editorial</b> (colagem, papel, manuscrita e a sua foto), <b>Escritórios</b> (30 variações inspiradas em escritórios de advocacia) e <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
   `<section class="card meus-est"><div class="card-h"><h2>${meus.length ? 'Seus estilos' : 'Escolha os seus estilos de arte'}</h2><div class="acoes"><button class="btn ghost sm" data-acao="trocaestilos">${I('palette')}${meus.length ? 'Trocar meus estilos' : 'Escolher estilos'}</button><button class="btn ghost sm" data-acao="vertodos">${I('grid')}${verTodos ? 'Esconder os outros estilos' : 'Ver todos os estilos'}</button></div></div>
     ${meus.length ? `<div class="meus">${meus.map(e => { const k = chE(e), on = ativo(e); return `<button class="meu ${on ? 'on' : ''}" ${e.serie ? `data-abreserie="${e.serie}"` : `data-meuestilo="${k}"`} aria-pressed="${on}"><span class="th">${e.serie ? COLS.editorial.slides(e.serie, { idt:comCores(idtCol('editorial'), estDe(e.serie).cores), d:mstate().col === 'editorial' ? dadosMod(e.serie) : JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:handle(), nome:C.perfil.nome, fotos:fotosEf() })[0] : thumbEstilo(e.col, e.i)}</span><span><strong>${E(nomeEst(e))}</strong><small>${E(e.serie ? e.t.desc : e.i.desc)}</small><em>${e.serie ? `Série editorial · cores: ${E(idtCol('editorial').nome)} · toque para editar` : `${e.col === 'escritorio' ? 'Coleção Escritórios' : 'Coleção Clássica'}${on ? ' · aberta abaixo' : ''}`}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
@@ -3286,7 +3288,7 @@ function tendencias() {
   <section class="card"><div class="card-h"><h2>${TD.VIRAIS.length} formatos virais</h2><span class="muted small">Exemplos com temas de ${E(a.nome)}</span></div>
     <div class="chips" style="margin:14px 0 18px">${sinais.map(k => `<button class="chip" data-fvir="${k}" aria-pressed="${fVir === k}">${k === 'todos' ? 'Todos' : E(k)}</button>`).join('')}</div>
     <div class="virais">${lista.map(({ v, i }) => { const ti = i % a.temas.length, id = `v:${i}:${a.id}:${ti}`, x = ideia(id);
-      return `<article class="viral"><span class="lp-meta">${chipF(v.f)}<span class="sinal-chip">${E(v.sinal)}</span></span><h3>${E(v.nome)}</h3><div class="ex">${E(x.titulo)}</div><p>${E(v.porque)}</p>
+      return `<article class="viral"><span class="lp-meta">${chipF(v.f)}<span class="sinal-chip">${E(v.sinal)}</span></span><h3>${E(v.nome)}</h3><div class="vex">${E(x.titulo)}</div><p>${E(v.porque)}</p>
         <div class="acoes"><button class="btn sm" data-addideia="${id}">${I('plus')}${usadas.has(id) ? 'De novo' : 'Cronograma'}</button><button class="btn sm ghost" data-verideia="${id}">Estrutura</button></div></article>` }).join('')}</div></section>
   <section class="card"><div class="card-h"><h2>Ideias com potencial de viralizar por área</h2></div>
     <div class="chips" style="margin:14px 0 16px">${pf.areas.map(z => `<button class="chip" data-varea="${z}" aria-pressed="${z === av}">${dot(z)}${E(AREA[z].nome)}</button>`).join('')}</div>
@@ -3374,7 +3376,7 @@ function regMet() {
 /* ---------- arquivos ---------- */
 function baixar(nome, txt, tipo) { const b = new Blob([txt], { type:tipo }), a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = nome; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove() }, 500) }
 function ics() { const esc = s => String(s).replace(/[\\,;]/g, m => '\\' + m).replace(/\n/g, '\\n');
-  return `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pauta PratFlix//PT\n${C.posts.map(p => { const d = p.data.replace(/-/g, ''); return `BEGIN:VEVENT\nUID:${p.id}@pauta\nDTSTAMP:${d}T090000\nDTSTART;VALUE=DATE:${d}\nSUMMARY:${esc(`[${P.FORMATOS[p.formato].curto}] ${p.titulo}`)}\nEND:VEVENT` }).join('\n')}\nEND:VCALENDAR`.replace(/\n/g, '\r\n') }
+  return `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Libs Production PratFlix//PT\n${C.posts.map(p => { const d = p.data.replace(/-/g, ''); return `BEGIN:VEVENT\nUID:${p.id}@pauta\nDTSTAMP:${d}T090000\nDTSTART;VALUE=DATE:${d}\nSUMMARY:${esc(`[${P.FORMATOS[p.formato].curto}] ${p.titulo}`)}\nEND:VEVENT` }).join('\n')}\nEND:VCALENDAR`.replace(/\n/g, '\r\n') }
 
 /* ---------- roteamento ---------- */
 const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, tendencias, ajustes };
@@ -3382,9 +3384,9 @@ const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis
 function aplicaTema() { const t = S.tema || 'auto'; if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t }
 function telaEntrar(msg = '') {
   document.documentElement.style.setProperty('--brand', CORES[0]);
-  $('#app').innerHTML = `<div class="wiz wiz-intro entrar"><div class="intro"><span class="brand-w grande">pauta<b>▸</b></span><h1>Entre com o seu e-mail da PratFlix</h1><p>Use o mesmo e-mail com que você acessa a PratFlix. É ele que guarda o seu cronograma, as suas ideias e os seus modelos.</p>
+  $('#app').innerHTML = `<div class="wiz wiz-intro entrar"><div class="intro"><span class="brand-w grande">libs <i>production</i><b>▸</b></span><h1>Entre com o seu e-mail da PratFlix</h1><p>Use o mesmo e-mail com que você acessa a PratFlix. É ele que guarda o seu cronograma, as suas ideias e os seus modelos.</p>
     <form id="fentrar" class="entrar-f" novalidate><input id="w-email" type="email" inputmode="email" autocomplete="email" placeholder="seuemail@exemplo.com" aria-label="E-mail da PratFlix" required><button class="btn branco" type="submit">Entrar ${I('right')}</button></form>
-    <p class="entrar-msg" role="alert">${E(msg)}</p><small class="entrar-ps">Ainda não é aluno da PratFlix? A Pauta faz parte da plataforma.</small></div></div>`;
+    <p class="entrar-msg" role="alert">${E(msg)}</p><small class="entrar-ps">Ainda não é aluno da PratFlix? A Libs Production faz parte da plataforma.</small></div></div>`;
   setTimeout(() => $('#w-email')?.focus(), 50);
 }
 async function entrar(email) {
@@ -3400,7 +3402,7 @@ function render(topo = true) {
   if (!EMAIL) return telaEntrar();
   if (!C.perfil) { if (!$('.wiz')) onboarding(S.contas.some(c => c.perfil) ? 'conta' : 'novo'); return }
   aplicaCor(); document.body.classList.toggle('modo-produzir', C.perfil.modo === 'produzir'); const h = location.hash.slice(1); rota = PAGS[h] ? h : 'inicio';
-  const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Pauta`; window.scrollTo(0, topo ? 0 : y);
+  const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Libs Production`; window.scrollTo(0, topo ? 0 : y);
   document.body.classList.remove('menu-aberto'); verificaGanhos();
 }
 window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
@@ -3520,7 +3522,7 @@ document.addEventListener('change', e => {
   if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; if (mstate().col === 'editorial') { if (mstate().dados?.[ed.tid]) { mstate().dados[ed.tid].s[0].titulo = p.titulo; mstate().dados[ed.tid].area = AREA[p.area]?.nome || '' } else { o['s.0.titulo'] = p.titulo; o.area = AREA[p.area]?.nome || '' } } else { o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || '' } salvar(); desenhaEd(); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
-  if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }
+  if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Libs Production.', 'close') } }) }
 });
 document.addEventListener('input', e => {
   const t = e.target;

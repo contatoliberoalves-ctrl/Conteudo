@@ -508,3 +508,5 @@ textarea { line-height:1.6; resize:vertical }
 .side-conta { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:10px 12px; border-radius:14px; background:#ffffff1a; color:#ffffffd9; font-size:12.5px }
 .side-conta span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0 }
 .side-conta button { display:inline-flex; align-items:center; gap:4px; flex:none; color:#fff; font-weight:800; font-size:12.5px; padding:5px 9px; border-radius:9px; background:#ffffff26 } .side-conta .ic { width:14px; height:14px }
+
+.brand-w i, .side-marca i { font-style:normal; font-weight:500; opacity:.85; letter-spacing:-.4px }
