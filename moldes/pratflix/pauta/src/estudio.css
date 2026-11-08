@@ -1,0 +1,247 @@
+/* ====== Coleção Editorial (estilo estúdio: colagem, papel, foto, manuscrita) ====== */
+.mx.ex { padding:0; display:block; font-family:var(--b); line-height:1.3; letter-spacing:0 }
+.ex.tom-cl { background-color:var(--cl); color:var(--ink); --hc:var(--hcl); --bgc:var(--cl); --inv:var(--es); --invfg:var(--on) }
+.ex.tom-es { background-color:var(--es); color:var(--on); --hc:var(--hce); --bgc:var(--es); --inv:var(--cl); --invfg:var(--ink) }
+.ex.tom-ac { background-color:var(--ac); color:var(--aon); --hc:var(--hca); --bgc:var(--ac); --inv:var(--es); --invfg:var(--on) }
+.ex::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:30; opacity:.38; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+.ex.tom-es::after { mix-blend-mode:overlay; opacity:.5 }
+.ex.tx-papel::after { opacity:.55; background-size:300px 300px }
+.ex.tx-liso::after { display:none }
+.ex.tx-grade::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px); background-size:45px 45px }
+.ex.i-eletrico.tom-es { background-image:linear-gradient(160deg, #0A1E8C, #1534D8 55%, #4170FF) }
+.ex.i-noir.tom-es { background-image:radial-gradient(120% 80% at 70% 20%, #3A2A2E, transparent 60%) }
+.ex.i-uva.tom-ac, .ex.i-magenta.tom-ac { background-image:radial-gradient(circle at 80% 10%, color-mix(in srgb, #fff 14%, transparent), transparent 50%) }
+
+/* tipografia */
+.ex .ex-d { font-family:var(--d); font-weight:var(--dw); letter-spacing:var(--dl); line-height:var(--dlh); text-transform:var(--dt); font-style:normal; margin:0; text-wrap:balance; overflow-wrap:normal }
+.ex .ex-d b { font-weight:800 }
+.ex .hl { color:var(--hc) }
+.ex[data-hl="script"] .hl { font-family:var(--fs); font-weight:400; font-style:normal; text-transform:none; letter-spacing:0; font-size:calc(var(--sk) * 1em); line-height:.55; padding:0 .05em }
+.ex[data-hl="italico"] .hl { font-family:var(--fs); font-style:italic; font-weight:400; text-transform:none; letter-spacing:-.025em }
+.ex[data-hl="caixa"] .hl { background:var(--ac); color:var(--ink); padding:0 .1em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.ex.tom-es[data-hl="caixa"] .hl { color:#17171A }
+.ex b { font-weight:800 }
+.ex .ex-top, .ex .ex-bot { position:absolute; left:28px; right:28px; display:flex; justify-content:space-between; align-items:center; font:600 9px/1 var(--b); letter-spacing:.08em; text-transform:uppercase; opacity:.72; z-index:12 }
+.ex .ex-top { top:20px } .ex .ex-bot { bottom:18px }
+.ex .ex-pt { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-left:4px; vertical-align:middle }
+.ex .ex-miudo { position:absolute; left:26px; top:300px; width:110px; height:120px; font:600 5.4px/1.4 var(--b); text-transform:uppercase; text-align:justify; opacity:.26; overflow:hidden; z-index:0 }
+.ex .ex-miudo.m-dir { left:auto; right:24px; top:250px; width:116px; height:100px }
+.ex .ex-miudo.m-esq { top:440px; height:70px }
+.ex .ex-miudo.m-baixo { left:auto; right:28px; top:auto; bottom:64px; width:96px; height:70px }
+.ex .ex-mao { font-family:var(--n); font-size:15px; line-height:1.3; font-weight:400 }
+.ex .ex-lead { font:400 17px/1.3 var(--b); letter-spacing:-.025em; max-width:430px; margin:0 auto }
+.ex .ex-lead.topo { position:absolute; top:58px; left:44px; right:44px; text-align:center }
+
+/* foto */
+.ex .ex-foto { position:absolute; overflow:hidden; background:color-mix(in srgb, var(--ac2) 42%, var(--cl)); z-index:2 }
+.ex .ex-foto img { display:block; width:100%; height:100%; object-fit:cover }
+.ex .ex-ph { position:absolute; inset:0; display:block; background:linear-gradient(170deg, color-mix(in srgb, var(--ac3) 70%, var(--cl)), color-mix(in srgb, var(--ac2) 55%, var(--cl))) }
+.ex .ex-ph svg { position:absolute; inset:0; width:100%; height:100%; fill:color-mix(in srgb, var(--es) 34%, transparent) }
+.ex .ex-ph i { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); font:600 10.5px var(--b); font-style:normal; background:#fff; color:#111; padding:6px 11px; border-radius:99px; white-space:nowrap; box-shadow:0 4px 10px -4px #0006 }
+.ex [data-foto][data-k], .ex [contenteditable] + [data-foto] { cursor:pointer }
+.ed .ex [data-foto] { cursor:pointer } .ed .ex [data-foto]:hover { outline:2px solid #2F7BFF; outline-offset:2px }
+.ex .f-arco { border-radius:999px 999px 0 0 } .ex .f-oval, .ex .f-circ { border-radius:50% } .ex .f-full { inset:0; z-index:0 }
+
+/* etiquetas */
+.ex .ex-pill { position:absolute; z-index:6; display:inline-flex; align-items:center; gap:8px; padding:6px 14px 6px 6px; border-radius:999px; background:var(--inv); color:var(--invfg); font:700 10.5px/1.2 var(--b); text-transform:uppercase; letter-spacing:.02em; white-space:nowrap }
+.ex .ex-pill::before { content:"→"; width:19px; height:19px; border-radius:50%; background:var(--ac); color:var(--aon); display:grid; place-items:center; font-size:11px; flex:none }
+.ex .ex-pill::after { content:"···"; opacity:.7; letter-spacing:.1em }
+.ex.v-foto .ex-pill { top:52px; left:50%; transform:translateX(-50%) }
+.ex .ex-pill.baixo { bottom:58px; left:50%; transform:translateX(-50%) }
+.ex .ex-pill.largo { left:34px; right:34px; bottom:52px; white-space:normal; border-radius:14px; padding:13px 18px; text-transform:none; font-size:14px; font-weight:600; letter-spacing:-.01em; justify-content:center; text-align:center; background:var(--ac); color:var(--aon) }
+.ex .ex-pill.largo::before, .ex .ex-pill.largo::after { display:none }
+.ex .ex-nota { position:absolute; z-index:5; background:var(--pa); color:var(--ink); padding:18px 14px 14px; box-shadow:0 12px 20px -10px #0007 }
+.ex .ex-nota::before, .ex .ex-postit::after { content:""; position:absolute; top:-9px; left:50%; width:66px; height:18px; margin-left:-33px; transform:rotate(-3deg); background:color-mix(in srgb, var(--ac2) 55%, #fff); opacity:.85 }
+
+/* capa: foto em arco */
+.ex .ex-gig { position:absolute; top:80px; left:0; right:0; text-align:center; font-size:136px; color:var(--hc); z-index:1 }
+.ex .farc { left:104px; right:104px; top:196px; bottom:0 }
+.ex .n-capa { left:28px; top:338px; width:146px; transform:rotate(-6deg) }
+
+/* capa: manchete */
+.ex .ex-balao { position:absolute; top:56px; left:50%; transform:translateX(-50%); background:var(--inv); color:var(--invfg); font:600 13px var(--b); padding:7px 14px; border-radius:8px; z-index:4; white-space:nowrap }
+.ex .ex-balao::after { content:""; position:absolute; left:16px; bottom:-7px; border-left:8px solid var(--inv); border-bottom:8px solid transparent }
+.ex .ex-man { position:absolute; top:96px; left:22px; right:22px; text-align:center; font-size:58px; z-index:1 }
+.ex .ex-man .hl { display:block; font-size:1.95em; line-height:.9; margin-top:.02em }
+.ex[data-hl="script"] .ex-man .hl { font-size:calc(1.7em * var(--sk)); line-height:.8; margin-top:-.04em }
+.ex .fman { left:118px; right:118px; top:312px; height:236px; border-radius:50%; transform:rotate(-3deg); box-shadow:0 0 0 7px var(--pa), 0 18px 32px -12px #0008 }
+
+/* capa: cartaz */
+.ex .ex-luz { position:absolute; left:50%; top:90px; width:560px; height:560px; margin-left:-280px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac) 30%, transparent), transparent 62%); z-index:0 }
+.ex .ex-sobre { position:absolute; top:46px; left:46px; right:46px; text-align:center; font:800 13px/1.2 var(--b); text-transform:uppercase; letter-spacing:.06em }
+.ex .ex-tv { position:absolute; top:96px; left:50%; width:236px; height:168px; margin-left:-118px; transform:rotate(-4deg); border-radius:22px; background:linear-gradient(#5a463d, #2b211d); box-shadow:inset 0 0 0 6px #1b1411, 0 22px 40px -14px #000; z-index:1 }
+.ex .ex-tv i { position:absolute; left:16px; top:16px; right:58px; bottom:16px; border-radius:30px / 24px; background:radial-gradient(ellipse at 45% 40%, color-mix(in srgb, var(--ac) 45%, #d8d8d8), #1f2726 78%); overflow:hidden }
+.ex .ex-tv i::before { content:"ATENÇÃO"; position:absolute; left:50%; top:30%; transform:translateX(-50%); font:900 15px var(--b); letter-spacing:.12em; color:#fff; background:#c0392b; padding:2px 8px }
+.ex .ex-tv i::after { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg, #0002 0 2px, transparent 2px 4px) }
+.ex .ex-tv::after { content:""; position:absolute; right:18px; top:30px; width:22px; height:22px; border-radius:50%; background:#c9a46a; box-shadow:0 40px 0 #c9a46a, 0 80px 0 -6px #8a6d44 }
+.ex .ex-cartaz { position:absolute; top:236px; left:6px; right:6px; text-align:center; font-size:148px; color:var(--on); z-index:3; text-shadow:0 6px 30px #0006 }
+.ex .ex-linha { position:absolute; top:430px; left:40px; right:40px; text-align:center; font:800 11.5px var(--b); text-transform:uppercase; letter-spacing:.14em }
+.ex .ex-creditos { position:absolute; top:462px; left:48px; right:48px; text-align:center; font:600 8.6px/1.5 var(--b); text-transform:uppercase; letter-spacing:.04em; opacity:.75 }
+.ex .ex-classif { position:absolute; bottom:46px; left:36px; right:36px; border-top:1.5px solid currentColor; padding-top:9px; text-align:center; font:800 10px var(--b); text-transform:uppercase; letter-spacing:.06em }
+.ex.v-cartaz .s1 { right:64px; top:250px; width:38px }
+
+/* capa: foto inteira com texto nativo */
+.ex .ex-sombra { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, #0003, #0000 28%, #0000 45%, #0007 100%) }
+.ex .ex-nat { position:absolute; left:40px; right:40px; top:236px; z-index:4; color:#fff; font:700 38px/1.04 var(--d); letter-spacing:-.02em; text-shadow:0 2px 16px #0006 }
+.ex .ex-nat b { display:inline-block; font-weight:900; font-size:1.32em; padding:0 .14em; margin:.04em 0; border-left:2px solid var(--ac); border-right:2px solid var(--ac); background:color-mix(in srgb, var(--ac) 42%, transparent) }
+.ex .ex-nat .hl { display:block; color:var(--hce); font-size:calc(2.1em * var(--sk)); line-height:.95; padding:0 }
+.ex[data-hl="italico"] .ex-nat .hl, .ex[data-hl="cor"] .ex-nat .hl { font-size:2.3em; font-family:var(--fs); font-style:var(--sit); font-weight:400 }
+.ex[data-hl="caixa"] .ex-nat .hl { font-size:2em; display:inline-block; color:#17171A }
+.ex .ex-olhos { position:absolute; top:212px; right:62px; width:58px; z-index:5; transform:rotate(8deg) }
+.ex .ex-input { position:absolute; left:44px; right:44px; bottom:88px; z-index:5; background:#fff; color:#2b2b2b; border-radius:999px; padding:9px 10px 9px 12px; display:flex; align-items:center; gap:10px; font:500 14px var(--b); box-shadow:0 12px 26px -10px #0008 }
+.ex .ex-input > span:nth-child(2) { flex:1 }
+.ex .ex-mais, .ex .ex-env { width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font:700 16px var(--b); color:#fff; background:var(--ac); flex:none } .ex .ex-env { background:var(--hcl) }
+.ex .ex-assin { position:absolute; bottom:40px; left:0; right:0; text-align:center; color:#fff; font:400 13px var(--b); opacity:.85; z-index:5 }
+
+/* capa: zine */
+.ex .ex-fantasma { position:absolute; left:-40px; right:-40px; top:330px; z-index:0; text-align:center; white-space:nowrap; font-family:var(--fs); font-style:var(--sit); font-size:190px; line-height:1; color:var(--ac); opacity:.6; transform:rotate(-10deg) }
+.ex .ex-tags { position:absolute; top:58px; left:0; right:0; display:flex; justify-content:center; gap:10px; z-index:4 }
+.ex .ex-tg { font:600 24px var(--b); letter-spacing:-.04em; padding:1px 10px 3px } .ex .ex-tg.a { background:var(--ac2); color:var(--pa) } .ex .ex-tg.b { background:var(--ac); color:var(--ink) }
+.ex .ex-zt { position:absolute; top:100px; left:16px; right:16px; text-align:center; font-size:70px; z-index:4 }
+.ex .ex-moldura { position:absolute; left:112px; right:112px; top:196px; height:316px; border-radius:50%; background:var(--ac2); border:7px dotted color-mix(in srgb, #fff 65%, var(--ac2)); box-shadow:0 18px 30px -16px #0007; z-index:2 }
+.ex .ex-moldura .ex-foto { inset:14px }
+.ex .ex-zb { position:absolute; bottom:58px; left:16px; right:16px; text-align:center; font-size:78px; z-index:4 }
+.ex .ex-st { position:absolute; z-index:5; width:34px; right:40px; top:66px } .ex .ex-st svg { display:block; width:100%; height:auto }
+.ex .ex-st.s2 { right:auto; top:auto; left:36px; bottom:74px; width:28px }
+.ex.v-zine .s1 { right:48px; top:150px; width:48px } .ex.v-zine .s2 { left:34px; bottom:150px; top:auto; width:74px } .ex.v-zine .s3 { right:66px; bottom:178px; top:auto; width:30px } .ex.v-zine .s4 { left:58px; top:212px; width:34px }
+
+/* capa: janela */
+.ex.v-janela { background-image:linear-gradient(color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px); background-size:54px 54px }
+.ex.i-eletrico.v-janela.tom-es { background-image:linear-gradient(#ffffff17 1px, transparent 1px), linear-gradient(90deg, #ffffff17 1px, transparent 1px), linear-gradient(160deg, #0A1E8C, #1534D8 55%, #4170FF); background-size:54px 54px, 54px 54px, auto }
+.ex .ex-jan { position:absolute; left:44px; right:44px; top:150px; bottom:128px; background:var(--pa); color:var(--ink); border-radius:12px; box-shadow:0 30px 60px -24px #000a; z-index:3; display:flex; flex-direction:column; overflow:hidden }
+.ex .ex-jan-b { height:34px; flex:none; display:flex; align-items:center; gap:6px; padding:0 12px; background:color-mix(in srgb, var(--ink) 7%, var(--pa)); border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent) }
+.ex .ex-jan-b i { width:10px; height:10px; border-radius:50%; background:#FF5F57 } .ex .ex-jan-b i:nth-child(2) { background:#FEBC2E } .ex .ex-jan-b i:nth-child(3) { background:#28C840 }
+.ex .ex-jan-b span { margin-left:14px; flex:1; font:600 10px var(--b); background:var(--pa); border-radius:6px; padding:4px 10px; opacity:.85 }
+.ex .ex-jan-c { flex:1; display:flex; flex-direction:column; justify-content:center; padding:20px 30px; gap:16px; text-align:center }
+.ex .ex-jan-c small { font:600 9px var(--b); letter-spacing:.1em; text-transform:uppercase; opacity:.55 }
+.ex .ex-jt { font-size:58px; color:var(--ink) } .ex.tom-es .ex-jt .hl { color:var(--hcl) }
+.ex .ex-pasta { position:absolute; width:76px; z-index:4 } .ex .ex-pasta.p1 { right:22px; top:118px; transform:rotate(8deg) } .ex .ex-pasta.p2 { left:20px; bottom:150px; transform:rotate(-10deg) }
+
+/* capa: caderno */
+.ex .ex-fichario { position:absolute; inset:24px 22px 24px 26px }
+.ex .ex-folha { position:absolute; inset:0 0 0 22px; background:var(--pa) repeating-linear-gradient(transparent 0 29px, color-mix(in srgb, var(--ink) 7%, transparent) 29px 30px); color:var(--ink); border-radius:4px 10px 10px 4px; box-shadow:0 22px 40px -20px #0009; overflow:hidden; --hc:var(--hcl) }
+.ex .ex-aros { position:absolute; left:0; top:44px; bottom:44px; width:50px; display:flex; flex-direction:column; justify-content:space-between; z-index:6 }
+.ex .ex-aros i { height:16px; border-radius:10px; border:3.5px solid #4a4a4a; border-right-color:#a7a7a7; box-shadow:inset 0 1px 0 #fff6 }
+.ex .f-polaroide { left:52px; top:34px; width:196px; height:226px; background:#fff; padding:10px 10px 36px; transform:rotate(-4deg); box-shadow:0 14px 24px -12px #0008; z-index:3 }
+.ex .f-polaroide .ex-ph { inset:10px 10px 36px }
+.ex .ex-alf { position:absolute; left:140px; top:22px; width:24px; z-index:6 }
+.ex .n-cad { right:28px; top:66px; width:156px; transform:rotate(5deg); background:color-mix(in srgb, var(--ac) 40%, var(--pa)) }
+.ex .ex-cad { position:absolute; left:46px; right:22px; top:288px; font-size:66px; z-index:4 }
+.ex .ex-pontilhado { position:absolute; left:46px; right:28px; bottom:30px; border-top:2px dotted currentColor; border-bottom:2px dotted currentColor; padding:8px 0; font:500 12.5px/1.35 var(--b) }
+
+/* capa: papel com clipe */
+.ex .ex-cal { position:absolute; inset:0; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); z-index:0 }
+.ex .ex-cal span { border-right:1px solid color-mix(in srgb, currentColor 16%, transparent); border-bottom:1px solid color-mix(in srgb, currentColor 16%, transparent); font:400 34px var(--d); padding:12px 16px; opacity:.3 }
+.ex .ex-papel { position:absolute; left:80px; right:80px; top:96px; bottom:96px; background:var(--pa); color:var(--ink); transform:rotate(-2.5deg); box-shadow:0 2px 0 #0001, 0 28px 44px -22px #0009; padding:50px 30px 30px; display:flex; flex-direction:column; justify-content:center; gap:14px; text-align:center; z-index:3 }
+.ex .ex-clipe { position:absolute; width:26px; left:30px; top:-28px; transform:rotate(-8deg); z-index:4 }
+.ex .ex-pl { font:400 19px/1.2 var(--b); letter-spacing:-.035em }
+.ex .ex-scr { font-family:var(--fs); font-style:var(--sit); font-weight:400; font-size:calc(44px * var(--sk)); line-height:.95; color:var(--hcl); letter-spacing:0; text-transform:none }
+.ex .ex-pa { font:600 9.5px var(--b); letter-spacing:.14em; text-transform:uppercase; opacity:.55; margin-top:8px }
+
+/* capa: pop */
+.ex .ex-pop { position:absolute; top:44px; left:20px; right:20px; text-align:center; font-size:132px; color:var(--on); z-index:4 }
+.ex .ex-raio { position:absolute; width:44px; z-index:5 } .ex .ex-raio.r1 { left:58px; top:330px; transform:rotate(-22deg) } .ex .ex-raio.r2 { right:150px; top:300px; transform:rotate(18deg) }
+.ex .ex-meio-tom { position:absolute; left:110px; top:300px; width:320px; height:320px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac2) 85%, #000) 1.7px, transparent 2.2px) 0 0 / 9px 9px; opacity:.55; z-index:1 }
+.ex .f-recorte { left:146px; top:326px; width:236px; height:250px; border-radius:26px; transform:rotate(3deg); box-shadow:0 0 0 7px #fff, 0 22px 30px -12px #0009 }
+.ex .ex-adesivo { position:absolute; right:26px; top:452px; width:184px; padding:24px 20px; border-radius:50%; background:var(--ac); color:var(--aon); transform:rotate(-10deg); text-align:center; font:400 17px/1.08 var(--n); z-index:6; box-shadow:inset 0 0 0 4px var(--ac), inset 0 0 0 6px color-mix(in srgb, #fff 70%, transparent), 0 10px 18px -8px #0007 }
+.ex .ex-fita { position:absolute; left:30px; right:30px; bottom:28px; z-index:6; background:var(--on); color:var(--es); text-align:center; padding:10px 14px; font:800 17px var(--b); letter-spacing:-.02em; border-radius:10px; transform:rotate(-1deg) }
+
+/* capa: data */
+.ex .ex-espiral { position:absolute; top:-12px; left:34px; right:34px; display:flex; justify-content:space-between; z-index:6 }
+.ex .ex-espiral i { width:12px; height:42px; border-radius:8px; border:3px solid #cfcfcf; box-shadow:inset 0 0 0 1px #0003 }
+.ex .ex-da { position:absolute; top:62px; left:0; right:0; text-align:center; font-size:52px }
+.ex .ex-dt { position:absolute; top:112px; left:0; right:0; text-align:center; font-size:66px; color:var(--hc) }
+.ex .ex-dias { position:absolute; top:232px; left:0; right:0; display:flex; justify-content:center; align-items:center; gap:26px; font:400 100px/1 var(--d); letter-spacing:-.04em; opacity:1 }
+.ex .ex-dias > span { opacity:.45 }
+.ex .ex-dias b { position:relative; color:var(--hc); font-weight:inherit; display:grid; place-items:center }
+.ex .ex-dias b::before { content:""; position:absolute; inset:-12px -20px; border:2.5px solid var(--hc); border-radius:50%; transform:rotate(-6deg) }
+.ex .ex-dias small { position:absolute; bottom:-34px; left:50%; transform:translateX(-50%); white-space:nowrap; font:700 9.5px var(--b); letter-spacing:.08em; text-transform:uppercase; color:var(--on) }
+.ex .f-selo { right:36px; top:350px; width:150px; height:172px; background:#fff; padding:9px; transform:rotate(6deg); box-shadow:0 14px 26px -12px #000a; outline:2px dashed #fff; outline-offset:4px }
+.ex .f-selo .ex-ph { inset:9px }
+.ex .ex-dd { position:absolute; left:36px; top:420px; width:300px; font-size:56px }
+.ex .ex-sub { position:absolute; left:38px; bottom:54px; font:600 12.5px var(--b); text-decoration:underline; text-underline-offset:3px; text-transform:uppercase; letter-spacing:.06em }
+
+/* texto, caminho, lista, pergunta, conversa, passo, chamada */
+.ex .ex-centro { position:absolute; inset:66px 40px 60px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:22px; z-index:3 }
+.ex .ex-tt { font-size:70px }
+.ex .ex-caixa { background:var(--inv); color:var(--invfg); padding:14px 18px; border-radius:12px; font:500 14px/1.38 var(--b); max-width:400px; box-shadow:0 14px 24px -14px #0007; transform:rotate(-1deg) }
+.ex .ex-sel { position:absolute; top:56px; left:58px; right:58px; border:1px solid currentColor; padding:13px 16px; text-align:center; z-index:3 }
+.ex .ex-sel .ex-lead { font-size:15px; max-width:none }
+.ex .ex-sel i { position:absolute; width:7px; height:7px; border:1px solid currentColor; background:var(--bgc) }
+.ex .ex-sel i:nth-of-type(1) { left:-4px; top:-4px } .ex .ex-sel i:nth-of-type(2) { right:-4px; top:-4px } .ex .ex-sel i:nth-of-type(3) { left:-4px; bottom:-4px } .ex .ex-sel i:nth-of-type(4) { right:-4px; bottom:-4px }
+.ex .ex-ct { position:absolute; top:146px; left:28px; right:28px; text-align:center; font-size:46px }
+.ex .ex-trilha { position:absolute; left:44px; right:44px; top:300px; height:196px; z-index:2 }
+.ex .ex-trilha svg { display:block; width:100%; height:100%; opacity:.7 }
+.ex .ex-no { position:absolute; transform:translate(-50%, -6px); display:flex; flex-direction:column; align-items:center }
+.ex .ex-no::before { content:""; width:12px; height:12px; border-radius:50%; border:1.6px solid currentColor; background:var(--bgc) }
+.ex .ex-no em { font:500 13px var(--b); font-style:normal; margin-top:5px; white-space:nowrap }
+.ex .ex-no.n0 { left:26%; top:10% } .ex .ex-no.n1 { left:65%; top:10% } .ex .ex-no.n2 { left:72%; top:50% } .ex .ex-no.n3 { left:30%; top:50% } .ex .ex-no.n4 { left:33%; top:90% } .ex .ex-no.n5 { left:82%; top:90% }
+.ex .ex-faixa { position:absolute; left:0; right:0; bottom:0; background:var(--ac); color:var(--aon); text-align:center; font:500 13px var(--b); padding:16px 40px 40px; z-index:4 }
+.ex.t-caminho .ex-bot { color:var(--aon) }
+.ex .ex-lcol { position:absolute; top:58px; bottom:68px; left:36px; right:36px; display:flex; flex-direction:column; justify-content:center; gap:34px; z-index:3 }
+.ex .ex-lt { font-size:62px; max-width:440px }
+.ex .ex-lista { display:grid; gap:13px; max-width:290px; margin:0; padding:0; list-style:none }
+.ex .ex-lista li { display:flex; gap:11px; align-items:flex-start; font:400 17.5px/1.25 var(--b); letter-spacing:-.02em }
+.ex .ex-lista li > i { width:13px; height:13px; border-radius:50%; background:var(--hc); flex:none; margin-top:2px; box-shadow:0 0 0 3px color-mix(in srgb, var(--hc) 25%, transparent) }
+.ex .ex-postit { position:absolute; right:28px; bottom:78px; width:172px; padding:28px 16px 18px; background:color-mix(in srgb, var(--ac3) 70%, var(--pa)); color:var(--ink); transform:rotate(5deg); box-shadow:0 14px 22px -12px #0007; z-index:5 }
+.ex .ex-postit .ex-clipe { left:auto; right:22px; top:-30px }
+.ex .ex-postit::after { display:none }
+.ex .ex-postit .ex-mao { font-size:16px }
+.ex .ex-pt-t { position:absolute; top:54px; left:28px; right:28px; text-align:center; font-size:64px }
+.ex .ex-pg { position:absolute; left:34px; right:34px; top:262px; height:240px }
+.ex .f-circ { left:0; top:10px; width:196px; height:196px; box-shadow:0 0 0 6px var(--pa) }
+.ex .ex-bolha { position:absolute; left:150px; top:-4px; z-index:4; background:var(--ac); color:var(--aon); font:800 12px var(--b); padding:6px 12px; border-radius:12px 12px 12px 2px; text-transform:uppercase; letter-spacing:.04em }
+.ex .ex-pg-t { position:absolute; left:222px; right:0; top:22px; font:400 18px/1.32 var(--b); letter-spacing:-.025em; color:inherit }
+.ex .ex-chat { position:absolute; top:136px; left:44px; right:44px; display:flex; flex-direction:column; gap:12px; z-index:3 }
+.ex .ex-msg { align-self:flex-start; max-width:84%; background:var(--pa); color:#1b1b1b; padding:12px 15px 8px; border-radius:16px 16px 16px 4px; font:500 18px/1.3 var(--b); box-shadow:0 10px 20px -12px #0007, 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent) }
+.ex .ex-msg small { display:block; text-align:right; font-size:10px; opacity:.5; margin-top:2px }
+.ex .ex-msg.m1 { transform:rotate(1.2deg); margin-left:14px } .ex .ex-msg.m2 { transform:rotate(-1.4deg) }
+.ex .ex-cht { position:absolute; left:32px; right:32px; bottom:70px; text-align:center; font-size:64px; z-index:3 }
+.ex .ex-num { position:absolute; left:28px; top:36px; font-family:var(--d); font-weight:var(--dw); font-size:300px; line-height:1; letter-spacing:-.06em; color:var(--hc); z-index:1 }
+.ex .ex-kick { position:absolute; left:40px; top:338px; font:700 11.5px var(--b); letter-spacing:.2em; text-transform:uppercase; opacity:.7 }
+.ex .ex-pst { position:absolute; left:38px; right:38px; top:360px; font-size:52px; z-index:3 }
+.ex .ex-pstx { position:absolute; left:40px; right:150px; bottom:64px; font:400 16.5px/1.42 var(--b); letter-spacing:-.015em; color:inherit; z-index:3 }
+.ex .ex-acoes { display:flex; gap:8px; flex-wrap:wrap; justify-content:center }
+.ex .ex-acoes span { border:1.5px solid currentColor; padding:8px 14px; border-radius:999px; font:600 13px var(--b) }
+.ex .ex-ramo { position:absolute; width:118px; right:-12px; bottom:34px; z-index:1; transform:rotate(-12deg); opacity:.9 }
+.ex .ex-flor { position:absolute; width:84px; right:26px; top:56px; z-index:1; opacity:.92; transform:rotate(15deg) }
+.ex.t-passo .ex-flor, .ex.t-passo .ex-st.s1 { top:auto; bottom:150px }
+
+/* stories */
+.ex .ex-sombra.est { background:linear-gradient(180deg, #0004, #0000 25%, #0000 50%, #000a 100%) }
+.ex .st-topo { top:112px; left:50%; transform:translateX(-50%) }
+.ex .ex-caixinha { position:absolute; left:66px; right:66px; top:380px; border-radius:22px; background:#fff; overflow:hidden; box-shadow:0 26px 50px -20px #000a; z-index:5; text-align:center }
+.ex .ex-cx-h { position:relative; background:linear-gradient(135deg, var(--ac), var(--hcl)); color:#fff; padding:64px 24px 22px }
+.ex .ex-av { position:absolute; left:50%; top:14px; width:40px; height:40px; margin-left:-20px; border-radius:50%; border:3px solid #fff; background:var(--es); color:var(--on); display:grid; place-items:center; font:700 17px var(--b) }
+.ex .ex-cx-t { font:800 27px/1.12 var(--b); letter-spacing:-.025em; color:#fff; margin:0 }
+.ex .ex-cx-t .hl { color:#fff }
+.ex .ex-cx-in { padding:20px; font:500 17px var(--b); color:#9a9a9a }
+.ex.story .ex-st.s1 { right:62px; top:318px; width:46px } .ex.story .ex-st.s2 { left:58px; top:620px; bottom:auto; width:30px }
+.ex .ex-notas-b { position:absolute; top:60px; left:30px; right:30px; display:flex; justify-content:space-between; font:600 16px var(--b); color:var(--hcl) }
+.ex .ex-qt { position:absolute; top:130px; left:36px; right:36px; font-size:80px }
+.ex .ex-quiz { position:absolute; left:50px; right:50px; top:400px; background:#fff; color:#111; border-radius:20px; padding:22px; box-shadow:0 20px 40px -18px #0006; display:grid; gap:10px; z-index:3 }
+.ex .ex-qp { font:800 22px/1.2 var(--b); letter-spacing:-.02em; text-align:center; margin-bottom:6px }
+.ex .ex-op { display:flex; align-items:center; gap:12px; border:1.5px solid #e4e4e4; border-radius:14px; padding:12px 14px; font:600 18px var(--b) }
+.ex .ex-op i { font-style:normal; width:28px; height:28px; border-radius:50%; background:#f1f1f1; display:grid; place-items:center; font-size:13px; font-weight:800 }
+.ex .ex-op.ok { border-color:#1DB954; background:#EFFBF3 } .ex .ex-op.ok i { background:#1DB954; color:#fff }
+.ex .ex-qn { position:absolute; left:64px; bottom:170px; font-size:26px; transform:rotate(-4deg) }
+.ex .ex-seta { position:absolute; left:300px; bottom:60px; width:52px; transform:rotate(-24deg) }
+.ex .ex-hora { position:absolute; top:120px; left:50%; transform:translateX(-50%) rotate(-3deg); background:#fff; color:#111; font:800 56px var(--b); padding:6px 18px; border-radius:14px; letter-spacing:-.03em; z-index:5; box-shadow:0 14px 26px -12px #0009 }
+.ex .ex-bpre { position:absolute; left:40px; right:40px; bottom:340px; color:#fff; font:600 30px var(--b); text-align:center; z-index:5; letter-spacing:-.02em }
+.ex .ex-bt { position:absolute; left:16px; right:16px; bottom:196px; color:#fff; text-align:center; font-size:112px; z-index:5 }
+.ex .st-sub { bottom:140px; left:50%; transform:translateX(-50%) }
+.ex .ex-assin.est { bottom:72px }
+
+/* seletor de coleção na página */
+.col-sw { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px }
+.col-sw button { display:grid; gap:2px; padding:12px 18px; border-radius:16px; border:2px solid var(--line); background:var(--surface); text-align:left; min-width:220px }
+.col-sw button b { font-size:16px } .col-sw button small { color:var(--muted); font-size:13px }
+.col-sw button[aria-pressed="true"] { border-color:var(--brand); box-shadow:0 0 0 3px var(--brand-bg) }
+.col-sw .novo { display:inline-block; margin-left:6px; font-size:10.5px; font-weight:800; letter-spacing:.08em; color:#fff; background:var(--brand); padding:2px 7px; border-radius:99px; vertical-align:middle }
+.fotos-box { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid var(--line) }
+.fotos-box .fb { width:56px; height:56px; border-radius:14px; background:var(--surface2) center/cover; border:1.5px dashed var(--line); display:grid; place-items:center; color:var(--faint) }
+.fotos-box .fb .ic { width:22px; height:22px }
+
+.ex[data-hl="caixa"] .ex-d { line-height:1.02 }
+.ex .ex-ph svg { top:auto; height:86% }

@@ -2,7 +2,7 @@
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
-const P = window.PAUTA, AREAS = window.AREAS, M = window.MODELOS, TD = window.TENDENCIAS;
+const P = window.PAUTA, AREAS = window.AREAS, TD = window.TENDENCIAS, COLS = { editorial:window.ESTUDIO, classica:window.MODELOS };
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -259,7 +259,7 @@ const NAV = () => [
   { sep:'Criação' }, { id:'carrosseis', nome:'Carrosséis', ic:'layers', n:cnt('carrossel') }, { id:'reels', nome:'Reels', ic:'play', n:cnt('reels') }, { id:'outros', nome:'Posts e stories', ic:'image', n:cnt('outros') },
   { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' }, { id:'tendencias', nome:'Tendências', ic:'flame', tag:'Novo' },
   { sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }, { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, { id:'analytics', nome:'Analytics', ic:'chart' }, { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
-  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:M.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
+  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:COLS.editorial.TPL.length + COLS.classica.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
 ];
 const MOBILE = ['inicio', 'cronograma', 'carrosseis', 'producao'];
 const av = (c, cls = '') => `<span class="av ${cls}" style="--c:${c.cor}">${E(((c.perfil?.marca || c.perfil?.nome || '?').trim()[0] || '?').toUpperCase())}</span>`;
@@ -574,38 +574,46 @@ function etica() {
 /* ---------- modelos de posts (15 identidades) ---------- */
 const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única', 'image'], ['stories', 'Stories e destaques', 'cam'], ['extras', 'Mais ideias', 'spark']];
 let abaMod = 'carrossel', ed = null;
-const mstate = () => (C.modelos ||= { idt:null, txt:{} });
-const idtRec = () => M.IDT.find(i => i.ideal.includes(C.perfil.principal)) || M.IDT[0];
-const idtAtual = () => M.IDT.find(i => i.id === mstate().idt) || idtRec();
+const mstate = () => { const m = (C.modelos ||= { col:'editorial', idt:{}, txt:{}, fotos:{} }); if (typeof m.idt !== 'object' || !m.idt) m.idt = m.idt ? { classica:m.idt } : {}; m.col ||= 'classica'; m.fotos ||= {}; m.txt ||= {}; return m };
+const MC = () => COLS[mstate().col] || COLS.editorial;
+const idtRec = () => MC().IDT.find(i => i.ideal.includes(C.perfil.principal)) || MC().IDT[0];
+const idtAtual = () => MC().IDT.find(i => i.id === mstate().idt[mstate().col]) || idtRec();
 const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
 function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
-function dadosMod(tid) { const base = JSON.parse(JSON.stringify(M.PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
-const slidesDe = (tid, idt, edit = false) => M.slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome });
+function dadosMod(tid) { const base = JSON.parse(JSON.stringify(MC().PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
+const slidesDe = (tid, idt, edit = false) => MC().slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome, fotos:mstate().fotos });
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
-  const idt = idtAtual(), rec = idtRec(), lista = M.TPL.filter(t => t.grupo === abaMod);
-  const am = i => `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
-  return cab('MARCA', 'Modelos', `15 identidades visuais e ${M.TPL.length} modelos prontos: ${M.TPL.filter(t => t.grupo === 'carrossel').length} carrosséis, 3 telas únicas, 3 de stories e destaques e mais ideias. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  const idt = idtAtual(), rec = idtRec(), lista = MC().TPL.filter(t => t.grupo === abaMod);
+  const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos;
+  const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
+    : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
+  const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
+  return cab('MARCA', 'Modelos', `Duas coleções: a <b>Editorial</b>, com colagem, papel, manuscrita e a sua foto, e a <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
-    <div class="idts">${M.IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
-    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${E(idt.f.t.split(',')[0].replace(/'/g, ''))} + ${E(idt.f.b.split(',')[0].replace(/'/g, ''))}</span></div></section>
-  <section class="card"><div class="tabs" role="tablist">${GRUPOS.map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${M.TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
+    <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
+    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${fontes.map(f => E(f.split(',')[0].replace(/'/g, ''))).filter((x, i, l) => l.indexOf(x) === i).join(' + ')}</span></div>
+    ${ed2 ? `<div class="fotos-box">${['f1'].map(k => `<label class="fb" style="${F[k] ? `background-image:url(${F[k]})` : ''}" title="Sua foto">${F[k] ? '' : I('cam')}<input type="file" accept="image/*" data-upfoto="${k}" hidden></label>`).join('')}<div><b>${F.f1 ? 'Sua foto está em todos os modelos' : 'Ponha a sua foto'}</b><p class="muted small">Ela entra nas capas e slides com foto. Fica só neste navegador.${F.f1 ? ' <button class="link" data-delfoto="f1">Remover</button>' : ''}</p></div></div>` : ''}</section>
+  <section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
     <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
       const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
       return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
 }
 function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
 function desenhaEd(manterScroll) {
-  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = M.TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
+  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
   const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40);
   el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
-    <select id="ed-idt" aria-label="Identidade">${M.IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
+    <select id="ed-idt" aria-label="Identidade">${MC().IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
     ${prox.length ? `<select id="ed-post" aria-label="Preencher com uma peça do cronograma"><option value="">Preencher com uma peça…</option>${prox.map(p => `<option value="${p.id}">${fmt(p.data)} · ${E(p.titulo.slice(0, 60))}</option>`).join('')}</select>` : ''}
     <button class="btn ghost" data-edreset>${I('refresh')}Texto original</button><button class="btn" data-edbaixa>${I('download')}${sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
-    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra.</span></p>
+    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra${mstate().col === 'editorial' ? ' e entre <b>_sublinhados_</b> para negrito. Toque na foto para trocar.' : '.'}</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
     <div class="ed-sl">${sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><button data-edpng="${i}">${I('download')}PNG</button></footer></div>`).join('')}</div></div>`;
   ajustaTextos(el); if (sx) $('.ed-sl').scrollLeft = sx;
 }
+// Reduz a foto para no máximo 1100 px (JPEG) antes de salvar no navegador.
+function fotoDe(f) { return new Promise((ok, erro) => { const r = new FileReader(); r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, 1100 / Math.max(im.width, im.height)), cv = document.createElement('canvas'); cv.width = Math.round(im.width * k); cv.height = Math.round(im.height * k); cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height); ok(cv.toDataURL('image/jpeg', .84)) }; im.onerror = erro; im.src = r.result }; r.onerror = erro; r.readAsDataURL(f) }) }
 function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado'); render(false) }
 // Diminui o título quando o texto passa do tamanho do slide.
 function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
@@ -625,14 +633,14 @@ async function pngsDe(idxs) {
 // Embute só as fontes da identidade (subconjunto latino) para o PNG sair com a tipografia certa.
 const cacheF = {};
 async function cssFontes(idt) {
-  if (cacheF[idt.id]) return cacheF[idt.id];
-  const fams = [idt.f.t, idt.f.b, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].map(f => f.split(',')[0].replace(/'/g, '').trim()).filter(Boolean);
-  try { const css = await (await fetch(M.FONTES_URL)).text(), out = [];
+  const ck = mstate().col + ':' + idt.id; if (cacheF[ck]) return cacheF[ck];
+  const fams = [idt.f.t, idt.f.d, idt.f.s, idt.f.b, idt.f.n, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].filter(Boolean).map(f => f.split(',')[0].replace(/'/g, '').trim());
+  try { const css = await (await fetch(MC().FONTES_URL)).text(), out = [];
     for (const m of css.matchAll(/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]+\})/g)) { if (m[1] !== 'latin') continue; const bloco = m[2], fam = (bloco.match(/font-family:\s*'([^']+)'/) || [])[1]; if (!fams.includes(fam)) continue;
       const url = (bloco.match(/url\(([^)]+)\)/) || [])[1]; if (!url) continue;
       const b = await (await fetch(url)).blob(), d = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(b) });
       out.push(bloco.replace(url, d)) }
-    return cacheF[idt.id] = out.join('\n') } catch { return '' }
+    return cacheF[ck] = out.join('\n') } catch { return '' }
 }
 // No Artifact do claude.ai o download passa pela capacidade "downloads"; fora dele, link comum.
 async function baixaBlob(b, nome) {
@@ -641,7 +649,7 @@ async function baixaBlob(b, nome) {
   baixaLink(b, nome) }
 function baixaLink(b, nome) { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = nome; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000) }
 async function exporta(i) {
-  const t = M.TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
+  const t = MC().TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
   toast('Gerando as imagens…', 'download');
   try {
     if (i !== undefined || n === 1) { const [b] = await pngsDe([i ?? 0]); await baixaBlob(b, `${nome}-${String((i ?? 0) + 1).padStart(2, '0')}.png`) }
@@ -764,6 +772,7 @@ function render(topo = true) {
 window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
+document.addEventListener('click', e => { if (ed && e.target.closest('.ed [data-foto]')) { $('#ed-foto')?.click() } });
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-principal], button, a, label, [data-ov]'); if (!t) return; const d = t.dataset;
   if (d.ov !== undefined && e.target === t) return fecharModal();
@@ -793,7 +802,9 @@ document.addEventListener('click', e => {
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
   // modelos e tendências
-  if (d.idt) { mstate().idt = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
+  if (d.col) { mstate().col = d.col; if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
+  if (d.delfoto) { delete mstate().fotos[d.delfoto]; salvar(); render(false); toast('Foto removida.', 'trash'); return }
+  if (d.idt) { mstate().idt[mstate().col] = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
   if (d.mtab) { abaMod = d.mtab; render(false); return }
   if (d.mod) return abrirMod(d.mod);
   if (d.edx !== undefined) return fecharEd();
@@ -850,8 +861,9 @@ document.addEventListener('change', e => {
   if (t.dataset.num && vw) { lerVw(); return }
   if (t.id === 'vw-data' || t.id === 'vw-fmt') { lerVw(); desenhaVw(); return }
   if (t.id === 'gt') { temaG = t.value; render(false); return }
-  if (t.id === 'ed-idt') { mstate().idt = t.value; salvar(); desenhaEd(true); return }
-  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || ''; salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
+  if (t.dataset.upfoto) { const f = t.files[0]; if (f) fotoDe(f).then(u => { mstate().fotos[t.dataset.upfoto] = u; try { salvar(); toast('Foto aplicada nos modelos.', 'cam') } catch { toast('A foto é grande demais para salvar.', 'close') } ed ? desenhaEd(true) : render(false) }); return }
+  if (t.id === 'ed-idt') { mstate().idt[mstate().col] = t.value; salvar(); desenhaEd(true); return }
+  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; if (mstate().col === 'editorial') { o['s.0.titulo'] = p.titulo; o.area = AREA[p.area]?.nome || '' } else { o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || '' } salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
   if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }

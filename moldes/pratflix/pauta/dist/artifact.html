@@ -4,6 +4,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=Fraunces:wght@800&family=Inter:wght@500&family=Archivo+Black&family=Archivo:wght@500&family=Playfair+Display:wght@800&family=Lato:wght@400&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Yellowtail&family=Nothing+You+Could+Do&family=Playfair+Display:wght@600&family=Hanken+Grotesk:wght@400;600;800&family=Gloock&family=Homemade+Apple&family=Mrs+Saint+Delafield&family=Rubik:wght@400;600;800&family=Mr+Dafoe&family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Lato:wght@400;700;900&family=Lobster&display=swap">
 <style>
 /* Layout: painel de estúdio — barra lateral em degradê da cor da marca, área clara com brilho suave,
    cartões grandes e arredondados, números enormes, capas das peças como protagonistas. */
@@ -704,6 +705,254 @@ textarea { line-height:1.6; resize:vertical }
 .tabs .tab { display:inline-flex; align-items:center; gap:8px } .tabs .tab .ic { width:17px; height:17px }
 .k-caderno .mx-cap, .k-caderno .mx-cols > div:first-child small, .k-caderno .mx-kicker { color:var(--ac2) } .k-caderno .mx-kicker { background:#FFE14D; color:#1F2937 } .k-caderno .mx-num { color:var(--ac2) }
 
+/* ====== Coleção Editorial (estilo estúdio: colagem, papel, foto, manuscrita) ====== */
+.mx.ex { padding:0; display:block; font-family:var(--b); line-height:1.3; letter-spacing:0 }
+.ex.tom-cl { background-color:var(--cl); color:var(--ink); --hc:var(--hcl); --bgc:var(--cl); --inv:var(--es); --invfg:var(--on) }
+.ex.tom-es { background-color:var(--es); color:var(--on); --hc:var(--hce); --bgc:var(--es); --inv:var(--cl); --invfg:var(--ink) }
+.ex.tom-ac { background-color:var(--ac); color:var(--aon); --hc:var(--hca); --bgc:var(--ac); --inv:var(--es); --invfg:var(--on) }
+.ex::after { content:""; position:absolute; inset:0; pointer-events:none; z-index:30; opacity:.38; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+.ex.tom-es::after { mix-blend-mode:overlay; opacity:.5 }
+.ex.tx-papel::after { opacity:.55; background-size:300px 300px }
+.ex.tx-liso::after { display:none }
+.ex.tx-grade::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background-image:linear-gradient(color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px); background-size:45px 45px }
+.ex.i-eletrico.tom-es { background-image:linear-gradient(160deg, #0A1E8C, #1534D8 55%, #4170FF) }
+.ex.i-noir.tom-es { background-image:radial-gradient(120% 80% at 70% 20%, #3A2A2E, transparent 60%) }
+.ex.i-uva.tom-ac, .ex.i-magenta.tom-ac { background-image:radial-gradient(circle at 80% 10%, color-mix(in srgb, #fff 14%, transparent), transparent 50%) }
+
+/* tipografia */
+.ex .ex-d { font-family:var(--d); font-weight:var(--dw); letter-spacing:var(--dl); line-height:var(--dlh); text-transform:var(--dt); font-style:normal; margin:0; text-wrap:balance; overflow-wrap:normal }
+.ex .ex-d b { font-weight:800 }
+.ex .hl { color:var(--hc) }
+.ex[data-hl="script"] .hl { font-family:var(--fs); font-weight:400; font-style:normal; text-transform:none; letter-spacing:0; font-size:calc(var(--sk) * 1em); line-height:.55; padding:0 .05em }
+.ex[data-hl="italico"] .hl { font-family:var(--fs); font-style:italic; font-weight:400; text-transform:none; letter-spacing:-.025em }
+.ex[data-hl="caixa"] .hl { background:var(--ac); color:var(--ink); padding:0 .1em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.ex.tom-es[data-hl="caixa"] .hl { color:#17171A }
+.ex b { font-weight:800 }
+.ex .ex-top, .ex .ex-bot { position:absolute; left:28px; right:28px; display:flex; justify-content:space-between; align-items:center; font:600 9px/1 var(--b); letter-spacing:.08em; text-transform:uppercase; opacity:.72; z-index:12 }
+.ex .ex-top { top:20px } .ex .ex-bot { bottom:18px }
+.ex .ex-pt { display:inline-block; width:6px; height:6px; border-radius:50%; background:currentColor; margin-left:4px; vertical-align:middle }
+.ex .ex-miudo { position:absolute; left:26px; top:300px; width:110px; height:120px; font:600 5.4px/1.4 var(--b); text-transform:uppercase; text-align:justify; opacity:.26; overflow:hidden; z-index:0 }
+.ex .ex-miudo.m-dir { left:auto; right:24px; top:250px; width:116px; height:100px }
+.ex .ex-miudo.m-esq { top:440px; height:70px }
+.ex .ex-miudo.m-baixo { left:auto; right:28px; top:auto; bottom:64px; width:96px; height:70px }
+.ex .ex-mao { font-family:var(--n); font-size:15px; line-height:1.3; font-weight:400 }
+.ex .ex-lead { font:400 17px/1.3 var(--b); letter-spacing:-.025em; max-width:430px; margin:0 auto }
+.ex .ex-lead.topo { position:absolute; top:58px; left:44px; right:44px; text-align:center }
+
+/* foto */
+.ex .ex-foto { position:absolute; overflow:hidden; background:color-mix(in srgb, var(--ac2) 42%, var(--cl)); z-index:2 }
+.ex .ex-foto img { display:block; width:100%; height:100%; object-fit:cover }
+.ex .ex-ph { position:absolute; inset:0; display:block; background:linear-gradient(170deg, color-mix(in srgb, var(--ac3) 70%, var(--cl)), color-mix(in srgb, var(--ac2) 55%, var(--cl))) }
+.ex .ex-ph svg { position:absolute; inset:0; width:100%; height:100%; fill:color-mix(in srgb, var(--es) 34%, transparent) }
+.ex .ex-ph i { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); font:600 10.5px var(--b); font-style:normal; background:#fff; color:#111; padding:6px 11px; border-radius:99px; white-space:nowrap; box-shadow:0 4px 10px -4px #0006 }
+.ex [data-foto][data-k], .ex [contenteditable] + [data-foto] { cursor:pointer }
+.ed .ex [data-foto] { cursor:pointer } .ed .ex [data-foto]:hover { outline:2px solid #2F7BFF; outline-offset:2px }
+.ex .f-arco { border-radius:999px 999px 0 0 } .ex .f-oval, .ex .f-circ { border-radius:50% } .ex .f-full { inset:0; z-index:0 }
+
+/* etiquetas */
+.ex .ex-pill { position:absolute; z-index:6; display:inline-flex; align-items:center; gap:8px; padding:6px 14px 6px 6px; border-radius:999px; background:var(--inv); color:var(--invfg); font:700 10.5px/1.2 var(--b); text-transform:uppercase; letter-spacing:.02em; white-space:nowrap }
+.ex .ex-pill::before { content:"→"; width:19px; height:19px; border-radius:50%; background:var(--ac); color:var(--aon); display:grid; place-items:center; font-size:11px; flex:none }
+.ex .ex-pill::after { content:"···"; opacity:.7; letter-spacing:.1em }
+.ex.v-foto .ex-pill { top:52px; left:50%; transform:translateX(-50%) }
+.ex .ex-pill.baixo { bottom:58px; left:50%; transform:translateX(-50%) }
+.ex .ex-pill.largo { left:34px; right:34px; bottom:52px; white-space:normal; border-radius:14px; padding:13px 18px; text-transform:none; font-size:14px; font-weight:600; letter-spacing:-.01em; justify-content:center; text-align:center; background:var(--ac); color:var(--aon) }
+.ex .ex-pill.largo::before, .ex .ex-pill.largo::after { display:none }
+.ex .ex-nota { position:absolute; z-index:5; background:var(--pa); color:var(--ink); padding:18px 14px 14px; box-shadow:0 12px 20px -10px #0007 }
+.ex .ex-nota::before, .ex .ex-postit::after { content:""; position:absolute; top:-9px; left:50%; width:66px; height:18px; margin-left:-33px; transform:rotate(-3deg); background:color-mix(in srgb, var(--ac2) 55%, #fff); opacity:.85 }
+
+/* capa: foto em arco */
+.ex .ex-gig { position:absolute; top:80px; left:0; right:0; text-align:center; font-size:136px; color:var(--hc); z-index:1 }
+.ex .farc { left:104px; right:104px; top:196px; bottom:0 }
+.ex .n-capa { left:28px; top:338px; width:146px; transform:rotate(-6deg) }
+
+/* capa: manchete */
+.ex .ex-balao { position:absolute; top:56px; left:50%; transform:translateX(-50%); background:var(--inv); color:var(--invfg); font:600 13px var(--b); padding:7px 14px; border-radius:8px; z-index:4; white-space:nowrap }
+.ex .ex-balao::after { content:""; position:absolute; left:16px; bottom:-7px; border-left:8px solid var(--inv); border-bottom:8px solid transparent }
+.ex .ex-man { position:absolute; top:96px; left:22px; right:22px; text-align:center; font-size:58px; z-index:1 }
+.ex .ex-man .hl { display:block; font-size:1.95em; line-height:.9; margin-top:.02em }
+.ex[data-hl="script"] .ex-man .hl { font-size:calc(1.7em * var(--sk)); line-height:.8; margin-top:-.04em }
+.ex .fman { left:118px; right:118px; top:312px; height:236px; border-radius:50%; transform:rotate(-3deg); box-shadow:0 0 0 7px var(--pa), 0 18px 32px -12px #0008 }
+
+/* capa: cartaz */
+.ex .ex-luz { position:absolute; left:50%; top:90px; width:560px; height:560px; margin-left:-280px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac) 30%, transparent), transparent 62%); z-index:0 }
+.ex .ex-sobre { position:absolute; top:46px; left:46px; right:46px; text-align:center; font:800 13px/1.2 var(--b); text-transform:uppercase; letter-spacing:.06em }
+.ex .ex-tv { position:absolute; top:96px; left:50%; width:236px; height:168px; margin-left:-118px; transform:rotate(-4deg); border-radius:22px; background:linear-gradient(#5a463d, #2b211d); box-shadow:inset 0 0 0 6px #1b1411, 0 22px 40px -14px #000; z-index:1 }
+.ex .ex-tv i { position:absolute; left:16px; top:16px; right:58px; bottom:16px; border-radius:30px / 24px; background:radial-gradient(ellipse at 45% 40%, color-mix(in srgb, var(--ac) 45%, #d8d8d8), #1f2726 78%); overflow:hidden }
+.ex .ex-tv i::before { content:"ATENÇÃO"; position:absolute; left:50%; top:30%; transform:translateX(-50%); font:900 15px var(--b); letter-spacing:.12em; color:#fff; background:#c0392b; padding:2px 8px }
+.ex .ex-tv i::after { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg, #0002 0 2px, transparent 2px 4px) }
+.ex .ex-tv::after { content:""; position:absolute; right:18px; top:30px; width:22px; height:22px; border-radius:50%; background:#c9a46a; box-shadow:0 40px 0 #c9a46a, 0 80px 0 -6px #8a6d44 }
+.ex .ex-cartaz { position:absolute; top:236px; left:6px; right:6px; text-align:center; font-size:148px; color:var(--on); z-index:3; text-shadow:0 6px 30px #0006 }
+.ex .ex-linha { position:absolute; top:430px; left:40px; right:40px; text-align:center; font:800 11.5px var(--b); text-transform:uppercase; letter-spacing:.14em }
+.ex .ex-creditos { position:absolute; top:462px; left:48px; right:48px; text-align:center; font:600 8.6px/1.5 var(--b); text-transform:uppercase; letter-spacing:.04em; opacity:.75 }
+.ex .ex-classif { position:absolute; bottom:46px; left:36px; right:36px; border-top:1.5px solid currentColor; padding-top:9px; text-align:center; font:800 10px var(--b); text-transform:uppercase; letter-spacing:.06em }
+.ex.v-cartaz .s1 { right:64px; top:250px; width:38px }
+
+/* capa: foto inteira com texto nativo */
+.ex .ex-sombra { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, #0003, #0000 28%, #0000 45%, #0007 100%) }
+.ex .ex-nat { position:absolute; left:40px; right:40px; top:236px; z-index:4; color:#fff; font:700 38px/1.04 var(--d); letter-spacing:-.02em; text-shadow:0 2px 16px #0006 }
+.ex .ex-nat b { display:inline-block; font-weight:900; font-size:1.32em; padding:0 .14em; margin:.04em 0; border-left:2px solid var(--ac); border-right:2px solid var(--ac); background:color-mix(in srgb, var(--ac) 42%, transparent) }
+.ex .ex-nat .hl { display:block; color:var(--hce); font-size:calc(2.1em * var(--sk)); line-height:.95; padding:0 }
+.ex[data-hl="italico"] .ex-nat .hl, .ex[data-hl="cor"] .ex-nat .hl { font-size:2.3em; font-family:var(--fs); font-style:var(--sit); font-weight:400 }
+.ex[data-hl="caixa"] .ex-nat .hl { font-size:2em; display:inline-block; color:#17171A }
+.ex .ex-olhos { position:absolute; top:212px; right:62px; width:58px; z-index:5; transform:rotate(8deg) }
+.ex .ex-input { position:absolute; left:44px; right:44px; bottom:88px; z-index:5; background:#fff; color:#2b2b2b; border-radius:999px; padding:9px 10px 9px 12px; display:flex; align-items:center; gap:10px; font:500 14px var(--b); box-shadow:0 12px 26px -10px #0008 }
+.ex .ex-input > span:nth-child(2) { flex:1 }
+.ex .ex-mais, .ex .ex-env { width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font:700 16px var(--b); color:#fff; background:var(--ac); flex:none } .ex .ex-env { background:var(--hcl) }
+.ex .ex-assin { position:absolute; bottom:40px; left:0; right:0; text-align:center; color:#fff; font:400 13px var(--b); opacity:.85; z-index:5 }
+
+/* capa: zine */
+.ex .ex-fantasma { position:absolute; left:-40px; right:-40px; top:330px; z-index:0; text-align:center; white-space:nowrap; font-family:var(--fs); font-style:var(--sit); font-size:190px; line-height:1; color:var(--ac); opacity:.6; transform:rotate(-10deg) }
+.ex .ex-tags { position:absolute; top:58px; left:0; right:0; display:flex; justify-content:center; gap:10px; z-index:4 }
+.ex .ex-tg { font:600 24px var(--b); letter-spacing:-.04em; padding:1px 10px 3px } .ex .ex-tg.a { background:var(--ac2); color:var(--pa) } .ex .ex-tg.b { background:var(--ac); color:var(--ink) }
+.ex .ex-zt { position:absolute; top:100px; left:16px; right:16px; text-align:center; font-size:70px; z-index:4 }
+.ex .ex-moldura { position:absolute; left:112px; right:112px; top:196px; height:316px; border-radius:50%; background:var(--ac2); border:7px dotted color-mix(in srgb, #fff 65%, var(--ac2)); box-shadow:0 18px 30px -16px #0007; z-index:2 }
+.ex .ex-moldura .ex-foto { inset:14px }
+.ex .ex-zb { position:absolute; bottom:58px; left:16px; right:16px; text-align:center; font-size:78px; z-index:4 }
+.ex .ex-st { position:absolute; z-index:5; width:34px; right:40px; top:66px } .ex .ex-st svg { display:block; width:100%; height:auto }
+.ex .ex-st.s2 { right:auto; top:auto; left:36px; bottom:74px; width:28px }
+.ex.v-zine .s1 { right:48px; top:150px; width:48px } .ex.v-zine .s2 { left:34px; bottom:150px; top:auto; width:74px } .ex.v-zine .s3 { right:66px; bottom:178px; top:auto; width:30px } .ex.v-zine .s4 { left:58px; top:212px; width:34px }
+
+/* capa: janela */
+.ex.v-janela { background-image:linear-gradient(color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, currentColor 9%, transparent) 1px, transparent 1px); background-size:54px 54px }
+.ex.i-eletrico.v-janela.tom-es { background-image:linear-gradient(#ffffff17 1px, transparent 1px), linear-gradient(90deg, #ffffff17 1px, transparent 1px), linear-gradient(160deg, #0A1E8C, #1534D8 55%, #4170FF); background-size:54px 54px, 54px 54px, auto }
+.ex .ex-jan { position:absolute; left:44px; right:44px; top:150px; bottom:128px; background:var(--pa); color:var(--ink); border-radius:12px; box-shadow:0 30px 60px -24px #000a; z-index:3; display:flex; flex-direction:column; overflow:hidden }
+.ex .ex-jan-b { height:34px; flex:none; display:flex; align-items:center; gap:6px; padding:0 12px; background:color-mix(in srgb, var(--ink) 7%, var(--pa)); border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent) }
+.ex .ex-jan-b i { width:10px; height:10px; border-radius:50%; background:#FF5F57 } .ex .ex-jan-b i:nth-child(2) { background:#FEBC2E } .ex .ex-jan-b i:nth-child(3) { background:#28C840 }
+.ex .ex-jan-b span { margin-left:14px; flex:1; font:600 10px var(--b); background:var(--pa); border-radius:6px; padding:4px 10px; opacity:.85 }
+.ex .ex-jan-c { flex:1; display:flex; flex-direction:column; justify-content:center; padding:20px 30px; gap:16px; text-align:center }
+.ex .ex-jan-c small { font:600 9px var(--b); letter-spacing:.1em; text-transform:uppercase; opacity:.55 }
+.ex .ex-jt { font-size:58px; color:var(--ink) } .ex.tom-es .ex-jt .hl { color:var(--hcl) }
+.ex .ex-pasta { position:absolute; width:76px; z-index:4 } .ex .ex-pasta.p1 { right:22px; top:118px; transform:rotate(8deg) } .ex .ex-pasta.p2 { left:20px; bottom:150px; transform:rotate(-10deg) }
+
+/* capa: caderno */
+.ex .ex-fichario { position:absolute; inset:24px 22px 24px 26px }
+.ex .ex-folha { position:absolute; inset:0 0 0 22px; background:var(--pa) repeating-linear-gradient(transparent 0 29px, color-mix(in srgb, var(--ink) 7%, transparent) 29px 30px); color:var(--ink); border-radius:4px 10px 10px 4px; box-shadow:0 22px 40px -20px #0009; overflow:hidden; --hc:var(--hcl) }
+.ex .ex-aros { position:absolute; left:0; top:44px; bottom:44px; width:50px; display:flex; flex-direction:column; justify-content:space-between; z-index:6 }
+.ex .ex-aros i { height:16px; border-radius:10px; border:3.5px solid #4a4a4a; border-right-color:#a7a7a7; box-shadow:inset 0 1px 0 #fff6 }
+.ex .f-polaroide { left:52px; top:34px; width:196px; height:226px; background:#fff; padding:10px 10px 36px; transform:rotate(-4deg); box-shadow:0 14px 24px -12px #0008; z-index:3 }
+.ex .f-polaroide .ex-ph { inset:10px 10px 36px }
+.ex .ex-alf { position:absolute; left:140px; top:22px; width:24px; z-index:6 }
+.ex .n-cad { right:28px; top:66px; width:156px; transform:rotate(5deg); background:color-mix(in srgb, var(--ac) 40%, var(--pa)) }
+.ex .ex-cad { position:absolute; left:46px; right:22px; top:288px; font-size:66px; z-index:4 }
+.ex .ex-pontilhado { position:absolute; left:46px; right:28px; bottom:30px; border-top:2px dotted currentColor; border-bottom:2px dotted currentColor; padding:8px 0; font:500 12.5px/1.35 var(--b) }
+
+/* capa: papel com clipe */
+.ex .ex-cal { position:absolute; inset:0; display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); z-index:0 }
+.ex .ex-cal span { border-right:1px solid color-mix(in srgb, currentColor 16%, transparent); border-bottom:1px solid color-mix(in srgb, currentColor 16%, transparent); font:400 34px var(--d); padding:12px 16px; opacity:.3 }
+.ex .ex-papel { position:absolute; left:80px; right:80px; top:96px; bottom:96px; background:var(--pa); color:var(--ink); transform:rotate(-2.5deg); box-shadow:0 2px 0 #0001, 0 28px 44px -22px #0009; padding:50px 30px 30px; display:flex; flex-direction:column; justify-content:center; gap:14px; text-align:center; z-index:3 }
+.ex .ex-clipe { position:absolute; width:26px; left:30px; top:-28px; transform:rotate(-8deg); z-index:4 }
+.ex .ex-pl { font:400 19px/1.2 var(--b); letter-spacing:-.035em }
+.ex .ex-scr { font-family:var(--fs); font-style:var(--sit); font-weight:400; font-size:calc(44px * var(--sk)); line-height:.95; color:var(--hcl); letter-spacing:0; text-transform:none }
+.ex .ex-pa { font:600 9.5px var(--b); letter-spacing:.14em; text-transform:uppercase; opacity:.55; margin-top:8px }
+
+/* capa: pop */
+.ex .ex-pop { position:absolute; top:44px; left:20px; right:20px; text-align:center; font-size:132px; color:var(--on); z-index:4 }
+.ex .ex-raio { position:absolute; width:44px; z-index:5 } .ex .ex-raio.r1 { left:58px; top:330px; transform:rotate(-22deg) } .ex .ex-raio.r2 { right:150px; top:300px; transform:rotate(18deg) }
+.ex .ex-meio-tom { position:absolute; left:110px; top:300px; width:320px; height:320px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac2) 85%, #000) 1.7px, transparent 2.2px) 0 0 / 9px 9px; opacity:.55; z-index:1 }
+.ex .f-recorte { left:146px; top:326px; width:236px; height:250px; border-radius:26px; transform:rotate(3deg); box-shadow:0 0 0 7px #fff, 0 22px 30px -12px #0009 }
+.ex .ex-adesivo { position:absolute; right:26px; top:452px; width:184px; padding:24px 20px; border-radius:50%; background:var(--ac); color:var(--aon); transform:rotate(-10deg); text-align:center; font:400 17px/1.08 var(--n); z-index:6; box-shadow:inset 0 0 0 4px var(--ac), inset 0 0 0 6px color-mix(in srgb, #fff 70%, transparent), 0 10px 18px -8px #0007 }
+.ex .ex-fita { position:absolute; left:30px; right:30px; bottom:28px; z-index:6; background:var(--on); color:var(--es); text-align:center; padding:10px 14px; font:800 17px var(--b); letter-spacing:-.02em; border-radius:10px; transform:rotate(-1deg) }
+
+/* capa: data */
+.ex .ex-espiral { position:absolute; top:-12px; left:34px; right:34px; display:flex; justify-content:space-between; z-index:6 }
+.ex .ex-espiral i { width:12px; height:42px; border-radius:8px; border:3px solid #cfcfcf; box-shadow:inset 0 0 0 1px #0003 }
+.ex .ex-da { position:absolute; top:62px; left:0; right:0; text-align:center; font-size:52px }
+.ex .ex-dt { position:absolute; top:112px; left:0; right:0; text-align:center; font-size:66px; color:var(--hc) }
+.ex .ex-dias { position:absolute; top:232px; left:0; right:0; display:flex; justify-content:center; align-items:center; gap:26px; font:400 100px/1 var(--d); letter-spacing:-.04em; opacity:1 }
+.ex .ex-dias > span { opacity:.45 }
+.ex .ex-dias b { position:relative; color:var(--hc); font-weight:inherit; display:grid; place-items:center }
+.ex .ex-dias b::before { content:""; position:absolute; inset:-12px -20px; border:2.5px solid var(--hc); border-radius:50%; transform:rotate(-6deg) }
+.ex .ex-dias small { position:absolute; bottom:-34px; left:50%; transform:translateX(-50%); white-space:nowrap; font:700 9.5px var(--b); letter-spacing:.08em; text-transform:uppercase; color:var(--on) }
+.ex .f-selo { right:36px; top:350px; width:150px; height:172px; background:#fff; padding:9px; transform:rotate(6deg); box-shadow:0 14px 26px -12px #000a; outline:2px dashed #fff; outline-offset:4px }
+.ex .f-selo .ex-ph { inset:9px }
+.ex .ex-dd { position:absolute; left:36px; top:420px; width:300px; font-size:56px }
+.ex .ex-sub { position:absolute; left:38px; bottom:54px; font:600 12.5px var(--b); text-decoration:underline; text-underline-offset:3px; text-transform:uppercase; letter-spacing:.06em }
+
+/* texto, caminho, lista, pergunta, conversa, passo, chamada */
+.ex .ex-centro { position:absolute; inset:66px 40px 60px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:22px; z-index:3 }
+.ex .ex-tt { font-size:70px }
+.ex .ex-caixa { background:var(--inv); color:var(--invfg); padding:14px 18px; border-radius:12px; font:500 14px/1.38 var(--b); max-width:400px; box-shadow:0 14px 24px -14px #0007; transform:rotate(-1deg) }
+.ex .ex-sel { position:absolute; top:56px; left:58px; right:58px; border:1px solid currentColor; padding:13px 16px; text-align:center; z-index:3 }
+.ex .ex-sel .ex-lead { font-size:15px; max-width:none }
+.ex .ex-sel i { position:absolute; width:7px; height:7px; border:1px solid currentColor; background:var(--bgc) }
+.ex .ex-sel i:nth-of-type(1) { left:-4px; top:-4px } .ex .ex-sel i:nth-of-type(2) { right:-4px; top:-4px } .ex .ex-sel i:nth-of-type(3) { left:-4px; bottom:-4px } .ex .ex-sel i:nth-of-type(4) { right:-4px; bottom:-4px }
+.ex .ex-ct { position:absolute; top:146px; left:28px; right:28px; text-align:center; font-size:46px }
+.ex .ex-trilha { position:absolute; left:44px; right:44px; top:300px; height:196px; z-index:2 }
+.ex .ex-trilha svg { display:block; width:100%; height:100%; opacity:.7 }
+.ex .ex-no { position:absolute; transform:translate(-50%, -6px); display:flex; flex-direction:column; align-items:center }
+.ex .ex-no::before { content:""; width:12px; height:12px; border-radius:50%; border:1.6px solid currentColor; background:var(--bgc) }
+.ex .ex-no em { font:500 13px var(--b); font-style:normal; margin-top:5px; white-space:nowrap }
+.ex .ex-no.n0 { left:26%; top:10% } .ex .ex-no.n1 { left:65%; top:10% } .ex .ex-no.n2 { left:72%; top:50% } .ex .ex-no.n3 { left:30%; top:50% } .ex .ex-no.n4 { left:33%; top:90% } .ex .ex-no.n5 { left:82%; top:90% }
+.ex .ex-faixa { position:absolute; left:0; right:0; bottom:0; background:var(--ac); color:var(--aon); text-align:center; font:500 13px var(--b); padding:16px 40px 40px; z-index:4 }
+.ex.t-caminho .ex-bot { color:var(--aon) }
+.ex .ex-lcol { position:absolute; top:58px; bottom:68px; left:36px; right:36px; display:flex; flex-direction:column; justify-content:center; gap:34px; z-index:3 }
+.ex .ex-lt { font-size:62px; max-width:440px }
+.ex .ex-lista { display:grid; gap:13px; max-width:290px; margin:0; padding:0; list-style:none }
+.ex .ex-lista li { display:flex; gap:11px; align-items:flex-start; font:400 17.5px/1.25 var(--b); letter-spacing:-.02em }
+.ex .ex-lista li > i { width:13px; height:13px; border-radius:50%; background:var(--hc); flex:none; margin-top:2px; box-shadow:0 0 0 3px color-mix(in srgb, var(--hc) 25%, transparent) }
+.ex .ex-postit { position:absolute; right:28px; bottom:78px; width:172px; padding:28px 16px 18px; background:color-mix(in srgb, var(--ac3) 70%, var(--pa)); color:var(--ink); transform:rotate(5deg); box-shadow:0 14px 22px -12px #0007; z-index:5 }
+.ex .ex-postit .ex-clipe { left:auto; right:22px; top:-30px }
+.ex .ex-postit::after { display:none }
+.ex .ex-postit .ex-mao { font-size:16px }
+.ex .ex-pt-t { position:absolute; top:54px; left:28px; right:28px; text-align:center; font-size:64px }
+.ex .ex-pg { position:absolute; left:34px; right:34px; top:262px; height:240px }
+.ex .f-circ { left:0; top:10px; width:196px; height:196px; box-shadow:0 0 0 6px var(--pa) }
+.ex .ex-bolha { position:absolute; left:150px; top:-4px; z-index:4; background:var(--ac); color:var(--aon); font:800 12px var(--b); padding:6px 12px; border-radius:12px 12px 12px 2px; text-transform:uppercase; letter-spacing:.04em }
+.ex .ex-pg-t { position:absolute; left:222px; right:0; top:22px; font:400 18px/1.32 var(--b); letter-spacing:-.025em; color:inherit }
+.ex .ex-chat { position:absolute; top:136px; left:44px; right:44px; display:flex; flex-direction:column; gap:12px; z-index:3 }
+.ex .ex-msg { align-self:flex-start; max-width:84%; background:var(--pa); color:#1b1b1b; padding:12px 15px 8px; border-radius:16px 16px 16px 4px; font:500 18px/1.3 var(--b); box-shadow:0 10px 20px -12px #0007, 0 0 0 1px color-mix(in srgb, var(--ink) 9%, transparent) }
+.ex .ex-msg small { display:block; text-align:right; font-size:10px; opacity:.5; margin-top:2px }
+.ex .ex-msg.m1 { transform:rotate(1.2deg); margin-left:14px } .ex .ex-msg.m2 { transform:rotate(-1.4deg) }
+.ex .ex-cht { position:absolute; left:32px; right:32px; bottom:70px; text-align:center; font-size:64px; z-index:3 }
+.ex .ex-num { position:absolute; left:28px; top:36px; font-family:var(--d); font-weight:var(--dw); font-size:300px; line-height:1; letter-spacing:-.06em; color:var(--hc); z-index:1 }
+.ex .ex-kick { position:absolute; left:40px; top:338px; font:700 11.5px var(--b); letter-spacing:.2em; text-transform:uppercase; opacity:.7 }
+.ex .ex-pst { position:absolute; left:38px; right:38px; top:360px; font-size:52px; z-index:3 }
+.ex .ex-pstx { position:absolute; left:40px; right:150px; bottom:64px; font:400 16.5px/1.42 var(--b); letter-spacing:-.015em; color:inherit; z-index:3 }
+.ex .ex-acoes { display:flex; gap:8px; flex-wrap:wrap; justify-content:center }
+.ex .ex-acoes span { border:1.5px solid currentColor; padding:8px 14px; border-radius:999px; font:600 13px var(--b) }
+.ex .ex-ramo { position:absolute; width:118px; right:-12px; bottom:34px; z-index:1; transform:rotate(-12deg); opacity:.9 }
+.ex .ex-flor { position:absolute; width:84px; right:26px; top:56px; z-index:1; opacity:.92; transform:rotate(15deg) }
+.ex.t-passo .ex-flor, .ex.t-passo .ex-st.s1 { top:auto; bottom:150px }
+
+/* stories */
+.ex .ex-sombra.est { background:linear-gradient(180deg, #0004, #0000 25%, #0000 50%, #000a 100%) }
+.ex .st-topo { top:112px; left:50%; transform:translateX(-50%) }
+.ex .ex-caixinha { position:absolute; left:66px; right:66px; top:380px; border-radius:22px; background:#fff; overflow:hidden; box-shadow:0 26px 50px -20px #000a; z-index:5; text-align:center }
+.ex .ex-cx-h { position:relative; background:linear-gradient(135deg, var(--ac), var(--hcl)); color:#fff; padding:64px 24px 22px }
+.ex .ex-av { position:absolute; left:50%; top:14px; width:40px; height:40px; margin-left:-20px; border-radius:50%; border:3px solid #fff; background:var(--es); color:var(--on); display:grid; place-items:center; font:700 17px var(--b) }
+.ex .ex-cx-t { font:800 27px/1.12 var(--b); letter-spacing:-.025em; color:#fff; margin:0 }
+.ex .ex-cx-t .hl { color:#fff }
+.ex .ex-cx-in { padding:20px; font:500 17px var(--b); color:#9a9a9a }
+.ex.story .ex-st.s1 { right:62px; top:318px; width:46px } .ex.story .ex-st.s2 { left:58px; top:620px; bottom:auto; width:30px }
+.ex .ex-notas-b { position:absolute; top:60px; left:30px; right:30px; display:flex; justify-content:space-between; font:600 16px var(--b); color:var(--hcl) }
+.ex .ex-qt { position:absolute; top:130px; left:36px; right:36px; font-size:80px }
+.ex .ex-quiz { position:absolute; left:50px; right:50px; top:400px; background:#fff; color:#111; border-radius:20px; padding:22px; box-shadow:0 20px 40px -18px #0006; display:grid; gap:10px; z-index:3 }
+.ex .ex-qp { font:800 22px/1.2 var(--b); letter-spacing:-.02em; text-align:center; margin-bottom:6px }
+.ex .ex-op { display:flex; align-items:center; gap:12px; border:1.5px solid #e4e4e4; border-radius:14px; padding:12px 14px; font:600 18px var(--b) }
+.ex .ex-op i { font-style:normal; width:28px; height:28px; border-radius:50%; background:#f1f1f1; display:grid; place-items:center; font-size:13px; font-weight:800 }
+.ex .ex-op.ok { border-color:#1DB954; background:#EFFBF3 } .ex .ex-op.ok i { background:#1DB954; color:#fff }
+.ex .ex-qn { position:absolute; left:64px; bottom:170px; font-size:26px; transform:rotate(-4deg) }
+.ex .ex-seta { position:absolute; left:300px; bottom:60px; width:52px; transform:rotate(-24deg) }
+.ex .ex-hora { position:absolute; top:120px; left:50%; transform:translateX(-50%) rotate(-3deg); background:#fff; color:#111; font:800 56px var(--b); padding:6px 18px; border-radius:14px; letter-spacing:-.03em; z-index:5; box-shadow:0 14px 26px -12px #0009 }
+.ex .ex-bpre { position:absolute; left:40px; right:40px; bottom:340px; color:#fff; font:600 30px var(--b); text-align:center; z-index:5; letter-spacing:-.02em }
+.ex .ex-bt { position:absolute; left:16px; right:16px; bottom:196px; color:#fff; text-align:center; font-size:112px; z-index:5 }
+.ex .st-sub { bottom:140px; left:50%; transform:translateX(-50%) }
+.ex .ex-assin.est { bottom:72px }
+
+/* seletor de coleção na página */
+.col-sw { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px }
+.col-sw button { display:grid; gap:2px; padding:12px 18px; border-radius:16px; border:2px solid var(--line); background:var(--surface); text-align:left; min-width:220px }
+.col-sw button b { font-size:16px } .col-sw button small { color:var(--muted); font-size:13px }
+.col-sw button[aria-pressed="true"] { border-color:var(--brand); box-shadow:0 0 0 3px var(--brand-bg) }
+.col-sw .novo { display:inline-block; margin-left:6px; font-size:10.5px; font-weight:800; letter-spacing:.08em; color:#fff; background:var(--brand); padding:2px 7px; border-radius:99px; vertical-align:middle }
+.fotos-box { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid var(--line) }
+.fotos-box .fb { width:56px; height:56px; border-radius:14px; background:var(--surface2) center/cover; border:1.5px dashed var(--line); display:grid; place-items:center; color:var(--faint) }
+.fotos-box .fb .ic { width:22px; height:22px }
+
+.ex[data-hl="caixa"] .ex-d { line-height:1.02 }
+.ex .ex-ph svg { top:auto; height:86% }
+
 </style>
 <div id="app"></div>
 <div id="modal"></div>
@@ -1365,6 +1614,204 @@ const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Playfair+Display:it
 return { IDT, PACKS, TPL, slides, FONTES_URL };
 })();
 
+// Pauta · Coleção Editorial: 14 identidades no estilo dos estúdios de design de post (colagem, papel, foto,
+// fonte manuscrita, texto miúdo de textura) e 14 modelos com sua foto. Slides 540×675 (feed) e 540×960 (stories).
+// Texto: *palavra* = destaque da identidade (manuscrita, itálico, cor ou caixa); _trecho_ = negrito.
+window.ESTUDIO = (() => {
+const IDT = [
+  { id:'vinho', nome:'Vinho & Céu', desc:'Vinho, creme, azul-bebê e rosa; serifa estreita com palavra manuscrita.', ideal:['familia','sucessoes','carreira'],
+    c:{ cl:'#EEE7DE', es:'#5B1631', ink:'#4A1129', on:'#F7EFE7', ac:'#D9739A', ac2:'#93B4DA', ac3:'#F2D5DE', pa:'#F6F0E7', aon:'#4A1129', hcl:'#D9739A', hce:'#F2A9C3', hca:'#4A1129' },
+    f:{ d:"'Instrument Serif', Georgia, serif", dw:400, dl:'-.045em', dlh:.88, dt:'none', s:"'Yellowtail', cursive", sk:1.3, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'script', tex:'grao' },
+  { id:'serie', nome:'Verde Série', desc:'Verde-escuro e bege, sem serifa pesada com itálico fino: cultura pop e séries.', ideal:['familia','criminal','civel'],
+    c:{ cl:'#E6E1D5', es:'#1F4A3B', ink:'#1F4A3B', on:'#F2EEE5', ac:'#A9BCA5', ac2:'#2E6B55', ac3:'#D5DDD0', pa:'#F1EDE4', aon:'#1F4A3B', hcl:'#2E6B55', hce:'#C9D8C3', hca:'#1F4A3B' },
+    f:{ d:"'Inter Tight', Arial, sans-serif", dw:800, dl:'-.06em', dlh:.9, dt:'none', s:"'Instrument Serif', Georgia, serif", sk:1.08, it:true, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'italico', tex:'grao' },
+  { id:'magenta', nome:'Magenta Real', desc:'Magenta, azul-royal e creme, com manuscrita amanteigada: ousado e chique.', ideal:['empresarial','consumidor','carreira'],
+    c:{ cl:'#F3EEE6', es:'#2B3A9F', ink:'#1C1C1C', on:'#FFFFFF', ac:'#D6336F', ac2:'#EAD58A', ac3:'#F6C9D9', pa:'#FBF7F0', aon:'#FFFFFF', hcl:'#D6336F', hce:'#EAD58A', hca:'#EAD58A' },
+    f:{ d:"'Playfair Display', Georgia, serif", dw:600, dl:'-.045em', dlh:.9, dt:'none', s:"'Yellowtail', cursive", sk:1.3, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'script', tex:'grao' },
+  { id:'oliva', nome:'Oliva Botânica', desc:'Verde-oliva, laranja e amarelo, com folhas: acolhedor e atual.', ideal:['saude','previdenciario','familia'],
+    c:{ cl:'#EEEAE0', es:'#4B5D35', ink:'#2E3A20', on:'#F4F0E6', ac:'#D5642C', ac2:'#E9D36C', ac3:'#C4CFAE', pa:'#F7F4EC', aon:'#FFFFFF', hcl:'#D5642C', hce:'#E9D36C', hca:'#2E3A20' },
+    f:{ d:"'Hanken Grotesk', Arial, sans-serif", dw:800, dl:'-.055em', dlh:.9, dt:'none', s:"'Instrument Serif', Georgia, serif", sk:1.1, it:true, b:"'Hanken Grotesk', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'cor', tex:'grao' },
+  { id:'tijolo', nome:'Tijolo Cinema', desc:'Vermelho-tijolo, marrom e azul-claro, com cara de cartaz de filme.', ideal:['empresarial','consumidor','trabalho'],
+    c:{ cl:'#F0E8DA', es:'#9C2E22', ink:'#3E1D16', on:'#F7EFE3', ac:'#A8CEE0', ac2:'#4A231B', ac3:'#E9B8A8', pa:'#F7F1E6', aon:'#3E1D16', hcl:'#9C2E22', hce:'#A8CEE0', hca:'#9C2E22' },
+    f:{ d:"'Gloock', Georgia, serif", dw:400, dl:'-.035em', dlh:.92, dt:'none', s:"'Instrument Serif', Georgia, serif", sk:1.08, it:true, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'cor', tex:'grao' },
+  { id:'cafe', nome:'Café Deco', desc:'Marrom, laranja queimado e creme, títulos em caixa alta: forte para Previdenciário.', ideal:['previdenciario','trabalho','bancario'],
+    c:{ cl:'#E8E2D8', es:'#3A2A22', ink:'#2E2019', on:'#F1EAE0', ac:'#C86B3C', ac2:'#E9B98F', ac3:'#D7C9B8', pa:'#F2ECE3', aon:'#FFFFFF', hcl:'#C86B3C', hce:'#E39565', hca:'#2E2019' },
+    f:{ d:"'Gloock', Georgia, serif", dw:400, dl:'-.04em', dlh:.86, dt:'uppercase', s:"'Instrument Serif', Georgia, serif", sk:1.1, it:true, b:"'Inter Tight', Arial, sans-serif", n:"'Homemade Apple', cursive" }, hl:'cor', tex:'papel' },
+  { id:'ferrugem', nome:'Ferrugem & Sálvia', desc:'Ferrugem, verde-sálvia e osso, com ramos e manuscrita delicada.', ideal:['saude','familia','previdenciario'],
+    c:{ cl:'#E3E1D6', es:'#8D3B23', ink:'#3B2A1F', on:'#F5EFE6', ac:'#7F8C6E', ac2:'#C9A27E', ac3:'#B5BEA3', pa:'#EFEDE4', aon:'#FFFFFF', hcl:'#8D3B23', hce:'#F2E4D0', hca:'#F5EFE6' },
+    f:{ d:"'Inter Tight', Arial, sans-serif", dw:400, dl:'-.055em', dlh:.92, dt:'none', s:"'Mrs Saint Delafield', cursive", sk:1.55, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'script', tex:'grao' },
+  { id:'uva', nome:'Uva Pop', desc:'Roxo e rosa, letras gordas e coladas, adesivos: didático e divertido.', ideal:['consumidor','digital','saude'],
+    c:{ cl:'#ECE5EA', es:'#571B5C', ink:'#3C0F40', on:'#FFFFFF', ac:'#C2479F', ac2:'#FF8DC2', ac3:'#F5D0E6', pa:'#F7F2F5', aon:'#FFFFFF', hcl:'#C2479F', hce:'#FF8DC2', hca:'#3C0F40' },
+    f:{ d:"'Rubik', Arial, sans-serif", dw:800, dl:'-.065em', dlh:.84, dt:'none', s:"'Rubik', Arial, sans-serif", sk:1, b:"'Rubik', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'cor', tex:'grao' },
+  { id:'bordo', nome:'Bordô Pincel', desc:'Bordô e creme-amarelo, com manuscrita de pincel: intenso e marcante.', ideal:['criminal','familia','carreira'],
+    c:{ cl:'#EFE6D8', es:'#5C1A26', ink:'#3A1018', on:'#FFFFFF', ac:'#EBDDA0', ac2:'#9E3B4C', ac3:'#2A1A1A', pa:'#F6EFE2', aon:'#3A1018', hcl:'#9E3B4C', hce:'#EBDDA0', hca:'#5C1A26' },
+    f:{ d:"'Inter Tight', Arial, sans-serif", dw:800, dl:'-.06em', dlh:.9, dt:'none', s:"'Mr Dafoe', cursive", sk:1.4, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'script', tex:'grao' },
+  { id:'zine', nome:'Zine Rosa', desc:'Papel, preto, rosa e azul, com faixas atrás das palavras e estrelas: criativo.', ideal:['digital','consumidor','carreira'],
+    c:{ cl:'#F1EDE7', es:'#17171A', ink:'#17171A', on:'#FFFFFF', ac:'#F4C3D0', ac2:'#A8CDEE', ac3:'#C9C9CE', pa:'#FBF9F5', aon:'#17171A', hcl:'#17171A', hce:'#F4C3D0', hca:'#17171A' },
+    f:{ d:"'Inter Tight', Arial, sans-serif", dw:700, dl:'-.06em', dlh:.88, dt:'none', s:"'Mr Dafoe', cursive", sk:1.3, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'caixa', tex:'papel' },
+  { id:'noir', nome:'Noir Editorial', desc:'Preto, vinho e champanhe, serifa com itálico: o estilo dos escritórios no Behance.', ideal:['criminal','empresarial','imobiliario'],
+    c:{ cl:'#ECE5DC', es:'#151113', ink:'#1A1416', on:'#F3ECE4', ac:'#8E1F2F', ac2:'#C9B79C', ac3:'#D9CDBE', pa:'#F4EEE6', aon:'#F3ECE4', hcl:'#8E1F2F', hce:'#C9B79C', hca:'#F3ECE4' },
+    f:{ d:"'Instrument Serif', Georgia, serif", dw:400, dl:'-.035em', dlh:.92, dt:'none', s:"'Instrument Serif', Georgia, serif", sk:1.05, it:true, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'italico', tex:'grao' },
+  { id:'eletrico', nome:'Azul Elétrico', desc:'Azul-royal em degradê e branco, molduras de post: tecnologia e empresas.', ideal:['tributario','empresarial','digital'],
+    c:{ cl:'#EEF1F8', es:'#1534D8', ink:'#0B1236', on:'#FFFFFF', ac:'#9FB4FF', ac2:'#FFD84D', ac3:'#DCE4FF', pa:'#FFFFFF', aon:'#0B1236', hcl:'#1534D8', hce:'#FFD84D', hca:'#1534D8' },
+    f:{ d:"'Inter Tight', Arial, sans-serif", dw:800, dl:'-.045em', dlh:.92, dt:'uppercase', s:"'Instrument Serif', Georgia, serif", sk:1.12, it:true, b:"'Inter Tight', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'italico', tex:'grade' },
+  { id:'areia', nome:'Areia & Grafite', desc:'Areia, grafite e caramelo, serifa clássica com caligrafia: sóbrio sem ser frio.', ideal:['sucessoes','imobiliario','extrajudicial'],
+    c:{ cl:'#E8E0D3', es:'#262321', ink:'#262321', on:'#EFE8DD', ac:'#B08A63', ac2:'#D9CBB6', ac3:'#7A6A5B', pa:'#F3EEE6', aon:'#FFFFFF', hcl:'#9A7550', hce:'#D3B48F', hca:'#262321' },
+    f:{ d:"'Cormorant Garamond', Georgia, serif", dw:600, dl:'-.03em', dlh:.88, dt:'none', s:"'Pinyon Script', cursive", sk:1.25, b:"'Inter Tight', Arial, sans-serif", n:"'Homemade Apple', cursive" }, hl:'script', tex:'papel' },
+  { id:'nativa', nome:'Foto Nativa', desc:'Sua foto ocupa tudo, com o texto no estilo do próprio Instagram.', ideal:['consumidor','familia','carreira'],
+    c:{ cl:'#F4ECE6', es:'#5E3F4A', ink:'#3D2830', on:'#FFFFFF', ac:'#E9A3A8', ac2:'#F6E7A6', ac3:'#E7D6D0', pa:'#FFFFFF', aon:'#3D2830', hcl:'#C86F78', hce:'#F6E7A6', hca:'#3D2830' },
+    f:{ d:"'Lato', Arial, sans-serif", dw:900, dl:'-.03em', dlh:.95, dt:'none', s:"'Lobster', cursive", sk:1.35, b:"'Lato', Arial, sans-serif", n:"'Nothing You Could Do', cursive" }, hl:'script', tex:'liso' }
+];
+
+// Conteúdo de exemplo. Cada slide: t = tipo, v = variação, tom = cl (claro) | es (escuro) | ac (cor de destaque).
+const PACKS = {
+  ea1:{ area:'Apresentação', s:[
+    { t:'capa', v:'foto', tom:'cl', pill:'Antes de qualquer processo, existe uma', titulo:'História', nota:'Um pouco sobre quem sou e como eu trabalho', foto:'f1' },
+    { t:'texto', tom:'es', lead:'Quem chega até o escritório _nem sempre sabe_ exatamente _o que precisa fazer._', titulo:'E tudo bem. *Caminhos* existem para o seu caso.', nota:'Às vezes chega uma dúvida. Às vezes, uma preocupação.' },
+    { t:'caminho', tom:'cl', lead:'Por isso, _todo atendimento_ segue a mesma ordem:', titulo:'Primeiro eu escuto. Depois a gente traça o *caminho*', passos:['ouvir', 'entender', 'analisar', 'orientar', 'agir', 'acompanhar'], rodape:'Uma boa decisão começa por uma boa conversa.' },
+    { t:'pergunta', tom:'es', titulo:'Por que eu *escolhi* esta área?', bolha:'E aí?', texto:'Porque eu vi de perto como _uma informação na hora certa_ muda a vida de uma família inteira.', faixa:'Informação clara é a primeira forma de proteção.', foto:'f1' },
+    { t:'cta', tom:'cl', titulo:'Prazer, eu sou *você sabe quem*.', sub:'Salve este post e me conte nos comentários de onde você está me acompanhando.' }
+  ] },
+  ea2:{ area:'Previdenciário', s:[
+    { t:'capa', v:'manchete', tom:'cl', tag:'Finalmente cheguei na', titulo:'idade para me\n*aposentar*', pill:'Agora é só fazer o pedido, certo?', foto:'f1' },
+    { t:'capa', v:'papel', tom:'ac', titulo:'Tudo parece certo até o momento em que o INSS diz', script:'não.', assin:'Por isso, vale investigar antes.' },
+    { t:'lista', tom:'cl', titulo:'Os motivos mais comuns da *negativa*', itens:['_CNIS_ com períodos faltando', 'Tempo _rural_ sem documento', '_PPP_ que nunca foi pedido à empresa', 'Contribuição _abaixo do mínimo_', 'Pedido feito _antes da hora_'], postit:'Um detalhe esquecido pode mudar o resultado.' },
+    { t:'caminho', tom:'es', lead:'Antes de clicar em _pedir_ no Meu INSS:', titulo:'Faça o seu pedido percorrer um *caminho*', passos:['puxar o CNIS', 'conferir', 'juntar provas', 'simular', 'pedir', 'acompanhar'], rodape:'Pedido bem preparado é pedido que anda.' },
+    { t:'cta', tom:'cl', titulo:'Salve antes de pedir a sua *aposentadoria*.', sub:'E mande para quem está chegando lá.' }
+  ] },
+  ea3:{ area:'Família', s:[
+    { t:'capa', v:'cartaz', tom:'es', sobre:'Um drama brasileiro em quatro atos', titulo:'*Pensão*', linha:'Dirigido e escrito pelo Código Civil', creditos:'Estrelando: o filho que cresceu, o pai que perdeu o emprego, a mãe que paga tudo sozinha e a avó que achava que não tinha nada a ver com isso.', selo:'Classificação: recomendado para pais, mães e avós.' },
+    { t:'passo', tom:'cl', n:'1', kicker:'Ato', titulo:'A pensão não acaba *aos 18*', texto:'O fim depende de decisão judicial (Súmula 358 do STJ). Quem está estudando pode continuar recebendo.' },
+    { t:'passo', tom:'es', n:'2', kicker:'Ato', titulo:'Desemprego não *apaga* a dívida', texto:'O valor pode ser revisto, mas a obrigação continua. Quem paga deve pedir a revisão, não parar de pagar.' },
+    { t:'passo', tom:'cl', n:'3', kicker:'Ato', titulo:'Três parcelas e a *prisão*', texto:'O atraso das três últimas parcelas permite a prisão civil (art. 528, § 7º, do CPC).' },
+    { t:'passo', tom:'es', n:'4', kicker:'Ato', titulo:'Os avós podem *entrar* na história', texto:'Quando os pais não conseguem pagar, os avós podem ser chamados, de forma complementar.' },
+    { t:'cta', tom:'cl', titulo:'Qual ato você *já viveu*?', sub:'Conte nos comentários e salve para lembrar.' }
+  ] },
+  ea4:{ area:'Consumidor', s:[
+    { t:'capa', v:'nativa', tom:'es', titulo:'Explicando\n_o golpe do Pix_\ncomo se fosse uma\n*fofoca*', caixa:'Senta que lá vem história…', foto:'f1' },
+    { t:'chat', tom:'cl', lead:'Começou com uma mensagem de um número _desconhecido_:', msgs:['Oi, mãe! Troquei de número.', 'Salva esse aí. O outro quebrou.', 'Consegue me fazer um Pix rapidinho? Te devolvo amanhã.'], titulo:'Parecia o filho. Era o *golpista*.' },
+    { t:'lista', tom:'es', titulo:'Os sinais que *entregam* o golpe', itens:['_Número novo_ pedindo dinheiro', 'Pressa: “é _urgente_”', 'Chave Pix no nome de _outra pessoa_', 'Pedido de _segredo_'], postit:'Desconfie de toda pressa.' },
+    { t:'texto', tom:'cl', lead:'E se já fez o Pix?', titulo:'Ligue para o banco e peça o *MED* na hora.', nota:'O Mecanismo Especial de Devolução existe para isso. Registre também o boletim de ocorrência e guarde os prints.' },
+    { t:'cta', tom:'es', titulo:'Mande para quem *precisa* ver isso.', sub:'Golpe evitado é melhor que golpe resolvido.' }
+  ] },
+  ea5:{ area:'Trabalhista', s:[
+    { t:'capa', v:'zine', tom:'cl', tag1:'Assédio moral', tag2:'no trabalho', titulo:'Você não está', baixo:'*exagerando.*', foto:'f1' },
+    { t:'texto', tom:'es', lead:'Assédio moral não é _uma bronca_ num dia ruim.', titulo:'É a *repetição* que adoece.', nota:'Humilhações, isolamento e cobranças abusivas, de forma constante, por um tempo.' },
+    { t:'lista', tom:'cl', titulo:'5 sinais para *não* ignorar', itens:['Apelidos e _humilhação_ em público', 'Metas _impossíveis_ só para você', 'Ser _isolado_ da equipe', 'Tarefas abaixo da sua _função_', 'Ameaças _veladas_ de demissão'], postit:'Anote datas, horários e quem viu.' },
+    { t:'texto', tom:'ac', lead:'O que fazer agora?', titulo:'Guarde as *provas* antes de qualquer conversa.', nota:'Mensagens, e-mails, testemunhas e atestados. Depois, procure orientação.' },
+    { t:'cta', tom:'es', titulo:'Mande para quem anda *calado* demais.', sub:'Às vezes a pessoa só precisa saber que não está sozinha.' }
+  ] },
+  ea6:{ area:'Bancário', s:[
+    { t:'capa', v:'janela', tom:'es', lead:'Caiu num golpe e não sabe por onde começar?', titulo:'O que fazer nas primeiras *24 horas*' },
+    { t:'passo', tom:'cl', n:'1', kicker:'Na primeira hora', titulo:'Ligue para o *banco*', texto:'Peça o bloqueio e a contestação. No Pix, peça o MED (Mecanismo Especial de Devolução).' },
+    { t:'passo', tom:'es', n:'2', kicker:'No mesmo dia', titulo:'Faça o *boletim* de ocorrência', texto:'Dá para registrar pela internet na maioria dos estados. Leve o número do protocolo do banco.' },
+    { t:'passo', tom:'cl', n:'3', kicker:'Antes de apagar', titulo:'Guarde todas as *provas*', texto:'Prints, comprovantes, número do golpista, horários. Não apague a conversa.' },
+    { t:'texto', tom:'es', lead:'E a responsabilidade do banco?', titulo:'Fraude ligada ao serviço é *risco* do banco.', nota:'Súmula 479 do STJ. Cada caso depende de como o golpe aconteceu.' },
+    { t:'cta', tom:'cl', titulo:'Salve: na hora do susto ninguém *lembra*.', sub:'Mande para os seus pais e avós.' }
+  ] },
+  ea7:{ area:'Sucessões', s:[
+    { t:'capa', v:'caderno', tom:'ac', titulo:'Inventário é\ncomo uma\n*receita*', nota:'E toda família tem o seu modo de preparo', rodape:'Não adianta ter os ingredientes se ninguém sabe como combiná-los.', foto:'f1' },
+    { t:'lista', tom:'cl', titulo:'Os *ingredientes*', itens:['Certidão de _óbito_', 'Documentos dos _herdeiros_', 'Documentos dos _bens_', 'Certidões _negativas_ de dívidas', 'Comprovante do _ITCMD_'], postit:'Separe tudo antes da primeira conversa.' },
+    { t:'caminho', tom:'es', lead:'Com tudo em mãos, o _modo de preparo_:', titulo:'Do luto à escritura, um *caminho*', passos:['reunir', 'conferir', 'calcular', 'pagar ITCMD', 'assinar', 'registrar'], rodape:'Em cartório, quando todos concordam, é mais rápido.' },
+    { t:'texto', tom:'cl', lead:'E o prazo?', titulo:'Dois meses para *abrir*. Depois, multa.', nota:'O inventário deve começar em até 2 meses do falecimento (art. 611 do CPC). Muitos estados cobram multa no ITCMD.' },
+    { t:'cta', tom:'es', titulo:'Salve a *receita* e mande para a família.', sub:'Conversar antes evita brigar depois.' }
+  ] },
+  ea8:{ area:'Contratos', s:[
+    { t:'capa', v:'papel', tom:'cl', titulo:'O seu contrato _não é apenas um papel_ que você assina e guarda na gaveta. É o que vai', script:'te proteger quando der errado.', assin:'Leia antes de assinar' },
+    { t:'lista', tom:'es', titulo:'Confira *antes* de assinar', itens:['Quem são as _partes_', 'O que exatamente está sendo _entregue_', '_Prazos_ e o que acontece no atraso', '_Multa_ e como sair do contrato', 'Onde resolver um _conflito_'], postit:'Se não está escrito, é difícil provar.' },
+    { t:'chat', tom:'cl', lead:'A frase mais cara do Brasil:', msgs:['Relaxa, a gente se conhece há anos.', 'Não precisa disso de contrato.', 'Depois a gente vê.'], titulo:'Amizade não substitui *cláusula*.' },
+    { t:'cta', tom:'es', titulo:'Salve para o seu próximo *contrato*.', sub:'E mande para quem vai abrir um negócio.' }
+  ] },
+  eu1:{ area:'Prazos', s:[{ t:'capa', v:'papel', tom:'ac', titulo:'Prazos existem e _correm_ mesmo quando você não está olhando. O Direito não socorre os que', script:'dormem.', assin:'Brocardo jurídico' }] },
+  eu2:{ area:'Criminal', s:[{ t:'capa', v:'pop', tom:'es', titulo:'Isso é\n*crime?*', selo:'explicando como se você tivesse 5 anos', baixo:'Gravar a conversa sem avisar', foto:'f1' }] },
+  eu3:{ area:'Previdenciário', s:[{ t:'capa', v:'data', tom:'es', antes:'O que todo', titulo:'aposentado', dias:['23', '24', '25'], rotulo:'Dia Nacional do Aposentado', depois:'deveria *saber*', sub:'3 direitos que quase ninguém usa', foto:'f1' }] },
+  es1:{ area:'Stories', s:[{ t:'story', v:'caixa', tom:'es', titulo:'Me pergunte sobre *pensão*', caixa:'Digite algo…', topo:'Caixinha aberta até as 20h', foto:'f1' }] },
+  es2:{ area:'Stories', s:[{ t:'story', v:'quiz', tom:'cl', titulo:'Mito ou *verdade*?', pergunta:'Quem pede demissão perde o FGTS inteiro.', ops:['Mito', 'Verdade', 'Depende'], certa:'0', nota:'Responda e veja amanhã' }] },
+  es3:{ area:'Stories', s:[{ t:'story', v:'bastidor', tom:'es', hora:'08:47', pre:'um dia no', titulo:'*escritório*', sub:'Tudo o que você não vê nos bastidores', foto:'f1' }] }
+};
+
+const TPL = [
+  { id:'ea1', grupo:'carrossel', nome:'Apresentação', desc:'Sua história, com foto em arco e bilhete escrito à mão.' },
+  { id:'ea2', grupo:'carrossel', nome:'Manchete com foto', desc:'Título em duas medidas, foto com borda de adesivo e etiquetas.' },
+  { id:'ea3', grupo:'carrossel', nome:'Cartaz de filme', desc:'O tema como um filme: capa de cartaz e um ato por slide.' },
+  { id:'ea4', grupo:'carrossel', nome:'Fofoca explicada', desc:'Foto inteira com texto nativo e conversa de celular.' },
+  { id:'ea5', grupo:'carrossel', nome:'Zine', desc:'Faixas atrás das palavras, moldura oval e estrelas.' },
+  { id:'ea6', grupo:'carrossel', nome:'Janela do navegador', desc:'Título dentro de uma janela, passos com número grande.' },
+  { id:'ea7', grupo:'carrossel', nome:'Caderno de receitas', desc:'Fichário, polaroide e bilhete: metáfora que prende.' },
+  { id:'ea8', grupo:'carrossel', nome:'Papel com clipe', desc:'Folha presa com clipe e frase que termina à mão.' },
+  { id:'eu1', grupo:'unica', nome:'Frase no papel', desc:'Uma folha com clipe sobre o calendário.' },
+  { id:'eu2', grupo:'unica', nome:'Pergunta pop', desc:'Letras gordas, adesivo e foto recortada.' },
+  { id:'eu3', grupo:'unica', nome:'Data no calendário', desc:'Dia circulado, selo com foto e espiral.' },
+  { id:'es1', grupo:'stories', nome:'Caixinha de perguntas', desc:'Sua foto com a caixinha no centro.' },
+  { id:'es2', grupo:'stories', nome:'Quiz no bloco de notas', desc:'Pergunta de mito ou verdade com opções.' },
+  { id:'es3', grupo:'stories', nome:'Bastidor', desc:'Foto, horário e o título manuscrito.' }
+];
+
+/* ---------- utilidades ---------- */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const marca = s => esc(s).replace(/\*(.+?)\*/g, '<span class="hl">$1</span>').replace(/_(.+?)_/g, '<b>$1</b>').replace(/\n/g, '<br>');
+const SVG = {
+  clipe:'<svg class="ex-clipe" viewBox="0 0 40 110"><path d="M27 32v52a10 10 0 0 1-20 0V18a7.5 7.5 0 0 1 15 0v62a3.5 3.5 0 0 1-7 0V32" fill="none" stroke="#8F969E" stroke-width="3.6" stroke-linecap="round"/></svg>',
+  estrela:c => `<svg viewBox="0 0 24 24"><path d="M12 1.5l3.1 6.8 7.4.8-5.5 5 1.6 7.3L12 17.7l-6.6 3.7L7 14.1l-5.5-5 7.4-.8z" fill="${c}"/></svg>`,
+  brilho:c => `<svg viewBox="0 0 24 24"><path d="M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="${c}"/></svg>`,
+  purpurina:() => { const id = 'g' + Math.random().toString(36).slice(2, 7); return `<svg viewBox="0 0 24 24"><defs><pattern id="${id}" width="2.4" height="2.4" patternUnits="userSpaceOnUse"><rect width="2.4" height="2.4" fill="#B9BCC2"/><circle cx=".7" cy=".7" r=".55" fill="#fff"/><circle cx="1.8" cy="1.6" r=".4" fill="#7E8389"/></pattern></defs><path d="M12 1.5l3.1 6.8 7.4.8-5.5 5 1.6 7.3L12 17.7l-6.6 3.7L7 14.1l-5.5-5 7.4-.8z" fill="url(#${id})"/></svg>` },
+  ramo:c => `<svg viewBox="0 0 120 160"><path d="M60 158C58 110 62 60 88 8" fill="none" stroke="${c}" stroke-width="2.4"/>${[[62, 130, -40], [61, 104, 35], [66, 80, -45], [70, 58, 40], [78, 36, -40], [84, 20, 30]].map(([x, y, r], i) => `<ellipse cx="${x + (i % 2 ? 16 : -16)}" cy="${y}" rx="17" ry="7.5" transform="rotate(${r} ${x + (i % 2 ? 16 : -16)} ${y})" fill="${c}"/>`).join('')}</svg>`,
+  flor:(c, m) => `<svg viewBox="0 0 100 100">${[0, 72, 144, 216, 288].map(r => `<ellipse cx="50" cy="27" rx="15" ry="24" transform="rotate(${r} 50 50)" fill="${c}"/>`).join('')}<circle cx="50" cy="50" r="9" fill="${m}"/></svg>`,
+  seta:c => `<svg viewBox="0 0 60 120"><path d="M30 6C10 30 46 50 26 78s4 30 4 34" fill="none" stroke="${c}" stroke-width="2.6" stroke-linecap="round"/><path d="M20 102l10 12 10-12" fill="none" stroke="${c}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  raio:c => `<svg viewBox="0 0 40 60"><path d="M24 2L6 34h12l-4 24 20-34H22z" fill="${c}" stroke="#1a1a1a" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  pasta:c => `<svg viewBox="0 0 64 50"><path d="M2 8a4 4 0 0 1 4-4h16l6 6h30a4 4 0 0 1 4 4v30a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="${c}"/><path d="M2 16h60v28a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="${c}" opacity=".75" style="mix-blend-mode:multiply"/></svg>`,
+  olhos:'<svg viewBox="0 0 64 52"><path d="M8 2h48a6 6 0 0 1 6 6v26a6 6 0 0 1-6 6H24l-12 10V40H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z" fill="#3B82F6"/><ellipse cx="24" cy="21" rx="9" ry="11" fill="#fff"/><ellipse cx="42" cy="21" rx="9" ry="11" fill="#fff"/><circle cx="27" cy="23" r="4.5" fill="#111"/><circle cx="45" cy="23" r="4.5" fill="#111"/></svg>',
+  alfinete:c => `<svg viewBox="0 0 30 40"><circle cx="15" cy="12" r="10" fill="${c}"/><circle cx="11.5" cy="8.5" r="3" fill="#fff" opacity=".55"/><path d="M15 22v16" stroke="#777" stroke-width="2"/></svg>`
+};
+function silhueta(edit) {
+  return `<span class="ex-ph"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax meet"><circle cx="50" cy="44" r="17"/><path d="M12 124c0-30 16-50 38-50s38 20 38 50z"/></svg>${edit ? '<i>Toque para pôr a sua foto</i>' : ''}</span>`;
+}
+function vars(idt) {
+  const c = idt.c, f = idt.f;
+  return `--cl:${c.cl};--es:${c.es};--ink:${c.ink};--on:${c.on};--ac:${c.ac};--ac2:${c.ac2};--ac3:${c.ac3};--pa:${c.pa};--aon:${c.aon};--hcl:${c.hcl};--hce:${c.hce};--hca:${c.hca};--d:${f.d};--dw:${f.dw};--dl:${f.dl};--dlh:${f.dlh};--dt:${f.dt};--fs:${f.s};--sk:${f.sk};--b:${f.b};--n:${f.n};--sit:${f.it ? 'italic' : 'normal'}`;
+}
+
+/* ---------- gerador ---------- */
+function slides(tid, ctx) {
+  const { idt, d, edit, handle, nome = '', fotos = {} } = ctx, out = [], N = d.s.length;
+  const E = (k, v, cls = '', tag = 'div') => `<${tag} class="${cls}"${edit ? ` contenteditable="true" spellcheck="false" data-k="${k}"` : ''}>${marca(v)}</${tag}>`;
+  const foto = (slot, cls) => `<div class="ex-foto ${cls}" data-foto="${slot || 'f1'}">${fotos[slot || 'f1'] ? `<img src="${fotos[slot || 'f1']}" alt="">` : silhueta(edit)}</div>`;
+  const miudo = (txt, cls = '') => `<div class="ex-miudo ${cls}">${esc((txt + ' ').repeat(9))}</div>`;
+  const topo = () => `<div class="ex-top"><span>${esc(nome)}</span><span>${esc(handle)}</span><span>${esc(d.area)}</span></div>`;
+  const rod = (i, extra = '') => `<div class="ex-bot"><span>${i === 0 && N > 1 ? 'Arrasta para o lado <i class="ex-pt"></i>' : N > 1 ? `Pág. ${i + 1}/${N}` : esc(handle)}</span>${extra}<span>${i < N - 1 ? '→' : ''}</span></div>`;
+  const pre = i => `s.${i}.`;
+  const wrap = (s, i, corpo, tam = 'feed') => `<div class="mx ex i-${idt.id} ${tam} t-${s.t} v-${s.v || ''} tom-${s.tom || 'cl'} tx-${idt.tex}" data-hl="${idt.hl}" style="${vars(idt)}">${corpo}</div>`;
+  d.s.forEach((s, i) => {
+    const k = pre(i); let c = '';
+    const deco = () => idt.id === 'oliva' || idt.id === 'ferrugem' ? `<div class="ex-ramo r1">${SVG.ramo(s.tom === 'es' ? 'var(--ac3)' : 'var(--ac)')}</div>` : idt.id === 'zine' || idt.id === 'uva' || idt.id === 'nativa' ? `<div class="ex-st s1">${SVG.estrela('var(--ac)')}</div><div class="ex-st s2">${SVG.brilho('var(--ac2)')}</div>` : idt.id === 'vinho' || idt.id === 'magenta' ? `<div class="ex-flor">${SVG.flor('var(--ac)', 'var(--ac2)')}</div>` : '';
+    if (s.t === 'capa' && s.v === 'foto') c = `${topo()}${miudo(s.nota, 'm-dir')}${E(k + 'pill', s.pill, 'ex-pill')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-gig')}${foto(s.foto, 'f-arco farc')}<div class="ex-nota n-capa">${E(k + 'nota', s.nota, 'ex-mao')}</div>${rod(i)}`;
+    else if (s.t === 'capa' && s.v === 'manchete') c = `${topo()}${miudo(s.pill)}${E(k + 'tag', s.tag, 'ex-balao')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-man')}${foto(s.foto, 'f-adesivo fman')}${E(k + 'pill', s.pill, 'ex-pill baixo')}${rod(i)}`;
+    else if (s.t === 'capa' && s.v === 'cartaz') c = `<div class="ex-luz"></div>${E(k + 'sobre', s.sobre, 'ex-sobre')}<div class="ex-tv"><i></i></div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-cartaz')}${E(k + 'linha', s.linha, 'ex-linha')}${E(k + 'creditos', s.creditos, 'ex-creditos')}${E(k + 'selo', s.selo, 'ex-classif')}<div class="ex-st s1">${SVG.brilho('var(--ac)')}</div>${rod(i)}`;
+    else if (s.t === 'capa' && s.v === 'nativa') c = `${foto(s.foto, 'f-full')}<div class="ex-sombra"></div><div class="ex-olhos">${SVG.olhos}</div>${E(k + 'titulo', s.titulo, 'mx-t ex-nat')}<div class="ex-input"><span class="ex-mais">+</span>${E(k + 'caixa', s.caixa, '', 'span')}<span class="ex-env">↑</span></div><div class="ex-assin">${esc(handle)} | ${esc(nome)}</div>`;
+    else if (s.t === 'capa' && s.v === 'zine') c = `${topo()}<div class="ex-fantasma">${esc((s.baixo || '').replace(/[*_.]/g, ''))}</div>${miudo(s.titulo + ' ' + s.baixo, 'm-esq')}<div class="ex-tags">${E(k + 'tag1', s.tag1, 'ex-tg a', 'span')}${E(k + 'tag2', s.tag2, 'ex-tg b', 'span')}</div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-zt')}<div class="ex-moldura">${foto(s.foto, 'f-oval')}</div>${E(k + 'baixo', s.baixo, 'mx-t ex-d ex-zb')}<div class="ex-st s1">${SVG.estrela('var(--ac)')}</div><div class="ex-st s2">${SVG.purpurina()}</div><div class="ex-st s3">${SVG.estrela('var(--ink)')}</div><div class="ex-st s4">${SVG.estrela('var(--ac2)')}</div>${rod(i)}`;
+    else if (s.t === 'capa' && s.v === 'janela') c = `${topo()}<div class="ex-pasta p1">${SVG.pasta('var(--ac)')}</div><div class="ex-pasta p2">${SVG.pasta('var(--ac)')}</div><div class="ex-jan"><div class="ex-jan-b"><i></i><i></i><i></i><span>${esc(handle)}</span></div><div class="ex-jan-c">${E(k + 'lead', s.lead, 'ex-lead')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-jt')}<small>${esc(nome)} · ${esc(d.area)}</small></div></div>${rod(i)}`;
+    else if (s.t === 'capa' && s.v === 'caderno') c = `<div class="ex-fichario"><div class="ex-aros">${'<i></i>'.repeat(5)}</div><div class="ex-folha">${foto(s.foto, 'f-polaroide')}<div class="ex-alf">${SVG.alfinete('var(--ac)')}</div><div class="ex-nota n-cad">${E(k + 'nota', s.nota, 'ex-mao')}</div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-cad')}${E(k + 'rodape', s.rodape, 'ex-pontilhado')}</div></div>`;
+    else if (s.t === 'capa' && s.v === 'papel') c = `${N > 1 ? topo() : ''}<div class="ex-cal">${['08', '09', '10', '11', '15', '16', '17', '18'].map(n => `<span>${n}</span>`).join('')}</div><div class="ex-papel">${SVG.clipe}${E(k + 'titulo', s.titulo, 'ex-pl')}${E(k + 'script', s.script, 'mx-t ex-scr')}${E(k + 'assin', s.assin, 'ex-pa')}</div>${N > 1 ? rod(i) : ''}`;
+    else if (s.t === 'capa' && s.v === 'pop') c = `${topo()}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-pop')}<div class="ex-raio r1">${SVG.raio('var(--ac2)')}</div><div class="ex-raio r2">${SVG.raio('var(--ac2)')}</div><div class="ex-meio-tom"></div>${foto(s.foto, 'f-recorte')}<div class="ex-adesivo">${E(k + 'selo', s.selo, '', 'span')}</div>${E(k + 'baixo', s.baixo, 'ex-fita')}`;
+    else if (s.t === 'capa' && s.v === 'data') c = `<div class="ex-espiral">${'<i></i>'.repeat(9)}</div>${E(k + 'antes', s.antes, 'mx-t ex-d ex-da')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-dt')}<div class="ex-dias">${s.dias.map((n, j) => j === 1 ? `<b>${E(k + 'dias.' + j, n, '', 'span')}<small>${esc(s.rotulo)}</small></b>` : E(k + 'dias.' + j, n, '', 'span')).join('')}</div>${foto(s.foto, 'f-selo')}${E(k + 'depois', s.depois, 'mx-t ex-d ex-dd')}${E(k + 'sub', s.sub, 'ex-sub')}`;
+    else if (s.t === 'texto') c = `${topo()}${deco()}<div class="ex-centro">${E(k + 'lead', s.lead, 'ex-lead')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-tt')}${s.nota ? E(k + 'nota', s.nota, 'ex-caixa') : ''}</div>${rod(i)}`;
+    else if (s.t === 'caminho') c = `${topo()}<div class="ex-sel">${E(k + 'lead', s.lead, 'ex-lead')}<i></i><i></i><i></i><i></i></div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-ct')}<div class="ex-trilha"><svg viewBox="0 0 460 200" preserveAspectRatio="none"><path d="M30 20H400a40 40 0 0 1 0 80H70a40 40 0 0 0 0 80H440" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>${s.passos.map((p, j) => `<span class="ex-no n${j}">${E(k + 'passos.' + j, p, '', 'em')}</span>`).join('')}</div>${E(k + 'rodape', s.rodape, 'ex-faixa')}${rod(i)}`;
+    else if (s.t === 'lista') c = `${topo()}${deco()}<div class="ex-lcol">${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-lt')}<ul class="ex-lista">${s.itens.map((x, j) => `<li><i></i>${E(k + 'itens.' + j, x, '', 'span')}</li>`).join('')}</ul></div><div class="ex-postit">${SVG.clipe}${E(k + 'postit', s.postit, 'ex-mao')}</div>${rod(i)}`;
+    else if (s.t === 'pergunta') c = `${topo()}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-pt-t')}<div class="ex-pg">${foto(s.foto, 'f-circ')}${E(k + 'bolha', s.bolha, 'ex-bolha', 'span')}${E(k + 'texto', s.texto, 'mx-p ex-pg-t')}</div>${E(k + 'faixa', s.faixa, 'ex-pill largo')}${rod(i)}`;
+    else if (s.t === 'chat') c = `${topo()}${E(k + 'lead', s.lead, 'ex-lead topo')}<div class="ex-chat">${s.msgs.map((m, j) => `<div class="ex-msg m${j}">${E(k + 'msgs.' + j, m, '', 'span')}<small>${String(9 + j).padStart(2, '0')}:4${j}</small></div>`).join('')}</div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-cht')}${rod(i)}`;
+    else if (s.t === 'passo') c = `${topo()}${deco()}<div class="ex-num">${E(k + 'n', s.n, '', 'span')}</div>${E(k + 'kicker', s.kicker, 'ex-kick')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-pst')}${E(k + 'texto', s.texto, 'mx-p ex-pstx')}${miudo(s.texto, 'm-baixo')}${rod(i)}`;
+    else if (s.t === 'cta') c = `${topo()}${deco()}<div class="ex-centro">${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-tt')}${E(k + 'sub', s.sub, 'ex-lead')}<div class="ex-acoes"><span>Salvar</span><span>Compartilhar</span><span>Comentar</span></div></div>${rod(i)}`;
+    else if (s.t === 'story' && s.v === 'caixa') c = `${foto(s.foto, 'f-full')}<div class="ex-sombra est"></div>${E(k + 'topo', s.topo, 'ex-pill st-topo')}<div class="ex-caixinha"><div class="ex-cx-h"><span class="ex-av">${esc((nome || 'A')[0])}</span>${E(k + 'titulo', s.titulo, 'mx-t ex-cx-t')}</div>${E(k + 'caixa', s.caixa, 'ex-cx-in')}</div><div class="ex-st s1">${SVG.brilho('var(--ac2)')}</div><div class="ex-st s2">${SVG.brilho('#fff')}</div>`;
+    else if (s.t === 'story' && s.v === 'quiz') c = `<div class="ex-notas-b"><span>‹ Notas</span><span>◎ ⋯ OK</span></div>${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-qt')}<div class="ex-quiz">${E(k + 'pergunta', s.pergunta, 'ex-qp')}${s.ops.map((o, j) => `<div class="ex-op ${String(j) === String(s.certa) ? 'ok' : ''}"><i>${'ABC'[j]}</i>${E(k + 'ops.' + j, o, '', 'span')}</div>`).join('')}</div>${E(k + 'nota', s.nota, 'ex-mao ex-qn')}<div class="ex-seta">${SVG.seta('var(--ink)')}</div>`;
+    else if (s.t === 'story' && s.v === 'bastidor') c = `${foto(s.foto, 'f-full')}<div class="ex-sombra est"></div><div class="ex-hora">${E(k + 'hora', s.hora, '', 'span')}</div>${E(k + 'pre', s.pre, 'ex-bpre')}${E(k + 'titulo', s.titulo, 'mx-t ex-d ex-bt')}${E(k + 'sub', s.sub, 'ex-pill st-sub')}<div class="ex-assin est">${esc(handle)}</div>`;
+    out.push(wrap(s, i, c, s.t === 'story' ? 'story' : 'feed'));
+  });
+  return out;
+}
+const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Yellowtail&family=Nothing+You+Could+Do&family=Playfair+Display:wght@600&family=Hanken+Grotesk:wght@400;600;800&family=Gloock&family=Homemade+Apple&family=Mrs+Saint+Delafield&family=Rubik:wght@400;600;800&family=Mr+Dafoe&family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Lato:wght@400;700;900&family=Lobster&display=swap';
+return { nome:'Editorial', IDT, PACKS, TPL, slides, FONTES_URL, temFoto:true };
+})();
+
 // Pauta · o que mais funciona no Instagram jurídico (análise de perfis de advogados de várias áreas)
 // e banco de ideias virais: formatos que se repetem nos posts com mais salvamentos, compartilhamentos e comentários.
 // {t} = tema da área, {a} = nome da área. Nada aqui promete resultado nem fala de honorários (Provimento 205/2021).
@@ -1456,7 +1903,7 @@ return { ANALISE, VIRAIS, AREA_VIRAIS };
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
-const P = window.PAUTA, AREAS = window.AREAS, M = window.MODELOS, TD = window.TENDENCIAS;
+const P = window.PAUTA, AREAS = window.AREAS, TD = window.TENDENCIAS, COLS = { editorial:window.ESTUDIO, classica:window.MODELOS };
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -1713,7 +2160,7 @@ const NAV = () => [
   { sep:'Criação' }, { id:'carrosseis', nome:'Carrosséis', ic:'layers', n:cnt('carrossel') }, { id:'reels', nome:'Reels', ic:'play', n:cnt('reels') }, { id:'outros', nome:'Posts e stories', ic:'image', n:cnt('outros') },
   { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' }, { id:'tendencias', nome:'Tendências', ic:'flame', tag:'Novo' },
   { sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }, { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, { id:'analytics', nome:'Analytics', ic:'chart' }, { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
-  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:M.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
+  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:COLS.editorial.TPL.length + COLS.classica.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
 ];
 const MOBILE = ['inicio', 'cronograma', 'carrosseis', 'producao'];
 const av = (c, cls = '') => `<span class="av ${cls}" style="--c:${c.cor}">${E(((c.perfil?.marca || c.perfil?.nome || '?').trim()[0] || '?').toUpperCase())}</span>`;
@@ -2028,38 +2475,46 @@ function etica() {
 /* ---------- modelos de posts (15 identidades) ---------- */
 const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única', 'image'], ['stories', 'Stories e destaques', 'cam'], ['extras', 'Mais ideias', 'spark']];
 let abaMod = 'carrossel', ed = null;
-const mstate = () => (C.modelos ||= { idt:null, txt:{} });
-const idtRec = () => M.IDT.find(i => i.ideal.includes(C.perfil.principal)) || M.IDT[0];
-const idtAtual = () => M.IDT.find(i => i.id === mstate().idt) || idtRec();
+const mstate = () => { const m = (C.modelos ||= { col:'editorial', idt:{}, txt:{}, fotos:{} }); if (typeof m.idt !== 'object' || !m.idt) m.idt = m.idt ? { classica:m.idt } : {}; m.col ||= 'classica'; m.fotos ||= {}; m.txt ||= {}; return m };
+const MC = () => COLS[mstate().col] || COLS.editorial;
+const idtRec = () => MC().IDT.find(i => i.ideal.includes(C.perfil.principal)) || MC().IDT[0];
+const idtAtual = () => MC().IDT.find(i => i.id === mstate().idt[mstate().col]) || idtRec();
 const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
 function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
-function dadosMod(tid) { const base = JSON.parse(JSON.stringify(M.PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
-const slidesDe = (tid, idt, edit = false) => M.slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome });
+function dadosMod(tid) { const base = JSON.parse(JSON.stringify(MC().PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
+const slidesDe = (tid, idt, edit = false) => MC().slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome, fotos:mstate().fotos });
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
-  const idt = idtAtual(), rec = idtRec(), lista = M.TPL.filter(t => t.grupo === abaMod);
-  const am = i => `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
-  return cab('MARCA', 'Modelos', `15 identidades visuais e ${M.TPL.length} modelos prontos: ${M.TPL.filter(t => t.grupo === 'carrossel').length} carrosséis, 3 telas únicas, 3 de stories e destaques e mais ideias. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  const idt = idtAtual(), rec = idtRec(), lista = MC().TPL.filter(t => t.grupo === abaMod);
+  const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos;
+  const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
+    : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
+  const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
+  return cab('MARCA', 'Modelos', `Duas coleções: a <b>Editorial</b>, com colagem, papel, manuscrita e a sua foto, e a <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
-    <div class="idts">${M.IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
-    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${E(idt.f.t.split(',')[0].replace(/'/g, ''))} + ${E(idt.f.b.split(',')[0].replace(/'/g, ''))}</span></div></section>
-  <section class="card"><div class="tabs" role="tablist">${GRUPOS.map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${M.TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
+    <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
+    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${fontes.map(f => E(f.split(',')[0].replace(/'/g, ''))).filter((x, i, l) => l.indexOf(x) === i).join(' + ')}</span></div>
+    ${ed2 ? `<div class="fotos-box">${['f1'].map(k => `<label class="fb" style="${F[k] ? `background-image:url(${F[k]})` : ''}" title="Sua foto">${F[k] ? '' : I('cam')}<input type="file" accept="image/*" data-upfoto="${k}" hidden></label>`).join('')}<div><b>${F.f1 ? 'Sua foto está em todos os modelos' : 'Ponha a sua foto'}</b><p class="muted small">Ela entra nas capas e slides com foto. Fica só neste navegador.${F.f1 ? ' <button class="link" data-delfoto="f1">Remover</button>' : ''}</p></div></div>` : ''}</section>
+  <section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
     <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
       const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
       return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
 }
 function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
 function desenhaEd(manterScroll) {
-  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = M.TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
+  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
   const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40);
   el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
-    <select id="ed-idt" aria-label="Identidade">${M.IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
+    <select id="ed-idt" aria-label="Identidade">${MC().IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
     ${prox.length ? `<select id="ed-post" aria-label="Preencher com uma peça do cronograma"><option value="">Preencher com uma peça…</option>${prox.map(p => `<option value="${p.id}">${fmt(p.data)} · ${E(p.titulo.slice(0, 60))}</option>`).join('')}</select>` : ''}
     <button class="btn ghost" data-edreset>${I('refresh')}Texto original</button><button class="btn" data-edbaixa>${I('download')}${sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
-    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra.</span></p>
+    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra${mstate().col === 'editorial' ? ' e entre <b>_sublinhados_</b> para negrito. Toque na foto para trocar.' : '.'}</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
     <div class="ed-sl">${sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><button data-edpng="${i}">${I('download')}PNG</button></footer></div>`).join('')}</div></div>`;
   ajustaTextos(el); if (sx) $('.ed-sl').scrollLeft = sx;
 }
+// Reduz a foto para no máximo 1100 px (JPEG) antes de salvar no navegador.
+function fotoDe(f) { return new Promise((ok, erro) => { const r = new FileReader(); r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, 1100 / Math.max(im.width, im.height)), cv = document.createElement('canvas'); cv.width = Math.round(im.width * k); cv.height = Math.round(im.height * k); cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height); ok(cv.toDataURL('image/jpeg', .84)) }; im.onerror = erro; im.src = r.result }; r.onerror = erro; r.readAsDataURL(f) }) }
 function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado'); render(false) }
 // Diminui o título quando o texto passa do tamanho do slide.
 function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
@@ -2079,14 +2534,14 @@ async function pngsDe(idxs) {
 // Embute só as fontes da identidade (subconjunto latino) para o PNG sair com a tipografia certa.
 const cacheF = {};
 async function cssFontes(idt) {
-  if (cacheF[idt.id]) return cacheF[idt.id];
-  const fams = [idt.f.t, idt.f.b, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].map(f => f.split(',')[0].replace(/'/g, '').trim()).filter(Boolean);
-  try { const css = await (await fetch(M.FONTES_URL)).text(), out = [];
+  const ck = mstate().col + ':' + idt.id; if (cacheF[ck]) return cacheF[ck];
+  const fams = [idt.f.t, idt.f.d, idt.f.s, idt.f.b, idt.f.n, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].filter(Boolean).map(f => f.split(',')[0].replace(/'/g, '').trim());
+  try { const css = await (await fetch(MC().FONTES_URL)).text(), out = [];
     for (const m of css.matchAll(/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]+\})/g)) { if (m[1] !== 'latin') continue; const bloco = m[2], fam = (bloco.match(/font-family:\s*'([^']+)'/) || [])[1]; if (!fams.includes(fam)) continue;
       const url = (bloco.match(/url\(([^)]+)\)/) || [])[1]; if (!url) continue;
       const b = await (await fetch(url)).blob(), d = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(b) });
       out.push(bloco.replace(url, d)) }
-    return cacheF[idt.id] = out.join('\n') } catch { return '' }
+    return cacheF[ck] = out.join('\n') } catch { return '' }
 }
 // No Artifact do claude.ai o download passa pela capacidade "downloads"; fora dele, link comum.
 async function baixaBlob(b, nome) {
@@ -2095,7 +2550,7 @@ async function baixaBlob(b, nome) {
   baixaLink(b, nome) }
 function baixaLink(b, nome) { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = nome; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000) }
 async function exporta(i) {
-  const t = M.TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
+  const t = MC().TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
   toast('Gerando as imagens…', 'download');
   try {
     if (i !== undefined || n === 1) { const [b] = await pngsDe([i ?? 0]); await baixaBlob(b, `${nome}-${String((i ?? 0) + 1).padStart(2, '0')}.png`) }
@@ -2218,6 +2673,7 @@ function render(topo = true) {
 window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
+document.addEventListener('click', e => { if (ed && e.target.closest('.ed [data-foto]')) { $('#ed-foto')?.click() } });
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-principal], button, a, label, [data-ov]'); if (!t) return; const d = t.dataset;
   if (d.ov !== undefined && e.target === t) return fecharModal();
@@ -2247,7 +2703,9 @@ document.addEventListener('click', e => {
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
   // modelos e tendências
-  if (d.idt) { mstate().idt = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
+  if (d.col) { mstate().col = d.col; if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
+  if (d.delfoto) { delete mstate().fotos[d.delfoto]; salvar(); render(false); toast('Foto removida.', 'trash'); return }
+  if (d.idt) { mstate().idt[mstate().col] = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
   if (d.mtab) { abaMod = d.mtab; render(false); return }
   if (d.mod) return abrirMod(d.mod);
   if (d.edx !== undefined) return fecharEd();
@@ -2304,8 +2762,9 @@ document.addEventListener('change', e => {
   if (t.dataset.num && vw) { lerVw(); return }
   if (t.id === 'vw-data' || t.id === 'vw-fmt') { lerVw(); desenhaVw(); return }
   if (t.id === 'gt') { temaG = t.value; render(false); return }
-  if (t.id === 'ed-idt') { mstate().idt = t.value; salvar(); desenhaEd(true); return }
-  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || ''; salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
+  if (t.dataset.upfoto) { const f = t.files[0]; if (f) fotoDe(f).then(u => { mstate().fotos[t.dataset.upfoto] = u; try { salvar(); toast('Foto aplicada nos modelos.', 'cam') } catch { toast('A foto é grande demais para salvar.', 'close') } ed ? desenhaEd(true) : render(false) }); return }
+  if (t.id === 'ed-idt') { mstate().idt[mstate().col] = t.value; salvar(); desenhaEd(true); return }
+  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; if (mstate().col === 'editorial') { o['s.0.titulo'] = p.titulo; o.area = AREA[p.area]?.nome || '' } else { o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || '' } salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
   if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }
