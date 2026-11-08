@@ -19,6 +19,7 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `passo` | 1080×1350 | passo de tutorial com prompt: `n`, `titulo`, `texto`, `prompt` (`[trecho]` sai em areia, para o que a pessoa troca), `tp` (px do prompt) |
 | `evento` | 1080×1350 | convite para live/evento: `dia`, `hora`, `rotulo`, `titulo`, `texto`, `hashtag`, `cta` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
+| `fundo` | 1920×1080 | fundo de live/StreamYard com o centro livre para o slide e a câmera: `variante` (`grafite`, `papel` ou `faixa`) |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
 | `simboloClaro` | 1080×1080 | o `simbolo` em fundo branco (capa da comunidade do WhatsApp): `rotulo` (opcional), `titulo` ([[trecho]] em ouro), `ts`, `cor` (troca o ouro dos anéis, rótulo e destaque) e `corP` (cor do "p" no selo) |
 

@@ -10,7 +10,7 @@ const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos',
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], simboloClaro: [1080, 1080], material: [1080, 1350] };
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], simboloClaro: [1080, 1080], fundo: [1920, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -106,6 +106,25 @@ L.simboloClaro = t => { const ac = t.cor || C.ouro, an = t.cor || C.areia2, pp =
     ${t.rotulo ? `<div style="font:700 22px Manrope;letter-spacing:.34em;color:${ac};margin-top:40px">${esc(t.rotulo).toUpperCase()}</div>` : ''}
     <div style="${T};font-size:${t.ts ?? 124}px;line-height:.86;color:#121212;margin-top:${t.rotulo ? 18 : 42}px">${tit(t.titulo, x => `<span style="color:${ac}">${x}</span>`)}</div>
     <div style="margin-top:32px">${logo(42, '#121212')}</div></div>` };
+
+// Fundo 16:9 para live/StreamYard com slide: o centro fica livre (o slide e a câmera cobrem), marca só nas bordas.
+L.fundo = t => {
+  const v = t.variante || 'grafite';
+  const claro = v === 'papel';
+  const bg = claro ? '#F4F1EA' : C.bg, tx = claro ? '#121212' : C.txt, an = claro ? C.areia2 : C.areia;
+  const rodape = `<div style="position:absolute;left:70px;right:70px;bottom:40px;display:flex;justify-content:space-between;align-items:center">${logo(40, tx)}<span style="font:700 22px Manrope;color:${tx};opacity:.8">@liberofilho</span></div>`;
+  if (v === 'faixa') return `<div style="position:absolute;inset:0;background:${C.bg}"></div>${grao}
+    <div style="position:absolute;left:0;top:0;bottom:0;width:26px;background:linear-gradient(180deg,${C.areia},${C.areia2})"></div>
+    <div style="position:absolute;right:-260px;top:-260px;width:760px;height:760px;border-radius:50%;border:2px solid ${C.areia}33"></div>
+    <div style="position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;border:2px solid ${C.areia}22"></div>
+    <div style="position:absolute;left:70px;top:46px;font:700 18px Manrope;letter-spacing:.42em;color:${C.areia}">✦ A ADVOCACIA NA PRÁTICA</div>
+    <div style="${T};position:absolute;right:50px;bottom:110px;font-size:150px;line-height:.8;color:transparent;-webkit-text-stroke:2px ${C.areia}30">PRATFLIX</div>${rodape}`;
+  return `<div style="position:absolute;inset:0;background:${claro ? `radial-gradient(90% 90% at 50% 50%,#FBF9F3 0%,${bg} 100%)` : `radial-gradient(80% 80% at 50% 45%,#22201b 0%,${bg} 75%)`}"></div>${grao}
+    <div style="position:absolute;left:-220px;bottom:-300px;width:760px;height:760px;border-radius:50%;border:2px solid ${an}${claro ? '' : '44'}"></div>
+    <div style="position:absolute;left:-120px;bottom:-200px;width:560px;height:560px;border-radius:50%;border:2px solid ${an}${claro ? '88' : '2a'}"></div>
+    <div style="position:absolute;right:-200px;top:-260px;width:680px;height:680px;border-radius:50%;border:2px solid ${an}${claro ? '' : '44'}"></div>
+    <div style="position:absolute;left:70px;top:46px;display:flex;align-items:center;gap:16px"><span style="width:46px;height:46px;border-radius:12px;background:${claro ? '#121212' : `linear-gradient(135deg,${C.areia},${C.areia2})`};display:grid;place-items:center;font:800 36px/1 Manrope;color:${claro ? C.areia : '#121212'}"><span style="margin-top:-6px">p<span style="font-size:.42em;vertical-align:.32em">▸</span></span></span><span style="font:700 18px Manrope;letter-spacing:.42em;color:${claro ? C.ouro : C.areia}">A ADVOCACIA NA PRÁTICA</span></div>${rodape}`;
+};
 
 // Material gratuito com foto do autor no alto (identidade do Post Libero "material" nas cores da PratFlix): foto em
 // tons de areia, rótulo, título, o PDF desenhado (checklist com `itens` linhas numeradas), o bônus (live) e o botão.
