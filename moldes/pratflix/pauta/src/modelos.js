@@ -90,6 +90,32 @@ const PACKS = {
   s3:{ area:'Geral', itens:[{ t:'Sobre mim', i:'user' }, { t:'Dúvidas', i:'q' }, { t:'Família', i:'heart' }, { t:'Consumidor', i:'bag' }, { t:'Bastidores', i:'cam' }, { t:'Materiais', i:'doc' }] },
   e1:{ area:'Trabalhista', tag:'Reels', titulo:'Seu chefe pode *mandar mensagem* fora do horário?', sub:'' },
   e2:{ area:'Geral', titulo:'Ninguém lê o contrato de aluguel até o dia em que precisa sair antes do prazo.', sub:'' },
+  c11:{ area:'Trabalhista', tag:'Linha do tempo', titulo:'Da demissão ao processo: *a linha do tempo*', sub:'O que acontece em cada fase, sem juridiquês.',
+    itens:[{ t:'Dia 1', d:'Aviso prévio: trabalhado ou indenizado.' }, { t:'Até 10 dias', d:'Pagamento das verbas rescisórias.' }, { t:'Na rescisão', d:'Guias do FGTS e do seguro-desemprego.' }, { t:'Até 2 anos', d:'Prazo para entrar com a ação trabalhista.' }],
+    fim:{ titulo:'Salve e confira as suas datas.', sub:'Cada contrato tem detalhes próprios.' } },
+  c12:{ area:'Consumidor', tag:'Quiz', titulo:'Quiz: você conhece seus *direitos de consumidor?*', sub:'3 perguntas. Responda antes de passar.',
+    itens:[{ t:'A loja é obrigada a trocar um produto sem defeito?', a:'Sim, sempre', b:'Não, só se prometeu', c:'Só em 7 dias', v:'b', d:'Sem defeito, a troca depende da política da loja (o arrependimento de 7 dias vale para compras fora da loja).' }, { t:'Cobrança indevida paga deve ser devolvida em dobro?', a:'Sim, em regra', b:'Nunca', c:'Só com processo', v:'a', d:'O art. 42 do CDC prevê a devolução em dobro, salvo engano justificável.' }, { t:'Posso cancelar internet sem multa no fim da fidelidade?', a:'Não', b:'Sim', c:'Só pessoalmente', v:'b', d:'Terminado o prazo de fidelidade, não cabe multa.' }],
+    fim:{ titulo:'Quantas você acertou?', sub:'Conte nos comentários.' } },
+  c13:{ area:'Previdenciário', tag:'Números', titulo:'4 números que todo *segurado do INSS* deve saber', sub:'Guarde para não perder prazo.',
+    itens:[{ num:'15', un:'anos', t:'de contribuição mínima para a aposentadoria por idade.' }, { num:'65', un:'anos', t:'idade mínima do homem para a aposentadoria por idade urbana.' }, { num:'62', un:'anos', t:'idade mínima da mulher para a aposentadoria por idade urbana.' }, { num:'10', un:'anos', t:'prazo para pedir a revisão do benefício.' }],
+    fonte:'Regras gerais após a EC 103/2019. Há regras de transição.', fim:{ titulo:'Salve e mande para quem está perto de se aposentar.', sub:'Cada caso tem regras de transição.' } },
+  c14:{ area:'Geral', tag:'Prazos', titulo:'Prazos que você *não pode perder*', sub:'Anote no calendário.',
+    itens:[{ num:'7', un:'dias', t:'para desistir de compra feita pela internet (art. 49 do CDC).' }, { num:'90', un:'dias', t:'para reclamar de defeito em produto durável (art. 26 do CDC).' }, { num:'2', un:'meses', t:'para abrir o inventário (art. 611 do CPC).' }, { num:'2', un:'anos', t:'para a ação trabalhista depois da saída.' }],
+    fim:{ titulo:'Qual prazo você não conhecia?', sub:'Comente aqui embaixo.' } },
+  c15:{ area:'Imobiliário', tag:'Pode ou não pode', titulo:'Condomínio: o que *pode* e o que *não pode*', sub:'As dúvidas que mais viram briga.',
+    itens:[{ t:'Proibir animais de estimação de forma geral', v:'NÃO PODE', d:'O STJ entende que a proibição genérica não vale.' }, { t:'Multar quem faz barulho fora do horário', v:'PODE', d:'Se a convenção ou o regimento preverem.' }, { t:'Cortar a água de quem está devendo', v:'NÃO PODE', d:'A cobrança deve seguir os meios legais.' }, { t:'Expor a lista de devedores no elevador', v:'NÃO PODE', d:'Pode gerar dano moral por exposição.' }],
+    fim:{ titulo:'Mande no grupo do condomínio.', sub:'Informação evita briga.' } },
+  c16:{ area:'Apresentação', tag:'Prazer', titulo:'Prazer, eu sou *quem vai traduzir o Direito* para você', sub:'3 coisas sobre mim.',
+    itens:[{ t:'Por que escolhi o Direito', d:'Porque vi de perto como a informação muda a vida das pessoas.' }, { t:'Com o que eu trabalho', d:'As áreas em que você pode me encontrar por aqui.' }, { t:'O que você vai ver neste perfil', d:'Direitos explicados sem juridiquês, toda semana.' }],
+    fim:{ titulo:'Me conta: de onde você me acompanha?', sub:'Responda nos comentários.' } },
+  t4:{ area:'Família', tag:'Lei em destaque', art:'Art. 1.694', lei:'Código Civil', titulo:'“Podem os parentes, os cônjuges ou companheiros pedir uns aos outros os alimentos de que necessitem para viver.”', sub:'Ou seja: pensão não é só de pai para filho.' },
+  t5:{ area:'Geral', tag:'Comente', titulo:'Qual é a sua *maior dúvida* sobre os seus direitos?', sub:'A resposta pode virar o próximo post.' },
+  t6:{ area:'Geral', tag:'Aviso', titulo:'Recesso de *fim de ano*', sub:'Os prazos processuais ficam suspensos de 20 de dezembro a 20 de janeiro (art. 220 do CPC). Atendimentos urgentes continuam.' },
+  s4:{ area:'Geral', tag:'Contagem', num:'3', un:'dias', titulo:'para a nossa *live* sobre pensão', sub:'Ative o lembrete.' },
+  s5:{ area:'Família', titulo:'Me pergunte sobre *divórcio*', caixa:'Digite sua pergunta…', sub:'Respondo as melhores amanhã.' },
+  s6:{ area:'Geral', hora:'07:30', titulo:'Um dia na minha *rotina*', sub:'Do café à audiência.' },
+  e4:{ area:'Notícias', tag:'Notícia', jornal:'Diário do Direito', titulo:'STJ decide que proibição genérica de animais em condomínio *não vale*', sub:'Entenda o que isso muda para você no próximo post.' },
+  e5:{ area:'Geral', a:'O cliente: “É só uma perguntinha rápida…”', b:'Eu, abrindo o Código, a jurisprudência e três doutrinas:', titulo:'*Toda* pergunta merece resposta certa.' },
   e3:{ area:'Consumidor', num:'30', un:'dias', titulo:'é o prazo para a loja *consertar* um produto com defeito.', sub:'Se não resolver, você escolhe: troca, dinheiro de volta ou abatimento (art. 18 do CDC).' }
 };
 
@@ -110,6 +136,20 @@ const TPL = [
   { id:'s1', grupo:'stories', nome:'Capa de sequência', desc:'Abre uma sequência de stories explicativos.' },
   { id:'s2', grupo:'stories', nome:'Enquete', desc:'Pergunta com figurinha de enquete.' },
   { id:'s3', grupo:'stories', nome:'Capas de destaque', desc:'6 capas redondas para os destaques do perfil.' },
+  { id:'c11', grupo:'carrossel', nome:'Linha do tempo', desc:'Etapas com datas numa linha vertical.' },
+  { id:'c12', grupo:'carrossel', nome:'Quiz', desc:'Pergunta com 3 opções e a resposta no slide seguinte.' },
+  { id:'c13', grupo:'carrossel', nome:'Números que importam', desc:'Um número grande por slide, com a explicação.' },
+  { id:'c14', grupo:'carrossel', nome:'Prazos', desc:'Os prazos da área para salvar e anotar.' },
+  { id:'c15', grupo:'carrossel', nome:'Pode ou não pode', desc:'Carimbo PODE ou NÃO PODE em cada situação.' },
+  { id:'c16', grupo:'carrossel', nome:'Sobre mim', desc:'Apresentação em 3 fatos e convite.' },
+  { id:'t4', grupo:'unica', nome:'Artigo de lei', desc:'O artigo em destaque e o que ele quer dizer.' },
+  { id:'t5', grupo:'unica', nome:'Pergunta para comentar', desc:'Uma pergunta grande que puxa comentários.' },
+  { id:'t6', grupo:'unica', nome:'Aviso', desc:'Recesso, feriado ou comunicado do escritório.' },
+  { id:'s4', grupo:'stories', nome:'Contagem regressiva', desc:'Número grande para live ou lançamento.' },
+  { id:'s5', grupo:'stories', nome:'Caixinha de perguntas', desc:'Espaço para a figurinha de perguntas.' },
+  { id:'s6', grupo:'stories', nome:'Rotina', desc:'Horário em destaque e título do dia.' },
+  { id:'e4', grupo:'extras', nome:'Notícia recortada', desc:'Manchete como recorte de jornal.' },
+  { id:'e5', grupo:'extras', nome:'Meme jurídico', desc:'Dois quadros: a situação e a sua reação.' },
   { id:'e1', grupo:'extras', nome:'Capa de reels', desc:'Título na área segura e espaço para o seu rosto.' },
   { id:'e2', grupo:'extras', nome:'Post de texto', desc:'No formato de um post de rede social.' },
   { id:'e3', grupo:'extras', nome:'Número gigante', desc:'Um número que prende a atenção e a explicação.' }
@@ -162,6 +202,20 @@ function slides(tid, ctx) {
   if (tid === 'e1') out.push(base('story mx-c reel', `${topo()}<div class="mx-rosto"><span>sua foto ou vídeo aqui</span></div><div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}</div><span class="mx-reel">${ic('play')}REELS</span>`));
   if (tid === 'e2') out.push(base('feed mx-m post-texto', `<div class="mx-tw"><div class="mx-tw-top"><span class="mx-tw-av">${esc((handle || '@').replace('@', '')[0] || 'A').toUpperCase()}</span><div><b>${esc(ctx.nome || 'Seu nome')}</b><small>${esc(handle)}</small></div></div>${E('titulo', d.titulo, 'mx-tw-t')}<div class="mx-tw-f"><span>${ic('chat')} 128</span><span>${ic('play')} 342</span><span>${ic('heart')} 2,1 mil</span></div></div>`));
   if (tid === 'e3') out.push(base('feed mx-c numero', `${topo()}<div class="mx-capa"><div class="mx-big">${E('num', d.num, '', 'b')}${E('un', d.un, '', 'small')}</div>${E('titulo', d.titulo, 'mx-t l')}${E('sub', d.sub, 'mx-sub')}</div><span class="mx-deco"></span>`));
+  if (tid === 'c11') { const n = 3; out.push(capa(n)); out.push(meio(2, n, `<div class="mx-bloco"><div class="mx-t m">Passo a passo no tempo</div><ol class="mx-tl">${it.map((x, j) => `<li><b>${E(`itens.${j}.t`, x.t, '', 'span')}</b>${E(`itens.${j}.d`, x.d, 'mx-p', 'span')}</li>`).join('')}</ol></div>`)); out.push(fim(n)) }
+  if (tid === 'c12') { const n = it.length * 2 + 2; out.push(capa(n)); it.forEach((x, j) => { out.push(meio(2 + j * 2, n, `<div class="mx-bloco"><small class="mx-mini">Pergunta ${j + 1}</small>${E(`itens.${j}.t`, x.t, 'mx-t m')}<div class="mx-ops">${['a', 'b', 'c'].map(o => `<div class="mx-op"><i>${o.toUpperCase()}</i>${E(`itens.${j}.${o}`, x[o], '', 'span')}</div>`).join('')}</div><small class="mx-mini">Responda e passe →</small></div>`));
+    out.push(meio(3 + j * 2, n, `<div class="mx-bloco"><div class="mx-selo">RESPOSTA ${String(x.v).toUpperCase()}</div>${E(`itens.${j}.${x.v}`, x[x.v], 'mx-t l')}${E(`itens.${j}.d`, x.d, 'mx-p g')}</div>`)) }); out.push(fim(n)) }
+  if (tid === 'c13' || tid === 'c14') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco"><div class="mx-big">${E(`itens.${j}.num`, x.num, '', 'b')}${E(`itens.${j}.un`, x.un, '', 'small')}</div>${E(`itens.${j}.t`, x.t, 'mx-t m')}${j === it.length - 1 && d.fonte ? E('fonte', d.fonte, 'mx-fonte') : ''}</div>`))); out.push(fim(n)) }
+  if (tid === 'c15') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco">${E(`itens.${j}.t`, x.t, 'mx-t m')}<div class="mx-carimbo ${/NÃO/.test(x.v) ? 'mito' : 'verdade'}">${E(`itens.${j}.v`, x.v, '', 'span')}</div>${E(`itens.${j}.d`, x.d, 'mx-p cardp')}</div>`))); out.push(fim(n)) }
+  if (tid === 'c16') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-cap">${String(j + 1).padStart(2, '0')} · SOBRE MIM</div><div class="mx-bloco baixo">${E(`itens.${j}.t`, x.t, 'mx-t l')}${E(`itens.${j}.d`, x.d, 'mx-p g')}</div>`))); out.push(fim(n)) }
+  if (tid === 't4') out.push(base('feed mx-m', `${topo()}<div class="mx-bloco"><div class="mx-artigo">${E('art', d.art, '', 'b')}${E('lei', d.lei, '', 'small')}</div>${E('titulo', d.titulo, 'mx-t s aspas')}<div class="mx-fio"></div>${E('sub', d.sub, 'mx-p g')}</div><div class="mx-foot"><span>${esc(handle)}</span><span>Salve ✓</span></div>`));
+  if (tid === 't5') out.push(base('feed mx-c frase', `${topo()}<div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}${E('sub', d.sub, 'mx-sub')}<div class="mx-coment">${ic('chat')}<span>Comente aqui embaixo</span></div></div><span class="mx-deco"></span>`));
+  if (tid === 't6') out.push(base('feed mx-c', `${topo()}<div class="mx-capa"><div class="mx-selo">${E('tag', d.tag, '', 'span')}</div>${E('titulo', d.titulo, 'mx-t xl')}${E('sub', d.sub, 'mx-sub')}</div><div class="mx-foot"><span>${esc(ctx.nome || '')}</span><span>${esc(handle)}</span></div><span class="mx-deco"></span>`));
+  if (tid === 's4') out.push(base('story mx-c', `${topo()}<div class="mx-capa"><small class="mx-mini">Faltam</small><div class="mx-big">${E('num', d.num, '', 'b')}${E('un', d.un, '', 'small')}</div>${E('titulo', d.titulo, 'mx-t l')}</div>${E('sub', d.sub, 'mx-toque')}<span class="mx-deco"></span>`));
+  if (tid === 's5') out.push(base('story mx-c', `${topo()}<div class="mx-capa"><div class="mx-cx"><div class="mx-cx-h">${E('titulo', d.titulo, 'mx-t m')}</div>${E('caixa', d.caixa, 'mx-cx-in')}</div></div>${E('sub', d.sub, 'mx-toque')}<span class="mx-deco"></span>`));
+  if (tid === 's6') out.push(base('story mx-c', `${topo()}<div class="mx-capa"><div class="mx-hora">${E('hora', d.hora, '', 'b')}</div>${E('titulo', d.titulo, 'mx-t xl')}${E('sub', d.sub, 'mx-sub')}</div><span class="mx-deco"></span>`));
+  if (tid === 'e4') out.push(base('feed mx-m', `${topo()}<div class="mx-recorte"><div class="mx-rec-top">${E('jornal', d.jornal, '', 'b')}<span>${new Date().toLocaleDateString('pt-BR')}</span></div>${E('titulo', d.titulo, 'mx-t m')}<div class="mx-linhas">${'<i></i>'.repeat(5)}</div></div>${E('sub', d.sub, 'mx-p g')}<div class="mx-foot"><span>${esc(handle)}</span><span class="mx-seta">→</span></div>`));
+  if (tid === 'e5') out.push(base('feed mx-m', `${topo()}<div class="mx-meme"><div>${E('a', d.a, 'mx-p g')}</div><div class="esc">${E('b', d.b, 'mx-p g')}<span class="mx-livros">${'<i></i>'.repeat(3)}</span></div></div>${E('titulo', d.titulo, 'mx-t m')}<div class="mx-foot"><span>${esc(handle)}</span><span>${esc(ctx.nome || '')}</span></div>`));
   return out;
 }
 const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap';

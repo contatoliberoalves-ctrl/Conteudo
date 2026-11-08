@@ -293,3 +293,37 @@
 .meu > span:last-child { display:grid; gap:4px } .meu strong { font-size:17px } .meu small { color:var(--muted); font-size:13.5px; line-height:1.4 } .meu em { font-style:normal; font-size:12px; font-weight:800; color:var(--brand); letter-spacing:.04em }
 .meus-est .card-h .acoes { display:flex; gap:8px; flex-wrap:wrap }
 @media (max-width:760px) { .est-grade { grid-template-columns:repeat(2, minmax(0, 1fr)) } .est .th { --s:.27 } .meu .th { --s:.16 } }
+/* arte do estilo escolhido nas peças */
+.capa.capa-arte { padding:0; background:none; display:block; overflow:visible }
+.capa.capa-arte .arte { border-radius:inherit }
+.arte { position:relative; display:block; width:100%; aspect-ratio:540 / 675; overflow:hidden; border-radius:inherit }
+.arte.av { aspect-ratio:540 / 960 }
+.arte-in { position:absolute; left:0; top:0; width:540px; transform-origin:0 0; pointer-events:none }
+.arte-in > .mx { position:relative }
+.capa-arte .capa-chips { z-index:40 }
+.slide-arte { height:min(66vh, 680px); aspect-ratio:4 / 5; border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -30px #000a }
+.slide-arte:has(.av) { aspect-ratio:9 / 16 }
+.slide-arte .arte { height:100%; width:auto; aspect-ratio:inherit }
+.slide-arte.mini { height:auto; width:100%; border-radius:8px; box-shadow:none }
+.slide-arte.mini .arte { width:100%; height:auto }
+.cal-post .capa-arte .arte, .lp-capa .capa-arte .arte { border-radius:6px }
+/* séries no passo de estilos */
+.est-grade.series { grid-template-columns:repeat(auto-fill, minmax(270px, 1fr)) }
+.est-tira { display:flex; gap:6px; justify-content:center } .est-tira .th { --s:.15; border-radius:6px; box-shadow:0 8px 16px -10px #0008 } .est-tira .th.story { height:calc(675px * var(--s)); }
+.est-tira .th.story > .mx { transform:scale(calc(var(--s) * .703)) }
+.est-n small { font-size:12.5px; opacity:.85; line-height:1.35 }
+.est-nota { margin:10px 0 0; font-size:14px; opacity:.85 }
+.st.st-seu { background:var(--brand); color:#fff }
+.meu .th { overflow:hidden }
+/* como conectar os números */
+.conectar .card-h { align-items:flex-start }
+.cx3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin:16px 0 12px }
+.cx { position:relative; display:grid; gap:8px; align-content:start; padding:18px; border-radius:18px; background:var(--surface2) }
+.cx b { font-size:16px } .cx p { font-size:14.5px; line-height:1.5 } .cx .btn, .cx .acoes { justify-self:start; margin-top:4px }
+.cx-n { width:30px; height:30px; border-radius:10px; background:var(--brand); color:#fff; display:grid; place-items:center; font-weight:800 }
+body.modo-produzir .so-metricas { display:none }
+body.modo-produzir .g3:has(.so-metricas) { grid-template-columns:minmax(0, 1fr) }
+.cp-mini .capa.capa-arte > .arte, .lp-capa .capa.capa-arte > .arte, .kc-capa .capa.capa-arte > .arte { display:block }
+.cp-mini .capa.capa-arte, .lp-capa .capa.capa-arte { overflow:hidden }
+.arte .ex-gig, .arte .ex-cartaz, .arte .ex-zt, .arte .ex-zb, .arte .ex-da, .arte .ex-dt, .arte .ex-pop { white-space:nowrap }
+.arte .ex-gig { font-size:120px }

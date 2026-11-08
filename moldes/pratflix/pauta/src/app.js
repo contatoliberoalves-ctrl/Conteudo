@@ -244,7 +244,53 @@ function fonteT() { const f = P.FONTES.find(f => f.id === C.identidade.fonte); r
 const hashN = s => [...String(s)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
 function destaca(t) { const w = String(t).replace(/[“”"]/g, '').split(' '); if (w.length < 3) return E(t); const k = w.length > 6 ? 2 : 1;
   return E(w.slice(0, -k).join(' ')) + ' <mark>' + E(w.slice(-k).join(' ')) + '</mark>' }
+/* ---------- arte do estilo escolhido nas peças ---------- */
+function partesTit(t) { t = String(t || '').replace(/[*_]/g, ''); const c = t.indexOf(':'); if (c > 3 && c < t.length - 3) return [t.slice(0, c).trim(), t.slice(c + 1).trim()];
+  const w = t.split(' '); const k = Math.max(1, Math.min(3, Math.ceil(w.length * .4))); return [w.slice(0, -k).join(' ') || t, w.slice(-k).join(' ')] }
+function capaSerie(s0, p) {
+  const [a, b] = partesTit(p.titulo), ar = AREA[p.area]?.nome || '', pi = P.PILARES[p.pilar]?.nome || '', v = s0.v; s0.area = ar;
+  if (v === 'foto') { const w = p.titulo.replace(/[*_]/g, '').split(' '), k = w.length > 4 ? 2 : 1; Object.assign(s0, { pill:w.slice(0, -k).join(' '), titulo:w.slice(-k).join(' '), nota:ar }) }
+  else if (v === 'manchete') Object.assign(s0, { tag:ar, titulo:`${a}\n*${b}*`, pill:pi });
+  else if (v === 'cartaz') Object.assign(s0, { sobre:a, titulo:`*${b}*`, linha:ar, creditos:`Um conteúdo de ${C.perfil?.nome || ''} sobre ${ar.toLowerCase()}.`, selo:'Salve para assistir de novo.' });
+  else if (v === 'nativa') Object.assign(s0, { titulo:`${a}\n*${b}*`, caixa:'Arrasta para entender…' });
+  else if (v === 'zine') Object.assign(s0, { tag1:ar, tag2:pi, titulo:a, baixo:`*${b}*` });
+  else if (v === 'janela') Object.assign(s0, { lead:ar, titulo:`${a} *${b}*` });
+  else if (v === 'caderno') Object.assign(s0, { titulo:`${a}\n*${b}*`, nota:pi, rodape:ar });
+  else if (v === 'papel') Object.assign(s0, { titulo:a, script:b, assin:ar });
+  else if (v === 'pop') Object.assign(s0, { titulo:`${a}\n*${b}*`, baixo:ar });
+  else if (v === 'data') Object.assign(s0, { antes:a, titulo:b, depois:ar });
+  else Object.assign(s0, { titulo:`${a} *${b}*` });
+  return s0;
+}
+// Monta as telas da peça na arte escolhida (capa da série + uma tela por bloco do roteiro). Sem estilo escolhido: null.
+function artePost(p, todas = false) {
+  const k = C.perfil?.estilos?.[0], e = k && achaEst(k); if (!e) return null;
+  const vert = p.formato.startsWith('reels') || p.formato === 'stories', [a, b] = partesTit(p.titulo), ar = AREA[p.area]?.nome || '', T = todas ? telas(p).out : [];
+  const ctx = (d, col, idt) => ({ idt, d, handle:handle(), nome:C.perfil.nome, fotos:fotosEf() });
+  const limpa = l => (l || '').replace(/^“|”$/g, '').replace(/^\[|\]$/g, '');
+  if (e.col === 'editorial') {
+    const idt = idtCol('editorial'), base = vert ? 'es3' : (e.serie && e.t.grupo === 'carrossel' && p.formato === 'carrossel') ? e.serie : (e.serie && e.t.grupo === 'unica' ? e.serie : (e.serie || 'ea2'));
+    const pk = JSON.parse(JSON.stringify(COLS.editorial.PACKS[vert ? 'es3' : base])); pk.area = ar;
+    let s0 = pk.s[0]; if (vert) Object.assign(s0, { pre:a, titulo:`*${b}*`, sub:ar }); else s0 = capaSerie(s0, p);
+    const ss = [s0];
+    if (todas) T.slice(1).forEach((t, i, l) => { const pr = t.linhas.find(x => !/^\[.*\]$/.test(x)) || t.linhas[0] || t.rot, resto = t.linhas.filter(x => x !== pr).map(limpa).join(' ');
+      ss.push(i === l.length - 1 ? { t:'cta', tom:i % 2 ? 'cl' : 'es', titulo:limpa(pr), sub:resto || 'Salve e compartilhe.' } : { t:'texto', tom:i % 2 ? 'cl' : 'es', lead:t.rot, titulo:limpa(pr), nota:resto }) });
+    pk.s = ss; return COLS.editorial.slides('x', ctx(pk, 'editorial', idt));
+  }
+  const idt = e.i, tid = vert ? (p.formato === 'stories' ? 's1' : 'e1') : p.formato === 'post' ? 't2' : 'c1', pk = JSON.parse(JSON.stringify(COLS.classica.PACKS[tid]));
+  Object.assign(pk, { area:ar, tag:ar, titulo:`${a} *${b}*` });
+  if (tid === 'c1') { const mid = T.slice(1, -1); pk.itens = (todas ? mid : pk.itens.slice(0, 1)).map(t => { const pr = t.linhas.find(x => !/^\[.*\]$/.test(x)) || t.linhas[0] || t.rot || ''; return { t:limpa(pr), d:t.linhas ? t.linhas.filter(x => x !== pr).map(limpa).join(' ') : '' } }); if (todas && T.length > 1) { const u = T[T.length - 1]; pk.fim = { titulo:limpa(u.linhas[0] || u.rot), sub:limpa(u.linhas.slice(1).join(' ')) } } }
+  const sl = COLS.classica.slides(tid, ctx(pk, 'classica', idt));
+  return tid === 'c1' && todas ? [sl[0], ...sl.slice(1, 1 + pk.itens.length), sl[sl.length - 1]] : sl;
+}
+const arteHTML = (h, cls = '') => `<span class="arte ${cls} ${h.includes(' story ') ? 'av' : ''}"><span class="arte-in">${h}</span></span>`;
+function escalaArtes(raiz = document) { raiz.querySelectorAll('.arte').forEach(a => { const w = a.clientWidth, i = a.firstElementChild; if (w) i.style.transform = `scale(${w / 540})`; if (!i.dataset.fit) { i.dataset.fit = 1; ajustaTextos(i) } }) }
+let escT = null; new MutationObserver(() => { cancelAnimationFrame(escT); escT = requestAnimationFrame(() => escalaArtes()) }).observe(document.documentElement, { childList:true, subtree:true });
+window.addEventListener('resize', () => escalaArtes());
 function capa(p, o = {}) {
+  const arte = !o.generica && artePost(p);
+  if (arte) { const st = STATUS[STI[p.status]]; return `<div class="capa capa-arte ${p.formato === 'carrossel' ? 'pilha' : ''} ${arte[0].includes(' story ') ? 'vert' : ''}">${arteHTML(arte[0])}${o.chips === false ? '' : `<div class="capa-chips"><span class="cchip c-${p.status}">${st.chip}</span></div>`}</div>` }
+
   const pal = paleta(), escuro = o.escuro ?? (hashN(p.id) % 3 === 1), bg = escuro ? pal.cores[2] : pal.cores[0], fg = escuro ? '#FFFFFF' : pal.cores[1], ac = escuro ? '#FFFFFF' : pal.cores[2];
   const vert = p.formato.startsWith('reels') || p.formato === 'stories', st = STATUS[STI[p.status]], v = (p.versoes || []).length;
   return `<div class="capa ${vert && !o.quad ? 'vert' : ''} ${o.quad ? 'quad' : ''} ${p.formato === 'carrossel' ? 'pilha' : ''} ${escuro ? 'escura' : ''}" style="--bg:${bg};--fg:${fg};--ac:${ac};--ft:${fonteT()}">
@@ -260,7 +306,7 @@ const NAV = () => [
   { id:'inicio', nome:'Início', ic:'home' }, { id:'cronograma', nome:'Cronograma', ic:'cal' },
   { sep:'Criação' }, { id:'carrosseis', nome:'Carrosséis', ic:'layers', n:cnt('carrossel') }, { id:'reels', nome:'Reels', ic:'play', n:cnt('reels') }, { id:'outros', nome:'Posts e stories', ic:'image', n:cnt('outros') },
   { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' }, { id:'tendencias', nome:'Tendências', ic:'flame', tag:'Novo' },
-  { sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }, { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, { id:'analytics', nome:'Analytics', ic:'chart' }, { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
+  ...(C.perfil?.modo === 'produzir' ? [] : [{ sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }]), { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, ...(C.perfil?.modo === 'produzir' ? [] : [{ id:'analytics', nome:'Analytics', ic:'chart' }]), { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
   { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:COLS.editorial.TPL.length + COLS.classica.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
 ];
 const MOBILE = ['inicio', 'cronograma', 'carrosseis', 'producao'];
@@ -351,21 +397,28 @@ function concluirWiz() {
 /* ---------- estilos de arte escolhidos ---------- */
 const TODOS_EST = () => [...COLS.editorial.IDT.map(i => ({ col:'editorial', i })), ...COLS.classica.IDT.map(i => ({ col:'classica', i }))];
 const chEst = (col, id) => col + ':' + id;
-const achaEst = k => { const [col, id] = (k || '').split(':'); const i = COLS[col]?.IDT.find(x => x.id === id); return i ? { col, i } : null };
-function estilosRec(area) { const l = TODOS_EST(); return [...l.filter(e => e.i.ideal.includes(area)), ...l.filter(e => !e.i.ideal.includes(area))].map(e => chEst(e.col, e.i.id)) }
+const SERIE_IDT = { ea1:'vinho', ea2:'cafe', ea3:'tijolo', ea4:'nativa', ea5:'zine', ea6:'eletrico', ea7:'ferrugem', ea8:'areia', eu1:'magenta', eu2:'uva', eu3:'noir' };
+const SERIES = () => COLS.editorial.TPL.filter(t => SERIE_IDT[t.id]);
+const achaEst = k => { const [col, id] = (k || '').split(':');
+  if (col === 'serie') { const t = COLS.editorial.TPL.find(x => x.id === id); if (!t) return null; const i = COLS.editorial.IDT.find(x => x.id === (mstate().idt.editorial || SERIE_IDT[id])) || COLS.editorial.IDT[0]; return { col:'editorial', serie:id, t, i } }
+  const i = COLS[col]?.IDT.find(x => x.id === id); return i ? { col, i } : null };
+const nomeEst = e => e.serie ? e.t.nome : e.i.nome;
+function estilosRec(area) { const l = COLS.classica.IDT; return [...SERIES().map(t => 'serie:' + t.id), ...[...l.filter(i => i.ideal.includes(area)), ...l.filter(i => !i.ideal.includes(area))].map(i => 'classica:' + i.id)] }
 let filtroEst = 'editorial';
-function thumbEstilo(col, idt, d = {}) {
-  const C2 = COLS[col], tid = col === 'editorial' ? 'ea2' : 'c1', pack = JSON.parse(JSON.stringify(C2.PACKS[tid]));
+function thumbEstilo(col, idt, d = {}, serie) {
+  const C2 = COLS[col], tid = serie || (col === 'editorial' ? 'ea2' : 'c1'), pack = JSON.parse(JSON.stringify(C2.PACKS[tid]));
+  if (serie) idt = COLS.editorial.IDT.find(x => x.id === SERIE_IDT[serie]) || idt;
   return C2.slides(tid, { idt, d:pack, handle:(d.arroba || C.perfil?.arroba || '@seuperfil'), nome:d.nome || C.perfil?.nome || '', fotos:fotosEf() })[0];
 }
 function gradeEstilos(sel, d, modo) {
-  const area = d.principal || d.areas?.[0] || C.perfil?.principal, ord = estilosRec(area).map(achaEst).filter(e => e.col === filtroEst), rec = new Set(estilosRec(area).slice(0, 4));
-  return `<div class="est-top"><div class="seg">${[['editorial', 'Editorial · com foto'], ['classica', 'Clássica']].map(([k, n]) => `<button data-festilo="${k}" data-modo="${modo}" aria-pressed="${filtroEst === k}">${n}</button>`).join('')}</div><span class="est-sel">${sel.length}/2 escolhidos${sel.map(k => { const e = achaEst(k); return e ? ` · <b>${E(e.i.nome)}</b>` : '' }).join('')}</span></div>
-    <div class="est-grade">${ord.map(e => { const k = chEst(e.col, e.i.id), on = sel.includes(k);
-      return `<button type="button" class="est ${on ? 'on' : ''}" data-estilo="${k}" data-modo="${modo}" aria-pressed="${on}"><span class="th">${thumbEstilo(e.col, e.i, d)}</span><span class="est-n"><strong>${E(e.i.nome)}</strong>${rec.has(k) ? '<em>para a sua área</em>' : ''}</span>${on ? `<span class="est-ok">${I('check')}</span>` : ''}</button>` }).join('')}</div>`;
+  const area = d.principal || d.areas?.[0] || C.perfil?.principal, ord = estilosRec(area).map(achaEst).filter(e => e && e.col === filtroEst), recC = new Set(COLS.classica.IDT.filter(i => i.ideal.includes(area)).map(i => 'classica:' + i.id));
+  return `<div class="est-top"><div class="seg">${[['editorial', 'Séries editoriais · com foto'], ['classica', 'Clássica']].map(([k, n]) => `<button data-festilo="${k}" data-modo="${modo}" aria-pressed="${filtroEst === k}">${n}</button>`).join('')}</div><span class="est-sel">${sel.length}/2 escolhidos${sel.map(k => { const e = achaEst(k); return e ? ` · <b>${E(nomeEst(e))}</b>` : '' }).join('')}</span></div>${filtroEst === 'editorial' ? '<p class="est-nota">Cada série tem um jeito próprio de contar: capa, miolo e fechamento. As cores você escolhe depois.</p>' : ''}
+    <div class="est-grade ${filtroEst === 'editorial' ? 'series' : ''}">${ord.map(e => { const k = e.serie ? 'serie:' + e.serie : chEst(e.col, e.i.id), on = sel.includes(k);
+      const tela = e.serie ? COLS.editorial.slides(e.serie, { idt:COLS.editorial.IDT.find(x => x.id === SERIE_IDT[e.serie]), d:JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:d.arroba || C.perfil?.arroba || '@seuperfil', nome:d.nome || C.perfil?.nome || '', fotos:fotosEf() }) : null;
+      return `<button type="button" class="est ${on ? 'on' : ''}" data-estilo="${k}" data-modo="${modo}" aria-pressed="${on}">${e.serie ? `<span class="est-tira">${tela.slice(0, 3).map(h => `<span class="th ${h.includes(' story ') ? 'story' : ''}">${h}</span>`).join('')}</span>` : `<span class="th">${thumbEstilo(e.col, e.i, d)}</span>`}<span class="est-n"><strong>${E(nomeEst(e))}</strong>${e.serie ? `<small>${E(e.t.desc)}</small><em>${tela.length} ${tela.length > 1 ? 'telas' : 'tela'}</em>` : recC.has(k) ? '<em>para a sua área</em>' : ''}</span>${on ? `<span class="est-ok">${I('check')}</span>` : ''}</button>` }).join('')}</div>`;
 }
 function alternaEstilo(lista, k) { const l = lista.includes(k) ? lista.filter(x => x !== k) : [...lista, k]; return l.length > 2 ? l.slice(-2) : l }
-function aplicaEstilo(k) { const e = achaEst(k); if (!e) return; const m = mstate(); m.col = e.col; m.idt[e.col] = e.i.id }
+function aplicaEstilo(k) { const e = achaEst(k); if (!e) return; const m = mstate(); m.col = e.col; if (e.serie) { m.idt.editorial ||= SERIE_IDT[e.serie]; abaMod = e.t.grupo } else m.idt[e.col] = e.i.id }
 function modalEstilos() {
   const sel = C.perfil.estilos || [];
   modal(`<span class="eyebrow"><i></i>SEUS ESTILOS</span><h2 class="m-t">Escolha até 2 estilos de arte</h2><p class="muted">Eles ficam à mão na aba Modelos. Os outros continuam em “Ver todos os estilos”.</p><div class="est-modal">${gradeEstilos(sel, C.perfil, 'm')}</div><div class="acoes"><button class="btn" data-mfechar ${sel.length ? '' : 'disabled'}>${I('check')}Pronto</button></div>`);
@@ -393,16 +446,17 @@ function inicio() {
   const h = new Date().getHours(), hj = C.posts.filter(p => p.data === iso(hoje()) && p.status !== 'publicado'), rev = C.posts.filter(p => p.status === 'edicao').length;
   const sub = hj.length ? `${hj.length} ${hj.length === 1 ? 'peça marcada' : 'peças marcadas'} para hoje${rev ? ` e ${rev} em revisão` : ''}.` : `Nada marcado para hoje${rev ? `, ${rev} ${rev === 1 ? 'peça' : 'peças'} em revisão` : ' e nenhuma peça parada em revisão'}.`;
   const m = met(), u = m[m.length - 1], a = m[m.length - 2], mis = missoesHoje(), nv = nivel(), x = xp();
-  const passos = [{ t:'Seu plano', d:'Criado no início.', ok:true }, { t:'Identidade visual', d:'Paleta e fontes das capas.', ok:!!C.flags.identidade, href:'#identidade' }, { t:'Bio do perfil', d:'Copie uma das 3 bios prontas.', ok:!!C.flags.bio, href:'#identidade' }, { t:'Primeiro roteiro', d:'Abra a primeira peça e avance.', ok:C.posts.some(p => STI[p.status] >= 1), post:C.posts[0]?.id }, { t:'Primeiros números', d:'Registre a semana em Analytics.', ok:C.metricas.length > 0, href:'#analytics' }];
+  const passos = [{ t:'Seu plano', d:'Criado no início.', ok:true }, { t:'Identidade visual', d:'Paleta e fontes das capas.', ok:!!C.flags.identidade, href:'#identidade' }, { t:'Bio do perfil', d:'Copie uma das 3 bios prontas.', ok:!!C.flags.bio, href:'#identidade' }, { t:'Primeiro roteiro', d:'Abra a primeira peça e avance.', ok:C.posts.some(p => STI[p.status] >= 1), post:C.posts[0]?.id }, { t:'Primeiros números', d:'Registre a semana em Analytics.', ok:C.metricas.length > 0, href:'#analytics' , oculto:C.perfil.modo === 'produzir' }];
+  if (passos.some(z => z.oculto)) passos.splice(passos.findIndex(z => z.oculto), 1);
   const feitos = passos.filter(z => z.ok).length, iAt = passos.findIndex(z => !z.ok), prox = C.posts.filter(p => p.status !== 'publicado' && dataDe(p.data) >= hoje()).slice(0, 6), pub = ps.filter(p => p.status === 'publicado').length, conqs = CONQ.filter(c => c.ok()).slice(-3).reverse();
   const tag = s => s.href ? ['a', `href="${s.href}"`] : s.post ? ['button', `data-post="${s.post}"`] : ['div', ''];
-  return cab('INÍCIO', `${h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite'}, <em>${E(pf.nome.split(' ')[0])}</em>`, sub, `<span class="semana-pill" style="--c:${fase.cor}">Semana ${w + 1} de 26 · ${E(fase.nome)}</span><a class="btn" href="#insights">${I('spark')}Pedir leitura</a>`) +
+  return cab('INÍCIO', `${h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite'}, <em>${E(pf.nome.split(' ')[0])}</em>`, sub, `<span class="semana-pill" style="--c:${fase.cor}">Semana ${w + 1} de 26 · ${E(fase.nome)}</span><a class="btn so-metricas" href="#insights">${I('spark')}Pedir leitura</a>`) +
   (feitos < passos.length ? `<section class="card passos"><div class="card-h"><div><small class="muted">Primeiros passos · ${feitos} de ${passos.length}</small><h2>Deixe a Pauta com a sua cara.</h2></div><i class="barra"><b style="width:${feitos / passos.length * 100}%"></b></i></div>
     <div class="passos-l">${passos.map((s, i) => { const [tg, at] = tag(s); return `<${tg} ${at} class="passo-i ${s.ok ? 'ok' : ''} ${i === iAt ? 'atual' : ''}"><span class="passo-n">${s.ok ? I('check') : i + 1}</span><div><strong>${s.t}</strong><small>${s.d}</small></div>${s.ok ? '' : '<em>+25 XP</em>'}</${tg}>` }).join('')}</div></section>` : '') +
-  `<div class="g3"><section class="card azul"><div class="card-h"><h2>Seguidores</h2><span class="pill-b">${E(pf.arroba || '@seuperfil')}</span></div>
+  `<div class="g3"><section class="card azul so-metricas"><div class="card-h"><h2>Seguidores</h2><span class="pill-b">${E(pf.arroba || '@seuperfil')}</span></div>
       ${u ? `<div class="big-row"><div><strong class="big">${num(u.seguidores)}</strong><small>TOTAL NA ÚLTIMA SEMANA</small></div><div><strong class="mid">${a ? (u.seguidores - a.seguidores >= 0 ? '+' : '') + num(u.seguidores - a.seguidores) : '—'}</strong><small>NOVOS NA SEMANA</small></div></div>` : `<div class="big-row"><div><strong class="big">—</strong><small>REGISTRE A PRIMEIRA SEMANA</small></div></div>`}
       <div class="barras">${(m.length ? m.slice(-8) : Array(8).fill({ alcance:0 })).map((r, i, l) => { const mx = Math.max(...l.map(z => +z.alcance), 1); return `<i class="${i === l.length - 1 ? 'ult' : ''}" style="height:${Math.max(4, +r.alcance / mx * 100)}%" title="${r.data ? fmt(r.data) + ': ' + num(r.alcance) : ''}"></i>` }).join('')}</div><div class="azul-f"><small class="cap-b">ALCANCE POR SEMANA · ${Math.min(8, m.length) || 8} SEMANAS</small>${u ? '' : `<button class="btn branco sm" data-acao="regmet">${I('plus')}Registrar</button>`}</div></section>
-    <section class="card"><div class="card-h"><div><h2>Alcance</h2><small class="muted">Última semana</small></div>${u && a ? dChip(delta(+u.alcance, +a.alcance)) : ''}</div><strong class="big ink">${u ? num(u.alcance) : '—'}</strong>
+    <section class="card so-metricas"><div class="card-h"><div><h2>Alcance</h2><small class="muted">Última semana</small></div>${u && a ? dChip(delta(+u.alcance, +a.alcance)) : ''}</div><strong class="big ink">${u ? num(u.alcance) : '—'}</strong>
       ${grafLinha(m.slice(-8).map(r => +r.alcance), { id:'al', label:'Alcance por semana', vazio:'Registre 2 semanas para ver a curva.' })}
       <div class="mini3"><div><strong>${u ? num(u.salvos) : '—'}</strong><small>salvamentos</small></div><div><strong>${u ? num(u.compart) : '—'}</strong><small>compart.</small></div><div><strong>${u ? num(u.mensagens) : '—'}</strong><small>mensagens</small></div></div></section>
     <section class="card"><div class="card-h"><div><h2>Sua semana</h2><small class="muted">${E(sem.tema)}</small></div><span class="dchip up">${pub}/${ps.length}</span></div>
@@ -520,9 +574,32 @@ function leitura() {
   todasIdeias([C.perfil.principal]).filter(i => !usados.has(i) && !i.startsWith('g:')).slice(0, Math.max(0, 3 - temas.length)).forEach(i => temas.push(ideia(i).titulo));
   return { titulo, texto, func:func.slice(0, 3), exp:exp.slice(0, 3), temas };
 }
+const PROMPT_PRINT = `Vou te mandar prints do Instagram (Painel profissional > Insights) da última semana.
+Leia os números e me devolva SÓ estas linhas, sem texto extra:
+data: AAAA-MM-DD (o último dia da semana)
+seguidores: total de seguidores hoje
+alcance: contas alcançadas na semana
+salvos: salvamentos na semana
+compart: compartilhamentos na semana
+visitas: visitas ao perfil na semana
+mensagens: conversas iniciadas na semana
+Se um número não aparecer, escreva 0.`;
+const promptAnalise = () => `Sou advogado(a) de ${(C.perfil.areas || []).map(a => AREA[a].nome).join(', ')} e publico no Instagram ${C.perfil.arroba || ''}.
+Estes são os meus números por semana (data; seguidores; alcance; salvos; compartilhamentos; visitas; mensagens):
+${met().map(r => [r.data, r.seguidores, r.alcance, r.salvos, r.compart, r.visitas, r.mensagens].join('; ')).join('\n') || '(ainda não registrei)'}
+E estas foram as últimas peças publicadas:
+${C.posts.filter(p => p.status === 'publicado').slice(-8).map(p => `- ${p.data} · ${P.FORMATOS[p.formato]?.curto || p.formato} · ${p.titulo}${p.num ? ` · alcance ${p.num.alcance || 0}, salvos ${p.num.salvos || 0}` : ''}`).join('\n') || '(nenhuma ainda)'}
+Analise: 1) o que está crescendo e o que caiu; 2) quais formatos e temas funcionaram melhor; 3) três ações para a próxima semana, respeitando o Provimento 205/2021 da OAB (sem promessa de resultado nem captação).`;
+function comoConectar() {
+  return `<section class="card conectar"><div class="card-h"><div><span class="eyebrow"><i></i>COMO ALIMENTAR OS NÚMEROS</span><h2>Seus dados, do jeito que for mais fácil</h2></div><button class="btn ghost sm" data-acao="modoproduzir">${I('pen')}Usar só para produzir e organizar</button></div>
+    <div class="cx3"><div class="cx"><span class="cx-n">1</span><b>À mão, 2 minutos por semana</b><p class="muted">No Instagram: perfil › Painel profissional › Insights › últimos 7 dias. Copie os 6 números e toque em “Registrar semana”, sempre no mesmo dia.</p><button class="btn sm" data-acao="regmet">${I('plus')}Registrar semana</button></div>
+      <div class="cx"><span class="cx-n">2</span><b>Com IA, a partir de prints</b><p class="muted">Tire prints da tela de Insights, mande no ChatGPT ou no Claude com o texto abaixo e cole a resposta aqui. A Pauta preenche sozinha.</p><div class="acoes"><button class="btn sm ghost" data-copy="${E(PROMPT_PRINT)}">${I('copy')}Copiar o pedido</button><button class="btn sm" data-acao="colarmet">${I('upload')}Colar a resposta</button></div></div>
+      <div class="cx"><span class="cx-n">3</span><b>Pedir uma análise à IA</b><p class="muted">Copie este pedido já com os seus números e as suas peças publicadas e cole no ChatGPT ou no Claude para receber uma leitura completa.</p><button class="btn sm ghost" data-copy="${E(promptAnalise())}">${I('copy')}Copiar o pedido de análise</button></div></div>
+    <p class="muted small">A ligação automática com o Instagram precisa de uma conta comercial e da API da Meta; quando a Pauta estiver no servidor da PratFlix, ela pode ser ativada. Enquanto isso, os caminhos acima funcionam sem conectar nada.</p></section>`;
+}
 function insights() {
   const l = leitura(), ini = somaDias(hoje(), -30);
-  return cab('DESEMPENHO', 'Insights', 'Leitura automática dos seus números e do seu cronograma. Atualiza sempre que você registra dados.', `<button class="btn branco-b" data-acao="leitura">${I('spark')}Pedir leitura agora</button>`) +
+  return cab('DESEMPENHO', 'Insights', 'Leitura automática dos seus números e do seu cronograma. Atualiza sempre que você registra dados.', `<button class="btn branco-b" data-acao="leitura">${I('spark')}Pedir leitura agora</button>`) + comoConectar() +
   `<section class="card azul leitura"><div class="lt-top"><span class="pill-l">${I('spark')}Leitura da Pauta</span><span class="lt-data">${fmt(ini, { day:'2-digit', month:'2-digit', year:'numeric' })} a ${fmt(hoje(), { day:'2-digit', month:'2-digit', year:'numeric' })}</span></div>
     <h2>${E(l.titulo)}</h2><p>${E(l.texto)}</p>
     <div class="lt-cols"><div><h3 class="verde">O que está funcionando</h3><ul>${l.func.map(x => `<li>${E(x)}</li>`).join('')}</ul></div><div><h3>Experimentos para as próximas semanas</h3><ul>${l.exp.map(x => `<li>${E(x)}</li>`).join('')}</ul></div><div><h3>Próximos temas</h3><ul>${l.temas.map(x => `<li>${E(x)}</li>`).join('')}</ul></div></div></section>
@@ -540,6 +617,7 @@ function analytics() {
   const novos = l => l.length > 1 ? (+l[l.length - 1].seguidores) - (+l[0].seguidores) : 0;
   const kpis = [['Alcance', soma(cur, 'alcance'), prev.length ? soma(prev, 'alcance') : null], ['Salvamentos', soma(cur, 'salvos'), prev.length ? soma(prev, 'salvos') : null], ['Compartilhamentos', soma(cur, 'compart'), prev.length ? soma(prev, 'compart') : null], ['Seguidores novos', novos(cur), prev.length > 1 ? novos(prev) : null]];
   const u = m[m.length - 1];
+  if (!C.metricas.length) return cab('DESEMPENHO', 'Analytics', 'Gráficos dos seus números semana a semana.') + comoConectar();
   return cab('DESEMPENHO', 'Analytics', `${E(C.perfil.arroba || '')}${u ? ` · ${num(u.seguidores)} seguidores` : ''} · ${m.length} ${m.length === 1 ? 'semana registrada' : 'semanas registradas'}`, `<div class="seg">${[4, 8, 12, 26].map(n => `<button data-per="${n}" aria-pressed="${perA === n}">${n} sem.</button>`).join('')}</div><button class="btn" data-acao="regmet">${I('plus')}Registrar semana</button>`) +
   `<div class="g4">${kpis.map(([t, v, p]) => `<section class="card kpi"><small class="muted">${t}</small><div class="kpi-v"><strong class="big ink">${num(v)}</strong>${p !== null ? dChip(delta(v, p)) : ''}</div><small class="muted">${p !== null ? `vs. período anterior: ${num(p)}` : 'compara quando houver o período anterior'}</small></section>`).join('')}</div>
   <section class="card"><div class="card-h"><div><h2>Alcance e visitas ao perfil</h2><small class="muted">Por semana · linha cheia: alcance · tracejada: visitas ao perfil</small></div></div>${grafDuplo(cur)}</section>
@@ -627,6 +705,7 @@ function comCores(idt, ov) {
 }
 const idtRec = () => MC().IDT.find(i => i.ideal.includes(C.perfil.principal)) || MC().IDT[0];
 const idtAtual = () => MC().IDT.find(i => i.id === mstate().idt[mstate().col]) || idtRec();
+const idtCol = col => COLS[col].IDT.find(i => i.id === mstate().idt[col]) || COLS[col].IDT.find(i => i.ideal.includes(C.perfil?.principal)) || COLS[col].IDT[0];
 const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
 function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
 function dadosMod(tid) { const m = mstate(); if (m.dados?.[tid]) return JSON.parse(JSON.stringify(m.dados[tid])); const base = JSON.parse(JSON.stringify(MC().PACKS[tid])), ov = m.txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
@@ -638,16 +717,16 @@ function slidesDe(tid, idt, edit = false) {
 }
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
-  const idt = idtAtual(), rec = idtRec(), lista = MC().TPL.filter(t => t.grupo === abaMod);
+  const idt = idtAtual(), rec = idtRec(), minhasS = (C.perfil.estilos || []).filter(k => k.startsWith('serie:')).map(k => k.slice(6)), lista = MC().TPL.filter(t => t.grupo === abaMod).sort((a, b) => minhasS.includes(b.id) - minhasS.includes(a.id));
   const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos, meus = (C.perfil.estilos || []).map(achaEst).filter(Boolean);
   const fotosBox = ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : '';
-  const atual = chEst(m.col, idt.id), foraDosMeus = meus.length && !meus.some(e => chEst(e.col, e.i.id) === atual);
+  const atual = chEst(m.col, idt.id), chE = e => e.serie ? 'serie:' + e.serie : chEst(e.col, e.i.id), ativo = e => e.serie ? m.col === 'editorial' : chE(e) === atual, foraDosMeus = meus.length && !meus.some(ativo);
   const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
     : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
   const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
   return cab('MARCA', 'Modelos', `Duas coleções: a <b>Editorial</b>, com colagem, papel, manuscrita e a sua foto, e a <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
   `<section class="card meus-est"><div class="card-h"><h2>${meus.length ? 'Seus estilos' : 'Escolha os seus estilos de arte'}</h2><div class="acoes"><button class="btn ghost sm" data-acao="trocaestilos">${I('palette')}${meus.length ? 'Trocar meus estilos' : 'Escolher estilos'}</button><button class="btn ghost sm" data-acao="vertodos">${I('grid')}${verTodos ? 'Esconder os outros estilos' : 'Ver todos os estilos'}</button></div></div>
-    ${meus.length ? `<div class="meus">${meus.map(e => { const k = chEst(e.col, e.i.id), on = k === atual; return `<button class="meu ${on ? 'on' : ''}" data-meuestilo="${k}" aria-pressed="${on}"><span class="th">${thumbEstilo(e.col, e.i)}</span><span><strong>${E(e.i.nome)}</strong><small>${E(e.i.desc)}</small><em>${e.col === 'editorial' ? 'Coleção Editorial' : 'Coleção Clássica'}${on ? ' · aberto abaixo' : ''}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
+    ${meus.length ? `<div class="meus">${meus.map(e => { const k = chE(e), on = ativo(e); return `<button class="meu ${on ? 'on' : ''}" ${e.serie ? `data-abreserie="${e.serie}"` : `data-meuestilo="${k}"`} aria-pressed="${on}"><span class="th">${e.serie ? COLS.editorial.slides(e.serie, { idt:comCores(idtCol('editorial'), estDe(e.serie).cores), d:mstate().col === 'editorial' ? dadosMod(e.serie) : JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:handle(), nome:C.perfil.nome, fotos:fotosEf() })[0] : thumbEstilo(e.col, e.i)}</span><span><strong>${E(nomeEst(e))}</strong><small>${E(e.serie ? e.t.desc : e.i.desc)}</small><em>${e.serie ? `Série editorial · cores: ${E(idtCol('editorial').nome)} · toque para editar` : `Coleção Clássica${on ? ' · aberta abaixo' : ''}`}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
   (verTodos || !meus.length ? `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
     <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
@@ -656,7 +735,7 @@ function modelos() {
   ` : '') + `<section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
     <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
       const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
-      return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
+      return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n">${minhasS.includes(t.id) && mstate().col === 'editorial' ? '<span class="st st-seu">Seu estilo</span>' : ''}<strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
 }
 function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
 const CAMPOS_COR = { editorial:[['cl', 'Fundo claro'], ['es', 'Fundo escuro'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']], classica:[['bg', 'Fundo'], ['cbg', 'Fundo da capa'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']] };
@@ -701,7 +780,7 @@ function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.rem
 function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
   const tk = parseFloat(sl.style.getPropertyValue('--tk')) || 1; if (tk !== 1) sl.querySelectorAll('.mx-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * tk + 'px');
   const largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + 1);
-  for (let n = 0, l; n < 8 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
+  for (let n = 0, l; n < 18 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
   for (let n = 0; n < 10 && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
 function carregaScript(src, global) { return window[global] ? Promise.resolve() : new Promise((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.append(s) }) }
 async function pngsDe(idxs) {
@@ -769,6 +848,7 @@ function ajustes() {
     <div class="acoes"><button class="btn" data-acao="editar">${I('pen')}Editar respostas e refazer o plano</button></div></section>
     <div class="coluna"><section class="card"><h2>Backup e calendário</h2><div class="acoes vert"><button class="btn ghost" data-acao="exportar">${I('download')}Exportar todas as contas (.json)</button><label class="btn ghost">${I('upload')}Importar dados<input type="file" id="imp" accept="application/json" hidden></label><button class="btn ghost" data-acao="ics">${I('cal')}Baixar o calendário (.ics)</button></div><p class="muted small">O .ics abre no Google Agenda, no Outlook e no celular.</p></section>
     <section class="card"><h2>Tema</h2><div class="seg">${[['auto', 'Automático'], ['light', 'Claro'], ['dark', 'Escuro']].map(([k, l]) => `<button data-tema="${k}" aria-pressed="${(S.tema || 'auto') === k}">${l}</button>`).join('')}</div></section>
+    <section class="card"><h2>Modo de uso</h2><p class="muted">${C.perfil.modo === 'produzir' ? 'Você está no modo <b>produzir e organizar</b>: sem as telas de números.' : 'Você está no modo <b>completo</b>, com Insights e Analytics.'}</p><div class="acoes">${C.perfil.modo === 'produzir' ? `<button class="btn" data-acao="modocompleto">${I('chart')}Ativar os números</button>` : `<button class="btn ghost" data-acao="modoproduzir">${I('pen')}Usar só para produzir e organizar</button>`}</div></section>
     <section class="card"><h2>Sua conta</h2><p class="muted">Conectado como <b>${E(EMAIL)}</b> (e-mail da PratFlix).</p><div class="acoes"><button class="btn ghost" data-acao="sair">${I('left')}Sair</button></div></section>
     <section class="card perigo"><h2>Recomeçar do zero</h2><p class="muted">Apaga todas as contas, planos e métricas deste navegador.</p><div id="zerar"><button class="btn ghost" data-acao="zerar1">${I('trash')}Apagar tudo</button></div></section></div></div>`;
 }
@@ -784,7 +864,8 @@ function desenhaVw() {
   const p = C.posts.find(x => x.id === vw.id); if (!p) return; const { out, notas } = telas(p), pal = paleta(), vert = p.formato.startsWith('reels') || p.formato === 'stories';
   vw.slide = Math.max(0, Math.min(vw.slide, out.length - 1)); const s = out[vw.slide], ultimo = vw.slide === out.length - 1;
   const alerta = checagem(p.legenda + '\n' + p.roteiro), st = STI[p.status];
-  const slideHTML = (t, i, mini) => { const ponta = i === 0 || i === out.length - 1, princ = t.linhas.find(l => !/^\[.*\]$/.test(l)) || t.linhas[0] || '', resto = t.linhas.filter(l => l !== princ);
+  const artes = artePost(p, true), usaArte = artes && artes.length === out.length;
+  const slideHTML = (t, i, mini) => { if (usaArte) return `<div class="slide-arte ${mini ? 'mini' : ''}">${arteHTML(artes[i])}</div>`; const ponta = i === 0 || i === out.length - 1, princ = t.linhas.find(l => !/^\[.*\]$/.test(l)) || t.linhas[0] || '', resto = t.linhas.filter(l => l !== princ);
     return `<div class="slide ${vert ? 'vert' : ''} ${mini ? 'mini' : ''} ${ponta ? 'ponta' : ''}" style="--bg:${ponta ? pal.cores[2] : pal.cores[0]};--fg:${ponta ? '#FFF' : pal.cores[1]};--ac:${ponta ? '#FFF' : pal.cores[2]};--ft:${fonteT()}">
       <span class="sl-rot">${E(t.rot)}</span><div class="sl-t">${i === 0 ? destaca(princ.replace(/^“|”$/g, '')) : E(princ.replace(/^“|”$/g, ''))}</div>${mini ? '' : `<div class="sl-r">${resto.map(l => `<p class="${/^\[.*\]$/.test(l) ? 'ph' : ''}">${E(l)}</p>`).join('')}</div>`}
       <span class="sl-pg">${i + 1}/${out.length}</span>${i === 0 && p.formato === 'carrossel' && !mini ? '<span class="sl-arr">Arrasta →</span>' : ''}</div>` };
@@ -865,7 +946,7 @@ function render(topo = true) {
   aplicaTema();
   if (!EMAIL) return telaEntrar();
   if (!C.perfil) { if (!$('.wiz')) onboarding(S.contas.some(c => c.perfil) ? 'conta' : 'novo'); return }
-  aplicaCor(); const h = location.hash.slice(1); rota = PAGS[h] ? h : 'inicio';
+  aplicaCor(); document.body.classList.toggle('modo-produzir', C.perfil.modo === 'produzir'); const h = location.hash.slice(1); rota = PAGS[h] ? h : 'inicio';
   const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Pauta`; window.scrollTo(0, topo ? 0 : y);
   document.body.classList.remove('menu-aberto'); verificaGanhos();
 }
@@ -905,6 +986,7 @@ document.addEventListener('click', e => {
   if (d.estilo) { if (d.modo === 'wz') { lerWiz(); wiz.d.estilos = alternaEstilo(wiz.d.estilos || [], d.estilo); desenhaWiz(); return }
     C.perfil.estilos = alternaEstilo(C.perfil.estilos || [], d.estilo); if (C.perfil.estilos.length) aplicaEstilo(C.perfil.estilos.includes(d.estilo) ? d.estilo : C.perfil.estilos[0]); salvar(); return modalEstilos() }
   if (d.festilo) { filtroEst = d.festilo; if (d.modo === 'wz') { lerWiz(); desenhaWiz() } else modalEstilos(); return }
+  if (d.abreserie) { aplicaEstilo('serie:' + d.abreserie); salvar(); render(false); return abrirMod(d.abreserie) }
   if (d.meuestilo) { aplicaEstilo(d.meuestilo); if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
   if (d.acao === 'trocaestilos') { filtroEst = mstate().col; return modalEstilos() }
   if (d.acao === 'vertodos') { verTodos = !verTodos; render(false); return }
@@ -959,6 +1041,14 @@ document.addEventListener('click', e => {
   if (d.acao === 'editar') { wiz = { passo:0, d:{}, vistoIntro:true }; onboarding('editar'); return }
   if (d.acao === 'exportar') return baixar(`pauta-${iso(hoje())}.json`, JSON.stringify(S, null, 2), 'application/json');
   if (d.acao === 'ics') return baixar('pauta-calendario.ics', ics(), 'text/calendar');
+  if (d.acao === 'modoproduzir') { C.perfil.modo = 'produzir'; salvar(); location.hash = 'inicio'; render(); toast('Modo produzir e organizar: as telas de números ficaram escondidas. Dá para voltar em Ajustes.', 'pen'); return }
+  if (d.acao === 'modocompleto') { C.perfil.modo = 'completo'; salvar(); render(false); toast('Insights e Analytics de volta ao menu.', 'chart'); return }
+  if (d.acao === 'colarmet') return modal(`<span class="eyebrow"><i></i>ANALYTICS</span><h2 class="m-t">Colar a resposta da IA</h2><p class="muted">Cole aqui as linhas que a IA devolveu (data, seguidores, alcance…).</p><textarea id="colamet" rows="9" placeholder="data: 2026-11-08&#10;seguidores: 548&#10;alcance: 5200&#10;…"></textarea><div class="acoes"><button class="btn" data-acao="lercolado">${I('check')}Preencher e salvar</button></div>`);
+  if (d.acao === 'lercolado') { const txt = $('#colamet').value, r = {}; txt.split(/\n/).forEach(l => { const m = l.match(/^\s*([a-zçã]+)\s*[:=]\s*([\d.,\-]+)/i); if (m) r[m[1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')] = m[2] });
+    const n = k => +(String(r[k] || '0').replace(/\./g, '').replace(',', '.')) || 0, data = /\d{4}-\d{2}-\d{2}/.test(r.data || '') ? r.data : (txt.match(/\d{4}-\d{2}-\d{2}/) || [iso(hoje())])[0];
+    if (!Object.keys(r).length) return toast('Não encontrei os números. Confira o texto colado.', 'close');
+    const reg = { data, seguidores:n('seguidores'), alcance:n('alcance'), salvos:n('salvos'), compart:n('compart') || n('compartilhamentos'), visitas:n('visitas'), mensagens:n('mensagens') };
+    C.metricas = C.metricas.filter(m => m.data !== reg.data).concat(reg); salvar(); fecharModal(); toast('Semana registrada a partir da IA! +30 XP', 'chart'); return }
   if (d.acao === 'sair') { EMAIL = ''; try { localStorage.removeItem(EMK) } catch {} history.replaceState(null, '', location.pathname); render(); return }
   if (d.acao === 'zerar1') { $('#zerar').innerHTML = `<p><b>Tem certeza?</b> Isso não pode ser desfeito.</p><div class="acoes"><button class="btn perigo-b" data-acao="zerar2">Sim, apagar tudo</button><button class="btn ghost" data-acao="cancelar">Cancelar</button></div>`; return }
   if (d.acao === 'zerar2') { try { localStorage.removeItem(chave()); localStorage.removeItem(KEY1) } catch {} S = carregar(); C = S.contas[0]; wiz = { passo:0, d:{} }; history.replaceState(null, '', location.pathname); onboarding('novo'); return }
