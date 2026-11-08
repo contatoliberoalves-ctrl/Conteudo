@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pauta</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pauta, o estúdio de conteúdo jurídico da PratFlix: cronograma de 6 meses, ideias e roteiros por área de atuação.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=Fraunces:wght@800&family=Inter:wght@500&family=Archivo+Black&family=Archivo:wght@500&family=Playfair+Display:wght@800&family=Lato:wght@400&display=swap">
+<style>
+/* Layout: estúdio de planejamento — papel frio e cobalto, barra lateral fixa, cartões só onde há ação. */
+:root {
+  --bg:#F4F5F7; --surface:#FFFFFF; --surface2:#EDEFF3; --line:#E1E4EA; --ink:#14161B; --muted:#596170; --faint:#8A919E;
+  --accent:#3047E6; --accent-2:#E9ECFD; --on-accent:#FFFFFF; --areia:#E3D6B4; --ok:#0E9F6E; --warn:#B7791F; --bad:#D6363C;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif; --text:"Manrope",-apple-system,"Segoe UI",Arial,sans-serif;
+  --r:14px; --shadow:0 1px 2px #14161B0d, 0 8px 24px -12px #14161B26; color-scheme:light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg:#0F1115; --surface:#171A20; --surface2:#1F232B; --line:#2A2F39; --ink:#EEF0F4; --muted:#A6ADBA; --faint:#7A8291;
+  --accent:#7385FF; --accent-2:#232A52; --on-accent:#0F1115; --ok:#3CCB95; --warn:#E3A84A; --bad:#FF6B70; --shadow:0 1px 2px #0006, 0 10px 30px -14px #000a; color-scheme:dark } }
+:root[data-theme="dark"] { --bg:#0F1115; --surface:#171A20; --surface2:#1F232B; --line:#2A2F39; --ink:#EEF0F4; --muted:#A6ADBA; --faint:#7A8291;
+  --accent:#7385FF; --accent-2:#232A52; --on-accent:#0F1115; --ok:#3CCB95; --warn:#E3A84A; --bad:#FF6B70; --shadow:0 1px 2px #0006, 0 10px 30px -14px #000a; color-scheme:dark }
+
+* { box-sizing:border-box }
+html, body { margin:0; background:var(--bg); color:var(--ink) }
+body { font:500 16px/1.6 var(--text); -webkit-font-smoothing:antialiased }
+body.travado { overflow:hidden }
+h1, h2, h3, h4, p { margin:0 } p { text-wrap:pretty }
+a { color:inherit; text-decoration:none }
+button, input, select, textarea { font:inherit; color:inherit }
+button { cursor:pointer; background:none; border:0; padding:0 }
+.ic { width:20px; height:20px; flex:none }
+:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:6px }
+[hidden] { display:none !important }
+.brand { font-family:var(--text); font-weight:800; font-size:28px; letter-spacing:-1.4px; line-height:1 }
+.brand b { color:var(--accent); font-size:.6em; vertical-align:.3em; margin-left:2px }
+.eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--accent) }
+.lead { font-size:17.5px; color:var(--muted); line-height:1.6; max-width:720px }
+.hint { font-size:14.5px; color:var(--faint); margin-top:8px }
+.vazio { color:var(--faint); font-size:15px; padding:8px 0 }
+.link { display:inline-flex; align-items:center; gap:4px; font-size:15px; font-weight:700; color:var(--accent) }
+.link .ic { width:16px; height:16px }
+
+/* Botões e controles */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:46px; padding:10px 18px; border-radius:11px; background:var(--accent); color:var(--on-accent); font-weight:800; font-size:15px; border:1.5px solid var(--accent); transition:transform .15s, background .15s; white-space:nowrap }
+.btn:hover { transform:translateY(-1px) }
+.btn:disabled { opacity:.45; cursor:not-allowed; transform:none }
+.btn.ghost { background:var(--surface); color:var(--ink); border-color:var(--line) }
+.btn.ghost:hover { border-color:var(--accent) }
+.btn.sm { min-height:38px; padding:7px 13px; font-size:14px; border-radius:9px }
+.btn.sq { padding:0; width:46px } .btn.sm.sq { width:38px }
+.btn .ic { width:18px; height:18px }
+.btn.perigo-b { background:var(--bad); border-color:var(--bad); color:#fff }
+.acoes { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:16px }
+.acoes.col { flex-direction:column; align-items:stretch }
+.chips { display:flex; gap:8px; flex-wrap:wrap }
+.chip { display:inline-flex; align-items:center; gap:6px; min-height:40px; padding:7px 15px; border-radius:999px; border:1.5px solid var(--line); background:var(--surface); color:var(--muted); font-size:14.5px; font-weight:700 }
+.chip .ic { width:16px; height:16px }
+.chip:hover { color:var(--ink) }
+.chip[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--bg) }
+.seg { display:inline-flex; padding:4px; border-radius:12px; background:var(--surface2); gap:2px }
+.seg button { min-height:38px; padding:6px 14px; border-radius:9px; font-weight:700; font-size:14.5px; color:var(--muted) }
+.seg button[aria-pressed="true"] { background:var(--surface); color:var(--ink); box-shadow:var(--shadow) }
+.tabs { display:flex; gap:4px; border-bottom:1.5px solid var(--line); margin:4px 0 22px; overflow-x:auto; scrollbar-width:none }
+.tabs button { padding:12px 16px; font-weight:800; font-size:15px; color:var(--muted); border-bottom:2.5px solid transparent; margin-bottom:-1.5px; white-space:nowrap }
+.tabs button[aria-selected="true"] { color:var(--accent); border-color:var(--accent) }
+.campo { display:grid; gap:6px; font-size:14.5px; font-weight:700; color:var(--muted) }
+input:not([type=checkbox]):not([type=file]), select, textarea { width:100%; min-height:46px; padding:10px 14px; border-radius:11px; border:1.5px solid var(--line); background:var(--surface); color:var(--ink); font-size:16px; font-weight:500; outline:0 }
+input:focus, select:focus, textarea:focus { border-color:var(--accent) }
+textarea { line-height:1.6; resize:vertical }
+.mono { font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:14.5px }
+.pre { white-space:pre-wrap; background:var(--surface2); border-radius:12px; padding:18px; margin:16px 0 0; max-height:55vh; overflow:auto; line-height:1.6 }
+.check-line { display:flex; gap:10px; align-items:center; font-weight:700; margin-top:20px }
+
+/* Selos */
+.fchip { display:inline-flex; align-items:center; gap:6px; padding:3px 9px 3px 8px; border-radius:6px; font-size:12px; font-weight:800; letter-spacing:.04em; color:var(--c); background:color-mix(in srgb, var(--c) 12%, transparent); white-space:nowrap }
+.fchip::before { content:""; width:7px; height:7px; border-radius:2px; background:var(--c) }
+.adot { width:10px; height:10px; border-radius:50%; background:var(--c); flex:none; display:inline-block }
+.st { display:inline-flex; align-items:center; padding:4px 10px; border-radius:999px; font-size:12.5px; font-weight:800; white-space:nowrap; background:var(--surface2); color:var(--muted) }
+.st-roteiro { background:color-mix(in srgb, var(--accent) 14%, transparent); color:var(--accent) }
+.st-producao { background:color-mix(in srgb, #E5484D 14%, transparent); color:#D6363C }
+.st-edicao { background:color-mix(in srgb, var(--warn) 16%, transparent); color:var(--warn) }
+.st-agendado { background:color-mix(in srgb, #7C3AED 14%, transparent); color:#8B5CF6 }
+.st-publicado { background:color-mix(in srgb, var(--ok) 16%, transparent); color:var(--ok) }
+
+/* Estrutura */
+.side { position:fixed; inset:0 auto 0 0; width:262px; background:var(--surface); border-right:1px solid var(--line); display:flex; flex-direction:column; padding:22px 14px 16px; z-index:30; overflow-y:auto }
+.side-brand { display:grid; gap:6px; padding:0 10px 18px }
+.side-brand small { font-size:12.5px; color:var(--faint); font-weight:700 }
+.side nav { display:grid; gap:2px }
+.nav { display:flex; align-items:center; gap:12px; min-height:44px; padding:8px 12px; border-radius:10px; color:var(--muted); font-weight:700; font-size:15px }
+.nav:hover { background:var(--surface2); color:var(--ink) }
+.nav.on { background:var(--accent-2); color:var(--accent) }
+.nav em { margin-left:auto; font-style:normal; font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:5px; background:var(--surface2); color:var(--faint) }
+.side-sep { font-size:11.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); padding:16px 12px 6px }
+.side-foot { margin-top:auto; display:grid; gap:12px; padding-top:18px }
+.side-fase { padding:14px; border-radius:12px; background:color-mix(in srgb, var(--c) 10%, var(--surface)); border:1px solid color-mix(in srgb, var(--c) 30%, transparent) }
+.side-fase small { display:block; font-size:12.5px; color:var(--muted); font-weight:700 }
+.side-fase strong { font-family:var(--display); font-size:26px; font-weight:800; text-transform:uppercase; color:var(--c); line-height:1.1 }
+.side-fase i { display:block; height:5px; border-radius:5px; background:var(--line); margin-top:8px; overflow:hidden } .side-fase i b { display:block; height:100%; background:var(--c) }
+.side-user { display:flex; gap:10px; align-items:center; padding:6px }
+.side-user strong { display:block; font-size:14.5px; line-height:1.2 } .side-user small { font-size:12.5px; color:var(--faint); line-height:1.3; display:block }
+.av { width:40px; height:40px; border-radius:50%; background:var(--ink); color:var(--bg); display:grid; place-items:center; font-weight:800; font-size:14px; flex:none }
+.main { margin-left:262px; min-height:100vh }
+.page { max-width:1320px; margin:0 auto; padding:34px clamp(18px, 3vw, 44px) 80px }
+.tabbar { display:none }
+.cab { display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap; margin-bottom:26px }
+.cab h1 { font-size:clamp(32px, 3.4vw, 46px); font-weight:800; letter-spacing:-1.4px; line-height:1.08; margin:10px 0 0; text-wrap:balance }
+.cab h1 em, .hero-painel h1 em { font-style:normal; color:var(--accent) }
+.cab .lead { margin-top:10px }
+.cab-acoes { display:flex; gap:8px; align-items:center }
+.cols { display:grid; grid-template-columns:minmax(0, 1.5fr) minmax(0, 1fr); gap:20px; align-items:start; margin-bottom:20px }
+.col-side { display:grid; gap:20px }
+.box { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow) }
+.box + .box { margin-top:20px } .col-side .box + .box, .cols > .box + .box { margin-top:0 }
+.box h2 { font-size:20px; font-weight:800; letter-spacing:-.3px; margin-bottom:12px }
+.box h3 { font-size:17px; font-weight:800; margin:14px 0 8px }
+.box-h { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px } .box-h h2, .box-h h3 { margin:0 }
+.contador { font-weight:800; color:var(--muted); font-size:14.5px }
+
+/* Painel */
+.hero-painel { position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:30px; align-items:center; padding:clamp(24px, 3vw, 40px); border-radius:20px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); margin-bottom:18px }
+.hero-painel::before { content:""; position:absolute; inset:0 auto 0 0; width:6px; background:var(--c) }
+.hero-painel h1 { font-size:clamp(30px, 3.4vw, 46px); font-weight:800; letter-spacing:-1.4px; line-height:1.08; margin:10px 0; text-wrap:balance }
+.anel { position:relative; width:150px; height:150px }
+.anel svg { width:150px; height:150px; transform:rotate(-90deg) }
+.anel circle { fill:none; stroke:var(--surface2); stroke-width:11 } .anel .fg { stroke:var(--c); stroke-linecap:round; stroke-dasharray:326.7; transition:stroke-dashoffset .6s }
+.anel div { position:absolute; inset:0; display:grid; place-content:center; text-align:center }
+.anel strong { font-family:var(--display); font-size:46px; font-weight:800; line-height:1 } .anel span { font-size:13px; color:var(--muted); font-weight:700 }
+.stats { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin-bottom:20px }
+.stats > div { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px 18px; display:grid }
+.stats strong { font-family:var(--display); font-size:38px; font-weight:800; line-height:1.05; font-variant-numeric:tabular-nums }
+.stats span { font-size:14px; color:var(--muted); font-weight:600 }
+.plist { display:grid; gap:8px }
+.pcard { display:grid; grid-template-columns:56px minmax(0, 1fr) auto; gap:14px; align-items:center; width:100%; text-align:left; padding:12px 14px 12px 12px; border-radius:12px; background:var(--surface); border:1px solid var(--line); transition:border-color .15s }
+.pcard:hover { border-color:var(--accent) }
+.pcard.feito strong { color:var(--faint); text-decoration:line-through }
+.pcard-data { display:grid; justify-items:center; padding:6px 0; border-radius:10px; background:var(--surface2); font-size:12px; font-weight:800; color:var(--muted); text-transform:uppercase; line-height:1.2 }
+.pcard-data b { font-family:var(--display); font-size:24px; color:var(--ink) }
+.pcard-data.atraso { background:color-mix(in srgb, var(--bad) 12%, transparent); color:var(--bad) }
+.pcard-meio { min-width:0; display:grid; gap:4px }
+.pcard-meio strong { font-size:15.5px; line-height:1.35; font-weight:700 }
+.pcard-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+.pcard-meta small { font-size:13px; color:var(--faint); font-weight:700 }
+.stories-sem { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px }
+.stories-sem li { padding:10px 12px; border-radius:10px; background:var(--surface2); font-size:14.5px; line-height:1.4 }
+.stories-sem b { display:block; font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent) }
+.tarefas { list-style:none; margin:0; padding:0; display:grid; gap:4px }
+.tarefas label { display:flex; gap:12px; align-items:flex-start; padding:9px 4px; cursor:pointer; font-size:15.5px; line-height:1.45 }
+.tarefas input { position:absolute; opacity:0; pointer-events:none }
+.box-ck { width:24px; height:24px; border-radius:7px; border:2px solid var(--line); display:grid; place-items:center; flex:none; transition:.15s; margin-top:1px; background:var(--surface) }
+.box-ck .ic { width:15px; height:15px; stroke-width:3; opacity:0; color:var(--on-accent) }
+.tarefas input:checked + .box-ck { background:var(--accent); border-color:var(--accent) } .tarefas input:checked + .box-ck .ic { opacity:1 }
+.tarefas input:checked ~ span:last-child { color:var(--faint); text-decoration:line-through }
+.tarefas input:focus-visible + .box-ck { outline:2px solid var(--accent); outline-offset:2px }
+.ideia-dia { border-top:4px solid var(--c) }
+.ideia-dia h3 { font-size:19px; line-height:1.3; margin:10px 0 }
+
+/* Cronograma */
+.fases { display:grid; gap:20px }
+.fase { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:var(--shadow) }
+.fase.atual { border-color:var(--c); box-shadow:0 0 0 3px color-mix(in srgb, var(--c) 18%, transparent), var(--shadow) }
+.fase-cab { display:grid; grid-template-columns:auto minmax(0, 1fr) 180px; gap:20px; align-items:center }
+.fase-n { font-family:var(--display); font-size:72px; font-weight:900; line-height:.85; color:var(--c) }
+.fase-cab .eyebrow { color:var(--c) }
+.fase-cab h2 { font-family:var(--display); font-size:40px; font-weight:800; text-transform:uppercase; line-height:1; margin-top:4px }
+.fase-cab p { color:var(--muted); font-size:16px; margin-top:4px }
+.fase-prog { display:grid; gap:2px } .fase-prog strong { font-family:var(--display); font-size:30px; line-height:1 } .fase-prog span { font-size:13.5px; color:var(--muted); font-weight:700 }
+.fase-prog i { display:block; height:6px; border-radius:6px; background:var(--surface2); overflow:hidden; margin-top:6px } .fase-prog i b { display:block; height:100%; background:var(--c) }
+.kpis { list-style:none; margin:18px 0; padding:0; display:flex; flex-wrap:wrap; gap:8px }
+.kpis li { display:flex; gap:7px; align-items:center; padding:7px 12px; border-radius:999px; background:var(--surface2); font-size:14px; font-weight:700 }
+.kpis .ic { width:15px; height:15px; color:var(--c) }
+.semanas { display:grid; gap:8px }
+.semana { border:1px solid var(--line); border-radius:12px; overflow:hidden }
+.semana summary { display:grid; grid-template-columns:auto minmax(0, 1fr) auto auto; gap:14px; align-items:center; padding:14px 16px; cursor:pointer; list-style:none }
+.semana summary::-webkit-details-marker { display:none }
+.sem-n { font-family:var(--display); font-weight:800; font-size:22px; color:var(--c) }
+.semana summary strong { font-size:16.5px }
+.sem-meta { font-size:14px; color:var(--faint); font-weight:600 }
+.chev { transition:transform .2s; color:var(--faint) } .semana[open] .chev { transform:rotate(90deg) }
+.sem-corpo { display:grid; grid-template-columns:minmax(0, 1.3fr) minmax(0, 1fr); gap:20px; padding:4px 16px 18px }
+.sem-corpo h4 { font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--faint); margin:6px 0 10px }
+
+/* Calendário */
+.legenda-f { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px }
+.cal { background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow) }
+.cal-sem, .cal-grade { display:grid; grid-template-columns:repeat(7, minmax(0, 1fr)) }
+.cal-sem span { padding:10px 12px; font-size:13px; font-weight:800; color:var(--faint); text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid var(--line) }
+.cal-dia { position:relative; min-height:128px; padding:8px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; gap:5px; transition:background .15s }
+.cal-dia:nth-child(7n) { border-right:0 }
+.cal-dia.fora { background:var(--surface2); opacity:.6 }
+.cal-dia.hoje .cal-n { background:var(--accent); color:var(--on-accent) }
+.cal-dia.alvo { background:var(--accent-2) }
+.cal-n { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; font-weight:800; font-size:14px }
+.cal-data { display:flex; gap:4px; align-items:center; font-size:11.5px; font-weight:800; color:var(--warn); line-height:1.25 }
+.cal-data .ic { width:12px; height:12px }
+.cal-post { text-align:left; padding:6px 8px; border-radius:8px; background:color-mix(in srgb, var(--c) 12%, var(--surface)); border-left:3px solid var(--c); font-size:13px; line-height:1.3; display:grid; gap:1px; cursor:grab }
+.cal-post b { font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--c) }
+.cal-post span { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; font-weight:600 }
+.cal-post.st-b-publicado { opacity:.55 } .cal-post.st-b-publicado span { text-decoration:line-through }
+.cal-add { position:absolute; top:8px; right:8px; width:26px; height:26px; border-radius:7px; display:grid; place-items:center; color:var(--faint); opacity:0; transition:.15s }
+.cal-dia:hover .cal-add, .cal-add:focus-visible { opacity:1 } .cal-add:hover { background:var(--surface2); color:var(--accent) }
+.cal-add .ic { width:16px; height:16px }
+.arrastando { opacity:.4 }
+
+/* Produção */
+.kanban { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(250px, 1fr); gap:12px; overflow-x:auto; padding-bottom:12px; align-items:start }
+.col { background:var(--surface2); border-radius:14px; padding:10px; min-height:200px; transition:background .15s }
+.col.alvo { background:var(--accent-2) }
+.col-h { display:flex; justify-content:space-between; align-items:center; padding:4px 4px 10px } .col-h b { color:var(--faint); font-size:14px }
+.col-l { display:grid; gap:8px }
+.kcard { background:var(--surface); border:1px solid var(--line); border-radius:11px; cursor:grab; box-shadow:var(--shadow) }
+.kcard-b { display:grid; gap:6px; padding:12px; text-align:left; width:100% }
+.kcard-b strong { font-size:14.5px; line-height:1.35; font-weight:700 }
+.kcard-nav { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding:4px }
+.kcard-nav button { display:inline-flex; align-items:center; gap:4px; padding:6px 8px; border-radius:7px; font-size:13px; font-weight:700; color:var(--muted) }
+.kcard-nav button:hover { background:var(--surface2); color:var(--accent) }
+.kcard-nav .ic { width:15px; height:15px }
+
+/* Ideias */
+.filtros { display:grid; gap:10px; margin-bottom:12px }
+.busca { display:flex; align-items:center; gap:10px; max-width:420px; padding:0 14px; border-radius:11px; border:1.5px solid var(--line); background:var(--surface); color:var(--faint) }
+.busca input { border:0 !important; padding-left:0 !important; background:none !important }
+.contagem { font-size:14.5px; color:var(--faint); font-weight:700; margin:10px 0 }
+.ideias { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:12px }
+.icard { display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--c); border-radius:var(--r); padding:16px }
+.icard-top { display:flex; justify-content:space-between; align-items:center; gap:8px }
+.icard h3 { font-size:16.5px; line-height:1.35; font-weight:800; margin:10px 0 6px }
+.icard-area { display:flex; align-items:center; gap:7px; font-size:13.5px; color:var(--faint); font-weight:700; margin-top:auto }
+.fav { width:36px; height:36px; border-radius:9px; display:grid; place-items:center; color:var(--faint) }
+.fav:hover { background:var(--surface2) } .fav.on { color:#E3A008 } .fav.on .ic { fill:currentColor }
+
+/* Roteiros */
+.glist { list-style:none; margin:0; padding:0; display:grid; gap:8px; counter-reset:g }
+.glist li { counter-increment:g; display:grid; grid-template-columns:34px minmax(0, 1fr) auto; gap:12px; align-items:center; padding:12px 14px; border-radius:12px; background:var(--surface); border:1px solid var(--line); font-size:16px; font-weight:600 }
+.glist li::before { content:counter(g); font-family:var(--display); font-size:24px; font-weight:800; color:var(--accent) }
+.gtema { max-width:420px; margin-bottom:16px }
+.estr { display:grid; grid-template-columns:repeat(auto-fill, minmax(230px, 1fr)); gap:12px }
+.estr-c { background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:18px; border-left:4px solid var(--c) }
+.estr-c h3 { font-size:18px; margin:10px 0 4px } .estr-c p { font-size:14.5px; color:var(--muted) }
+.nota { display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border-radius:12px; background:var(--accent-2); color:var(--ink); font-size:15px; margin-top:16px }
+.nota .ic { color:var(--accent) }
+
+/* Estúdio */
+.guia { display:grid; gap:20px } .guia.com-fig { grid-template-columns:minmax(0, 1fr) 300px; align-items:start }
+.guia-l { display:grid; gap:20px } .guia-l .box + .box { margin-top:0 }
+.guia-fig { position:sticky; top:20px }
+.lista-ok, .lista-no { list-style:none; margin:0; padding:0; display:grid; gap:10px }
+.lista-ok li, .lista-no li { display:flex; gap:10px; align-items:flex-start; font-size:15.5px; line-height:1.5 }
+.lista-ok .ic { color:var(--ok); width:18px; height:18px; margin-top:3px } .lista-no .ic { color:var(--bad); width:18px; height:18px; margin-top:3px }
+.safe { margin:0; background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:18px; box-shadow:var(--shadow) }
+.safe svg { width:100%; height:auto }
+.sz-out { fill:var(--surface2); stroke:var(--line); stroke-width:2 } .sz-no { fill:color-mix(in srgb, var(--bad) 18%, transparent) } .sz-ok { fill:color-mix(in srgb, var(--ok) 16%, transparent); stroke:var(--ok); stroke-dasharray:5 4 }
+.sz-t { font:800 15px var(--text); fill:var(--ok) } .sz-s { font:700 10.5px var(--text); fill:var(--muted) }
+.safe figcaption { font-size:14px; color:var(--muted); margin-top:10px; line-height:1.45 }
+.equip { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px }
+.equip > div { padding:14px; border-radius:12px; background:var(--surface2) } .equip b { font-size:15px } .equip ul { margin:8px 0 0; padding-left:18px; font-size:14.5px; color:var(--muted) }
+
+/* Ética */
+#etx { min-height:200px }
+.eres { display:grid; gap:8px; margin-top:12px }
+.eitem { display:flex; gap:12px; padding:12px 14px; border-radius:12px; font-size:15px; line-height:1.45 }
+.eitem b { display:block } .eitem small { display:block; color:var(--muted); font-size:13.5px; margin-top:2px } .eitem span { display:block }
+.eitem.proibido { background:color-mix(in srgb, var(--bad) 12%, transparent) } .eitem.proibido > .ic { color:var(--bad) }
+.eitem.atencao { background:color-mix(in srgb, var(--warn) 14%, transparent) } .eitem.atencao > .ic { color:var(--warn) }
+.eitem.ok { background:color-mix(in srgb, var(--ok) 12%, transparent) } .eitem.ok > .ic { color:var(--ok) }
+
+/* Perfil */
+.bio { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-top:12px }
+.bio pre { margin:0; white-space:pre-wrap; font:600 15.5px/1.55 var(--text) }
+.bio-f { display:flex; justify-content:space-between; align-items:center; margin-top:8px } .bio-f small { color:var(--faint); font-weight:700 }
+.dest { display:flex; flex-wrap:wrap; gap:14px }
+.dest-i { display:grid; justify-items:center; gap:6px; width:72px } .dest-i span { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; font-size:20px; font-weight:900; box-shadow:0 0 0 2px var(--surface), 0 0 0 3.5px var(--line) } .dest-i small { font-size:12.5px; font-weight:700; text-align:center; line-height:1.2 }
+.fix { margin:0; padding:0; list-style:none; counter-reset:f; display:grid; gap:10px }
+.fix li { counter-increment:f; display:grid; grid-template-columns:30px minmax(0, 1fr); gap:2px 10px }
+.fix li::before { content:counter(f); grid-row:span 2; width:28px; height:28px; border-radius:50%; background:var(--accent-2); color:var(--accent); display:grid; place-items:center; font-weight:800; font-size:14px }
+.fix b { font-size:15.5px } .fix span { font-size:14.5px; color:var(--muted) }
+.idt { display:grid; grid-template-columns:minmax(0, 1fr) 300px; gap:24px; align-items:start }
+.pals { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:8px }
+.pal, .fon { display:flex; align-items:center; gap:4px; padding:10px; border-radius:11px; border:1.5px solid var(--line); background:var(--surface); text-align:left; font-size:14px; font-weight:700 }
+.pal i { width:18px; height:18px; border-radius:5px; box-shadow:inset 0 0 0 1px #0002 } .pal span { margin-left:6px }
+.pal.on, .fon.on { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-2) }
+.fons { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px }
+.fon b { font-size:26px; width:44px; line-height:1 } .fon span { font-size:14px }
+.capa-prev { position:relative; aspect-ratio:4/5; border-radius:14px; padding:24px; display:flex; flex-direction:column; justify-content:flex-end; gap:12px; overflow:hidden; box-shadow:var(--shadow) }
+.capa-prev small { position:absolute; top:22px; left:24px; font-size:12px; font-weight:800; letter-spacing:.14em }
+.capa-prev b { font-size:34px; line-height:1; text-transform:uppercase; font-weight:900 }
+.capa-prev span { font-size:13px; opacity:.8 }
+.capa-prev i { position:absolute; right:-60px; top:-60px; width:180px; height:180px; border-radius:50%; opacity:.25 }
+
+/* Métricas */
+.fmet { display:grid; grid-template-columns:1fr 1fr; gap:12px } .fmet .btn { grid-column:1 / -1 }
+.mgrid { display:grid; grid-template-columns:1fr 1fr; gap:12px }
+.mgrid div { padding:12px; border-radius:11px; background:var(--surface2); display:grid }
+.mgrid small { font-size:13px; color:var(--muted); font-weight:700 } .mgrid strong { font-family:var(--display); font-size:30px; line-height:1.1; font-variant-numeric:tabular-nums }
+.mgrid em { font-style:normal; font-size:13px; font-weight:800 } .up { color:var(--ok) } .down { color:var(--bad) }
+.graf svg { width:100%; height:auto }
+.g-eixo { stroke:var(--line); stroke-width:1.5 } .g-bar { fill:color-mix(in srgb, var(--accent) 28%, transparent) } .g-lin { fill:none; stroke:var(--accent); stroke-width:2.5 } .g-pt { fill:var(--surface); stroke:var(--accent); stroke-width:2.5 } .g-t { font:700 12px var(--text); fill:var(--faint) }
+.g-leg { display:flex; gap:18px; font-size:13.5px; color:var(--muted); font-weight:700; margin:6px 0 14px } .g-leg i { display:inline-block; width:14px; height:4px; border-radius:2px; margin-right:6px; vertical-align:middle } .g-leg .l { background:var(--accent) } .g-leg .b { background:color-mix(in srgb, var(--accent) 35%, transparent); height:10px }
+.mtab { overflow-x:auto } table { border-collapse:collapse; width:100%; font-size:14.5px; font-variant-numeric:tabular-nums } th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); white-space:nowrap } th { font-size:12.5px; color:var(--faint); text-transform:uppercase; letter-spacing:.06em }
+
+/* Modelos (prévia) */
+.mods { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px }
+.mod { position:relative; aspect-ratio:4/5; border-radius:12px; padding:14px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; box-shadow:var(--shadow) }
+.mod small { position:absolute; top:12px; left:14px; font-size:10px; font-weight:800; letter-spacing:.12em }
+.mod b { font-size:20px; line-height:1; text-transform:uppercase; font-weight:900 }
+.mod i { position:absolute; right:-40px; top:-40px; width:110px; height:110px; border-radius:50%; opacity:.25 }
+.mods-story .mod { aspect-ratio:9/16 }
+.mods-dest { grid-template-columns:repeat(auto-fill, minmax(90px, 1fr)) }
+.mod-dest { display:grid; justify-items:center; gap:8px } .mod-dest span { width:72px; height:72px; border-radius:50%; display:grid; place-items:center; font-size:22px; font-weight:900; box-shadow:0 0 0 2px var(--surface), 0 0 0 3.5px var(--line) } .mod-dest small { font-size:13px; font-weight:700 }
+
+/* Ajustes */
+.dl { display:grid; grid-template-columns:110px minmax(0, 1fr); gap:8px 14px; margin:0; font-size:15.5px } .dl dt { color:var(--faint); font-weight:700 } .dl dd { margin:0; font-weight:600 }
+.perigo { border-color:color-mix(in srgb, var(--bad) 35%, var(--line)) }
+
+/* Modal */
+.ov { position:fixed; inset:0; z-index:60; background:#0B0D12b3; backdrop-filter:blur(4px); display:grid; place-items:center; padding:max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); animation:ap .18s ease }
+@keyframes ap { from { opacity:0 } }
+.mbox { position:relative; width:min(860px, 100%); max-height:100%; overflow:auto; background:var(--surface); border-radius:18px; padding:clamp(20px, 3vw, 32px); box-shadow:0 30px 80px -20px #000a; animation:sobe .25s cubic-bezier(.2, .8, .2, 1) }
+@keyframes sobe { from { transform:translateY(18px) } }
+.mfechar { position:sticky; top:0; float:right; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; background:var(--surface2); z-index:2 }
+.mp-cab { display:grid; gap:12px } .mp-cab > .pcard-meta { padding-right:50px }
+.mp-titulo { font-size:22px !important; font-weight:800 !important; min-height:52px }
+.mp-linha { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px } .mp-linha label { display:grid; gap:4px; font-size:13.5px; font-weight:700; color:var(--muted) }
+.mp .tabs { margin-top:18px }
+.mp-t2 { font-size:24px; font-weight:800; letter-spacing:-.5px; margin:10px 50px 0 0; line-height:1.25 }
+.mp-h { font-size:17px; margin-bottom:8px }
+.mp-rodape { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:22px; padding-top:16px; border-top:1px solid var(--line) }
+.mp textarea { min-height:200px }
+
+/* Toast */
+#toast { position:fixed; left:50%; bottom:calc(22px + env(safe-area-inset-bottom, 0px)); transform:translate(-50%, 30px); opacity:0; z-index:90; padding:12px 18px; border-radius:11px; background:var(--ink); color:var(--bg); font-weight:700; font-size:15px; transition:.25s; pointer-events:none; max-width:calc(100% - 32px) }
+#toast.on { transform:translate(-50%, 0); opacity:1 }
+
+/* Onboarding */
+.wiz { max-width:980px; margin:0 auto; padding:28px max(18px, env(safe-area-inset-right, 0px)) 120px max(18px, env(safe-area-inset-left, 0px)) }
+.wiz-top { display:flex; align-items:center; gap:14px; flex-wrap:wrap } .wiz-top > span { font-size:14px; color:var(--faint); font-weight:700 } .wiz-top .link { margin-left:auto }
+.wiz-passos { list-style:none; margin:28px 0 30px; padding:0; display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:6px }
+.wiz-passos li { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:var(--faint); padding-top:10px; border-top:3px solid var(--line) }
+.wiz-passos li span { width:24px; height:24px; border-radius:50%; display:grid; place-items:center; background:var(--surface2); font-size:12.5px; flex:none } .wiz-passos .ic { width:14px; height:14px; stroke-width:3 }
+.wiz-passos .atual { color:var(--ink); border-color:var(--accent) } .wiz-passos .atual span { background:var(--accent); color:var(--on-accent) }
+.wiz-passos .feito { color:var(--muted); border-color:color-mix(in srgb, var(--accent) 45%, var(--line)) } .wiz-passos .feito span { background:var(--accent-2); color:var(--accent) }
+.wiz-corpo h2 { font-size:clamp(30px, 3.6vw, 44px); font-weight:800; letter-spacing:-1.3px; line-height:1.1; text-wrap:balance }
+.wiz-corpo .lead { margin:12px 0 26px }
+.campos { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; margin-bottom:24px }
+.grupo { margin-bottom:24px } .grupo-t { display:block; font-size:14.5px; font-weight:800; margin-bottom:10px }
+.opts { display:grid; grid-template-columns:repeat(auto-fill, minmax(190px, 1fr)); gap:10px }
+.opts.dias { grid-template-columns:repeat(7, minmax(0, 1fr)) }
+.opt { display:grid; gap:2px; text-align:left; padding:14px 16px; border-radius:13px; border:1.5px solid var(--line); background:var(--surface); transition:.15s }
+.opt strong { font-size:15.5px } .opt small { font-size:13.5px; color:var(--muted); line-height:1.35 }
+.opt:hover { border-color:var(--accent) }
+.opt.on { border-color:var(--accent); background:var(--accent-2); box-shadow:0 0 0 1px var(--accent) inset }
+.opt.dia { text-align:center; padding:12px 4px }
+.areas-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:10px }
+.area { position:relative; display:grid; gap:4px; align-content:start; text-align:left; padding:16px; border-radius:14px; border:1.5px solid var(--line); background:var(--surface); min-height:150px; transition:.15s }
+.area:hover { border-color:var(--c) }
+.area.on { border-color:var(--c); background:color-mix(in srgb, var(--c) 9%, var(--surface)); box-shadow:0 0 0 1px var(--c) inset }
+.area-ic { width:42px; height:42px; border-radius:11px; display:grid; place-items:center; background:color-mix(in srgb, var(--c) 14%, transparent); color:var(--c); margin-bottom:6px }
+.area strong { font-size:16.5px } .area small { font-size:13.5px; color:var(--muted); line-height:1.35 }
+.area-pr { margin-top:8px; justify-self:start; font-size:12.5px; font-weight:800; padding:4px 10px; border-radius:999px; border:1.5px solid var(--c); color:var(--c) }
+.area-pr.is { background:var(--c); color:#fff }
+.resumo { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin-bottom:22px }
+.resumo div { padding:16px; border-radius:14px; background:var(--surface); border:1px solid var(--line); display:grid }
+.resumo strong { font-family:var(--display); font-size:44px; font-weight:800; line-height:1; color:var(--accent) } .resumo span { font-size:14px; color:var(--muted); font-weight:700 }
+.fases-mini { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px }
+.fases-mini li { padding:14px; border-radius:12px; background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--c); display:grid; gap:4px }
+.fases-mini b { font-size:15px } .fases-mini span { font-size:14px; color:var(--muted); line-height:1.45 }
+.wiz-nav { position:fixed; left:0; right:0; bottom:0; z-index:20; display:flex; justify-content:space-between; gap:10px; padding:14px max(18px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(10px); border-top:1px solid var(--line) }
+.wiz-nav .btn { min-width:150px }
+
+/* Telas menores */
+@media (max-width:1100px) {
+  .cols, .sem-corpo, .guia.com-fig, .idt { grid-template-columns:1fr }
+  .guia-fig { position:static; max-width:320px }
+  .stats { grid-template-columns:1fr 1fr }
+  .fase-cab { grid-template-columns:auto minmax(0, 1fr) }
+  .fase-prog { grid-column:1 / -1 }
+}
+@media (max-width:860px) {
+  .side { transform:translateX(-100%); transition:transform .25s; box-shadow:0 0 60px #0006 }
+  body.menu-aberto .side { transform:none }
+  .main { margin-left:0 }
+  .page { padding:22px max(16px, env(safe-area-inset-right, 0px)) 110px max(16px, env(safe-area-inset-left, 0px)) }
+  .tabbar { display:grid; grid-template-columns:repeat(5, 1fr); position:fixed; left:0; right:0; bottom:0; z-index:25; background:var(--surface); border-top:1px solid var(--line); padding:6px max(6px, env(safe-area-inset-right, 0px)) calc(6px + env(safe-area-inset-bottom, 0px)) max(6px, env(safe-area-inset-left, 0px)) }
+  .tabbar a, .tabbar button { display:grid; justify-items:center; gap:2px; padding:6px 2px; border-radius:10px; font-size:12px; font-weight:700; color:var(--muted) }
+  .tabbar .on { color:var(--accent) }
+  .hero-painel { grid-template-columns:1fr }
+  .anel { width:120px; height:120px } .anel svg { width:120px; height:120px } .anel strong { font-size:36px }
+  .campos, .resumo, .fases-mini { grid-template-columns:1fr 1fr }
+  .cal-sem span { padding:8px 4px; font-size:11px; text-align:center }
+  .cal-dia { min-height:84px; padding:4px; gap:3px }
+  .cal-post { padding:4px; font-size:11px } .cal-post span { display:none } .cal-data { display:none }
+  .mp-linha { grid-template-columns:1fr }
+  .equip { grid-template-columns:1fr }
+  .stories-sem { grid-template-columns:1fr }
+  .semana summary { grid-template-columns:auto minmax(0, 1fr) auto } .sem-meta { grid-column:2; grid-row:2 }
+}
+@media (max-width:520px) {
+  .campos, .resumo, .fases-mini, .fmet, .mgrid { grid-template-columns:1fr }
+  .opts.dias { grid-template-columns:repeat(4, minmax(0, 1fr)) }
+  .wiz-passos li { font-size:0; gap:0 } .wiz-passos li span { font-size:12.5px }
+  .pcard { grid-template-columns:50px minmax(0, 1fr) } .pcard > .st { display:none }
+  .fase-n { font-size:54px } .fase-cab h2 { font-size:32px }
+  .cab-acoes { width:100% }
+}
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation:none !important; transition:none !important } }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+// Pauta · banco de temas por área de atuação.
+// Cada tema: t = tema (frase nominal, entra em "Passo a passo: …"), q = dúvida comum do público,
+// m = mito comum (afirmação FALSA, entra em "Mito ou verdade: …").
+window.AREAS = [
+{ id:'familia', nome:'Família', publico:'Casais, pais e mães, famílias em separação', cor:'#C2577A', ic:'heart',
+  tags:['#direitodefamilia','#pensaoalimenticia','#guardacompartilhada','#divorcio'], destaques:['Pensão','Guarda','Divórcio','União estável'],
+  temas:[
+  {t:'pensão alimentícia', q:'Até quando o filho tem direito a pensão?', m:'A pensão acaba automaticamente quando o filho faz 18 anos.'},
+  {t:'guarda compartilhada', q:'Guarda compartilhada significa que a criança mora metade do tempo em cada casa?', m:'Na guarda compartilhada, a criança precisa morar metade do tempo com cada um.'},
+  {t:'divórcio em cartório', q:'Dá para se divorciar sem passar por um juiz?', m:'Todo divórcio precisa de processo na Justiça.'},
+  {t:'união estável', q:'Morar junto já é união estável?', m:'Só existe união estável depois de 5 anos juntos.'},
+  {t:'regime de bens', q:'Qual a diferença entre comunhão parcial e separação de bens?', m:'Na comunhão parcial, tudo o que cada um tinha antes do casamento passa a ser dos dois.'},
+  {t:'pensão entre ex-cônjuges', q:'Ex-marido ou ex-mulher tem direito a pensão?', m:'Toda ex-esposa tem direito a pensão para sempre.'},
+  {t:'alienação parental', q:'O que caracteriza alienação parental?', m:'Uma única briga na frente do filho já faz o pai ou a mãe perder a guarda.'},
+  {t:'convivência com os filhos', q:'Quem não paga pensão pode ser impedido de ver o filho?', m:'Quem atrasa a pensão perde o direito de visitar o filho.'},
+  {t:'investigação de paternidade', q:'Como pedir o reconhecimento de paternidade?', m:'Se o suposto pai se recusar a fazer o DNA, nada pode ser feito.'},
+  {t:'prisão por dívida de pensão', q:'Quantas parcelas atrasadas podem levar à prisão?', m:'Só pode haver prisão depois de um ano sem pagar pensão.'}]},
+{ id:'sucessoes', nome:'Sucessões', publico:'Famílias que perderam alguém, quem quer planejar a herança', cor:'#8A6D3B', ic:'tree',
+  tags:['#inventario','#heranca','#testamento','#planejamentosucessorio'], destaques:['Inventário','Herança','Testamento','Planejamento'],
+  temas:[
+  {t:'inventário em cartório', q:'Dá para fazer inventário sem processo judicial?', m:'Inventário sempre demora anos na Justiça.'},
+  {t:'testamento', q:'Quem tem filhos pode deixar os bens para quem quiser?', m:'Com testamento, a pessoa pode deixar todos os bens para quem quiser, mesmo tendo filhos.'},
+  {t:'herança do cônjuge', q:'O viúvo ou a viúva é herdeiro?', m:'O cônjuge nunca herda junto com os filhos.'},
+  {t:'dívidas do falecido', q:'Os filhos herdam as dívidas dos pais?', m:'Os herdeiros têm que pagar as dívidas do falecido com o próprio dinheiro.'},
+  {t:'prazo para abrir o inventário', q:'Existe prazo para abrir o inventário?', m:'Não existe prazo nem multa para abrir inventário.'},
+  {t:'imposto sobre herança (ITCMD)', q:'Quanto se paga de imposto numa herança?', m:'Herança não paga imposto.'},
+  {t:'doação em vida aos filhos', q:'Doar um imóvel para um filho afeta a herança dos outros?', m:'Doação a um filho nunca precisa ser considerada na divisão da herança.'},
+  {t:'herança na união estável', q:'Companheiro em união estável tem direito à herança?', m:'Quem vivia em união estável não tem direito à herança.'},
+  {t:'holding familiar', q:'Holding familiar serve para quem?', m:'Holding familiar só serve para quem tem muito dinheiro.'},
+  {t:'venda de imóvel da herança', q:'Um herdeiro pode vender o imóvel antes do inventário?', m:'Um herdeiro pode vender sozinho o imóvel da herança antes da partilha.'}]},
+{ id:'consumidor', nome:'Consumidor', publico:'Qualquer pessoa que compra, viaja, contrata serviços', cor:'#D9822B', ic:'bag',
+  tags:['#direitodoconsumidor','#cdc','#procon','#seusdireitos'], destaques:['Compras','Viagens','Bancos','Planos'],
+  temas:[
+  {t:'direito de arrependimento', q:'Posso desistir de uma compra feita pela internet?', m:'Toda compra pode ser devolvida em 7 dias, mesmo na loja física.'},
+  {t:'produto com defeito', q:'Qual o prazo para resolver um produto com defeito?', m:'A loja é obrigada a trocar o produto com defeito na hora.'},
+  {t:'nome negativado indevidamente', q:'Meu nome foi negativado por uma dívida que não é minha: e agora?', m:'Negativação indevida só dá direito a tirar o nome do cadastro.'},
+  {t:'voo atrasado ou cancelado', q:'Quais são meus direitos quando o voo atrasa ou é cancelado?', m:'A companhia aérea só deve alguma coisa se o atraso passar de 24 horas.'},
+  {t:'cobrança indevida', q:'O que fazer com uma cobrança indevida?', m:'Quem cobra valor indevido só precisa devolver exatamente o que cobrou.'},
+  {t:'venda casada', q:'O que é venda casada?', m:'O banco pode exigir que eu contrate um seguro para liberar o empréstimo.'},
+  {t:'garantia legal e garantia de fábrica', q:'Garantia da loja e garantia legal são a mesma coisa?', m:'Acabou a garantia do fabricante, acabou o direito do consumidor.'},
+  {t:'golpes em compras online', q:'Caí num golpe numa compra pela internet: o que posso fazer?', m:'Se o pagamento foi por Pix, não há nada a fazer.'},
+  {t:'cancelamento de serviços', q:'Posso cancelar internet, TV ou academia quando quiser?', m:'A empresa pode exigir que o cancelamento seja feito só presencialmente.'},
+  {t:'cobranças na fatura do celular', q:'Apareceram serviços que não contratei na conta do celular: e agora?', m:'Se eu não reclamei no mês, perdi o direito de pedir o dinheiro de volta.'}]},
+{ id:'trabalho', nome:'Trabalhista', publico:'Empregados, demitidos, quem trabalha sem registro', cor:'#3B6FB6', ic:'briefcase',
+  tags:['#direitotrabalhista','#clt','#direitosdotrabalhador','#rescisao'], destaques:['Rescisão','Horas extras','Gestante','Acidente'],
+  temas:[
+  {t:'rescisão sem justa causa', q:'O que recebo se for demitido sem justa causa?', m:'Quem é demitido sem justa causa sempre recebe seguro-desemprego.'},
+  {t:'horas extras', q:'Como funcionam as horas extras?', m:'Quem ganha bem não tem direito a hora extra.'},
+  {t:'demissão por justa causa', q:'O que pode gerar uma demissão por justa causa?', m:'A empresa pode dar justa causa por qualquer falta.'},
+  {t:'pedido de demissão', q:'O que eu perco ao pedir demissão?', m:'Quem pede demissão perde as férias e o 13º.'},
+  {t:'estabilidade da gestante', q:'A gestante pode ser demitida?', m:'A estabilidade da gestante só vale se a empresa souber da gravidez.'},
+  {t:'acidente de trabalho', q:'Quais são os direitos de quem sofre acidente de trabalho?', m:'Quem sofre acidente de trabalho pode ser demitido assim que voltar ao serviço.'},
+  {t:'assédio moral no trabalho', q:'O que caracteriza assédio moral no trabalho?', m:'Só é assédio moral se houver xingamento.'},
+  {t:'trabalho sem carteira assinada', q:'Trabalhei sem registro: tenho direitos?', m:'Quem trabalhou sem carteira assinada não tem direito a nada.'},
+  {t:'prazo para a ação trabalhista', q:'Até quando posso entrar com uma ação trabalhista?', m:'Dá para cobrar direitos de qualquer época do contrato, sem prazo.'},
+  {t:'contratação como PJ', q:'Trabalhar como PJ me tira direitos?', m:'Quem assinou contrato como PJ nunca pode ter o vínculo reconhecido.'}]},
+{ id:'previdenciario', nome:'Previdenciário', publico:'Segurados do INSS, aposentados, pessoas com deficiência e idosos', cor:'#2E8A6E', ic:'shield',
+  tags:['#direitoprevidenciario','#inss','#aposentadoria','#bpcloas'], destaques:['Aposentadoria','BPC/LOAS','Auxílios','Pensão'],
+  temas:[
+  {t:'aposentadoria por idade', q:'Qual a idade para se aposentar?', m:'Basta ter a idade mínima para se aposentar.'},
+  {t:'BPC/LOAS', q:'Quem tem direito ao BPC/LOAS?', m:'O BPC é uma aposentadoria e paga 13º.'},
+  {t:'auxílio por incapacidade temporária', q:'Como funciona o antigo auxílio-doença?', m:'Basta ter um atestado médico para receber o auxílio-doença.'},
+  {t:'pensão por morte', q:'Quem recebe pensão por morte e por quanto tempo?', m:'A pensão por morte é sempre vitalícia para o cônjuge.'},
+  {t:'tempo de trabalho rural', q:'Trabalho no campo conta para a aposentadoria?', m:'Tempo de roça sem carteira não conta para nada.'},
+  {t:'conferência do CNIS', q:'O que é o CNIS e por que conferir?', m:'O CNIS nunca tem erro, então não precisa conferir.'},
+  {t:'revisão de aposentadoria', q:'Dá para revisar uma aposentadoria já concedida?', m:'Depois de concedida, a aposentadoria nunca pode ser revista.'},
+  {t:'salário-maternidade', q:'Quem tem direito ao salário-maternidade?', m:'Só quem tem carteira assinada recebe salário-maternidade.'},
+  {t:'aposentadoria especial', q:'Quem trabalha exposto a agentes nocivos se aposenta antes?', m:'Receber adicional de insalubridade garante a aposentadoria especial.'},
+  {t:'benefício negado pelo INSS', q:'O INSS negou meu benefício: e agora?', m:'Se o INSS negou, não adianta recorrer.'}]},
+{ id:'criminal', nome:'Criminal', publico:'Pessoas investigadas, vítimas e familiares', cor:'#5B4B8A', ic:'scale',
+  tags:['#direitopenal','#advocaciacriminal','#processopenal','#direitosfundamentais'], destaques:['Flagrante','Custódia','Maria da Penha','Delegacia'],
+  temas:[
+  {t:'prisão em flagrante', q:'O que acontece depois de uma prisão em flagrante?', m:'Quem é preso em flagrante fica preso até o julgamento.'},
+  {t:'audiência de custódia', q:'Para que serve a audiência de custódia?', m:'A audiência de custódia é o julgamento do crime.'},
+  {t:'direito ao silêncio', q:'Sou obrigado a falar na delegacia?', m:'Ficar em silêncio na delegacia é confessar a culpa.'},
+  {t:'medidas protetivas da Lei Maria da Penha', q:'Quem pode pedir medida protetiva?', m:'Medida protetiva só sai se houver agressão física.'},
+  {t:'crimes contra a honra na internet', q:'Ofensa em rede social é crime?', m:'O que se fala na internet não tem consequência penal.'},
+  {t:'fiança', q:'O que é fiança e para que serve?', m:'Pagou a fiança, o processo acaba.'},
+  {t:'acordo de não persecução penal', q:'O que é o acordo de não persecução penal?', m:'Todo processo criminal termina em condenação ou absolvição.'},
+  {t:'intimação para depor na delegacia', q:'Recebi uma intimação da polícia: o que fazer?', m:'Quem leva advogado ao depoimento parece culpado.'},
+  {t:'presunção de inocência', q:'Responder a um processo me torna culpado?', m:'Quem responde a processo criminal já é considerado culpado.'},
+  {t:'diferença entre uso e tráfico', q:'Como a lei diferencia uso e tráfico de drogas?', m:'A quantidade de droga, sozinha, define se é tráfico.'}]},
+{ id:'civel', nome:'Cível e contratos', publico:'Pessoas e pequenos negócios com conflitos do dia a dia', cor:'#6B7280', ic:'doc',
+  tags:['#direitocivil','#contratos','#danosmorais','#juizadoespecial'], destaques:['Contratos','Cobranças','Danos morais','Juizado'],
+  temas:[
+  {t:'contrato verbal', q:'Contrato de boca tem validade?', m:'Contrato só vale se for escrito e registrado em cartório.'},
+  {t:'cobrança de dívidas', q:'Como cobrar alguém que me deve dinheiro?', m:'Para cobrar uma dívida, é preciso ter um contrato assinado.'},
+  {t:'danos morais', q:'O que dá direito a indenização por danos morais?', m:'Qualquer aborrecimento gera indenização por danos morais.'},
+  {t:'Juizado Especial Cível', q:'Quando posso entrar no Juizado sem advogado?', m:'No Juizado Especial, nunca é preciso advogado.'},
+  {t:'acidente de trânsito', q:'Quem paga os danos de uma batida?', m:'Quem bate atrás é sempre o culpado.'},
+  {t:'conflitos de vizinhança', q:'O que fazer com o barulho do vizinho?', m:'Só existe perturbação do sossego depois das 22h.'},
+  {t:'prescrição', q:'Existe prazo para entrar com uma ação?', m:'Posso processar alguém por qualquer coisa, a qualquer tempo.'},
+  {t:'protesto de dívida em cartório', q:'Para que serve protestar uma dívida?', m:'Protesto em cartório só serve para cheque.'},
+  {t:'contrato de prestação de serviços', q:'O que não pode faltar num contrato de serviço?', m:'Um contrato padrão da internet serve para qualquer caso.'},
+  {t:'responsabilidade dos pais por danos', q:'Meu filho causou um dano: quem responde?', m:'Os pais nunca respondem pelo que os filhos menores fazem.'}]},
+{ id:'imobiliario', nome:'Imobiliário', publico:'Quem compra, vende, aluga ou constrói', cor:'#B5653A', ic:'home',
+  tags:['#direitoimobiliario','#imoveis','#usucapiao','#aluguel'], destaques:['Compra','Aluguel','Usucapião','Condomínio'],
+  temas:[
+  {t:'compra de imóvel', q:'O que conferir antes de comprar um imóvel?', m:'O contrato de compra e venda já me torna dono do imóvel.'},
+  {t:'usucapião', q:'Quanto tempo de posse dá direito à usucapião?', m:'Basta morar 5 anos num imóvel para virar dono.'},
+  {t:'despejo por falta de pagamento', q:'O que o proprietário pode fazer se o inquilino não paga?', m:'O dono pode trocar a fechadura se o inquilino não pagar.'},
+  {t:'distrato de imóvel na planta', q:'Desisti do imóvel na planta: recebo o que paguei?', m:'Quem desiste do imóvel na planta perde tudo o que pagou.'},
+  {t:'ITBI', q:'Quem paga o ITBI e quando?', m:'O ITBI só é pago depois de morar no imóvel.'},
+  {t:'regularização de imóvel', q:'Como regularizar um imóvel sem escritura?', m:'Imóvel sem escritura não tem como ser regularizado.'},
+  {t:'defeitos na construção', q:'Apareceram rachaduras no imóvel novo: e agora?', m:'Depois da entrega das chaves, a construtora não responde mais.'},
+  {t:'multas no condomínio', q:'O condomínio pode multar o morador?', m:'O síndico pode aplicar qualquer multa que quiser.'},
+  {t:'fiança no contrato de aluguel', q:'O fiador pode sair do contrato de aluguel?', m:'O fiador pode sair do contrato a qualquer momento, sem nenhuma condição.'},
+  {t:'compra de imóvel em leilão', q:'Vale a pena comprar imóvel em leilão?', m:'Imóvel de leilão sempre vem sem dívidas.'}]},
+{ id:'bancario', nome:'Bancário', publico:'Endividados, aposentados com consignado, vítimas de golpes', cor:'#1F7A8C', ic:'card',
+  tags:['#direitobancario','#superendividamento','#golpedopix','#juros'], destaques:['Juros','Golpes','Consignado','Dívidas'],
+  temas:[
+  {t:'juros abusivos', q:'Como saber se os juros do meu contrato são abusivos?', m:'Qualquer juro acima de 12% ao ano é ilegal.'},
+  {t:'superendividamento', q:'O que é a Lei do Superendividamento?', m:'Quem está superendividado não tem saída a não ser pagar tudo de uma vez.'},
+  {t:'golpe do Pix', q:'Caí no golpe do Pix: o banco devolve?', m:'Se fui eu que fiz a transferência, o banco nunca responde.'},
+  {t:'consignado não contratado', q:'Apareceu um empréstimo que não fiz no meu benefício: e agora?', m:'Desconto no benefício só pode ser contestado no INSS.'},
+  {t:'revisão de financiamento de veículo', q:'Dá para revisar o financiamento do carro?', m:'Entrar com a revisão permite parar de pagar as parcelas.'},
+  {t:'busca e apreensão de veículo', q:'Atrasei o carro financiado: o banco pode tomar?', m:'O banco só pode tomar o carro depois de 3 parcelas atrasadas.'},
+  {t:'cartão de crédito consignado (RMC)', q:'O que é a reserva de margem do cartão consignado?', m:'O cartão consignado é a mesma coisa que o empréstimo consignado.'},
+  {t:'tarifas bancárias', q:'Quais tarifas o banco pode cobrar?', m:'O banco pode cobrar qualquer tarifa na conta.'},
+  {t:'seguro prestamista', q:'Sou obrigado a contratar seguro junto com o empréstimo?', m:'O seguro prestamista é obrigatório em todo empréstimo.'},
+  {t:'bloqueio de salário', q:'Minha conta foi bloqueada por uma dívida: o que pode ser feito?', m:'O salário pode ser bloqueado inteiro por qualquer dívida.'}]},
+{ id:'saude', nome:'Saúde', publico:'Pacientes, beneficiários de planos de saúde, famílias atípicas', cor:'#C0392B', ic:'plus',
+  tags:['#direitodasaude','#planodesaude','#autismo','#sus'], destaques:['Planos','SUS','Autismo','Erro médico'],
+  temas:[
+  {t:'negativa do plano de saúde', q:'O plano negou meu procedimento: o que fazer?', m:'Se o plano negou por escrito, não há o que fazer.'},
+  {t:'reajuste do plano por idade', q:'O reajuste do meu plano é abusivo?', m:'O plano pode aumentar a mensalidade como quiser por faixa etária.'},
+  {t:'carência e urgência', q:'O plano pode negar atendimento de urgência na carência?', m:'Durante a carência, o plano não cobre nem emergência.'},
+  {t:'medicamento de alto custo pelo SUS', q:'Como conseguir um medicamento de alto custo pelo SUS?', m:'O SUS só fornece os remédios da Farmácia Popular.'},
+  {t:'erro médico', q:'O que caracteriza erro médico?', m:'Todo resultado ruim de uma cirurgia é erro médico.'},
+  {t:'home care pelo plano', q:'O plano é obrigado a cobrir home care?', m:'Home care nunca é coberto pelo plano de saúde.'},
+  {t:'terapias para autismo (TEA)', q:'O plano deve cobrir as terapias para autismo?', m:'O plano pode limitar o número de sessões de terapia para TEA.'},
+  {t:'cancelamento do plano durante tratamento', q:'O plano pode cancelar meu contrato?', m:'O plano pode cancelar o contrato a qualquer momento, mesmo durante um tratamento.'},
+  {t:'acesso ao prontuário', q:'Tenho direito a uma cópia do meu prontuário?', m:'O hospital pode se recusar a entregar o prontuário ao paciente.'},
+  {t:'cirurgia reparadora pós-bariátrica', q:'O plano cobre a cirurgia depois da bariátrica?', m:'Toda cirurgia plástica é estética e nunca é coberta.'}]},
+{ id:'tributario', nome:'Tributário', publico:'Contribuintes, MEIs, pequenas empresas', cor:'#4D7C0F', ic:'coin',
+  tags:['#direitotributario','#impostoderenda','#mei','#planejamentotributario'], destaques:['IR','MEI','Empresas','Isenções'],
+  temas:[
+  {t:'isenção de IR por doença grave', q:'Aposentado com doença grave paga imposto de renda?', m:'Quem tem doença grave sempre paga imposto de renda sobre a aposentadoria.'},
+  {t:'malha fina', q:'Caí na malha fina: e agora?', m:'Cair na malha fina significa que vou ser multado.'},
+  {t:'obrigações do MEI', q:'O que o MEI precisa pagar e declarar?', m:'O MEI não precisa declarar nada à Receita.'},
+  {t:'dívida ativa', q:'Meu nome está na dívida ativa: o que fazer?', m:'Dívida de imposto nunca prescreve.'},
+  {t:'contestação do IPTU', q:'Dá para contestar o valor do IPTU?', m:'O valor do IPTU não pode ser questionado.'},
+  {t:'Simples Nacional', q:'O Simples Nacional é sempre a melhor opção?', m:'O Simples Nacional é sempre o regime mais barato.'},
+  {t:'restituição de tributos', q:'Como recuperar imposto pago a mais?', m:'Imposto pago a mais nunca volta.'},
+  {t:'imposto na doação para filhos', q:'Doar para um filho paga imposto?', m:'Doação para filho é sempre isenta de imposto.'},
+  {t:'isenção de IPVA para pessoa com deficiência', q:'Pessoa com deficiência tem isenção de IPVA?', m:'A isenção de IPVA para PcD vale do mesmo jeito em todos os estados.'},
+  {t:'planejamento tributário', q:'O que é planejamento tributário?', m:'Planejamento tributário é sonegação.'}]},
+{ id:'empresarial', nome:'Empresarial', publico:'Empreendedores, sócios, pequenas e médias empresas', cor:'#0F766E', ic:'building',
+  tags:['#direitoempresarial','#empreendedorismo','#contratos','#registrodemarca'], destaques:['Abrir empresa','Sócios','Marca','Contratos'],
+  temas:[
+  {t:'abertura de empresa', q:'Qual o melhor tipo de empresa para começar?', m:'Abrir um CNPJ sempre protege meu patrimônio pessoal.'},
+  {t:'contrato social', q:'O que não pode faltar no contrato social?', m:'Contrato social é só uma formalidade para abrir a empresa.'},
+  {t:'acordo de sócios', q:'Como evitar briga entre sócios?', m:'Acordo de sócios só é necessário em empresas grandes.'},
+  {t:'registro de marca', q:'Por que registrar a marca no INPI?', m:'Registrar o CNPJ já protege o nome da marca.'},
+  {t:'recuperação judicial', q:'O que é recuperação judicial?', m:'Recuperação judicial é a mesma coisa que falência.'},
+  {t:'contratos com fornecedores', q:'Que cláusulas protegem a empresa num contrato?', m:'Contrato entre empresas pode ter qualquer cláusula.'},
+  {t:'saída de sócio', q:'Como sair de uma sociedade?', m:'Sócio não pode sair da empresa sem o acordo dos outros.'},
+  {t:'loja virtual e e-commerce', q:'O que minha loja virtual precisa ter?', m:'Loja virtual não precisa seguir o Código de Defesa do Consumidor.'},
+  {t:'compra de franquia', q:'O que analisar antes de comprar uma franquia?', m:'A franqueadora não precisa entregar nenhum documento antes da assinatura.'},
+  {t:'responsabilidade dos sócios', q:'Sócio responde pelas dívidas da empresa?', m:'Na LTDA, o sócio nunca responde com os bens pessoais.'}]},
+{ id:'digital', nome:'Digital e LGPD', publico:'Usuários de redes, criadores de conteúdo, negócios online', cor:'#7C3AED', ic:'at',
+  tags:['#direitodigital','#lgpd','#protecaodedados','#golpesvirtuais'], destaques:['LGPD','Golpes','Redes','Imagem'],
+  temas:[
+  {t:'LGPD para pequenos negócios', q:'Pequena empresa precisa se adequar à LGPD?', m:'A LGPD só vale para grandes empresas.'},
+  {t:'vazamento de dados', q:'Meus dados vazaram: tenho direito a quê?', m:'Todo vazamento de dados gera indenização automática.'},
+  {t:'perfil hackeado', q:'Meu Instagram foi hackeado: o que fazer?', m:'Perfil hackeado está perdido e não adianta acionar a plataforma.'},
+  {t:'remoção de conteúdo ofensivo', q:'Como tirar do ar um conteúdo ofensivo sobre mim?', m:'Só a Justiça pode tirar um conteúdo do ar.'},
+  {t:'uso indevido de imagem', q:'Podem usar minha foto sem autorização?', m:'Foto publicada na internet pode ser usada por qualquer pessoa.'},
+  {t:'WhatsApp clonado', q:'Clonaram meu WhatsApp: e agora?', m:'Golpe pelo WhatsApp não é crime se a vítima transferiu por vontade própria.'},
+  {t:'publicidade de influenciadores', q:'O que deve ter num contrato com influenciador?', m:'Publi não precisa ser identificada como publicidade.'},
+  {t:'notícias antigas na internet', q:'Posso pedir para apagarem notícias antigas sobre mim?', m:'Existe um direito geral de apagar qualquer notícia antiga verdadeira.'},
+  {t:'política de privacidade', q:'Meu site precisa de política de privacidade?', m:'Site pequeno não precisa de política de privacidade.'},
+  {t:'prints como prova', q:'Print de conversa vale como prova?', m:'Print de WhatsApp nunca vale como prova.'}]},
+{ id:'publico', nome:'Servidor e Administrativo', publico:'Servidores, concurseiros, quem lida com o poder público', cor:'#1E3A8A', ic:'columns',
+  tags:['#direitoadministrativo','#servidorpublico','#concursopublico','#licitacao'], destaques:['Servidor','Concursos','Multas','Licitações'],
+  temas:[
+  {t:'nomeação em concurso público', q:'Fui aprovado no concurso: tenho direito à nomeação?', m:'Quem é aprovado dentro das vagas pode nunca ser chamado.'},
+  {t:'processo administrativo disciplinar', q:'O que é um PAD?', m:'Servidor estável pode ser demitido sem processo.'},
+  {t:'estágio probatório', q:'Servidor em estágio probatório pode ser exonerado?', m:'No estágio probatório, o servidor pode ser exonerado sem nenhuma avaliação.'},
+  {t:'licenças do servidor', q:'Quais licenças o servidor pode pedir?', m:'A licença para tratar de interesses particulares é um direito que pode ser exigido a qualquer momento.'},
+  {t:'recurso de multa de trânsito', q:'Como recorrer de uma multa de trânsito?', m:'Recorrer de multa de trânsito não adianta.'},
+  {t:'licitações para pequenas empresas', q:'Como pequenas empresas participam de licitações?', m:'Licitação é só para grandes empresas.'},
+  {t:'desapropriação', q:'O governo pode tomar meu imóvel?', m:'Na desapropriação, o proprietário é obrigado a aceitar o valor que o governo oferecer.'},
+  {t:'aposentadoria do servidor', q:'Como funciona a aposentadoria do servidor público?', m:'Todo servidor se aposenta com o último salário.'},
+  {t:'remoção para acompanhar cônjuge', q:'Servidor pode pedir remoção para acompanhar o cônjuge?', m:'A remoção para acompanhar cônjuge sempre depende da vontade da administração.'},
+  {t:'responsabilidade do Estado', q:'O Estado responde por danos causados pelos seus agentes?', m:'Para processar o Estado, é preciso provar a culpa do servidor.'}]},
+{ id:'extrajudicial', nome:'Cartórios e extrajudicial', publico:'Quem quer resolver sem processo: famílias, compradores, estrangeiros', cor:'#9A7B3A', ic:'stamp',
+  tags:['#cartorio','#extrajudicial','#direitonotarial','#desjudicializacao'], destaques:['Escrituras','Nome','Usucapião','Documentos'],
+  temas:[
+  {t:'escritura pública', q:'Quando a escritura pública é obrigatória?', m:'Contrato de gaveta vale o mesmo que uma escritura.'},
+  {t:'usucapião em cartório', q:'Dá para fazer usucapião sem processo judicial?', m:'Usucapião só pode ser feita na Justiça.'},
+  {t:'ata notarial', q:'Para que serve uma ata notarial?', m:'Print de tela tem a mesma força de uma ata notarial.'},
+  {t:'procuração pública', q:'Quando preciso de procuração feita em cartório?', m:'Qualquer procuração particular serve para vender um imóvel.'},
+  {t:'mudança de nome em cartório', q:'Dá para mudar o nome direto no cartório?', m:'Mudar o nome sempre exige processo judicial.'},
+  {t:'paternidade socioafetiva em cartório', q:'Dá para reconhecer um filho socioafetivo em cartório?', m:'A filiação socioafetiva só pode ser reconhecida por um juiz.'},
+  {t:'pacto antenupcial', q:'Para que serve o pacto antenupcial?', m:'Pacto antenupcial é só para quem é rico.'},
+  {t:'apostilamento de documentos', q:'Como validar um documento brasileiro no exterior?', m:'Todo documento precisa passar pelo consulado para valer lá fora.'},
+  {t:'adjudicação compulsória em cartório', q:'Comprei, paguei e o vendedor sumiu: e agora?', m:'Sem a assinatura do vendedor, só um processo judicial resolve.'},
+  {t:'correção de erro na certidão', q:'Tem um erro na minha certidão de nascimento: como corrigir?', m:'Qualquer erro na certidão exige processo judicial.'}]},
+{ id:'carreira', nome:'Carreira jurídica e OAB', publico:'Estudantes, examinandos, jovens advogados', cor:'#B8860B', ic:'cap',
+  tags:['#oab','#exameoab','#jovemadvogado','#advocacia'], destaques:['OAB','Carreira','Rotina','Materiais'],
+  temas:[
+  {t:'1ª fase da OAB', q:'Como se preparar para a 1ª fase da OAB?', m:'É preciso estudar todas as matérias com o mesmo peso.'},
+  {t:'escolha da área na 2ª fase', q:'Como escolher a área da 2ª fase?', m:'Existe uma área da 2ª fase que é a mais fácil para todo mundo.'},
+  {t:'primeiros clientes com ética', q:'Como conseguir os primeiros clientes respeitando a ética?', m:'Advogado não pode ter Instagram profissional.'},
+  {t:'cobrança de honorários no começo', q:'Como cobrar honorários no começo da carreira?', m:'Cobrar abaixo da tabela da OAB é a melhor forma de começar.'},
+  {t:'marketing jurídico (Provimento 205)', q:'O que o Provimento 205/2021 permite?', m:'Advogado não pode impulsionar posts.'},
+  {t:'escritório no começo da carreira', q:'Preciso de um escritório físico para começar?', m:'Sem sala comercial, ninguém confia no advogado.'},
+  {t:'estágio em direito', q:'Como aproveitar melhor o estágio?', m:'Estágio só serve para cumprir horas.'},
+  {t:'organização de prazos', q:'Como organizar os prazos no começo?', m:'Basta confiar nos alertas do sistema do tribunal.'},
+  {t:'especialização', q:'Vale a pena se especializar logo no início?', m:'Advogado generalista não tem espaço no mercado.'},
+  {t:'inteligência artificial na advocacia', q:'Advogado pode usar IA no trabalho?', m:'Usar inteligência artificial no trabalho jurídico é proibido.'}]}
+];
+
+// Pauta · conteúdo fixo da plataforma: formatos, pilares, ideias, ganchos, cronograma de 6 meses,
+// datas, guias de design e vídeo, regras de ética (Provimento 205/2021) e perfil.
+window.PAUTA = {};
+const P = window.PAUTA;
+
+P.FORMATOS = {
+  carrossel: { nome:'Carrossel', curto:'Carrossel', cor:'#3047E6', dur:'7 a 10 slides · 1080×1350', tempo:90 },
+  reels: { nome:'Reels com você', curto:'Reels', cor:'#E5484D', dur:'30 a 60 s · 1080×1920', tempo:75 },
+  'reels-texto': { nome:'Reels sem rosto', curto:'Reels texto', cor:'#F06A3A', dur:'15 a 30 s · texto na tela e imagens', tempo:45 },
+  post: { nome:'Post único', curto:'Post', cor:'#0E9F6E', dur:'1 imagem · 1080×1350', tempo:30 },
+  stories: { nome:'Sequência de stories', curto:'Stories', cor:'#B7791F', dur:'4 a 7 telas · 1080×1920', tempo:20 },
+  live: { nome:'Live', curto:'Live', cor:'#7C3AED', dur:'30 a 45 min', tempo:120 },
+  youtube: { nome:'Vídeo longo', curto:'YouTube', cor:'#9F1239', dur:'6 a 12 min · 16:9', tempo:180 }
+};
+P.PILARES = {
+  educar:{ nome:'Educar', desc:'Explica um direito ou um procedimento em linguagem simples.', meta:'Salvamentos' },
+  desmistificar:{ nome:'Desmistificar', desc:'Corrige uma crença errada que prejudica as pessoas.', meta:'Compartilhamentos' },
+  passo:{ nome:'Passo a passo', desc:'Mostra o caminho prático, com etapas e documentos.', meta:'Salvamentos' },
+  autoridade:{ nome:'Autoridade', desc:'Mostra profundidade: casos fictícios, decisões, análise.', meta:'Visitas ao perfil' },
+  conexao:{ nome:'Conexão', desc:'Bastidores, rotina e valores: as pessoas confiam em quem conhecem.', meta:'Comentários e mensagens' },
+  comunidade:{ nome:'Comunidade', desc:'Perguntas, enquetes e respostas aos seguidores.', meta:'Respostas e comentários' },
+  conversao:{ nome:'Orientação', desc:'Explica quando procurar um advogado e como funciona o atendimento, sem oferta.', meta:'Mensagens e cliques no link' }
+};
+
+// Modelos de ideia aplicados a cada tema da área.
+P.MODELOS_IDEIA = [
+  { id:'pergunta', formato:'carrossel', pilar:'educar', titulo:x => x.q, gancho:x => x.q },
+  { id:'mito', formato:'reels', pilar:'desmistificar', titulo:x => `Mito ou verdade: “${x.m}”`, gancho:x => `“${x.m}” Será?` },
+  { id:'passo', formato:'carrossel', pilar:'passo', titulo:x => `Passo a passo: ${x.t}`, gancho:x => `${cap(x.t)}: o caminho em poucos passos` },
+  { id:'erros', formato:'carrossel', pilar:'educar', titulo:x => `3 erros comuns sobre ${x.t}`, gancho:x => `3 erros sobre ${x.t} que custam caro` },
+  { id:'caso', formato:'reels', pilar:'autoridade', titulo:x => `Caso fictício: ${x.t}`, gancho:x => `Imagine esta situação sobre ${x.t}…` },
+  { id:'minuto', formato:'reels', pilar:'autoridade', titulo:x => `${cap(x.t)} em 1 minuto`, gancho:x => `Tudo o que você precisa saber sobre ${x.t} em 1 minuto` },
+  { id:'caixa', formato:'stories', pilar:'comunidade', titulo:x => `Caixa de perguntas: ${x.t}`, gancho:x => `Me pergunte o que quiser sobre ${x.t}` },
+  { id:'quando', formato:'post', pilar:'conversao', titulo:x => `Quando buscar orientação jurídica sobre ${x.t}`, gancho:x => `Sinais de que é hora de buscar orientação sobre ${x.t}` },
+  { id:'live', formato:'live', pilar:'comunidade', titulo:x => `Live: tire suas dúvidas sobre ${x.t}`, gancho:x => `Ao vivo: suas dúvidas sobre ${x.t}` },
+  { id:'longo', formato:'youtube', pilar:'autoridade', titulo:x => `${cap(x.t)}: guia completo`, gancho:x => `Neste vídeo eu explico ${x.t} do começo ao fim` }
+];
+function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1) }
+P.cap = cap;
+
+// Ideias de conexão e bastidor (servem para qualquer área; {area} vira a área principal).
+P.IDEIAS_GERAIS = [
+  { t:'Quem sou e como posso ajudar', f:'post', p:'conexao', fixo:true },
+  { t:'Por que escolhi atuar com {area}', f:'reels', p:'conexao' },
+  { t:'Um dia na minha rotina de advocacia', f:'reels', p:'conexao' },
+  { t:'Como funciona o primeiro atendimento', f:'carrossel', p:'conversao' },
+  { t:'O que levar para a primeira reunião com um advogado', f:'carrossel', p:'conversao' },
+  { t:'5 perguntas que você pode fazer ao seu advogado', f:'carrossel', p:'conversao' },
+  { t:'Termos jurídicos de {area} traduzidos', f:'carrossel', p:'educar' },
+  { t:'O que eu estudo para atender melhor', f:'stories', p:'conexao' },
+  { t:'Minha mesa de trabalho e o que uso todo dia', f:'stories', p:'conexao' },
+  { t:'O que aprendi no meu primeiro ano de advocacia', f:'reels', p:'conexao' },
+  { t:'Livros e leis que todo mundo deveria conhecer sobre {area}', f:'carrossel', p:'educar' },
+  { t:'Respondendo os comentários da semana', f:'reels', p:'comunidade' },
+  { t:'Enquete: qual tema você quer ver na próxima semana?', f:'stories', p:'comunidade' },
+  { t:'Mitos sobre advogados que eu ouço toda semana', f:'reels', p:'conexao' },
+  { t:'Como organizo um caso do começo ao fim (sem dados de clientes)', f:'carrossel', p:'autoridade' },
+  { t:'Glossário de {area}: 10 palavras que você vai ouvir', f:'carrossel', p:'educar' },
+  { t:'Os 6 meses de conteúdo: o que mudou no meu trabalho', f:'reels', p:'conexao' },
+  { t:'Decisão recente sobre {area} explicada em linguagem simples', f:'carrossel', p:'autoridade' }
+];
+
+// Datas que rendem conteúdo (mês 1–12, dia). areas vazias = serve para todas.
+P.DATAS = [
+  { m:1, d:24, t:'Dia Nacional do Aposentado', areas:['previdenciario'] },
+  { m:1, d:30, t:'Volta às aulas: lista de material e matrícula', areas:['consumidor','familia'] },
+  { m:3, d:8, t:'Dia Internacional da Mulher', areas:['criminal','trabalho','familia','previdenciario'] },
+  { m:3, d:15, t:'Dia do Consumidor', areas:['consumidor','bancario','saude','digital'] },
+  { m:3, d:20, t:'Começa a temporada do Imposto de Renda', areas:['tributario','previdenciario'] },
+  { m:4, d:2, t:'Dia Mundial de Conscientização do Autismo', areas:['saude','previdenciario','familia'] },
+  { m:4, d:7, t:'Dia Mundial da Saúde', areas:['saude'] },
+  { m:5, d:1, t:'Dia do Trabalhador', areas:['trabalho','previdenciario'] },
+  { m:5, d:10, t:'Semana do Dia das Mães', areas:['familia','trabalho','previdenciario'] },
+  { m:5, d:15, t:'Dia Internacional da Família', areas:['familia','sucessoes','extrajudicial'] },
+  { m:6, d:12, t:'Dia dos Namorados: união estável e regime de bens', areas:['familia','extrajudicial','sucessoes'] },
+  { m:7, d:13, t:'Aniversário do Estatuto da Criança e do Adolescente', areas:['familia','criminal'] },
+  { m:7, d:15, t:'Férias: viagens, voos e hospedagem', areas:['consumidor'] },
+  { m:8, d:7, t:'Aniversário da Lei Maria da Penha', areas:['criminal','familia'] },
+  { m:8, d:11, t:'Dia do Advogado e dos cursos jurídicos', areas:[] },
+  { m:8, d:9, t:'Semana do Dia dos Pais: guarda e convivência', areas:['familia'] },
+  { m:9, d:11, t:'Aniversário do Código de Defesa do Consumidor', areas:['consumidor','bancario','saude'] },
+  { m:9, d:21, t:'Dia Nacional de Luta da Pessoa com Deficiência', areas:['previdenciario','saude','tributario'] },
+  { m:10, d:5, t:'Aniversário da Constituição de 1988', areas:['publico','criminal','carreira'] },
+  { m:10, d:28, t:'Dia do Servidor Público', areas:['publico'] },
+  { m:11, d:20, t:'Dia da Consciência Negra', areas:['criminal','trabalho','publico','carreira'] },
+  { m:11, d:25, t:'Black Friday: compras sem cair em armadilhas', areas:['consumidor','digital','bancario'] },
+  { m:11, d:30, t:'Primeira parcela do 13º salário', areas:['trabalho','previdenciario'] },
+  { m:12, d:10, t:'Dia Internacional dos Direitos Humanos', areas:['criminal','publico'] },
+  { m:12, d:20, t:'Fim de ano: planejamento sucessório e doações', areas:['sucessoes','tributario','extrajudicial'] }
+];
+
+// Cronograma: 6 fases (meses) e 26 semanas.
+P.FASES = [
+  { n:1, nome:'Fundação', cor:'#3047E6', obj:'Perfil pronto, identidade definida e os primeiros posts publicados.',
+    kpis:['Bio e foto revisadas','4 a 6 destaques criados','3 posts fixados','12 publicações'], mix:['carrossel','carrossel','post','reels','carrossel'] },
+  { n:2, nome:'Constância', cor:'#0E9F6E', obj:'Ritmo semanal sem falhar, séries com nome e stories todos os dias.',
+    kpis:['Nenhuma semana sem postar','2 séries fixas','Stories 5 dias por semana','Responder em até 24 h'], mix:['carrossel','reels','carrossel','post','reels'] },
+  { n:3, nome:'Autoridade', cor:'#B7791F', obj:'Conteúdo mais profundo: casos fictícios, decisões explicadas e um material gratuito.',
+    kpis:['1 conteúdo aprofundado por semana','1 material gratuito (PDF)','Salvamentos em alta','Citação de fontes'], mix:['carrossel','reels','carrossel','carrossel','reels'] },
+  { n:4, nome:'Vídeo', cor:'#E5484D', obj:'Gravar e editar com segurança: ganchos fortes, legendas e gravação em lote.',
+    kpis:['8 vídeos gravados em lote','Retenção nos 3 primeiros segundos','Legendas em todos','1 modelo de edição'], mix:['reels','reels','carrossel','reels','reels'] },
+  { n:5, nome:'Comunidade', cor:'#7C3AED', obj:'Conversa com quem segue: lives, respostas, colaborações e parcerias locais.',
+    kpis:['1 live ou colab no mês','Série de respostas','1 parceria local','Mensagens em alta'], mix:['reels','carrossel','live','reels','carrossel'] },
+  { n:6, nome:'Escala', cor:'#0F766E', obj:'Reaproveitar o que deu certo, levar para outras redes e planejar o próximo semestre.',
+    kpis:['Conteúdo reaproveitado em 3 formatos','Presença em mais 1 rede','Plano do próximo semestre','Balanço dos 6 meses'], mix:['carrossel','reels','reels','carrossel','post'] }
+];
+P.SEMANAS = [
+  // Mês 1 · Fundação
+  { f:1, tema:'Base do perfil', tarefas:['Defina o nome do perfil com a sua área (ex.: “Ana Souza | Direito de Família”)','Faça uma foto de perfil com fundo limpo, rosto centralizado e boa luz','Escreva a bio no gerador da aba Perfil e coloque o número da OAB','Escolha 3 pilares de conteúdo para os próximos 6 meses'] },
+  { f:1, tema:'Identidade visual', tarefas:['Escolha a paleta e o par de fontes na aba Perfil › Identidade','Crie a capa padrão dos seus carrosséis','Separe 20 fotos suas (trabalhando, falando, retrato) para usar nos posts'] },
+  { f:1, tema:'Primeiros posts e destaques', tarefas:['Publique o post “Quem sou e como posso ajudar”','Monte de 4 a 6 destaques: Sobre mim, áreas, Dúvidas e Conteúdos','Fixe 3 posts no topo do perfil (apresentação, um educativo e um passo a passo)'] },
+  { f:1, tema:'Rotina de produção', tarefas:['Escolha um dia fixo para roteirizar e outro para gravar e criar','Favorite 30 ideias no Banco de ideias','Revisão do mês: anote alcance, salvamentos e compartilhamentos na aba Métricas'] },
+  // Mês 2 · Constância
+  { f:2, tema:'Séries fixas', tarefas:['Crie 2 séries com nome (ex.: “Mito ou verdade”, “Pergunta da semana”)','Padronize a capa de cada série com a mesma estrutura','Anuncie as séries nos stories'] },
+  { f:2, tema:'Stories todos os dias', tarefas:['Poste de 3 a 5 stories por dia: bastidor, conteúdo e interação','Use enquete ou caixa de perguntas 2 vezes na semana','Salve as melhores sequências em destaques'] },
+  { f:2, tema:'Legendas que funcionam', tarefas:['Primeira linha da legenda = gancho; o resto em parágrafos curtos','Termine com um convite: salvar, compartilhar ou comentar','Use de 3 a 5 hashtags, incluindo uma da sua cidade'] },
+  { f:2, tema:'Conversa e respostas', tarefas:['Responda todos os comentários em até 24 horas','Escreva respostas-padrão para direct (sem orientar caso concreto por mensagem)','Leve as dúvidas recebidas para o Banco de ideias'] },
+  { f:2, tema:'Revisão do mês 2', tarefas:['Registre as métricas das últimas 4 semanas','Liste os 3 posts mais salvos e repita o formato','Ajuste os dias e horários de publicação'] },
+  // Mês 3 · Autoridade
+  { f:3, tema:'Conteúdo aprofundado', tarefas:['Faça um carrossel de 10 slides com um passo a passo completo','Cite a lei e o artigo em todo conteúdo técnico','Transforme uma dúvida frequente em um guia salvável'] },
+  { f:3, tema:'Casos fictícios', tarefas:['Escreva 3 casos fictícios a partir de situações comuns, sem dados de clientes','Grave um deles em vídeo','Peça nos stories: “o que você faria nesse caso?”'] },
+  { f:3, tema:'Decisões explicadas', tarefas:['Explique uma decisão recente da sua área em linguagem simples','Mostre o impacto prático para quem segue','Guarde a fonte (tribunal, número e data)'] },
+  { f:3, tema:'Material gratuito', tarefas:['Crie um checklist em PDF (ex.: documentos para um procedimento da sua área)','Divulgue com uma palavra para comentar, sem oferecer serviços','Revise o material na aba Ética antes de publicar'] },
+  // Mês 4 · Vídeo
+  { f:4, tema:'Montando o set', tarefas:['Grave de frente para uma janela ou com luz a 45°','Celular na altura dos olhos, câmera traseira e 1080p ou 4K a 30 fps','Teste o áudio com microfone de lapela e um ambiente sem eco'] },
+  { f:4, tema:'Ganchos', tarefas:['Grave 10 ganchos diferentes para o mesmo tema','Coloque o gancho também como texto na tela nos 3 primeiros segundos','Compare a retenção de 3 segundos nos insights'] },
+  { f:4, tema:'Edição', tarefas:['Crie um modelo de edição (legenda, cores e fonte) no seu editor','Corte pausas e respirações: um corte a cada 2 a 4 segundos','Legenda em todos os vídeos, com palavras-chave destacadas'] },
+  { f:4, tema:'Gravação em lote', tarefas:['Escreva 8 roteiros curtos em tópicos','Grave os 8 vídeos em um bloco de 2 horas','Edite e agende para as próximas 3 semanas'] },
+  { f:4, tema:'Revisão do vídeo', tarefas:['Veja a retenção média e o ponto em que as pessoas saem','Refaça o gancho dos vídeos com pior retenção','Escolha 1 vídeo para virar carrossel'] },
+  // Mês 5 · Comunidade
+  { f:5, tema:'Live ou colaboração', tarefas:['Convide um colega de área complementar para uma live ou post em colaboração','Divulgue a live com 3 dias de antecedência','Corte os melhores trechos em reels'] },
+  { f:5, tema:'Respostas aos seguidores', tarefas:['Abra uma caixa de perguntas e responda em série','Grave respostas curtas em vídeo','Agradeça publicamente as perguntas (sem expor ninguém)'] },
+  { f:5, tema:'Parcerias locais', tarefas:['Ofereça uma palestra gratuita sobre direitos em escola, associação ou igreja','Faça conteúdo sobre um tema da sua cidade','Marque instituições parceiras nos posts'] },
+  { f:5, tema:'Revisão do mês 5', tarefas:['Registre as métricas do mês','Veja quais assuntos geraram mensagens','Atualize os destaques com os melhores conteúdos'] },
+  // Mês 6 · Escala
+  { f:6, tema:'Reaproveitamento', tarefas:['Transforme um carrossel campeão em reels','Transforme um reels em sequência de stories','Corte a live em 3 vídeos curtos'] },
+  { f:6, tema:'Outras redes', tarefas:['Adapte 3 conteúdos para LinkedIn ou TikTok','Publique um vídeo longo no YouTube com um tema campeão','Coloque todos os links na bio'] },
+  { f:6, tema:'Próximo semestre', tarefas:['Liste as datas importantes dos próximos 6 meses','Escolha as 3 séries que vão continuar','Defina a meta de cada pilar'] },
+  { f:6, tema:'Balanço dos 6 meses', tarefas:['Compare as métricas da semana 1 e da semana 26','Escreva o que funcionou e o que não funcionou','Gere um novo plano de 6 meses na aba Ajustes'] }
+];
+
+// Ganchos ({t} = tema). Usados nos roteiros e na aba Roteiros.
+P.GANCHOS = [
+  'Se você está passando por {t}, pare 30 segundos e veja isso.',
+  'Ninguém te contou isso sobre {t}.',
+  'O erro que mais vejo em {t}.',
+  'Antes de assinar qualquer coisa sobre {t}, assista.',
+  '3 coisas sobre {t} que a lei garante e pouca gente sabe.',
+  'Você pode estar perdendo dinheiro com {t}.',
+  'Isso que você ouviu sobre {t} não é bem assim.',
+  'A pergunta que eu mais recebo sobre {t}.',
+  'Guarde este vídeo: ele vai te ajudar com {t}.',
+  'Se alguém te disse que {t} é simples, falta uma parte.',
+  'Em 1 minuto: tudo sobre {t}.',
+  'O documento que muda tudo em {t}.',
+  'Você sabia que {t} tem prazo?',
+  'Mande para alguém que está passando por {t}.',
+  'Antes de ir ao cartório ou ao fórum por {t}, veja isso.',
+  '“Doutor(a), é verdade que…?” Hoje a pergunta é sobre {t}.',
+  'O que fazer nos primeiros dias de {t}.',
+  'Três sinais de que {t} precisa de atenção.',
+  'Isso acontece com mais gente do que você imagina: {t}.',
+  'Vou te mostrar o caminho de {t} em 4 passos.'
+];
+P.CTAS = [
+  'Salve para consultar quando precisar.',
+  'Mande para alguém que precisa saber disso.',
+  'Comente sua dúvida que ela pode virar o próximo conteúdo.',
+  'Siga para mais conteúdos sobre {area} em linguagem simples.',
+  'Quer o checklist completo? Comente “{palavra}”.',
+  'Cada caso tem detalhes: na dúvida, busque orientação de um profissional de confiança.'
+];
+
+// Rotina de stories por dia da semana.
+P.STORIES_SEMANA = [
+  { d:'Segunda', ideia:'Bom dia + o que vem no conteúdo da semana (enquete de tema)' },
+  { d:'Terça', ideia:'Bastidor de estudo ou de organização do escritório' },
+  { d:'Quarta', ideia:'Caixa de perguntas sobre o tema da semana' },
+  { d:'Quinta', ideia:'Respostas da caixa de perguntas, em vídeo curto' },
+  { d:'Sexta', ideia:'Quiz “certo ou errado” + repost do conteúdo da semana' },
+  { d:'Sábado', ideia:'Algo pessoal e leve (leitura, café, cidade)' },
+  { d:'Domingo', ideia:'Opcional: resumo da semana ou descanso' }
+];
+
+// Guias do Estúdio (design, vídeo, stories, rotina).
+P.GUIAS = {
+  design:{ titulo:'Design de posts', secoes:[
+    { h:'Medidas', itens:['Feed e carrossel: 1080 × 1350 px (4:5). É o formato que ocupa mais tela no feed.','Stories e reels: 1080 × 1920 px (9:16).','A grade do perfil corta a miniatura em 3:4: deixe o título no centro da capa.','Margem de segurança de 80 px nas bordas em todo post.'] },
+    { h:'Capa do carrossel', itens:['Título com 5 a 9 palavras, em fonte grande (60 a 110 px).','Uma palavra ou trecho em destaque com a cor de acento.','Foto sua ou elemento visual forte; nada de capas só com texto pequeno.','Sinal de continuidade: “arrasta →” ou seta no canto.'] },
+    { h:'Slides internos', itens:['Uma ideia por slide, no máximo 40 palavras.','Texto corrido com pelo menos 30 px; títulos de 48 px ou mais.','Numere os passos e use a mesma posição para o título em todos os slides.','Último slide: resumo ou convite (salvar, compartilhar, comentar).'] },
+    { h:'Identidade', itens:['Duas fontes no máximo: uma para títulos e outra para texto.','Três ou quatro cores: fundo, texto, acento e uma de apoio.','Contraste alto: texto escuro em fundo claro ou o contrário.','Mesma estrutura de capa em cada série: quem segue reconhece de longe.'] },
+    { h:'Fotos', itens:['Fotos reais suas trabalham melhor que banco de imagens.','Luz natural, fundo organizado, roupa que você usaria no atendimento.','Evite balanças, martelos e livros genéricos: mostre você e o tema.','Não use fotos de clientes ou documentos reais, nem com tarja.'] }
+  ]},
+  video:{ titulo:'Gravação e edição de vídeo', secoes:[
+    { h:'Antes de gravar', itens:['Roteiro em tópicos, não em texto corrido: fica natural.','Luz de frente (janela) ou a 45°; evite luz atrás de você.','Celular na altura dos olhos, câmera traseira, 1080p ou 4K a 30 fps.','Microfone de lapela: o áudio importa mais que a imagem.','Fundo simples e organizado, sem eco no ambiente.'] },
+    { h:'Gravando', itens:['Olhe para a lente, não para a tela.','Comece pelo gancho, sem “oi, gente”: os 3 primeiros segundos decidem.','Grave frases curtas; errou, repita a frase inteira e corte depois.','Grave 2 versões do gancho para testar.','Grave imagens de apoio (mãos escrevendo, mesa, cidade) para cobrir cortes.'] },
+    { h:'Editando', itens:['Corte silêncios e respirações: um corte a cada 2 a 4 segundos mantém o ritmo.','Legenda em todos os vídeos: no máximo 2 linhas, palavras-chave em destaque.','Texto do gancho na tela nos 3 primeiros segundos.','Zoom de 110 a 120% para dar ênfase em frases importantes.','Música baixa, bem abaixo da voz (cerca de -25 dB), ou nenhuma.','Duração: 20 a 40 s para alcance, 45 a 90 s para explicar.'] },
+    { h:'Zona segura do 9:16', itens:['Deixe livres os 250 px de cima (nome e botões).','Deixe livres os 420 px de baixo (legenda e botões do app).','Deixe livres os 120 px da direita (curtir, comentar, compartilhar).','Legendas e títulos no meio da tela.'] },
+    { h:'Exportar e publicar', itens:['1080 × 1920, 30 fps, H.264, entre 10 e 15 Mbps.','Capa do reels com título legível também recortada em 4:5 na grade.','Legenda do post com o gancho na primeira linha.','Editores que resolvem: CapCut, Edits (Instagram), InShot ou VN.'] }
+  ]},
+  stories:{ titulo:'Stories que geram conversa', secoes:[
+    { h:'Estrutura de uma sequência', itens:['Tela 1: contexto ou pergunta (“você sabia que…?”).','Telas 2 a 4: o conteúdo, uma ideia por tela.','Tela 5: interação (enquete, quiz ou caixa de perguntas).','Tela 6: convite para o post do feed ou para o destaque.'] },
+    { h:'Figurinhas', itens:['Enquete: escolha de tema e “mito ou verdade”.','Quiz: teste de conhecimento com 3 opções.','Caixa de perguntas: pauta para a semana seguinte.','Link: material gratuito ou conteúdo completo.'] },
+    { h:'Cuidados', itens:['Não responda caso concreto pela caixa de perguntas: explique a regra geral.','Ao mostrar uma pergunta, esconda o nome de quem perguntou.','Salve as melhores sequências em destaques.'] }
+  ]},
+  rotina:{ titulo:'Rotina de produção em lote', secoes:[
+    { h:'Semana tipo (cerca de 4 horas)', itens:['Segunda · 30 min: revisar o calendário e escolher os temas.','Terça · 1 h: roteiros e legendas da semana seguinte.','Quarta · 1 h: gravar todos os vídeos de uma vez.','Quinta · 1 h 30: design dos carrosséis e edição dos vídeos.','Sexta · 30 min: agendar, responder e registrar as métricas.'] },
+    { h:'Ferramentas', itens:['Agendamento: Meta Business Suite (gratuito).','Design: Canva ou Figma, com modelos fixos.','Edição: CapCut, Edits ou InShot.','Roteiro e organização: esta plataforma.'] },
+    { h:'Reaproveitamento', itens:['1 tema rende: carrossel + reels + stories + post no LinkedIn.','Live vira 3 a 5 cortes curtos.','Carrossel campeão vira reels com o mesmo roteiro.','Repita conteúdos que deram certo depois de 3 a 4 meses, com nova capa.'] }
+  ]}
+};
+
+// Ética: verificador de texto (Provimento 205/2021 e Código de Ética e Disciplina da OAB).
+P.ETICA_REGRAS = [
+  { re:/garant\w*\s+(o\s+|a\s+|de\s+)?(resultado|vit[oó]ria|êxito|exito|ganho|indeniza)|100\s?%\s*(de\s+)?(sucesso|êxito|exito|garantid)|causa ganha|ganhe (sua|a) (a[cç][aã]o|causa)|indeniza[cç][aã]o (garantida|certa)/i, nivel:'proibido', msg:'Promessa de resultado. A advocacia não pode garantir resultado.' },
+  { re:/(o|a) melhor advogad|melhor escrit[oó]rio|n[uú]mero 1|mais barat|o mais (r[aá]pido|experiente) d/i, nivel:'proibido', msg:'Comparação ou autoexaltação. Evite superlativos e comparações com colegas.' },
+  { re:/R\$\s?\d|honor[aá]rios?\s+(a partir|de apenas|por apenas)|pre[cç]o (da|de) consulta|valor da consulta|promo[cç][aã]o|desconto|parcele/i, nivel:'proibido', msg:'Divulgação de valores, promoções ou descontos de serviços não é permitida.' },
+  { re:/consulta (gr[aá]tis|gratuita)|primeira consulta (gr[aá]tis|gratuita)|atendimento gratuito/i, nivel:'atencao', msg:'Oferta de serviço gratuito pode ser vista como captação de clientela. Revise.' },
+  { re:/(chame|me chame|fale comigo|entre em contato|clique)\b.{0,40}(contrat|resolv\w* seu caso|seu processo|entrar com)/i, nivel:'atencao', msg:'Chamada para contratar soa como captação. Prefira um convite informativo.' },
+  { re:/(meu|minha|nosso|nossa) cliente|ganhei (a causa|o processo|a a[cç][aã]o)|caso real/i, nivel:'atencao', msg:'Menção a clientes ou casos reais. Use casos fictícios e não exponha ninguém.' },
+  { re:/sorteio|brinde|ganhe um|presente para quem/i, nivel:'atencao', msg:'Sorteios e brindes ligados a serviços jurídicos devem ser evitados.' },
+  { re:/[uú]ltimas vagas|vagas limitadas|s[oó] hoje|corre que|n[aã]o perca|urgente/i, nivel:'atencao', msg:'Linguagem de urgência comercial (mercantilização). Mantenha o tom informativo.' },
+  { re:/voc[eê] tem direito a receber|receba (at[eé]|seu dinheiro)|dinheiro de volta garantido/i, nivel:'atencao', msg:'Afirmação de direito certo para quem lê. Cada caso depende de análise.' }
+];
+P.ETICA_PODE = [
+  'Conteúdo informativo e educativo sobre direitos e procedimentos.',
+  'Perfil profissional com nome, área de atuação e número da OAB.',
+  'Impulsionar conteúdo informativo, sem oferta mercantil de serviços.',
+  'Falar de bastidores e rotina, com discrição e sem expor clientes.',
+  'Lives, palestras, artigos e entrevistas sobre temas jurídicos.',
+  'Material gratuito educativo (e-book, checklist) para quem segue.',
+  'Uso de vídeos, áudios e fotos profissionais.'
+];
+P.ETICA_NAO = [
+  'Prometer ou sugerir resultado (“causa ganha”, “indenização garantida”).',
+  'Divulgar preços, valores de honorários, promoções ou descontos.',
+  'Captar clientela: oferecer serviços em comentários ou mensagens de quem não pediu.',
+  'Citar clientes ou casos reais identificáveis, mesmo com autorização genérica.',
+  'Comparar-se com colegas ou usar superlativos (“o melhor”).',
+  'Ostentar bens e padrão de vida ligados à advocacia.',
+  'Responder caso concreto publicamente como se fosse consulta.'
+];
+P.ETICA_CHECK = [
+  'O tom é informativo e não oferece serviços.',
+  'Não há promessa de resultado nem afirmação de direito certo para quem lê.',
+  'Não há preços, descontos ou condições comerciais.',
+  'Nenhum cliente ou caso real pode ser identificado.',
+  'A lei ou a fonte está citada quando há informação técnica.',
+  'O perfil mostra nome e número da OAB.'
+];
+
+// Identidade (presets usados agora no Perfil e depois pelos modelos de posts).
+P.PALETAS = [
+  { id:'grafite', nome:'Grafite e areia', cores:['#121212','#F4F1EA','#E3D6B4','#7D6A3E'] },
+  { id:'marinho', nome:'Marinho e azul', cores:['#0F1B33','#F5F7FB','#3B6FE0','#A9C1F5'] },
+  { id:'verde', nome:'Verde-escuro', cores:['#102A22','#F3F6F2','#2E8A6E','#CFE3D6'] },
+  { id:'vinho', nome:'Vinho e rosé', cores:['#3A0F1E','#FBF4F5','#C2577A','#F2C9D4'] },
+  { id:'terracota', nome:'Terracota', cores:['#2B1A12','#FAF5F0','#C4622D','#F0D2BF'] },
+  { id:'preto', nome:'Preto e branco', cores:['#0B0B0C','#FFFFFF','#0B0B0C','#D9D9D9'] }
+];
+P.FONTES = [
+  { id:'manrope', nome:'Manrope + Big Shoulders', titulo:"'Big Shoulders Display', 'Arial Narrow', sans-serif", texto:"Manrope, sans-serif" },
+  { id:'serif', nome:'Fraunces + Inter', titulo:"Fraunces, Georgia, serif", texto:"Inter, sans-serif" },
+  { id:'grotesca', nome:'Archivo + Archivo', titulo:"'Archivo Black', Arial, sans-serif", texto:"Archivo, sans-serif" },
+  { id:'classica', nome:'Playfair + Lato', titulo:"'Playfair Display', Georgia, serif", texto:"Lato, sans-serif" }
+];
+P.MODELOS_FUTUROS = [
+  { grupo:'Posts de feed', itens:['Capa de carrossel educativo','Mito ou verdade','Passo a passo numerado','Pergunta da semana','Frase de destaque','Data comemorativa','Decisão explicada','Checklist salvável'] },
+  { grupo:'Capas de destaque', itens:['Sobre mim','Áreas de atuação','Dúvidas','Conteúdos','Bastidores','Materiais'] },
+  { grupo:'Stories', itens:['Enquete de tema','Caixa de perguntas','Resposta em vídeo','Quiz certo ou errado','Bastidor','Contagem para live','Repost do feed'] }
+];
+
+/* Pauta · estúdio de conteúdo jurídico (PratFlix)
+   App de página única, sem servidor: os dados ficam no navegador (localStorage) e podem ser exportados. */
+(() => {
+const P = window.PAUTA, AREAS = window.AREAS;
+const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const KEY = 'pauta.v1';
+const STATUS = [
+  { id:'ideia', nome:'Ideia' }, { id:'roteiro', nome:'Roteiro' }, { id:'producao', nome:'Gravar / criar' },
+  { id:'edicao', nome:'Edição' }, { id:'agendado', nome:'Agendado' }, { id:'publicado', nome:'Publicado' }
+];
+const STI = Object.fromEntries(STATUS.map((s, i) => [s.id, i]));
+const DIAS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+
+/* ---------- ícones ---------- */
+const IP = {
+  home:'M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', route:'M5 5h12a4 4 0 0 1 0 8H7a4 4 0 0 0 0 8h12 M5 2v6 M19 18v6',
+  cal:'M3 5h18v16H3z M7 2v6 M17 2v6 M3 10h18', board:'M3 4h5v16H3z M10 4h5v10h-5z M17 4h4v13h-4z', bulb:'M9 18h6 M9 21h6 M8 14a7 7 0 1 1 8 0l-1 2H9z',
+  pen:'M14 4l6 6 M3 21l5-1L21 7l-5-5L3 15z', cam:'M3 7h4l2-3h6l2 3h4v13H3z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', shield:'M12 2L3 6v6c0 5 9 10 9 10s9-5 9-10V6z M8 12l3 3 5-6',
+  user:'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', chart:'M4 20V4 M4 20h17 M8 16v-4 M13 16V8 M18 16V3', grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',
+  gear:'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19 12l2-1-1-3-2 .3-1.4-1.4L17 5l-3-1-1 2h-2L10 4 7 5l.4 2-1.4 1.4L4 8 3 11l2 1v0l-2 1 1 3 2-.3 1.4 1.4L7 19l3 1 1-2h2l1 2 3-1-.4-2 1.4-1.4 2 .4 1-3z',
+  check:'M5 12l4 4L19 6', plus:'M12 4v16 M4 12h16', star:'M12 2l3 6 7 1-5 5 1 8-6-4-6 4 1-8-5-5 7-1z', copy:'M8 8h12v12H8z M16 8V4H4v12h4',
+  close:'M6 6l12 12 M6 18L18 6', left:'M15 18l-6-6 6-6', right:'M9 18l6-6-6-6', search:'M21 21l-6-6 M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0',
+  play:'M8 4l13 8-13 8z', clock:'M12 8v5l3 2 M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0', flag:'M5 21V4 M5 4h11l-2 4 2 4H5', download:'M12 3v12 M7 10l5 5 5-5 M3 16v5h18v-5',
+  upload:'M12 21V9 M7 14l5-5 5 5 M3 8V3h18v5', trash:'M4 7h16 M9 7V4h6v3 M6 7l1 14h10l1-14', spark:'M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z', menu:'M3 6h18 M3 12h18 M3 18h18',
+  heart:'M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z', tree:'M12 22v-6 M12 16l-6-6h3L5 5h4L12 2l3 3h4l-4 5h3z', bag:'M5 8h14l-1 13H6z M9 8V6a3 3 0 0 1 6 0v2',
+  briefcase:'M3 7h18v13H3z M9 7V4h6v3 M3 12h18', scale:'M12 3v18 M5 21h14 M4 8h16 M6 8l-3 6a3 3 0 0 0 6 0z M18 8l-3 6a3 3 0 0 0 6 0z', doc:'M5 2h9l5 5v15H5z M14 2v6h5 M8 13h8 M8 17h8',
+  card:'M2 6h20v13H2z M2 10h20 M6 15h4', coin:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M15 9a3 3 0 0 0-3-1.5c-2 0-3 1-3 2s1 1.6 3 2 3 1 3 2-1 2-3 2a3 3 0 0 1-3-1.5 M12 6v1.5 M12 16.5V18',
+  building:'M4 21V3h11v18 M15 9h5v12 M8 7h3 M8 11h3 M8 15h3', at:'M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-4 7.5', columns:'M3 21h18 M4 10h16 M12 3l9 5H3z M6 10v8 M10 10v8 M14 10v8 M18 10v8',
+  stamp:'M9 3h6l-1 8h-4z M4 14h16v4H4z M6 21h12', cap:'M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5 M22 9v6', mic:'M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z M5 11a7 7 0 0 0 14 0 M12 18v3',
+  layers:'M12 3l9 5-9 5-9-5z M3 13l9 5 9-5', eye:'M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z', bolt:'M13 2L4 14h7l-1 8 9-12h-7z'
+};
+const I = (n, c = 'ic') => `<svg class="${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${IP[n] || IP.doc}"/></svg>`;
+
+/* ---------- estado ---------- */
+const novo = () => ({ v:1, perfil:null, posts:[], tarefas:{}, favoritas:[], metricas:[], identidade:{ paleta:'grafite', fonte:'manrope' }, criado:new Date().toISOString() });
+let S = carregar();
+function carregar() { try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) return { ...novo(), ...s } } catch {} return novo() }
+function salvar() { try { localStorage.setItem(KEY, JSON.stringify(S)) } catch {} }
+let rota = 'painel', toastT = null;
+function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 2600) }
+async function copiar(t, ok = 'Copiado.') { try { await navigator.clipboard.writeText(t); toast(ok) } catch { toast('Não foi possível copiar. Selecione o texto e copie.') } }
+
+/* ---------- datas ---------- */
+const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const dataDe = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d) };
+const somaDias = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x };
+const segunda = d => { const x = new Date(d); const w = (x.getDay() + 6) % 7; x.setDate(x.getDate() - w); x.setHours(0, 0, 0, 0); return x };
+const hoje = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d };
+const fmt = (s, o = { day:'2-digit', month:'short' }) => new Intl.DateTimeFormat('pt-BR', o).format(typeof s === 'string' ? dataDe(s) : s).replace('.', '');
+const semanaAtual = () => { if (!S.perfil) return 0; const n = Math.floor((hoje() - dataDe(S.perfil.inicio)) / 864e5 / 7); return Math.max(0, Math.min(25, n)) };
+
+/* ---------- ideias ---------- */
+function ideia(id) {
+  if (id.startsWith('g:')) { const g = P.IDEIAS_GERAIS[+id.slice(2)], a = AREA[S.perfil?.principal] || AREAS[0];
+    return { id, titulo:g.t.replace('{area}', a.nome.toLowerCase()), formato:g.f, pilar:g.p, area:a.id, geral:true, t:a.nome.toLowerCase(), q:'', m:'' } }
+  if (id.startsWith('d:')) { const [, i, ar] = id.split(':'), d = P.DATAS[+i], a = AREA[ar] || AREA[S.perfil?.principal] || AREAS[0];
+    return { id, titulo:`${d.t}: o que você precisa saber`, formato:'carrossel', pilar:'educar', area:a.id, data:true, t:d.t.toLowerCase(), q:'', m:'' } }
+  const [ar, ti, mi] = id.split(':'), a = AREA[ar], x = a.temas[+ti], mo = P.MODELOS_IDEIA.find(m => m.id === mi);
+  return { id, titulo:mo.titulo(x), gancho:mo.gancho(x), formato:mo.formato, pilar:mo.pilar, area:ar, modelo:mi, ...x };
+}
+function todasIdeias(areas) {
+  const out = [];
+  areas.forEach(ar => AREA[ar].temas.forEach((x, ti) => P.MODELOS_IDEIA.forEach(mo => out.push(`${ar}:${ti}:${mo.id}`))));
+  P.IDEIAS_GERAIS.forEach((g, i) => out.push('g:' + i));
+  return out;
+}
+
+/* ---------- gerador do plano ---------- */
+const DIAS_FREQ = { 2:[2, 4], 3:[1, 3, 5], 4:[1, 2, 4, 5], 5:[1, 2, 3, 4, 5] };
+function gerarPlano(pf, manter = []) {
+  const ini = segunda(dataDe(pf.inicio)), areas = pf.areas, posts = [];
+  const filas = Object.fromEntries(['carrossel', 'reels', 'post', 'stories', 'live', 'youtube'].map(f => [f, []]));
+  // Fila de temas por formato, intercalando as áreas (área principal aparece com mais frequência).
+  const ordemAreas = areas.length > 1 ? [pf.principal, ...areas.filter(a => a !== pf.principal), pf.principal] : areas;
+  const maxT = Math.max(...areas.map(a => AREA[a].temas.length));
+  for (let ti = 0; ti < maxT; ti++) ordemAreas.forEach(ar => { if (!AREA[ar].temas[ti]) return;
+    P.MODELOS_IDEIA.forEach(mo => { const k = `${ar}:${ti}:${mo.id}`; if (!filas[mo.formato].includes(k)) filas[mo.formato].push(k) }) });
+  // Embaralha levemente mantendo a alternância (rotação por modelo dentro do formato).
+  for (const f in filas) { const porModelo = {}; filas[f].forEach(k => { const m = k.split(':')[2]; (porModelo[m] ||= []).push(k) });
+    const ms = Object.values(porModelo), r = []; for (let i = 0; r.length < filas[f].length; i++) ms.forEach(l => l[i] && r.push(l[i])); filas[f] = r }
+  const usados = new Set(manter.map(p => p.ideia));
+  const pega = f => { const fila = filas[f] || filas.carrossel; let k; while ((k = fila.shift()) && usados.has(k)); if (!k) k = filas.carrossel.shift() || `g:${(posts.length % (P.IDEIAS_GERAIS.length - 1)) + 1}`; usados.add(k); return k };
+  const gerais = P.IDEIAS_GERAIS.map((g, i) => i).filter(i => i > 0); let gi = 0;
+  const dias = (pf.dias && pf.dias.length ? pf.dias : DIAS_FREQ[pf.freq]).slice().sort();
+  let liveFeita = false, nPost = 0;
+  for (let w = 0; w < 26; w++) {
+    const sem = P.SEMANAS[w], fase = P.FASES[sem.f - 1], seg = somaDias(ini, w * 7);
+    dias.forEach((dw, k) => {
+      const data = iso(somaDias(seg, (dw + 6) % 7));
+      if (manter.some(p => p.data === data)) return;
+      let fmt = fase.mix[(k + w) % fase.mix.length], id;
+      if (fmt === 'live') { if (liveFeita || sem.f !== 5) fmt = 'carrossel'; else liveFeita = true }
+      if (w === 0 && k === 0) { id = 'g:0'; fmt = null }
+      else if (fmt === 'post' && (nPost++ % 2)) { id = 'g:' + gerais[gi++ % gerais.length]; fmt = null }
+      else if (k === dias.length - 1 && w % 3 === 1 && sem.f !== 4) { id = 'g:' + gerais[gi++ % gerais.length]; fmt = null }
+      else id = pega(fmt);
+      // datas comemorativas da semana
+      const dt = P.DATAS.findIndex(d => { const dd = new Date(seg.getFullYear(), d.m - 1, d.d); const dd2 = new Date(seg.getFullYear() + 1, d.m - 1, d.d);
+        return [dd, dd2].some(x => x >= seg && x < somaDias(seg, 7)) && (!d.areas.length || d.areas.some(a => areas.includes(a))) });
+      if (dt >= 0 && k === 0 && w > 0) { const d = P.DATAS[dt]; id = `d:${dt}:${d.areas.find(a => areas.includes(a)) || pf.principal}` }
+      const ide = ideia(id); let formato = fmt || ide.formato;
+      if (id.startsWith('d:')) formato = 'carrossel';
+      if (formato === 'reels' && pf.video === 'nao') formato = 'reels-texto';
+      if (formato === 'reels' && pf.video === 'asvezes' && (w + k) % 2) formato = 'reels-texto';
+      if (formato === 'live' && pf.video === 'nao') formato = 'carrossel';
+      posts.push({ id:'p' + Math.random().toString(36).slice(2, 9), data, semana:w, formato, pilar:ide.pilar, area:ide.area, ideia:id, titulo:ide.titulo, status:'ideia', roteiro:'', legenda:'', notas:'', check:[] });
+    });
+  }
+  return [...manter, ...posts].sort((a, b) => a.data.localeCompare(b.data));
+}
+
+/* ---------- roteiros ---------- */
+const CTA = (a, i = 0) => P.CTAS[i % P.CTAS.length].replace('{area}', a.nome.toLowerCase()).replace('{palavra}', (a.destaques[0] || 'GUIA').toUpperCase());
+function roteiro(post) {
+  const x = ideia(post.ideia), a = AREA[post.area] || AREAS[0], t = x.t || x.titulo, f = post.formato, mod = x.modelo;
+  const gancho = x.gancho || x.titulo;
+  if (post.ideia === 'g:0') { const pf = S.perfil || {}; return `${f === 'carrossel' ? 'CARROSSEL · 6 slides' : 'POST ÚNICO + LEGENDA'}\n\n${f === 'carrossel' ? 'SLIDE 1 · CAPA\n' : ''}Foto sua, sorrindo, em ambiente de trabalho.\nTítulo: “Prazer, ${pf.nome || '[seu nome]'}”\nApoio: ${pf.areas ? pf.areas.map(x => AREA[x].nome).join(', ') : '[suas áreas]'} em ${pf.cidade || '[cidade]'}\n\n${f === 'carrossel' ? 'SLIDE 2 · QUEM SOU\n' : ''}[Formação, tempo de advocacia e número da OAB]\n\n${f === 'carrossel' ? 'SLIDE 3 · COM O QUE TRABALHO\n' : ''}[As áreas e os assuntos que você mais atende, em linguagem simples]\n\n${f === 'carrossel' ? 'SLIDE 4 · PARA QUEM FALO\n' : ''}[O público: quem vai se beneficiar do perfil]\n\n${f === 'carrossel' ? 'SLIDE 5 · O QUE VOCÊ VAI ENCONTRAR AQUI\n' : ''}[As séries e os temas: dúvidas, mitos, passo a passo]\n\n${f === 'carrossel' ? 'SLIDE 6 · CONVITE\n' : ''}Siga para acompanhar e comente de onde você é.\n\nDEPOIS DE PUBLICAR\n• Fixe este post no topo do perfil.\n• Repita a apresentação nos stories e salve no destaque “Sobre mim”.` }
+  if (f === 'carrossel') {
+    let miolo;
+    if (mod === 'passo') miolo = `SLIDE 2 · QUANDO ISSO ACONTECE\n[Descreva a situação em 2 frases: quem passa por ${t} e por que precisa saber o caminho.]\n\nSLIDE 3 · PASSO 1\n[Primeira ação] — [documento ou lugar]\n\nSLIDE 4 · PASSO 2\n[Segunda ação] — [prazo, se houver]\n\nSLIDE 5 · PASSO 3\n[Terceira ação] — [o que pode dar errado]\n\nSLIDE 6 · PASSO 4\n[Última ação e resultado esperado]\n\nSLIDE 7 · DOCUMENTOS\n[Lista curta dos documentos mais importantes]`;
+    else if (mod === 'erros') miolo = `SLIDE 2 · POR QUE ISSO IMPORTA\n[Uma frase sobre o prejuízo de errar em ${t}.]\n\nSLIDE 3 · ERRO 1\n[O erro] → Faça assim: [o certo]\n\nSLIDE 4 · ERRO 2\n[O erro] → Faça assim: [o certo]\n\nSLIDE 5 · ERRO 3\n[O erro] → Faça assim: [o certo]\n\nSLIDE 6 · BÔNUS\n[Uma dica prática que quase ninguém conhece]\n\nSLIDE 7 · O QUE DIZ A LEI\n[Artigo e lei, em linguagem simples]`;
+    else if (mod === 'pergunta') miolo = `SLIDE 2 · A DÚVIDA\n“${x.q}”\n[Por que essa dúvida é tão comum]\n\nSLIDE 3 · A RESPOSTA CURTA\n[Responda em uma frase direta]\n\nSLIDE 4 · O QUE DIZ A LEI\n[Artigo, lei ou súmula, explicado]\n\nSLIDE 5 · NA PRÁTICA\n[Exemplo fictício: “Maria, 34 anos…”]\n\nSLIDE 6 · ATENÇÃO\n[Exceção ou cuidado importante]\n\nSLIDE 7 · RESUMO\n[3 linhas para salvar]`;
+    else miolo = `SLIDE 2 · CONTEXTO\n[Por que esse assunto importa para quem segue]\n\nSLIDE 3 · PONTO 1\n[Ideia principal]\n\nSLIDE 4 · PONTO 2\n[Segunda ideia]\n\nSLIDE 5 · PONTO 3\n[Terceira ideia]\n\nSLIDE 6 · EXEMPLO\n[Situação fictícia ou fonte]\n\nSLIDE 7 · RESUMO\n[3 linhas para salvar]`;
+    return `CARROSSEL · ${P.FORMATOS.carrossel.dur}\n\nSLIDE 1 · CAPA\nTítulo: ${x.titulo}\nApoio: [uma frase curta que gere curiosidade]\nVisual: foto sua ou elemento ligado ao tema · “arrasta →” no canto\n\n${miolo}\n\nSLIDE 8 · CONVITE\n${CTA(a, 0)}\n${CTA(a, 1)}\n\nDESIGN\n• Uma ideia por slide, no máximo 40 palavras.\n• Título dos slides sempre na mesma posição.\n• Destaque uma palavra por slide com a cor de acento.\n• Numere os slides se for passo a passo.`;
+  }
+  if (f === 'reels' || f === 'reels-texto') {
+    let conteudo;
+    if (mod === 'mito') conteudo = `Fala: “Não é bem assim.” [Explique a regra correta em 2 ou 3 frases e cite a lei.]\nTela: “MITO” riscado → “VERDADE”\n\nFala: “Na prática, isso significa que…” [consequência para quem assiste]`;
+    else if (mod === 'caso') conteudo = `Fala: “Imagine: [personagem fictício] passou por ${t}. [situação em 2 frases].”\nTela: “CASO FICTÍCIO”\n\nFala: “O que a lei diz: [regra].”\nFala: “O que fazer: 1. [ação] 2. [ação] 3. [ação].”`;
+    else conteudo = `Fala: “Primeiro: [ponto 1].”\nFala: “Segundo: [ponto 2].”\nFala: “Terceiro: [ponto 3].”\nTela: números 1, 2, 3 aparecendo junto com a fala`;
+    if (f === 'reels-texto') return `REELS SEM ROSTO · 15 a 30 s · 1080×1920\n\nTELA 1 (0–3 s) · GANCHO\n“${gancho}”\nImagem de fundo: [mãos escrevendo, mesa, cidade, documento genérico]\n\nTELA 2 (3–8 s)\n[Contexto em uma frase]\n\nTELAS 3 a 5 (8–22 s)\n${conteudo.replace(/Fala: /g, '').replace(/Tela: .*/g, '').trim()}\n\nTELA FINAL\n${CTA(a, 1)}\n\nEDIÇÃO\n• Texto grande no meio da tela, no máximo 12 palavras por tela.\n• Troca de tela a cada 3 a 4 segundos.\n• Música baixa e sem letra.\n• Respeite a zona segura: nada nos 250 px de cima e nos 420 px de baixo.`;
+    return `REELS · 30 a 45 s · 1080×1920\n\n[0–3 s] GANCHO\nFala: “${gancho}”\nTela: o gancho em texto grande\n\n[3–10 s] CONTEXTO\nFala: [com quem isso acontece e por que importa]\n\n[10–35 s] CONTEÚDO\n${conteudo}\n\n[35–45 s] FECHAMENTO\nFala: “${CTA(a, 0)}”\n\nEDIÇÃO\n• Corte as pausas: um corte a cada 2 a 4 s.\n• Legenda em 2 linhas, palavra-chave em destaque.\n• Zoom de 110% na frase mais importante.\n• Imagens de apoio: [mãos escrevendo, cidade, mesa].\n• Música bem baixa ou nenhuma.\n\nGRAVAÇÃO\n• Luz de frente, celular na altura dos olhos, microfone de lapela.\n• Grave 2 versões do gancho.`;
+  }
+  if (f === 'stories') return `SEQUÊNCIA DE STORIES · 5 telas\n\nTELA 1 · PERGUNTA\n“Você sabe o que fazer em caso de ${t}?” + enquete Sim / Não\n\nTELA 2 · CONTEXTO\n[Uma frase sobre por que isso importa]\n\nTELA 3 · CAIXA DE PERGUNTAS\n“${x.titulo.replace('Caixa de perguntas: ', 'Me pergunte sobre ')}”\n\nTELA 4 · RESPOSTA (no dia seguinte)\n[Responda 3 perguntas em vídeos curtos, escondendo o nome de quem perguntou]\n\nTELA 5 · CONVITE\n“O conteúdo completo está no feed” + figurinha de link ou menção\n\nCUIDADO\n• Responda a regra geral, nunca o caso concreto de quem perguntou.`;
+  if (f === 'post') return `POST ÚNICO · 1080×1350\n\nFRASE PRINCIPAL (até 12 palavras)\n${x.titulo}\n\nAPOIO (até 25 palavras)\n[Complete a ideia em uma frase]\n\nVISUAL\nFoto sua em ambiente de trabalho ou fundo liso com a frase grande.\n\nNA LEGENDA\n[Explique em 3 parágrafos curtos e termine com: ${CTA(a, 2)}]`;
+  if (f === 'live') return `LIVE · 30 a 40 min\n\n00–03 min · ABERTURA\nApresente-se e o tema: ${x.titulo}. Peça para quem chegar comentar a cidade.\n\n03–15 min · CONTEÚDO\nTrês pontos principais sobre ${t}:\n1. [ponto]\n2. [ponto]\n3. [ponto]\n\n15–30 min · PERGUNTAS\nResponda em regra geral. “Cada caso tem detalhes; aqui eu explico a regra.”\n\n30–35 min · ENCERRAMENTO\nResumo em 3 frases + próximo conteúdo da semana.\n\nANTES\n• Divulgue 3 dias antes e no dia (contagem regressiva).\n• Convidado? Combine os tópicos antes.\nDEPOIS\n• Salve a live e corte 3 trechos para reels.`;
+  return `VÍDEO LONGO · 6 a 12 min · 16:9\n\n0:00 GANCHO\n“${gancho}”\n\n0:20 O QUE VOCÊ VAI APRENDER\n[3 tópicos]\n\n1:00 PARTE 1\n[conteúdo]\n\n4:00 PARTE 2\n[conteúdo]\n\n7:00 PARTE 3 · EXEMPLO FICTÍCIO\n[conteúdo]\n\n9:30 RESUMO E CONVITE\n${CTA(a, 3)}\n\nMINIATURA\nRosto + 3 a 4 palavras grandes · 1280×720`;
+}
+function legenda(post) {
+  const x = ideia(post.ideia), a = AREA[post.area] || AREAS[0], cidade = (S.perfil?.cidade || '').split('/')[0].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, '');
+  const tags = [...a.tags.slice(0, 3), '#advocacia', cidade ? '#' + cidade : ''].filter(Boolean).join(' ');
+  return `${x.gancho || x.titulo}\n\n[Explique em 2 ou 3 parágrafos curtos, uma ideia por parágrafo.]\n\n[Se citar lei, coloque o artigo: “art. ___ da Lei ___”.]\n\n📌 ${CTA(a, 0)}\n\n${tags}`;
+}
+const checagem = txt => P.ETICA_REGRAS.filter(r => r.re.test(txt || ''));
+
+/* ---------- layout ---------- */
+const NAV = [
+  { id:'painel', nome:'Painel', ic:'home' }, { id:'cronograma', nome:'Cronograma', ic:'route' }, { id:'calendario', nome:'Calendário', ic:'cal' },
+  { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' },
+  { sep:'Aprender e cuidar' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' },
+  { sep:'Seu perfil' }, { id:'perfil', nome:'Perfil e identidade', ic:'user' }, { id:'metricas', nome:'Métricas', ic:'chart' }, { id:'modelos', nome:'Modelos', ic:'grid', tag:'Em breve' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
+];
+const MOBILE = ['painel', 'calendario', 'producao', 'ideias'];
+const brand = `<span class="brand">pauta<b>▸</b></span>`;
+function shell(html) {
+  const pf = S.perfil, w = semanaAtual(), fase = P.FASES[P.SEMANAS[w].f - 1];
+  $('#app').innerHTML = `<aside class="side"><a href="#painel" class="side-brand">${brand}<small>Estúdio de conteúdo · PratFlix</small></a>
+    <nav>${NAV.map(n => n.sep ? `<div class="side-sep">${n.sep}</div>` : `<a href="#${n.id}" class="nav ${rota === n.id ? 'on' : ''}" ${rota === n.id ? 'aria-current="page"' : ''}>${I(n.ic)}<span>${n.nome}</span>${n.tag ? `<em>${n.tag}</em>` : ''}</a>`).join('')}</nav>
+    <div class="side-foot"><div class="side-fase" style="--c:${fase.cor}"><small>Mês ${fase.n} de 6 · semana ${w + 1}</small><strong>${fase.nome}</strong><i><b style="width:${Math.round((w + 1) / 26 * 100)}%"></b></i></div>
+      <div class="side-user"><span class="av">${E((pf.nome || '?').slice(0, 2).toUpperCase())}</span><div><strong>${E(pf.nome)}</strong><small>${pf.areas.map(a => AREA[a].nome).join(' · ')}</small></div></div></div></aside>
+  <main class="main"><div class="page">${html}</div></main>
+  <nav class="tabbar">${MOBILE.map(id => { const n = NAV.find(x => x.id === id); return `<a href="#${id}" class="${rota === id ? 'on' : ''}">${I(n.ic)}<span>${n.nome.split(' ')[0]}</span></a>` }).join('')}<button id="mais" aria-label="Mais seções">${I('menu')}<span>Mais</span></button></nav>`;
+}
+const cab = (eyebrow, h, p = '', acoes = '') => `<header class="cab"><div><span class="eyebrow">${eyebrow}</span><h1>${h}</h1>${p ? `<p class="lead">${p}</p>` : ''}</div>${acoes ? `<div class="cab-acoes">${acoes}</div>` : ''}</header>`;
+const chipF = f => `<span class="fchip" style="--c:${P.FORMATOS[f]?.cor || '#888'}">${E(P.FORMATOS[f]?.curto || f)}</span>`;
+const dot = ar => `<span class="adot" style="--c:${AREA[ar]?.cor || '#888'}" title="${E(AREA[ar]?.nome)}"></span>`;
+const stTag = s => `<span class="st st-${s}">${STATUS[STI[s]].nome}</span>`;
+
+/* ---------- onboarding ---------- */
+let wiz = { passo:0, d:{} };
+function onboarding(editar = false) {
+  const d = wiz.d = editar ? { ...S.perfil } : (Object.keys(wiz.d).length ? wiz.d : { nome:'', arroba:'', cidade:'', tempo:'ate2', areas:[], principal:'', publico:['pessoas'], objetivo:'autoridade', redes:['instagram'], freq:3, dias:[], video:'sim', horas:4, tom:'didatico', inicio:iso(segunda(somaDias(hoje(), 1))) });
+  wiz.editar = editar; desenhaWiz();
+}
+const PASSOS = ['Você', 'Áreas', 'Público', 'Rotina', 'Seu plano'];
+function desenhaWiz() {
+  const d = wiz.d, p = wiz.passo;
+  const op = (name, v, l, sub = '', multi = false) => { const on = multi ? (d[name] || []).includes(v) : d[name] === v;
+    return `<button type="button" class="opt ${on ? 'on' : ''}" data-op="${name}" data-v="${v}" data-multi="${multi ? 1 : ''}" aria-pressed="${on}"><strong>${l}</strong>${sub ? `<small>${sub}</small>` : ''}</button>` };
+  let corpo = '';
+  if (p === 0) corpo = `<h2>Vamos montar seus 6 meses de conteúdo.</h2><p class="lead">Leva 3 minutos. Com estas respostas, a Pauta monta um cronograma semana a semana, com ideias e roteiros da sua área.</p>
+    <div class="campos"><label class="campo">Seu nome profissional<input id="w-nome" value="${E(d.nome)}" placeholder="Ex.: Ana Souza" autocomplete="name"></label>
+    <label class="campo">Seu @ no Instagram<input id="w-arroba" value="${E(d.arroba)}" placeholder="@anasouza.adv"></label>
+    <label class="campo">Cidade / UF<input id="w-cidade" value="${E(d.cidade)}" placeholder="Ex.: Recife/PE"></label></div>
+    <div class="grupo"><span class="grupo-t">Tempo de advocacia</span><div class="opts">${op('tempo', 'estudante', 'Ainda estudante')}${op('tempo', 'ate2', 'Até 2 anos')}${op('tempo', '2a5', '2 a 5 anos')}${op('tempo', 'mais5', 'Mais de 5 anos')}</div></div>`;
+  if (p === 1) corpo = `<h2>Em quais áreas você quer atuar?</h2><p class="lead">Escolha de 1 a 4. Cada área tem 10 temas e 100 ideias prontas. Depois, marque a principal: ela aparece mais no seu calendário.</p>
+    <div class="areas-grid">${AREAS.map(a => { const on = d.areas.includes(a.id), pr = d.principal === a.id;
+      return `<button type="button" class="area ${on ? 'on' : ''}" data-area="${a.id}" style="--c:${a.cor}" aria-pressed="${on}"><span class="area-ic">${I(a.ic)}</span><strong>${a.nome}</strong><small>${E(a.publico)}</small>${on ? `<span class="area-pr ${pr ? 'is' : ''}" data-principal="${a.id}">${pr ? '★ Principal' : 'Tornar principal'}</span>` : ''}</button>` }).join('')}</div>`;
+  if (p === 2) corpo = `<h2>Para quem você vai falar?</h2><p class="lead">Isso muda a linguagem dos roteiros e o tipo de conteúdo sugerido.</p>
+    <div class="grupo"><span class="grupo-t">Público (pode marcar mais de um)</span><div class="opts">${op('publico', 'pessoas', 'Pessoas físicas', 'quem precisa entender um direito', true)}${op('publico', 'empresas', 'Empresas', 'donos e gestores', true)}${op('publico', 'colegas', 'Advogados e estudantes', 'conteúdo técnico e de carreira', true)}</div></div>
+    <div class="grupo"><span class="grupo-t">Objetivo principal</span><div class="opts">${op('objetivo', 'autoridade', 'Ser referência na área', 'autoridade e confiança')}${op('objetivo', 'clientes', 'Ser lembrado por quem precisa', 'atrair contatos com ética')}${op('objetivo', 'networking', 'Rede com colegas', 'indicações e parcerias')}${op('objetivo', 'ensinar', 'Ensinar', 'professor, cursos e materiais')}</div></div>
+    <div class="grupo"><span class="grupo-t">Tom de voz</span><div class="opts">${op('tom', 'didatico', 'Didático', 'explica passo a passo')}${op('tom', 'proximo', 'Próximo', 'conversa, exemplos do dia a dia')}${op('tom', 'tecnico', 'Técnico', 'precisão e fontes')}${op('tom', 'leve', 'Bem-humorado', 'analogias e leveza')}</div></div>`;
+  if (p === 3) corpo = `<h2>Como vai ser a sua rotina?</h2><p class="lead">Um ritmo que você consegue manter vale mais que um ritmo alto que dura duas semanas.</p>
+    <div class="grupo"><span class="grupo-t">Publicações no feed por semana</span><div class="opts">${[2, 3, 4, 5].map(n => `<button type="button" class="opt ${d.freq === n ? 'on' : ''}" data-freq="${n}" aria-pressed="${d.freq === n}"><strong>${n} por semana</strong><small>${{ 2:'cerca de 2 h por semana', 3:'cerca de 3 h por semana', 4:'cerca de 4 h por semana', 5:'cerca de 5 h por semana' }[n]}</small></button>`).join('')}</div></div>
+    <div class="grupo"><span class="grupo-t">Dias de publicação</span><div class="opts dias">${[1, 2, 3, 4, 5, 6, 0].map(n => { const on = (d.dias.length ? d.dias : DIAS_FREQ[d.freq]).includes(n); return `<button type="button" class="opt dia ${on ? 'on' : ''}" data-dia="${n}" aria-pressed="${on}"><strong>${DIAS[n]}</strong></button>` }).join('')}</div><small class="hint">Marque ${d.freq} dias. Se não marcar, usamos os dias sugeridos.</small></div>
+    <div class="grupo"><span class="grupo-t">Você topa aparecer em vídeo?</span><div class="opts">${op('video', 'sim', 'Sim', 'reels falando para a câmera')}${op('video', 'asvezes', 'Às vezes', 'metade com rosto, metade com texto')}${op('video', 'nao', 'Prefiro não', 'reels só com texto e imagens')}</div></div>
+    <div class="grupo"><span class="grupo-t">Redes</span><div class="opts">${op('redes', 'instagram', 'Instagram', '', true)}${op('redes', 'tiktok', 'TikTok', '', true)}${op('redes', 'youtube', 'YouTube', '', true)}${op('redes', 'linkedin', 'LinkedIn', '', true)}</div></div>
+    <label class="campo" style="max-width:280px">Começar na semana de<input id="w-inicio" type="date" value="${E(d.inicio)}"></label>`;
+  if (p === 4) { const n = d.freq * 26;
+    corpo = `<h2>Seu plano está pronto para ser gerado.</h2><p class="lead">${E(d.nome || 'Você')}, estes são os seus próximos 6 meses.</p>
+    <div class="resumo"><div><strong>${n}</strong><span>publicações no feed</span></div><div><strong>26</strong><span>semanas com tarefas</span></div><div><strong>${d.areas.length * 100 + P.IDEIAS_GERAIS.length}</strong><span>ideias no seu banco</span></div><div><strong>6</strong><span>fases</span></div></div>
+    <ol class="fases-mini">${P.FASES.map(f => `<li style="--c:${f.cor}"><b>Mês ${f.n} · ${f.nome}</b><span>${E(f.obj)}</span></li>`).join('')}</ol>
+    ${wiz.editar ? `<label class="check-line"><input type="checkbox" id="w-manter" checked> Manter as publicações que já saíram do status “Ideia” e refazer só o restante</label>` : ''}`; }
+  const ok = p === 0 ? (d.nome || '').trim().length > 1 : p === 1 ? d.areas.length > 0 : true;
+  $('#app').innerHTML = `<div class="wiz"><div class="wiz-top">${brand}<span>Estúdio de conteúdo jurídico · PratFlix</span>${wiz.editar ? '<a href="#ajustes" class="link">Cancelar</a>' : ''}</div>
+    <ol class="wiz-passos">${PASSOS.map((n, i) => `<li class="${i < p ? 'feito' : i === p ? 'atual' : ''}"><span>${i < p ? I('check') : i + 1}</span>${n}</li>`).join('')}</ol>
+    <section class="wiz-corpo">${corpo}</section>
+    <div class="wiz-nav">${p ? '<button class="btn ghost" data-wiz="-1">Voltar</button>' : '<span></span>'}<button class="btn" data-wiz="1" ${ok ? '' : 'disabled'}>${p === 4 ? I('spark') + 'Gerar meu plano de 6 meses' : 'Continuar'}</button></div></div>`;
+}
+function lerWiz() { const d = wiz.d; ['nome', 'arroba', 'cidade', 'inicio'].forEach(k => { const el = $('#w-' + k); if (el) d[k] = el.value.trim() }) }
+function concluirWiz() {
+  const d = wiz.d; if (!d.principal || !d.areas.includes(d.principal)) d.principal = d.areas[0];
+  if ((d.dias || []).length !== d.freq) d.dias = [];
+  const manter = wiz.editar && $('#w-manter')?.checked ? S.posts.filter(p => p.status !== 'ideia') : [];
+  S.perfil = { ...d }; S.posts = gerarPlano(S.perfil, manter); if (!wiz.editar) S.tarefas = {};
+  salvar(); wiz = { passo:0, d:{} }; location.hash = 'painel'; render(); toast('Plano de 6 meses criado.');
+}
+
+/* ---------- páginas ---------- */
+function postsDaSemana(w) { return S.posts.filter(p => p.semana === w).sort((a, b) => a.data.localeCompare(b.data)) }
+function cardPost(p, compacto = false) {
+  const atrasado = p.status !== 'publicado' && dataDe(p.data) < hoje();
+  return `<button class="pcard ${p.status === 'publicado' ? 'feito' : ''}" data-post="${p.id}"><span class="pcard-data ${atrasado ? 'atraso' : ''}"><b>${fmt(p.data, { day:'2-digit' })}</b>${fmt(p.data, { weekday:'short' }).replace('.', '')}</span>
+    <span class="pcard-meio"><span class="pcard-meta">${chipF(p.formato)}${dot(p.area)}<small>${P.PILARES[p.pilar]?.nome || ''}</small></span><strong>${E(p.titulo)}</strong></span>${compacto ? '' : stTag(p.status)}</button>`;
+}
+function painel() {
+  const pf = S.perfil, w = semanaAtual(), sem = P.SEMANAS[w], fase = P.FASES[sem.f - 1], ps = postsDaSemana(w);
+  const pub = S.posts.filter(p => p.status === 'publicado').length, rot = S.posts.filter(p => STI[p.status] >= 1).length, tot = S.posts.length;
+  const prox = S.posts.find(p => p.status !== 'publicado' && dataDe(p.data) >= hoje()) || S.posts.find(p => p.status !== 'publicado');
+  const tarefas = sem.tarefas.map((t, i) => ({ t, k:`${w}.${i}` }));
+  let seq = 0; for (let i = w - 1; i >= 0; i--) { const l = postsDaSemana(i); if (l.length && l.every(p => p.status === 'publicado')) seq++; else break }
+  const ideias = todasIdeias(pf.areas), dia = Math.floor(hoje() / 864e5), idd = ideia(ideias[dia % ideias.length]);
+  const pct = Math.round(pub / tot * 100), h = new Date().getHours();
+  return `<section class="hero-painel" style="--c:${fase.cor}"><div><span class="eyebrow">${h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite'}, ${E(pf.nome.split(' ')[0])}</span>
+      <h1>Semana ${w + 1} de 26 · <em>${E(sem.tema)}</em></h1><p class="lead">Mês ${fase.n}, ${fase.nome}: ${E(fase.obj)}</p>
+      <div class="acoes">${prox ? `<button class="btn" data-post="${prox.id}">${I('pen')}Abrir o próximo roteiro</button>` : ''}<a class="btn ghost" href="#cronograma">${I('route')}Ver os 6 meses</a></div></div>
+    <div class="anel" style="--p:${pct}"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="52" class="fg" style="stroke-dashoffset:${326.7 * (1 - pub / tot)}"/></svg><div><strong>${pub}</strong><span>de ${tot} publicados</span></div></div></section>
+  <div class="stats"><div><strong>${ps.filter(p => p.status === 'publicado').length}/${ps.length}</strong><span>posts desta semana</span></div><div><strong>${rot}</strong><span>com roteiro em andamento</span></div><div><strong>${seq}</strong><span>${seq === 1 ? 'semana completa seguida' : 'semanas completas seguidas'}</span></div><div><strong>${S.favoritas.length}</strong><span>ideias favoritas</span></div></div>
+  <div class="cols"><section class="box"><div class="box-h"><h2>Esta semana</h2><a href="#calendario" class="link">Calendário ${I('right')}</a></div><div class="plist">${ps.map(p => cardPost(p)).join('') || '<p class="vazio">Sem publicações nesta semana.</p>'}</div>
+      <div class="box-h" style="margin-top:22px"><h3>Stories da semana</h3></div><ul class="stories-sem">${P.STORIES_SEMANA.slice(0, 6).map(s => `<li><b>${s.d}</b><span>${E(s.ideia)}</span></li>`).join('')}</ul></section>
+    <div class="col-side"><section class="box"><div class="box-h"><h2>Tarefas da semana</h2><span class="contador">${tarefas.filter(t => S.tarefas[t.k]).length}/${tarefas.length}</span></div>
+      <ul class="tarefas">${tarefas.map(t => `<li><label><input type="checkbox" data-tarefa="${t.k}" ${S.tarefas[t.k] ? 'checked' : ''}><span class="box-ck">${I('check')}</span><span>${E(t.t)}</span></label></li>`).join('')}</ul></section>
+      <section class="box ideia-dia" style="--c:${AREA[idd.area].cor}"><span class="eyebrow">Ideia do dia · ${E(AREA[idd.area].nome)}</span><h3>${E(idd.titulo)}</h3><div class="pcard-meta">${chipF(idd.formato)}<small>${P.PILARES[idd.pilar].nome}</small></div>
+        <div class="acoes"><button class="btn sm" data-addideia="${idd.id}">${I('plus')}Pôr no calendário</button><button class="btn sm ghost" data-verideia="${idd.id}">Ver roteiro</button></div></section></div></div>`;
+}
+function cronograma() {
+  const w0 = semanaAtual();
+  return cab('Seu plano de 6 meses', 'Uma fase por mês, <em>uma tarefa por vez.</em>', 'Cada fase tem um objetivo, metas para conferir e as publicações já distribuídas no calendário. Abra uma semana para ver tudo.') +
+  `<div class="fases">${P.FASES.map(f => { const sems = P.SEMANAS.map((s, i) => ({ ...s, i })).filter(s => s.f === f.n), ps = S.posts.filter(p => sems.some(s => s.i === p.semana)), pub = ps.filter(p => p.status === 'publicado').length;
+    const atual = sems.some(s => s.i === w0);
+    return `<section class="fase ${atual ? 'atual' : ''}" style="--c:${f.cor}"><div class="fase-cab"><span class="fase-n">${String(f.n).padStart(2, '0')}</span><div><span class="eyebrow">Mês ${f.n}${atual ? ' · você está aqui' : ''}</span><h2>${f.nome}</h2><p>${E(f.obj)}</p></div>
+      <div class="fase-prog"><strong>${pub}/${ps.length}</strong><span>publicados</span><i><b style="width:${ps.length ? pub / ps.length * 100 : 0}%"></b></i></div></div>
+      <ul class="kpis">${f.kpis.map(k => `<li>${I('flag')}${E(k)}</li>`).join('')}</ul>
+      <div class="semanas">${sems.map(s => { const lp = postsDaSemana(s.i), tf = s.tarefas.filter((_, j) => S.tarefas[`${s.i}.${j}`]).length;
+        return `<details class="semana" ${s.i === w0 ? 'open' : ''}><summary><span class="sem-n">S${s.i + 1}</span><strong>${E(s.tema)}</strong><span class="sem-meta">${fmt(somaDias(segunda(dataDe(S.perfil.inicio)), s.i * 7))} · ${lp.length} posts · ${tf}/${s.tarefas.length} tarefas</span>${I('right', 'ic chev')}</summary>
+          <div class="sem-corpo"><div><h4>Publicações</h4><div class="plist">${lp.map(p => cardPost(p)).join('')}</div></div>
+          <div><h4>Tarefas</h4><ul class="tarefas">${s.tarefas.map((t, j) => `<li><label><input type="checkbox" data-tarefa="${s.i}.${j}" ${S.tarefas[`${s.i}.${j}`] ? 'checked' : ''}><span class="box-ck">${I('check')}</span><span>${E(t)}</span></label></li>`).join('')}</ul></div></div></details>` }).join('')}</div></section>` }).join('')}</div>`;
+}
+let mesCal = null;
+function calendario() {
+  if (!mesCal) { const d = hoje(); mesCal = new Date(d.getFullYear(), d.getMonth(), 1) }
+  const y = mesCal.getFullYear(), m = mesCal.getMonth(), ini = segunda(new Date(y, m, 1)), cel = [];
+  for (let i = 0; i < 42; i++) { const d = somaDias(ini, i); if (i >= 35 && d.getMonth() !== m) break; cel.push(d) }
+  const datas = P.DATAS.filter(d => d.m === m + 1);
+  return cab('Calendário', `${MESES[m]} <em>${y}</em>`, 'Clique numa publicação para abrir o roteiro. Arraste para outro dia para remarcar.',
+    `<button class="btn ghost sq" data-mes="-1" aria-label="Mês anterior">${I('left')}</button><button class="btn ghost" data-mes="0">Hoje</button><button class="btn ghost sq" data-mes="1" aria-label="Próximo mês">${I('right')}</button>`) +
+  `<div class="legenda-f">${Object.entries(P.FORMATOS).map(([k, f]) => chipF(k)).join('')}</div>
+  <div class="cal"><div class="cal-sem">${['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'].map(d => `<span>${d}</span>`).join('')}</div><div class="cal-grade">${cel.map(d => { const s = iso(d), ps = S.posts.filter(p => p.data === s), fora = d.getMonth() !== m, hj = s === iso(hoje());
+      const dt = datas.find(x => x.d === d.getDate() && !fora);
+      return `<div class="cal-dia ${fora ? 'fora' : ''} ${hj ? 'hoje' : ''}" data-drop="${s}"><span class="cal-n">${d.getDate()}</span>${dt ? `<span class="cal-data" title="${E(dt.t)}">${I('flag')}${E(dt.t)}</span>` : ''}
+        ${ps.map(p => `<button class="cal-post st-b-${p.status}" draggable="true" data-drag="${p.id}" data-post="${p.id}" style="--c:${P.FORMATOS[p.formato].cor}"><b>${E(P.FORMATOS[p.formato].curto)}</b><span>${E(p.titulo)}</span></button>`).join('')}
+        <button class="cal-add" data-novo="${s}" aria-label="Nova publicação em ${fmt(s)}">${I('plus')}</button></div>` }).join('')}</div></div>`;
+}
+function producao() {
+  const w = semanaAtual(), filtro = window.__prodFiltro || 'proximas';
+  const lista = S.posts.filter(p => filtro === 'todas' ? true : filtro === 'proximas' ? p.semana >= w && p.semana <= w + 2 : p.semana === w);
+  return cab('Produção', 'Do roteiro <em>ao publicado.</em>', 'Arraste os cartões entre as colunas ou use as setas. Cada coluna é uma etapa da produção.',
+    `<div class="seg" role="group">${[['semana', 'Esta semana'], ['proximas', 'Próximas 3 semanas'], ['todas', 'Tudo']].map(([v, l]) => `<button data-prodf="${v}" aria-pressed="${filtro === v}">${l}</button>`).join('')}</div>`) +
+  `<div class="kanban">${STATUS.map(s => { const l = lista.filter(p => p.status === s.id);
+    return `<section class="col" data-dropst="${s.id}"><div class="col-h"><span class="st st-${s.id}">${s.nome}</span><b>${l.length}</b></div>
+      <div class="col-l">${l.map(p => `<article class="kcard" draggable="true" data-drag="${p.id}"><button class="kcard-b" data-post="${p.id}"><span class="pcard-meta">${chipF(p.formato)}${dot(p.area)}<small>${fmt(p.data)}</small></span><strong>${E(p.titulo)}</strong></button>
+        <div class="kcard-nav">${STI[p.status] > 0 ? `<button data-mover="${p.id}" data-d="-1" aria-label="Voltar etapa">${I('left')}</button>` : '<span></span>'}${STI[p.status] < 5 ? `<button data-mover="${p.id}" data-d="1" aria-label="Avançar etapa">${STATUS[STI[p.status] + 1].nome} ${I('right')}</button>` : ''}</div></article>`).join('') || '<p class="vazio">Nada aqui.</p>'}</div></section>` }).join('')}</div>`;
+}
+let fId = { area:'todas', formato:'todos', pilar:'todos', q:'', fav:false };
+function ideias() {
+  const areas = S.perfil.areas, todas = todasIdeias(areas).map(ideia), usadas = new Set(S.posts.map(p => p.ideia));
+  const q = fId.q.toLowerCase(), lista = todas.filter(x => (fId.area === 'todas' || x.area === fId.area) && (fId.formato === 'todos' || x.formato === fId.formato) && (fId.pilar === 'todos' || x.pilar === fId.pilar) && (!fId.fav || S.favoritas.includes(x.id)) && (!q || (x.titulo + ' ' + (x.t || '')).toLowerCase().includes(q)));
+  const sel = (k, v, l) => `<button class="chip" data-fid="${k}" data-v="${v}" aria-pressed="${fId[k] === v}">${l}</button>`;
+  return cab('Banco de ideias', `${todas.length} ideias <em>para as suas áreas.</em>`, 'Cada tema da sua área vira 10 formatos de conteúdo. Favorite as melhores e coloque no calendário com um clique.') +
+  `<div class="filtros"><label class="busca">${I('search')}<input id="fq" type="search" placeholder="Buscar tema ou palavra" value="${E(fId.q)}" aria-label="Buscar ideias"></label>
+    <div class="chips">${sel('area', 'todas', 'Todas as áreas')}${areas.map(a => sel('area', a, AREA[a].nome)).join('')}</div>
+    <div class="chips">${sel('formato', 'todos', 'Todos os formatos')}${['carrossel', 'reels', 'post', 'stories', 'live', 'youtube'].map(f => sel('formato', f, P.FORMATOS[f].curto)).join('')}</div>
+    <div class="chips">${sel('pilar', 'todos', 'Todos os pilares')}${Object.entries(P.PILARES).map(([k, p]) => sel('pilar', k, p.nome)).join('')}<button class="chip" data-favf aria-pressed="${fId.fav}">${I('star')}Favoritas</button></div></div>
+  <p class="contagem">${lista.length} ideias</p>
+  <div class="ideias">${lista.slice(0, 120).map(x => { const fav = S.favoritas.includes(x.id), us = usadas.has(x.id);
+    return `<article class="icard" style="--c:${AREA[x.area].cor}"><div class="icard-top"><span class="pcard-meta">${chipF(x.formato)}<small>${P.PILARES[x.pilar].nome}</small></span><button class="fav ${fav ? 'on' : ''}" data-fav="${x.id}" aria-pressed="${fav}" aria-label="Favoritar">${I('star')}</button></div>
+      <h3>${E(x.titulo)}</h3><p class="icard-area">${dot(x.area)}${E(AREA[x.area].nome)}${us ? ' · já no calendário' : ''}</p>
+      <div class="acoes"><button class="btn sm" data-addideia="${x.id}">${I('plus')}Calendário</button><button class="btn sm ghost" data-verideia="${x.id}">Roteiro</button></div></article>` }).join('')}</div>
+  ${lista.length > 120 ? `<p class="contagem">Mostrando 120 de ${lista.length}. Use os filtros para encontrar o restante.</p>` : ''}`;
+}
+let abaRot = 'meus', temaG = '';
+function roteiros() {
+  const pf = S.perfil, a = AREA[pf.principal], tema = temaG || a.temas[0].t;
+  const abas = [['meus', 'Meus roteiros'], ['ganchos', 'Ganchos'], ['ctas', 'Chamadas finais'], ['estruturas', 'Estruturas']];
+  let c = '';
+  if (abaRot === 'meus') { const w = semanaAtual(), l = S.posts.filter(p => p.semana >= w && p.semana <= w + 3);
+    c = `<p class="lead" style="margin-bottom:18px">Roteiros das próximas 4 semanas. Abra para gerar, editar e copiar.</p><div class="plist">${l.map(p => cardPost(p)).join('')}</div>` }
+  if (abaRot === 'ganchos') c = `<div class="gtema"><label class="campo">Tema para testar os ganchos<select id="gt">${pf.areas.flatMap(ar => AREA[ar].temas.map(x => `<option ${x.t === tema ? 'selected' : ''}>${E(x.t)}</option>`)).join('')}</select></label></div>
+    <ol class="glist">${P.GANCHOS.map(g => { const t = g.replace('{t}', tema); return `<li><span>${E(t)}</span><button class="btn sm ghost" data-copy="${E(t)}">${I('copy')}Copiar</button></li>` }).join('')}</ol>`;
+  if (abaRot === 'ctas') c = `<ol class="glist">${P.CTAS.map((x, i) => { const t = CTA(a, i); return `<li><span>${E(t)}</span><button class="btn sm ghost" data-copy="${E(t)}">${I('copy')}Copiar</button></li>` }).join('')}</ol>
+    <div class="nota">${I('shield')}<span>Chamadas finais convidam a salvar, compartilhar e comentar. Evite “me chame para contratar”: veja a aba Ética.</span></div>`;
+  if (abaRot === 'estruturas') c = `<div class="estr">${Object.entries(P.FORMATOS).map(([k, f]) => `<article class="estr-c" style="--c:${f.cor}"><span class="pcard-meta">${chipF(k)}</span><h3>${f.nome}</h3><p>${f.dur} · cerca de ${f.tempo} min para produzir</p><button class="btn sm ghost" data-estr="${k}">Ver estrutura</button></article>`).join('')}</div>`;
+  return cab('Roteiros', 'Escreva rápido, <em>grave melhor.</em>', 'Roteiros prontos para preencher, 20 fórmulas de gancho e chamadas finais dentro da ética.') +
+    `<div class="tabs" role="tablist">${abas.map(([k, l]) => `<button role="tab" data-abarot="${k}" aria-selected="${abaRot === k}">${l}</button>`).join('')}</div>${c}`;
+}
+let abaEst = 'design';
+function safeZone() {
+  return `<figure class="safe"><svg viewBox="0 0 270 480" role="img" aria-label="Zona segura de um vídeo 9:16"><rect x="1" y="1" width="268" height="478" rx="14" class="sz-out"/>
+    <rect x="1" y="1" width="268" height="62" class="sz-no"/><rect x="1" y="374" width="268" height="105" class="sz-no"/><rect x="238" y="63" width="31" height="311" class="sz-no"/>
+    <rect x="24" y="80" width="200" height="280" rx="8" class="sz-ok"/><text x="124" y="215" text-anchor="middle" class="sz-t">área segura</text><text x="124" y="232" text-anchor="middle" class="sz-s">título e legendas aqui</text>
+    <text x="135" y="36" text-anchor="middle" class="sz-s">250 px · nome e botões</text><text x="135" y="430" text-anchor="middle" class="sz-s">420 px · legenda do app</text></svg>
+    <figcaption>Vídeo 1080×1920: deixe livres o topo, a base e a lateral direita.</figcaption></figure>`;
+}
+function estudio() {
+  const g = P.GUIAS[abaEst];
+  const equip = abaEst === 'video' ? `<section class="box"><h2>Equipamento por fase</h2><div class="equip"><div><b>Para começar</b><ul><li>Celular com câmera traseira</li><li>Microfone de lapela com fio ou sem fio</li><li>Tripé de mesa</li><li>Luz da janela</li></ul></div><div><b>Para crescer</b><ul><li>Painel de LED com difusor</li><li>Microfone sem fio duplo</li><li>Tripé de chão</li><li>App de teleprompter</li></ul></div><div><b>Para escalar</b><ul><li>Câmera com saída limpa</li><li>Duas luzes (principal e fundo)</li><li>Fundo montado no escritório</li><li>Editor ou assistente</li></ul></div></div></section>` : '';
+  return cab('Estúdio', 'Design, vídeo e rotina <em>de quem produz toda semana.</em>', 'Guias práticos com medidas, ritmos e checklists. Use antes de criar cada peça.') +
+  `<div class="tabs" role="tablist">${Object.entries(P.GUIAS).map(([k, x]) => `<button role="tab" data-abaest="${k}" aria-selected="${abaEst === k}">${x.titulo}</button>`).join('')}</div>
+  <div class="guia ${abaEst === 'video' ? 'com-fig' : ''}"><div class="guia-l">${g.secoes.map(s => `<section class="box"><h2>${E(s.h)}</h2><ul class="lista-ok">${s.itens.map(i => `<li>${I('check')}<span>${E(i)}</span></li>`).join('')}</ul></section>`).join('')}${equip}</div>${abaEst === 'video' ? `<div class="guia-fig">${safeZone()}</div>` : ''}</div>`;
+}
+function etica() {
+  return cab('Ética', 'Conteúdo forte, <em>dentro das regras.</em>', 'Cole o texto do post, roteiro ou legenda. A Pauta aponta trechos que costumam contrariar o Provimento 205/2021 e o Código de Ética e Disciplina da OAB.') +
+  `<div class="cols"><section class="box"><h2>Verificador de texto</h2><textarea id="etx" rows="9" placeholder="Cole aqui a legenda, o roteiro ou o texto do post."></textarea><div id="eres" class="eres"><p class="vazio">O resultado aparece enquanto você digita.</p></div>
+    <p class="hint">O verificador procura padrões comuns. Ele não substitui a sua leitura das normas da OAB.</p></section>
+    <div class="col-side"><section class="box"><h2>Pode</h2><ul class="lista-ok">${P.ETICA_PODE.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section>
+    <section class="box"><h2>Não pode</h2><ul class="lista-no">${P.ETICA_NAO.map(x => `<li>${I('close')}<span>${E(x)}</span></li>`).join('')}</ul></section></div></div>`;
+}
+function bios() {
+  const pf = S.perfil, a = AREA[pf.principal], outras = pf.areas.filter(x => x !== pf.principal).map(x => AREA[x].nome), cid = pf.cidade || 'Sua cidade/UF';
+  const areasTxt = [a.nome, ...outras].join(' e '), prof = pf.tempo === 'estudante' ? 'Estudante de Direito' : 'Advogado(a)';
+  return [
+    `${prof} | ${areasTxt}\nExplico seus direitos em linguagem simples\n📍 ${cid} · OAB/UF 000000\nConteúdos e contato ↓`,
+    `${a.nome} sem juridiquês ⚖️\n${prof} em ${cid}\nToda semana: dúvidas, passos e mitos sobre ${a.nome.toLowerCase()}\nOAB/UF 000000`,
+    `${pf.nome} · ${prof}\n${areasTxt} para ${pf.publico.includes('empresas') ? 'empresas e empreendedores' : 'pessoas e famílias'}\n📍 ${cid} · atendimento presencial e online\nOAB/UF 000000 · materiais gratuitos ↓`
+  ];
+}
+function perfil() {
+  const pf = S.perfil, idt = S.identidade, pal = P.PALETAS.find(p => p.id === idt.paleta), fon = P.FONTES.find(f => f.id === idt.fonte);
+  const dest = ['Sobre mim', ...pf.areas.flatMap(a => AREA[a].destaques.slice(0, pf.areas.length > 2 ? 1 : 2)), 'Dúvidas', 'Conteúdos'].slice(0, 7);
+  return cab('Perfil e identidade', 'Um perfil que <em>explica em 3 segundos</em> o que você faz.', 'Bio, destaques, posts fixados e a identidade visual que os modelos de posts vão usar.') +
+  `<div class="cols"><section class="box"><h2>Bio pronta para usar</h2><p class="hint">Troque “OAB/UF 000000” pelo seu número. Até 150 caracteres.</p>${bios().map((b, i) => `<div class="bio"><pre>${E(b)}</pre><div class="bio-f"><small>${b.length} caracteres</small><button class="btn sm ghost" data-copy="${E(b)}">${I('copy')}Copiar</button></div></div>`).join('')}</section>
+    <div class="col-side"><section class="box"><h2>Destaques sugeridos</h2><div class="dest">${dest.map(d => `<div class="dest-i"><span style="background:${pal.cores[0]};color:${pal.cores[2]};font-family:${fon.titulo}">${E(d.slice(0, 2).toUpperCase())}</span><small>${E(d)}</small></div>`).join('')}</div><p class="hint">As capas de destaque prontas entram na seção Modelos.</p></section>
+    <section class="box"><h2>3 posts para fixar</h2><ol class="fix"><li><b>Apresentação</b><span>Quem você é, para quem fala e o que publica.</span></li><li><b>O conteúdo mais salvo</b><span>Um carrossel educativo da área principal.</span></li><li><b>Um passo a passo</b><span>O procedimento que mais gera dúvidas.</span></li></ol></section></div></div>
+  <section class="box"><h2>Identidade visual</h2><p class="hint">Escolha uma paleta e um par de fontes. A prévia mostra uma capa de carrossel com a sua área.</p>
+    <div class="idt"><div><h3>Paleta</h3><div class="pals">${P.PALETAS.map(p => `<button class="pal ${p.id === idt.paleta ? 'on' : ''}" data-pal="${p.id}" aria-pressed="${p.id === idt.paleta}">${p.cores.map(c => `<i style="background:${c}"></i>`).join('')}<span>${p.nome}</span></button>`).join('')}</div>
+      <h3>Fontes</h3><div class="fons">${P.FONTES.map(f => `<button class="fon ${f.id === idt.fonte ? 'on' : ''}" data-fon="${f.id}" aria-pressed="${f.id === idt.fonte}"><b style="font-family:${f.titulo}">Aa</b><span>${f.nome}</span></button>`).join('')}</div></div>
+    <div class="previa"><div class="capa-prev" style="background:${pal.cores[0]};color:${pal.cores[1]}"><small style="color:${pal.cores[2]};font-family:${fon.texto}">${E(AREA[pf.principal].nome.toUpperCase())}</small><b style="font-family:${fon.titulo}">${E(AREA[pf.principal].temas[0].q)}</b><span style="font-family:${fon.texto}">${E(pf.arroba || '@seuperfil')} · arrasta →</span><i style="background:${pal.cores[2]}"></i></div></div></div></section>`;
+}
+function metricas() {
+  const m = S.metricas.slice().sort((a, b) => a.data.localeCompare(b.data)), ult = m[m.length - 1], ant = m[m.length - 2];
+  const campos = [['seguidores', 'Seguidores'], ['alcance', 'Alcance da semana'], ['salvos', 'Salvamentos'], ['compart', 'Compartilhamentos'], ['visitas', 'Visitas ao perfil'], ['mensagens', 'Mensagens recebidas']];
+  const delta = k => ult && ant ? ult[k] - ant[k] : null;
+  return cab('Métricas', 'O que mostra <em>se está funcionando.</em>', 'Registre uma vez por semana, sempre no mesmo dia. Salvamentos e compartilhamentos dizem mais sobre conteúdo útil do que curtidas.') +
+  `<div class="cols"><section class="box"><h2>Registrar a semana</h2><form id="fmet" class="fmet"><label class="campo">Data<input type="date" name="data" value="${iso(hoje())}" required></label>${campos.map(([k, l]) => `<label class="campo">${l}<input type="number" min="0" name="${k}" inputmode="numeric" required></label>`).join('')}<button class="btn">${I('plus')}Salvar semana</button></form></section>
+    <div class="col-side"><section class="box"><h2>Última semana</h2>${ult ? `<div class="mgrid">${campos.map(([k, l]) => { const dl = delta(k); return `<div><small>${l}</small><strong>${Number(ult[k]).toLocaleString('pt-BR')}</strong>${dl === null ? '' : `<em class="${dl >= 0 ? 'up' : 'down'}">${dl >= 0 ? '+' : ''}${dl.toLocaleString('pt-BR')}</em>`}</div>` }).join('')}</div>` : '<p class="vazio">Registre a primeira semana para ver a evolução.</p>'}</section></div></div>
+  ${m.length ? `<section class="box"><h2>Evolução</h2>${grafico(m)}<div class="mtab"><table><thead><tr><th>Semana</th>${campos.map(([, l]) => `<th>${l}</th>`).join('')}<th></th></tr></thead><tbody>${m.slice().reverse().map(r => `<tr><td>${fmt(r.data)}</td>${campos.map(([k]) => `<td>${Number(r[k]).toLocaleString('pt-BR')}</td>`).join('')}<td><button class="btn sm ghost sq" data-delmet="${r.data}" aria-label="Apagar">${I('trash')}</button></td></tr>`).join('')}</tbody></table></div></section>` : ''}
+  <section class="box"><h2>Perguntas para a revisão do mês</h2><ol class="fix"><li><b>O que mais foi salvo?</b><span>Repita o formato e o tema com outra abordagem.</span></li><li><b>O que mais foi compartilhado?</b><span>Esse assunto conversa com quem ainda não te segue.</span></li><li><b>De onde vieram as mensagens?</b><span>Anote o post: é o assunto que gera confiança.</span></li><li><b>O que não funcionou?</b><span>Troque o gancho e a capa antes de desistir do tema.</span></li></ol></section>`;
+}
+function grafico(m) {
+  const W = 640, H = 200, pad = 28, xs = i => pad + (m.length === 1 ? (W - 2 * pad) / 2 : i * (W - 2 * pad) / (m.length - 1));
+  const max = Math.max(...m.map(r => +r.seguidores), 1), min = Math.min(...m.map(r => +r.seguidores)), y = v => H - pad - ((v - min) / Math.max(max - min, 1)) * (H - 2 * pad);
+  const maxB = Math.max(...m.map(r => +r.salvos + +r.compart), 1), bw = Math.min(26, (W - 2 * pad) / m.length * .5);
+  const linha = m.map((r, i) => `${i ? 'L' : 'M'}${xs(i).toFixed(1)},${y(+r.seguidores).toFixed(1)}`).join(' ');
+  return `<div class="graf"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Seguidores e salvamentos por semana"><line x1="${pad}" x2="${W - pad}" y1="${H - pad}" y2="${H - pad}" class="g-eixo"/>
+    ${m.map((r, i) => { const h = (+r.salvos + +r.compart) / maxB * (H - 2 * pad) * .6; return `<rect x="${xs(i) - bw / 2}" y="${H - pad - h}" width="${bw}" height="${h}" rx="3" class="g-bar"><title>${fmt(r.data)}: ${+r.salvos + +r.compart} salvamentos e compartilhamentos</title></rect>` }).join('')}
+    <path d="${linha}" class="g-lin"/>${m.map((r, i) => `<circle cx="${xs(i)}" cy="${y(+r.seguidores)}" r="${i === m.length - 1 ? 5 : 3}" class="g-pt"><title>${fmt(r.data)}: ${r.seguidores} seguidores</title></circle>`).join('')}
+    <text x="${pad}" y="16" class="g-t">${Number(max).toLocaleString('pt-BR')} seguidores</text></svg><div class="g-leg"><span><i class="l"></i>Seguidores</span><span><i class="b"></i>Salvamentos + compartilhamentos</span></div></div>`;
+}
+function modelos() {
+  const idt = S.identidade, pal = P.PALETAS.find(p => p.id === idt.paleta), fon = P.FONTES.find(f => f.id === idt.fonte), a = AREA[S.perfil.principal];
+  const amostra = (g, i, n) => { const t = g === 0 ? ['Capa', 'Mito ou verdade', 'Passo a passo', 'Pergunta', 'Frase', 'Data', 'Decisão', 'Checklist'][i] : n;
+    if (g === 1) return `<div class="mod-dest"><span style="background:${pal.cores[i % 2 ? 2 : 0]};color:${pal.cores[i % 2 ? 0 : 2]};font-family:${fon.titulo}">${E(n.slice(0, 2).toUpperCase())}</span><small>${E(n)}</small></div>`;
+    const bg = pal.cores[i % 3 === 1 ? 1 : 0], fg = i % 3 === 1 ? pal.cores[0] : pal.cores[1];
+    return `<div class="mod ${g === 2 ? 'mod-story' : ''}" style="background:${bg};color:${fg}"><small style="color:${pal.cores[2]};font-family:${fon.texto}">${E(a.nome.toUpperCase())}</small><b style="font-family:${fon.titulo}">${E(g === 0 && i === 0 ? a.temas[1].q : n)}</b><i style="background:${pal.cores[2]}"></i></div>` };
+  return cab('Modelos', 'Posts, destaques e stories <em>prontos para editar.</em>', 'A próxima etapa da Pauta: modelos na sua paleta e nas suas fontes, ligados ao calendário. Abaixo, uma prévia do que vem com a identidade que você escolheu em Perfil.',
+    `<a class="btn ghost" href="#perfil">${I('user')}Trocar a identidade</a>`) +
+  P.MODELOS_FUTUROS.map((g, gi) => `<section class="box"><div class="box-h"><h2>${g.grupo}</h2><span class="st st-producao">Em breve · ${g.itens.length} modelos</span></div><div class="mods ${gi === 1 ? 'mods-dest' : gi === 2 ? 'mods-story' : ''}">${g.itens.map((n, i) => amostra(gi, i, n)).join('')}</div></section>`).join('');
+}
+function ajustes() {
+  const pf = S.perfil;
+  return cab('Ajustes', 'Seu plano, <em>seus dados.</em>', 'Os dados ficam salvos neste navegador. Exporte uma cópia para usar em outro aparelho.') +
+  `<div class="cols"><section class="box"><h2>Plano</h2><dl class="dl"><dt>Áreas</dt><dd>${pf.areas.map(a => AREA[a].nome + (a === pf.principal ? ' (principal)' : '')).join(', ')}</dd><dt>Ritmo</dt><dd>${pf.freq} publicações por semana · vídeo: ${{ sim:'sim', asvezes:'às vezes', nao:'não' }[pf.video]}</dd><dt>Início</dt><dd>${fmt(pf.inicio, { day:'2-digit', month:'long', year:'numeric' })}</dd></dl>
+    <div class="acoes"><button class="btn" data-acao="editar">${I('pen')}Editar respostas e refazer o plano</button></div></section>
+    <div class="col-side"><section class="box"><h2>Backup e calendário</h2><div class="acoes col"><button class="btn ghost" data-acao="exportar">${I('download')}Exportar meus dados (.json)</button><label class="btn ghost">${I('upload')}Importar dados<input type="file" id="imp" accept="application/json" hidden></label><button class="btn ghost" data-acao="ics">${I('cal')}Baixar o calendário (.ics)</button></div><p class="hint">O arquivo .ics abre no Google Agenda, Outlook ou Calendário do celular.</p></section>
+    <section class="box perigo"><h2>Recomeçar do zero</h2><p class="hint">Apaga o plano, as métricas e as anotações deste navegador.</p><div id="zerar"><button class="btn ghost" data-acao="zerar1">${I('trash')}Apagar tudo</button></div></section></div></div>`;
+}
+
+/* ---------- modal de publicação ---------- */
+function abrirPost(id) {
+  const p = S.posts.find(x => x.id === id); if (!p) return;
+  if (!p.roteiro) p.roteiro = roteiro(p); if (!p.legenda) p.legenda = legenda(p); salvar();
+  modal(`<div class="mp"><div class="mp-cab"><div class="pcard-meta">${chipF(p.formato)}${dot(p.area)}<small>${E(AREA[p.area]?.nome)} · ${P.PILARES[p.pilar]?.nome} · semana ${p.semana + 1}</small></div>
+      <input class="mp-titulo" id="mp-titulo" value="${E(p.titulo)}" aria-label="Título da publicação">
+      <div class="mp-linha"><label>Data<input type="date" id="mp-data" value="${p.data}"></label><label>Formato<select id="mp-formato">${Object.entries(P.FORMATOS).map(([k, f]) => `<option value="${k}" ${k === p.formato ? 'selected' : ''}>${f.nome}</option>`).join('')}</select></label>
+        <label>Etapa<select id="mp-status">${STATUS.map(s => `<option value="${s.id}" ${s.id === p.status ? 'selected' : ''}>${s.nome}</option>`).join('')}</select></label></div></div>
+    <div class="tabs" role="tablist">${[['rot', 'Roteiro'], ['leg', 'Legenda'], ['chk', 'Checklist'], ['not', 'Anotações']].map(([k, l], i) => `<button role="tab" data-mpt="${k}" aria-selected="${!i}">${l}</button>`).join('')}</div>
+    <div data-mpp="rot"><textarea id="mp-roteiro" class="mono" rows="18">${E(p.roteiro)}</textarea><div class="acoes"><button class="btn sm ghost" data-copyel="mp-roteiro">${I('copy')}Copiar roteiro</button><button class="btn sm ghost" data-regen="${p.id}">${I('spark')}Refazer a partir do modelo</button></div></div>
+    <div data-mpp="leg" hidden><textarea id="mp-legenda" rows="12">${E(p.legenda)}</textarea><div id="mp-etica" class="eres"></div><div class="acoes"><button class="btn sm ghost" data-copyel="mp-legenda">${I('copy')}Copiar legenda</button></div></div>
+    <div data-mpp="chk" hidden><h3 class="mp-h">Antes de publicar</h3><ul class="tarefas">${[...P.ETICA_CHECK, 'Capa ou gancho testados no celular', 'Legenda revisada e sem erros', 'Texto dentro da zona segura (vídeo)', 'Agendado no Meta Business Suite'].map((t, i) => `<li><label><input type="checkbox" data-pchk="${i}" ${p.check.includes(i) ? 'checked' : ''}><span class="box-ck">${I('check')}</span><span>${E(t)}</span></label></li>`).join('')}</ul></div>
+    <div data-mpp="not" hidden><textarea id="mp-notas" rows="10" placeholder="Fontes, links, ideias de imagem, o que funcionou.">${E(p.notas)}</textarea></div>
+    <div class="mp-rodape"><button class="btn ghost sq" data-delpost="${p.id}" aria-label="Apagar publicação">${I('trash')}</button>${STI[p.status] < 5 ? `<button class="btn" data-mover="${p.id}" data-d="1" data-fechar="1">${I('check')}Avançar para “${STATUS[STI[p.status] + 1].nome}”</button>` : '<span class="st st-publicado">Publicado</span>'}</div></div>`, () => {
+    const g = k => $('#mp-' + k)?.value; Object.assign(p, { titulo:g('titulo') || p.titulo, data:g('data') || p.data, formato:g('formato'), status:g('status'), roteiro:g('roteiro'), legenda:g('legenda'), notas:g('notas') });
+    p.semana = Math.max(0, Math.floor((dataDe(p.data) - segunda(dataDe(S.perfil.inicio))) / 864e5 / 7)); salvar();
+  }, p.id);
+  mostrarEtica($('#mp-legenda').value + '\n' + $('#mp-roteiro').value, '#mp-etica');
+}
+function verIdeia(id) {
+  const x = ideia(id), fake = { ideia:id, area:x.area, formato:x.formato === 'reels' && S.perfil.video === 'nao' ? 'reels-texto' : x.formato };
+  modal(`<div class="mp"><div class="pcard-meta">${chipF(fake.formato)}${dot(x.area)}<small>${E(AREA[x.area].nome)} · ${P.PILARES[x.pilar].nome}</small></div><h2 class="mp-t2">${E(x.titulo)}</h2>
+    <pre class="mono pre">${E(roteiro(fake))}</pre><div class="acoes"><button class="btn" data-addideia="${id}" data-fechar="1">${I('plus')}Pôr no calendário</button><button class="btn ghost" data-copy="${E(roteiro(fake))}">${I('copy')}Copiar</button></div></div>`);
+}
+function addIdeia(id, data) {
+  const x = ideia(id); let d = data;
+  if (!d) { const ocup = new Set(S.posts.map(p => p.data)); let c = somaDias(hoje(), 1); for (let i = 0; i < 60 && ocup.has(iso(c)); i++) c = somaDias(c, 1); d = iso(c) }
+  const formato = x.formato === 'reels' && S.perfil.video === 'nao' ? 'reels-texto' : x.formato;
+  const p = { id:'p' + Math.random().toString(36).slice(2, 9), data:d, semana:Math.max(0, Math.floor((dataDe(d) - segunda(dataDe(S.perfil.inicio))) / 864e5 / 7)), formato, pilar:x.pilar, area:x.area, ideia:id, titulo:x.titulo, status:'ideia', roteiro:'', legenda:'', notas:'', check:[] };
+  S.posts.push(p); S.posts.sort((a, b) => a.data.localeCompare(b.data)); salvar(); toast(`Adicionado em ${fmt(d, { day:'2-digit', month:'long' })}.`); return p;
+}
+let fecharCb = null;
+function modal(html, onClose = null) {
+  fecharCb = onClose; const ult = document.activeElement;
+  $('#modal').innerHTML = `<div class="ov" data-ov><div class="mbox" role="dialog" aria-modal="true" aria-label="Detalhes"><button class="mfechar" data-mfechar aria-label="Fechar">${I('close')}</button>${html}</div></div>`;
+  document.body.classList.add('travado'); $('#modal .mfechar').focus(); $('#modal').__ult = ult;
+}
+function fechar() { if (fecharCb) fecharCb(); fecharCb = null; $('#modal').innerHTML = ''; document.body.classList.remove('travado'); $('#modal').__ult?.focus?.(); render(false) }
+function mostrarEtica(txt, alvo) {
+  const r = checagem(txt), el = $(alvo); if (!el) return;
+  el.innerHTML = !txt.trim() ? '<p class="vazio">O resultado aparece enquanto você digita.</p>' : r.length ? r.map(x => `<div class="eitem ${x.nivel}">${I(x.nivel === 'proibido' ? 'close' : 'eye')}<div><b>${x.nivel === 'proibido' ? 'Revise antes de publicar' : 'Atenção'}</b><span>${E(x.msg)}</span><small>Trecho: “${E((txt.match(x.re) || [''])[0])}”</small></div></div>`).join('') : `<div class="eitem ok">${I('check')}<div><b>Nenhum alerta encontrado</b><span>Confira também o checklist antes de publicar.</span></div></div>`;
+}
+
+/* ---------- arquivos ---------- */
+function baixar(nome, txt, tipo) { const b = new Blob([txt], { type:tipo }), a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = nome; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove() }, 500) }
+function ics() {
+  const esc = s => String(s).replace(/[\\,;]/g, m => '\\' + m).replace(/\n/g, '\\n');
+  const ev = S.posts.map(p => { const d = p.data.replace(/-/g, ''); return `BEGIN:VEVENT\nUID:${p.id}@pauta\nDTSTAMP:${d}T090000\nDTSTART;VALUE=DATE:${d}\nSUMMARY:${esc(`[${P.FORMATOS[p.formato].curto}] ${p.titulo}`)}\nDESCRIPTION:${esc(`${AREA[p.area]?.nome} · ${P.PILARES[p.pilar]?.nome}`)}\nEND:VEVENT` }).join('\n');
+  return `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pauta PratFlix//PT\n${ev}\nEND:VCALENDAR`.replace(/\n/g, '\r\n');
+}
+
+/* ---------- roteamento ---------- */
+const PAGS = { painel, cronograma, calendario, producao, ideias, roteiros, estudio, etica, perfil, metricas, modelos, ajustes };
+const TITULOS = { painel:'Painel', cronograma:'Cronograma', calendario:'Calendário', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', estudio:'Estúdio', etica:'Ética', perfil:'Perfil', metricas:'Métricas', modelos:'Modelos', ajustes:'Ajustes' };
+function render(topo = true) {
+  if (!S.perfil) { if (!$('.wiz')) onboarding(); return }
+  const h = location.hash.slice(1); rota = PAGS[h] ? h : 'painel';
+  const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TITULOS[rota]} · Pauta`;
+  window.scrollTo(0, topo ? 0 : y);
+}
+window.addEventListener('hashchange', () => { if ($('#modal').innerHTML) { fecharCb = null; $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
+
+/* ---------- eventos ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-principal], button, a, label, [data-ov]'); if (!t) return; const d = t.dataset;
+  if (d.ov !== undefined && e.target === t) return fechar();
+  if (d.mfechar !== undefined) return fechar();
+  // onboarding
+  if (d.op) { const k = d.op, v = d.v; if (d.multi) { const l = wiz.d[k] || []; wiz.d[k] = l.includes(v) ? l.filter(x => x !== v) : [...l, v]; if (!wiz.d[k].length) wiz.d[k] = [v] } else wiz.d[k] = v; lerWiz(); desenhaWiz(); return }
+  if (d.principal) { e.stopPropagation(); lerWiz(); wiz.d.principal = d.principal; desenhaWiz(); return }
+  if (d.area) { lerWiz(); const l = wiz.d.areas; if (l.includes(d.area)) { wiz.d.areas = l.filter(x => x !== d.area); if (wiz.d.principal === d.area) wiz.d.principal = wiz.d.areas[0] || '' } else if (l.length < 4) { l.push(d.area); if (!wiz.d.principal) wiz.d.principal = d.area } else toast('Escolha até 4 áreas.'); desenhaWiz(); return }
+  if (d.freq) { lerWiz(); wiz.d.freq = +d.freq; wiz.d.dias = []; desenhaWiz(); return }
+  if (d.dia) { lerWiz(); let l = wiz.d.dias.length ? wiz.d.dias : DIAS_FREQ[wiz.d.freq].slice(); const n = +d.dia; l = l.includes(n) ? l.filter(x => x !== n) : [...l, n]; wiz.d.dias = l; desenhaWiz(); return }
+  if (d.wiz) { lerWiz(); if (+d.wiz > 0 && wiz.passo === 4) return concluirWiz(); wiz.passo = Math.max(0, Math.min(4, wiz.passo + +d.wiz)); desenhaWiz(); window.scrollTo(0, 0); return }
+  if (t.id === 'mais') { document.body.classList.toggle('menu-aberto'); return }
+  // app
+  if (d.post) { abrirPost(d.post); return }
+  if (d.mpt) { $$('[data-mpt]').forEach(b => b.setAttribute('aria-selected', b === t)); $$('[data-mpp]').forEach(p => p.hidden = p.dataset.mpp !== d.mpt); return }
+  if (d.regen) { const p = S.posts.find(x => x.id === d.regen); $('#mp-roteiro').value = roteiro({ ...p, formato:$('#mp-formato').value }); toast('Roteiro refeito a partir do modelo.'); return }
+  if (d.copyel) return copiar($('#' + d.copyel).value);
+  if (d.copy) return copiar(d.copy);
+  if (d.mover) { const p = S.posts.find(x => x.id === d.mover), i = Math.max(0, Math.min(5, STI[p.status] + +d.d)); if (d.fechar) { const s = $('#mp-status'); if (s) s.value = STATUS[i].id; fechar(); p.status = STATUS[i].id } else p.status = STATUS[i].id; salvar(); if (!d.fechar) render(false); toast(`Movido para “${STATUS[i].nome}”.`); return }
+  if (d.delpost) { const p = S.posts.find(x => x.id === d.delpost); fecharCb = null; S.posts = S.posts.filter(x => x !== p); salvar(); fechar(); toast('Publicação apagada.'); return }
+  if (d.addideia) { addIdeia(d.addideia); if (d.fechar) fechar(); else render(false); return }
+  if (d.verideia) return verIdeia(d.verideia);
+  if (d.fav) { const l = S.favoritas; S.favoritas = l.includes(d.fav) ? l.filter(x => x !== d.fav) : [...l, d.fav]; salvar(); render(false); return }
+  if (d.fid) { fId[d.fid] = d.v; render(false); return }
+  if (d.favf !== undefined) { fId.fav = !fId.fav; render(false); return }
+  if (d.mes) { const n = +d.mes; mesCal = n ? new Date(mesCal.getFullYear(), mesCal.getMonth() + n, 1) : new Date(hoje().getFullYear(), hoje().getMonth(), 1); render(false); return }
+  if (d.novo) { const p = addIdeia('g:' + (1 + Math.floor(Math.random() * (P.IDEIAS_GERAIS.length - 1))), d.novo); abrirPost(p.id); return }
+  if (d.prodf) { window.__prodFiltro = d.prodf; render(false); return }
+  if (d.abarot) { abaRot = d.abarot; render(false); return }
+  if (d.estr) { const fake = { ideia:`${S.perfil.principal}:0:${{ carrossel:'passo', reels:'mito', 'reels-texto':'mito', post:'quando', stories:'caixa', live:'live', youtube:'longo' }[d.estr]}`, area:S.perfil.principal, formato:d.estr };
+    return modal(`<div class="mp"><span class="eyebrow">Estrutura · ${P.FORMATOS[d.estr].nome}</span><h2 class="mp-t2">${P.FORMATOS[d.estr].dur}</h2><pre class="mono pre">${E(roteiro(fake))}</pre></div>`) }
+  if (d.abaest) { abaEst = d.abaest; render(false); return }
+  if (d.pal) { S.identidade.paleta = d.pal; salvar(); render(false); return }
+  if (d.fon) { S.identidade.fonte = d.fon; salvar(); render(false); return }
+  if (d.delmet) { S.metricas = S.metricas.filter(m => m.data !== d.delmet); salvar(); render(false); return }
+  if (d.acao === 'editar') { wiz.passo = 0; onboarding(true); return }
+  if (d.acao === 'exportar') return baixar(`pauta-${iso(hoje())}.json`, JSON.stringify(S, null, 2), 'application/json');
+  if (d.acao === 'ics') return baixar('pauta-calendario.ics', ics(), 'text/calendar');
+  if (d.acao === 'zerar1') { $('#zerar').innerHTML = `<p><b>Tem certeza?</b> Isso não pode ser desfeito.</p><div class="acoes"><button class="btn perigo-b" data-acao="zerar2">Sim, apagar tudo</button><button class="btn ghost" data-acao="zerar0">Cancelar</button></div>`; return }
+  if (d.acao === 'zerar0') return render(false);
+  if (d.acao === 'zerar2') { S = novo(); salvar(); wiz = { passo:0, d:{} }; location.hash = ''; onboarding(); return }
+});
+document.addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.tarefa) { S.tarefas[t.dataset.tarefa] = t.checked; salvar(); if (t.checked) toast('Tarefa concluída.'); return }
+  if (t.id === 'gt') { temaG = t.value; render(false); return }
+  if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (!s.perfil || !Array.isArray(s.posts)) throw 0; S = { ...novo(), ...s }; salvar(); toast('Dados importados.'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.') } }) }
+});
+document.addEventListener('change', e => { // checklist dentro do modal
+  if (!e.target.dataset.pchk) return; const id = $('[data-delpost]')?.dataset.delpost, p = S.posts.find(x => x.id === id); if (!p) return;
+  const i = +e.target.dataset.pchk; p.check = e.target.checked ? [...new Set([...p.check, i])] : p.check.filter(x => x !== i); salvar();
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.id === 'fq') { fId.q = t.value; clearTimeout(t.__t); t.__t = setTimeout(() => { const pos = t.selectionStart; render(false); const n = $('#fq'); n.focus(); n.setSelectionRange(pos, pos) }, 250); return }
+  if (t.id === 'etx') return mostrarEtica(t.value, '#eres');
+  if (t.id === 'mp-legenda' || t.id === 'mp-roteiro') return mostrarEtica($('#mp-legenda').value + '\n' + $('#mp-roteiro').value, '#mp-etica');
+  if (t.id === 'w-nome') { wiz.d.nome = t.value; const b = $('[data-wiz="1"]'); if (b) b.disabled = t.value.trim().length < 2 }
+});
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'fmet') return; e.preventDefault(); const f = new FormData(e.target), r = Object.fromEntries(f.entries());
+  ['seguidores', 'alcance', 'salvos', 'compart', 'visitas', 'mensagens'].forEach(k => r[k] = +r[k] || 0);
+  S.metricas = S.metricas.filter(m => m.data !== r.data).concat(r); salvar(); toast('Semana registrada.'); render(false);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#modal').innerHTML) fechar() });
+// arrastar e soltar (calendário e produção)
+document.addEventListener('dragstart', e => { const c = e.target.closest?.('[data-drag]'); if (c) { e.dataTransfer.setData('text/plain', c.dataset.drag); c.classList.add('arrastando') } });
+document.addEventListener('dragend', e => e.target.classList?.remove('arrastando'));
+document.addEventListener('dragover', e => { const z = e.target.closest?.('[data-drop],[data-dropst]'); if (z) { e.preventDefault(); z.classList.add('alvo') } });
+document.addEventListener('dragleave', e => e.target.closest?.('[data-drop],[data-dropst]')?.classList.remove('alvo'));
+document.addEventListener('drop', e => {
+  const z = e.target.closest?.('[data-drop],[data-dropst]'); if (!z) return; e.preventDefault(); const p = S.posts.find(x => x.id === e.dataTransfer.getData('text/plain')); if (!p) return;
+  if (z.dataset.drop) { p.data = z.dataset.drop; p.semana = Math.max(0, Math.floor((dataDe(p.data) - segunda(dataDe(S.perfil.inicio))) / 864e5 / 7)); S.posts.sort((a, b) => a.data.localeCompare(b.data)); toast(`Remarcado para ${fmt(p.data, { day:'2-digit', month:'long' })}.`) }
+  else { p.status = z.dataset.dropst; toast(`Movido para “${STATUS[STI[p.status]].nome}”.`) }
+  salvar(); render(false);
+});
+
+render();
+})();
+
+</script>
+</body>
+</html>
