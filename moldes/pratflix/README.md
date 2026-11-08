@@ -25,3 +25,8 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 ## PDF A4 (`pdf.mjs` + `pdf.json`)
 Materiais em PDF A4 retrato na mesma identidade: capa escura com a foto do corredor, página "Como usar" com o sumário, páginas claras (papel) com dois itens por página em caixas "copie e cole" e fecho escuro. `pdf.json`: lista de `{ id, titulo, capa: {rotulo, titulo (linhas, [[trecho]] em caixa areia), sub}, comoUsar: [passos], prompts: [{titulo, texto}], complemento }`.
 Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node pdf.mjs [id]` → `saida/pdf/<id>/<n>.png` e `<id>.pdf` (montado com as imagens das páginas). Avisa se uma página de prompts estourar.
+
+## Materiais em PDF com texto (`materiais/`)
+Guias e fichas A4 da biblioteca de materiais, com texto selecionável, sumário com links, marcadores e páginas numeradas (não é PDF de imagem). Capa tipográfica escura (#151515, marfim #F7F4EB, dourado #B49A5B, sem foto) e miolo marfim.
+Cada material é um `materiais/NN-*.md` (cabeçalho com `numero`, `titulo`, `destaque`, `tipo`, `arquivo`, `rodape`, `resumo`, `uso`; marcações próprias descritas no topo de `materiais/gerar.py`: `[[quebra]]`, `[[linhas N]]`, `[[caixa N]]`, blocos `::: quadro|atencao|exemplo|fala|ruim|melhor|resposta|pratica`, `- [ ]` checklist e `{.ficha}`/`{.grade}` antes de tabelas para preencher).
+Gerar: `pip install markdown pymupdf` e `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY python3 materiais/gerar.py [NN ...]` → `saida/materiais/<arquivo>.pdf`.
