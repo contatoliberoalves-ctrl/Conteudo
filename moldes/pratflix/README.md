@@ -18,6 +18,9 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `lista` | 1080×1350 | `rotulo`, `titulo`, `itens: [{t, d}]` numerados; `claro: true` para a versão papel |
 | `passo` | 1080×1350 | passo de tutorial com prompt: `n`, `titulo`, `texto`, `prompt` (`[trecho]` sai em areia, para o que a pessoa troca), `tp` (px do prompt) |
 | `evento` | 1080×1350 | convite para live/evento: `dia`, `hora`, `rotulo`, `titulo`, `texto`, `hashtag`, `cta` |
+| `catalogo` | 1080×1350 | catálogo de cursos em grade de 2 colunas: `rotulo`, `titulo`, `texto`, `cursos: [nomes]`, `alt` (altura do cartão), `tc` (px do nome) |
+| `notinha` | 1080×1350 | cupom de bônus: `rotulo`, `titulo`, `itens: [[nome, selo]]`, `extras: [[nome, selo]]` (depois do tracejado, selo escuro), `top` |
+| `preco` | 1080×1350 | oferta: `rotulo`, `de` (riscado), `parcela`, `vista`, `extras: [textos com ✓]`, `prazo` (selo vermelho), `tp`, `top` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
 

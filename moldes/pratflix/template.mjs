@@ -9,8 +9,8 @@ const dir = path.dirname(new URL(import.meta.url).pathname);
 const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos', 'corredor.jpg')).toString('base64');
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
-export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
+export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;700&display=swap';
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], catalogo: [1080, 1350], notinha: [1080, 1350], preco: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -165,6 +165,43 @@ L.evento = t => `${fundoFoto('100%', `rgba(18,18,18,.6) 0%,rgba(18,18,18,.4) 30%
     <div style="font:500 31px/1.45 Manrope;color:${C.txt};opacity:.85;margin-top:30px">${esc(t.texto)}</div></div>
   <div style="position:absolute;left:90px;right:90px;bottom:90px">${comentario(t.hashtag, 34)}
     <div style="text-align:center;font:600 30px Manrope;color:${C.txt};margin-top:24px">${esc(t.cta).replace(esc(t.hashtag), `<b style="color:${C.areia}">${esc(t.hashtag)}</b>`)}</div></div>`;
+
+// Catálogo de cursos, como a tela da plataforma: título e cartões de curso com "▶" em grade de 2 colunas.
+L.catalogo = t => `<div style="position:absolute;inset:0;background:radial-gradient(110% 80% at 100% 0%,#2a271f 0%,${C.bg} 60%)"></div>${grao}
+  ${topoC((t.rotulo ?? '').toUpperCase())}
+  <div style="position:absolute;left:90px;right:90px;top:210px">
+    <div style="${T};font-size:${t.ts ?? 120}px;line-height:.88;color:${C.txt}">${tit(t.titulo)}</div>
+    ${t.texto ? `<div style="font:500 29px/1.4 Manrope;color:${C.txt};opacity:.75;margin-top:22px">${esc(t.texto)}</div>` : ''}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px">${t.cursos.map((c, i) => `<div style="position:relative;height:${t.alt ?? 150}px;border-radius:18px;overflow:hidden;border:1px solid #34322c;background:${['linear-gradient(135deg,#6b5a35,#2a2419)', 'linear-gradient(135deg,#3a3936,#1c1c1b)', 'linear-gradient(135deg,#cbbb8e,#7e6c43)', 'linear-gradient(135deg,#2f2e2b,#151514)'][i % 4]};padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between">
+      <span style="font:700 26px Manrope;color:${i % 4 === 2 ? '#121212' : C.txt}">▶</span><span style="font:800 ${t.tc ?? 28}px/1.15 Manrope;color:${i % 4 === 2 ? '#121212' : '#fff'}">${esc(c)}</span></div>`).join('')}</div></div>
+  ${pe()}`;
+// Notinha (cupom) com os bônus: itens "INCLUSO" e, depois do tracejado, os extras com selo próprio.
+L.notinha = t => `<div style="position:absolute;inset:0;background:radial-gradient(110% 80% at 0% 0%,#2a271f 0%,${C.bg} 60%)"></div>${grao}
+  ${topoC((t.rotulo ?? '').toUpperCase())}
+  <div style="position:absolute;left:90px;right:90px;top:190px;${T};font-size:${t.ts ?? 110}px;line-height:.88;color:${C.txt}">${tit(t.titulo)}</div>
+  <div style="position:absolute;left:110px;right:110px;top:${t.top ?? 430}px;background:#F4F1EA;color:#151515;padding:40px 40px 30px;transform:rotate(-1.5deg);box-shadow:0 30px 70px rgba(0,0,0,.6);font-family:'IBM Plex Mono',monospace">
+    <div style="text-align:center;font-weight:700;font-size:34px;letter-spacing:.16em">PRATFLIX</div>
+    <div style="text-align:center;font-size:19px;margin-top:6px">BÔNUS DA TURMA FUNDADORA</div>
+    <div style="border-top:2px dashed #333;margin:18px 0 8px"></div>
+    ${t.itens.map(([a, b]) => `<div style="display:flex;justify-content:space-between;gap:16px;font-size:23px;padding:6px 0"><span>${esc(a)}</span><b style="white-space:nowrap">${esc(b)}</b></div>`).join('')}
+    ${t.extras ? `<div style="border-top:2px dashed #333;margin:10px 0 8px"></div>${t.extras.map(([a, b]) => `<div style="display:flex;justify-content:space-between;gap:16px;font-size:23px;padding:6px 0"><span>${esc(a)}</span><b style="white-space:nowrap;background:#121212;color:${C.areia};padding:0 8px">${esc(b)}</b></div>`).join('')}` : ''}
+    <div style="border-top:2px dashed #333;margin:12px 0 12px"></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700;font-size:27px"><span>VOCÊ PAGA POR ELES</span><span>R$ 0,00</span></div>
+    <div style="height:54px;margin-top:16px;background:repeating-linear-gradient(90deg,#151515 0 3px,transparent 3px 6px,#151515 6px 7px,transparent 7px 11px,#151515 11px 15px,transparent 15px 17px)"></div></div>
+  ${pe()}`;
+// Preço promocional: valor "de" riscado, parcela gigante, à vista, extras com ✓ e selo de prazo.
+L.preco = t => `${fundoFoto('100%', `rgba(18,18,18,.82) 0%,rgba(18,18,18,.78) 30%,${C.bg} 62%`)}
+  ${topoC('')}
+  <div style="position:absolute;left:90px;right:90px;top:${t.top ?? 300}px">
+    ${rotulo(t.rotulo)}
+    <div style="font:600 34px Manrope;color:${C.mute};margin-top:44px">Tudo isso valeria <s style="text-decoration-color:${C.areia};text-decoration-thickness:3px">${esc(t.de)}</s></div>
+    <div style="font:600 34px Manrope;color:${C.txt};margin-top:14px">Na turma fundadora, por</div>
+    <div style="${T};font-size:${t.tp ?? 214}px;line-height:.9;white-space:nowrap;margin-top:10px;background:linear-gradient(180deg,#F4F0E4,${C.areia2});-webkit-background-clip:text;color:transparent">${esc(t.parcela)}</div>
+    <div style="font:700 42px Manrope;color:${C.txt};margin-top:8px">ou <span style="color:${C.areia}">${esc(t.vista)}</span> à vista</div>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:44px">${t.extras.map(x => `<div style="font:600 30px Manrope;color:${C.txt}"><span style="color:${C.areia};margin-right:12px">✓</span>${esc(x)}</div>`).join('')}</div></div>
+  <div style="position:absolute;left:90px;right:90px;bottom:70px;display:flex;justify-content:space-between;align-items:center">
+    <span style="display:inline-flex;align-items:center;gap:14px;background:#C8372D;color:#fff;border-radius:12px;padding:16px 24px;font:800 24px Manrope;letter-spacing:.12em"><span style="width:12px;height:12px;border-radius:50%;background:#fff"></span>${esc(t.prazo)}</span>
+    <span style="font:700 26px Manrope;color:${C.areia}">arrasta →</span></div>`;
 
 export function renderTela(t) {
   if (!L[t.layout]) throw new Error(`layout desconhecido: ${t.layout}`);
