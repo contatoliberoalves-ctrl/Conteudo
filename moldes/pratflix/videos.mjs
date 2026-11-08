@@ -12,7 +12,9 @@ const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire(path.join(root, 'package.json'))('playwright');
 import { FONTES } from './template.mjs';
 
-const W = 1080, H = 1920, FPS = 30;
+// FORMATO=vertical gera 1080×1920 (reels); o padrão é slide 16:9 (1920×1080), para aula.
+const HOR = process.env.FORMATO !== 'vertical';
+const W = HOR ? 1920 : 1080, H = HOR ? 1080 : 1920, FPS = 30;
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -104,6 +106,67 @@ const CENAS = {
   },
 };
 
+// ---------- versão slide (16:9): mesmas cenas, diagramadas em duas colunas ----------
+const CENAS_H = {
+  capa(s, t0, ev) {
+    ev.impacto.push(t0 + .45);
+    return `<div style="position:absolute;left:140px;right:640px;top:250px">
+      <div style="${an('desce', .6, t0 + .1)}"><span class="rot">✦ ${esc(s.rotulo)}</span></div>
+      ${s.titulo.map((l, i) => `<div class="tit" style="font-size:${(s.ts || 190) * .95}px;margin-top:${i ? 0 : 36}px;${an('sobe', .7, t0 + .35 + i * .22)}">${tit(l)}</div>`).join('')}
+      <div style="width:150px;height:10px;background:${C.areia};margin-top:44px;transform-origin:left;${an('barra', .6, t0 + .9)}"></div>
+      <div class="txt" style="margin-top:34px;opacity:.85;${an('sobe', .6, t0 + 1.1)}">${esc(s.texto)}</div></div>`;
+  },
+  frase(s, t0) {
+    return `<div style="position:absolute;left:160px;right:160px;top:180px;bottom:120px;display:flex;flex-wrap:wrap;align-content:center;gap:0 24px">
+      ${s.texto.split(' ').map((p, i) => `<span class="tit" style="font-size:${(s.ts || 120) * 1.05}px;${an('sobe', .45, t0 + .15 + i * .12)}">${tit(p)}</span>`).join('')}</div>`;
+  },
+  lista(s, t0, ev) {
+    const passo = s.passo || 1.3, n = s.itens.length;
+    const tl = n > 6 ? 38 : n > 4 ? 42 : 48, gap = n > 6 ? 16 : 26;
+    return `<div style="position:absolute;left:120px;width:690px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+        ${s.rotulo ? `<div style="${an('desce', .5, t0 + .05)}"><span class="rot">✦ ${esc(s.rotulo)}</span></div>` : ''}
+        <div class="tit" style="font-size:${Math.min(150, (s.ts || 120) * 1.15)}px;margin-top:28px;${an('sobe', .6, t0 + .2)}">${tit(s.titulo)}</div>
+        ${s.sub ? `<div style="font:600 34px Manrope;color:${C.mute};margin-top:22px;${an('sobe', .5, t0 + .4)}">${esc(s.sub)}</div>` : ''}</div>
+      <div style="position:absolute;left:880px;right:120px;top:190px;bottom:130px;display:flex;flex-direction:column;justify-content:center;gap:${gap}px">
+      ${s.itens.map((it, i) => {
+        const t = t0 + 1 + i * passo; ev.tick.push(t + .25);
+        return `<div style="display:flex;align-items:center;gap:26px;background:#1b1a17;border:1.5px solid #2e2c27;border-radius:20px;padding:${n > 6 ? 12 : 18}px 26px;${an('entra', .5, t)}">
+          <span style="flex:none;width:${n > 6 ? 52 : 60}px;height:${n > 6 ? 52 : 60}px;border-radius:14px;background:linear-gradient(135deg,${C.areia},${C.areia2});display:grid;place-items:center;font:800 32px Manrope;color:#121212;${an('check', .4, t + .2)}">${s.numerado ? i + 1 : '✓'}</span>
+          <span style="font:700 ${tl}px/1.22 Manrope">${tit(it)}</span></div>`;
+      }).join('')}</div>`;
+  },
+  passo(s, t0, ev) {
+    ev.impacto.push(t0 + .3);
+    return `<div class="tit" style="position:absolute;left:40px;top:150px;width:760px;text-align:center;font-size:${s.n.length > 1 ? 560 : 640}px;line-height:.8;color:transparent;-webkit-text-stroke:3px ${C.areia}66;${an('escala', .9, t0 + .05)}">${esc(s.n)}</div>
+      <div style="position:absolute;left:880px;right:130px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+        <div style="${an('desce', .5, t0 + .25)}"><span class="rot">${s.n === '!' ? 'DICA' : 'ETAPA ' + esc(s.n)}</span></div>
+        <div class="tit" style="font-size:${(s.ts || 130) * 1.05}px;margin-top:30px;${an('sobe', .6, t0 + .4)}">${tit(s.titulo)}</div>
+        <div style="width:120px;height:8px;background:${C.areia};margin-top:36px;transform-origin:left;${an('barra', .5, t0 + .8)}"></div>
+        <div class="txt" style="margin-top:32px;${an('sobe', .6, t0 + 1)}">${tit(s.texto)}</div></div>`;
+  },
+  alerta(s, t0, ev) {
+    ev.impacto.push(t0 + .3);
+    return `<div style="position:absolute;left:260px;right:260px;top:0;bottom:0;display:flex;align-items:center">
+      <div style="width:100%;background:${C.areia};color:#121212;border-radius:40px;padding:70px 80px;${an('escala', .6, t0 + .15)}">
+        <div style="font:800 30px Manrope;letter-spacing:.24em">⚠ ATENÇÃO</div>
+        <div class="tit" style="font-size:${(s.ts || 110) * 1.1}px;margin-top:24px">${esc(s.titulo)}</div>
+        <div style="font:600 46px/1.4 Manrope;margin-top:30px;${an('sobe', .5, t0 + .7)}">${esc(s.texto)}</div></div></div>`;
+  },
+  cta(s, t0, ev) {
+    ev.impacto.push(t0 + .2); ev.tick.push(t0 + 1.4, t0 + 1.7, t0 + 2.0);
+    return `<div style="position:absolute;left:1500px;top:540px;width:1400px;height:1400px;border-radius:50%;border:3px solid ${C.areia}22;${an('gira', 30, t0, ' ,zoom 8s linear ' + t0 + 's both')}"></div>
+      <div style="position:absolute;left:140px;right:520px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center">
+        <div class="tit" style="font-size:${(s.ts || 120) * 1.15}px;${an('sobe', .6, t0 + .1)}">${tit(s.titulo)}</div>
+        <div class="txt" style="margin-top:30px;opacity:.85;${an('sobe', .6, t0 + .5)}">${esc(s.texto)}</div>
+        <div style="margin-top:60px;display:flex;align-items:center;gap:24px;background:#1E1E1D;border:2px solid #3a3a34;border-radius:999px;padding:24px 30px 24px 34px;width:900px;${an('escala', .6, t0 + .9)}">
+          <span style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,${C.areia},${C.areia2});flex:none"></span>
+          <span style="font:700 52px Manrope;color:${C.areia};${an('digita', 1, t0 + 1.3)}">${esc(s.hashtag)}</span>
+          <span style="width:5px;height:56px;background:${C.txt};animation:cursor .8s steps(1) ${t0}s 20 both"></span>
+          <span style="margin-left:auto;font:800 40px Manrope;color:#4E8BFF">Publicar</span></div>
+        <div style="margin-top:44px;font:700 38px Manrope;color:${C.mute};${an('sobe', .5, t0 + 2.4)}">${esc(s.rodape || '')}</div></div>`;
+  },
+};
+
 // ---------- os 3 vídeos ----------
 const CTA = { tipo: 'cta', dur: 8, titulo: 'Quer o guia [[completo]]?', texto: 'Com os links oficiais de inscrição das 27 seccionais e o checklist pra não esquecer nada.', hashtag: '#CARTEIRA', rodape: 'Comenta #CARTEIRA que eu te mando.' };
 const VIDEOS = {
@@ -150,10 +213,12 @@ function montar(v) {
     const fade = .35, a = (fade / c.dur * 100).toFixed(2), b = (100 - fade / c.dur * 100).toFixed(2);
     if (i) ev.whoosh.push(t);
     partes.push(`<style>@keyframes c${i}{0%{opacity:0}${a}%{opacity:1}${b}%{opacity:1}100%{opacity:${i === v.cenas.length - 1 ? 1 : 0}}}</style>
-      <div class="cena" style="animation:c${i} ${c.dur}s linear ${t}s both">${CENAS[c.tipo](c, t, ev)}</div>`);
+      <div class="cena" style="animation:c${i} ${c.dur}s linear ${t}s both">${(HOR ? CENAS_H : CENAS)[c.tipo](c, t, ev)}</div>`);
     t += c.dur;
   });
-  const fixo = `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:center;z-index:5">${logo(38)}<span style="font:800 22px Manrope;letter-spacing:.24em;color:${C.areia}">${v.parte}</span></div>
+  const fixo = HOR ? `<div style="position:absolute;left:120px;right:120px;top:56px;display:flex;justify-content:space-between;align-items:center;z-index:5">${logo(34)}<span style="font:800 20px Manrope;letter-spacing:.24em;color:${C.areia}">CARTEIRA DA OAB · ${v.parte}</span></div>
+    <div style="position:absolute;left:120px;right:120px;top:138px;height:5px;background:#2a2a28;border-radius:5px;z-index:5"><div style="height:100%;background:${C.areia};border-radius:5px;transform-origin:left;animation:barra ${total}s linear 0s both"></div></div>
+    <div style="position:absolute;left:120px;right:120px;bottom:44px;display:flex;justify-content:space-between;font:700 22px Manrope;color:${C.mute};z-index:5"><span>@liberofilho</span><span>liberofilho.com/pratflix</span></div>` : `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:center;z-index:5">${logo(38)}<span style="font:800 22px Manrope;letter-spacing:.24em;color:${C.areia}">${v.parte}</span></div>
     <div style="position:absolute;left:90px;right:90px;top:250px;height:6px;background:#2a2a28;border-radius:6px;z-index:5"><div style="height:100%;background:${C.areia};border-radius:6px;transform-origin:left;animation:barra ${total}s linear 0s both"></div></div>
     <div style="position:absolute;left:90px;right:90px;bottom:330px;display:flex;justify-content:space-between;font:700 28px Manrope;color:${C.mute};z-index:5"><span>@liberofilho</span><span>Carteira da OAB</span></div>`;
   const fundo = `<div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 70% 30%,#24221d 0%,${C.bg} 70%)"></div>
@@ -179,7 +244,7 @@ async function main() {
     if (process.env.PREVIEW) { // PREVIEW=2,8,15 → só quadros soltos, para conferir
       for (const sec of process.env.PREVIEW.split(',').map(Number)) {
         await page.evaluate(ms => document.getAnimations().forEach(a => { a.pause(); a.currentTime = ms; }), sec * 1000);
-        await page.screenshot({ path: path.join(out, `${id}-prev-${sec}.jpg`), type: 'jpeg', quality: 80 });
+        await page.screenshot({ path: path.join(out, `${id}${HOR ? '-slide' : ''}-prev-${sec}.jpg`), type: 'jpeg', quality: 80 });
       }
       await page.close(); console.log('prévia', id, total); continue;
     }
@@ -192,7 +257,7 @@ async function main() {
     ev.dur = total;
     fs.writeFileSync(path.join(tmp, 'eventos.json'), JSON.stringify(ev));
     execFileSync('python3.13', [path.join(root, 'trilha.py'), path.join(tmp, 'eventos.json'), path.join(tmp, 'trilha.wav')], { stdio: 'inherit' });
-    const mp4 = path.join(out, `${id}.mp4`);
+    const mp4 = path.join(out, `${id}${HOR ? '-slide' : ''}.mp4`);
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, '%05d.jpg'), '-i', path.join(tmp, 'trilha.wav'),
       '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'medium', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', mp4]);
     fs.rmSync(tmp, { recursive: true, force: true });
