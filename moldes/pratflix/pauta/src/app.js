@@ -286,10 +286,10 @@ const stTag = s => `<span class="st st-${s}">${STATUS[STI[s]].nome}</span>`;
 
 /* ---------- onboarding (com prévia ao vivo) ---------- */
 let wiz = { passo:0, d:{} };
-const PASSOS = ['Você', 'Sua marca', 'Áreas', 'Rotina', 'Estilo'];
+const PASSOS = ['Você', 'Sua marca', 'Áreas', 'Rotina', 'Estilo', 'Artes'];
 function onboarding(modo = 'novo') {
   wiz.modo = modo;
-  wiz.d = modo === 'editar' ? { ...C.perfil, cor:C.cor } : { nome:'', marca:'', arroba:'', cidade:'', cor:modo === 'conta' ? CORES[S.contas.filter(c => c.perfil).length % CORES.length] : C.cor || CORES[0], tempo:'ate2', areas:[], principal:'', publico:['pessoas'], objetivo:'autoridade', redes:['instagram'], freq:3, dias:[], video:'sim', tom:'didatico', inicio:iso(segunda(somaDias(hoje(), 1))) };
+  wiz.d = modo === 'editar' ? { estilos:[], ...C.perfil, cor:C.cor } : { nome:'', marca:'', arroba:'', cidade:'', cor:modo === 'conta' ? CORES[S.contas.filter(c => c.perfil).length % CORES.length] : C.cor || CORES[0], tempo:'ate2', areas:[], principal:'', publico:['pessoas'], objetivo:'autoridade', redes:['instagram'], freq:3, dias:[], video:'sim', tom:'didatico', estilos:[], inicio:iso(segunda(somaDias(hoje(), 1))) };
   wiz.passo = modo === 'novo' && !wiz.vistoIntro ? -1 : 0; desenhaWiz();
 }
 function previa() {
@@ -325,11 +325,15 @@ function desenhaWiz() {
     <div class="grupo"><span class="grupo-t">Objetivo</span><div class="opts">${op('objetivo', 'autoridade', 'Ser referência')}${op('objetivo', 'clientes', 'Ser lembrado por quem precisa')}${op('objetivo', 'networking', 'Rede com colegas')}${op('objetivo', 'ensinar', 'Ensinar')}</div></div>
     <div class="grupo"><span class="grupo-t">Tom de voz</span><div class="opts">${op('tom', 'didatico', 'Didático')}${op('tom', 'proximo', 'Próximo')}${op('tom', 'tecnico', 'Técnico')}${op('tom', 'leve', 'Bem-humorado')}</div></div>
     ${wiz.modo === 'editar' ? `<label class="check-w"><input type="checkbox" id="w-manter" checked> Manter as peças que já saíram de “Ideia” e refazer só o restante</label>` : ''}`;
-  const ok = p === 0 ? (d.nome || '').trim().length > 1 : p === 2 ? d.areas.length > 0 : true;
-  $('#app').innerHTML = `<div class="wiz"><div class="wiz-topo"><span class="brand-w">pauta<b>▸</b></span><i class="wiz-prog"><b style="width:${(p + 1) / 5 * 100}%"></b></i>${p > 0 ? `<button class="link-w" data-wiz="-1">${I('left')}Voltar</button>` : wiz.modo !== 'novo' ? `<button class="link-w" data-acao="cancelawiz">Cancelar</button>` : '<span></span>'}</div>
-    <div class="wiz-grid"><section class="wiz-l"><span class="passo">${p + 1} DE 5 · ${PASSOS[p].toUpperCase()}</span>${corpo}
-      <button class="btn branco" data-wiz="1" ${ok ? '' : 'disabled'}>${p === 4 ? 'Salvar e gerar meu plano' : 'Continuar'} ${I(p === 4 ? 'check' : 'right')}</button></section>
-      <div class="wiz-r" aria-hidden="true">${previa()}</div></div></div>`;
+  if (p === 5) { if (!d.estilos?.length) d.estilos = [estilosRec(d.areas[0] || d.principal)[0]];
+    corpo = `<h2>Escolha o estilo das suas artes.</h2><p class="sub">Até 2 estilos. Eles aparecem primeiro nos seus modelos de post, carrossel e stories. Os outros continuam disponíveis.</p>
+    ${gradeEstilos(d.estilos, d, 'wz')}`; }
+  const ok = p === 0 ? (d.nome || '').trim().length > 1 : p === 2 ? d.areas.length > 0 : p === 5 ? d.estilos.length > 0 : true;
+  $('#app').innerHTML = `<div class="wiz"><div class="wiz-topo"><span class="brand-w">pauta<b>▸</b></span><i class="wiz-prog"><b style="width:${(p + 1) / 6 * 100}%"></b></i>${p > 0 ? `<button class="link-w" data-wiz="-1">${I('left')}Voltar</button>` : wiz.modo !== 'novo' ? `<button class="link-w" data-acao="cancelawiz">Cancelar</button>` : '<span></span>'}</div>
+    <div class="wiz-grid ${p === 5 ? 'larga' : ''}"><section class="wiz-l"><span class="passo">${p + 1} DE 6 · ${PASSOS[p].toUpperCase()}</span>${corpo}
+      <button class="btn branco" data-wiz="1" ${ok ? '' : 'disabled'}>${p === 5 ? 'Salvar e gerar meu plano' : 'Continuar'} ${I(p === 5 ? 'check' : 'right')}</button></section>
+      ${p === 5 ? '' : `<div class="wiz-r" aria-hidden="true">${previa()}</div>`}</div></div>`;
+  if (p === 5) ajustaTextos($('#app'));
 }
 function lerWiz() { const d = wiz.d; ['nome', 'marca', 'arroba', 'cidade', 'inicio'].forEach(k => { const el = $('#w-' + k); if (el) d[k] = el.value.trim() }) }
 function concluirWiz() {
@@ -338,10 +342,34 @@ function concluirWiz() {
   if (!d.marca) d.marca = d.nome; if (d.arroba && !d.arroba.startsWith('@')) d.arroba = '@' + d.arroba;
   if (wiz.modo === 'conta') { const c = contaNova(d.cor); S.contas.push(c); C = c; S.atual = c.id }
   const manter = wiz.modo === 'editar' && $('#w-manter')?.checked ? C.posts.filter(p => p.status !== 'ideia') : [];
-  const { cor, ...pf } = d; C.cor = cor; C.perfil = pf; C.posts = gerarPlano(pf, manter); if (wiz.modo !== 'editar') C.tarefas = {};
+  const { cor, ...pf } = d; C.cor = cor; C.perfil = pf; aplicaEstilo(pf.estilos?.[0]); C.posts = gerarPlano(pf, manter); if (wiz.modo !== 'editar') C.tarefas = {};
   salvar(); aplicaCor();
   $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="intro"><span class="intro-ic ok">${I('check')}</span><h1>Sua marca está no ar.</h1><p>${C.posts.length} peças distribuídas em 26 semanas, ${todasIdeias(pf.areas).length} ideias no seu banco e a primeira missão esperando por você.</p><button class="btn branco" data-acao="abrirpauta">Abrir minha Pauta ${I('right')}</button></div></div>`;
   confete(); wiz = { passo:0, d:{}, vistoIntro:true };
+}
+
+/* ---------- estilos de arte escolhidos ---------- */
+const TODOS_EST = () => [...COLS.editorial.IDT.map(i => ({ col:'editorial', i })), ...COLS.classica.IDT.map(i => ({ col:'classica', i }))];
+const chEst = (col, id) => col + ':' + id;
+const achaEst = k => { const [col, id] = (k || '').split(':'); const i = COLS[col]?.IDT.find(x => x.id === id); return i ? { col, i } : null };
+function estilosRec(area) { const l = TODOS_EST(); return [...l.filter(e => e.i.ideal.includes(area)), ...l.filter(e => !e.i.ideal.includes(area))].map(e => chEst(e.col, e.i.id)) }
+let filtroEst = 'editorial';
+function thumbEstilo(col, idt, d = {}) {
+  const C2 = COLS[col], tid = col === 'editorial' ? 'ea2' : 'c1', pack = JSON.parse(JSON.stringify(C2.PACKS[tid]));
+  return C2.slides(tid, { idt, d:pack, handle:(d.arroba || C.perfil?.arroba || '@seuperfil'), nome:d.nome || C.perfil?.nome || '', fotos:fotosEf() })[0];
+}
+function gradeEstilos(sel, d, modo) {
+  const area = d.principal || d.areas?.[0] || C.perfil?.principal, ord = estilosRec(area).map(achaEst).filter(e => e.col === filtroEst), rec = new Set(estilosRec(area).slice(0, 4));
+  return `<div class="est-top"><div class="seg">${[['editorial', 'Editorial · com foto'], ['classica', 'Clássica']].map(([k, n]) => `<button data-festilo="${k}" data-modo="${modo}" aria-pressed="${filtroEst === k}">${n}</button>`).join('')}</div><span class="est-sel">${sel.length}/2 escolhidos${sel.map(k => { const e = achaEst(k); return e ? ` · <b>${E(e.i.nome)}</b>` : '' }).join('')}</span></div>
+    <div class="est-grade">${ord.map(e => { const k = chEst(e.col, e.i.id), on = sel.includes(k);
+      return `<button type="button" class="est ${on ? 'on' : ''}" data-estilo="${k}" data-modo="${modo}" aria-pressed="${on}"><span class="th">${thumbEstilo(e.col, e.i, d)}</span><span class="est-n"><strong>${E(e.i.nome)}</strong>${rec.has(k) ? '<em>para a sua área</em>' : ''}</span>${on ? `<span class="est-ok">${I('check')}</span>` : ''}</button>` }).join('')}</div>`;
+}
+function alternaEstilo(lista, k) { const l = lista.includes(k) ? lista.filter(x => x !== k) : [...lista, k]; return l.length > 2 ? l.slice(-2) : l }
+function aplicaEstilo(k) { const e = achaEst(k); if (!e) return; const m = mstate(); m.col = e.col; m.idt[e.col] = e.i.id }
+function modalEstilos() {
+  const sel = C.perfil.estilos || [];
+  modal(`<span class="eyebrow"><i></i>SEUS ESTILOS</span><h2 class="m-t">Escolha até 2 estilos de arte</h2><p class="muted">Eles ficam à mão na aba Modelos. Os outros continuam em “Ver todos os estilos”.</p><div class="est-modal">${gradeEstilos(sel, C.perfil, 'm')}</div><div class="acoes"><button class="btn" data-mfechar ${sel.length ? '' : 'disabled'}>${I('check')}Pronto</button></div>`);
+  ajustaTextos($('#modal'));
 }
 
 /* ---------- componentes ---------- */
@@ -576,7 +604,7 @@ function etica() {
 }
 /* ---------- modelos de posts (15 identidades) ---------- */
 const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única', 'image'], ['stories', 'Stories e destaques', 'cam'], ['extras', 'Mais ideias', 'spark']];
-let abaMod = 'carrossel', ed = null;
+let abaMod = 'carrossel', ed = null, verTodos = false;
 const mstate = () => { const m = (C.modelos ||= { col:'editorial', idt:{}, txt:{}, fotos:{} }); if (typeof m.idt !== 'object' || !m.idt) m.idt = m.idt ? { classica:m.idt } : {}; m.col ||= 'classica'; m.fotos ||= {}; m.txt ||= {}; return m };
 const MC = () => COLS[mstate().col] || COLS.editorial;
 const PADRAO = window.FOTOS_PADRAO || {};
@@ -611,17 +639,21 @@ function slidesDe(tid, idt, edit = false) {
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
   const idt = idtAtual(), rec = idtRec(), lista = MC().TPL.filter(t => t.grupo === abaMod);
-  const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos;
+  const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos, meus = (C.perfil.estilos || []).map(achaEst).filter(Boolean);
+  const fotosBox = ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : '';
+  const atual = chEst(m.col, idt.id), foraDosMeus = meus.length && !meus.some(e => chEst(e.col, e.i.id) === atual);
   const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
     : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
   const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
   return cab('MARCA', 'Modelos', `Duas coleções: a <b>Editorial</b>, com colagem, papel, manuscrita e a sua foto, e a <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
-  `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
+  `<section class="card meus-est"><div class="card-h"><h2>${meus.length ? 'Seus estilos' : 'Escolha os seus estilos de arte'}</h2><div class="acoes"><button class="btn ghost sm" data-acao="trocaestilos">${I('palette')}${meus.length ? 'Trocar meus estilos' : 'Escolher estilos'}</button><button class="btn ghost sm" data-acao="vertodos">${I('grid')}${verTodos ? 'Esconder os outros estilos' : 'Ver todos os estilos'}</button></div></div>
+    ${meus.length ? `<div class="meus">${meus.map(e => { const k = chEst(e.col, e.i.id), on = k === atual; return `<button class="meu ${on ? 'on' : ''}" data-meuestilo="${k}" aria-pressed="${on}"><span class="th">${thumbEstilo(e.col, e.i)}</span><span><strong>${E(e.i.nome)}</strong><small>${E(e.i.desc)}</small><em>${e.col === 'editorial' ? 'Coleção Editorial' : 'Coleção Clássica'}${on ? ' · aberto abaixo' : ''}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
+  (verTodos || !meus.length ? `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
     <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
     <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${fontes.map(f => E(f.split(',')[0].replace(/'/g, ''))).filter((x, i, l) => l.indexOf(x) === i).join(' + ')}</span></div>
-    ${ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : ''}</section>
-  <section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
+</section>
+  ` : '') + `<section class="card"><div class="tabs" role="tablist">${GRUPOS.filter(([k]) => MC().TPL.some(t => t.grupo === k)).map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${MC().TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
     <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
       const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
       return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
@@ -852,7 +884,7 @@ document.addEventListener('click', e => {
   if (d.cor) { lerWiz(); wiz.d.cor = d.cor; desenhaWiz(); return }
   if (d.freq) { lerWiz(); wiz.d.freq = +d.freq; wiz.d.dias = []; desenhaWiz(); return }
   if (d.dia) { lerWiz(); let l = wiz.d.dias.length ? wiz.d.dias : DIAS_FREQ[wiz.d.freq].slice(); const n = +d.dia; l = l.includes(n) ? l.filter(x => x !== n) : [...l, n]; wiz.d.dias = l; desenhaWiz(); return }
-  if (d.wiz) { lerWiz(); if (+d.wiz > 0 && wiz.passo === 4) return concluirWiz(); if (wiz.passo === -1) { wiz.vistoIntro = true; wiz.passo = 0 } else wiz.passo = Math.max(0, Math.min(4, wiz.passo + +d.wiz)); desenhaWiz(); window.scrollTo(0, 0); return }
+  if (d.wiz) { lerWiz(); if (+d.wiz > 0 && wiz.passo === 5) return concluirWiz(); if (wiz.passo === -1) { wiz.vistoIntro = true; wiz.passo = 0 } else wiz.passo = Math.max(0, Math.min(5, wiz.passo + +d.wiz)); desenhaWiz(); window.scrollTo(0, 0); return }
   if (d.acao === 'abrirpauta') { location.hash = 'inicio'; render(); return }
   if (d.acao === 'cancelawiz') { wiz = { passo:0, d:{}, vistoIntro:true }; render(); return }
   if (d.acao === 'menu') { document.body.classList.toggle('menu-aberto'); return }
@@ -870,6 +902,12 @@ document.addEventListener('click', e => {
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
   // modelos e tendências
+  if (d.estilo) { if (d.modo === 'wz') { lerWiz(); wiz.d.estilos = alternaEstilo(wiz.d.estilos || [], d.estilo); desenhaWiz(); return }
+    C.perfil.estilos = alternaEstilo(C.perfil.estilos || [], d.estilo); if (C.perfil.estilos.length) aplicaEstilo(C.perfil.estilos.includes(d.estilo) ? d.estilo : C.perfil.estilos[0]); salvar(); return modalEstilos() }
+  if (d.festilo) { filtroEst = d.festilo; if (d.modo === 'wz') { lerWiz(); desenhaWiz() } else modalEstilos(); return }
+  if (d.meuestilo) { aplicaEstilo(d.meuestilo); if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
+  if (d.acao === 'trocaestilos') { filtroEst = mstate().col; return modalEstilos() }
+  if (d.acao === 'vertodos') { verTodos = !verTodos; render(false); return }
   if (d.col) { mstate().col = d.col; if (!MC().TPL.some(t => t.grupo === abaMod)) abaMod = 'carrossel'; salvar(); render(false); return }
   if (d.delfoto) { if (d.delfoto === 'todas') mstate().fotos = {}; else delete mstate().fotos[d.delfoto]; salvar(); render(false); toast('Foto removida.', 'trash'); return }
   if (d.idt) { mstate().idt[mstate().col] = d.idt; C.flags.idtmod = true; salvar(); render(false); return }

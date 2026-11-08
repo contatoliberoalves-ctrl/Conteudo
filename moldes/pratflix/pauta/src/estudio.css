@@ -275,3 +275,21 @@
 .entrar-msg { min-height:22px; margin-top:12px; color:#FFE1EA; font-weight:700 } .entrar-ps { display:block; margin-top:10px; opacity:.75 }
 .ed-it footer { gap:6px } .ed-it footer > span:first-child { flex:none } .ed-ops { gap:4px; flex-wrap:wrap; justify-content:flex-end }
 .ed-it footer .ed-ops button { padding:5px 7px; min-width:28px; font-size:12px }
+/* escolha de estilos */
+.est-top { display:flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:space-between }
+.est-sel { font-size:14px; opacity:.85 }
+.est-grade { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:16px; margin-top:16px }
+.est { position:relative; display:grid; gap:8px; justify-items:center; padding:10px 8px 12px; border-radius:18px; border:2px solid transparent; background:#ffffff14; text-align:center; transition:.15s }
+.est:hover { background:#ffffff26 } .est.on { border-color:#fff; background:#ffffff2e }
+.est .th { --s:.24; border-radius:10px } .est-n { display:grid; gap:2px } .est-n strong { font-size:14px; line-height:1.2 } .est-n em { font-style:normal; font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; opacity:.8 }
+.est-ok { position:absolute; top:-8px; right:-8px; width:28px; height:28px; border-radius:50%; background:#fff; color:var(--brand); display:grid; place-items:center; box-shadow:0 6px 14px -6px #0008 } .est-ok .ic { width:16px; height:16px; stroke-width:3 }
+.wiz .seg { background:#ffffff1f } .wiz .seg button { color:#ffffffcc } .wiz .seg button[aria-pressed="true"] { background:#fff; color:#0B1222 }
+.wiz-grid.larga { grid-template-columns:minmax(0, 1fr); max-width:1180px }
+.est-modal .est { background:var(--surface2); color:var(--ink) } .est-modal .est.on { border-color:var(--brand); background:var(--brand-bg) } .est-modal .est-ok { background:var(--brand); color:#fff }
+.est-modal .est-grade { max-height:56vh; overflow:auto; padding:10px 4px 4px } .est-modal .est-top { margin-top:12px }
+.meus { display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; align-items:stretch }
+.meu { display:flex; gap:16px; align-items:center; text-align:left; padding:12px 18px 12px 12px; border-radius:18px; border:2px solid var(--line); background:var(--surface); flex:1 1 320px; max-width:520px }
+.meu.on { border-color:var(--brand); box-shadow:0 0 0 3px var(--brand-bg) } .meu .th { --s:.2; flex:none; border-radius:8px }
+.meu > span:last-child { display:grid; gap:4px } .meu strong { font-size:17px } .meu small { color:var(--muted); font-size:13.5px; line-height:1.4 } .meu em { font-style:normal; font-size:12px; font-weight:800; color:var(--brand); letter-spacing:.04em }
+.meus-est .card-h .acoes { display:flex; gap:8px; flex-wrap:wrap }
+@media (max-width:760px) { .est-grade { grid-template-columns:repeat(2, minmax(0, 1fr)) } .est .th { --s:.27 } .meu .th { --s:.16 } }
