@@ -3,7 +3,7 @@
 ## O que está no pacote
 - `pauta.html` — o app inteiro em um arquivo (HTML + CSS + JS). Abre direto no navegador.
 - `src/` — o mesmo app em arquivos separados (é aqui que se edita):
-  - `index.html` (casca), `style.css` (visual), `areas.js` (16 áreas × 10 temas), `conteudo.js` (formatos, cronograma de 26 semanas, ganchos, guias, regras de ética), `app.js` (lógica e telas).
+  - `index.html` (casca), `style.css` (visual), `areas.js` (16 áreas × 10 temas), `conteudo.js` (formatos, cronograma de 26 semanas, ganchos, guias, regras de ética), `modelos.js` + `modelos.css` (15 identidades visuais e 19 modelos de posts editáveis, exportação PNG/ZIP com html-to-image e JSZip carregados sob demanda dos CDNs jsDelivr e cdnjs), `tendencias.js` (análise do que engaja, 28 formatos virais e 8 ideias por área), `app.js` (lógica e telas).
   - `montar.py` junta tudo em `pauta.html`.
 - `schema.sql` — proposta de tabelas no Supabase (Postgres) com RLS.
 
@@ -52,3 +52,7 @@ Para relatórios, painel do administrador e integração com o Instagram, usar a
 - Downloads (.json e .ics) funcionam no site; só não funcionam dentro de visualizadores que bloqueiam download.
 - O app precisa das fontes do Google Fonts (link no `index.html`).
 - Conteúdo jurídico (temas, mitos, roteiros, regras de ética) deve ser revisado pelo responsável.
+
+## Modelos e Tendências
+- Textos editados nos modelos ficam em `conta.modelos = { idt, txt:{ <modelo>: { <campo>: texto } } }` dentro do mesmo estado salvo; não precisa de tabela nova (vai junto no JSON da conta).
+- A exportação de PNG usa `fetch` nas fontes do Google para embutir a tipografia; se o servidor tiver CSP, libere `fonts.googleapis.com`, `fonts.gstatic.com`, `cdn.jsdelivr.net` e `cdnjs.cloudflare.com`.

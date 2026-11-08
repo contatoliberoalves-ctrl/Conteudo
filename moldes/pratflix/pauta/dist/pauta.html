@@ -8,6 +8,7 @@
 <meta name="description" content="Pauta, o estúdio de conteúdo jurídico da PratFlix: cronograma de 6 meses, ideias e roteiros por área de atuação.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=Fraunces:wght@800&family=Inter:wght@500&family=Archivo+Black&family=Archivo:wght@500&family=Playfair+Display:wght@800&family=Lato:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap">
 <style>
 /* Layout: painel de estúdio — barra lateral em degradê da cor da marca, área clara com brilho suave,
    cartões grandes e arredondados, números enormes, capas das peças como protagonistas. */
@@ -517,6 +518,197 @@ textarea { line-height:1.6; resize:vertical }
 
 .capa.quad { aspect-ratio:4/5 } .prox-capas .capa-arrasta, .prox-capas .capa-tag, .prox-capas .capa-sub { display:none }
 
+/* ====== Modelos de posts: slides (tamanho fixo, exportam em 2×) ====== */
+.mx { position:relative; width:540px; height:675px; overflow:hidden; isolation:isolate; display:flex; flex-direction:column; gap:0; padding:42px 44px 36px;
+  background:var(--bg); color:var(--ink); font-family:var(--fb); font-size:18px; line-height:1.4; font-weight:400; text-align:left; -webkit-font-smoothing:antialiased; letter-spacing:0 }
+.mx.story { height:960px; padding:84px 48px 96px } .mx.quad { height:540px; padding:0; display:grid; place-items:center }
+.mx.mx-c { background:var(--cbg); color:var(--cink) }
+.mx * { box-sizing:border-box } .mx ul { list-style:none; margin:0; padding:0 } .mx svg { width:1em; height:1em; flex:none }
+.mx [contenteditable] { outline:0; border-radius:4px; cursor:text } .mx [contenteditable]:hover { box-shadow:0 0 0 2px color-mix(in srgb, #2F7BFF 55%, transparent) } .mx [contenteditable]:focus { box-shadow:0 0 0 2px #2F7BFF }
+.mx > * { position:relative; z-index:1 } .mx > .mx-deco { position:absolute; z-index:0; pointer-events:none }
+.mx-top { display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:13px; font-weight:600; letter-spacing:.08em; opacity:.85; flex:none }
+.mx-tag { display:inline-block; padding:6px 13px; border:1.5px solid currentColor; border-radius:min(var(--rad), 999px); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; white-space:nowrap }
+.mx-capa { flex:1; display:flex; flex-direction:column; justify-content:center; gap:20px; min-height:0 }
+.mx-t { font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); letter-spacing:var(--tl); line-height:var(--lh); font-style:var(--fi); overflow-wrap:normal; text-wrap:balance; margin:0 }
+.hl-caixa .mx-t, .hl-pilula .mx-t { line-height:calc(var(--lh) + .14) }
+.mx-t.xl { font-size:calc(60px * var(--k)) } .mx-t.l { font-size:calc(44px * var(--k)) } .mx-t.m { font-size:calc(33px * var(--k)) } .mx-t.s { font-size:calc(27px * var(--k)) }
+.story .mx-t.xl { font-size:calc(66px * var(--k)) }
+.mx-sub { font-size:20px; line-height:1.38; opacity:.88; max-width:94%; text-wrap:pretty }
+.mx-foot { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:16px; font-size:13px; font-weight:600; letter-spacing:.1em; opacity:.8; flex:none }
+.mx-seta, .mx-arrasta { color:var(--ac); font-weight:800; opacity:1 } .mx-c .mx-arrasta { color:inherit }
+.hl { color:var(--hlc, var(--ac)) }
+.hl-italico .hl { font-style:italic }
+.hl-sublinhado .hl { color:inherit; text-decoration:underline; text-decoration-color:var(--hlc, var(--ac)); text-decoration-thickness:.12em; text-underline-offset:.1em }
+.hl-caixa .hl, .hl-pilula .hl { background:var(--hlc, var(--ac)); color:var(--hlo, var(--on)); padding:0 .14em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.hl-pilula .hl { border-radius:.5em; padding:0 .28em }
+.hl-marcatexto .hl { color:inherit; background:linear-gradient(transparent 52%, var(--hlc, var(--ac)) 52% 94%, transparent 94%); padding:0 .06em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.mx-acoes { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px } .mx-acoes span { display:inline-flex; align-items:center; gap:7px; padding:9px 14px; border:1.5px solid currentColor; border-radius:min(var(--rad), 999px); font-size:14px; font-weight:700 }
+/* miolo */
+.mx-num { font-family:var(--ft); font-weight:var(--tw); font-style:var(--fi); font-size:118px; line-height:.9; color:var(--ac); margin-top:26px; letter-spacing:-.04em; flex:none }
+.mx-bloco { flex:1; display:flex; flex-direction:column; justify-content:center; gap:18px; min-height:0 } .mx-bloco.baixo { justify-content:flex-end; padding-bottom:6px }
+.mx-p { font-size:21px; line-height:1.45; color:var(--mu); text-wrap:pretty } .mx-p.g { font-size:23px; color:var(--ink) }
+.mx-c .mx-p { color:inherit; opacity:.88 }
+.mx-p.cardp { background:var(--sf); color:var(--ink); padding:22px 24px; border-radius:var(--rad) }
+.mx-lista { display:grid; gap:14px } .mx-lista li { display:flex; gap:12px; align-items:flex-start; font-size:21px; line-height:1.3; font-weight:600 } .mx-lista svg { font-size:24px; color:var(--ac); margin-top:2px; stroke-width:3 }
+.mx-carimbo { width:fit-content; transform:rotate(-5deg); border:4px solid currentColor; border-radius:min(var(--rad), 10px); padding:6px 22px 4px; font-family:var(--ft); font-weight:var(--tw); font-size:40px; letter-spacing:.06em; text-transform:uppercase; line-height:1.1 }
+.mx-carimbo.mito { color:#E5484D } .mx-carimbo.verdade { color:#12A150 }
+.mx-passo { display:flex; flex-direction:column; margin-top:18px; color:var(--ac); flex:none } .mx-passo small { font-size:14px; font-weight:800; letter-spacing:.22em; color:var(--mu) }
+.mx-passo b { font-family:var(--ft); font-weight:var(--tw); font-style:var(--fi); font-size:220px; line-height:.82; letter-spacing:-.05em }
+.mx-prog { display:flex; gap:6px; margin-top:10px } .mx-prog i { flex:1; height:6px; border-radius:6px; background:color-mix(in srgb, var(--ink) 14%, transparent) } .mx-prog i.on { background:var(--ac) }
+.mx-erro, .mx-certo { display:flex; gap:16px; align-items:flex-start; padding:22px; border-radius:var(--rad) } .mx-erro { background:color-mix(in srgb, #E5484D 11%, var(--sf)) } .mx-certo { background:color-mix(in srgb, #12A150 11%, var(--sf)) }
+.mx-erro small, .mx-certo small, .mx-resp small, .mx-cols small { display:block; font-size:12.5px; font-weight:800; letter-spacing:.16em; margin-bottom:8px; color:var(--mu); font-family:var(--fb); text-transform:uppercase }
+.mx-erro .mx-t, .mx-certo .mx-p { color:var(--ink) }
+.mx-x, .mx-v { width:44px; height:44px; border-radius:50%; display:grid; place-items:center; color:#fff; font-size:22px; flex:none } .mx-x { background:#E5484D } .mx-v { background:#12A150 } .mx-x svg, .mx-v svg { stroke-width:3 }
+.mx-check li { display:flex; align-items:center; gap:16px; padding:15px 0; font-size:22px; line-height:1.3; font-weight:600; border-bottom:1.5px solid color-mix(in srgb, var(--ink) 12%, transparent) }
+.mx-box { width:34px; height:34px; border:2.5px solid var(--ac); border-radius:min(var(--rad), 9px); display:grid; place-items:center; color:var(--ac); font-size:20px; flex:none } .mx-box svg { stroke-width:3.4 }
+.mx-selo { width:fit-content; display:inline-block; background:var(--ac); color:var(--on); padding:8px 16px; border-radius:min(var(--rad), 999px); font-size:13px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; font-family:var(--fb) }
+.mx-balao { position:relative; background:var(--sf); color:var(--ink); padding:26px 28px; border-radius:var(--rad) var(--rad) var(--rad) 4px; box-shadow:0 18px 34px -22px #0005 }
+.mx-balao::after { content:""; position:absolute; left:0; bottom:-14px; border-left:20px solid var(--sf); border-bottom:14px solid transparent }
+.mx-resp { border-left:4px solid var(--ac); padding-left:20px; margin-top:12px }
+.mx-cap { font-size:14px; font-weight:800; letter-spacing:.22em; color:var(--ac); margin-top:30px; flex:none }
+.mx-kicker { width:fit-content; background:var(--ac); color:var(--on); padding:6px 12px; font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; border-radius:min(var(--rad), 6px) }
+.mx-sec { width:fit-content; font-family:var(--fb); font-size:15px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ac); padding-bottom:8px; border-bottom:3px solid var(--ac) }
+.mx-fonte { font-size:13px; opacity:.65; letter-spacing:.04em }
+.mx-capa.vs { align-items:center; text-align:center; gap:10px } .mx-capa.vs .mx-sub { margin-top:14px }
+.mx-vs { font-family:var(--ft); font-weight:var(--tw); font-style:italic; font-size:86px; line-height:.9; color:var(--hlc, var(--ac)) }
+.mx-cols { display:grid; grid-template-columns:1fr 1fr; gap:12px } .mx-cols > div { background:var(--sf); border-radius:var(--rad); padding:20px 18px; min-height:170px } .mx-cols > div:first-child small { color:var(--ac) }
+.mx-mini { font-size:15px; font-style:italic; opacity:.6 }
+.mx-fio { width:80px; height:5px; border-radius:5px; background:var(--ac) }
+/* telas únicas, stories e extras */
+.mx-aspas { font-family:var(--ft); font-size:200px; line-height:.62; height:84px; color:var(--hlc, var(--ac)); font-style:normal }
+.mx-ass { font-size:15px; font-weight:700; letter-spacing:.14em; opacity:.75 }
+.mx-nota { flex:1; margin:24px 0 10px; background:var(--sf); color:var(--ink); padding:34px 32px; border-radius:var(--rad); box-shadow:0 24px 48px -26px #0006; display:flex; flex-direction:column; justify-content:center; gap:22px }
+.mx-nota-top { display:flex; align-items:center; justify-content:space-between } .mx-nota-top > span:last-child { font-size:34px; color:var(--ac) } .mx-nota-top svg { stroke-width:3 }
+.mx-dia { display:flex; flex-direction:column; color:var(--hlc, var(--ac)) } .mx-dia b { font-family:var(--ft); font-weight:var(--tw); font-style:var(--fi); font-size:190px; line-height:.82; letter-spacing:-.05em } .mx-dia small { font-size:24px; font-weight:800; letter-spacing:.3em; text-transform:uppercase; margin-top:6px }
+.mx-toque { align-self:center; margin-top:auto; padding:14px 24px; border:1.5px solid currentColor; border-radius:999px; font-size:19px; font-weight:700; flex:none }
+.mx-enquete { display:grid; gap:12px; background:#fff; color:#111; border-radius:22px; padding:18px; box-shadow:0 22px 44px -20px #0007; margin:18px 0 6px; font-family:Arial, sans-serif }
+.mx-enquete span { display:block; background:#EFEFEF; border-radius:14px; padding:18px; text-align:center; font-size:26px }
+.mx-enquete b { font-weight:800; background:linear-gradient(90deg, #E1306C, #F77737); -webkit-background-clip:text; background-clip:text; color:transparent }
+.story.mx-m .mx-p { color:inherit; opacity:.85 }
+.mx-dest { width:400px; height:400px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; border:5px solid var(--hlc, var(--ac)); color:var(--hlc, var(--ac)) }
+.mx-dest > span { font-size:150px; display:grid } .mx-dest svg { stroke-width:1.6 } .mx-dest b { font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); font-size:calc(34px * var(--k)); color:var(--cink); letter-spacing:var(--tl) }
+.mx-rosto { position:absolute !important; left:36px; right:36px; bottom:130px; height:38%; border:2.5px dashed color-mix(in srgb, currentColor 45%, transparent); border-radius:var(--rad); display:grid; place-items:end center; padding-bottom:22px; font-size:15px; letter-spacing:.12em; text-transform:uppercase; opacity:.7;
+  background:repeating-linear-gradient(-45deg, color-mix(in srgb, currentColor 6%, transparent) 0 14px, transparent 14px 28px) }
+.reel .mx-capa { flex:none; margin-top:40px } .mx-reel { position:absolute !important; left:48px; bottom:72px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:800; letter-spacing:.16em; background:var(--hlc, var(--ac)); color:var(--hlo, var(--on)); padding:9px 14px; border-radius:min(var(--rad), 999px) }
+.post-texto { justify-content:center } .mx-tw { background:var(--sf); color:var(--ink); border-radius:var(--rad); padding:34px 32px; box-shadow:0 24px 48px -28px #0006; display:grid; gap:22px }
+.mx-tw-top { display:flex; gap:14px; align-items:center } .mx-tw-top b { display:block; font-size:19px } .mx-tw-top small { color:var(--mu); font-size:15px }
+.mx-tw-av { width:58px; height:58px; border-radius:50%; background:var(--ac); color:var(--on); display:grid; place-items:center; font-size:26px; font-weight:800; font-family:var(--ft) }
+.mx-tw-t { font-family:var(--fb); font-size:31px; line-height:1.3; font-weight:500 } .mx-tw-f { display:flex; gap:26px; color:var(--mu); font-size:16px } .mx-tw-f span { display:inline-flex; align-items:center; gap:7px }
+.mx-big { display:flex; align-items:baseline; gap:12px; color:var(--hlc, var(--ac)) } .mx-big b { font-family:var(--ft); font-weight:var(--tw); font-style:var(--fi); font-size:230px; line-height:.8; letter-spacing:-.06em } .mx-big small { font-family:var(--ft); font-size:44px; font-weight:var(--tw) }
+.frase .mx-capa { gap:26px }
+
+/* ====== as 15 identidades: motivos visuais ====== */
+/* 1 Toga Moderna */
+.k-toga.mx-c::before, .k-toga.quad::before { content:""; position:absolute; inset:18px; border:1px solid var(--ac); z-index:0; pointer-events:none }
+.k-toga.mx-m { border-top:6px solid var(--ac2) } .k-toga .mx-tag { border-color:var(--ac); color:var(--ac) } .k-toga.mx-c .mx-tag { color:var(--ac) }
+/* 2 Editorial Jornal */
+.k-jornal .mx-top { border-bottom:4px double var(--ink); padding-bottom:12px; opacity:1 } .k-jornal.mx-c .mx-top { border-color:var(--cink) }
+.k-jornal .mx-tag { border:0; background:var(--ac); color:#fff; border-radius:0 } .k-jornal .mx-foot { border-top:1px solid currentColor; padding-top:12px }
+.k-jornal .mx-p.cardp, .k-jornal .mx-cols > div { border:1px solid var(--ink); background:transparent }
+/* 3 Minimal Branco */
+.k-minimal > .mx-deco { width:22px; height:22px; border-radius:50%; background:var(--ac); right:44px; top:110px }
+.k-minimal .mx-tag { border:0; background:var(--sf); }
+/* 4 Pop Neon */
+.k-neon.mx-c, .k-neon.quad { background:radial-gradient(circle at 92% 6%, color-mix(in srgb, var(--ac2) 55%, transparent), transparent 42%), radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--ac) 30%, transparent), transparent 40%), var(--cbg) }
+.k-neon .mx-tag { border:0; background:var(--ac); color:var(--on) } .k-neon .mx-num, .k-neon .mx-passo b { color:var(--ac2) }
+.k-neon.mx-m { border-left:10px solid var(--ac) }
+/* 5 Caderno de Estudos */
+.k-caderno { background:linear-gradient(90deg, transparent 30px, #F3A6A6 30px 32px, transparent 32px), repeating-linear-gradient(transparent 0 35px, #C9D7F0 35px 36px), var(--bg) !important }
+.k-caderno .mx-tag { border:0; background:var(--ac2); color:#fff; transform:rotate(-2deg) } .k-caderno .mx-num, .k-caderno .mx-passo b, .k-caderno .mx-dia, .k-caderno .mx-big { color:var(--ac2) }
+.k-caderno .mx-p.cardp, .k-caderno .mx-nota, .k-caderno .mx-balao { background:var(--sf); transform:rotate(-1deg); box-shadow:0 10px 20px -14px #0005 }
+.k-caderno .mx-box, .k-caderno .mx-lista svg { color:var(--ac2); border-color:var(--ac2) } .k-caderno .mx-sec { color:var(--ac2); border-color:var(--ac2) } .k-caderno .mx-fio, .k-caderno .mx-selo { background:var(--ac2); color:#fff } .k-caderno .mx-seta { color:var(--ac2) } .k-caderno .mx-resp { border-color:var(--ac2) }
+.k-caderno .mx-aspas, .k-caderno .mx-dest { --hlc:var(--ac2) } .k-caderno .mx-prog i.on { background:var(--ac2) }
+/* 6 Terracota Acolhedor */
+.k-terracota > .mx-deco { width:360px; height:360px; border-radius:50%; right:-120px; bottom:-120px; background:var(--ac2); opacity:.22 }
+.k-terracota.mx-c { --hlc:#FFD8BC } .k-terracota.mx-c > .mx-deco { background:#FFF4EA; opacity:.14 } .k-terracota .mx-tag { border-radius:999px }
+/* 7 Verde Sereno (60+) */
+.k-verde .mx-p { font-size:24px } .k-verde .mx-p.g { font-size:26px } .k-verde .mx-sub { font-size:22px } .k-verde .mx-check li, .k-verde .mx-lista li { font-size:24px }
+.k-verde > .mx-deco { width:150px; height:150px; border-radius:50%; background:var(--ac2); right:-40px; top:-40px; opacity:.9 } .k-verde.mx-c { --hlc:#F2C14E; --hlo:#12372A }
+.k-verde .mx-tag { border-radius:999px }
+/* 8 Brutalista */
+.k-brutal { box-shadow:inset 0 0 0 7px #000 } .k-brutal.mx-c { --hlc:#000; --hlo:#FF5A1F }
+.k-brutal .mx-tag { background:#000; color:#fff; border:0 } .k-brutal.mx-c .mx-tag { background:#000; color:#FF5A1F }
+.k-brutal .mx-p.cardp, .k-brutal .mx-balao, .k-brutal .mx-cols > div, .k-brutal .mx-erro, .k-brutal .mx-certo, .k-brutal .mx-nota, .k-brutal .mx-tw { border:3px solid #000; box-shadow:7px 7px 0 #000; border-radius:0 }
+.k-brutal .mx-balao::after { display:none } .k-brutal .mx-num, .k-brutal .mx-passo b { -webkit-text-stroke:3px #000; color:var(--ac) }
+.k-brutal > .mx-deco { left:0; right:0; bottom:0; height:22px; background:repeating-linear-gradient(-45deg, #000 0 14px, transparent 14px 28px) } .k-brutal .mx-foot { padding-bottom:14px }
+/* 9 Lilás Elegante */
+.k-lilas > .mx-deco { width:300px; height:420px; border-radius:150px 150px 0 0; right:-70px; bottom:0; background:var(--ac2); opacity:.4 }
+.k-lilas.mx-c { --hlc:#E8B4C8 } .k-lilas.mx-c > .mx-deco { background:var(--ac); opacity:.45 } .k-lilas .mx-tag { border-radius:999px }
+/* 10 Corporativo Azul */
+.k-corporativo.mx-c, .k-corporativo.quad { background:linear-gradient(140deg, #0B2A8A, #1D5BF0 62%, #00C2FF) } .k-corporativo.mx-c { --hlc:#FFFFFF; --hlo:#0B2A8A }
+.k-corporativo > .mx-deco { width:260px; height:260px; border-radius:50%; right:-90px; top:-90px; box-shadow:0 0 0 40px color-mix(in srgb, #fff 8%, transparent), 0 0 0 80px color-mix(in srgb, #fff 5%, transparent); background:color-mix(in srgb, #fff 10%, transparent) }
+.k-corporativo.mx-m > .mx-deco { box-shadow:0 0 0 40px color-mix(in srgb, var(--ac) 6%, transparent), 0 0 0 80px color-mix(in srgb, var(--ac) 4%, transparent); background:color-mix(in srgb, var(--ac) 9%, transparent) }
+.k-corporativo .mx-p.cardp, .k-corporativo .mx-cols > div, .k-corporativo .mx-balao { box-shadow:0 18px 36px -22px #0B2A8A66 } .k-corporativo .mx-tag { border-radius:999px; border:0; background:color-mix(in srgb, currentColor 14%, transparent) }
+/* 11 Revista Luxo */
+.k-luxo.mx-c .mx-capa { align-items:center; text-align:center } .k-luxo .mx-top { letter-spacing:.3em }
+.k-luxo::before { content:""; position:absolute; inset:20px; border:1px solid color-mix(in srgb, var(--ac) 70%, transparent); z-index:0; pointer-events:none }
+.k-luxo .mx-tag { border-color:var(--ac); color:var(--ac); letter-spacing:.3em } .k-luxo .mx-p.cardp, .k-luxo .mx-cols > div { border:1px solid color-mix(in srgb, var(--ac) 40%, transparent) }
+/* 12 Scrapbook */
+.k-scrap { background:radial-gradient(circle at 20% 30%, #0000000d 1px, transparent 1.5px) 0 0/9px 9px, var(--bg) !important }
+.k-scrap.mx-c .mx-capa { flex:none; margin:auto 0; background:var(--sf); padding:36px 32px; transform:rotate(-1.5deg); box-shadow:0 22px 40px -22px #0007 }
+.k-scrap.mx-c .mx-capa::before, .k-scrap .mx-p.cardp::before, .k-scrap .mx-nota::before, .k-scrap .mx-balao::before { content:""; position:absolute; top:-14px; left:50%; width:120px; height:30px; margin-left:-60px; background:color-mix(in srgb, var(--ac2) 45%, #fff); opacity:.85; transform:rotate(-3deg) }
+.k-scrap .mx-p.cardp, .k-scrap .mx-nota, .k-scrap .mx-balao { position:relative; transform:rotate(1deg); box-shadow:0 16px 30px -18px #0007 } .k-scrap .mx-tag { border:0; background:var(--ac); color:#fff; transform:rotate(-2deg) }
+/* 13 Tech Digital */
+.k-tech { background:linear-gradient(color-mix(in srgb, var(--ac) 9%, transparent) 1px, transparent 1px) 0 0/30px 30px, linear-gradient(90deg, color-mix(in srgb, var(--ac) 9%, transparent) 1px, transparent 1px) 0 0/30px 30px, var(--bg) !important }
+.k-tech .hl { text-shadow:0 0 18px color-mix(in srgb, var(--ac) 70%, transparent) } .k-tech .mx-tag, .k-tech .mx-top, .k-tech .mx-foot { font-family:'IBM Plex Mono', monospace }
+.k-tech > .mx-deco { width:320px; height:320px; border-radius:50%; right:-140px; top:-120px; background:radial-gradient(circle, color-mix(in srgb, var(--ac2) 60%, transparent), transparent 70%) }
+.k-tech .mx-p.cardp, .k-tech .mx-cols > div, .k-tech .mx-balao { border:1px solid color-mix(in srgb, var(--ac) 35%, transparent) }
+/* 14 Saúde Clean */
+.k-saude > .mx-deco { width:980px; height:360px; border-radius:50%; left:-220px; bottom:-250px; background:var(--ac2); opacity:.2 }
+.k-saude.mx-c { --hlc:#FFFFFF; --hlo:#0FA3A3 } .k-saude.mx-c > .mx-deco { background:#fff; opacity:.16 } .k-saude .mx-tag { border-radius:999px }
+/* 15 Retrô 70 */
+.k-retro > .mx-deco { width:110px; height:110px; border-radius:50%; right:-55px; bottom:-55px; background:var(--ac2); box-shadow:0 0 0 26px var(--bg), 0 0 0 52px var(--ac), 0 0 0 78px var(--bg), 0 0 0 104px #F2B23A }
+.k-retro.mx-c { --hlc:#3B2314; --hlo:#FFF4DD } .k-retro.mx-c > .mx-deco { background:#FFF4DD; box-shadow:0 0 0 26px var(--ac), 0 0 0 52px #B5462A, 0 0 0 78px var(--ac), 0 0 0 104px #F2B23A }
+.k-retro .mx-tag { border-radius:999px }
+
+/* ====== Página Modelos e editor ====== */
+.idts { display:grid; grid-template-columns:repeat(auto-fill, minmax(178px, 1fr)); gap:12px }
+.idt { display:grid; gap:8px; padding:12px; border-radius:18px; border:2px solid var(--line); background:var(--surface); text-align:left; transition:.15s }
+.idt:hover { border-color:color-mix(in srgb, var(--brand) 50%, var(--line)) } .idt.on { border-color:var(--brand); box-shadow:0 0 0 3px var(--brand-bg) }
+.idt-am { height:74px; border-radius:12px; display:flex; align-items:flex-end; justify-content:space-between; padding:10px 12px; overflow:hidden; position:relative }
+.idt-am b { font-size:30px; line-height:1 } .idt-am i { display:flex; gap:4px } .idt-am i span { width:14px; height:14px; border-radius:50%; box-shadow:0 0 0 1.5px #ffffff88 }
+.idt strong { font-size:15px; line-height:1.2 } .idt small { color:var(--muted); font-size:13px; line-height:1.35 }
+.idt .rec { font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--brand); text-transform:uppercase }
+.idt-info { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-top:16px; padding-top:14px; border-top:1px solid var(--line) }
+.mods { display:grid; grid-template-columns:repeat(auto-fill, minmax(232px, 1fr)); gap:26px 20px }
+.mod { display:grid; gap:10px; align-content:start; text-align:left }
+.th { --s:.4; position:relative; width:calc(540px * var(--s)); height:calc(675px * var(--s)); border-radius:14px; overflow:hidden; box-shadow:0 14px 30px -18px #0B122288; transition:transform .2s; justify-self:center }
+.th.story { height:calc(960px * var(--s)) } .th.quad { height:calc(540px * var(--s)); border-radius:50% }
+.th > .mx { transform:scale(var(--s)); transform-origin:0 0; position:absolute; left:0; top:0; pointer-events:none }
+.mod:hover .th { transform:translateY(-4px) } .mod .th.pilha { box-shadow:7px 7px 0 -2px var(--surface), 7px 7px 0 0 var(--line), 14px 14px 0 -3px var(--surface), 14px 14px 0 -2px var(--line), 0 14px 30px -18px #0B122288; overflow:visible } .th.pilha > .mx { border-radius:14px }
+.mod strong { font-size:16px } .mod small { color:var(--muted); font-size:14px; line-height:1.4 }
+.mod-n { display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+.dests { display:flex; gap:12px; justify-content:center; flex-wrap:wrap } .dests .th { --s:.13 }
+.ed { position:fixed; inset:0; z-index:60; background:color-mix(in srgb, #0A0F1C 92%, transparent); color:#fff; display:flex; flex-direction:column; backdrop-filter:blur(6px) }
+.ed-h { display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:14px 22px; border-bottom:1px solid #ffffff1f }
+.ed-h h2 { font-size:19px; font-weight:800; margin-right:auto } .ed-h h2 small { display:block; font-size:13px; font-weight:600; color:#A3AEC4 }
+.ed-h select { width:auto; max-width:300px; min-height:42px; background:#ffffff14; color:#fff; border-color:#ffffff2e } .ed-h select option { color:#0B1222 }
+.ed-h .btn.ghost { background:#ffffff14; color:#fff; border-color:#ffffff2e }
+.ed-x { width:44px; height:44px; border-radius:14px; display:grid; place-items:center; background:#ffffff14 } .ed-x:hover { background:#ffffff26 }
+.ed-dica { padding:10px 22px; font-size:14px; color:#C8D0E0; display:flex; gap:8px; align-items:center } .ed-dica b { color:#fff } .ed-dica .ic { width:16px; height:16px; color:#FFC53D }
+.ed-sl { flex:1; display:flex; gap:22px; overflow-x:auto; padding:10px 22px 26px; align-items:flex-start; scroll-snap-type:x proximity }
+.ed-it { --s:.7; flex:none; display:grid; gap:10px; scroll-snap-align:start }
+.ed-it .th { box-shadow:0 20px 50px -20px #000; border-radius:12px; overflow:hidden } .ed-it .th > .mx { pointer-events:auto }
+.ed-it .th.quad { border-radius:50% }
+.ed-it footer { display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#A3AEC4; font-weight:700 }
+.ed-it footer button { display:inline-flex; gap:6px; align-items:center; padding:6px 10px; border-radius:10px; background:#ffffff14; color:#fff; font-size:13px; font-weight:700 } .ed-it footer .ic { width:15px; height:15px }
+.ed-off { position:fixed; left:-12000px; top:0; pointer-events:none }
+@media (max-width:760px) { .ed-it { --s:.5 } .ed-h { padding:12px 16px } .ed-h h2 { width:100%; margin:0 } .ed-sl { padding:8px 16px 20px } .mods { grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:20px 12px } .mod .th { --s:.29 } .dests .th { --s:.1 } .idts { grid-template-columns:repeat(2, minmax(0, 1fr)) } }
+
+/* ====== Tendências ====== */
+.tend-hero { background:linear-gradient(135deg, var(--brand-esc), var(--brand)); color:#fff; border:0 } .tend-hero p { font-size:18px; line-height:1.55; max-width:860px; color:#ffffffe0 } .tend-hero h2 { color:#fff; font-size:24px; margin-bottom:10px }
+.achados { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:14px }
+.achado { padding:18px; border-radius:18px; background:var(--surface2); display:grid; gap:6px; align-content:start } .achado b { font-size:16.5px; line-height:1.3 } .achado span { font-size:15px; color:var(--muted); line-height:1.5 } .achado i { font-style:normal; font-size:13px; font-weight:800; color:var(--brand) }
+.sinais { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:12px } .sinal { padding:16px; border-radius:16px; border:1.5px solid var(--line) } .sinal b { display:block; font-size:16px; margin-bottom:4px } .sinal span { font-size:14.5px; color:var(--muted) }
+.virais { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px }
+.viral { display:flex; flex-direction:column; gap:10px; padding:20px; border-radius:20px; background:var(--surface); border:1px solid var(--line); box-shadow:var(--sombra) }
+.viral h3 { font-size:18px; font-weight:800; margin:0 } .viral .ex { font-size:15.5px; font-weight:700; padding:12px 14px; border-radius:14px; background:var(--brand-bg); line-height:1.4 } .viral p { font-size:15px; color:var(--muted); line-height:1.5 } .viral .acoes { margin-top:auto }
+.sinal-chip { display:inline-flex; padding:3px 10px; border-radius:999px; font-size:12px; font-weight:800; background:var(--surface2); color:var(--ink) }
+.av-lista { display:grid; gap:10px } .av-it { display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:16px; background:var(--surface2); flex-wrap:wrap } .av-it b { flex:1; min-width:200px; font-size:16px; line-height:1.35 } .av-it .num-i { width:30px; height:30px; border-radius:10px; background:var(--surface); display:grid; place-items:center; font-weight:800; font-size:14px; color:var(--brand) }
+.ritmo { display:grid; gap:10px; margin:0; padding:0; list-style:none } .ritmo li { display:flex; gap:12px; font-size:16px; line-height:1.5 } .ritmo .ic { color:var(--brand); margin-top:3px }
+.tabs .tab { display:inline-flex; align-items:center; gap:8px } .tabs .tab .ic { width:17px; height:17px }
+.k-caderno .mx-cap, .k-caderno .mx-cols > div:first-child small, .k-caderno .mx-kicker { color:var(--ac2) } .k-caderno .mx-kicker { background:#FFE14D; color:#1F2937 } .k-caderno .mx-num { color:var(--ac2) }
+
 </style>
 </head>
 <body>
@@ -1010,11 +1202,268 @@ P.MODELOS_FUTUROS = [
   { grupo:'Stories', itens:['Enquete de tema','Caixa de perguntas','Resposta em vídeo','Quiz certo ou errado','Bastidor','Contagem para live','Repost do feed'] }
 ];
 
+// Pauta · 15 identidades visuais e modelos de posts (10 carrosséis, 3 telas únicas, 3 stories/destaques, 3 extras).
+// Os slides têm tamanho fixo (540×675 no feed, 540×960 nos stories, 540×540 nos destaques) e exportam em 2× (1080 px).
+// Texto entre *asteriscos* sai destacado no estilo da identidade.
+window.MODELOS = (() => {
+const IDT = [
+  { id:'toga', nome:'Toga Moderna', desc:'Clássico e sóbrio, com moldura dourada fina.', ideal:['familia','sucessoes','civel'], motivo:'toga',
+    c:{ bg:'#F7F4EC', sf:'#FFFFFF', ink:'#14213D', mu:'#5A6478', ac:'#B8913A', ac2:'#14213D', on:'#FFFFFF', cbg:'#14213D', cink:'#F7F4EC' },
+    f:{ t:"'Playfair Display', Georgia, serif", b:"'Inter', Arial, sans-serif", tw:700, tt:'none', tl:'-.01em', lh:1.04, k:1 }, rad:4, hl:'italico' },
+  { id:'jornal', nome:'Editorial Jornal', desc:'Manchete de jornal, fios e colunas: ótimo para notícias.', ideal:['publico','criminal','tributario'], motivo:'jornal',
+    c:{ bg:'#F3EFE6', sf:'#FBF8F1', ink:'#111111', mu:'#555555', ac:'#C8102E', ac2:'#111111', on:'#FFFFFF', cbg:'#F3EFE6', cink:'#111111' },
+    f:{ t:"'Fraunces', Georgia, serif", b:"'IBM Plex Sans', Arial, sans-serif", tw:900, tt:'none', tl:'-.03em', lh:.98, k:1.02 }, rad:0, hl:'sublinhado' },
+  { id:'minimal', nome:'Minimal Branco', desc:'Muito respiro, tipografia enorme e um acento elétrico.', ideal:['empresarial','tributario','digital'], motivo:'minimal',
+    c:{ bg:'#FFFFFF', sf:'#F3F4F6', ink:'#0A0A0A', mu:'#6B7280', ac:'#2F4BFF', ac2:'#0A0A0A', on:'#FFFFFF', cbg:'#FFFFFF', cink:'#0A0A0A' },
+    f:{ t:"'Inter Tight', Arial, sans-serif", b:"'Inter Tight', Arial, sans-serif", tw:800, tt:'none', tl:'-.045em', lh:.96, k:1.04 }, rad:18, hl:'cor' },
+  { id:'neon', nome:'Pop Neon', desc:'Fundo preto, verde-limão e rosa: chama atenção no feed.', ideal:['consumidor','digital','carreira'], motivo:'neon',
+    c:{ bg:'#0D0D0D', sf:'#1C1C1C', ink:'#F5F5F5', mu:'#A3A3A3', ac:'#C6FF3D', ac2:'#FF4FD8', on:'#0D0D0D', cbg:'#0D0D0D', cink:'#F5F5F5' },
+    f:{ t:"'Archivo Black', Impact, sans-serif", b:"'Archivo', Arial, sans-serif", tw:400, tt:'uppercase', tl:'-.01em', lh:.94, k:.92 }, rad:16, hl:'caixa' },
+  { id:'caderno', nome:'Caderno de Estudos', desc:'Folha pautada, letra de mão e marca-texto amarelo.', ideal:['carreira','previdenciario','consumidor'], motivo:'caderno',
+    c:{ bg:'#FFFDF5', sf:'#FFF6C9', ink:'#1F2937', mu:'#4B5563', ac:'#FFE14D', ac2:'#E5484D', on:'#1F2937', cbg:'#FFFDF5', cink:'#1F2937' },
+    f:{ t:"'Caveat', 'Comic Sans MS', cursive", b:"'Nunito', Arial, sans-serif", tw:700, tt:'none', tl:'0', lh:.95, k:1.32 }, rad:10, hl:'marcatexto' },
+  { id:'terracota', nome:'Terracota Acolhedor', desc:'Cores da terra e formas suaves: acolhe sem perder a seriedade.', ideal:['familia','sucessoes','saude'], motivo:'terracota',
+    c:{ bg:'#F6EDE3', sf:'#FFF9F3', ink:'#3B2A20', mu:'#7A6455', ac:'#C4622D', ac2:'#6B7B4B', on:'#FFFFFF', cbg:'#C4622D', cink:'#FFF4EA' },
+    f:{ t:"'DM Serif Display', Georgia, serif", b:"'DM Sans', Arial, sans-serif", tw:400, tt:'none', tl:'-.01em', lh:1.02, k:1.04 }, rad:26, hl:'italico' },
+  { id:'verde', nome:'Verde Sereno', desc:'Letras grandes e contraste alto: pensado para o público 60+.', ideal:['previdenciario','saude','bancario'], motivo:'verde',
+    c:{ bg:'#F1F6F2', sf:'#FFFFFF', ink:'#12372A', mu:'#4E6B5E', ac:'#2E8A6E', ac2:'#F2C14E', on:'#FFFFFF', cbg:'#12372A', cink:'#F1F6F2' },
+    f:{ t:"'Bricolage Grotesque', Arial, sans-serif", b:"'Bricolage Grotesque', Arial, sans-serif", tw:800, tt:'none', tl:'-.03em', lh:1, k:1 }, rad:28, hl:'pilula' },
+  { id:'brutal', nome:'Brutalista', desc:'Bordas grossas, laranja e caixa alta: firme e direto.', ideal:['criminal','trabalho','publico'], motivo:'brutal',
+    c:{ bg:'#E9E9E6', sf:'#FFFFFF', ink:'#000000', mu:'#2B2B2B', ac:'#FF5A1F', ac2:'#000000', on:'#000000', cbg:'#FF5A1F', cink:'#000000' },
+    f:{ t:"'Anton', Impact, sans-serif", b:"'IBM Plex Mono', monospace", tw:400, tt:'uppercase', tl:'0', lh:.95, k:1.06 }, rad:0, hl:'caixa' },
+  { id:'lilas', nome:'Lilás Elegante', desc:'Arcos, serifa delicada e lilás: feminino e firme.', ideal:['familia','criminal','extrajudicial'], motivo:'lilas',
+    c:{ bg:'#F4EEF8', sf:'#FFFFFF', ink:'#3A1E4D', mu:'#6E5A7E', ac:'#8E4FBF', ac2:'#E8B4C8', on:'#FFFFFF', cbg:'#3A1E4D', cink:'#F4EEF8' },
+    f:{ t:"'Cormorant Garamond', Georgia, serif", b:"'Manrope', Arial, sans-serif", tw:700, tt:'none', tl:'-.01em', lh:.98, k:1.14 }, rad:24, hl:'italico' },
+  { id:'corporativo', nome:'Corporativo Azul', desc:'Degradê azul e cartões brancos: confiança e tecnologia.', ideal:['empresarial','bancario','tributario'], motivo:'corporativo',
+    c:{ bg:'#EEF3FF', sf:'#FFFFFF', ink:'#0B1B3F', mu:'#5A6B8C', ac:'#1D5BF0', ac2:'#00C2FF', on:'#FFFFFF', cbg:'#0B2A8A', cink:'#FFFFFF' },
+    f:{ t:"'Plus Jakarta Sans', Arial, sans-serif", b:"'Plus Jakarta Sans', Arial, sans-serif", tw:800, tt:'none', tl:'-.035em', lh:1, k:1 }, rad:22, hl:'pilula' },
+  { id:'luxo', nome:'Revista Luxo', desc:'Preto, champanhe e Bodoni: alto padrão.', ideal:['imobiliario','sucessoes','empresarial'], motivo:'luxo',
+    c:{ bg:'#0F0F0F', sf:'#1A1A1A', ink:'#F2EBDD', mu:'#A89F8E', ac:'#D4B483', ac2:'#F2EBDD', on:'#0F0F0F', cbg:'#0F0F0F', cink:'#F2EBDD' },
+    f:{ t:"'Bodoni Moda', Didot, serif", b:"'Jost', Arial, sans-serif", tw:700, tt:'none', tl:'-.01em', lh:1, k:1.02 }, rad:0, hl:'italico' },
+  { id:'scrap', nome:'Scrapbook', desc:'Papel kraft, fita adesiva e anotações: humano e próximo.', ideal:['consumidor','civel','imobiliario'], motivo:'scrap',
+    c:{ bg:'#D9C3A0', sf:'#FFFDF7', ink:'#2B2118', mu:'#5C4A38', ac:'#E85D4A', ac2:'#3D7EA6', on:'#FFFFFF', cbg:'#D9C3A0', cink:'#2B2118' },
+    f:{ t:"'Rubik', Arial, sans-serif", b:"'Rubik', Arial, sans-serif", tw:800, tt:'none', tl:'-.03em', lh:1, k:1 }, rad:6, hl:'marcatexto' },
+  { id:'tech', nome:'Tech Digital', desc:'Grade, brilho ciano e fonte mono: para Direito Digital e LGPD.', ideal:['digital','empresarial','bancario'], motivo:'tech',
+    c:{ bg:'#0B1020', sf:'#121A33', ink:'#E6EDFF', mu:'#8FA0C8', ac:'#2EE6D6', ac2:'#7B61FF', on:'#0B1020', cbg:'#0B1020', cink:'#E6EDFF' },
+    f:{ t:"'Sora', Arial, sans-serif", b:"'Sora', Arial, sans-serif", tw:700, tt:'none', tl:'-.035em', lh:1.02, k:1 }, rad:14, hl:'cor' },
+  { id:'saude', nome:'Saúde Clean', desc:'Branco, verde-água e ondas suaves: Direito da Saúde.', ideal:['saude','previdenciario','familia'], motivo:'saude',
+    c:{ bg:'#F3FAFB', sf:'#FFFFFF', ink:'#0E3B43', mu:'#4F7177', ac:'#0FA3A3', ac2:'#6CB4FF', on:'#FFFFFF', cbg:'#0FA3A3', cink:'#FFFFFF' },
+    f:{ t:"'Outfit', Arial, sans-serif", b:"'Outfit', Arial, sans-serif", tw:700, tt:'none', tl:'-.03em', lh:1.02, k:1.02 }, rad:24, hl:'pilula' },
+  { id:'retro', nome:'Retrô 70', desc:'Creme, laranja e listras curvas: leve e memorável.', ideal:['trabalho','consumidor','carreira'], motivo:'retro',
+    c:{ bg:'#F6E7C8', sf:'#FFF4DD', ink:'#3B2314', mu:'#7A5A3E', ac:'#E2702A', ac2:'#B5462A', on:'#FFFFFF', cbg:'#E2702A', cink:'#FFF4DD' },
+    f:{ t:"'Fraunces', Georgia, serif", b:"'Work Sans', Arial, sans-serif", tw:900, tt:'none', tl:'-.03em', lh:.98, k:1, it:true }, rad:30, hl:'caixa' }
+];
+
+// Conteúdo de exemplo de cada modelo (editável no editor). Casos sempre fictícios.
+const PACKS = {
+  c1:{ area:'Consumidor', tag:'Seus direitos', titulo:'Comprou pela internet e *se arrependeu?*', sub:'Você tem 7 dias. Entenda como funciona.',
+    itens:[{ t:'O direito de arrependimento', d:'Está no art. 49 do Código de Defesa do Consumidor.' }, { t:'Vale para compras fora da loja física', d:'Internet, telefone, catálogo ou venda em casa.' }, { t:'O prazo é de 7 dias', d:'Contados da compra ou do recebimento do produto.' }, { t:'Você recebe tudo de volta', d:'Inclusive o frete, com correção monetária.' }, { t:'Como pedir', d:'Avise a loja por escrito e guarde o protocolo.' }],
+    fim:{ titulo:'Salve para consultar quando precisar.', sub:'Mande para quem compra muito pela internet.' } },
+  c2:{ area:'Família', tag:'Pensão alimentícia', titulo:'Mito ou *verdade?*', sub:'4 frases que você já ouviu sobre pensão.',
+    itens:[{ t:'A pensão acaba aos 18 anos.', v:'MITO', d:'O fim depende de decisão judicial (Súmula 358 do STJ).' }, { t:'Quem atrasa a pensão perde o direito de visita.', v:'MITO', d:'Pensão e convivência são direitos separados.' }, { t:'Três parcelas atrasadas podem levar à prisão.', v:'VERDADE', d:'A prisão civil alcança as três últimas parcelas (art. 528, § 7º, do CPC).' }, { t:'Desempregado não precisa pagar.', v:'MITO', d:'O valor pode ser revisto, mas a obrigação continua.' }],
+    fim:{ titulo:'Qual dessas você já ouviu?', sub:'Comente e salve para lembrar.' } },
+  c3:{ area:'Sucessões', tag:'Passo a passo', titulo:'Inventário em cartório em *5 passos*', sub:'Mais rápido que o processo judicial, quando cabe.',
+    itens:[{ t:'Confira se cabe', d:'Em regra, herdeiros capazes e de acordo, com advogado.' }, { t:'Reúna os documentos', d:'Certidão de óbito, documentos dos herdeiros e dos bens.' }, { t:'Calcule o ITCMD', d:'É o imposto estadual sobre a herança.' }, { t:'Escolha o cartório de notas', d:'Pode ser qualquer tabelionato do país.' }, { t:'Assine a escritura', d:'Com ela, os bens são registrados no nome dos herdeiros.' }],
+    fim:{ titulo:'Guarde este passo a passo.', sub:'Cada família tem detalhes: confirme os requisitos do seu caso.' } },
+  c4:{ area:'Trabalhista', tag:'Demissão', titulo:'3 erros que fazem você *perder direitos* na demissão', sub:'E o que fazer no lugar.',
+    itens:[{ t:'Assinar a rescisão sem conferir', d:'Confira verbas, datas e o saldo do FGTS antes de assinar.' }, { t:'Perder o prazo de 2 anos', d:'Depois da saída, há 2 anos para entrar com a ação.' }, { t:'Não guardar provas', d:'Salve mensagens, holerites, escalas e e-mails.' }],
+    fim:{ titulo:'Mande para quem acabou de sair do emprego.', sub:'Informação certa na hora certa faz diferença.' } },
+  c5:{ area:'Previdenciário', tag:'Checklist', titulo:'Documentos para pedir a *aposentadoria*', sub:'Separe antes de entrar no Meu INSS.',
+    itens:[{ t:'Documento com foto e CPF' }, { t:'Carteiras de trabalho (todas)' }, { t:'Extrato do CNIS' }, { t:'Carnês de contribuição, se foi autônomo' }, { t:'PPP, se trabalhou exposto a agentes nocivos' }, { t:'Certidões de casamento e de nascimento dos filhos, quando pedidas' }],
+    dica:'Confira o CNIS antes de tudo: erros no extrato atrasam o pedido.', fim:{ titulo:'Salve e use como lista de conferência.', sub:'Compartilhe com quem está perto de se aposentar.' } },
+  c6:{ area:'Imobiliário', tag:'Aluguel', titulo:'*3 dúvidas* de quem mora de aluguel', sub:'Respondidas pela Lei do Inquilinato.',
+    itens:[{ t:'O dono pode entrar no imóvel sem avisar?', d:'Não. A visita precisa ser combinada antes (art. 23, IX, da Lei 8.245/91).' }, { t:'Quem paga o IPTU?', d:'O proprietário, salvo se o contrato passar ao inquilino (art. 22, VIII).' }, { t:'Posso sair antes do fim do contrato?', d:'Sim, pagando multa proporcional ao tempo que falta (art. 4º).' }],
+    fim:{ titulo:'Qual é a sua dúvida sobre aluguel?', sub:'Deixe nos comentários: ela pode virar o próximo post.' } },
+  c7:{ area:'Bancário', tag:'Caso fictício', titulo:'Joana caiu no golpe do *falso atendente*', sub:'O que ela pode fazer agora.',
+    itens:[{ t:'Conheça Joana', d:'Ela recebeu a ligação do “banco” e fez transferências para “proteger” a conta.' }, { t:'O problema', d:'O banco disse que a culpa era dela.' }, { t:'O que a lei diz', d:'Os bancos respondem por fraudes ligadas à sua atividade (Súmula 479 do STJ), conforme o caso.' }, { t:'O que fazer', d:'Avisar o banco na hora, pedir o MED do Pix, registrar boletim de ocorrência e guardar provas.' }],
+    aviso:'Caso fictício, criado para fins educativos.', fim:{ titulo:'Mande para quem precisa saber disso.', sub:'Golpe evitado é melhor que golpe resolvido.' } },
+  c8:{ area:'Saúde', tag:'Entenda a lei', kicker:'Plano de saúde', titulo:'Tratamento fora do rol da ANS pode ter *cobertura*', sub:'A Lei 14.454/2022 mudou o jogo. Veja o que ela diz.',
+    itens:[{ t:'O que mudou', d:'O rol da ANS passou a ser referência básica, e não uma lista fechada.' }, { t:'Quando o plano deve cobrir', d:'Quando há comprovação técnica de eficácia ou recomendação de órgãos de avaliação.' }, { t:'Se o plano negar', d:'Peça a negativa por escrito e o relatório detalhado do seu médico.' }],
+    fonte:'Fonte: Lei 14.454/2022.', fim:{ titulo:'Salve e compartilhe com quem tem plano de saúde.', sub:'Cada caso depende do contrato e do laudo.' } },
+  c9:{ area:'Família', tag:'Comparativo', a:'União estável', b:'Casamento', titulo:'União estável *x* casamento', sub:'O que muda na prática.',
+    itens:[{ t:'Como começa', a:'Pela convivência; pode ser registrada em cartório', b:'Pela celebração no cartório' }, { t:'Regime de bens padrão', a:'Comunhão parcial', b:'Comunhão parcial' }, { t:'Estado civil', a:'Não muda', b:'Passa a ser casado' }, { t:'Como termina', a:'Dissolução', b:'Divórcio' }],
+    fim:{ titulo:'Ficou alguma dúvida?', sub:'Comente: a próxima pode ser a sua.' } },
+  c10:{ area:'Geral', tag:'Juridiquês', titulo:'5 palavras do juridiquês *traduzidas*', sub:'Para você entender o seu processo.',
+    itens:[{ t:'Trânsito em julgado', d:'Quando não cabe mais recurso.' }, { t:'Liminar', d:'Decisão rápida, dada antes do fim do processo.' }, { t:'Citação', d:'Aviso oficial de que você está sendo processado.' }, { t:'Petição inicial', d:'O pedido que dá início à ação.' }, { t:'Audiência de conciliação', d:'Encontro para tentar um acordo.' }],
+    fim:{ titulo:'Qual palavra você quer que eu explique?', sub:'Comente aqui embaixo.' } },
+  t1:{ area:'Geral', titulo:'Conhecer os seus direitos é o *primeiro passo* para defendê-los.', sub:'' },
+  t2:{ area:'Consumidor', tag:'Dica rápida', titulo:'Guarde notas e comprovantes de compra por *pelo menos 5 anos.*', sub:'É o prazo para pedir reparação por danos causados por produto ou serviço (art. 27 do CDC).' },
+  t3:{ area:'Consumidor', dia:'15', mes:'março', titulo:'Dia do *Consumidor*', sub:'Conheça seus direitos e compre com segurança.' },
+  s1:{ area:'Família', tag:'Stories', titulo:'Vem que eu te explico: *guarda compartilhada*', sub:'Toque para continuar →' },
+  s2:{ area:'Família', titulo:'A pensão acaba *aos 18 anos?*', a:'Mito', b:'Verdade', sub:'Responda e veja a resposta no próximo story.' },
+  s3:{ area:'Geral', itens:[{ t:'Sobre mim', i:'user' }, { t:'Dúvidas', i:'q' }, { t:'Família', i:'heart' }, { t:'Consumidor', i:'bag' }, { t:'Bastidores', i:'cam' }, { t:'Materiais', i:'doc' }] },
+  e1:{ area:'Trabalhista', tag:'Reels', titulo:'Seu chefe pode *mandar mensagem* fora do horário?', sub:'' },
+  e2:{ area:'Geral', titulo:'Ninguém lê o contrato de aluguel até o dia em que precisa sair antes do prazo.', sub:'' },
+  e3:{ area:'Consumidor', num:'30', un:'dias', titulo:'é o prazo para a loja *consertar* um produto com defeito.', sub:'Se não resolver, você escolhe: troca, dinheiro de volta ou abatimento (art. 18 do CDC).' }
+};
+
+const TPL = [
+  { id:'c1', grupo:'carrossel', nome:'Educativo', desc:'Capa, tópicos numerados, resumo e chamada final.' },
+  { id:'c2', grupo:'carrossel', nome:'Mito ou verdade', desc:'Uma frase por slide, com o carimbo MITO ou VERDADE.' },
+  { id:'c3', grupo:'carrossel', nome:'Passo a passo', desc:'Número gigante em cada etapa e barra de progresso.' },
+  { id:'c4', grupo:'carrossel', nome:'Erros comuns', desc:'O erro com ✕ e o jeito certo com ✓.' },
+  { id:'c5', grupo:'carrossel', nome:'Checklist', desc:'Lista de documentos para salvar e conferir.' },
+  { id:'c6', grupo:'carrossel', nome:'Perguntas e respostas', desc:'Balão de pergunta e resposta com a lei.' },
+  { id:'c7', grupo:'carrossel', nome:'Caso fictício', desc:'História em capítulos com o que a lei diz.' },
+  { id:'c8', grupo:'carrossel', nome:'Notícia explicada', desc:'Manchete, o que mudou e o que fazer.' },
+  { id:'c9', grupo:'carrossel', nome:'Comparativo', desc:'A x B em duas colunas, critério por critério.' },
+  { id:'c10', grupo:'carrossel', nome:'Juridiquês traduzido', desc:'Um termo por slide, com definição simples.' },
+  { id:'t1', grupo:'unica', nome:'Frase de destaque', desc:'Citação grande com assinatura.' },
+  { id:'t2', grupo:'unica', nome:'Dica rápida', desc:'Cartão de nota com a dica e a base legal.' },
+  { id:'t3', grupo:'unica', nome:'Data comemorativa', desc:'Data em destaque e a mensagem do dia.' },
+  { id:'s1', grupo:'stories', nome:'Capa de sequência', desc:'Abre uma sequência de stories explicativos.' },
+  { id:'s2', grupo:'stories', nome:'Enquete', desc:'Pergunta com figurinha de enquete.' },
+  { id:'s3', grupo:'stories', nome:'Capas de destaque', desc:'6 capas redondas para os destaques do perfil.' },
+  { id:'e1', grupo:'extras', nome:'Capa de reels', desc:'Título na área segura e espaço para o seu rosto.' },
+  { id:'e2', grupo:'extras', nome:'Post de texto', desc:'No formato de um post de rede social.' },
+  { id:'e3', grupo:'extras', nome:'Número gigante', desc:'Um número que prende a atenção e a explicação.' }
+];
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const marca = s => esc(s).replace(/\*(.+?)\*/g, '<span class="hl">$1</span>').replace(/\n/g, '<br>');
+const ICON = { user:'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', q:'M9 9a3 3 0 1 1 4 2.8c-.7.3-1 .9-1 1.7V15 M12 18h.01 M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0', heart:'M12 21s-8-5-8-11a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 6-8 11-8 11z', bag:'M5 8h14l-1 13H6z M9 8V6a3 3 0 0 1 6 0v2', cam:'M3 7h4l2-3h6l2 3h4v13H3z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', doc:'M5 2h9l5 5v15H5z M14 2v6h5 M8 13h8 M8 17h8', x:'M6 6l12 12 M6 18L18 6', ok:'M5 12l4 4L19 6', play:'M8 5l11 7-11 7z', chat:'M3 4h18v13H8l-5 4z' };
+const ic = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${ICON[n] || ICON.doc}"/></svg>`;
+
+function vars(idt) {
+  const c = idt.c, f = idt.f;
+  return `--bg:${c.bg};--sf:${c.sf};--ink:${c.ink};--mu:${c.mu};--ac:${c.ac};--ac2:${c.ac2};--on:${c.on};--cbg:${c.cbg};--cink:${c.cink};--ft:${f.t};--fb:${f.b};--tw:${f.tw};--tt:${f.tt};--tl:${f.tl};--lh:${f.lh};--k:${f.k};--rad:${idt.rad}px;--fi:${f.it ? 'italic' : 'normal'}`;
+}
+// Gera os slides de um modelo. ctx: { idt, d (conteúdo), edit (bool), handle }
+function slides(tid, ctx) {
+  const { idt, d, edit, handle } = ctx, out = [];
+  const E = (k, v, cls, tag = 'div') => `<${tag} class="${cls}"${edit ? ` contenteditable="true" spellcheck="false" data-k="${k}"` : ''}>${marca(v)}</${tag}>`;
+  const base = (tipo, corpo, extra = '') => `<div class="mx k-${idt.motivo} hl-${idt.hl} ${tipo} ${extra}" style="${vars(idt)}">${corpo}</div>`;
+  const topo = (escuro) => `<div class="mx-top"><span>${esc(handle)}</span>${E('tag', d.tag || d.area, 'mx-tag', 'span')}</div>`;
+  const rod = (i, n) => `<div class="mx-foot"><span>${String(i).padStart(2, '0')} / ${String(n).padStart(2, '0')}</span>${i < n ? '<span class="mx-seta">→</span>' : ''}</div>`;
+  const it = d.itens || [];
+  const capa = n => base('feed mx-c', `${topo()}<div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}${d.sub ? E('sub', d.sub, 'mx-sub') : ''}</div><div class="mx-foot"><span>${esc(ctx.nome || '')}</span><span class="mx-arrasta">Arrasta →</span></div><span class="mx-deco"></span>`);
+  const fim = n => base('feed mx-c mx-f', `${topo()}<div class="mx-capa">${E('fim.titulo', d.fim.titulo, 'mx-t l')}${E('fim.sub', d.fim.sub, 'mx-sub')}<div class="mx-acoes"><span>${ic('ok')}Salvar</span><span>${ic('chat')}Comentar</span><span>${ic('play')}Compartilhar</span></div></div>${rod(n, n)}<span class="mx-deco"></span>`);
+  const meio = (i, n, corpo, extra = '') => base('feed mx-m', `${topo()}${corpo}${rod(i, n)}`, extra);
+  if (tid === 'c1') { const n = it.length + 3; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-num">${String(j + 1).padStart(2, '0')}</div><div class="mx-bloco">${E(`itens.${j}.t`, x.t, 'mx-t m')}${E(`itens.${j}.d`, x.d, 'mx-p')}</div>`)));
+    out.push(meio(n - 1, n, `<div class="mx-bloco">${`<div class="mx-t m">Resumo</div>`}<ul class="mx-lista">${it.map((x, j) => `<li>${ic('ok')}${E(`itens.${j}.t`, x.t, '', 'span')}</li>`).join('')}</ul></div>`)); out.push(fim(n)) }
+  if (tid === 'c2') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco">${E(`itens.${j}.t`, '“' + x.t.replace(/^“|”$/g, '') + '”', 'mx-t m aspas')}<div class="mx-carimbo ${x.v === 'MITO' ? 'mito' : 'verdade'}">${E(`itens.${j}.v`, x.v, '', 'span')}</div>${E(`itens.${j}.d`, x.d, 'mx-p cardp')}</div>`))); out.push(fim(n)) }
+  if (tid === 'c3') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-passo"><small>PASSO</small><b>${j + 1}</b></div><div class="mx-bloco baixo">${E(`itens.${j}.t`, x.t, 'mx-t m')}${E(`itens.${j}.d`, x.d, 'mx-p')}<div class="mx-prog">${it.map((_, k) => `<i class="${k <= j ? 'on' : ''}"></i>`).join('')}</div></div>`))); out.push(fim(n)) }
+  if (tid === 'c4') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco"><div class="mx-erro"><span class="mx-x">${ic('x')}</span><div><small>ERRO ${j + 1}</small>${E(`itens.${j}.t`, x.t, 'mx-t m')}</div></div><div class="mx-certo"><span class="mx-v">${ic('ok')}</span><div><small>FAÇA ASSIM</small>${E(`itens.${j}.d`, x.d, 'mx-p')}</div></div></div>`))); out.push(fim(n)) }
+  if (tid === 'c5') { const g = [it.slice(0, 3), it.slice(3)].filter(z => z.length), n = g.length + 3; out.push(capa(n));
+    g.forEach((gr, gi) => out.push(meio(gi + 2, n, `<div class="mx-bloco">${gi === 0 ? '<div class="mx-t m">Separe:</div>' : '<div class="mx-t m">E também:</div>'}<ul class="mx-check">${gr.map((x, k) => { const j = gi * 3 + k; return `<li><span class="mx-box">${ic('ok')}</span>${E(`itens.${j}.t`, x.t, '', 'span')}</li>` }).join('')}</ul></div>`)));
+    out.push(meio(n - 1, n, `<div class="mx-bloco"><div class="mx-selo">DICA</div>${E('dica', d.dica, 'mx-t m')}</div>`)); out.push(fim(n)) }
+  if (tid === 'c6') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco"><div class="mx-balao">${E(`itens.${j}.t`, x.t, 'mx-t s')}</div><div class="mx-resp"><small>RESPOSTA</small>${E(`itens.${j}.d`, x.d, 'mx-p g')}</div></div>`))); out.push(fim(n)) }
+  if (tid === 'c7') { const n = it.length + 3; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-cap">CAPÍTULO ${j + 1}</div><div class="mx-bloco baixo">${E(`itens.${j}.t`, x.t, 'mx-t l')}${E(`itens.${j}.d`, x.d, 'mx-p g')}</div>`)));
+    out.push(meio(n - 1, n, `<div class="mx-bloco"><div class="mx-selo">ATENÇÃO</div>${E('aviso', d.aviso, 'mx-t m')}</div>`)); out.push(fim(n)) }
+  if (tid === 'c8') { const n = it.length + 2;
+    out.push(base('feed mx-c noticia', `${topo()}<div class="mx-capa">${E('kicker', d.kicker || 'Entenda', 'mx-kicker', 'span')}${E('titulo', d.titulo, 'mx-t xl')}${E('sub', d.sub, 'mx-sub')}</div><div class="mx-foot"><span>${esc(ctx.nome || '')}</span><span class="mx-arrasta">Arrasta →</span></div><span class="mx-deco"></span>`));
+    it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco"><div class="mx-sec">${E(`itens.${j}.t`, x.t, '', 'span')}</div>${E(`itens.${j}.d`, x.d, 'mx-t m')}${j === it.length - 1 && d.fonte ? E('fonte', d.fonte, 'mx-fonte') : ''}</div>`))); out.push(fim(n)) }
+  if (tid === 'c9') { const n = it.length + 2;
+    out.push(base('feed mx-c', `${topo()}<div class="mx-capa vs">${E('a', d.a, 'mx-t l lado')}<span class="mx-vs">x</span>${E('b', d.b, 'mx-t l lado')}${E('sub', d.sub, 'mx-sub')}</div><div class="mx-foot"><span>${esc(ctx.nome || '')}</span><span class="mx-arrasta">Arrasta →</span></div><span class="mx-deco"></span>`));
+    it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco">${E(`itens.${j}.t`, x.t, 'mx-sec', 'div')}<div class="mx-cols"><div><small>${esc(d.a)}</small>${E(`itens.${j}.a`, x.a, 'mx-p g')}</div><div><small>${esc(d.b)}</small>${E(`itens.${j}.b`, x.b, 'mx-p g')}</div></div></div>`))); out.push(fim(n)) }
+  if (tid === 'c10') { const n = it.length + 2; out.push(capa(n)); it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="mx-bloco"><small class="mx-mini">substantivo jurídico</small>${E(`itens.${j}.t`, x.t, 'mx-t xl')}<div class="mx-fio"></div>${E(`itens.${j}.d`, x.d, 'mx-p g')}</div>`))); out.push(fim(n)) }
+  if (tid === 't1') out.push(base('feed mx-c frase', `${topo()}<div class="mx-capa"><span class="mx-aspas">“</span>${E('titulo', d.titulo, 'mx-t l')}<div class="mx-ass">${esc(handle)}</div></div><span class="mx-deco"></span>`));
+  if (tid === 't2') out.push(base('feed mx-m', `${topo()}<div class="mx-nota"><div class="mx-nota-top"><span class="mx-selo">${E('tag', d.tag, '', 'span')}</span><span>${ic('ok')}</span></div>${E('titulo', d.titulo, 'mx-t m')}${E('sub', d.sub, 'mx-p')}</div><div class="mx-foot"><span>${esc(handle)}</span><span>Salve ✓</span></div>`));
+  if (tid === 't3') out.push(base('feed mx-c data', `${topo()}<div class="mx-capa"><div class="mx-dia">${E('dia', d.dia, '', 'b')}${E('mes', d.mes, '', 'small')}</div>${E('titulo', d.titulo, 'mx-t xl')}${E('sub', d.sub, 'mx-sub')}</div><span class="mx-deco"></span>`));
+  if (tid === 's1') out.push(base('story mx-c', `${topo()}<div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}</div>${E('sub', d.sub, 'mx-toque')}<span class="mx-deco"></span>`));
+  if (tid === 's2') out.push(base('story mx-m', `${topo()}<div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}<div class="mx-enquete"><span>${E('a', d.a, '', 'b')}</span><span>${E('b', d.b, '', 'b')}</span></div>${E('sub', d.sub, 'mx-p')}</div>`));
+  if (tid === 's3') d.itens.forEach((x, j) => out.push(base('quad mx-c', `<div class="mx-dest"><span>${ic(x.i)}</span>${E(`itens.${j}.t`, x.t, '', 'b')}</div><span class="mx-deco"></span>`)));
+  if (tid === 'e1') out.push(base('story mx-c reel', `${topo()}<div class="mx-rosto"><span>sua foto ou vídeo aqui</span></div><div class="mx-capa">${E('titulo', d.titulo, 'mx-t xl')}</div><span class="mx-reel">${ic('play')}REELS</span>`));
+  if (tid === 'e2') out.push(base('feed mx-m post-texto', `<div class="mx-tw"><div class="mx-tw-top"><span class="mx-tw-av">${esc((handle || '@').replace('@', '')[0] || 'A').toUpperCase()}</span><div><b>${esc(ctx.nome || 'Seu nome')}</b><small>${esc(handle)}</small></div></div>${E('titulo', d.titulo, 'mx-tw-t')}<div class="mx-tw-f"><span>${ic('chat')} 128</span><span>${ic('play')} 342</span><span>${ic('heart')} 2,1 mil</span></div></div>`));
+  if (tid === 'e3') out.push(base('feed mx-c numero', `${topo()}<div class="mx-capa"><div class="mx-big">${E('num', d.num, '', 'b')}${E('un', d.un, '', 'small')}</div>${E('titulo', d.titulo, 'mx-t l')}${E('sub', d.sub, 'mx-sub')}</div><span class="mx-deco"></span>`));
+  return out;
+}
+const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap';
+return { IDT, PACKS, TPL, slides, FONTES_URL };
+})();
+
+// Pauta · o que mais funciona no Instagram jurídico (análise de perfis de advogados de várias áreas)
+// e banco de ideias virais: formatos que se repetem nos posts com mais salvamentos, compartilhamentos e comentários.
+// {t} = tema da área, {a} = nome da área. Nada aqui promete resultado nem fala de honorários (Provimento 205/2021).
+window.TENDENCIAS = (() => {
+const ANALISE = {
+  resumo: 'Olhamos perfis de advocacia de Família, Consumidor, Trabalhista, Previdenciário, Criminal, Imobiliário, Bancário, Saúde, Tributário, Empresarial, Digital e Concursos, de nomes grandes a escritórios de bairro. Os posts que mais circulam têm três coisas em comum: falam de uma situação que a pessoa vive (não de um instituto jurídico), respondem em linguagem de conversa e terminam com um motivo para salvar ou mandar para alguém.',
+  achados: [
+    { t:'Situação vence instituto', d:'“Fui demitido grávida, e agora?” rende muito mais que “estabilidade da gestante”. O título nasce da dúvida, não do nome do artigo.' },
+    { t:'Carrossel é o formato do salvamento', d:'Listas, checklists e passo a passo são os carrosséis mais salvos. O primeiro slide decide tudo: promessa clara + número (“5 documentos…”, “3 erros…”).' },
+    { t:'Reels é o formato do alcance', d:'Os vídeos que levam o perfil a quem não segue abrem com uma pergunta ou um “isso é crime?” nos 3 primeiros segundos, têm legenda na tela e duram 20 a 45 segundos.' },
+    { t:'Golpes e notícias geram compartilhamento', d:'Alertas de golpe (Pix, falso atendente, falso advogado) e “o que muda com a lei nova” são mandados no direct e em grupos de família.' },
+    { t:'Mito ou verdade gera comentário', d:'Quando o post corrige uma crença popular, as pessoas comentam “eu achava que…”. Comentário é o sinal que mais distribui o post.' },
+    { t:'Rosto cria confiança', d:'Perfis com bastidores e o rosto do advogado em parte dos posts recebem mais mensagens. Quem só posta arte fica parecido com todo mundo.' },
+    { t:'Cultura pop abre a porta', d:'Novela, reality, série e caso famoso explicados com fatos públicos levam o Direito a quem nunca procuraria o tema.' },
+    { t:'Constância antes de viralizar', d:'Os perfis que crescem postam 3 a 5 vezes por semana, repetem séries com nome fixo (“Direito em 1 minuto”, “Golpe da semana”) e reaproveitam o mesmo tema em carrossel, reels e stories.' }
+  ],
+  sinais: [
+    { k:'Salvamento', d:'Checklist, passo a passo, prazos, documentos, “guarde este post”.' },
+    { k:'Compartilhamento', d:'Golpes, mitos, direitos pouco conhecidos, “mande para quem…”.' },
+    { k:'Comentário', d:'Perguntas abertas, enquetes, “isso já aconteceu com você?”, palavra-chave para receber material.' },
+    { k:'Alcance', d:'Reels com gancho forte, cultura pop, notícia do dia, tema polêmico tratado com técnica.' },
+    { k:'Conexão', d:'Bastidores, rotina, história de carreira, erros que você já cometeu.' }
+  ],
+  ritmo: [
+    'Semana-base: 2 carrosséis (salvamento), 1 a 2 reels (alcance), 1 post com rosto ou frase (conexão) e stories todos os dias.',
+    'Séries com nome fixo: o público aprende a esperar e você não precisa inventar o formato de novo.',
+    'Um tema, três peças: carrossel completo, reels com o ponto mais surpreendente e stories com enquete.',
+    'Responda comentários com vídeo: cada dúvida boa vira o próximo post.',
+    'Guarde as dúvidas que chegam no direct numa lista. É o seu banco de pautas mais certeiro.'
+  ]
+};
+
+// Formatos virais (além dos modelos prontos da aba Modelos)
+const VIRAIS = [
+  { id:'sabia', nome:'Você sabia?', sinal:'Compartilhamento', f:'carrossel', p:'educar', titulo:'Você sabia que {t} tem uma regra que quase ninguém conhece?', porque:'Curiosidade + sensação de “descobri algo útil”. Funciona muito com direitos pouco conhecidos.', est:'SLIDE 1 · CAPA\nVocê sabia que…? [o fato surpreendente em uma linha]\n\nSLIDE 2 · O FATO\n[O direito ou a regra, explicado em 2 frases]\n\nSLIDE 3 · ONDE ESTÁ\n[Lei, artigo ou súmula]\n\nSLIDE 4 · NA PRÁTICA\n[Exemplo fictício curto]\n\nSLIDE 5 · CONVITE\nMande para quem precisa saber disso.' },
+  { id:'crime', nome:'Isso é crime?', sinal:'Alcance', f:'reels', p:'desmistificar', titulo:'Isso é crime? A resposta sobre {t} vai te surpreender', porque:'Pergunta de sim ou não prende até o fim. Ótimo para Criminal, Digital e Consumidor.', est:'CENA 1 · GANCHO (0–3 s)\n“Isso é crime?” [mostre a situação na tela]\n\nCENA 2 · A RESPOSTA (3–12 s)\n[Sim / Não / Depende, em uma frase]\n\nCENA 3 · POR QUÊ (12–30 s)\n[Lei e artigo, com a pena ou a consequência]\n\nCENA 4 · FECHAMENTO\n“Comenta outra situação que eu respondo.”' },
+  { id:'processo', nome:'Isso dá processo?', sinal:'Comentário', f:'reels', p:'educar', titulo:'Isso dá processo? Situações de {t} que geram direito', porque:'O público quer saber se “vale a pena” brigar. Fale da regra, nunca prometa ganho.', est:'CENA 1 · GANCHO\n“Isso dá processo?” [situação do dia a dia]\n\nCENA 2 · DEPENDE DE QUÊ\n[Os 2 ou 3 pontos que a Justiça olha]\n\nCENA 3 · PROVAS\n[O que guardar desde já]\n\nCENA 4 · FECHAMENTO\n“Cada caso tem detalhes; salve para lembrar o que guardar.”' },
+  { id:'pop', nome:'Direito na cultura pop', sinal:'Alcance', f:'reels', p:'autoridade', titulo:'O que a novela (ou série) errou sobre {t}', porque:'Pega carona no que todo mundo está vendo. Use só fatos da obra, sem ofender personagens reais.', est:'CENA 1 · GANCHO\n“Na novela de ontem…” [a cena em uma frase]\n\nCENA 2 · NA VIDA REAL\n[Como a lei trata essa situação]\n\nCENA 3 · O ERRO OU O ACERTO\n[O detalhe jurídico]\n\nCENA 4 · FECHAMENTO\n“Quer que eu analise qual cena?”' },
+  { id:'famoso', nome:'Caso famoso explicado', sinal:'Alcance', f:'carrossel', p:'autoridade', titulo:'O caso que está em todo lugar: o que a lei diz sobre {t}', porque:'Notícia do momento traz busca e alcance. Fale só de fatos públicos e da regra; não opine sobre culpa de ninguém.', est:'SLIDE 1 · CAPA\n[O caso em uma manchete neutra]\n\nSLIDE 2 · O QUE ACONTECEU\n[Só fatos públicos e a fonte]\n\nSLIDE 3 · A REGRA\n[O que a lei diz sobre esse tipo de situação]\n\nSLIDE 4 · E SE FOSSE COM VOCÊ\n[O que uma pessoa comum deve saber]\n\nSLIDE 5 · FONTE\n[Veículos e data]' },
+  { id:'pov', nome:'POV de advogado(a)', sinal:'Conexão', f:'reels-texto', p:'conexao', titulo:'POV: o cliente chega dizendo que {t} “é simples”', porque:'Humor leve e identificação. Mostra rotina sem expor ninguém.', est:'TELA 1 · GANCHO\nPOV: [situação engraçada e comum da rotina]\n\nTELA 2 · REAÇÃO\n[sua cara, um olhar para a câmera]\n\nTELA 3 · A VERDADE\n[a explicação curta e útil]\n\nTELA 4 · FECHAMENTO\n“Advogado(a) também é gente. Marca um colega.”' },
+  { id:'direitos', nome:'Seus direitos quando…', sinal:'Salvamento', f:'carrossel', p:'educar', titulo:'Seus direitos quando acontece {t}', porque:'Lista de direitos por situação é o post mais salvo em Consumidor, Trabalhista e Saúde.', est:'SLIDE 1 · CAPA\nSeus direitos quando [situação]\n\nSLIDE 2 a 6 · UM DIREITO POR SLIDE\n[Direito] + [base legal curta]\n\nSLIDE 7 · O QUE FAZER AGORA\n[3 ações práticas]\n\nSLIDE 8 · CONVITE\nSalve e mande para quem está passando por isso.' },
+  { id:'assinar', nome:'Antes de assinar', sinal:'Salvamento', f:'carrossel', p:'passo', titulo:'Antes de assinar qualquer coisa sobre {t}, confira isto', porque:'Medo de errar + lista de conferência. Ótimo para contratos, imóveis, rescisão e empresas.', est:'SLIDE 1 · CAPA\nAntes de assinar [documento], leia isto\n\nSLIDE 2 a 6 · O QUE CONFERIR\n[Cláusula ou ponto] → [por que importa]\n\nSLIDE 7 · SINAL VERMELHO\n[A cláusula que mais dá problema]\n\nSLIDE 8 · CONVITE\nGuarde para usar no próximo contrato.' },
+  { id:'golpe', nome:'Golpe da semana', sinal:'Compartilhamento', f:'reels-texto', p:'desmistificar', titulo:'Golpe da semana: fique atento a este, ligado a {t}', porque:'Utilidade pública: as pessoas mandam para pais e avós. Vire série fixa.', est:'TELA 1 · ALERTA\nGOLPE DA SEMANA [nome do golpe]\n\nTELA 2 · COMO FUNCIONA\n[o passo a passo do golpista]\n\nTELA 3 · COMO SE PROTEGER\n[3 cuidados]\n\nTELA 4 · SE JÁ CAIU\n[o que fazer nas primeiras horas]\n\nTELA 5 · FECHAMENTO\nMande para quem pode cair nesse.' },
+  { id:'comentario', nome:'Respondendo comentário', sinal:'Comentário', f:'reels', p:'conexao', titulo:'Respondendo: “{q}”', porque:'O Instagram mostra o comentário na tela. Gera mais comentários e prova que você ouve o público.', est:'CENA 1 · O COMENTÁRIO\n[figurinha de resposta com a pergunta, sem o nome da pessoa]\n\nCENA 2 · A RESPOSTA CURTA\n[uma frase]\n\nCENA 3 · O DETALHE\n[a exceção ou o cuidado]\n\nCENA 4 · FECHAMENTO\n“Deixe a sua dúvida aqui que eu respondo em vídeo.”' },
+  { id:'demora', nome:'Quanto tempo demora?', sinal:'Salvamento', f:'carrossel', p:'educar', titulo:'Quanto tempo demora {t}? As etapas, uma por uma', porque:'É a pergunta que todo cliente faz. Mostre as etapas e o que acelera ou atrasa, sem prometer prazo.', est:'SLIDE 1 · CAPA\nQuanto tempo demora [procedimento]?\n\nSLIDE 2 · DEPENDE DE QUÊ\n[os fatores principais]\n\nSLIDE 3 a 6 · ETAPAS\n[etapa] · [o que acontece nela]\n\nSLIDE 7 · O QUE ATRASA\n[erros comuns]\n\nSLIDE 8 · CONVITE\nSalve para acompanhar o seu caso.' },
+  { id:'custos', nome:'Quanto custa (custas e taxas)', sinal:'Salvamento', f:'carrossel', p:'educar', titulo:'Custas, taxas e impostos de {t}: o que entra na conta', porque:'Transparência sobre custos públicos (custas, ITCMD, emolumentos). Nunca divulgue honorários.', est:'SLIDE 1 · CAPA\nO que entra na conta de [procedimento]\n\nSLIDE 2 · CUSTAS OU EMOLUMENTOS\n[o que são e onde consultar a tabela]\n\nSLIDE 3 · IMPOSTOS\n[quais incidem]\n\nSLIDE 4 · GRATUIDADE\n[quem pode pedir]\n\nSLIDE 5 · CONVITE\nSalve para se organizar.' },
+  { id:'24h', nome:'Primeiras 24 horas', sinal:'Salvamento', f:'carrossel', p:'passo', titulo:'Aconteceu {t}? O que fazer nas primeiras 24 horas', porque:'Urgência + ação imediata. Muito forte em Criminal, Bancário (golpes), Trânsito e Família.', est:'SLIDE 1 · CAPA\nO que fazer nas primeiras 24 horas depois de [situação]\n\nSLIDE 2 · NA PRIMEIRA HORA\n[ação]\n\nSLIDE 3 · NO MESMO DIA\n[ação]\n\nSLIDE 4 · O QUE NÃO FAZER\n[erros]\n\nSLIDE 5 · PROVAS\n[o que guardar]\n\nSLIDE 6 · CONVITE\nSalve: na hora do susto ninguém lembra.' },
+  { id:'expectativa', nome:'Expectativa x realidade', sinal:'Conexão', f:'reels-texto', p:'conexao', titulo:'Expectativa x realidade: {t}', porque:'Contraste visual e humor. Desfaz a ideia de que o Direito é como nos filmes.', est:'TELA 1 · EXPECTATIVA\n[como as pessoas imaginam]\n\nTELA 2 · REALIDADE\n[como é de verdade]\n\nTELA 3 · POR QUÊ\n[a regra em uma frase]\n\nTELA 4 · FECHAMENTO\n“Qual expectativa você tinha?”' },
+  { id:'dia', nome:'Um dia comigo', sinal:'Conexão', f:'reels', p:'conexao', titulo:'Um dia na advocacia de {a}', porque:'Bastidor cria vínculo. Mostre a rotina sem clientes, processos ou dados.', est:'CENA 1 · MANHÃ\n[café, agenda, deslocamento]\n\nCENA 2 · TRABALHO\n[estudo, escrita, reunião sem mostrar ninguém]\n\nCENA 3 · O DETALHE\n[algo que surpreende quem não é da área]\n\nCENA 4 · FECHAMENTO\n“Quer ver mais bastidores?”' },
+  { id:'documento', nome:'Lendo um documento', sinal:'Salvamento', f:'reels', p:'autoridade', titulo:'Lendo um contrato (fictício) de {t}: as cláusulas que eu sempre confiro', porque:'Mostra a técnica na prática. Use documento fictício, criado por você.', est:'CENA 1 · GANCHO\n“Vou ler um contrato com você.” [documento fictício na mesa]\n\nCENA 2 a 4 · CLÁUSULAS\n[marque com caneta: o ponto e por que importa]\n\nCENA 5 · FECHAMENTO\n“Salve para conferir o seu.”' },
+  { id:'alerta', nome:'Sinais de alerta', sinal:'Compartilhamento', f:'carrossel', p:'desmistificar', titulo:'5 sinais de alerta em {t}', porque:'Lista curta de “bandeiras vermelhas”. Gera identificação (“isso aconteceu comigo”).', est:'SLIDE 1 · CAPA\n5 sinais de alerta em [situação]\n\nSLIDE 2 a 6 · UM SINAL POR SLIDE\n[sinal] → [por que é perigoso]\n\nSLIDE 7 · O QUE FAZER\n[ação]\n\nSLIDE 8 · CONVITE\nMande para quem precisa ver.' },
+  { id:'linha', nome:'Linha do tempo do processo', sinal:'Salvamento', f:'carrossel', p:'passo', titulo:'Do começo ao fim: a linha do tempo de {t}', porque:'Desenho simples de algo que assusta. Bom para clientes que já estão em processo.', est:'SLIDE 1 · CAPA\nComo funciona [processo] do começo ao fim\n\nSLIDE 2 · LINHA DO TEMPO\n[5 a 7 etapas numa linha]\n\nSLIDE 3 a 6 · ETAPAS EM DETALHE\n[etapa] · [o que a pessoa precisa fazer]\n\nSLIDE 7 · CONVITE\nSalve para acompanhar.' },
+  { id:'calendario', nome:'Calendário do mês', sinal:'Salvamento', f:'post', p:'educar', titulo:'Prazos e datas de {a} deste mês', porque:'Utilidade recorrente: imposto de renda, 13º, matrícula, férias, vencimentos.', est:'SLIDE 1 · CALENDÁRIO\n[mês] · [3 a 5 datas com o que fazer]\n\nNA LEGENDA\n[uma linha por data, com a fonte]\n\nVISUAL\n• Calendário limpo, datas em destaque.' },
+  { id:'quiz', nome:'Quiz nos stories', sinal:'Comentário', f:'stories', p:'desmistificar', titulo:'Quiz: você sabe a regra de {t}?', porque:'Figurinha de quiz aumenta interação e mostra o que o público não sabe (vira pauta).', est:'TELA 1 · PERGUNTA\n[figurinha de quiz com 3 opções]\n\nTELA 2 · RESPOSTA\n[a certa e por quê]\n\nTELA 3 · RESULTADO\n[print do resultado: “72% erraram”]\n\nTELA 4 · CONVITE\nO post completo está no feed.' },
+  { id:'historia', nome:'História fictícia em partes', sinal:'Alcance', f:'reels-texto', p:'autoridade', titulo:'Ela descobriu {t} no pior momento (história fictícia, parte 1)', porque:'Narrativa em capítulos faz o público voltar e seguir para ver o final.', est:'TELA 1 · GANCHO\n[personagem fictício + problema]\n\nTELA 2 · O CONFLITO\n[o que deu errado]\n\nTELA 3 · A VIRADA\n[a regra que muda tudo]\n\nTELA 4 · CONTINUA\n“Parte 2 amanhã. Siga para ver o final.”\n\nCUIDADO\n• Deixe claro que a história é fictícia.' },
+  { id:'estado', nome:'Muda de estado para estado', sinal:'Comentário', f:'carrossel', p:'educar', titulo:'{t}: o que muda conforme o seu estado', porque:'As pessoas comentam a cidade e o estado. Bom para ITCMD, IPVA, cartório e concursos.', est:'SLIDE 1 · CAPA\nNo seu estado é diferente?\n\nSLIDE 2 · O QUE É IGUAL\n[regra nacional]\n\nSLIDE 3 · O QUE MUDA\n[exemplos de estados, com a fonte]\n\nSLIDE 4 · ONDE CONSULTAR\n[órgão ou site oficial]\n\nSLIDE 5 · CONVITE\nComente o seu estado.' },
+  { id:'pare', nome:'Pare de fazer isso', sinal:'Alcance', f:'reels', p:'desmistificar', titulo:'Pare de fazer isso se você passa por {t}', porque:'Ordem direta prende. O conteúdo precisa entregar o motivo e a alternativa.', est:'CENA 1 · GANCHO\n“Pare de [hábito comum] agora.”\n\nCENA 2 · POR QUÊ\n[o risco jurídico]\n\nCENA 3 · FAÇA ASSIM\n[a alternativa segura]\n\nCENA 4 · FECHAMENTO\n“Salve para não esquecer.”' },
+  { id:'material', nome:'Material gratuito', sinal:'Comentário', f:'post', p:'educar', titulo:'Comente “GUIA” e receba o checklist gratuito de {t}', porque:'Palavra-chave nos comentários multiplica o alcance. Entregue material informativo, sem captar cliente.', est:'SLIDE 1 · CAPA\n[nome do material] grátis\n\nSLIDE 2 · O QUE TEM DENTRO\n[3 itens]\n\nSLIDE 3 · COMO RECEBER\nComente [palavra] que eu te mando.\n\nCUIDADO\n• Material educativo; não ofereça consulta nem serviço.' },
+  { id:'estudo', nome:'Bastidor de estudo', sinal:'Conexão', f:'stories', p:'conexao', titulo:'O que eu estudei esta semana sobre {t}', porque:'Mostra atualização constante e gera autoridade sem autopromoção.', est:'TELA 1 · LIVRO OU CURSO\n[foto da mesa]\n\nTELA 2 · O QUE APRENDI\n[uma ideia]\n\nTELA 3 · ENQUETE\n“Quer um post sobre isso?”' },
+  { id:'leinova', nome:'Lei nova em 1 minuto', sinal:'Compartilhamento', f:'reels-texto', p:'educar', titulo:'Lei nova sobre {t}: o que muda em 1 minuto', porque:'Notícia + utilidade + rapidez. Publicar no dia dá alcance de busca.', est:'TELA 1 · MANCHETE\nLEI NOVA: [número e tema]\n\nTELA 2 · O QUE MUDA\n[3 pontos]\n\nTELA 3 · QUANDO VALE\n[data de vigência]\n\nTELA 4 · FONTE\n[Diário Oficial / Planalto]' },
+  { id:'opiniao', nome:'Posicionamento técnico', sinal:'Comentário', f:'carrossel', p:'autoridade', titulo:'Minha leitura técnica sobre {t}', porque:'Opinião fundamentada gera debate e diferencia você. Respeite colegas e instituições.', est:'SLIDE 1 · CAPA\n[a pergunta polêmica]\n\nSLIDE 2 · O QUE DIZEM\n[as duas correntes]\n\nSLIDE 3 · MINHA LEITURA\n[posição e fundamento]\n\nSLIDE 4 · NA PRÁTICA\n[o que muda para o público]\n\nSLIDE 5 · CONVITE\nE você, concorda?' },
+  { id:'erro', nome:'Meu maior erro', sinal:'Conexão', f:'reels', p:'conexao', titulo:'O erro que eu cometi no começo da advocacia de {a}', porque:'Vulnerabilidade gera conexão e muitos comentários de colegas e estudantes.', est:'CENA 1 · GANCHO\n“O maior erro que eu cometi foi…”\n\nCENA 2 · O QUE ACONTECEU\n[sem expor clientes]\n\nCENA 3 · O QUE APRENDI\n[a lição]\n\nCENA 4 · FECHAMENTO\n“Qual foi o seu?”' }
+];
+
+// 8 ideias com potencial de viralizar por área
+const AREA_VIRAIS = {
+  familia:[['Pensão alimentícia acaba aos 18? A resposta curta', 'reels', 'desmistificar'], ['Seus direitos quando o pai some e não paga a pensão', 'carrossel', 'educar'], ['5 sinais de alienação parental', 'carrossel', 'desmistificar'], ['Expectativa x realidade: o divórcio “rápido”', 'reels-texto', 'conexao'], ['Morar junto já é união estável? Isso dá direito a quê?', 'reels', 'educar'], ['O que a novela errou sobre guarda dos filhos', 'reels', 'autoridade'], ['Antes de casar, converse sobre regime de bens', 'carrossel', 'passo'], ['Quiz: quem fica com o pet no divórcio?', 'stories', 'desmistificar']],
+  sucessoes:[['Quem herda quando não há testamento? A ordem em 1 slide', 'carrossel', 'educar'], ['Inventário: quanto tempo demora e o que atrasa', 'carrossel', 'educar'], ['Herança de famoso: o que a lei diz (só fatos públicos)', 'carrossel', 'autoridade'], ['Pare de adiar o inventário: a multa do ITCMD', 'reels', 'desmistificar'], ['Testamento serve só para rico? Mito', 'reels-texto', 'desmistificar'], ['ITCMD muda de estado para estado: veja o seu', 'carrossel', 'educar'], ['O que fazer com as contas do banco de quem faleceu', 'carrossel', 'passo'], ['Dívida do falecido passa para os filhos?', 'reels', 'desmistificar']],
+  consumidor:[['Golpe da semana: o site falso de promoção', 'reels-texto', 'desmistificar'], ['Voo atrasado ou cancelado: seus direitos no aeroporto', 'carrossel', 'educar'], ['Cobrança indevida: você recebe em dobro?', 'reels', 'educar'], ['Isso dá processo? Nome negativado por engano', 'reels', 'educar'], ['Compra pela internet: 7 dias para desistir', 'carrossel', 'educar'], ['5 cláusulas abusivas que você aceita sem ler', 'carrossel', 'desmistificar'], ['Loja pode proibir troca de produto sem defeito?', 'reels-texto', 'desmistificar'], ['Plano de celular: como cancelar sem multa abusiva', 'carrossel', 'passo']],
+  trabalho:[['Seu chefe pode te mandar mensagem fora do horário?', 'reels', 'educar'], ['Pedi demissão: o que eu recebo?', 'carrossel', 'educar'], ['Fui demitida grávida, e agora?', 'reels', 'educar'], ['5 sinais de assédio moral no trabalho', 'carrossel', 'desmistificar'], ['Expectativa x realidade: trabalhar como PJ', 'reels-texto', 'conexao'], ['Antes de assinar a rescisão, confira isto', 'carrossel', 'passo'], ['Isso dá processo? Hora extra que não aparece no ponto', 'reels', 'educar'], ['Quiz: atestado médico pode ser recusado?', 'stories', 'desmistificar']],
+  previdenciario:[['Quanto tempo falta para eu me aposentar? Como consultar', 'carrossel', 'passo'], ['O erro no CNIS que atrasa a aposentadoria', 'reels', 'desmistificar'], ['BPC/LOAS: quem tem direito', 'carrossel', 'educar'], ['Auxílio-doença negado: o que fazer agora', 'carrossel', 'passo'], ['Golpe da semana: a falsa “revisão do INSS” por telefone', 'reels-texto', 'desmistificar'], ['Aposentado pode continuar trabalhando?', 'reels', 'desmistificar'], ['Pensão por morte: quanto tempo dura para o cônjuge', 'carrossel', 'educar'], ['Quiz: dona de casa pode se aposentar?', 'stories', 'desmistificar']],
+  criminal:[['Isso é crime? Gravar conversa sem avisar', 'reels', 'desmistificar'], ['Fui chamado na delegacia: o que fazer', 'carrossel', 'passo'], ['O que a série errou sobre o júri', 'reels', 'autoridade'], ['Primeiras 24 horas depois de uma prisão em flagrante', 'carrossel', 'passo'], ['Isso é crime? Xingar alguém na internet', 'reels', 'desmistificar'], ['Expectativa x realidade: a advocacia criminal', 'reels-texto', 'conexao'], ['Direito ao silêncio: o que significa de verdade', 'carrossel', 'educar'], ['Medida protetiva: como pedir e como funciona', 'carrossel', 'passo']],
+  civel:[['Isso dá processo? Vizinho barulhento', 'reels', 'educar'], ['Dano moral: o que é e o que não é', 'carrossel', 'desmistificar'], ['Emprestei dinheiro e não recebi: o que fazer', 'carrossel', 'passo'], ['Juizado Especial: dá para entrar sem advogado?', 'reels', 'educar'], ['Acidente de trânsito: o que fazer no local', 'carrossel', 'passo'], ['Antes de assinar como fiador, leia isto', 'carrossel', 'passo'], ['Prova por print de WhatsApp vale?', 'reels-texto', 'educar'], ['Quanto tempo demora um processo no Juizado?', 'carrossel', 'educar']],
+  imobiliario:[['Antes de comprar um imóvel, peça estes documentos', 'carrossel', 'passo'], ['Contrato de gaveta: os riscos', 'reels', 'desmistificar'], ['O dono pode entrar no imóvel alugado sem avisar?', 'reels-texto', 'educar'], ['Usucapião: quem tem direito e em quanto tempo', 'carrossel', 'educar'], ['Distrato na planta: quanto você recebe de volta', 'carrossel', 'educar'], ['5 sinais de golpe no aluguel por temporada', 'carrossel', 'desmistificar'], ['Escritura não é registro: entenda a diferença', 'reels', 'desmistificar'], ['Condomínio pode proibir pet?', 'reels-texto', 'desmistificar']],
+  bancario:[['Caí no golpe do Pix: o que fazer nas primeiras horas', 'carrossel', 'passo'], ['Golpe da semana: falso atendente do banco', 'reels-texto', 'desmistificar'], ['Empréstimo consignado que você não pediu', 'reels', 'educar'], ['Juros abusivos: como saber se o seu contrato tem', 'carrossel', 'educar'], ['Banco pode bloquear a conta sem avisar?', 'reels', 'desmistificar'], ['Superendividamento: a lei que ajuda a renegociar', 'carrossel', 'educar'], ['Venda casada no empréstimo: seguro embutido', 'reels-texto', 'desmistificar'], ['Cartão clonado: quem paga a conta?', 'reels', 'educar']],
+  saude:[['Plano de saúde negou: o que pedir por escrito', 'carrossel', 'passo'], ['Tratamento fora do rol da ANS: pode ter cobertura?', 'carrossel', 'educar'], ['Reajuste do plano por idade: o que é abusivo', 'carrossel', 'educar'], ['Remédio de alto custo pelo SUS: o caminho', 'carrossel', 'passo'], ['Carência de urgência: 24 horas', 'reels-texto', 'educar'], ['Erro médico: o que fazer e o que guardar', 'carrossel', 'passo'], ['Plano pode cancelar o contrato durante o tratamento?', 'reels', 'desmistificar'], ['Terapias para autismo: o que os planos devem cobrir', 'carrossel', 'educar']],
+  tributario:[['Imposto de renda: os erros que levam à malha fina', 'carrossel', 'desmistificar'], ['Calendário do IR: datas e o que fazer', 'post', 'educar'], ['Doença grave pode dar isenção de IR', 'reels', 'educar'], ['MEI: o que acontece se não pagar o DAS', 'reels', 'educar'], ['IPVA muda de estado para estado: isenções', 'carrossel', 'educar'], ['Lei nova da reforma tributária em 1 minuto', 'reels-texto', 'educar'], ['Pix vai ser taxado? O que é verdade', 'reels', 'desmistificar'], ['Dívida com a Receita: como parcelar', 'carrossel', 'passo']],
+  empresarial:[['Antes de abrir sociedade com um amigo, leia isto', 'carrossel', 'passo'], ['Registro de marca: quem chega primeiro leva', 'reels', 'educar'], ['MEI, ME ou LTDA: qual faz sentido', 'carrossel', 'educar'], ['5 cláusulas que todo contrato de prestação de serviço deve ter', 'carrossel', 'passo'], ['Sócio pode ser cobrado pela dívida da empresa?', 'reels', 'desmistificar'], ['Expectativa x realidade: empreender no Brasil', 'reels-texto', 'conexao'], ['O que a série de startup errou sobre sócios', 'reels', 'autoridade'], ['Acordo de sócios: o que precisa ter', 'carrossel', 'educar']],
+  digital:[['Isso é crime? Postar foto de alguém sem autorização', 'reels', 'desmistificar'], ['Perfil hackeado: o que fazer agora', 'carrossel', 'passo'], ['LGPD em 1 minuto: o que a sua empresa precisa', 'reels-texto', 'educar'], ['Golpe da semana: clonagem de WhatsApp', 'reels-texto', 'desmistificar'], ['Influenciador precisa sinalizar publicidade?', 'reels', 'educar'], ['Vazamento de dados: seus direitos', 'carrossel', 'educar'], ['Print de conversa vale como prova?', 'reels', 'educar'], ['Deepfake: o que a lei diz', 'carrossel', 'autoridade']],
+  publico:[['Concurso: seus direitos se o edital mudar', 'carrossel', 'educar'], ['Multa de trânsito: como recorrer', 'carrossel', 'passo'], ['Servidor público pode ser demitido?', 'reels', 'desmistificar'], ['Licitação explicada para quem nunca viu uma', 'carrossel', 'educar'], ['O que a prefeitura pode e não pode fazer com o seu imóvel', 'carrossel', 'educar'], ['Lei nova em 1 minuto: o que mudou para servidores', 'reels-texto', 'educar'], ['Expectativa x realidade: trabalhar no serviço público', 'reels-texto', 'conexao'], ['Quiz: quem pode pedir informação ao governo (LAI)?', 'stories', 'desmistificar']],
+  extrajudicial:[['Divórcio em cartório: dá para fazer sem juiz?', 'reels', 'educar'], ['Inventário em cartório: o passo a passo', 'carrossel', 'passo'], ['Usucapião em cartório: como funciona', 'carrossel', 'educar'], ['Mudar o nome no cartório: quando pode', 'reels-texto', 'educar'], ['Emolumentos mudam de estado para estado', 'carrossel', 'educar'], ['Escritura x registro: a diferença que evita problema', 'reels', 'desmistificar'], ['União estável em cartório: vale a pena registrar?', 'carrossel', 'educar'], ['Quanto tempo demora um inventário em cartório?', 'carrossel', 'educar']],
+  carreira:[['O erro que eu cometi no primeiro ano de advocacia', 'reels', 'conexao'], ['Um dia na minha rotina de advogado(a)', 'reels', 'conexao'], ['O que eu faria diferente se começasse hoje', 'carrossel', 'conexao'], ['Expectativa x realidade: a primeira audiência', 'reels-texto', 'conexao'], ['Como organizo meus prazos (sem enlouquecer)', 'carrossel', 'passo'], ['5 livros que me ajudaram na prática', 'carrossel', 'autoridade'], ['POV: a família acha que advogado resolve tudo de graça', 'reels-texto', 'conexao'], ['Quanto ganha um advogado iniciante? A conversa honesta', 'reels', 'conexao']]
+};
+
+return { ANALISE, VIRAIS, AREA_VIRAIS };
+})();
+
 /* Pauta · estúdio de conteúdo jurídico (PratFlix) · v2
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
-const P = window.PAUTA, AREAS = window.AREAS;
+const P = window.PAUTA, AREAS = window.AREAS, M = window.MODELOS, TD = window.TENDENCIAS;
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -1078,7 +1527,12 @@ const semanaDe = d => Math.max(0, Math.floor((dataDe(d) - segunda(dataDe(C.perfi
 const semanaAtual = () => C.perfil ? Math.max(0, Math.min(25, Math.floor((hoje() - segunda(dataDe(C.perfil.inicio))) / 864e5 / 7))) : 0;
 
 /* ---------- ideias ---------- */
+const fillV = (s, a, x) => s.replace(/\{t\}/g, x.t).replace(/\{a\}/g, a.nome).replace(/\{q\}/g, x.q.replace(/\?$/, '') + '?');
 function ideia(id) {
+  if (id.startsWith('v:')) { const [, i, ar, ti] = id.split(':'), v = TD.VIRAIS[+i], a = AREA[ar] || AREA[C.perfil?.principal] || AREAS[0], x = a.temas[+ti || 0] || a.temas[0];
+    return { id, titulo:fillV(v.titulo, a, x), formato:v.f, pilar:v.p, area:a.id, viral:v, ...x, gancho:fillV(v.titulo, a, x) } }
+  if (id.startsWith('va:')) { const [, ar, i] = id.split(':'), a = AREA[ar], z = TD.AREA_VIRAIS[ar][+i];
+    return { id, titulo:z[0], formato:z[1], pilar:z[2], area:ar, t:z[0].toLowerCase(), q:'', m:'', gancho:z[0] } }
   if (id.startsWith('g:')) { const g = P.IDEIAS_GERAIS[+id.slice(2)], a = AREA[C.perfil?.principal] || AREAS[0];
     return { id, titulo:g.t.replace('{area}', a.nome.toLowerCase()), formato:g.f, pilar:g.p, area:a.id, geral:true, t:a.nome.toLowerCase(), q:'', m:'' } }
   if (id.startsWith('d:')) { const [, i, ar] = id.split(':'), d = P.DATAS[+i], a = AREA[ar] || AREA[C.perfil?.principal] || AREAS[0];
@@ -1088,6 +1542,7 @@ function ideia(id) {
 }
 function todasIdeias(areas) {
   const out = [];
+  areas.forEach(ar => (TD.AREA_VIRAIS[ar] || []).forEach((_, i) => out.push(`va:${ar}:${i}`)));
   areas.forEach(ar => AREA[ar].temas.forEach((x, ti) => P.MODELOS_IDEIA.forEach(mo => out.push(`${ar}:${ti}:${mo.id}`))));
   P.IDEIAS_GERAIS.forEach((g, i) => out.push('g:' + i));
   return out;
@@ -1137,6 +1592,8 @@ function gerarPlano(pf, manter = []) {
 const CTA = (a, i = 0) => P.CTAS[i % P.CTAS.length].replace('{area}', a.nome.toLowerCase()).replace('{palavra}', (a.destaques[0] || 'GUIA').toUpperCase());
 function roteiro(post) {
   const x = ideia(post.ideia), a = AREA[post.area] || AREAS[0], t = x.t || x.titulo, f = post.formato, mod = x.modelo, gancho = x.gancho || x.titulo;
+  if (x.viral) { const F = P.FORMATOS[f] || P.FORMATOS.carrossel, ex = x.viral.est.replace(/\[situação\]|\[procedimento\]|\[processo\]/g, t);
+    return `${F.nome.toUpperCase()} · ${F.dur}\nFORMATO VIRAL · ${x.viral.nome}\n\nTEMA\n${x.titulo}\n\n${ex}\n\nPOR QUE FUNCIONA\n• ${x.viral.porque}\n• Sinal que este formato puxa: ${x.viral.sinal.toLowerCase()}.\n\nCUIDADO\n• Regra geral e caso fictício; nada de promessa de resultado.` }
   if (post.ideia === 'g:0') { const pf = C.perfil || {}, car = f === 'carrossel';
     return `${car ? 'CARROSSEL · 6 slides' : 'POST ÚNICO + LEGENDA'}\n\nSLIDE 1 · CAPA\nPrazer, ${pf.nome || '[seu nome]'}\n${pf.areas ? pf.areas.map(z => AREA[z].nome).join(', ') : '[suas áreas]'} em ${pf.cidade || '[cidade]'}\n\n${car ? 'SLIDE 2 · QUEM SOU\n' : ''}[Formação, tempo de advocacia e número da OAB]\n\n${car ? 'SLIDE 3 · COM O QUE TRABALHO\n' : ''}[As áreas e os assuntos que você mais atende, em linguagem simples]\n\n${car ? 'SLIDE 4 · PARA QUEM FALO\n' : ''}[Quem vai se beneficiar do perfil]\n\n${car ? 'SLIDE 5 · O QUE VOCÊ VAI ENCONTRAR AQUI\n' : ''}[As séries e os temas: dúvidas, mitos, passo a passo]\n\n${car ? 'SLIDE 6 · CONVITE\n' : ''}Siga para acompanhar e comente de onde você é.\n\nDEPOIS DE PUBLICAR\n• Fixe este post no topo do perfil.\n• Repita a apresentação nos stories e salve no destaque “Sobre mim”.` }
   if (f === 'carrossel') {
@@ -1261,9 +1718,9 @@ const cnt = f => C.posts.filter(p => f === 'reels' ? p.formato.startsWith('reels
 const NAV = () => [
   { id:'inicio', nome:'Início', ic:'home' }, { id:'cronograma', nome:'Cronograma', ic:'cal' },
   { sep:'Criação' }, { id:'carrosseis', nome:'Carrosséis', ic:'layers', n:cnt('carrossel') }, { id:'reels', nome:'Reels', ic:'play', n:cnt('reels') }, { id:'outros', nome:'Posts e stories', ic:'image', n:cnt('outros') },
-  { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' },
+  { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' }, { id:'tendencias', nome:'Tendências', ic:'flame', tag:'Novo' },
   { sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }, { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, { id:'analytics', nome:'Analytics', ic:'chart' }, { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
-  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', tag:'Em breve' }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
+  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:M.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
 ];
 const MOBILE = ['inicio', 'cronograma', 'carrosseis', 'producao'];
 const av = (c, cls = '') => `<span class="av ${cls}" style="--c:${c.cor}">${E(((c.perfil?.marca || c.perfil?.nome || '?').trim()[0] || '?').toUpperCase())}</span>`;
@@ -1575,12 +2032,105 @@ function etica() {
   `<div class="g2"><section class="card"><h2>Verificador de texto</h2><textarea id="etx" rows="9" placeholder="Cole aqui a legenda, o roteiro ou o texto do post."></textarea><div id="eres" class="eres"><p class="muted">O resultado aparece enquanto você digita.</p></div><p class="muted small">O verificador procura padrões comuns e não substitui a sua leitura das normas da OAB.</p></section>
     <div class="coluna"><section class="card"><h2>Pode</h2><ul class="lista-ok">${P.ETICA_PODE.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section><section class="card"><h2>Não pode</h2><ul class="lista-no">${P.ETICA_NAO.map(x => `<li>${I('close')}<span>${E(x)}</span></li>`).join('')}</ul></section></div></div>`;
 }
+/* ---------- modelos de posts (15 identidades) ---------- */
+const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única', 'image'], ['stories', 'Stories e destaques', 'cam'], ['extras', 'Mais ideias', 'spark']];
+let abaMod = 'carrossel', ed = null;
+const mstate = () => (C.modelos ||= { idt:null, txt:{} });
+const idtRec = () => M.IDT.find(i => i.ideal.includes(C.perfil.principal)) || M.IDT[0];
+const idtAtual = () => M.IDT.find(i => i.id === mstate().idt) || idtRec();
+const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
+function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
+function dadosMod(tid) { const base = JSON.parse(JSON.stringify(M.PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
+const slidesDe = (tid, idt, edit = false) => M.slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome });
+const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
-  const pal = paleta(), a = AREA[C.perfil.principal];
-  const fake = (t, f, i) => ({ id:'m' + i, titulo:t, formato:f, status:'ideia', area:a.id, pilar:'educar', versoes:[] });
-  return cab('MARCA', 'Modelos', 'Próxima etapa: posts, capas de destaque e stories prontos, já na sua cor e nas suas fontes, ligados ao cronograma.', `<a class="btn ghost" href="#identidade">${I('palette')}Trocar identidade</a>`) +
-  P.MODELOS_FUTUROS.map((g, gi) => `<section class="card"><div class="card-h"><h2>${g.grupo}</h2><span class="st st-producao">Em breve · ${g.itens.length} modelos</span></div>
-    ${gi === 1 ? `<div class="dest grande">${g.itens.map(n => `<div class="dest-i"><span style="background:${pal.cores[2]};color:#fff;font-family:${fonteT()}">${E(n.slice(0, 2).toUpperCase())}</span><small>${E(n)}</small></div>`).join('')}</div>` : `<div class="grade" style="--cols:${gi === 2 ? 7 : 4}">${g.itens.map((n, i) => `<div class="gcard">${capa(fake(gi === 0 && i === 0 ? a.temas[1].q : n, gi === 2 ? 'stories' : 'carrossel', gi * 10 + i), { chips:false })}<span class="gc-info"><strong>${E(n)}</strong></span></div>`).join('')}</div>`}</section>`).join('');
+  const idt = idtAtual(), rec = idtRec(), lista = M.TPL.filter(t => t.grupo === abaMod);
+  const am = i => `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
+  return cab('MARCA', 'Modelos', `15 identidades visuais e ${M.TPL.length} modelos prontos: ${M.TPL.filter(t => t.grupo === 'carrossel').length} carrosséis, 3 telas únicas, 3 de stories e destaques e mais ideias. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
+    <div class="idts">${M.IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
+    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${E(idt.f.t.split(',')[0].replace(/'/g, ''))} + ${E(idt.f.b.split(',')[0].replace(/'/g, ''))}</span></div></section>
+  <section class="card"><div class="tabs" role="tablist">${GRUPOS.map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${M.TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
+    <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
+      const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
+      return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
+}
+function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
+function desenhaEd(manterScroll) {
+  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = M.TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
+  const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40);
+  el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
+    <select id="ed-idt" aria-label="Identidade">${M.IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
+    ${prox.length ? `<select id="ed-post" aria-label="Preencher com uma peça do cronograma"><option value="">Preencher com uma peça…</option>${prox.map(p => `<option value="${p.id}">${fmt(p.data)} · ${E(p.titulo.slice(0, 60))}</option>`).join('')}</select>` : ''}
+    <button class="btn ghost" data-edreset>${I('refresh')}Texto original</button><button class="btn" data-edbaixa>${I('download')}${sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
+    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra.</span></p>
+    <div class="ed-sl">${sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><button data-edpng="${i}">${I('download')}PNG</button></footer></div>`).join('')}</div></div>`;
+  ajustaTextos(el); if (sx) $('.ed-sl').scrollLeft = sx;
+}
+function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado'); render(false) }
+// Diminui o título quando o texto passa do tamanho do slide.
+function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
+  const largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + 1);
+  for (let n = 0, l; n < 8 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
+  for (let n = 0; n < 10 && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
+function carregaScript(src, global) { return window[global] ? Promise.resolve() : new Promise((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.append(s) }) }
+async function pngsDe(idxs) {
+  await carregaScript('https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js', 'htmlToImage');
+  const off = document.createElement('div'); off.className = 'ed-off'; off.innerHTML = slidesDe(ed.tid, idtAtual()).filter((_, i) => idxs.includes(i)).join(''); document.body.append(off); ajustaTextos(off);
+  await document.fonts.ready; const out = [];
+  try { const fontCSS = await cssFontes(idtAtual());
+    for (const n of off.children) out.push(await htmlToImage.toBlob(n, { pixelRatio:2, width:n.offsetWidth, height:n.offsetHeight, ...(fontCSS ? { fontEmbedCSS:fontCSS } : { skipFonts:true }), cacheBust:false })) }
+  finally { off.remove() }
+  return out;
+}
+// Embute só as fontes da identidade (subconjunto latino) para o PNG sair com a tipografia certa.
+const cacheF = {};
+async function cssFontes(idt) {
+  if (cacheF[idt.id]) return cacheF[idt.id];
+  const fams = [idt.f.t, idt.f.b, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].map(f => f.split(',')[0].replace(/'/g, '').trim()).filter(Boolean);
+  try { const css = await (await fetch(M.FONTES_URL)).text(), out = [];
+    for (const m of css.matchAll(/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]+\})/g)) { if (m[1] !== 'latin') continue; const bloco = m[2], fam = (bloco.match(/font-family:\s*'([^']+)'/) || [])[1]; if (!fams.includes(fam)) continue;
+      const url = (bloco.match(/url\(([^)]+)\)/) || [])[1]; if (!url) continue;
+      const b = await (await fetch(url)).blob(), d = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(b) });
+      out.push(bloco.replace(url, d)) }
+    return cacheF[idt.id] = out.join('\n') } catch { return '' }
+}
+// No Artifact do claude.ai o download passa pela capacidade "downloads"; fora dele, link comum.
+async function baixaBlob(b, nome) {
+  const dl = window.claude?.use ? await Promise.race([window.claude.use('downloads'), new Promise(r => setTimeout(() => r(null), 1500))]).catch(() => null) : null;
+  if (dl) { try { await dl.save({ filename:nome, data:b }) } catch (er) { if (er?.code !== 'declined') toast('O download não foi liberado nesta visualização.', 'close') } return }
+  baixaLink(b, nome) }
+function baixaLink(b, nome) { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = nome; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000) }
+async function exporta(i) {
+  const t = M.TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
+  toast('Gerando as imagens…', 'download');
+  try {
+    if (i !== undefined || n === 1) { const [b] = await pngsDe([i ?? 0]); await baixaBlob(b, `${nome}-${String((i ?? 0) + 1).padStart(2, '0')}.png`) }
+    else { await carregaScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js', 'JSZip'); const bs = await pngsDe([...Array(n).keys()]), z = new JSZip();
+      bs.forEach((b, k) => z.file(`${String(k + 1).padStart(2, '0')}.png`, b)); await baixaBlob(await z.generateAsync({ type:'blob' }), `${nome}.zip`) }
+    C.flags.modelo = true; salvar(); toast('Pronto! Imagens em 1080 px.', 'check');
+  } catch (er) { console.error(er); toast('Não foi possível gerar as imagens neste navegador.', 'close') }
+}
+
+/* ---------- tendências ---------- */
+let fVir = 'todos', areaVir = '';
+function tendencias() {
+  const pf = C.perfil, a = AREA[pf.principal], av = areaVir && pf.areas.includes(areaVir) ? areaVir : pf.principal, sinais = ['todos', ...new Set(TD.VIRAIS.map(v => v.sinal))];
+  const lista = TD.VIRAIS.map((v, i) => ({ v, i })).filter(({ v }) => fVir === 'todos' || v.sinal === fVir), usadas = new Set(C.posts.map(p => p.ideia));
+  return cab('CRIAÇÃO', 'Tendências', 'O que mais aparece, engaja e viraliza nos perfis de advocacia, em formatos prontos para o seu cronograma.') +
+  `<section class="card tend-hero"><h2>O que a análise mostrou</h2><p>${E(TD.ANALISE.resumo)}</p></section>
+  <section class="card"><h2>8 padrões dos posts que mais circulam</h2><div class="achados" style="margin-top:16px">${TD.ANALISE.achados.map((x, i) => `<div class="achado"><i>${String(i + 1).padStart(2, '0')}</i><b>${E(x.t)}</b><span>${E(x.d)}</span></div>`).join('')}</div></section>
+  <section class="card"><h2>Escolha o formato pelo resultado que você quer</h2><div class="sinais" style="margin-top:16px">${TD.ANALISE.sinais.map(x => `<button class="sinal" data-fvir="${x.k}"><b>Mais ${E(x.k.toLowerCase())}s</b><span>${E(x.d)}</span></button>`).join('')}</div></section>
+  <section class="card"><div class="card-h"><h2>${TD.VIRAIS.length} formatos virais</h2><span class="muted small">Exemplos com temas de ${E(a.nome)}</span></div>
+    <div class="chips" style="margin:14px 0 18px">${sinais.map(k => `<button class="chip" data-fvir="${k}" aria-pressed="${fVir === k}">${k === 'todos' ? 'Todos' : E(k)}</button>`).join('')}</div>
+    <div class="virais">${lista.map(({ v, i }) => { const ti = i % a.temas.length, id = `v:${i}:${a.id}:${ti}`, x = ideia(id);
+      return `<article class="viral"><span class="lp-meta">${chipF(v.f)}<span class="sinal-chip">${E(v.sinal)}</span></span><h3>${E(v.nome)}</h3><div class="ex">${E(x.titulo)}</div><p>${E(v.porque)}</p>
+        <div class="acoes"><button class="btn sm" data-addideia="${id}">${I('plus')}${usadas.has(id) ? 'De novo' : 'Cronograma'}</button><button class="btn sm ghost" data-verideia="${id}">Estrutura</button></div></article>` }).join('')}</div></section>
+  <section class="card"><div class="card-h"><h2>Ideias com potencial de viralizar por área</h2></div>
+    <div class="chips" style="margin:14px 0 16px">${pf.areas.map(z => `<button class="chip" data-varea="${z}" aria-pressed="${z === av}">${dot(z)}${E(AREA[z].nome)}</button>`).join('')}</div>
+    <div class="av-lista">${(TD.AREA_VIRAIS[av] || []).map((z, i) => { const id = `va:${av}:${i}`; return `<div class="av-it"><span class="num-i">${i + 1}</span><b>${E(z[0])}</b>${chipF(z[1])}<small class="muted">${P.PILARES[z[2]].nome}</small><button class="btn sm" data-addideia="${id}">${I('plus')}Cronograma</button><button class="btn sm ghost" data-verideia="${id}">Roteiro</button></div>` }).join('')}</div>
+    <p class="muted small" style="margin-top:12px">Estas ideias também aparecem no Banco de ideias.</p></section>
+  <section class="card"><h2>Ritmo que faz crescer</h2><ul class="ritmo" style="margin-top:14px">${TD.ANALISE.ritmo.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section>`;
 }
 function ajustes() {
   const pf = C.perfil;
@@ -1662,8 +2212,8 @@ function ics() { const esc = s => String(s).replace(/[\\,;]/g, m => '\\' + m).re
   return `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pauta PratFlix//PT\n${C.posts.map(p => { const d = p.data.replace(/-/g, ''); return `BEGIN:VEVENT\nUID:${p.id}@pauta\nDTSTAMP:${d}T090000\nDTSTART;VALUE=DATE:${d}\nSUMMARY:${esc(`[${P.FORMATOS[p.formato].curto}] ${p.titulo}`)}\nEND:VEVENT` }).join('\n')}\nEND:VCALENDAR`.replace(/\n/g, '\r\n') }
 
 /* ---------- roteamento ---------- */
-const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, ajustes };
-const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis', reels:'Reels', outros:'Posts e stories', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', insights:'Insights', publicados:'Publicados', analytics:'Analytics', conquistas:'Conquistas', contas:'Contas', identidade:'Identidade', estudio:'Estúdio', etica:'Ética', modelos:'Modelos', ajustes:'Ajustes' };
+const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, tendencias, ajustes };
+const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis', reels:'Reels', outros:'Posts e stories', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', insights:'Insights', publicados:'Publicados', analytics:'Analytics', conquistas:'Conquistas', contas:'Contas', identidade:'Identidade', estudio:'Estúdio', etica:'Ética', modelos:'Modelos', tendencias:'Tendências', ajustes:'Ajustes' };
 function aplicaTema() { const t = S.tema || 'auto'; if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t }
 function render(topo = true) {
   aplicaTema();
@@ -1672,7 +2222,7 @@ function render(topo = true) {
   const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Pauta`; window.scrollTo(0, topo ? 0 : y);
   document.body.classList.remove('menu-aberto'); verificaGanhos();
 }
-window.addEventListener('hashchange', () => { if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
+window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
 document.addEventListener('click', e => {
@@ -1703,6 +2253,16 @@ document.addEventListener('click', e => {
   if (d.copyel) return copiar($('#' + d.copyel).value);
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
+  // modelos e tendências
+  if (d.idt) { mstate().idt = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
+  if (d.mtab) { abaMod = d.mtab; render(false); return }
+  if (d.mod) return abrirMod(d.mod);
+  if (d.edx !== undefined) return fecharEd();
+  if (d.edbaixa !== undefined) return exporta();
+  if (d.edpng !== undefined) return exporta(+d.edpng);
+  if (d.edreset !== undefined) { delete mstate().txt[ed.tid]; salvar(); desenhaEd(true); toast('Texto original restaurado.', 'refresh'); return }
+  if (d.fvir) { fVir = d.fvir; render(false); return }
+  if (d.varea) { areaVir = d.varea; render(false); return }
   // app
   if (d.post) { if ($('#modal').innerHTML && !vw) { $('#modal').innerHTML = '' } abrirPost(d.post); return }
   if (d.conta) { if (vw) fecharVw(); C = S.contas.find(c => c.id === d.conta); S.atual = C.id; salvar(); location.hash = 'inicio'; render(); toast(`Conta: ${C.perfil.marca || C.perfil.nome}`, 'users'); return }
@@ -1751,24 +2311,29 @@ document.addEventListener('change', e => {
   if (t.dataset.num && vw) { lerVw(); return }
   if (t.id === 'vw-data' || t.id === 'vw-fmt') { lerVw(); desenhaVw(); return }
   if (t.id === 'gt') { temaG = t.value; render(false); return }
+  if (t.id === 'ed-idt') { mstate().idt = t.value; salvar(); desenhaEd(true); return }
+  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || ''; salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
   if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }
 });
 document.addEventListener('input', e => {
   const t = e.target;
+  if (ed && t.dataset?.k) { (mstate().txt[ed.tid] ||= {})[t.dataset.k] = t.innerText.replace(/\n{3,}/g, '\n\n').replace(/\n$/, ''); salvar(); return }
   if (t.id === 'fq' || t.id === 'fpq') { if (t.id === 'fq') fId.q = t.value; else filtroP.q = t.value; clearTimeout(t.__t); const id = t.id; t.__t = setTimeout(() => { const pos = t.selectionStart; render(false); const n = $('#' + id); n.focus(); n.setSelectionRange(pos, pos) }, 250); return }
   if (t.id === 'etx') return mostrarEtica(t.value, '#eres');
   if (t.id === 'w-nome' || t.id === 'w-marca') { lerWiz(); const b = $('[data-wiz="1"]'); if (t.id === 'w-nome' && b) b.disabled = t.value.trim().length < 2; const r = $('.wiz-r'); if (r) r.innerHTML = previa(); const lg = $('.w-logo'); if (lg) lg.textContent = (wiz.d.marca || wiz.d.nome || 'P')[0].toUpperCase(); return }
   if (t.id === 'vw-leg') { const p = C.posts.find(x => x.id === vw.id); p.legenda = t.value; const r = checagem(t.value + '\n' + p.roteiro); $('#vw-et').innerHTML = r.length ? r.map(x => `<div class="eitem ${x.nivel}">${I(x.nivel === 'proibido' ? 'close' : 'eye')}<span>${E(x.msg)}</span></div>`).join('') : `<div class="eitem ok">${I('shield')}<span>Nenhum alerta de ética.</span></div>`; $('.leg-f small').textContent = `${t.value.length} caracteres · ${(t.value.match(/#/g) || []).length} hashtags`; salvar() }
 });
+document.addEventListener('focusin', e => { const t = e.target; if (ed && t.dataset?.k && !t.dataset.cru) { const v = t.dataset.k.split('.').reduce((o, z) => o?.[z], dadosMod(ed.tid)); t.dataset.cru = '1'; t.textContent = String(v ?? ''); const r = document.createRange(); r.selectNodeContents(t); r.collapse(false); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r) } });
+document.addEventListener('focusout', e => { if (ed && e.target.dataset?.k && !e.relatedTarget?.dataset?.k) setTimeout(() => { if (ed && !document.activeElement?.dataset?.k) desenhaEd(true) }, 0) });
 document.addEventListener('submit', e => {
   if (e.target.id !== 'fmet') return; e.preventDefault(); const r = Object.fromEntries(new FormData(e.target).entries());
   ['seguidores', 'alcance', 'salvos', 'compart', 'visitas', 'mensagens'].forEach(k => r[k] = +r[k] || 0);
   C.metricas = C.metricas.filter(m => m.data !== r.data).concat(r); salvar(); toast('Semana registrada! +30 XP', 'chart'); fecharModal();
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (vw) fecharVw(); else if ($('#modal').innerHTML) fecharModal() }
+  if (e.key === 'Escape') { if (ed) return fecharEd(); if (vw) fecharVw(); else if ($('#modal').innerHTML) fecharModal() }
   if (vw && vw.modo === 'ver' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName)) { if (e.key === 'ArrowRight') { vw.slide++; desenhaVw() } if (e.key === 'ArrowLeft' && vw.slide) { vw.slide--; desenhaVw() } }
 });
 document.addEventListener('dragstart', e => { const c = e.target.closest?.('[data-drag]'); if (c) { e.dataTransfer.setData('text/plain', c.dataset.drag); c.classList.add('arrastando') } });

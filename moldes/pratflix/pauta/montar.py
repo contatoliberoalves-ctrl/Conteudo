@@ -5,8 +5,8 @@ import pathlib, re
 R = pathlib.Path(__file__).parent
 src = R / 'src'
 html = (src / 'index.html').read_text(encoding='utf-8')
-css = (src / 'style.css').read_text(encoding='utf-8')
-js = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['areas.js', 'conteudo.js', 'app.js'])
+css = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['style.css', 'modelos.css'])
+js = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['areas.js', 'conteudo.js', 'modelos.js', 'tendencias.js', 'app.js'])
 html = html.replace('<!--CSS-->', f'<style>\n{css}\n</style>').replace('<!--JS-->', f'<script>\n{js}\n</script>')
 (R / 'dist').mkdir(exist_ok=True)
 (R / 'dist' / 'pauta.html').write_text(html, encoding='utf-8')

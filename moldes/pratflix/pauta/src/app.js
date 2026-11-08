@@ -2,7 +2,7 @@
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
-const P = window.PAUTA, AREAS = window.AREAS;
+const P = window.PAUTA, AREAS = window.AREAS, M = window.MODELOS, TD = window.TENDENCIAS;
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -66,7 +66,12 @@ const semanaDe = d => Math.max(0, Math.floor((dataDe(d) - segunda(dataDe(C.perfi
 const semanaAtual = () => C.perfil ? Math.max(0, Math.min(25, Math.floor((hoje() - segunda(dataDe(C.perfil.inicio))) / 864e5 / 7))) : 0;
 
 /* ---------- ideias ---------- */
+const fillV = (s, a, x) => s.replace(/\{t\}/g, x.t).replace(/\{a\}/g, a.nome).replace(/\{q\}/g, x.q.replace(/\?$/, '') + '?');
 function ideia(id) {
+  if (id.startsWith('v:')) { const [, i, ar, ti] = id.split(':'), v = TD.VIRAIS[+i], a = AREA[ar] || AREA[C.perfil?.principal] || AREAS[0], x = a.temas[+ti || 0] || a.temas[0];
+    return { id, titulo:fillV(v.titulo, a, x), formato:v.f, pilar:v.p, area:a.id, viral:v, ...x, gancho:fillV(v.titulo, a, x) } }
+  if (id.startsWith('va:')) { const [, ar, i] = id.split(':'), a = AREA[ar], z = TD.AREA_VIRAIS[ar][+i];
+    return { id, titulo:z[0], formato:z[1], pilar:z[2], area:ar, t:z[0].toLowerCase(), q:'', m:'', gancho:z[0] } }
   if (id.startsWith('g:')) { const g = P.IDEIAS_GERAIS[+id.slice(2)], a = AREA[C.perfil?.principal] || AREAS[0];
     return { id, titulo:g.t.replace('{area}', a.nome.toLowerCase()), formato:g.f, pilar:g.p, area:a.id, geral:true, t:a.nome.toLowerCase(), q:'', m:'' } }
   if (id.startsWith('d:')) { const [, i, ar] = id.split(':'), d = P.DATAS[+i], a = AREA[ar] || AREA[C.perfil?.principal] || AREAS[0];
@@ -76,6 +81,7 @@ function ideia(id) {
 }
 function todasIdeias(areas) {
   const out = [];
+  areas.forEach(ar => (TD.AREA_VIRAIS[ar] || []).forEach((_, i) => out.push(`va:${ar}:${i}`)));
   areas.forEach(ar => AREA[ar].temas.forEach((x, ti) => P.MODELOS_IDEIA.forEach(mo => out.push(`${ar}:${ti}:${mo.id}`))));
   P.IDEIAS_GERAIS.forEach((g, i) => out.push('g:' + i));
   return out;
@@ -125,6 +131,8 @@ function gerarPlano(pf, manter = []) {
 const CTA = (a, i = 0) => P.CTAS[i % P.CTAS.length].replace('{area}', a.nome.toLowerCase()).replace('{palavra}', (a.destaques[0] || 'GUIA').toUpperCase());
 function roteiro(post) {
   const x = ideia(post.ideia), a = AREA[post.area] || AREAS[0], t = x.t || x.titulo, f = post.formato, mod = x.modelo, gancho = x.gancho || x.titulo;
+  if (x.viral) { const F = P.FORMATOS[f] || P.FORMATOS.carrossel, ex = x.viral.est.replace(/\[situação\]|\[procedimento\]|\[processo\]/g, t);
+    return `${F.nome.toUpperCase()} · ${F.dur}\nFORMATO VIRAL · ${x.viral.nome}\n\nTEMA\n${x.titulo}\n\n${ex}\n\nPOR QUE FUNCIONA\n• ${x.viral.porque}\n• Sinal que este formato puxa: ${x.viral.sinal.toLowerCase()}.\n\nCUIDADO\n• Regra geral e caso fictício; nada de promessa de resultado.` }
   if (post.ideia === 'g:0') { const pf = C.perfil || {}, car = f === 'carrossel';
     return `${car ? 'CARROSSEL · 6 slides' : 'POST ÚNICO + LEGENDA'}\n\nSLIDE 1 · CAPA\nPrazer, ${pf.nome || '[seu nome]'}\n${pf.areas ? pf.areas.map(z => AREA[z].nome).join(', ') : '[suas áreas]'} em ${pf.cidade || '[cidade]'}\n\n${car ? 'SLIDE 2 · QUEM SOU\n' : ''}[Formação, tempo de advocacia e número da OAB]\n\n${car ? 'SLIDE 3 · COM O QUE TRABALHO\n' : ''}[As áreas e os assuntos que você mais atende, em linguagem simples]\n\n${car ? 'SLIDE 4 · PARA QUEM FALO\n' : ''}[Quem vai se beneficiar do perfil]\n\n${car ? 'SLIDE 5 · O QUE VOCÊ VAI ENCONTRAR AQUI\n' : ''}[As séries e os temas: dúvidas, mitos, passo a passo]\n\n${car ? 'SLIDE 6 · CONVITE\n' : ''}Siga para acompanhar e comente de onde você é.\n\nDEPOIS DE PUBLICAR\n• Fixe este post no topo do perfil.\n• Repita a apresentação nos stories e salve no destaque “Sobre mim”.` }
   if (f === 'carrossel') {
@@ -249,9 +257,9 @@ const cnt = f => C.posts.filter(p => f === 'reels' ? p.formato.startsWith('reels
 const NAV = () => [
   { id:'inicio', nome:'Início', ic:'home' }, { id:'cronograma', nome:'Cronograma', ic:'cal' },
   { sep:'Criação' }, { id:'carrosseis', nome:'Carrosséis', ic:'layers', n:cnt('carrossel') }, { id:'reels', nome:'Reels', ic:'play', n:cnt('reels') }, { id:'outros', nome:'Posts e stories', ic:'image', n:cnt('outros') },
-  { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' },
+  { id:'producao', nome:'Produção', ic:'board' }, { id:'ideias', nome:'Banco de ideias', ic:'bulb' }, { id:'roteiros', nome:'Roteiros', ic:'pen' }, { id:'tendencias', nome:'Tendências', ic:'flame', tag:'Novo' },
   { sep:'Desempenho' }, { id:'insights', nome:'Insights', ic:'spark' }, { id:'publicados', nome:'Publicados', ic:'send', n:C.posts.filter(p => p.status === 'publicado').length }, { id:'analytics', nome:'Analytics', ic:'chart' }, { id:'conquistas', nome:'Conquistas', ic:'trophy', n:CONQ.filter(c => c.ok()).length },
-  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', tag:'Em breve' }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
+  { sep:'Marca' }, { id:'identidade', nome:'Identidade', ic:'palette' }, { id:'estudio', nome:'Estúdio', ic:'cam' }, { id:'etica', nome:'Ética', ic:'shield' }, { id:'modelos', nome:'Modelos', ic:'grid', n:M.TPL.length }, { id:'contas', nome:'Contas', ic:'users' }, { id:'ajustes', nome:'Ajustes', ic:'gear' }
 ];
 const MOBILE = ['inicio', 'cronograma', 'carrosseis', 'producao'];
 const av = (c, cls = '') => `<span class="av ${cls}" style="--c:${c.cor}">${E(((c.perfil?.marca || c.perfil?.nome || '?').trim()[0] || '?').toUpperCase())}</span>`;
@@ -563,12 +571,105 @@ function etica() {
   `<div class="g2"><section class="card"><h2>Verificador de texto</h2><textarea id="etx" rows="9" placeholder="Cole aqui a legenda, o roteiro ou o texto do post."></textarea><div id="eres" class="eres"><p class="muted">O resultado aparece enquanto você digita.</p></div><p class="muted small">O verificador procura padrões comuns e não substitui a sua leitura das normas da OAB.</p></section>
     <div class="coluna"><section class="card"><h2>Pode</h2><ul class="lista-ok">${P.ETICA_PODE.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section><section class="card"><h2>Não pode</h2><ul class="lista-no">${P.ETICA_NAO.map(x => `<li>${I('close')}<span>${E(x)}</span></li>`).join('')}</ul></section></div></div>`;
 }
+/* ---------- modelos de posts (15 identidades) ---------- */
+const GRUPOS = [['carrossel', 'Carrosséis', 'layers'], ['unica', 'Tela única', 'image'], ['stories', 'Stories e destaques', 'cam'], ['extras', 'Mais ideias', 'spark']];
+let abaMod = 'carrossel', ed = null;
+const mstate = () => (C.modelos ||= { idt:null, txt:{} });
+const idtRec = () => M.IDT.find(i => i.ideal.includes(C.perfil.principal)) || M.IDT[0];
+const idtAtual = () => M.IDT.find(i => i.id === mstate().idt) || idtRec();
+const handle = () => { const a = (C.perfil.arroba || '').trim(); return a ? (a.startsWith('@') ? a : '@' + a) : '@seuperfil' };
+function setK(o, k, v) { const ks = k.split('.'); let x = o; ks.slice(0, -1).forEach((z, i) => { x = x[z] ??= (/^\d+$/.test(ks[i + 1]) ? [] : {}) }); x[ks.at(-1)] = v }
+function dadosMod(tid) { const base = JSON.parse(JSON.stringify(M.PACKS[tid])), ov = mstate().txt[tid] || {}; Object.entries(ov).forEach(([k, v]) => setK(base, k, v)); return base }
+const slidesDe = (tid, idt, edit = false) => M.slides(tid, { idt, d:dadosMod(tid), edit, handle:handle(), nome:C.perfil.nome });
+const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
-  const pal = paleta(), a = AREA[C.perfil.principal];
-  const fake = (t, f, i) => ({ id:'m' + i, titulo:t, formato:f, status:'ideia', area:a.id, pilar:'educar', versoes:[] });
-  return cab('MARCA', 'Modelos', 'Próxima etapa: posts, capas de destaque e stories prontos, já na sua cor e nas suas fontes, ligados ao cronograma.', `<a class="btn ghost" href="#identidade">${I('palette')}Trocar identidade</a>`) +
-  P.MODELOS_FUTUROS.map((g, gi) => `<section class="card"><div class="card-h"><h2>${g.grupo}</h2><span class="st st-producao">Em breve · ${g.itens.length} modelos</span></div>
-    ${gi === 1 ? `<div class="dest grande">${g.itens.map(n => `<div class="dest-i"><span style="background:${pal.cores[2]};color:#fff;font-family:${fonteT()}">${E(n.slice(0, 2).toUpperCase())}</span><small>${E(n)}</small></div>`).join('')}</div>` : `<div class="grade" style="--cols:${gi === 2 ? 7 : 4}">${g.itens.map((n, i) => `<div class="gcard">${capa(fake(gi === 0 && i === 0 ? a.temas[1].q : n, gi === 2 ? 'stories' : 'carrossel', gi * 10 + i), { chips:false })}<span class="gc-info"><strong>${E(n)}</strong></span></div>`).join('')}</div>`}</section>`).join('');
+  const idt = idtAtual(), rec = idtRec(), lista = M.TPL.filter(t => t.grupo === abaMod);
+  const am = i => `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
+  return cab('MARCA', 'Modelos', `15 identidades visuais e ${M.TPL.length} modelos prontos: ${M.TPL.filter(t => t.grupo === 'carrossel').length} carrosséis, 3 telas únicas, 3 de stories e destaques e mais ideias. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
+    <div class="idts">${M.IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
+    <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${E(idt.f.t.split(',')[0].replace(/'/g, ''))} + ${E(idt.f.b.split(',')[0].replace(/'/g, ''))}</span></div></section>
+  <section class="card"><div class="tabs" role="tablist">${GRUPOS.map(([k, n, ic]) => `<button class="tab ${abaMod === k ? 'on' : ''}" data-mtab="${k}" role="tab" aria-selected="${abaMod === k}">${I(ic)}${n} <span class="muted">${M.TPL.filter(t => t.grupo === k).length}</span></button>`).join('')}</div>
+    <div class="mods">${lista.map(t => { const sl = slidesDe(t.id, idt), tp = tipoTh(sl[0]);
+      const th = t.id === 's3' ? `<span class="dests">${sl.slice(0, 6).map(h => `<span class="th quad">${h}</span>`).join('')}</span>` : `<span class="th ${tp} ${sl.length > 1 ? 'pilha' : ''}">${sl[0]}</span>`;
+      return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n"><strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
+}
+function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
+function desenhaEd(manterScroll) {
+  const el = $('#ed'); if (!el || !ed) return; const sx = manterScroll ? $('.ed-sl')?.scrollLeft : 0, t = M.TPL.find(x => x.id === ed.tid), idt = idtAtual(), sl = slidesDe(ed.tid, idt, true);
+  const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40);
+  el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
+    <select id="ed-idt" aria-label="Identidade">${M.IDT.map(i => `<option value="${i.id}" ${i.id === idt.id ? 'selected' : ''}>${E(i.nome)}</option>`).join('')}</select>
+    ${prox.length ? `<select id="ed-post" aria-label="Preencher com uma peça do cronograma"><option value="">Preencher com uma peça…</option>${prox.map(p => `<option value="${p.id}">${fmt(p.data)} · ${E(p.titulo.slice(0, 60))}</option>`).join('')}</select>` : ''}
+    <button class="btn ghost" data-edreset>${I('refresh')}Texto original</button><button class="btn" data-edbaixa>${I('download')}${sl.length > 1 ? 'Baixar tudo (.zip)' : 'Baixar PNG'}</button><button class="ed-x" data-edx aria-label="Fechar">${I('close')}</button></div>
+    <p class="ed-dica">${I('pen')}<span>Clique em qualquer texto para editar. Escreva entre <b>*asteriscos*</b> para destacar uma palavra.</span></p>
+    <div class="ed-sl">${sl.map((h, i) => `<div class="ed-it"><span class="th ${tipoTh(h)}" data-sli="${i}">${h}</span><footer><span>${String(i + 1).padStart(2, '0')} / ${String(sl.length).padStart(2, '0')}</span><button data-edpng="${i}">${I('download')}PNG</button></footer></div>`).join('')}</div></div>`;
+  ajustaTextos(el); if (sx) $('.ed-sl').scrollLeft = sx;
+}
+function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado'); render(false) }
+// Diminui o título quando o texto passa do tamanho do slide.
+function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
+  const largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + 1);
+  for (let n = 0, l; n < 8 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
+  for (let n = 0; n < 10 && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
+function carregaScript(src, global) { return window[global] ? Promise.resolve() : new Promise((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.append(s) }) }
+async function pngsDe(idxs) {
+  await carregaScript('https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js', 'htmlToImage');
+  const off = document.createElement('div'); off.className = 'ed-off'; off.innerHTML = slidesDe(ed.tid, idtAtual()).filter((_, i) => idxs.includes(i)).join(''); document.body.append(off); ajustaTextos(off);
+  await document.fonts.ready; const out = [];
+  try { const fontCSS = await cssFontes(idtAtual());
+    for (const n of off.children) out.push(await htmlToImage.toBlob(n, { pixelRatio:2, width:n.offsetWidth, height:n.offsetHeight, ...(fontCSS ? { fontEmbedCSS:fontCSS } : { skipFonts:true }), cacheBust:false })) }
+  finally { off.remove() }
+  return out;
+}
+// Embute só as fontes da identidade (subconjunto latino) para o PNG sair com a tipografia certa.
+const cacheF = {};
+async function cssFontes(idt) {
+  if (cacheF[idt.id]) return cacheF[idt.id];
+  const fams = [idt.f.t, idt.f.b, idt.motivo === 'tech' ? "'IBM Plex Mono'" : ''].map(f => f.split(',')[0].replace(/'/g, '').trim()).filter(Boolean);
+  try { const css = await (await fetch(M.FONTES_URL)).text(), out = [];
+    for (const m of css.matchAll(/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]+\})/g)) { if (m[1] !== 'latin') continue; const bloco = m[2], fam = (bloco.match(/font-family:\s*'([^']+)'/) || [])[1]; if (!fams.includes(fam)) continue;
+      const url = (bloco.match(/url\(([^)]+)\)/) || [])[1]; if (!url) continue;
+      const b = await (await fetch(url)).blob(), d = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(b) });
+      out.push(bloco.replace(url, d)) }
+    return cacheF[idt.id] = out.join('\n') } catch { return '' }
+}
+// No Artifact do claude.ai o download passa pela capacidade "downloads"; fora dele, link comum.
+async function baixaBlob(b, nome) {
+  const dl = window.claude?.use ? await Promise.race([window.claude.use('downloads'), new Promise(r => setTimeout(() => r(null), 1500))]).catch(() => null) : null;
+  if (dl) { try { await dl.save({ filename:nome, data:b }) } catch (er) { if (er?.code !== 'declined') toast('O download não foi liberado nesta visualização.', 'close') } return }
+  baixaLink(b, nome) }
+function baixaLink(b, nome) { const u = URL.createObjectURL(b), a = document.createElement('a'); a.href = u; a.download = nome; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 4000) }
+async function exporta(i) {
+  const t = M.TPL.find(x => x.id === ed.tid), nome = `${t.nome}-${idtAtual().nome}`.toLowerCase().normalize('NFD').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''), n = slidesDe(ed.tid, idtAtual()).length;
+  toast('Gerando as imagens…', 'download');
+  try {
+    if (i !== undefined || n === 1) { const [b] = await pngsDe([i ?? 0]); await baixaBlob(b, `${nome}-${String((i ?? 0) + 1).padStart(2, '0')}.png`) }
+    else { await carregaScript('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js', 'JSZip'); const bs = await pngsDe([...Array(n).keys()]), z = new JSZip();
+      bs.forEach((b, k) => z.file(`${String(k + 1).padStart(2, '0')}.png`, b)); await baixaBlob(await z.generateAsync({ type:'blob' }), `${nome}.zip`) }
+    C.flags.modelo = true; salvar(); toast('Pronto! Imagens em 1080 px.', 'check');
+  } catch (er) { console.error(er); toast('Não foi possível gerar as imagens neste navegador.', 'close') }
+}
+
+/* ---------- tendências ---------- */
+let fVir = 'todos', areaVir = '';
+function tendencias() {
+  const pf = C.perfil, a = AREA[pf.principal], av = areaVir && pf.areas.includes(areaVir) ? areaVir : pf.principal, sinais = ['todos', ...new Set(TD.VIRAIS.map(v => v.sinal))];
+  const lista = TD.VIRAIS.map((v, i) => ({ v, i })).filter(({ v }) => fVir === 'todos' || v.sinal === fVir), usadas = new Set(C.posts.map(p => p.ideia));
+  return cab('CRIAÇÃO', 'Tendências', 'O que mais aparece, engaja e viraliza nos perfis de advocacia, em formatos prontos para o seu cronograma.') +
+  `<section class="card tend-hero"><h2>O que a análise mostrou</h2><p>${E(TD.ANALISE.resumo)}</p></section>
+  <section class="card"><h2>8 padrões dos posts que mais circulam</h2><div class="achados" style="margin-top:16px">${TD.ANALISE.achados.map((x, i) => `<div class="achado"><i>${String(i + 1).padStart(2, '0')}</i><b>${E(x.t)}</b><span>${E(x.d)}</span></div>`).join('')}</div></section>
+  <section class="card"><h2>Escolha o formato pelo resultado que você quer</h2><div class="sinais" style="margin-top:16px">${TD.ANALISE.sinais.map(x => `<button class="sinal" data-fvir="${x.k}"><b>Mais ${E(x.k.toLowerCase())}s</b><span>${E(x.d)}</span></button>`).join('')}</div></section>
+  <section class="card"><div class="card-h"><h2>${TD.VIRAIS.length} formatos virais</h2><span class="muted small">Exemplos com temas de ${E(a.nome)}</span></div>
+    <div class="chips" style="margin:14px 0 18px">${sinais.map(k => `<button class="chip" data-fvir="${k}" aria-pressed="${fVir === k}">${k === 'todos' ? 'Todos' : E(k)}</button>`).join('')}</div>
+    <div class="virais">${lista.map(({ v, i }) => { const ti = i % a.temas.length, id = `v:${i}:${a.id}:${ti}`, x = ideia(id);
+      return `<article class="viral"><span class="lp-meta">${chipF(v.f)}<span class="sinal-chip">${E(v.sinal)}</span></span><h3>${E(v.nome)}</h3><div class="ex">${E(x.titulo)}</div><p>${E(v.porque)}</p>
+        <div class="acoes"><button class="btn sm" data-addideia="${id}">${I('plus')}${usadas.has(id) ? 'De novo' : 'Cronograma'}</button><button class="btn sm ghost" data-verideia="${id}">Estrutura</button></div></article>` }).join('')}</div></section>
+  <section class="card"><div class="card-h"><h2>Ideias com potencial de viralizar por área</h2></div>
+    <div class="chips" style="margin:14px 0 16px">${pf.areas.map(z => `<button class="chip" data-varea="${z}" aria-pressed="${z === av}">${dot(z)}${E(AREA[z].nome)}</button>`).join('')}</div>
+    <div class="av-lista">${(TD.AREA_VIRAIS[av] || []).map((z, i) => { const id = `va:${av}:${i}`; return `<div class="av-it"><span class="num-i">${i + 1}</span><b>${E(z[0])}</b>${chipF(z[1])}<small class="muted">${P.PILARES[z[2]].nome}</small><button class="btn sm" data-addideia="${id}">${I('plus')}Cronograma</button><button class="btn sm ghost" data-verideia="${id}">Roteiro</button></div>` }).join('')}</div>
+    <p class="muted small" style="margin-top:12px">Estas ideias também aparecem no Banco de ideias.</p></section>
+  <section class="card"><h2>Ritmo que faz crescer</h2><ul class="ritmo" style="margin-top:14px">${TD.ANALISE.ritmo.map(x => `<li>${I('check')}<span>${E(x)}</span></li>`).join('')}</ul></section>`;
 }
 function ajustes() {
   const pf = C.perfil;
@@ -650,8 +751,8 @@ function ics() { const esc = s => String(s).replace(/[\\,;]/g, m => '\\' + m).re
   return `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Pauta PratFlix//PT\n${C.posts.map(p => { const d = p.data.replace(/-/g, ''); return `BEGIN:VEVENT\nUID:${p.id}@pauta\nDTSTAMP:${d}T090000\nDTSTART;VALUE=DATE:${d}\nSUMMARY:${esc(`[${P.FORMATOS[p.formato].curto}] ${p.titulo}`)}\nEND:VEVENT` }).join('\n')}\nEND:VCALENDAR`.replace(/\n/g, '\r\n') }
 
 /* ---------- roteamento ---------- */
-const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, ajustes };
-const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis', reels:'Reels', outros:'Posts e stories', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', insights:'Insights', publicados:'Publicados', analytics:'Analytics', conquistas:'Conquistas', contas:'Contas', identidade:'Identidade', estudio:'Estúdio', etica:'Ética', modelos:'Modelos', ajustes:'Ajustes' };
+const PAGS = { inicio, cronograma, carrosseis:() => pecas('carrosseis'), reels:() => pecas('reels'), outros:() => pecas('outros'), producao, ideias, roteiros, insights, publicados, analytics, conquistas, contas, identidade, estudio, etica, modelos, tendencias, ajustes };
+const TIT = { inicio:'Início', cronograma:'Cronograma', carrosseis:'Carrosséis', reels:'Reels', outros:'Posts e stories', producao:'Produção', ideias:'Banco de ideias', roteiros:'Roteiros', insights:'Insights', publicados:'Publicados', analytics:'Analytics', conquistas:'Conquistas', contas:'Contas', identidade:'Identidade', estudio:'Estúdio', etica:'Ética', modelos:'Modelos', tendencias:'Tendências', ajustes:'Ajustes' };
 function aplicaTema() { const t = S.tema || 'auto'; if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t }
 function render(topo = true) {
   aplicaTema();
@@ -660,7 +761,7 @@ function render(topo = true) {
   const y = window.scrollY; shell(PAGS[rota]()); document.title = `${TIT[rota]} · Pauta`; window.scrollTo(0, topo ? 0 : y);
   document.body.classList.remove('menu-aberto'); verificaGanhos();
 }
-window.addEventListener('hashchange', () => { if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
+window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
 document.addEventListener('click', e => {
@@ -691,6 +792,16 @@ document.addEventListener('click', e => {
   if (d.copyel) return copiar($('#' + d.copyel).value);
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
+  // modelos e tendências
+  if (d.idt) { mstate().idt = d.idt; C.flags.idtmod = true; salvar(); render(false); return }
+  if (d.mtab) { abaMod = d.mtab; render(false); return }
+  if (d.mod) return abrirMod(d.mod);
+  if (d.edx !== undefined) return fecharEd();
+  if (d.edbaixa !== undefined) return exporta();
+  if (d.edpng !== undefined) return exporta(+d.edpng);
+  if (d.edreset !== undefined) { delete mstate().txt[ed.tid]; salvar(); desenhaEd(true); toast('Texto original restaurado.', 'refresh'); return }
+  if (d.fvir) { fVir = d.fvir; render(false); return }
+  if (d.varea) { areaVir = d.varea; render(false); return }
   // app
   if (d.post) { if ($('#modal').innerHTML && !vw) { $('#modal').innerHTML = '' } abrirPost(d.post); return }
   if (d.conta) { if (vw) fecharVw(); C = S.contas.find(c => c.id === d.conta); S.atual = C.id; salvar(); location.hash = 'inicio'; render(); toast(`Conta: ${C.perfil.marca || C.perfil.nome}`, 'users'); return }
@@ -739,24 +850,29 @@ document.addEventListener('change', e => {
   if (t.dataset.num && vw) { lerVw(); return }
   if (t.id === 'vw-data' || t.id === 'vw-fmt') { lerVw(); desenhaVw(); return }
   if (t.id === 'gt') { temaG = t.value; render(false); return }
+  if (t.id === 'ed-idt') { mstate().idt = t.value; salvar(); desenhaEd(true); return }
+  if (t.id === 'ed-post') { const p = C.posts.find(x => x.id === t.value); if (!p) return; const o = mstate().txt[ed.tid] ||= {}; o.titulo = p.titulo; o.tag = AREA[p.area]?.nome || ''; o.area = AREA[p.area]?.nome || ''; salvar(); desenhaEd(true); toast('Título e área da peça aplicados. Ajuste o resto no slide.', 'pen'); return }
   if (t.id === 'w-corlivre') { lerWiz(); wiz.d.cor = t.value; desenhaWiz(); return }
   if (t.id === 'corlivre') { C.cor = t.value; C.flags.identidade = true; salvar(); render(false); return }
   if (t.id === 'imp') { const f = t.files[0]; if (!f) return; f.text().then(txt => { try { const s = JSON.parse(txt); if (s.v === 2 && s.contas) S = s; else if (s.perfil) { const c = { ...contaNova(), ...s }; S.contas.push(c); S.atual = c.id } else throw 0; C = S.contas.find(c => c.id === S.atual) || S.contas[0]; salvar(); toast('Dados importados.', 'upload'); render() } catch { toast('Arquivo inválido. Use um arquivo exportado pela Pauta.', 'close') } }) }
 });
 document.addEventListener('input', e => {
   const t = e.target;
+  if (ed && t.dataset?.k) { (mstate().txt[ed.tid] ||= {})[t.dataset.k] = t.innerText.replace(/\n{3,}/g, '\n\n').replace(/\n$/, ''); salvar(); return }
   if (t.id === 'fq' || t.id === 'fpq') { if (t.id === 'fq') fId.q = t.value; else filtroP.q = t.value; clearTimeout(t.__t); const id = t.id; t.__t = setTimeout(() => { const pos = t.selectionStart; render(false); const n = $('#' + id); n.focus(); n.setSelectionRange(pos, pos) }, 250); return }
   if (t.id === 'etx') return mostrarEtica(t.value, '#eres');
   if (t.id === 'w-nome' || t.id === 'w-marca') { lerWiz(); const b = $('[data-wiz="1"]'); if (t.id === 'w-nome' && b) b.disabled = t.value.trim().length < 2; const r = $('.wiz-r'); if (r) r.innerHTML = previa(); const lg = $('.w-logo'); if (lg) lg.textContent = (wiz.d.marca || wiz.d.nome || 'P')[0].toUpperCase(); return }
   if (t.id === 'vw-leg') { const p = C.posts.find(x => x.id === vw.id); p.legenda = t.value; const r = checagem(t.value + '\n' + p.roteiro); $('#vw-et').innerHTML = r.length ? r.map(x => `<div class="eitem ${x.nivel}">${I(x.nivel === 'proibido' ? 'close' : 'eye')}<span>${E(x.msg)}</span></div>`).join('') : `<div class="eitem ok">${I('shield')}<span>Nenhum alerta de ética.</span></div>`; $('.leg-f small').textContent = `${t.value.length} caracteres · ${(t.value.match(/#/g) || []).length} hashtags`; salvar() }
 });
+document.addEventListener('focusin', e => { const t = e.target; if (ed && t.dataset?.k && !t.dataset.cru) { const v = t.dataset.k.split('.').reduce((o, z) => o?.[z], dadosMod(ed.tid)); t.dataset.cru = '1'; t.textContent = String(v ?? ''); const r = document.createRange(); r.selectNodeContents(t); r.collapse(false); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r) } });
+document.addEventListener('focusout', e => { if (ed && e.target.dataset?.k && !e.relatedTarget?.dataset?.k) setTimeout(() => { if (ed && !document.activeElement?.dataset?.k) desenhaEd(true) }, 0) });
 document.addEventListener('submit', e => {
   if (e.target.id !== 'fmet') return; e.preventDefault(); const r = Object.fromEntries(new FormData(e.target).entries());
   ['seguidores', 'alcance', 'salvos', 'compart', 'visitas', 'mensagens'].forEach(k => r[k] = +r[k] || 0);
   C.metricas = C.metricas.filter(m => m.data !== r.data).concat(r); salvar(); toast('Semana registrada! +30 XP', 'chart'); fecharModal();
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (vw) fecharVw(); else if ($('#modal').innerHTML) fecharModal() }
+  if (e.key === 'Escape') { if (ed) return fecharEd(); if (vw) fecharVw(); else if ($('#modal').innerHTML) fecharModal() }
   if (vw && vw.modo === 'ver' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName)) { if (e.key === 'ArrowRight') { vw.slide++; desenhaVw() } if (e.key === 'ArrowLeft' && vw.slide) { vw.slide--; desenhaVw() } }
 });
 document.addEventListener('dragstart', e => { const c = e.target.closest?.('[data-drag]'); if (c) { e.dataTransfer.setData('text/plain', c.dataset.drag); c.classList.add('arrastando') } });
