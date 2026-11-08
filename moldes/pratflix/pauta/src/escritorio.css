@@ -1,0 +1,205 @@
+/* ====== Coleção Escritórios: 30 variações ====== */
+.mx.of { padding:0; display:block; font-family:var(--fb); line-height:1.3; letter-spacing:0 }
+.mx.of.capa { background:var(--cbg); color:var(--cink) } .mx.of.meio { background:var(--bg); color:var(--ink) }
+.of > * { position:absolute; z-index:2 } .of .of-t, .of .of-sub, .of .of-tag { position:relative }
+.of .of-t { font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); letter-spacing:var(--tl); line-height:var(--lh); font-style:var(--fi); font-size:calc(52px * var(--k)); margin:0; text-wrap:balance; overflow-wrap:normal }
+.of .of-sub { font-size:17px; line-height:1.35; opacity:.85; margin:0; text-wrap:pretty }
+.of .of-tag { display:inline-block; width:fit-content; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; padding:6px 12px; border:1.5px solid currentColor; border-radius:999px }
+.of .hl { color:var(--ac) } :where(.of.capa) .hl { color:var(--hc, var(--ac)) }
+.of.hl-italico .hl { font-style:italic; text-transform:none; font-weight:inherit }
+.of.hl-caixa .hl { background:var(--ac); color:var(--on); padding:0 .12em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of.hl-pilula .hl { background:var(--ac); color:var(--on); padding:0 .3em; border-radius:.6em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of.hl-sublinhado .hl { color:inherit; text-decoration:underline; text-decoration-color:var(--ac); text-decoration-thickness:.1em; text-underline-offset:.1em }
+.of.hl-marcatexto .hl { color:inherit; background:linear-gradient(transparent 50%, var(--ac) 50% 92%, transparent 92%); -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of .of-top { left:28px; right:28px; top:22px; display:flex; justify-content:space-between; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; opacity:.75; z-index:6 }
+.of .of-arr { right:28px; bottom:24px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; z-index:6 }
+.of .of-foto { overflow:hidden; z-index:1; background:color-mix(in srgb, var(--ac2) 40%, var(--cbg)) }
+.of .of-foto img { display:block; width:100%; height:100%; object-fit:cover; object-position:var(--fx, 50%) var(--fy, 30%); transform:scale(var(--fz, 1)); transform-origin:var(--fx, 50%) var(--fy, 30%) }
+.of .of-ph { position:absolute; inset:0; background:linear-gradient(170deg, color-mix(in srgb, var(--ac2) 55%, #fff), color-mix(in srgb, var(--ac) 45%, #fff)) } .of .of-ph svg { position:absolute; left:0; right:0; bottom:0; width:100%; height:86%; fill:color-mix(in srgb, var(--cbg) 45%, transparent) }
+.of .of-ph i { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); background:#fff; color:#111; font:600 10.5px var(--fb); font-style:normal; padding:6px 11px; border-radius:99px; white-space:nowrap }
+.of .of-veu { inset:0; z-index:1; background:linear-gradient(180deg, #0000 25%, color-mix(in srgb, var(--cbg) 92%, transparent) 78%) }
+.of .of-base { left:36px; right:36px; bottom:42px; display:flex; flex-direction:column; gap:14px; z-index:4 }
+.of .of-esq { display:flex; flex-direction:column; gap:16px; z-index:4 }
+.of .of-centro { left:40px; right:40px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; z-index:4 }
+.of .of-fio { display:block; position:relative; width:60px; height:1.5px; background:currentColor; opacity:.6 }
+.of .of-lorem { position:relative; margin:0; height:46px; background:repeating-linear-gradient(transparent 0 8px, color-mix(in srgb, currentColor 18%, transparent) 8px 11px) }
+.of svg { width:100%; height:100% }
+.ed .of [data-foto] { cursor:pointer } .ed .of [data-foto]:hover { outline:2px solid #2F7BFF; outline-offset:2px }
+
+/* --- slides internos (mt) --- */
+.of .of-meio { left:40px; right:40px; top:70px; bottom:60px; display:flex; flex-direction:column; justify-content:center; gap:18px }
+.of .of-mt { position:relative; font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); letter-spacing:var(--tl); line-height:var(--lh); font-size:calc(50px * var(--k)); margin:0; text-wrap:balance }
+.of .of-md { position:relative; font-size:21px; line-height:1.45; color:var(--mu) }
+.of .of-n { position:relative; font-family:var(--ft); font-weight:var(--tw); color:var(--ac); font-size:30px; line-height:1 }
+.of .of-rod { left:40px; right:40px; bottom:22px; display:flex; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--mu) }
+.of .of-acoes { position:relative; display:flex; gap:8px; flex-wrap:wrap } .of .of-acoes span { padding:9px 15px; border-radius:999px; border:1.5px solid currentColor; font-size:13px; font-weight:700 }
+.of .of-lista { position:relative; list-style:none; margin:0; padding:0; display:grid; gap:14px } .of .of-lista li { display:flex; gap:12px; align-items:center; font-size:19px; font-weight:600 }
+.of .of-lista i { width:30px; height:30px; border-radius:50%; background:var(--ac); color:var(--on); display:grid; place-items:center; flex:none; padding:6px } .of .of-lista i svg { stroke-width:3 }
+.of .of-dado { position:relative; display:flex; align-items:baseline; gap:10px; color:var(--ac) } .of .of-dado b { font-family:var(--ft); font-weight:var(--tw); font-size:200px; line-height:.85; letter-spacing:-.05em } .of .of-dado small { font-family:var(--ft); font-size:38px; font-weight:var(--tw) }
+.of.mt-cards .of-meio:not(.fim) { background:var(--sf); border-radius:26px; padding:34px; top:80px; bottom:70px; box-shadow:0 24px 50px -30px #0006 }
+.of.mt-cards .of-n { width:54px; height:54px; border-radius:16px; background:var(--ac); color:var(--on); display:grid; place-items:center; font-size:22px }
+.of.mt-num .of-n { font-size:150px; letter-spacing:-.06em; opacity:.95; margin-bottom:-10px }
+.of.mt-linha .of-meio { justify-content:flex-end; padding-bottom:20px } .of.mt-linha .of-n { border-top:2px solid var(--ink); padding-top:12px; width:100%; font-size:14px; letter-spacing:.2em; color:var(--ink) } .of.mt-linha .of-mt { font-size:calc(46px * var(--k)) }
+.of.mt-serif .of-meio { align-items:center; text-align:center } .of.mt-serif .of-n { font-size:16px; letter-spacing:.3em } .of.mt-serif .of-n::after { content:""; display:block; width:40px; height:1px; background:currentColor; margin:12px auto 0 } .of.mt-serif .of-mt { font-size:calc(44px * var(--k)) }
+.of.mt-bolha .of-mt { background:var(--ac); color:var(--on); padding:22px 24px; border-radius:24px 24px 24px 6px; font-size:calc(32px * var(--k)) } .of.mt-bolha .of-md { background:var(--sf); padding:20px 22px; border-radius:24px 24px 6px 24px; margin-left:40px; color:var(--ink); box-shadow:0 14px 30px -20px #0006 } .of.mt-bolha .of-n { font-size:14px; letter-spacing:.2em }
+.of.meio .hl { color:var(--ac) }
+
+/* --- enquete --- */
+.of.enq { background:var(--cbg); color:var(--cink) } .of .of-enq { left:44px; right:44px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; gap:22px }
+.of .enq-t { font-size:calc(62px * var(--k)) } .of .of-poll { position:relative; background:#fff; border-radius:22px; padding:16px; display:grid; gap:10px; box-shadow:0 24px 50px -24px #0008 }
+.of .of-poll span { display:block; background:#EFEFEF; border-radius:14px; padding:16px; text-align:center; font:800 24px Arial, sans-serif } .of .of-poll b { background:linear-gradient(90deg, #E1306C, #F77737); -webkit-background-clip:text; background-clip:text; color:transparent }
+
+/* ====== 30 composições de capa ====== */
+/* 01 índigo */
+.L-indigo.capa { background:radial-gradient(120% 90% at 100% 0%, #3A2FB0, transparent 60%), var(--cbg) }
+.L-indigo .of-mark { left:28px; top:52px; width:40px; height:40px; padding:8px; border-radius:12px; background:var(--ac); color:#fff }
+.L-indigo .fx { right:-30px; bottom:0; width:290px; height:470px; border-radius:200px 200px 0 0; -webkit-mask:linear-gradient(#000 70%, transparent); mask:linear-gradient(#000 70%, transparent) }
+.L-indigo .of-esq { left:32px; top:130px; width:270px } .L-indigo .of-t { font-size:46px }
+.L-indigo .of-btns { position:relative; display:flex; gap:8px } .L-indigo .of-btns span { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; background:#fff; color:var(--cbg); font-size:14px; font-weight:800 } .L-indigo .of-btns svg { width:18px; height:18px } .L-indigo .of-btns span + span { background:var(--ac); color:#fff; padding:10px }
+/* 02 digital noturno */
+.L-drx .of-glow { left:50%; top:330px; width:520px; height:520px; margin-left:-260px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac) 45%, transparent), transparent 65%); z-index:0 }
+.L-drx .of-centro { top:96px } .L-drx .of-t { font-size:50px } .L-drx .of-tag { border:0; opacity:.7; padding:0 }
+.L-drx .of-phone { left:150px; top:330px; width:240px; height:420px; border-radius:38px; background:linear-gradient(160deg, #1b2a52, #0a1124); box-shadow:inset 0 0 0 6px #2a3557, 0 30px 60px -20px #000; padding:26px 14px }
+.L-drx .of-hora { position:absolute; top:60px; left:0; right:0; text-align:center; font-size:56px; font-weight:300; color:#fff; letter-spacing:-.03em }
+.L-drx .of-noti { position:absolute; left:12px; right:12px; top:150px; display:flex; gap:9px; align-items:center; background:#ffffffe6; color:#111; padding:10px; border-radius:16px; font-size:10.5px } .L-drx .of-noti i { width:28px; height:28px; padding:6px; border-radius:8px; background:var(--ac); color:#fff; flex:none } .L-drx .of-noti b { display:block; font-size:11px } .L-drx .of-noti small { display:block; line-height:1.2; opacity:.75 } .L-drx .of-noti > span { margin-left:auto; align-self:flex-start; opacity:.5 }
+.L-drx .of-marca { left:0; right:0; bottom:26px; text-align:center; font-weight:800; letter-spacing:.2em; font-size:12px; opacity:.8 }
+/* 03 assinatura verde */
+.L-nome .fx { inset:0 } .L-nome .of-tag { background:var(--ac); color:var(--on); border:0; border-radius:3px } .L-nome .of-t { font-size:60px } .L-nome .hl { color:var(--ac) }
+/* 04 terracota celular */
+.L-terra .of-pilha { inset:0; z-index:0 } .L-terra .of-pilha i { position:absolute; width:210px; height:280px; border-radius:16px; background:color-mix(in srgb, var(--ac2) 60%, var(--cbg)); box-shadow:0 10px 26px -14px #0007 }
+.L-terra .of-pilha i:nth-child(1) { left:-50px; top:40px; transform:rotate(-14deg) } .L-terra .of-pilha i:nth-child(2) { right:-60px; top:20px; transform:rotate(12deg) } .L-terra .of-pilha i:nth-child(3) { left:-40px; bottom:-60px; transform:rotate(10deg) } .L-terra .of-pilha i:nth-child(4) { right:-50px; bottom:-40px; transform:rotate(-12deg) }
+.L-terra .of-cel { left:100px; right:100px; top:50px; bottom:50px; background:#FFF8F2; color:var(--ink); border-radius:30px; padding:24px 22px; display:flex; flex-direction:column; gap:12px; box-shadow:0 30px 60px -24px #0009 }
+.L-terra .of-cel-top { position:relative; display:flex; justify-content:space-between; font-size:10px; font-weight:700; opacity:.6 } .L-terra .of-t { font-size:44px; color:var(--ac) } .L-terra .of-t .hl { color:var(--ink) }
+.L-terra .fx { position:relative; flex:1; border-radius:18px } .L-terra .of-sub { font-size:14px; color:var(--ink) }
+/* 05 azul interface */
+.L-widget .of-t { left:32px; right:150px; top:62px; position:absolute; font-size:44px } .L-widget .fx { right:0; bottom:0; width:300px; height:420px; -webkit-mask:linear-gradient(90deg, transparent, #000 25%); mask:linear-gradient(90deg, transparent, #000 25%) }
+.L-widget .of-w { background:#fff; color:var(--ink); border-radius:18px; box-shadow:0 18px 36px -20px #13284A88; display:flex; align-items:center; gap:10px; padding:12px 16px; z-index:4 } .L-widget .of-w i { width:34px; height:34px; padding:7px; border-radius:10px; background:var(--ac); color:#fff; flex:none }
+.L-widget .w1 { left:32px; top:280px } .L-widget .w1 b { font-size:30px; letter-spacing:-.02em; font-family:var(--ft) } .L-widget .w2 { left:32px; top:372px; width:250px; font-size:13px; line-height:1.3 } .L-widget .w3 { left:32px; top:470px; gap:8px; padding:10px } .L-widget .w3 i:nth-child(2) { background:var(--ac2) } .L-widget .w3 i:nth-child(3) { background:var(--ink) }
+.L-widget > .of-tag { position:absolute; left:32px; bottom:30px; background:var(--ink); color:#fff; border:0 }
+/* 06 malhete */
+.L-malhete.capa { background:linear-gradient(color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px) 0 0/36px 36px, linear-gradient(90deg, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px) 0 0/36px 36px, var(--cbg) }
+.L-malhete > .of-tag { position:absolute; left:40px; top:70px; border:0; background:var(--ink); color:#fff } .L-malhete .of-t { position:absolute; left:40px; right:40px; top:116px; font-size:58px } .L-malhete .of-malhete { left:120px; top:330px; width:300px; height:225px } .L-malhete .of-sub { position:absolute; left:40px; right:200px; bottom:96px; font-size:15px }
+.L-malhete .of-pe { left:24px; right:24px; bottom:24px; display:flex; justify-content:space-between; align-items:center; background:var(--ink); color:#fff; padding:10px 12px 10px 20px; border-radius:999px; font-size:12px; font-weight:700 } .L-malhete .of-pe b { width:30px; height:30px; padding:6px; border-radius:50%; background:var(--ac) }
+/* 07 palavra gigante */
+.L-gigante .of-pal { left:-10px; right:-10px; top:46px; text-align:center; font-family:var(--ft); font-size:150px; line-height:1; color:transparent; -webkit-text-stroke:1.6px color-mix(in srgb, var(--cink) 75%, transparent); z-index:0; white-space:nowrap; letter-spacing:.01em }
+.L-gigante .fx { left:90px; right:90px; top:110px; bottom:0; background:none; -webkit-mask:linear-gradient(#000 60%, transparent 92%); mask:linear-gradient(#000 60%, transparent 92%) } .L-gigante .of-veu { background:linear-gradient(180deg, #0000 45%, var(--cbg) 82%) }
+.L-gigante .of-base { align-items:center; text-align:center } .L-gigante .of-t { font-size:62px } .L-gigante .of-sub { font-size:12px; letter-spacing:.14em; text-transform:uppercase }
+/* 08 impacto */
+.L-impacto .fx { right:0; top:0; bottom:0; width:300px } .L-impacto .of-esq { left:28px; top:150px; width:300px } .L-impacto .of-t { font-size:78px; color:#fff; -webkit-text-stroke:0; text-shadow:0 4px 30px #0006 } .L-impacto .of-sub { width:220px; font-size:15px }
+.L-impacto .of-assin { right:24px; bottom:22px; font-family:'Mrs Saint Delafield', cursive; font-size:44px; color:#fff; z-index:5 } .L-impacto.capa { background:linear-gradient(90deg, var(--cbg) 50%, #0000), var(--cbg) }
+/* 09 noir */
+.L-noir .fx { inset:0; filter:grayscale(1) contrast(1.1) } .L-noir .of-veu { background:linear-gradient(180deg, #000a, #0006 40%, #000d) } .L-noir .of-centro { top:180px } .L-noir .of-t { font-size:46px } .L-noir .of-tag { border:0; padding:0; letter-spacing:.3em }
+/* 10 coluna bordô */
+.L-coluna .of-col { left:20px; bottom:0; width:80px; height:470px; color:color-mix(in srgb, var(--ac2) 70%, transparent) } .L-coluna .fx { right:30px; top:70px; width:260px; height:360px; border-radius:140px 140px 10px 10px; box-shadow:0 0 0 6px color-mix(in srgb, var(--ac2) 40%, transparent) }
+.L-coluna .of-base { left:120px; bottom:36px } .L-coluna .of-t { font-size:48px } .L-coluna .hl { color:var(--ac2) } .L-coluna .of-tag { border-color:var(--ac2); color:var(--ac2) } .L-coluna .of-script { position:relative; font-family:'Mrs Saint Delafield', cursive; font-size:52px; color:var(--ac2); line-height:.8 }
+/* 11 oliva editorial */
+.L-ampulheta .fx { left:28px; right:28px; top:58px; height:300px; border-radius:24px } .L-ampulheta > .of-tag { position:absolute; left:28px; top:376px; border-color:var(--ac); color:var(--ac) } .L-ampulheta .of-t { position:absolute; left:28px; right:28px; top:416px; font-size:40px }
+.L-ampulheta .of-2col { left:28px; right:28px; bottom:30px; display:grid; grid-template-columns:1.4fr 1fr; gap:20px; font-size:13px; border-top:1px solid currentColor; padding-top:12px } .L-ampulheta .of-2col .of-sub { font-size:13px } .L-ampulheta .of-2col p { margin:0; opacity:.6; text-align:right }
+/* 12 azul manchete */
+.L-azulao .of-pal { left:-20px; top:40px; font-family:var(--ft); font-size:210px; line-height:.85; color:#ffffff22; z-index:0; white-space:nowrap } .L-azulao .fx { left:150px; right:-20px; top:90px; bottom:0; -webkit-mask:linear-gradient(#000 60%, transparent 95%); mask:linear-gradient(#000 60%, transparent 95%) }
+.L-azulao .of-t { font-size:60px } .L-azulao .hl { font-family:'Playfair Display', Georgia, serif; text-transform:none; color:#fff } .L-azulao .of-tag { background:#fff; color:var(--ac); border:0 }
+/* 13 menta */
+.L-menta .of-circ { border-radius:50% } .L-menta .c1 { right:28px; top:60px; width:250px; height:250px; overflow:hidden; box-shadow:0 0 0 10px #fff } .L-menta .c1 .fx { position:absolute; inset:0 } .L-menta .c2 { right:230px; top:250px; width:80px; height:80px; background:var(--ac); z-index:1 }
+.L-menta > .of-tag { position:absolute; left:36px; top:340px; color:var(--ac) } .L-menta .of-t { position:absolute; left:36px; right:36px; top:380px; font-size:46px } .L-menta .of-sub { position:absolute; left:36px; right:120px; bottom:84px; font-size:15px }
+.L-menta .of-badges { left:36px; bottom:32px; display:flex; gap:8px } .L-menta .of-badges span { display:inline-flex; gap:6px; align-items:center; padding:8px 13px; border-radius:999px; background:#fff; font-size:12px; font-weight:700 } .L-menta .of-badges svg { width:15px; height:15px; color:var(--ac) }
+/* 14 mosaico */
+.L-mosaico .of-grid { inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1.2fr; gap:4px; background:var(--ac2) } .L-mosaico .of-grid > div { position:relative; overflow:hidden; background:var(--cbg) }
+.L-mosaico .of-grid .fx { position:absolute; inset:0 } .L-mosaico .g2 { display:flex; align-items:flex-end; padding:16px } .L-mosaico .g2 b { font-family:var(--ft); font-size:34px; line-height:.95; color:var(--ac); word-break:break-word; letter-spacing:-.01em }
+.L-mosaico .g3 { display:flex; flex-direction:column; justify-content:flex-end; gap:10px; padding:20px 18px } .L-mosaico .of-t { font-size:32px } .L-mosaico .g4 .fx { filter:grayscale(.6) } .L-mosaico .of-top { color:#fff; text-shadow:0 1px 6px #0008 }
+/* 15 marinho & ouro */
+.L-ouro .of-moldura { inset:20px; border:1px solid var(--ac); z-index:1 } .L-ouro .of-moldura::after { content:""; position:absolute; inset:7px; border:1px solid color-mix(in srgb, var(--ac) 45%, transparent) }
+.L-ouro .of-centro { top:110px } .L-ouro .of-mono { position:relative; width:76px; height:76px; border:1px solid var(--ac); border-radius:50%; display:grid; place-items:center; font-family:var(--ft); font-size:36px; color:var(--ac) }
+.L-ouro .of-tag { border:0; padding:0; color:var(--ac); letter-spacing:.3em } .L-ouro .of-t { font-size:46px } .L-ouro .hl { color:var(--ac) } .L-ouro .of-bal { position:relative; width:34px; height:34px; color:var(--ac) }
+/* 16 primeira página */
+.L-jornal .of-cab { left:28px; right:28px; top:24px; display:flex; justify-content:space-between; align-items:baseline; border-bottom:4px double var(--cink); padding-bottom:10px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase } .L-jornal .of-cab b { font-family:var(--ft); font-size:30px; letter-spacing:-.02em; text-transform:none }
+.L-jornal > .of-tag { position:absolute; left:28px; top:96px; background:var(--ac); color:#fff; border:0; border-radius:0 } .L-jornal .of-t { position:absolute; left:28px; right:28px; top:134px; font-size:46px }
+.L-jornal .of-colunas { left:28px; right:28px; bottom:30px; height:270px; display:grid; grid-template-columns:1.25fr 1fr; gap:16px; border-top:1px solid var(--cink); padding-top:14px } .L-jornal .of-colunas .fx { position:relative; filter:grayscale(1) contrast(1.15) } .L-jornal .of-colunas > div:last-child { display:flex; flex-direction:column; gap:12px } .L-jornal .of-sub { font-size:14px; font-weight:600 }
+/* 17 número corporativo */
+.L-numero .of-num { left:24px; top:40px; font-family:var(--ft); font-weight:700; font-size:230px; line-height:1; letter-spacing:-.07em; color:var(--ac) } .L-numero > .of-tag { position:absolute; left:32px; top:300px; color:var(--ac) } .L-numero .of-t { position:absolute; left:32px; width:300px; top:340px; font-size:36px }
+.L-numero .of-ics { left:32px; bottom:36px; list-style:none; margin:0; padding:0; display:grid; gap:9px; width:280px } .L-numero .of-ics li { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:600 } .L-numero .of-ics i { width:30px; height:30px; padding:6px; border-radius:9px; border:1.5px solid var(--ac); color:var(--ac); flex:none }
+.L-numero .fx { right:0; top:0; bottom:0; width:200px; border-radius:100px 0 0 100px }
+/* 18 meio a meio */
+.L-split .fx { left:0; top:0; bottom:0; width:270px } .L-split .of-bloco { left:270px; right:0; top:0; bottom:0; padding:80px 26px 30px; display:flex; flex-direction:column; justify-content:center; gap:16px } .L-split .of-t { font-size:38px } .L-split .of-sub { font-size:14px } .L-split .of-arr { position:relative; right:auto; bottom:auto; color:var(--ac) }
+.L-split .of-top { left:290px }
+/* 19 faixa diagonal */
+.L-diagonal .fx { inset:0 } .L-diagonal .of-faixa { left:-80px; right:-80px; bottom:110px; height:240px; background:var(--ac); transform:rotate(-8deg); z-index:2; box-shadow:0 20px 40px -20px #000a } .L-diagonal .of-base { bottom:120px; transform:rotate(-8deg); z-index:3; color:var(--on) } .L-diagonal .of-t { font-size:52px } .L-diagonal .of-tag { border-color:var(--on) } .L-diagonal.hl-caixa .hl { background:var(--cbg); color:var(--ac) } .L-diagonal .of-sub { font-weight:600 }
+/* 20 cartão de visita */
+.L-cartao.capa { background:radial-gradient(circle at 30% 20%, #3a3633, var(--cbg)) } .L-cartao .of-card { left:44px; right:44px; top:150px; height:310px; background:#FBFAF7; color:var(--cink); padding:30px; display:flex; flex-direction:column; gap:12px; justify-content:center; transform:rotate(-3deg); box-shadow:0 30px 50px -20px #000 }
+.L-cartao .of-tag { border:0; padding:0; color:var(--ac); letter-spacing:.3em } .L-cartao .of-t { font-size:38px } .L-cartao .of-sub { font-size:14px } .L-cartao .of-card-pe { position:relative; display:flex; justify-content:space-between; font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:.6; margin-top:8px }
+.L-cartao .fx { right:40px; bottom:40px; width:120px; height:120px; border-radius:50%; box-shadow:0 0 0 4px #FBFAF7; transform:rotate(-3deg); z-index:3 }
+/* 21 contrato marcado */
+.L-documento .of-folha { left:56px; right:56px; top:70px; bottom:60px; background:#fff; color:var(--cink); box-shadow:0 30px 50px -24px #0008; transform:rotate(2deg) } .L-documento .of-folha-c { position:absolute; inset:34px 30px; display:flex; flex-direction:column; gap:14px } .L-documento .of-folha-c small { font-size:11px; letter-spacing:.2em; font-weight:700; opacity:.55 } .L-documento .of-t { font-size:36px } .L-documento .of-sub { font-size:14px }
+.L-documento .of-carimbo { position:absolute; right:-10px; bottom:40px; transform:rotate(-14deg); border:4px solid var(--ac2); color:var(--ac2); font-weight:900; font-size:26px; letter-spacing:.14em; padding:4px 16px; border-radius:8px; opacity:.9 }
+.L-documento > .of-tag { position:absolute; left:40px; top:30px; background:var(--cink); color:#fff; border:0 } .L-documento .of-top { opacity:0 }
+/* 22 linha do tempo */
+.L-tempo > .of-tag { position:absolute; left:36px; top:66px; color:var(--ac) } .L-tempo .of-t { position:absolute; left:36px; right:36px; top:110px; font-size:50px } .L-tempo .of-sub { position:absolute; left:36px; right:150px; top:300px; font-size:15px } .L-tempo .hl { color:var(--ac) }
+.L-tempo .of-linha { left:36px; right:36px; bottom:50px; display:flex; justify-content:space-between; border-top:2px solid color-mix(in srgb, var(--cink) 50%, transparent); padding-top:0; z-index:4 } .L-tempo .of-linha span { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; margin-top:-9px; font-size:11px } .L-tempo .of-linha i { width:16px; height:16px; border-radius:50%; background:var(--ac); box-shadow:0 0 0 4px var(--cbg) }
+.L-tempo .fx { right:36px; top:300px; width:150px; height:150px; border-radius:24px }
+/* 23 aspas gigantes */
+.L-aspas .of-aspas { left:28px; top:20px; font-family:var(--ft); font-size:300px; line-height:1; color:var(--ac); opacity:.9 } .L-aspas .of-t { position:absolute; left:40px; right:40px; top:200px; font-size:36px; line-height:1.15 } .L-aspas .of-fio { position:absolute; left:40px; bottom:150px; background:var(--ac) }
+.L-aspas > .of-tag { position:absolute; left:40px; bottom:100px; border:0; padding:0; color:var(--ac) } .L-aspas .of-sub { position:absolute; left:40px; right:170px; bottom:44px; font-size:14px } .L-aspas .fx { right:40px; bottom:36px; width:110px; height:110px; border-radius:50% }
+/* 24 grade suíça */
+.L-suico .of-idx { left:32px; top:56px; display:flex; align-items:baseline; font-family:var(--ft) } .L-suico .of-idx b { font-size:90px; letter-spacing:-.06em; line-height:1; color:var(--ac) } .L-suico .of-idx span { font-size:22px; opacity:.5 }
+.L-suico .of-regua { left:32px; right:32px; height:2px; background:var(--cink) } .L-suico .of-regua:nth-of-type(1) { top:170px } .L-suico .of-t { position:absolute; left:32px; right:32px; top:186px; font-size:50px } .L-suico .of-regua ~ .of-regua { top:400px }
+.L-suico .of-2col { left:32px; right:240px; top:418px; display:flex; flex-direction:column; gap:12px } .L-suico .of-sub { font-size:14px } .L-suico .fx { right:32px; top:418px; width:190px; height:220px; filter:grayscale(1) } .L-suico .of-quad { right:32px; top:56px; width:40px; height:40px; background:var(--ac) } .L-suico .of-top { display:none }
+/* 25 vidro fosco */
+.L-vidro .of-blob { border-radius:50%; filter:blur(40px); z-index:0 } .L-vidro .b1 { left:-60px; top:-40px; width:340px; height:340px; background:var(--ac) } .L-vidro .b2 { right:-80px; top:200px; width:300px; height:300px; background:var(--ac2) } .L-vidro .b3 { left:80px; bottom:-120px; width:300px; height:300px; background:#3B82F6 }
+.L-vidro .of-vidro { left:40px; right:40px; top:110px; padding:30px; border-radius:28px; background:#ffffff1f; border:1px solid #ffffff40; backdrop-filter:blur(14px); display:flex; flex-direction:column; gap:14px; z-index:3 } .L-vidro .of-t { font-size:40px } .L-vidro .hl { color:#FFD1E3 }
+.L-vidro .fx { left:40px; bottom:40px; width:120px; height:120px; border-radius:28px; border:3px solid #ffffff60 }
+/* 26 rubro criminal */
+.L-rubro .fx { inset:0; filter:grayscale(1) brightness(.75) } .L-rubro .of-veu { background:linear-gradient(180deg, #000c, #0004 40%, #000e 85%) } .L-rubro .of-luz { left:-40px; right:-40px; top:300px; height:6px; background:var(--ac); box-shadow:0 0 40px 8px var(--ac); transform:rotate(-6deg); z-index:2 }
+.L-rubro .of-t { font-size:76px } .L-rubro .of-tag { background:var(--ac); border:0; color:#fff; border-radius:2px }
+/* 27 listras eleitorais */
+.L-urna .of-listras { left:0; top:0; bottom:0; width:80px; background:repeating-linear-gradient(90deg, var(--ac) 0 14px, transparent 14px 22px, var(--ac2) 22px 30px, transparent 30px 40px); z-index:1 }
+.L-urna .of-selo { right:32px; top:56px; width:92px; height:92px; border-radius:50%; background:var(--ac2); color:var(--cbg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:18px; font-weight:900; font-size:14px } .L-urna .of-selo svg { width:34px; height:34px }
+.L-urna > .of-tag { position:absolute; left:110px; top:170px; color:var(--ac2) } .L-urna .of-t { position:absolute; left:110px; right:32px; top:210px; font-size:44px } .L-urna .hl { color:var(--ac2) } .L-urna .of-sub { position:absolute; left:110px; right:200px; bottom:56px; font-size:15px }
+.L-urna .fx { right:32px; bottom:36px; width:150px; height:190px; border-radius:16px }
+/* 28 pastel ilustrado */
+.L-ilustra .of-sol { right:50px; top:60px; width:120px; height:120px; border-radius:50%; background:#FFC857; z-index:0 } .L-ilustra .of-forma { z-index:0 } .L-ilustra .f1 { left:-60px; bottom:-40px; width:300px; height:200px; border-radius:50% 50% 0 0; background:var(--ac2) } .L-ilustra .f2 { right:-40px; bottom:-60px; width:260px; height:260px; border-radius:50%; background:var(--ac); opacity:.6 }
+.L-ilustra .of-ilbal { right:84px; top:96px; width:52px; height:52px; color:var(--cink); z-index:1 } .L-ilustra > .of-tag { position:absolute; left:36px; top:66px } .L-ilustra .of-t { position:absolute; left:36px; right:150px; top:110px; font-size:52px } .L-ilustra .of-sub { position:absolute; left:36px; right:200px; top:360px; font-size:15px }
+.L-ilustra .fx { right:44px; bottom:50px; width:170px; height:210px; border-radius:90px 90px 24px 24px; border:5px solid #fff; z-index:3 }
+/* 29 tela de cinema */
+.L-cinema .fx { inset:0 } .L-cinema .of-barra { left:0; right:0; background:#000; z-index:3; display:flex; padding:0 28px } .L-cinema .cima { top:0; height:90px; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#ffffffaa }
+.L-cinema .baixo { bottom:0; height:200px; align-items:center; justify-content:center; text-align:center } .L-cinema .of-t { font-size:44px; color:var(--ac) } .L-cinema .hl { color:#fff } .L-cinema > .of-sub { position:absolute; left:40px; right:40px; bottom:210px; text-align:center; color:#fff; font-size:14px; text-shadow:0 2px 10px #000 }
+/* 30 linha fina */
+.L-fino > .of-tag { position:absolute; left:36px; top:66px; border:0; padding:0; letter-spacing:.3em } .L-fino .of-t { position:absolute; left:32px; right:32px; top:100px; font-size:84px; font-weight:400 } .L-fino .of-fio { position:absolute; left:36px; right:36px; width:auto; top:420px; height:1px }
+.L-fino .of-sub { position:absolute; left:36px; right:220px; top:440px; font-size:15px } .L-fino .of-selo-f { right:36px; bottom:40px; width:170px; height:170px } .L-fino .of-selo-f .fx { position:absolute; inset:26px; border-radius:50% } .L-fino .of-selo-f svg { position:absolute; inset:0; overflow:visible } .L-fino .of-selo-f text { font-size:8.6px; letter-spacing:.2em; fill:var(--cink); font-family:var(--fb) }
+
+/* stories: mesma composição, mais alta */
+.of.story.capa .of-base { bottom:110px } .of.story .of-top { top:70px } .of.story .of-t { font-size:calc(60px * var(--k)) }
+.of.story.L-indigo .fx { height:640px } .of.story.L-indigo .of-esq { top:200px } .of.story.L-drx .of-phone { top:430px; height:480px } .of.story.L-terra .of-cel { top:90px; bottom:90px }
+.of.story.L-widget .w1 { top:360px } .of.story.L-widget .w2 { top:460px } .of.story.L-widget .w3 { top:570px } .of.story.L-widget .fx { height:560px }
+.of.story.L-malhete .of-malhete { top:440px } .of.story.L-ampulheta .fx { height:460px; top:110px } .of.story.L-ampulheta > .of-tag { top:590px } .of.story.L-ampulheta .of-t { top:630px }
+.of.story.L-menta .c1 { top:130px; width:300px; height:300px } .of.story.L-menta .c2 { top:380px } .of.story.L-menta > .of-tag { top:480px } .of.story.L-menta .of-t { top:520px }
+.of.story.L-ouro .of-centro { top:220px } .of.story.L-jornal .of-colunas { height:480px } .of.story.L-numero .of-t { top:400px } .of.story.L-numero > .of-tag { top:360px }
+.of.story.L-cartao .of-card { top:260px; height:380px } .of.story.L-tempo .of-sub { top:360px } .of.story.L-tempo .fx { top:470px; width:200px; height:260px }
+.of.story.L-aspas .of-t { top:260px } .of.story.L-suico .of-regua ~ .of-regua { top:560px } .of.story.L-suico .of-2col, .of.story.L-suico .fx { top:580px; height:300px }
+.of.story.L-vidro .of-vidro { top:220px } .of.story.L-urna .of-t { top:280px } .of.story.L-urna > .of-tag { top:240px } .of.story.L-ilustra .of-sub { top:480px } .of.story.L-ilustra .fx { height:300px }
+.of.story.L-cinema .cima { height:140px } .of.story.L-cinema .baixo { height:280px } .of.story.L-cinema > .of-sub { bottom:300px } .of.story.L-fino .of-fio { top:560px } .of.story.L-fino .of-sub { top:580px }
+.of.story.L-documento .of-folha { top:110px; bottom:110px } .of.story.L-coluna .fx { top:140px; height:480px } .of.story.L-coluna .of-col { height:700px }
+
+.of .of-centro > *, .of .of-base > *, .of .of-esq > * { max-width:100% } .of .of-centro .of-t, .of .of-base .of-t { width:100% }
+
+/* miolo com mais presença */
+.mx.of.meio.alt { background:var(--cbg); color:var(--cink) } .of.meio.alt .of-md, .of.meio.alt .of-rod { color:color-mix(in srgb, var(--cink) 72%, transparent) } .of.meio.alt .hl { color:var(--ac) }
+.of .of-fundo { right:-20px; bottom:-60px; font-family:var(--ft); font-weight:var(--tw); font-size:360px; line-height:1; letter-spacing:-.06em; color:var(--ac); opacity:.09; z-index:0 }
+.of .of-faixa-top { left:0; right:0; top:0; height:8px; background:var(--ac); z-index:3 }
+.of.mt-cards .of-meio:not(.fim) { top:50%; bottom:auto; transform:translateY(-50%) }
+.of.mt-cards.alt .of-meio:not(.fim) { color:var(--ink) } .of.mt-cards.alt .of-meio:not(.fim) .of-md { color:var(--mu) }
+.of.mt-linha.alt .of-n { border-color:var(--cink); color:var(--cink) }
+.of.mt-bolha.alt .of-md { color:var(--ink) }
+.of .of-meio.fim .of-mt { font-size:calc(54px * var(--k)) }
+.L-gigante .of-pal { top:28px; font-size:128px } .L-urna .of-t { font-size:38px } .of.story.L-urna .of-t { font-size:44px }
+.L-ilustra .of-t { top:200px; right:40px } .L-ilustra .of-sub { top:430px }
+.of.story .of-top { top:40px } .of.story.L-fino .of-t { font-size:110px } .of.story.L-ilustra .of-t { top:260px } .of.story.L-ilustra .of-sub { top:560px }
+.mx.of.L-cartao.meio.alt { color:#F4F1EC } .of.L-cartao.meio.alt .of-md, .of.L-cartao.meio.alt .of-rod { color:#F4F1ECb3 }
+
+/* limite de altura dos títulos: o texto encolhe em vez de invadir foto e elementos */
+.of .of-t { max-height:var(--tmax, 230px) } .of .of-mt { max-height:260px } .of .of-meio.fim .of-mt { max-height:300px }
+.L-indigo { --tmax:210px } .L-drx { --tmax:170px } .L-nome { --tmax:200px } .L-terra { --tmax:150px } .L-widget { --tmax:190px } .L-malhete { --tmax:200px } .L-gigante { --tmax:150px }
+.L-impacto { --tmax:280px } .L-noir { --tmax:200px } .L-coluna { --tmax:170px } .L-ampulheta { --tmax:130px } .L-azulao { --tmax:190px } .L-menta { --tmax:150px } .L-mosaico { --tmax:170px }
+.L-ouro { --tmax:170px } .L-jornal { --tmax:150px } .L-numero { --tmax:150px } .L-split { --tmax:300px } .L-diagonal { --tmax:130px } .L-cartao { --tmax:140px } .L-documento { --tmax:200px }
+.L-tempo { --tmax:180px } .L-aspas { --tmax:250px } .L-suico { --tmax:200px } .L-vidro { --tmax:190px } .L-rubro { --tmax:230px } .L-urna { --tmax:220px } .L-ilustra { --tmax:220px } .L-cinema { --tmax:150px } .L-fino { --tmax:300px }
+.of.story { --tmax:340px } .of.story.L-gigante, .of.story.L-diagonal, .of.story.L-cinema, .of.story.L-terra, .of.story.L-ampulheta { --tmax:220px }
+.L-gigante { --tmax:210px } .L-azulao .hl { color:#FFE27A }
+.L-vidro .hl { color:#FFE27A } .L-azulao .hl { color:#FFE27A }

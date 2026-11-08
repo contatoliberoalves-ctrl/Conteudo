@@ -297,12 +297,12 @@
 .capa.capa-arte { padding:0; background:none; display:block; overflow:visible }
 .capa.capa-arte .arte { border-radius:inherit }
 .arte { position:relative; display:block; width:100%; aspect-ratio:540 / 675; overflow:hidden; border-radius:inherit }
-.arte.av { aspect-ratio:540 / 960 }
+.arte.arte-v { aspect-ratio:540 / 960 }
 .arte-in { position:absolute; left:0; top:0; width:540px; transform-origin:0 0; pointer-events:none }
 .arte-in > .mx { position:relative }
 .capa-arte .capa-chips { z-index:40 }
 .slide-arte { height:min(66vh, 680px); aspect-ratio:4 / 5; border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -30px #000a }
-.slide-arte:has(.av) { aspect-ratio:9 / 16 }
+.slide-arte:has(.arte-v) { aspect-ratio:9 / 16 }
 .slide-arte .arte { height:100%; width:auto; aspect-ratio:inherit }
 .slide-arte.mini { height:auto; width:100%; border-radius:8px; box-shadow:none }
 .slide-arte.mini .arte { width:100%; height:auto }

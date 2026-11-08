@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&family=Fraunces:wght@800&family=Inter:wght@500&family=Archivo+Black&family=Archivo:wght@500&family=Playfair+Display:wght@800&family=Lato:wght@400&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600;800&family=Fraunces:ital,wght@0,900;1,900&family=IBM+Plex+Sans:wght@400;600&family=Inter+Tight:wght@500;800&family=Archivo+Black&family=Archivo:wght@400;700&family=Caveat:wght@700&family=Nunito:wght@500;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Bricolage+Grotesque:wght@500;800&family=Anton&family=IBM+Plex+Mono:wght@500;700&family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@500;800&family=Bodoni+Moda:ital,wght@0,700;1,700&family=Jost:wght@400;600&family=Rubik:wght@500;800&family=Sora:wght@400;700&family=Outfit:wght@400;700&family=Work+Sans:wght@400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Yellowtail&family=Nothing+You+Could+Do&family=Playfair+Display:wght@600&family=Hanken+Grotesk:wght@400;600;800&family=Gloock&family=Homemade+Apple&family=Mrs+Saint+Delafield&family=Rubik:wght@400;600;800&family=Mr+Dafoe&family=Cormorant+Garamond:wght@500;600&family=Pinyon+Script&family=Lato:wght@400;700;900&family=Lobster&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Inter+Tight:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Manrope:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Sora:wght@400;700&family=Bebas+Neue&family=Archivo+Black&family=Archivo:wght@400;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Inter:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Lora:ital,wght@0,500;1,500&family=Anton&family=Fraunces:ital,wght@0,400;1,400&family=Outfit:wght@400;700&family=Oswald:wght@600&family=Prata&family=Lato:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Space+Grotesk:wght@400;700&family=Poppins:wght@400;700&family=Montserrat:wght@500;900&family=Italiana&family=IBM+Plex+Serif:wght@600&family=IBM+Plex+Sans:wght@400;600&family=Gloock&family=Unbounded:wght@600&family=Big+Shoulders+Display:wght@900&family=Syne:wght@800&family=Figtree:wght@400;900&family=Bodoni+Moda:ital,wght@0,400;1,400&family=Mrs+Saint+Delafield&display=swap">
 <style>
 /* Layout: painel de estúdio — barra lateral em degradê da cor da marca, área clara com brilho suave,
    cartões grandes e arredondados, números enormes, capas das peças como protagonistas. */
@@ -1023,12 +1024,12 @@ textarea { line-height:1.6; resize:vertical }
 .capa.capa-arte { padding:0; background:none; display:block; overflow:visible }
 .capa.capa-arte .arte { border-radius:inherit }
 .arte { position:relative; display:block; width:100%; aspect-ratio:540 / 675; overflow:hidden; border-radius:inherit }
-.arte.av { aspect-ratio:540 / 960 }
+.arte.arte-v { aspect-ratio:540 / 960 }
 .arte-in { position:absolute; left:0; top:0; width:540px; transform-origin:0 0; pointer-events:none }
 .arte-in > .mx { position:relative }
 .capa-arte .capa-chips { z-index:40 }
 .slide-arte { height:min(66vh, 680px); aspect-ratio:4 / 5; border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -30px #000a }
-.slide-arte:has(.av) { aspect-ratio:9 / 16 }
+.slide-arte:has(.arte-v) { aspect-ratio:9 / 16 }
 .slide-arte .arte { height:100%; width:auto; aspect-ratio:inherit }
 .slide-arte.mini { height:auto; width:100%; border-radius:8px; box-shadow:none }
 .slide-arte.mini .arte { width:100%; height:auto }
@@ -1053,6 +1054,212 @@ body.modo-produzir .g3:has(.so-metricas) { grid-template-columns:minmax(0, 1fr) 
 .cp-mini .capa.capa-arte, .lp-capa .capa.capa-arte { overflow:hidden }
 .arte .ex-gig, .arte .ex-cartaz, .arte .ex-zt, .arte .ex-zb, .arte .ex-da, .arte .ex-dt, .arte .ex-pop { white-space:nowrap }
 .arte .ex-gig { font-size:120px }
+
+/* ====== Coleção Escritórios: 30 variações ====== */
+.mx.of { padding:0; display:block; font-family:var(--fb); line-height:1.3; letter-spacing:0 }
+.mx.of.capa { background:var(--cbg); color:var(--cink) } .mx.of.meio { background:var(--bg); color:var(--ink) }
+.of > * { position:absolute; z-index:2 } .of .of-t, .of .of-sub, .of .of-tag { position:relative }
+.of .of-t { font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); letter-spacing:var(--tl); line-height:var(--lh); font-style:var(--fi); font-size:calc(52px * var(--k)); margin:0; text-wrap:balance; overflow-wrap:normal }
+.of .of-sub { font-size:17px; line-height:1.35; opacity:.85; margin:0; text-wrap:pretty }
+.of .of-tag { display:inline-block; width:fit-content; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; padding:6px 12px; border:1.5px solid currentColor; border-radius:999px }
+.of .hl { color:var(--ac) } :where(.of.capa) .hl { color:var(--hc, var(--ac)) }
+.of.hl-italico .hl { font-style:italic; text-transform:none; font-weight:inherit }
+.of.hl-caixa .hl { background:var(--ac); color:var(--on); padding:0 .12em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of.hl-pilula .hl { background:var(--ac); color:var(--on); padding:0 .3em; border-radius:.6em; -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of.hl-sublinhado .hl { color:inherit; text-decoration:underline; text-decoration-color:var(--ac); text-decoration-thickness:.1em; text-underline-offset:.1em }
+.of.hl-marcatexto .hl { color:inherit; background:linear-gradient(transparent 50%, var(--ac) 50% 92%, transparent 92%); -webkit-box-decoration-break:clone; box-decoration-break:clone }
+.of .of-top { left:28px; right:28px; top:22px; display:flex; justify-content:space-between; font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; opacity:.75; z-index:6 }
+.of .of-arr { right:28px; bottom:24px; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; z-index:6 }
+.of .of-foto { overflow:hidden; z-index:1; background:color-mix(in srgb, var(--ac2) 40%, var(--cbg)) }
+.of .of-foto img { display:block; width:100%; height:100%; object-fit:cover; object-position:var(--fx, 50%) var(--fy, 30%); transform:scale(var(--fz, 1)); transform-origin:var(--fx, 50%) var(--fy, 30%) }
+.of .of-ph { position:absolute; inset:0; background:linear-gradient(170deg, color-mix(in srgb, var(--ac2) 55%, #fff), color-mix(in srgb, var(--ac) 45%, #fff)) } .of .of-ph svg { position:absolute; left:0; right:0; bottom:0; width:100%; height:86%; fill:color-mix(in srgb, var(--cbg) 45%, transparent) }
+.of .of-ph i { position:absolute; left:50%; bottom:12px; transform:translateX(-50%); background:#fff; color:#111; font:600 10.5px var(--fb); font-style:normal; padding:6px 11px; border-radius:99px; white-space:nowrap }
+.of .of-veu { inset:0; z-index:1; background:linear-gradient(180deg, #0000 25%, color-mix(in srgb, var(--cbg) 92%, transparent) 78%) }
+.of .of-base { left:36px; right:36px; bottom:42px; display:flex; flex-direction:column; gap:14px; z-index:4 }
+.of .of-esq { display:flex; flex-direction:column; gap:16px; z-index:4 }
+.of .of-centro { left:40px; right:40px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; z-index:4 }
+.of .of-fio { display:block; position:relative; width:60px; height:1.5px; background:currentColor; opacity:.6 }
+.of .of-lorem { position:relative; margin:0; height:46px; background:repeating-linear-gradient(transparent 0 8px, color-mix(in srgb, currentColor 18%, transparent) 8px 11px) }
+.of svg { width:100%; height:100% }
+.ed .of [data-foto] { cursor:pointer } .ed .of [data-foto]:hover { outline:2px solid #2F7BFF; outline-offset:2px }
+
+/* --- slides internos (mt) --- */
+.of .of-meio { left:40px; right:40px; top:70px; bottom:60px; display:flex; flex-direction:column; justify-content:center; gap:18px }
+.of .of-mt { position:relative; font-family:var(--ft); font-weight:var(--tw); text-transform:var(--tt); letter-spacing:var(--tl); line-height:var(--lh); font-size:calc(50px * var(--k)); margin:0; text-wrap:balance }
+.of .of-md { position:relative; font-size:21px; line-height:1.45; color:var(--mu) }
+.of .of-n { position:relative; font-family:var(--ft); font-weight:var(--tw); color:var(--ac); font-size:30px; line-height:1 }
+.of .of-rod { left:40px; right:40px; bottom:22px; display:flex; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--mu) }
+.of .of-acoes { position:relative; display:flex; gap:8px; flex-wrap:wrap } .of .of-acoes span { padding:9px 15px; border-radius:999px; border:1.5px solid currentColor; font-size:13px; font-weight:700 }
+.of .of-lista { position:relative; list-style:none; margin:0; padding:0; display:grid; gap:14px } .of .of-lista li { display:flex; gap:12px; align-items:center; font-size:19px; font-weight:600 }
+.of .of-lista i { width:30px; height:30px; border-radius:50%; background:var(--ac); color:var(--on); display:grid; place-items:center; flex:none; padding:6px } .of .of-lista i svg { stroke-width:3 }
+.of .of-dado { position:relative; display:flex; align-items:baseline; gap:10px; color:var(--ac) } .of .of-dado b { font-family:var(--ft); font-weight:var(--tw); font-size:200px; line-height:.85; letter-spacing:-.05em } .of .of-dado small { font-family:var(--ft); font-size:38px; font-weight:var(--tw) }
+.of.mt-cards .of-meio:not(.fim) { background:var(--sf); border-radius:26px; padding:34px; top:80px; bottom:70px; box-shadow:0 24px 50px -30px #0006 }
+.of.mt-cards .of-n { width:54px; height:54px; border-radius:16px; background:var(--ac); color:var(--on); display:grid; place-items:center; font-size:22px }
+.of.mt-num .of-n { font-size:150px; letter-spacing:-.06em; opacity:.95; margin-bottom:-10px }
+.of.mt-linha .of-meio { justify-content:flex-end; padding-bottom:20px } .of.mt-linha .of-n { border-top:2px solid var(--ink); padding-top:12px; width:100%; font-size:14px; letter-spacing:.2em; color:var(--ink) } .of.mt-linha .of-mt { font-size:calc(46px * var(--k)) }
+.of.mt-serif .of-meio { align-items:center; text-align:center } .of.mt-serif .of-n { font-size:16px; letter-spacing:.3em } .of.mt-serif .of-n::after { content:""; display:block; width:40px; height:1px; background:currentColor; margin:12px auto 0 } .of.mt-serif .of-mt { font-size:calc(44px * var(--k)) }
+.of.mt-bolha .of-mt { background:var(--ac); color:var(--on); padding:22px 24px; border-radius:24px 24px 24px 6px; font-size:calc(32px * var(--k)) } .of.mt-bolha .of-md { background:var(--sf); padding:20px 22px; border-radius:24px 24px 6px 24px; margin-left:40px; color:var(--ink); box-shadow:0 14px 30px -20px #0006 } .of.mt-bolha .of-n { font-size:14px; letter-spacing:.2em }
+.of.meio .hl { color:var(--ac) }
+
+/* --- enquete --- */
+.of.enq { background:var(--cbg); color:var(--cink) } .of .of-enq { left:44px; right:44px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; gap:22px }
+.of .enq-t { font-size:calc(62px * var(--k)) } .of .of-poll { position:relative; background:#fff; border-radius:22px; padding:16px; display:grid; gap:10px; box-shadow:0 24px 50px -24px #0008 }
+.of .of-poll span { display:block; background:#EFEFEF; border-radius:14px; padding:16px; text-align:center; font:800 24px Arial, sans-serif } .of .of-poll b { background:linear-gradient(90deg, #E1306C, #F77737); -webkit-background-clip:text; background-clip:text; color:transparent }
+
+/* ====== 30 composições de capa ====== */
+/* 01 índigo */
+.L-indigo.capa { background:radial-gradient(120% 90% at 100% 0%, #3A2FB0, transparent 60%), var(--cbg) }
+.L-indigo .of-mark { left:28px; top:52px; width:40px; height:40px; padding:8px; border-radius:12px; background:var(--ac); color:#fff }
+.L-indigo .fx { right:-30px; bottom:0; width:290px; height:470px; border-radius:200px 200px 0 0; -webkit-mask:linear-gradient(#000 70%, transparent); mask:linear-gradient(#000 70%, transparent) }
+.L-indigo .of-esq { left:32px; top:130px; width:270px } .L-indigo .of-t { font-size:46px }
+.L-indigo .of-btns { position:relative; display:flex; gap:8px } .L-indigo .of-btns span { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; background:#fff; color:var(--cbg); font-size:14px; font-weight:800 } .L-indigo .of-btns svg { width:18px; height:18px } .L-indigo .of-btns span + span { background:var(--ac); color:#fff; padding:10px }
+/* 02 digital noturno */
+.L-drx .of-glow { left:50%; top:330px; width:520px; height:520px; margin-left:-260px; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--ac) 45%, transparent), transparent 65%); z-index:0 }
+.L-drx .of-centro { top:96px } .L-drx .of-t { font-size:50px } .L-drx .of-tag { border:0; opacity:.7; padding:0 }
+.L-drx .of-phone { left:150px; top:330px; width:240px; height:420px; border-radius:38px; background:linear-gradient(160deg, #1b2a52, #0a1124); box-shadow:inset 0 0 0 6px #2a3557, 0 30px 60px -20px #000; padding:26px 14px }
+.L-drx .of-hora { position:absolute; top:60px; left:0; right:0; text-align:center; font-size:56px; font-weight:300; color:#fff; letter-spacing:-.03em }
+.L-drx .of-noti { position:absolute; left:12px; right:12px; top:150px; display:flex; gap:9px; align-items:center; background:#ffffffe6; color:#111; padding:10px; border-radius:16px; font-size:10.5px } .L-drx .of-noti i { width:28px; height:28px; padding:6px; border-radius:8px; background:var(--ac); color:#fff; flex:none } .L-drx .of-noti b { display:block; font-size:11px } .L-drx .of-noti small { display:block; line-height:1.2; opacity:.75 } .L-drx .of-noti > span { margin-left:auto; align-self:flex-start; opacity:.5 }
+.L-drx .of-marca { left:0; right:0; bottom:26px; text-align:center; font-weight:800; letter-spacing:.2em; font-size:12px; opacity:.8 }
+/* 03 assinatura verde */
+.L-nome .fx { inset:0 } .L-nome .of-tag { background:var(--ac); color:var(--on); border:0; border-radius:3px } .L-nome .of-t { font-size:60px } .L-nome .hl { color:var(--ac) }
+/* 04 terracota celular */
+.L-terra .of-pilha { inset:0; z-index:0 } .L-terra .of-pilha i { position:absolute; width:210px; height:280px; border-radius:16px; background:color-mix(in srgb, var(--ac2) 60%, var(--cbg)); box-shadow:0 10px 26px -14px #0007 }
+.L-terra .of-pilha i:nth-child(1) { left:-50px; top:40px; transform:rotate(-14deg) } .L-terra .of-pilha i:nth-child(2) { right:-60px; top:20px; transform:rotate(12deg) } .L-terra .of-pilha i:nth-child(3) { left:-40px; bottom:-60px; transform:rotate(10deg) } .L-terra .of-pilha i:nth-child(4) { right:-50px; bottom:-40px; transform:rotate(-12deg) }
+.L-terra .of-cel { left:100px; right:100px; top:50px; bottom:50px; background:#FFF8F2; color:var(--ink); border-radius:30px; padding:24px 22px; display:flex; flex-direction:column; gap:12px; box-shadow:0 30px 60px -24px #0009 }
+.L-terra .of-cel-top { position:relative; display:flex; justify-content:space-between; font-size:10px; font-weight:700; opacity:.6 } .L-terra .of-t { font-size:44px; color:var(--ac) } .L-terra .of-t .hl { color:var(--ink) }
+.L-terra .fx { position:relative; flex:1; border-radius:18px } .L-terra .of-sub { font-size:14px; color:var(--ink) }
+/* 05 azul interface */
+.L-widget .of-t { left:32px; right:150px; top:62px; position:absolute; font-size:44px } .L-widget .fx { right:0; bottom:0; width:300px; height:420px; -webkit-mask:linear-gradient(90deg, transparent, #000 25%); mask:linear-gradient(90deg, transparent, #000 25%) }
+.L-widget .of-w { background:#fff; color:var(--ink); border-radius:18px; box-shadow:0 18px 36px -20px #13284A88; display:flex; align-items:center; gap:10px; padding:12px 16px; z-index:4 } .L-widget .of-w i { width:34px; height:34px; padding:7px; border-radius:10px; background:var(--ac); color:#fff; flex:none }
+.L-widget .w1 { left:32px; top:280px } .L-widget .w1 b { font-size:30px; letter-spacing:-.02em; font-family:var(--ft) } .L-widget .w2 { left:32px; top:372px; width:250px; font-size:13px; line-height:1.3 } .L-widget .w3 { left:32px; top:470px; gap:8px; padding:10px } .L-widget .w3 i:nth-child(2) { background:var(--ac2) } .L-widget .w3 i:nth-child(3) { background:var(--ink) }
+.L-widget > .of-tag { position:absolute; left:32px; bottom:30px; background:var(--ink); color:#fff; border:0 }
+/* 06 malhete */
+.L-malhete.capa { background:linear-gradient(color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px) 0 0/36px 36px, linear-gradient(90deg, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px) 0 0/36px 36px, var(--cbg) }
+.L-malhete > .of-tag { position:absolute; left:40px; top:70px; border:0; background:var(--ink); color:#fff } .L-malhete .of-t { position:absolute; left:40px; right:40px; top:116px; font-size:58px } .L-malhete .of-malhete { left:120px; top:330px; width:300px; height:225px } .L-malhete .of-sub { position:absolute; left:40px; right:200px; bottom:96px; font-size:15px }
+.L-malhete .of-pe { left:24px; right:24px; bottom:24px; display:flex; justify-content:space-between; align-items:center; background:var(--ink); color:#fff; padding:10px 12px 10px 20px; border-radius:999px; font-size:12px; font-weight:700 } .L-malhete .of-pe b { width:30px; height:30px; padding:6px; border-radius:50%; background:var(--ac) }
+/* 07 palavra gigante */
+.L-gigante .of-pal { left:-10px; right:-10px; top:46px; text-align:center; font-family:var(--ft); font-size:150px; line-height:1; color:transparent; -webkit-text-stroke:1.6px color-mix(in srgb, var(--cink) 75%, transparent); z-index:0; white-space:nowrap; letter-spacing:.01em }
+.L-gigante .fx { left:90px; right:90px; top:110px; bottom:0; background:none; -webkit-mask:linear-gradient(#000 60%, transparent 92%); mask:linear-gradient(#000 60%, transparent 92%) } .L-gigante .of-veu { background:linear-gradient(180deg, #0000 45%, var(--cbg) 82%) }
+.L-gigante .of-base { align-items:center; text-align:center } .L-gigante .of-t { font-size:62px } .L-gigante .of-sub { font-size:12px; letter-spacing:.14em; text-transform:uppercase }
+/* 08 impacto */
+.L-impacto .fx { right:0; top:0; bottom:0; width:300px } .L-impacto .of-esq { left:28px; top:150px; width:300px } .L-impacto .of-t { font-size:78px; color:#fff; -webkit-text-stroke:0; text-shadow:0 4px 30px #0006 } .L-impacto .of-sub { width:220px; font-size:15px }
+.L-impacto .of-assin { right:24px; bottom:22px; font-family:'Mrs Saint Delafield', cursive; font-size:44px; color:#fff; z-index:5 } .L-impacto.capa { background:linear-gradient(90deg, var(--cbg) 50%, #0000), var(--cbg) }
+/* 09 noir */
+.L-noir .fx { inset:0; filter:grayscale(1) contrast(1.1) } .L-noir .of-veu { background:linear-gradient(180deg, #000a, #0006 40%, #000d) } .L-noir .of-centro { top:180px } .L-noir .of-t { font-size:46px } .L-noir .of-tag { border:0; padding:0; letter-spacing:.3em }
+/* 10 coluna bordô */
+.L-coluna .of-col { left:20px; bottom:0; width:80px; height:470px; color:color-mix(in srgb, var(--ac2) 70%, transparent) } .L-coluna .fx { right:30px; top:70px; width:260px; height:360px; border-radius:140px 140px 10px 10px; box-shadow:0 0 0 6px color-mix(in srgb, var(--ac2) 40%, transparent) }
+.L-coluna .of-base { left:120px; bottom:36px } .L-coluna .of-t { font-size:48px } .L-coluna .hl { color:var(--ac2) } .L-coluna .of-tag { border-color:var(--ac2); color:var(--ac2) } .L-coluna .of-script { position:relative; font-family:'Mrs Saint Delafield', cursive; font-size:52px; color:var(--ac2); line-height:.8 }
+/* 11 oliva editorial */
+.L-ampulheta .fx { left:28px; right:28px; top:58px; height:300px; border-radius:24px } .L-ampulheta > .of-tag { position:absolute; left:28px; top:376px; border-color:var(--ac); color:var(--ac) } .L-ampulheta .of-t { position:absolute; left:28px; right:28px; top:416px; font-size:40px }
+.L-ampulheta .of-2col { left:28px; right:28px; bottom:30px; display:grid; grid-template-columns:1.4fr 1fr; gap:20px; font-size:13px; border-top:1px solid currentColor; padding-top:12px } .L-ampulheta .of-2col .of-sub { font-size:13px } .L-ampulheta .of-2col p { margin:0; opacity:.6; text-align:right }
+/* 12 azul manchete */
+.L-azulao .of-pal { left:-20px; top:40px; font-family:var(--ft); font-size:210px; line-height:.85; color:#ffffff22; z-index:0; white-space:nowrap } .L-azulao .fx { left:150px; right:-20px; top:90px; bottom:0; -webkit-mask:linear-gradient(#000 60%, transparent 95%); mask:linear-gradient(#000 60%, transparent 95%) }
+.L-azulao .of-t { font-size:60px } .L-azulao .hl { font-family:'Playfair Display', Georgia, serif; text-transform:none; color:#fff } .L-azulao .of-tag { background:#fff; color:var(--ac); border:0 }
+/* 13 menta */
+.L-menta .of-circ { border-radius:50% } .L-menta .c1 { right:28px; top:60px; width:250px; height:250px; overflow:hidden; box-shadow:0 0 0 10px #fff } .L-menta .c1 .fx { position:absolute; inset:0 } .L-menta .c2 { right:230px; top:250px; width:80px; height:80px; background:var(--ac); z-index:1 }
+.L-menta > .of-tag { position:absolute; left:36px; top:340px; color:var(--ac) } .L-menta .of-t { position:absolute; left:36px; right:36px; top:380px; font-size:46px } .L-menta .of-sub { position:absolute; left:36px; right:120px; bottom:84px; font-size:15px }
+.L-menta .of-badges { left:36px; bottom:32px; display:flex; gap:8px } .L-menta .of-badges span { display:inline-flex; gap:6px; align-items:center; padding:8px 13px; border-radius:999px; background:#fff; font-size:12px; font-weight:700 } .L-menta .of-badges svg { width:15px; height:15px; color:var(--ac) }
+/* 14 mosaico */
+.L-mosaico .of-grid { inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1.2fr; gap:4px; background:var(--ac2) } .L-mosaico .of-grid > div { position:relative; overflow:hidden; background:var(--cbg) }
+.L-mosaico .of-grid .fx { position:absolute; inset:0 } .L-mosaico .g2 { display:flex; align-items:flex-end; padding:16px } .L-mosaico .g2 b { font-family:var(--ft); font-size:34px; line-height:.95; color:var(--ac); word-break:break-word; letter-spacing:-.01em }
+.L-mosaico .g3 { display:flex; flex-direction:column; justify-content:flex-end; gap:10px; padding:20px 18px } .L-mosaico .of-t { font-size:32px } .L-mosaico .g4 .fx { filter:grayscale(.6) } .L-mosaico .of-top { color:#fff; text-shadow:0 1px 6px #0008 }
+/* 15 marinho & ouro */
+.L-ouro .of-moldura { inset:20px; border:1px solid var(--ac); z-index:1 } .L-ouro .of-moldura::after { content:""; position:absolute; inset:7px; border:1px solid color-mix(in srgb, var(--ac) 45%, transparent) }
+.L-ouro .of-centro { top:110px } .L-ouro .of-mono { position:relative; width:76px; height:76px; border:1px solid var(--ac); border-radius:50%; display:grid; place-items:center; font-family:var(--ft); font-size:36px; color:var(--ac) }
+.L-ouro .of-tag { border:0; padding:0; color:var(--ac); letter-spacing:.3em } .L-ouro .of-t { font-size:46px } .L-ouro .hl { color:var(--ac) } .L-ouro .of-bal { position:relative; width:34px; height:34px; color:var(--ac) }
+/* 16 primeira página */
+.L-jornal .of-cab { left:28px; right:28px; top:24px; display:flex; justify-content:space-between; align-items:baseline; border-bottom:4px double var(--cink); padding-bottom:10px; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase } .L-jornal .of-cab b { font-family:var(--ft); font-size:30px; letter-spacing:-.02em; text-transform:none }
+.L-jornal > .of-tag { position:absolute; left:28px; top:96px; background:var(--ac); color:#fff; border:0; border-radius:0 } .L-jornal .of-t { position:absolute; left:28px; right:28px; top:134px; font-size:46px }
+.L-jornal .of-colunas { left:28px; right:28px; bottom:30px; height:270px; display:grid; grid-template-columns:1.25fr 1fr; gap:16px; border-top:1px solid var(--cink); padding-top:14px } .L-jornal .of-colunas .fx { position:relative; filter:grayscale(1) contrast(1.15) } .L-jornal .of-colunas > div:last-child { display:flex; flex-direction:column; gap:12px } .L-jornal .of-sub { font-size:14px; font-weight:600 }
+/* 17 número corporativo */
+.L-numero .of-num { left:24px; top:40px; font-family:var(--ft); font-weight:700; font-size:230px; line-height:1; letter-spacing:-.07em; color:var(--ac) } .L-numero > .of-tag { position:absolute; left:32px; top:300px; color:var(--ac) } .L-numero .of-t { position:absolute; left:32px; width:300px; top:340px; font-size:36px }
+.L-numero .of-ics { left:32px; bottom:36px; list-style:none; margin:0; padding:0; display:grid; gap:9px; width:280px } .L-numero .of-ics li { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:600 } .L-numero .of-ics i { width:30px; height:30px; padding:6px; border-radius:9px; border:1.5px solid var(--ac); color:var(--ac); flex:none }
+.L-numero .fx { right:0; top:0; bottom:0; width:200px; border-radius:100px 0 0 100px }
+/* 18 meio a meio */
+.L-split .fx { left:0; top:0; bottom:0; width:270px } .L-split .of-bloco { left:270px; right:0; top:0; bottom:0; padding:80px 26px 30px; display:flex; flex-direction:column; justify-content:center; gap:16px } .L-split .of-t { font-size:38px } .L-split .of-sub { font-size:14px } .L-split .of-arr { position:relative; right:auto; bottom:auto; color:var(--ac) }
+.L-split .of-top { left:290px }
+/* 19 faixa diagonal */
+.L-diagonal .fx { inset:0 } .L-diagonal .of-faixa { left:-80px; right:-80px; bottom:110px; height:240px; background:var(--ac); transform:rotate(-8deg); z-index:2; box-shadow:0 20px 40px -20px #000a } .L-diagonal .of-base { bottom:120px; transform:rotate(-8deg); z-index:3; color:var(--on) } .L-diagonal .of-t { font-size:52px } .L-diagonal .of-tag { border-color:var(--on) } .L-diagonal.hl-caixa .hl { background:var(--cbg); color:var(--ac) } .L-diagonal .of-sub { font-weight:600 }
+/* 20 cartão de visita */
+.L-cartao.capa { background:radial-gradient(circle at 30% 20%, #3a3633, var(--cbg)) } .L-cartao .of-card { left:44px; right:44px; top:150px; height:310px; background:#FBFAF7; color:var(--cink); padding:30px; display:flex; flex-direction:column; gap:12px; justify-content:center; transform:rotate(-3deg); box-shadow:0 30px 50px -20px #000 }
+.L-cartao .of-tag { border:0; padding:0; color:var(--ac); letter-spacing:.3em } .L-cartao .of-t { font-size:38px } .L-cartao .of-sub { font-size:14px } .L-cartao .of-card-pe { position:relative; display:flex; justify-content:space-between; font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:.6; margin-top:8px }
+.L-cartao .fx { right:40px; bottom:40px; width:120px; height:120px; border-radius:50%; box-shadow:0 0 0 4px #FBFAF7; transform:rotate(-3deg); z-index:3 }
+/* 21 contrato marcado */
+.L-documento .of-folha { left:56px; right:56px; top:70px; bottom:60px; background:#fff; color:var(--cink); box-shadow:0 30px 50px -24px #0008; transform:rotate(2deg) } .L-documento .of-folha-c { position:absolute; inset:34px 30px; display:flex; flex-direction:column; gap:14px } .L-documento .of-folha-c small { font-size:11px; letter-spacing:.2em; font-weight:700; opacity:.55 } .L-documento .of-t { font-size:36px } .L-documento .of-sub { font-size:14px }
+.L-documento .of-carimbo { position:absolute; right:-10px; bottom:40px; transform:rotate(-14deg); border:4px solid var(--ac2); color:var(--ac2); font-weight:900; font-size:26px; letter-spacing:.14em; padding:4px 16px; border-radius:8px; opacity:.9 }
+.L-documento > .of-tag { position:absolute; left:40px; top:30px; background:var(--cink); color:#fff; border:0 } .L-documento .of-top { opacity:0 }
+/* 22 linha do tempo */
+.L-tempo > .of-tag { position:absolute; left:36px; top:66px; color:var(--ac) } .L-tempo .of-t { position:absolute; left:36px; right:36px; top:110px; font-size:50px } .L-tempo .of-sub { position:absolute; left:36px; right:150px; top:300px; font-size:15px } .L-tempo .hl { color:var(--ac) }
+.L-tempo .of-linha { left:36px; right:36px; bottom:50px; display:flex; justify-content:space-between; border-top:2px solid color-mix(in srgb, var(--cink) 50%, transparent); padding-top:0; z-index:4 } .L-tempo .of-linha span { position:relative; display:flex; flex-direction:column; align-items:center; gap:8px; margin-top:-9px; font-size:11px } .L-tempo .of-linha i { width:16px; height:16px; border-radius:50%; background:var(--ac); box-shadow:0 0 0 4px var(--cbg) }
+.L-tempo .fx { right:36px; top:300px; width:150px; height:150px; border-radius:24px }
+/* 23 aspas gigantes */
+.L-aspas .of-aspas { left:28px; top:20px; font-family:var(--ft); font-size:300px; line-height:1; color:var(--ac); opacity:.9 } .L-aspas .of-t { position:absolute; left:40px; right:40px; top:200px; font-size:36px; line-height:1.15 } .L-aspas .of-fio { position:absolute; left:40px; bottom:150px; background:var(--ac) }
+.L-aspas > .of-tag { position:absolute; left:40px; bottom:100px; border:0; padding:0; color:var(--ac) } .L-aspas .of-sub { position:absolute; left:40px; right:170px; bottom:44px; font-size:14px } .L-aspas .fx { right:40px; bottom:36px; width:110px; height:110px; border-radius:50% }
+/* 24 grade suíça */
+.L-suico .of-idx { left:32px; top:56px; display:flex; align-items:baseline; font-family:var(--ft) } .L-suico .of-idx b { font-size:90px; letter-spacing:-.06em; line-height:1; color:var(--ac) } .L-suico .of-idx span { font-size:22px; opacity:.5 }
+.L-suico .of-regua { left:32px; right:32px; height:2px; background:var(--cink) } .L-suico .of-regua:nth-of-type(1) { top:170px } .L-suico .of-t { position:absolute; left:32px; right:32px; top:186px; font-size:50px } .L-suico .of-regua ~ .of-regua { top:400px }
+.L-suico .of-2col { left:32px; right:240px; top:418px; display:flex; flex-direction:column; gap:12px } .L-suico .of-sub { font-size:14px } .L-suico .fx { right:32px; top:418px; width:190px; height:220px; filter:grayscale(1) } .L-suico .of-quad { right:32px; top:56px; width:40px; height:40px; background:var(--ac) } .L-suico .of-top { display:none }
+/* 25 vidro fosco */
+.L-vidro .of-blob { border-radius:50%; filter:blur(40px); z-index:0 } .L-vidro .b1 { left:-60px; top:-40px; width:340px; height:340px; background:var(--ac) } .L-vidro .b2 { right:-80px; top:200px; width:300px; height:300px; background:var(--ac2) } .L-vidro .b3 { left:80px; bottom:-120px; width:300px; height:300px; background:#3B82F6 }
+.L-vidro .of-vidro { left:40px; right:40px; top:110px; padding:30px; border-radius:28px; background:#ffffff1f; border:1px solid #ffffff40; backdrop-filter:blur(14px); display:flex; flex-direction:column; gap:14px; z-index:3 } .L-vidro .of-t { font-size:40px } .L-vidro .hl { color:#FFD1E3 }
+.L-vidro .fx { left:40px; bottom:40px; width:120px; height:120px; border-radius:28px; border:3px solid #ffffff60 }
+/* 26 rubro criminal */
+.L-rubro .fx { inset:0; filter:grayscale(1) brightness(.75) } .L-rubro .of-veu { background:linear-gradient(180deg, #000c, #0004 40%, #000e 85%) } .L-rubro .of-luz { left:-40px; right:-40px; top:300px; height:6px; background:var(--ac); box-shadow:0 0 40px 8px var(--ac); transform:rotate(-6deg); z-index:2 }
+.L-rubro .of-t { font-size:76px } .L-rubro .of-tag { background:var(--ac); border:0; color:#fff; border-radius:2px }
+/* 27 listras eleitorais */
+.L-urna .of-listras { left:0; top:0; bottom:0; width:80px; background:repeating-linear-gradient(90deg, var(--ac) 0 14px, transparent 14px 22px, var(--ac2) 22px 30px, transparent 30px 40px); z-index:1 }
+.L-urna .of-selo { right:32px; top:56px; width:92px; height:92px; border-radius:50%; background:var(--ac2); color:var(--cbg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:18px; font-weight:900; font-size:14px } .L-urna .of-selo svg { width:34px; height:34px }
+.L-urna > .of-tag { position:absolute; left:110px; top:170px; color:var(--ac2) } .L-urna .of-t { position:absolute; left:110px; right:32px; top:210px; font-size:44px } .L-urna .hl { color:var(--ac2) } .L-urna .of-sub { position:absolute; left:110px; right:200px; bottom:56px; font-size:15px }
+.L-urna .fx { right:32px; bottom:36px; width:150px; height:190px; border-radius:16px }
+/* 28 pastel ilustrado */
+.L-ilustra .of-sol { right:50px; top:60px; width:120px; height:120px; border-radius:50%; background:#FFC857; z-index:0 } .L-ilustra .of-forma { z-index:0 } .L-ilustra .f1 { left:-60px; bottom:-40px; width:300px; height:200px; border-radius:50% 50% 0 0; background:var(--ac2) } .L-ilustra .f2 { right:-40px; bottom:-60px; width:260px; height:260px; border-radius:50%; background:var(--ac); opacity:.6 }
+.L-ilustra .of-ilbal { right:84px; top:96px; width:52px; height:52px; color:var(--cink); z-index:1 } .L-ilustra > .of-tag { position:absolute; left:36px; top:66px } .L-ilustra .of-t { position:absolute; left:36px; right:150px; top:110px; font-size:52px } .L-ilustra .of-sub { position:absolute; left:36px; right:200px; top:360px; font-size:15px }
+.L-ilustra .fx { right:44px; bottom:50px; width:170px; height:210px; border-radius:90px 90px 24px 24px; border:5px solid #fff; z-index:3 }
+/* 29 tela de cinema */
+.L-cinema .fx { inset:0 } .L-cinema .of-barra { left:0; right:0; background:#000; z-index:3; display:flex; padding:0 28px } .L-cinema .cima { top:0; height:90px; justify-content:space-between; align-items:center; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#ffffffaa }
+.L-cinema .baixo { bottom:0; height:200px; align-items:center; justify-content:center; text-align:center } .L-cinema .of-t { font-size:44px; color:var(--ac) } .L-cinema .hl { color:#fff } .L-cinema > .of-sub { position:absolute; left:40px; right:40px; bottom:210px; text-align:center; color:#fff; font-size:14px; text-shadow:0 2px 10px #000 }
+/* 30 linha fina */
+.L-fino > .of-tag { position:absolute; left:36px; top:66px; border:0; padding:0; letter-spacing:.3em } .L-fino .of-t { position:absolute; left:32px; right:32px; top:100px; font-size:84px; font-weight:400 } .L-fino .of-fio { position:absolute; left:36px; right:36px; width:auto; top:420px; height:1px }
+.L-fino .of-sub { position:absolute; left:36px; right:220px; top:440px; font-size:15px } .L-fino .of-selo-f { right:36px; bottom:40px; width:170px; height:170px } .L-fino .of-selo-f .fx { position:absolute; inset:26px; border-radius:50% } .L-fino .of-selo-f svg { position:absolute; inset:0; overflow:visible } .L-fino .of-selo-f text { font-size:8.6px; letter-spacing:.2em; fill:var(--cink); font-family:var(--fb) }
+
+/* stories: mesma composição, mais alta */
+.of.story.capa .of-base { bottom:110px } .of.story .of-top { top:70px } .of.story .of-t { font-size:calc(60px * var(--k)) }
+.of.story.L-indigo .fx { height:640px } .of.story.L-indigo .of-esq { top:200px } .of.story.L-drx .of-phone { top:430px; height:480px } .of.story.L-terra .of-cel { top:90px; bottom:90px }
+.of.story.L-widget .w1 { top:360px } .of.story.L-widget .w2 { top:460px } .of.story.L-widget .w3 { top:570px } .of.story.L-widget .fx { height:560px }
+.of.story.L-malhete .of-malhete { top:440px } .of.story.L-ampulheta .fx { height:460px; top:110px } .of.story.L-ampulheta > .of-tag { top:590px } .of.story.L-ampulheta .of-t { top:630px }
+.of.story.L-menta .c1 { top:130px; width:300px; height:300px } .of.story.L-menta .c2 { top:380px } .of.story.L-menta > .of-tag { top:480px } .of.story.L-menta .of-t { top:520px }
+.of.story.L-ouro .of-centro { top:220px } .of.story.L-jornal .of-colunas { height:480px } .of.story.L-numero .of-t { top:400px } .of.story.L-numero > .of-tag { top:360px }
+.of.story.L-cartao .of-card { top:260px; height:380px } .of.story.L-tempo .of-sub { top:360px } .of.story.L-tempo .fx { top:470px; width:200px; height:260px }
+.of.story.L-aspas .of-t { top:260px } .of.story.L-suico .of-regua ~ .of-regua { top:560px } .of.story.L-suico .of-2col, .of.story.L-suico .fx { top:580px; height:300px }
+.of.story.L-vidro .of-vidro { top:220px } .of.story.L-urna .of-t { top:280px } .of.story.L-urna > .of-tag { top:240px } .of.story.L-ilustra .of-sub { top:480px } .of.story.L-ilustra .fx { height:300px }
+.of.story.L-cinema .cima { height:140px } .of.story.L-cinema .baixo { height:280px } .of.story.L-cinema > .of-sub { bottom:300px } .of.story.L-fino .of-fio { top:560px } .of.story.L-fino .of-sub { top:580px }
+.of.story.L-documento .of-folha { top:110px; bottom:110px } .of.story.L-coluna .fx { top:140px; height:480px } .of.story.L-coluna .of-col { height:700px }
+
+.of .of-centro > *, .of .of-base > *, .of .of-esq > * { max-width:100% } .of .of-centro .of-t, .of .of-base .of-t { width:100% }
+
+/* miolo com mais presença */
+.mx.of.meio.alt { background:var(--cbg); color:var(--cink) } .of.meio.alt .of-md, .of.meio.alt .of-rod { color:color-mix(in srgb, var(--cink) 72%, transparent) } .of.meio.alt .hl { color:var(--ac) }
+.of .of-fundo { right:-20px; bottom:-60px; font-family:var(--ft); font-weight:var(--tw); font-size:360px; line-height:1; letter-spacing:-.06em; color:var(--ac); opacity:.09; z-index:0 }
+.of .of-faixa-top { left:0; right:0; top:0; height:8px; background:var(--ac); z-index:3 }
+.of.mt-cards .of-meio:not(.fim) { top:50%; bottom:auto; transform:translateY(-50%) }
+.of.mt-cards.alt .of-meio:not(.fim) { color:var(--ink) } .of.mt-cards.alt .of-meio:not(.fim) .of-md { color:var(--mu) }
+.of.mt-linha.alt .of-n { border-color:var(--cink); color:var(--cink) }
+.of.mt-bolha.alt .of-md { color:var(--ink) }
+.of .of-meio.fim .of-mt { font-size:calc(54px * var(--k)) }
+.L-gigante .of-pal { top:28px; font-size:128px } .L-urna .of-t { font-size:38px } .of.story.L-urna .of-t { font-size:44px }
+.L-ilustra .of-t { top:200px; right:40px } .L-ilustra .of-sub { top:430px }
+.of.story .of-top { top:40px } .of.story.L-fino .of-t { font-size:110px } .of.story.L-ilustra .of-t { top:260px } .of.story.L-ilustra .of-sub { top:560px }
+.mx.of.L-cartao.meio.alt { color:#F4F1EC } .of.L-cartao.meio.alt .of-md, .of.L-cartao.meio.alt .of-rod { color:#F4F1ECb3 }
+
+/* limite de altura dos títulos: o texto encolhe em vez de invadir foto e elementos */
+.of .of-t { max-height:var(--tmax, 230px) } .of .of-mt { max-height:260px } .of .of-meio.fim .of-mt { max-height:300px }
+.L-indigo { --tmax:210px } .L-drx { --tmax:170px } .L-nome { --tmax:200px } .L-terra { --tmax:150px } .L-widget { --tmax:190px } .L-malhete { --tmax:200px } .L-gigante { --tmax:150px }
+.L-impacto { --tmax:280px } .L-noir { --tmax:200px } .L-coluna { --tmax:170px } .L-ampulheta { --tmax:130px } .L-azulao { --tmax:190px } .L-menta { --tmax:150px } .L-mosaico { --tmax:170px }
+.L-ouro { --tmax:170px } .L-jornal { --tmax:150px } .L-numero { --tmax:150px } .L-split { --tmax:300px } .L-diagonal { --tmax:130px } .L-cartao { --tmax:140px } .L-documento { --tmax:200px }
+.L-tempo { --tmax:180px } .L-aspas { --tmax:250px } .L-suico { --tmax:200px } .L-vidro { --tmax:190px } .L-rubro { --tmax:230px } .L-urna { --tmax:220px } .L-ilustra { --tmax:220px } .L-cinema { --tmax:150px } .L-fino { --tmax:300px }
+.of.story { --tmax:340px } .of.story.L-gigante, .of.story.L-diagonal, .of.story.L-cinema, .of.story.L-terra, .of.story.L-ampulheta { --tmax:220px }
+.L-gigante { --tmax:210px } .L-azulao .hl { color:#FFE27A }
+.L-vidro .hl { color:#FFE27A } .L-azulao .hl { color:#FFE27A }
 
 </style>
 <div id="app"></div>
@@ -1967,6 +2174,190 @@ const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Instrument+Serif:it
 return { nome:'Editorial', IDT, PACKS, TPL, slides, FONTES_URL, temFoto:true };
 })();
 
+// Pauta · Coleção Escritórios: 30 variações inspiradas em identidades de escritórios de advocacia publicadas no Behance.
+// Cada variação tem composição de capa própria (lay), tratamento dos slides internos (mt), paleta e par de fontes.
+// Slides 540×675 (feed) e 540×960 (stories). *palavra* = destaque; _trecho_ = negrito.
+window.ESCRITORIO = (() => {
+// c: bg (fundo dos slides internos), sf (cartões), ink, mu, ac (destaque), ac2, on (texto sobre o destaque), cbg (fundo da capa), cink (texto da capa)
+const V = (id, nome, desc, ideal, lay, mt, c, f, hl, foto, ex) => ({ id, nome, desc, ideal, lay, mt, c, f, hl, foto, ex });
+const F = (t, b, tw = 800, tt = 'none', tl = '-.03em', lh = 1, k = 1, it = false) => ({ t, b, tw, tt, tl, lh, k, it });
+const IDT = [
+  V('indigo', 'Índigo Institucional', 'Índigo profundo, foto recortada à direita e botões arredondados.', ['trabalho', 'civel', 'consumidor'], 'indigo', 'cards',
+    { bg:'#F2F1FB', sf:'#FFFFFF', ink:'#17124A', mu:'#5E5A86', ac:'#5B4BFF', ac2:'#9C8CFF', on:'#FFFFFF', cbg:'#1B1464', cink:'#FFFFFF' }, F("'Plus Jakarta Sans', Arial, sans-serif", "'Plus Jakarta Sans', Arial, sans-serif"), 'cor', 'f1',
+    { tag:'Direito do Trabalho', titulo:'Seus direitos *começam aqui*', sub:'Informação clara para você não sair no prejuízo.' }),
+  V('drx', 'Digital Noturno', 'Azul-noite, pergunta centralizada e notificação de celular.', ['digital', 'empresarial', 'consumidor'], 'drx', 'linha',
+    { bg:'#0C1222', sf:'#141C33', ink:'#EEF2FF', mu:'#93A0C2', ac:'#5C8BFF', ac2:'#B7C8FF', on:'#FFFFFF', cbg:'#070B16', cink:'#EEF2FF' }, F("'Inter Tight', Arial, sans-serif", "'Inter Tight', Arial, sans-serif", 500, 'none', '-.045em', 1.02), 'cor', 'f2',
+    { tag:'Direito Digital', titulo:'Hackearam seu perfil. *E agora?*', sub:'O passo a passo para recuperar e se proteger.' }),
+  V('nome', 'Assinatura Verde', 'Foto inteira, verde-escuro e o nome em serifa com itálico.', ['imobiliario', 'extrajudicial', 'sucessoes'], 'nome', 'serif',
+    { bg:'#F3EFE6', sf:'#FFFFFF', ink:'#14261F', mu:'#5B6A62', ac:'#C9A36A', ac2:'#1E3A30', on:'#14261F', cbg:'#14261F', cink:'#F3EFE6' }, F("'Playfair Display', Georgia, serif", "'Manrope', Arial, sans-serif", 600, 'none', '-.02em', .98, 1.05), 'italico', 'f1',
+    { tag:'Imobiliário · Notarial', titulo:'Comprar imóvel *sem susto*', sub:'O que conferir antes de assinar.' }),
+  V('terra', 'Terracota Celular', 'Cartões empilhados em terracota e a capa dentro de uma tela.', ['empresarial', 'consumidor', 'carreira'], 'terra', 'cards',
+    { bg:'#F5E9DE', sf:'#FFF8F2', ink:'#3A1E12', mu:'#86604C', ac:'#C4532A', ac2:'#E9A27A', on:'#FFFFFF', cbg:'#B9481F', cink:'#FFF4EA' }, F("'DM Serif Display', Georgia, serif", "'DM Sans', Arial, sans-serif", 400, 'none', '-.02em', .98, 1.05), 'italico', 'f3',
+    { tag:'Empresarial', titulo:'Esses erros *custam caros*', sub:'3 falhas que quebram pequenas empresas.' }),
+  V('widget', 'Azul Interface', 'Azul-claro com widgets: cronômetro, balão e ícones.', ['previdenciario', 'trabalho', 'bancario'], 'widget', 'bolha',
+    { bg:'#EAF1FB', sf:'#FFFFFF', ink:'#13284A', mu:'#5C7193', ac:'#2F6FE4', ac2:'#8DB4F5', on:'#FFFFFF', cbg:'#DCE8F8', cink:'#13284A' }, F("'Manrope', Arial, sans-serif", "'Manrope', Arial, sans-serif", 800, 'none', '-.035em'), 'cor', 'f2',
+    { tag:'Previdenciário', titulo:'Seu benefício *está demorando?*', sub:'Veja o que o INSS tem de prazo para responder.' }),
+  V('malhete', 'Malhete Laranja', 'Creme quadriculado, azul-marinho, laranja e um malhete.', ['trabalho', 'criminal', 'civel'], 'malhete', 'num',
+    { bg:'#F6F1E8', sf:'#FFFFFF', ink:'#14213D', mu:'#5E6576', ac:'#EF7A2A', ac2:'#14213D', on:'#FFFFFF', cbg:'#F6F1E8', cink:'#14213D' }, F("'Sora', Arial, sans-serif", "'Sora', Arial, sans-serif", 700, 'none', '-.04em'), 'cor', 'f1',
+    { tag:'Trabalhista', titulo:'Demissão injusta *não é o fim*', sub:'O que você ainda pode reivindicar.' }),
+  V('gigante', 'Palavra Gigante', 'A palavra da área enorme e vazada atrás da foto.', ['publico', 'empresarial', 'tributario'], 'gigante', 'num',
+    { bg:'#F2ECE2', sf:'#FFFFFF', ink:'#2A1D12', mu:'#7A6650', ac:'#B08A57', ac2:'#2A1D12', on:'#FFFFFF', cbg:'#3A2A1C', cink:'#F2ECE2' }, F("'Bebas Neue', Impact, sans-serif", "'Manrope', Arial, sans-serif", 400, 'uppercase', '0', .92, 1.1), 'cor', 'f2',
+    { tag:'Advocacia', palavra:'ADVOCACIA', titulo:'3 *direitos* que você não sabia que tinha', sub:'Eleitoral · Administrativo · Licitações' }),
+  V('impacto', 'Impacto Preto', 'Caixa-alta preta e pesada com a foto quente ao lado.', ['familia', 'consumidor', 'carreira'], 'impacto', 'cards',
+    { bg:'#F4F0EB', sf:'#FFFFFF', ink:'#111111', mu:'#555555', ac:'#111111', ac2:'#E7B98C', on:'#FFFFFF', cbg:'#2B201A', cink:'#FFFFFF' }, F("'Archivo Black', Impact, sans-serif", "'Archivo', Arial, sans-serif", 400, 'uppercase', '-.02em', .92, .95), 'caixa', 'f3',
+    { tag:'Família', titulo:'Pensão *atrasada?*', sub:'Os caminhos para cobrar o que é do seu filho.' }),
+  V('noir', 'Noir Clássico', 'Preto e branco, serifa em caixa-alta e filetes finos.', ['criminal', 'sucessoes', 'familia'], 'noir', 'serif',
+    { bg:'#111111', sf:'#1C1C1C', ink:'#F1F1F1', mu:'#A1A1A1', ac:'#FFFFFF', ac2:'#777777', on:'#111111', cbg:'#0A0A0A', cink:'#F1F1F1' }, F("'Libre Caslon Text', Georgia, serif", "'Inter', Arial, sans-serif", 400, 'uppercase', '.02em', 1.05, .9), 'italico', 'f1',
+    { tag:'Planejamento', titulo:'O fantasma da *herança* confusa', sub:'Organize hoje para a sua família não brigar amanhã.' }),
+  V('coluna', 'Coluna Bordô', 'Bordô, coluna clássica e foto em arco com o nome manuscrito.', ['familia', 'sucessoes', 'carreira'], 'coluna', 'serif',
+    { bg:'#F4ECE8', sf:'#FFFFFF', ink:'#3B1220', mu:'#7C5A64', ac:'#8F2D45', ac2:'#E3C1A5', on:'#FFFFFF', cbg:'#4A1526', cink:'#F6E9E2' }, F("'Cormorant Garamond', Georgia, serif", "'Manrope', Arial, sans-serif", 600, 'none', '-.01em', .95, 1.15), 'italico', 'f2',
+    { tag:'Advogada', titulo:'O amor não protege *patrimônio*', sub:'Por que o regime de bens importa.' }),
+  V('ampulheta', 'Oliva Editorial', 'Bege e oliva, foto arredondada e texto em duas colunas.', ['previdenciario', 'familia', 'saude'], 'ampulheta', 'linha',
+    { bg:'#EFEBE1', sf:'#F8F5EE', ink:'#2F3322', mu:'#6E7160', ac:'#6B7442', ac2:'#C9B98F', on:'#FFFFFF', cbg:'#EFEBE1', cink:'#2F3322' }, F("'Lora', Georgia, serif", "'Inter', Arial, sans-serif", 500, 'none', '-.02em', 1, 1.02), 'italico', 'f3',
+    { tag:'Previdenciário', titulo:'Quando o INSS *nega*, o prazo começa', sub:'Você tem 30 dias para recorrer na via administrativa.' }),
+  V('azulao', 'Azul Manchete', 'Azul forte, palavra gigante cortada e itálico por cima.', ['empresarial', 'tributario', 'digital'], 'azulao', 'num',
+    { bg:'#EDF2FF', sf:'#FFFFFF', ink:'#0A1B4D', mu:'#53618A', ac:'#1D4ED8', ac2:'#93B0FF', on:'#FFFFFF', cbg:'#1D4ED8', cink:'#FFFFFF' }, F("'Anton', Impact, sans-serif", "'Manrope', Arial, sans-serif", 400, 'uppercase', '0', .92, 1), 'italico', 'f1',
+    { tag:'Advogado', palavra:'DIREITO', titulo:'Acidente *aéreo*: quem responde?', sub:'O que a companhia deve pagar.' }),
+  V('menta', 'Menta Suave', 'Verde-menta, recortes redondos e serifa leve.', ['saude', 'familia', 'consumidor'], 'menta', 'bolha',
+    { bg:'#EDF5F0', sf:'#FFFFFF', ink:'#1D3B2E', mu:'#5E7A6C', ac:'#2F8F68', ac2:'#BFE3CF', on:'#FFFFFF', cbg:'#D7EBDF', cink:'#1D3B2E' }, F("'Fraunces', Georgia, serif", "'Outfit', Arial, sans-serif", 400, 'none', '-.03em', 1, 1.05), 'italico', 'f2',
+    { tag:'Direito da Saúde', titulo:'Plano negou? *Troque o medo* por informação', sub:'O que pedir por escrito ao plano.' }),
+  V('mosaico', 'Mosaico Marinho', 'Grade de quadros com fotos e palavras-chave grandes.', ['tributario', 'empresarial', 'bancario'], 'mosaico', 'linha',
+    { bg:'#EEF1F6', sf:'#FFFFFF', ink:'#101B33', mu:'#5A6680', ac:'#C59D5F', ac2:'#22345E', on:'#101B33', cbg:'#101B33', cink:'#F1F4F9' }, F("'Oswald', Impact, sans-serif", "'Inter', Arial, sans-serif", 600, 'uppercase', '0', .95, 1), 'cor', 'f3',
+    { tag:'Societário', palavra:'INADIMPLEMENTO', titulo:'Seu sócio deixou de pagar. *E agora?*', sub:'As saídas previstas no contrato social.' }),
+  V('ouro', 'Marinho & Ouro', 'Marinho, moldura dourada fina, monograma e balança.', ['sucessoes', 'civel', 'imobiliario'], 'ouro', 'serif',
+    { bg:'#F5F2EA', sf:'#FFFFFF', ink:'#0E1B33', mu:'#5B6475', ac:'#B8913A', ac2:'#0E1B33', on:'#FFFFFF', cbg:'#0E1B33', cink:'#F5F2EA' }, F("'Prata', Georgia, serif", "'Lato', Arial, sans-serif", 400, 'none', '0', 1.08, .95), 'italico', 'f1',
+    { tag:'Sucessões', titulo:'Testamento não é só *para rico*', sub:'Quem deveria pensar nisso hoje.' }),
+  V('jornal', 'Primeira Página', 'Capa de jornal: cabeçalho, foto em retícula e colunas.', ['publico', 'criminal', 'tributario'], 'jornal', 'linha',
+    { bg:'#F1EDE3', sf:'#FBF8F1', ink:'#121212', mu:'#555555', ac:'#B3261E', ac2:'#121212', on:'#FFFFFF', cbg:'#F1EDE3', cink:'#121212' }, F("'Libre Baskerville', Georgia, serif", "'Inter', Arial, sans-serif", 700, 'none', '-.02em', 1.02, .95), 'sublinhado', 'f2',
+    { tag:'Edição de hoje', titulo:'Nova lei muda *o seu IPTU*', sub:'Entenda em 5 pontos o que vale a partir de janeiro.' }),
+  V('numero', 'Número Corporativo', 'Branco, número azul enorme e lista com ícones de linha.', ['trabalho', 'previdenciario', 'empresarial'], 'numero', 'num',
+    { bg:'#FFFFFF', sf:'#F2F5FA', ink:'#0B1B33', mu:'#5B6880', ac:'#1F5EFF', ac2:'#C9D7FF', on:'#FFFFFF', cbg:'#FFFFFF', cink:'#0B1B33' }, F("'Space Grotesk', Arial, sans-serif", "'Space Grotesk', Arial, sans-serif", 700, 'none', '-.04em', .98), 'cor', 'f3',
+    { tag:'Checklist', num:'03', titulo:'Documentos para *não perder* a rescisão', sub:'Separe antes de assinar qualquer coisa.' }),
+  V('split', 'Meio a Meio', 'Tela dividida: foto de um lado, bloco de cor do outro.', ['familia', 'imobiliario', 'consumidor'], 'split', 'cards',
+    { bg:'#F7F3EF', sf:'#FFFFFF', ink:'#22202A', mu:'#6B6772', ac:'#D25E7A', ac2:'#2C2A3A', on:'#FFFFFF', cbg:'#2C2A3A', cink:'#FFFFFF' }, F("'Poppins', Arial, sans-serif", "'Poppins', Arial, sans-serif", 700, 'none', '-.03em', 1.02, .95), 'cor', 'f1',
+    { tag:'Família', titulo:'Guarda compartilhada *não é* metade do tempo', sub:'Entenda o que a lei diz de verdade.' }),
+  V('diagonal', 'Faixa Diagonal', 'Foto com uma faixa de cor em diagonal atravessando.', ['trabalho', 'criminal', 'publico'], 'diagonal', 'num',
+    { bg:'#FFF7EC', sf:'#FFFFFF', ink:'#1A1A1A', mu:'#666666', ac:'#FFB000', ac2:'#1A1A1A', on:'#1A1A1A', cbg:'#1A1A1A', cink:'#FFFFFF' }, F("'Montserrat', Arial, sans-serif", "'Montserrat', Arial, sans-serif", 900, 'uppercase', '-.03em', .95, .9), 'caixa', 'f2',
+    { tag:'Alerta', titulo:'Horas extras *não pagas*', sub:'Como provar e até quando cobrar.' }),
+  V('cartao', 'Cartão de Visita', 'Um cartão elegante sobre fundo texturizado, com o título nele.', ['empresarial', 'extrajudicial', 'carreira'], 'cartao', 'serif',
+    { bg:'#EFEDEA', sf:'#FFFFFF', ink:'#1E1E1E', mu:'#6B6B6B', ac:'#9C7A4B', ac2:'#1E1E1E', on:'#FFFFFF', cbg:'#2A2826', cink:'#1E1E1E' }, F("'Italiana', Georgia, serif", "'Manrope', Arial, sans-serif", 400, 'uppercase', '.04em', 1.05, 1.05), 'italico', 'f3',
+    { tag:'Apresentação', titulo:'Prazer, eu cuido *do seu negócio*', sub:'Contratos, sociedade e prevenção de riscos.' }),
+  V('documento', 'Contrato Marcado', 'Folha de contrato com marca-texto e carimbo de atenção.', ['civel', 'imobiliario', 'empresarial'], 'documento', 'linha',
+    { bg:'#F4F1EA', sf:'#FFFFFF', ink:'#202020', mu:'#666666', ac:'#FFE55C', ac2:'#C8352E', on:'#202020', cbg:'#D9D3C7', cink:'#202020' }, F("'IBM Plex Serif', Georgia, serif", "'IBM Plex Sans', Arial, sans-serif", 600, 'none', '-.02em', 1.05, .95), 'marcatexto', 'f1',
+    { tag:'Contratos', titulo:'A cláusula que *ninguém lê* (e devia)', sub:'Multa por rescisão: o que é abusivo.' }),
+  V('tempo', 'Linha do Tempo', 'Título no alto e uma linha do tempo com marcos na base.', ['previdenciario', 'trabalho', 'sucessoes'], 'tempo', 'num',
+    { bg:'#F2F4F3', sf:'#FFFFFF', ink:'#14302B', mu:'#5B6F6A', ac:'#0F8B73', ac2:'#BFE4DA', on:'#FFFFFF', cbg:'#14302B', cink:'#F2F4F3' }, F("'Outfit', Arial, sans-serif", "'Outfit', Arial, sans-serif", 700, 'none', '-.035em'), 'cor', 'f2',
+    { tag:'Aposentadoria', titulo:'Do primeiro emprego *à aposentadoria*', sub:'Os marcos que mudam o seu benefício.' }),
+  V('aspas', 'Aspas Gigantes', 'Aspas enormes, frase da lei e assinatura discreta.', ['familia', 'publico', 'carreira'], 'aspas', 'serif',
+    { bg:'#F6F0F2', sf:'#FFFFFF', ink:'#2E1A24', mu:'#7A6470', ac:'#B5476B', ac2:'#F1C9D6', on:'#FFFFFF', cbg:'#F6F0F2', cink:'#2E1A24' }, F("'Gloock', Georgia, serif", "'Inter', Arial, sans-serif", 400, 'none', '-.02em', 1.05, .95), 'cor', 'f3',
+    { tag:'Constituição, art. 5º', titulo:'Todos são iguais perante a lei, *sem distinção de qualquer natureza*.', sub:'O que isso significa no seu dia a dia.' }),
+  V('suico', 'Grade Suíça', 'Grade rígida, índice numerado, filetes e vermelho.', ['tributario', 'empresarial', 'publico'], 'suico', 'linha',
+    { bg:'#F4F4F2', sf:'#FFFFFF', ink:'#111111', mu:'#666666', ac:'#E3262E', ac2:'#111111', on:'#FFFFFF', cbg:'#F4F4F2', cink:'#111111' }, F("'Inter Tight', Arial, sans-serif", "'Inter Tight', Arial, sans-serif", 700, 'none', '-.05em', .95), 'cor', 'f1',
+    { tag:'Tributário', titulo:'Reforma tributária: *o que muda* em 2027', sub:'Índice: IBS, CBS, transição e o seu bolso.' }),
+  V('vidro', 'Vidro Fosco', 'Manchas de cor desfocadas e um cartão de vidro fosco.', ['digital', 'saude', 'consumidor'], 'vidro', 'bolha',
+    { bg:'#F1EEFB', sf:'#FFFFFF', ink:'#1D1735', mu:'#6D6688', ac:'#7C5CFF', ac2:'#FF8FB8', on:'#FFFFFF', cbg:'#1D1735', cink:'#FFFFFF' }, F("'Unbounded', Arial, sans-serif", "'Outfit', Arial, sans-serif", 600, 'none', '-.04em', 1.02, .88), 'cor', 'f2',
+    { tag:'LGPD', titulo:'Seus dados *valem dinheiro*', sub:'O que as empresas não podem fazer com eles.' }),
+  V('rubro', 'Rubro Criminal', 'Preto, um traço de luz vermelha e caixa-alta condensada.', ['criminal', 'publico', 'digital'], 'rubro', 'num',
+    { bg:'#121212', sf:'#1E1E1E', ink:'#F2F2F2', mu:'#A0A0A0', ac:'#E2232A', ac2:'#5A0F12', on:'#FFFFFF', cbg:'#0B0B0B', cink:'#F2F2F2' }, F("'Big Shoulders Display', Impact, sans-serif", "'Inter', Arial, sans-serif", 900, 'uppercase', '0', .92, 1.1), 'cor', 'f3',
+    { tag:'Criminal', titulo:'Fui intimado. *O que fazer?*', sub:'Seus direitos antes de dizer qualquer coisa.' }),
+  V('urna', 'Listras Eleitorais', 'Listras verticais, caixa-alta forte e selo de votação.', ['publico', 'carreira', 'empresarial'], 'urna', 'cards',
+    { bg:'#F3F6F2', sf:'#FFFFFF', ink:'#0F2A1E', mu:'#5A6F63', ac:'#159A55', ac2:'#F4C21B', on:'#FFFFFF', cbg:'#0F2A1E', cink:'#FFFFFF' }, F("'Syne', Arial, sans-serif", "'Inter', Arial, sans-serif", 800, 'uppercase', '-.02em', .95, .95), 'cor', 'f1',
+    { tag:'Eleitoral', titulo:'Pré-campanha: *o que pode* postar', sub:'Os limites da propaganda antecipada.' }),
+  V('ilustra', 'Pastel Ilustrado', 'Formas ilustradas em tons pastel, balança e sol.', ['familia', 'consumidor', 'saude'], 'ilustra', 'bolha',
+    { bg:'#FFF6EC', sf:'#FFFFFF', ink:'#2B2A4C', mu:'#6B6A8C', ac:'#FF8A65', ac2:'#8EC5FF', on:'#FFFFFF', cbg:'#FFE8D6', cink:'#2B2A4C' }, F("'Figtree', Arial, sans-serif", "'Figtree', Arial, sans-serif", 900, 'none', '-.04em', .98), 'pilula', 'f2',
+    { tag:'Seus direitos', titulo:'Comprou e *se arrependeu?*', sub:'Você tem 7 dias nas compras pela internet.' }),
+  V('cinema', 'Tela de Cinema', 'Faixas pretas de cinema e o título como legenda amarela.', ['criminal', 'familia', 'civel'], 'cinema', 'num',
+    { bg:'#151515', sf:'#202020', ink:'#F4F4F4', mu:'#A3A3A3', ac:'#FFD23F', ac2:'#3A3A3A', on:'#151515', cbg:'#000000', cink:'#FFFFFF' }, F("'Bebas Neue', Impact, sans-serif", "'Inter', Arial, sans-serif", 400, 'uppercase', '.01em', .95, 1.05), 'cor', 'f3',
+    { tag:'Cena real', titulo:'“Assina aqui, depois a gente vê.” *Não assine.*', sub:'O que todo contrato verbal esconde.' }),
+  V('fino', 'Linha Fina', 'Off-white, serifa finíssima enorme e um selo redondo com foto.', ['sucessoes', 'extrajudicial', 'imobiliario'], 'fino', 'serif',
+    { bg:'#F8F6F2', sf:'#FFFFFF', ink:'#1F1D1A', mu:'#77726B', ac:'#1F1D1A', ac2:'#D8CFC2', on:'#FFFFFF', cbg:'#F8F6F2', cink:'#1F1D1A' }, F("'Bodoni Moda', Didot, serif", "'Manrope', Arial, sans-serif", 400, 'none', '-.03em', .95, 1.1), 'italico', 'f1',
+    { tag:'Escritura', titulo:'Escritura *não é* registro', sub:'A diferença que pode custar o seu imóvel.' })
+];
+
+const PACKS = {
+  o1:{ area:'', tag:'', titulo:'', sub:'', itens:[{ t:'O que diz a lei', d:'A regra geral, explicada em linguagem simples, com o artigo.' }, { t:'Na prática', d:'Um exemplo fictício de como isso acontece no dia a dia.' }, { t:'O que fazer agora', d:'Guarde provas, peça tudo por escrito e confira os prazos.' }], fim:{ titulo:'Salve para consultar quando precisar.', sub:'E mande para quem precisa saber disso.' } },
+  o2:{ area:'', tag:'', titulo:'', sub:'', lista:['Documento com foto e CPF', 'Comprovante de residência', 'Contratos e recibos', 'Prints e mensagens', 'Protocolos de atendimento'], num:'5', un:'anos', dado:'é o prazo para pedir reparação por defeito de produto ou serviço (art. 27 do CDC).', fim:{ titulo:'Qual item você não tinha?', sub:'Comente aqui embaixo.' } },
+  o3:{ area:'', tag:'', titulo:'', sub:'' },
+  o4:{ area:'', tag:'Stories', titulo:'', sub:'Toque para continuar →' },
+  o5:{ area:'', tag:'Enquete', titulo:'Você já passou por isso?', a:'Sim', b:'Ainda não', sub:'Responda: amanhã eu explico.' }
+};
+const TPL = [
+  { id:'o1', grupo:'carrossel', nome:'Carrossel do escritório', desc:'Capa da variação, 3 telas de conteúdo e chamada final.' },
+  { id:'o2', grupo:'carrossel', nome:'Lista e dado', desc:'Capa, lista para salvar, número em destaque e chamada.' },
+  { id:'o3', grupo:'unica', nome:'Tela única', desc:'A capa da variação como post único.' },
+  { id:'o4', grupo:'stories', nome:'Capa de stories', desc:'A composição da variação em 9:16.' },
+  { id:'o5', grupo:'stories', nome:'Enquete nos stories', desc:'Pergunta com figurinha de enquete.' }
+];
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const marca = s => esc(s).replace(/\*(.+?)\*/g, '<span class="hl">$1</span>').replace(/_(.+?)_/g, '<b>$1</b>').replace(/\n/g, '<br>');
+const P_ = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
+const IC = { balanca:P_('M12 3v18 M5 21h14 M4 8h16 M6 8l-3 6a3 3 0 0 0 6 0z M18 8l-3 6a3 3 0 0 0 6 0z'), seta:P_('M5 12h14 M13 6l6 6-6 6'), check:P_('M5 12l4 4L19 6'), relogio:P_('M12 7v5l3 2 M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0'), chat:P_('M3 5h18v12H8l-5 4z'), doc:P_('M5 2h9l5 5v15H5z M14 2v6h5 M8 13h8 M8 17h6'), escudo:P_('M12 2L3 6v6c0 5 9 10 9 10s9-5 9-10V6z'), casa:P_('M3 10l9-7 9 7v10H3z M9 21v-7h6v7'), sino:P_('M6 16V11a6 6 0 1 1 12 0v5l2 2H4z M10 21h4'), pessoa:P_('M20 21a8 8 0 1 0-16 0 M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'), voto:P_('M4 12h16v8H4z M8 12V4h8v8 M10 8l2 2 3-4') };
+const MALHETE = '<svg viewBox="0 0 120 90"><rect x="24" y="14" width="56" height="22" rx="5" transform="rotate(-30 52 25)" fill="#7A4A2A"/><rect x="18" y="20" width="10" height="30" rx="3" transform="rotate(-30 23 35)" fill="#5B3520"/><rect x="76" y="-2" width="10" height="30" rx="3" transform="rotate(-30 81 13)" fill="#5B3520"/><rect x="50" y="34" width="8" height="44" rx="4" transform="rotate(-30 54 56)" fill="#8C5A35"/><rect x="62" y="70" width="52" height="12" rx="4" fill="#5B3520"/></svg>';
+const COLUNA = '<svg viewBox="0 0 80 300" preserveAspectRatio="xMidYMax meet"><rect x="4" y="0" width="72" height="16" rx="3" fill="currentColor"/><path d="M10 16 Q40 30 70 16 V26 H10z" fill="currentColor" opacity=".8"/>' + Array.from({ length:6 }, (_, i) => `<rect x="${14 + i * 9.5}" y="28" width="6" height="246" rx="3" fill="currentColor" opacity="${.55 + (i % 2) * .25}"/>`).join('') + '<rect x="8" y="274" width="64" height="12" rx="2" fill="currentColor"/><rect x="2" y="286" width="76" height="14" rx="2" fill="currentColor"/></svg>';
+function sil(edit) { return `<span class="of-ph"><svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax meet"><circle cx="50" cy="44" r="17"/><path d="M12 124c0-30 16-50 38-50s38 20 38 50z"/></svg>${edit ? '<i>Toque para pôr a sua foto</i>' : ''}</span>` }
+function vars(idt) { const c = idt.c, f = idt.f;
+  return `--bg:${c.bg};--sf:${c.sf};--ink:${c.ink};--mu:${c.mu};--ac:${c.ac};--ac2:${c.ac2};--on:${c.on};--cbg:${c.cbg};--cink:${c.cink};--ft:${f.t};--fb:${f.b};--tw:${f.tw};--tt:${f.tt};--tl:${f.tl};--lh:${f.lh};--k:${f.k};--fi:${f.it ? 'italic' : 'normal'}` }
+
+function slides(tid, ctx) {
+  const { idt, edit, handle = '@seuperfil', nome = '', fotos = {} } = ctx, d = { ...ctx.d }, ex = idt.ex, out = [];
+  ['tag', 'titulo', 'sub'].forEach(k => { if (!d[k]) d[k] = ex[k] }); if (!d.area) d.area = ex.tag;
+  const E = (k, v, cls = '', tag = 'div') => `<${tag} class="${cls}"${edit ? ` contenteditable="true" spellcheck="false" data-k="${k}"` : ''}>${marca(v)}</${tag}>`;
+  const foto = (cls, slot = idt.foto) => `<div class="of-foto ${cls}" data-foto="${slot}">${fotos[slot] ? `<img src="${fotos[slot]}" alt="">` : sil(edit)}</div>`;
+  const topo = () => `<div class="of-top"><span>${esc(nome)}</span><span>${esc(handle)}</span></div>`;
+  const tag = () => E('tag', d.tag, 'of-tag', 'span'), T = (cls = '') => E('titulo', d.titulo, 'mx-t of-t ' + cls), S = (cls = '') => E('sub', d.sub, 'of-sub ' + cls);
+  const pal = esc((ex.palavra || d.area || '').toUpperCase());
+  const base = (tipo, corpo) => `<div class="mx of L-${idt.lay} mt-${idt.mt} hl-${idt.hl} ${tipo}" style="${vars(idt)}">${corpo}</div>`;
+  const arrasta = '<span class="of-arr">Arrasta →</span>';
+  const L = {
+    indigo:() => `${topo()}<div class="of-mark">${IC.balanca}</div>${foto('fx')}<div class="of-esq">${tag()}${T()}${S()}<div class="of-btns"><span>${IC.seta}Saiba mais</span><span>${IC.chat}</span></div></div>${arrasta}`,
+    drx:() => `${topo()}<div class="of-glow"></div><div class="of-centro">${tag()}${T()}</div><div class="of-phone"><div class="of-noti"><i>${IC.sino}</i><div><b>${esc(d.area)}</b><small>${esc(d.sub)}</small></div><span>agora</span></div><div class="of-hora">21:10</div></div><div class="of-marca">${esc(nome || handle)}</div>`,
+    nome:() => `${foto('fx')}<div class="of-veu"></div>${topo()}<div class="of-base">${tag()}${T()}${S()}</div>`,
+    terra:() => `<div class="of-pilha">${'<i></i>'.repeat(4)}</div><div class="of-cel"><div class="of-cel-top"><span>${esc(handle)}</span><span>···</span></div>${T()}${foto('fx')}${S()}</div>`,
+    widget:() => `${topo()}${T()}<div class="of-w w1"><i>${IC.relogio}</i><b>02:47:13</b></div><div class="of-w w2"><i>${IC.chat}</i><span>${esc(d.sub)}</span></div><div class="of-w w3">${[IC.doc, IC.escudo, IC.casa].map(x => `<i>${x}</i>`).join('')}</div>${foto('fx')}${tag()}`,
+    malhete:() => `${topo()}${tag()}${T()}<div class="of-malhete">${MALHETE}</div>${S()}<div class="of-pe"><span>${esc(handle)}</span><b>${IC.seta}</b></div>`,
+    gigante:() => `<div class="of-pal">${pal}</div>${foto('fx')}<div class="of-veu"></div><div class="of-base">${tag()}${T()}${S()}</div>${topo()}`,
+    impacto:() => `${foto('fx')}<div class="of-esq">${T()}${S()}</div><div class="of-assin">${esc(nome || handle)}</div>${topo()}`,
+    noir:() => `${foto('fx')}<div class="of-veu"></div>${topo()}<div class="of-centro"><i class="of-fio"></i>${tag()}${T()}<i class="of-fio"></i>${S()}</div>`,
+    coluna:() => `${topo()}<div class="of-col">${COLUNA}</div>${foto('fx')}<div class="of-base">${tag()}${T()}<div class="of-script">${esc(nome || 'Advogada')}</div></div>`,
+    ampulheta:() => `${topo()}${foto('fx')}${tag()}${T()}<div class="of-2col">${S()}<p>${esc(d.area)} · ${esc(handle)}</p></div>`,
+    azulao:() => `<div class="of-pal">${pal}</div>${foto('fx')}${topo()}<div class="of-base">${tag()}${T()}${S()}</div>`,
+    menta:() => `${topo()}<div class="of-circ c1">${foto('fx')}</div><div class="of-circ c2"></div>${tag()}${T()}${S()}<div class="of-badges"><span>${IC.check}Gratuito</span><span>${IC.doc}Salve</span></div>`,
+    mosaico:() => `<div class="of-grid"><div class="g1">${foto('fx')}</div><div class="g2"><b>${pal}</b></div><div class="g3">${tag()}${T()}</div><div class="g4">${foto('fx', 'f2')}</div></div>${topo()}`,
+    ouro:() => `<div class="of-moldura"></div>${topo()}<div class="of-centro"><div class="of-mono">${esc((nome || 'A').trim()[0] || 'A')}</div>${tag()}${T()}<div class="of-bal">${IC.balanca}</div>${S()}</div>`,
+    jornal:() => `<div class="of-cab"><span>${esc(handle)}</span><b>${esc(nome || 'O Jurídico')}</b><span>${new Date().toLocaleDateString('pt-BR')}</span></div>${tag()}${T()}<div class="of-colunas">${foto('fx')}<div>${S()}<p class="of-lorem"></p></div></div>`,
+    numero:() => `${topo()}<div class="of-num">${esc(ex.num || '03')}</div>${tag()}${T()}<ul class="of-ics">${[IC.doc, IC.check, IC.escudo].map((x, i) => `<li><i>${x}</i><span>${['Separe os documentos', 'Confira os valores', 'Guarde os protocolos'][i]}</span></li>`).join('')}</ul>${foto('fx')}`,
+    split:() => `${foto('fx')}<div class="of-bloco">${tag()}${T()}${S()}${arrasta}</div>${topo()}`,
+    diagonal:() => `${foto('fx')}<div class="of-faixa"></div><div class="of-base">${tag()}${T()}${S()}</div>${topo()}`,
+    cartao:() => `${topo()}<div class="of-card">${tag()}${T()}<i class="of-fio"></i>${S()}<div class="of-card-pe"><span>${esc(nome)}</span><span>${esc(handle)}</span></div></div>${foto('fx')}`,
+    documento:() => `${topo()}<div class="of-folha"><div class="of-folha-c"><small>CLÁUSULA 7ª</small>${T()}<p class="of-lorem"></p>${S()}<p class="of-lorem"></p></div><div class="of-carimbo">ATENÇÃO</div></div>${tag()}`,
+    tempo:() => `${topo()}${tag()}${T()}${S()}<div class="of-linha">${['1º emprego', '15 anos', '25 anos', 'pedido'].map((x, i) => `<span><i></i><b>${x}</b></span>`).join('')}</div>${foto('fx')}`,
+    aspas:() => `${topo()}<div class="of-aspas">“</div>${T()}<i class="of-fio"></i>${tag()}${S()}${foto('fx')}`,
+    suico:() => `${topo()}<div class="of-idx"><b>01</b><span>/05</span></div><i class="of-regua"></i>${T()}<i class="of-regua"></i><div class="of-2col">${tag()}${S()}</div>${foto('fx')}<div class="of-quad"></div>`,
+    vidro:() => `<div class="of-blob b1"></div><div class="of-blob b2"></div><div class="of-blob b3"></div>${topo()}<div class="of-vidro">${tag()}${T()}${S()}</div>${foto('fx')}`,
+    rubro:() => `${foto('fx')}<div class="of-veu"></div><div class="of-luz"></div>${topo()}<div class="of-base">${tag()}${T()}${S()}</div>`,
+    urna:() => `<div class="of-listras"></div>${topo()}<div class="of-selo">${IC.voto}<span>2026</span></div>${tag()}${T()}${S()}${foto('fx')}`,
+    ilustra:() => `${topo()}<div class="of-sol"></div><div class="of-forma f1"></div><div class="of-forma f2"></div><div class="of-ilbal">${IC.balanca}</div>${tag()}${T()}${S()}${foto('fx')}`,
+    cinema:() => `${foto('fx')}<div class="of-barra cima"><span>${esc(handle)}</span><span>${esc(d.tag)}</span></div><div class="of-barra baixo">${T()}</div>${S()}`,
+    fino:() => `${topo()}${tag()}${T()}<i class="of-fio"></i>${S()}<div class="of-selo-f">${foto('fx')}<svg viewBox="0 0 100 100"><defs><path id="cf${idt.id}" d="M50 50m-41 0a41 41 0 1 1 82 0a41 41 0 1 1-82 0"/></defs><text><textPath href="#cf${idt.id}">${esc((nome || handle) + ' · ' + d.area + ' · ').toUpperCase().repeat(2)}</textPath></text></svg></div>`
+  };
+  const capa = (tipo = 'feed') => base(`${tipo} capa`, (L[idt.lay] || L.indigo)());
+  const meio = (i, n, corpo) => base(`feed meio ${i % 2 ? 'alt' : ''}`, `<div class="of-fundo">${String(i - 1).padStart(2, '0')}</div><i class="of-faixa-top"></i>${topo()}${corpo}<div class="of-rod"><span>${String(i).padStart(2, '0')}/${String(n).padStart(2, '0')}</span><span>${i < n ? '→' : ''}</span></div>`);
+  const fim = (i, n) => meio(i, n, `<div class="of-meio fim">${E('fim.titulo', d.fim.titulo, 'mx-t of-mt')}${E('fim.sub', d.fim.sub, 'of-md')}<div class="of-acoes"><span>Salvar</span><span>Compartilhar</span><span>Comentar</span></div></div>`);
+  if (tid === 'o1') { const it = d.itens, n = it.length + 2; out.push(capa());
+    it.forEach((x, j) => out.push(meio(j + 2, n, `<div class="of-meio"><div class="of-n">${String(j + 1).padStart(2, '0')}</div>${E(`itens.${j}.t`, x.t, 'mx-t of-mt')}${E(`itens.${j}.d`, x.d, 'of-md')}</div>`))); out.push(fim(n, n)) }
+  if (tid === 'o2') { out.push(capa());
+    out.push(meio(2, 4, `<div class="of-meio"><div class="mx-t of-mt">Separe:</div><ul class="of-lista">${d.lista.map((x, j) => `<li><i>${IC.check}</i>${E(`lista.${j}`, x, '', 'span')}</li>`).join('')}</ul></div>`));
+    out.push(meio(3, 4, `<div class="of-meio"><div class="of-dado">${E('num', d.num, '', 'b')}${E('un', d.un, '', 'small')}</div>${E('dado', d.dado, 'of-md')}</div>`)); out.push(fim(4, 4)) }
+  if (tid === 'o3') out.push(capa());
+  if (tid === 'o4') out.push(capa('story'));
+  if (tid === 'o5') out.push(base('story capa enq', `${topo()}<div class="of-enq">${tag()}${T('enq-t')}<div class="of-poll"><span>${E('a', d.a, '', 'b')}</span><span>${E('b', d.b, '', 'b')}</span></div>${S()}</div>`));
+  return out;
+}
+const FONTES_URL = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Inter+Tight:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Manrope:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;700&family=Sora:wght@400;700&family=Bebas+Neue&family=Archivo+Black&family=Archivo:wght@400;700&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Inter:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Lora:ital,wght@0,500;1,500&family=Anton&family=Fraunces:ital,wght@0,400;1,400&family=Outfit:wght@400;700&family=Oswald:wght@600&family=Prata&family=Lato:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Space+Grotesk:wght@400;700&family=Poppins:wght@400;700&family=Montserrat:wght@500;900&family=Italiana&family=IBM+Plex+Serif:wght@600&family=IBM+Plex+Sans:wght@400;600&family=Gloock&family=Unbounded:wght@600&family=Big+Shoulders+Display:wght@900&family=Syne:wght@800&family=Figtree:wght@400;900&family=Bodoni+Moda:ital,wght@0,400;1,400&family=Mrs+Saint+Delafield&display=swap';
+return { nome:'Escritórios', IDT, PACKS, TPL, slides, FONTES_URL, temFoto:true };
+})();
+
 // Pauta · o que mais funciona no Instagram jurídico (análise de perfis de advogados de várias áreas)
 // e banco de ideias virais: formatos que se repetem nos posts com mais salvamentos, compartilhamentos e comentários.
 // {t} = tema da área, {a} = nome da área. Nada aqui promete resultado nem fala de honorários (Provimento 205/2021).
@@ -2058,7 +2449,7 @@ return { ANALISE, VIRAIS, AREA_VIRAIS };
    App de página única, sem servidor. Várias contas (marcas), cada uma com plano de 6 meses,
    peças, métricas e identidade. Dados no navegador (localStorage), com exportação. */
 (() => {
-const P = window.PAUTA, AREAS = window.AREAS, TD = window.TENDENCIAS, COLS = { editorial:window.ESTUDIO, classica:window.MODELOS };
+const P = window.PAUTA, AREAS = window.AREAS, TD = window.TENDENCIAS, COLS = { editorial:window.ESTUDIO, escritorio:window.ESCRITORIO, classica:window.MODELOS };
 const AREA = Object.fromEntries(AREAS.map(a => [a.id, a]));
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const E = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
@@ -2333,16 +2724,21 @@ function artePost(p, todas = false) {
       ss.push(i === l.length - 1 ? { t:'cta', tom:i % 2 ? 'cl' : 'es', titulo:limpa(pr), sub:resto || 'Salve e compartilhe.' } : { t:'texto', tom:i % 2 ? 'cl' : 'es', lead:t.rot, titulo:limpa(pr), nota:resto }) });
     pk.s = ss; return COLS.editorial.slides('x', ctx(pk, 'editorial', idt));
   }
+  if (e.col === 'escritorio') { const idt = e.i, tid = vert ? 'o4' : p.formato === 'post' ? 'o3' : 'o1', pk = JSON.parse(JSON.stringify(COLS.escritorio.PACKS[tid]));
+    Object.assign(pk, { area:ar, tag:ar, titulo:`${a} *${b}*`, sub:P.PILARES[p.pilar]?.nome || '' });
+    if (tid === 'o1' && todas) { pk.itens = T.slice(1, -1).map(t => { const pr = t.linhas.find(x => !/^\[.*\]$/.test(x)) || t.linhas[0] || t.rot || ''; return { t:limpa(pr), d:t.linhas.filter(x => x !== pr).map(limpa).join(' ') } }); const u = T[T.length - 1]; if (u && T.length > 1) pk.fim = { titulo:limpa(u.linhas[0] || u.rot), sub:limpa(u.linhas.slice(1).join(' ')) } }
+    const sl = COLS.escritorio.slides(tid, ctx(pk, 'escritorio', idt)); return todas || tid !== 'o1' ? sl : sl.slice(0, 1) }
   const idt = e.i, tid = vert ? (p.formato === 'stories' ? 's1' : 'e1') : p.formato === 'post' ? 't2' : 'c1', pk = JSON.parse(JSON.stringify(COLS.classica.PACKS[tid]));
   Object.assign(pk, { area:ar, tag:ar, titulo:`${a} *${b}*` });
   if (tid === 'c1') { const mid = T.slice(1, -1); pk.itens = (todas ? mid : pk.itens.slice(0, 1)).map(t => { const pr = t.linhas.find(x => !/^\[.*\]$/.test(x)) || t.linhas[0] || t.rot || ''; return { t:limpa(pr), d:t.linhas ? t.linhas.filter(x => x !== pr).map(limpa).join(' ') : '' } }); if (todas && T.length > 1) { const u = T[T.length - 1]; pk.fim = { titulo:limpa(u.linhas[0] || u.rot), sub:limpa(u.linhas.slice(1).join(' ')) } } }
   const sl = COLS.classica.slides(tid, ctx(pk, 'classica', idt));
   return tid === 'c1' && todas ? [sl[0], ...sl.slice(1, 1 + pk.itens.length), sl[sl.length - 1]] : sl;
 }
-const arteHTML = (h, cls = '') => `<span class="arte ${cls} ${h.includes(' story ') ? 'av' : ''}"><span class="arte-in">${h}</span></span>`;
-function escalaArtes(raiz = document) { raiz.querySelectorAll('.arte').forEach(a => { const w = a.clientWidth, i = a.firstElementChild; if (w) i.style.transform = `scale(${w / 540})`; if (!i.dataset.fit) { i.dataset.fit = 1; ajustaTextos(i) } }) }
+const arteHTML = (h, cls = '') => `<span class="arte ${cls} ${h.includes(' story ') ? 'arte-v' : ''}"><span class="arte-in">${h}</span></span>`;
+function escalaArtes(raiz = document) { raiz.querySelectorAll('.arte').forEach(a => { const w = a.clientWidth, i = a.firstElementChild; if (w) i.style.transform = `scale(${w / 540})`; if (!i.dataset.fit && document.fonts.status === 'loaded') { i.dataset.fit = 1; ajustaTextos(i) } }) }
 let escT = null; new MutationObserver(() => { cancelAnimationFrame(escT); escT = requestAnimationFrame(() => escalaArtes()) }).observe(document.documentElement, { childList:true, subtree:true });
 window.addEventListener('resize', () => escalaArtes());
+document.fonts.addEventListener?.('loadingdone', () => escalaArtes());
 function capa(p, o = {}) {
   const arte = !o.generica && artePost(p);
   if (arte) { const st = STATUS[STI[p.status]]; return `<div class="capa capa-arte ${p.formato === 'carrossel' ? 'pilha' : ''} ${arte[0].includes(' story ') ? 'vert' : ''}">${arteHTML(arte[0])}${o.chips === false ? '' : `<div class="capa-chips"><span class="cchip c-${p.status}">${st.chip}</span></div>`}</div>` }
@@ -2427,7 +2823,7 @@ function desenhaWiz() {
     <div class="grupo"><span class="grupo-t">Objetivo</span><div class="opts">${op('objetivo', 'autoridade', 'Ser referência')}${op('objetivo', 'clientes', 'Ser lembrado por quem precisa')}${op('objetivo', 'networking', 'Rede com colegas')}${op('objetivo', 'ensinar', 'Ensinar')}</div></div>
     <div class="grupo"><span class="grupo-t">Tom de voz</span><div class="opts">${op('tom', 'didatico', 'Didático')}${op('tom', 'proximo', 'Próximo')}${op('tom', 'tecnico', 'Técnico')}${op('tom', 'leve', 'Bem-humorado')}</div></div>
     ${wiz.modo === 'editar' ? `<label class="check-w"><input type="checkbox" id="w-manter" checked> Manter as peças que já saíram de “Ideia” e refazer só o restante</label>` : ''}`;
-  if (p === 5) { if (!d.estilos?.length) d.estilos = [estilosRec(d.areas[0] || d.principal)[0]];
+  if (p === 5) { if (!d.estilos?.length && !d.estMexeu) { d.estilos = [estilosRec(d.principal || d.areas[0])[0]]; d.estAuto = true }
     corpo = `<h2>Escolha o estilo das suas artes.</h2><p class="sub">Até 2 estilos. Eles aparecem primeiro nos seus modelos de post, carrossel e stories. Os outros continuam disponíveis.</p>
     ${gradeEstilos(d.estilos, d, 'wz')}`; }
   const ok = p === 0 ? (d.nome || '').trim().length > 1 : p === 2 ? d.areas.length > 0 : p === 5 ? d.estilos.length > 0 : true;
@@ -2444,7 +2840,7 @@ function concluirWiz() {
   if (!d.marca) d.marca = d.nome; if (d.arroba && !d.arroba.startsWith('@')) d.arroba = '@' + d.arroba;
   if (wiz.modo === 'conta') { const c = contaNova(d.cor); S.contas.push(c); C = c; S.atual = c.id }
   const manter = wiz.modo === 'editar' && $('#w-manter')?.checked ? C.posts.filter(p => p.status !== 'ideia') : [];
-  const { cor, ...pf } = d; C.cor = cor; C.perfil = pf; aplicaEstilo(pf.estilos?.[0]); C.posts = gerarPlano(pf, manter); if (wiz.modo !== 'editar') C.tarefas = {};
+  const { cor, estAuto, estMexeu, ...pf } = d; C.cor = cor; C.perfil = pf; aplicaEstilo(pf.estilos?.[0]); C.posts = gerarPlano(pf, manter); if (wiz.modo !== 'editar') C.tarefas = {};
   salvar(); aplicaCor();
   $('#app').innerHTML = `<div class="wiz wiz-intro"><div class="intro"><span class="intro-ic ok">${I('check')}</span><h1>Sua marca está no ar.</h1><p>${C.posts.length} peças distribuídas em 26 semanas, ${todasIdeias(pf.areas).length} ideias no seu banco e a primeira missão esperando por você.</p><button class="btn branco" data-acao="abrirpauta">Abrir minha Pauta ${I('right')}</button></div></div>`;
   confete(); wiz = { passo:0, d:{}, vistoIntro:true };
@@ -2459,16 +2855,16 @@ const achaEst = k => { const [col, id] = (k || '').split(':');
   if (col === 'serie') { const t = COLS.editorial.TPL.find(x => x.id === id); if (!t) return null; const i = COLS.editorial.IDT.find(x => x.id === (mstate().idt.editorial || SERIE_IDT[id])) || COLS.editorial.IDT[0]; return { col:'editorial', serie:id, t, i } }
   const i = COLS[col]?.IDT.find(x => x.id === id); return i ? { col, i } : null };
 const nomeEst = e => e.serie ? e.t.nome : e.i.nome;
-function estilosRec(area) { const l = COLS.classica.IDT; return [...SERIES().map(t => 'serie:' + t.id), ...[...l.filter(i => i.ideal.includes(area)), ...l.filter(i => !i.ideal.includes(area))].map(i => 'classica:' + i.id)] }
+function estilosRec(area) { const l = COLS.classica.IDT, o = COLS.escritorio.IDT; return [...SERIES().map(t => 'serie:' + t.id), ...[...o.filter(i => i.ideal.includes(area)), ...o.filter(i => !i.ideal.includes(area))].map(i => 'escritorio:' + i.id), ...[...l.filter(i => i.ideal.includes(area)), ...l.filter(i => !i.ideal.includes(area))].map(i => 'classica:' + i.id)] }
 let filtroEst = 'editorial';
 function thumbEstilo(col, idt, d = {}, serie) {
-  const C2 = COLS[col], tid = serie || (col === 'editorial' ? 'ea2' : 'c1'), pack = JSON.parse(JSON.stringify(C2.PACKS[tid]));
+  const C2 = COLS[col], tid = serie || ({ editorial:'ea2', escritorio:'o1' }[col] || 'c1'), pack = JSON.parse(JSON.stringify(C2.PACKS[tid]));
   if (serie) idt = COLS.editorial.IDT.find(x => x.id === SERIE_IDT[serie]) || idt;
   return C2.slides(tid, { idt, d:pack, handle:(d.arroba || C.perfil?.arroba || '@seuperfil'), nome:d.nome || C.perfil?.nome || '', fotos:fotosEf() })[0];
 }
 function gradeEstilos(sel, d, modo) {
-  const area = d.principal || d.areas?.[0] || C.perfil?.principal, ord = estilosRec(area).map(achaEst).filter(e => e && e.col === filtroEst), recC = new Set(COLS.classica.IDT.filter(i => i.ideal.includes(area)).map(i => 'classica:' + i.id));
-  return `<div class="est-top"><div class="seg">${[['editorial', 'Séries editoriais · com foto'], ['classica', 'Clássica']].map(([k, n]) => `<button data-festilo="${k}" data-modo="${modo}" aria-pressed="${filtroEst === k}">${n}</button>`).join('')}</div><span class="est-sel">${sel.length}/2 escolhidos${sel.map(k => { const e = achaEst(k); return e ? ` · <b>${E(nomeEst(e))}</b>` : '' }).join('')}</span></div>${filtroEst === 'editorial' ? '<p class="est-nota">Cada série tem um jeito próprio de contar: capa, miolo e fechamento. As cores você escolhe depois.</p>' : ''}
+  const area = d.principal || d.areas?.[0] || C.perfil?.principal, ord = estilosRec(area).map(achaEst).filter(e => e && e.col === filtroEst), recC = new Set([...COLS.classica.IDT.filter(i => i.ideal.includes(area)).map(i => 'classica:' + i.id), ...COLS.escritorio.IDT.filter(i => i.ideal.includes(area)).map(i => 'escritorio:' + i.id)]);
+  return `<div class="est-top"><div class="seg">${[['editorial', 'Séries editoriais · com foto'], ['escritorio', 'Escritórios · 30 variações'], ['classica', 'Clássica']].map(([k, n]) => `<button data-festilo="${k}" data-modo="${modo}" aria-pressed="${filtroEst === k}">${n}</button>`).join('')}</div><span class="est-sel">${sel.length}/2 escolhidos${sel.map(k => { const e = achaEst(k); return e ? ` · <b>${E(nomeEst(e))}</b>` : '' }).join('')}</span></div>${filtroEst === 'editorial' ? '<p class="est-nota">Cada série tem um jeito próprio de contar: capa, miolo e fechamento. As cores você escolhe depois.</p>' : ''}
     <div class="est-grade ${filtroEst === 'editorial' ? 'series' : ''}">${ord.map(e => { const k = e.serie ? 'serie:' + e.serie : chEst(e.col, e.i.id), on = sel.includes(k);
       const tela = e.serie ? COLS.editorial.slides(e.serie, { idt:COLS.editorial.IDT.find(x => x.id === SERIE_IDT[e.serie]), d:JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:d.arroba || C.perfil?.arroba || '@seuperfil', nome:d.nome || C.perfil?.nome || '', fotos:fotosEf() }) : null;
       return `<button type="button" class="est ${on ? 'on' : ''}" data-estilo="${k}" data-modo="${modo}" aria-pressed="${on}">${e.serie ? `<span class="est-tira">${tela.slice(0, 3).map(h => `<span class="th ${h.includes(' story ') ? 'story' : ''}">${h}</span>`).join('')}</span>` : `<span class="th">${thumbEstilo(e.col, e.i, d)}</span>`}<span class="est-n"><strong>${E(nomeEst(e))}</strong>${e.serie ? `<small>${E(e.t.desc)}</small><em>${tela.length} ${tela.length > 1 ? 'telas' : 'tela'}</em>` : recC.has(k) ? '<em>para a sua área</em>' : ''}</span>${on ? `<span class="est-ok">${I('check')}</span>` : ''}</button>` }).join('')}</div>`;
@@ -2774,16 +3170,16 @@ function slidesDe(tid, idt, edit = false) {
 const tipoTh = h => h.includes(' story ') ? 'story' : h.includes(' quad ') ? 'quad' : '';
 function modelos() {
   const idt = idtAtual(), rec = idtRec(), minhasS = (C.perfil.estilos || []).filter(k => k.startsWith('serie:')).map(k => k.slice(6)), lista = MC().TPL.filter(t => t.grupo === abaMod).sort((a, b) => minhasS.includes(b.id) - minhasS.includes(a.id));
-  const ed2 = mstate().col === 'editorial', m = mstate(), F = m.fotos, meus = (C.perfil.estilos || []).map(achaEst).filter(Boolean);
+  const ed2 = mstate().col !== 'classica', m = mstate(), F = m.fotos, meus = (C.perfil.estilos || []).map(achaEst).filter(Boolean);
   const fotosBox = ed2 ? `<div class="fotos-box">${['f1', 'f2', 'f3'].map((k, i) => { const u = F[k] || (i && F.f1) || PADRAO[k]; return `<label class="fb ${F[k] ? 'sua' : ''}" style="${u ? `background-image:url(${u})` : ''}" title="Foto ${i + 1}">${u ? '' : I('cam')}<span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>` }).join('')}<div><b>${F.f1 ? 'Suas fotos estão nos modelos' : 'Troque pelas suas fotos'}</b><p class="muted small">${F.f1 ? 'A foto 1 entra onde não houver a 2 ou a 3. ' : 'Os modelos vêm com fotos de exemplo. Toque em 1, 2 ou 3 para pôr as suas. '}Ficam só neste navegador.${Object.keys(F).length ? ' <button class="link" data-delfoto="todas">Voltar às fotos de exemplo</button>' : ''}</p></div></div>` : '';
   const atual = chEst(m.col, idt.id), chE = e => e.serie ? 'serie:' + e.serie : chEst(e.col, e.i.id), ativo = e => e.serie ? m.col === 'editorial' : chE(e) === atual, foraDosMeus = meus.length && !meus.some(ativo);
   const am = i => ed2 ? `<span class="idt-am" style="background:${i.c.es};color:${i.c.on}"><b style="font-family:${i.f.d};font-weight:${i.f.dw};letter-spacing:${i.f.dl}">Aa<em style="font-family:${i.f.s};font-style:${i.f.it ? 'italic' : 'normal'};font-weight:400;color:${i.c.hce};margin-left:4px">a</em></b><i>${[i.c.cl, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`
     : `<span class="idt-am" style="background:${i.c.cbg};color:${i.c.cink}"><b style="font-family:${i.f.t};font-weight:${i.f.tw};font-style:${i.f.it ? 'italic' : 'normal'}">Aa</b><i>${[i.c.bg, i.c.ac, i.c.ac2].map(c => `<span style="background:${c}"></span>`).join('')}</i></span>`;
   const fontes = ed2 ? [idt.f.d, idt.f.s, idt.f.b] : [idt.f.t, idt.f.b];
-  return cab('MARCA', 'Modelos', `Duas coleções: a <b>Editorial</b>, com colagem, papel, manuscrita e a sua foto, e a <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
+  return cab('MARCA', 'Modelos', `Três coleções: <b>Editorial</b> (colagem, papel, manuscrita e a sua foto), <b>Escritórios</b> (30 variações inspiradas em escritórios de advocacia) e <b>Clássica</b>. Edite o texto direto no slide e baixe em PNG 1080 px.`, `<a class="btn ghost" href="#tendencias">${I('flame')}O que está engajando</a>`) +
   `<section class="card meus-est"><div class="card-h"><h2>${meus.length ? 'Seus estilos' : 'Escolha os seus estilos de arte'}</h2><div class="acoes"><button class="btn ghost sm" data-acao="trocaestilos">${I('palette')}${meus.length ? 'Trocar meus estilos' : 'Escolher estilos'}</button><button class="btn ghost sm" data-acao="vertodos">${I('grid')}${verTodos ? 'Esconder os outros estilos' : 'Ver todos os estilos'}</button></div></div>
-    ${meus.length ? `<div class="meus">${meus.map(e => { const k = chE(e), on = ativo(e); return `<button class="meu ${on ? 'on' : ''}" ${e.serie ? `data-abreserie="${e.serie}"` : `data-meuestilo="${k}"`} aria-pressed="${on}"><span class="th">${e.serie ? COLS.editorial.slides(e.serie, { idt:comCores(idtCol('editorial'), estDe(e.serie).cores), d:mstate().col === 'editorial' ? dadosMod(e.serie) : JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:handle(), nome:C.perfil.nome, fotos:fotosEf() })[0] : thumbEstilo(e.col, e.i)}</span><span><strong>${E(nomeEst(e))}</strong><small>${E(e.serie ? e.t.desc : e.i.desc)}</small><em>${e.serie ? `Série editorial · cores: ${E(idtCol('editorial').nome)} · toque para editar` : `Coleção Clássica${on ? ' · aberta abaixo' : ''}`}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
-  (verTodos || !meus.length ? `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
+    ${meus.length ? `<div class="meus">${meus.map(e => { const k = chE(e), on = ativo(e); return `<button class="meu ${on ? 'on' : ''}" ${e.serie ? `data-abreserie="${e.serie}"` : `data-meuestilo="${k}"`} aria-pressed="${on}"><span class="th">${e.serie ? COLS.editorial.slides(e.serie, { idt:comCores(idtCol('editorial'), estDe(e.serie).cores), d:mstate().col === 'editorial' ? dadosMod(e.serie) : JSON.parse(JSON.stringify(COLS.editorial.PACKS[e.serie])), handle:handle(), nome:C.perfil.nome, fotos:fotosEf() })[0] : thumbEstilo(e.col, e.i)}</span><span><strong>${E(nomeEst(e))}</strong><small>${E(e.serie ? e.t.desc : e.i.desc)}</small><em>${e.serie ? `Série editorial · cores: ${E(idtCol('editorial').nome)} · toque para editar` : `${e.col === 'escritorio' ? 'Coleção Escritórios' : 'Coleção Clássica'}${on ? ' · aberta abaixo' : ''}`}</em></span></button>` }).join('')}${foraDosMeus ? `<p class="muted small">Você está vendo <b>${E(idt.nome)}</b>, que não está entre os seus estilos.</p>` : ''}</div>` : '<p class="muted">Escolha 1 ou 2 estilos para eles aparecerem aqui, prontos para usar.</p>'}${fotosBox}</section>` +
+  (verTodos || !meus.length ? `<div class="col-sw">${[['editorial', 'Coleção Editorial', `${COLS.editorial.IDT.length} identidades · ${COLS.editorial.TPL.length} modelos com foto`, true], ['escritorio', 'Coleção Escritórios', `${COLS.escritorio.IDT.length} variações · ${COLS.escritorio.TPL.length} modelos com foto`, true], ['classica', 'Coleção Clássica', `${COLS.classica.IDT.length} identidades · ${COLS.classica.TPL.length} modelos`]].map(([k, n, d, nv]) => `<button data-col="${k}" aria-pressed="${m.col === k}"><b>${n}${nv ? '<span class="novo">NOVA</span>' : ''}</b><small>${d}</small></button>`).join('')}</div>` +
   `<section class="card"><div class="card-h"><h2>Escolha a identidade</h2><span class="muted small">Recomendada para ${E(AREA[C.perfil.principal].nome)}: <b>${E(rec.nome)}</b></span></div>
     <div class="idts">${MC().IDT.map(i => `<button class="idt ${i.id === idt.id ? 'on' : ''}" data-idt="${i.id}" aria-pressed="${i.id === idt.id}">${am(i)}<strong>${E(i.nome)}</strong><small>${E(i.desc)}</small>${i.id === rec.id ? '<span class="rec">Recomendada</span>' : ''}</button>`).join('')}</div>
     <div class="idt-info"><span class="muted">Combina com: ${idt.ideal.map(a => `${dot(a)} ${E(AREA[a]?.nome || a)}`).join(' · ')}</span><span class="muted small">Fontes: ${fontes.map(f => E(f.split(',')[0].replace(/'/g, ''))).filter((x, i, l) => l.indexOf(x) === i).join(' + ')}</span></div>
@@ -2794,9 +3190,9 @@ function modelos() {
       return `<button class="mod" data-mod="${t.id}">${th}<span class="mod-n">${minhasS.includes(t.id) && mstate().col === 'editorial' ? '<span class="st st-seu">Seu estilo</span>' : ''}<strong>${E(t.nome)}</strong><span class="st">${sl.length} ${sl.length > 1 ? 'telas' : 'tela'}</span></span><small>${E(t.desc)}</small></button>` }).join('')}</div></section>`;
 }
 function abrirMod(tid) { ed = { tid }; let el = $('#ed'); if (!el) { el = document.createElement('div'); el.id = 'ed'; document.body.append(el) } document.body.classList.add('travado'); desenhaEd() }
-const CAMPOS_COR = { editorial:[['cl', 'Fundo claro'], ['es', 'Fundo escuro'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']], classica:[['bg', 'Fundo'], ['cbg', 'Fundo da capa'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']] };
+const CAMPOS_COR = { editorial:[['cl', 'Fundo claro'], ['es', 'Fundo escuro'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']], escritorio:[['bg', 'Fundo'], ['cbg', 'Fundo da capa'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']], classica:[['bg', 'Fundo'], ['cbg', 'Fundo da capa'], ['ac', 'Destaque'], ['ac2', 'Destaque 2']] };
 function desenhaEd() {
-  const el = $('#ed'); if (!el || !ed) return; const t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), st = estDe(ed.tid), cor = comCores(idt, st.cores).c, ed2 = mstate().col === 'editorial', F = mstate().fotos, FE = fotosEf();
+  const el = $('#ed'); if (!el || !ed) return; const t = MC().TPL.find(x => x.id === ed.tid), idt = idtAtual(), st = estDe(ed.tid), cor = comCores(idt, st.cores).c, ed2 = mstate().col !== 'classica', edS = mstate().col === 'editorial', F = mstate().fotos, FE = fotosEf();
   const prox = C.posts.filter(p => p.status !== 'publicado').slice(0, 40), n = dadosMod(ed.tid).s?.length || slidesDe(ed.tid, idt).length;
   const rg = (k, rot, min, max, passo, v, suf) => `<label class="ed-rg"><span>${rot}<b data-v="${k}">${Math.round(v * (suf === '%' && max <= 3 ? 100 : 1))}${suf}</b></span><input type="range" min="${min}" max="${max}" step="${passo}" value="${v}" data-est="${k}"></label>`;
   el.innerHTML = `<div class="ed" role="dialog" aria-modal="true" aria-label="Editor do modelo ${E(t.nome)}"><div class="ed-h"><h2>${E(t.nome)}<small>${E(t.desc)}</small></h2>
@@ -2810,7 +3206,7 @@ function desenhaEd() {
       <div class="ed-g"><small>Suas fotos</small><div class="ed-fotos">${['f1', 'f2', 'f3'].map((k, i) => `<label style="background-image:url(${FE[k] || ''})" title="Trocar a foto ${i + 1}"><span>${i + 1}</span><input type="file" accept="image/*" data-upfoto="${k}" hidden></label>`).join('')}</div></div>` : ''}
       <div class="ed-g"><small>Acabamento</small><label class="ed-ck"><input type="checkbox" data-est="grao" ${st.grao ? 'checked' : ''}> Textura de papel</label></div>
     </div>
-    <p class="ed-dica">${I('pen')}<span>Clique no texto para editar. <b>*asteriscos*</b> destacam${ed2 ? ', <b>_sublinhados_</b> põem em negrito. Toque na foto para trocar. Em cada slide: mudar o fundo, duplicar, mover ou apagar' : ''}.</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
+    <p class="ed-dica">${I('pen')}<span>Clique no texto para editar. <b>*asteriscos*</b> destacam${edS ? ', <b>_sublinhados_</b> põem em negrito. Toque na foto para trocar. Em cada slide: mudar o fundo, duplicar, mover ou apagar' : ''}.</span><input type="file" id="ed-foto" accept="image/*" data-upfoto="f1" hidden></p>
     <div class="ed-sl"></div></div>`;
   desenhaSlides();
 }
@@ -2835,9 +3231,10 @@ function fecharEd() { ed = null; $('#ed')?.remove(); document.body.classList.rem
 // Diminui o título quando o texto passa do tamanho do slide.
 function ajustaTextos(raiz) { raiz.querySelectorAll('.mx').forEach(sl => {
   const tk = parseFloat(sl.style.getPropertyValue('--tk')) || 1; if (tk !== 1) sl.querySelectorAll('.mx-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * tk + 'px');
-  const largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + 1);
+  const ehOf = sl.classList.contains('of'), largo = () => [...sl.querySelectorAll('.mx-t')].find(t => t.scrollWidth > t.clientWidth + (ehOf ? Math.max(14, t.clientWidth * .07) : 1));
   for (let n = 0, l; n < 18 && (l = largo()); n++) l.style.fontSize = parseFloat(getComputedStyle(l).fontSize) * .92 + 'px';
-  for (let n = 0; n < 10 && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
+  if (sl.classList.contains('of')) sl.querySelectorAll('.of-t, .of-mt').forEach(t => { const mh = parseFloat(getComputedStyle(t).maxHeight) || 9e9; for (let n = 0; n < 16 && t.clientHeight >= mh - 1 && t.scrollHeight > t.clientHeight + 6; n++) t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px' });
+  for (let n = 0; n < 10 && !sl.classList.contains('of') && sl.scrollHeight > sl.clientHeight + 1; n++) sl.querySelectorAll('.mx-t, .mx-p, .mx-tw-t').forEach(t => t.style.fontSize = parseFloat(getComputedStyle(t).fontSize) * .93 + 'px') }) }
 function carregaScript(src, global) { return window[global] ? Promise.resolve() : new Promise((ok, erro) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = erro; document.head.append(s) }) }
 async function pngsDe(idxs) {
   await carregaScript('https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js', 'htmlToImage');
@@ -3009,7 +3406,7 @@ function render(topo = true) {
 window.addEventListener('hashchange', () => { if (ed) { ed = null; $('#ed')?.remove(); document.body.classList.remove('travado') } if (vw) fecharVw(); else if ($('#modal').innerHTML) { $('#modal').innerHTML = ''; document.body.classList.remove('travado') } render() });
 
 /* ---------- eventos ---------- */
-document.addEventListener('click', e => { const f = ed && e.target.closest('.ed .ex [data-foto]'); if (f) { const inp = $('#ed-foto'); inp.dataset.upfoto = f.dataset.foto; inp.click() } });
+document.addEventListener('click', e => { const f = ed && e.target.closest('.ed .ex [data-foto], .ed .of [data-foto]'); if (f) { const inp = $('#ed-foto'); inp.dataset.upfoto = f.dataset.foto; inp.click() } });
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-principal], button, a, label, [data-ov]'); if (!t) return; const d = t.dataset;
   if (d.ov !== undefined && e.target === t) return fecharModal();
@@ -3039,7 +3436,7 @@ document.addEventListener('click', e => {
   if (d.copy) return copiar(d.copy);
   if (d.copybio) { C.flags.bio = true; salvar(); copiar(d.copybio, 'Bio copiada.'); return }
   // modelos e tendências
-  if (d.estilo) { if (d.modo === 'wz') { lerWiz(); wiz.d.estilos = alternaEstilo(wiz.d.estilos || [], d.estilo); desenhaWiz(); return }
+  if (d.estilo) { if (d.modo === 'wz') { lerWiz(); wiz.d.estilos = wiz.d.estAuto && !wiz.d.estilos.includes(d.estilo) ? [d.estilo] : alternaEstilo(wiz.d.estilos || [], d.estilo); wiz.d.estAuto = false; wiz.d.estMexeu = true; desenhaWiz(); return }
     C.perfil.estilos = alternaEstilo(C.perfil.estilos || [], d.estilo); if (C.perfil.estilos.length) aplicaEstilo(C.perfil.estilos.includes(d.estilo) ? d.estilo : C.perfil.estilos[0]); salvar(); return modalEstilos() }
   if (d.festilo) { filtroEst = d.festilo; if (d.modo === 'wz') { lerWiz(); desenhaWiz() } else modalEstilos(); return }
   if (d.abreserie) { aplicaEstilo('serie:' + d.abreserie); salvar(); render(false); return abrirMod(d.abreserie) }

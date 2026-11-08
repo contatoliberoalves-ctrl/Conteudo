@@ -6,8 +6,8 @@ import base64, json, pathlib, re
 R = pathlib.Path(__file__).parent
 src = R / 'src'
 base = (src / 'index.html').read_text(encoding='utf-8')
-css = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['style.css', 'modelos.css', 'estudio.css'])
-js = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['areas.js', 'conteudo.js', 'modelos.js', 'estudio.js', 'tendencias.js', 'app.js'])
+css = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['style.css', 'modelos.css', 'estudio.css', 'escritorio.css'])
+js = '\n'.join((src / f).read_text(encoding='utf-8') for f in ['areas.js', 'conteudo.js', 'modelos.js', 'estudio.js', 'escritorio.js', 'tendencias.js', 'app.js'])
 
 def monta(pasta, fotos):
     pre = f'window.FOTOS_PADRAO = {json.dumps(fotos)};\n' if fotos else ''
