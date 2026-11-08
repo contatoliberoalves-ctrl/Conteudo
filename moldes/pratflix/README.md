@@ -20,6 +20,7 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `evento` | 1080×1350 | convite para live/evento: `dia`, `hora`, `rotulo`, `titulo`, `texto`, `hashtag`, `cta` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
+| `simboloClaro` | 1080×1080 | o `simbolo` em fundo branco (capa da comunidade do WhatsApp): `rotulo` (opcional), `titulo` ([[trecho]] em ouro), `ts` |
 
 ## PDF A4 (`pdf.mjs` + `pdf.json`)
 Materiais em PDF A4 retrato na mesma identidade: capa escura com a foto do corredor, página "Como usar" com o sumário, páginas claras (papel) com dois itens por página em caixas "copie e cole" e fecho escuro. `pdf.json`: lista de `{ id, titulo, capa: {rotulo, titulo (linhas, [[trecho]] em caixa areia), sub}, comoUsar: [passos], prompts: [{titulo, texto}], complemento }`.

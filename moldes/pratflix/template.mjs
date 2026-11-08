@@ -10,7 +10,7 @@ const foto = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(dir, 'fotos',
 const C = { bg: '#121212', areia: '#E3D6B4', areia2: '#C9B88E', ouro: '#9A7B3A', txt: '#EDEAE3', mute: '#8E8A82', azul: '#0B4FD8' };
 const T = "font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;letter-spacing:-.005em";
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Manrope:wght@500;600;700;800&display=swap';
-export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], material: [1080, 1350] };
+export const TAMANHOS = { heroi: [1080, 1350], original: [1080, 1350], tipo: [1080, 1350], claro: [1080, 1350], comenta: [1080, 1350], capa: [1080, 1350], lista: [1080, 1350], passo: [1080, 1350], evento: [1080, 1350], stories: [1080, 1920], simbolo: [1080, 1080], simboloClaro: [1080, 1080], material: [1080, 1350] };
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Linhas do título; [[trecho]] sai em areia (ou na cor/caixa passada).
@@ -96,6 +96,16 @@ L.simbolo = t => `<div style="position:absolute;inset:0;background:radial-gradie
     <div style="width:190px;height:190px;border-radius:46px;background:linear-gradient(135deg,${C.areia},${C.areia2});display:grid;place-items:center;box-shadow:0 24px 60px rgba(0,0,0,.5)"><span style="font:800 150px/1 Manrope;letter-spacing:-.06em;color:#121212;margin:-24px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
     <div style="${T};font-size:${t.ts ?? 132}px;line-height:.86;color:${C.txt};margin-top:46px">${tit(t.titulo)}</div>
     <div style="margin-top:34px">${logo(44)}</div></div>`;
+
+// Símbolo em fundo branco (foto da comunidade do WhatsApp): selo grafite com o "p▸" em areia, título grafite com destaque ouro.
+L.simboloClaro = t => `<div style="position:absolute;inset:0;background:radial-gradient(75% 75% at 50% 42%,#FFFFFF 0%,#F7F4ED 100%)"></div>
+  <div style="position:absolute;left:50%;top:50%;width:840px;height:840px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${C.areia2}"></div>
+  <div style="position:absolute;left:50%;top:50%;width:720px;height:720px;transform:translate(-50%,-50%);border-radius:50%;border:2px solid ${C.areia2}88"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div style="width:180px;height:180px;border-radius:44px;background:#121212;display:grid;place-items:center;box-shadow:0 22px 50px rgba(18,18,18,.22)"><span style="font:800 142px/1 Manrope;letter-spacing:-.06em;color:${C.areia};margin:-22px 0 0 6px">p<span style="font-size:.42em;vertical-align:.32em;margin-left:2px">▸</span></span></div>
+    ${t.rotulo ? `<div style="font:700 22px Manrope;letter-spacing:.34em;color:${C.ouro};margin-top:40px">${esc(t.rotulo).toUpperCase()}</div>` : ''}
+    <div style="${T};font-size:${t.ts ?? 124}px;line-height:.86;color:#121212;margin-top:${t.rotulo ? 18 : 42}px">${tit(t.titulo, x => `<span style="color:${C.ouro}">${x}</span>`)}</div>
+    <div style="margin-top:32px">${logo(42, '#121212')}</div></div>`;
 
 // Material gratuito com foto do autor no alto (identidade do Post Libero "material" nas cores da PratFlix): foto em
 // tons de areia, rótulo, título, o PDF desenhado (checklist com `itens` linhas numeradas), o bônus (live) e o botão.
