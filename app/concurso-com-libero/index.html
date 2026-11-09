@@ -534,6 +534,27 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .bdot{position:absolute;top:8px;right:calc(50% - 18px);width:9px;height:9px;border-radius:50%;background:var(--er);box-shadow:0 0 0 2px var(--sf)}
 .bnav button{font-size:11.5px}
 
+/* computador e instalação */
+.desk-acoes{display:none}
+@media(min-width:1024px){.desk-acoes{display:flex;align-items:center;gap:6px;margin:0 6px}}
+.ico-b{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;color:var(--tx)}
+.ico-b:hover{background:var(--sf2)}
+.ico-b[aria-pressed=true]{background:var(--p-mint);color:var(--acc)}
+:root[data-fonte=grande] .content,:root[data-fonte=grande] .sheet{zoom:1.12}
+@media(min-width:1440px){.wrap,.top-in{max-width:1280px}}
+.cat-hero{padding:26px 22px}
+.cat-idx{display:none}
+@media(min-width:900px){.cat-hero{grid-template-columns:minmax(0,1fr) 240px;padding:42px;gap:32px;align-items:center}.cat-hero h1{font-size:46px;letter-spacing:-.045em}.cat-idx{display:flex;flex-direction:column;gap:14px;border-left:1px solid #ffffff25;padding-left:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9bcbbd;font-weight:700}.cat-idx strong{color:#fff;font-family:var(--h);font-size:27px;letter-spacing:-.03em;text-transform:none;line-height:1.15;margin-top:12px}}
+.mes .ca,.mes .cmin{display:none}
+@media(min-width:1024px){.mes .c{min-height:118px;align-content:start;gap:4px;padding:8px 10px}.mes .c>span:first-child{font-family:var(--h);font-size:20px;font-weight:700}.mes .ca{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:13.5px;font-weight:600;line-height:1.3;color:var(--tx)}.mes .cmin{display:block;font-size:12px;color:var(--mu);margin-top:auto}.mes .c[aria-pressed=true] .ca,.mes .c[aria-pressed=true] .cmin{color:#fff}.mes .dots{display:none}}
+.inst-hero{display:flex;gap:14px;align-items:center}
+.inst-hero b{display:block;font-family:var(--h);font-size:17px}
+.passos{margin:0;padding-left:22px;display:grid;gap:8px;font-size:15px}
+.inst-card{border-color:var(--limaln);background:var(--p-mint)}
+
+.painel.sem-painel{display:none!important}
+@media(min-width:1024px){.cols.cols-1{grid-template-columns:minmax(0,1fr)}.cols.cols-1 .btns{max-width:620px}}
+@media(min-width:1024px){.top .logo-m{display:none!important}}
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
 .sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:20px 20px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .22s ease}
@@ -988,7 +1009,7 @@ const ACT={
   marcar:d=>concluir(d.m,d.el),
   desmarcar:d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(m){m.ok=false;m.okEm=null;salvar();render()}},
   adiantar:d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(m){m.reag=m.reag||m.data;m.data=HOJE;salvar();toast('Meta trazida para hoje.');render()}},
-  abrirMeta:d=>{UI.metaSel=d.m;if(matchMedia('(min-width:1024px)').matches&&UI.view==='plano'){render()}else abrirSheet('meta',{m:d.m})},
+  abrirMeta:d=>{UI.metaSel=d.m;if(matchMedia('(min-width:1024px)').matches&&UI.view==='plano'&&UI.planoModo!=='mes'){render()}else abrirSheet('meta',{m:d.m})},
   material:d=>{fecharSheet(true);go('leitor',{mat:d.mat,meta:d.meta||null,de:d.de||UI.view})},
   treinar:d=>{fecharSheet(true);iniciarTreino({conc:d.conc||concAtivo().id,ass:d.ass||null,mat:d.mat||null,dif:d.dif||null,meta:d.meta||null,de:d.de||UI.view})},
   planoModo:d=>{UI.planoModo=d.v;UI.semOff=0;render()},
@@ -1424,7 +1445,8 @@ SHEETS.paywall=p=>{
 const V={};
 
 V.catalogo=()=>`
- <section class="stack" style="gap:8px"><h1>Qual concurso você vai encarar?</h1><p class="mu">Escolha o concurso e o cargo. A análise do edital é gratuita.</p></section>
+ <section class="dark cat-hero"><div class="stack" style="gap:14px"><span class="eyebrow">Concurso com Líbero / Catálogo</span><h1 style="color:#fff">Escolha seu próximo concurso.</h1><p class="mu">Do primeiro contato com o edital ao plano de cada dia. A análise do edital é gratuita.</p></div>
+  <div class="cat-idx" aria-hidden="true"><span>01 / Entender</span><span>02 / Planejar</span><span>03 / Praticar</span><strong>Um passo de cada vez.</strong></div></section>
  <div class="stack" style="gap:12px">
   <label class="search">${I('busca')}<span class="sr">Buscar concurso</span><input id="busca" type="search" placeholder="Busque por concurso, órgão ou cargo" value="${esc(UI.busca)}" autocomplete="off" enterkeyhint="search"></label>
   <div class="chips" role="group" aria-label="Situação do edital" id="sitChips">${[['todos','Todos'],['aberto','Edital publicado'],['previsto','Edital previsto']].map(([k,l])=>`<button class="chip" aria-pressed="${UI.sit===k}" data-a="sit" data-v="${k}">${l}</button>`).join('')}</div>
@@ -1645,6 +1667,7 @@ V.hoje=()=>{
    ${cardQDia()}
    ${cardConstancia()}
    ${cardLiga(true)}
+   ${cardInstalar()}
   </aside></div>`;
 };
 
@@ -1669,20 +1692,20 @@ V.plano=()=>{
     const ref=pd(HOJE);ref.setDate(1);ref.setMonth(ref.getMonth()+UI.semOff);const ini=iso(ref),mes=ref.getMonth();
     const g0=segunda(ini);const dias=[];for(let i=0;i<42;i++){const dd=addD(g0,i);if(i>=35&&pd(dd).getMonth()!==mes)break;dias.push(dd)}
     const selD=UI.mesSel||HOJE,msSel=P.metas.filter(m=>m.data===selD).sort((a,b)=>a.ordem-b.ordem);
-    cal=`<div class="between"><button class="x" data-a="sem" data-v="-1" aria-label="Mês anterior">${I('esq')}</button><b style="text-transform:capitalize">${MESES[mes]} de ${ref.getFullYear()}</b><button class="x" data-a="sem" data-v="1" aria-label="Próximo mês">${I('dir')}</button></div>
-     <div class="mes">${DS.map(d=>`<span class="h">${d}</span>`).join('')}${dias.map(dd=>{const ms=P.metas.filter(m=>m.data===dd);const m0=ms.slice().sort((a,b)=>a.ordem-b.ordem)[0],pi=m0?C(P.conc).materias.findIndex(x=>x.id===m0.mat)%4:-1;return`<button class="c ${pd(dd).getMonth()!==mes?'fora':''} ${dd===HOJE?'hj':''}" aria-pressed="${dd===selD}" data-a="mesDia" data-d="${dd}" aria-label="${dm(dd)}: ${ms.length} metas" ${pi>=0&&dd!==selD?`style="background:var(--p-${['mint','lilac','peach','sky'][pi]});border-color:transparent"`:''}><span>${pd(dd).getDate()}</span>${m0?`<span class="cm">${esc(C(P.conc).materias.find(x=>x.id===m0.mat).curto)}</span>`:''}<span class="dots">${ms.slice(0,6).map(m=>`<i class="${estadoMeta(m)}"></i>`).join('')}</span></button>`}).join('')}</div>
+    cal=`<div class="between"><button class="x" data-a="sem" data-v="-1" aria-label="Mês anterior">${I('esq')}</button><b>${MESES[mes][0].toUpperCase()+MESES[mes].slice(1)} de ${ref.getFullYear()}</b><button class="x" data-a="sem" data-v="1" aria-label="Próximo mês">${I('dir')}</button></div>
+     <div class="mes">${DS.map(d=>`<span class="h">${d}</span>`).join('')}${dias.map(dd=>{const ms=P.metas.filter(m=>m.data===dd);const m0=ms.slice().sort((a,b)=>a.ordem-b.ordem)[0],pi=m0?C(P.conc).materias.findIndex(x=>x.id===m0.mat)%4:-1;return`<button class="c ${pd(dd).getMonth()!==mes?'fora':''} ${dd===HOJE?'hj':''}" aria-pressed="${dd===selD}" data-a="mesDia" data-d="${dd}" aria-label="${dm(dd)}: ${ms.length} metas" ${pi>=0&&dd!==selD?`style="background:var(--p-${['mint','lilac','peach','sky'][pi]});border-color:transparent"`:''}><span>${pd(dd).getDate()}</span>${m0?`<span class="cm">${esc(C(P.conc).materias.find(x=>x.id===m0.mat).curto)}</span><span class="ca">${esc(achaAss(P.conc,m0.ass).a.nome)}</span><span class="cmin">${hm(ms.reduce((a,x)=>a+x.min,0))}${ms.length>1?` · ${ms.length} metas`:''}</span>`:''}<span class="dots">${ms.slice(0,6).map(m=>`<i class="${estadoMeta(m)}"></i>`).join('')}</span></button>`}).join('')}</div>
      <div class="leg"><span><i style="background:var(--ok)"></i>Concluída</span><span><i style="background:var(--ln2)"></i>Pendente</span><span><i style="background:var(--at)"></i>Atrasada</span><span><i style="background:var(--verde3)"></i>Reagendada</span></div>
      <section class="dia"><div class="dia-h"><b><span class="cap">${DL[wd(selD)]}</span>, ${dm(selD)}</b></div>${msSel.length?lista(msSel.map(m=>linhaMeta(m))):'<div class="folga">Sem metas neste dia</div>'}</section>`;
   }
   const adi=[...new Set(P.adiadas.map(x=>x.ass))];
   return`<div class="between"><div class="stack" style="gap:4px"><span class="eyebrow">Meu plano · ${c.sigla}</span><h1>Cronograma</h1></div><div class="seg pill" style="flex:none"><button aria-pressed="${UI.planoModo==='semana'}" data-a="planoModo" data-v="semana">Semana</button><button aria-pressed="${UI.planoModo==='mes'}" data-a="planoModo" data-v="mes">Mês</button></div></div>
-  <div class="cols"><div class="stack" style="gap:18px">
+  <div class="cols ${UI.planoModo==='mes'?'cols-1':''}"><div class="stack" style="gap:18px">
    <div class="btns"><button class="btn btn-p" data-a="reorg">Reorganizar semana</button><button class="btn btn-s" data-a="editarCfg">Ajustar rotina</button></div>
    ${cal}
    ${adi.length?`<details class="card acc"><summary class="between"><b>Para depois (${adi.length} ${adi.length===1?'assunto':'assuntos'})</b><span class="rot">${I('dir',18)}</span></summary><p class="sm mu" style="margin:8px 0">Não couberam até a prova com o tempo atual.</p><div class="tags">${adi.map(a=>`<span class="tag t-line">${esc(achaAss(c.id,a).a.nome)}</span>`).join('')}</div></details>`:''}
    <p class="sm mu">Rotina: ${cfgDias(P.cfg)} · ${hm(cargaSemanal(P.cfg))} por semana</p>
   </div>
-  <aside class="stick stack painel">${sel?`<div class="card pad stack"><span class="eyebrow">Detalhe da meta</span><h2>${esc(achaAss(c.id,sel.ass).a.nome)}</h2>${detalheMeta(sel,'painel')}</div>`:`<div class="card empty">${I('plano',28)}<b>Toque numa meta</b><p class="sm mu">O assunto, o tempo previsto e o material aparecem aqui.</p></div>`}</aside></div>`;
+  <aside class="stick stack painel ${UI.planoModo==='mes'?'sem-painel':''}">${sel?`<div class="card pad stack"><span class="eyebrow">Detalhe da meta</span><h2>${esc(achaAss(c.id,sel.ass).a.nome)}</h2>${detalheMeta(sel,'painel')}</div>`:`<div class="card empty">${I('plano',28)}<b>Toque numa meta</b><p class="sm mu">O assunto, o tempo previsto e o material aparecem aqui.</p></div>`}</aside></div>`;
 };
 
 V.config=()=>{
@@ -1892,6 +1915,7 @@ V.perfil=()=>{
     <button class="btn btn-s w" data-a="go" data-v="planos">Comparar planos</button></section>
    <section class="card pad stack"><h3>Preferências de estudo</h3>${P&&P.cfg?`<p class="sm">${cfgDias(P.cfg)} · ${hm(cargaSemanal(P.cfg))} por semana</p><p class="sm mu">Difíceis: ${P.cfg.dificeis.map(id=>C(P.conc).materias.find(m=>m.id===id)?.curto).filter(Boolean).join(', ')||'nenhuma'}</p><button class="btn btn-s w" data-a="editarCfg" data-gate="estudo">Ajustar rotina</button>`:'<p class="sm mu">Você ainda não montou um plano para o concurso ativo.</p>'}</section>
   </div>
+  ${cardInstalar()}
   <section class="card pad stack"><div class="between"><h3>Aparência</h3><span class="sm mu">${I('lua',16)}</span></div>${seletorTema()}<p class="xs mu">Automático segue o tema do seu aparelho.</p></section>
   <section class="stack" style="gap:10px"><h3>Histórico por concurso</h3>${lista(Object.entries(S.preps).map(([k,Pp])=>{const c=C(Pp.conc);return`<button class="ri" data-a="trocarPrep" data-k="${k}"><span class="sig">${c.sigla}</span><span class="grow"><span class="t">${esc(cargoDe(Pp).nome)}</span><span class="s">${Pp.metas.filter(m=>m.ok).length} metas · ${Pp.respondidas} questões · ${Pp.erros.length} no caderno</span></span>${k===S.ativo?'<span class="tag t-lima">Ativo</span>':chevR()}</button>`}))}</section>
   <section class="card pad stack"><h3>Suporte</h3>
@@ -2287,6 +2311,7 @@ ACT.missaoLida=d=>{const x=colecaoAtiva();lidas(x.c.id)[Number(d.n)]=true;ganhar
 ACT.baixarMissao=async d=>{
   const x=colecaoAtiva();if(!x)return;const m=x.col.missoes.find(y=>y.n===Number(d.n));
   if(!missaoLivre(x.c.id,m)){exec({a:'baixarMissao',n:d.n,gate:'estudo',v:'materiais',conc:x.c.id});return}
+  if(noApp()){try{window.AndroidApp.salvarPdf(m.arq,`Concurso com Líbero - PPPE - Missão ${pad2(m.n)} - ${m.titulo}.pdf`)}catch(e){toast('Não foi possível salvar o PDF.')}return}
   const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
   if(!dl){toast('O download não está disponível nesta visualização. Abra a página no claude.ai.');return}
   try{const r=await fetch('colecao/'+m.arq);if(!r.ok)throw new Error('http');const blob=await r.blob();
@@ -2470,6 +2495,46 @@ ACT.criarEnquete=async()=>{const q=(($('#enqP')||{}).value||'').trim(),ops=[0,1,
   try{await COM.db.doc('posts/'+novoId()).set({tipo:'enquete',papel:'professor',pergunta:q,opcoes:ops,conc:concAtivo().id,autor:COM.uid,criado:Date.now()});['enqP','enqO0','enqO1','enqO2','enqO3'].forEach(i=>{const e=$('#'+i);if(e)e.value=''});toast('Enquete publicada.')}catch(e){toast('Não foi possível publicar agora.')}};
 ACT.compartilhar=d=>{UI.conqRasc=d.t;UI.rasc='';go('comunidade',{},{raiz:true});setTimeout(()=>abrirSheet('postar'),50)};
 
+// ---------- versão computador e instalação ----------
+Object.assign(ICONS,{baixar:'<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',sol:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',celular:'<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',monitor:'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'});
+const APK={versao:'1.0',arq:'instalar/concurso-com-libero-android.zip',nome:'Concurso com Líbero - Android.zip'};
+const noApp=()=>!!window.AndroidApp;
+function aplicarFonte(){document.documentElement.dataset.fonte=S.fonte==='grande'?'grande':'normal'}
+ACT.fonte=()=>{S.fonte=S.fonte==='grande'?'normal':'grande';salvar();aplicarFonte();toast(S.fonte==='grande'?'Texto maior ativado.':'Texto no tamanho padrão.')};
+ACT.temaCiclo=()=>{const atual=document.documentElement.dataset.tema||(matchMedia('(prefers-color-scheme: dark)').matches?'escuro':'claro');S.tema=atual==='escuro'?'claro':'escuro';salvar();aplicarTema();render()};
+function sistemaUA(){const u=navigator.userAgent||'';return/android/i.test(u)?'android':/iphone|ipad|ipod/i.test(u)?'iphone':'pc'}
+ACT.instalar=()=>{UI.instTab=UI.instTab||sistemaUA();abrirSheet('instalar')};
+ACT.instTab=d=>{UI.instTab=d.v;renderSheet()};
+SHEETS.instalar=()=>{
+  if(noApp())return['Você já está no app','Concurso com Líbero para Android',`<div class="aviso ok">${I('check')}<div class="grow sm"><span>Versão ${APK.versao} instalada neste aparelho. Seu progresso fica salvo aqui.</span></div></div><p class="sm mu">A comunidade e as assinaturas funcionam na versão web por enquanto.</p>`];
+  const t=UI.instTab||'android';
+  const passos=l=>`<ol class="passos">${l.map(x=>`<li>${x}</li>`).join('')}</ol>`;
+  let corpo='';
+  if(t==='android')corpo=`<div class="inst-hero">${LOGO(56)}<div><b>Concurso com Líbero para Android</b><span class="sm mu">Versão ${APK.versao} · APK · funciona offline com os dados de exemplo e a Coleção PPPE</span></div></div>
+   <button class="btn btn-p w" data-a="baixarApk">${I('baixar',18)} Baixar para Android</button>
+   ${passos(['Toque em <b>Baixar para Android</b>. Vem um arquivo .zip com o app dentro.','Abra o .zip no app <b>Arquivos</b> e toque em <b>concurso-com-libero.apk</b>.','Se o Android pedir, permita <b>instalar apps desta fonte</b> e toque em <b>Instalar</b>.','Abra o <b>Concurso com Líbero</b> pela tela inicial.'])}
+   <p class="xs mu">É uma versão de teste, fora da Play Store. A comunidade, as assinaturas e o progresso entre aparelhos funcionam na versão web.</p>`;
+  if(t==='iphone')corpo=`${passos(['O iPhone não instala APK. Use o atalho na Tela de Início:','Abra esta página no <b>Safari</b>.','Toque em <b>Compartilhar</b> (o quadrado com a seta).','Escolha <b>Adicionar à Tela de Início</b> e confirme.'])}<p class="xs mu">O atalho abre o app em tela cheia, como os outros apps.</p>`;
+  if(t==='pc')corpo=`<p class="sm">No computador, o Concurso com Líbero funciona no navegador, nesta mesma página, com menu lateral e calendário completo.</p>
+   ${passos(['Para abrir em janela própria no <b>Chrome</b> ou no <b>Edge</b>: abra o menu <b>⋮</b>.','Vá em <b>Transmitir, salvar e compartilhar</b> → <b>Criar atalho</b> (no Edge: <b>Apps</b> → <b>Instalar este site como app</b>).','Marque <b>Abrir como janela</b> e confirme. O atalho vai para a área de trabalho e para o menu Iniciar.'])}`;
+  return['Instalar o app','Celular e computador',`<div class="seg pill" role="tablist">${[['android','Android','celular'],['iphone','iPhone','celular'],['pc','Computador','monitor']].map(([k,l,ic])=>`<button role="tab" aria-pressed="${t===k}" data-a="instTab" data-v="${k}">${I(ic,16)}${l}</button>`).join('')}</div>${corpo}`];
+};
+ACT.baixarApk=async()=>{
+  const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
+  if(!dl){toast('O download não está disponível nesta visualização. Abra a página no claude.ai.');return}
+  try{const r=await fetch(APK.arq);if(!r.ok)throw new Error('http');await dl.save({filename:APK.nome,data:await r.blob()});toast('Arquivo enviado para o seu aparelho.')}
+  catch(e){const c=e&&e.code;toast(c==='declined'?'Download cancelado.':c==='rate_limited'?'Já há um download aberto. Tente de novo em instantes.':'Não foi possível baixar agora.')}
+};
+function cardInstalar(){if(noApp())return'';return`<section class="card pad between inst-card"><div class="row" style="gap:12px;flex:1;min-width:220px">${LOGO(44)}<div class="grow"><b style="display:block">Leve o app no celular</b><span class="sm mu">Instale no Android ou crie o atalho no iPhone e no computador.</span></div></div><button class="btn btn-s sm" data-a="instalar">${I('baixar',16)} Instalar app</button></section>`}
+// botão voltar do Android
+window.voltarAndroid=function(){
+  if(UI.foco){ACT.focoSair();return true}
+  if(UI.sheet){fecharSheet();return true}
+  if(UI.stack.length){voltar();return true}
+  if(S.ativo&&UI.view!=='hoje'){go('hoje',{},{raiz:true});return true}
+  return false;
+};
+
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -2490,6 +2555,7 @@ function topo(){
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>
    ${busca}${demo}
+   <span class="desk-acoes">${noApp()?'':`<button class="btn btn-s sm" data-a="instalar">${I('baixar',17)} Instalar app</button>`}<button class="ico-b" data-a="fonte" aria-label="Tamanho do texto" title="Tamanho do texto" aria-pressed="${S.fonte==='grande'}"><span style="font-family:var(--h);font-weight:700">A<small style="font-size:.7em">a</small></span></button><button class="ico-b" data-a="temaCiclo" aria-label="Alternar tema claro e escuro" title="Tema">${I(document.documentElement.dataset.tema==='escuro'?'sol':'lua',19)}</button></span>
    <button class="av" data-a="go" data-v="perfil" aria-label="Abrir perfil">A</button></div>`;
 }
 function lateral(){
@@ -2502,7 +2568,7 @@ function lateral(){
    <span class="lbl">Recursos</span><nav>${sec.map(([v,l,ic,g])=>{const ok=!g||(g==='questoes'?temQuestoes():cb);return`<button class="nv" data-a="${v==='flash'||v==='dicas'?v:'go'}" data-v="${v}" ${g?`data-gate="${g}"`:''} ${UI.view===v?'aria-current="page"':''}>${I(ic)}${l}${ok?'':`<span class="lk">${I('lock',15)}</span>`}</button>`}).join('')}
     ${temQuestoes()?'':`<button class="nv" data-a="go" data-v="premium" ${UI.view==='premium'?'aria-current="page"':''}>${I('estrela')}Premium<span class="pr">Novo</span></button>`}</nav>`
    :`<nav><button class="nv" aria-current="page">${I('busca')}Catálogo</button><button class="nv" data-a="go" data-v="planos">${I('cartao')}Planos</button></nav>`}
-   <div class="rodape">${P?`<button class="nv" data-a="go" data-v="perfil" ${UI.view==='perfil'?'aria-current="page"':''}>${I('usuario')}Perfil · ${S.xp} XP</button>`:''}
+   <div class="rodape">${noApp()?'':`<button class="nv" data-a="instalar">${I('baixar')}Instalar app</button>`}${P?`<button class="nv" data-a="go" data-v="perfil" ${UI.view==='perfil'?'aria-current="page"':''}>${I('usuario')}Perfil · ${S.xp} XP</button>`:''}
    <button class="nv" data-a="tema" data-v="${{auto:'escuro',escuro:'claro',claro:'auto'}[S.tema||'auto']}">${I('lua')}Tema: ${{auto:'automático',escuro:'escuro',claro:'claro'}[S.tema||'auto']}</button>
    <button class="nv" data-a="sheet" data-s="demo">${I('ajuste')}Painel de demonstração</button></div>`;
 }
@@ -2539,6 +2605,6 @@ function toast(msg,xp=0){
   t.innerHTML=`<div class="toast" role="status">${xp?`<span class="xpb">+${xp} XP</span>`:''}<span>${esc(msg)}</span></div>`;
   tt=setTimeout(()=>t.innerHTML='',2800);
 }
-const start=(h)=>{if(h&&h.S){S=h.S;UI.view=h.view;UI.p=h.p||{}}if(!S.hist)S.hist={};if(S.ativo&&!S.onbVisto)S.onbVisto=true;aplicarTema();checarSequencia();render(true)};
+const start=(h)=>{if(h&&h.S){S=h.S;UI.view=h.view;UI.p=h.p||{}}if(!S.hist)S.hist={};if(S.ativo&&!S.onbVisto)S.onbVisto=true;aplicarTema();aplicarFonte();if(desk())UI.planoModo='mes';checarSequencia();render(true)};
 window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??null);
 </script>
