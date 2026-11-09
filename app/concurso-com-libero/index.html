@@ -2497,7 +2497,8 @@ ACT.compartilhar=d=>{UI.conqRasc=d.t;UI.rasc='';go('comunidade',{},{raiz:true});
 
 // ---------- versão computador e instalação ----------
 Object.assign(ICONS,{baixar:'<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',sol:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',celular:'<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>',monitor:'<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'});
-const APK={versao:'1.0',arq:'instalar/concurso-com-libero-android.zip',nome:'Concurso com Líbero - Android.zip'};
+// Link público do APK (ex.: arquivo compartilhado no Google Drive). Vazio = mostra como conseguir o app.
+const APK={versao:'1.0',url:''};
 const noApp=()=>!!window.AndroidApp;
 function aplicarFonte(){document.documentElement.dataset.fonte=S.fonte==='grande'?'grande':'normal'}
 ACT.fonte=()=>{S.fonte=S.fonte==='grande'?'normal':'grande';salvar();aplicarFonte();toast(S.fonte==='grande'?'Texto maior ativado.':'Texto no tamanho padrão.')};
@@ -2511,19 +2512,13 @@ SHEETS.instalar=()=>{
   const passos=l=>`<ol class="passos">${l.map(x=>`<li>${x}</li>`).join('')}</ol>`;
   let corpo='';
   if(t==='android')corpo=`<div class="inst-hero">${LOGO(56)}<div><b>Concurso com Líbero para Android</b><span class="sm mu">Versão ${APK.versao} · APK · funciona offline com os dados de exemplo e a Coleção PPPE</span></div></div>
-   <button class="btn btn-p w" data-a="baixarApk">${I('baixar',18)} Baixar para Android</button>
-   ${passos(['Toque em <b>Baixar para Android</b>. Vem um arquivo .zip com o app dentro.','Abra o .zip no app <b>Arquivos</b> e toque em <b>concurso-com-libero.apk</b>.','Se o Android pedir, permita <b>instalar apps desta fonte</b> e toque em <b>Instalar</b>.','Abra o <b>Concurso com Líbero</b> pela tela inicial.'])}
+   ${APK.url?`<a class="btn btn-p w" href="${APK.url}" target="_blank" rel="noopener">${I('baixar',18)} Baixar para Android</a>`:`<div class="aviso neutro">${I('celular')}<div class="grow sm"><span>O arquivo de instalação (<b>concurso-com-libero.apk</b>) é enviado pelo Concurso com Líbero, por link ou mensagem. Em breve, o download fica direto aqui.</span></div></div>`}
+   ${passos([APK.url?'Toque em <b>Baixar para Android</b>.':'Abra o link ou a mensagem com o arquivo <b>concurso-com-libero.apk</b> no celular.','Toque no arquivo baixado (fica em <b>Downloads</b>).','Se o Android pedir, permita <b>instalar apps desta fonte</b> e toque em <b>Instalar</b>.','Abra o <b>Concurso com Líbero</b> pela tela inicial.'])}
    <p class="xs mu">É uma versão de teste, fora da Play Store. A comunidade, as assinaturas e o progresso entre aparelhos funcionam na versão web.</p>`;
   if(t==='iphone')corpo=`${passos(['O iPhone não instala APK. Use o atalho na Tela de Início:','Abra esta página no <b>Safari</b>.','Toque em <b>Compartilhar</b> (o quadrado com a seta).','Escolha <b>Adicionar à Tela de Início</b> e confirme.'])}<p class="xs mu">O atalho abre o app em tela cheia, como os outros apps.</p>`;
   if(t==='pc')corpo=`<p class="sm">No computador, o Concurso com Líbero funciona no navegador, nesta mesma página, com menu lateral e calendário completo.</p>
    ${passos(['Para abrir em janela própria no <b>Chrome</b> ou no <b>Edge</b>: abra o menu <b>⋮</b>.','Vá em <b>Transmitir, salvar e compartilhar</b> → <b>Criar atalho</b> (no Edge: <b>Apps</b> → <b>Instalar este site como app</b>).','Marque <b>Abrir como janela</b> e confirme. O atalho vai para a área de trabalho e para o menu Iniciar.'])}`;
   return['Instalar o app','Celular e computador',`<div class="seg pill" role="tablist">${[['android','Android','celular'],['iphone','iPhone','celular'],['pc','Computador','monitor']].map(([k,l,ic])=>`<button role="tab" aria-pressed="${t===k}" data-a="instTab" data-v="${k}">${I(ic,16)}${l}</button>`).join('')}</div>${corpo}`];
-};
-ACT.baixarApk=async()=>{
-  const dl=window.claude&&window.claude.use?await window.claude.use('downloads'):null;
-  if(!dl){toast('O download não está disponível nesta visualização. Abra a página no claude.ai.');return}
-  try{const r=await fetch(APK.arq);if(!r.ok)throw new Error('http');await dl.save({filename:APK.nome,data:await r.blob()});toast('Arquivo enviado para o seu aparelho.')}
-  catch(e){const c=e&&e.code;toast(c==='declined'?'Download cancelado.':c==='rate_limited'?'Já há um download aberto. Tente de novo em instantes.':'Não foi possível baixar agora.')}
 };
 function cardInstalar(){if(noApp())return'';return`<section class="card pad between inst-card"><div class="row" style="gap:12px;flex:1;min-width:220px">${LOGO(44)}<div class="grow"><b style="display:block">Leve o app no celular</b><span class="sm mu">Instale no Android ou crie o atalho no iPhone e no computador.</span></div></div><button class="btn btn-s sm" data-a="instalar">${I('baixar',16)} Instalar app</button></section>`}
 // botão voltar do Android
