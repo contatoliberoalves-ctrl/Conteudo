@@ -1,0 +1,118 @@
+{
+  "id": "08-edital-saiu-e-travou",
+  "serie": "dicas",
+  "estilo": "motivacional",
+  "trilha": "trilha-motivacional",
+  "volTrilha": 0.15,
+  "titulo": "O edital saiu e você travou?",
+  "voz": "dantas",
+  "ajustesVoz": {
+    "stability": 0.32,
+    "similarity_boost": 0.8,
+    "style": 0.55,
+    "use_speaker_boost": true,
+    "speed": 1.02
+  },
+  "capa": {
+    "linhas": [
+      "O edital saiu",
+      "e você [[travou]]?"
+    ]
+  },
+  "legenda": "Respira. Todo aprovado já sentiu isso. 💚\n\n1. Comece pelo peso: a matéria com mais questões, e que elimina, vem primeiro.\n2. Questões desde o primeiro dia: é assim que você aprende como a banca pergunta.\n3. Marque no edital o que já estudou: ver o progresso é combustível.\n\nVocê não precisa ver a escada inteira. Só precisa subir o primeiro degrau.\n\nComenta EDITAL que eu te mando o app Edital com Líbero.\n\n#concurseiro #edital #motivacao #concursopublico #comoestudar",
+  "legendas": [],
+  "cenas": [
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "respira."
+      ],
+      "fala": "O edital saiu, você abriu, viu aquele monte de matéria, e travou? Respira. Todo aprovado já sentiu isso."
+    },
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "partes."
+      ],
+      "fala": "Edital não se lê de uma vez. Se ataca por partes."
+    },
+    {
+      "tipo": "dica",
+      "n": 1,
+      "titulo": [
+        "Comece pelo",
+        "[[peso]]"
+      ],
+      "icone": "alvo",
+      "texto": "A matéria com mais questões, e que elimina, vem primeiro.",
+      "em": "questões",
+      "fala": "Dica um: comece pelo peso. A matéria com mais questões, e que elimina, vem primeiro."
+    },
+    {
+      "tipo": "dica",
+      "n": 2,
+      "titulo": [
+        "Questões",
+        "[[desde o dia 1]]"
+      ],
+      "icone": "livro",
+      "texto": "É assim que você aprende como a banca pergunta.",
+      "em": "descobre",
+      "fala": "Dica dois: questões desde o primeiro dia. É assim que você descobre o jeito que a banca pergunta."
+    },
+    {
+      "tipo": "dica",
+      "n": 3,
+      "titulo": [
+        "Marque o que",
+        "[[já estudou]]"
+      ],
+      "icone": "revisao",
+      "texto": "Ver o progresso aparecer é combustível pra continuar.",
+      "em": "progresso",
+      "fala": "Dica três: marque no edital o que você já estudou. Ver o progresso aparecer é combustível pra continuar."
+    },
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "primeiro"
+      ],
+      "fala": "Você não precisa ver a escada inteira. Só precisa subir o primeiro degrau."
+    },
+    {
+      "tipo": "cta",
+      "produto": "edital",
+      "titulo": [
+        "Seu edital",
+        "[[organizado]]"
+      ],
+      "comenta": "EDITAL",
+      "tela": {
+        "sub": "Seu edital",
+        "itens": [
+          [
+            "Língua Portuguesa",
+            0.6
+          ],
+          [
+            "Direito Constitucional",
+            0.4
+          ],
+          [
+            "Direito Administrativo",
+            0.3
+          ],
+          [
+            "Informática",
+            0.5
+          ],
+          [
+            "Raciocínio Lógico",
+            0.15
+          ]
+        ]
+      },
+      "fala": "Comenta EDITAL que eu te mando o app Edital com Líbero, pra marcar seu progresso matéria por matéria."
+    }
+  ]
+}

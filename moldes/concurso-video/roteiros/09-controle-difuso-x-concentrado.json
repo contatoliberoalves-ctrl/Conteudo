@@ -1,0 +1,149 @@
+{
+  "id": "09-controle-difuso-x-concentrado",
+  "serie": "descomplica",
+  "titulo": "Controle difuso x concentrado",
+  "voz": "adriano",
+  "legenda": "Nunca mais confunda 👇\n\nDIFUSO: qualquer juiz ou tribunal, num caso concreto. A decisão vale para as partes do processo.\nCONCENTRADO: o STF julga a lei em tese, sem caso concreto (ADI, ADC, ADO e ADPF). A decisão vale para todos e vincula (CF, art. 102, § 2º).\n\nPegadinha: tribunal só declara inconstitucionalidade pela maioria absoluta do plenário ou do órgão especial (CF, art. 97). A turma sozinha não pode afastar a lei (Súmula Vinculante 10).\n\nComenta CURSO que eu te mando o link do Curso Concurso com Líbero.\n\n#direitoconstitucional #controledeconstitucionalidade #concursopublico #concurseiro",
+  "legendas": [
+    [
+      "noventa e sete",
+      "97"
+    ],
+    [
+      "Súmula Vinculante dez",
+      "Súmula Vinculante 10"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "selo": "Cai em prova",
+      "linhas": [
+        "Difuso ou",
+        "[[concentrado]]?"
+      ],
+      "sub": "Pensa no futebol.",
+      "fala": "Controle difuso ou concentrado? Se você confunde os dois, pensa no futebol.",
+      "ts": 128
+    },
+    {
+      "tipo": "fichas",
+      "titulo": "Pensa no futebol",
+      "itens": [
+        {
+          "rot": "Árbitro da partida",
+          "valor": "Difuso",
+          "detalhe": "decide o lance daquele jogo",
+          "em": "árbitro"
+        },
+        {
+          "rot": "Quem muda a regra",
+          "valor": "Concentrado",
+          "detalhe": "vale para todos os jogos",
+          "em": "regra"
+        }
+      ],
+      "fala": "O árbitro decide o lance daquele jogo: isso é o controle difuso. Quem muda a regra do campeonato muda pra todos os jogos: isso é o concentrado."
+    },
+    {
+      "tipo": "versus",
+      "titulo": "A diferença",
+      "lados": [
+        {
+          "nome": "Difuso",
+          "itens": [
+            {
+              "t": "**Qualquer juiz** ou tribunal",
+              "em": "qualquer"
+            },
+            {
+              "t": "Num **caso concreto**",
+              "em": "concreto"
+            },
+            {
+              "t": "Vale **para as partes**",
+              "em": "partes"
+            }
+          ]
+        },
+        {
+          "nome": "Concentrado",
+          "itens": [
+            {
+              "t": "No **STF**",
+              "em": "Supremo"
+            },
+            {
+              "t": "A **lei em tese**",
+              "em": "tese"
+            },
+            {
+              "t": "Vale **para todos** e vincula",
+              "em": "todos"
+            }
+          ]
+        }
+      ],
+      "fala": "No difuso, qualquer juiz ou tribunal analisa a lei num caso concreto, e a decisão vale para as partes. No concentrado, o Supremo julga a lei em tese, sem caso concreto, e a decisão vale para todos."
+    },
+    {
+      "tipo": "lista",
+      "titulo": [
+        "As ações do",
+        "[[concentrado]]"
+      ],
+      "itens": [
+        {
+          "t": "ADI: inconstitucionalidade",
+          "em": "direta"
+        },
+        {
+          "t": "ADC: constitucionalidade",
+          "em": "declaratória"
+        },
+        {
+          "t": "ADO: omissão",
+          "em": "omissão"
+        },
+        {
+          "t": "ADPF: preceito fundamental",
+          "em": "arguição"
+        }
+      ],
+      "fala": "No concentrado, são quatro ações: a ação direta de inconstitucionalidade, a declaratória de constitucionalidade, a por omissão e a arguição de descumprimento de preceito fundamental."
+    },
+    {
+      "tipo": "regra",
+      "n": 97,
+      "titulo": "Reserva de plenário",
+      "icone": "alerta",
+      "pode": "Tribunal só declara inconstitucional pela maioria absoluta do pleno ou do órgão especial",
+      "em": "maioria",
+      "excecao": "A turma sozinha não pode afastar a lei",
+      "emExcecao": "turma",
+      "fonte": "CF, art. 97 · Súmula Vinculante 10",
+      "fala": "E a pegadinha do artigo noventa e sete: tribunal só declara uma lei inconstitucional pela maioria absoluta do plenário ou do órgão especial. A turma sozinha não pode afastar a lei. É a Súmula Vinculante dez."
+    },
+    {
+      "tipo": "frase",
+      "linhas": [
+        "Difuso:",
+        "[[caso concreto]]",
+        "Concentrado:",
+        "lei em tese"
+      ],
+      "ts": 118,
+      "fala": "Então grava: difuso, caso concreto. Concentrado, lei em tese."
+    },
+    {
+      "tipo": "cta",
+      "produto": "curso",
+      "titulo": [
+        "Treine com",
+        "[[questões]]"
+      ],
+      "comenta": "CURSO",
+      "fala": "Comenta CURSO que eu te mando o link do Curso Concurso com Líbero, com banco de questões pra treinar controle de constitucionalidade."
+    }
+  ]
+}

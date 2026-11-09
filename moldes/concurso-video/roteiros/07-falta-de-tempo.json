@@ -1,0 +1,107 @@
+{
+  "id": "07-falta-de-tempo",
+  "serie": "dicas",
+  "estilo": "motivacional",
+  "trilha": "trilha-motivacional",
+  "volTrilha": 0.15,
+  "titulo": "Você não tem falta de tempo",
+  "voz": "dantas",
+  "ajustesVoz": {
+    "stability": 0.32,
+    "similarity_boost": 0.8,
+    "style": 0.55,
+    "use_speaker_boost": true,
+    "speed": 1.02
+  },
+  "capa": {
+    "linhas": [
+      "Você não tem",
+      "falta de [[tempo]]"
+    ]
+  },
+  "legenda": "Tempo picado também aprova. 💚\n\n15 minutos por dia, durante um ano = mais de 91 horas de estudo.\n\n1. Blocos de 25 minutos: foco total, 5 de pausa, repete.\n2. Fila também é estudo: flashcards e questões no celular.\n3. Decida na véspera o que vai estudar amanhã.\n\nQuem espera ter tempo sobrando pra estudar espera pra sempre.\n\nComenta CURSO que eu te mando o link do Curso Concurso com Líbero.\n\n#concurseiro #rotinadeestudos #motivacao #concursopublico #gestaodotempo",
+  "legendas": [
+    [
+      "vinte e cinco minutos",
+      "25 minutos"
+    ],
+    [
+      "cinco de pausa",
+      "5 de pausa"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "picado."
+      ],
+      "fala": "Você não tem falta de tempo. Você tem tempo picado. E tempo picado também aprova."
+    },
+    {
+      "tipo": "numero",
+      "antes": "15 minutos por dia, durante 1 ano",
+      "de": 0,
+      "ate": 91,
+      "casas": 0,
+      "sufixo": " h",
+      "em": "noventa",
+      "depois": "de estudo",
+      "emDepois": "estudo",
+      "fala": "Faz a conta: quinze minutos por dia, num ano, dão mais de noventa horas de estudo."
+    },
+    {
+      "tipo": "dica",
+      "n": 1,
+      "titulo": [
+        "Blocos de",
+        "[[25 min]]"
+      ],
+      "icone": "relogio",
+      "texto": "Foco total, 5 de pausa. E repete.",
+      "em": "foco",
+      "fala": "Dica um: estude em blocos de vinte e cinco minutos. Foco total, cinco de pausa, e repete. Bloco curto não assusta. E o difícil é começar."
+    },
+    {
+      "tipo": "dica",
+      "n": 2,
+      "titulo": [
+        "Fila também",
+        "[[é estudo]]"
+      ],
+      "icone": "livro",
+      "texto": "Flashcards e questões no celular: na fila, no ônibus, no intervalo.",
+      "em": "flashcards",
+      "fala": "Dica dois: fila também é estudo. Flashcards e questões no celular, no ônibus, no intervalo do trabalho."
+    },
+    {
+      "tipo": "dica",
+      "n": 3,
+      "titulo": [
+        "Decida",
+        "[[na véspera]]"
+      ],
+      "icone": "alvo",
+      "texto": "Antes de dormir, escolha o que vai estudar amanhã.",
+      "em": "dormir",
+      "fala": "Dica três: decida na véspera. Antes de dormir, escolhe o que vai estudar amanhã. Quem acorda sem plano gasta o melhor tempo do dia decidindo."
+    },
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "sempre."
+      ],
+      "fala": "Quem espera ter tempo sobrando pra estudar, espera pra sempre."
+    },
+    {
+      "tipo": "cta",
+      "produto": "curso",
+      "titulo": [
+        "Estude até",
+        "[[na fila]]"
+      ],
+      "comenta": "CURSO",
+      "fala": "Comenta CURSO que eu te mando o link do Curso Concurso com Líbero. Banco de questões e flashcards pra estudar até na fila."
+    }
+  ]
+}

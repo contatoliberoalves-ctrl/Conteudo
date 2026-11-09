@@ -181,7 +181,7 @@ const Fichas: React.FC<any> = ({ c, k }) => {
         <Entra em={ems[i]} y={50} s={0.9} m={mola.snappy}>
           <div style={{ background: cor.papel, borderRadius: 26, padding: grade ? '30px 28px 30px' : '34px 36px', minHeight: grade ? 330 : 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ ...sora(grade ? 24 : 28, cor.cinza) }}>{x.rot}</div>
-            <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: grade ? (String(x.valor).length > 7 ? 100 : 120) : 130, lineHeight: 0.95, color: cor.tinta, textTransform: 'uppercase', marginTop: 10 }}>
+            <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: grade ? (String(x.valor).length > 7 ? 100 : 120) : 130, lineHeight: 0.95, color: cor.tinta, textTransform: 'uppercase', marginTop: 16 }}>
               {x.conta != null ? <Conta alvo={x.conta} em={ems[i] + 2} prefixo={x.prefixo} /> : x.valor}</div>
             {x.detalhe && <div style={{ ...txt(grade ? 30 : 34, 600, cor.cinza), marginTop: 10 }}>{x.detalhe}</div>}
           </div>
@@ -198,8 +198,8 @@ const Rosca: React.FC<any> = ({ c, k }) => {
   const ems = partes.map((p: any, i: number) => m(p.em, 20 + i * 30));
   const eNota = m(c.emNota, 999);
   const total = partes.reduce((s: number, p: any) => s + p.valor, 0);
-  const R = partes.length > 2 ? 190 : 230, ESP = partes.length > 2 ? 84 : 96, C = 2 * Math.PI * R;
-  const cores = [cor.menta, cor.verde, cor.amarelo];
+  const R = partes.length > 3 ? 165 : partes.length > 2 ? 190 : 230, ESP = partes.length > 2 ? 80 : 96, C = 2 * Math.PI * R;
+  const cores = [cor.menta, cor.verde, cor.amarelo, cor.papel];
   let acum = 0;
   const r = useRespira(40, 3);
   return <Area>
@@ -216,7 +216,7 @@ const Rosca: React.FC<any> = ({ c, k }) => {
       </svg>
       <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: Math.round(R * 0.82), lineHeight: 0.85, color: cor.branco }}><Conta alvo={+c.centro} em={4} /></div>
-        <div style={sora(32, cor.menta)}>{c.centroRot}</div>
+        <div style={{ ...sora(Math.round(R * 0.13), cor.menta), letterSpacing: '.08em' }}>{c.centroRot}</div>
       </div>
     </div>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 40 }}>

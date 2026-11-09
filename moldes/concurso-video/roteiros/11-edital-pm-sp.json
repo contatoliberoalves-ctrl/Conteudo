@@ -1,0 +1,227 @@
+{
+  "id": "11-edital-pm-sp",
+  "serie": "edital",
+  "titulo": "Saiu o edital da PM SP",
+  "voz": "fernando",
+  "legenda": "SAIU! PM de São Paulo, Soldado 🚨 (Edital DP-4/321/26, banca Vunesp)\n\n• 2.000 vagas para todo o estado\n• R$ 5.482,51 iniciais\n• Ensino médio + CNH (B a E) na posse\n• Idade: 17 a 30 anos · altura mínima 1,60 m (homens) e 1,55 m (mulheres)\n• Taxa: R$ 110 (isenção para doador de sangue; redução de 50% para estudantes: pedido só até 11/11!)\n• Inscrições: 09/11 a 22/12/2026\n• Prova: 28/02/2027, objetiva + redação\n• 60 questões: Português 20, Matemática 15, Conhecimentos Gerais 15, Informática 5, Administração Pública 5. Mínimo de 30 pontos.\n• TAF: barra, abdominal remador, corrida de 50 m e de 2.400 m\n\nConfira tudo no edital (vunesp.com.br).\n\nComenta EDITAL que eu te mando o app Edital com Líbero 📲\n\n#pmsp #soldadopm #concursopmsp #vunesp #concursopublico #policiamilitar",
+  "legendas": [
+    [
+      "Duas mil",
+      "2.000"
+    ],
+    [
+      "cinco mil e quatrocentos",
+      "5.400"
+    ],
+    [
+      "cinco mil, quatrocentos e oitenta e dois reais",
+      "R$ 5.482"
+    ],
+    [
+      "dezessete a trinta",
+      "17 a 30"
+    ],
+    [
+      "sessenta",
+      "60"
+    ],
+    [
+      "Vinte",
+      "20"
+    ],
+    [
+      "quinze",
+      "15"
+    ],
+    [
+      "dez",
+      "10"
+    ],
+    [
+      "um terço",
+      "1/3"
+    ],
+    [
+      "onze de novembro",
+      "11/11"
+    ],
+    [
+      "vinte e dois de dezembro",
+      "22/12"
+    ],
+    [
+      "vinte e oito de fevereiro",
+      "28/02"
+    ],
+    [
+      "cinquenta metros",
+      "50 m"
+    ],
+    [
+      "dois mil e quatrocentos metros",
+      "2.400 m"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "selo": "Saiu o edital",
+      "numero": 2000,
+      "tn": 360,
+      "numeroRot": "vagas pra soldado",
+      "linhas": [
+        "PM de [[São Paulo]]"
+      ],
+      "fala": "Saiu o edital da PM de São Paulo! Duas mil vagas pra soldado, salário de cinco mil e quatrocentos reais, e só precisa do ensino médio."
+    },
+    {
+      "tipo": "fichas",
+      "titulo": "O essencial",
+      "itens": [
+        {
+          "rot": "Vagas",
+          "valor": "2.000",
+          "conta": 2000,
+          "detalhe": "para todo o estado",
+          "em": "vagas"
+        },
+        {
+          "rot": "Salário inicial",
+          "valor": "R$ 5.482",
+          "conta": 5482,
+          "prefixo": "R$ ",
+          "detalhe": "Vunesp · taxa R$ 110",
+          "em": "salário"
+        },
+        {
+          "rot": "Escolaridade",
+          "valor": "Médio",
+          "detalhe": "+ CNH na posse",
+          "em": "médio"
+        },
+        {
+          "rot": "Idade",
+          "valor": "17 a 30",
+          "detalhe": "anos",
+          "em": "dezessete"
+        }
+      ],
+      "fala": "São duas mil vagas pra todo o estado. Salário inicial de cinco mil, quatrocentos e oitenta e dois reais. Precisa de ensino médio, CNH na posse, e ter de dezessete a trinta anos."
+    },
+    {
+      "tipo": "rosca",
+      "titulo": "Como é a prova",
+      "partes": [
+        {
+          "rot": "Língua Portuguesa",
+          "valor": 20,
+          "em": "Português"
+        },
+        {
+          "rot": "Matemática",
+          "valor": 15,
+          "em": "Matemática"
+        },
+        {
+          "rot": "Conhecimentos gerais",
+          "valor": 15,
+          "em": "gerais"
+        },
+        {
+          "rot": "Informática e Adm. Pública",
+          "valor": 10,
+          "em": "Informática"
+        }
+      ],
+      "centro": "60",
+      "centroRot": "questões",
+      "nota": "Mínimo de 30 pontos + redação de até 30 linhas",
+      "emNota": "redação",
+      "fala": "A prova tem sessenta questões: vinte de Português, quinze de Matemática, quinze de conhecimentos gerais e dez de Informática e Administração Pública. Português sozinho é um terço da prova! E ainda tem redação."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Datas",
+      "itens": [
+        {
+          "data": "até 11/11",
+          "t": "Pedido de isenção ou redução da taxa",
+          "em": "isenção",
+          "alerta": true
+        },
+        {
+          "data": "até 22/12",
+          "t": "Inscrições (taxa de R$ 110)",
+          "em": "inscrições"
+        },
+        {
+          "data": "28/02/2027",
+          "t": "Prova objetiva e redação",
+          "em": "fevereiro"
+        }
+      ],
+      "fala": "Corre: o pedido de isenção da taxa vai só até onze de novembro. As inscrições vão até vinte e dois de dezembro. E a prova é dia vinte e oito de fevereiro."
+    },
+    {
+      "tipo": "lista",
+      "titulo": [
+        "TAF: comece",
+        "[[já]]"
+      ],
+      "itens": [
+        {
+          "t": "Barra fixa",
+          "em": "barra"
+        },
+        {
+          "t": "Abdominal remador",
+          "em": "abdominal"
+        },
+        {
+          "t": "Corrida de 50 m",
+          "em": "cinquenta"
+        },
+        {
+          "t": "Corrida de 2.400 m",
+          "em": "dois"
+        }
+      ],
+      "fala": "E já começa a treinar. O TAF tem barra fixa, abdominal remador, corrida de cinquenta metros e corrida de dois mil e quatrocentos metros."
+    },
+    {
+      "tipo": "cta",
+      "produto": "edital",
+      "titulo": [
+        "O edital inteiro",
+        "[[organizado]]"
+      ],
+      "comenta": "EDITAL",
+      "tela": {
+        "sub": "PM SP · Soldado",
+        "itens": [
+          [
+            "Língua Portuguesa",
+            0.7
+          ],
+          [
+            "Matemática",
+            0.45
+          ],
+          [
+            "Conhecimentos Gerais",
+            0.3
+          ],
+          [
+            "Informática",
+            0.6
+          ],
+          [
+            "Administração Pública",
+            0.2
+          ]
+        ]
+      },
+      "fala": "Comenta EDITAL que eu te mando o app Edital com Líbero, com o edital da PM organizado matéria por matéria."
+    }
+  ]
+}

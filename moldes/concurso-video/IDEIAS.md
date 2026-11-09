@@ -33,7 +33,7 @@ Evite: "Olá, pessoal", "Hoje eu vou falar sobre", logo animado no começo, perg
 
 ### Você sabia? (curiosidades)
 - ✅ **4 coisas que o edital não pode fazer com você** (tatuagem, idade, psicotécnico, nomeação). *Feito: `01-direitos-do-candidato`.*
-- "Aprovado fora das vagas também pode ser nomeado": quando surge vaga e há preterição arbitrária (STF, Tema 784). Gancho: "Passou fora das vagas? Ainda não acabou."
+- ✅ **Passou fora das vagas? Ainda não acabou** (Súmula 15, Tema 784, temporário). *Feito: `10-passou-fora-das-vagas`.*
 - "A Constituição de 1937 tinha apelido: a Polaca." As 7 Constituições do Brasil numa linha do tempo (`etapas`). Gancho: "O Brasil já teve 7 Constituições. Uma tinha apelido."
 - "Por que existe o 'prazo de validade' do concurso": até 2 anos, prorrogável uma vez por igual período (CF, art. 37, III). Gancho: "Seu concurso tem data de validade. E pode vencer com você aprovado."
 - "O cargo público mais disputado do Brasil" (relação candidato/vaga de um concurso recente, com fonte). Gancho com número.
@@ -44,7 +44,7 @@ Evite: "Olá, pessoal", "Hoje eu vou falar sobre", logo animado no começo, perg
 
 ### Descomplica (assuntos que confundem)
 - ✅ **Imunidade x isenção** (com a pegadinha do art. 195, § 7º). *Feito: `02-imunidade-x-isencao`.*
-- **Controle difuso x concentrado**: analogia do VAR (difuso = qualquer juiz no caso concreto; concentrado = STF julgando a lei em tese). Cenas: `gancho` → `versus` → `analogia` → `lista` (ADI, ADC, ADO, ADPF) → `lei` (art. 97: cláusula de reserva de plenário) → `cta`.
+- ✅ **Controle difuso x concentrado** (feito: `09-controle-difuso-x-concentrado`, analogia do árbitro x quem muda a regra). Ideia original: analogia do VAR (difuso = qualquer juiz no caso concreto; concentrado = STF julgando a lei em tese). Cenas: `gancho` → `versus` → `analogia` → `lista` (ADI, ADC, ADO, ADPF) → `lei` (art. 97: cláusula de reserva de plenário) → `cta`.
 - **Dispensa x inexigibilidade de licitação (Lei 14.133)**: dispensa = dá pra competir, mas a lei libera; inexigível = não dá pra competir (ex.: artista consagrado). Gancho: "Uma é 'pode, mas não precisa'. A outra é 'nem tem como'."
 - **Prescrição x decadência**: "uma mata o direito, a outra mata a ação".
 - **Anulação x revogação** do ato administrativo (Súmula 473): ilegal x inconveniente; efeitos ex tunc x ex nunc.
@@ -56,6 +56,8 @@ Evite: "Olá, pessoal", "Hoje eu vou falar sobre", logo animado no começo, perg
 
 ### Edital na mão
 - ✅ **Polícia Penal PE: saiu!** *Feito: `03-edital-policia-penal-pe`.*
+- ✅ **TJSP: Escrevente e Oficial** *Feito: `04-edital-tjsp`.*
+- ✅ **PM SP Soldado: saiu!** (2.000 vagas, isenção só até 11/11). *Feito: `11-edital-pm-sp`.*
 - **Polícia Penal PE: o que mais cai**: precisa do quadro de questões por matéria do edital (o vídeo 1 usou só 20 gerais x 40 específicas, que as fontes confirmam). Pegue no PDF oficial antes de fazer.
 - **Polícia Penal PE: por onde começar**: 1) Execução Penal e Legislação Especial primeiro (o miolo do cargo); 2) Português toda semana; 3) TAF desde já; 4) redação a partir do 2º mês.
 - **Contagem regressiva**: "Faltam X dias para acabar a isenção da taxa" (cena `etapas` só com o alerta).
@@ -64,8 +66,8 @@ Evite: "Olá, pessoal", "Hoje eu vou falar sobre", logo animado no começo, perg
 ### Dicas de estudo (estilo motivacional)
 - ✅ **Você não precisa estudar 10 horas por dia** (constância, 1% ao dia = 37,8x, 3 dicas). *Feito: `05-dez-horas-por-dia`.*
 - ✅ **Você estuda e esquece tudo?** (revisão em 24 h, 7 e 30 dias; teste, não releia). *Feito: `06-estuda-e-esquece`.*
-- "Você não tem falta de tempo. Tem falta de prioridade." (bloco de 25 min, o que cortar, o horário que ninguém usa).
-- "O edital saiu e você travou?" (por onde começar: peso das matérias, uma por vez, questões desde o dia 1).
+- ✅ **Você não tem falta de tempo** (15 min/dia = 91 h/ano, blocos de 25 min, fila é estudo, decida na véspera). *Feito: `07-falta-de-tempo`.*
+- ✅ **O edital saiu e você travou?** (peso, questões desde o dia 1, marcar o progresso). *Feito: `08-edital-saiu-e-travou`.*
 - "Reprovou? Lê isso antes de desistir." (análise da prova, o que manter, o que mudar).
 - "Estudar cansado rende?" (sono e memória, pausas, o dia de descanso).
 

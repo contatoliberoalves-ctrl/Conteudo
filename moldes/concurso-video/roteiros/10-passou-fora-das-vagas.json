@@ -1,0 +1,105 @@
+{
+  "id": "10-passou-fora-das-vagas",
+  "serie": "curiosidade",
+  "titulo": "Passou fora das vagas? Ainda não acabou",
+  "voz": "adriano",
+  "legenda": "Passou fora das vagas? Ainda não acabou. 👇\n\n1. Nomearam alguém atrás de você na classificação: você tem direito à nomeação (Súmula 15 do STF).\n2. Surgiu vaga ou abriram novo concurso durante a validade: sozinho, isso não garante nomeação. Mas, se houver preterição arbitrária e imotivada, nasce o direito (STF, RE 837.311, Tema 784).\n3. Contrataram temporário ou terceirizado para a mesma função durante a validade: pode caracterizar essa preterição.\n\nSalva e manda pro amigo que está no cadastro de reserva.\n\nComenta CURSO que eu te mando o link do Curso Concurso com Líbero.\n\n#concursopublico #cadastrodereserva #concurseiro #direitoadministrativo",
+  "legendas": [
+    [
+      "Súmula quinze",
+      "Súmula 15"
+    ],
+    [
+      "Um:",
+      "1:"
+    ],
+    [
+      "Dois:",
+      "2:"
+    ],
+    [
+      "Três:",
+      "3:"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "selo": "Direito seu",
+      "linhas": [
+        "Passou fora",
+        "das vagas?",
+        "Ainda não [[acabou]]"
+      ],
+      "fala": "Passou fora do número de vagas? Ainda não acabou. Tem três situações em que você pode, sim, ser nomeado."
+    },
+    {
+      "tipo": "regra",
+      "n": 1,
+      "titulo": "Furaram a fila",
+      "icone": "alerta",
+      "pode": "Nomearam alguém atrás de você? Você tem direito à nomeação",
+      "em": "atrás",
+      "excecao": "Dentro do prazo de validade do concurso",
+      "emExcecao": "validade",
+      "fonte": "Súmula 15 do STF",
+      "fala": "Um: furaram a fila. Se nomearam alguém que ficou atrás de você na classificação, você tem direito à nomeação, dentro da validade do concurso. É a Súmula quinze do Supremo."
+    },
+    {
+      "tipo": "regra",
+      "n": 2,
+      "titulo": "Vaga nova",
+      "icone": "nomeacao",
+      "pode": "Surgiu vaga e houve preterição arbitrária? Nasce o direito",
+      "em": "preterição",
+      "excecao": "Vaga nova, sozinha, não garante nomeação",
+      "emExcecao": "sozinha",
+      "fonte": "STF · RE 837.311 (Tema 784)",
+      "fala": "Dois: surgiu vaga nova durante a validade. Sozinha, ela não garante nomeação. Mas, se a administração te preterir de forma arbitrária e sem motivo, aí nasce o direito."
+    },
+    {
+      "tipo": "regra",
+      "n": 3,
+      "titulo": "Temporário",
+      "icone": "cerebro",
+      "pode": "Contrataram temporário pra sua função? Pode ser preterição",
+      "em": "temporário",
+      "excecao": "Durante a validade, com você aprovado esperando",
+      "emExcecao": "aprovado",
+      "fonte": "STF · Tema 784 (preterição)",
+      "fala": "Três: contrataram temporário ou terceirizado pra mesma função, durante a validade, com você aprovado esperando. Isso pode caracterizar justamente essa preterição."
+    },
+    {
+      "tipo": "lista",
+      "titulo": [
+        "Guarda essa",
+        "[[lista]]"
+      ],
+      "itens": [
+        {
+          "t": "Furaram a fila = direito",
+          "em": "fila"
+        },
+        {
+          "t": "Vaga nova + preterição = direito",
+          "em": "vaga"
+        },
+        {
+          "t": "Temporário na sua função = alerta",
+          "em": "temporário"
+        }
+      ],
+      "fala": "Resumindo: furaram a fila, é direito. Vaga nova com preterição, é direito. Temporário na sua função, acende o alerta."
+    },
+    {
+      "tipo": "cta",
+      "produto": "curso",
+      "titulo": [
+        "Estude o que a",
+        "banca [[cobra]]"
+      ],
+      "comenta": "CURSO",
+      "fala": "E pra passar dentro das vagas da próxima vez: comenta CURSO que eu te mando o link do Curso Concurso com Líbero."
+    }
+  ]
+}
