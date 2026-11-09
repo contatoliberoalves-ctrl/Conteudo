@@ -1,0 +1,25 @@
+{
+  "pauta": 32,
+  "serie": "Casos que viraram direito",
+  "titulo": "Está escrito na Constituição. E é proibido.",
+  "cenas": [
+    { "tipo": "gancho", "texto": "Está na\nConstituição.\nE é **proibido.**", "fala": "Está escrito na Constituição. E nenhum juiz pode aplicar." },
+    { "tipo": "documentos",
+      "a": { "cabecalho": "CF/88 · art. 5º, LXVII", "texto": "Não haverá prisão civil por dívida, salvo a do responsável pelo inadimplemento de obrigação alimentícia e a do **depositário infiel**." },
+      "b": { "cabecalho": "Súmula Vinculante 25", "texto": "É **ilícita** a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito." },
+      "ponte": "2009 · STF", "segundoEm": 6.2,
+      "fala": "Artigo quinto, inciso sessenta e sete. Não existe prisão por dívida, com duas exceções: quem não paga pensão alimentícia e o depositário infiel. Agora olha a Súmula Vinculante vinte e cinco." },
+    { "tipo": "frase", "data": "Depositário infiel", "texto": "Quem recebe um bem\npara **guardar**\ne não devolve.", "fala": "Depositário infiel é quem recebeu um bem para guardar e não devolveu quando foi cobrado." },
+    { "tipo": "pausa", "texto": "Como uma súmula proíbe\no que a Constituição\n**permite?**", "fala": "Então como uma súmula proíbe o que a Constituição permite?" },
+    { "tipo": "linha", "virada": 1, "marcos": [
+        { "data": "1992", "texto": "O Brasil adere ao Pacto de San José da Costa Rica" },
+        { "data": "2008", "texto": "STF: o tratado fica **acima das leis** comuns" },
+        { "data": "2009", "texto": "Súmula Vinculante 25" }
+      ], "fala": "Em noventa e dois, o Brasil aderiu ao Pacto de San José, que só admite prisão por dívida de pensão alimentícia. Em dois mil e oito, o Supremo decidiu que esse tratado fica acima das leis comuns." },
+    { "tipo": "frase", "texto": "A Constituição permite.\nMas não **obriga.**", "nota": "As leis que regulavam essa prisão ficaram sem aplicação. O inciso continua escrito, mas não tem como ser usado.", "fala": "O detalhe: a Constituição permite essa prisão, mas não obriga. As leis que a regulavam ficaram sem aplicação, porque o tratado está acima delas. O inciso continua lá. Só não tem como ser usado." },
+    { "tipo": "pergunta", "texto": "Isso cai na OAB.\nVocê **sabia?**", "rotulo": "Manda pra quem estuda", "fala": "Isso cai em prova da OAB e de concurso. Manda pra quem está estudando. E me diz: você sabia?" }
+  ],
+  "legenda": "Está no art. 5º, LXVII, da Constituição: prisão civil do depositário infiel. E é proibida.\n\nEm 2008, no RE 466343, o STF decidiu que os tratados de direitos humanos, como o Pacto de San José da Costa Rica, ficam acima das leis comuns. As leis que regulavam essa prisão ficaram sem aplicação, e a Súmula Vinculante 25 fechou a questão: é ilícita a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito.\n\nVocê sabia? Marca quem vai fazer OAB.",
+  "fontes": ["STF · RE 466343, Tema 60", "STF · Súmula Vinculante 25", "CF/88, art. 5º, LXVII"],
+  "hashtags": ["direitoconstitucional", "oab", "stf", "concursos", "sumulavinculante"]
+}
