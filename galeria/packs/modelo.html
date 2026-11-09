@@ -39,6 +39,7 @@ h2.grupo { font: 800 11px/1 var(--mo); letter-spacing: .22em; text-transform: up
 h2.grupo::after { content: ""; flex: 1; height: 1px; background: var(--linha) }
 .pack { background: var(--chao); border: 1.5px solid var(--linha); border-radius: 18px; padding: 20px; display: grid; gap: 18px; margin-bottom: 16px }
 .cab { display: flex; flex-wrap: wrap; gap: 16px; align-items: center }
+.selo { flex: none; width: 58px; height: 62px; border-radius: 10px }
 .patch { flex: none; width: 58px; padding: 5px 5px 4px; border-radius: 9px; background: #04312C; transform: rotate(-5deg); box-shadow: 0 6px 14px var(--sombra) }
 .patch i { display: block; height: 30px; border-radius: 4px; background: linear-gradient(#1E4FA8 0 58%, #fff 58%) }
 .patch b { display: block; text-align: center; font: 900 12px/1.2 var(--t); color: #B9FFF1; letter-spacing: .08em; margin-top: 2px }
@@ -123,7 +124,7 @@ function lista() {
   $('#lista').innerHTML = Object.entries(porGrupo).map(([g, ps]) => `<h2 class="grupo">${esc(g)}</h2>` + ps.map(p => `
     <section class="pack">
       <div class="cab">
-        <div class="patch" aria-hidden="true"><i></i><b>${esc(p.uf || p.sigla)}</b></div>
+        <img class="selo" src="img/selo-${esc(p.id)}.webp" alt="" width="58" height="62">
         <div class="nome"><h3>${esc(p.nome)}</h3><p>Pack de ${p.materiais.length} materiais${p.cargo ? ' · ' + esc(p.cargo) : ''}</p>
           <div class="fatos">${[['Banca', p.banca], ['Vagas', p.vagas], ['Prova', p.prova]].filter(x => x[1]).map(([a, b]) => `<span><b>${a.toUpperCase()}</b>${esc(b)}</span>`).join('')}</div></div>
         <button class="btn" data-zip="${esc(p.id)}">Baixar pack (.zip)</button>

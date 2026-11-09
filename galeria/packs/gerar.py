@@ -45,6 +45,11 @@ for m in dados:
 lista = []
 for cid, mats in packs.items():
     c = colecoes[cid]
+    capa = MOLDE / 'saida' / sorted(mats, key=lambda x: x['n'])[0]['id'] / '1.png'
+    im = Image.open(capa).convert('RGBA')
+    k = im.width / 1080
+    im.crop((int(728 * k), int(180 * k), int(1030 * k), int(500 * k))).resize((116, 124), Image.LANCZOS).save(DIST / 'img' / f'selo-{cid}.webp', quality=88)
+    files[f'img/selo-{cid}.webp'] = f'img/selo-{cid}.webp'
     lista.append({'id': cid, 'nome': c['nome'], 'sigla': c['sigla'], 'uf': c.get('uf', ''),
                   'grupo': c.get('grupo', 'Outros'), 'banca': c.get('banca', ''), 'cargo': c.get('cargo', ''),
                   'vagas': c.get('vagas', ''), 'prova': c.get('prova', ''),
