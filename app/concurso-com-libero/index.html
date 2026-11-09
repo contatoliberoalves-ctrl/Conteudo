@@ -399,6 +399,32 @@ textarea.inp{padding:12px;min-height:110px;resize:vertical}
 .dias14 i.on{background:var(--verde3)}
 .dias14 i.hj{box-shadow:inset 0 0 0 2px var(--verde)}
 
+/* feed de dicas */
+.feed-wrap{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;grid-template-rows:auto minmax(0,1fr)}
+@media(min-width:1024px){.feed-wrap{left:264px}}
+.feed-top{padding-top:calc(10px + env(safe-area-inset-top,0px));padding-bottom:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:10px;border-bottom:1px solid var(--ln);background:var(--sf)}
+.fchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.fchips::-webkit-scrollbar{display:none}
+.fchips .chip{flex:none;min-height:38px}
+.feed{overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none;outline:none}
+.feed::-webkit-scrollbar{display:none}
+.dica{height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:grid;place-items:center;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dica .cartao{width:100%;max-width:560px;height:100%;max-height:680px;border-radius:20px;background:var(--sf);border:1px solid var(--ln);padding:22px;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;gap:14px;overflow:hidden}
+.dica .txt{align-self:center;overflow:auto;display:grid;gap:10px;min-height:0}
+.dica .txt p{font-size:clamp(19px,4.8vw,23px);line-height:1.5;font-weight:600;letter-spacing:-.01em;text-wrap:pretty}
+.dica .ref{font-size:14px;font-weight:700;color:var(--verde3)}
+.dica .dh{color:var(--mu)}
+.dica.lei .cartao{background:var(--lima2);border-color:#E1EFB4}
+.dica.lei mark{background:transparent;box-shadow:inset 0 -4px 0 #C9E86A;color:inherit}
+.dica.peg .tag.dt{background:var(--erbg);color:var(--er)}
+.dica.esc .cartao{background:var(--verde);border-color:var(--verde);color:#fff}
+.dica.esc .dh{color:rgba(255,255,255,.78)}
+.dica.esc .tag{background:rgba(255,255,255,.14);color:#fff}
+.dica.esc .btn-g{color:var(--lima)}
+.dica.esc .prox{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.sv[aria-pressed=true]{color:var(--ok)}
+.dica.esc .sv[aria-pressed=true]{color:var(--lima)}
+
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
 .sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:20px 20px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .22s ease}
@@ -1079,6 +1105,7 @@ Object.assign(ICONS,{
   seta:'<path d="M5 12h14M13 6l6 6-6 6"/>',
   grafico:'<path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>',
   escudo:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  rolar:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M12 7v6M9.5 10.5 12 13l2.5-2.5"/>',
   simulado:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>'
 });
 Object.assign(C('tjsp'),{corteP:72,hist:{ano:2023,concorrencia:'186 por vaga',inscritos:'78 mil',corte:'72 de 100'}});
@@ -1355,6 +1382,7 @@ V.edital=()=>{
   </div>
   <section class="card pad stack"><h3>Conteúdo programático</h3><p class="sm mu">Os assuntos que o edital cobra, por matéria.</p>
    ${c.materias.map(m=>`<details class="acc" style="border-top:1px solid var(--ln);padding-top:8px"><summary class="between" style="min-height:40px"><span class="row" style="gap:8px">${dotM(c.id,m.id)}<b class="sm">${esc(m.nome)}</b></span><span class="row" style="gap:8px"><span class="xs mu">${m.assuntos.length} ${m.assuntos.length===1?'assunto':'assuntos'}</span><span class="rot">${I('dir',16)}</span></span></summary><ul class="sm mu" style="padding:4px 0 8px 36px;display:grid;gap:3px">${m.assuntos.map(a=>`<li>${esc(a.nome)}</li>`).join('')}</ul></details>`).join('')}</section>
+  <section class="card pad between"><div class="grow" style="min-width:220px"><b>Dicas deste edital</b><p class="sm mu">Role cartões com lei seca grifada, pegadinhas da ${c.banca} e o que o edital cobra. ${cb?'Ilimitadas no seu plano.':`${LIM_DICAS} grátis por dia.`}</p></div><button class="btn btn-s sm" data-a="dicas">${I('rolar',16)} Rolar dicas</button></section>
   <section class="card pad between"><div class="grow" style="min-width:220px"><b>Fonte</b><p class="sm mu">Versão analisada: ${c.versao}.</p></div><a class="btn btn-s sm" href="${c.link}" target="_blank" rel="noopener">${I('fora',16)} Site do órgão</a></section>
   <section class="stack"><div class="sec-h"><h3>Para estudar este edital</h3></div>
    ${lista([['raiox','Raio-X dos temas cobrados','Ranking do que mais cai nas provas anteriores'],['banca',`Perfil da ${c.banca}`,'Estilo dos enunciados, padrões e pegadinhas'],['materiais','Materiais de apoio','Resumos, mapas mentais e lei seca por assunto']].map(([v,t,s])=>`
@@ -1442,6 +1470,7 @@ function hojeFree(P,c){
     <p class="mu">${visto?`Você diz quantos dias e quanto tempo tem. O app distribui as ${tot} ${c.unidade} do edital em metas diárias, com material de cada assunto.`:'Vagas, salário, datas, etapas, o que elimina e o que mais pesa na prova.'}</p>
     ${visto?`<button class="btn btn-l w" data-a="${umOutro?'sheet':'go'}" data-s="paywall" data-tipo="estudo" data-conc="${c.id}" data-v="planos">Ver planos de estudo</button>`:`<button class="btn btn-l w" data-a="tab" data-v="edital">Ver meu edital</button>`}</section>
    <div class="stats" style="--n:3"><div><small>Vagas</small><b>${cg.vagas.split(' ')[0]}</b></div><div><small>Salário</small><b>${cg.remun}</b></div><div><small>Concorrência</small><b>${c.hist.concorrencia}</b></div></div>
+   ${cardDicas()}
    <section class="card pad stack"><h3>O que mais pesa na prova</h3>${top.map(m=>`<div class="stack" style="gap:5px"><div class="between sm"><span class="row" style="gap:8px">${dotM(c.id,m.id)}${esc(m.nome)}</span><b class="num">${m.peso} ${c.unidade}</b></div><div class="bar" style="--c:${corMat(c.id,m.id)}"><i style="width:${m.peso/top[0].peso*100}%"></i></div></div>`).join('')}<button class="btn-g" style="justify-self:start" data-a="tab" data-v="edital">Ver a distribuição completa</button></section>
    <section class="card pad stack"><div class="between"><h3>Como fica seu dia com um plano</h3><span class="tag t-at">Plano de estudo</span></div>
     ${lista([['Atos administrativos','Direito Administrativo · Teoria, parte 1 de 4',25],['Rotinas do ofício judicial','Normas da Corregedoria · Teoria, parte 1 de 5',25],['Crase','Língua Portuguesa · Revisão de 48 horas',10]].map(([t,s,m])=>`<div class="ri"><span class="st"></span><span class="grow"><span class="t">${c.id==='tjsp'?t:'Remição de pena'}</span><span class="s">${c.id==='tjsp'?s:'Lei de Execução Penal · Teoria'}</span></span><span class="min">${m} min</span></div>`).slice(0,c.id==='tjsp'?3:1))}
@@ -1454,6 +1483,7 @@ V.hoje=()=>{
   if(!cobre(c.id))return hojeFree(P,c);
   if(!P.cfg)return`<section class="stack" style="gap:6px"><span class="eyebrow">${DLM(HOJE)}</span><h1>Falta só a sua rotina</h1><p class="mu">Plano ${PLANOS[S.plano].nome} ativo para o ${c.sigla}.</p></section>
    <section class="dark"><h2 style="color:#fff">Monte seu plano em 1 minuto</h2><p class="mu">Quantos dias por semana, quanto tempo por dia e quais matérias você já estudou ou acha difíceis. O app monta as metas até ${dmy(c.prova)}.</p><button class="btn btn-l w" data-a="go" data-v="config">Montar meu plano</button></section>
+   ${cardDicas()}
    ${cardQDia()}`;
   const doDia=P.metas.filter(m=>m.data===HOJE).sort((a,b)=>a.ordem-b.ordem),feitas=doDia.filter(m=>m.ok).length;
   const atual=doDia.find(m=>!m.ok),atras=P.metas.filter(m=>!m.ok&&m.data<HOJE);
@@ -1486,6 +1516,7 @@ V.hoje=()=>{
    ${atras.length?`<div class="aviso">${I('alerta')}<div class="grow"><b>${atras.length} ${atras.length===1?'meta atrasada':'metas atrasadas'} desde ${quando(atras.map(m=>m.data).sort()[0])}</b><span class="sm">O app encaixa nos próximos dias livres sem mexer no que você já concluiu.</span><button class="btn btn-s sm" style="justify-self:start" data-a="reorg">Reorganizar semana</button></div></div>`:''}
    ${principal}
    ${nudge}
+   ${cardDicas()}
    ${depois.length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Próximas</h3><button class="btn-g" data-a="tab" data-v="plano">Ver a semana</button></div>${lista(depois.map(m=>linhaMeta(m,{data:m.data!==HOJE})))}</section>`:''}
    ${doDia.filter(m=>m.ok).length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Concluídas hoje</h3></div>${lista(doDia.filter(m=>m.ok).map(m=>linhaMeta(m)))}</section>`:''}
   </div>
@@ -1751,6 +1782,117 @@ V.perfil=()=>{
   <button class="btn-g" style="justify-self:start" data-a="sheet" data-s="demo">Abrir o painel de demonstração</button>`;
 };
 
+// ---------- dicas em rolagem (feed vertical) ----------
+const LIM_DICAS=10;
+const _cacheDicas={};
+function hashS(s){let h=7;for(const ch of s)h=(h*31+ch.charCodeAt(0))%100003;return h}
+function dicasDe(cid){
+  if(_cacheDicas[cid])return _cacheDicas[cid];
+  const c=C(cid),tot=c.materias.reduce((s,m)=>s+m.peso,0),ed=[],resto=[];
+  const add=(arr,tipo,txt,extra={})=>arr.push({conc:cid,tipo,txt,...extra});
+  const minus=t=>t[0].toLowerCase()+t.slice(1);
+  add(ed,'Seu edital',`A prova objetiva do ${c.sigla} é em ${dmy(c.prova)}. ${c.formato}`);
+  const top=c.materias.slice().sort((a,b)=>b.peso-a.peso)[0];
+  add(ed,'Seu edital',`${top.nome} é a matéria que mais pesa: ${top.peso} de ${tot} ${c.unidade}. Priorize.`,{mat:top.id});
+  c.eliminatorios.forEach(e=>add(ed,'Seu edital',`Atenção, isto elimina: ${minus(e)}.`));
+  c.retificacoes.forEach(r=>r.mudou.forEach(([o,a,b])=>add(ed,'Retificação',`${o} mudou de ${a} para ${b}, na retificação de ${dmy(r.data)}.`)));
+  add(ed,'Seu edital',`No último concurso (${c.hist.ano}), a nota de corte foi ${c.hist.corte} e a concorrência, ${c.hist.concorrencia}.`);
+  c.materias.forEach(m=>m.assuntos.forEach(a=>{
+    a.pontos.forEach(p=>add(resto,'Conceito',p,{mat:m.id,ass:a.id}));
+    (a.lei||[]).forEach(([r,t])=>add(resto,'Lei seca',t,{mat:m.id,ass:a.id,ref:r}));
+  }));
+  c.bancaPerfil.pegadinhas.forEach(([t,ex,ids])=>{const aa=achaAss(cid,ids[0]);add(resto,'Pegadinha da banca',`${t}. ${ex}`,{mat:aa&&aa.m.id,ass:ids[0]})});
+  c.bancaPerfil.padroes.forEach(([t,pc,d,ids])=>{const aa=achaAss(cid,ids[0]);add(resto,`Como a ${c.banca} cobra`,`${t} (${pc}% das questões). ${d}`,{mat:aa&&aa.m.id,ass:ids[0]})});
+  [...ed,...resto].forEach((x,i)=>{x.id=`${cid}-${i}`});
+  resto.sort((x,y)=>hashS(x.id)-hashS(y.id));
+  const out=[];let e=0;resto.forEach((x,i)=>{if(i%6===0&&e<ed.length)out.push(ed[e++]);out.push(x)});while(e<ed.length)out.push(ed[e++]);
+  return(_cacheDicas[cid]=out);
+}
+function dicaPorId(id){return dicasDe(id.split('-')[0]).find(d=>d.id===id)}
+function dicasHoje(){if(!S.dicas||S.dicas.data!==HOJE)S.dicas={data:HOJE,vistas:[]};return S.dicas}
+const dicaLivre=d=>cobre(d.conc);
+function feedDicas(fp){
+  const f=fp||UI.dicasF||S.ativo;
+  let lista;
+  if(f==='salvas')lista=(S.dicasSalvas||[]).map(dicaPorId).filter(Boolean).reverse();
+  else if(f==='todos'){const cs=[...new Set(Object.values(S.preps).map(p=>p.conc))].map(dicasDe);lista=[];const n=Math.max(...cs.map(x=>x.length));for(let i=0;i<n;i++)cs.forEach(x=>{if(x[i])lista.push(x[i])})}
+  else lista=dicasDe(S.preps[f]?S.preps[f].conc:concAtivo().id);
+  const H=dicasHoje();let resta=LIM_DICAS-H.vistas.length;const out=[];let travou=false;
+  for(const d of lista){
+    if(f==='salvas'||dicaLivre(d)||H.vistas.includes(d.id)){out.push(d);continue}
+    if(resta>0){out.push(d);resta--;continue}
+    travou=true;break;
+  }
+  return{out,travou,total:lista.length,todasLivres:lista.every(dicaLivre)};
+}
+function contadorDicas(){
+  const r=feedDicas(),H=dicasHoje();
+  if(UI.dicasF==='salvas')return`${(S.dicasSalvas||[]).length} salvas`;
+  if(r.todasLivres)return'Ilimitadas no seu plano';
+  const algumas=r.out.some(dicaLivre);
+  return`Grátis hoje: ${Math.min(H.vistas.length,LIM_DICAS)} de ${LIM_DICAS}${algumas?' · editais do seu plano sem limite':''}`;
+}
+const TIPO_COR={'Conceito':'','Lei seca':'lei','Pegadinha da banca':'peg','Seu edital':'esc','Retificação':'esc'};
+
+V.dicas=()=>{
+  const r=feedDicas(),f=UI.dicasF||S.ativo,salv=new Set(S.dicasSalvas||[]);
+  const ops=[...Object.keys(S.preps).map(k=>[k,`${C(S.preps[k].conc).sigla} · ${cargoDe(S.preps[k]).curto}`]),...(Object.keys(S.preps).length>1?[['todos','Todos os meus editais']]:[]),['salvas','Salvas']];
+  const cards=r.out.map((d,i)=>{const aa=d.ass?achaAss(d.conc,d.ass):null,c=C(d.conc),cl=TIPO_COR[d.tipo]||(d.tipo.startsWith('Como')?'':'');
+    return`<section class="dica ${cl}" data-id="${d.id}" aria-label="Dica ${i+1}"><div class="cartao">
+     <div class="between"><span class="sm dh">${d.mat?dotM(d.conc,d.mat)+' ':''}${aa?`${esc(aa.m.curto)} · ${esc(aa.a.nome)}`:`${c.sigla} · ${esc(c.nome)}`}</span><span class="tag dt">${d.tipo}</span></div>
+     <div class="txt">${d.ref?`<span class="ref">${esc(d.ref)}</span>`:''}${d.tipo==='Lei seca'?`<p>${d.txt}</p>`:`<p>${esc(d.txt)}</p>`}</div>
+     <div class="between"><div class="links">
+      <button class="btn-g sv" data-a="dicaSalvar" data-id="${d.id}" aria-pressed="${salv.has(d.id)}">${I('caderno',17)}<span>${salv.has(d.id)?'Salva':'Salvar'}</span></button>
+      ${d.ass?`<button class="btn-g" data-a="material" data-mat="${d.ass}:resumo" data-de="dicas" data-gate="estudo" data-conc="${d.conc}">${I('livro',17)} Resumo${cobre(d.conc)?'':I('lock',14)}</button>`:`<button class="btn-g" data-a="tab" data-v="edital">${I('edital',17)} Edital</button>`}
+     </div><span class="xs dh num">${i+1} de ${r.total}</span></div>
+     ${i<r.out.length-1||r.travou?`<button class="btn btn-s sm w prox" data-a="dicaProx">${I('baixo',18)} Próxima dica</button>`:''}
+    </div></section>`}).join('');
+  const fim=r.travou?`<section class="dica esc"><div class="cartao" style="grid-template-rows:1fr auto">
+     <div class="stack" style="align-self:center;gap:12px"><span class="sm dh">Limite do plano gratuito</span><h2 style="color:#fff">Você viu as ${LIM_DICAS} dicas grátis de hoje</h2><p class="dh">Amanhã chegam mais ${LIM_DICAS}. Com um plano de estudo, as dicas do edital coberto ficam ilimitadas: ainda há ${r.total-r.out.length} esperando por você, entre lei seca grifada, pegadinhas da banca e conceitos de cada assunto.</p></div>
+     <div class="stack" style="gap:10px"><button class="btn btn-l w" data-a="go" data-v="planos">Ver planos de estudo</button><button class="btn btn-o w" data-a="sairDicas">Voltar</button></div></div></section>`
+   :!r.out.length?`<section class="dica"><div class="cartao" style="grid-template-rows:1fr"><div class="empty">${I('caderno',28)}<h3>${f==='salvas'?'Nenhuma dica salva':'Sem dicas por aqui'}</h3><p class="sm mu">${f==='salvas'?'Toque em Salvar numa dica para guardá-la aqui.':'Escolha outro edital no topo.'}</p></div></div></section>`
+   :`<section class="dica"><div class="cartao" style="grid-template-rows:1fr auto"><div class="empty"><h3>Você chegou ao fim</h3><p class="sm mu">Viu todas as dicas deste filtro. Que tal transformar isso em questões?</p></div><button class="btn btn-p w" data-a="sairDicas">Voltar</button></div></section>`;
+  return`<div class="feed-wrap">
+   <header class="feed-top"><div class="row"><button class="x" data-a="sairDicas" aria-label="Fechar dicas">${I('x')}</button><div class="grow"><b style="display:block">Dicas do edital</b><span class="xs mu" id="dicaCont">${contadorDicas()}</span></div></div>
+    <div class="chips fchips" role="group" aria-label="Edital das dicas">${ops.map(([k,l])=>`<button class="chip" aria-pressed="${f===k}" data-a="dicasF" data-f="${k}">${esc(l)}</button>`).join('')}</div></header>
+   <div class="feed" tabindex="0" aria-label="Dicas, role para ver a próxima">${cards}${fim}</div></div>`;
+};
+let feedObs=null;
+function setupFeed(){
+  const feed=document.querySelector('.feed');if(!feed)return;
+  feed.scrollTop=UI.dicaPos||0;
+  feed.addEventListener('scroll',()=>{UI.dicaPos=feed.scrollTop},{passive:true});
+  if(feedObs)feedObs.disconnect();
+  feedObs=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;const id=e.target.dataset.id;if(!id)return;const d=dicaPorId(id);if(!d)return;
+    const H=dicasHoje();
+    if(!H.vistas.includes(id)&&!dicaLivre(d)&&UI.dicasF!=='salvas'){H.vistas.push(id);salvar();const c=document.getElementById('dicaCont');if(c)c.textContent=contadorDicas()}
+    if(!(S.dicasVistasTotal||[]).includes(id)){S.dicasVistasTotal=[...(S.dicasVistasTotal||[]),id].slice(-500);S.xp+=1;salvar()}
+  }),{root:feed,threshold:.6});
+  feed.querySelectorAll('.dica[data-id]').forEach(el=>feedObs.observe(el));
+  feed.focus({preventScroll:true});
+}
+ACT.dicas=d=>{UI.dicasF=d.f||(UI.dicasF&&UI.dicasF!=='salvas'&&(S.preps[UI.dicasF]||UI.dicasF==='todos')?UI.dicasF:S.ativo);UI.dicaPos=0;go('dicas')};
+ACT.dicasF=d=>{UI.dicasF=d.f;UI.dicaPos=0;render()};
+ACT.dicaProx=()=>{const f=document.querySelector('.feed');if(f)f.scrollBy({top:f.clientHeight,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})};
+ACT.sairDicas=()=>{if(feedObs)feedObs.disconnect();voltar()};
+ACT.dicaSalvar=d=>{const L=S.dicasSalvas=S.dicasSalvas||[];const i=L.indexOf(d.id);if(i>=0)L.splice(i,1);else L.push(d.id);salvar();
+  const on=i<0;document.querySelectorAll(`.sv[data-id="${d.id}"]`).forEach(b=>{b.setAttribute('aria-pressed',on);b.querySelector('span').textContent=on?'Salva':'Salvar'});toast(on?'Dica salva. Veja em "Salvas".':'Dica removida das salvas.')};
+ACT.demoDicas=()=>{S.dicas={data:HOJE,vistas:[]};salvar();toast('Dicas grátis de hoje zeradas.');renderSheet()};
+document.addEventListener('keydown',e=>{if(UI.view!=='dicas'||UI.sheet)return;const f=document.querySelector('.feed');if(!f)return;
+  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key==='j'){e.preventDefault();f.scrollBy({top:f.clientHeight,behavior:'smooth'})}
+  if(e.key==='ArrowUp'||e.key==='PageUp'||e.key==='k'){e.preventDefault();f.scrollBy({top:-f.clientHeight,behavior:'smooth'})}
+  if(e.key==='Escape')ACT.sairDicas()});
+const _demo=SHEETS.demo;SHEETS.demo=p=>{const r=_demo(p);r[2]+=`<button class="btn btn-s w" data-a="demoDicas">Zerar as dicas grátis de hoje</button>`;return r};
+TAB.dicas='hoje';
+function cardDicas(){
+  const r=feedDicas(S.ativo),H=dicasHoje(),d=r.out.find(x=>!H.vistas.includes(x.id))||r.out[0],livres=r.todasLivres;
+  return`<section class="card pad stack"><div class="between"><h3>Dicas do seu edital</h3><span class="tag ${livres?'t-ok':'t-line'}">${livres?'ilimitadas':`${Math.max(0,LIM_DICAS-H.vistas.length)} grátis hoje`}</span></div>
+   <p class="sm mu">Role e revise em 2 minutos: lei seca grifada, pegadinhas da ${concAtivo().banca} e o que o edital cobra.</p>
+   ${d?`<div class="preview"><span class="xs mu">${d.tipo}${d.ass?` · ${esc(achaAss(d.conc,d.ass).a.nome)}`:''}</span><p style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${d.tipo==='Lei seca'?d.txt.replace(/<[^>]+>/g,''):esc(d.txt)}</p></div>`:''}
+   <button class="btn btn-p" style="justify-self:start" data-a="dicas">${I('baixo',18)} Rolar dicas</button></section>`;
+}
+
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -1775,11 +1917,11 @@ function topo(){
 function lateral(){
   const P=prep(),tab=TAB[UI.view],c=concAtivo(),cb=c&&cobre(c.id);
   const nvs=[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar']];
-  const sec=[['materiais','Materiais','camadas','estudo'],['flash','Flashcards','cartas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
+  const sec=[['dicas','Dicas do edital','rolar',''],['materiais','Materiais','camadas','estudo'],['flash','Flashcards','cartas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
   return`<div class="logo">${LOGO(38)}<div><b>Concurso com Líbero</b><span>por Líbero Filho</span></div></div>
    ${P?`<button class="sel" data-a="sheet" data-s="seletor"><span class="sig">${c.sigla}</span><span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${cb?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <nav>${nvs.map(([v,l,ic])=>`<button class="nv" data-a="tab" data-v="${v}" ${tab===v&&UI.view!=='premium'?'aria-current="page"':''}>${I(ic)}${l}</button>`).join('')}</nav>
-   <span class="lbl">Recursos</span><nav>${sec.map(([v,l,ic,g])=>{const ok=!g||(g==='questoes'?temQuestoes():cb);return`<button class="nv" data-a="${v==='flash'?'flash':'go'}" data-v="${v}" ${g?`data-gate="${g}"`:''} ${UI.view===v?'aria-current="page"':''}>${I(ic)}${l}${ok?'':`<span class="lk">${I('lock',15)}</span>`}</button>`}).join('')}
+   <span class="lbl">Recursos</span><nav>${sec.map(([v,l,ic,g])=>{const ok=!g||(g==='questoes'?temQuestoes():cb);return`<button class="nv" data-a="${v==='flash'||v==='dicas'?v:'go'}" data-v="${v}" ${g?`data-gate="${g}"`:''} ${UI.view===v?'aria-current="page"':''}>${I(ic)}${l}${ok?'':`<span class="lk">${I('lock',15)}</span>`}</button>`}).join('')}
     ${temQuestoes()?'':`<button class="nv" data-a="go" data-v="premium" ${UI.view==='premium'?'aria-current="page"':''}>${I('estrela')}Premium<span class="pr">Novo</span></button>`}</nav>`
    :`<nav><button class="nv" aria-current="page">${I('busca')}Catálogo</button><button class="nv" data-a="go" data-v="planos">${I('cartao')}Planos</button></nav>`}
    <div class="rodape">${P?`<button class="nv" data-a="go" data-v="perfil" ${UI.view==='perfil'?'aria-current="page"':''}>${I('usuario')}Perfil · ${S.xp} XP</button>`:''}
@@ -1799,10 +1941,11 @@ function render(topoScroll){
   if(topoScroll){window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true})}
   else if(focoId){const el=document.getElementById(focoId);if(el)el.focus({preventScroll:true})}
   if(UI.sheet)renderSheet();
+  if(UI.view==='dicas')setupFeed();
   window.claude?.hot?.snapshot?.(()=>({S,view:UI.view,p:UI.p}));
 }
 function renderChrome(){
-  const imersivo=['treino','flash'].includes(UI.view),semNav=!S.ativo||imersivo;
+  const imersivo=['treino','flash','dicas'].includes(UI.view),semNav=!S.ativo||imersivo;
   $('#top').innerHTML=topo();$('#side').innerHTML=lateral();
   $('#bnav').innerHTML=navInferior();$('#bnav').hidden=semNav;
   $('#top').hidden=imersivo&&!desk();
