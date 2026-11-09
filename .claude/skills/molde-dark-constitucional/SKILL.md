@@ -80,4 +80,4 @@ Nada de foto de pessoa com direito autoral. O perfil não se identifica com o L�
 
 ## Galeria
 
-O molde entra na Galeria do Líbero (`galeria/galerias.json`). Os quadros `saida/<id>/<n>.png` fazem o papel dos slides; o MP4 vai ao usuário por arquivo.
+O molde fica na galeria principal (https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq; saiu da Galeria do Líbero, que estava no limite de arquivos). Cada vídeo vira 3 quadros (`saida/<id>/1.png` a `3.png`: a capa e duas cenas gráficas) e um único arquivo na galeria; o MP4 e o `capa.jpg` vão ao usuário por arquivo.
