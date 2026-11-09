@@ -23,7 +23,7 @@ Na nuvem do Claude Code, `NODE_USE_ENV_PROXY=1` faz o `fetch` usar o proxy (que 
 
 ## Roteiro (`roteiros/<id>.json`)
 `{ id, serie, titulo, voz, ajustesVoz?, legenda, legendas, cenas: [...] }`
-- `voz`: `adriano` (padrão), `marcelo`, `lucas`, `victor` ou o id de uma voz da ElevenLabs (ex.: a voz clonada do Líbero).
+- `voz`: `adriano` (padrão), `marcelo`, `lucas`, `victor`, `fernando` (urgente, usada nos editais), `diego`, `paulo`, `carla` (feminina) ou o id de uma voz da ElevenLabs (ex.: a voz clonada do Líbero).
 - `legenda`: texto do post (legenda do Instagram), com as fontes jurídicas.
 - `legendas`: trocas só na legenda da tela, para números que a voz fala por extenso: `[["cinco mil e setecentos", "5.700"], …]` (a sequência mais longa casa primeiro).
 - Cada cena tem `fala` (o que a voz diz; números e siglas por extenso quando preciso) e os campos visuais. `em` = primeira palavra da fala que faz o elemento entrar (a busca anda para frente, então itens em ordem casam em ordem). Palavra não encontrada: o elemento entra num tempo padrão e o render avisa no console.

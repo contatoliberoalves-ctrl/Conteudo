@@ -11,7 +11,10 @@ if (!id) { console.error('uso: node narrar.mjs <id> [--forcar]'); process.exit(1
 const roteiro = JSON.parse(fs.readFileSync(new URL(`roteiros/${id}.json`, RAIZ)));
 
 // Vozes em PT-BR da conta (troque pelo id da voz clonada do Líbero quando houver).
-const VOZES = { adriano: 'hwnuNyWkl9DjdTFykrN6', marcelo: 'bJrNspxJVFovUxNBQ0wh', lucas: 'GIuLCSVfgJaUuh7hYOY8', victor: 'YNOujSUmHtgN6anjqXPf' };
+// Da biblioteca pública (funcionam pelo id, sem adicionar à conta): fernando (urgente, informativo: notícia de edital),
+// diego (locutor de anúncio), paulo (expressivo, educativo), carla (voz feminina clara e firme).
+const VOZES = { adriano: 'hwnuNyWkl9DjdTFykrN6', marcelo: 'bJrNspxJVFovUxNBQ0wh', lucas: 'GIuLCSVfgJaUuh7hYOY8', victor: 'YNOujSUmHtgN6anjqXPf',
+  fernando: '6pQlwCgfwffNdI3jjzM6', diego: 'rpNe0HOx7heUulPiOEaG', paulo: 'Qrdut83w0Cr152Yb4Xn3', carla: '7eUAxNOneHxqfyRS77mW' };
 const voz = VOZES[roteiro.voz || 'adriano'] || roteiro.voz;
 const ajustes = { stability: 0.38, similarity_boost: 0.8, style: 0.35, use_speaker_boost: true, speed: 1.12, ...(roteiro.ajustesVoz || {}) };
 const modelo = roteiro.modelo || 'eleven_multilingual_v2';
