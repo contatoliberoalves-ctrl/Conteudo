@@ -234,6 +234,14 @@ clone por continuação. Motores (`bash estudio/instalar.sh --voz`): `omnivoice`
 - Confira a fala depois (transcreva o mp4): se uma palavra saiu errada ("copos" no lugar de
   "corpos"), apague o cache daquela frase em `edit/voz-*/` e gere de novo (cada geração varia).
 - Siglas são escritas como se leem (OAB → "Ó A BÊ", STF…) e o texto vai frase a frase.
+- **Referência que termina no meio da frase vaza** (aprendido em nov/2026): o VoxCPM continua a referência, então se o
+  trecho termina em "…e mande para" mas a transcrição diz "…e mande para a Justiça Federal", ele fala "Justiça Federal"
+  no começo de TODA frase. Escolha uma referência que termine em ponto final e confira a transcrição do resultado.
+  O perfil atual usa `amostras/14.wav` (nota 0,94; controle você × você 0,953).
+- Nomes próprios e siglas: transcreva o resultado com o Whisper `medium` e reescreva o que sair errado na fala.
+  "STF" e "ÉSSE TÊ ÉFE" saem mal: use "o Supremo". "Alcolumbre" sozinho sai "ao Columbre": use "Davi Alcolumbre".
+  "pê éle" sai PL. A tela pode continuar com a sigla (a legenda vem da transcrição; corrija no texto exibido).
+- Velocidade na CPU (4 núcleos): ~17× o tempo real (1 min de narração ≈ 17 min). Gere tudo num processo só (modelo carregado uma vez).
 - Na CPU é lento (dezenas de segundos por frase); com GPU é rápido. Para ficar ainda mais igual:
   treino com 15–30 min de áudio (notebook `estudio/voz/treinar_voz_colab.ipynb`, RVC no Colab grátis)
   ou o clone profissional do ElevenLabs (pago).
