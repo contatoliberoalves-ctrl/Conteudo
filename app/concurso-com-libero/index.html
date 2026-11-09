@@ -63,7 +63,7 @@ ul{margin:0;padding-left:20px}
 .content{padding-block:20px 28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:1120px;margin:0 auto;display:grid;gap:20px;min-width:0;animation:fade .2s ease}
 .wrap>*{min-width:0}
-.bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:repeat(4,1fr)}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sf);border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:repeat(5,1fr)}
 .bnav button{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;font-weight:600;color:var(--mu2);position:relative}
 .bnav button[aria-current=page]{color:var(--acc);font-weight:700}
 .bnav button[aria-current=page]::before{content:"";position:absolute;top:0;left:30%;right:30%;height:3px;border-radius:0 0 3px 3px;background:var(--acc)}
@@ -506,6 +506,33 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .pags{display:grid;gap:14px}
 .pag{margin:0;display:grid;gap:6px;justify-items:center}
 .pag img{width:100%;height:auto;border-radius:10px;border:1px solid var(--ln);background:#fff;box-shadow:0 12px 45px #1b443512}
+
+/* comunidade */
+.cpost{padding:16px}
+.cfilhos{display:grid;gap:2px;margin-top:4px}
+.cpost.resp{padding:12px 0 0 50px}
+.cav{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--p-mint);color:var(--acc);font-weight:800;flex:none;object-fit:cover;font-family:var(--h)}
+.cnome{font-family:var(--h)}
+.ctexto{white-space:pre-wrap;overflow-wrap:anywhere}
+.cacoes{display:flex;gap:20px}
+.cac{display:inline-flex;align-items:center;gap:6px;min-height:40px;min-width:44px;color:var(--mu);font-weight:600;font-size:14px}
+.cac.on{color:#D6455D}
+.cprim{margin:8px 0 0 50px;text-align:left;color:var(--mu2);font-size:14px;padding:10px 14px;border-radius:999px;background:var(--sf2);width:calc(100% - 50px);min-height:44px}
+.conq{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--p-lilac);color:var(--tx)}
+.conq .ic{color:#6A4FB8}
+.conq .eyebrow{color:#6A4FB8;display:block}
+.enq{display:grid;gap:8px}
+.enq-o{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:46px;padding:0 14px;border-radius:12px;border:1.5px solid var(--ln2);overflow:hidden;text-align:left;font-weight:600;background:var(--sf)}
+.enq-o.on{border-color:var(--acc)}
+.enq-o[disabled]{cursor:default}
+.enq-b{position:absolute;inset:0 auto 0 0;background:var(--p-mint);transition:width .4s}
+.enq-t,.enq-o b{position:relative}
+.fab{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(78px + env(safe-area-inset-bottom,0px));z-index:35;width:58px;height:58px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 10px 26px rgba(8,123,99,.4)}
+@media(min-width:1024px){.fab{bottom:28px;right:32px}}
+.mod-b{text-align:left;width:100%}
+.list.ex{opacity:.88;pointer-events:none}
+.bdot{position:absolute;top:8px;right:calc(50% - 18px);width:9px;height:9px;border-radius:50%;background:var(--er);box-shadow:0 0 0 2px var(--sf)}
+.bnav button{font-size:11.5px}
 
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
@@ -2088,7 +2115,7 @@ ACT.onbFim=d=>{const o=UI.onb,k=o.conc+':'+o.cargo;S.onbVisto=true;if(!S.preps[k
 function indiceBusca(){
   const out=[],c=concAtivo();
   CONCURSOS.forEach(x=>out.push({t:'Concursos',tit:`${x.sigla} · ${x.nome}`,sub:`${x.orgao} · ${x.banca}`,txt:[x.sigla,x.nome,x.orgao,x.banca,...x.cargos.map(y=>y.nome)].join(' '),d:{a:'go',v:'concurso',c:x.id}}));
-  [['Hoje','tab','hoje'],['Edital','tab','edital'],['Cronograma','tab','plano'],['Praticar','tab','praticar'],['Raio-X','go','raiox'],['Perfil da banca','go','banca'],['Materiais','go','materiais'],['Caderno de erros','go','caderno'],['Planos','go','planos'],['Premium','go','premium'],['Dicas do edital','dicas',''],['Flashcards','flash',''],['Simulado completo','go','simuIntro'],['Ajustar rotina','editarCfg',''],['Perfil','go','perfil'],['Coleção em PDF','go','colecao']].forEach(([n,a,v])=>out.push({t:'Telas',tit:n,sub:'Abrir',txt:n,d:{a,v}}));
+  [['Hoje','tab','hoje'],['Edital','tab','edital'],['Cronograma','tab','plano'],['Praticar','tab','praticar'],['Raio-X','go','raiox'],['Perfil da banca','go','banca'],['Materiais','go','materiais'],['Caderno de erros','go','caderno'],['Planos','go','planos'],['Premium','go','premium'],['Dicas do edital','dicas',''],['Flashcards','flash',''],['Simulado completo','go','simuIntro'],['Ajustar rotina','editarCfg',''],['Perfil','go','perfil'],['Coleção em PDF','go','colecao'],['Comunidade','tab','comunidade']].forEach(([n,a,v])=>out.push({t:'Telas',tit:n,sub:'Abrir',txt:n,d:{a,v}}));
   if(c){c.materias.forEach(m=>m.assuntos.forEach(a=>{
     out.push({t:'Assuntos',tit:a.nome,sub:`${c.sigla} · ${m.nome}`,txt:[a.nome,m.nome,...a.pontos].join(' '),d:{a:'assunto',ass:a.id},dot:corMat(c.id,m.id)});
     (a.lei||[]).forEach(([r,tx])=>out.push({t:'Lei seca',tit:r,sub:a.nome,txt:r+' '+tx.replace(/<[^>]+>/g,''),prev:tx.replace(/<[^>]+>/g,''),d:{a:'material',mat:`${a.id}:lei`,de:'busca',gate:'estudo',conc:c.id}}));
@@ -2179,7 +2206,7 @@ V.simuRes=()=>{
     <p class="xs mu2">Posição entre ${PART} participantes de exemplo.${c.id==='pppe'?' Nota líquida: cada erro anulou um acerto.':''}</p></section>
    <section class="card pad stack"><h3>Nota por matéria</h3>${barrasNota(Object.entries(r.por).map(([m,x])=>[c.materias.find(y=>y.id===m).curto,corMat(c.id,m),Math.round(x.a/x.n*100),`· ${x.a}/${x.n}`]),c.corteP)}</section>
    <section class="stack" style="gap:8px"><h3>Gabarito</h3>${lista(s.ids.map((id,i)=>{const q=qDe(id),rr=s.resp[id],ok=rr===q.gab;return`<details class="gab"><summary class="ri"><span class="st ${rr==null?'':ok?'ok':'at'}" style="${rr!=null&&!ok?'border-color:var(--er);color:var(--er)':''}">${rr==null?'':ok?I('check',13,3):I('x',12,3)}</span><span class="grow"><span class="t">Questão ${i+1} · ${esc(achaAss(c.id,q.ass).a.nome)}</span><span class="s">${rr==null?'Em branco':`Você: ${L(q)[rr]}`} · gabarito ${L(q)[q.gab]}</span></span><span class="rot">${I('dir',16)}</span></summary><div class="gab-c"><p class="sm">${esc(q.enun)}</p><p class="sm mu">${esc(q.com)}</p></div></details>`}))}</section>
-   <div class="btns">${r.erros?`<button class="btn btn-p" data-a="go" data-v="caderno">Revisar erros no caderno</button>`:''}<button class="btn btn-s" data-a="simuNovo">Voltar ao simulado</button></div>
+   <div class="btns">${r.erros?`<button class="btn btn-p" data-a="go" data-v="caderno">Revisar erros no caderno</button>`:''}<button class="btn btn-s" data-a="simuNovo">Voltar ao simulado</button><button class="btn btn-s" data-a="compartilhar" data-t="Simulado ${c.sigla}: ${r.nota}%${r.nota>=c.corteP?', acima do corte':''}">${I('pessoas',16)} Compartilhar</button></div>
   </div>`;
 };
 ACT.simuNovo=()=>{UI.sim=null;go('simuIntro',{},{raiz:true})};
@@ -2249,7 +2276,7 @@ V.pdf=p=>{
    <div class="between"><button class="back" data-a="voltar">${I('esq',18)} Voltar</button><button class="btn btn-s sm" data-a="baixarMissao" data-n="${m.n}">${I('fora',16)} Baixar PDF</button></div>
    <section class="stack" style="gap:6px"><span class="eyebrow">${col.nome} · Missão ${pad2(m.n)} / 05</span><h1>${esc(m.titulo)}</h1><p class="mu sm">${m.pags} páginas · role para ler</p></section>
    <div class="pags">${Array.from({length:m.pags},(_,i)=>`<figure class="pag"><img src="colecao/${pad2(m.n)}-p${i+1}.webp" alt="Página ${i+1} de ${m.pags}" loading="${i?'lazy':'eager'}" width="1240" height="1754"><figcaption class="xs mu2">${i+1} / ${m.pags}</figcaption></figure>`).join('')}</div>
-   <section class="card pad stack">${L[m.n]?`<div class="aviso ok">${I('check')}<div class="grow sm"><span><b>Missão concluída.</b></span></div></div>`:`<b>Terminou esta missão?</b><button class="btn btn-p w" data-a="missaoLida" data-n="${m.n}">Marcar missão ${pad2(m.n)} como concluída</button>`}
+   <section class="card pad stack">${L[m.n]?`<div class="aviso ok">${I('check')}<div class="grow sm"><span><b>Missão concluída.</b></span><button class="btn-g" style="justify-self:start;min-height:34px" data-a="compartilhar" data-t="Missão ${pad2(m.n)} da Coleção PPPE concluída">${I('pessoas',16)} Compartilhar na comunidade</button></div></div>`:`<b>Terminou esta missão?</b><button class="btn btn-p w" data-a="missaoLida" data-n="${m.n}">Marcar missão ${pad2(m.n)} como concluída</button>`}
     ${prox?`<button class="btn btn-s w" data-a="lerMissao" data-n="${prox.n}">Próxima: Missão ${pad2(prox.n)} · ${esc(prox.titulo)}${missaoLivre(c.id,prox)?'':' '+I('lock',15)}</button>`:`<button class="btn btn-s w" data-a="go" data-v="colecao">Ver a trilha completa</button>`}</section>
   </div>`;
 };
@@ -2268,6 +2295,181 @@ ACT.baixarMissao=async d=>{
 };
 TAB.colecao='edital';TAB.pdf='edital';
 
+// ---------- comunidade (com aprovação do professor) ----------
+Object.assign(ICONS,{
+  pessoas:'<circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4.1a4 4 0 0 1 0 7.8M22 21a7 7 0 0 0-5-6.7"/>',
+  coracao:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
+  balao:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  enquete:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'
+});
+TAB.comunidade='comunidade';TAB.moderacao='comunidade';
+const CATS=[['duvida','Dúvida'],['material','Material'],['rotina','Rotina'],['motivacao','Motivação'],['edital','Edital'],['conquista','Conquista']];
+const catNome=k=>(CATS.find(c=>c[0]===k)||['','Geral'])[1];
+const COM={ok:false,ini:false,db:null,user:null,uid:null,adm:false,dono:false,podeEscrever:null,posts:[],fila:null,filas:[],curt:{},votos:{},nomes:{},carregando:true,lento:false,erro:'',subs:[],aberto:{},escopo:'conc',cat:'',sujo:false,filaW:Promise.resolve()};
+const quandoTs=ts=>{const s=Math.max(1,Math.round((Date.now()-ts)/1000));if(s<60)return'agora';const m=Math.round(s/60);if(m<60)return m+' min';const h=Math.round(m/60);if(h<24)return h+' h';const d=Math.round(h/24);return d+' d'};
+function comAtualizar(){if(UI.sheet&&['postar','responder'].includes(UI.sheet.tipo)){COM.sujo=true;return}if(['comunidade','moderacao'].includes(UI.view))render();else renderChrome()}
+async function comNomes(ids){if(!COM.user||!ids.length)return;const falta=ids.filter(i=>i&&!COM.nomes[i]);if(!falta.length)return;try{const ps=await COM.user.profiles(falta);Object.assign(COM.nomes,ps);comAtualizar()}catch(e){}}
+async function comIniciar(){
+  if(COM.ini)return;COM.ini=true;
+  const cl=window.claude;if(!cl||!cl.use){COM.carregando=false;COM.erro='indisponivel';comAtualizar();return}
+  const [db,user]=await Promise.all([cl.use('db'),cl.use('user')]);
+  if(!db){COM.carregando=false;COM.erro='indisponivel';comAtualizar();return}
+  COM.db=db;COM.user=user;COM.ok=true;
+  if(user){COM.uid=await user.id();COM.adm=await user.canEdit();COM.dono=await user.isOwner();COM.podeEscrever=await user.can('data.write')}
+  const t=setTimeout(()=>{if(COM.carregando){COM.lento=true;comAtualizar()}},10000);
+  const erro=e=>{clearTimeout(t);COM.carregando=false;COM.erro=e&&e.code||'erro';comAtualizar()};
+  COM.subs.push(db.collection('posts').orderBy('criado','desc').limit(400).onSnapshot(s=>{if(!s.metadata.fromCache){clearTimeout(t);COM.carregando=false;COM.lento=false}COM.posts=s.docs.map(d=>({id:d.id,...d.data()}));comNomes([...new Set(COM.posts.map(p=>p.autor))]);comAtualizar()},erro));
+  COM.subs.push(db.collection('curtidas').onSnapshot(s=>{const c={};s.docs.forEach(d=>{c[d.id]=(d.data()||{}).ids||{}});COM.curt=c;comAtualizar()},()=>{}));
+  COM.subs.push(db.collection('votos').onSnapshot(s=>{const v={};s.docs.forEach(d=>{v[d.id]=(d.data()||{}).v||{}});COM.votos=v;comAtualizar()},()=>{}));
+  if(COM.uid)COM.subs.push(db.doc('fila/'+COM.uid).onSnapshot(s=>{COM.fila=s.exists?(s.data().itens||[]):[];comAtualizar()},()=>{}));
+  if(COM.adm)COM.subs.push(db.collection('fila').onSnapshot(s=>{COM.filas=s.docs.map(d=>({uid:d.id,itens:(d.data()||{}).itens||[]}));comNomes(COM.filas.map(f=>f.uid));comAtualizar()},()=>{}));
+}
+function comReiniciar(){COM.subs.forEach(u=>{try{u()}catch(e){}});Object.assign(COM,{ini:false,ok:false,subs:[],posts:[],fila:null,filas:[],curt:{},votos:{},nomes:{},carregando:true,lento:false,erro:''});comIniciar()}
+const pendentes=()=>COM.filas.reduce((n,f)=>n+f.itens.filter(i=>i.status!=='recusado').length,0);
+function contextoAluno(){const P=prep(),c=concAtivo(),nv=nivel();return{conc:c?c.id:'',sigla:c?c.sigla:'',cargo:P?cargoDe(P).curto:'',nivel:nv.n,streak:S.streak||0}}
+function nomeDe(id){const p=COM.nomes[id];return(p&&p.name)||(id===COM.uid?'Você':'Aluno')}
+function avatarDe(id,tam=40){const p=COM.nomes[id];return p&&p.avatarUrl?`<img class="cav" src="${esc(p.avatarUrl)}" width="${tam}" height="${tam}" alt="">`:`<span class="cav" style="width:${tam}px;height:${tam}px">${esc((nomeDe(id)[0]||'A').toUpperCase())}</span>`}
+function linhaAutor(p){
+  const prof=p.papel==='professor',eu=p.autor===COM.uid,ctx=p.ctx||{};
+  return`<div class="row" style="gap:10px;align-items:flex-start">${avatarDe(p.autor)}<div class="grow"><div class="row" style="gap:6px;flex-wrap:wrap"><b class="cnome"></b>${prof?'<span class="tag t-ok">Professor</span>':''}${eu&&!prof?'<span class="tag t-line">Você</span>':''}<span class="xs mu2">${quandoTs(p.criado)}</span></div>
+   <span class="xs mu">${prof?'Concurso com Líbero':[ctx.sigla&&`${ctx.sigla} · ${esc(ctx.cargo||'')}`,ctx.nivel&&`nível ${ctx.nivel}`,ctx.streak?`${ctx.streak} ${ctx.streak===1?'dia':'dias'} seguidos`:''].filter(Boolean).join(' · ')}</span></div></div>`;
+}
+const curtiu=id=>!!(COM.curt[COM.uid]||{})[id];
+const nCurt=id=>Object.values(COM.curt).filter(m=>m[id]).length;
+function cartaoPost(p,resp){
+  const filhos=COM.posts.filter(x=>x.parent===p.id).sort((a,b)=>a.criado-b.criado),ab=COM.aberto[p.id],mostra=ab?filhos:filhos.slice(0,1);
+  const primeiro=!resp&&p.tipo!=='enquete'&&COM.posts.filter(x=>x.autor===p.autor&&!x.parent).sort((a,b)=>a.criado-b.criado)[0]?.id===p.id&&p.papel!=='professor';
+  let corpo=`<p class="ctexto"></p>`;
+  if(p.tipo==='conquista')corpo=`${p.texto?'<p class="ctexto"></p>':''}<div class="conq">${I('trofeu',22)}<div><span class="eyebrow">Conquista</span><b class="ctit"></b></div></div>`;
+  if(p.tipo==='enquete'){const vs=Object.values(COM.votos).map(v=>v[p.id]).filter(x=>x!=null),tot=vs.length,meu=(COM.votos[COM.uid]||{})[p.id];
+    corpo=`<b class="ctexto" style="font-family:var(--h);font-size:17px"></b><div class="enq">${(p.opcoes||[]).map((o,i)=>{const n=vs.filter(x=>x===i).length,pc=tot?Math.round(n/tot*100):0;return`<button class="enq-o ${meu===i?'on':''}" data-a="votar" data-p="${p.id}" data-i="${i}" ${COM.podeEscrever===false||!COM.uid?'disabled':''}><span class="enq-b" style="width:${meu!=null?pc:0}%"></span><span class="enq-t">${esc(o)}</span>${meu!=null?`<b>${pc}%</b>`:''}</button>`}).join('')}</div><span class="xs mu">${tot} ${tot===1?'voto':'votos'}${meu==null?' · toque numa opção para votar':''}</span>`}
+  return`<article class="cpost ${resp?'resp':''}" data-id="${p.id}">
+   ${primeiro?`<span class="xs mu2" style="display:block;margin-bottom:6px">Primeira publicação de <span class="cnome1"></span></span>`:''}
+   ${linhaAutor(p)}
+   <div class="stack" style="gap:8px;margin:8px 0 0 50px">${corpo}
+    ${p.cat&&p.tipo!=='enquete'?`<span class="tag t-line" style="justify-self:start">${catNome(p.cat)}</span>`:''}
+    ${p.tipo!=='enquete'?`<div class="cacoes"><button class="cac" data-a="responder" data-p="${resp||p.id}">${I('balao',17)}${!resp&&filhos.length?filhos.length:''}<span class="sr">Responder</span></button><button class="cac ${curtiu(p.id)?'on':''}" data-a="curtir" data-p="${p.id}" aria-pressed="${curtiu(p.id)}">${curtiu(p.id)?`<svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONS.coracao}</svg>`:I('coracao',17)}${nCurt(p.id)||''}<span class="sr">Curtir</span></button></div>`:''}
+   </div>
+   ${!resp&&p.tipo!=='enquete'?`<div class="cfilhos">${mostra.map(f=>cartaoPost(f,p.id)).join('')}
+    ${filhos.length>1&&!ab?`<button class="btn-g" style="margin-left:50px" data-a="maisResp" data-p="${p.id}">Mostrar mais ${filhos.length-1} ${filhos.length-1===1?'resposta':'respostas'}</button>`:''}
+    ${!filhos.length?`<button class="cprim" data-a="responder" data-p="${p.id}">Seja o primeiro a responder</button>`:''}</div>`:''}
+  </article>`;
+}
+// preenche nomes e textos com textContent (conteúdo de outras pessoas)
+function comPreencher(){
+  document.querySelectorAll('.cpost[data-id],.citem[data-id]').forEach(el=>{
+    const id=el.dataset.id,p=COM.posts.find(x=>x.id===id)||COM.filas.flatMap(f=>f.itens.map(i=>({...i,autor:f.uid}))).find(x=>x.id===id)||(COM.fila||[]).map(i=>({...i,autor:COM.uid})).find(x=>x.id===id)||EXEMPLOS.find(x=>x.id===id);if(!p)return;
+    const n=el.querySelector(':scope > .row .cnome, :scope > .grow .cnome');if(n)n.textContent=p.exNome||nomeDe(p.autor);
+    const n1=el.querySelector(':scope > span .cnome1');if(n1)n1.textContent=p.exNome||nomeDe(p.autor);
+    const t=el.querySelector(':scope > .stack .ctexto');if(t)t.textContent=p.tipo==='enquete'?p.pergunta:p.texto||'';
+    const ct=el.querySelector(':scope > .stack .ctit');if(ct)ct.textContent=p.titulo||'';
+  });
+}
+const EXEMPLOS=[
+  {id:'ex1',exNome:'Professor',papel:'professor',autor:'ex',criado:Date.now()-3*3600e3,cat:'edital',texto:'Saiu a retificação do edital: a prova passou para 07/02. Atualizem o cronograma em Ajustar rotina.'},
+  {id:'ex2',exNome:'Aluna de exemplo',autor:'ex2',ctx:{sigla:'TJ-SP',cargo:'Escrevente',nivel:3,streak:12},criado:Date.now()-20*3600e3,cat:'duvida',texto:'Revogação pode ser feita pelo Judiciário? Fiquei na dúvida depois da questão de hoje.'},
+  {id:'ex3',exNome:'Aluno de exemplo',autor:'ex3',ctx:{sigla:'TJ-SP',cargo:'Escrevente',nivel:2,streak:7},criado:Date.now()-26*3600e3,tipo:'conquista',cat:'conquista',titulo:'7 dias seguidos de estudo',texto:'Primeira semana sem falhar!'}
+];
+V.comunidade=()=>{
+  comIniciar();
+  const c=concAtivo(),P=prep();
+  const posts=COM.posts.filter(p=>!p.parent&&(COM.escopo==='todos'||!p.conc||p.conc===c.id)&&(!COM.cat||p.cat===COM.cat||(COM.cat==='conquista'&&p.tipo==='conquista')));
+  const enq=posts.find(p=>p.tipo==='enquete'),resto=posts.filter(p=>p!==enq);
+  const minhas=(COM.fila||[]),pend=COM.adm?pendentes():0;
+  let corpo;
+  if(!COM.ok&&!COM.carregando)corpo=`<div class="aviso neutro">${I('ajuda')}<div class="grow sm"><span>A comunidade usa o banco de dados da página e funciona na versão publicada no claude.ai, para quem tem acesso a ela. Abaixo, um exemplo de como ela fica.</span></div></div>${previaExemplo()}`;
+  else if(COM.carregando)corpo=`<div class="card empty">${I('pessoas',28)}<b>${COM.lento?'A comunidade está demorando para carregar':'Carregando a comunidade…'}</b>${COM.lento?'<p class="sm mu">Pode ser a conexão. As publicações aparecem assim que o banco responder.</p>':''}</div>`;
+  else corpo=`${enq?`<div class="list">${cartaoPost(enq)}</div>`:''}
+    ${resto.length?`<div class="list">${resto.map(p=>cartaoPost(p)).join('')}</div>`:`<div class="card empty">${I('pessoas',28)}<h3>Ainda não há publicações${COM.cat?` em ${catNome(COM.cat)}`:''}</h3><p class="sm mu">Tire uma dúvida, divida um material ou conte como foi o seu dia de estudo. Toda publicação passa pela aprovação do professor.</p>${COM.podeEscrever!==false&&COM.uid?'<button class="btn btn-p" data-a="postar">Escrever a primeira publicação</button>':''}</div>${previaExemplo()}`}`;
+  return`<section class="stack" style="gap:6px"><span class="eyebrow">Comunidade · ${c.sigla} · ${esc(cargoDe(P).curto)}</span><h1>Quem estuda com você</h1><p class="mu">Dúvidas, materiais e conquistas de quem vai fazer a mesma prova. Toda publicação é aprovada pelo professor antes de aparecer.</p></section>
+  ${COM.adm?`<button class="card between mod-b" data-a="go" data-v="moderacao"><span class="row" style="gap:10px">${I('escudo',22)}<span><b style="display:block">Moderação</b><span class="sm mu">${pend?`${pend} ${pend===1?'publicação aguardando':'publicações aguardando'} sua aprovação`:'Nada aguardando aprovação'}</span></span></span>${pend?`<span class="tag t-at">${pend}</span>`:chevR()}</button>`:''}
+  ${minhas.length?`<section class="stack" style="gap:8px">${minhas.map(i=>`<div class="aviso ${i.status==='recusado'?'er':'neutro'}">${I(i.status==='recusado'?'x':'relogio')}<div class="grow sm"><b>${i.status==='recusado'?'Sua publicação não foi aprovada':'Sua publicação está em análise'}</b><span>“${esc((i.texto||i.titulo||'').slice(0,90))}${(i.texto||'').length>90?'…':''}”</span>${i.status==='recusado'?`<span>${i.motivo?esc(i.motivo)+'. ':''}Você pode escrever de novo.</span><button class="btn-g" style="justify-self:start;min-height:34px" data-a="filaLimpar" data-id="${i.id}">Dispensar</button>`:''}</div></div>`).join('')}</section>`:''}
+  <div class="seg pill" style="justify-self:start"><button aria-pressed="${COM.escopo==='conc'}" data-a="comEsc" data-v="conc">${c.sigla}</button><button aria-pressed="${COM.escopo==='todos'}" data-a="comEsc" data-v="todos">Todos os concursos</button></div>
+  <div class="chips fchips">${[['','Tudo'],...CATS].map(([k,l])=>`<button class="chip" aria-pressed="${COM.cat===k}" data-a="comCat" data-v="${k}">${l}</button>`).join('')}</div>
+  ${corpo}
+  ${COM.ok&&COM.uid&&COM.podeEscrever!==false?`<button class="fab" data-a="postar" aria-label="Escrever publicação">${I('mais',26,2.4)}</button>`:''}
+  ${COM.ok&&COM.podeEscrever===false?`<p class="sm mu">Você pode ler a comunidade. Para publicar, peça acesso de participante (Contributor) ao professor.</p>`:''}`;
+};
+function previaExemplo(){return`<section class="stack" style="gap:8px"><span class="eyebrow" style="color:var(--mu)">Exemplo de como fica · não são publicações reais</span><div class="list ex">${EXEMPLOS.map(p=>{const q={...p};return cartaoPost(q)}).join('')}</div></section>`}
+V.moderacao=()=>{
+  comIniciar();
+  if(!COM.adm)return`<div class="card empty"><b>Só o professor modera a comunidade.</b><button class="btn btn-s" data-a="tab" data-v="comunidade">Voltar</button></div>`;
+  const itens=COM.filas.flatMap(f=>f.itens.map(i=>({...i,autor:f.uid}))).sort((a,b)=>a.criado-b.criado);
+  const pend=itens.filter(i=>i.status!=='recusado'),rec=itens.filter(i=>i.status==='recusado');
+  const item=i=>{const pai=i.parent&&COM.posts.find(p=>p.id===i.parent);return`<div class="card citem stack" data-id="${i.id}"><div class="grow">${linhaAutor(i).replace('<b class="cnome"></b>','<b class="cnome"></b>')}</div>
+    ${pai?`<p class="xs mu" style="margin-left:50px">Resposta a: “${esc((pai.texto||pai.pergunta||'').slice(0,80))}…”</p>`:''}
+    <div class="stack" style="gap:8px;margin-left:50px">${i.tipo==='conquista'?`<div class="conq">${I('trofeu',22)}<div><span class="eyebrow">Conquista</span><b class="ctit"></b></div></div>`:''}<p class="ctexto"></p><span class="tag t-line" style="justify-self:start">${i.parent?'Resposta':catNome(i.cat)}</span></div>
+    ${i.status==='recusado'?`<p class="xs mu">Recusada${i.motivo?': '+esc(i.motivo):''}</p>`:`<div class="btns"><button class="btn btn-p sm" data-a="aprovar" data-id="${i.id}" data-u="${i.autor}">${I('check',16)} Aprovar</button><button class="btn btn-s sm" data-a="recusar" data-id="${i.id}" data-u="${i.autor}">Recusar</button></div>`}</div>`};
+  return`<button class="back" data-a="tab" data-v="comunidade">${I('esq',18)} Comunidade</button>
+  <section class="stack" style="gap:6px"><span class="eyebrow">Moderação</span><h1>${pend.length} ${pend.length===1?'publicação aguardando':'publicações aguardando'}</h1><p class="mu">Nada aparece na comunidade sem a sua aprovação. Recusar avisa o aluno, sem mostrar a publicação para os outros.</p></section>
+  ${pend.length>1?`<button class="btn btn-s" style="justify-self:start" data-a="aprovarTodas">Aprovar todas (${pend.length})</button>`:''}
+  ${pend.length?`<div class="stack">${pend.map(item).join('')}</div>`:`<div class="card empty">${I('check',28)}<b>Tudo aprovado</b><p class="sm mu">Quando um aluno publicar ou responder, aparece aqui.</p></div>`}
+  <section class="card pad stack"><h3>Publicar como professor</h3><p class="sm mu">Seus posts aparecem na hora, com o selo de Professor.</p>
+   <div class="field"><label for="profTxt">Texto</label><textarea id="profTxt" class="inp" maxlength="600" placeholder="Um aviso, uma dica ou uma pergunta para a turma"></textarea></div>
+   <div class="chips">${CATS.filter(c=>c[0]!=='conquista').map(([k,l])=>`<button class="chip" aria-pressed="${(UI.profCat||'edital')===k}" data-a="profCat" data-v="${k}">${l}</button>`).join('')}</div>
+   <button class="btn btn-p" style="justify-self:start" data-a="profPostar">Publicar agora</button></section>
+  <section class="card pad stack"><h3>Nova enquete</h3><p class="sm mu">Aparece no topo da comunidade do ${concAtivo().sigla}.</p>
+   <div class="field"><label for="enqP">Pergunta</label><input id="enqP" class="inp" maxlength="140" placeholder="Ex.: Você já começou a estudar para a prova?"></div>
+   ${[0,1,2,3].map(i=>`<div class="field"><label for="enqO${i}">Opção ${i+1}${i>1?' (opcional)':''}</label><input id="enqO${i}" class="inp" maxlength="60"></div>`).join('')}
+   <button class="btn btn-p" style="justify-self:start" data-a="criarEnquete">Publicar enquete</button></section>
+  ${rec.length?`<details class="card acc"><summary class="between"><b>Recusadas (${rec.length})</b><span class="rot">${I('dir',16)}</span></summary><div class="stack" style="margin-top:12px">${rec.map(item).join('')}</div></details>`:''}`;
+};
+SHEETS.postar=p=>{const cx=contextoAluno(),cq=UI.conqRasc;return[cq?'Compartilhar conquista':'Nova publicação',`Comunidade · ${cx.sigla}`,`
+  ${cq?`<div class="conq">${I('trofeu',22)}<div><span class="eyebrow">Conquista</span><b>${esc(cq)}</b></div></div>`:`<div class="chips">${CATS.filter(c=>c[0]!=='conquista').map(([k,l])=>`<button class="chip" aria-pressed="${(UI.postCat||'duvida')===k}" data-a="postCat" data-v="${k}">${l}</button>`).join('')}</div>`}
+  <div class="field"><label for="postTxt">${cq?'Quer dizer algo? (opcional)':'O que você quer dividir?'}</label><textarea id="postTxt" class="inp" maxlength="500" placeholder="${cq?'Conte como foi':'Uma dúvida, um material que ajudou, como está sua rotina…'}">${esc(UI.rasc||'')}</textarea><span class="xs mu">Até 500 caracteres. Sem dados pessoais, links de pirataria ou ofensas.</span></div>
+  <div class="aviso neutro">${I('escudo')}<div class="grow sm"><span>Sua publicação passa pela aprovação do professor antes de aparecer para a turma.</span></div></div>
+  <button class="btn btn-p w" data-a="enviarPost">Enviar para aprovação</button>`]};
+SHEETS.responder=p=>{const pai=COM.posts.find(x=>x.id===p.p);return['Responder',`Comunidade`,`
+  ${pai?`<div class="card soft sm"><b class="sm" style="display:block">${esc(nomeDe(pai.autor))}</b><span class="mu">${esc((pai.texto||'').slice(0,160))}</span></div>`:''}
+  <div class="field"><label for="postTxt">Sua resposta</label><textarea id="postTxt" class="inp" maxlength="500">${esc(UI.rasc||'')}</textarea></div>
+  <div class="aviso neutro">${I('escudo')}<div class="grow sm"><span>A resposta aparece depois da aprovação do professor.</span></div></div>
+  <button class="btn btn-p w" data-a="enviarResp" data-p="${p.p}">Enviar para aprovação</button>`]};
+document.addEventListener('input',e=>{if(e.target.id==='postTxt')UI.rasc=e.target.value});
+const _fecharSheet=fecharSheet;
+fecharSheet=function(sem){const era=UI.sheet&&['postar','responder'].includes(UI.sheet.tipo);_fecharSheet(sem);if(era){UI.conqRasc=null;if(COM.sujo){COM.sujo=false;render()}}};
+function novoId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function filaEscrever(fn){COM.filaW=COM.filaW.then(async()=>{const ref=COM.db.doc('fila/'+COM.uid);const s=await ref.get();const itens=s.exists?(s.data().itens||[]).slice():[];await ref.set({itens:fn(itens)})});return COM.filaW}
+async function enviarFila(item){
+  if(!COM.ok||!COM.uid){toast('A comunidade só funciona na página publicada.');return}
+  try{await filaEscrever(it=>[...it,item].slice(-30));UI.rasc='';fecharSheet(true);toast('Enviado. Aparece na comunidade depois da aprovação.')}
+  catch(e){toast(e&&e.code==='quota_exceeded'?'A comunidade está cheia. Avise o professor.':'Não foi possível enviar agora. Tente de novo.')}
+}
+ACT.postar=()=>{UI.conqRasc=null;abrirSheet('postar')};
+ACT.postCat=d=>{UI.postCat=d.v;UI.rasc=($('#postTxt')||{}).value||UI.rasc;renderSheet()};
+ACT.enviarPost=()=>{const t=(($('#postTxt')||{}).value||'').trim();const cq=UI.conqRasc;if(!t&&!cq){toast('Escreva algo antes de enviar.');return}
+  enviarFila({id:novoId(),tipo:cq?'conquista':'post',titulo:cq||undefined,cat:cq?'conquista':(UI.postCat||'duvida'),texto:t,conc:concAtivo().id,ctx:contextoAluno(),criado:Date.now(),status:'pendente'})};
+ACT.responder=d=>{if(!COM.ok||!COM.uid||COM.podeEscrever===false){toast('Para responder, peça acesso de participante ao professor.');return}UI.rasc='';abrirSheet('responder',{p:d.p})};
+ACT.enviarResp=d=>{const t=(($('#postTxt')||{}).value||'').trim();if(!t){toast('Escreva a resposta antes de enviar.');return}
+  enviarFila({id:novoId(),tipo:'resposta',parent:d.p,cat:'',texto:t,conc:concAtivo().id,ctx:contextoAluno(),criado:Date.now(),status:'pendente'})};
+ACT.filaLimpar=d=>{filaEscrever(it=>it.filter(i=>i.id!==d.id)).catch(()=>{})};
+ACT.maisResp=d=>{COM.aberto[d.p]=true;render()};
+ACT.comEsc=d=>{COM.escopo=d.v;render()};
+ACT.comCat=d=>{COM.cat=d.v;render()};
+ACT.curtir=async d=>{if(!COM.ok||!COM.uid||COM.podeEscrever===false){toast('Para curtir, peça acesso de participante ao professor.');return}
+  const m={...(COM.curt[COM.uid]||{})};if(m[d.p])delete m[d.p];else m[d.p]=true;COM.curt={...COM.curt,[COM.uid]:m};render();
+  try{await COM.db.doc('curtidas/'+COM.uid).set({ids:m})}catch(e){toast('Não foi possível curtir agora.')}};
+ACT.votar=async d=>{if(!COM.ok||!COM.uid)return;const v={...(COM.votos[COM.uid]||{}),[d.p]:Number(d.i)};COM.votos={...COM.votos,[COM.uid]:v};render();
+  try{await COM.db.doc('votos/'+COM.uid).set({v})}catch(e){toast('Não foi possível votar agora.')}};
+async function aprovarItem(id,u){
+  const f=COM.filas.find(x=>x.uid===u);const it=f&&f.itens.find(i=>i.id===id);if(!it)return;
+  const {status,motivo,papel,...limpo}=it;
+  await COM.db.doc('posts/'+id).set({...limpo,autor:u,aprovadoEm:Date.now()});
+  const ref=COM.db.doc('fila/'+u);const s=await ref.get();await ref.set({itens:((s.exists&&s.data().itens)||[]).filter(i=>i.id!==id)});
+}
+ACT.aprovar=async d=>{try{await aprovarItem(d.id,d.u);toast('Aprovada. Já aparece na comunidade.')}catch(e){toast('Não foi possível aprovar agora.')}};
+ACT.aprovarTodas=async()=>{const its=COM.filas.flatMap(f=>f.itens.filter(i=>i.status!=='recusado').map(i=>[i.id,f.uid]));for(const [id,u] of its){try{await aprovarItem(id,u)}catch(e){}}toast(`${its.length} publicações aprovadas.`)};
+ACT.recusar=d=>abrirSheet('recusar',{id:d.id,u:d.u});
+SHEETS.recusar=p=>['Recusar publicação','Moderação',`<p class="sm mu">O aluno vê o aviso de que a publicação não foi aprovada. Escolha o motivo (opcional):</p>
+  <div class="stack">${['Fora do tema da comunidade','Contém dados pessoais','Link ou material não permitido','Linguagem inadequada','Repetida'].map(m=>`<button class="li" data-a="recusarOk" data-id="${p.id}" data-u="${p.u}" data-m="${m}">${m}</button>`).join('')}<button class="li" data-a="recusarOk" data-id="${p.id}" data-u="${p.u}" data-m="">Recusar sem motivo</button></div>`];
+ACT.recusarOk=async d=>{fecharSheet(true);try{const ref=COM.db.doc('fila/'+d.u);const s=await ref.get();await ref.set({itens:((s.exists&&s.data().itens)||[]).map(i=>i.id===d.id?{...i,status:'recusado',motivo:d.m||''}:i)});toast('Publicação recusada.')}catch(e){toast('Não foi possível recusar agora.')}};
+ACT.profCat=d=>{UI.profCat=d.v;const t=$('#profTxt');const v=t?t.value:'';render();const t2=$('#profTxt');if(t2)t2.value=v};
+ACT.profPostar=async()=>{const t=(($('#profTxt')||{}).value||'').trim();if(!t){toast('Escreva o texto do post.');return}
+  try{const id=novoId();await COM.db.doc('posts/'+id).set({tipo:'post',papel:'professor',cat:UI.profCat||'edital',texto:t,conc:concAtivo().id,autor:COM.uid,criado:Date.now()});$('#profTxt').value='';toast('Publicado na comunidade.')}catch(e){toast('Não foi possível publicar agora.')}};
+ACT.criarEnquete=async()=>{const q=(($('#enqP')||{}).value||'').trim(),ops=[0,1,2,3].map(i=>(($('#enqO'+i)||{}).value||'').trim()).filter(Boolean);
+  if(!q||ops.length<2){toast('Escreva a pergunta e pelo menos 2 opções.');return}
+  try{await COM.db.doc('posts/'+novoId()).set({tipo:'enquete',papel:'professor',pergunta:q,opcoes:ops,conc:concAtivo().id,autor:COM.uid,criado:Date.now()});['enqP','enqO0','enqO1','enqO2','enqO3'].forEach(i=>{const e=$('#'+i);if(e)e.value=''});toast('Enquete publicada.')}catch(e){toast('Não foi possível publicar agora.')}};
+ACT.compartilhar=d=>{UI.conqRasc=d.t;UI.rasc='';go('comunidade',{},{raiz:true});setTimeout(()=>abrirSheet('postar'),50)};
+
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -2283,7 +2485,7 @@ function topo(){
   const demo=`<button class="demo-b" data-a="sheet" data-s="demo" aria-label="Painel de demonstração" title="Painel de demonstração">${I('ajuste',17)}</button>`,busca=`<button class="busca-b" data-a="go" data-v="busca" aria-label="Buscar" title="Buscar (/)">${I('lupa',20)}</button>`;
   if(!P)return`<div class="top-in"><span class="logo-m" style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">${LOGO(36)}${WM(15)}</span>${demo}</div>`;
   return`<div class="top-in">
-   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:'Hoje',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas'}[UI.view]||''}</b></nav>
+   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:'Hoje',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas',comunidade:'Comunidade',moderacao:'Moderação',flash:'Flashcards',simu:'Simulado'}[UI.view]||''}</b></nav>
    <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}">${LOGO(40)}<span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${c.sigla} · ${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>
@@ -2292,11 +2494,11 @@ function topo(){
 }
 function lateral(){
   const P=prep(),tab=TAB[UI.view],c=concAtivo(),cb=c&&cobre(c.id);
-  const nvs=[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar']];
+  const nvs=[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']];
   const sec=[...(COLECOES[c?.id]?[['colecao','Coleção em PDF','edital','']]:[]),['dicas','Dicas do edital','rolar',''],['materiais','Materiais','camadas','estudo'],['flash','Flashcards','cartas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
   return`<div class="logo">${LOGO(46)}${WM(18)}</div>
    ${P?`<div class="estudando"><span class="eyebrow" style="color:var(--mu)">Você está estudando</span><b><span class="num">${c.sigla}</span> <span class="mu" style="font-weight:500">· ${esc(cargoDe(P).curto)}</span></b><span class="xs mu">${cb?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</span><button class="btn-g" style="min-height:36px;font-size:14px" data-a="sheet" data-s="seletor">${I('esq',14)} Trocar curso</button></div>
-   <nav><button class="nv" data-a="go" data-v="busca" ${UI.view==='busca'?'aria-current="page"':''}>${I('lupa')}Buscar<span class="lk xs mu2">/</span></button>${nvs.map(([v,l,ic])=>`<button class="nv" data-a="tab" data-v="${v}" ${tab===v&&UI.view!=='premium'?'aria-current="page"':''}>${I(ic)}${l}</button>`).join('')}</nav>
+   <nav><button class="nv" data-a="go" data-v="busca" ${UI.view==='busca'?'aria-current="page"':''}>${I('lupa')}Buscar<span class="lk xs mu2">/</span></button>${nvs.map(([v,l,ic])=>`<button class="nv" data-a="tab" data-v="${v}" ${tab===v&&UI.view!=='premium'?'aria-current="page"':''}>${I(ic)}${l}${v==='comunidade'&&COM.adm&&pendentes()?`<span class="pr">${pendentes()}</span>`:''}</button>`).join('')}</nav>
    <span class="lbl">Recursos</span><nav>${sec.map(([v,l,ic,g])=>{const ok=!g||(g==='questoes'?temQuestoes():cb);return`<button class="nv" data-a="${v==='flash'||v==='dicas'?v:'go'}" data-v="${v}" ${g?`data-gate="${g}"`:''} ${UI.view===v?'aria-current="page"':''}>${I(ic)}${l}${ok?'':`<span class="lk">${I('lock',15)}</span>`}</button>`}).join('')}
     ${temQuestoes()?'':`<button class="nv" data-a="go" data-v="premium" ${UI.view==='premium'?'aria-current="page"':''}>${I('estrela')}Premium<span class="pr">Novo</span></button>`}</nav>`
    :`<nav><button class="nv" aria-current="page">${I('busca')}Catálogo</button><button class="nv" data-a="go" data-v="planos">${I('cartao')}Planos</button></nav>`}
@@ -2306,7 +2508,7 @@ function lateral(){
 }
 function navInferior(){
   const tab=TAB[UI.view];
-  return[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar']].map(([v,l,ic])=>`<button data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}>${I(ic,22,1.8)}${l}</button>`).join('');
+  return[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']].map(([v,l,ic])=>`<button data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}>${I(ic,22,1.8)}${l}${v==='comunidade'&&COM.adm&&pendentes()?`<span class="bdot" aria-label="${pendentes()} aguardando aprovação"></span>`:''}</button>`).join('');
 }
 function render(topoScroll){
   if(!UI.view)UI.view=S.ativo?'hoje':'catalogo';
@@ -2316,6 +2518,7 @@ function render(topoScroll){
   const main=$('#main');const f=V[UI.view]||V.hoje;
   main.innerHTML=`<div class="wrap" ${topoScroll?'':'style="animation:none"'}>${bloqueio(UI.view)||f(UI.p)}</div>`;
   renderChrome();
+  if(['comunidade','moderacao'].includes(UI.view))comPreencher();
   if(topoScroll){window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true})}
   else if(focoId){const el=document.getElementById(focoId);if(el)el.focus({preventScroll:true})}
   if(UI.sheet)renderSheet();
