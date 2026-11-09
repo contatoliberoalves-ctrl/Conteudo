@@ -98,7 +98,7 @@ export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, e
   const zoom = estatico ? 1.06 : interpolate(f, [0, c.dur], [1.0, 1.1], { ...clamp, easing: T.ease.inOut });
   const deriva = estatico ? 0 : interpolate(f, [0, c.dur], [0, -30], clamp);
   const linhas = String(c.texto).replace(/\*\*/g, "").split("\n");
-  const tam = Math.max(84, Math.min(150, Math.floor(1500 / Math.max(...linhas.map((l) => l.length)))));
+  const tam = Math.max(60, Math.min(150, Math.floor(1500 / Math.max(...linhas.map((l) => l.length)))));
   const luz = estatico ? 1 : spring({ frame: f, fps, config: { damping: 30, stiffness: 40 } });
   return (
     <AbsoluteFill>

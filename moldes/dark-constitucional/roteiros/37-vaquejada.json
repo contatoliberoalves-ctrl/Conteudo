@@ -1,0 +1,84 @@
+{
+  "pauta": 37,
+  "serie": "O STF decidiu",
+  "titulo": "O STF barrou a vaquejada. O Congresso mudou a Constituição.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O STF barrou\na vaquejada.\nO Congresso mudou\na **Constituição.**",
+      "imagem": {
+        "arquivo": "imagens/vaqueiros.jpg",
+        "credito": "Vaqueiros nos EUA, foto ilustrativa · U.S. National Archives (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "Em dois mil e dezesseis, o Supremo derrubou uma lei que regulamentava a vaquejada. Meses depois, o Congresso mudou a Constituição pra garantir a prática."
+    },
+    {
+      "tipo": "frase",
+      "data": "Nordeste",
+      "texto": "Dois vaqueiros a cavalo\nderrubam o **boi**\npelo rabo.",
+      "nota": "Uma tradição forte no Nordeste.",
+      "fala": "Pra quem não conhece: na vaquejada, dois vaqueiros a cavalo correm atrás de um boi e tentam derrubá-lo puxando pelo rabo. É uma tradição forte no Nordeste."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Cultura",
+          "sub": "proteção às manifestações culturais"
+        },
+        {
+          "titulo": "Animais",
+          "sub": "proibição de crueldade (art. 225)",
+          "marcada": true
+        }
+      ],
+      "dono": "STF 2016",
+      "marcaEm": "Em",
+      "fala": "Era um choque entre dois pontos da Constituição: a proteção às manifestações culturais e a proibição de crueldade contra animais. Em dois mil e dezesseis, a maioria do Supremo entendeu que a crueldade pesava mais."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "EC 96/2017 · art. 225, § 7º",
+        "texto": "…não se consideram **cruéis** as práticas desportivas que utilizem animais, desde que sejam manifestações culturais…"
+      },
+      "b": {
+        "cabecalho": "STF · 2024 e 2026 (resumo)",
+        "texto": "Emenda válida. Mas a prática só vale com regras de **bem-estar animal**."
+      },
+      "ponte": "Depois",
+      "segundoEm": "Supremo",
+      "fala": "O Congresso respondeu com a Emenda noventa e seis: práticas com animais não são consideradas cruéis se forem manifestação cultural registrada, com lei que garanta o bem-estar dos animais. E o Supremo, depois, aceitou a emenda, com essa condição."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem ganhou\na **briga?**",
+      "fala": "Então quem ganhou essa briga?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "A vaquejada ficou.\nMas com **regras.**",
+      "fala": "De certo modo, os dois. A vaquejada continua, mas só com cuidados mínimos com o animal."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Cultura ou\n**maus-tratos?**",
+      "fala": "E pra você: cultura ou maus-tratos? Comenta."
+    }
+  ],
+  "legenda": "O STF barrou a vaquejada. O Congresso mudou a Constituição.\n\nEm 2016, na ADI 4983, o STF invalidou uma lei cearense que regulamentava a vaquejada, por crueldade contra os animais. Em 2017, a Emenda Constitucional 96 acrescentou o § 7º ao art. 225: práticas desportivas com animais não são consideradas cruéis se forem manifestações culturais registradas, com lei que assegure o bem-estar animal. O STF declarou a emenda constitucional (ADI 5728) e, em 2026, validou as normas federais sob a condição de proteção do bem-estar animal (ADI 5772).\n\nCultura ou maus-tratos?",
+  "fontes": [
+    "STF · ADI 4983",
+    "Emenda Constitucional 96/2017",
+    "STF · ADI 5728",
+    "STF · ADI 5772"
+  ],
+  "hashtags": [
+    "vaquejada",
+    "stf",
+    "nordeste",
+    "direitoconstitucional",
+    "polemica"
+  ]
+}

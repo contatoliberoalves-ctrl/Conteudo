@@ -1,0 +1,80 @@
+{
+  "pauta": 39,
+  "serie": "O STF decidiu",
+  "titulo": "O governo quis seu nome, telefone e endereço. O STF barrou.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O governo quis seu\nnome, telefone e\nendereço. O STF **barrou.**",
+      "imagem": {
+        "arquivo": "imagens/telefone-antigo.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "60% 50%"
+      },
+      "fala": "Em dois mil e vinte, o governo quis o nome, o telefone e o endereço de milhões de brasileiros. E o Supremo barrou."
+    },
+    {
+      "tipo": "frase",
+      "data": "Abril de 2020",
+      "texto": "Uma medida provisória\nmanda as operadoras\n**entregarem** os dados.",
+      "nota": "MP 954/2020: dados de clientes de telefonia para o IBGE.",
+      "fala": "Abril de dois mil e vinte, começo da pandemia. A Medida Provisória novecentos e cinquenta e quatro manda as operadoras de telefonia entregarem ao IBGE os dados dos clientes."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Nome",
+          "marcada": true
+        },
+        {
+          "titulo": "Telefone",
+          "marcada": true
+        },
+        {
+          "titulo": "Endereço",
+          "marcada": true
+        }
+      ],
+      "dono": "Para o IBGE",
+      "marcaEm": "Tudo",
+      "fala": "Nome. Telefone. Endereço. Tudo pra fazer pesquisas por telefone durante a pandemia."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Qual o problema, se\nera pra **pesquisa?**",
+      "fala": "Qual o problema, se era pra pesquisa?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Faltavam\n**garantias.**",
+      "nota": "O Plenário do STF manteve a suspensão da MP: não havia salvaguardas suficientes para os dados.",
+      "fala": "O problema era como. A medida não dizia direito pra que os dados seriam usados nem como seriam protegidos. O Plenário do Supremo manteve a suspensão."
+    },
+    {
+      "tipo": "frase",
+      "data": "2022",
+      "texto": "Proteção de dados vira\n**direito fundamental.**",
+      "nota": "A Emenda Constitucional 115/2022 incluiu o inciso LXXIX no art. 5º.",
+      "fala": "Dois anos depois, a proteção de dados pessoais entrou na Constituição como direito fundamental, no artigo quinto."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você entregaria\nseus **dados?**",
+      "fala": "E você: entregaria seus dados? Comenta."
+    }
+  ],
+  "legenda": "O governo quis seu nome, telefone e endereço. O STF barrou.\n\nEm abril de 2020, a MP 954 determinou que as operadoras de telefonia compartilhassem com o IBGE nome, telefone e endereço dos clientes, para pesquisas durante a pandemia. O Plenário do STF manteve a suspensão da medida por falta de salvaguardas (ADI 6387). Em 2022, a Emenda Constitucional 115 incluiu a proteção de dados pessoais entre os direitos fundamentais (art. 5º, LXXIX).\n\nVocê entregaria seus dados?",
+  "fontes": [
+    "MP 954/2020",
+    "STF · ADI 6387",
+    "Emenda Constitucional 115/2022"
+  ],
+  "hashtags": [
+    "protecaodedados",
+    "stf",
+    "lgpd",
+    "direitoconstitucional",
+    "privacidade"
+  ]
+}

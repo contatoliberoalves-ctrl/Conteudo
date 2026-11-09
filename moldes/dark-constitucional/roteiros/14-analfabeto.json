@@ -1,0 +1,80 @@
+{
+  "pauta": 14,
+  "serie": "Na urna",
+  "titulo": "Por 104 anos, quem não sabia ler não podia votar no Brasil",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Por 104 anos,\nquem não sabia ler\nnão podia **votar**\nno Brasil.",
+      "imagem": {
+        "arquivo": "imagens/lousa-antiga.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "68% 50%"
+      },
+      "fala": "Durante cento e quatro anos, quem não sabia ler foi proibido de votar no Brasil. E o detalhe: no Império, podia."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "1824",
+          "texto": "No Império, o voto dependia de **renda**"
+        },
+        {
+          "data": "1881",
+          "texto": "Lei Saraiva: só vota quem sabe ler e escrever"
+        },
+        {
+          "data": "1985",
+          "texto": "Emenda 25 devolve o voto ao analfabeto"
+        }
+      ],
+      "fala": "Na Constituição de mil oitocentos e vinte e quatro, o que contava pra votar era a renda. Em oitenta e um, a Lei Saraiva passou a exigir que o eleitor soubesse ler e escrever. E isso só caiu em mil novecentos e oitenta e cinco, com a Emenda vinte e cinco."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Em 1881, a maioria\ndos brasileiros\nnão sabia **ler.**",
+      "fala": "E em mil oitocentos e oitenta e um, a maioria dos brasileiros não sabia ler."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O número de eleitores\n**despencou.**",
+      "nota": "A exigência tirou das urnas a maior parte da população por mais de um século.",
+      "fala": "Resultado: o número de eleitores despencou. A maior parte da população ficou fora das urnas por mais de um século."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 14, § 1º, II, a",
+        "texto": "O alistamento eleitoral e o voto são **facultativos** para os analfabetos."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 14, § 4º",
+        "texto": "São **inelegíveis** os inalistáveis e os analfabetos."
+      },
+      "ponte": "Mas",
+      "segundoEm": "Mas",
+      "fala": "Hoje, pro analfabeto, votar é facultativo. Mas tem um detalhe: ele ainda não pode ser candidato. A Constituição diz que analfabetos são inelegíveis."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Analfabeto deveria\npoder ser **candidato?**",
+      "fala": "E aí: analfabeto deveria poder ser candidato? Comenta."
+    }
+  ],
+  "legenda": "Por 104 anos, quem não sabia ler não podia votar no Brasil.\n\nNo Império, o voto dependia da renda. Em 1881, a Lei Saraiva passou a exigir que o eleitor soubesse ler e escrever, numa época em que a maioria da população era analfabeta. O voto do analfabeto só voltou com a Emenda Constitucional 25, de 1985. Hoje ele é facultativo (CF/88, art. 14, § 1º, II, a), mas o analfabeto continua inelegível (art. 14, § 4º).\n\nAnalfabeto deveria poder ser candidato?",
+  "fontes": [
+    "Constituição de 1824",
+    "Decreto 3.029/1881 (Lei Saraiva)",
+    "Emenda Constitucional 25/1985",
+    "CF/88, art. 14, §§ 1º e 4º"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "voto",
+    "eleicoes",
+    "direitoconstitucional",
+    "curiosidades"
+  ]
+}

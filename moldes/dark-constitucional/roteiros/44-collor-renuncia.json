@@ -1,0 +1,73 @@
+{
+  "pauta": 44,
+  "serie": "Casos que viraram direito",
+  "titulo": "Ele renunciou no meio do julgamento e foi condenado mesmo assim",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ele renunciou\nno meio do\njulgamento. E foi\n**condenado.**",
+      "imagem": {
+        "arquivo": "imagens/martelo-plenario.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "Um presidente do Brasil renunciou no meio do próprio julgamento. E foi condenado mesmo assim."
+    },
+    {
+      "tipo": "frase",
+      "data": "1992",
+      "texto": "Impeachment de\n**Fernando Collor.**",
+      "nota": "A Câmara autorizou o processo e o Senado assumiu o julgamento.",
+      "fala": "Mil novecentos e noventa e dois. A Câmara autoriza o processo de impeachment contra Fernando Collor, e ele é afastado do cargo enquanto o Senado julga."
+    },
+    {
+      "tipo": "frase",
+      "data": "29 de dezembro de 1992",
+      "texto": "No dia do julgamento,\nele **renuncia.**",
+      "fala": "Vinte e nove de dezembro. Com o julgamento começando no Senado, Collor entrega a carta de renúncia."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Sem cargo, ainda\ndá pra **julgar?**",
+      "fala": "Sem cargo, ainda dava pra julgar?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 52, parágrafo único",
+        "texto": "…limitando-se a condenação… à perda do cargo, com **inabilitação, por oito anos**, para o exercício de função pública…"
+      },
+      "b": {
+        "cabecalho": "STF · MS 21.689 · 1993 (resumo)",
+        "texto": "A renúncia apresentada com o julgamento já iniciado **não impede** a aplicação da inabilitação."
+      },
+      "ponte": "Collor recorre",
+      "segundoEm": "recorreu",
+      "fala": "A Constituição prevê duas penas: perder o cargo e ficar oito anos sem poder exercer função pública. O Senado seguiu com o julgamento e aplicou a segunda. Collor recorreu ao Supremo. E perdeu."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Oito anos fora\nda **vida pública.**",
+      "nota": "O vice, Itamar Franco, assumiu a Presidência.",
+      "fala": "Ficou oito anos inabilitado pra função pública. E o vice, Itamar Franco, assumiu a Presidência."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Renunciar deveria\nencerrar o **julgamento?**",
+      "fala": "E pra você: renunciar deveria encerrar o julgamento? Comenta."
+    }
+  ],
+  "legenda": "Ele renunciou no meio do julgamento. E foi condenado mesmo assim.\n\nEm 29 de dezembro de 1992, com o julgamento do impeachment começando no Senado, Fernando Collor apresentou a renúncia. O Senado prosseguiu e aplicou a inabilitação por oito anos para o exercício de função pública (CF/88, art. 52, parágrafo único). No MS 21.689 (1993), o STF manteve a decisão. Itamar Franco assumiu a Presidência.\n\nRenunciar deveria encerrar o julgamento?",
+  "fontes": [
+    "CF/88, art. 52, parágrafo único",
+    "STF · MS 21.689",
+    "Senado Federal · Impeachment de 1992"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "impeachment",
+    "senado",
+    "direitoconstitucional",
+    "stf"
+  ]
+}
