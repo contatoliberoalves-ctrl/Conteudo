@@ -9,6 +9,7 @@ Todos os moldes do perfil usam uma identidade só, em `moldes/cg-comum/identidad
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).
 - `.claude/skills/molde-<id>/`: como gerar posts em cada molde. `.claude/skills/novo-molde/`: como cadastrar um molde novo.
 - `galeria/`: página que mostra todos os moldes e posts.
+- `videos/<id>/`: vídeos curtos desenhados em código (canvas + Playwright + ffmpeg), ex.: `videos/muros-oab/` (curta motivacional OAB/concursos). Saída em `saida/` (fora do git).
 
 ## Fotos
 O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os originais ficam no Google Drive dele e cada molde tem um script que recria os recortes (ex.: `moldes/estrutura-de-pecas/recortar_fotos.py`). Numa sessão nova sem as fotos, peça o link da pasta do Drive.
