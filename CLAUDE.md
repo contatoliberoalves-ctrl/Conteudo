@@ -42,3 +42,11 @@ Pedidos de alteração: no visor, o usuário clica num ponto de um slide, ou usa
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`
 Sem o proxy, as fontes do Google não carregam e os títulos saem com a fonte errada (e estouram a largura).
+
+## Skills externas de design (terceiros)
+Instaladas em `.claude/skills/`, copiadas dos repositórios originais (cada pasta guarda a licença dela). Servem para criticar e melhorar as galerias, páginas, criativos e copy; os moldes continuam mandando no visual de cada perfil.
+- `revenue-centric-design`: Revenue-Centric Design do Richard (@richardrx), via github.com/heliocosta-dev/revenue-centric-design (conversão, landing, checkout, onboarding, preço, retenção). A pasta `assets/` (40 MB de prints) ficou de fora: os caminhos `../assets/*.jpg` citados nas referências não existem aqui. Licença proíbe uso em apostas/cassino.
+- `stageshow`: UI falsa de produto (janelas, celular, cursor animado) para hero, card e demo, de github.com/benjitaylor/skills.
+- `impeccable`: design/crítica/auditoria/polimento de frontend, de impeccable.style (github.com/pbakaus/impeccable). Os comandos de detecção baixam um binário das releases do GitHub na primeira vez.
+- Emil Kowalski (github.com/emilkowalski/skills): `emil-design-eng`, `animate`, `choreograph`, `review-animations`, `improve-animations`, `find-animation-opportunities`, `remove-animations`, `animation-performance`, `animation-vocabulary`, `apple-design`, `gestures`, `mobile-native`, `break-ui`, `prototype`, `pick-ui-library`, `ask-sonner`, `animate-expo`, `write-swift`.
+- Visant (github.com/pedrojaques99/visant-skills-public): `visant-design`, `visant-killer` (auditoria anti-"cara de IA"), `visant-frontend`, `visant-refine`, `visant-motion`, `visant-copy` (copy em português sem tiques de IA), `visant-methodology` (branding em 9 etapas), `visant-preflight`, `site-reels`, `visant-video-editor`, `visant-premiere-editor` (precisa do Premiere) e `visant-mcp-connect` (precisa de conta Visant Labs).
