@@ -5,6 +5,18 @@ O gancho tem um trabalho só: fazer a pessoa certa decidir continuar. Para isso 
 1. **Tema claro**: quem vê sabe do que se trata ("Diretas Já", "monarquia", "uma prisão").
 2. **Curiosidade na mira**: uma pergunta aberta que só o vídeo fecha.
 
+## Regra do perfil (pedido do dono)
+
+Quem bate o olho no gancho tem de saber **o tema** e **que é no Brasil**, e ficar com uma pergunta que só o fim responde. Pode ter sensacionalismo ou "pegadinha", desde que o vídeo explique e nada seja falso.
+
+| Fraco | Por quê | Forte |
+|---|---|---|
+| "298 a 65. E perdeu." | não diz o que foi votado | "O Brasil ganhou de 298 a 65. E ficou **sem votar.**" |
+| "6,8 milhões votaram por um rei." | não diz onde | "Em 1993, o Brasil votou se queria um **rei.**" |
+| "Está na Constituição. E é proibido." | não diz o quê | "Tem uma prisão na Constituição que é **proibida.**" |
+
+Pegadinha boa: um fato verdadeiro que parece impossível ("ganhou e ficou sem votar"). Pegadinha ruim: exagero que o vídeo desmente ("o Brasil quase voltou a ter rei", quando a monarquia perdeu de lavada). Sempre que couber, ponha "o Brasil", "brasileiro" ou o nome do lugar no gancho.
+
 ## Os 4 erros que matam um gancho
 
 | Erro | Sintoma | Conserto |
