@@ -94,7 +94,7 @@ const TituloCapa: React.FC<{ texto: string; tam: number; atraso?: number; estati
 export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, estatico }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const im = c.imagem as { arquivo: string; credito?: string; foco?: string };
+  const im = c.imagem as { arquivo: string; credito?: string; foco?: string; zoom?: number };
   const zoom = estatico ? 1.06 : interpolate(f, [0, c.dur], [1.0, 1.1], { ...clamp, easing: T.ease.inOut });
   const deriva = estatico ? 0 : interpolate(f, [0, c.dur], [0, -30], clamp);
   const linhas = String(c.texto).replace(/\*\*/g, "").split("\n");
@@ -104,7 +104,7 @@ export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, e
     <AbsoluteFill>
       <AbsoluteFill style={{ overflow: "hidden" }}>
         <Img src={staticFile(im.arquivo)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: im.foco ?? "50% 35%",
-          transform: `scale(${zoom}) translateY(${deriva}px)`, filter: `grayscale(1) sepia(0.45) contrast(1.15) brightness(${0.35 + 0.35 * luz})` }} />
+          transform: `scale(${zoom * (im.zoom ?? 1)}) translateY(${deriva}px)`, transformOrigin: im.foco ?? "50% 35%", filter: `grayscale(1) sepia(0.45) contrast(1.15) brightness(${0.35 + 0.35 * luz})` }} />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(180deg, ${T.cor.fundo}cc 0%, transparent 22%, transparent 34%, ${T.cor.fundo}e6 62%, ${T.cor.fundo} 100%)` }} />
       <div style={{ position: "absolute", left: T.area.lado, right: T.area.lado, bottom: 1920 - 1250, fontFamily: T.fonte.legenda, fontWeight: 700,
@@ -273,7 +273,7 @@ const Folha: React.FC<{ d: { cabecalho: string; texto: string }; atraso: number;
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
   const e = spring({ frame: f - atraso, fps, config: T.mola.suave });
-  const chars = Math.round(interpolate(f, [atraso + 6, atraso + 6 + d.texto.length * 0.9], [0, d.texto.length], clamp));
+  const chars = Math.round(interpolate(f, [atraso + 6, atraso + 6 + d.texto.length * 0.55], [0, d.texto.length], clamp));
   // Datilografa o texto, mantendo os trechos ** ** marcados
   let usados = 0;
   const partes = d.texto.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((t, i) => {

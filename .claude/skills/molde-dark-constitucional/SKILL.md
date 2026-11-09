@@ -41,7 +41,7 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 
 | tipo | campos | uso |
 |---|---|---|
-| `gancho` | `texto` (até 3 linhas curtas), `selo?` (carimbo, ex. ano), `imagem?` = `{arquivo, credito, foco?}` | sempre a 1ª cena. **Com `imagem` vira a capa**: foto em tela cheia (sépia, zoom lento), título condensado em caixa alta e o trecho `**…**` numa tarja vermelha. `foco` é o `object-position` (para foto deitada, só o X muda o corte) |
+| `gancho` | `texto` (até 3 linhas curtas), `selo?` (carimbo, ex. ano), `imagem?` = `{arquivo, credito, foco?, zoom?}` | sempre a 1ª cena. **Com `imagem` vira a capa**: foto em tela cheia (sépia, zoom lento), título condensado em caixa alta e o trecho `**…**` numa tarja vermelha. `foco` é o `object-position` (para foto deitada, só o X muda o corte; com `zoom` > 1 a imagem amplia a partir do `foco` e o Y também passa a valer) |
 | `frase` | `texto`, `data?` (rótulo acima), `nota?` (texto menor abaixo) | contexto, virada, conclusão |
 | `placar` | `a`, `b`, `rotuloA`, `rotuloB`, `titulo?`, `linha?` (corte), `rotuloLinha?`, `linhaEm?`, `carimbo?` | "Placar": número que parece decidido e a linha que muda tudo |
 | `cedula` | `titulo?`, `pergunta`, `opcoes` (2–3), `vencedor?`, `resultados?`, `revelaEm?`, `contagem?` (false tira o 3-2-1) | "Cédula": o público vota antes do resultado |

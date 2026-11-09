@@ -1,0 +1,66 @@
+{
+  "pauta": 21,
+  "serie": "Quem manda na lei?",
+  "titulo": "Um presidente do Brasil derrubou decisões do STF por decreto",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Um presidente do Brasil\nderrubou decisões\ndo STF por **decreto.**",
+      "imagem": {
+        "arquivo": "imagens/caneta-tinteiro.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "Um presidente do Brasil já derrubou decisões do Supremo com uma assinatura. Sem votação, sem recurso."
+    },
+    {
+      "tipo": "frase",
+      "data": "1937 · Estado Novo",
+      "texto": "Congresso fechado.\nO presidente faz\nas **leis.**",
+      "nota": "A Carta de 1937 deixava o presidente editar decretos-leis enquanto o Parlamento não se reunisse (art. 180).",
+      "fala": "Mil novecentos e trinta e sete. Getúlio Vargas impõe o Estado Novo. O Congresso é fechado, e o presidente passa a legislar sozinho, por decreto-lei."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Carta de 1937 · art. 96 (resumo)",
+        "texto": "Lei declarada inconstitucional pode voltar ao Parlamento. Se **dois terços** de cada Câmara a confirmarem, a decisão do tribunal fica sem efeito."
+      },
+      "b": {
+        "cabecalho": "Decreto-Lei 1.564 · 1939 (resumo)",
+        "texto": "Confirma o imposto de renda sobre salários de servidores estaduais e municipais e deixa **sem efeito** as decisões em contrário."
+      },
+      "ponte": "Sem Parlamento",
+      "segundoEm": "Vargas",
+      "fala": "A própria Carta criou uma porta: uma lei derrubada pelo Supremo podia ser confirmada por dois terços do Parlamento. Só que não havia Parlamento. Em mil novecentos e trinta e nove, Vargas assinou sozinho um decreto-lei confirmando um imposto que o Supremo tinha barrado. E as decisões ficaram sem efeito."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem tinha a\núltima palavra sobre\na **Constituição?**",
+      "fala": "Na prática, quem tinha a última palavra sobre a Constituição?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "O presidente.\nNão o **Supremo.**",
+      "nota": "O mecanismo caiu com a Constituição de 1946, depois da queda de Vargas.",
+      "fala": "O presidente. Não o Supremo. Essa porta só foi fechada com a Constituição de quarenta e seis, depois da queda de Vargas."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Quem deve ter a\núltima palavra: STF\nou **Congresso?**",
+      "fala": "E hoje: quem deveria ter a última palavra, o Supremo ou o Congresso? Comenta."
+    }
+  ],
+  "legenda": "Um presidente do Brasil já derrubou decisões do STF por decreto.\n\nA Carta de 1937 permitia que uma lei declarada inconstitucional fosse confirmada por dois terços do Parlamento (art. 96). Com o Congresso fechado, Getúlio Vargas usou o poder de editar decretos-leis (art. 180): o Decreto-Lei 1.564/1939 confirmou o imposto de renda sobre vencimentos de servidores estaduais e municipais e deixou sem efeito as decisões judiciais em contrário. O mecanismo acabou com a Constituição de 1946.\n\nQuem deve ter a última palavra?",
+  "fontes": [
+    "Constituição de 1937, arts. 96 e 180",
+    "Decreto-Lei 1.564/1939"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "stf",
+    "getuliovargas",
+    "direitoconstitucional",
+    "estadonovo"
+  ]
+}

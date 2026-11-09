@@ -1,0 +1,85 @@
+{
+  "pauta": 3,
+  "serie": "Império: o que não te contaram",
+  "titulo": "O Brasil já teve 4 Poderes. E um homem tinha dois.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil já teve\n4 Poderes. E um\nhomem tinha **dois.**",
+      "imagem": {
+        "arquivo": "imagens/tronos.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "30% 50%"
+      },
+      "fala": "O Brasil já teve quatro Poderes. E um único homem controlava dois deles."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Executivo",
+          "sub": "chefiado pelo imperador",
+          "marcada": true
+        },
+        {
+          "titulo": "Legislativo",
+          "sub": "Assembleia Geral"
+        },
+        {
+          "titulo": "Judicial",
+          "sub": "juízes e jurados"
+        },
+        {
+          "titulo": "Moderador",
+          "sub": "privativo do imperador",
+          "marcada": true
+        }
+      ],
+      "dono": "Imperador",
+      "marcaEm": "ficavam",
+      "fala": "Constituição de mil oitocentos e vinte e quatro. Além do Executivo, do Legislativo e do Judiciário, ela criou um quarto: o Poder Moderador. O Executivo e o Moderador ficavam nas mãos do imperador."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1824 · art. 98",
+        "texto": "O Poder Moderador é a chave de toda a organização Política, e é delegado **privativamente ao Imperador**…"
+      },
+      "b": {
+        "cabecalho": "Constituição de 1824 · art. 101",
+        "texto": "O Imperador exerce o Poder Moderador: … **dissolvendo a Câmara dos Deputados** … nomeando e demitindo livremente os Ministros de Estado."
+      },
+      "ponte": "Na prática",
+      "segundoEm": "cento",
+      "fala": "O artigo noventa e oito chamava esse poder de chave de toda a organização política. E o cento e um mostrava o tamanho dele: o imperador podia dissolver a Câmara dos Deputados e nomear ou demitir ministros livremente."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Esse poder\nainda **existe?**",
+      "fala": "E esse poder ainda existe?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Acabou em 1889.\nE o STF já disse\nque **não voltou.**",
+      "nota": "Em 2024, na ADI 6457, o STF afastou a leitura de que o art. 142 daria às Forças Armadas um poder moderador.",
+      "fala": "Acabou com a República, em oitenta e nove. E em dois mil e vinte e quatro, o Supremo afastou a ideia de que as Forças Armadas teriam um poder moderador pelo artigo cento e quarenta e dois."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você daria esse\npoder a **alguém?**",
+      "fala": "Você daria esse poder a alguém hoje? Comenta."
+    }
+  ],
+  "legenda": "O Brasil já teve 4 Poderes. E o imperador tinha dois.\n\nA Constituição de 1824 reconhecia os Poderes Legislativo, Moderador, Executivo e Judicial (art. 10). O Moderador, \"chave de toda a organização política\", era privativo do imperador (art. 98), que também chefiava o Executivo (art. 102). Com ele, podia dissolver a Câmara e nomear e demitir ministros livremente (art. 101). Em 2024, na ADI 6457, o STF afastou a leitura de que o art. 142 da Constituição atual daria às Forças Armadas um poder moderador.\n\nVocê daria esse poder a alguém?",
+  "fontes": [
+    "Constituição de 1824, arts. 10, 98, 101 e 102",
+    "STF · ADI 6457"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "imperio",
+    "poderModerador",
+    "direitoconstitucional",
+    "curiosidades"
+  ]
+}

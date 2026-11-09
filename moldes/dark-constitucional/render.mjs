@@ -119,8 +119,12 @@ for (const id of ids) {
   for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
   const comp = await selectComposition({ serveUrl: servir, id: "Reel", inputProps: props, browserExecutable, chromiumOptions });
   console.log(`${id}: ${props.cenas.length} cenas, ${(props.total / FPS).toFixed(1)} s${props.comVoz ? ", com voz" : ", sem voz"}`);
-  // Um quadro por cena, quando ela já está montada (para conferir e para a galeria)
-  for (const [n, c] of props.cenas.entries()) {
+  // 3 quadros para conferir e para a galeria: a capa (gancho) e as duas primeiras cenas gráficas
+  const graficas = props.cenas.map((c, n) => ({ c, n })).filter(({ c }) => ["placar", "cedula", "documentos", "cartas", "linha", "pausa"].includes(c.tipo));
+  const escolhidas = [props.cenas[0], ...graficas.slice(0, 2).map((g) => g.c)];
+  for (const c of props.cenas.slice(1)) if (escolhidas.length < 3 && !escolhidas.includes(c)) escolhidas.push(c);
+  escolhidas.sort((a, b) => a.inicio - b.inicio);
+  for (const [n, c] of escolhidas.entries()) {
     const quadro = c.inicio + (c.tipo === "pergunta" ? Math.round(c.dur * 0.6) : c.dur - 10);
     await renderStill({ composition: comp, serveUrl: servir, output: path.join(dir, `${n + 1}.png`), frame: quadro, inputProps: props, browserExecutable, chromiumOptions, overwrite: true });
   }

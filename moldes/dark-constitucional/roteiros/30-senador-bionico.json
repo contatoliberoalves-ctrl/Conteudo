@@ -1,0 +1,75 @@
+{
+  "pauta": 30,
+  "serie": "Na urna",
+  "titulo": "O Brasil já teve senador eleito sem voto do povo",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil já teve\nsenador eleito\n**sem voto do povo.**",
+      "imagem": {
+        "arquivo": "imagens/urnas-senado-1929.jpg",
+        "credito": "Urnas no Senado dos EUA, 1929 · Library of Congress (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "O Brasil já teve senador que chegou ao Senado sem receber um único voto do povo."
+    },
+    {
+      "tipo": "frase",
+      "data": "Abril de 1977",
+      "texto": "O governo fecha\no Congresso e muda\nas **regras.**",
+      "nota": "O conjunto de medidas ficou conhecido como Pacote de Abril.",
+      "fala": "Abril de mil novecentos e setenta e sete. O presidente Ernesto Geisel fecha o Congresso por alguns dias e muda as regras da eleição sem passar por ele. Ficou conhecido como Pacote de Abril."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Vaga 1",
+          "sub": "voto direto do povo"
+        },
+        {
+          "titulo": "Vaga 2",
+          "sub": "colégio eleitoral, sem voto popular",
+          "marcada": true
+        }
+      ],
+      "dono": "Biônico",
+      "marcaEm": "outra",
+      "fala": "Em mil novecentos e setenta e oito, cada estado tinha duas vagas pro Senado. Uma ia pra urna. A outra era escolhida por um colégio eleitoral, sem voto popular."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Por que\n**biônico?**",
+      "fala": "E por que biônico?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Um senador\n**artificial.**",
+      "nota": "O apelido é associado ao seriado O Homem Biônico, sucesso na TV da época, sobre um herói com partes artificiais.",
+      "fala": "O apelido é associado a um seriado famoso na época, O Homem Biônico, sobre um herói com partes artificiais. Um senador que não saiu das urnas era, assim, um senador artificial."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Mandato de\n**8 anos.**",
+      "nota": "Os eleitos indiretamente em 1978 ficaram no Senado até 1987.",
+      "fala": "E não foi por pouco tempo: o mandato de senador é de oito anos. Os biônicos de setenta e oito ficaram até oitenta e sete."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você confiaria num\nsenador **sem voto?**",
+      "fala": "Você confiaria num senador que o povo não elegeu? Comenta."
+    }
+  ],
+  "legenda": "O Brasil já teve senador eleito sem voto do povo.\n\nCom o Pacote de Abril de 1977, o governo Geisel mudou as regras eleitorais com o Congresso em recesso. Em 1978, uma das duas vagas de senador em disputa em cada estado foi preenchida por eleição indireta, em colégio eleitoral. Os escolhidos ficaram conhecidos como senadores biônicos e cumpriram mandato de 8 anos, até 1987.\n\nVocê confiaria num senador sem voto?",
+  "fontes": [
+    "Senado Federal · Pacote de Abril de 1977",
+    "Senado Federal · Eleições de 1978"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "senado",
+    "ditadura",
+    "direitoconstitucional",
+    "eleicoes"
+  ]
+}

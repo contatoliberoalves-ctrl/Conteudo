@@ -83,7 +83,7 @@ export const Etiqueta: React.FC<{ marca: string; pauta?: number; serie?: string;
       <div style={{ display: "flex", justifyContent: "space-between", fontFamily: theme.fonte.mono, fontWeight: 500, fontSize: 26,
         letterSpacing: 4, color: theme.cor.apagado, textTransform: "uppercase" }}>
         <span>{marca}</span>
-        <span>{pauta ? `Nº ${String(pauta).padStart(2, "0")}` : ""}</span>
+        <span />
       </div>
       <div style={{ height: 3, background: theme.cor.linha }}>
         <div style={{ height: 3, width: `${prog * 100}%`, background: theme.cor.apagado }} />
