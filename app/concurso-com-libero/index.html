@@ -1,0 +1,1513 @@
+<title>Concurso com Líbero</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: app de estudos mobile-first. Celular = barra superior + conteúdo em cards + navegação inferior.
+   Desktop (≥1024px) = menu lateral fixo e colunas lado a lado (calendário + detalhe da meta). */
+:root{
+  --bg:#F6F7F2; --card:#FFFFFF; --verde:#163D30; --verde2:#22563F; --verde3:#2F7356;
+  --lima:#D9F575; --lima2:#EFFAC7; --tx:#14251F; --mu:#55665D; --ln:#E1E6DA; --ln2:#CDD5C6;
+  --ok:#1D7448; --okbg:#E2F2E8; --at:#8A5300; --atbg:#FFF0D2; --er:#B23A2C; --erbg:#FBE5E1;
+  --f:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --d:'Big Shoulders Display','Figtree',Impact,sans-serif;
+  --r:14px; color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 var(--f);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;text-align:inherit}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.15;text-wrap:balance;font-weight:800;letter-spacing:-.015em}
+h1{font-size:28px} h2{font-size:22px} h3{font-size:18px} h4{font-size:16px}
+p{margin:0}
+a{color:var(--verde2);font-weight:700}
+.ic{flex:none;display:block}
+:focus-visible{outline:3px solid var(--verde);outline-offset:2px;box-shadow:0 0 0 6px var(--lima);border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mu{color:var(--mu)} .sm{font-size:14px} .xs{font-size:13px}
+.num{font-family:var(--d);font-weight:800;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+
+/* casca */
+.shell{min-height:100%}
+.side{display:none}
+.main{min-width:0;padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(246,247,242,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--ln);padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top-in{display:flex;align-items:center;gap:8px;max-width:1120px;margin:0 auto}
+.seletor{display:flex;align-items:center;gap:10px;min-height:48px;min-width:0;flex:1;padding:4px 10px 4px 4px;border-radius:12px}
+.seletor:hover{background:#fff}
+.seletor .sig{flex:none;width:40px;height:40px;border-radius:10px;background:var(--verde);color:var(--lima);display:grid;place-items:center;font-family:var(--d);font-weight:900;font-size:13px;letter-spacing:.02em;line-height:1}
+.seletor .tx{min-width:0;display:grid;line-height:1.2}
+.seletor b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seletor small{font-size:12.5px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xp{display:flex;align-items:center;gap:4px;height:36px;padding:0 10px;border-radius:999px;background:var(--lima);color:var(--verde);font-weight:800;font-size:14px;flex:none}
+.xp.fogo{background:#fff;border:1px solid var(--ln);color:var(--at)}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--verde);color:#fff;font-weight:800;flex:none}
+.content{padding-block:18px 24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:16px;min-width:0}
+.wrap>*{min-width:0}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:repeat(4,1fr)}
+.bnav button{min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12.5px;font-weight:700;color:var(--mu)}
+.bnav .pill{width:56px;height:30px;border-radius:999px;display:grid;place-items:center;transition:background .2s}
+.bnav button[aria-current=page]{color:var(--verde)}
+.bnav button[aria-current=page] .pill{background:var(--lima)}
+.side .logo{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.side .logo b{display:block;font-size:16px;line-height:1.1}
+.side .logo span{font-size:12.5px;color:rgba(255,255,255,.7)}
+.side nav{display:grid;gap:2px}
+.side .nv{display:flex;align-items:center;gap:12px;min-height:46px;padding:0 12px;border-radius:10px;font-weight:700;color:rgba(255,255,255,.82)}
+.side .nv:hover{background:rgba(255,255,255,.08);color:#fff}
+.side .nv[aria-current=page]{background:var(--lima);color:var(--verde)}
+.side .nv .lk{margin-left:auto;opacity:.7}
+.side .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:16px 12px 6px;font-weight:700}
+.side .rodape{margin-top:auto;display:grid;gap:8px;padding-top:16px}
+.side .seletor{flex:none;background:rgba(255,255,255,.08);color:#fff;margin-bottom:12px}
+.side .seletor small{color:rgba(255,255,255,.7)}
+.side .seletor .sig{background:var(--lima);color:var(--verde)}
+@media(min-width:1024px){
+  .shell{display:grid;grid-template-columns:272px minmax(0,1fr)}
+  .side{display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:auto;background:var(--verde);color:#fff;padding:20px 16px}
+  .bnav{display:none}
+  .main{padding-bottom:48px}
+  .top .seletor,.top .logo-m{display:none}
+  .top-in{justify-content:flex-end}
+  .content{padding-block:24px 32px;padding-left:32px;padding-right:32px}
+  h1{font-size:34px}
+}
+
+/* blocos */
+.card{background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:16px;min-width:0}
+.card.pad{padding:20px}
+.stack{display:grid;gap:12px;min-width:0;align-content:start}
+.stack>*{min-width:0}
+.row{display:flex;align-items:center;gap:12px;min-width:0}
+.row>.grow{flex:1;min-width:0}
+.between{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--verde3)}
+.g2{display:grid;gap:16px;min-width:0}
+@media(min-width:760px){.g2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stats .card{padding:12px}
+.stats .num{font-size:clamp(19px,5.6vw,30px)!important;white-space:nowrap}
+@media(min-width:760px){.stats{gap:12px}.stats .card{padding:16px}}
+.g3{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+@media(min-width:1024px){.cols{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px;align-items:start}.cols>.stick{position:sticky;top:88px}}
+.cols{display:grid;gap:16px;min-width:0}
+.cols>*{min-width:0}
+
+.btn{min-height:48px;padding:0 20px;border-radius:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:16px;line-height:1.15;text-align:center;transition:transform .08s,background .15s}
+.btn:active{transform:scale(.98)}
+.btn-p{background:var(--verde);color:#fff}
+.btn-p:hover{background:var(--verde2)}
+.btn-l{background:var(--lima);color:var(--verde)}
+.btn-s{background:#fff;border:1.5px solid var(--ln2);color:var(--verde)}
+.btn-s:hover{border-color:var(--verde)}
+.btn-g{min-height:44px;padding:0 8px;color:var(--verde2);font-weight:800;display:inline-flex;align-items:center;gap:6px;border-radius:10px}
+.btn-g:hover{background:rgba(22,61,48,.06)}
+.btn.w{width:100%}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btns>.btn{flex:1 1 180px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:800;padding:3px 8px;border-radius:6px;line-height:1.3;background:#EEF1EA;color:var(--verde);white-space:nowrap}
+.t-ok{background:var(--okbg);color:var(--ok)} .t-at{background:var(--atbg);color:var(--at)} .t-er{background:var(--erbg);color:var(--er)}
+.t-lima{background:var(--lima);color:var(--verde)} .t-dark{background:var(--verde);color:var(--lima)} .t-line{background:#fff;border:1px solid var(--ln2);color:var(--mu)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.ilus{font-size:12.5px;color:var(--mu);display:flex;gap:6px;align-items:center}
+.ilus::before{content:"";width:8px;height:8px;border-radius:2px;background:repeating-linear-gradient(45deg,var(--mu) 0 2px,transparent 2px 4px);flex:none}
+
+.seg{display:flex;gap:4px;background:#E9EDE4;padding:4px;border-radius:12px;overflow-x:auto;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:1 0 auto;min-height:40px;padding:0 14px;border-radius:9px;font-weight:800;font-size:14.5px;color:var(--mu);display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.seg button[aria-pressed=true],.seg button[aria-current=page]{background:#fff;color:var(--verde);box-shadow:0 1px 2px rgba(20,37,31,.12)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 14px;border-radius:10px;border:1.5px solid var(--ln2);background:#fff;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed=true]{background:var(--verde);border-color:var(--verde);color:#fff}
+.chip.dif[aria-pressed=true]{background:var(--atbg);border-color:var(--at);color:var(--at)}
+.chip.est[aria-pressed=true]{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.field{display:grid;gap:6px}
+.field label,.flabel{font-weight:800;font-size:14px}
+select,.inp{min-height:48px;border-radius:12px;border:1.5px solid var(--ln2);background:#fff;padding:0 12px;width:100%;max-width:100%}
+textarea.inp{padding:12px;min-height:110px;resize:vertical}
+.search{display:flex;align-items:center;gap:10px;min-height:52px;border-radius:14px;background:#fff;border:1.5px solid var(--ln2);padding:0 14px}
+.search:focus-within{border-color:var(--verde);box-shadow:0 0 0 4px var(--lima)}
+.search input{border:0;outline:0;flex:1;min-width:0;background:transparent;min-height:48px}
+.back{display:inline-flex;align-items:center;gap:4px;min-height:44px;font-weight:800;color:var(--verde2);padding-right:8px;border-radius:10px}
+
+/* listas */
+.li{display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 14px;background:#fff;border:1px solid var(--ln);border-radius:12px;width:100%;min-width:0}
+button.li:hover,a.li:hover{border-color:var(--ln2);background:#FCFDF9}
+.li .grow{flex:1;min-width:0}
+.li .t{font-weight:800;line-height:1.25}
+.li .s{font-size:14px;color:var(--mu);line-height:1.35}
+.li .chev{color:var(--mu)}
+.st{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:none;border:2px solid var(--ln2);color:transparent}
+.st.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.st.at{border-color:var(--at);color:var(--at)}
+.st.rg{border-color:#9DBB2B;background:var(--lima2);color:var(--verde)}
+.li.feita .t{text-decoration:line-through;text-decoration-color:rgba(20,37,31,.35);color:var(--mu)}
+
+/* hoje */
+.hero{background:var(--verde);color:#fff;border-radius:18px;padding:20px;display:grid;gap:14px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:28px solid rgba(217,245,117,.08)}
+.hero .eyebrow{color:var(--lima)}
+.hero .mu{color:rgba(255,255,255,.75)}
+.ring{position:relative;width:88px;height:88px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .rv{position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1}
+.ring .rv b{font-family:var(--d);font-size:30px;font-weight:900}
+.ring .rv small{display:block;font-size:11px;font-weight:700;opacity:.8;margin-top:2px}
+.kpis{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.kpi{background:rgba(255,255,255,.1);border-radius:10px;padding:6px 10px;font-size:13.5px;font-weight:700;display:flex;gap:6px;align-items:center}
+.meta-card{border:2px solid var(--verde);border-radius:18px;background:#fff;padding:20px;display:grid;gap:14px}
+.meta-card h2{font-size:26px}
+@media(min-width:1024px){.meta-card h2{font-size:30px}}
+.motivo{background:var(--lima2);border-radius:12px;padding:12px 14px;display:grid;gap:2px;font-size:15px}
+.motivo b{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--verde2)}
+.aviso{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:var(--atbg);color:#4A2E00}
+.aviso.er{background:var(--erbg);color:#5A1A12}
+.aviso.ok{background:var(--okbg);color:#0F3D25}
+.aviso.neutro{background:#EAEFE4;color:var(--tx)}
+.aviso .grow{flex:1;min-width:0;display:grid;gap:6px}
+.semana-bar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end}
+.semana-bar .d{display:grid;gap:4px;justify-items:center;font-size:12px;font-weight:700;color:var(--mu)}
+.semana-bar .b{width:100%;max-width:28px;height:56px;border-radius:6px;background:#EEF1EA;position:relative;overflow:hidden}
+.semana-bar .b i{position:absolute;left:0;right:0;bottom:0;background:var(--verde3);border-radius:6px}
+.semana-bar .hj{color:var(--verde)}
+.semana-bar .hj .b{outline:2px solid var(--lima);outline-offset:1px}
+.prog{height:10px;border-radius:999px;background:#E9EDE4;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--verde3);border-radius:999px;transition:width .5s}
+.prog.l i{background:var(--lima)}
+
+/* catálogo */
+.cat-hero{display:grid;gap:14px;padding-block:8px 4px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand b{display:block;font-size:17px;line-height:1.1}
+.brand span{font-size:13px;color:var(--mu)}
+.cc{display:grid;gap:10px;text-align:left;width:100%}
+.cc:hover{border-color:var(--verde)}
+.cc .sigla{font-family:var(--d);font-weight:900;font-size:30px;line-height:1;color:var(--verde)}
+.cargo{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:14px;border:2px solid var(--ln);background:#fff;width:100%;text-align:left}
+.cargo[aria-checked=true]{border-color:var(--verde);box-shadow:0 0 0 3px var(--lima)}
+.cargo .radio{width:24px;height:24px;border-radius:50%;border:2px solid var(--ln2);flex:none;margin-top:2px;display:grid;place-items:center}
+.cargo[aria-checked=true] .radio{border-color:var(--verde)}
+.cargo[aria-checked=true] .radio::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--verde)}
+.sticky-cta{position:sticky;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:5;padding-top:8px;background:linear-gradient(transparent,var(--bg) 30%)}
+@media(min-width:1024px){.sticky-cta{bottom:16px}}
+
+/* edital */
+.kv{display:grid;gap:0}
+.kv>div{display:grid;grid-template-columns:minmax(0,120px) minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--ln)}
+.kv>div:first-child{border-top:0}
+.kv dt{font-size:14px;color:var(--mu);font-weight:700;margin:0}
+.kv dd{margin:0;font-weight:600}
+.tl{display:grid;gap:0;padding-left:4px}
+.tl>div{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;position:relative;padding-bottom:14px}
+.tl>div::before{content:"";position:absolute;left:9px;top:18px;bottom:0;width:2px;background:var(--ln)}
+.tl>div:last-child::before{display:none}
+.tl .dot{width:20px;height:20px;border-radius:50%;border:3px solid var(--ln2);background:#fff;margin-top:1px}
+.tl .passou .dot{background:var(--verde3);border-color:var(--verde3)}
+.tl .prova .dot{background:var(--lima);border-color:var(--verde)}
+.lockcard{display:flex;gap:12px;align-items:center;text-align:left;width:100%}
+.lockcard .ico{width:44px;height:44px;border-radius:12px;background:#EEF1EA;display:grid;place-items:center;color:var(--verde);flex:none}
+.lockcard.livre .ico{background:var(--lima)}
+.diff{display:grid;gap:6px}
+.diff div{display:flex;gap:8px;align-items:flex-start;font-size:15px}
+.diff s{color:var(--er)}
+.diff ins{text-decoration:none;color:var(--ok);font-weight:700}
+
+/* raio-x */
+.rk{display:grid;gap:10px;padding:14px 0;border-top:1px solid var(--ln)}
+.rk:first-child{border-top:0;padding-top:4px}
+.rk-h{display:flex;align-items:center;gap:12px}
+.rk-n{font-family:var(--d);font-weight:900;font-size:26px;color:var(--verde3);width:30px;flex:none;line-height:1}
+.rk-dados{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.rk-dados>div{background:var(--bg);border-radius:10px;padding:8px 10px;display:grid;gap:2px}
+.rk-dados small{font-size:12px;color:var(--mu);font-weight:700}
+.rk-dados b{font-size:15px}
+.bar{height:8px;border-radius:999px;background:#E9EDE4;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--verde3);border-radius:999px}
+.bar.peso i{background:#9DBB2B}
+.ass-li{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 10px;border-radius:10px;width:100%;text-align:left}
+.ass-li:hover{background:var(--bg)}
+.ass-li .bar{flex:0 0 80px}
+details.acc>summary{list-style:none;cursor:pointer}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc[open] .rot{transform:rotate(90deg)}
+.rot{transition:transform .2s}
+
+/* plano */
+.dia{display:grid;gap:8px}
+.dia-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:4px 2px}
+.dia-h b{font-size:15px;text-transform:capitalize}
+.dia.hj .dia-h b::after{content:"Hoje";margin-left:8px;font-size:11.5px;background:var(--lima);color:var(--verde);padding:2px 7px;border-radius:5px;vertical-align:2px}
+.folga{padding:12px 14px;border:1.5px dashed var(--ln2);border-radius:12px;color:var(--mu);font-size:14px}
+.painel{display:none!important}
+@media(min-width:1024px){.painel{display:grid!important}}
+.mes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.mes .h{font-size:12px;font-weight:800;color:var(--mu);text-align:center;padding:4px 0;text-transform:uppercase}
+.mes .c{aspect-ratio:1/1;max-width:100%;min-height:44px;border-radius:10px;background:#fff;border:1px solid var(--ln);display:grid;align-content:space-between;padding:5px;font-size:13px;font-weight:800;text-align:left}
+.mes .c.fora{opacity:.35}
+.mes .c.hj{border:2px solid var(--verde)}
+.mes .c[aria-pressed=true]{background:var(--verde);color:#fff}
+.mes .dots{display:flex;gap:3px;flex-wrap:wrap}
+.mes .dots i{width:7px;height:7px;border-radius:50%;background:var(--ln2)}
+.mes .dots i.ok{background:var(--ok)} .mes .dots i.at{background:var(--at)} .mes .dots i.rg{background:#9DBB2B}
+.mes .c[aria-pressed=true] .dots i{outline:1px solid rgba(255,255,255,.6)}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mu);font-weight:600}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.chg{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:10px 0;border-top:1px solid var(--ln);align-items:center}
+.chg:first-child{border-top:0}
+.chg .de{font-size:14px;color:var(--mu);white-space:nowrap}
+.chg .de s{color:var(--er)}
+.chg .de b{color:var(--ok)}
+
+/* config */
+.dias7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dias7 .chip{padding:0;justify-content:center;font-size:14px;text-transform:capitalize}
+.tempo-li{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.tempo-li select{max-width:160px}
+.carga{font-family:var(--d);font-weight:900;font-size:44px;line-height:1;color:var(--verde)}
+.wkprev{display:grid;gap:8px}
+.wkprev>div{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:start;font-size:14px}
+.wkprev b{text-transform:capitalize}
+
+/* questões */
+.q-top{display:flex;align-items:center;gap:12px}
+.q-top .prog{flex:1}
+.enun{font-size:17px;line-height:1.55}
+.alts{display:grid;gap:10px}
+.alt{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;border:2px solid var(--ln);background:#fff;text-align:left;width:100%;min-height:56px;font-size:16px}
+.alt .lt{width:30px;height:30px;border-radius:8px;background:#EEF1EA;display:grid;place-items:center;font-weight:800;flex:none}
+.alt[aria-checked=true]{border-color:var(--verde)}
+.alt[aria-checked=true] .lt{background:var(--verde);color:#fff}
+.alt.certa{border-color:var(--ok);background:var(--okbg)}
+.alt.certa .lt{background:var(--ok);color:#fff}
+.alt.errada{border-color:var(--er);background:var(--erbg)}
+.alt.errada .lt{background:var(--er);color:#fff}
+.alt[disabled]{cursor:default}
+.coment{border-left:4px solid var(--verde3);background:#fff;border-radius:0 12px 12px 0;padding:14px 16px;display:grid;gap:6px}
+.placar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.placar>div{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:14px;text-align:center}
+.placar b{display:block;font-family:var(--d);font-size:40px;font-weight:900;line-height:1}
+.placar small{font-weight:700;color:var(--mu);font-size:13px}
+
+/* leitura */
+.leitor{max-width:720px;display:grid;gap:16px}
+.leitor .pt{display:grid;gap:4px;padding:14px 0;border-top:1px solid var(--ln)}
+.leitor .pt:first-child{border-top:0}
+.leitor .pt b{color:var(--verde2)}
+.lei{background:#fff;border:1px solid var(--ln);border-radius:12px;padding:16px;display:grid;gap:6px}
+.lei .ref{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--verde3)}
+.lei p{font-size:16px;line-height:1.6}
+.lei mark{background:var(--lima);color:var(--tx);padding:0 2px;border-radius:3px}
+.mm{display:grid;gap:12px;justify-items:center}
+.mm .centro{background:var(--verde);color:#fff;font-weight:800;padding:12px 18px;border-radius:14px;text-align:center;max-width:100%}
+.mm .ramos{display:grid;gap:10px;width:100%;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));position:relative}
+.mm .ramo{background:#fff;border:2px solid var(--ln);border-top:6px solid var(--lima);border-radius:12px;padding:12px 14px;display:grid;gap:4px}
+.mm .ramo b{color:var(--verde)}
+
+/* planos */
+.planos{display:grid;gap:12px}
+@media(min-width:760px){.planos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1280px){.planos{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.plano{display:grid;gap:12px;align-content:start;position:relative}
+.plano.atual{border:2px solid var(--verde)}
+.plano.dest{background:var(--verde);color:#fff;border-color:var(--verde)}
+.plano.dest .mu{color:rgba(255,255,255,.75)}
+.plano .preco{font-family:var(--d);font-weight:900;font-size:40px;line-height:1}
+.plano .preco small{font-family:var(--f);font-size:14px;font-weight:700}
+.plano ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+.plano li{display:flex;gap:8px;align-items:flex-start}
+.plano li.no{color:var(--mu)}
+.plano.dest li.no{color:rgba(255,255,255,.55)}
+.tab-wrap{position:relative;overflow-x:auto;border:1px solid var(--ln);border-radius:14px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{padding:12px 14px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--mu);font-weight:800}
+td.c,th.c{text-align:center}
+tr:last-child td{border-bottom:0}
+
+/* folhas */
+.ov{position:fixed;inset:0;z-index:70;background:rgba(14,30,24,.5);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
+.sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:22px 22px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .24s cubic-bezier(.2,.8,.2,1)}
+.sheet .grab{width:44px;height:5px;border-radius:9px;background:var(--ln2);justify-self:center;margin-top:4px}
+.sheet-h{display:flex;align-items:flex-start;gap:12px}
+.sheet-h .grow{flex:1;min-width:0;display:grid;gap:4px}
+.x{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--ln);flex:none}
+@media(min-width:1024px){.ov{align-items:center}.sheet{border-radius:22px;max-height:86vh;padding-bottom:24px}}
+@keyframes fade{from{opacity:0}}
+@keyframes sobe{from{transform:translateY(40px);opacity:.4}}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:90;background:var(--tx);color:#fff;border-radius:14px;padding:12px 16px;font-weight:700;display:flex;gap:10px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.2);max-width:calc(100vw - 32px);width:max-content;animation:sobe .25s ease}
+.toast .xpb{background:var(--lima);color:var(--verde);border-radius:8px;padding:2px 8px;font-weight:900}
+@media(min-width:1024px){.toast{bottom:28px}}
+[hidden]{display:none!important}
+.demo-b{height:40px;padding:0 10px;border-radius:10px;border:1.5px dashed var(--verde);color:var(--verde);font-weight:800;font-size:13px;display:flex;align-items:center;gap:5px;flex:none}
+@media(min-width:1024px){.top .demo-b{display:none}}
+@media(max-width:400px){.demo-b span{display:none}.demo-b{width:40px;justify-content:center;padding:0}}
+#main:focus{outline:none;box-shadow:none}
+body.sem-nav .sticky-cta{bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+@media(max-width:400px){.xp.fogo{display:none}}
+.empty{display:grid;gap:12px;justify-items:center;text-align:center;padding:28px 16px}
+.empty .ico{width:56px;height:56px;border-radius:16px;background:#EAEFE4;display:grid;place-items:center;color:var(--verde)}
+.burst{position:fixed;pointer-events:none;z-index:95;width:10px;height:10px;border-radius:2px}
+.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.badge-m{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--lima);color:var(--verde);flex:none}
+.badge-m.off{background:#EAEFE4;color:#A4B09C}
+.lvl{display:flex;align-items:center;gap:14px}
+.lvl .n{width:56px;height:56px;border-radius:16px;background:var(--verde);color:var(--lima);display:grid;place-items:center;font-family:var(--d);font-weight:900;font-size:28px;flex:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<div class="shell" id="shell">
+  <aside class="side" id="side" aria-label="Menu principal"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <main class="content" id="main" tabindex="-1"></main>
+  </div>
+  <nav class="bnav" id="bnav" aria-label="Navegação principal"></nav>
+</div>
+<div id="ov"></div>
+<div id="toast" aria-live="polite"></div>
+
+<script>
+'use strict';
+/* =========================================================
+   Concurso com Líbero · protótipo navegável
+   Todos os dados são DEMONSTRATIVOS (concursos, datas, números,
+   questões). Assinaturas são simuladas: nenhuma cobrança real.
+   ========================================================= */
+
+// ---------- ícones ----------
+const ICONS={
+  hoje:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  edital:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
+  plano:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  praticar:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  dir:'<path d="m9 18 6-6-6-6"/>', esq:'<path d="m15 18-6-6 6-6"/>', baixo:'<path d="m6 9 6 6 6-6"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  busca:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  lock:'<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  relogio:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  livro:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  fogo:'<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  raio:'<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
+  reorg:'<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
+  alerta:'<path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/>',
+  barras:'<path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/>',
+  camadas:'<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+  troca:'<path d="M16 3l4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/>',
+  fora:'<path d="M15 3h6v6M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>',
+  medalha:'<circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/>',
+  ajuste:'<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
+  ajuda:'<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/>',
+  play:'<path d="m7 4 13 8-13 8z"/>',
+  martelo:'<path d="m14 13-7.5 7.5a2.1 2.1 0 0 1-3-3L11 10M16 16l6-6M8 8l6-6M9 7l8 8M21 11l-8-8"/>',
+  caderno:'<path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',
+  mais:'<path d="M12 5v14M5 12h14"/>',
+  usuario:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  estrela:'<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>',
+  mapa:'<circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="m6 6.5 3.7 3.5M18 6.5l-3.7 3.5M6 17.5l3.7-3.5M18 17.5l-3.7-3.5"/>',
+  balanca:'<path d="M12 3v18M5 21h14M3 7h18M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/>',
+  cartao:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',
+};
+const I=(n,s=20,sw=2)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]||''}</svg>`;
+const LOGO=(s=40,fundo='#163D30',l='#D9F575')=>`<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="${fundo}"/><path d="M15 11v24h17" fill="none" stroke="${l}" stroke-width="5.5" stroke-linecap="square"/><path d="m22 23 5 5 10-12" fill="none" stroke="${l}" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+
+// ---------- datas ----------
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const pd=s=>{const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const addD=(s,n)=>{const d=pd(s);d.setDate(d.getDate()+n);return iso(d)};
+const HOJE=iso(new Date());
+const wd=s=>(pd(s).getDay()+6)%7;
+const segunda=s=>addD(s,-wd(s));
+const DS=['seg','ter','qua','qui','sex','sáb','dom'];
+const DL=['segunda','terça','quarta','quinta','sexta','sábado','domingo'];
+const MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const dm=s=>{const d=pd(s);return pad(d.getDate())+'/'+pad(d.getMonth()+1)};
+const dmy=s=>dm(s)+'/'+pd(s).getFullYear();
+const diasAte=s=>Math.round((pd(s)-pd(HOJE))/864e5);
+const quando=s=>{const n=diasAte(s);return n===0?'hoje':n===1?'amanhã':n===-1?'ontem':`${DS[wd(s)]} ${dm(s)}`};
+const hm=min=>{const h=Math.floor(min/60),m=min%60;return h?`${h} h${m?' '+pad(m):''}`:`${m} min`};
+
+// ---------- dados demonstrativos ----------
+const CONCURSOS=[
+ {id:'tjsp',sigla:'TJ-SP',orgao:'Tribunal de Justiça de São Paulo',nome:'Concurso TJ-SP 2026',banca:'VUNESP',situacao:'Edital publicado',sit:'aberto',
+  prova:'2027-02-07',link:'https://www.tjsp.jus.br',versao:'Edital nº 01/2026, versão retificada em 21/10/2026',
+  inscricoes:'03/11 a 03/12/2026',unidade:'questões',
+  formato:'100 questões de múltipla escolha, 5 alternativas cada, em 4 horas.',
+  eliminatorios:['Acertar menos de 50% da prova objetiva','Zerar qualquer uma das matérias','Faltar a qualquer etapa ou chegar após o fechamento dos portões'],
+  datas:[['2026-10-21','Retificação 01 publicada'],['2026-11-03','Abertura das inscrições'],['2026-12-03','Último dia para inscrição e pagamento'],['2027-01-25','Divulgação dos locais de prova'],['2027-02-07','Prova objetiva','prova'],['2027-02-09','Gabarito preliminar']],
+  retificacoes:[{data:'2026-10-21',fonte:'Diário da Justiça Eletrônico, caderno administrativo',mudou:[['Data da prova objetiva','31/01/2027','07/02/2027'],['Vagas de Escrevente','380','420']]}],
+  cargos:[
+   {id:'escrevente',curto:'Escrevente',nome:'Escrevente Técnico Judiciário',nivel:'Nível médio',vagas:'420 + cadastro reserva',remun:'R$ 6.043,26',taxa:'R$ 85,00',requisitos:'Ensino médio completo, idade mínima de 18 anos e quitação eleitoral e militar.',etapas:['Prova objetiva (eliminatória e classificatória)','Prova prática de digitação (eliminatória)']},
+   {id:'oficial',curto:'Oficial de Justiça',nome:'Oficial de Justiça',nivel:'Nível superior',vagas:'60 + cadastro reserva',remun:'R$ 8.476,80',taxa:'R$ 115,00',requisitos:'Bacharelado em Direito e carteira de habilitação categoria B.',etapas:['Prova objetiva (eliminatória e classificatória)','Prova discursiva (eliminatória e classificatória)']}
+  ],
+  materias:[
+   {id:'port',nome:'Língua Portuguesa',curto:'Português',peso:24,freq:22,assuntos:[
+     {id:'crase',nome:'Crase',freq:30,pontos:['Regra-mãe: crase = preposição a + artigo a. Se o termo não aceita artigo, não há crase.','Teste da troca: troque por palavra masculina. Se virar "ao", tem crase (vou à escola → vou ao colégio).','Horas exatas levam crase: às 19 horas. Antes de verbo, nunca: começou a chover.','Lugares: "volto da Bahia" → vou à Bahia; "volto de Recife" → vou a Recife.']},
+     {id:'concord',nome:'Concordância verbal',freq:28,pontos:['Haver no sentido de existir é impessoal: houve problemas, havia candidatos.','Fazer indicando tempo é impessoal: faz dois anos, fazia meses.','Verbo antes do sujeito concorda normalmente: existem muitas dúvidas, faltam dois agentes.','Sujeito composto anteposto leva o verbo ao plural.']},
+     {id:'interp',nome:'Interpretação de texto',freq:42,pontos:['Separe o que o texto diz (compreensão) do que se conclui dele (interpretação).','Cuidado com extrapolação: a alternativa certa não vai além do texto.','Palavras absolutas (sempre, nunca, todos) costumam tornar a alternativa errada.']}
+   ]},
+   {id:'adm',nome:'Direito Administrativo',curto:'Administrativo',peso:14,freq:18,assuntos:[
+     {id:'atos',nome:'Atos administrativos',freq:40,pontos:['Elementos: competência, finalidade, forma, motivo e objeto (Lei 4.717/1965, art. 2º).','Atributos: presunção de legitimidade, imperatividade, autoexecutoriedade e tipicidade.','Anulação: ato ilegal, efeitos ex tunc, pela Administração ou pelo Judiciário.','Revogação: ato válido, por conveniência e oportunidade, efeitos ex nunc, só pela Administração.','Convalidação: só vícios sanáveis, de competência não exclusiva e de forma não essencial.'],
+      lei:[['Súmula 473 do STF','A administração pode anular seus próprios atos, quando eivados de vícios que os tornam ilegais, porque deles não se originam direitos; ou <mark>revogá-los, por motivo de conveniência ou oportunidade</mark>, respeitados os direitos adquiridos, e ressalvada, em todos os casos, a apreciação judicial.'],['Lei 9.784/1999, art. 53','A Administração <mark>deve anular</mark> seus próprios atos, quando eivados de vício de legalidade, e <mark>pode revogá-los</mark> por motivo de conveniência ou oportunidade, respeitados os direitos adquiridos.'],['Lei 9.784/1999, art. 55','Em decisão na qual se evidencie não acarretarem lesão ao interesse público nem prejuízo a terceiros, os atos que apresentarem <mark>defeitos sanáveis</mark> poderão ser convalidados pela própria Administração.']]},
+     {id:'improb',nome:'Improbidade administrativa',freq:30,pontos:['Depois da Lei 14.230/2021, todas as modalidades exigem dolo.','Dolo é a vontade livre e consciente de alcançar o resultado ilícito; não basta a voluntariedade.','Três grupos: enriquecimento ilícito (art. 9º), dano ao erário (art. 10) e violação de princípios (art. 11).'],
+      lei:[['Lei 8.429/1992, art. 1º, § 1º','Consideram-se atos de improbidade administrativa as <mark>condutas dolosas</mark> tipificadas nos arts. 9º, 10 e 11 desta Lei, ressalvados tipos previstos em leis especiais.'],['Lei 8.429/1992, art. 1º, § 2º','Considera-se dolo a vontade livre e consciente de alcançar o resultado ilícito tipificado nos arts. 9º, 10 e 11 desta Lei, <mark>não bastando a voluntariedade do agente</mark>.']]},
+     {id:'agentes',nome:'Agentes públicos',freq:30,pontos:['Cargo efetivo exige concurso público de provas ou de provas e títulos.','Cargo em comissão é de livre nomeação e exoneração, para direção, chefia e assessoramento.','Estabilidade: três anos de efetivo exercício e avaliação especial de desempenho.'],
+      lei:[['CF, art. 37, II','A investidura em cargo ou emprego público depende de <mark>aprovação prévia em concurso público</mark> de provas ou de provas e títulos, de acordo com a natureza e a complexidade do cargo ou emprego, na forma prevista em lei, ressalvadas as nomeações para cargo em comissão declarado em lei de livre nomeação e exoneração.']]}
+   ]},
+   {id:'const',nome:'Direito Constitucional',curto:'Constitucional',peso:8,freq:9,assuntos:[
+     {id:'dirfund',nome:'Direitos fundamentais',freq:60,pontos:['Casa: sem consentimento, só em flagrante, desastre, socorro ou, durante o dia, por ordem judicial.','Mandado de segurança coletivo: partido com representação no Congresso; sindicato, entidade de classe ou associação em funcionamento há pelo menos 1 ano.','Direitos fundamentais têm aplicação imediata (art. 5º, § 1º).'],
+      lei:[['CF, art. 5º, XI','A casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, <mark>durante o dia, por determinação judicial</mark>.'],['CF, art. 5º, LXX','O mandado de segurança coletivo pode ser impetrado por: a) <mark>partido político com representação no Congresso Nacional</mark>; b) organização sindical, entidade de classe ou associação legalmente constituída e em funcionamento há pelo menos um ano, em defesa dos interesses de seus membros ou associados.']]},
+     {id:'judic',nome:'Poder Judiciário',freq:40,pontos:['Quinto constitucional: membros do MP e advogados com mais de dez anos de carreira ou atividade.','Todos os julgamentos são públicos e todas as decisões, fundamentadas, sob pena de nulidade.','Garantias dos juízes: vitaliciedade, inamovibilidade e irredutibilidade de subsídio.'],
+      lei:[['CF, art. 94','Um quinto dos lugares dos Tribunais Regionais Federais, dos Tribunais dos Estados, e do Distrito Federal e Territórios será composto de membros do Ministério Público, com <mark>mais de dez anos de carreira</mark>, e de advogados de notório saber jurídico e de reputação ilibada, com <mark>mais de dez anos de efetiva atividade profissional</mark>.']]}
+   ]},
+   {id:'pc',nome:'Direito Processual Civil',curto:'Processo Civil',peso:14,freq:16,assuntos:[
+     {id:'prazos',nome:'Prazos processuais',freq:50,pontos:['Prazos em dias contam só dias úteis, e só para prazos processuais.','Exclui-se o dia do começo e inclui-se o do vencimento.','Prazo em dobro para Fazenda Pública, MP e Defensoria (com exceções).'],
+      lei:[['CPC, art. 219','Na contagem de prazo em dias, estabelecido por lei ou pelo juiz, <mark>computar-se-ão somente os dias úteis</mark>. Parágrafo único. O disposto neste artigo aplica-se somente aos prazos processuais.'],['CPC, art. 224','Salvo disposição em contrário, os prazos serão contados <mark>excluindo o dia do começo e incluindo o dia do vencimento</mark>.']]},
+     {id:'citacao',nome:'Citação e intimações',freq:50,pontos:['Citação convoca réu, executado ou interessado para integrar a relação processual.','Desde a Lei 14.195/2021, a citação é feita preferencialmente por meio eletrônico.','Intimação dá ciência dos atos e termos do processo.'],
+      lei:[['CPC, art. 238','Citação é o ato pelo qual são convocados o réu, o executado ou o interessado <mark>para integrar a relação processual</mark>.'],['CPC, art. 246','A citação será feita <mark>preferencialmente por meio eletrônico</mark>, no prazo de até 2 (dois) dias úteis, contado da decisão que a determinar, por meio dos endereços eletrônicos indicados pelo citando no banco de dados do Poder Judiciário.']]}
+   ]},
+   {id:'pp',nome:'Direito Processual Penal',curto:'Processo Penal',peso:12,freq:13,assuntos:[
+     {id:'inquerito',nome:'Inquérito policial',freq:50,pontos:['A autoridade policial não pode mandar arquivar o inquérito.','Prazo: 10 dias com indiciado preso; 30 dias se solto.','É dispensável quando a denúncia tiver outros elementos.'],
+      lei:[['CPP, art. 17','A autoridade policial <mark>não poderá mandar arquivar</mark> autos de inquérito.'],['CPP, art. 10','O inquérito deverá terminar no prazo de <mark>10 dias, se o indiciado tiver sido preso</mark> em flagrante, ou estiver preso preventivamente, contado o prazo, nesta hipótese, a partir do dia em que se executar a ordem de prisão, ou no prazo de <mark>30 dias, quando estiver solto</mark>, mediante fiança ou sem ela.']]},
+     {id:'prisoes',nome:'Prisões e cautelares',freq:50,pontos:['Depois do Pacote Anticrime, o juiz não decreta preventiva de ofício.','Fundamentos: ordem pública, ordem econômica, instrução criminal e aplicação da lei penal.','Exige prova do crime, indício de autoria e perigo do estado de liberdade.'],
+      lei:[['CPP, art. 311','Em qualquer fase da investigação policial ou do processo penal, caberá a prisão preventiva decretada pelo juiz, <mark>a requerimento do Ministério Público, do querelante ou do assistente, ou por representação da autoridade policial</mark>.'],['CPP, art. 312','A prisão preventiva poderá ser decretada como garantia da ordem pública, da ordem econômica, por conveniência da instrução criminal ou para assegurar a aplicação da lei penal, quando houver prova da existência do crime e indício suficiente de autoria e de <mark>perigo gerado pelo estado de liberdade do imputado</mark>.']]}
+   ]},
+   {id:'info',nome:'Informática',curto:'Informática',peso:12,freq:10,assuntos:[
+     {id:'excel',nome:'Planilhas (Excel)',freq:55,pontos:['Fórmulas começam com = e intervalos usam dois-pontos: A1:A3.','SOMA, MÉDIA, MÁXIMO, MÍNIMO e CONT.NÚM são as mais cobradas.','$A$1 fixa linha e coluna na hora de copiar a fórmula.']},
+     {id:'word',nome:'Editor de textos (Word)',freq:45,pontos:['Atalhos clássicos: Ctrl+N negrito, Ctrl+I itálico, Ctrl+S sublinhado (versão em português).','Quebra de página: Ctrl+Enter.','Estilos de título alimentam o sumário automático.']}
+   ]},
+   {id:'normas',nome:'Normas da Corregedoria',curto:'Normas da Corregedoria',peso:16,freq:12,assuntos:[
+     {id:'nscgj',nome:'Rotinas do ofício judicial',freq:60,pontos:['Autuação: capa, numeração e juntada seguem a ordem cronológica dos atos.','Certidões: devem indicar data, conteúdo e o servidor responsável.','Cobrança: a banca copia o texto das Normas e troca prazos ou responsáveis.']},
+     {id:'nscomun',nome:'Comunicação dos atos no cartório',freq:40,pontos:['Mandados: expedidos pelo cartório e cumpridos pelo oficial de justiça.','Cartas: precatória para outra comarca, rogatória para outro país.','Publicações: intimações pelo Diário da Justiça Eletrônico, com nome dos advogados.']}
+   ]}
+  ],
+  amostra:{banca:{'3':[2,200],'5':[3,300],'10':[5,500]},todas:{'3':[4,380],'5':[6,560],'10':[9,880]}},
+  provas:[[2023,'TJ-SP · Escrevente','VUNESP',100],[2021,'TJ-SP · Escrevente','VUNESP',100],[2019,'TJ-SP · Oficial de Justiça','VUNESP',100],[2017,'TJ-SP · Escrevente','VUNESP',100],[2015,'TJ-SP · Escrevente','VUNESP',100],[2024,'TJ-RJ · Técnico','FGV',90],[2022,'TJ-MG · Oficial Judiciário','FGV',90],[2020,'TJ-PR · Técnico','FCC',60],[2018,'TJ-RS · Técnico','FAURGS',80]],
+  bancaPerfil:{
+    regras:['100 questões objetivas, 5 alternativas (A a E), sem penalidade por erro','Nota mínima: 50% da prova objetiva e nenhuma matéria zerada','4 horas de prova, sem consulta','Desempate: maior nota em Normas da Corregedoria e depois em Português'],
+    estilo:'Enunciados curtos e diretos. A maior parte das questões de Direito reproduz a letra da lei com uma palavra trocada nas alternativas erradas.',
+    padroes:[['Letra da lei com troca de palavra',58,'Prazo, quórum ou competência aparecem alterados em quatro alternativas.',['prazos','inquerito','judic']],['Conceito e classificação',24,'Pede o nome do instituto a partir da definição (atributo, elemento, espécie).',['atos','agentes']],['Português em frases do dia a dia do tribunal',18,'Crase e concordância em frases de ofícios e certidões.',['crase','concord']]],
+    pegadinhas:[['Troca de "não poderá" por "poderá"','"A autoridade policial poderá mandar arquivar autos de inquérito." Errado: o CPP diz não poderá.',['inquerito']],['Prazo vizinho','"Mais de cinco anos de carreira" no lugar de "mais de dez".',['judic']],['Efeitos invertidos','Revogação com efeitos ex tunc. O certo é ex nunc.',['atos']]],
+    provas:'5 provas da VUNESP para tribunais (2015 a 2023)'
+  }
+ },
+ {id:'pppe',sigla:'PP-PE',orgao:'Secretaria Executiva de Ressocialização de Pernambuco',nome:'Polícia Penal PE',banca:'Cebraspe',situacao:'Edital previsto',sit:'previsto',
+  prova:'2027-03-21',link:'https://www.pe.gov.br',versao:'Edital nº 01/2026, versão de 05/11/2026 (sem retificações)',
+  inscricoes:'16/11 a 15/12/2026 (previsão)',unidade:'itens',
+  formato:'120 itens de certo ou errado, em 4 h 30. Cada item errado anula um item certo.',
+  eliminatorios:['Nota abaixo de 40% na prova objetiva','Inapto no teste de aptidão física','Contraindicado na avaliação psicológica ou na investigação social'],
+  datas:[['2026-11-05','Edital publicado'],['2026-11-16','Abertura das inscrições'],['2026-12-15','Fim das inscrições'],['2027-03-21','Prova objetiva','prova'],['2027-05-09','Teste de aptidão física']],
+  retificacoes:[],
+  cargos:[
+   {id:'policial',curto:'Policial Penal',nome:'Policial Penal',nivel:'Nível superior',vagas:'500 + cadastro reserva',remun:'R$ 4.952,13',taxa:'R$ 120,00',requisitos:'Curso superior em qualquer área, carteira de habilitação categoria B e idade mínima de 18 anos.',etapas:['Prova objetiva','Teste de aptidão física','Avaliação psicológica','Investigação social','Curso de formação']},
+   {id:'adm',curto:'Agente Administrativo',nome:'Agente Administrativo Penitenciário',nivel:'Nível médio',vagas:'80 + cadastro reserva',remun:'R$ 2.870,00',taxa:'R$ 75,00',requisitos:'Ensino médio completo.',etapas:['Prova objetiva','Investigação social']}
+  ],
+  materias:[
+   {id:'lep',nome:'Lei de Execução Penal',curto:'LEP',peso:30,freq:30,assuntos:[
+     {id:'remicao',nome:'Remição de pena',freq:35,pontos:['Quem está no fechado ou semiaberto pode remir por trabalho ou estudo.','Trabalho: 1 dia de pena a cada 3 dias trabalhados.','Estudo: 1 dia de pena a cada 12 horas de frequência escolar, divididas em no mínimo 3 dias.'],
+      lei:[['LEP, art. 126','O condenado que cumpre a pena em <mark>regime fechado ou semiaberto</mark> poderá remir, por trabalho ou por estudo, parte do tempo de execução da pena.'],['LEP, art. 126, § 1º','A contagem de tempo referida no caput será feita à razão de: I - 1 (um) dia de pena a cada 12 (doze) horas de frequência escolar [...] divididas, no mínimo, em 3 (três) dias; II - <mark>1 (um) dia de pena a cada 3 (três) dias de trabalho</mark>.']]},
+     {id:'faltas',nome:'Faltas disciplinares',freq:35,pontos:['Faltas leves e médias: definidas pela legislação local. Graves: na própria LEP.','Celular, rádio ou similar com o preso é falta grave.','Falta grave pode levar à regressão de regime e à perda de dias remidos.'],
+      lei:[['LEP, art. 49','As faltas disciplinares classificam-se em leves, médias e graves. <mark>A legislação local especificará as leves e médias</mark>, bem assim as respectivas sanções.'],['LEP, art. 50, VII','Comete falta grave o condenado à pena privativa de liberdade que tiver em sua posse, utilizar ou fornecer <mark>aparelho telefônico, de rádio ou similar</mark>, que permita a comunicação com outros presos ou com o ambiente externo.']]},
+     {id:'regimes',nome:'Regimes e progressão',freq:30,pontos:['Reclusão: fechado, semiaberto ou aberto. Detenção: semiaberto ou aberto.','Progressão depende de percentual da pena cumprido e de boa conduta.','Regressão por falta grave ou por novo crime doloso.'],
+      lei:[['CP, art. 33','A pena de reclusão deve ser cumprida em regime fechado, semi-aberto ou aberto. A de detenção, em regime semi-aberto, ou aberto, <mark>salvo necessidade de transferência a regime fechado</mark>.']]}
+   ]},
+   {id:'penal',nome:'Direito Penal',curto:'Penal',peso:25,freq:22,assuntos:[
+     {id:'tempo',nome:'Tempo e lugar do crime',freq:45,pontos:['Tempo: teoria da atividade (momento da ação ou omissão).','Lugar: teoria da ubiquidade (ação ou resultado).','Macete LUTA: Lugar = Ubiquidade, Tempo = Atividade.'],
+      lei:[['CP, art. 4º','Considera-se praticado o crime <mark>no momento da ação ou omissão</mark>, ainda que outro seja o momento do resultado.'],['CP, art. 6º','Considera-se praticado o crime no lugar em que ocorreu a ação ou omissão, no todo ou em parte, <mark>bem como onde se produziu ou deveria produzir-se o resultado</mark>.']]},
+     {id:'excl',nome:'Excludentes de ilicitude',freq:55,pontos:['Estado de necessidade, legítima defesa, estrito cumprimento do dever legal e exercício regular de direito.','Quem tem o dever legal de enfrentar o perigo não alega estado de necessidade.','Legítima defesa: meios necessários, usados com moderação, contra agressão injusta atual ou iminente.'],
+      lei:[['CP, art. 23','Não há crime quando o agente pratica o fato: I - em estado de necessidade; II - em legítima defesa; III - em estrito cumprimento de dever legal ou no exercício regular de direito.'],['CP, art. 24, § 1º','<mark>Não pode alegar estado de necessidade quem tinha o dever legal de enfrentar o perigo.</mark>']]}
+   ]},
+   {id:'const',nome:'Direito Constitucional',curto:'Constitucional',peso:20,freq:16,assuntos:[
+     {id:'dirpresos',nome:'Direitos fundamentais e pessoas presas',freq:100,pontos:['Aos presos é assegurado o respeito à integridade física e moral.','Não haverá penas de morte (salvo guerra declarada), perpétuas, de trabalhos forçados, de banimento ou cruéis.','A pena será cumprida em estabelecimentos distintos, conforme natureza do delito, idade e sexo.'],
+      lei:[['CF, art. 5º, XLIX','É assegurado aos presos o <mark>respeito à integridade física e moral</mark>.'],['CF, art. 5º, XLVII','Não haverá penas: a) de morte, salvo em caso de guerra declarada, nos termos do art. 84, XIX; b) de caráter perpétuo; c) de trabalhos forçados; <mark>d) de banimento</mark>; e) cruéis.']]}
+   ]},
+   {id:'dh',nome:'Direitos Humanos',curto:'Direitos Humanos',peso:20,freq:12,assuntos:[
+     {id:'tratados',nome:'Pacto de San José da Costa Rica',freq:100,pontos:['Ninguém será detido por dívidas, salvo inadimplemento de obrigação alimentar.','Por isso, é ilícita a prisão civil do depositário infiel (Súmula Vinculante 25).','Tratados de direitos humanos aprovados sem o rito de emenda têm status supralegal.'],
+      lei:[['Convenção Americana, art. 7.7','Ninguém deve ser detido por dívidas. Este princípio não limita os mandados de autoridade judiciária competente expedidos em virtude de <mark>inadimplemento de obrigação alimentar</mark>.'],['Súmula Vinculante 25','É ilícita a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito.']]}
+   ]},
+   {id:'port',nome:'Língua Portuguesa',curto:'Português',peso:25,freq:20,assuntos:[
+     {id:'concord',nome:'Concordância verbal',freq:100,pontos:['Verbo antes do sujeito concorda normalmente: faltam dois agentes.','Haver (existir) e fazer (tempo) são impessoais.','No Cebraspe, a cobrança vem como reescrita: "a troca preserva a correção?".']}
+   ]}
+  ],
+  amostra:{banca:{'3':[1,120],'5':[1,120],'10':[2,240]},todas:{'3':[2,220],'5':[3,340],'10':[4,460]}},
+  provas:[[2023,'Polícia Penal PE · Policial Penal','Cebraspe',120],[2017,'SERES-PE · Agente','Cebraspe',120],[2024,'Polícia Penal PB · Policial','IBADE',80],[2022,'Polícia Penal SE · Policial','IBFC',100]],
+  bancaPerfil:{
+    regras:['120 itens de certo ou errado','Cada item errado anula um item certo; deixar em branco não desconta','Nota mínima: 40% da prova objetiva','Etapas seguintes: TAF, avaliação psicológica, investigação social e curso de formação'],
+    estilo:'Enunciados longos, com situação hipotética seguida de uma afirmação. A banca cobra a exceção da regra e reescritas de frases.',
+    padroes:[['Situação hipotética + regra',46,'Um caso com o preso, o agente ou o diretor do presídio e uma afirmação para julgar.',['faltas','remicao','excl']],['Exceção da regra',32,'"Salvo", "exceto", "somente": o item troca a exceção ou a apaga.',['dirpresos','tratados']],['Reescrita gramatical',22,'"A substituição de X por Y preserva a correção?"',['concord']]],
+    pegadinhas:[['Proporção da remição','1 dia a cada 2 dias de trabalho. O certo é a cada 3.',['remicao']],['Banimento em guerra','A exceção da guerra declarada vale só para a pena de morte.',['dirpresos']],['Quem define falta leve','A LEP não lista faltas leves e médias: é a legislação local.',['faltas']]],
+    provas:'1 prova do Cebraspe para este cargo (2023), amostra pequena'
+  }
+ }
+];
+
+// Questões de exemplo, escritas para a demonstração no estilo de cada banca.
+const QUESTOES=[
+ {id:'q1',conc:'tjsp',mat:'adm',ass:'atos',dif:'média',ano:'2023',enun:'Sobre a revogação do ato administrativo, assinale a alternativa correta.',alts:['Pode ser feita pelo Poder Judiciário, no exercício da função jurisdicional, por razões de conveniência.','Produz efeitos retroativos (ex tunc).','Incide sobre atos discricionários válidos, por conveniência e oportunidade, com efeitos ex nunc.','É cabível para atos vinculados que já geraram direitos adquiridos.','É a forma adequada de extinguir atos ilegais.'],gab:2,com:'Revogação retira um ato válido por conveniência e oportunidade, com efeitos daqui para frente (ex nunc), e só a própria Administração pode fazê-la (Súmula 473 do STF). Ato ilegal se anula, com efeitos ex tunc.'},
+ {id:'q2',conc:'tjsp',mat:'adm',ass:'atos',dif:'fácil',ano:'2021',enun:'O atributo do ato administrativo que permite à Administração impor obrigações a terceiros, independentemente da concordância deles, é a',alts:['presunção de legitimidade.','imperatividade.','autoexecutoriedade.','tipicidade.','motivação.'],gab:1,com:'Imperatividade é o poder de impor obrigações unilateralmente. Autoexecutoriedade é executar o ato sem ordem judicial, que é coisa diferente.'},
+ {id:'q3',conc:'tjsp',mat:'adm',ass:'atos',dif:'fácil',ano:'2019',enun:'Segundo a Lei nº 4.717/1965, são elementos do ato administrativo:',alts:['competência, finalidade, forma, motivo e objeto.','imperatividade, tipicidade, forma, motivo e objeto.','competência, legalidade, publicidade, motivo e objeto.','presunção de legitimidade, finalidade, forma e conteúdo.','competência, finalidade, eficiência, motivo e forma.'],gab:0,com:'O art. 2º da Lei da Ação Popular lista os cinco elementos: competência, forma, objeto, motivo e finalidade. Macete: COMFIFORMOB.'},
+ {id:'q4',conc:'tjsp',mat:'adm',ass:'atos',dif:'difícil',ano:'2017',enun:'Admite convalidação o ato administrativo que apresenta vício de',alts:['finalidade.','motivo.','objeto.','competência, desde que não se trate de competência exclusiva.','qualquer elemento, desde que haja interesse público.'],gab:3,com:'Só vícios sanáveis se convalidam: competência (se não for exclusiva) e forma (se não for essencial). Finalidade, motivo e objeto não admitem convalidação (Lei 9.784/1999, art. 55).'},
+ {id:'q5',conc:'tjsp',mat:'adm',ass:'improb',dif:'média',ano:'2023',enun:'Após a Lei nº 14.230/2021, para a configuração de ato de improbidade administrativa, exige-se',alts:['dolo, em todas as modalidades.','dolo ou culpa grave nos atos que causam prejuízo ao erário.','culpa simples nos atos que atentam contra os princípios.','apenas a voluntariedade do agente.','responsabilidade objetiva do agente público.'],gab:0,com:'A reforma tornou todas as modalidades dolosas (art. 1º, § 1º). E o § 2º deixa claro que a simples voluntariedade não basta.'},
+ {id:'q6',conc:'tjsp',mat:'const',ass:'dirfund',dif:'fácil',ano:'2021',enun:'Conforme a Constituição Federal, a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo',alts:['em flagrante delito ou desastre, para prestar socorro ou, durante o dia, por determinação judicial.','por determinação da autoridade policial, a qualquer hora.','por determinação judicial, a qualquer hora do dia ou da noite.','durante o dia, por determinação do Ministério Público.','em flagrante delito, somente durante o dia.'],gab:0,com:'Art. 5º, XI. A ordem judicial só autoriza a entrada durante o dia. Flagrante, desastre e socorro valem a qualquer hora.'},
+ {id:'q7',conc:'tjsp',mat:'const',ass:'dirfund',dif:'média',ano:'2019',enun:'O mandado de segurança coletivo pode ser impetrado por',alts:['qualquer cidadão, em defesa do patrimônio público.','partido político com representação no Congresso Nacional.','associação legalmente constituída e em funcionamento há pelo menos seis meses.','qualquer pessoa jurídica, independentemente do tempo de constituição.','exclusivamente pelo Ministério Público.'],gab:1,com:'Art. 5º, LXX. A associação precisa de pelo menos um ano de funcionamento, não seis meses. Cidadão em defesa do patrimônio público é ação popular.'},
+ {id:'q8',conc:'tjsp',mat:'const',ass:'judic',dif:'fácil',ano:'2017',enun:'Um quinto dos lugares dos Tribunais dos Estados será composto de membros do Ministério Público e de advogados com',alts:['mais de cinco anos de carreira ou de atividade.','mais de dez anos de carreira ou de efetiva atividade profissional.','mais de quinze anos de carreira ou de atividade.','mais de três anos de atividade jurídica.','mais de vinte anos de carreira ou de atividade.'],gab:1,com:'Art. 94 da CF: mais de dez anos de carreira (MP) ou de efetiva atividade profissional (advocacia).'},
+ {id:'q9',conc:'tjsp',mat:'pc',ass:'prazos',dif:'fácil',ano:'2023',enun:'De acordo com o Código de Processo Civil, na contagem de prazo em dias, estabelecido por lei ou pelo juiz, computar-se-ão',alts:['os dias corridos.','somente os dias úteis.','os dias úteis, salvo nos prazos fixados pelo juiz.','os dias corridos, excluídos apenas os feriados nacionais.','os dias úteis, incluído o dia do começo.'],gab:1,com:'Art. 219 do CPC. E pelo art. 224 exclui-se o dia do começo e inclui-se o do vencimento.'},
+ {id:'q10',conc:'tjsp',mat:'pc',ass:'citacao',dif:'média',ano:'2023',enun:'Segundo o Código de Processo Civil, a citação será feita preferencialmente',alts:['pelo correio.','por oficial de justiça.','por meio eletrônico.','por edital.','pelo escrivão, em cartório.'],gab:2,com:'Desde a Lei 14.195/2021, o art. 246 prevê a citação preferencialmente por meio eletrônico, em até 2 dias úteis da decisão que a determinar.'},
+ {id:'q11',conc:'tjsp',mat:'pp',ass:'inquerito',dif:'fácil',ano:'2021',enun:'Segundo o Código de Processo Penal, a autoridade policial',alts:['poderá mandar arquivar o inquérito quando não houver indícios de autoria.','não poderá mandar arquivar autos de inquérito.','deverá concluir o inquérito em 60 dias se o indiciado estiver preso.','depende de requisição do Ministério Público para instaurar inquérito em crime de ação pública.','poderá indeferir o pedido de exame de corpo de delito.'],gab:1,com:'Art. 17 do CPP. Preso: 10 dias para concluir. O exame de corpo de delito não pode ser negado (art. 184).'},
+ {id:'q12',conc:'tjsp',mat:'pp',ass:'prisoes',dif:'difícil',ano:'2023',enun:'Após a Lei nº 13.964/2019 (Pacote Anticrime), a prisão preventiva',alts:['pode ser decretada de ofício pelo juiz na fase de investigação.','pode ser decretada de ofício pelo juiz durante a ação penal.','depende de requerimento do MP, do querelante ou do assistente, ou de representação da autoridade policial.','dispensa fundamentação quando o crime for hediondo.','tem prazo máximo de 180 dias fixado em lei.'],gab:2,com:'Art. 311 do CPP. O Pacote Anticrime retirou a decretação de ofício em qualquer fase.'},
+ {id:'q13',conc:'tjsp',mat:'port',ass:'crase',dif:'fácil',ano:'2023',enun:'Assinale a alternativa em que o acento indicativo de crase está empregado de acordo com a norma-padrão.',alts:['Refiro-me à pessoas que chegaram cedo.','Entregou o documento à ela.','Fomos à Bahia no feriado.','O escrevente começou à digitar a certidão.','Ficaram frente à frente na audiência.'],gab:2,com:'"Volto da Bahia" mostra que Bahia aceita artigo: vou à Bahia. Não há crase antes de plural sem artigo, de pronome pessoal, de verbo ou entre palavras repetidas.'},
+ {id:'q14',conc:'tjsp',mat:'port',ass:'crase',dif:'média',ano:'2021',enun:'Assinale a frase em que o sinal de crase é obrigatório na lacuna: ',alts:['Ele saiu ___ pé.','Chegou ___ uma conclusão.','O curso começa ___ 19 horas.','Fez referência ___ esta lei.','Ficou cara ___ cara com o examinador.'],gab:2,com:'Indicação de horas exatas leva crase: às 19 horas. "A pé", "a uma", "a esta" e "cara a cara" ficam sem acento.'},
+ {id:'q15',conc:'tjsp',mat:'port',ass:'concord',dif:'média',ano:'2019',enun:'Assinale a alternativa em conformidade com a norma-padrão de concordância verbal.',alts:['Fazem dois anos que estudo para o concurso.','Houveram muitas inscrições no último dia.','Faz dois anos que estudo para o concurso.','Haviam candidatos na sala de espera.','Existe muitas dúvidas sobre o edital.'],gab:2,com:'Fazer indicando tempo e haver no sentido de existir são impessoais e ficam no singular. Existir não é impessoal: existem muitas dúvidas.'},
+ {id:'q16',conc:'tjsp',mat:'info',ass:'excel',dif:'fácil',ano:'2023',enun:'Em uma planilha do Excel, as células B1, B2, B3 e B4 contêm, respectivamente, 2, 4, 6 e 8. A fórmula =MÉDIA(B1:B4) retorna',alts:['4','5','20','8','6'],gab:1,com:'(2 + 4 + 6 + 8) ÷ 4 = 5. =SOMA(B1:B4) retornaria 20.'},
+ {id:'p1',conc:'pppe',mat:'lep',ass:'remicao',dif:'fácil',ano:'2023',ce:1,enun:'Segundo a Lei de Execução Penal, o condenado que cumpre pena em regime fechado ou semiaberto poderá remir, por trabalho ou por estudo, parte do tempo de execução da pena.',gab:0,com:'Certo. É o texto do art. 126 da LEP.'},
+ {id:'p2',conc:'pppe',mat:'lep',ass:'remicao',dif:'média',ano:'2023',ce:1,enun:'Situação hipotética: João, preso em regime fechado, trabalhou 30 dias no mês. Assertiva: nesse caso, ele terá direito a remir 15 dias de pena, pois a contagem é de 1 dia de pena a cada 2 dias de trabalho.',gab:1,com:'Errado. A proporção é de 1 dia de pena a cada 3 dias de trabalho (art. 126, § 1º, II). João remiria 10 dias.'},
+ {id:'p3',conc:'pppe',mat:'lep',ass:'faltas',dif:'fácil',ano:'2017',ce:1,enun:'Comete falta grave o condenado que tiver em sua posse aparelho telefônico que permita a comunicação com outros presos ou com o ambiente externo.',gab:0,com:'Certo. Art. 50, VII, da LEP.'},
+ {id:'p4',conc:'pppe',mat:'lep',ass:'faltas',dif:'difícil',ano:'2023',ce:1,enun:'As faltas disciplinares classificam-se em leves, médias e graves, e todas elas estão especificadas na própria Lei de Execução Penal.',gab:1,com:'Errado. A LEP especifica só as graves; as leves e médias ficam a cargo da legislação local (art. 49).'},
+ {id:'p5',conc:'pppe',mat:'penal',ass:'tempo',dif:'fácil',ano:'2023',ce:1,enun:'Considera-se praticado o crime no momento da ação ou omissão, ainda que outro seja o momento do resultado.',gab:0,com:'Certo. Teoria da atividade, art. 4º do Código Penal.'},
+ {id:'p6',conc:'pppe',mat:'penal',ass:'excl',dif:'média',ano:'2017',ce:1,enun:'Situação hipotética: durante um incêndio no presídio, um policial penal fugiu do local para salvar a própria vida, deixando presos sob risco. Assertiva: o policial pode alegar estado de necessidade.',gab:1,com:'Errado. Não pode alegar estado de necessidade quem tinha o dever legal de enfrentar o perigo (art. 24, § 1º, do CP).'},
+ {id:'p7',conc:'pppe',mat:'const',ass:'dirpresos',dif:'fácil',ano:'2023',ce:1,enun:'A Constituição Federal assegura aos presos o respeito à integridade física e moral.',gab:0,com:'Certo. Art. 5º, XLIX.'},
+ {id:'p8',conc:'pppe',mat:'const',ass:'dirpresos',dif:'média',ano:'2023',ce:1,enun:'A pena de banimento é vedada pela Constituição Federal, salvo em caso de guerra declarada.',gab:1,com:'Errado. A ressalva da guerra declarada vale só para a pena de morte. Banimento é vedado sem exceção (art. 5º, XLVII).'},
+ {id:'p9',conc:'pppe',mat:'dh',ass:'tratados',dif:'média',ano:'2023',ce:1,enun:'A Convenção Americana sobre Direitos Humanos veda a prisão por dívidas, ressalvado o inadimplemento de obrigação alimentar.',gab:0,com:'Certo. Art. 7.7 da Convenção. Por isso a Súmula Vinculante 25 afasta a prisão do depositário infiel.'},
+ {id:'p10',conc:'pppe',mat:'port',ass:'concord',dif:'média',ano:'2023',ce:1,enun:'Na frase "Faltam dois agentes na escala de hoje", a forma verbal "Faltam" poderia ser substituída por "Falta", sem prejuízo da correção gramatical.',gab:1,com:'Errado. O sujeito "dois agentes" está no plural e posposto; o verbo concorda com ele: faltam.'}
+];
+
+const PLANOS={
+  gratuito:{nome:'Gratuito',preco:'R$ 0',sufixo:'',curto:'Gratuito',abr:'Qualquer concurso do catálogo',rec:['Análise geral do edital','Datas, etapas e critérios eliminatórios','Retificações com o que mudou']},
+  um:{nome:'Um Concurso',preco:'R$ 19,99',sufixo:'/mês',curto:'Um Concurso',abr:'Um concurso escolhido por você',rec:['Tudo do Gratuito','Cronograma adaptável à sua rotina','Raio-X dos temas cobrados','Perfil da banca','Materiais de apoio']},
+  todos:{nome:'Todos os Concursos',preco:'R$ 29,99',sufixo:'/mês',curto:'Todos',abr:'Todos os concursos do catálogo',rec:['Tudo do Um Concurso','Para qualquer concurso do catálogo','Histórico separado por preparação']},
+  premium:{nome:'Premium com Questões',preco:'A definir',sufixo:'',curto:'Premium',abr:'A definir',rec:['Recursos de estudo','Banco de questões comentadas','Caderno de erros com revisão']}
+};
+const NIVEIS=['Inscrito','Candidato','Classificado','Aprovado','Nomeado','Empossado','Servidor exemplar'];
+const BADGES={
+  'primeira-meta':['Primeira meta','Concluiu a primeira meta do plano','check'],
+  'dia-fechado':['Dia fechado','Concluiu todas as metas de um dia','estrela'],
+  'reorganizou':['Plano em dia','Reorganizou a semana sem perder nada','reorg'],
+  'primeiro-acerto':['Primeiro acerto','Acertou a primeira questão','praticar'],
+  'volta-erro':['Voltou ao erro','Acertou uma questão sobre um tema que tinha errado','caderno'],
+  'leitor':['Leitor de lei seca','Abriu a primeira lei seca direcionada','livro']
+};
+
+// ---------- estado ----------
+const KEY='ccl-proto-v1';
+const novoEstado=()=>({v:1,plano:'gratuito',planoConc:null,expirado:false,ativo:null,preps:{},xp:0,streak:0,ultimoDia:null,badges:[]});
+let S=novoEstado();
+try{const raw=localStorage.getItem(KEY);if(raw){const o=JSON.parse(raw);if(o&&o.v===1)S=o;}}catch(e){}
+const salvar=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const UI={view:null,p:{},stack:[],sheet:null,pend:null,busca:'',sit:'todos',cargoSel:{},planoModo:'semana',semOff:0,mesSel:null,metaSel:null,cfgDraft:null,f:{},tr:null,rx:{banca:'banca',per:'5',cargo:null},cadF:'',pegCarga:null};
+
+const C=id=>CONCURSOS.find(c=>c.id===id);
+const prep=()=>S.ativo?S.preps[S.ativo]:null;
+const concAtivo=()=>{const P=prep();return P?C(P.conc):null};
+const cargoDe=P=>C(P.conc).cargos.find(x=>x.id===P.cargo);
+const achaAss=(cid,aid)=>{for(const m of C(cid).materias){const a=m.assuntos.find(x=>x.id===aid);if(a)return{a,m}}return null};
+const qDe=id=>QUESTOES.find(q=>q.id===id);
+const nQuest=(cid,aid)=>QUESTOES.filter(q=>q.conc===cid&&(!aid||q.ass===aid)).length;
+
+function cobre(cid){if(S.expirado)return false;if(S.plano==='todos'||S.plano==='premium')return true;if(S.plano==='um')return S.planoConc===cid;return false}
+const temQuestoes=()=>S.plano==='premium'&&!S.expirado;
+
+function novaPrep(cid,cargo){return{conc:cid,cargo,cfg:null,metas:[],adiadas:[],erros:[],resp:{},xp:0,criado:HOJE,vistoEdital:false,sessoes:0,acertos:0,respondidas:0}}
+
+// ---------- gamificação ----------
+function ganhar(xp,msg){
+  S.xp+=xp;const P=prep();if(P)P.xp+=xp;
+  if(S.ultimoDia!==HOJE){S.streak=(S.ultimoDia===addD(HOJE,-1)?S.streak:0)+1;S.ultimoDia=HOJE}
+  toast(msg,xp);
+}
+function conquista(id){if(S.badges.includes(id))return;S.badges.push(id);setTimeout(()=>toast(`Conquista: ${BADGES[id][0]}`,0,'medalha'),900)}
+const nivel=()=>{const n=Math.min(NIVEIS.length-1,Math.floor(S.xp/150));return{n:n+1,nome:NIVEIS[n],falta:150-(S.xp%150),pct:(S.xp%150)/150*100}};
+function confete(el){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!el)return;
+  const r=el.getBoundingClientRect();const cores=['#D9F575','#163D30','#2F7356','#9DBB2B'];
+  for(let i=0;i<18;i++){const d=document.createElement('i');d.className='burst';d.style.background=cores[i%4];d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+r.height/2)+'px';document.body.appendChild(d);
+    const a=Math.random()*Math.PI*2,v=60+Math.random()*90;
+    d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*v}px,${Math.sin(a)*v+40}px) rotate(${Math.random()*540}deg)`,opacity:0}],{duration:700+Math.random()*300,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove();}
+}
+
+// ---------- plano de estudos ----------
+const TIPOS={teoria:'Teoria',lei:'Lei seca',rev:'Revisão'};
+function tituloTipo(m){if(m.tipo==='teoria')return`Teoria · parte ${m.parte} de ${m.de}`;if(m.tipo==='lei')return'Lei seca direcionada';return m.parte===1?'Revisão de 48 horas':'Revisão de 7 dias'}
+function ranking(cid,cfg){
+  const c=C(cid),tot=c.materias.reduce((s,m)=>s+m.peso,0),L=[];
+  c.materias.forEach(m=>m.assuntos.forEach(a=>{
+    let s=((m.peso/tot)+m.freq/100)/2*a.freq/100;const dif=cfg.dificeis.includes(m.id),est=cfg.estudadas.includes(m.id);
+    if(dif)s*=1.6;if(est)s*=.7;L.push({a,m,s,dif,est})}));
+  return L.sort((x,y)=>y.s-x.s);
+}
+function gerarItens(cid,cfg){
+  const c=C(cid),tot=c.materias.reduce((s,m)=>s+m.peso,0);
+  const filas=ranking(cid,cfg).map(L=>{
+    const imp=((L.m.peso/tot)+L.m.freq/100)/2*L.a.freq/100;
+    const nT=Math.max(1,Math.min(6,Math.round(2+imp*30))+(L.dif?1:0)-(L.est?1:0));
+    const base={ass:L.a.id,mat:L.m.id};
+    let mot=`${L.m.curto} vale ${L.m.peso} ${c.unidade} no edital (${Math.round(L.m.peso/tot*100)}% da prova) e ${L.a.freq>=100?'este é o assunto que concentra as questões dela':`este assunto aparece em ${L.a.freq}% das questões da matéria`} nas provas anteriores.`;
+    if(L.dif)mot+=' Você marcou a matéria como difícil, então ela ganhou mais tempo.';
+    if(L.est)mot+=' Você já estudou a matéria, então o plano encurtou a teoria.';
+    const its=[];
+    for(let i=1;i<=nT;i++)its.push({...base,tipo:'teoria',parte:i,de:nT,min:25,motivo:mot});
+    if(L.a.lei)its.push({...base,tipo:'lei',parte:1,min:15,motivo:`A ${c.banca} cobra a letra da lei neste assunto. Leitura só dos artigos que mais caem.`});
+    const dep=`${L.a.id}|teoria|${nT}`;
+    its.push({...base,tipo:'rev',parte:1,min:10,dep,gap:2,motivo:'Revisão de 48 horas: fixa o que você estudou antes que esqueça.'});
+    its.push({...base,tipo:'rev',parte:2,min:15,dep,gap:7,motivo:'Revisão de 7 dias: segunda passada para levar o conteúdo à memória de longo prazo.'});
+    its.forEach(x=>x.key=`${x.ass}|${x.tipo}|${x.parte}`);
+    return its;
+  });
+  const out=[],ativas=[];let prox=0;
+  while(ativas.length<3&&prox<filas.length)ativas.push(filas[prox++]);
+  while(ativas.length){
+    for(let i=0;i<ativas.length;){const f=ativas[i];out.push(f.shift());
+      if(!f.length){ativas.splice(i,1);if(prox<filas.length){ativas.splice(i,0,filas[prox++]);i++}}else i++;}
+  }
+  out.forEach((x,i)=>{x.ordem=i;x.id=x.key});
+  return out;
+}
+function agendar(itens,cfg,inicio,fim,ocupado,datas){
+  const fila=itens.slice();let d=inicio;
+  while(fila.length&&d<=fim){
+    const w=wd(d);
+    if(cfg.dias[w]){
+      let rest=cfg.min[w]-(ocupado[d]||0),olhados=0;
+      for(let i=0;i<fila.length&&olhados<16&&rest>=10;){
+        const it=fila[i];let pode=it.min<=rest;
+        if(pode&&it.dep){const dd=datas[it.dep];pode=!!dd&&addD(dd,it.gap)<=d}
+        if(pode){it.data=d;datas[it.key]=d;rest-=it.min;fila.splice(i,1)}else{i++;olhados++}
+      }
+    }
+    d=addD(d,1);
+  }
+  return fila;
+}
+function simularPlano(P,cfg,inicio=HOJE){
+  const c=C(P.conc);
+  const feitas=P.metas.filter(m=>m.ok);const feitasK=new Set(feitas.map(m=>m.key));
+  const itens=gerarItens(P.conc,cfg).filter(x=>!feitasK.has(x.key));
+  const datas={},ocupado={};feitas.forEach(m=>{datas[m.key]=m.data;if(m.data>=inicio)ocupado[m.data]=(ocupado[m.data]||0)+m.min});
+  const sobra=agendar(itens,cfg,inicio,addD(c.prova,-1),ocupado,datas);
+  const ag=itens.filter(x=>x.data);
+  const total=itens.reduce((s,x)=>s+x.min,0),agMin=ag.reduce((s,x)=>s+x.min,0);
+  return{metas:[...feitas,...ag],sobra,cobertura:total?Math.round(agMin/total*100):100,ultimo:ag.length?ag.reduce((a,x)=>x.data>a?x.data:a,inicio):inicio};
+}
+function aplicarPlano(P,cfg,inicio=HOJE){
+  P.cfg=cfg;const r=simularPlano(P,cfg,inicio);
+  P.metas=r.metas.map(m=>({ok:false,reag:null,...m}));
+  P.adiadas=r.sobra.map(x=>({ass:x.ass,mat:x.mat,tipo:x.tipo,parte:x.parte,key:x.key,min:x.min}));
+}
+const cfgPadrao=cid=>({dias:[1,1,1,1,1,0,0].map(Boolean),min:[60,60,60,60,60,120,60],dificeis:cid==='tjsp'?['adm']:['lep'],estudadas:cid==='tjsp'?['port']:[]});
+const cargaSemanal=cfg=>cfg.dias.reduce((s,on,i)=>s+(on?cfg.min[i]:0),0);
+
+function simularReorg(P){
+  const c=C(P.conc),fimSem=addD(segunda(HOJE),6);
+  const pend=P.metas.filter(m=>!m.ok).slice().sort((a,b)=>((a.data<HOJE?0:1)-(b.data<HOJE?0:1))||a.data.localeCompare(b.data)||a.ordem-b.ordem);
+  const clones=pend.map(m=>({...m,data:null}));
+  const datas={},ocupado={};
+  P.metas.filter(m=>m.ok).forEach(m=>{datas[m.key]=m.data;if(m.data>=HOJE)ocupado[m.data]=(ocupado[m.data]||0)+m.min});
+  const sobra=agendar(clones,P.cfg,HOJE,addD(c.prova,-1),ocupado,datas);
+  const novo={};clones.forEach(x=>novo[x.id]=x.data);
+  const mud=[],depois=[];let outras=0;
+  pend.forEach(m=>{const nw=novo[m.id];if(nw===m.data)return;
+    const rel=m.data<=fimSem||(nw&&nw<=fimSem);
+    if(m.data<=fimSem&&(!nw||nw>fimSem))depois.push({m,de:m.data,para:nw});
+    else if(rel)mud.push({m,de:m.data,para:nw});else outras++;});
+  return{novo,mud,depois,outras,atrasadas:pend.filter(m=>m.data<HOJE).length,semVaga:sobra.length};
+}
+
+// ---------- sessão de questões ----------
+function montarSessao({conc,mat,ass,dif,n=5,ids}){
+  const P=prepPorConc(conc);
+  if(ids)return ids.map(id=>({id}));
+  let pool=QUESTOES.filter(q=>q.conc===conc&&(!mat||q.mat===mat)&&(!ass||q.ass===ass)&&(!dif||q.dif===dif));
+  const sel=[];
+  if(P){
+    P.erros.filter(e=>!e.revisado&&(!ass||e.ass===ass)&&(!mat||e.mat===mat)).forEach(e=>{
+      if(sel.length>=n||sel.some(s=>s.rev&&s.rev.ass===e.ass))return;
+      const cands=pool.filter(q=>q.ass===e.ass&&q.id!==e.qid&&!sel.some(s=>s.id===q.id));
+      const alt=cands.find(q=>!P.resp[q.id])||cands.find(q=>P.resp[q.id]!=='ok')||cands[0];
+      if(alt)sel.push({id:alt.id,rev:e});
+    });
+  }
+  const resto=pool.filter(q=>!sel.some(s=>s.id===q.id)).sort((a,b)=>((P&&P.resp[a.id])?1:0)-((P&&P.resp[b.id])?1:0));
+  for(const q of resto){if(sel.length>=n)break;sel.push({id:q.id})}
+  return sel;
+}
+const prepPorConc=cid=>{if(S.ativo&&S.preps[S.ativo].conc===cid)return S.preps[S.ativo];return Object.values(S.preps).find(p=>p.conc===cid)||null};
+
+// ---------- navegação ----------
+const TAB={hoje:'hoje',edital:'edital',raiox:'edital',banca:'edital',materiais:'edital',leitor:'edital',plano:'plano',config:'plano',praticar:'praticar',banco:'praticar',treino:'praticar',resultado:'praticar',caderno:'praticar',catalogo:null,concurso:null,planos:null,perfil:null};
+const desk=()=>matchMedia('(min-width:1024px)').matches;
+function go(view,p={},opt={}){
+  if(UI.sheet){UI.sheet=null;$('#ov').innerHTML=''}
+  if(view==='config'&&UI.view!=='config')UI.cfgDraft=null;
+  if(UI.view&&!opt.replace&&!opt.raiz)UI.stack.push({view:UI.view,p:UI.p});
+  if(opt.raiz)UI.stack=[];
+  UI.view=view;UI.p=p;
+  if(view==='plano'&&p.meta){UI.metaSel=p.meta}
+  render(true);
+}
+function voltar(fallback='hoje'){const s=UI.stack.pop();if(s){UI.view=s.view;UI.p=s.p}else{UI.view=S.ativo?fallback:'catalogo';UI.p={}}render(true)}
+
+// ---------- ações ----------
+const ACT={
+  go:d=>{const {a,v,gate,el,...p}=d;go(v,p)},
+  tab:d=>go(d.v,{},{raiz:true}),
+  voltar:()=>{const de=UI.view,mp=UI.p&&UI.p.meta;voltar();
+    if(de==='leitor'&&mp&&UI.view==='plano'){UI.metaSel=mp;if(!desk())abrirSheet('meta',{m:mp});else render()}},
+  sheet:d=>abrirSheet(d.s,{...d}),
+  fechar:()=>fecharSheet(),
+  busca:()=>{},
+  sit:d=>{UI.sit=d.v;$('#resultados').innerHTML=listaCat();marcarSit()},
+  limparBusca:()=>{UI.busca='';UI.sit='todos';render()},
+  cargo:d=>{UI.cargoSel[d.c]=d.cargo;render()},
+  escolherCargo:d=>{
+    const cid=d.c,cargo=UI.cargoSel[cid]||C(cid).cargos[0].id,k=cid+':'+cargo,antes=S.ativo;
+    if(!S.preps[k])S.preps[k]=novaPrep(cid,cargo);
+    S.ativo=k;salvar();
+    if(antes&&antes!==k)toast(`Agora você está em ${C(cid).sigla} · ${cargoDe(S.preps[k]).nome}. O histórico da outra preparação continua salvo.`);
+    go('edital',{},{raiz:true});
+  },
+  trocarPrep:d=>{const k=d.k,ant=S.ativo;S.ativo=k;salvar();fecharSheet(true);
+    const P=S.preps[k];UI.tr=null;UI.semOff=0;UI.metaSel=null;UI.f={};
+    if(ant!==k)toast(`${C(P.conc).sigla} · ${cargoDe(P).nome} carregado. Cada preparação guarda o próprio histórico.`);
+    go(cobre(P.conc)&&P.cfg?'hoje':(P.vistoEdital?'hoje':'edital'),{},{raiz:true});},
+  novaPrep:()=>{fecharSheet(true);go('catalogo',{},{raiz:true})},
+  assinar:d=>{
+    const pl=d.plano;S.plano=pl;S.expirado=false;
+    if(pl==='um')S.planoConc=d.conc||(UI.sheet&&UI.sheet.p.escolha)||concAtivo()?.id||'tjsp';
+    salvar();fecharSheet(true);
+    const pend=UI.pend;UI.pend=null;
+    toast(`${PLANOS[pl].nome} ativado. Simulação, sem cobrança.`);
+    if(pend){setTimeout(()=>exec(pend),60);return}
+    const P=prep();
+    if(pl!=='gratuito'&&P&&cobre(P.conc)&&!P.cfg)go('config',{},{raiz:true});else render();
+  },
+  escolhaUm:d=>{UI.sheet.p.escolha=d.c;renderSheet()},
+  marcar:d=>concluir(d.m,d.el),
+  desmarcar:d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(m){m.ok=false;m.okEm=null;salvar();render()}},
+  adiantar:d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(m){m.reag=m.reag||m.data;m.data=HOJE;salvar();toast('Meta trazida para hoje.');render()}},
+  abrirMeta:d=>{UI.metaSel=d.m;if(matchMedia('(min-width:1024px)').matches&&UI.view==='plano'){render()}else abrirSheet('meta',{m:d.m})},
+  material:d=>{fecharSheet(true);go('leitor',{mat:d.mat,meta:d.meta||null,de:d.de||UI.view})},
+  treinar:d=>{fecharSheet(true);iniciarTreino({conc:d.conc||concAtivo().id,ass:d.ass||null,mat:d.mat||null,dif:d.dif||null,meta:d.meta||null,de:d.de||UI.view})},
+  planoModo:d=>{UI.planoModo=d.v;UI.semOff=0;render()},
+  sem:d=>{UI.semOff+=Number(d.v);render()},
+  mesDia:d=>{UI.mesSel=d.d;render()},
+  reorg:()=>abrirSheet('reorg'),
+  confirmarReorg:()=>{
+    const P=prep(),r=simularReorg(P),fimSem=addD(segunda(HOJE),6);let n=0;
+    P.metas.forEach(m=>{if(m.ok)return;const nw=r.novo[m.id];if(nw===undefined||nw===m.data)return;if(m.data<=fimSem){n++;m.reag=m.reag||m.data}
+      if(nw)m.data=nw;else{P.adiadas.push({ass:m.ass,mat:m.mat,tipo:m.tipo,parte:m.parte,key:m.key,min:m.min});m.data=null}});
+    P.metas=P.metas.filter(m=>m.data);
+    salvar();fecharSheet(true);conquista('reorganizou');toast(`Semana reorganizada: ${n} ${n===1?'meta mudou':'metas mudaram'} de dia. Concluídas ficaram onde estavam.`);
+    UI.semOff=0;if(UI.view!=='plano')go('plano',{},{raiz:true});else render();
+  },
+  cfgDia:d=>{const c=UI.cfgDraft;c.dias[d.i]=!c.dias[d.i];render()},
+  cfgMat:d=>{const c=UI.cfgDraft,lista=c[d.l],o=d.l==='dificeis'?'estudadas':'dificeis';
+    const i=lista.indexOf(d.m);if(i>=0)lista.splice(i,1);else{lista.push(d.m);const j=c[o].indexOf(d.m);if(j>=0)c[o].splice(j,1)}render()},
+  cfgTodos:d=>{const c=UI.cfgDraft;const v=Number(d.v);c.min=c.min.map((x,i)=>c.dias[i]?v:x);render()},
+  confirmarPlano:d=>{
+    const P=prep(),c=UI.cfgDraft;if(!c.dias.some(Boolean)){toast('Escolha pelo menos um dia da semana.');return}
+    const novo=!P.cfg;aplicarPlano(P,JSON.parse(JSON.stringify(c)));UI.cfgDraft=null;salvar();
+    toast(novo?'Plano montado! Sua primeira meta está na tela Hoje.':'Rotina atualizada. As metas concluídas continuam no histórico.');
+    if(novo)ganhar(30,'Plano de estudos criado');
+    go('hoje',{},{raiz:true});
+  },
+  editarCfg:()=>{UI.cfgDraft=null;go('config')},
+  resp:d=>{const t=UI.tr;if(t.conf)return;t.sel=Number(d.i);render()},
+  confirmarResp:d=>responder(d.el),
+  proxima:()=>{const t=UI.tr;t.i++;t.sel=null;t.conf=false;if(t.i>=t.qs.length){finalizarTreino();return}render(true)},
+  sairTreino:()=>{const t=UI.tr;if(t&&t.res.length)finalizarTreino(true);else{UI.tr=null;voltar('praticar')}},
+  filtro:d=>{},
+  cadF:d=>{UI.cadF=d.v;render()},
+  revisarCaderno:d=>iniciarTreino({conc:concAtivo().id,ass:d.ass||null,de:'caderno'}),
+  rx:d=>{UI.rx[d.k]=d.v;render()},
+  assunto:d=>abrirSheet('assunto',{ass:d.ass}),
+  demoPlano:d=>{S.plano=d.v;if(d.v==='um'&&!S.planoConc)S.planoConc=concAtivo()?.id||'tjsp';salvar();renderAll();renderSheet()},
+  demoConc:d=>{S.planoConc=d.v;salvar();renderAll();renderSheet()},
+  demoExp:()=>{S.expirado=!S.expirado;salvar();renderAll();renderSheet();toast(S.expirado?'Acesso expirado (simulação). O histórico continua salvo.':'Acesso reativado (simulação).')},
+  demoExemplo:()=>{carregarExemplo();fecharSheet(true);toast('Aluno de exemplo carregado: Um Concurso · TJ-SP, com 2 metas atrasadas.');go('hoje',{},{raiz:true})},
+  demoAtraso:()=>{const P=prep();if(!P||!P.cfg){toast('Monte um plano primeiro (ou carregue o aluno de exemplo).');return}
+    P.metas.forEach(m=>{if(!m.ok)m.data=addD(m.data,-2)});salvar();fecharSheet(true);toast('Simulado: 2 dias sem estudar. Veja as metas atrasadas.');go('hoje',{},{raiz:true})},
+  demoZerar:()=>{S=novoEstado();salvar();UI.stack=[];UI.tr=null;fecharSheet(true);go('catalogo',{},{raiz:true})},
+  suporte:()=>{const t=$('#sup');if(t&&!t.value.trim()){toast('Escreva sua dúvida antes de enviar.');return}if(t)t.value='';toast('Simulação: na versão final, a mensagem chega à equipe. Nada foi enviado agora.')},
+  copiar:d=>{}
+};
+function exec(a){
+  if(a.gate){const cid=a.conc||concAtivo()?.id;const ok=a.gate==='questoes'?temQuestoes():cobre(cid);
+    if(!ok){const {el,...rest}=a;UI.pend=rest;abrirSheet('paywall',{tipo:a.gate,conc:cid,ass:a.ass,acao:a.v||a.a});return}}
+  const f=ACT[a.a];if(f)f(a);
+}
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-a]');if(!el||el.disabled)return;
+  if(el.tagName==='A'&&el.getAttribute('href')&&el.getAttribute('href')!=='#')return;
+  e.preventDefault();
+  exec({...el.dataset,el});
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='busca'){UI.busca=e.target.value;$('#resultados').innerHTML=listaCat()}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.dataset.cfgmin!=null){UI.cfgDraft.min[Number(t.dataset.cfgmin)]=Number(t.value);render()}
+  if(t.dataset.f){UI.f[t.dataset.f]=t.value||'';if(t.dataset.f==='conc'){UI.f.mat='';UI.f.ass=''}if(t.dataset.f==='mat')UI.f.ass='';render()}
+  if(t.dataset.rx){UI.rx[t.dataset.rx]=t.value;render()}
+  if(t.id==='umConc'&&UI.sheet){UI.sheet.p.escolha=t.value;renderSheet()}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&UI.sheet)fecharSheet()});
+
+// ---------- concluir meta / treino ----------
+function concluir(id,el){
+  const P=prep(),m=P.metas.find(x=>x.id===id);if(!m||m.ok)return;
+  if(!cobre(P.conc)){exec({a:'marcar',m:id,gate:'estudo'});return}
+  m.ok=true;m.okEm=HOJE;if(m.data>HOJE){m.reag=m.reag||m.data;m.data=HOJE}
+  const doDia=P.metas.filter(x=>x.data===HOJE);const fechou=doDia.length&&doDia.every(x=>x.ok);
+  confete(el);
+  ganhar(m.tipo==='rev'?15:20,`Meta concluída: ${achaAss(P.conc,m.ass).a.nome}`);
+  conquista('primeira-meta');if(fechou)conquista('dia-fechado');
+  salvar();fecharSheet(true);
+  if(UI.view==='leitor'){voltar()}else render();
+}
+function iniciarTreino(o){
+  const qs=montarSessao(o);
+  UI.tr={qs,i:0,sel:null,conf:false,res:[],conc:o.conc,ass:o.ass,mat:o.mat,meta:o.meta,de:o.de,inicio:Date.now()};
+  go(qs.length?'treino':'treino',{},{});
+}
+function responder(el){
+  const t=UI.tr;if(t.sel==null||t.conf)return;
+  const it=t.qs[t.i],q=qDe(it.id),P=prepPorConc(q.conc);
+  const certo=t.sel===q.gab;t.conf=true;t.res.push({id:q.id,ok:certo,sel:t.sel,rev:!!it.rev});
+  if(P){P.resp[q.id]=certo?'ok':'erro';P.respondidas++;if(certo)P.acertos++;
+    if(!certo&&!P.erros.some(e=>e.qid===q.id&&!e.revisado))P.erros.push({qid:q.id,ass:q.ass,mat:q.mat,data:HOJE,sel:t.sel,revisado:false});
+    if(certo&&it.rev){const e=P.erros.find(x=>x.qid===it.rev.qid&&!x.revisado);if(e){e.revisado=true;e.revEm=HOJE}conquista('volta-erro')}
+  }
+  if(certo){ganhar(10,'Resposta certa');conquista('primeiro-acerto');confete(el)}else{S.xp+=2;if(P)P.xp+=2}
+  salvar();render();
+}
+function finalizarTreino(saiu){
+  const t=UI.tr||{};const P=prepPorConc(t.conc);if(P&&t.res&&t.res.length){P.sessoes++;if(!saiu)ganhar(15,'Rodada concluída')}
+  salvar();UI.view='resultado';UI.p={};render(true);
+}
+
+// ---------- exemplo ----------
+function carregarExemplo(){
+  S=novoEstado();S.plano='um';S.planoConc='tjsp';S.xp=340;S.streak=6;S.ultimoDia=addD(HOJE,-1);S.badges=['primeira-meta','dia-fechado'];
+  const k='tjsp:escrevente';S.preps[k]=novaPrep('tjsp','escrevente');S.preps[k].vistoEdital=true;S.preps[k].criado=addD(HOJE,-2);
+  const P=S.preps[k];
+  aplicarPlano(P,{dias:[1,1,1,1,1,1,1].map(Boolean),min:[75,75,75,75,75,75,75],dificeis:['adm'],estudadas:['port']},addD(HOJE,-2));
+  P.metas.filter(m=>m.data===addD(HOJE,-2)).forEach(m=>{m.ok=true;m.okEm=m.data});
+  const ontem=P.metas.filter(m=>m.data===addD(HOJE,-1)).sort((a,b)=>a.ordem-b.ordem);if(ontem[0]){ontem[0].ok=true;ontem[0].okEm=ontem[0].data}
+  P.xp=340;
+  const k2='pppe:policial';S.preps[k2]=novaPrep('pppe','policial');S.preps[k2].vistoEdital=true;S.preps[k2].criado=addD(HOJE,-1);
+  S.ativo=k;salvar();
+}
+
+// ---------- folhas (sheets) ----------
+function abrirSheet(tipo,p={}){UI.sheet={tipo,p,foco:document.activeElement};renderSheet()}
+function fecharSheet(sem){const f=UI.sheet&&UI.sheet.foco;UI.sheet=null;$('#ov').innerHTML='';if(!sem&&f&&f.isConnected)f.focus({preventScroll:true});if(!sem&&UI.pend&&!UI.sheet)UI.pend=null}
+function renderSheet(){
+  const o=$('#ov');if(!UI.sheet){o.innerHTML='';return}
+  const f=SHEETS[UI.sheet.tipo];if(!f){o.innerHTML='';return}
+  const [titulo,sub,corpo]=f(UI.sheet.p);
+  const sc=o.querySelector('.sheet')?.scrollTop||0;
+  o.innerHTML=`<div class="ov" data-ovclose><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-t"><div class="grab"></div>
+   <div class="sheet-h"><div class="grow">${sub?`<span class="eyebrow">${sub}</span>`:''}<h2 id="sh-t">${titulo}</h2></div><button class="x" data-a="fechar" aria-label="Fechar">${I('x')}</button></div>${corpo}</section></div>`;
+  o.querySelector('.sheet').scrollTop=sc;
+  o.querySelector('.ov').addEventListener('click',e=>{if(e.target.hasAttribute('data-ovclose'))fecharSheet()});
+  if(!o.contains(document.activeElement))o.querySelector('.x').focus({preventScroll:true});
+}
+const SHEETS={
+  paywall:p=>{
+    const c=C(p.conc)||concAtivo(),nomeRec={raiox:'o Raio-X',banca:'o Perfil da banca',materiais:'os materiais',config:'o cronograma',plano:'o cronograma',leitor:'este material',material:'este material',marcar:'o cronograma',hoje:'as metas do dia',treinar:'o treino',praticar:'o banco de questões'}[p.acao]||'este recurso';
+    if(S.expirado){const P=prepPorConc(c.id);
+      return['Seu acesso terminou','Histórico salvo',`<div class="aviso neutro">${I('caderno')}<div class="grow"><b>Nada foi apagado.</b><span>${P?`${P.metas.filter(m=>m.ok).length} metas concluídas, ${P.respondidas} questões respondidas e ${P.erros.length} erros no caderno continuam guardados.`:'Seu histórico continua guardado.'}</span></div></div>
+       <p>Agora você tem acesso ao <b>resumo gratuito do edital</b>. Reative o plano para voltar ao cronograma de onde parou.</p>
+       <div class="btns"><button class="btn btn-p" data-a="assinar" data-plano="${S.plano==='gratuito'?'um':S.plano}" data-conc="${S.planoConc||c.id}">Reativar ${PLANOS[S.plano==='gratuito'?'um':S.plano].nome} (simulação)</button><button class="btn btn-s" data-a="fechar">Ficar no gratuito</button></div>`]}
+    if(p.tipo==='questoes'){
+      const aa=p.ass?achaAss(c.id,p.ass):null,n=nQuest(c.id,p.ass);
+      return[aa?`Treinar ${esc(aa.a.nome)}`:'Banco de questões','Premium com Questões',`
+       <p>${aa?`Há <b>${n} ${n===1?'questão comentada':'questões comentadas'}</b> de ${esc(aa.a.nome)} no estilo ${c.banca} esperando por você.`:'Questões comentadas no estilo da sua banca, com filtros por matéria, assunto e dificuldade.'} O treino faz parte do <b>Premium com Questões</b>.</p>
+       <div class="card stack"><div class="between"><b>Premium com Questões</b><span class="tag t-at">Preço a definir</span></div>
+        <ul class="sm" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Tudo dos planos de estudo</li><li>Banco de questões comentadas</li><li>Caderno de erros que traz o tema de volta em outra questão</li></ul>
+        <p class="xs mu">Abrangência também a definir. Na demonstração, o Premium libera todos os concursos.</p></div>
+       <div class="btns"><button class="btn btn-p" data-a="assinar" data-plano="premium">Simular Premium e treinar</button><button class="btn btn-s" data-a="fechar">Agora não</button></div>`]}
+    // estudo
+    const umOutro=S.plano==='um'&&S.planoConc&&S.planoConc!==c.id;
+    if(umOutro){return[`Estudar para ${c.sigla}`,'Seu plano cobre outro concurso',`
+       <p>Seu <b>Um Concurso</b> cobre o <b>${C(S.planoConc).sigla}</b>. No ${c.sigla} você já pode ler o resumo gratuito do edital. Para abrir ${nomeRec}, o plano que cobre os dois é:</p>
+       ${miniPlano('todos')}
+       <div class="btns"><button class="btn btn-p" data-a="assinar" data-plano="todos">Simular Todos os Concursos</button><button class="btn btn-s" data-a="go" data-v="planos">Comparar planos</button></div>
+       <button class="btn-g" data-a="fechar">Continuar só com o resumo gratuito</button>`]}
+    return[`Abrir ${nomeRec}`,'Recurso dos planos de estudo',`
+      <p>O resumo do edital é gratuito. Cronograma, Raio-X, perfil da banca e materiais fazem parte do <b>Um Concurso</b>, que cobre o <b>${c.sigla}</b>.</p>
+      ${miniPlano('um',c)}
+      <div class="btns"><button class="btn btn-p" data-a="assinar" data-plano="um" data-conc="${c.id}">Simular Um Concurso · ${c.sigla}</button><button class="btn btn-s" data-a="go" data-v="planos">Comparar planos</button></div>
+      <p class="xs mu">Simulação: nenhuma cobrança é feita. Depois de assinar, você volta direto para ${nomeRec}.</p>`];
+  },
+  checkout:p=>{
+    const pl=PLANOS[p.plano],esc1=p.escolha||concAtivo()?.id||'tjsp';
+    return[`Assinar ${pl.nome}`,'Confirmar plano',`
+      ${p.plano==='um'?`<div class="field"><label for="umConc">Concurso coberto</label><select id="umConc">${CONCURSOS.map(c=>`<option value="${c.id}" ${c.id===esc1?'selected':''}>${c.sigla} · ${esc(c.nome)}</option>`).join('')}</select></div>
+       <div class="card row"><div class="seletor" style="padding:0;min-height:0"><span class="sig">${C(esc1).sigla}</span></div><div class="grow"><b>${esc(C(esc1).orgao)}</b><p class="sm mu">Cronograma, Raio-X, perfil da banca e materiais deste concurso.</p></div></div>`:''}
+      <div class="card stack"><div class="between"><b>${pl.nome}</b><span class="num" style="font-size:28px">${pl.preco}<small class="sm" style="font-family:var(--f)">${pl.sufixo}</small></span></div>
+       <ul class="sm" style="margin:0;padding-left:18px;display:grid;gap:4px">${pl.rec.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+      <div class="aviso neutro">${I('cartao')}<div class="grow sm">Simulação de assinatura. Nenhum dado de pagamento é pedido e nada é cobrado.</div></div>
+      <button class="btn btn-p w" data-a="assinar" data-plano="${p.plano}" data-conc="${p.plano==='um'?esc1:''}">Confirmar assinatura simulada</button>`];
+  },
+  seletor:()=>{
+    const ks=Object.keys(S.preps);
+    return['Minhas preparações','Concurso e cargo',`<div class="stack">${ks.map(k=>{const P=S.preps[k],c=C(P.conc),at=k===S.ativo,cb=cobre(c.id);
+      return`<button class="li" data-a="trocarPrep" data-k="${k}" ${at?'aria-current="true"':''} style="${at?'border-color:var(--verde);border-width:2px':''}">
+       <span class="seletor" style="padding:0;min-height:0;flex:none"><span class="sig">${c.sigla}</span></span>
+       <span class="grow"><span class="t" style="display:block">${esc(c.nome)}</span><span class="s" style="display:block">${esc(cargoDe(P).nome)} · ${P.metas.filter(m=>m.ok).length} metas · ${P.respondidas} questões</span>
+       <span class="tags" style="margin-top:6px">${cb?'<span class="tag t-ok">Coberto pelo seu plano</span>':'<span class="tag t-line">Só resumo gratuito</span>'}${at?'<span class="tag t-lima">Ativo</span>':''}</span></span>${I('dir',18)}</button>`}).join('')}
+      <button class="li" data-a="novaPrep"><span class="lockcard"><span class="ico">${I('mais')}</span></span><span class="grow"><span class="t">Adicionar outro concurso</span><span class="s" style="display:block">Abra o catálogo e escolha concurso e cargo</span></span></button></div>`];
+  },
+  meta:p=>{const P=prep(),m=P.metas.find(x=>x.id===p.m);if(!m)return['Meta','', '<p>Meta não encontrada.</p>'];return[esc(achaAss(P.conc,m.ass).a.nome),esc(achaAss(P.conc,m.ass).m.nome),detalheMeta(m,'sheet')]},
+  reorg:()=>{
+    const P=prep(),r=simularReorg(P),c=C(P.conc);
+    const linha=x=>{const aa=achaAss(P.conc,x.m.ass);return`<div class="chg"><div><b>${esc(aa.a.nome)}</b><div class="sm mu">${tituloTipo(x.m)} · ${x.m.min} min</div></div><div class="de"><s>${quando(x.de)}</s> → <b>${x.para?quando(x.para):'sem vaga até a prova'}</b></div></div>`};
+    if(!r.mud.length&&!r.depois.length&&!r.outras)return['Reorganizar semana','Prévia','<div class="aviso ok">'+I('check')+'<div class="grow"><b>Sua semana já está em dia.</b><span>Nenhuma meta atrasada e nada precisa mudar de dia.</span></div></div><button class="btn btn-p w" data-a="fechar">Entendi</button>'];
+    return['Reorganizar semana','Prévia das mudanças',`
+     <p>${r.atrasadas?`Você tem <b>${r.atrasadas} ${r.atrasadas===1?'meta atrasada':'metas atrasadas'}</b>. `:''}Elas voltam para os próximos dias livres, respeitando seus ${cfgDias(P.cfg)} e o tempo de cada dia. Metas concluídas não mudam.</p>
+     ${r.mud.length?`<div class="card"><h4 style="margin-bottom:4px">Mudam de dia nesta semana</h4>${r.mud.map(linha).join('')}</div>`:''}
+     ${r.depois.length?`<div class="card"><h4 style="margin-bottom:4px;display:flex;gap:8px;align-items:center">${I('alerta',18)} Ficam para depois</h4><p class="sm mu">Não cabem no tempo que sobra nesta semana.</p>${r.depois.map(linha).join('')}</div>`:''}
+     ${r.outras?`<p class="sm mu">Mais ${r.outras} metas das próximas semanas andam um pouco para abrir espaço.</p>`:''}
+     ${r.semVaga?`<div class="aviso">${I('alerta')}<div class="grow sm">${r.semVaga} ${r.semVaga===1?'meta não cabe':'metas não cabem'} até a prova (${dm(c.prova)}). Elas vão para a lista "Para depois". Você pode aumentar o tempo de estudo em Ajustar rotina.</div></div>`:''}
+     <div class="btns"><button class="btn btn-p" data-a="confirmarReorg">Confirmar nova semana</button><button class="btn btn-s" data-a="fechar">Cancelar</button></div>`];
+  },
+  assunto:p=>{
+    const c=concAtivo(),aa=achaAss(c.id,p.ass),P=prep(),n=nQuest(c.id,p.ass);
+    const prox=P&&P.metas.filter(m=>m.ass===p.ass&&!m.ok).sort((a,b)=>a.data.localeCompare(b.data))[0];
+    return[esc(aa.a.nome),esc(aa.m.nome),`
+     <div class="rk-dados"><div><small>Frequência na matéria</small><b>${aa.a.freq}% das questões</b></div><div><small>Peso da matéria no edital</small><b>${aa.m.peso} ${c.unidade}</b></div></div>
+     <h4>Material do assunto</h4>${listaMateriais(c.id,aa.a,aa.m,{de:UI.view})}
+     <button class="btn btn-p w" data-a="treinar" data-gate="questoes" data-ass="${p.ass}" data-conc="${c.id}">${temQuestoes()?'':I('lock',18)} Treinar este assunto${temQuestoes()?` · ${n} ${n===1?'questão':'questões'}`:''}</button>
+     ${prox?`<button class="btn btn-s w" data-a="go" data-v="plano" data-meta="${prox.id}">Ver no meu plano · ${quando(prox.data)}</button>`:''}`];
+  },
+  amostra:()=>{const c=concAtivo(),a=amostra(c);
+    return['Amostra analisada',`Raio-X · ${c.sigla}`,`<p>${a.p} ${a.p===1?'prova':'provas'} e ${a.q} ${c.unidade} entraram nesta análise. Dados ilustrativos.</p>
+     <div class="stack">${a.lista.map(x=>`<div class="li"><span class="grow"><span class="t">${x[1]}</span><span class="s" style="display:block">${x[2]} · ${x[0]} · ${x[3]} ${c.unidade}</span></span></div>`).join('')}</div>`]},
+  demo:()=>[ 'Painel de demonstração','Fora do app real',`
+     <p class="sm mu">Use para revisar os estados de cada tela. Tudo aqui é simulação.</p>
+     <div class="field"><span class="flabel">Plano ativo</span><div class="stack">${Object.entries(PLANOS).map(([k,p])=>`<button class="li" data-a="demoPlano" data-v="${k}" style="${S.plano===k?'border:2px solid var(--verde)':''}"><span class="st ${S.plano===k?'ok':''}">${I('check',16,3)}</span><span class="grow"><span class="t">${p.nome}</span><span class="s" style="display:block">${p.preco}${p.sufixo}</span></span></button>`).join('')}</div></div>
+     ${S.plano==='um'?`<div class="field"><span class="flabel">Concurso coberto pelo Um Concurso</span><div class="chips">${CONCURSOS.map(c=>`<button class="chip" aria-pressed="${S.planoConc===c.id}" data-a="demoConc" data-v="${c.id}">${c.sigla}</button>`).join('')}</div></div>`:''}
+     <button class="li" data-a="demoExp" role="switch" aria-checked="${S.expirado}"><span class="st ${S.expirado?'ok':''}">${I('check',16,3)}</span><span class="grow"><span class="t">Acesso expirado</span><span class="s" style="display:block">Mantém o histórico e mostra só o que está liberado</span></span></button>
+     <div class="field"><span class="flabel">Cenários</span><div class="stack">
+      <button class="btn btn-s w" data-a="demoExemplo">Carregar aluno de exemplo</button>
+      <button class="btn btn-s w" data-a="demoAtraso">Simular 2 dias sem estudar</button>
+      <button class="btn-g" data-a="demoZerar" style="justify-self:start">Recomeçar do zero (primeira visita)</button></div></div>`]
+};
+const cfgDias=cfg=>{const d=cfg.dias.map((on,i)=>on?DS[i]:null).filter(Boolean);return d.length===7?'7 dias':d.join(', ')};
+function miniPlano(k,c){const p=PLANOS[k];return`<div class="card stack"><div class="between"><b>${p.nome}${c?` · ${c.sigla}`:''}</b><span class="num" style="font-size:26px">${p.preco}<small class="sm" style="font-family:var(--f)">${p.sufixo}</small></span></div><ul class="sm" style="margin:0;padding-left:18px;display:grid;gap:4px">${p.rec.map(r=>`<li>${r}</li>`).join('')}</ul></div>`}
+
+// ---------- componentes ----------
+function ring(feitas,total,cor='#D9F575',fundo='rgba(255,255,255,.15)',tam=88){
+  const r=38,cf=2*Math.PI*r,pct=total?feitas/total:0;
+  return`<div class="ring" style="width:${tam}px;height:${tam}px" role="img" aria-label="${feitas} de ${total} metas concluídas"><svg width="${tam}" height="${tam}" viewBox="0 0 88 88"><circle cx="44" cy="44" r="${r}" fill="none" stroke="${fundo}" stroke-width="9"/><circle cx="44" cy="44" r="${r}" fill="none" stroke="${cor}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${cf}" stroke-dashoffset="${cf*(1-pct)}" style="transition:stroke-dashoffset .6s"/></svg><div class="rv"><div><b>${feitas}/${total}</b><small>metas</small></div></div></div>`;
+}
+function estadoMeta(m){if(m.ok)return'ok';if(m.data<HOJE)return'at';if(m.reag)return'rg';return''}
+function tagEstado(m){if(m.ok)return'<span class="tag t-ok">Concluída</span>';if(m.data<HOJE)return'<span class="tag t-at">Atrasada</span>';if(m.reag)return`<span class="tag t-lima">Reagendada</span>`;return'<span class="tag t-line">Pendente</span>'}
+function linhaMeta(m,{data=false}={}){
+  const P=prep(),aa=achaAss(P.conc,m.ass),e=estadoMeta(m);
+  return`<button class="li ${m.ok?'feita':''}" data-a="abrirMeta" data-m="${m.id}" ${UI.metaSel===m.id&&UI.view==='plano'?'style="border-color:var(--verde);box-shadow:0 0 0 2px var(--lima)"':''}>
+   <span class="st ${e}">${m.ok?I('check',16,3):e==='at'?I('relogio',14,2.5):e==='rg'?I('reorg',14,2.5):''}</span>
+   <span class="grow"><span class="t" style="display:block">${esc(aa.a.nome)}</span><span class="s" style="display:block">${esc(aa.m.curto)} · ${tituloTipo(m)} · ${m.min} min${data?` · ${quando(m.data)}`:''}</span>
+   ${m.reag&&!m.ok?`<span class="xs mu" style="display:block">Reagendada de ${quando(m.reag)}</span>`:''}</span>${I('dir',18)}</button>`;
+}
+function materialDaMeta(m){return m.tipo==='teoria'?'resumo':m.tipo==='lei'?'lei':'mapa'}
+function detalheMeta(m,ctx){
+  const P=prep(),c=C(P.conc),aa=achaAss(P.conc,m.ass),matId=`${m.ass}:${materialDaMeta(m)}`,nq=nQuest(c.id,m.ass);
+  const mat=MATS(c.id).find(x=>x.id===matId);
+  return`<div class="stack">
+   <div class="tags"><span class="tag t-dark">${TIPOS[m.tipo]}</span>${tagEstado(m)}<span class="tag t-line">${I('relogio',13)} ${m.min} min</span><span class="tag t-line">${I('plano',13)} ${quando(m.data)}</span></div>
+   <p class="sm mu">${esc(aa.m.nome)} · ${tituloTipo(m)}</p>
+   ${m.reag&&!m.ok?`<p class="sm">Esta meta foi reagendada de <b>${quando(m.reag)}</b>.</p>`:''}
+   <div class="motivo"><b>Por que esta meta</b><span>${esc(m.motivo)}</span></div>
+   ${mat?`<div class="row card" style="padding:12px"><span class="lockcard"><span class="ico">${I(mat.icone)}</span></span><div class="grow"><span class="xs mu" style="font-weight:800;text-transform:uppercase;letter-spacing:.06em">Material da meta</span><b style="display:block">${esc(mat.titulo)}</b><span class="sm mu">${mat.tipo} · ${mat.formato}</span></div></div>`:''}
+   <div class="btns">
+    <button class="btn btn-p" data-a="material" data-mat="${matId}" data-meta="${m.id}" data-de="${ctx==='sheet'?UI.view:'plano'}" data-gate="estudo">${I('livro',18)} Abrir material</button>
+    ${m.ok?`<button class="btn btn-s" data-a="desmarcar" data-m="${m.id}">Desmarcar</button>`:`<button class="btn btn-s" data-a="marcar" data-m="${m.id}">${I('check',18)} Marcar como concluída</button>`}
+   </div>
+   ${nq?`<button class="btn btn-s w" data-a="treinar" data-gate="questoes" data-ass="${m.ass}" data-meta="${m.id}" data-de="${ctx==='sheet'?UI.view:'plano'}">${temQuestoes()?I('praticar',18):I('lock',18)} Treinar esta meta · ${nq} ${nq===1?'questão':'questões'}</button>`:`<p class="xs mu">Ainda não há questões deste assunto no banco.</p>`}
+   ${!m.ok&&m.data>HOJE?`<button class="btn-g" data-a="adiantar" data-m="${m.id}">Trazer esta meta para hoje</button>`:''}
+  </div>`;
+}
+function MATS(cid){
+  const out=[];C(cid).materias.forEach(m=>m.assuntos.forEach(a=>{
+    out.push({id:`${a.id}:resumo`,ass:a.id,mat:m.id,tipo:'Resumo',icone:'livro',titulo:`${a.nome}: resumo`,formato:`Leitura · ${4+a.pontos.length} min`});
+    out.push({id:`${a.id}:mapa`,ass:a.id,mat:m.id,tipo:'Mapa mental',icone:'mapa',titulo:`${a.nome}: mapa mental`,formato:'Mapa · 1 página'});
+    if(a.lei)out.push({id:`${a.id}:lei`,ass:a.id,mat:m.id,tipo:'Lei seca direcionada',icone:'balanca',titulo:`${a.nome}: artigos que mais caem`,formato:`${a.lei.length} ${a.lei.length===1?'trecho marcado':'trechos marcados'}`});
+  }));return out;
+}
+function listaMateriais(cid,a,m,{de}={}){
+  const P=prepPorConc(cid);
+  return`<div class="stack">${MATS(cid).filter(x=>x.ass===a.id).map(x=>{
+    const meta=P&&P.metas.filter(mm=>mm.ass===a.id&&!mm.ok&&materialDaMeta(mm)===x.id.split(':')[1]).sort((p,q)=>p.data.localeCompare(q.data))[0];
+    return`<button class="li" data-a="material" data-mat="${x.id}" data-de="${de||UI.view}" data-gate="estudo" data-conc="${cid}"><span class="lockcard ${cobre(cid)?'livre':''}"><span class="ico">${I(cobre(cid)?x.icone:'lock')}</span></span><span class="grow"><span class="t" style="display:block">${esc(x.titulo)}</span><span class="s" style="display:block">${x.tipo} · ${x.formato}${meta?` · meta de ${quando(meta.data)}`:''}</span></span>${I('dir',18)}</button>`}).join('')}</div>`;
+}
+function amostra(c){
+  const k=UI.rx.banca==='banca'?'banca':'todas',[p,q]=c.amostra[k][UI.rx.per];
+  const ano=new Date().getFullYear(),lim=ano-Number(UI.rx.per);
+  let lista=c.provas.filter(x=>(k==='todas'||x[2]===c.banca)).sort((a,b)=>b[0]-a[0]).slice(0,p);
+  return{p,q,lista,pequena:p<3};
+}
+
+// ---------- telas ----------
+const V={};
+
+V.catalogo=()=>`
+ <section class="cat-hero">
+  <h1>Qual concurso você vai encarar?</h1>
+  <p class="mu">Escolha o concurso e o cargo. A análise do edital é gratuita.</p>
+  <label class="search">${I('busca')}<span class="sr">Buscar concurso</span><input id="busca" type="search" placeholder="Busque por concurso, órgão ou cargo" value="${esc(UI.busca)}" autocomplete="off" enterkeyhint="search"></label>
+  <div class="chips" role="group" aria-label="Situação do edital" id="sitChips">${[['todos','Todos'],['aberto','Edital publicado'],['previsto','Edital previsto']].map(([k,l])=>`<button class="chip" aria-pressed="${UI.sit===k}" data-a="sit" data-v="${k}">${l}</button>`).join('')}</div>
+ </section>
+ <div id="resultados">${listaCat()}</div>
+ <p class="ilus">Concursos, datas e números de exemplo para a demonstração.</p>`;
+function marcarSit(){document.querySelectorAll('#sitChips .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===UI.sit))}
+function listaCat(){
+  const q=norm(UI.busca.trim());
+  const res=CONCURSOS.filter(c=>(UI.sit==='todos'||c.sit===UI.sit)&&(!q||norm([c.sigla,c.orgao,c.nome,c.banca,...c.cargos.map(x=>x.nome)].join(' ')).includes(q)));
+  if(!res.length)return`<div class="card empty"><div class="ico">${I('busca',26)}</div><h3>Nenhum concurso encontrado${q?` para “${esc(UI.busca.trim())}”`:''}</h3><p class="mu sm">Tente o nome do órgão (Tribunal, Polícia), a sigla (TJ-SP) ou o cargo (Escrevente, Policial Penal).</p><button class="btn btn-s" data-a="limparBusca">Limpar busca</button></div>`;
+  return`<div class="g2">${res.map(c=>{const tem=Object.values(S.preps).some(p=>p.conc===c.id);return`
+   <button class="card cc" data-a="go" data-v="concurso" data-c="${c.id}">
+    <div class="between"><span class="sigla">${c.sigla}</span><span class="tag ${c.sit==='aberto'?'t-ok':'t-at'}">${c.situacao}</span></div>
+    <div><h3>${esc(c.orgao)}</h3><p class="sm mu">${esc(c.nome)} · Banca ${c.banca} · ${c.cargos.length} cargos</p></div>
+    <div class="tags">${c.cargos.map(x=>`<span class="tag t-line">${esc(x.nome)}</span>`).join('')}</div>
+    <div class="between sm"><span class="mu">Prova prevista: <b style="color:var(--tx)">${dmy(c.prova)}</b></span><span style="color:var(--verde2);font-weight:800;display:flex;align-items:center;gap:2px">${tem?'Você já estuda este':'Ver cargos'} ${I('dir',16)}</span></div>
+   </button>`}).join('')}</div>`;
+}
+
+V.concurso=p=>{
+  const c=C(p.c),sel=UI.cargoSel[c.id]||c.cargos[0].id;
+  return`<button class="back" data-a="voltar">${I('esq',18)} Catálogo</button>
+  <div class="stack"><div class="row"><span class="seletor" style="padding:0;min-height:0;flex:none"><span class="sig" style="width:56px;height:56px;font-size:16px">${c.sigla}</span></span><div class="grow"><h1 style="font-size:26px">${esc(c.orgao)}</h1><p class="mu">${esc(c.nome)} · Banca ${c.banca}</p></div></div>
+   <div class="tags"><span class="tag ${c.sit==='aberto'?'t-ok':'t-at'}">${c.situacao}</span><span class="tag t-line">Inscrições ${c.inscricoes}</span><span class="tag t-line">Prova ${dmy(c.prova)}</span></div>
+   <p class="ilus">Dados ilustrativos</p></div>
+  <h2 style="margin-top:8px">Escolha o cargo</h2>
+  <div class="stack" role="radiogroup" aria-label="Cargos">${c.cargos.map(x=>`
+   <button class="cargo" role="radio" aria-checked="${x.id===sel}" data-a="cargo" data-c="${c.id}" data-cargo="${x.id}"><span class="radio"></span>
+    <span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${esc(x.nome)}</b><span class="sm mu">${x.nivel} · ${x.vagas}</span><span class="sm">Remuneração inicial <b>${x.remun}</b> · Taxa ${x.taxa}</span></span></button>`).join('')}</div>
+  <div class="sticky-cta"><button class="btn btn-p w" data-a="escolherCargo" data-c="${c.id}">${I('edital',18)} Ver análise do edital</button></div>`;
+};
+
+function subnavEdital(atual){
+  const c=concAtivo(),cb=cobre(c.id);
+  const it=[['edital','Resumo',''],['raiox','Raio-X','estudo'],['banca','Banca','estudo'],['materiais','Materiais','estudo']];
+  return`<nav class="seg" aria-label="Seções do edital">${it.map(([v,l,g])=>`<button ${atual===v?'aria-current="page"':''} data-a="go" data-v="${v}" ${g?`data-gate="${g}"`:''}>${g&&!cb?I('lock',14,2.4):''}${l}</button>`).join('')}</nav>`;
+}
+V.edital=()=>{
+  const P=prep(),c=concAtivo(),cg=cargoDe(P),cb=cobre(c.id);P.vistoEdital=true;salvar();
+  const ret=c.retificacoes[0];
+  return`${subnavEdital('edital')}
+  <div class="stack"><span class="eyebrow">Análise geral do edital · gratuita</span><h1>${esc(cg.nome)}</h1><p class="mu">${esc(c.orgao)} · Banca ${c.banca}</p><p class="ilus">Exemplo para a demonstração: datas e números ilustrativos.</p></div>
+  <div class="stats">
+   <div class="card"><span class="eyebrow">Vagas</span><p class="num" style="font-size:30px;color:var(--verde)">${cg.vagas.split(' ')[0]}</p><p class="xs mu">${cg.vagas.replace(/^\S+\s*/,'')}</p></div>
+   <div class="card"><span class="eyebrow">Remuneração</span><p class="num" style="font-size:30px;color:var(--verde)">${cg.remun}</p><p class="xs mu">inicial</p></div>
+   <div class="card"><span class="eyebrow">Prova</span><p class="num" style="font-size:30px;color:var(--verde)">${dm(c.prova)}</p><p class="xs mu">faltam ${diasAte(c.prova)} dias</p></div>
+  </div>
+  ${ret?`<div class="aviso"><span>${I('alerta')}</span><div class="grow"><b>Retificação em ${dmy(ret.data)}: o que mudou</b><div class="diff">${ret.mudou.map(([o,a,b])=>`<div><span>${o}: <s>${a}</s> → <ins>${b}</ins></span></div>`).join('')}</div><span class="xs">Fonte: ${ret.fonte} (exemplo)</span></div></div>`:''}
+  <div class="g2">
+   <section class="card pad stack"><h3>Cargo e inscrição</h3><dl class="kv">
+    <div><dt>Cargo</dt><dd>${esc(cg.nome)} (${cg.nivel.toLowerCase()})</dd></div>
+    <div><dt>Requisitos</dt><dd>${esc(cg.requisitos)}</dd></div>
+    <div><dt>Inscrições</dt><dd>${c.inscricoes}</dd></div>
+    <div><dt>Taxa</dt><dd>${cg.taxa}</dd></div></dl></section>
+   <section class="card pad stack"><h3>Datas relevantes</h3><div class="tl">${c.datas.map(([d,t,k])=>`<div class="${d<HOJE?'passou':''} ${k||''}"><span class="dot"></span><div><b>${dmy(d)}</b><span class="sm ${d<HOJE?'mu':''}" style="display:block">${t}${d<HOJE?' · já passou':''}</span></div></div>`).join('')}</div></section>
+   <section class="card pad stack"><h3>Etapas e formato da prova</h3><ol style="margin:0;padding-left:20px;display:grid;gap:6px">${cg.etapas.map(e=>`<li>${e}</li>`).join('')}</ol><div class="motivo"><b>Formato</b><span>${c.formato}</span></div></section>
+   <section class="card pad stack"><h3>O que elimina</h3><ul style="margin:0;padding-left:20px;display:grid;gap:6px">${c.eliminatorios.map(e=>`<li>${e}</li>`).join('')}</ul></section>
+  </div>
+  <section class="card pad stack"><h3>Fonte</h3><p class="sm">Versão analisada: <b>${c.versao}</b>.${c.retificacoes.length?'':' Nenhuma retificação até esta versão.'}</p>
+   <a class="btn btn-s" href="${c.link}" target="_blank" rel="noopener" style="justify-self:start">${I('fora',18)} Abrir site oficial do órgão</a></section>
+  <section class="stack"><h3>Para estudar este edital</h3>
+   ${[['raiox','Raio-X dos temas cobrados','Ranking de matérias e assuntos pelo histórico de provas','barras'],['banca',`Perfil da banca ${c.banca}`,'Estilo dos enunciados, padrões e pegadinhas','martelo'],['materiais','Materiais de apoio','Resumos, mapas mentais e lei seca por assunto','camadas']].map(([v,t,s,ic])=>`
+   <button class="card lockcard ${cb?'livre':''}" data-a="go" data-v="${v}" data-gate="estudo"><span class="ico">${I(cb?ic:'lock')}</span><span class="grow" style="flex:1;min-width:0"><b style="display:block">${t}</b><span class="sm mu">${s}</span></span>${cb?I('dir',18):'<span class="tag t-at">Pago</span>'}</button>`).join('')}
+  </section>
+  ${cb?(P.cfg?`<button class="btn btn-p w" data-a="tab" data-v="hoje">${I('hoje',18)} Ir para as metas de hoje</button>`:`<button class="btn btn-p w" data-a="go" data-v="config">${I('plano',18)} Montar meu plano de estudos</button>`)
+     :`<div class="card pad stack" style="background:var(--verde);color:#fff;border-color:var(--verde)"><h3>Quer saber o que estudar a cada dia?</h3><p style="color:rgba(255,255,255,.8)">Os planos de estudo transformam este edital em metas diárias que cabem na sua rotina.</p><button class="btn btn-l w" data-a="go" data-v="planos">Ver planos de estudo</button></div>`}`;
+};
+
+V.raiox=()=>{
+  const c=concAtivo(),P=prep(),a=amostra(c);
+  const mult=(id)=>{let h=0;for(const ch of id+UI.rx.per+UI.rx.banca)h=(h*31+ch.charCodeAt(0))%997;return 1+((h%9)-4)/40};
+  let mats=c.materias.map(m=>({m,f:m.freq*mult(m.id)}));const s=mats.reduce((x,y)=>x+y.f,0);mats.forEach(x=>x.f=Math.round(x.f/s*100));mats.sort((x,y)=>y.f-x.f);
+  const tot=c.materias.reduce((x,m)=>x+m.peso,0),max=Math.max(...mats.map(x=>x.f));
+  return`${subnavEdital('raiox')}
+  <div class="stack"><span class="eyebrow">Raio-X dos temas cobrados</span><h1>O que mais cai no ${c.sigla}</h1></div>
+  <div class="card stack">
+   <div class="g3">
+    <div class="field"><label for="rxb">Banca</label><select id="rxb" data-rx="banca"><option value="banca" ${UI.rx.banca==='banca'?'selected':''}>${c.banca}</option><option value="todas" ${UI.rx.banca==='todas'?'selected':''}>Todas as bancas</option></select></div>
+    <div class="field"><label for="rxc">Cargo</label><select id="rxc" data-rx="cargo">${c.cargos.map(x=>`<option value="${x.id}" ${(UI.rx.cargo||P.cargo)===x.id?'selected':''}>${esc(x.nome)}</option>`).join('')}</select></div>
+    <div class="field"><label for="rxp">Período</label><select id="rxp" data-rx="per">${[['3','Últimos 3 anos'],['5','Últimos 5 anos'],['10','Últimos 10 anos']].map(([k,l])=>`<option value="${k}" ${UI.rx.per===k?'selected':''}>${l}</option>`).join('')}</select></div>
+   </div>
+   <div class="between"><p class="sm"><b>${a.p} ${a.p===1?'prova':'provas'}</b> e <b>${a.q} ${c.unidade}</b> analisados</p><button class="btn-g" data-a="sheet" data-s="amostra">Consultar amostra ${I('dir',16)}</button></div>
+   ${a.pequena?`<div class="aviso">${I('alerta')}<div class="grow sm"><b>Amostra pequena.</b> Com menos de 3 provas, a frequência pode mudar bastante na próxima prova. Use como pista, não como regra. Tente "Todas as bancas" ou um período maior.</div></div>`:''}
+   <p class="ilus">Números ilustrativos</p>
+  </div>
+  <section class="card pad"><div class="between" style="margin-bottom:6px"><h3>Ranking de matérias</h3><span class="xs mu">Toque para ver os assuntos</span></div>
+   ${mats.map((x,i)=>`<details class="rk acc" ${i===0?'open':''}><summary class="rk-h"><span class="rk-n">${i+1}</span><span style="flex:1;min-width:0"><b>${esc(x.m.nome)}</b></span>${I('dir',18).replace('class="ic"','class="ic rot"')}</summary>
+     <div class="rk-dados"><div><small>Peso oficial no edital</small><b>${x.m.peso} ${c.unidade} · ${Math.round(x.m.peso/tot*100)}%</b><div class="bar peso"><i style="width:${x.m.peso/tot*100*2.5}%"></i></div></div><div><small>Frequência nas provas</small><b>${x.f}% das ${c.unidade}</b><div class="bar"><i style="width:${x.f/max*100}%"></i></div></div></div>
+     <div class="stack" style="gap:2px">${x.m.assuntos.slice().sort((p,q)=>q.freq-p.freq).map(as=>`<button class="ass-li" data-a="assunto" data-ass="${as.id}"><span style="flex:1;min-width:0;font-weight:700">${esc(as.nome)}</span><span class="bar"><i style="width:${as.freq}%"></i></span><span class="sm mu" style="width:40px;text-align:right">${as.freq}%</span>${I('dir',16)}</button>`).join('')}</div>
+   </details>`).join('')}</section>`;
+};
+
+V.banca=()=>{
+  const c=concAtivo(),b=c.bancaPerfil,chips=ids=>`<div class="tags">${ids.map(id=>{const aa=achaAss(c.id,id);return aa?`<button class="chip" style="min-height:40px;font-size:14px" data-a="assunto" data-ass="${id}">${esc(aa.a.nome)} ${I('dir',14)}</button>`:''}).join('')}</div>`;
+  return`${subnavEdital('banca')}
+  <div class="stack"><span class="eyebrow">Perfil da banca</span><h1>Como a ${c.banca} cobra</h1><p class="sm mu">Provas analisadas: ${b.provas}. <span class="ilus" style="display:inline-flex">ilustrativo</span></p></div>
+  <section class="card pad stack"><div class="between"><h3>Regras do edital atual</h3><span class="tag t-dark">Edital ${c.sigla}</span></div><ul style="margin:0;padding-left:20px;display:grid;gap:6px">${b.regras.map(r=>`<li>${r}</li>`).join('')}</ul></section>
+  <div class="aviso neutro">${I('ajuda')}<div class="grow sm">Daqui para baixo são <b>padrões observados no histórico</b> de provas da banca, não regras do edital.</div></div>
+  <section class="card pad stack"><div class="between"><h3>Estilo dos enunciados</h3><span class="tag t-line">Histórico</span></div><p>${b.estilo}</p></section>
+  <section class="card pad stack"><div class="between"><h3>Padrões de cobrança</h3><span class="tag t-line">Histórico</span></div>
+   ${b.padroes.map(([t,pc,d,ids])=>`<div class="stack" style="gap:8px;padding-top:12px;border-top:1px solid var(--ln)"><div class="between"><b>${t}</b><span class="num" style="font-size:22px;color:var(--verde3)">${pc}%</span></div><div class="bar"><i style="width:${pc}%"></i></div><p class="sm mu">${d}</p><span class="xs" style="font-weight:800">Temas ligados</span>${chips(ids)}</div>`).join('')}</section>
+  <section class="card pad stack"><div class="between"><h3>Pegadinhas frequentes</h3><span class="tag t-line">Histórico</span></div>
+   ${b.pegadinhas.map(([t,ex,ids])=>`<div class="stack" style="gap:8px;padding-top:12px;border-top:1px solid var(--ln)"><b>${t}</b><p class="sm" style="background:var(--erbg);padding:10px 12px;border-radius:10px">${ex}</p>${chips(ids)}</div>`).join('')}</section>`;
+};
+
+V.materiais=()=>{
+  const c=concAtivo();
+  return`${subnavEdital('materiais')}
+  <div class="stack"><span class="eyebrow">Materiais de apoio</span><h1>Por matéria e assunto</h1><p class="mu">Resumos, mapas mentais e lei seca direcionada. Quando um material tem meta no seu plano, a data aparece ao lado.</p></div>
+  ${c.materias.map(m=>`<section class="stack"><h3>${esc(m.nome)}</h3>${m.assuntos.map(a=>`<details class="card acc" ${m===c.materias[0]&&a===m.assuntos[0]?'open':''}><summary class="between" style="min-height:32px"><b>${esc(a.nome)}</b>${I('dir',18).replace('class="ic"','class="ic rot"')}</summary><div style="margin-top:12px">${listaMateriais(c.id,a,m,{de:'materiais'})}</div></details>`).join('')}</section>`).join('')}`;
+};
+
+V.leitor=p=>{
+  const c=concAtivo(),P=prep(),[aid,tipo]=p.mat.split(':'),aa=achaAss(c.id,aid);
+  if(!aa)return'<p>Material não encontrado.</p>';
+  const meta=p.meta?P.metas.find(m=>m.id===p.meta):null;
+  if(tipo==='lei')conquista('leitor');
+  const titulo={resumo:'Resumo',mapa:'Mapa mental',lei:'Lei seca direcionada'}[tipo];
+  let corpo='';
+  if(tipo==='resumo')corpo=`<div class="card pad">${aa.a.pontos.map(t=>{const [h,...r]=t.split(': ');return r.length?`<div class="pt"><b>${esc(h)}</b><span>${esc(r.join(': '))}</span></div>`:`<div class="pt"><span>${esc(t)}</span></div>`}).join('')}</div>`;
+  if(tipo==='mapa')corpo=`<div class="mm"><div class="centro">${esc(aa.a.nome)}</div><div class="ramos">${aa.a.pontos.map((t,i)=>{const [h,...r]=t.split(': ');return`<div class="ramo"><b>${r.length?esc(h):`Ponto ${i+1}`}</b><span class="sm">${esc(r.length?r.join(': '):t)}</span></div>`}).join('')}</div></div>`;
+  if(tipo==='lei')corpo=(aa.a.lei||[]).map(([r,t])=>`<div class="lei"><span class="ref">${esc(r)}</span><p>${t}</p></div>`).join('')+'<p class="xs mu">Trechos marcados em verde-limão: o que a banca costuma trocar nas alternativas.</p>';
+  const voltarTxt=meta?'Voltar à meta':({materiais:'Materiais',raiox:'Raio-X',banca:'Perfil da banca',plano:'Meu plano',hoje:'Hoje'}[p.de]||'Voltar');
+  return`<div class="leitor">
+   <button class="back" data-a="voltar">${I('esq',18)} ${voltarTxt}</button>
+   <div class="stack" style="gap:6px"><div class="tags"><span class="tag t-dark">${titulo}</span><span class="tag t-line">${esc(aa.m.nome)}</span></div><h1>${esc(aa.a.nome)}</h1>${meta?`<p class="sm mu">Material da meta: ${tituloTipo(meta)} · ${meta.min} min</p>`:''}</div>
+   ${corpo}
+   <div class="card stack">${meta&&!meta.ok?`<b>Terminou a leitura?</b><button class="btn btn-p w" data-a="marcar" data-m="${meta.id}">${I('check',18)} Marcar meta como concluída</button>`:meta?`<div class="aviso ok">${I('check')}<div class="grow sm">Meta concluída.</div></div>`:''}
+    ${nQuest(c.id,aid)?`<button class="btn ${meta&&!meta.ok?'btn-s':'btn-p'} w" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">${temQuestoes()?I('praticar',18):I('lock',18)} Treinar este assunto</button>`:''}
+    <button class="btn-g" data-a="voltar">${I('esq',16)} ${voltarTxt}</button></div>
+  </div>`;
+};
+
+function hojeFree(P,c){
+  const visto=P.vistoEdital,cb=cobre(c.id);
+  const umOutro=S.plano==='um'&&S.planoConc!==c.id&&!S.expirado;
+  return`<section class="hero"><span class="eyebrow">${DL[wd(HOJE)]}, ${dm(HOJE)}</span><h1 style="color:#fff">${esc(c.nome)}</h1><p class="mu">${esc(cargoDe(P).nome)} · prova em ${diasAte(c.prova)} dias</p>
+   <div class="kpis"><span class="kpi">${I('edital',16)} ${c.situacao}</span><span class="kpi">${I('plano',16)} Prova ${dm(c.prova)}</span>${S.expirado?'<span class="kpi">Acesso expirado</span>':''}</div></section>
+  ${S.expirado?`<div class="aviso">${I('alerta')}<div class="grow"><b>Seu acesso ao plano terminou.</b><span class="sm">Seu histórico está salvo: ${P.metas.filter(m=>m.ok).length} metas concluídas e ${P.respondidas} questões. Agora você tem o resumo gratuito do edital.</span><button class="btn btn-s" style="justify-self:start" data-a="sheet" data-s="paywall" data-tipo="estudo" data-conc="${c.id}">Ver como reativar</button></div></div>`:''}
+  ${umOutro?`<div class="aviso neutro">${I('ajuda')}<div class="grow sm">Seu plano Um Concurso cobre o <b>${C(S.planoConc).sigla}</b>. Aqui no ${c.sigla} você tem o resumo gratuito do edital.</div></div>`:''}
+  <section class="meta-card"><span class="eyebrow">Seu próximo passo</span>
+   ${!visto?`<h2>Entenda seu edital em 5 minutos</h2><p class="mu">Vagas, datas, etapas e o que elimina, tudo resumido em cards.</p><button class="btn btn-p w" data-a="tab" data-v="edital">${I('edital',18)} Ver meu edital</button>`
+   :`<h2>Monte um plano que caiba na sua rotina</h2><p class="mu">Você diz quantos dias e quanto tempo tem. O app transforma o edital em metas diárias, com material e questões de cada assunto.</p><button class="btn btn-p w" data-a="${umOutro?'sheet':'go'}" data-s="paywall" data-tipo="estudo" data-conc="${c.id}" data-v="planos">Ver planos de estudo</button>`}
+  </section>
+  <section class="stack"><h3>Como fica o seu dia com um plano</h3>
+   <div class="card stack" style="opacity:.9"><div class="between"><span class="tag t-dark">Exemplo de meta</span><span class="tag t-at">${I('lock',13)} Plano de estudo</span></div><h3>${c.id==='tjsp'?'Atos administrativos':'Remição de pena'} · 25 min</h3><p class="sm mu">${c.id==='tjsp'?'Direito Administrativo':'Lei de Execução Penal'} · Teoria</p>
+    <div class="motivo"><b>Por que esta meta</b><span>${c.id==='tjsp'?'Administrativo vale 14 questões e este assunto aparece em 40% delas nas provas anteriores.':'A LEP vale 30 itens e remição aparece em 35% deles.'}</span></div></div>
+  </section>
+  <section class="stats">${[['Vagas',cargoDe(P).vagas.split(' ')[0]],['Inscrições até',c.inscricoes.split(' a ')[1]?.split(' ')[0]||c.inscricoes],['Banca',c.banca]].map(([k,v])=>`<div class="card"><span class="eyebrow">${k}</span><p class="num" style="font-size:28px;color:var(--verde)">${v}</p></div>`).join('')}</section>
+  <p class="ilus">Dados de exemplo</p>`;
+}
+V.hoje=()=>{
+  const P=prep(),c=concAtivo();
+  if(!cobre(c.id))return hojeFree(P,c);
+  if(!P.cfg)return`<section class="hero"><span class="eyebrow">Plano ativo · ${PLANOS[S.plano].nome}</span><h1 style="color:#fff">Falta só a sua rotina</h1><p class="mu">Responda 3 perguntas e o app monta suas metas até a prova de ${dmy(c.prova)}.</p></section>
+   <section class="meta-card"><span class="eyebrow">Seu próximo passo</span><h2>Montar meu plano de estudos</h2><p class="mu">Quantos dias por semana, quanto tempo por dia e quais matérias você já estudou ou acha difíceis.</p><button class="btn btn-p w" data-a="go" data-v="config">${I('plano',18)} Montar meu plano</button></section>`;
+  const doDia=P.metas.filter(m=>m.data===HOJE).sort((a,b)=>a.ordem-b.ordem),feitas=doDia.filter(m=>m.ok).length;
+  const atual=doDia.find(m=>!m.ok),atras=P.metas.filter(m=>!m.ok&&m.data<HOJE);
+  const futuras=P.metas.filter(m=>!m.ok&&m.data>HOJE).sort((a,b)=>a.data.localeCompare(b.data)||a.ordem-b.ordem);
+  const depois=[...doDia.filter(m=>!m.ok&&m!==atual),...futuras].slice(0,4);
+  const restMin=doDia.filter(m=>!m.ok).reduce((s,m)=>s+m.min,0);
+  const seg=segunda(HOJE),semMetas=P.metas.filter(m=>m.data>=seg&&m.data<=addD(seg,6)),semOk=semMetas.filter(m=>m.ok).length;
+  const nv=nivel();
+  const errosPend=P.erros.filter(e=>!e.revisado);
+  let principal;
+  if(atual){const aa=achaAss(P.conc,atual.ass),nq=nQuest(c.id,atual.ass);
+    principal=`<section class="meta-card" id="metaAtual"><div class="between"><span class="eyebrow">Sua meta agora</span><div class="tags"><span class="tag t-dark">${TIPOS[atual.tipo]}</span>${atual.reag?'<span class="tag t-lima">Reagendada</span>':''}</div></div>
+     <div class="stack" style="gap:4px"><h2>${esc(aa.a.nome)} · ${atual.min} min</h2><p class="mu">${esc(aa.m.nome)} · ${tituloTipo(atual)}</p></div>
+     <div class="motivo"><b>Por que agora</b><span>${esc(atual.motivo)}</span></div>
+     <div class="btns"><button class="btn btn-p" data-a="material" data-mat="${atual.ass}:${materialDaMeta(atual)}" data-meta="${atual.id}" data-de="hoje">${I('livro',18)} Abrir material</button><button class="btn btn-s" data-a="marcar" data-m="${atual.id}">${I('check',18)} Marcar como concluída</button></div>
+     ${nq?`<button class="btn-g" data-a="treinar" data-gate="questoes" data-ass="${atual.ass}" data-meta="${atual.id}" data-de="hoje" style="justify-self:start">${temQuestoes()?I('praticar',18):I('lock',18)} Treinar esta meta · ${nq} ${nq===1?'questão':'questões'}${temQuestoes()?'':' · Premium'}</button>`:''}
+    </section>`;
+  }else if(doDia.length){principal=`<section class="meta-card" style="background:var(--lima2)"><span class="eyebrow">Dia fechado</span><h2>${feitas} de ${doDia.length} metas concluídas. Mandou bem!</h2><p class="mu">Quer adiantar? A próxima meta do plano é ${futuras[0]?`<b>${esc(achaAss(P.conc,futuras[0].ass).a.nome)}</b>, ${quando(futuras[0].data)}`:'a revisão final'}.</p>
+     <div class="btns">${futuras[0]?`<button class="btn btn-p" data-a="adiantar" data-m="${futuras[0].id}">Adiantar próxima meta</button>`:''}<button class="btn btn-s" data-a="tab" data-v="praticar">Treinar questões</button></div></section>`;
+  }else{principal=`<section class="meta-card"><span class="eyebrow">Hoje está livre no seu plano</span><h2>Descanso também faz parte</h2><p class="mu">Seu próximo estudo é ${futuras[0]?`<b>${esc(achaAss(P.conc,futuras[0].ass).a.nome)}</b>, ${quando(futuras[0].data)}`:'a definir'}.</p>
+     ${futuras[0]?`<button class="btn btn-p w" data-a="adiantar" data-m="${futuras[0].id}">Adiantar esta meta para hoje</button>`:''}</section>`}
+  return`<div class="cols"><div class="stack" style="gap:16px">
+   <section class="hero"><div class="row" style="align-items:center;position:relative;z-index:1">${ring(feitas,doDia.length)}<div class="grow stack" style="gap:4px"><span class="eyebrow">${DL[wd(HOJE)]}, ${dm(HOJE)}</span><h2 style="color:#fff">${doDia.length?`${feitas} de ${doDia.length} metas concluídas`:'Sem metas hoje'}</h2><p class="mu sm">${restMin?`Faltam ${hm(restMin)} de estudo hoje`:doDia.length?'Tudo feito por hoje':'Dia de descanso no seu plano'}</p></div></div>
+    <div class="kpis"><span class="kpi">${I('fogo',16)} ${S.streak} ${S.streak===1?'dia':'dias'} seguidos</span><span class="kpi">${I('raio',16)} ${S.xp} XP</span><span class="kpi">${I('plano',16)} Prova em ${diasAte(c.prova)} dias</span></div></section>
+   ${atras.length?`<div class="aviso">${I('alerta')}<div class="grow"><b>${atras.length} ${atras.length===1?'meta atrasada':'metas atrasadas'} desde ${quando(atras.map(m=>m.data).sort()[0])}</b><span class="sm">O app encaixa nos próximos dias livres sem mexer no que você já concluiu.</span><button class="btn btn-s" style="justify-self:start" data-a="reorg">${I('reorg',18)} Reorganizar semana</button></div></div>`:''}
+   ${principal}
+   ${depois.length?`<section class="stack"><div class="between"><h3>Depois desta</h3><button class="btn-g" data-a="tab" data-v="plano">Ver semana ${I('dir',16)}</button></div>${depois.map(m=>linhaMeta(m,{data:m.data!==HOJE})).join('')}</section>`:''}
+   ${doDia.filter(m=>m.ok).length?`<section class="stack"><h3>Concluídas hoje</h3>${doDia.filter(m=>m.ok).map(m=>linhaMeta(m)).join('')}</section>`:''}
+  </div>
+  <aside class="stack stick" style="gap:16px">
+   <section class="card pad stack"><div class="between"><h3>Sua semana</h3><span class="sm mu">${semOk} de ${semMetas.length} metas</span></div>
+    <div class="semana-bar">${DS.map((d,i)=>{const dd=addD(seg,i),ms=P.metas.filter(m=>m.data===dd),ok=ms.filter(m=>m.ok).length;return`<div class="d ${dd===HOJE?'hj':''}"><div class="b" title="${ok} de ${ms.length}"><i style="height:${ms.length?ok/ms.length*100:0}%"></i></div>${d}</div>`}).join('')}</div>
+    <div class="prog"><i style="width:${semMetas.length?semOk/semMetas.length*100:0}%"></i></div>
+    <p class="sm mu">Missão da semana: concluir ${Math.min(10,semMetas.length)} metas. ${semOk>=Math.min(10,semMetas.length)?'<b style="color:var(--ok)">Cumprida!</b>':`Faltam ${Math.min(10,semMetas.length)-semOk}.`}</p></section>
+   ${temQuestoes()&&errosPend.length?`<section class="card pad stack"><div class="between"><h3>Caderno de erros</h3><span class="tag t-er">${errosPend.length} para revisar</span></div><p class="sm">O app vai trazer ${errosPend.length===1?'o tema':'os temas'} de volta em outra questão: ${[...new Set(errosPend.map(e=>achaAss(P.conc,e.ass).a.nome))].slice(0,2).map(esc).join(', ')}.</p><button class="btn btn-s w" data-a="revisarCaderno">Revisar meus erros</button></section>`:''}
+   <section class="card pad lvl"><span class="n">${nv.n}</span><div class="grow stack" style="gap:6px"><b>Nível ${nv.n} · ${nv.nome}</b><div class="prog"><i style="width:${nv.pct}%"></i></div><span class="xs mu">${nv.falta} XP para o próximo nível</span></div></section>
+  </aside></div>`;
+};
+
+V.plano=()=>{
+  const P=prep(),c=concAtivo();
+  if(!cobre(c.id))return`<div class="card empty"><div class="ico">${I('lock',26)}</div><h2>Seu cronograma fica aqui</h2><p class="mu">Visão da semana e do mês, metas concluídas, pendentes e reagendadas, e o botão para reorganizar quando a rotina apertar.</p>
+    ${P.metas.length?`<p class="sm">Seu histórico está salvo: ${P.metas.filter(m=>m.ok).length} metas concluídas.</p>`:''}<button class="btn btn-p" data-a="go" data-v="plano" data-gate="estudo">Ver plano que libera o cronograma</button></div>`;
+  if(!P.cfg)return`<div class="card empty"><div class="ico">${I('plano',26)}</div><h2>Monte seu cronograma</h2><p class="mu">Leva um minuto. Depois você pode ajustar quando quiser.</p><button class="btn btn-p" data-a="go" data-v="config">Montar meu plano</button></div>`;
+  const seg=addD(segunda(HOJE),UI.semOff*7),fim=addD(seg,6);
+  const semMetas=P.metas.filter(m=>m.data>=seg&&m.data<=fim),ok=semMetas.filter(m=>m.ok).length;
+  const antes=UI.semOff===0?P.metas.filter(m=>!m.ok&&m.data<seg):[];
+  const sel=UI.metaSel&&P.metas.find(m=>m.id===UI.metaSel);
+  let cal;
+  if(UI.planoModo==='semana'){
+    cal=`<div class="between"><button class="x" data-a="sem" data-v="-1" aria-label="Semana anterior">${I('esq')}</button><div style="text-align:center"><b>${UI.semOff===0?'Esta semana':UI.semOff===1?'Próxima semana':UI.semOff===-1?'Semana passada':'Semana'}</b><p class="sm mu">${dm(seg)} a ${dm(fim)} · ${ok} de ${semMetas.length} concluídas</p></div><button class="x" data-a="sem" data-v="1" aria-label="Próxima semana">${I('dir')}</button></div>
+     ${antes.length?`<section class="dia"><div class="dia-h"><b style="color:var(--at)">Atrasadas de semanas anteriores</b></div>${antes.map(m=>linhaMeta(m,{data:true})).join('')}</section>`:''}
+     ${DS.map((d,i)=>{const dd=addD(seg,i),ms=P.metas.filter(m=>m.data===dd).sort((a,b)=>a.ordem-b.ordem);const min=ms.reduce((s,m)=>s+m.min,0);
+       return`<section class="dia ${dd===HOJE?'hj':''}"><div class="dia-h"><b>${DL[i]} ${dm(dd)}</b><span class="sm mu">${ms.length?hm(min):''}</span></div>${ms.length?ms.map(m=>linhaMeta(m)).join(''):`<div class="folga">${P.cfg.dias[i]?'Nada marcado':'Sem estudo neste dia'}</div>`}</section>`}).join('')}`;
+  }else{
+    const ref=pd(addD(HOJE,0));ref.setDate(1);ref.setMonth(ref.getMonth()+UI.semOff);const ini=iso(ref),mes=ref.getMonth();
+    const g0=segunda(ini);const dias=[];for(let i=0;i<42;i++){const dd=addD(g0,i);if(i>=35&&pd(dd).getMonth()!==mes)break;dias.push(dd)}
+    const selD=UI.mesSel||HOJE,msSel=P.metas.filter(m=>m.data===selD).sort((a,b)=>a.ordem-b.ordem);
+    cal=`<div class="between"><button class="x" data-a="sem" data-v="-1" aria-label="Mês anterior">${I('esq')}</button><b style="text-transform:capitalize">${MESES[mes]} ${ref.getFullYear()}</b><button class="x" data-a="sem" data-v="1" aria-label="Próximo mês">${I('dir')}</button></div>
+     <div class="mes">${DS.map(d=>`<span class="h">${d}</span>`).join('')}${dias.map(dd=>{const ms=P.metas.filter(m=>m.data===dd);return`<button class="c ${pd(dd).getMonth()!==mes?'fora':''} ${dd===HOJE?'hj':''}" aria-pressed="${dd===selD}" data-a="mesDia" data-d="${dd}" aria-label="${dm(dd)}: ${ms.length} metas"><span>${pd(dd).getDate()}</span><span class="dots">${ms.slice(0,6).map(m=>`<i class="${estadoMeta(m)}"></i>`).join('')}</span></button>`}).join('')}</div>
+     <div class="leg"><span><i style="background:var(--ok)"></i>Concluída</span><span><i style="background:var(--ln2)"></i>Pendente</span><span><i style="background:var(--at)"></i>Atrasada</span><span><i style="background:#9DBB2B"></i>Reagendada</span></div>
+     <section class="dia"><div class="dia-h"><b>${DL[wd(selD)]} ${dm(selD)}</b></div>${msSel.length?msSel.map(m=>linhaMeta(m)).join(''):'<div class="folga">Sem metas neste dia</div>'}</section>`;
+  }
+  const adi=[...new Set(P.adiadas.map(x=>x.ass))];
+  return`<div class="between"><div class="stack" style="gap:2px"><span class="eyebrow">Meu plano · ${c.sigla}</span><h1>Cronograma</h1></div><div class="seg" style="flex:none"><button aria-pressed="${UI.planoModo==='semana'}" data-a="planoModo" data-v="semana">Semana</button><button aria-pressed="${UI.planoModo==='mes'}" data-a="planoModo" data-v="mes">Mês</button></div></div>
+  <div class="cols"><div class="stack">
+   <button class="btn btn-p w" data-a="reorg">${I('reorg',18)} Reorganizar semana</button>
+   ${cal}
+   ${adi.length?`<details class="card acc"><summary class="between"><b>Para depois (${adi.length} ${adi.length===1?'assunto':'assuntos'})</b>${I('dir',18).replace('class="ic"','class="ic rot"')}</summary><p class="sm mu" style="margin:8px 0">Não couberam até a prova com o tempo atual.</p><div class="tags">${adi.map(a=>`<span class="tag t-line">${esc(achaAss(c.id,a).a.nome)}</span>`).join('')}</div></details>`:''}
+   <div class="card between"><div><b>Sua rotina</b><p class="sm mu">${cfgDias(P.cfg)} · ${hm(cargaSemanal(P.cfg))} por semana</p></div><button class="btn btn-s" data-a="editarCfg">${I('ajuste',18)} Ajustar rotina</button></div>
+  </div>
+  <aside class="stick stack painel" id="painelMeta">${sel?`<div class="card pad stack"><span class="eyebrow">Detalhe da meta</span><h2>${esc(achaAss(c.id,sel.ass).a.nome)}</h2>${detalheMeta(sel,'painel')}</div>`:`<div class="card empty"><div class="ico">${I('plano',26)}</div><b>Toque numa meta</b><p class="sm mu">O assunto, o tempo previsto e o material aparecem aqui.</p></div>`}</aside></div>
+`;
+};
+
+V.config=()=>{
+  const P=prep(),c=concAtivo();
+  if(!cobre(c.id))return`<div class="card empty"><div class="ico">${I('lock',26)}</div><h2>Configuração do plano</h2><p class="mu">Disponível nos planos de estudo.</p><button class="btn btn-p" data-a="go" data-v="config" data-gate="estudo">Ver plano que libera</button></div>`;
+  if(!UI.cfgDraft)UI.cfgDraft=JSON.parse(JSON.stringify(P.cfg||cfgPadrao(c.id)));
+  const cfg=UI.cfgDraft,sim=simularPlano(P,cfg),carga=cargaSemanal(cfg),semanas=Math.max(1,Math.round(diasAte(c.prova)/7));
+  const rk=ranking(c.id,cfg),adi=[...new Set(sim.sobra.map(x=>x.ass))];
+  const seg=HOJE,sem1=[];for(let i=0;i<7;i++){const dd=addD(seg,i);sem1.push([dd,sim.metas.filter(m=>m.data===dd&&!m.ok).sort((a,b)=>a.ordem-b.ordem)])}
+  const opts=[30,45,60,75,90,120,180,240];
+  return`${P.cfg?`<button class="back" data-a="voltar">${I('esq',18)} Meu plano</button>`:''}
+  <div class="stack"><span class="eyebrow">${P.cfg?'Ajustar rotina':'Configurar plano'} · ${c.sigla}</span><h1>${P.cfg?'Mude o que precisar':'Vamos montar sua rotina'}</h1><p class="mu">A prova é em <b style="color:var(--tx)">${dmy(c.prova)}</b> (${semanas} semanas). ${P.cfg?'Metas concluídas ficam no histórico.':'Você pode mudar tudo depois.'}</p></div>
+  <div class="cols"><div class="stack" style="gap:16px">
+   <section class="card pad stack"><h3>1. Quais dias você pode estudar?</h3><div class="dias7">${DS.map((d,i)=>`<button class="chip" aria-pressed="${cfg.dias[i]}" data-a="cfgDia" data-i="${i}" aria-label="${DL[i]}">${d}</button>`).join('')}</div></section>
+   <section class="card pad stack"><div class="between"><h3>2. Quanto tempo em cada dia?</h3></div>
+    ${cfg.dias.some(Boolean)?cfg.dias.map((on,i)=>on?`<div class="tempo-li"><label for="cm${i}" style="text-transform:capitalize;font-weight:700">${DL[i]}</label><select id="cm${i}" data-cfgmin="${i}">${opts.map(o=>`<option value="${o}" ${cfg.min[i]===o?'selected':''}>${hm(o)}</option>`).join('')}</select></div>`:'').join(''):'<p class="mu sm">Escolha pelo menos um dia acima.</p>'}
+    <div class="chips"><span class="sm mu" style="align-self:center">Aplicar a todos:</span>${[30,60,120].map(o=>`<button class="chip" style="min-height:40px" data-a="cfgTodos" data-v="${o}">${hm(o)}</button>`).join('')}</div></section>
+   <section class="card pad stack"><h3>3. Como você está em cada matéria?</h3><p class="sm mu">Difícil ganha mais tempo. Já estudada ganha menos teoria.</p>
+    ${c.materias.map(m=>`<div class="stack" style="gap:6px;padding-top:10px;border-top:1px solid var(--ln)"><b>${esc(m.nome)}</b><div class="chips"><button class="chip dif" aria-pressed="${cfg.dificeis.includes(m.id)}" data-a="cfgMat" data-l="dificeis" data-m="${m.id}">Acho difícil</button><button class="chip est" aria-pressed="${cfg.estudadas.includes(m.id)}" data-a="cfgMat" data-l="estudadas" data-m="${m.id}">Já estudei</button></div></div>`).join('')}</section>
+  </div>
+  <aside class="stack stick" style="gap:16px">
+   <section class="card pad stack"><span class="eyebrow">Carga semanal prevista</span><p class="carga">${hm(carga)}</p><p class="sm mu">${cfg.dias.filter(Boolean).length} dias por semana</p>
+    <div class="stack" style="gap:6px"><div class="between sm"><b>Cobertura do edital até a prova</b><b>${sim.cobertura}%</b></div><div class="prog"><i style="width:${sim.cobertura}%;background:${sim.cobertura<100?'var(--at)':'var(--verde3)'}"></i></div></div>
+    ${sim.cobertura<100?`<div class="aviso">${I('alerta')}<div class="grow sm"><b>O tempo não cobre tudo.</b><span>Priorize: ${rk.slice(0,3).map(x=>esc(x.a.nome)).join(', ')}.</span><span>Ficam para depois: ${adi.slice(0,4).map(a=>esc(achaAss(c.id,a).a.nome)).join(', ')}${adi.length>4?` e mais ${adi.length-4}`:''}.</span></div></div>`
+     :`<div class="aviso ok">${I('check')}<div class="grow sm">Tudo cabe até a prova. A primeira volta termina em ${dmy(sim.ultimo)} e sobra tempo para revisar.</div></div>`}
+    <p class="xs mu">Prioridade = peso da matéria no edital + frequência do assunto nas provas (Raio-X) + o que você marcou.</p></section>
+   <section class="card pad stack"><h3>Prévia da primeira semana</h3><div class="wkprev">${sem1.map(([dd,ms])=>`<div><b>${DS[wd(dd)]} ${dm(dd).slice(0,2)}</b><span>${ms.length?ms.map(m=>`${esc(achaAss(c.id,m.ass).a.nome)} <span class="mu">(${m.min}′)</span>`).join(' · '):'<span class="mu">livre</span>'}</span></div>`).join('')}</div></section>
+   <button class="btn btn-p w" data-a="confirmarPlano">${I('check',18)} ${P.cfg?'Salvar e refazer o plano':'Confirmar meu plano'}</button>
+  </aside></div>`;
+};
+
+V.praticar=()=>{
+  const P=prep(),c=concAtivo(),premium=temQuestoes();
+  const f=UI.f;f.conc=f.conc||c.id;const fc=C(f.conc);
+  const mats=fc.materias,assOpts=f.mat?mats.find(m=>m.id===f.mat).assuntos:mats.flatMap(m=>m.assuntos);
+  const n=QUESTOES.filter(q=>q.conc===f.conc&&(!f.mat||q.mat===f.mat)&&(!f.ass||q.ass===f.ass)&&(!f.dif||q.dif===f.dif)).length;
+  const Pp=prepPorConc(f.conc),errosP=Pp?Pp.erros.filter(e=>!e.revisado):[];
+  const concsOpts=[...new Set(Object.values(S.preps).map(p=>p.conc))];
+  return`<div class="stack"><span class="eyebrow">Praticar</span><h1>Questões comentadas</h1></div>
+  ${!premium?`<section class="card pad stack" style="background:var(--verde);color:#fff;border-color:var(--verde)"><div class="between"><span class="tag t-lima">Premium com Questões</span><span class="sm" style="color:rgba(255,255,255,.75)">Preço a definir</span></div><h2 style="color:#fff">Treine no estilo da ${c.banca}</h2><p style="color:rgba(255,255,255,.8)">Banco de questões comentadas, rodadas rápidas e caderno de erros que traz o tema de volta em outra questão.</p><button class="btn btn-l w" data-a="go" data-v="praticar" data-gate="questoes">${I('lock',18)} Simular Premium</button></section>`:''}
+  <div class="cols"><div class="stack" style="gap:16px">
+   <section class="card pad stack"><div class="between"><h3>Filtros</h3><span class="sm mu">${n} ${n===1?'questão':'questões'}</span></div>
+    <div class="g3">
+     <div class="field"><label for="fc">Concurso</label><select id="fc" data-f="conc">${concsOpts.map(id=>`<option value="${id}" ${f.conc===id?'selected':''}>${C(id).sigla}</option>`).join('')}</select></div>
+     <div class="field"><label for="fb">Banca</label><select id="fb" data-f="banca"><option>${fc.banca}</option></select></div>
+     <div class="field"><label for="fm">Matéria</label><select id="fm" data-f="mat"><option value="">Todas</option>${mats.map(m=>`<option value="${m.id}" ${f.mat===m.id?'selected':''}>${esc(m.nome)}</option>`).join('')}</select></div>
+     <div class="field"><label for="fa">Assunto</label><select id="fa" data-f="ass"><option value="">Todos</option>${assOpts.map(a=>`<option value="${a.id}" ${f.ass===a.id?'selected':''}>${esc(a.nome)}</option>`).join('')}</select></div>
+     <div class="field"><label for="fd">Dificuldade</label><select id="fd" data-f="dif"><option value="">Todas</option>${['fácil','média','difícil'].map(d=>`<option ${f.dif===d?'selected':''}>${d}</option>`).join('')}</select></div>
+    </div>
+    ${n?`<button class="btn btn-p w" data-a="treinar" data-gate="questoes" data-conc="${f.conc}" data-ass="${f.ass||''}" data-mat="${f.mat||''}" data-dif="${f.dif||''}" data-de="praticar">${premium?I('play',18):I('lock',18)} Começar rodada de ${Math.min(5,n)} ${Math.min(5,n)===1?'questão':'questões'}</button>
+     <button class="btn btn-s w" data-a="go" data-v="banco" data-gate="questoes">Abrir banco com estes filtros</button>`
+     :`<div class="empty" style="padding:12px"><div class="ico">${I('busca',26)}</div><b>Nenhuma questão com esses filtros</b><p class="sm mu">Ainda não há questões ${f.ass?`de ${esc(achaAss(f.conc,f.ass).a.nome)}`:'nessa combinação'} no banco.</p><button class="btn btn-s" data-a="limparF">Limpar filtros</button></div>`}
+   </section>
+  </div>
+  <aside class="stack stick" style="gap:16px">
+   <button class="card lockcard ${premium?'livre':''}" data-a="go" data-v="caderno" data-gate="questoes"><span class="ico">${I(premium?'caderno':'lock')}</span><span class="grow" style="flex:1;min-width:0"><b style="display:block">Caderno de erros</b><span class="sm mu">${errosP.length?`${errosP.length} ${errosP.length===1?'erro esperando':'erros esperando'} revisão`:'Seus erros aparecem aqui'}</span></span>${I('dir',18)}</button>
+   ${P?`<section class="card pad stack"><h3>Seu desempenho</h3><div class="placar"><div><b>${P.respondidas}</b><small>respondidas</small></div><div><b style="color:var(--ok)">${P.acertos}</b><small>acertos</small></div><div><b>${P.respondidas?Math.round(P.acertos/P.respondidas*100):0}%</b><small>aproveit.</small></div></div></section>`:''}
+   <p class="ilus">Questões de exemplo escritas para a demonstração, no estilo da banca.</p>
+  </aside></div>`;
+};
+ACT.limparF=()=>{UI.f={conc:UI.f.conc};render()};
+
+V.banco=()=>{
+  const f=UI.f,cid=f.conc||concAtivo().id,qs=QUESTOES.filter(q=>q.conc===cid&&(!f.mat||q.mat===f.mat)&&(!f.ass||q.ass===f.ass)&&(!f.dif||q.dif===f.dif)),P=prepPorConc(cid);
+  return`<button class="back" data-a="voltar">${I('esq',18)} Praticar</button><div class="stack"><span class="eyebrow">Banco de questões · ${C(cid).sigla}</span><h1>${qs.length} ${qs.length===1?'questão':'questões'}</h1></div>
+  <div class="stack">${qs.length?qs.map(q=>{const aa=achaAss(cid,q.ass),r=P&&P.resp[q.id];return`<button class="li" data-a="treinarIds" data-ids="${q.id}"><span class="grow"><span class="tags" style="margin-bottom:6px"><span class="tag t-line">${esc(aa.a.nome)}</span><span class="tag t-line">${q.dif}</span>${r?`<span class="tag ${r==='ok'?'t-ok':'t-er'}">${r==='ok'?'Acertou':'Errou'}</span>`:''}</span><span class="s" style="display:block;color:var(--tx)">${esc(q.enun.length>140?q.enun.slice(0,140)+'…':q.enun)}</span></span>${I('dir',18)}</button>`}).join(''):`<div class="card empty"><b>Nenhuma questão com esses filtros</b><button class="btn btn-s" data-a="voltar">Ajustar filtros</button></div>`}</div>`;
+};
+ACT.treinarIds=d=>{const q=qDe(d.ids);UI.tr={qs:montarSessao({ids:d.ids.split(',')}),i:0,sel:null,conf:false,res:[],conc:q.conc,de:'banco'};go('treino')};
+
+V.treino=()=>{
+  const t=UI.tr;
+  if(!t)return`<div class="card empty"><b>Nenhum treino em andamento</b><button class="btn btn-p" data-a="tab" data-v="praticar">Ir para Praticar</button></div>`;
+  if(!t.qs.length){const aa=t.ass?achaAss(t.conc,t.ass):null;const meta=t.meta?prep().metas.find(m=>m.id===t.meta):null;
+    return`<div class="card empty" style="padding:36px 20px"><div class="ico">${I('busca',26)}</div><h2>Ainda não há questões ${aa?`de ${esc(aa.a.nome)}`:'com esses filtros'}</h2><p class="mu">O banco de exemplo não tem questões desse assunto. Volte à meta e siga pelo material, ou mude os filtros.</p>
+     <div class="btns" style="width:100%;max-width:420px">${meta?`<button class="btn btn-p" data-a="voltar">Voltar à meta</button>`:''}<button class="btn btn-s" data-a="ajustarFiltros">Ajustar filtros</button></div></div>`}
+  const it=t.qs[t.i],q=qDe(it.id),aa=achaAss(q.conc,q.ass),c=C(q.conc);
+  const alts=q.ce?['Certo','Errado']:q.alts,letras=q.ce?['C','E']:['A','B','C','D','E'];
+  return`<div class="leitor" style="max-width:760px">
+   <div class="q-top"><button class="x" data-a="sairTreino" aria-label="Sair do treino">${I('x')}</button><div class="prog"><i style="width:${(t.i+(t.conf?1:0))/t.qs.length*100}%"></i></div><b class="sm" style="white-space:nowrap">${t.i+1} de ${t.qs.length}</b></div>
+   ${it.rev?`<div class="aviso ok">${I('caderno')}<div class="grow sm"><b>Volta do caderno de erros.</b> Em ${dm(it.rev.data)} você errou uma questão de ${esc(aa.a.nome)}. Esta é outra questão sobre o mesmo tema.</div></div>`:''}
+   <div class="tags"><span class="tag t-dark">${c.banca}</span><span class="tag t-line">${esc(aa.m.curto)} · ${esc(aa.a.nome)}</span><span class="tag t-line">${q.dif}</span><span class="tag t-line">Questão de exemplo</span></div>
+   <p class="enun">${esc(q.enun)}</p>
+   ${q.ce?'<p class="sm mu">Julgue o item.</p>':''}
+   <div class="alts" role="radiogroup" aria-label="Alternativas">${alts.map((a,i)=>{let cl='';if(t.conf){if(i===q.gab)cl='certa';else if(i===t.sel)cl='errada'}
+     return`<button class="alt ${cl}" role="radio" aria-checked="${t.sel===i}" data-a="resp" data-i="${i}" ${t.conf?'disabled':''}><span class="lt">${letras[i]}</span><span style="flex:1;min-width:0">${esc(a)}</span></button>`}).join('')}</div>
+   ${t.conf?`<div class="aviso ${t.sel===q.gab?'ok':'er'} pop">${I(t.sel===q.gab?'check':'x')}<div class="grow"><b>${t.sel===q.gab?'Certa! +10 XP':'Não foi dessa vez'}</b><span class="sm">Gabarito: ${letras[q.gab]}${q.ce?` (${alts[q.gab]})`:''}${t.sel!==q.gab?'. A questão foi para o seu caderno de erros.':''}</span></div></div>
+     <div class="coment"><b>Comentário</b><p>${esc(q.com)}</p></div>
+     <button class="btn btn-p w" data-a="proxima">${t.i+1<t.qs.length?'Próxima questão':'Ver resultado'} ${I('dir',18)}</button>`
+   :`<button class="btn btn-p w" data-a="confirmarResp" ${t.sel==null?'disabled':''}>Confirmar resposta</button>`}
+  </div>`;
+};
+ACT.ajustarFiltros=()=>{const t=UI.tr;UI.f={conc:t.conc,mat:t.mat||'',ass:'',dif:''};UI.tr=null;go('praticar',{},{raiz:true})};
+
+V.resultado=()=>{
+  const t=UI.tr;if(!t)return V.treino();
+  const ac=t.res.filter(r=>r.ok).length,er=t.res.length-ac,P=prepPorConc(t.conc);
+  const errAss=[...new Set(t.res.filter(r=>!r.ok).map(r=>qDe(r.id).ass))];
+  const meta=t.meta&&P?P.metas.find(m=>m.id===t.meta):null;
+  return`<div class="leitor" style="max-width:760px">
+   <div class="stack" style="gap:4px"><span class="eyebrow">Resultado da rodada</span><h1>${ac===t.res.length?'Gabaritou!':ac>=er?'Bom treino!':'Erros mostram o caminho'}</h1></div>
+   <div class="placar"><div><b style="color:var(--ok)">${ac}</b><small>acertos</small></div><div><b style="color:var(--er)">${er}</b><small>erros</small></div><div><b>${t.res.length?Math.round(ac/t.res.length*100):0}%</b><small>aproveit.</small></div></div>
+   ${t.res.some(r=>r.rev)?`<div class="aviso ${t.res.filter(r=>r.rev).every(r=>r.ok)?'ok':'neutro'}">${I('caderno')}<div class="grow sm">${t.res.filter(r=>r.rev).every(r=>r.ok)?'Você acertou a questão que voltou do caderno de erros. O erro foi marcado como revisado.':'A questão de revisão ainda pegou você. O tema continua no caderno e volta numa próxima rodada.'}</div></div>`:''}
+   <section class="card pad stack"><h3>Assuntos que merecem revisão</h3>${errAss.length?errAss.map(a=>{const aa=achaAss(t.conc,a);return`<div class="between" style="padding-top:10px;border-top:1px solid var(--ln)"><div><b>${esc(aa.a.nome)}</b><p class="sm mu">${esc(aa.m.nome)} · volta numa próxima rodada como outra questão</p></div><button class="btn btn-s" data-a="material" data-mat="${a}:resumo" data-de="resultado" data-gate="estudo" data-conc="${t.conc}">Abrir resumo</button></div>`}).join(''):'<p class="mu">Nenhum. Todos os assuntos desta rodada estão em dia.</p>'}</section>
+   <div class="btns">${meta?`<button class="btn btn-p" data-a="voltarMeta">Voltar à meta</button>`:''}${er?`<button class="btn ${meta?'btn-s':'btn-p'}" data-a="go" data-v="caderno">Ver caderno de erros</button>`:''}<button class="btn btn-s" data-a="tab" data-v="praticar">Nova rodada</button></div>
+  </div>`;
+};
+ACT.voltarMeta=()=>{const t=UI.tr;UI.tr=null;voltar();if(UI.view==='plano'){UI.metaSel=t.meta;if(!desk())abrirSheet('meta',{m:t.meta});else render()}};
+
+V.caderno=()=>{
+  const P=prep(),c=concAtivo(),todos=P.erros.slice().reverse();
+  const assL=[...new Set(todos.map(e=>e.ass))];const lista=todos.filter(e=>!UI.cadF||e.ass===UI.cadF);
+  const pend=lista.filter(e=>!e.revisado);
+  return`<button class="back" data-a="voltar">${I('esq',18)} Voltar</button>
+  <div class="stack"><span class="eyebrow">Caderno de erros · ${c.sigla}</span><h1>${todos.filter(e=>!e.revisado).length} ${todos.filter(e=>!e.revisado).length===1?'erro para revisar':'erros para revisar'}</h1><p class="mu">Cada erro volta numa rodada futura como <b>outra questão sobre o mesmo tema</b>. Acertou, está revisado.</p></div>
+  ${todos.length?`<div class="chips"><button class="chip" aria-pressed="${!UI.cadF}" data-a="cadF" data-v="">Todos</button>${assL.map(a=>`<button class="chip" aria-pressed="${UI.cadF===a}" data-a="cadF" data-v="${a}">${esc(achaAss(c.id,a).a.nome)}</button>`).join('')}</div>
+   ${pend.length?`<button class="btn btn-p w" data-a="revisarCaderno" data-ass="${UI.cadF}">${I('play',18)} Abrir revisão${UI.cadF?` de ${esc(achaAss(c.id,UI.cadF).a.nome)}`:''}</button>`:''}
+   <div class="stack">${lista.map(e=>{const q=qDe(e.qid),aa=achaAss(c.id,e.ass),L=q.ce?['C','E']:['A','B','C','D','E'];return`<div class="card stack"><div class="between"><div class="tags"><span class="tag t-line">${esc(aa.a.nome)}</span><span class="tag t-line">${dm(e.data)}</span></div>${e.revisado?'<span class="tag t-ok">Revisado</span>':'<span class="tag t-er">Pendente</span>'}</div><p class="sm">${esc(q.enun.length>160?q.enun.slice(0,160)+'…':q.enun)}</p><p class="sm"><span style="color:var(--er);font-weight:800">Você marcou ${L[e.sel]}</span> · <span style="color:var(--ok);font-weight:800">Gabarito ${L[q.gab]}</span></p></div>`}).join('')}</div>`
+  :`<div class="card empty"><div class="ico">${I('caderno',26)}</div><h3>Seu caderno está vazio</h3><p class="mu sm">Quando errar uma questão, ela aparece aqui e o tema volta numa próxima rodada.</p><button class="btn btn-p" data-a="tab" data-v="praticar">Fazer uma rodada</button></div>`}`;
+};
+
+V.planos=()=>{
+  const c=concAtivo();
+  const linhas=[['Análise geral do edital',1,1,1,1],['Datas, etapas e retificações',1,1,1,1],['Cronograma adaptável',0,1,1,1],['Raio-X dos temas cobrados',0,1,1,1],['Perfil da banca',0,1,1,1],['Materiais de apoio',0,1,1,1],['Banco de questões comentadas',0,0,0,1],['Caderno de erros',0,0,0,1],['Concursos cobertos','Todos (só resumo)','1 escolhido','Todos','A definir']];
+  const k=['gratuito','um','todos','premium'];
+  return`${UI.stack.length?`<button class="back" data-a="voltar">${I('esq',18)} Voltar</button>`:''}
+  <div class="stack"><span class="eyebrow">Planos</span><h1>Escolha como estudar</h1><p class="mu">Simulação: nenhum pagamento é feito no protótipo.</p></div>
+  <section class="card pad between"><div><span class="eyebrow">Sua assinatura</span><h3>${PLANOS[S.plano].nome}${S.expirado?' · expirada':''}</h3><p class="sm mu">${S.plano==='um'?`Cobre o ${C(S.planoConc).sigla} · ${esc(C(S.planoConc).nome)}`:PLANOS[S.plano].abr}</p></div>${S.plano!=='gratuito'?`<span class="tag ${S.expirado?'t-at':'t-ok'}">${S.expirado?'Expirada':'Ativa'}</span>`:''}</section>
+  <div class="planos">${k.map(p=>{const pl=PLANOS[p],at=S.plano===p&&!S.expirado,dest=p==='um';return`<section class="card pad plano ${at?'atual':''} ${dest&&!at?'dest':''}">
+    <div class="between"><b>${pl.nome}</b>${at?'<span class="tag t-ok">Seu plano</span>':dest?'<span class="tag t-lima">Mais escolhido</span>':''}</div>
+    <p class="preco">${pl.preco}<small>${pl.sufixo}</small></p><p class="sm ${dest&&!at?'':'mu'}">${p==='um'&&c?`Para ${c.sigla} ou outro que você escolher`:pl.abr}</p>
+    <ul>${pl.rec.map(r=>`<li>${I('check',18)}<span>${r}</span></li>`).join('')}</ul>
+    ${at?`<button class="btn btn-s w" disabled>Plano atual</button>`:p==='gratuito'?`<button class="btn btn-s w" data-a="assinar" data-plano="gratuito">Usar o gratuito</button>`:`<button class="btn ${dest?'btn-l':'btn-p'} w" data-a="sheet" data-s="checkout" data-plano="${p}">${p==='premium'?'Simular Premium':'Escolher este plano'}</button>`}
+   </section>`}).join('')}</div>
+  <h3>Comparação completa</h3>
+  <div class="tab-wrap"><table><thead><tr><th>Recurso</th>${k.map(p=>`<th class="c">${PLANOS[p].nome}<br><span style="font-weight:600">${PLANOS[p].preco}${PLANOS[p].sufixo}</span></th>`).join('')}</tr></thead><tbody>${linhas.map(([r,...v])=>`<tr><td>${r}</td>${v.map(x=>`<td class="c">${x===1?`<span style="color:var(--ok)">${I('check',18,3).replace('class="ic"','class="ic" style="margin:auto"')}</span><span class="sr">Sim</span>`:x===0?'<span class="mu">—</span><span class="sr">Não</span>':x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+};
+
+V.perfil=()=>{
+  const nv=nivel();
+  return`<div class="stack"><span class="eyebrow">Perfil</span><div class="row"><span class="avatar" style="width:64px;height:64px;font-size:24px">A</span><div class="grow"><h1 style="font-size:26px">Aluno de exemplo</h1><p class="mu">Nível ${nv.n} · ${nv.nome} · ${S.xp} XP · ${S.streak} dias seguidos</p></div></div></div>
+  <div class="g2">
+   <section class="card pad stack"><div class="between"><h3>Assinatura</h3><span class="tag ${S.expirado?'t-at':S.plano==='gratuito'?'t-line':'t-ok'}">${S.expirado?'Expirada':S.plano==='gratuito'?'Gratuito':'Ativa'}</span></div>
+    <p><b>${PLANOS[S.plano].nome}</b> · ${PLANOS[S.plano].preco}${PLANOS[S.plano].sufixo}</p><p class="sm mu">${S.plano==='um'?`Concurso coberto: ${C(S.planoConc).sigla} · ${esc(C(S.planoConc).nome)}`:S.plano==='gratuito'?'Resumo gratuito de qualquer edital':PLANOS[S.plano].abr}</p>
+    <button class="btn btn-s w" data-a="go" data-v="planos">Comparar planos</button></section>
+   <section class="card pad stack"><h3>Preferências de estudo</h3>${prep()&&prep().cfg?`<p class="sm">${cfgDias(prep().cfg)} · ${hm(cargaSemanal(prep().cfg))} por semana</p><p class="sm mu">Difíceis: ${prep().cfg.dificeis.map(id=>C(prep().conc).materias.find(m=>m.id===id)?.curto).filter(Boolean).join(', ')||'nenhuma'}</p><button class="btn btn-s w" data-a="editarCfg" data-gate="estudo">${I('ajuste',18)} Ajustar rotina</button>`:'<p class="sm mu">Você ainda não montou um plano para o concurso ativo.</p>'}</section>
+  </div>
+  <section class="card pad stack"><h3>Conquistas</h3><div class="g3">${Object.entries(BADGES).map(([k,[n,d,ic]])=>{const on=S.badges.includes(k);return`<div class="row"><span class="badge-m ${on?'':'off'}">${I(ic,24)}</span><div class="grow"><b class="sm" style="display:block">${n}</b><span class="xs mu">${on?d:'Bloqueada'}</span></div></div>`}).join('')}</div></section>
+  <section class="stack"><h3>Histórico por concurso</h3>${Object.entries(S.preps).map(([k,P])=>{const c=C(P.conc);return`<button class="li" data-a="trocarPrep" data-k="${k}"><span class="seletor" style="padding:0;min-height:0;flex:none"><span class="sig">${c.sigla}</span></span><span class="grow"><span class="t" style="display:block">${esc(cargoDe(P).nome)}</span><span class="s" style="display:block">${P.metas.filter(m=>m.ok).length} metas concluídas · ${P.respondidas} questões · ${P.erros.length} no caderno · ${P.xp} XP</span></span>${k===S.ativo?'<span class="tag t-lima">Ativo</span>':I('dir',18)}</button>`}).join('')||'<p class="mu">Nenhuma preparação ainda.</p>'}</section>
+  <section class="card pad stack"><h3>Suporte</h3>
+   ${[['Posso trocar o concurso do plano Um Concurso?','Sim. Em Planos, escolha Um Concurso de novo e selecione outro concurso. O histórico de cada preparação fica salvo.'],['O que acontece se meu acesso acabar?','Nada é apagado. Metas, questões e caderno de erros continuam salvos e voltam quando você reativar.'],['De onde vêm as prioridades do plano?','Do peso de cada matéria no edital, da frequência dos assuntos nas provas anteriores e do que você marcou como difícil ou já estudado.']].map(([q,r])=>`<details class="acc" style="border-top:1px solid var(--ln);padding-top:10px"><summary class="between" style="min-height:40px"><b class="sm">${q}</b>${I('dir',18).replace('class="ic"','class="ic rot"')}</summary><p class="sm mu" style="padding:6px 0 4px">${r}</p></details>`).join('')}
+   <div class="field"><label for="sup">Fale com a equipe</label><textarea id="sup" class="inp" placeholder="Conte sua dúvida"></textarea></div><button class="btn btn-s" data-a="suporte" style="justify-self:start">Enviar mensagem (simulação)</button></section>`;
+};
+
+// ---------- render ----------
+function bloqueio(v){
+  const c=concAtivo();if(!c)return'';
+  const est={raiox:'Raio-X dos temas cobrados',banca:'Perfil da banca',materiais:'Materiais de apoio',leitor:'Material de apoio'}[v];
+  const qst={banco:'Banco de questões',caderno:'Caderno de erros',treino:'Treino de questões'}[v];
+  if(est&&!cobre(c.id))return`${['raiox','banca','materiais'].includes(v)?subnavEdital(v):''}<div class="card empty"><div class="ico">${I('lock',26)}</div><h2>${est}</h2><p class="mu">${S.expirado?'Seu acesso terminou. O histórico continua salvo.':`Este recurso não está no seu plano para o ${c.sigla}.`}</p><button class="btn btn-p" data-a="go" data-v="${v==='leitor'?'materiais':v}" data-gate="estudo">Ver o plano que libera</button><button class="btn-g" data-a="tab" data-v="edital">Voltar ao resumo gratuito</button></div>`;
+  if(qst&&!temQuestoes()&&!(v==='treino'&&!UI.tr))return`<div class="card empty"><div class="ico">${I('lock',26)}</div><h2>${qst}</h2><p class="mu">Faz parte do Premium com Questões.</p><button class="btn btn-p" data-a="go" data-v="praticar" data-gate="questoes">Simular Premium</button></div>`;
+  return'';
+}
+const $=s=>document.querySelector(s);
+function topo(){
+  const P=prep(),c=concAtivo();
+  if(!P)return`<div class="top-in"><span class="logo-m" style="display:flex;align-items:center;gap:8px;flex:1;min-width:0">${LOGO(36)}<span style="display:grid;line-height:1.15"><b>Concurso com Líbero</b><small class="mu" style="font-size:12.5px">por Líbero Filho</small></span></span><button class="demo-b" data-a="sheet" data-s="demo" aria-label="Painel de demonstração">${I('ajuste',18)}<span>Demo</span></button></div>`;
+  return`<div class="top-in">
+   <button class="seletor" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}"><span class="sig">${c.sigla}</span><span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
+   <span class="xp fogo" title="Dias seguidos estudando">${I('fogo',16)}${S.streak}</span>
+   <span class="xp" title="Pontos de experiência">${I('raio',16)}${S.xp}</span><button class="demo-b" data-a="sheet" data-s="demo" aria-label="Painel de demonstração">${I('ajuste',18)}<span>Demo</span></button>
+   <button class="avatar" data-a="go" data-v="perfil" aria-label="Abrir perfil">A</button></div>`;
+}
+function lateral(){
+  const P=prep(),tab=TAB[UI.view],c=concAtivo(),cb=c&&cobre(c.id);
+  const nv=[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar']];
+  const sec=[['materiais','Materiais','camadas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
+  return`<div class="logo">${LOGO(40,'#D9F575','#163D30')}<div><b>Concurso com Líbero</b><span>por Líbero Filho</span></div></div>
+   ${P?`<button class="seletor" data-a="sheet" data-s="seletor"><span class="sig">${c.sigla}</span><span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${cb?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
+   <nav>${nv.map(([v,l,ic])=>`<button class="nv" data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}>${I(ic)}${l}</button>`).join('')}</nav>
+   <span class="lbl">Recursos</span><nav>${sec.map(([v,l,ic,g])=>{const ok=!g||(g==='questoes'?temQuestoes():cb);return`<button class="nv" data-a="go" data-v="${v}" ${g?`data-gate="${g}"`:''} ${UI.view===v?'aria-current="page"':''}>${I(ic)}${l}${ok?'':`<span class="lk">${I('lock',16)}</span>`}</button>`}).join('')}</nav>`
+   :`<nav><button class="nv" aria-current="page">${I('busca')}Catálogo</button><button class="nv" data-a="go" data-v="planos">${I('cartao')}Planos</button></nav>`}
+   <div class="rodape"><button class="nv" data-a="sheet" data-s="demo" style="border:1.5px dashed rgba(255,255,255,.35)">${I('ajuste')}Painel de demonstração</button>${P?`<button class="nv" data-a="go" data-v="perfil" ${UI.view==='perfil'?'aria-current="page"':''}>${I('usuario')}Perfil · ${S.xp} XP</button>`:''}</div>`;
+}
+function navInferior(){
+  const tab=TAB[UI.view];
+  return[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar']].map(([v,l,ic])=>`<button data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}><span class="pill">${I(ic,22)}</span>${l}</button>`).join('');
+}
+function render(topoScroll){
+  if(!UI.view)UI.view=S.ativo?'hoje':'catalogo';
+  if(!S.ativo&&!['catalogo','concurso','planos'].includes(UI.view))UI.view='catalogo';
+  const focoId=document.activeElement&&document.activeElement.id;
+  const main=$('#main');const f=V[UI.view]||V.hoje;
+  main.innerHTML=`<div class="wrap">${bloqueio(UI.view)||f(UI.p)}</div>`;
+  renderChrome();
+  if(topoScroll){window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true})}
+  else if(focoId){const el=document.getElementById(focoId);if(el)el.focus({preventScroll:true})}
+  if(UI.sheet)renderSheet();
+  window.claude?.hot?.snapshot?.(()=>({S,view:UI.view,p:UI.p}));
+}
+function renderChrome(){
+  const semNav=!S.ativo||UI.view==='treino';
+  $('#top').innerHTML=topo();$('#side').innerHTML=lateral();
+  $('#bnav').innerHTML=navInferior();$('#bnav').hidden=semNav;
+  $('#top').hidden=UI.view==='treino'&&!matchMedia('(min-width:1024px)').matches;
+  document.body.classList.toggle('sem-nav',semNav);
+}
+function renderAll(){render()}
+let tt;
+function toast(msg,xp=0,ic){
+  const t=$('#toast');clearTimeout(tt);
+  t.innerHTML=`<div class="toast" role="status">${ic?I(ic,18):''}${xp?`<span class="xpb">+${xp} XP</span>`:''}<span>${esc(msg)}</span></div>`;
+  tt=setTimeout(()=>t.innerHTML='',2800);
+}
+// trocar de aba rola até o topo; navegação dentro do app mantém foco no conteúdo
+const start=(h)=>{if(h&&h.S){S=h.S;UI.view=h.view;UI.p=h.p||{}}render(true)};
+window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??null);
+</script>
