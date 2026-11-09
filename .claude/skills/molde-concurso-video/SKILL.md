@@ -14,5 +14,5 @@ Pasta `moldes/concurso-video/`. Leia o `README.md` (tipos de cena e campos) e o 
 5. **Render:** `node render.mjs <id>` → `saida/<id>/<id>.mp4` e `capa.png` (~1–2 min por vídeo). Se der timeout, `CONCORRENCIA=2`.
 6. Mande o MP4 e a capa ao usuário (SendUserFile), com a `legenda` do post. Faça commit (o MP4 fica fora do git, em `saida/`).
 
-Voz: `adriano` por padrão (PT-BR). Se o Líbero clonar a própria voz na ElevenLabs, use o id dela em `voz`.
+Vozes: `adriano` (Você sabia?, Descomplica), `fernando` (Edital na mão, aprovada pelo usuário), `dantas` com `estilo: "motivacional"` e a trilha (dicas de estudo; ver README). Se o Líbero clonar a própria voz na ElevenLabs, use o id dela em `voz`.
 Fora da galeria de imagens (o molde gera vídeo, sem `dados.json`).

@@ -1,0 +1,108 @@
+{
+  "id": "05-dez-horas-por-dia",
+  "serie": "dicas",
+  "estilo": "motivacional",
+  "trilha": "trilha-motivacional",
+  "volTrilha": 0.15,
+  "titulo": "Você não precisa estudar 10 horas por dia",
+  "voz": "dantas",
+  "ajustesVoz": {
+    "stability": 0.32,
+    "similarity_boost": 0.8,
+    "style": 0.55,
+    "use_speaker_boost": true,
+    "speed": 1.02
+  },
+  "legenda": "Constância vence intensidade. 💚\n\n1% melhor por dia, durante um ano: 1,01³⁶⁵ ≈ 37,8 vezes.\n\n1. Meta mínima: um número que você cumpre até no pior dia (1 hora, 20 questões).\n2. Celular em outro cômodo, não só no silencioso.\n3. Feche cada sessão com questões do que estudou.\n\nNinguém passa no dia da prova. Passa em cada dia comum que veio antes.\n\nComenta CURSO e começa hoje com o banco de questões e os flashcards do Curso Concurso com Líbero.\n\n#concurseiro #motivacao #rotinadeestudos #concursopublico #foconosestudos",
+  "legendas": [
+    [
+      "vinte questões",
+      "20 questões"
+    ],
+    [
+      "Uma hora",
+      "1 hora"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "todo"
+      ],
+      "fala": "Você não precisa estudar dez horas por dia. Você precisa estudar todo dia."
+    },
+    {
+      "tipo": "numero",
+      "antes": "1% melhor por dia, durante 1 ano",
+      "de": 1,
+      "ate": 37.8,
+      "casas": 1,
+      "sufixo": "x",
+      "em": "quase",
+      "depois": "mais preparado",
+      "emDepois": "melhor",
+      "fala": "Olha a matemática: se você melhora só um por cento por dia, em um ano você fica quase trinta e oito vezes melhor."
+    },
+    {
+      "tipo": "dica",
+      "n": 1,
+      "titulo": [
+        "Meta",
+        "[[mínima]]"
+      ],
+      "icone": "alvo",
+      "texto": "Um número que você cumpre até no pior dia: 1 hora, 20 questões.",
+      "em": "número",
+      "fala": "Dica um: tenha uma meta mínima. Um número que você cumpre até no seu pior dia. Uma hora, vinte questões. O mínimo feito todo dia vence a maratona que você abandona na quarta-feira."
+    },
+    {
+      "tipo": "dica",
+      "n": 2,
+      "titulo": [
+        "Celular",
+        "[[longe]]"
+      ],
+      "icone": "celular",
+      "texto": "Em outro cômodo. Não basta o silencioso.",
+      "em": "cômodo",
+      "fala": "Dica dois: celular longe. Não é no silencioso, é em outro cômodo. Cada notificação rouba o foco que você levou minutos pra construir."
+    },
+    {
+      "tipo": "dica",
+      "n": 3,
+      "titulo": [
+        "Feche com",
+        "[[questões]]"
+      ],
+      "icone": "livro",
+      "texto": "Termine cada sessão resolvendo questões do que estudou.",
+      "em": "sessão",
+      "fala": "Dica três: termine cada sessão com questões do que você acabou de estudar. É na questão que a banca vai te encontrar. Então é nela que você treina."
+    },
+    {
+      "tipo": "impacto",
+      "destaques": [
+        "comum"
+      ],
+      "fala": "Ninguém passa no dia da prova. Passa em cada dia comum que veio antes dela."
+    },
+    {
+      "tipo": "cta",
+      "produto": "curso",
+      "titulo": [
+        "Comece",
+        "[[hoje]]"
+      ],
+      "comenta": "CURSO",
+      "fala": "Comenta CURSO e começa hoje, com o banco de questões e os flashcards do Curso Concurso com Líbero."
+    }
+  ],
+  "capa": {
+    "linhas": [
+      "Você não precisa",
+      "estudar [[10 horas]]",
+      "por dia"
+    ]
+  }
+}

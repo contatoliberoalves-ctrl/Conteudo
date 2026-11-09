@@ -7,7 +7,9 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const videos = JSON.parse(fs.readFileSync('src/videos.gerado.json'));
-const ids = process.argv.slice(2).length ? process.argv.slice(2) : videos.map(v => v.id);
+const soCapa = process.argv.includes('--capa');
+const args = process.argv.slice(2).filter(a => a !== '--capa');
+const ids = args.length ? args : videos.map(v => v.id);
 const browserExecutable = process.env.CHROMIUM_PATH || '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 const serveUrl = await bundle({ entryPoint: path.resolve('src/index.ts') });
 for (const id of ids) {
@@ -16,14 +18,19 @@ for (const id of ids) {
   const comp = await selectComposition({ serveUrl, id, browserExecutable });
   const dir = `saida/${id}`; fs.mkdirSync(dir, { recursive: true });
   let ultimo = -1;
-  await renderMedia({ serveUrl, composition: comp, codec: 'h264', crf: 17, outputLocation: `${dir}/${id}.mp4`, browserExecutable,
+  if (!soCapa) await renderMedia({ serveUrl, composition: comp, codec: 'h264', crf: 17, outputLocation: `${dir}/${id}.mp4`, browserExecutable,
     concurrency: Number(process.env.CONCORRENCIA || 3), overwrite: true, timeoutInMilliseconds: 120000,
     onProgress: ({ progress }) => { const p = Math.floor(progress * 10); if (p !== ultimo) { ultimo = p; process.stdout.write(`${id} ${p * 10}%\r`); } } });
   // Volume no padrão das redes (-14 LUFS), sem reencodar o vídeo.
-  normalizar(`${dir}/${id}.mp4`);
-  // Capa: fim da 1ª cena (gancho já montado), antes da transição.
-  const fimGancho = Math.round((0.25 + v.tempo.cenas[1].ini) * 30) - 14;
-  await renderStill({ serveUrl, composition: comp, frame: Math.max(45, fimGancho), output: `${dir}/capa.png`, browserExecutable, overwrite: true });
+  if (!soCapa) normalizar(`${dir}/${id}.mp4`);
+  // Capa: com `capa` no roteiro, uma tela própria com a frase inteira; senão, o fim da 1ª cena (gancho montado).
+  if (v.capa) {
+    const cc = await selectComposition({ serveUrl, id, browserExecutable, inputProps: { video: v, capa: true } });
+    await renderStill({ serveUrl, composition: cc, frame: Math.floor(cc.durationInFrames * 0.6), output: `${dir}/capa.png`, browserExecutable, overwrite: true, inputProps: { video: v, capa: true } });
+  } else {
+    const fimGancho = Math.round((0.25 + v.tempo.cenas[1].ini) * 30) - 14;
+    await renderStill({ serveUrl, composition: comp, frame: Math.max(45, fimGancho), output: `${dir}/capa.png`, browserExecutable, overwrite: true });
+  }
   console.log(`✓ ${dir}/${id}.mp4 (${(comp.durationInFrames / 30).toFixed(1)} s) e capa.png`);
 }
 

@@ -6,7 +6,7 @@ Três séries (campo `serie`, aparece no cabeçalho):
 - `curiosidade` → "Você sabia?" (curiosidades do Direito e do mundo dos concursos)
 - `descomplica` → "Descomplica" (assunto difícil ou confuso explicado)
 - `edital` → "Edital na mão" (notícia de edital: detalhes, o que cai, o que estudar)
-- `dicas` → "O que estudar"
+- `dicas` → "Dica de estudo" (no estilo motivacional)
 
 Ideias, ganchos e roteiros prontos para as séries: `IDEIAS.md`.
 
@@ -45,6 +45,17 @@ Na nuvem do Claude Code, `NODE_USE_ENV_PROXY=1` faz o `fetch` usar o proxy (que 
 | `cta` | `produto` (edital/curso), `titulo[]`, `comenta` | celular com o app + "Comenta PALAVRA" digitando |
 
 `gancho` e `frase` não mostram legenda embaixo (o texto já está grande na tela); `legenda: false` esconde em qualquer cena.
+
+## Estilo motivacional (série `dicas`)
+Roteiro com `"estilo": "motivacional"`: fundo quase preto com um amanhecer verde que sobe e clareia ao longo do vídeo, poeira de luz, transição por clarão e tipografia cinética. Use com `"trilha": "trilha-motivacional"` (`node trilha.mjs` gera `public/sfx/trilha-motivacional.mp3`, Lá menor a 72 BPM, que cresce no fim; `volTrilha`, padrão 0,15), `"voz": "dantas"` e `ajustesVoz` com mais emoção (`stability` 0,32, `style` 0,55, `speed` 1,02). `capa: {linhas: [...], sub}` gera uma capa própria com a frase inteira (`node render.mjs --capa <id>` refaz só a capa).
+
+| tipo | campos | uso |
+|---|---|---|
+| `impacto` | `fala`, `destaques: [palavras]`, `ts` | a fala vira o visual: 1 a 3 palavras gigantes por vez, acendendo quando ditas; destaques em verde com brilho |
+| `dica` | `n`, `titulo[]`, `icone` (alvo, celular, livro, relogio, revisao, cerebro…), `texto`, `em` | número gigante vazado ao fundo, "dica 01", título e o "como fazer" |
+| `numero` | `antes`, `de`, `ate`, `casas`, `prefixo`, `sufixo`, `em`, `depois`, `emDepois` | contador grande com brilho (o payoff: "37,8x") |
+
+As outras cenas (`etapas`, `cta`…) também funcionam nesse estilo.
 
 ## Regras do molde
 - Gancho nos 2 primeiros segundos, com a promessa ou o choque (ver `IDEIAS.md`). Nada de "Olá, pessoal".

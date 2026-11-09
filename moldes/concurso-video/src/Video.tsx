@@ -1,6 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Acabamento, Cabecalho, Fundo, Legendas, Varredura } from './camadas';
+import { CapaMotiva, Clarao, FundoMotiva } from './motiva';
 import { CENAS, SEM_LEGENDA } from './cenas';
 import { ease, LEAD } from './tema';
 import { FONTES } from './fontes.gerado';
@@ -20,15 +21,26 @@ const Saida: React.FC<{ dur: number; children: any; ultima: boolean }> = ({ dur,
   return <AbsoluteFill style={{ opacity: 1 - p, transform: `translateY(${-50 * p}px) scale(${1 - 0.04 * p})` }}>{children}</AbsoluteFill>;
 };
 
-export const Video: React.FC<{ video: any }> = ({ video }) => {
+export const Video: React.FC<{ video: any; capa?: boolean }> = ({ video, capa }) => {
   const { fps, durationInFrames } = useVideoConfig();
   const ini = inicios(video, fps);
   const ctx = { ...video, inicios: ini };
+  const motiva = video.estilo === 'motivacional';
   const ocultas = video.cenas.map((c: any) => c.legenda === false || (c.legenda == null && SEM_LEGENDA.has(c.tipo)));
+  // Modo capa (render.mjs, quando o roteiro tem `capa`): fundo, cabeçalho e a frase inteira, sem cenas nem áudio.
+  if (capa && video.capa) return <Ctx.Provider value={ctx}>
+    <AbsoluteFill style={{ overflow: 'hidden' }}>
+      <style>{CSS_FONTES}</style>
+      {motiva ? <FundoMotiva /> : <Fundo />}
+      <CapaMotiva capa={video.capa} />
+      <Cabecalho />
+      <Acabamento />
+    </AbsoluteFill>
+  </Ctx.Provider>;
   return <Ctx.Provider value={ctx}>
     <AbsoluteFill style={{ overflow: 'hidden' }}>
       <style>{CSS_FONTES}</style>
-      <Fundo />
+      {motiva ? <FundoMotiva /> : <Fundo />}
       {video.cenas.map((c: any, k: number) => {
         const dur = (k + 1 < ini.length ? ini[k + 1] : durationInFrames) - ini[k];
         const C = CENAS[c.tipo];
@@ -39,9 +51,11 @@ export const Video: React.FC<{ video: any }> = ({ video }) => {
       })}
       <Cabecalho />
       <Legendas ocultas={ocultas} />
-      {ini.slice(1).map((q: number, i: number) => <React.Fragment key={i}><Varredura em={q} /><Sfx em={q - 4} som="whoosh" vol={0.28} /></React.Fragment>)}
+      {ini.slice(1).map((q: number, i: number) => <React.Fragment key={i}>{motiva ? <Clarao em={q} /> : <Varredura em={q} />}<Sfx em={q - 4} som="whoosh" vol={0.28} /></React.Fragment>)}
       <Acabamento />
       <Sequence from={Math.round(LEAD * fps)} layout="none"><Audio src={staticFile(`audio/${video.id}.mp3`)} /></Sequence>
+      {video.trilha && <Audio src={staticFile(`sfx/${video.trilha}.mp3`)} loop
+        volume={(f: number) => (video.volTrilha ?? 0.16) * interpolate(f, [0, 20, durationInFrames - 45, durationInFrames - 1], [0, 1, 1, 0], clamp)} />}
     </AbsoluteFill>
   </Ctx.Provider>;
 };

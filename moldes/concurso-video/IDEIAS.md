@@ -61,6 +61,14 @@ Evite: "Olá, pessoal", "Hoje eu vou falar sobre", logo animado no começo, perg
 - **Contagem regressiva**: "Faltam X dias para acabar a isenção da taxa" (cena `etapas` só com o alerta).
 - **"Cebraspe x FGV: a mesma matéria, provas diferentes"** (`versus`) quando sair edital de cada banca.
 
+### Dicas de estudo (estilo motivacional)
+- ✅ **Você não precisa estudar 10 horas por dia** (constância, 1% ao dia = 37,8x, 3 dicas). *Feito: `05-dez-horas-por-dia`.*
+- ✅ **Você estuda e esquece tudo?** (revisão em 24 h, 7 e 30 dias; teste, não releia). *Feito: `06-estuda-e-esquece`.*
+- "Você não tem falta de tempo. Tem falta de prioridade." (bloco de 25 min, o que cortar, o horário que ninguém usa).
+- "O edital saiu e você travou?" (por onde começar: peso das matérias, uma por vez, questões desde o dia 1).
+- "Reprovou? Lê isso antes de desistir." (análise da prova, o que manter, o que mudar).
+- "Estudar cansado rende?" (sono e memória, pausas, o dia de descanso).
+
 ## Antes de publicar
 - Legenda do post com as fontes (número do julgado, artigo, edital).
 - Capa: `saida/<id>/capa.png` (o fim do gancho). No Instagram, escolha a capa e ajuste o recorte 3:4 do perfil.

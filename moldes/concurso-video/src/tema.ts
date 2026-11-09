@@ -48,6 +48,6 @@ export const SERIE: Record<string, string> = {
   curiosidade: 'Você sabia?',
   descomplica: 'Descomplica',
   edital: 'Edital na mão',
-  dicas: 'O que estudar',
+  dicas: 'Dica de estudo',
 };
 export const PERFIL = '@concursocomlibero';

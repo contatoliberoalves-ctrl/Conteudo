@@ -8,6 +8,11 @@ const ICONES: Record<string, (p: number) => any> = {
   idade: p => <><path d="M26 12 H74 M26 88 H74" {...T(p)} /><path d="M30 12 C30 36 50 42 50 50 C50 58 30 64 30 88 M70 12 C70 36 50 42 50 50 C50 58 70 64 70 88" {...T(p)} /><path d="M38 80 H62" {...T(p, 9)} /></>,
   cerebro: p => <><rect x="20" y="14" width="60" height="76" rx="8" {...T(p)} /><path d="M38 10 H62 V22 H38 Z" {...T(p)} /><path d="M32 44 L38 50 L48 38 M32 68 L38 74 L48 62 M56 46 H70 M56 70 H70" {...T(p, 6)} /></>,
   nomeacao: p => <><path d="M24 10 H62 L78 26 V90 H24 Z" {...T(p)} /><path d="M62 10 V26 H78" {...T(p)} /><path d="M34 40 H66 M34 52 H58" {...T(p, 6)} /><circle cx="56" cy="72" r="13" {...T(p)} /><path d="M50 72 L55 77 L63 67" {...T(p, 6)} /></>,
+  relogio: p => <><circle cx="50" cy="54" r="36" {...T(p)} /><path d="M50 32 V54 L66 64" {...T(p)} /><path d="M38 10 H62" {...T(p)} /></>,
+  celular: p => <><rect x="30" y="8" width="40" height="84" rx="8" {...T(p)} /><path d="M44 80 H56" {...T(p)} /><path d="M12 12 L88 88" {...T(p, 9)} /></>,
+  revisao: p => <><path d="M80 50 A30 30 0 1 1 68 26" {...T(p)} /><path d="M68 10 V28 H86" {...T(p)} /><path d="M38 52 L47 61 L64 42" {...T(p)} /></>,
+  alvo: p => <><circle cx="50" cy="50" r="38" {...T(p)} /><circle cx="50" cy="50" r="22" {...T(p)} /><circle cx="50" cy="50" r="6" {...T(p, 9)} /><path d="M50 50 L86 14 M76 14 H86 V24" {...T(p)} /></>,
+  livro: p => <><path d="M50 22 C38 14 22 14 10 18 V84 C22 80 38 80 50 88 C62 80 78 80 90 84 V18 C78 14 62 14 50 22 Z" {...T(p)} /><path d="M50 22 V88" {...T(p)} /></>,
   alerta: p => <><path d="M50 12 L90 84 H10 Z" {...T(p)} /><path d="M50 40 V60" {...T(p, 9)} /><circle cx="50" cy="72" r="2" {...T(p, 9)} /></>,
 };
 export const Icone: React.FC<{ nome: string; px: number; p: number }> = ({ nome, px, p }) =>

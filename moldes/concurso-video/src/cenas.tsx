@@ -4,6 +4,7 @@ import { cor, ease, fonte, mola } from './tema';
 import { clamp, Conta, Entra, lista, Rico, Sfx, Titulo, useMarcas, useRespira, useTraco } from './util';
 import { Check, Exclama, Icone } from './icones';
 import { Marca, Simbolo } from './camadas';
+import { Dica, Impacto, Numero } from './motiva';
 
 // Área útil (fora do cabeçalho e da faixa de legendas; longe da interface do Instagram).
 const Area: React.FC<{ children: any; topo?: number; alt?: number; centro?: boolean }> = ({ children, topo = 330, alt = 1070, centro = true }) =>
@@ -358,6 +359,6 @@ const Cta: React.FC<any> = ({ c, k }) => {
   </Area>;
 };
 
-export const CENAS: Record<string, React.FC<any>> = { gancho: Gancho, regra: Regra, lista: ListaC, versus: Versus, analogia: Analogia, fichas: Fichas, rosca: Rosca, etapas: Etapas, lei: Lei, frase: Frase, cta: Cta };
+export const CENAS: Record<string, React.FC<any>> = { gancho: Gancho, regra: Regra, lista: ListaC, versus: Versus, analogia: Analogia, fichas: Fichas, rosca: Rosca, etapas: Etapas, lei: Lei, frase: Frase, cta: Cta, impacto: Impacto, dica: Dica, numero: Numero };
 // Cenas sem legenda embaixo (o texto grande já está na tela).
-export const SEM_LEGENDA = new Set(['gancho', 'frase']);
+export const SEM_LEGENDA = new Set(['gancho', 'frase', 'impacto', 'numero']);
