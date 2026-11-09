@@ -70,8 +70,8 @@ def editor(pasta, c, saida):
 moldes = []
 for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     meta_arq = pasta / 'molde.json'
-    if not meta_arq.exists():
-        continue
+    if not meta_arq.exists() or not (pasta / 'dados.json').exists():
+        continue  # moldes sem dados.json (ex.: concurso-video, que gera MP4) ficam fora da galeria de imagens
     meta = json.loads(meta_arq.read_text('utf8'))
     meta['id'] = pasta.name
     posts = []
