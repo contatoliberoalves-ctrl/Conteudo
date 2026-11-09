@@ -39,3 +39,7 @@ Pedidos de alteração: no visor, o usuário clica num ponto de um slide e escre
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`
 Sem o proxy, as fontes do Google não carregam e os títulos saem com a fonte errada (e estouram a largura).
+
+## Filmes (cinecode)
+`.claude/skills/cinecode/` é o kit [cinecode](https://github.com/sarpstar/cinecode) (MIT, commit 67f9807): curtas, animações, reclames e clipes feitos em código, terminando num MP4. Fica como veio (sem `docs/` e `tests/`); para atualizar, copie de novo do repositório original. Os filmes vão em `Filmes/` (fora do git): `python3 .claude/skills/cinecode/scripts/init_film.py <nome> --quick --films-folder Filmes`.
+Aqui na nuvem o Chromium precisa de `--no-sandbox`, WebGL por software e o proxy: use `CHROME_PATH=$PWD/ferramentas/chrome-nuvem.sh` nos comandos do kit (`make.py`, `capture.mjs`). Sem placa de vídeo o render é lento (cena 3D de teste: menos de 1 quadro por segundo em 640×360), então rascunhos pequenos e curtos.
