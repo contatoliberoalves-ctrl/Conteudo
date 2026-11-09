@@ -1,0 +1,23 @@
+{
+ "descricao": "Aula longa no YouTube (16:9): cortes mais soltos, sem punch-in alternado, legenda em frase embaixo",
+ "corte": {
+  "silencio_max": 0.6,
+  "respiro_antes": 0.1,
+  "respiro_depois": 0.18
+ },
+ "zoom": {
+  "alternar": false
+ },
+ "legenda": {
+  "ativa": true,
+  "animacao": "frase",
+  "caixa_alta": false,
+  "tamanho": 46,
+  "posicao_y": 0.92,
+  "palavras_por_bloco": 8,
+  "max_caracteres": 48,
+  "fonte": "Poppins Bold",
+  "contorno": 4
+ },
+ "notas": []
+}

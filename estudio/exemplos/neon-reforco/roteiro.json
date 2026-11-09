@@ -1,0 +1,13 @@
+{
+ "formato": "reels", "voz": "perfil", "velocidade": "+8%",
+ "cores": {"a": "#2FE6A0", "b": "#7C5CFF", "c": "#C8FFE9"},
+ "cenas": [
+  {"tipo": "titulo", "titulo": "Inscrições|abertas", "sub": "Reforço de Constitucional · 1ª fase da OAB", "fala": "Inscrições abertas para o reforço de Constitucional da primeira fase."},
+  {"tipo": "cartao", "icone": "📘", "titulo": "Do zero", "sub": "para quem não sabe nada de Constitucional", "fala": "Para quem está começando do zero."},
+  {"tipo": "cartao", "icone": "🎯", "titulo": "Ou para afiar", "sub": "para quem já sabe, mas quer melhorar", "fala": "Ou para quem já sabe, mas quer afiar."},
+  {"tipo": "numero", "numero": 6, "sufixo": "/6", "titulo": "o objetivo: gabaritar", "gatilho": "seis", "fala": "O objetivo é um só: gabaritar as seis questões."},
+  {"tipo": "pilulas", "titulo": "Você leva", "itens": [{"texto": "Aulas direto ao ponto", "gatilho": "aulas"}, {"texto": "Questões da FGV comentadas", "gatilho": "questões"}, {"texto": "Revisão de véspera", "gatilho": "revisão"}],
+   "fala": "Aulas direto ao ponto, questões da FGV comentadas e revisão de véspera."},
+  {"tipo": "cta", "titulo": "Valor|promocional", "botao": "Inscreva-se", "sub": "link na bio · @constitucionalgabaritado", "fala": "Valor promocional por tempo limitado. Inscreva-se pelo link."}
+ ]
+}

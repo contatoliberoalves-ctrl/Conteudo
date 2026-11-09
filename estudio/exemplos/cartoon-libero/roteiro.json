@@ -1,0 +1,20 @@
+{
+ "estilo": "constitucionalgabaritado",
+ "formato": "reels",
+ "velocidade": "+8%",
+ "vozes": {"libero": "perfil", "ana": "pt-BR-FranciscaNeural"},
+ "cenas": [
+  {"cenario": "sala", "quadro": "1ª FASE OAB", "camera": "zoom-in", "titulo": "Reforço de Constitucional",
+   "personagens": [{"id": "libero", "x": 0.5, "pose": "acena"}],
+   "falas": [{"quem": "libero", "texto": "Fala, pessoal! Bora gabaritar as seis questões de Constitucional da primeira fase?", "pose": "acena", "expressao": "feliz"}]},
+  {"cenario": "estudo", "camera": "parada",
+   "personagens": [{"id": "ana", "x": 0.27, "pose": "pensando", "expressao": "triste"}, {"id": "libero", "x": 0.73, "virado": true, "entra": 0.1}],
+   "falas": [{"quem": "ana", "texto": "Mas eu não sei nada de Constitucional...", "expressao": "triste", "pose": "pensando", "balao": "Não sei nada..."},
+             {"quem": "libero", "texto": "Então o reforço é pra você. A gente começa do zero e vai até a questão mais difícil.", "pose": "explica", "expressao": "confiante"}],
+   "objetos": [{"tipo": "documento", "texto": "PLANO", "rotulo": "do zero à prova", "x": 0.5, "y": 0.26, "escala": 0.85, "gatilho": "zero", "fala": 1}]},
+  {"cenario": "palco", "camera": "zoom-out",
+   "personagens": [{"id": "ana", "x": 0.27, "pose": "comemora", "expressao": "feliz"}, {"id": "libero", "x": 0.73, "virado": true, "pose": "joinha"}],
+   "falas": [{"quem": "libero", "texto": "Inscrições abertas, com valor promocional. Clica no link e faz a sua inscrição!", "pose": "joinha", "expressao": "feliz"}],
+   "objetos": [{"tipo": "placa", "texto": "INSCRIÇÕES ABERTAS", "x": 0.5, "y": 0.24, "gatilho": "inscrições"}]}
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "estilo": "constitucionalgabaritado",
+ "formato": "reels",
+ "voz": "perfil",
+ "velocidade": "+10%",
+ "estacoes": [
+  {"tipo": "abertura", "titulo": "PEC", "rotulo": "o caminho de uma emenda à Constituição",
+   "fala": "Como se muda a Constituição? Segue o caminho da PEC."},
+  {"tipo": "chips", "titulo": "Quem propõe",
+   "fala": "Podem propor: um terço da Câmara, um terço do Senado, o Presidente, ou mais da metade das Assembleias Legislativas.",
+   "chips": [{"texto": "1/3 da Câmara", "gatilho": "Câmara"}, {"texto": "1/3 do Senado", "gatilho": "Senado"},
+             {"texto": "Presidente da República", "gatilho": "Presidente"}, {"texto": "+ da metade das Assembleias", "gatilho": "metade"}]},
+  {"tipo": "contador", "titulo": "Câmara", "numero": 308, "de": 513, "rotulo": "três quintos, em dois turnos", "gatilho": "trezentos",
+   "fala": "Na Câmara, são dois turnos, e em cada um precisa de três quintos: trezentos e oito de quinhentos e treze deputados."},
+  {"tipo": "contador", "titulo": "Senado", "numero": 49, "de": 81, "rotulo": "três quintos, em dois turnos", "gatilho": "quarenta",
+   "fala": "No Senado, de novo dois turnos: quarenta e nove de oitenta e um senadores."},
+  {"tipo": "carimbo", "titulo": "E o Presidente?", "riscado": "VETO", "carimbo": "NÃO TEM", "gatilho": "veto",
+   "fala": "E o Presidente? Não sanciona nem tem veto."},
+  {"tipo": "check", "titulo": "Promulgação", "rotulo": "pelas Mesas da Câmara e do Senado", "gatilho": "Mesas",
+   "fala": "Quem promulga são as Mesas da Câmara e do Senado. Pronto: virou emenda."},
+  {"tipo": "final", "frase": ["Duas Casas.", "Dois turnos.", "Três quintos."], "arroba": "@constitucionalgabaritado",
+   "fala": "Duas Casas, dois turnos, três quintos. Salva esse caminho!"}
+ ]
+}

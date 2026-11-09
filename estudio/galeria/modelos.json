@@ -1,0 +1,418 @@
+[
+ {
+  "id": "reels-viral",
+  "nome": "Reels viral (roteiro + edição)",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "cor do perfil",
+  "perfis": "Todos os perfis (cor de destaque de cada um)",
+  "descricao": "Do zero ao reel pronto. Primeiro o roteiro: 5 ganchos, 3 rascunhos e um corretor que dá nota (gancho claro com número, re-gancho a cada 8 s, nada de frase com cara de IA, um CTA só), reescrito até 90+. Você grava e eu edito: tiro tomadas repetidas, recados e silêncios, você fica na metade de baixo e em cima entram cards animados no instante em que você fala (número que conta, gráfico que se desenha, checklist, carimbo, chat, CTA), na cor do perfil, com legenda de uma palavra.",
+  "passos": [
+   "roteiro-viral: 5 ganchos, 3 rascunhos, nota 90+ no corretor",
+   "você grava (teleprompter)",
+   "transcrever (Whisper)",
+   "cortar tomadas, recados e silêncios",
+   "batidas.json: um card por frase, gatilho = palavra dita",
+   "render dos cards na cor do perfil",
+   "legenda de uma palavra + composição + conferência"
+  ],
+  "pedido": "Escreve um reels viral sobre o prazo do mandado de segurança pro @constitucionalgabaritado. Quando eu mandar o vídeo gravado, edita com os cards em cima e 'Comenta MS' no fim.",
+  "video": "reels-viral.mp4",
+  "amostra": "seu vídeo IMG_0223 com 5 cards no verde do @constitucionalgabaritado e legenda de uma palavra"
+ },
+ {
+  "id": "documentario-vox",
+  "nome": "Documentário estilo Vox",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "História, bastidores do Direito, casos reais",
+  "descricao": "Uma história curta com início que prende, virada e final que paga, contada como documentário: papel com fibra, fotos reais em preto e branco recortadas em colagem (papel rasgado, moldura, sombra), palavras grandes em serifada itálica no instante em que a voz as diz, círculo, seta e sublinhado desenhados à mão e movimento em passos de stop motion. Fotos de licença livre (Commons, Agência Brasil) com crédito.",
+  "passos": [
+   "história + fatos conferidos (45–60 palavras)",
+   "roteiro.json: uma ideia visual por frase",
+   "documentario roteiro.json --rascunho",
+   "notas (1–2 por vez) → documentario roteiro.json"
+  ],
+  "pedido": "Faz um documentário estilo Vox sobre o Ulysses Guimarães e a Constituição de 1988, com menos de 40 segundos.",
+  "video": "documentario-vox.mp4",
+  "amostra": "exemplo feito do zero, narrado com a voz clonada do Líbero; fotos de licença livre (Agência Brasil CC BY 3.0 BR, Senado Federal CC BY 2.0, capa da CF em domínio público)"
+ },
+ {
+  "id": "mapa-blocos",
+  "nome": "Mapa em blocos",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "História, linha do tempo, Constituições",
+  "descricao": "O Brasil em blocos 3D, com os 27 estados, contando uma história capítulo por capítulo: o mapa repinta a partir de uma cidade, a torre da capital sobe (e muda do Rio para Brasília), aparece fumaça nos golpes, e na tela ficam o placar da data em fonte pixel, a legenda, a caixa de texto que digita no tempo da narração e a barra de capítulos.",
+  "passos": [
+   "roteiro.json (capítulos: data, cor, cidade de origem, capital, rótulos, fala)",
+   "blocos roteiro.json --rascunho",
+   "blocos roteiro.json"
+  ],
+  "pedido": "Faz um mapa em blocos contando as 7 Constituições do Brasil em menos de 1 minuto.",
+  "video": "mapa-blocos.mp4",
+  "amostra": "feito do zero; contornos dos estados de dados públicos (geojson)"
+ },
+ {
+  "id": "caminho-luz",
+  "nome": "Caminho de luz",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Ritos e processos em etapas (PEC, lei, ADI, impeachment)",
+  "descricao": "Um fio de luz contínuo liga as estações de um processo; a câmera voa de uma à outra sem cortes. Cada estação é um botão gordinho com borda, que acende quando o fio chega. O conteúdo entra no tempo da fala: chips de quem propõe, contador com dígitos (308 de 513), check, carimbo sobre o veto riscado. Abre com o Lex batendo na tela e fecha abrindo para o caminho inteiro.",
+  "passos": [
+   "roteiro.json (estações: abertura, chips, contador, check, carimbo, final)",
+   "caminho roteiro.json --rascunho",
+   "caminho roteiro.json"
+  ],
+  "pedido": "Faz um caminho de luz explicando o rito da PEC, do quem propõe até a promulgação.",
+  "video": "caminho-luz.mp4",
+  "amostra": "feito do zero; estilo inspirado no anúncio 'The Path', sem marca nem personagem de terceiros"
+ },
+ {
+  "id": "neon-vidro",
+  "nome": "Neon e vidro",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "livre",
+  "perfis": "Anúncios e lançamentos de curso",
+  "descricao": "Promo escura no estilo anúncio Apple com synthwave: grade em perspectiva correndo, sol em degradê, cartões de vidro fosco com borda de luz, títulos com brilho que varre, números que contam e botão final pulsando.",
+  "passos": [
+   "roteiro.json (cenas: titulo, cartao, numero, pilulas, cta)",
+   "neon roteiro.json --rascunho",
+   "neon roteiro.json"
+  ],
+  "pedido": "Faz uma promo de 30 s em neon e vidro do reforço de Constitucional, fechando com 'Inscreva-se'.",
+  "video": "neon-vidro.mp4",
+  "amostra": "feito do zero"
+ },
+ {
+  "id": "aura",
+  "nome": "Aura",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "livre",
+  "perfis": "Vídeos de impacto, chamadas, hype",
+  "descricao": "Edit cinematográfico curto no ritmo da batida, com o Líbero em desenho: luz de recorte, aura que pulsa no grave, raios de luz, fumaça, faíscas subindo, tarja de cinema, closes e contra-plongée, flash nos cortes e letreiros que batem na tela com aberração cromática. Trilha (grave, subida e impactos) feita em código.",
+  "passos": [
+   "roteiro.json (tomadas em batidas, letreiros, cores)",
+   "aura roteiro.json --rascunho",
+   "aura roteiro.json"
+  ],
+  "pedido": "Faz um edit 'aura' de 15 s comigo em desenho: 'quem gabarita constitucional', 6/6 e link na bio.",
+  "video": "aura.mp4",
+  "amostra": "feito do zero, sem narração"
+ },
+ {
+  "id": "cartoon-poderes",
+  "nome": "Cartoon: os 3 Poderes",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Explicar um tema com personagens",
+  "descricao": "Episódio de cartoon com cada personagem sendo um Poder: o Beto é o Legislativo (faz as leis), a Ana o Executivo, o Martelo o Judiciário com a balança, e o Líbero apresenta e fecha com 'freios e contrapesos' e o carimbo de cláusula pétrea.",
+  "passos": [
+   "roteiro.json",
+   "cartoon roteiro.json --rascunho",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 40 s explicando os 3 Poderes, cada personagem sendo um Poder.",
+  "video": "cartoon-poderes.mp4",
+  "amostra": "feito do zero; vozes pt-BR grátis"
+ },
+ {
+  "id": "reels-insercoes",
+  "nome": "Reels com inserções",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16",
+   "4:5",
+   "16:9"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Quando o vídeo pede mais que legenda",
+  "descricao": "O seu vídeo com coisas entrando na hora em que você fala delas: você recortado na frente de um cenário desenhado, personagens que surgem reagindo com balão, tela dividida com checklist em cima, carimbo, ícones, cards, imagens e vídeos de apoio (b-roll) em quadro com zoom lento. Cada inserção tem um gatilho: a palavra dita.",
+  "passos": [
+   "transcrever",
+   "cortar",
+   "insercoes + layout no edl.json (gatilho = palavra)",
+   "render --formato reels"
+  ],
+  "pedido": "Edita esse anúncio com inserções: me põe na frente de uma sala de aula no começo, a Ana aparece quando eu falo 'quem não sabe nada', tela dividida com checklist, carimbo 6/6 no 'gabaritar' e o Lex apontando no 'clique aqui'.",
+  "video": "reels-insercoes.mp4",
+  "amostra": "seu vídeo IMG_0223 com 8 inserções e 2 layouts"
+ },
+ {
+  "id": "cartoon-libero",
+  "nome": "Cartoon com o Líbero",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Anúncios e explicações com você em desenho",
+  "descricao": "O Líbero em desenho como protagonista: cabelo raspado, sobrancelhas grossas, óculos redondos de tartaruga, terno marinho e gravata azul de bolinhas. Faz as mesmas poses e expressões do elenco, contracena com a Ana, o Lex, o Martelo e o Beto, e fala com a boca sincronizada.",
+  "passos": [
+   "roteiro.json com \"libero\" nas cenas",
+   "cartoon roteiro.json --rascunho",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 25 s comigo convidando para o reforço de Constitucional: eu apresento, a Ana diz que não sabe nada, eu explico e fecho com 'inscrições abertas'.",
+  "video": "cartoon-libero.mp4",
+  "amostra": "voz neutra grátis (pt-BR-AntonioNeural); dá para trocar pela sua voz clonada"
+ },
+ {
+  "id": "cartoon-narrado",
+  "nome": "Cartoon narrado",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Explicar um tema com personagens",
+  "descricao": "Desenho animado feito do zero: personagens originais (Lex, a Constituição; Martelo; Ana, a concurseira; Beto, o professor) conversando em cenários desenhados (sala de aula, tribunal, mesa de estudo, palco). Cada um tem a sua voz, a boca abre com o áudio, piscam, respiram, fazem poses (acena, aponta, joinha, pensando, comemora) e quem escuta olha para quem fala. Calendário, carimbo, documento e balança entram na palavra certa; balões, câmera que anda, efeitos e legenda.",
+  "passos": [
+   "roteiro.json (cenas, falas, poses)",
+   "cartoon roteiro.json --rascunho",
+   "verificar",
+   "cartoon roteiro.json"
+  ],
+  "pedido": "Faz um cartoon de 40 s em que a Ana confunde mandado de segurança com habeas corpus e o Lex, a Constituição, explica. Termina com 'comenta MS'.",
+  "video": "cartoon-narrado.mp4",
+  "amostra": "feito do zero; vozes pt-BR grátis (Francisca e Antonio)"
+ },
+ {
+  "id": "reels-destaque",
+  "nome": "Reels com legenda destaque",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16",
+   "4:5",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "@constitucionalgabaritado · @liberofilho · Ética · Concurso com Líbero",
+  "descricao": "O formato do dia a dia: corta pausas, hesitações e regravações, reenquadra o 16:9 em 9:16 seguindo o rosto, dá punch-in alternado nos cortes e queima a legenda de 2 a 3 palavras com a palavra falada na cor do perfil. A legenda desvia do rosto sozinha.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo <perfil>",
+   "revisar regravações",
+   "render --formato reels"
+  ],
+  "pedido": "Edita esse vídeo pro Reels do @constitucionalgabaritado: tira as pausas, os erros e as regravações, abre com a frase mais forte e põe legenda destaque.",
+  "video": "reels-destaque.mp4",
+  "amostra": "seu vídeo IMG_0223 (vertical 4K), com o tropeço cortado e punch-in na frase das 6 questões"
+ },
+ {
+  "id": "reels-motion",
+  "nome": "Reels com motion",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Anúncios e lançamentos de curso",
+  "descricao": "Seu vídeo cortado e legendado, com motion design feito do zero por cima: cartela animada de abertura com antecipação e follow-through nas letras, e botão de inscrição que entra achatando e salta quando você diz 'clique aqui'. As animações são Remotion + GSAP com fundo transparente, ajustadas pelos 6 controles.",
+  "passos": [
+   "transcrever",
+   "cortar",
+   "motion render cartela.json (transparente)",
+   "sobreposicoes no EDL",
+   "render --formato reels"
+  ],
+  "pedido": "Edita esse anúncio do reforço: corta o tropeço, legenda destaque e põe uma cartela animada 'Inscrições abertas' no começo e um botão 'Inscreva-se' quando eu falo 'clique aqui'.",
+  "video": "reels-motion.mp4"
+ },
+ {
+  "id": "motion-6-controles",
+  "nome": "Motion com 6 controles",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1",
+   "transparente"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Vinhetas, títulos, chamadas e cartelas",
+  "descricao": "Motion tipográfico feito do zero em Remotion + GSAP (no relógio de quadros do Remotion), com som sintetizado em código no quadro de cada evento. Tudo vem de um controles.json com 6 controles: espaçamento, tipografia, desfoque de movimento (obturador), easing, follow-through e antecipação. Cenas: título, sequência de palavras, número e CTA.",
+  "passos": [
+   "motion novo",
+   "motion render --rascunho",
+   "motion esfregar",
+   "motion ajustar",
+   "repetir"
+  ],
+  "pedido": "Faz uma vinheta de 15 s pro reforço de Constitucional. Depois: adicione 4 frames de antecipação, atrase a cauda em 3 frames e mantenha o título por 1 segundo.",
+  "video": "motion-6-controles.mp4",
+  "amostra": "feita do zero; a versão mostrada já tem os 3 ajustes (+4 de antecipação, cauda +3, título 1 s)"
+ },
+ {
+  "id": "reels-liberofilho",
+  "nome": "Reels do insta pessoal",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "liberofilho",
+  "perfis": "@liberofilho",
+  "descricao": "O mesmo corte do Reels destaque na identidade do perfil pessoal: Big Shoulders em caixa alta, destaque amarelo e contorno navy.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo liberofilho",
+   "render --formato reels"
+  ],
+  "pedido": "Edita pro meu insta pessoal (@liberofilho): corte seco, legenda destaque e um gancho escrito nos primeiros 3 segundos.",
+  "video": "reels-liberofilho.mp4",
+  "amostra": "seu vídeo IMG_0223 (vertical 4K), com o tropeço cortado e punch-in na frase das 6 questões"
+ },
+ {
+  "id": "palavra-atras",
+  "nome": "Palavra gigante atrás da cabeça",
+  "grupo": "Talking head",
+  "formatos": [
+   "16:9 1440p",
+   "9:16 em faixa"
+  ],
+  "estilo": "palavra-atras",
+  "perfis": "YouTube e cortes premium",
+  "descricao": "Uma palavra por vez, em Archivo Expanded Black gigante, com a base no topo da cabeça e você na frente (recorte de pessoa quadro a quadro). A letra é o próprio fundo invertido e desfocado, puxado para bronze. Grade azul-petróleo protegendo a pele, zoom alternado no máximo a cada 5 s, nada além da palavra na tela.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo palavra-atras",
+   "montar gancho de 15–20 s",
+   "render --formato youtube-1440",
+   "render --formato faixa --titulo \"…\"",
+   "texto (capítulos, títulos, post)"
+  ],
+  "pedido": "Edita no modelo palavra atrás da cabeça: gancho de 15 a 20 s com as minhas frases mais fortes, master 1440p pro YouTube, versão em faixa 9:16 com o gancho escrito em cima, .srt, 5 a 7 títulos, descrição com capítulos e um post pro X.",
+  "video": "palavra-atras.mp4",
+  "amostra": "seu vídeo em close: sem espaço acima da cabeça a palavra sobe até a borda; rende mais com o enquadramento 16:9 com folga em cima"
+ },
+ {
+  "id": "faixa-titulo",
+  "nome": "Faixa 9:16 com título fixo",
+  "grupo": "Corte de vídeo longo",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "palavra-atras",
+  "perfis": "Cortes de aula, live e podcast",
+  "descricao": "O vídeo 16:9 inteiro numa faixa no meio da tela vertical, preto em cima e embaixo, com o gancho escrito fixo em cima (creme, mesma fonte). Funciona com qualquer estilo de legenda, inclusive a palavra atrás da cabeça.",
+  "passos": [
+   "cortar trecho",
+   "render --formato faixa --titulo \"…\""
+  ],
+  "pedido": "Faz um corte de 60 s dessa aula no formato faixa, com o título 'O remédio que mais cai na OAB' em cima.",
+  "video": "faixa-titulo.mp4",
+  "amostra": "seu vídeo vertical recortado em 16:9 (o modelo foi pensado para vídeo horizontal)"
+ },
+ {
+  "id": "palavra-pop",
+  "nome": "Uma palavra por vez",
+  "grupo": "Talking head",
+  "formatos": [
+   "9:16"
+  ],
+  "estilo": "palavra-pop",
+  "perfis": "Ritmo rápido, vendas, anúncio",
+  "descricao": "Palavra única, gigante e amarela, entrando com pop no instante da fala; punch-in mais forte e cor viva. É o visual de vídeo de alta retenção.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo palavra-pop",
+   "render --formato reels"
+  ],
+  "pedido": "Edita no estilo uma palavra por vez, bem rápido, pra anúncio do curso.",
+  "video": "palavra-pop.mp4",
+  "amostra": "seu vídeo IMG_0223 (vertical 4K), com o tropeço cortado e punch-in na frase das 6 questões"
+ },
+ {
+  "id": "legenda-caixa",
+  "nome": "Legenda em caixa",
+  "grupo": "Talking head",
+  "formatos": [
+   "4:5",
+   "9:16"
+  ],
+  "estilo": "eduarda",
+  "perfis": "Eduarda Caraciolo",
+  "descricao": "Legenda em minúsculas numa caixa branca, com a palavra falada em rosa (Inter Tight). Mais calma e editorial, punch-in suave.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo eduarda",
+   "render --formato feed"
+  ],
+  "pedido": "Edita esse vídeo da Eduarda pro feed (4:5) com legenda em caixa.",
+  "video": "legenda-caixa.mp4",
+  "amostra": "seu vídeo IMG_0223 (vertical 4K), com o tropeço cortado e punch-in na frase das 6 questões"
+ },
+ {
+  "id": "explicativo-animado",
+  "nome": "Explicativo animado narrado",
+  "grupo": "Motion design",
+  "formatos": [
+   "9:16",
+   "16:9",
+   "1:1"
+  ],
+  "estilo": "constitucionalgabaritado",
+  "perfis": "Todos (cores e fontes do perfil)",
+  "descricao": "Sem gravar nada: um roteiro vira narração (voz grátis, ElevenLabs ou a sua voz clonada) e cenas animadas no HyperFrames, cada elemento entrando no instante em que a voz fala dele. Cenas: título, lista, número que conta, artigo de lei com grifo, comparação, frase, print de tela com marcação e CTA.",
+  "passos": [
+   "escrever roteiro.json",
+   "explicativo roteiro.json",
+   "ajustar no HyperFrames Studio (opcional)"
+  ],
+  "pedido": "Faz um vídeo explicativo animado de 40 s sobre mandado de segurança pro @constitucionalgabaritado: começa pela dor, mostra o artigo, os requisitos, o prazo e fecha com 'Comenta MS'. Narra com a minha voz.",
+  "video": "explicativo-animado.mp4",
+  "amostra": "feito do zero por código, narração pt-BR-AntonioNeural"
+ },
+ {
+  "id": "aula-youtube",
+  "nome": "Aula no YouTube",
+  "grupo": "Corte de vídeo longo",
+  "formatos": [
+   "16:9"
+  ],
+  "estilo": "aula-youtube",
+  "perfis": "Aulas e lives",
+  "descricao": "Cortes mais soltos (pausas longas encurtadas, não removidas), sem punch-in alternado, legenda em frase discreta embaixo e .srt para subir no YouTube. Capítulos saem do texto do vídeo final.",
+  "passos": [
+   "transcrever",
+   "cortar --estilo aula-youtube",
+   "render --formato youtube",
+   "texto (capítulos)"
+  ],
+  "pedido": "Limpa essa aula de 40 minutos pro YouTube: tira erros e silêncios sem picotar, e me dá os capítulos e a descrição.",
+  "video": "aula-youtube.mp4",
+  "amostra": "vídeo vertical num 16:9: entra inteiro no centro com fundo desfocado"
+ }
+]

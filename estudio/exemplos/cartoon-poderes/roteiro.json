@@ -1,0 +1,27 @@
+{
+ "estilo": "constitucionalgabaritado",
+ "formato": "reels",
+ "velocidade": "+10%",
+ "vozes": {"libero": "perfil", "ana": "pt-BR-FranciscaNeural", "beto": "pt-BR-AntonioNeural", "martelo": "pt-BR-AntonioNeural", "lex": "pt-BR-AntonioNeural"},
+ "cenas": [
+  {"cenario": "palco", "camera": "zoom-in", "titulo": "Os 3 Poderes em 40s",
+   "personagens": [{"id": "libero", "x": 0.5, "pose": "acena"}],
+   "falas": [{"quem": "libero", "texto": "Artigo segundo: os Poderes são independentes e harmônicos entre si. Bora conhecer os três?", "pose": "explica", "expressao": "feliz"}]},
+  {"cenario": "sala", "quadro": "LEGISLATIVO", "camera": "pan",
+   "personagens": [{"id": "beto", "x": 0.3, "pose": "explica"}, {"id": "libero", "x": 0.74, "virado": true, "pose": "parado"}],
+   "falas": [{"quem": "beto", "texto": "Eu sou o Legislativo: faço as leis e fiscalizo. Câmara e Senado formam o Congresso.", "pose": "explica", "balao": "Faço as leis!"}],
+   "objetos": [{"tipo": "documento", "texto": "LEI", "rotulo": "Congresso Nacional", "x": 0.5, "y": 0.28, "escala": 0.8, "gatilho": "leis"}]},
+  {"cenario": "estudo", "camera": "zoom-in",
+   "personagens": [{"id": "ana", "x": 0.3, "pose": "joinha"}, {"id": "libero", "x": 0.74, "virado": true}],
+   "falas": [{"quem": "ana", "texto": "E eu represento o Executivo: o Presidente administra e executa as leis.", "pose": "explica", "expressao": "confiante"}],
+   "objetos": [{"tipo": "placa", "texto": "EXECUTA", "x": 0.5, "y": 0.26, "gatilho": "executa"}]},
+  {"cenario": "tribunal", "camera": "zoom-out",
+   "personagens": [{"id": "martelo", "x": 0.5, "entra": 0.1}],
+   "falas": [{"quem": "martelo", "texto": "E eu sou o Judiciário: julgo os conflitos. Lá no topo, o STF guarda a Constituição!", "pose": "aponta", "expressao": "confiante"}],
+   "objetos": [{"tipo": "balanca", "x": 0.5, "y": 0.27, "gatilho": "julgo"}]},
+  {"cenario": "palco", "camera": "zoom-in",
+   "personagens": [{"id": "beto", "x": 0.2, "pose": "comemora"}, {"id": "libero", "x": 0.5, "pose": "joinha"}, {"id": "martelo", "x": 0.8, "pose": "comemora", "virado": true}],
+   "falas": [{"quem": "libero", "texto": "Um freia o outro: são os freios e contrapesos. E isso é cláusula pétrea! Salva pra revisar.", "pose": "joinha", "expressao": "feliz"}],
+   "objetos": [{"tipo": "carimbo", "texto": "CLÁUSULA PÉTREA", "x": 0.5, "y": 0.24, "gatilho": "pétrea"}]}
+ ]
+}

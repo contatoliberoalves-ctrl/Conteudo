@@ -1,0 +1,13 @@
+{
+ "descricao": "Palavra gigante atrás da cabeça (talking head 16:9): uma palavra por vez, letra com o fundo invertido em bronze, grade azul-petróleo",
+ "corte": {"silencio_max": 0.6, "pausa_manter": 0.3},
+ "zoom": {"alternar": true, "fator": 1.12, "intervalo_min": 5},
+ "enquadro": {"rosto_y": 0.42},
+ "cor": "petroleo",
+ "audio": {"passa_alta": 75, "musica_db": -20},
+ "legenda": {"animacao": "atras", "arquivo_fonte": "ArchivoExpanded-Black.ttf", "altura_maiuscula": 0.13,
+             "largura_max": 0.95, "encosta": 0.12, "cobertura_max": 0.5,
+             "tom_escuro": "#4A321C", "tom_claro": "#E7C89A", "mistura_tom": 0.55},
+ "faixa": {"arquivo_fonte": "ArchivoExpanded-Black.ttf", "cor": "#F3E6CC", "tamanho": 60},
+ "notas": ["Nada além da palavra na tela: sem B-roll, emoji, ícone ou motion."]
+}

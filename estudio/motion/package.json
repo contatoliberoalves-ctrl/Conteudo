@@ -1,0 +1,22 @@
+{
+  "name": "estudio-motion",
+  "private": true,
+  "description": "Modelo de motion do estúdio: Remotion + GSAP no relógio de quadros do Remotion, 6 controles num controles.json",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/gsap": "4.0.539",
+    "@remotion/motion-blur": "4.0.539",
+    "gsap": "3.15.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.0",
+    "typescript": "5.8.3"
+  }
+}
