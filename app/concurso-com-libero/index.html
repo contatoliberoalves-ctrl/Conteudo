@@ -2284,7 +2284,7 @@ function topo(){
   if(!P)return`<div class="top-in"><span class="logo-m" style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">${LOGO(36)}${WM(15)}</span>${demo}</div>`;
   return`<div class="top-in">
    <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:'Hoje',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas'}[UI.view]||''}</b></nav>
-   <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}"><span class="sig">${c.sigla}</span><span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
+   <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}">${LOGO(40)}<span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${c.sigla} · ${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>
    ${busca}${demo}
