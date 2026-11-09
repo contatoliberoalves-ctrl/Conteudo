@@ -18,6 +18,8 @@ São duas, para caber no limite de 511 arquivos por versão; `galeria/galerias.j
 - **Principal** ("Galeria de moldes"): https://claude.ai/artifact/JSzYWuCwSijXjH6GcfzvGq, pasta `galeria/dist`.
 - **Galeria do Líbero** (moldes do @liberofilho, PratFlix, Argumenta, PodConst, Método VDE): https://claude.ai/artifact/6KjmpAJr3nJb7v2k2UiSPM, pasta `galeria/dist-libero`.
 
+- **Packs de Concursos** (os packs de 5 PDFs do molde `concurso-pdf`, fixada no menu): https://claude.ai/artifact/36kdVavDjiXJDuJttJqufY, pasta `galeria/dist-packs`. Gere com `python3 galeria/packs/gerar.py` (lê `colecoes.json`, os `dados*.json` e as `saida/` do molde) e publique `dist-packs/index.html` com `root: galeria/dist-packs`, `capabilities: {downloads: true}` e o `files` de `dist-packs/files.json` (2 arquivos por material: a tira `.webp` e o `.pdf`).
+
 Sempre atualize **esses mesmos links** (Artifact com `url`), nunca crie outros. Nos passos abaixo, `dist` é a pasta da galeria do molde (o `atualizar.py` avisa qual galeria e qual `root` usar). Os bancos (`pedidos`, `ajustes`) são separados: leia os das duas galerias.
 
 1. Gere os PNGs dos moldes que mudaram. Nos moldes com foto, rode antes o `recortar_fotos.py` (cria `fotos/fontes/` e `fotos/fontes.json`, usados pelo editor de capa; ficam fora do git).

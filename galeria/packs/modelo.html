@@ -1,0 +1,188 @@
+<title>Packs de Concursos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;800&display=swap">
+<style>
+/* Layout: estante de coleções. Cada concurso é uma faixa com o patch, os dados do edital e a trilha de 5 materiais em capas A4. */
+:root {
+  --bg: #F3F8F6; --chao: #FFFFFF; --tinta: #0B1F1C; --mudo: #5A6E69; --linha: #D6E4DF;
+  --verde: #00A651; --verde2: #008A44; --petroleo: #04312C; --menta: #B9FFF1; --sombra: rgba(4,49,44,.12);
+  --t: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --i: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mo: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #031F1C; --chao: #072C28; --tinta: #EAF7F3; --mudo: #8FB1A9; --linha: #154640;
+  --verde: #1FCB6F; --verde2: #1FCB6F; --petroleo: #0A3A34; --menta: #B9FFF1; --sombra: rgba(0,0,0,.35); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #031F1C; --chao: #072C28; --tinta: #EAF7F3; --mudo: #8FB1A9; --linha: #154640;
+  --verde: #1FCB6F; --verde2: #1FCB6F; --petroleo: #0A3A34; --menta: #B9FFF1; --sombra: rgba(0,0,0,.35); color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--tinta); font: 15px/1.5 var(--i); margin: 0 }
+.envolta { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px }
+header.topo { background: #04312C; color: #fff }
+header.topo .envolta { padding-block: 36px 34px; display: grid; gap: 18px }
+.marca { display: flex; align-items: center; gap: 12px }
+.simb { width: 38px; height: 38px; border-radius: 10px; background: #00A651; display: grid; place-items: center; font: 900 24px/1 var(--t); color: #fff }
+.marca small { display: block; font: 800 10px/1 var(--mo); letter-spacing: .22em; color: #B9FFF1 }
+.marca b { font: 700 20px/1.1 var(--i) }
+h1 { font: 900 clamp(44px, 8vw, 84px)/.9 var(--t); text-transform: uppercase; margin: 0; letter-spacing: .005em; text-wrap: balance }
+h1 span { background: #B9FFF1; color: #04312C; padding: 0 .12em; box-decoration-break: clone; -webkit-box-decoration-break: clone }
+.lead { max-width: 62ch; color: #CFE9E2; margin: 0 }
+.resumo { display: flex; flex-wrap: wrap; gap: 8px }
+.resumo span { font: 800 11px/1 var(--mo); letter-spacing: .14em; color: #B9FFF1; border: 1px solid rgba(185,255,241,.35); border-radius: 8px; padding: 9px 11px; font-variant-numeric: tabular-nums }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding-block: 22px 6px }
+.chip { font: 700 13px/1 var(--i); border: 1.5px solid var(--linha); background: var(--chao); color: var(--tinta); border-radius: 999px; padding: 10px 14px; cursor: pointer }
+.chip[aria-pressed="true"] { background: var(--verde); border-color: var(--verde); color: #fff }
+.busca { margin-left: auto; min-width: 0; flex: 1 1 220px; max-width: 320px; font: 500 14px var(--i); padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--linha); background: var(--chao); color: var(--tinta) }
+:focus-visible { outline: 3px solid var(--verde); outline-offset: 2px }
+h2.grupo { font: 800 11px/1 var(--mo); letter-spacing: .22em; text-transform: uppercase; color: var(--verde2); margin: 34px 0 12px; display: flex; align-items: center; gap: 12px }
+h2.grupo::after { content: ""; flex: 1; height: 1px; background: var(--linha) }
+.pack { background: var(--chao); border: 1.5px solid var(--linha); border-radius: 18px; padding: 20px; display: grid; gap: 18px; margin-bottom: 16px }
+.cab { display: flex; flex-wrap: wrap; gap: 16px; align-items: center }
+.patch { flex: none; width: 58px; padding: 5px 5px 4px; border-radius: 9px; background: #04312C; transform: rotate(-5deg); box-shadow: 0 6px 14px var(--sombra) }
+.patch i { display: block; height: 30px; border-radius: 4px; background: linear-gradient(#1E4FA8 0 58%, #fff 58%) }
+.patch b { display: block; text-align: center; font: 900 12px/1.2 var(--t); color: #B9FFF1; letter-spacing: .08em; margin-top: 2px }
+.nome { min-width: 0; flex: 1 1 260px }
+.nome h3 { font: 900 30px/1 var(--t); text-transform: uppercase; margin: 0 }
+.nome p { margin: 4px 0 0; color: var(--mudo); font-size: 13.5px }
+.fatos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+.fatos span { font: 600 12px/1 var(--i); background: var(--bg); border: 1px solid var(--linha); border-radius: 6px; padding: 6px 8px; font-variant-numeric: tabular-nums }
+.fatos span b { font: 800 9.5px/1 var(--mo); letter-spacing: .14em; color: var(--verde2); margin-right: 5px }
+.btn { font: 700 13px/1 var(--i); border-radius: 10px; padding: 11px 14px; cursor: pointer; border: 1.5px solid var(--verde); background: var(--verde); color: #fff; display: inline-flex; gap: 8px; align-items: center }
+.btn.sec { background: transparent; color: var(--tinta); border-color: var(--linha) }
+.btn:disabled { opacity: .55; cursor: progress }
+.trilha { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px }
+@media (max-width: 860px) { .trilha { grid-template-columns: repeat(3, minmax(0, 1fr)) } }
+@media (max-width: 520px) { .trilha { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+.mat { display: grid; gap: 8px; align-content: start; min-width: 0 }
+.capa { position: relative; display: block; width: 100%; aspect-ratio: 210/297; border-radius: 10px; overflow: hidden; border: 1px solid var(--linha); background: #04312C; cursor: zoom-in; padding: 0 }
+.capa img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .25s }
+.capa:hover img { transform: scale(1.03) }
+.capa em { position: absolute; left: 8px; bottom: 8px; font: 800 10px/1 var(--mo); letter-spacing: .12em; font-style: normal; color: #04312C; background: #B9FFF1; border-radius: 5px; padding: 5px 6px }
+.mat h4 { margin: 0; font: 700 13.5px/1.3 var(--i) }
+.mat small { color: var(--mudo); font-size: 12px; font-variant-numeric: tabular-nums }
+.acoes { display: flex; gap: 6px }
+.acoes .btn { padding: 8px 10px; font-size: 12px }
+.vazio { color: var(--mudo); padding: 40px 0 }
+dialog { border: 0; padding: 0; width: min(860px, 100vw); max-height: 100%; height: 100%; background: transparent; color: var(--tinta) }
+dialog::backdrop { background: rgba(2, 20, 18, .82) }
+.visor { height: 100%; display: grid; grid-template-rows: auto 1fr }
+.visor-topo { display: flex; gap: 10px; align-items: center; padding: max(12px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px)); background: #04312C; color: #fff }
+.visor-topo b { flex: 1; min-width: 0; font: 900 22px/1 var(--t); text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.visor-topo .btn.sec { color: #fff; border-color: rgba(185,255,241,.4) }
+.rolo { overflow-y: auto; background: #0B1F1C; padding: 12px }
+.rolo img { display: block; width: 100%; height: auto; border-radius: 6px }
+.aviso { position: fixed; left: 50%; bottom: max(18px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #04312C; color: #fff; font: 600 13px var(--i); padding: 11px 16px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.3); max-width: calc(100% - 32px) }
+@media (max-width: 600px) { .busca { margin-left: 0; max-width: none } }
+@media (prefers-reduced-motion: reduce) { .capa img { transition: none } }
+</style>
+
+<header class="topo"><div class="envolta">
+  <div class="marca"><span class="simb">L</span><div><small>CONCURSO COM</small><b>Líbero</b></div></div>
+  <h1>Packs de <span>concursos</span></h1>
+  <p class="lead">Cinco materiais por concurso com edital publicado, conferidos no edital oficial: por dentro do edital, o que priorizar, plano de estudo, revisão por assunto e treino de prova.</p>
+  <div class="resumo" id="resumo"></div>
+</div></header>
+
+<main class="envolta">
+  <div class="filtros" id="filtros"></div>
+  <div id="lista"></div>
+</main>
+
+<dialog id="visor"><div class="visor">
+  <div class="visor-topo"><b id="vTitulo"></b><button class="btn" id="vPdf">PDF</button><button class="btn sec" id="vFechar">Fechar</button></div>
+  <div class="rolo"><img id="vImg" alt=""></div>
+</div></dialog>
+<div class="aviso" id="aviso" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const PACKS = /*PACKS*/[];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const dois = n => String(n).padStart(2, '0');
+let grupo = 'Todos', termo = '';
+try { grupo = localStorage.getItem('packs-grupo') || 'Todos'; } catch (e) {}
+
+const grupos = ['Todos', ...new Set(PACKS.map(p => p.grupo))];
+if (!grupos.includes(grupo)) grupo = 'Todos';
+const nMat = PACKS.reduce((a, p) => a + p.materiais.length, 0);
+const nPag = PACKS.reduce((a, p) => a + p.materiais.reduce((b, m) => b + m.paginas, 0), 0);
+$('#resumo').innerHTML = [`${PACKS.length} concursos`, `${nMat} PDFs`, `${nPag} páginas`].map(t => `<span>${t.toUpperCase()}</span>`).join('');
+
+function filtros() {
+  $('#filtros').innerHTML = grupos.map(g => `<button class="chip" aria-pressed="${g === grupo}" data-g="${esc(g)}">${esc(g)}</button>`).join('') +
+    `<input class="busca" id="busca" type="search" placeholder="Buscar concurso, banca ou cargo" aria-label="Buscar" value="${esc(termo)}">`;
+}
+function lista() {
+  const t = termo.trim().toLowerCase();
+  const vis = PACKS.filter(p => (grupo === 'Todos' || p.grupo === grupo) && (!t || [p.nome, p.sigla, p.banca, p.cargo, p.grupo].join(' ').toLowerCase().includes(t)));
+  if (!vis.length) { $('#lista').innerHTML = '<p class="vazio">Nenhum pack com esse filtro.</p>'; return; }
+  const porGrupo = {};
+  vis.forEach(p => (porGrupo[p.grupo] = porGrupo[p.grupo] || []).push(p));
+  $('#lista').innerHTML = Object.entries(porGrupo).map(([g, ps]) => `<h2 class="grupo">${esc(g)}</h2>` + ps.map(p => `
+    <section class="pack">
+      <div class="cab">
+        <div class="patch" aria-hidden="true"><i></i><b>${esc(p.uf || p.sigla)}</b></div>
+        <div class="nome"><h3>${esc(p.nome)}</h3><p>Pack de ${p.materiais.length} materiais${p.cargo ? ' · ' + esc(p.cargo) : ''}</p>
+          <div class="fatos">${[['Banca', p.banca], ['Vagas', p.vagas], ['Prova', p.prova]].filter(x => x[1]).map(([a, b]) => `<span><b>${a.toUpperCase()}</b>${esc(b)}</span>`).join('')}</div></div>
+        <button class="btn" data-zip="${esc(p.id)}">Baixar pack (.zip)</button>
+      </div>
+      <div class="trilha">${p.materiais.map(m => `
+        <div class="mat">
+          <button class="capa" data-ver="${esc(p.id)}|${esc(m.id)}" aria-label="Ver ${esc(m.titulo)}"><img loading="lazy" src="img/${esc(m.id)}.webp" alt=""><em>MISSÃO ${dois(m.n)}</em></button>
+          <h4>${esc(m.titulo)}</h4><small>${m.paginas} páginas · ${(m.kb / 1024).toFixed(1).replace('.', ',')} MB</small>
+          <div class="acoes"><button class="btn sec" data-ver="${esc(p.id)}|${esc(m.id)}">Ver</button><button class="btn sec" data-pdf="${esc(m.id)}">PDF</button></div>
+        </div>`).join('')}</div>
+    </section>`).join('')).join('');
+}
+filtros(); lista();
+
+$('#filtros').addEventListener('click', e => {
+  const b = e.target.closest('[data-g]'); if (!b) return;
+  grupo = b.dataset.g; try { localStorage.setItem('packs-grupo', grupo); } catch (e) {}
+  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.g === grupo)); lista();
+});
+$('#filtros').addEventListener('input', e => { if (e.target.id === 'busca') { termo = e.target.value; lista(); } });
+
+function aviso(t) { const a = $('#aviso'); a.textContent = t; a.hidden = false; clearTimeout(aviso.t); aviso.t = setTimeout(() => a.hidden = true, 3500); }
+let dl = null; const dlPronto = (async () => { try { dl = await window.claude?.use?.('downloads'); } catch (e) {} })();
+async function salvar(nome, dados) {
+  await dlPronto;
+  if (!dl) { aviso('O download não está disponível nesta visualização. Abra a página no claude.ai.'); return; }
+  try { await dl.save({ filename: nome, data: dados }); }
+  catch (e) { if (e?.code !== 'declined') aviso('Não deu para baixar agora. Tente de novo em instantes.'); }
+}
+const achar = id => { for (const p of PACKS) for (const m of p.materiais) if (m.id === id) return [p, m]; return []; };
+const nomeArq = (p, m) => `${p.sigla}_${dois(m.n)}_${m.titulo.replace(/[^\p{L}\p{N}]+/gu, '_')}.pdf`;
+async function baixarPdf(id, botao) {
+  const [p, m] = achar(id); if (!m) return;
+  botao && (botao.disabled = true);
+  try { const r = await fetch(`pdf/${id}.pdf`); if (!r.ok) throw 0; await salvar(nomeArq(p, m), await r.arrayBuffer()); }
+  catch (e) { aviso('Não encontrei este PDF.'); }
+  botao && (botao.disabled = false);
+}
+async function baixarZip(pid, botao) {
+  const p = PACKS.find(x => x.id === pid); if (!p || !window.JSZip) { aviso('Não deu para montar o zip agora.'); return; }
+  botao.disabled = true; const txt = botao.textContent; botao.textContent = 'Montando…';
+  try {
+    const z = new JSZip(), pasta = z.folder(`Pack_${p.sigla}`);
+    for (const m of p.materiais) { const r = await fetch(`pdf/${m.id}.pdf`); pasta.file(nomeArq(p, m), await r.arrayBuffer()); }
+    await salvar(`Pack_${p.sigla}.zip`, await z.generateAsync({ type: 'blob' }));
+  } catch (e) { aviso('Não deu para montar o zip agora.'); }
+  botao.disabled = false; botao.textContent = txt;
+}
+let atual = null;
+function ver(pid, mid) {
+  const [p, m] = achar(mid); if (!m) return; atual = mid;
+  $('#vTitulo').textContent = `${p.nome} · ${m.titulo}`; $('#vImg').src = `img/${mid}.webp`; $('#vImg').alt = `Páginas de ${m.titulo}`;
+  $('.rolo').scrollTop = 0; $('#visor').showModal();
+}
+document.addEventListener('click', e => {
+  const v = e.target.closest('[data-ver]'); if (v) { const [p, m] = v.dataset.ver.split('|'); ver(p, m); return; }
+  const d = e.target.closest('[data-pdf]'); if (d) { baixarPdf(d.dataset.pdf, d); return; }
+  const z = e.target.closest('[data-zip]'); if (z) baixarZip(z.dataset.zip, z);
+});
+$('#vFechar').onclick = () => $('#visor').close();
+$('#vPdf').onclick = e => atual && baixarPdf(atual, e.currentTarget);
+</script>
