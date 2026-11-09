@@ -11,13 +11,13 @@ contador, nível "preciso retomar · consigo explicar · consigo resolver"). O c
 bandeira do estado** (desenho estilizado da bandeira de PE, sem brasão) e no **fio de três cores** do arco-íris da bandeira.
 Visual em `template.mjs`.
 
-Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`).
+Gerar: `node render.mjs [id | prefixo-]` (ex.: `pmpe-` gera os 5 da coleção) (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`).
 Saída: `saida/<id>/<id>.pdf`, `1.png … N.png` (1080 px) e `painel.png`. O conteúdo de cada página cresce ou encolhe
 para ocupar a altura útil; o render avisa se encostar no rodapé.
 
 ## Dados
 - `colecoes.json`: `{ <id>: { nome, sigla, uf, materiais: [5 nomes curtos] } }` (a trilha da capa e das páginas).
-- `dados.json`: um PDF por item: `{ id, titulo, colecao, n (posição na trilha), capa: {titulo[], sub, ts}, paginas: [...] }`.
+- `dados.json` e `dados-<coleção>.json` (um arquivo por coleção, todos lidos pelo render): um PDF por item: `{ id, titulo, colecao, n (posição na trilha), capa: {titulo[], sub, ts}, paginas: [...] }`.
 - Texto: `**negrito**`, `[[caixa]]` e `{{campo}}` (dado a preencher com o edital conferido, aparece tracejado).
 
 Tipos de página (`tipo`): `trilha` {kicker, titulo[], texto, descricoes[5], checkpoint}; `regra` {titulo, texto,
@@ -25,7 +25,6 @@ regras[{regra, item, significa, exemplo, faca}], errosTitulo, erros[]}; `checkli
 `incidencia` {provas{colunas, linhas}, disciplinas[{nome, total, temas[{t, v (largura 0–100), p}]}], nota}; `semana`
 {fase, dias[[dia, disciplina, tema, tarefa, min]], atraso}; `tema` {n, disciplina, titulo, objetivo, explicacao, regra,
 condicao, excecao, exemplo, perguntas[3]}; `questoes` {questoes[{n, disciplina, nivel, enunciado, alternativas[5]}],
-folha}; `redacao` {linhas, alturaLinha, nota}; `resultados` {disciplinas[], aviso}.
+folha}; `redacao` {linhas, alturaLinha, nota}; `resultados` {disciplinas[], aviso}; `ficha` {dados[[rótulo, valor]] (o 1º em destaque), colunas, datas[[data, evento]], etapas[{nome, carater, detalhe}], fonte}; `gabarito` {itens[{n, letra, comentario}]}. Em `questoes`, itens de certo ou errado têm `alternativas: ["Certo", "Errado"]` e a página leva `formato: "ce"`.
 
-Os itens `ppe-*` atuais são **modelos de página** (textos genéricos e campos `{{…}}`): quando o conteúdo de cada material
-ficar pronto, troque os textos e gere de novo. Não invente dados do edital: sem conferir, use `{{campo}}`.
+Coleções com edital publicado (conteúdo conferido no edital): `ppe` (Polícia Penal PE), `pmpe` (PMPE), `cbmpe` (Bombeiros PE) e `pcpe` (Polícia Civil PE). Não invente dados do edital: sem conferir, use `{{campo}}`.

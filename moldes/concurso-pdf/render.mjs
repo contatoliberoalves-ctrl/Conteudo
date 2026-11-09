@@ -10,7 +10,9 @@ let chromium; try { ({ chromium } = req('playwright')); } catch { ({ chromium } 
 
 const root = path.dirname(new URL(import.meta.url).pathname);
 const colecoes = JSON.parse(fs.readFileSync(path.join(root, 'colecoes.json'), 'utf8'));
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'dados.json'), 'utf8')).filter(c => !process.argv[2] || c.id === process.argv[2]);
+// dados.json + dados-<coleção>.json (um arquivo por coleção); argumento: id do material ou prefixo (ex.: pmpe-).
+const arquivos = fs.readdirSync(root).filter(f => /^dados(-[\w-]+)?\.json$/.test(f)).sort();
+const dados = arquivos.flatMap(f => JSON.parse(fs.readFileSync(path.join(root, f), 'utf8'))).filter(c => !process.argv[2] || c.id === process.argv[2] || (process.argv[2].endsWith('-') && c.id.startsWith(process.argv[2])));
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
