@@ -1,13 +1,17 @@
 {
   "pauta": 15,
   "serie": "Na urna",
-  "titulo": "O Brasil ganhou de 298 a 65. E ficou sem votar.",
+  "titulo": "113 deputados faltaram e o Brasil ficou sem votar pra presidente",
   "cenas": [
     {
       "tipo": "gancho",
-      "texto": "O Brasil ganhou\nde 298 a 65.\nE ficou **sem votar.**",
-      "fala": "O Brasil ganhou uma votação de duzentos e noventa e oito a sessenta e cinco. E ficou mais cinco anos sem votar pra presidente.",
-      "selo": "1984"
+      "texto": "113 deputados\nfaltaram. E o Brasil\nficou **sem votar.**",
+      "fala": "Cento e treze deputados faltaram à votação mais importante do país. E o Brasil ficou mais cinco anos sem votar pra presidente.",
+      "imagem": {
+        "arquivo": "imagens/diretas-ja-1984.jpg",
+        "credito": "Diretas Já, 1984 · Arquivo/Agência Brasil (CC BY 3.0)",
+        "foco": "50% 40%"
+      }
     },
     {
       "tipo": "frase",
@@ -31,8 +35,8 @@
     {
       "tipo": "frase",
       "texto": "Faltaram **22.**",
-      "nota": "Muitos deputados simplesmente não foram à sessão.",
-      "fala": "Faltaram vinte e dois. Muitos deputados simplesmente não foram à sessão."
+      "nota": "113 deputados simplesmente não apareceram.",
+      "fala": "Faltaram vinte e dois votos. E cento e treze deputados simplesmente não apareceram."
     },
     {
       "tipo": "linha",
@@ -73,7 +77,7 @@
       "fala": "Então me diz: faltar à votação deveria contar como voto contra? Porque em oitenta e quatro, contou."
     }
   ],
-  "legenda": "O Brasil ganhou de 298 a 65 e mesmo assim ficou 5 anos sem votar pra presidente.\n\nEm 1984, mudar a Constituição exigia dois terços da Câmara: 320 votos. Faltaram 22. Tancredo foi eleito pelo colégio eleitoral em 1985 e a eleição direta para presidente só voltou em 1989.\n\nFaltar à votação deveria contar como voto contra?",
+  "legenda": "113 deputados faltaram à votação das Diretas Já. E o Brasil ficou mais 5 anos sem votar pra presidente.\n\nEm 1984, mudar a Constituição exigia dois terços da Câmara: 320 votos. Faltaram 22, e 113 deputados não apareceram. Tancredo foi eleito pelo colégio eleitoral em 1985 e a eleição direta para presidente só voltou em 1989.\n\nFaltar à votação deveria contar como voto contra?",
   "fontes": [
     "Senado · Placar e quórum das Diretas Já",
     "Constituição de 1988, art. 60, § 2º"

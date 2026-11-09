@@ -1,0 +1,86 @@
+{
+  "pauta": 43,
+  "serie": "O que está escrito",
+  "titulo": "A Constituição brasileira permite pena de morte",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A Constituição\nbrasileira permite\n**pena de morte.**",
+      "imagem": {
+        "arquivo": "imagens/manet-execucao.jpg",
+        "credito": "Édouard Manet, A execução do imperador Maximiliano, 1867 · domínio público",
+        "foco": "66% 50%"
+      },
+      "fala": "A Constituição brasileira permite pena de morte. E isso está escrito no artigo mais famoso dela."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XLVII",
+        "texto": "Não haverá penas: a) de morte, **salvo em caso de guerra declarada**, nos termos do art. 84, XIX;"
+      },
+      "b": {
+        "cabecalho": "Código Penal Militar · art. 56",
+        "texto": "A pena de morte é executada por **fuzilamento**."
+      },
+      "ponte": "E como seria",
+      "segundoEm": "Código",
+      "fala": "Artigo quinto, inciso quarenta e sete: não haverá pena de morte, salvo em caso de guerra declarada. E o Código Penal Militar diz como seria: por fuzilamento."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Presidente",
+          "sub": "declara a guerra (art. 84, XIX)",
+          "marcada": true
+        },
+        {
+          "titulo": "Congresso",
+          "sub": "autoriza ou referenda a declaração",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "presidente",
+      "fala": "Só que guerra declarada não é qualquer conflito. Quem declara é o presidente da República, com autorização do Congresso Nacional."
+    },
+    {
+      "tipo": "frase",
+      "data": "Para quais crimes",
+      "texto": "Crimes militares\nem tempo de **guerra.**",
+      "nota": "Como traição e deserção diante do inimigo.",
+      "fala": "E não vale pra qualquer crime. Só crimes militares em tempo de guerra, como traição e deserção diante do inimigo."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Dá pra criar pena\nde morte pra outros\n**crimes?**",
+      "fala": "Agora a pergunta que todo mundo faz: dá pra criar pena de morte pra outros crimes?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Não. É\n**cláusula pétrea.**",
+      "nota": "Direitos e garantias individuais não podem ser abolidos nem por emenda (CF/88, art. 60, § 4º, IV).",
+      "fala": "Pela posição que prevalece, não. Essa garantia é cláusula pétrea: nem uma emenda à Constituição pode tirar."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que isso\nestava na **Constituição?**",
+      "rotulo": "Manda pra quem vai duvidar",
+      "fala": "Você sabia que isso estava na Constituição? Manda pra alguém que vai duvidar."
+    }
+  ],
+  "legenda": "A Constituição brasileira permite pena de morte. Está no art. 5º, XLVII, a.\n\nA exceção é a guerra declarada, que depende do presidente da República com autorização ou referendo do Congresso (art. 84, XIX). Vale só para crimes militares em tempo de guerra, e o Código Penal Militar diz que a execução seria por fuzilamento (art. 56). E criar pena de morte para outros crimes? Pela posição que prevalece, não dá: é cláusula pétrea (art. 60, § 4º, IV).\n\nVocê sabia?",
+  "fontes": [
+    "CF/88, art. 5º, XLVII, a",
+    "CF/88, art. 84, XIX",
+    "Código Penal Militar (Decreto-Lei 1.001/1969), art. 56",
+    "CF/88, art. 60, § 4º, IV"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "penademorte",
+    "constituicao",
+    "oab",
+    "concursos"
+  ]
+}

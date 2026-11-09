@@ -125,6 +125,8 @@ for (const id of ids) {
     await renderStill({ composition: comp, serveUrl: servir, output: path.join(dir, `${n + 1}.png`), frame: quadro, inputProps: props, browserExecutable, chromiumOptions, overwrite: true });
   }
   fs.writeFileSync(path.join(dir, "legenda.txt"), legenda(roteiro));
+  // Capa para subir no Instagram/TikTok: o quadro do gancho já montado (1.png) em JPG
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(dir, "1.png"), "-q:v", "2", path.join(dir, "capa.jpg")]);
   if (rapido) continue;
   let ult = -1;
   await renderMedia({

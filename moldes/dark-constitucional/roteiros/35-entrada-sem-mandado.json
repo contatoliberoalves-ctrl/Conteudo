@@ -1,0 +1,75 @@
+{
+  "pauta": 35,
+  "serie": "Casos que viraram direito",
+  "titulo": "Entrou sem mandado, achou droga. A prova vale?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Entrou sem mandado,\nachou droga.\nA prova **vale?**",
+      "imagem": {
+        "arquivo": "imagens/porta-escura.jpg",
+        "credito": "Foto: Outpost 51/Flickr (CC BY 2.0)",
+        "foco": "50% 45%"
+      },
+      "fala": "A polícia entrou numa casa sem mandado e achou droga lá dentro. Essa prova vale?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XI",
+        "texto": "A casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, **salvo em caso de flagrante delito**…"
+      },
+      "b": {
+        "cabecalho": "STF · RE 603.616 · Tema 280",
+        "texto": "A entrada forçada sem mandado só é lícita com **fundadas razões**, justificadas depois, que indiquem flagrante dentro da casa."
+      },
+      "ponte": "2015 · STF",
+      "segundoEm": "Supremo",
+      "fala": "A Constituição diz que a casa é inviolável, mas abre exceção pro flagrante delito. E guardar droga é flagrante enquanto ela estiver lá. Então qualquer suspeita libera a porta? Em dois mil e quinze, o Supremo respondeu."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "O que a polícia\njá sabia antes de\n**abrir a porta?**",
+      "fala": "A pergunta certa é: o que a polícia já sabia antes de abrir a porta?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Antes",
+          "sub": "razões concretas de flagrante: a entrada vale",
+          "marcada": true
+        },
+        {
+          "titulo": "Depois",
+          "sub": "o que só se achou lá dentro não justifica"
+        }
+      ],
+      "marcaEm": "Se",
+      "fala": "Se havia razões concretas, antes de entrar, indicando o flagrante, a entrada vale. O que só foi encontrado depois não serve pra justificar a entrada."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Sem razão prévia,\nos atos são **nulos.**",
+      "nota": "E o agente pode responder nas esferas disciplinar, civil e penal.",
+      "fala": "Sem essas razões, os atos praticados são nulos. E o agente pode responder nas esferas disciplinar, civil e penal."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você concorda\ncom o **Supremo?**",
+      "fala": "E você, concorda com o Supremo? Comenta."
+    }
+  ],
+  "legenda": "A polícia entrou sem mandado e achou droga. A prova vale?\n\nA Constituição protege a casa (art. 5º, XI), com exceção para o flagrante delito. No RE 603.616 (Tema 280), o STF fixou que a entrada forçada sem mandado só é lícita quando há fundadas razões, justificadas depois, que indiquem flagrante dentro da casa. O que só foi encontrado depois não justifica a entrada. Sem essas razões, os atos são nulos e o agente pode responder disciplinar, civil e penalmente.\n\nVocê concorda?",
+  "fontes": [
+    "CF/88, art. 5º, XI",
+    "STF · RE 603.616, Tema 280"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "direitopenal",
+    "oab",
+    "concursos"
+  ]
+}

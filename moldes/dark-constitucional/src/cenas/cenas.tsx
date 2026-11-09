@@ -2,7 +2,7 @@
 // gancho, frase, placar, cedula, documentos, cartas, pausa, linha, pergunta.
 // Cada tipo exporta o componente e os sons (com os mesmos tempos da animação).
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { theme } from "../theme";
 import type { CenaPronta } from "../tipos";
 import { Carimbo, Entra, Marcado, clamp, useEntrada } from "../comp/base";
@@ -61,8 +61,63 @@ const Respira: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 // ───────────────────────── gancho ─────────────────────────
-// { texto: "298 a 65.\nE **perdeu.**", selo?: "1984" }
+// { texto: "298 a 65.\nE **perdeu.**", selo?: "1984", imagem?: { arquivo: "imagens/x.jpg", credito: "Foto: …", foco?: "50% 30%" } }
+// Com imagem vira a CAPA: foto em tela cheia (sépia, zoom lento), título condensado em caixa alta e a palavra-chave em tarja.
+const TituloCapa: React.FC<{ texto: string; tam: number; atraso?: number; estatico?: boolean }> = ({ texto, tam, atraso = 0, estatico }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  let k = 0;
+  const anima = (i: number) => (estatico ? 1 : spring({ frame: f - atraso - i * 4, fps, config: T.mola.seca }));
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: tam * 0.06, alignItems: "flex-start" }}>
+      {texto.split("\n").map((linha, li) => (
+        <div key={li} style={{ display: "flex", flexWrap: "wrap", columnGap: tam * 0.24, rowGap: tam * 0.06, alignItems: "center" }}>
+          {linha.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).flatMap((trecho, ti) => {
+            if (trecho.startsWith("**")) {
+              const p = anima(k++);
+              return [<span key={ti} style={{ display: "inline-block", background: T.cor.lacre, color: T.cor.papel, padding: `${tam * 0.02}px ${tam * 0.14}px ${tam * 0.04}px`,
+                transform: `scale(${interpolate(p, [0, 1], [1.5, 1])}) rotate(${interpolate(p, [0, 1], [-4, -1.5])}deg)`, opacity: Math.min(1, p * 1.6),
+                boxShadow: "0 12px 40px rgba(0,0,0,0.55)" }}>{trecho.slice(2, -2)}</span>];
+            }
+            return trecho.split(" ").filter(Boolean).map((w, wi) => {
+              const p = anima(k++);
+              return <span key={`${ti}-${wi}`} style={{ display: "inline-block", opacity: p, color: T.cor.texto, textShadow: "0 6px 30px rgba(0,0,0,0.9)",
+                transform: `translateY(${interpolate(p, [0, 1], [tam * 0.4, 0])}px)` }}>{w}</span>;
+            });
+          })}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, estatico }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const im = c.imagem as { arquivo: string; credito?: string; foco?: string };
+  const zoom = estatico ? 1.06 : interpolate(f, [0, c.dur], [1.0, 1.1], { ...clamp, easing: T.ease.inOut });
+  const deriva = estatico ? 0 : interpolate(f, [0, c.dur], [0, -30], clamp);
+  const linhas = String(c.texto).replace(/\*\*/g, "").split("\n");
+  const tam = Math.max(84, Math.min(150, Math.floor(1500 / Math.max(...linhas.map((l) => l.length)))));
+  const luz = estatico ? 1 : spring({ frame: f, fps, config: { damping: 30, stiffness: 40 } });
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ overflow: "hidden" }}>
+        <Img src={staticFile(im.arquivo)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: im.foco ?? "50% 35%",
+          transform: `scale(${zoom}) translateY(${deriva}px)`, filter: `grayscale(1) sepia(0.45) contrast(1.15) brightness(${0.35 + 0.35 * luz})` }} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ background: `linear-gradient(180deg, ${T.cor.fundo}cc 0%, transparent 22%, transparent 34%, ${T.cor.fundo}e6 62%, ${T.cor.fundo} 100%)` }} />
+      <div style={{ position: "absolute", left: T.area.lado, right: T.area.lado, bottom: 1920 - 1250, fontFamily: T.fonte.legenda, fontWeight: 700,
+        fontSize: tam, lineHeight: 0.98, textTransform: "uppercase", letterSpacing: -0.5 }}>
+        <TituloCapa texto={c.texto} tam={tam} estatico={estatico} />
+      </div>
+      {im.credito ? <div style={{ position: "absolute", right: T.area.lado, bottom: 300, fontFamily: T.fonte.mono, fontSize: 20, color: T.cor.apagado, letterSpacing: 1, maxWidth: 700, textAlign: "right" }}>{im.credito}</div> : null}
+    </AbsoluteFill>
+  );
+};
+
 export const Gancho: React.FC<P> = ({ c }) => {
+  if (c.imagem) return <CapaFoto c={c} />;
   const linhas = String(c.texto).split("\n");
   const tam = tamTitulo(linhas);
   return (
@@ -75,7 +130,8 @@ export const Gancho: React.FC<P> = ({ c }) => {
 Gancho.displayName = "Gancho";
 export const sonsGancho = (c: CenaPronta): Som[] => [
   { src: "sfx/grave.wav", em: 0, vol: 0.9 },
-  ...(c.selo ? [{ src: "sfx/carimbo.wav", em: 17, vol: 0.8 }] : []),
+  ...(c.selo && !c.imagem ? [{ src: "sfx/carimbo.wav", em: 17, vol: 0.8 }] : []),
+  ...(c.imagem && /\*\*/.test(String(c.texto)) ? [{ src: "sfx/carimbo.wav", em: 4 * (String(c.texto).replace(/\*\*[^*]+\*\*/g, "X").split(/\s+/).length - 1), vol: 0.7 }] : []),
 ];
 
 // ───────────────────────── frase ─────────────────────────
@@ -359,6 +415,10 @@ export const Pergunta: React.FC<P & { gancho?: CenaPronta }> = ({ c, gancho }) =
   const tam = tamTitulo(linhas, 100, 60);
   const loopEm = c.dur - Math.round(fps * 0.9);
   const usaLoop = c.loop !== false && gancho && f >= loopEm;
+  if (usaLoop && gancho!.imagem) {
+    const o = interpolate(f, [loopEm, loopEm + 6], [0, 1], clamp);
+    return <AbsoluteFill style={{ opacity: o }}><CapaFoto c={gancho!} estatico /></AbsoluteFill>;
+  }
   if (usaLoop) {
     // Último instante: o gancho já montado, para o fim encaixar no começo
     const gl = String(gancho!.texto).split("\n");

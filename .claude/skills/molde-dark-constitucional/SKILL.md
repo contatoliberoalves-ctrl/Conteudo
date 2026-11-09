@@ -41,7 +41,7 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 
 | tipo | campos | uso |
 |---|---|---|
-| `gancho` | `texto` (até 3 linhas curtas), `selo?` (carimbo, ex. ano) | sempre a 1ª cena; número ou contradição |
+| `gancho` | `texto` (até 3 linhas curtas), `selo?` (carimbo, ex. ano), `imagem?` = `{arquivo, credito, foco?}` | sempre a 1ª cena. **Com `imagem` vira a capa**: foto em tela cheia (sépia, zoom lento), título condensado em caixa alta e o trecho `**…**` numa tarja vermelha. `foco` é o `object-position` (para foto deitada, só o X muda o corte) |
 | `frase` | `texto`, `data?` (rótulo acima), `nota?` (texto menor abaixo) | contexto, virada, conclusão |
 | `placar` | `a`, `b`, `rotuloA`, `rotuloB`, `titulo?`, `linha?` (corte), `rotuloLinha?`, `linhaEm?`, `carimbo?` | "Placar": número que parece decidido e a linha que muda tudo |
 | `cedula` | `titulo?`, `pergunta`, `opcoes` (2–3), `vencedor?`, `resultados?`, `revelaEm?`, `contagem?` (false tira o 3-2-1) | "Cédula": o público vota antes do resultado |
@@ -55,12 +55,21 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 
 Limites que cabem: gancho até ~14 caracteres por linha para ficar enorme (passa disso, a fonte diminui); `documentos` até ~170 caracteres por folha; `linha` até 4 marcos com texto de 1–2 linhas; cartas `titulo` até ~12 caracteres.
 
+## Capa e imagens
+
+Todo vídeo novo leva capa com foto (`imagem` no gancho). O `render.mjs` grava `saida/<id>/capa.jpg` (o gancho montado), para escolher como capa no Instagram e no TikTok. O título fica entre y 760 e 1250, dentro do corte 3:4 da grade do Instagram.
+
+- Use foto real de arquivo: retrato de época, foto histórica, prédio, documento. Nada de imagem inventada que pareça registro real.
+- Só domínio público, CC0, CC BY ou CC BY-SA, com o crédito em `credito` (aparece no rodapé da capa). Pessoa viva identificável só se for figura pública no exercício do cargo.
+- Onde achar: Openverse (`api.openverse.org/v1/images/?q=...&license_type=commercial,modification`, filtre `&source=flickr` quando o Wikimedia bloquear o IP), Arquivo Nacional e Senado Federal no Flickr, Agência Brasil. O Wikimedia (API e arquivos) costuma responder 429 neste ambiente; o Flickr também bloqueia depois de muitos downloads seguidos, então baixe pouco e espaçado.
+- Guarde em `public/imagens/<nome>.jpg` (até 1400 px) e confira o corte em `--rapido` antes de gerar.
+
 ## Voz (ElevenLabs)
 
 `node scripts/voz.mjs <id> [--custo] [--refazer]` gera `public/voz/<id>/<n>.mp3` e o alinhamento por caractere (fora do git), uma cena por chamada, com cache: só regrava cena cuja fala mudou. `--custo` só conta os caracteres. `node scripts/voz.mjs --vozes` lista as vozes da conta.
 
 - A chave vai como segredo de rede para `api.elevenlabs.io` (peça com `request_credential`; nunca no chat). O script manda `xi-api-key` com a variável `ELEVENLABS_API_KEY` ou um valor de mentira, que o proxy troca pela chave.
-- Voz e modelo ficam em `config.json` (`voz.vozId`, `voz.modelo`). `eleven_flash_v2_5` custa 0,5 crédito por caractere; `eleven_multilingual_v2`, 1. Um Reel de 60 s tem ~900 caracteres.
+- Voz e modelo ficam em `config.json` (`voz.vozId`, `voz.modelo`): hoje Victor Power (pt-BR) com `eleven_multilingual_v2`, velocidade 1,12; o plano é o Creator (131 mil caracteres/mês, ~800 por vídeo). `eleven_flash_v2_5` custa 0,5 crédito por caractere; `eleven_multilingual_v2`, 1. Um Reel de 60 s tem ~900 caracteres.
 - Só grave depois do roteiro aprovado.
 
 ## Identidade
