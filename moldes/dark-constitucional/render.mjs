@@ -78,6 +78,7 @@ function preparar(id) {
       durSeg = Math.max(c.seg ?? 0, nPal / cfg.palavrasPorSegundoSemVoz + 1.0, MINIMO[c.tipo] ?? 3);
       palavras = fala ? palavrasEstimadas(fala, durSeg) : [];
     }
+    if (c.tipo === "cedula" && c.vencedor != null && c.revelaEm == null) durSeg += 2.2; // tempo do resultado depois da fala
     const dur = Math.round(durSeg * FPS);
     const pronta = { ...c, inicio, dur, audio, palavras: palavras.map((p) => ({ w: p.w, ini: Math.round(p.ini * FPS), fim: Math.round(p.fim * FPS) })) };
     inicio += dur;
@@ -120,7 +121,7 @@ for (const id of ids) {
   console.log(`${id}: ${props.cenas.length} cenas, ${(props.total / FPS).toFixed(1)} s${props.comVoz ? ", com voz" : ", sem voz"}`);
   // Um quadro por cena, quando ela já está montada (para conferir e para a galeria)
   for (const [n, c] of props.cenas.entries()) {
-    const quadro = c.inicio + Math.min(c.dur - 12, Math.round(c.dur * 0.82));
+    const quadro = c.inicio + (c.tipo === "pergunta" ? Math.round(c.dur * 0.6) : c.dur - 10);
     await renderStill({ composition: comp, serveUrl: servir, output: path.join(dir, `${n + 1}.png`), frame: quadro, inputProps: props, browserExecutable, chromiumOptions, overwrite: true });
   }
   fs.writeFileSync(path.join(dir, "legenda.txt"), legenda(roteiro));

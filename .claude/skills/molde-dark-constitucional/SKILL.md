@@ -43,13 +43,15 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 |---|---|---|
 | `gancho` | `texto` (até 3 linhas curtas), `selo?` (carimbo, ex. ano) | sempre a 1ª cena; número ou contradição |
 | `frase` | `texto`, `data?` (rótulo acima), `nota?` (texto menor abaixo) | contexto, virada, conclusão |
-| `placar` | `a`, `b`, `rotuloA`, `rotuloB`, `titulo?`, `linha?` (corte), `rotuloLinha?`, `linhaEm?` (s), `carimbo?` | "Placar": número que parece decidido e a linha que muda tudo |
-| `cedula` | `titulo?`, `pergunta`, `opcoes` (2–3), `vencedor?`, `resultados?`, `revelaEm?` (s), `contagem?` (false tira o 3-2-1) | "Cédula": o público vota antes do resultado |
-| `documentos` | `a` e `b` = `{cabecalho, texto}`, `ponte?` (rótulo entre as folhas), `segundoEm?` (s) | "Dois documentos": texto datilografado, `**trecho**` vira marca-texto |
-| `cartas` | `cartas: [{titulo, sub?, marcada?}]` (2–4), `dono?` (carimbo), `marcaEm?` (s) | "Cartas na mesa": quem fica com qual poder |
+| `placar` | `a`, `b`, `rotuloA`, `rotuloB`, `titulo?`, `linha?` (corte), `rotuloLinha?`, `linhaEm?`, `carimbo?` | "Placar": número que parece decidido e a linha que muda tudo |
+| `cedula` | `titulo?`, `pergunta`, `opcoes` (2–3), `vencedor?`, `resultados?`, `revelaEm?`, `contagem?` (false tira o 3-2-1) | "Cédula": o público vota antes do resultado |
+| `documentos` | `a` e `b` = `{cabecalho, texto}`, `ponte?` (rótulo entre as folhas), `segundoEm?` | "Dois documentos": texto datilografado, `**trecho**` vira marca-texto |
+| `cartas` | `cartas: [{titulo, sub?, marcada?}]` (2–4), `dono?` (carimbo), `marcaEm?` | "Cartas na mesa": quem fica com qual poder |
 | `pausa` | `texto` (a pergunta), `rotulo?` | "Porta congelada": para tudo antes da decisão |
 | `linha` | `marcos: [{data, texto}]` (2–4), `virada?` (índice em vermelho) | "Linha do tempo" |
 | `pergunta` | `texto`, `rotulo?` ("Comenta"), `loop?` (false desliga) | sempre a última; no fim volta ao gancho para o vídeo rodar em loop |
+
+**Momentos** (`linhaEm`, `revelaEm`, `segundoEm`, `marcaEm`): prefira a **palavra da fala** em que o evento acontece (`"linhaEm": "trezentos"`): a animação cai na palavra, com voz ou sem. Número = segundos desde o início da cena. Sem nada: a cédula revela logo depois da última palavra (e ganha 2,2 s); os outros usam uma fração da cena.
 
 Limites que cabem: gancho até ~14 caracteres por linha para ficar enorme (passa disso, a fonte diminui); `documentos` até ~170 caracteres por folha; `linha` até 4 marcos com texto de 1–2 linhas; cartas `titulo` até ~12 caracteres.
 

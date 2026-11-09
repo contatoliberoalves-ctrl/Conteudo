@@ -3,24 +3,85 @@
   "serie": "Na urna",
   "titulo": "298 a 65. E perdeu.",
   "cenas": [
-    { "tipo": "gancho", "texto": "298 a 65.\nE **perdeu.**", "fala": "Duzentos e noventa e oito a favor. Sessenta e cinco contra. E perdeu." },
-    { "tipo": "frase", "data": "Abril de 1984", "texto": "Emenda Dante de Oliveira:\neleição **direta** para presidente.", "fala": "Abril de 1984. A emenda Dante de Oliveira queria eleição direta para presidente. Milhões tinham ido às ruas." },
-    { "tipo": "placar", "titulo": "Câmara dos Deputados · 1984", "a": 298, "b": 65, "rotuloA": "Sim", "rotuloB": "Não", "linha": 320, "rotuloLinha": "Mínimo: 320", "linhaEm": 3.2, "carimbo": "Rejeitada",
-      "fala": "Só que mudar a Constituição não é ganhar a votação. É chegar num número. Na época, dois terços da Câmara: trezentos e vinte votos." },
-    { "tipo": "frase", "texto": "Faltaram **22.**", "nota": "Muitos deputados simplesmente não foram à sessão.", "fala": "Faltaram vinte e dois. Muitos deputados simplesmente não foram à sessão." },
-    { "tipo": "linha", "virada": 2, "marcos": [
-        { "data": "1984", "texto": "Diretas Já rejeitada na Câmara" },
-        { "data": "1985", "texto": "Tancredo eleito por **colégio eleitoral**" },
-        { "data": "1989", "texto": "A eleição direta volta" }
-      ], "fala": "O presidente seguinte foi escolhido por colégio eleitoral. Eleição direta, só em 1989." },
-    { "tipo": "documentos",
-      "a": { "cabecalho": "Regra de 1984", "texto": "Emenda aprovada por **dois terços** dos votos." },
-      "b": { "cabecalho": "CF/88 · art. 60, § 2º", "texto": "Discutida e votada em cada Casa, em **dois turnos**, aprovada por **três quintos** dos votos." },
-      "ponte": "Hoje", "segundoEm": 2.2,
-      "fala": "Hoje a regra é outra: três quintos dos votos, em dois turnos, nas duas Casas do Congresso." },
-    { "tipo": "pergunta", "texto": "Faltar à votação deveria\ncontar como voto **contra?**", "fala": "Então me diz: faltar à votação deveria contar como voto contra? Porque em oitenta e quatro, contou." }
+    {
+      "tipo": "gancho",
+      "texto": "298 a 65.\nE **perdeu.**",
+      "fala": "Duzentos e noventa e oito a favor. Sessenta e cinco contra. E perdeu."
+    },
+    {
+      "tipo": "frase",
+      "data": "Abril de 1984",
+      "texto": "Emenda Dante de Oliveira:\neleição **direta** para presidente.",
+      "fala": "Abril de 1984. A emenda Dante de Oliveira queria eleição direta para presidente. Milhões tinham ido às ruas."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara dos Deputados · 1984",
+      "a": 298,
+      "b": 65,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 320,
+      "rotuloLinha": "Mínimo: 320",
+      "linhaEm": "trezentos",
+      "carimbo": "Rejeitada",
+      "fala": "Só que mudar a Constituição não é ganhar a votação. É chegar num número. Na época, dois terços da Câmara: trezentos e vinte votos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Faltaram **22.**",
+      "nota": "Muitos deputados simplesmente não foram à sessão.",
+      "fala": "Faltaram vinte e dois. Muitos deputados simplesmente não foram à sessão."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1984",
+          "texto": "Diretas Já rejeitada na Câmara"
+        },
+        {
+          "data": "1985",
+          "texto": "Tancredo eleito por **colégio eleitoral**"
+        },
+        {
+          "data": "1989",
+          "texto": "A eleição direta volta"
+        }
+      ],
+      "fala": "O presidente seguinte foi escolhido por colégio eleitoral. Eleição direta, só em 1989."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Regra de 1984",
+        "texto": "Emenda aprovada por **dois terços** dos votos."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 2º",
+        "texto": "Discutida e votada em cada Casa, em **dois turnos**, aprovada por **três quintos** dos votos."
+      },
+      "ponte": "Hoje",
+      "segundoEm": "Hoje",
+      "fala": "Em oitenta e quatro, bastavam dois terços. Hoje a regra é outra: três quintos dos votos, em dois turnos, nas duas Casas do Congresso."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Faltar à votação deveria\ncontar como voto **contra?**",
+      "fala": "Então me diz: faltar à votação deveria contar como voto contra? Porque em oitenta e quatro, contou."
+    }
   ],
   "legenda": "298 votos a favor, 65 contra, e a emenda das Diretas Já foi rejeitada.\n\nEm 1984, mudar a Constituição exigia dois terços da Câmara: 320 votos. Faltaram 22. Tancredo foi eleito pelo colégio eleitoral em 1985 e a eleição direta para presidente só voltou em 1989.\n\nFaltar à votação deveria contar como voto contra?",
-  "fontes": ["Senado · Placar e quórum das Diretas Já", "Constituição de 1988, art. 60, § 2º"],
-  "hashtags": ["direitoconstitucional", "historiadobrasil", "diretasja", "oab", "concursos"]
+  "fontes": [
+    "Senado · Placar e quórum das Diretas Já",
+    "Constituição de 1988, art. 60, § 2º"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "diretasja",
+    "oab",
+    "concursos"
+  ]
 }

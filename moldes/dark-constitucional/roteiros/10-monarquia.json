@@ -3,21 +3,92 @@
   "serie": "Golpes, manobras e viradas",
   "titulo": "6,8 milhões votaram por um rei",
   "cenas": [
-    { "tipo": "gancho", "texto": "6,8 milhões\nvotaram por\num **rei.**", "selo": "1993", "fala": "Em mil novecentos e noventa e três, quase sete milhões de brasileiros votaram para o Brasil ter um rei." },
-    { "tipo": "frase", "data": "21 de abril de 1993", "texto": "Um plebiscito.\n**Duas** perguntas.", "fala": "Vinte e um de abril. Um plebiscito, com duas perguntas na mesma cédula." },
-    { "tipo": "cedula", "titulo": "Pergunta 1", "pergunta": "Forma de governo", "opcoes": ["República", "Monarquia"], "vencedor": 0, "resultados": ["venceu", "6,8 mi"], "revelaEm": 5.4,
-      "fala": "Primeira: república ou monarquia constitucional? Para aqui e vota nos comentários." },
-    { "tipo": "cedula", "titulo": "Pergunta 2", "pergunta": "Sistema de governo", "opcoes": ["Presidencialismo", "Parlamentarismo"], "vencedor": 0, "resultados": ["venceu", ""], "revelaEm": 4.6,
-      "fala": "Segunda: presidencialismo ou parlamentarismo?" },
-    { "tipo": "cartas", "cartas": [
-        { "titulo": "Forma", "sub": "Quem é o chefe de Estado: presidente ou rei" },
-        { "titulo": "Sistema", "sub": "Como o governo funciona e quem responde a quem" }
-      ], "fala": "Muita gente achou que era a mesma pergunta. Não era. Uma decidia a forma de governo. A outra, como o governo funciona." },
-    { "tipo": "frase", "texto": "República e\npresidencialismo\n**venceram.**", "nota": "A monarquia teve cerca de 6,8 milhões de votos.", "fala": "A república venceu com folga, e o presidencialismo também. Mas a monarquia teve cerca de seis vírgula oito milhões de votos." },
-    { "tipo": "frase", "data": "ADCT · art. 2º", "texto": "A própria Constituição\n**mandou** perguntar.", "nota": "A data original era 7 de setembro de 1993. Uma emenda de 1992 antecipou para 21 de abril.", "fala": "E isso só aconteceu porque a Constituição de oitenta e oito mandou perguntar. A data original era sete de setembro. Uma emenda antecipou para abril." },
-    { "tipo": "pergunta", "texto": "Em 1993, você\nvotaria por um **rei?**", "fala": "Agora me diz: em noventa e três, você votaria por um rei?" }
+    {
+      "tipo": "gancho",
+      "texto": "6,8 milhões\nvotaram por\num **rei.**",
+      "selo": "1993",
+      "fala": "Em mil novecentos e noventa e três, quase sete milhões de brasileiros votaram para o Brasil ter um rei."
+    },
+    {
+      "tipo": "frase",
+      "data": "21 de abril de 1993",
+      "texto": "Um plebiscito.\n**Duas** perguntas.",
+      "fala": "Vinte e um de abril. Um plebiscito, com duas perguntas na mesma cédula."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Pergunta 1",
+      "pergunta": "Forma de governo",
+      "opcoes": [
+        "República",
+        "Monarquia"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "venceu",
+        "6,8 mi"
+      ],
+      "fala": "Primeira: república ou monarquia constitucional? Para aqui e vota nos comentários."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Pergunta 2",
+      "pergunta": "Sistema de governo",
+      "opcoes": [
+        "Presidencialismo",
+        "Parlamentarismo"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "venceu",
+        ""
+      ],
+      "fala": "Segunda: presidencialismo ou parlamentarismo?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Forma",
+          "sub": "Quem é o chefe de Estado: presidente ou rei"
+        },
+        {
+          "titulo": "Sistema",
+          "sub": "Como o governo funciona e quem responde a quem"
+        }
+      ],
+      "fala": "Muita gente achou que era a mesma pergunta. Não era. Uma decidia a forma de governo. A outra, como o governo funciona."
+    },
+    {
+      "tipo": "frase",
+      "texto": "República e\npresidencialismo\n**venceram.**",
+      "nota": "A monarquia teve cerca de 6,8 milhões de votos.",
+      "fala": "A república venceu com folga, e o presidencialismo também. Mas a monarquia teve cerca de seis vírgula oito milhões de votos."
+    },
+    {
+      "tipo": "frase",
+      "data": "ADCT · art. 2º",
+      "texto": "A própria Constituição\n**mandou** perguntar.",
+      "nota": "A data original era 7 de setembro de 1993. Uma emenda de 1992 antecipou para 21 de abril.",
+      "fala": "E isso só aconteceu porque a Constituição de oitenta e oito mandou perguntar. A data original era sete de setembro. Uma emenda antecipou para abril."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Em 1993, você\nvotaria por um **rei?**",
+      "fala": "Agora me diz: em noventa e três, você votaria por um rei?"
+    }
   ],
   "legenda": "Em 1993, o Brasil votou se queria voltar a ter um rei.\n\nO plebiscito de 21 de abril, previsto no art. 2º do ADCT, fez duas perguntas: república ou monarquia constitucional (forma de governo) e presidencialismo ou parlamentarismo (sistema de governo). Venceram república e presidencialismo, mas a monarquia teve cerca de 6,8 milhões de votos.\n\nVocê votaria por um rei?",
-  "fontes": ["TSE · Plebiscito de 1993", "ADCT, art. 2º", "EC 2/1992"],
-  "hashtags": ["direitoconstitucional", "historiadobrasil", "plebiscito", "oab", "concursos"]
+  "fontes": [
+    "TSE · Plebiscito de 1993",
+    "ADCT, art. 2º",
+    "EC 2/1992"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "plebiscito",
+    "oab",
+    "concursos"
+  ]
 }

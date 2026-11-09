@@ -13,6 +13,17 @@ export type Som = { src: string; em: number; vol: number };
 const T = theme;
 const areaGrafico: React.CSSProperties = { position: "absolute", left: T.area.lado, right: T.area.lado, top: 330, height: 930, display: "flex", flexDirection: "column", justifyContent: "center" };
 const seg = (s: number, fps: number) => Math.round(s * fps);
+const norm = (t: string) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+/** Momento de um evento da cena: número = segundos; texto = a palavra da fala em que acontece (ex.: "trezentos"). */
+const momento = (c: CenaPronta, v: unknown, fps: number, padrao: number) => {
+  if (typeof v === "number") return seg(v, fps);
+  if (typeof v === "string" && v) {
+    const alvo = norm(v);
+    const p = c.palavras.find((w) => norm(w.w).startsWith(alvo));
+    if (p) return p.ini;
+  }
+  return padrao;
+};
 const tamTitulo = (linhas: string[], max = 170, min = 78) => {
   const maior = Math.max(...linhas.map((l) => l.replace(/\*\*/g, "").length));
   return Math.max(min, Math.min(max, Math.floor(1700 / Math.max(1, maior))));
@@ -90,7 +101,7 @@ export const sonsFrase = (): Som[] => [{ src: "sfx/whoosh.wav", em: 0, vol: 0.45
 // ───────────────────────── placar ─────────────────────────
 // { a: 298, b: 65, rotuloA: "Sim", rotuloB: "Não", linha?: 320, rotuloLinha?: "Mínimo: 320", linhaEm?: s, carimbo?: "Rejeitada", titulo?: "Câmara · 25/4/1984" }
 const tempoPlacar = (c: CenaPronta, fps: number) => {
-  const linhaEm = c.linhaEm != null ? seg(c.linhaEm, fps) : Math.round(c.dur * 0.42);
+  const linhaEm = momento(c, c.linhaEm, fps, Math.round(c.dur * 0.42));
   return { conta: 8, contaDur: seg(1.6, fps), linhaEm, carimboEm: linhaEm + seg(1.1, fps) };
 };
 export const Placar: React.FC<P> = ({ c }) => {
@@ -145,7 +156,8 @@ export const sonsPlacar = (c: CenaPronta, fps: number): Som[] => {
 // { titulo?: "Plebiscito · 21/4/1993", pergunta: "...", opcoes: ["República", "Monarquia"], vencedor?: 0, resultados?: ["66%", "10%"], contagem?: true, revelaEm?: s }
 const tempoCedula = (c: CenaPronta, fps: number) => {
   const contaEm = seg(1.0, fps);
-  const revelaEm = c.revelaEm != null ? seg(c.revelaEm, fps) : Math.round(c.dur * 0.6);
+  const ultima = c.palavras.length ? c.palavras[c.palavras.length - 1].fim + 8 : Math.round(c.dur * 0.6);
+  const revelaEm = momento(c, c.revelaEm, fps, Math.min(ultima, c.dur - fps * 2));
   return { contaEm, revelaEm };
 };
 export const Cedula: React.FC<P> = ({ c }) => {
@@ -200,7 +212,7 @@ export const sonsCedula = (c: CenaPronta, fps: number): Som[] => {
 
 // ───────────────────────── documentos ─────────────────────────
 // { a: { cabecalho: "CF/88 · art. 5º, LXVII", texto: "... **prisão** ..." }, b: {...}, ponte?: "2008 · STF", segundoEm?: s }
-const tempoDocs = (c: CenaPronta, fps: number) => ({ segundoEm: c.segundoEm != null ? seg(c.segundoEm, fps) : Math.round(c.dur * 0.42) });
+const tempoDocs = (c: CenaPronta, fps: number) => ({ segundoEm: momento(c, c.segundoEm, fps, Math.round(c.dur * 0.42)) });
 const Folha: React.FC<{ d: { cabecalho: string; texto: string }; atraso: number; giro: number }> = ({ d, atraso, giro }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -242,7 +254,7 @@ export const sonsDocumentos = (c: CenaPronta, fps: number): Som[] => {
 
 // ───────────────────────── cartas ─────────────────────────
 // { cartas: [{ titulo: "Executivo", sub?: "..." , marcada?: true }], dono?: "Imperador", marcaEm?: s }
-const tempoCartas = (c: CenaPronta, fps: number) => ({ marcaEm: c.marcaEm != null ? seg(c.marcaEm, fps) : Math.round(c.dur * 0.5) });
+const tempoCartas = (c: CenaPronta, fps: number) => ({ marcaEm: momento(c, c.marcaEm, fps, Math.round(c.dur * 0.5)) });
 export const Cartas: React.FC<P> = ({ c }) => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
