@@ -156,7 +156,7 @@ export const sonsPlacar = (c: CenaPronta, fps: number): Som[] => {
 // { titulo?: "Plebiscito · 21/4/1993", pergunta: "...", opcoes: ["República", "Monarquia"], vencedor?: 0, resultados?: ["66%", "10%"], contagem?: true, revelaEm?: s }
 const tempoCedula = (c: CenaPronta, fps: number) => {
   const contaEm = seg(1.0, fps);
-  const ultima = c.palavras.length ? c.palavras[c.palavras.length - 1].fim + 8 : Math.round(c.dur * 0.6);
+  const ultima = c.palavras.length ? c.palavras[c.palavras.length - 1].fim + (c.contagem === false ? 8 : 3 * fps + 4) : Math.round(c.dur * 0.6);
   const revelaEm = momento(c, c.revelaEm, fps, Math.min(ultima, c.dur - fps * 2));
   return { contaEm, revelaEm };
 };

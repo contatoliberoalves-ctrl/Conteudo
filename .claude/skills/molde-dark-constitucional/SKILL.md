@@ -51,7 +51,7 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 | `linha` | `marcos: [{data, texto}]` (2–4), `virada?` (índice em vermelho) | "Linha do tempo" |
 | `pergunta` | `texto`, `rotulo?` ("Comenta"), `loop?` (false desliga) | sempre a última; no fim volta ao gancho para o vídeo rodar em loop |
 
-**Momentos** (`linhaEm`, `revelaEm`, `segundoEm`, `marcaEm`): prefira a **palavra da fala** em que o evento acontece (`"linhaEm": "trezentos"`): a animação cai na palavra, com voz ou sem. Número = segundos desde o início da cena. Sem nada: a cédula revela logo depois da última palavra (e ganha 2,2 s); os outros usam uma fração da cena.
+**Momentos** (`linhaEm`, `revelaEm`, `segundoEm`, `marcaEm`): prefira a **palavra da fala** em que o evento acontece (`"linhaEm": "trezentos"`): a animação cai na palavra, com voz ou sem. Número = segundos desde o início da cena. Sem nada: a cédula faz o 3-2-1 depois da última palavra e então revela (a cena ganha 4,6 s; com `"contagem": false`, revela logo e ganha 2,2 s); os outros usam uma fração da cena.
 
 Limites que cabem: gancho até ~14 caracteres por linha para ficar enorme (passa disso, a fonte diminui); `documentos` até ~170 caracteres por folha; `linha` até 4 marcos com texto de 1–2 linhas; cartas `titulo` até ~12 caracteres.
 

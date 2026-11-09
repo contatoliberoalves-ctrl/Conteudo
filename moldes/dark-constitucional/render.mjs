@@ -78,7 +78,7 @@ function preparar(id) {
       durSeg = Math.max(c.seg ?? 0, nPal / cfg.palavrasPorSegundoSemVoz + 1.0, MINIMO[c.tipo] ?? 3);
       palavras = fala ? palavrasEstimadas(fala, durSeg) : [];
     }
-    if (c.tipo === "cedula" && c.vencedor != null && c.revelaEm == null) durSeg += 2.2; // tempo do resultado depois da fala
+    if (c.tipo === "cedula" && c.vencedor != null && c.revelaEm == null) durSeg += c.contagem === false ? 2.2 : 4.6; // 3-2-1 e resultado depois da fala
     const dur = Math.round(durSeg * FPS);
     const pronta = { ...c, inicio, dur, audio, palavras: palavras.map((p) => ({ w: p.w, ini: Math.round(p.ini * FPS), fim: Math.round(p.fim * FPS) })) };
     inicio += dur;
