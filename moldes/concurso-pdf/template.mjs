@@ -27,13 +27,26 @@ const bandeiraPE = w => `<svg width="${w}" height="${w * 2 / 3}" viewBox="0 0 30
   <path d="M86 122 A64 64 0 0 1 214 122" fill="none" stroke="${COR.pe.vermelho}" stroke-width="10"/><path d="M96 122 A54 54 0 0 1 204 122" fill="none" stroke="${COR.pe.amarelo}" stroke-width="10"/><path d="M106 122 A44 44 0 0 1 194 122" fill="none" stroke="${COR.pe.verde}" stroke-width="10"/>
   <circle cx="150" cy="104" r="15" fill="${COR.pe.amarelo}"/><path d="M150 18 l5.3 11 12 1.6 -8.8 8.3 2.2 11.9 -10.7 -5.8 -10.7 5.8 2.2 -11.9 -8.8 -8.3 12 -1.6z" fill="${COR.pe.amarelo}"/>
   <rect x="143" y="142" width="14" height="52" fill="${COR.pe.vermelho}"/><rect x="124" y="156" width="52" height="12" fill="${COR.pe.vermelho}"/></svg>`;
+// Outras bandeiras estilizadas (sem brasão nem dizeres), escolhidas pela `uf` da coleção. BR = Justiça Federal/nacional.
+const svgB = (w, corpo) => `<svg width="${w}" height="${w * 2 / 3}" viewBox="0 0 300 200" style="display:block">${corpo}</svg>`;
+const BANDEIRAS = {
+  PE: bandeiraPE,
+  BR: w => svgB(w, `<rect width="300" height="200" fill="#1E9E4A"/><path d="M150 22 L276 100 L150 178 L24 100z" fill="#FFD23F"/><circle cx="150" cy="100" r="46" fill="#1F3F8C"/><path d="M106 88 Q150 76 194 106" fill="none" stroke="#fff" stroke-width="8"/>`),
+  SP: w => svgB(w, `${Array.from({ length: 13 }, (_, i) => `<rect y="${i * 200 / 13}" width="300" height="${200 / 13 + .5}" fill="${i % 2 ? '#fff' : '#161616'}"/>`).join('')}<rect width="120" height="${200 * 5 / 13}" fill="#D62828"/><circle cx="60" cy="${100 * 5 / 13}" r="27" fill="#fff"/><path d="M48 28 l14 -6 14 8 -2 14 -10 12 -8 -6 -8 -10z" fill="#1F3F8C"/>`),
+  RS: w => svgB(w, `<rect width="300" height="200" fill="#D62828"/><path d="M0 0 H230 L0 150z" fill="#1E9E4A"/><path d="M300 200 H70 L300 50z" fill="#FFC93C"/>`),
+  PB: w => svgB(w, `<rect width="300" height="200" fill="#C8102E"/><rect width="100" height="200" fill="#161616"/>`),
+  SC: w => svgB(w, `${[0, 1, 2, 3, 4].map(i => `<rect y="${i * 40}" width="300" height="40" fill="${i % 2 ? '#fff' : '#D62828'}"/>`).join('')}<path d="M150 30 L230 100 L150 170 L70 100z" fill="#1E9E4A"/>`),
+  AP: w => svgB(w, `<rect width="300" height="200" fill="#1E9E4A"/><rect width="300" height="60" fill="#1F3F8C"/><rect y="60" width="300" height="10" fill="#fff"/><rect y="150" width="300" height="10" fill="#fff"/><rect y="160" width="300" height="40" fill="#FFC93C"/><path d="M24 135 h80 v-34 h-12 v12 h-14 v-12 h-24 v12 h-14 v-12 h-16z" fill="#161616"/>`),
+};
+const bandeira = (uf, w) => (BANDEIRAS[uf] || BANDEIRAS.BR)(w);
+const FIOS = { PE: [COR.pe.vermelho, COR.pe.amarelo, COR.pe.verde], BR: ['#1E9E4A', '#FFD23F', '#1F3F8C'], SP: ['#161616', '#fff', '#D62828'], RS: ['#1E9E4A', '#D62828', '#FFC93C'], PB: ['#161616', '#C8102E', '#fff'], SC: ['#D62828', '#fff', '#1E9E4A'], AP: ['#1F3F8C', '#1E9E4A', '#FFC93C'] };
 // Patch bordado (como os da farda): bandeira dentro de um escudo arredondado com pesponto e a sigla embaixo.
 const patch = (w, sigla = 'PE', rot = -6) => `<div style="width:${w}px;padding:${w * .07}px ${w * .07}px ${w * .05}px;border-radius:${w * .12}px;background:${COR.petroleo};box-shadow:0 14px 30px rgba(0,0,0,.35),inset 0 0 0 ${w * .02}px #0B4A42;transform:rotate(${rot}deg);position:relative">
   <div style="position:absolute;inset:${w * .035}px;border:${Math.max(1.5, w * .008)}px dashed rgba(185,255,241,.5);border-radius:${w * .09}px;pointer-events:none"></div>
-  <div style="border-radius:${w * .05}px;overflow:hidden">${bandeiraPE(w * .86)}</div>
+  <div style="border-radius:${w * .05}px;overflow:hidden">${bandeira(sigla, w * .86)}</div>
   <div style="text-align:center;${T};font-size:${w * .17}px;line-height:1;color:${COR.menta};margin-top:${w * .05}px;letter-spacing:.08em">${esc(sigla)}</div></div>`;
 // Fio de seção nas três cores do arco-íris da bandeira de PE.
-const fioPE = (w = '100%', h = 5) => `<div style="display:flex;width:${typeof w === 'number' ? w + 'px' : w};height:${h}px;border-radius:${h}px;overflow:hidden"><span style="flex:1;background:${COR.pe.vermelho}"></span><span style="flex:1;background:${COR.pe.amarelo}"></span><span style="flex:1;background:${COR.pe.verde}"></span></div>`;
+const fio = (uf, w = '100%', h = 5) => `<div style="display:flex;width:${typeof w === 'number' ? w + 'px' : w};height:${h}px;border-radius:${h}px;overflow:hidden">${(FIOS[uf] || FIOS.BR).map(c => `<span style="flex:1;background:${c}"></span>`).join('')}</div>`;
 
 // ---------- elementos de jogo ----------
 const missao = (n, total, escuro) => `<span style="display:inline-flex;align-items:center;gap:10px;${MO};font-weight:800;font-size:13px;letter-spacing:.14em;color:${escuro ? COR.petroleo : '#fff'};background:${escuro ? COR.menta : COR.petroleo};border-radius:8px;padding:7px 12px">MISSÃO ${dois(n)}<span style="opacity:.55">/${dois(total)}</span></span>`;
@@ -62,7 +75,7 @@ P.capa = (c, m) => `<section class="pagina" style="background:radial-gradient(70
     ${missao(m.n, c.colecao.materiais.length, true)}
     <div style="${T};font-size:30px;line-height:1;color:${COR.menta};margin-top:24px;letter-spacing:.02em">${esc(c.colecao.nome)}</div>
     <div style="${T};font-size:${m.capa.ts || 92}px;line-height:.88;color:#fff;margin-top:10px">${lista(m.capa.titulo).map(x => rico(x, true)).join('<br>')}</div>
-    <div style="margin-top:22px">${fioPE(160, 6)}</div>
+    <div style="margin-top:22px">${fio(c.colecao.uf, 160, 6)}</div>
     <div style="${I};font-weight:500;font-size:16px;line-height:1.55;color:rgba(239,255,246,.85);margin-top:18px;max-width:560px">${rico(m.capa.sub, true)}</div></div>
   <div style="position:absolute;left:56px;right:56px;bottom:62px"><div style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.22em;color:${COR.menta};margin-bottom:16px">SUA TRILHA NA COLEÇÃO</div>${trilha(c.colecao.materiais, m.n, true)}</div>
   ${textura(true)}</section>`;
