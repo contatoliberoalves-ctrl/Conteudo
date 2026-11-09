@@ -31,10 +31,17 @@ export function pagina(r, t) {
   B.x = Math.round((W - B.w) / 2);
   B.y = Math.round((H - B.h) / 2);
 
-  // Pregação inteira, na largura da tela.
+  // Pregação inteira, na largura da tela. Vídeo vertical: tela cheia. Vídeo horizontal:
+  // janela no meio, com a arte animada em volta (nada é cortado).
   const [vw, vh] = r.arquivos.videoRecorte;
   const V = { w: W, h: Math.round((vh * W) / vw) };
-  V.y = Math.round((H - V.h) / 2);
+  const janela = V.h < H * 0.75;
+  V.y = janela ? (r.arquivos.videoTopo ?? 640) : Math.round((H - V.h) / 2);
+
+  // Linha pequena acima do nome: título longo ("CANTOR") e/ou igreja de origem.
+  const tituloCurto = pg.titulo && pg.titulo.length <= 4;
+  const rotulo = [tituloCurto ? "" : pg.titulo, pg.origem].filter(Boolean).join(" · ");
+  const nomeTexto = [tituloCurto ? pg.titulo : "", pg.nome, pg.sobrenome].filter(Boolean).join(" ");
 
   // Pregador: largura da área visível e alto da cabeça vindos de arquivos.foto.
   const fp = { largura: 980, topo: 690, centro: 540, ...(r.arquivos.foto || {}) };
@@ -88,9 +95,11 @@ export function pagina(r, t) {
     filter: drop-shadow(0 22px 36px rgba(0,0,0,0.45)); }
 
   /* Pregação em tela cheia, inteira. */
-  #tela { position: absolute; inset: 0; opacity: 0; background: #000; }
-  #pregacao { position: absolute; left: 0; top: ${V.y}px; width: ${V.w}px; height: ${V.h}px; object-fit: contain; }
-  #topo-tela { position: absolute; left: 0; right: 0; top: 0; height: 330px; background: linear-gradient(180deg, rgba(2,30,18,0.85), transparent); }
+  #tela { position: absolute; inset: 0; opacity: 0; ${janela ? "" : "background: #000;"} }
+  #pregacao { position: absolute; left: 0; top: ${V.y}px; width: ${V.w}px; height: ${V.h}px; object-fit: contain;
+    ${janela ? `border-top: 6px solid ${c.rosa}; border-bottom: 6px solid ${c.rosa}; box-sizing: border-box; box-shadow: 0 20px 50px rgba(0,0,0,0.6);` : ""} }
+  #topo-tela { position: absolute; left: 0; right: 0; top: 0; height: 330px; background: linear-gradient(180deg, rgba(2,30,18,0.85), transparent); ${janela ? "display: none;" : ""} }
+  #rotulo { position: absolute; left: 0; right: 0; top: 1510px; text-align: center; font: 800 27px/1 Montserrat; letter-spacing: 0.14em; white-space: nowrap; }
 
   /* Faixa de baixo (cobre a marca d'água do vídeo na pregação). */
   #faixa { position: absolute; left: 0; right: 0; top: 1380px; bottom: 0; opacity: 0;
@@ -124,7 +133,8 @@ export function pagina(r, t) {
   ${peca("treze")}
   ${peca("triunfo")}
   ${dataLinha ? `<div id="data" class="prata">${esc(dataLinha)}</div>` : ""}
-  <div id="nome" class="prata">${esc(pg.titulo)} ${esc(pg.nome)} ${esc(pg.sobrenome)}</div>
+  ${rotulo ? `<div id="rotulo" class="prata">${esc(rotulo)}</div>` : ""}
+  <div id="nome" class="prata">${esc(nomeTexto)}</div>
   <div id="pc" class="prata">${esc(r.selo.join(" "))}</div>
 
   ${faiscas}
@@ -164,13 +174,15 @@ export function pagina(r, t) {
   tl.to("#pregador", { scale: 1.03, duration: VIRADA - 2.1, ease: "none" }, 2.1);
   tl.fromTo("#p-treze", { scale: 0, rotation: -8, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.8, ease: "back.out(1.9)" }, 1.6);
   tl.fromTo("#nome", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 2.3);
+  ${rotulo ? `tl.fromTo("#rotulo", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 2.2);` : ""}
   tl.fromTo("#pc", { clipPath: "inset(-30% 100% -30% 0%)" }, { clipPath: "inset(-30% -5% -30% 0%)", duration: 1.1, ease: "power1.inOut" }, 2.7);
   tl.fromTo("#p-triunfo", { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 3.4);
   ${dataLinha ? `tl.fromTo("#data", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.6);` : ""}
 
   // ---- Virada: a pregação inteira toma a tela; ficam logos, nome e "Presença confirmada".
   tl.fromTo("#clarao", { opacity: 0 }, { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, VIRADA - 0.1);
-  tl.to(["#pregador", "#p-titulo", "#p-treze"], { opacity: 0, duration: 0.45, ease: "power2.in" }, VIRADA - 0.3);
+  tl.to(${janela ? `["#pregador", "#p-treze"]` : `["#pregador", "#p-titulo", "#p-treze"]`}, { opacity: 0, duration: 0.45, ease: "power2.in" }, VIRADA - 0.3);
+  ${janela ? `tl.to("#p-titulo", { scale: 0.78, transformOrigin: "50% 0%", duration: 0.6, ease: "power3.inOut" }, VIRADA - 0.2);` : ""}
   tl.fromTo("#tela", { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, VIRADA - 0.1);
   tl.fromTo("#faixa", { opacity: 0 }, { opacity: 1, duration: 0.5 }, VIRADA);
   tl.to("#p-logos", { scale: 0.72, y: -12, duration: 0.6, ease: "power3.inOut" }, VIRADA - 0.1);
@@ -179,7 +191,7 @@ export function pagina(r, t) {
   tl.fromTo("#clarao", { opacity: 0 }, { opacity: 0.4, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, FINAL - 0.1);
   tl.to(["#tela", "#faixa"], { opacity: 0, duration: 0.6, ease: "power2.inOut" }, FINAL - 0.1);
   tl.to("#p-logos", { scale: 1, y: 0, duration: 0.6, ease: "power3.out" }, FINAL);
-  tl.to("#p-titulo", { opacity: 1, duration: 0.6 }, FINAL + 0.1);
+  tl.to("#p-titulo", { opacity: 1, scale: 1, duration: 0.6 }, FINAL + 0.1);
   tl.fromTo("#pregador", { y: 140, opacity: 0, scale: 1.04 }, { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "power3.out", immediateRender: false }, FINAL);
   tl.fromTo("#p-treze", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "back.out(1.9)", immediateRender: false }, FINAL + 0.4);
 

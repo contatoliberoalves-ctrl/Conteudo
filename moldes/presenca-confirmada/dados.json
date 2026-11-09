@@ -517,5 +517,91 @@
       ]
     },
     "logos": []
+  },
+  {
+    "id": "festividade-carlos-wesley",
+    "modelo": "festividade",
+    "evento": {
+      "data": "",
+      "horario": ""
+    },
+    "pregador": {
+      "titulo": "CANTOR",
+      "nome": "CARLOS",
+      "sobrenome": "WESLEY",
+      "origem": "AD ALAGOAS — TEMPLO CENTRAL"
+    },
+    "selo": [
+      "Presença",
+      "confirmada"
+    ],
+    "cores": {
+      "rosa": "#c2185b",
+      "verdeEscuro": "#02251a"
+    },
+    "musica": false,
+    "arquivos": {
+      "fotoRecortada": "fotos/carlos-recortado.png",
+      "foto": {
+        "largura": 1000,
+        "topo": 640,
+        "centro": 560
+      },
+      "video": "fotos/carlos-louvor.mp4",
+      "videoRecorte": [
+        720,
+        468,
+        0,
+        405
+      ],
+      "audio": {
+        "inicio": 0,
+        "fim": 39.8
+      },
+      "arte": "fotos/festividade-arte.png",
+      "pecas": {
+        "logos": [
+          255,
+          140,
+          835,
+          320
+        ],
+        "titulo": [
+          30,
+          355,
+          1005,
+          845
+        ],
+        "treze": [
+          55,
+          855,
+          1005,
+          1225
+        ],
+        "triunfo": [
+          95,
+          1230,
+          920,
+          1330
+        ]
+      },
+      "claras": [
+        [
+          680,
+          150,
+          835,
+          275
+        ]
+      ],
+      "videoTopo": 630,
+      "layout": {
+        "treze": [
+          240,
+          1240,
+          600
+        ]
+      }
+    },
+    "logos": []
   }
 ]
