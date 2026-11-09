@@ -132,5 +132,9 @@ for (const id of ids) {
     browserExecutable, chromiumOptions, audioBitrate: "192k", concurrency: Math.max(1, (await import("node:os")).cpus().length),
     onProgress: ({ progress }) => { const p = Math.floor(progress * 10); if (p !== ult) { ult = p; process.stdout.write(` ${p * 10}%`); } },
   });
+  // Volume no padrão dos Reels (-14 LUFS), sem mexer na imagem
+  const mp4 = path.join(dir, "video.mp4"), tmp = path.join(dir, "video-tmp.mp4");
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", mp4, "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+  fs.renameSync(tmp, mp4);
   console.log(`\n  → saida/${id}/video.mp4`);
 }
