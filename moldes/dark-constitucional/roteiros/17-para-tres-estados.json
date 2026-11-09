@@ -1,0 +1,83 @@
+{
+  "pauta": 17,
+  "serie": "Na urna",
+  "titulo": "O Pará quase virou três estados",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Pará\nquase virou\n**três estados.**",
+      "imagem": {
+        "arquivo": "imagens/mapa-brasil-1911.jpg",
+        "credito": "Mappa geral do Brasil, Jornal do Brasil, 1911 · domínio público (rawpixel)",
+        "foco": "52% 22%",
+        "zoom": 1.7
+      },
+      "fala": "Em dois mil e onze, o Pará foi às urnas pra decidir se viraria três estados."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Pará",
+          "sub": "Belém e o nordeste do estado"
+        },
+        {
+          "titulo": "Carajás",
+          "sub": "sul e sudeste",
+          "marcada": true
+        },
+        {
+          "titulo": "Tapajós",
+          "sub": "oeste",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "Carajás",
+      "fala": "No mapa proposto, nasceriam dois estados novos: Carajás, no sul e sudeste, e Tapajós, no oeste. O que sobrasse continuaria sendo o Pará."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem deveria\n**votar?**",
+      "fala": "Agora a pergunta que decidiu tudo: quem deveria votar?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 18, § 3º",
+        "texto": "Os Estados podem… desmembrar-se… mediante aprovação da **população diretamente interessada**, através de plebiscito, e do Congresso Nacional, por lei complementar."
+      },
+      "b": {
+        "cabecalho": "STF · ADI 2.650 · 2011 (resumo)",
+        "texto": "População diretamente interessada é a de **todo o estado**, não só a da área que quer se separar."
+      },
+      "ponte": "Quem é",
+      "segundoEm": "Supremo",
+      "fala": "A Constituição exige plebiscito com a população diretamente interessada. E o Supremo decidiu que isso quer dizer o estado inteiro, não só quem queria se separar."
+    },
+    {
+      "tipo": "frase",
+      "data": "11 de dezembro de 2011",
+      "texto": "O **não** venceu\nas duas consultas.",
+      "nota": "Os eleitores de Belém e de todo o estado também votaram.",
+      "fala": "No dia onze de dezembro, todo o eleitorado do Pará votou. E o não venceu nas duas perguntas. O Pará continuou inteiro."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Quem deveria votar:\nsó a região ou o\n**estado todo?**",
+      "fala": "Pra você: quem deveria votar, só a região ou o estado todo? Comenta."
+    }
+  ],
+  "legenda": "O Pará quase virou três estados.\n\nEm 11 de dezembro de 2011, os eleitores do Pará responderam em plebiscito se o estado deveria se dividir para criar Carajás e Tapajós. A Constituição exige a aprovação da população diretamente interessada (art. 18, § 3º), e o STF entendeu, na ADI 2.650, que isso inclui o estado inteiro. O \"não\" venceu nas duas consultas.\n\nQuem deveria votar?",
+  "fontes": [
+    "CF/88, art. 18, § 3º",
+    "STF · ADI 2.650",
+    "TSE · Plebiscitos no Pará (2011)"
+  ],
+  "hashtags": [
+    "para",
+    "plebiscito",
+    "historiadobrasil",
+    "direitoconstitucional",
+    "curiosidades"
+  ]
+}

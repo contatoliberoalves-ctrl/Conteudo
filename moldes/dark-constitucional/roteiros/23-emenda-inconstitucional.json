@@ -1,0 +1,67 @@
+{
+  "pauta": 23,
+  "serie": "Quem manda na lei?",
+  "titulo": "O Congresso mudou a Constituição. E o STF derrubou a mudança.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Congresso mudou\na Constituição.\nE o STF derrubou\na **mudança.**",
+      "imagem": {
+        "arquivo": "imagens/moedas-antigas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "fala": "O Congresso mudou a Constituição pra criar um imposto. E o Supremo derrubou parte da mudança."
+    },
+    {
+      "tipo": "frase",
+      "data": "1993",
+      "texto": "Nasce o IPMF:\nimposto sobre cada\n**movimentação** bancária.",
+      "nota": "O avô da CPMF cobrava 0,25% sobre as movimentações financeiras.",
+      "fala": "Mil novecentos e noventa e três. Uma emenda à Constituição cria o IPMF, um imposto sobre cada movimentação bancária. Foi o avô da CPMF."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "EC 3/1993 · art. 2º, § 2º (resumo)",
+        "texto": "Ao novo imposto **não se aplicam** a regra da anterioridade nem as imunidades tributárias."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 4º, IV",
+        "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir os **direitos e garantias individuais**."
+      },
+      "ponte": "Só que",
+      "segundoEm": "Só",
+      "fala": "E a emenda dizia: esse imposto pode ser cobrado no mesmo ano e não respeita as imunidades, como a dos templos e a dos livros. Só que a própria Constituição proíbe emenda que tente abolir direitos e garantias individuais."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Um pedaço da Constituição\npode ser\n**inconstitucional?**",
+      "fala": "Mas um pedaço da Constituição pode ser inconstitucional?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Pode. Se ferir uma\n**cláusula pétrea.**",
+      "nota": "Na ADI 939, o STF entendeu que a anterioridade tributária é garantia individual do contribuinte.",
+      "fala": "Pode, se ferir uma cláusula pétrea. Na ADI novecentos e trinta e nove, o Supremo entendeu que a regra de não cobrar imposto novo no mesmo ano é uma garantia do contribuinte. E derrubou essa parte da emenda."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que o STF\npode barrar até uma\n**emenda?**",
+      "fala": "Você sabia que o Supremo pode barrar até uma emenda à Constituição? Comenta."
+    }
+  ],
+  "legenda": "O Congresso mudou a Constituição. E o STF derrubou a mudança.\n\nA Emenda Constitucional 3/1993 autorizou o IPMF, imposto sobre movimentações financeiras, e afastou para ele a anterioridade (art. 150, III, b) e as imunidades tributárias (art. 150, VI). Na ADI 939, o STF declarou inconstitucional essa parte da emenda: a anterioridade é garantia individual do contribuinte, protegida como cláusula pétrea (art. 60, § 4º, IV).\n\nVocê sabia?",
+  "fontes": [
+    "Emenda Constitucional 3/1993",
+    "STF · ADI 939",
+    "CF/88, arts. 60, § 4º, IV, e 150, III, b, e VI"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "clausulapetrea",
+    "direitotributario",
+    "oab"
+  ]
+}
