@@ -1,0 +1,191 @@
+{
+  "id": "04-edital-tjsp",
+  "serie": "edital",
+  "titulo": "Saíram os editais do TJSP",
+  "voz": "fernando",
+  "legenda": "SAIU! TJ de São Paulo, banca Vunesp 🚨\n\nESCREVENTE TÉCNICO JUDICIÁRIO\n• Nível médio\n• R$ 6.782,54 iniciais + auxílios\n• Cadastro de reserva (2ª a 10ª RAJ, interior e litoral)\n• Taxa: R$ 81\n\nOFICIAL DE JUSTIÇA\n• Nível superior em qualquer área\n• R$ 9.856,95 iniciais + auxílios\n• 132 vagas + cadastro de reserva\n• Taxa: R$ 96\n\n📅 Inscrições: 28/10 a 10/12/2026 (boleto até 11/12)\n📝 Prova: 14/03/2027, objetiva + discursiva no mesmo dia\n📊 Escrevente: 70 questões (16 de Português, 30 de Direito, 24 de Conhecimentos Gerais). Português e Direito eliminam: mínimo de 50% em cada bloco.\n\nConfira tudo no edital (vunesp.com.br).\n\nComenta EDITAL que eu te mando o app Edital com Líbero 📲\n\n#tjsp #escreventetjsp #oficialdejustica #vunesp #concursosp #concursopublico",
+  "legendas": [
+    [
+      "seis mil, setecentos e oitenta e dois reais",
+      "R$ 6.782"
+    ],
+    [
+      "nove mil, oitocentos e cinquenta e seis reais",
+      "R$ 9.856"
+    ],
+    [
+      "cento e trinta e duas",
+      "132"
+    ],
+    [
+      "setenta",
+      "70"
+    ],
+    [
+      "dezesseis",
+      "16"
+    ],
+    [
+      "trinta",
+      "30"
+    ],
+    [
+      "vinte e quatro",
+      "24"
+    ],
+    [
+      "dez de dezembro",
+      "10/12"
+    ],
+    [
+      "dia onze",
+      "dia 11"
+    ],
+    [
+      "catorze de março",
+      "14/03"
+    ],
+    [
+      "TJ",
+      "TJ"
+    ]
+  ],
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "selo": "Saiu o edital",
+      "numero": 6782,
+      "tn": 330,
+      "numeroRot": "reais · nível médio",
+      "linhas": [
+        "TJ de [[São Paulo]]"
+      ],
+      "fala": "Saiu o edital do TJ de São Paulo! Seis mil, setecentos e oitenta e dois reais pra quem tem só o ensino médio. E tem edital pra nível superior também."
+    },
+    {
+      "tipo": "versus",
+      "titulo": "Dois cargos",
+      "lados": [
+        {
+          "nome": "Escrevente",
+          "itens": [
+            {
+              "t": "Nível **médio**",
+              "em": "médio"
+            },
+            {
+              "t": "**R$ 6.782** iniciais",
+              "em": "seis"
+            },
+            {
+              "t": "Cadastro de reserva",
+              "em": "cadastro"
+            }
+          ]
+        },
+        {
+          "nome": "Oficial",
+          "itens": [
+            {
+              "t": "Nível **superior**",
+              "em": "superior"
+            },
+            {
+              "t": "**R$ 9.856** iniciais",
+              "em": "nove"
+            },
+            {
+              "t": "**132** vagas imediatas",
+              "em": "cento"
+            }
+          ]
+        }
+      ],
+      "fala": "São dois cargos. Escrevente: nível médio, seis mil, setecentos e oitenta e dois reais, e cadastro de reserva. Oficial de Justiça: nível superior, nove mil, oitocentos e cinquenta e seis reais, e cento e trinta e duas vagas imediatas."
+    },
+    {
+      "tipo": "rosca",
+      "titulo": "Prova de escrevente",
+      "partes": [
+        {
+          "rot": "Língua Portuguesa",
+          "valor": 16,
+          "em": "Português"
+        },
+        {
+          "rot": "Conhecimentos em Direito",
+          "valor": 30,
+          "em": "Direito"
+        },
+        {
+          "rot": "Conhecimentos gerais",
+          "valor": 24,
+          "em": "gerais"
+        }
+      ],
+      "centro": "70",
+      "centroRot": "questões",
+      "nota": "Português e Direito eliminam: acerte 50% de cada",
+      "emNota": "metade",
+      "fala": "A prova de escrevente tem setenta questões: dezesseis de Português, trinta de Direito e vinte e quatro de conhecimentos gerais. E atenção: Português e Direito eliminam. Você precisa acertar pelo menos metade de cada um."
+    },
+    {
+      "tipo": "etapas",
+      "titulo": "Datas",
+      "itens": [
+        {
+          "data": "até 10/12",
+          "t": "Inscrições (taxa de R$ 81 ou R$ 96)",
+          "em": "inscrições",
+          "alerta": true
+        },
+        {
+          "data": "até 11/12",
+          "t": "Pagamento do boleto",
+          "em": "boleto"
+        },
+        {
+          "data": "14/03/2027",
+          "t": "Prova objetiva e redação",
+          "em": "março"
+        }
+      ],
+      "fala": "As inscrições vão até dez de dezembro, e o boleto tem que ser pago até o dia onze. A prova é dia catorze de março, com redação no mesmo dia."
+    },
+    {
+      "tipo": "cta",
+      "produto": "edital",
+      "titulo": [
+        "O edital inteiro",
+        "[[organizado]]"
+      ],
+      "comenta": "EDITAL",
+      "tela": {
+        "sub": "TJSP · Escrevente",
+        "itens": [
+          [
+            "Língua Portuguesa",
+            0.7
+          ],
+          [
+            "Direito Penal",
+            0.45
+          ],
+          [
+            "Direito Processual Penal",
+            0.3
+          ],
+          [
+            "Informática",
+            0.6
+          ],
+          [
+            "Raciocínio Lógico",
+            0.25
+          ]
+        ]
+      },
+      "fala": "Comenta EDITAL que eu te mando o app Edital com Líbero, com o edital do TJ de São Paulo organizado matéria por matéria."
+    }
+  ]
+}

@@ -26,7 +26,7 @@ const Gancho: React.FC<any> = ({ c }) => {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 36 }}>
         {c.selo && <div style={{ ...sora(40, cor.tinta), background: cor.amarelo, padding: '14px 28px 12px', transform: `rotate(-3deg) scale(${ps})` }}>{c.selo}</div>}
         {temNum && <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: 400, lineHeight: 0.82, color: 'transparent', WebkitTextStroke: `6px ${cor.menta}` }}><Conta alvo={c.numero} em={4} /></div>
+          <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: c.tn || 400, lineHeight: 0.82, color: 'transparent', WebkitTextStroke: `6px ${cor.menta}` }}><Conta alvo={c.numero} em={4} /></div>
           <Entra em={12}><div style={{ ...sora(46, cor.branco), marginTop: 10 }}>{c.numeroRot}</div></Entra>
         </div>}
         <Titulo t={c.linhas} em={temNum ? 10 : 4} px={c.ts || (temNum ? 128 : 158)} centro />
@@ -100,7 +100,7 @@ const Versus: React.FC<any> = ({ c, k }) => {
     <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 26, marginTop: 54 }}>
       {lados.map((l: any, li: number) => <div key={li} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
         <Entra em={inicioLado[li]} y={-30}>
-          <div style={{ background: li ? cor.verde : cor.papel, color: li ? cor.branco : cor.tinta, fontFamily: fonte.display, fontWeight: 900, fontSize: 84, lineHeight: 1, textTransform: 'uppercase', textAlign: 'center', padding: '30px 10px 24px', borderRadius: 24 }}>{l.nome}</div>
+          <div style={{ background: li ? cor.verde : cor.papel, color: li ? cor.branco : cor.tinta, fontFamily: fonte.display, fontWeight: 900, fontSize: l.nome.length > 8 ? 64 : 84, lineHeight: 1, textTransform: 'uppercase', textAlign: 'center', padding: l.nome.length > 8 ? '40px 10px 32px' : '30px 10px 24px', borderRadius: 24 }}>{l.nome}</div>
         </Entra>
         {lista(l.itens).map((it: any, i: number) => <React.Fragment key={i}>
           <Sfx em={ems[li][i]} som="pop" vol={0.22} />
@@ -197,7 +197,7 @@ const Rosca: React.FC<any> = ({ c, k }) => {
   const ems = partes.map((p: any, i: number) => m(p.em, 20 + i * 30));
   const eNota = m(c.emNota, 999);
   const total = partes.reduce((s: number, p: any) => s + p.valor, 0);
-  const R = 230, ESP = 96, C = 2 * Math.PI * R;
+  const R = partes.length > 2 ? 190 : 230, ESP = partes.length > 2 ? 84 : 96, C = 2 * Math.PI * R;
   const cores = [cor.menta, cor.verde, cor.amarelo];
   let acum = 0;
   const r = useRespira(40, 3);
@@ -214,7 +214,7 @@ const Rosca: React.FC<any> = ({ c, k }) => {
         })}
       </svg>
       <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: 210, lineHeight: 0.85, color: cor.branco }}><Conta alvo={+c.centro} em={4} /></div>
+        <div style={{ fontFamily: fonte.display, fontWeight: 900, fontSize: Math.round(R * 0.82), lineHeight: 0.85, color: cor.branco }}><Conta alvo={+c.centro} em={4} /></div>
         <div style={sora(32, cor.menta)}>{c.centroRot}</div>
       </div>
     </div>
@@ -307,9 +307,9 @@ const TELAS: any = {
   edital: { nome: 'Edital com Líbero', sub: 'Polícia Penal PE', itens: [['Língua Portuguesa', 0.8], ['Direito Penal', 0.55], ['Execução Penal', 0.35], ['Direito Constitucional', 0.65], ['Legislação Especial', 0.2]] },
   curso: { nome: 'Curso Concurso', sub: 'com Líbero', blocos: ['Banco de questões', 'Flashcards', 'Material de apoio', 'Aulas'] },
 };
-const Celular: React.FC<{ produto: string; em: number }> = ({ produto, em }) => {
+const Celular: React.FC<{ produto: string; em: number; tela?: any }> = ({ produto, em, tela: t }) => {
   const f = useCurrentFrame(); const { fps } = useVideoConfig();
-  const tela = TELAS[produto] || TELAS.curso;
+  const tela = { ...(TELAS[produto] || TELAS.curso), ...(t || {}) };
   return <div style={{ width: 470, height: 860, borderRadius: 64, background: '#0d1513', padding: 16, boxShadow: '0 50px 90px -20px rgba(0,0,0,.7), 0 0 0 3px rgba(185,255,241,.25)' }}>
     <div style={{ width: '100%', height: '100%', borderRadius: 50, background: cor.papel, overflow: 'hidden', position: 'relative' }}>
       <div style={{ background: cor.base, padding: '56px 30px 28px', display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -345,7 +345,7 @@ const Cta: React.FC<any> = ({ c, k }) => {
   return <Area topo={300} alt={1110} centro={false}>
     <Titulo t={c.titulo} em={2} px={104} centro />
     <div style={{ display: 'flex', justifyContent: 'center', marginTop: 30 }}>
-      <Entra em={6} y={120} s={0.9}><div style={{ transform: `translateY(${r}px) rotate(${Math.sin(f / 40) * 1.2}deg) scale(.96)`, transformOrigin: 'top center', height: 830 }}><Celular produto={c.produto} em={10} /></div></Entra>
+      <Entra em={6} y={120} s={0.9}><div style={{ transform: `translateY(${r}px) rotate(${Math.sin(f / 40) * 1.2}deg) scale(.96)`, transformOrigin: 'top center', height: 830 }}><Celular produto={c.produto} em={10} tela={c.tela} /></div></Entra>
     </div>
     <Sfx em={eCom} som="pop" vol={0.35} />
     <div style={{ position: 'absolute', left: 30, right: 30, top: 1000, display: 'flex', alignItems: 'center', gap: 20, background: cor.branco, borderRadius: 60, padding: '18px 26px', boxShadow: '0 20px 50px rgba(0,0,0,.4)', opacity: pc, transform: `scale(${interpolate(pc, [0, 1], [0.7, 1])})` }}>

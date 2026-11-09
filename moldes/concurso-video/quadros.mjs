@@ -17,5 +17,6 @@ for (const q of qs) {
   await renderStill({ serveUrl, composition: comp, frame: Math.min(+q, comp.durationInFrames - 1), output: out, browserExecutable, scale: 0.5, overwrite: true });
   arqs.push(out);
 }
-try { execFileSync('ffmpeg', ['-v', 'error', '-y', ...arqs.flatMap(a => ['-i', a]), '-filter_complex', `hstack=inputs=${arqs.length}`, `${dir}/folha.png`]); } catch {}
+if (arqs.length === 1) fs.copyFileSync(arqs[0], `${dir}/folha.png`);
+else try { execFileSync('ffmpeg', ['-v', 'error', '-y', ...arqs.flatMap(a => ['-i', a]), '-filter_complex', `hstack=inputs=${arqs.length}`, `${dir}/folha.png`]); } catch {}
 console.log(`✓ ${dir}/folha.png`);
