@@ -1,13 +1,13 @@
 plugins { id 'com.android.application' }
 android {
     namespace 'com.liberofilho.concursos'
-    compileSdk 35
+    compileSdk 36
     defaultConfig {
         applicationId 'com.liberofilho.concursos'
         minSdk 24
-        targetSdk 34
-        versionCode 1
-        versionName '1.0'
+        targetSdk 36
+        versionCode Integer.parseInt(System.getenv('CCL_VERSAO') ?: '2')
+        versionName "1.${System.getenv('CCL_VERSAO') ?: '2'}"
     }
     signingConfigs {
         release {

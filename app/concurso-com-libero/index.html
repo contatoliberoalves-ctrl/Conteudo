@@ -809,6 +809,72 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .cprim2{display:flex;align-items:center;gap:10px;text-align:left;color:var(--mu2);font-size:14px;min-height:44px}
 :root[data-tema="escuro"] .cac2.on{background:#3A1E25}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-tema="claro"]) .cac2.on{background:#3A1E25}}
+/* ===== v3: tela simples, ofensiva, revisão, checklist ===== */
+.ofs{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;border-radius:16px;background:var(--p-peach);color:var(--tx)}
+.ofs-f{display:flex;align-items:center;gap:4px;color:#C2540A;flex:none}
+.ofs-f b{font-family:var(--h);font-size:22px;font-weight:800}
+.ofs-t{flex:1;display:grid;line-height:1.3}
+.ofs-t b{font-size:15px}
+.ofs-t span{font-size:13px;color:var(--mu)}
+.ofs-ok{width:28px;height:28px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;flex:none}
+.ofs.ok{background:var(--okbg)}
+.hs-top{display:grid;gap:10px}
+.hs-top h1{font-size:30px;letter-spacing:-.03em}
+.hs-prog{display:flex;gap:6px}
+.hs-prog i{flex:1;height:10px;border-radius:6px;background:var(--sf3)}
+.hs-prog i.ok{background:var(--acc)}
+.hs-prog i.at{background:repeating-linear-gradient(45deg,var(--acc) 0 6px,color-mix(in srgb,var(--acc) 55%,transparent) 6px 12px)}
+.aviso-l{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:var(--atbg);color:var(--attx);font-size:14.5px}
+.aviso-l b{color:var(--at);white-space:nowrap}
+.agora-s{padding:24px 22px;gap:14px}
+.agora-s h2{color:#fff;font-size:clamp(26px,7vw,32px);line-height:1.15;letter-spacing:-.025em}
+.ag-meta{color:#C5DED5;font-size:15px;margin-top:-6px}
+.ag-pts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ag-pts span{width:100%;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#89E6CD}
+.ag-pts b{font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff}
+.ag-go{min-height:58px;font-size:17px;gap:10px}
+.ag-pq summary{cursor:pointer;color:var(--lima);font-weight:600;font-size:14px;min-height:36px;display:flex;align-items:center}
+.ag-pq p{color:#C5DED5;font-size:14px;line-height:1.5}
+.rev-s{display:flex;align-items:center;gap:14px;padding:16px}
+.rev-s .grow{display:grid;gap:2px}
+.rev-ic{width:44px;height:44px;border-radius:14px;background:var(--p-lilac);color:#6A4FB8;display:grid;place-items:center;flex:none}
+.fc3{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px}
+.fc3 .btn{flex-direction:column;gap:0;line-height:1.2;padding:8px 6px;min-height:56px}
+.fc3 small{font-size:11px;font-weight:500;opacity:.75}
+.tg{width:52px;height:30px;border-radius:30px;background:var(--sf3);position:relative;flex:none;transition:background .2s}
+.tg i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s}
+.tg[aria-checked=true]{background:var(--acc)}
+.tg[aria-checked=true] i{transform:translateX(22px)}
+.vt-ring{--p:0;width:72px;height:72px;border-radius:50%;flex:none;display:grid;place-items:center;background:radial-gradient(closest-side,var(--sf) 76%,transparent 78%),conic-gradient(var(--acc) calc(var(--p)*1%),var(--sf3) 0)}
+.vt-ring b{font-family:var(--h);font-size:18px;font-weight:800}
+.vt-ring.sm{width:52px;height:52px}
+.vt-ring.sm b{font-size:14px}
+.vt-tot{display:flex;align-items:center;gap:16px}
+.vt-tot .grow{display:grid;gap:4px}
+.vt-card{text-align:left;width:100%;display:flex;flex-wrap:nowrap;gap:10px}
+.vt-card>.row{min-width:0;flex:1}
+.vt-lista{display:grid;gap:10px}
+.vt-mat{border:1px solid var(--ln);border-radius:16px;background:var(--sf);overflow:hidden}
+.vt-cab{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;text-align:left;min-height:64px}
+.vt-cab .grow{display:grid;gap:6px}
+.vt-cab b{font-size:15.5px}
+.vt-bar{height:6px;border-radius:6px;background:var(--sf3);overflow:hidden}
+.vt-bar i{display:block;height:100%;background:var(--acc)}
+.vt-n{font-family:var(--h);font-weight:800;font-size:14px;color:var(--mu)}
+.vt-mat .rot{transition:transform .2s;color:var(--mu)}
+.vt-mat.ab .rot{transform:rotate(180deg)}
+.vt-itens{display:grid;border-top:1px solid var(--ln)}
+.vt-i{display:flex;align-items:center;gap:12px;padding:12px 16px;text-align:left;min-height:52px;font-size:15px}
+.vt-i+.vt-i{border-top:1px solid var(--ln)}
+.vt-i small{display:block;font-size:12px;color:var(--ok);font-weight:600}
+.vt-cx{width:26px;height:26px;border-radius:8px;border:2px solid var(--ln2);display:grid;place-items:center;flex:none;color:#fff}
+.vt-i.ok .vt-cx{background:var(--acc);border-color:var(--acc)}
+.vt-i.ok .grow{color:var(--mu)}
+.vt-i[disabled]{cursor:default}
+/* tela simples: sem movimento que distraia */
+:root[data-simples] .ticker-t{animation:none}
+:root[data-simples] .ticker-v{overflow-x:auto;scrollbar-width:none}
+:root[data-simples] .rv:not(.in){transform:none;opacity:1}
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
 .sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:20px 20px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .22s ease}
@@ -1091,7 +1157,7 @@ function novaPrep(cid,cargo){return{conc:cid,cargo,cfg:null,metas:[],adiadas:[],
 // ---------- gamificação ----------
 function ganhar(xp,msg){
   S.xp+=xp;S.hist=S.hist||{};S.hist[HOJE]=(S.hist[HOJE]||0)+xp;const P=prep();if(P)P.xp+=xp;
-  if(S.ultimoDia!==HOJE){S.streak=(S.ultimoDia===addD(HOJE,-1)?S.streak:0)+1;S.ultimoDia=HOJE;if(S.streak%7===0&&(S.escudos||0)<3){S.escudos=(S.escudos||0)+1;setTimeout(()=>toast('Você ganhou um escudo de sequência'),1300)}}
+  marcarDia();
   toast(msg,xp);
 }
 function conquista(id){if(S.badges.includes(id))return;S.badges.push(id);setTimeout(()=>toast(`Conquista: ${BADGES[id][0]}`,0,'medalha'),900)}
@@ -1356,10 +1422,10 @@ function responder(el){
   const certo=t.sel===q.gab;t.conf=true;t.res.push({id:q.id,ok:certo,sel:t.sel,rev:!!it.rev});
   if(P&&t.dia)P.qdia={data:HOJE,ok:certo};
   if(P){P.resp[q.id]=certo?'ok':'erro';P.respondidas++;if(certo)P.acertos++;
-    if(!certo&&!P.erros.some(e=>e.qid===q.id&&!e.revisado))P.erros.push({qid:q.id,ass:q.ass,mat:q.mat,data:HOJE,sel:t.sel,revisado:false});
-    if(certo&&it.rev){const e=P.erros.find(x=>x.qid===it.rev.qid&&!x.revisado);if(e){e.revisado=true;e.revEm=HOJE}conquista('volta-erro')}
+    if(!certo&&!it.rev&&!P.erros.some(e=>e.qid===q.id&&!e.revisado))P.erros.push({qid:q.id,ass:q.ass,mat:q.mat,data:HOJE,sel:t.sel,revisado:false});
+    if(it.rev){const e=P.erros.find(x=>x.qid===it.rev.qid&&!x.revisado);if(e)revErro(e,certo);if(certo)conquista('volta-erro')}
   }
-  if(certo){ganhar(10,'Resposta certa');conquista('primeiro-acerto');confete(el)}else{S.xp+=2;if(P)P.xp+=2}
+  if(certo){ganhar(10,'Resposta certa');conquista('primeiro-acerto');confete(el)}else{S.xp+=2;if(P)P.xp+=2;marcarDia()}
   salvar();render();
 }
 function finalizarTreino(saiu){
@@ -1658,8 +1724,8 @@ ACT.lembrei=d=>{const f=UI.fc;if(d.v==='1'){f.sim++;S.xp+=5;S.hist=S.hist||{};S.
 
 // ---------- modo foco ----------
 let focoT=null;
-ACT.foco=d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(!m)return;fecharSheet(true);UI.foco={m:m.id,total:m.min*60,rest:m.min*60,rodando:true};renderFoco();clearInterval(focoT);focoT=setInterval(tickFoco,1000)};
-function tickFoco(){const f=UI.foco;if(!f){clearInterval(focoT);return}if(!f.rodando)return;f.rest=Math.max(0,f.rest-1);if(f.rest===0){f.rodando=false;renderFoco();return}atualizaFoco()}
+ACT.foco=d=>{const P=prep(),m=P.metas.find(x=>x.id===d.m);if(!m)return;fecharSheet(true);UI.foco={m:m.id,total:m.min*60,rest:m.min*60,rodando:true,fim:Date.now()+m.min*60000};renderFoco();clearInterval(focoT);focoT=setInterval(tickFoco,1000)};
+function tickFoco(){const f=UI.foco;if(!f){clearInterval(focoT);return}if(!f.rodando){f.fim=null;return}if(!f.fim)f.fim=Date.now()+f.rest*1000;f.rest=Math.max(0,Math.round((f.fim-Date.now())/1000));if(f.rest===0){f.rodando=false;renderFoco();return}atualizaFoco()}
 function fmtT(s){return pad(Math.floor(s/60))+':'+pad(s%60)}
 function atualizaFoco(){const f=UI.foco,t=document.querySelector('#foco .tempo'),c=document.querySelector('#foco .arco');if(t)t.textContent=fmtT(f.rest);if(c){const cf=2*Math.PI*112;c.style.strokeDashoffset=cf*(1-f.rest/f.total)}}
 function renderFoco(){
@@ -1674,8 +1740,8 @@ function renderFoco(){
      <div class="links" style="justify-content:center"><button class="btn-g" style="color:var(--lima)" data-a="focoConcluir">Já terminei</button><button class="btn-g" style="color:rgba(255,255,255,.7)" data-a="focoPular">Demonstração: pular 5 min</button></div>`}
   </div></div>`;
 }
-ACT.focoPausa=()=>{UI.foco.rodando=!UI.foco.rodando;renderFoco()};
-ACT.focoPular=()=>{UI.foco.rest=Math.max(0,UI.foco.rest-300);if(UI.foco.rest===0)UI.foco.rodando=false;renderFoco()};
+ACT.focoPausa=()=>{UI.foco.rodando=!UI.foco.rodando;UI.foco.fim=UI.foco.rodando?Date.now()+UI.foco.rest*1000:null;renderFoco()};
+ACT.focoPular=()=>{UI.foco.rest=Math.max(0,UI.foco.rest-300);UI.foco.fim=UI.foco.rodando?Date.now()+UI.foco.rest*1000:null;if(UI.foco.rest===0)UI.foco.rodando=false;renderFoco()};
 ACT.focoSair=()=>{UI.foco=null;clearInterval(focoT);renderFoco()};
 ACT.focoConcluir=d=>{const id=UI.foco.m;UI.foco=null;clearInterval(focoT);renderFoco();concluir(id,d.el)};
 ACT.focoMaterial=()=>{const P=prep(),m=P.metas.find(x=>x.id===UI.foco.m);$('#foco').innerHTML='';go('leitor',{mat:`${m.ass}:${materialDaMeta(m)}`,meta:m.id,de:UI.view,foco:1})};
@@ -1844,7 +1910,7 @@ V.leitor=p=>{
    <div class="links">${outros.map(t=>`<button class="btn-g" data-a="material" data-mat="${aid}:${t}" data-meta="${meta?meta.id:''}" data-de="${p.de||''}">${{resumo:'Ver o resumo',mapa:'Ver o mapa mental',lei:'Ver a lei seca'}[t]}</button>`).join('')}</div>
    ${meta&&!meta.ok?`<section class="card pad stack"><b>Terminou a leitura?</b><button class="btn btn-p w" data-a="marcar" data-m="${meta.id}">Marcar meta como concluída</button></section>`:meta?`<div class="aviso ok">${I('check')}<div class="grow sm"><span><b>Meta concluída.</b></span></div></div>`:''}
    ${nq?(temQuestoes()?`<button class="btn btn-s w" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button>`
-    :`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><b>Agora, teste se ficou</b>${tagPr}</div><p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca}. Quem erra recebe o tema de volta em outra questão, 2 e 7 dias depois.</p><button class="btn btn-p" style="justify-self:start" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button></section>`):''}
+    :`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><b>Agora, teste se ficou</b>${tagPr}</div><p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca}. Quem erra recebe o tema de volta em outra questão, no dia certo para não esquecer.</p><button class="btn btn-p" style="justify-self:start" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button></section>`):''}
   </div>`;
 };
 
@@ -1893,7 +1959,7 @@ V.hoje=()=>{
     </section>`;
     if(nq&&!temQuestoes()){const q=QUESTOES.find(x=>x.conc===c.id&&x.ass===atual.ass);
       nudge=`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><h3>Depois da teoria, prove que aprendeu</h3>${tagPr}</div>
-       <p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca} esperam por você. Errou? O tema volta em outra questão 2 e 7 dias depois, e sua nota estimada é atualizada.</p>
+       <p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca} esperam por você. Errou? O tema volta em outra questão no dia certo para não esquecer, e sua nota estimada é atualizada.</p>
        <div class="preview"><span class="xs mu">Prévia · ${c.banca} · ${q.dif}</span><p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(q.enun)}</p></div>
        <div class="btns"><button class="btn btn-p" data-a="treinar" data-gate="questoes" data-ass="${atual.ass}" data-meta="${atual.id}" data-de="hoje">Treinar ${esc(aa.a.nome)}</button><button class="btn btn-s" data-a="go" data-v="premium">O que o Premium inclui</button></div></section>`;}
   }else if(doDia.length){principal=`<section class="dark"><span class="eyebrow">Dia fechado</span><h2 style="color:#fff">${feitas} de ${doDia.length} metas concluídas</h2><p class="mu">A próxima é ${futuras[0]?`<b style="color:#fff">${esc(achaAss(P.conc,futuras[0].ass).a.nome)}</b>, ${quando(futuras[0].data)}`:'a revisão final'}.</p>
@@ -2039,7 +2105,7 @@ V.premium=(p={})=>{
    ${cta}
   </section>
   <section class="vs"><div class="card pad stack"><h3>Seu dia hoje</h3><ol class="mu"><li>Abre o material da meta</li><li>Lê o resumo</li><li>Marca como concluída</li></ol><p class="sm mu">Você estudou, mas não sabe se fixou.</p></div>
-   <div class="card pad stack" style="border-color:var(--acc)"><h3>Seu dia com o Premium</h3><ol><li>Abre o material da meta</li><li>Responde as questões daquele assunto</li><li>Os erros voltam em outra questão, 2 e 7 dias depois</li><li>Sua nota estimada é atualizada por matéria</li></ol></div></section>
+   <div class="card pad stack" style="border-color:var(--acc)"><h3>Seu dia com o Premium</h3><ol><li>Abre o material da meta</li><li>Responde as questões daquele assunto</li><li>Os erros voltam em outra questão, no dia certo para não esquecer</li><li>Sua nota estimada é atualizada por matéria</li></ol></div></section>
   <section class="feat"><div class="stack"><h2>Questões comentadas no estilo da banca</h2><p class="mu">Filtradas pelo seu edital, por matéria, assunto e dificuldade. Cada uma traz o gabarito e o porquê, com o artigo de lei.</p><p class="sm mu">${porMat.map(([m,n])=>`${esc(m.curto)}: ${n}`).join(' · ')}</p></div>
    <div class="preview"><span class="xs mu">${c.banca} · ${esc(achaAss(c.id,q.ass).a.nome)} · ${q.dif}</span><p>${esc(q.enun)}</p>
     ${alts.slice(0,q.ce?2:3).map((a,i)=>`<div class="alt ${i===q.gab?'certa':''}" style="min-height:44px;padding:8px 12px;font-size:14.5px"><span class="lt">${L[i]}</span><span>${esc(a)}</span></div>`).join('')}
@@ -2114,10 +2180,10 @@ V.caderno=()=>{
   const assL=[...new Set(todos.map(e=>e.ass))];const lst=todos.filter(e=>!UI.cadF||e.ass===UI.cadF);
   const pend=lst.filter(e=>!e.revisado),nPend=todos.filter(e=>!e.revisado).length;
   return`<button class="back" data-a="voltar">${I('esq',18)} Voltar</button>
-  <section class="stack" style="gap:6px"><span class="eyebrow">Caderno de erros · ${c.sigla}</span><h1>${nPend} ${nPend===1?'erro para revisar':'erros para revisar'}</h1><p class="mu">Cada erro volta numa rodada futura como outra questão sobre o mesmo tema. Acertou, está revisado.</p></section>
+  <section class="stack" style="gap:6px"><span class="eyebrow">Caderno de erros · ${c.sigla}</span><h1>${nPend} ${nPend===1?'erro para revisar':'erros para revisar'}</h1><p class="mu">Cada erro volta como outra questão do mesmo tema, no dia certo para você não esquecer: errou de novo, volta amanhã; acertou, o intervalo aumenta.</p></section>
   ${todos.length?`<div class="chips"><button class="chip" aria-pressed="${!UI.cadF}" data-a="cadF" data-v="">Todos</button>${assL.map(a=>`<button class="chip" aria-pressed="${UI.cadF===a}" data-a="cadF" data-v="${a}">${esc(achaAss(c.id,a).a.nome)}</button>`).join('')}</div>
    ${pend.length?`<button class="btn btn-p" style="justify-self:start" data-a="revisarCaderno" data-ass="${UI.cadF}">Abrir revisão${UI.cadF?` de ${esc(achaAss(c.id,UI.cadF).a.nome)}`:''}</button>`:''}
-   <div class="stack">${lst.map(e=>{const q=qDe(e.qid),aa=achaAss(c.id,e.ass),L=q.ce?['C','E']:['A','B','C','D','E'];return`<div class="card stack"><div class="between"><span class="sm mu">${dotM(c.id,aa.m.id)} ${esc(aa.a.nome)} · ${dm(e.data)}</span>${e.revisado?'<span class="tag t-ok">Revisado</span>':'<span class="tag t-er">Pendente</span>'}</div><p class="sm">${esc(q.enun.length>160?q.enun.slice(0,160)+'…':q.enun)}</p><p class="sm"><span style="color:var(--er);font-weight:700">Você marcou ${L[e.sel]}</span> · <span style="color:var(--ok);font-weight:700">gabarito ${L[q.gab]}</span></p></div>`}).join('')}</div>`
+   <div class="stack">${lst.map(e=>{const q=qDe(e.qid),aa=achaAss(c.id,e.ass),L=q.ce?['C','E']:['A','B','C','D','E'];return`<div class="card stack"><div class="between"><span class="sm mu">${dotM(c.id,aa.m.id)} ${esc(aa.a.nome)} · ${dm(e.data)}</span>${e.revisado?'<span class="tag t-ok">Dominado</span>':erroDevido(e)?'<span class="tag t-er">Revisar hoje</span>':`<span class="tag t-line">Volta ${voltaTxt(fsErro(e).due)}</span>`}</div><p class="sm">${esc(q.enun.length>160?q.enun.slice(0,160)+'…':q.enun)}</p><p class="sm"><span style="color:var(--er);font-weight:700">Você marcou ${L[e.sel]}</span> · <span style="color:var(--ok);font-weight:700">gabarito ${L[q.gab]}</span></p></div>`}).join('')}</div>`
   :`<div class="card empty">${I('caderno',28)}<h3>Seu caderno está vazio</h3><p class="mu sm">Quando errar uma questão, ela aparece aqui e o tema volta numa próxima rodada.</p><button class="btn btn-p" data-a="tab" data-v="praticar">Fazer uma rodada</button></div>`}`;
 };
 
@@ -3127,7 +3193,7 @@ V.premium=(p={})=>{
   const ex=c.materias.slice(0,4).map((m,i)=>[m.curto,corMat(c.id,m.id),[81,63,74,52][i]]);
   const cta=(t='Quero o Premium',cls='btn-l')=>`<button class="btn ${cls}" data-a="assinar" data-plano="premium">${t}</button>`;
   const ben=[['praticar','Questões comentadas','No estilo da '+c.banca+', filtradas pelo seu edital, com gabarito, o porquê e o artigo de lei.'],
-    ['caderno','Caderno de erros que volta','Cada erro reaparece em outra questão do mesmo tema, 2 e 7 dias depois. Você não decora a resposta, aprende o assunto.'],
+    ['caderno','Caderno de erros que volta','Cada erro reaparece em outra questão do mesmo tema, no dia certo para você não esquecer: o que você erra volta antes, o que domina demora mais. Você não decora a resposta, aprende o assunto.'],
     ['grafico','Nota estimada contra o corte','Seus acertos cruzados com o peso de cada matéria mostram onde você já passa e onde ainda perde pontos.'],
     ['relogio2','Simulados no formato da prova','Cronômetro, sem gabarito até entregar, nota por matéria e sua posição entre os participantes.'],
     ['plano','Treino direto da meta do dia','Terminou a teoria? Um toque e você treina exatamente aquele assunto.'],
@@ -3141,7 +3207,7 @@ V.premium=(p={})=>{
     <span class="xs mu2">Preço de lançamento em breve · simulação no protótipo, nada é cobrado</span></div>
    <div class="pr-mock" aria-hidden="true">
     <div class="pm pm1"><span class="pm-k">Questão · ${c.banca}</span><p>${esc(q.enun.length>90?q.enun.slice(0,88)+'…':q.enun)}</p><div class="pm-alt ok"><span>${L[q.gab]}</span>${esc(alts[q.gab].slice(0,46))}${alts[q.gab].length>46?'…':''}</div></div>
-    <div class="pm pm2"><span class="pm-k">Caderno de erros</span><b>Volta em 2 dias</b><span class="xs">em outra questão do mesmo tema</span></div>
+    <div class="pm pm2"><span class="pm-k">Caderno de erros</span><b>Volta amanhã</b><span class="xs">em outra questão do mesmo tema</span></div>
     <div class="pm pm3"><span class="pm-k">Nota estimada</span><b>74%</b><span class="pm-bar"><i style="width:74%"></i><em style="left:${c.corteP}%"></em></span><span class="xs">corte ${c.corteP}% (exemplo)</span></div>
    </div></section>
   <section class="stack rv" style="gap:14px"><div class="jc-sec"><h2>Tudo o que você ganha</h2></div>
@@ -3207,6 +3273,150 @@ V.comunidade=()=>{
 };
 ACT.postarCat=d=>{UI.postCat=d.v;UI.conqRasc=null;abrirSheet('postar')};
 
+// ================= v3: revisão inteligente, tela simples, checklist do edital =================
+Object.assign(ICONS,{checklist:'<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/>',cerebro:'<path d="M9.5 3a3 3 0 0 0-3 3v.2A3 3 0 0 0 4 9.5a3 3 0 0 0 .7 1.9A3.5 3.5 0 0 0 6.5 18 3 3 0 0 0 12 19V5a2 2 0 0 0-2.5-2z"/><path d="M14.5 3a3 3 0 0 1 3 3v.2A3 3 0 0 1 20 9.5a3 3 0 0 1-.7 1.9 3.5 3.5 0 0 1-1.8 6.6A3 3 0 0 1 12 19"/>'});
+
+// ---------- FSRS (repetição espaçada do Anki, parâmetros padrão do FSRS-4.5) ----------
+const FW=[0.4872,1.4003,3.7145,13.8206,5.1618,1.2298,0.8975,0.031,1.6474,0.1367,1.0461,2.1072,0.0793,0.3246,1.587,0.2272,2.8755];
+const fsD0=g=>Math.min(10,Math.max(1,FW[4]-(g-3)*FW[5]));
+const fsR=(t,s)=>Math.pow(1+19/81*t/s,-0.5);
+// g: 1 = errei, 3 = lembrei, 4 = fácil. Devolve o novo estado {s,d,due,last,n}
+function fsrs(st,g,hoje=HOJE){
+  let s,d;
+  if(!st||!st.s){s=FW[g-1];d=fsD0(g)}
+  else{
+    const t=Math.max(0,diasEntre(st.last,hoje)),r=fsR(t,st.s);
+    d=Math.min(10,Math.max(1,FW[7]*fsD0(4)+(1-FW[7])*(st.d-FW[6]*(g-3))));
+    s=g===1?FW[11]*Math.pow(st.d,-FW[12])*(Math.pow(st.s+1,FW[13])-1)*Math.exp(FW[14]*(1-r))
+      :st.s*(Math.exp(FW[8])*(11-st.d)*Math.pow(st.s,-FW[9])*(Math.exp(FW[10]*(1-r))-1)*(g===4?FW[16]:1)+1);
+  }
+  const iv=g===1?1:Math.max(1,Math.min(365,Math.round(s)));
+  return{s:+s.toFixed(3),d:+d.toFixed(3),last:hoje,due:addD(hoje,iv),n:((st&&st.n)||0)+1,iv};
+}
+function diasEntre(a,b){return Math.round((pd(b)-pd(a))/864e5)}
+const voltaTxt=due=>{const n=diasEntre(HOJE,due);return n<=0?'hoje':n===1?'amanhã':n<30?`em ${n} dias`:`em ${Math.round(n/30)} ${Math.round(n/30)===1?'mês':'meses'}`};
+// erro: nasce com "errei" e volta no dia seguinte
+function fsErro(e){if(!e.fs)e.fs=fsrs(null,1,e.data);return e.fs}
+const erroDevido=e=>!e.revisado&&fsErro(e).due<=HOJE;
+function revErro(e,certo){e.fs=fsrs(fsErro(e),certo?3:1);if(certo&&e.fs.iv>=21){e.revisado=true;e.revEm=HOJE}}
+function errosDevidos(P){return P?P.erros.filter(erroDevido):[]}
+
+// flashcards com FSRS
+function todosCards(){
+  const P=prep(),c=concAtivo();
+  let ass=[...new Set(P.metas.filter(m=>m.ok).map(m=>m.ass))];
+  if(ass.length<3)ass=[...ass,...ranking(c.id,P.cfg||cfgPadrao(c.id)).map(x=>x.a.id)].filter((v,i,a)=>a.indexOf(v)===i).slice(0,4);
+  const cards=[];ass.forEach(id=>{const aa=achaAss(c.id,id);aa.a.pontos.forEach(p=>{const k=p.indexOf(': ');if(k>0&&k<44)cards.push({ass:id,mat:aa.m.id,f:p.slice(0,k),b:p.slice(k+2),key:c.id+'|'+id+'|'+p.slice(0,k)})})});
+  return cards;
+}
+const fcEst=k=>(S.fc||{})[k];
+function deck(){
+  const cs=todosCards(),dev=cs.filter(k=>fcEst(k.key)&&fcEst(k.key).due<=HOJE),novos=cs.filter(k=>!fcEst(k.key));
+  return[...dev,...novos].slice(0,8);
+}
+const cardsDevidos=()=>{const P=prep();if(!P||!concAtivo())return 0;return todosCards().filter(k=>fcEst(k.key)&&fcEst(k.key).due<=HOJE).length};
+ACT.lembrei=d=>{const f=UI.fc,k=f.cards[f.i],g=Number(d.v)===0?1:Number(d.v)===1?3:Number(d.v);
+  S.fc=S.fc||{};S.fc[k.key]=fsrs(S.fc[k.key],g);(f.prox=f.prox||[]).push(S.fc[k.key].due);
+  if(g>1){f.sim++;S.xp+=5;S.hist=S.hist||{};S.hist[HOJE]=(S.hist[HOJE]||0)+5}else f.nao++;
+  marcarDia();f.i++;f.vira=false;salvar();render()};
+const _flashV=V.flash;
+V.flash=()=>{let h=_flashV();const F=UI.fc;if(!F)return h;
+  h=h.replace(/<div class="btns fc-res"([^>]*)>[\s\S]*?<\/div>/,`<div class="fc-res fc3"$1><button class="btn btn-s" data-a="lembrei" data-v="1">Não lembrei<small>volta amanhã</small></button><button class="btn btn-p" data-a="lembrei" data-v="3">Lembrei</button><button class="btn btn-s" data-a="lembrei" data-v="4">Fácil<small>volta mais tarde</small></button></div>`);
+  if(F.i>=F.cards.length&&F.cards.length){const px=(F.prox||[]).sort()[0];h=h.replace(/Os cartões que [^<]*/,`O app guarda quando cada cartão deve voltar: o que você esqueceu volta antes, o que é fácil demora mais.${px?` Próxima revisão ${voltaTxt(px)}.`:''}`)}
+  return h};
+
+// sessões: só entram no treino os erros que já venceram
+const _montar=montarSessao;
+montarSessao=function(o){const P=prepPorConc(o.conc);if(!P||o.ids||o.todosErros)return _montar(o);
+  const guard=P.erros;const fora=P.erros.filter(e=>!e.revisado&&!erroDevido(e));fora.forEach(e=>e.revisado='espera');
+  try{return _montar(o)}finally{fora.forEach(e=>e.revisado=false);P.erros=guard}};
+ACT.revisarCaderno=d=>iniciarTreino({conc:concAtivo().id,ass:d.ass||null,de:'caderno',todosErros:true});
+
+// ---------- ofensiva separada da meta ----------
+function marcarDia(){
+  if(S.ultimoDia===HOJE)return;
+  S.streak=(S.ultimoDia===addD(HOJE,-1)?S.streak:0)+1;S.ultimoDia=HOJE;
+  if(S.streak%7===0&&(S.escudos||0)<3){S.escudos=(S.escudos||0)+1;setTimeout(()=>toast('Você ganhou um escudo de sequência'),1300)}
+}
+function ofensiva(){const ok=S.ultimoDia===HOJE;return`<button class="ofs ${ok?'ok':''}" data-a="sheet" data-s="sequencia"><span class="ofs-f">${I('fogo',20)}<b>${S.streak||0}</b></span><span class="ofs-t"><b>${S.streak===1?'1 dia seguido':`${S.streak||0} dias seguidos`}</b><span>${ok?'Hoje já está garantido':'Qualquer bloco de estudo hoje mantém'}</span></span>${ok?`<span class="ofs-ok">${I('check',16,3)}</span>`:''}</button>`}
+
+// ---------- tela simples (padrão) ----------
+const simples=()=>S.simples!==false;
+const _aplF=aplicarFonte;
+aplicarFonte=function(){_aplF();if(simples())document.documentElement.dataset.simples='1';else delete document.documentElement.dataset.simples};
+ACT.simples=()=>{S.simples=!simples();UI.hojeTudo=false;salvar();aplicarFonte();render();toast(simples()?'Tela simples ativada.':'Tela completa ativada.')};
+ACT.hojeTudo=d=>{UI.hojeTudo=d.v==='1';render(true)};
+function hojeSimples(){
+  const P=prep(),c=concAtivo();
+  const doDia=P.metas.filter(m=>m.data===HOJE).sort((a,b)=>a.ordem-b.ordem),feitas=doDia.filter(m=>m.ok).length,atual=doDia.find(m=>!m.ok);
+  const atras=P.metas.filter(m=>!m.ok&&m.data<HOJE),futuras=P.metas.filter(m=>!m.ok&&m.data>HOJE).sort((a,b)=>a.data.localeCompare(b.data)||a.ordem-b.ordem);
+  const depois=[...doDia.filter(m=>!m.ok&&m!==atual),...futuras].slice(0,2);
+  const nE=temQuestoes()?errosDevidos(P).length:0,nC=cardsDevidos(),rest=doDia.filter(m=>!m.ok).reduce((s,m)=>s+m.min,0);
+  let agora;
+  if(atual){const aa=achaAss(P.conc,atual.ass);
+    agora=`<section class="dark agora-s" id="metaAtual"><span class="eyebrow">Agora · ${doDia.indexOf(atual)+1} de ${doDia.length}</span>
+     <h2>${esc(aa.a.nome)}</h2><p class="ag-meta">${esc(aa.m.curto)} · ${tituloTipo(atual)} · ${atual.min} min</p>
+     <div class="ag-pts"><span>Você vai ver</span>${aa.a.pontos.slice(0,4).map(p=>{const k=p.indexOf(':');return`<b>${esc(k>0&&k<40?p.slice(0,k):cabeca(p).split(' ').slice(0,4).join(' ')+'…')}</b>`}).join('')}</div>
+     <button class="btn btn-l w ag-go" data-a="foco" data-m="${atual.id}">${I('timer',20)} Começar ${atual.min} min de foco</button>
+     <div class="btns"><button class="btn btn-o" data-a="material" data-mat="${atual.ass}:${materialDaMeta(atual)}" data-meta="${atual.id}" data-de="hoje">Abrir material</button><button class="btn btn-o" data-a="marcar" data-m="${atual.id}">${I('check',17,2.6)} Já fiz</button></div>
+     <details class="ag-pq"><summary>Por que este assunto agora?</summary><p>${esc(atual.motivo)}</p></details></section>`;
+  }else if(doDia.length)agora=`<section class="dark agora-s"><span class="eyebrow">Dia fechado</span><h2>Você fez as ${doDia.length} metas de hoje</h2><p class="ag-meta">Pode descansar. ${futuras[0]?`Próxima: ${esc(achaAss(P.conc,futuras[0].ass).a.nome)}, ${quando(futuras[0].data)}.`:''}</p>${futuras[0]?`<button class="btn btn-o w" data-a="adiantar" data-m="${futuras[0].id}">Quero adiantar a próxima</button>`:''}</section>`;
+  else agora=`<section class="dark agora-s"><span class="eyebrow">Dia livre</span><h2>Hoje é descanso</h2><p class="ag-meta">${futuras[0]?`Próxima: ${esc(achaAss(P.conc,futuras[0].ass).a.nome)}, ${quando(futuras[0].data)}.`:''}</p>${futuras[0]?`<button class="btn btn-o w" data-a="adiantar" data-m="${futuras[0].id}">Estudar mesmo assim</button>`:''}</section>`;
+  const rev=nE||nC?`<section class="card pad rev-s"><span class="rev-ic">${I('cerebro',22)}</span><div class="grow"><b>Revisão rápida</b><span class="sm mu">${[nE&&`${nE} ${nE===1?'erro':'erros'} para refazer`,nC&&`${nC} ${nC===1?'cartão':'cartões'} para lembrar`].filter(Boolean).join(' · ')}</span></div><button class="btn btn-p sm" data-a="${nE?'revisarCaderno':'flash'}">Revisar</button></section>`:'';
+  return`<section class="hs-top"><div><span class="eyebrow">${DLM(HOJE)}</span><h1>${atual?`Falta${doDia.length-feitas>1?'m':''} ${doDia.length-feitas} ${doDia.length-feitas===1?'meta':'metas'}`:'Tudo certo por hoje'}</h1></div>
+   <div class="hs-prog" role="img" aria-label="${feitas} de ${doDia.length} metas">${doDia.map(m=>`<i class="${m.ok?'ok':m===atual?'at':''}"></i>`).join('')}</div>
+   ${rest?`<span class="sm mu">${hm(rest)} de estudo restantes hoje</span>`:''}</section>
+  ${avisoSequencia()||ofensiva()}
+  ${atras.length?`<button class="aviso-l" data-a="reorg">${I('alerta',18)}<span class="grow">${atras.length} ${atras.length===1?'meta ficou':'metas ficaram'} para trás</span><b>Reorganizar</b></button>`:''}
+  ${agora}
+  ${rev}
+  ${depois.length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Depois</h3><button class="btn-g" data-a="tab" data-v="plano">Ver a semana</button></div>${lista(depois.map(m=>linhaMeta(m,{data:m.data!==HOJE})))}</section>`:''}
+  <button class="btn btn-s w" data-a="hojeTudo" data-v="1">Ver o dia completo</button>`;
+}
+const _hojeV3=V.hoje;
+V.hoje=()=>{const P=prep(),c=concAtivo();
+  if(c&&cobre(c.id)&&P&&P.cfg&&simples()&&!UI.hojeTudo)return hojeSimples();
+  let h=_hojeV3();
+  if(c&&cobre(c.id)&&P&&P.cfg&&simples()&&UI.hojeTudo)h=`<button class="back" data-a="hojeTudo" data-v="0">${I('esq',18)} Voltar para a tela simples</button>`+h;
+  return h};
+
+// ---------- checklist do edital (edital verticalizado) ----------
+function vertOk(P,assId){if((P.vert||{})[assId])return'manual';const ms=P.metas.filter(m=>m.ass===assId);return ms.length&&ms.every(m=>m.ok)?'plano':''}
+function vertResumo(P,c){let tot=0,ok=0;c.materias.forEach(m=>m.assuntos.forEach(a=>{tot++;if(vertOk(P,a.id))ok++}));return{tot,ok,pct:tot?Math.round(ok/tot*100):0}}
+V.vert=()=>{
+  const P=prep(),c=concAtivo(),r=vertResumo(P,c);UI.vertAb=UI.vertAb||{};
+  const ms=c.materias.slice().sort((a,b)=>b.peso-a.peso);
+  if(!Object.keys(UI.vertAb).length&&ms[0])UI.vertAb[ms[0].id]=true;
+  return`<section class="stack" style="gap:6px"><span class="eyebrow">Edital · ${c.sigla}</span><h1>Checklist do edital</h1><p class="mu">Todos os tópicos do edital, matéria por matéria. Marque o que você já estudou.</p></section>
+  ${subnavEdital('vert')}
+  <section class="card pad vt-tot"><div class="vt-ring" style="--p:${r.pct}"><b>${r.pct}%</b></div><div class="grow"><b style="font-size:17px">${r.ok} de ${r.tot} tópicos estudados</b><span class="sm mu">${r.ok?'Cada caixinha marcada é um passo a menos.':'Comece pela matéria que mais pesa. Ela já está aberta abaixo.'}</span></div></section>
+  <div class="vt-lista">${ms.map(m=>{const as=m.assuntos,ok=as.filter(a=>vertOk(P,a.id)).length,ab=UI.vertAb[m.id];
+    return`<section class="vt-mat ${ab?'ab':''}"><button class="vt-cab" data-a="vertAbrir" data-m="${m.id}" aria-expanded="${!!ab}">${dotM(c.id,m.id)}<span class="grow"><b>${esc(m.nome)}</b><span class="vt-bar"><i style="width:${as.length?ok/as.length*100:0}%"></i></span></span><span class="vt-n">${ok}/${as.length}</span><span class="rot">${I('baixo',18)}</span></button>
+     ${ab?`<div class="vt-itens">${as.map(a=>{const st=vertOk(P,a.id);return`<button class="vt-i ${st?'ok':''}" data-a="vertMarcar" data-ass="${a.id}" aria-pressed="${!!st}" ${st==='plano'?'disabled':''}><span class="vt-cx">${st?I('check',16,3):''}</span><span class="grow">${esc(a.nome)}${st==='plano'?'<small>concluído no seu plano</small>':''}</span></button>`}).join('')}</div>`:''}</section>`}).join('')}</div>`;
+};
+ACT.vertAbrir=d=>{UI.vertAb=UI.vertAb||{};UI.vertAb[d.m]=!UI.vertAb[d.m];render()};
+ACT.vertMarcar=d=>{const P=prep();P.vert=P.vert||{};if(P.vert[d.ass])delete P.vert[d.ass];else{P.vert[d.ass]=HOJE;marcarDia()}salvar();render()};
+TAB.vert='edital';
+const _subE=subnavEdital;
+subnavEdital=function(atual){return _subE(atual).replace('<nav class="seg"',`<nav class="seg"`).replace(/(<button [^>]*data-v="edital"[^>]*>Resumo<\/button>)/,`$1<button ${atual==='vert'?'aria-current="page"':''} data-a="go" data-v="vert">Checklist</button>`)};
+const _editalV=V.edital;
+V.edital=()=>{const h=_editalV(),P=prep(),c=concAtivo(),r=vertResumo(P,c);
+  const card=`<button class="card vt-card between" data-a="go" data-v="vert"><span class="row" style="gap:14px"><span class="vt-ring sm" style="--p:${r.pct}"><b>${r.pct}%</b></span><span><b style="display:block">Checklist do edital</b><span class="sm mu">${r.ok} de ${r.tot} tópicos marcados como estudados</span></span></span>${chevR()}</button>`;
+  return h.replace(/(<nav class="seg" aria-label="Seções do edital">[\s\S]*?<\/nav>)/,`$1${card}`)};
+
+// ---------- perfil: escolha da tela simples ----------
+const _perfilV=V.perfil;
+V.perfil=(...a)=>_perfilV(...a).replace('<section class="card pad stack"><div class="between"><h3>Aparência</h3>',`<section class="card pad stack"><div class="between"><h3>Tela simples</h3><button class="tg" role="switch" aria-checked="${simples()}" data-a="simples" aria-label="Tela simples"><i></i></button></div><p class="sm mu">Mostra uma coisa de cada vez: o que fazer agora, uma revisão rápida e as próximas metas. Bom para quem se distrai fácil. O resto continua a um toque.</p></section><section class="card pad stack"><div class="between"><h3>Aparência</h3>`);
+// ---------- app Android: barras do sistema no tom do tema e retorno ao app ----------
+function avisarAndroid(){try{if(!window.AndroidApp||!AndroidApp.cores)return;const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#FFFFFF';AndroidApp.cores(bg,temaEscuro())}catch(e){}}
+const _aplTema=aplicarTema;
+aplicarTema=function(){_aplTema();avisarAndroid()};
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',avisarAndroid)}catch(e){}
+window.appVoltou=function(){
+  if(iso(new Date())!==HOJE){location.reload();return}   // virou o dia com o app aberto
+  if(UI.foco){tickFoco();renderFoco()}
+};
+window.appPausou=function(){try{salvar()}catch(e){}};
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -3222,7 +3432,7 @@ function topo(){
   const demo=`<button class="demo-b" data-a="sheet" data-s="demo" aria-label="Painel de demonstração" title="Painel de demonstração">${I('ajuste',17)}</button>`,busca=`<button class="busca-b" data-a="go" data-v="busca" aria-label="Buscar" title="Buscar (/)">${I('lupa',20)}</button>`;
   if(!P)return`<div class="top-in"><span class="logo-m" style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">${LOGO(36)}${WM(15)}</span>${demo}</div>`;
   return`<div class="top-in">
-   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:(c&&!cobre(c.id))?'Jornal':'Hoje',jornal:'Jornal',catalogo:'Concursos',info:'Concurso',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas',comunidade:'Comunidade',moderacao:'Moderação',flash:'Flashcards',simu:'Simulado'}[UI.view]||''}</b></nav>
+   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:(c&&!cobre(c.id))?'Jornal':'Hoje',jornal:'Jornal',catalogo:'Concursos',info:'Concurso',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas',vert:'Checklist',comunidade:'Comunidade',moderacao:'Moderação',flash:'Flashcards',simu:'Simulado'}[UI.view]||''}</b></nav>
    <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}">${LOGO(40)}<span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${c.sigla} · ${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>

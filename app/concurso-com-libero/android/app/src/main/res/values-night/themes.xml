@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema escuro do aparelho: a página recebe prefers-color-scheme: dark -->
+    <style name="Tema" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/fundo</item>
+        <item name="android:colorAccent">#66DAB6</item>
+    </style>
+    <color name="fundo">#101A19</color>
+</resources>
