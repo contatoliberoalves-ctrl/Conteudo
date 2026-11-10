@@ -195,14 +195,29 @@ G.append(grupo('vr1', 'Carrossel · Benefícios da Turma de Repescagem (Método 
 # Emblemas dos dois cursos novos (um símbolo por curso).
 ICONE_LUPA = '<svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="42" cy="42" r="24" fill="none" stroke="#fff" stroke-width="10"/><line x1="60" y1="60" x2="82" y2="82" stroke="#fff" stroke-width="13" stroke-linecap="round"/><path d="M42 30v24M30 42h24" stroke="#f7f400" stroke-width="7" stroke-linecap="round"/></svg>'
 ICONE_HACK = '<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="12" y="20" width="76" height="60" rx="12" fill="none" stroke="#fff" stroke-width="8"/><polyline points="28,40 42,50 28,60" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="48" y1="62" x2="66" y2="62" stroke="#f7f400" stroke-width="8" stroke-linecap="round"/><path d="M74 6 L62 30 H72 L64 50 L84 22 H74 Z" fill="#f7f400" stroke="#0b1a4a" stroke-width="3"/></svg>'
+_SELO = [0]
 def emblema(icone, nome, fundo, px=260, rot=0):
-    return (f'<div style="display:flex;flex-direction:column;align-items:center;gap:18px;transform:rotate({rot}deg);">'
-            f'<div style="width:{px}px;height:{px}px;border-radius:50%;background:{fundo};border:{px * .045:.0f}px solid #f7f400;box-shadow:0 0 0 {px * .03:.0f}px {fundo},0 24px 50px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;position:relative;">'
-            f'<div style="width:{px * .55:.0f}px;height:{px * .55:.0f}px;">{icone}</div>'
-            f'<div style="position:absolute;top:{px * .06:.0f}px;font-weight:700;font-size:{px * .075:.0f}px;letter-spacing:.2em;color:#f7f400;">NOVO</div></div>'
-            f'<div style="background:#0b1a4a;color:#fff;{BB}font-size:{px * .2:.0f}px;line-height:1;padding:10px 18px 4px;white-space:nowrap;">{nome}</div></div>')
-EMB1 = lambda px=260, rot=0: emblema(ICONE_LUPA, 'APROFUNDAMENTO', '#0b1a4a', px, rot)
-EMB2 = lambda px=260, rot=0: emblema(ICONE_HACK, 'HACKEANDO', '#e224d6', px, rot)
+    """Selo circular: nome do curso no arco de cima, complemento no arco de baixo (os dois legíveis), ícone e VDE no centro."""
+    _SELO[0] += 1
+    i = _SELO[0]
+    anel = '#f7f400'
+    cima, baixo = nome
+    corpo_icone = icone.replace('<svg viewBox="0 0 100 100" width="100%" height="100%">', '').replace('</svg>', '')
+    svg = (f'<svg viewBox="0 0 300 300" width="{px}" height="{px}" style="display:block;overflow:visible;">'
+           f'<defs><path id="sc{i}" d="M 40,150 A 110,110 0 0,1 260,150"/><path id="sb{i}" d="M 22,150 A 128,128 0 0,0 278,150"/>'
+           f'<linearGradient id="sg{i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{fundo}"/><stop offset="1" stop-color="#0a1440"/></linearGradient></defs>'
+           f'<circle cx="150" cy="150" r="146" fill="url(#sg{i})"/>'
+           f'<circle cx="150" cy="150" r="140" fill="none" stroke="{anel}" stroke-width="4"/>'
+           f'<circle cx="150" cy="150" r="90" fill="none" stroke="{anel}" stroke-width="2.5"/>'
+           f'<text font-family="Bebas Neue" font-size="40" letter-spacing="3" fill="#fff" text-anchor="middle"><textPath href="#sc{i}" startOffset="50%">{cima}</textPath></text>'
+           f'<text font-family="Space Grotesk" font-weight="700" font-size="19" letter-spacing="4" fill="{anel}" text-anchor="middle"><textPath href="#sb{i}" startOffset="50%">{baixo}</textPath></text>'
+           f'<text x="26" y="157" font-size="20" fill="{anel}" text-anchor="middle">★</text><text x="274" y="157" font-size="20" fill="{anel}" text-anchor="middle">★</text>'
+           f'<g transform="translate(112,88) scale(.76)">{corpo_icone}</g>'
+           f'<text x="150" y="200" text-anchor="middle" font-family="Bebas Neue" font-size="22" letter-spacing="4" fill="{anel}">MÉTODO VDE</text>'
+           f'</svg>')
+    return f'<div style="display:flex;flex-direction:column;align-items:center;transform:rotate({rot}deg);filter:drop-shadow(0 24px 40px rgba(0,0,0,.35));">{svg}</div>'
+EMB1 = lambda px=260, rot=0: emblema(ICONE_LUPA, ('APROFUNDAMENTO', 'NA REPESCAGEM'), '#1d3a9e', px, rot)
+EMB2 = lambda px=260, rot=0: emblema(ICONE_HACK, ('HACKEANDO', 'A REPESCAGEM'), '#e224d6', px, rot)
 
 def mapa(linhas, cor_seta='#e224d6', claro=True):
     cor = '#0b1a4a' if claro else '#fff'
@@ -224,7 +239,7 @@ G.append(grupo('vr2', 'Carrossel · Novidade pra quem reprovou: novos cursos', [
         f'{KICK("SÓ NO MÉTODO VDE")}{T(f"ISSO VOCÊ NÃO<br>ENCONTRA EM<br>{MARCA('OUTRO CURSO')}", 140)}'
         f'<div style="display:flex;gap:70px;margin-top:30px;">{EMB1(250, -4)}{EMB2(250, 4)}</div>'
         f'{P("Dois cursos criados só pra repescagem: pra quem já fez a 2ª fase e precisa de ajuste fino, não de começar tudo de novo.", 34, "max-width:860px;margin-top:20px;")}</div>'),
-    tela('vr2-04', MAG, arrobas() + f'<div style="position:absolute;right:70px;top:140px;">{EMB1(190, 6)}</div>' + bloco(
+    tela('vr2-04', MAG, arrobas() + f'<div style="position:absolute;right:60px;top:110px;">{EMB1(290, 6)}</div>' + bloco(
         KICK('CURSO NOVO 01', '#0b1a4a') + T('APROFUNDAMENTO<br>NA REPESCAGEM', 120) + BARRA('#0b1a4a') +
         P('Aulas sobre:', 36) +
         lista(['Resolvendo a dificuldade na interpretação', 'Encontrando respostas com o índice remissivo', 'Resolução de questões difíceis', 'Guia de identificação de peças + casos difíceis pra identificar'], num=True, px=34, cor_num='#f7f400', gap=20),
@@ -237,7 +252,7 @@ G.append(grupo('vr2', 'Carrossel · Novidade pra quem reprovou: novos cursos', [
               ('Travou nas questões mais difíceis', 'Resolução de questões difíceis'),
               ('Errou ou ficou em dúvida na peça', 'Guia de identificação de peças')]),
         top=220, gap=26), claro=True),
-    tela('vr2-06', AZUL, arrobas() + f'<div style="position:absolute;right:70px;top:140px;">{EMB2(190, -6)}</div>' + bloco(
+    tela('vr2-06', AZUL, arrobas() + f'<div style="position:absolute;right:60px;top:110px;">{EMB2(290, -6)}</div>' + bloco(
         KICK('CURSO NOVO 02') + T(f'HACKEANDO<br>A {MARCA("REPESCAGEM")}', 136) + BARRA('#e224d6') +
         P('Aulas sobre:', 36) +
         lista(['Análise da banca: dados e estatísticas sobre o que mais cai', 'Teses mais cobradas na peça', 'Argumentos que mais aparecem nas questões', 'O modelo CORINGA das questões'], num=True, px=34, gap=20),
@@ -249,7 +264,7 @@ G.append(grupo('vr2', 'Carrossel · Novidade pra quem reprovou: novos cursos', [
               ('Argumentos que mais aparecem', 'Respostas mais completas nas questões'),
               ('O modelo CORINGA', 'Um caminho pra montar a resposta das questões')], '#f7f400', claro=False),
         top=220, gap=34)),
-    tela('vr2-08', CLARO, arrobas(True) + f'<div style="position:absolute;right:60px;bottom:150px;display:flex;gap:20px;">{EMB1(170, -6)}{EMB2(170, 6)}</div>' + bloco(
+    tela('vr2-08', CLARO, arrobas(True) + f'<div style="position:absolute;right:60px;bottom:150px;display:flex;gap:20px;">{EMB1(240, -6)}{EMB2(240, 6)}</div>' + bloco(
         P('E o melhor:', 48, 'color:#0a3aa6;') +
         T(f'É DE {MARCA("GRAÇA")}<br>E EXCLUSIVO.', 180, 'color:#0b1a4a;') + BARRA('#f7f400', 160) +
         P('Os dois cursos são só pra quem entrar no VDE Repescagem de Direito Constitucional. Sem pagar a mais.', 40, 'color:#0b1a4a;max-width:820px;'),
