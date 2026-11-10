@@ -56,6 +56,12 @@ Comando no ambiente em nuvem: o `render.mjs` acha sozinho o `headless_shell` em 
 
 Limites que cabem: gancho até ~14 caracteres por linha para ficar enorme (passa disso, a fonte diminui). Na capa com foto, quebre o título em 3 ou 4 linhas de até ~18 caracteres, sem separar palavras que andam juntas ("quem não"); `documentos` até ~170 caracteres por folha; `linha` até 4 marcos com texto de 1–2 linhas; cartas `titulo` até ~12 caracteres.
 
+## Vídeos longos do YouTube (até 4 min)
+
+Cada tema tem uma versão longa em `roteiros/<id>-longo.json` (`"longo": true`, fora do `dados.json`): mesmo gancho com foto, 4 ou 5 capítulos (`{"tipo":"capitulo","numero":N,"titulo":"...","fala":"Capítulo N. Título."}`), cenas `foto` (`imagem`, `data?`, `texto`, `afasta?`) e a `pergunta` com pedido de inscrição no fim. O dono pediu **no máximo 4 minutos**: a soma das `fala` fica entre 2.700 e 3.000 caracteres (dá ~3min20–3min35; o piloto das Diretas, com 3.622, deu 4min20).
+
+Gere com `node scripts/voz.mjs <id>-longo` e `node render.mjs <id>-longo --yt` → `saida/<id>-longo/youtube.mp4` (1920×1080, -14 LUFS), `youtube-capa.jpg` e `youtube-descricao.txt` com os capítulos (0:00 Abertura…). ~6–10 min por vídeo; rode **um render por vez** (dois processos no mesmo id corrompem o MP4).
+
 ## Capa e imagens
 
 Todo vídeo novo leva capa com foto (`imagem` no gancho). O `render.mjs` grava `saida/<id>/capa.jpg` (o gancho montado), para escolher como capa no Instagram e no TikTok. O título fica entre y 760 e 1250, dentro do corte 3:4 da grade do Instagram.
