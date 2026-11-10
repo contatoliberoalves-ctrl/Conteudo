@@ -601,7 +601,7 @@ details.gab[open] .rot{transform:rotate(90deg)}
 
 /* jornal */
 .jc{display:grid;gap:8px;text-align:center;padding-bottom:14px;border-bottom:3px double var(--tx)}
-.jc-linha{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--ln);padding-bottom:8px}
+.jc-linha{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--ln);padding-bottom:8px}
 .jc-tit{font-family:var(--h);font-weight:800;font-size:clamp(34px,9vw,60px);letter-spacing:-.035em;line-height:1}
 .jc-sub{color:var(--mu);font-size:15px}
 .ticker{display:flex;align-items:center;gap:0;border-radius:12px;background:var(--sf2);overflow:hidden;min-height:42px}
@@ -3046,9 +3046,8 @@ V.jornal=()=>{
   const cardCont=x=>{const n=diasInsc(x);return`<button class="cont-card ${n<=3?'urg-b':''}" data-a="abrirConc" data-id="${x.id}"><span class="cont-n">${n===0?'hoje':n}</span><span class="cont-u">${n===0?'último dia':n===1?'dia':'dias'}</span><b>${esc(x.sigla)}</b><span class="xs">${esc(x.orgao)}</span><span class="cont-m">${esc(x.v)} vagas · até ${esc(x.s)}</span></button>`};
   const cardRadar=x=>`<button class="radar-card" data-a="abrirConc" data-id="${x.id}"><span class="tag t-at">${FASES[x.fase]}</span><b>${esc(x.orgao)}</b><span class="sm mu">${esc(x.v)} vagas${x.s?' · '+esc(x.s):''}</span>${fasesHTML(x)}<span class="xs mu">${esc(x.sab[0])}</span></button>`;
   return`<header class="jc">
-   <div class="jc-linha"><span>Edição nº ${edicao()}</span><span>${DIAS_SEM[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}</span><span>Grátis</span></div>
+   <div class="jc-linha"><span>${DIAS_SEM[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}</span></div>
    <h1 class="jc-tit">Jornal do Concurseiro</h1>
-   <p class="jc-sub">Editais, prazos e o que vem por aí. Leitura de 2 minutos.</p>
   </header>
   ${ticker.length?`<div class="ticker" role="marquee" aria-label="Últimas"><span class="ticker-l">Agora</span><div class="ticker-v"><div class="ticker-t">${[...ticker,...ticker].map(t=>`<span>${esc(t)}</span>`).join('')}</div></div></div>`:''}
   ${manchete?`<section class="dark manchete rv" data-a="abrirConc" data-id="${manchete.id}" role="button" tabindex="0">
