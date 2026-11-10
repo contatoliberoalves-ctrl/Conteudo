@@ -1,927 +1,1114 @@
 [
-  {
-    "id": "planejar-a-peca-aula",
-    "titulo": "Como planejar a peça (aula de exemplo)",
-    "tema": "Os 6 pontos para planejar a peça, treino em 3 rodadas e caso 19 do caderno",
-    "slides": [
-      {
-        "tipo": "capa",
-        "tema": "degrade",
-        "kicker": "Mentoria Método VDE · 2ª fase OAB",
-        "titulo": [
-          "Como planejar",
-          "a [[peça]]"
-        ],
-        "texto": "Os 6 pontos que você resolve antes de escrever a primeira linha.",
-        "pilula": "Direito Constitucional"
-      },
-      {
-        "tipo": "texto",
-        "tema": "branco",
-        "kicker": "Antes de começar",
-        "titulo": [
-          "Nome da peça",
-          "não basta"
-        ],
-        "texto": [
-          "Identifique a medida cabível **antes** de consultar o gabarito.",
-          "O objetivo é escrever a peça processual adequada, não apenas indicar o nome dela: **desenvolva os fundamentos e aplique cada artigo aos fatos**."
-        ]
-      },
-      {
-        "tipo": "cards",
-        "tema": "branco",
-        "kicker": "Planejamento",
-        "titulo": [
-          "Os [[6 pontos]] da peça"
-        ],
-        "cards": [
-          {
-            "titulo": "Endereçamento",
-            "texto": "Para quem a peça vai."
-          },
-          {
-            "titulo": "Partes e legitimidade",
-            "texto": "Quem pede e contra quem."
-          },
-          {
-            "titulo": "Cabimento",
-            "texto": "Por que é esta peça e não outra."
-          },
-          {
-            "titulo": "Tutela de urgência",
-            "texto": "Se cabe, e com qual fundamento."
-          },
-          {
-            "titulo": "Artigos, súmulas e teses",
-            "texto": "O mérito, aplicado aos fatos."
-          },
-          {
-            "titulo": "Pedidos",
-            "texto": "O que você quer que o juiz faça."
-          }
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "01",
-        "kicker": "Parte 1",
-        "titulo": [
-          "Como treinar"
-        ],
-        "texto": "O mesmo caso, em três rodadas."
-      },
-      {
-        "tipo": "lista",
-        "tema": "lavanda",
-        "kicker": "Treino em 3 rodadas",
-        "titulo": [
-          "Do material",
-          "ao relógio"
-        ],
-        "itens": [
-          "Primeiro: com o seu **material** e o **Vade Mecum**.",
-          "Depois: refaça **só com o Vade**.",
-          "Por fim: com **tempo marcado**, como na prova."
-        ]
-      },
-      {
-        "tipo": "balao",
-        "tema": "branco",
-        "kicker": "Atenção",
-        "titulo": [
-          "Não invente dados"
-        ],
-        "texto": [
-          "Não crie nomes, datas ou informações que o enunciado não deu.",
-          "Use **reticências** para os dados necessários que não foram fornecidos."
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "02",
-        "kicker": "Parte 2",
-        "titulo": [
-          "Na prática:",
-          "caso 19"
-        ],
-        "texto": "Alice e o depósito prévio."
-      },
-      {
-        "tipo": "questao",
-        "tema": "branco",
-        "kicker": "Teste rápido",
-        "titulo": [
-          "Qual é a peça?"
-        ],
-        "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
-        "alternativas": [
-          "Habeas data",
-          "Mandado de segurança individual",
-          "Ação popular",
-          "Reclamação ao STF"
-        ],
-        "correta": 1
-      },
-      {
-        "tipo": "questao",
-        "tema": "branco",
-        "kicker": "Gabarito",
-        "titulo": [
-          "Qual é a peça?"
-        ],
-        "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
-        "alternativas": [
-          "Habeas data",
-          "Mandado de segurança individual",
-          "Ação popular",
-          "Reclamação ao STF"
-        ],
-        "correta": 1,
-        "gabarito": true
-      },
-      {
-        "tipo": "lei",
-        "tema": "lavanda",
-        "kicker": "A tese",
-        "titulo": [
-          "Súmula Vinculante 21"
-        ],
-        "citacao": "É inconstitucional a exigência de depósito ou arrolamento prévios de dinheiro ou bens para admissibilidade de recurso administrativo.",
-        "fonte": "STF · Súmula Vinculante 21",
-        "traducao": "Traduzindo: o recurso administrativo **não pode depender de depósito**. Junto com o art. 5º, LIV e LV, é o coração da peça."
-      },
-      {
-        "tipo": "comparar",
-        "tema": "branco",
-        "kicker": "Não confunda",
-        "titulo": [
-          "MS ou reclamação?"
-        ],
-        "lados": [
-          {
-            "rotulo": "A peça do caso",
-            "titulo": "Mandado de segurança",
-            "itens": [
-              "Juízo da Fazenda Pública (ou Cível) local",
-              "Prova pré-constituída",
-              "Sem honorários (Lei 12.016/09, art. 25)"
-            ]
-          },
-          {
-            "rotulo": "A tentação",
-            "titulo": "Reclamação ao STF",
-            "itens": [
-              "Ato administrativo contra súmula vinculante",
-              "Exige **esgotar as vias administrativas**",
-              "Lei 11.417/06, art. 7º, § 1º"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "tabela",
-        "tema": "branco",
-        "kicker": "Gabarito do caso 19",
-        "titulo": [
-          "A estrutura"
-        ],
-        "colunas": [
-          "Ponto",
-          "No caso de Alice"
-        ],
-        "linhas": [
-          [
-            "Endereçamento",
-            "Juízo da Fazenda Pública ou Cível da comarca das Maravilhas"
-          ],
-          [
-            "Partes",
-            "Alice, impetrante; Secretária de Fiscalização, coatora; Município, interessado"
-          ],
-          [
-            "Cabimento",
-            "Direito líquido e certo; prazo de 120 dias (art. 5º, LXIX; Lei 12.016/09, arts. 1º e 23)"
-          ],
-          [
-            "Tutela",
-            "Liminar para afastar o depósito e processar o recurso (art. 7º, III)"
-          ],
-          [
-            "Pedidos",
-            "Liminar, notificação, ciência ao Município, MP e concessão da segurança"
-          ]
-        ]
-      },
-      {
-        "tipo": "fim",
-        "tema": "degrade",
-        "kicker": "Sua vez",
-        "titulo": [
-          "Bora [[treinar]]?"
-        ],
-        "texto": "Escreva a peça do caso 19 inteira e confira com o gabarito do caderno.",
-        "botao": "Mentoria Método VDE"
-      }
+ {
+  "id": "planejar-a-peca-aula",
+  "titulo": "Como planejar a peça (aula de exemplo)",
+  "tema": "Os 6 pontos para planejar a peça, treino em 3 rodadas e caso 19 do caderno",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Mentoria Método VDE · 2ª fase OAB",
+    "titulo": [
+     "Como planejar",
+     "a [[peça]]"
+    ],
+    "texto": "Os 6 pontos que você resolve antes de escrever a primeira linha.",
+    "pilula": "Direito Constitucional"
+   },
+   {
+    "tipo": "texto",
+    "tema": "branco",
+    "kicker": "Antes de começar",
+    "titulo": [
+     "Nome da peça",
+     "não basta"
+    ],
+    "texto": [
+     "Identifique a medida cabível **antes** de consultar o gabarito.",
+     "O objetivo é escrever a peça processual adequada, não apenas indicar o nome dela: **desenvolva os fundamentos e aplique cada artigo aos fatos**."
     ]
-  },
-  {
-    "id": "apostas-pecas-autorais-aula",
-    "titulo": "Apostas: resolução de peças autorais (aula)",
-    "tema": "4 casos autorais (MS, ROC ao STF, ADI e ação popular) com gabarito no esqueleto VDE",
-    "slides": [
-      {
-        "tipo": "capa",
-        "tema": "degrade",
-        "kicker": "Mentoria Método VDE · Aula de hoje",
-        "titulo": [
-          "Nossas [[apostas]]"
-        ],
-        "texto": "Resolução de 4 peças autorais, uma para cada aposta.",
-        "pilula": "2ª fase OAB · Constitucional"
-      },
-      {
-        "tipo": "cards",
-        "tema": "branco",
-        "kicker": "Apostas",
-        "titulo": [
-          "As [[peças]]"
-        ],
-        "colunas": 4,
-        "cards": [
-          {
-            "titulo": "Mandado de segurança",
-            "texto": "Direito líquido e certo contra ato de autoridade."
-          },
-          {
-            "titulo": "ROC ao STF",
-            "texto": "MS denegado em única instância por tribunal superior."
-          },
-          {
-            "titulo": "ADI",
-            "texto": "Lei federal ou estadual contra a Constituição."
-          },
-          {
-            "titulo": "Ação popular",
-            "texto": "Cidadão contra ato lesivo ao patrimônio público."
-          }
-        ]
-      },
-      {
-        "tipo": "lista",
-        "tema": "lavanda",
-        "kicker": "Apostas",
-        "titulo": [
-          "As [[questões]]"
-        ],
-        "itens": [
-          "**Controle de constitucionalidade** com repartição de competências",
-          "**Cabimento de remédio constitucional** a um caso concreto",
-          "**Princípio da simetria** aplicado em âmbito municipal"
-        ]
-      },
-      {
-        "tipo": "cards",
-        "tema": "branco",
-        "kicker": "No radar",
-        "titulo": [
-          "Os [[temas]]"
-        ],
-        "colunas": 3,
-        "cards": [
-          {
-            "icone": "5º",
-            "titulo": "Direito fundamental violado",
-            "texto": "Um inciso do art. 5º no centro da tese."
-          },
-          {
-            "icone": "12",
-            "titulo": "Nacionalidade",
-            "texto": "Art. 12, já com a EC 131/2023."
-          },
-          {
-            "icone": "231",
-            "titulo": "Ordem social: indígenas",
-            "texto": "Arts. 231 e 232 e a competência da União."
-          }
-        ]
-      },
-      {
-        "tipo": "cards",
-        "tema": "branco",
-        "kicker": "Como vamos corrigir",
-        "titulo": [
-          "O [[esqueleto]] VDE"
-        ],
-        "cards": [
-          {
-            "titulo": "Endereçamento"
-          },
-          {
-            "titulo": "Partes e legitimidade"
-          },
-          {
-            "titulo": "Cabimento"
-          },
-          {
-            "titulo": "Tutela de urgência"
-          },
-          {
-            "titulo": "Artigos, súmulas e teses"
-          },
-          {
-            "titulo": "Pedidos"
-          }
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "01",
-        "kicker": "Caso 1",
-        "titulo": [
-          "A permissão",
-          "do taxista"
-        ],
-        "texto": "Art. 5º violado e cabimento do remédio.",
-        "pilula": "Aposta: mandado de segurança"
-      },
-      {
-        "tipo": "caso",
-        "tema": "lavanda",
-        "kicker": "Caso 1 · Enunciado",
-        "titulo": [
-          "A permissão",
-          "do taxista"
-        ],
-        "pilula": "Peça autoral",
-        "texto": [
-          "João, taxista há doze anos no Município Alfa, requereu a renovação anual da sua permissão para o serviço de táxi. O Secretário Municipal de Transportes indeferiu o pedido, por escrito, com base exclusiva em decreto municipal editado neste ano, que condiciona a renovação à **filiação do permissionário à Associação dos Taxistas de Alfa**.",
-          "Nenhuma lei municipal prevê essa exigência. João cumpre todos os demais requisitos e não deseja se associar. A permissão vence em quinze dias e, sem ela, ele não poderá trabalhar.",
-          "João tem o requerimento, a decisão de indeferimento, o decreto e os documentos que comprovam os demais requisitos. Ele busca uma ação constitucional que dispense a produção de outras provas e não comporte honorários de sucumbência. O Secretário não possui foro por prerrogativa de função."
-        ],
-        "pergunta": "Como advogado(a) de João, elabore a peça cabível."
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 1 · 1/2",
-        "titulo": [
-          "Esqueleto VDE (1/2)"
-        ],
-        "pontos": [
-          {
-            "n": "01",
-            "nome": "Endereçamento",
-            "texto": [
-              "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Alfa."
-            ],
-            "artigos": [
-              "Sem foro por prerrogativa"
-            ]
-          },
-          {
-            "n": "02",
-            "nome": "Partes e legitimidade",
-            "texto": [
-              "Impetrante: **João**.",
-              "Autoridade coatora: **Secretário Municipal de Transportes**.",
-              "Pessoa jurídica interessada: **Município Alfa**."
-            ],
-            "artigos": [
-              "Lei 12.016/09, art. 6º"
-            ]
-          },
-          {
-            "n": "03",
-            "nome": "Cabimento",
-            "texto": [
-              "**Mandado de segurança individual**: direito líquido e certo, com prova pré-constituída.",
-              "Ato concreto de autoridade; dentro dos **120 dias**."
-            ],
-            "artigos": [
-              "art. 5º, LXIX",
-              "Lei 12.016/09, arts. 1º e 23"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 1 · 2/2",
-        "titulo": [
-          "Esqueleto VDE (2/2)"
-        ],
-        "pontos": [
-          {
-            "n": "04",
-            "nome": "Tutela de urgência",
-            "texto": [
-              "**Liminar** para renovar a permissão sem a exigência de filiação.",
-              "Permissão vence em quinze dias; João fica sem trabalhar."
-            ],
-            "artigos": [
-              "Lei 12.016/09, art. 7º, III"
-            ]
-          },
-          {
-            "n": "05",
-            "nome": "Teses",
-            "texto": [
-              "**Liberdade de associação**: ninguém pode ser compelido a associar-se.",
-              "**Liberdade de profissão**, atendidas só as qualificações da lei.",
-              "**Legalidade**: decreto não cria obrigação que a lei não prevê."
-            ],
-            "artigos": [
-              "art. 5º, XX",
-              "art. 5º, XIII",
-              "art. 5º, II",
-              "art. 37, caput"
-            ]
-          },
-          {
-            "n": "06",
-            "nome": "Pedidos",
-            "texto": [
-              "Liminar; notificação do coator; ciência ao Município; MP.",
-              "**Concessão da segurança** para renovar a permissão sem a filiação.",
-              "Sem honorários; valor da causa."
-            ],
-            "artigos": [
-              "Lei 12.016/09, arts. 7º, 12 e 25"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "balao",
-        "tema": "lavanda",
-        "kicker": "Caso 1",
-        "titulo": [
-          "Pegadinha"
-        ],
-        "texto": [
-          "O mandado de segurança **não ataca o decreto em tese**: ele ataca o **ato concreto** que negou a renovação.",
-          "A ilegalidade do decreto entra como **fundamento** do pedido."
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "02",
-        "kicker": "Caso 2",
-        "titulo": [
-          "A portaria do Ministro"
-        ],
-        "texto": "Nacionalidade depois da EC 131/2023.",
-        "pilula": "Aposta: ROC ao STF"
-      },
-      {
-        "tipo": "caso",
-        "tema": "lavanda",
-        "kicker": "Caso 2 · Enunciado",
-        "titulo": [
-          "A portaria do Ministro"
-        ],
-        "pilula": "Peça autoral",
-        "texto": [
-          "Arsène Lupin, francês, naturalizou-se brasileiro em 2012. Em 2025, obteve também a nacionalidade italiana, por descendência. Em 2026, o Ministro da Justiça e Segurança Pública editou portaria declarando a perda da nacionalidade brasileira de Lupin, apenas por ter adquirido outra nacionalidade. Lupin nunca pediu a perda, e não houve processo judicial.",
-          "Lupin impetrou mandado de segurança originariamente no STJ, com a União como interessada. A Primeira Seção **denegou a segurança**, entendendo que a aquisição voluntária de outra nacionalidade autoriza a declaração de perda pelo Ministro.",
-          "O acórdão foi publicado há cinco dias úteis e não tem omissão, contradição ou obscuridade. Lupin precisa do passaporte brasileiro para uma viagem em quinze dias."
-        ],
-        "pergunta": "Como advogado(a) de Lupin, elabore o recurso cabível."
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 2 · 1/2",
-        "titulo": [
-          "Esqueleto VDE (1/2)"
-        ],
-        "pontos": [
-          {
-            "n": "01",
-            "nome": "Endereçamento",
-            "texto": [
-              "**Interposição**: Ministro Presidente do STJ.",
-              "**Razões**: ao STF."
-            ],
-            "artigos": [
-              "CPC, art. 1.028, §§ 2º e 3º"
-            ]
-          },
-          {
-            "n": "02",
-            "nome": "Partes e legitimidade",
-            "texto": [
-              "Recorrente: **Lupin**, impetrante vencido.",
-              "Recorrida: **União**.",
-              "Indicar o Ministro da Justiça como autoridade coatora."
-            ],
-            "artigos": [
-              "CPC, art. 996"
-            ]
-          },
-          {
-            "n": "03",
-            "nome": "Cabimento",
-            "texto": [
-              "**ROC ao STF**: MS decidido em única instância por tribunal superior e **denegado**.",
-              "15 dias úteis; sem repercussão geral nem prequestionamento."
-            ],
-            "artigos": [
-              "art. 102, II, “a”",
-              "CPC, arts. 1.003, § 5º, e 1.027, I"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 2 · 2/2",
-        "titulo": [
-          "Esqueleto VDE (2/2)"
-        ],
-        "pontos": [
-          {
-            "n": "04",
-            "nome": "Tutela de urgência",
-            "texto": [
-              "**Tutela recursal** para suspender os efeitos da portaria e liberar o passaporte.",
-              "Viagem em quinze dias."
-            ],
-            "artigos": [
-              "CPC, arts. 1.027, § 2º, e 1.029, § 5º"
-            ]
-          },
-          {
-            "n": "05",
-            "nome": "Teses",
-            "texto": [
-              "Desde a **EC 131/2023**, adquirir outra nacionalidade **não** causa perda.",
-              "Perda só por **pedido expresso** ou **cancelamento por sentença judicial** (fraude ou atentado à ordem democrática).",
-              "Ato administrativo sem devido processo."
-            ],
-            "artigos": [
-              "art. 12, § 4º, I e II",
-              "art. 5º, LIV e LV"
-            ]
-          },
-          {
-            "n": "06",
-            "nome": "Pedidos",
-            "texto": [
-              "Intimação para contrarrazões; remessa ao STF.",
-              "Tutela recursal.",
-              "**Provimento** para conceder a segurança e anular a portaria.",
-              "Preparo, se devido; sem honorários."
-            ],
-            "artigos": [
-              "Lei 12.016/09, art. 25"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "comparar",
-        "tema": "lavanda",
-        "kicker": "Caso 2 · Não confunda",
-        "titulo": [
-          "ROC ao STF x ROC ao STJ"
-        ],
-        "lados": [
-          {
-            "rotulo": "Este caso",
-            "titulo": "ROC ao STF",
-            "itens": [
-              "MS, HD, HC ou MI decidido em **única instância por tribunal superior**",
-              "Decisão **denegatória**",
-              "art. 102, II, “a”"
-            ]
-          },
-          {
-            "rotulo": "O primo",
-            "titulo": "ROC ao STJ",
-            "itens": [
-              "MS decidido em **única instância por TJ ou TRF**",
-              "Decisão **denegatória**",
-              "art. 105, II, “b”"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "03",
-        "kicker": "Caso 3",
-        "titulo": [
-          "Minério em terra indígena"
-        ],
-        "texto": "Repartição de competências e ordem social.",
-        "pilula": "Aposta: ADI"
-      },
-      {
-        "tipo": "caso",
-        "tema": "lavanda",
-        "kicker": "Caso 3 · Enunciado",
-        "titulo": [
-          "Minério em terra indígena"
-        ],
-        "pilula": "Peça autoral",
-        "texto": [
-          "O Estado Aurora do Norte editou, em 2026, a Lei nº XX, aprovada pela Assembleia Legislativa e sancionada pelo Governador. O art. 1º autoriza o órgão ambiental estadual a conceder licenças de **pesquisa e lavra de minérios em terras indígenas** situadas no Estado, sem autorização do Congresso Nacional e sem ouvir as comunidades.",
-          "O art. 2º permite o **arrendamento** de até 30% de cada terra indígena a particulares, para agropecuária. O art. 3º condiciona o reconhecimento de qualquer comunidade indígena a um **registro em órgão estadual**. As primeiras licenças serão emitidas em quinze dias.",
-          "Pocahontas, presidente do diretório nacional do Partido Raízes, que tem três deputados federais, quer impugnar todos os artigos no STF, com a Constituição Federal como parâmetro, e impedir sua aplicação durante o processo."
-        ],
-        "pergunta": "Como advogado(a) do partido, elabore a peça cabível."
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 3 · 1/2",
-        "titulo": [
-          "Esqueleto VDE (1/2)"
-        ],
-        "pontos": [
-          {
-            "n": "01",
-            "nome": "Endereçamento",
-            "texto": [
-              "Ministro Presidente do **STF**."
-            ],
-            "artigos": [
-              "art. 102, I, “a”"
-            ]
-          },
-          {
-            "n": "02",
-            "nome": "Partes e legitimidade",
-            "texto": [
-              "Requerente: **Partido Raízes**, pelo diretório nacional, com representação no Congresso: legitimado universal, **sem pertinência temática**.",
-              "Requeridos: **Governador** e **Assembleia Legislativa**."
-            ],
-            "artigos": [
-              "art. 103, VIII",
-              "Lei 9.868/99, art. 2º, VIII"
-            ]
-          },
-          {
-            "n": "03",
-            "nome": "Cabimento",
-            "texto": [
-              "**ADI**: lei **estadual**, posterior a 1988, contra a Constituição Federal.",
-              "Procuração com poderes específicos."
-            ],
-            "artigos": [
-              "art. 102, I, “a”",
-              "Lei 9.868/99, art. 3º"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 3 · 2/2",
-        "titulo": [
-          "Esqueleto VDE (2/2)"
-        ],
-        "pontos": [
-          {
-            "n": "04",
-            "nome": "Tutela de urgência",
-            "texto": [
-              "**Medida cautelar** para suspender os arts. 1º a 3º.",
-              "Licenças em quinze dias."
-            ],
-            "artigos": [
-              "Lei 9.868/99, arts. 10 e 11"
-            ]
-          },
-          {
-            "n": "05",
-            "nome": "Teses",
-            "texto": [
-              "**Vício formal**: legislar sobre populações indígenas e minas é competência **privativa da União**.",
-              "**Vício material**: lavra só com autorização do **Congresso**, ouvidas as comunidades; terras inalienáveis, de usufruto exclusivo; demarcar é da **União**."
-            ],
-            "artigos": [
-              "art. 22, XII e XIV",
-              "arts. 20, XI, e 49, XVI",
-              "art. 231, caput e §§ 2º a 4º e 6º"
-            ]
-          },
-          {
-            "n": "06",
-            "nome": "Pedidos",
-            "texto": [
-              "Cautelar; informações ao Governador e à Assembleia.",
-              "Oitiva do **AGU** e do **PGR**.",
-              "Procedência: inconstitucionalidade dos arts. 1º a 3º, com eficácia **erga omnes e vinculante**."
-            ],
-            "artigos": [
-              "Lei 9.868/99, arts. 6º, 8º e 28"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "balao",
-        "tema": "lavanda",
-        "kicker": "Caso 3",
-        "titulo": [
-          "Pegadinha"
-        ],
-        "texto": [
-          "Ataque a lei inteira com **dois vícios**: o **formal** (competência da União) e o **material** (art. 231).",
-          "E não peça pertinência temática: partido com representação no Congresso é **legitimado universal**."
-        ]
-      },
-      {
-        "tipo": "secao",
-        "tema": "degrade",
-        "numero": "04",
-        "kicker": "Caso 4",
-        "titulo": [
-          "O cargo do vereador"
-        ],
-        "texto": "Princípio da simetria no Município.",
-        "pilula": "Aposta: ação popular"
-      },
-      {
-        "tipo": "caso",
-        "tema": "lavanda",
-        "kicker": "Caso 4 · Enunciado",
-        "titulo": [
-          "O cargo do vereador"
-        ],
-        "pilula": "Peça autoral",
-        "texto": [
-          "No Município Lagoa Clara, o vereador Moe apresentou projeto de lei que **criou o cargo em comissão** de “Assessor Especial de Relações Institucionais” no gabinete do Prefeito, com remuneração de R$ 18 mil. A Lei Orgânica reproduz a Constituição Federal e reserva ao Prefeito a iniciativa de leis que criem cargos no Executivo.",
-          "O Prefeito Quimby sancionou a lei e nomeou Barney para o cargo. Barney não exerce função de direção, chefia ou assessoramento: os documentos mostram que ele não comparece ao gabinete. O primeiro pagamento será feito em cinco dias.",
-          "Lisa, brasileira, eleitora com título regular, reuniu a lei, o ato de nomeação e a folha de pagamento. Quer anular a nomeação, impedir os pagamentos e obter o ressarcimento do que for pago, admitindo outras provas, por ação constitucional que a dispense de custas e da sucumbência."
-        ],
-        "pergunta": "Como advogado(a) de Lisa, elabore a peça cabível."
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 4 · 1/2",
-        "titulo": [
-          "Esqueleto VDE (1/2)"
-        ],
-        "pontos": [
-          {
-            "n": "01",
-            "nome": "Endereçamento",
-            "texto": [
-              "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Lagoa Clara."
-            ],
-            "artigos": [
-              "Lei 4.717/65, art. 5º"
-            ]
-          },
-          {
-            "n": "02",
-            "nome": "Partes e legitimidade",
-            "texto": [
-              "Autora: **Lisa**, cidadã, com título de eleitor.",
-              "Réus: **Município**, **Prefeito Quimby** (praticou o ato) e **Barney** (beneficiário)."
-            ],
-            "artigos": [
-              "art. 5º, LXXIII",
-              "Lei 4.717/65, arts. 1º, § 3º, e 6º"
-            ]
-          },
-          {
-            "n": "03",
-            "nome": "Cabimento",
-            "texto": [
-              "**Ação popular**: ato concreto lesivo ao patrimônio público e à moralidade.",
-              "A inconstitucionalidade da lei é declarada **incidentalmente** (controle difuso)."
-            ],
-            "artigos": [
-              "art. 5º, LXXIII",
-              "Lei 4.717/65, arts. 1º e 2º"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "esqueleto",
-        "tema": "branco",
-        "kicker": "Gabarito · Caso 4 · 2/2",
-        "titulo": [
-          "Esqueleto VDE (2/2)"
-        ],
-        "pontos": [
-          {
-            "n": "04",
-            "nome": "Tutela de urgência",
-            "texto": [
-              "**Liminar** para suspender a nomeação e os pagamentos.",
-              "Primeiro pagamento em cinco dias."
-            ],
-            "artigos": [
-              "Lei 4.717/65, art. 5º, § 4º",
-              "CPC, art. 300"
-            ]
-          },
-          {
-            "n": "05",
-            "nome": "Teses",
-            "texto": [
-              "**Simetria**: a iniciativa privativa do chefe do Executivo para criar cargos vale para o Prefeito.",
-              "O vício de iniciativa é **formal**: a lei nasce inconstitucional.",
-              "Cargo em comissão só para direção, chefia e assessoramento; **moralidade**."
-            ],
-            "artigos": [
-              "art. 61, § 1º, II, “a”",
-              "art. 29, caput",
-              "art. 37, caput, II e V"
-            ]
-          },
-          {
-            "n": "06",
-            "nome": "Pedidos",
-            "texto": [
-              "Liminar; citação dos réus; intimação do **MP**.",
-              "Declaração **incidental** de inconstitucionalidade; anulação da nomeação; **ressarcimento**.",
-              "Isenção de custas; sucumbência dos réus; provas; valor da causa."
-            ],
-            "artigos": [
-              "Lei 4.717/65, arts. 7º, 11 e 12"
-            ]
-          }
-        ]
-      },
-      {
-        "tipo": "balao",
-        "tema": "lavanda",
-        "kicker": "Caso 4",
-        "titulo": [
-          "Pegadinha"
-        ],
-        "texto": [
-          "Lisa **não** pode propor ADI: ela não é legitimada, e o que ela quer é desfazer um **ato concreto**.",
-          "Na ação popular, a inconstitucionalidade da lei entra como **causa de pedir**, não como pedido principal."
-        ]
-      },
-      {
-        "tipo": "tabela",
-        "tema": "branco",
-        "kicker": "Resumo das apostas",
-        "titulo": [
-          "Peça por peça"
-        ],
-        "colunas": [
-          "Caso",
-          "Peça",
-          "Onde",
-          "Tese-chave"
-        ],
-        "linhas": [
-          [
-            "1 · João",
-            "Mandado de segurança",
-            "Fazenda Pública local",
-            "Liberdade de associação e de profissão (art. 5º, XX e XIII)"
-          ],
-          [
-            "2 · Lupin",
-            "ROC ao STF",
-            "Interposição no STJ; razões ao STF",
-            "Perda da nacionalidade após a EC 131/2023"
-          ],
-          [
-            "3 · Partido Raízes",
-            "ADI",
-            "STF",
-            "Competência da União e art. 231"
-          ],
-          [
-            "4 · Lisa",
-            "Ação popular",
-            "Fazenda Pública local",
-            "Simetria: iniciativa do Prefeito"
-          ]
-        ]
-      },
-      {
-        "tipo": "fim",
-        "tema": "degrade",
-        "kicker": "Até a próxima",
-        "titulo": [
-          "Confia no",
-          "[[processo]]."
-        ],
-        "texto": "Cada peça treinada hoje é um ponto a mais no dia da prova."
-      }
+   },
+   {
+    "tipo": "cards",
+    "tema": "branco",
+    "kicker": "Planejamento",
+    "titulo": [
+     "Os [[6 pontos]] da peça"
+    ],
+    "cards": [
+     {
+      "titulo": "Endereçamento",
+      "texto": "Para quem a peça vai."
+     },
+     {
+      "titulo": "Partes e legitimidade",
+      "texto": "Quem pede e contra quem."
+     },
+     {
+      "titulo": "Cabimento",
+      "texto": "Por que é esta peça e não outra."
+     },
+     {
+      "titulo": "Tutela de urgência",
+      "texto": "Se cabe, e com qual fundamento."
+     },
+     {
+      "titulo": "Artigos, súmulas e teses",
+      "texto": "O mérito, aplicado aos fatos."
+     },
+     {
+      "titulo": "Pedidos",
+      "texto": "O que você quer que o juiz faça."
+     }
     ]
-  }
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "01",
+    "kicker": "Parte 1",
+    "titulo": [
+     "Como treinar"
+    ],
+    "texto": "O mesmo caso, em três rodadas."
+   },
+   {
+    "tipo": "lista",
+    "tema": "lavanda",
+    "kicker": "Treino em 3 rodadas",
+    "titulo": [
+     "Do material",
+     "ao relógio"
+    ],
+    "itens": [
+     "Primeiro: com o seu **material** e o **Vade Mecum**.",
+     "Depois: refaça **só com o Vade**.",
+     "Por fim: com **tempo marcado**, como na prova."
+    ]
+   },
+   {
+    "tipo": "balao",
+    "tema": "branco",
+    "kicker": "Atenção",
+    "titulo": [
+     "Não invente dados"
+    ],
+    "texto": [
+     "Não crie nomes, datas ou informações que o enunciado não deu.",
+     "Use **reticências** para os dados necessários que não foram fornecidos."
+    ]
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "02",
+    "kicker": "Parte 2",
+    "titulo": [
+     "Na prática:",
+     "caso 19"
+    ],
+    "texto": "Alice e o depósito prévio."
+   },
+   {
+    "tipo": "questao",
+    "tema": "branco",
+    "kicker": "Teste rápido",
+    "titulo": [
+     "Qual é a peça?"
+    ],
+    "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
+    "alternativas": [
+     "Habeas data",
+     "Mandado de segurança individual",
+     "Ação popular",
+     "Reclamação ao STF"
+    ],
+    "correta": 1
+   },
+   {
+    "tipo": "questao",
+    "tema": "branco",
+    "kicker": "Gabarito",
+    "titulo": [
+     "Qual é a peça?"
+    ],
+    "enunciado": "Alice teve o recurso administrativo contra uma multa recusado porque não depositou 30% do valor. Quer impugnar **só a exigência do depósito**, por ação constitucional no juízo local, **sem novas provas e sem honorários**. A Secretária não tem foro em tribunal.",
+    "alternativas": [
+     "Habeas data",
+     "Mandado de segurança individual",
+     "Ação popular",
+     "Reclamação ao STF"
+    ],
+    "correta": 1,
+    "gabarito": true
+   },
+   {
+    "tipo": "lei",
+    "tema": "lavanda",
+    "kicker": "A tese",
+    "titulo": [
+     "Súmula Vinculante 21"
+    ],
+    "citacao": "É inconstitucional a exigência de depósito ou arrolamento prévios de dinheiro ou bens para admissibilidade de recurso administrativo.",
+    "fonte": "STF · Súmula Vinculante 21",
+    "traducao": "Traduzindo: o recurso administrativo **não pode depender de depósito**. Junto com o art. 5º, LIV e LV, é o coração da peça."
+   },
+   {
+    "tipo": "comparar",
+    "tema": "branco",
+    "kicker": "Não confunda",
+    "titulo": [
+     "MS ou reclamação?"
+    ],
+    "lados": [
+     {
+      "rotulo": "A peça do caso",
+      "titulo": "Mandado de segurança",
+      "itens": [
+       "Juízo da Fazenda Pública (ou Cível) local",
+       "Prova pré-constituída",
+       "Sem honorários (Lei 12.016/09, art. 25)"
+      ]
+     },
+     {
+      "rotulo": "A tentação",
+      "titulo": "Reclamação ao STF",
+      "itens": [
+       "Ato administrativo contra súmula vinculante",
+       "Exige **esgotar as vias administrativas**",
+       "Lei 11.417/06, art. 7º, § 1º"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "tabela",
+    "tema": "branco",
+    "kicker": "Gabarito do caso 19",
+    "titulo": [
+     "A estrutura"
+    ],
+    "colunas": [
+     "Ponto",
+     "No caso de Alice"
+    ],
+    "linhas": [
+     [
+      "Endereçamento",
+      "Juízo da Fazenda Pública ou Cível da comarca das Maravilhas"
+     ],
+     [
+      "Partes",
+      "Alice, impetrante; Secretária de Fiscalização, coatora; Município, interessado"
+     ],
+     [
+      "Cabimento",
+      "Direito líquido e certo; prazo de 120 dias (art. 5º, LXIX; Lei 12.016/09, arts. 1º e 23)"
+     ],
+     [
+      "Tutela",
+      "Liminar para afastar o depósito e processar o recurso (art. 7º, III)"
+     ],
+     [
+      "Pedidos",
+      "Liminar, notificação, ciência ao Município, MP e concessão da segurança"
+     ]
+    ]
+   },
+   {
+    "tipo": "fim",
+    "tema": "degrade",
+    "kicker": "Sua vez",
+    "titulo": [
+     "Bora [[treinar]]?"
+    ],
+    "texto": "Escreva a peça do caso 19 inteira e confira com o gabarito do caderno.",
+    "botao": "Mentoria Método VDE"
+   }
+  ]
+ },
+ {
+  "id": "apostas-pecas-autorais-aula",
+  "titulo": "Apostas: resolução de peças autorais (aula)",
+  "tema": "4 casos autorais (MS, ROC ao STF, ADI e ação popular) com gabarito no esqueleto VDE",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Mentoria Método VDE · Aula de hoje",
+    "titulo": [
+     "Nossas [[apostas]]"
+    ],
+    "texto": "Resolução de 4 peças autorais, uma para cada aposta.",
+    "pilula": "2ª fase OAB · Constitucional"
+   },
+   {
+    "tipo": "cards",
+    "tema": "branco",
+    "kicker": "Apostas",
+    "titulo": [
+     "As [[peças]]"
+    ],
+    "colunas": 4,
+    "cards": [
+     {
+      "titulo": "Mandado de segurança",
+      "texto": "Direito líquido e certo contra ato de autoridade."
+     },
+     {
+      "titulo": "ROC ao STF",
+      "texto": "MS denegado em única instância por tribunal superior."
+     },
+     {
+      "titulo": "ADI",
+      "texto": "Lei federal ou estadual contra a Constituição."
+     },
+     {
+      "titulo": "Ação popular",
+      "texto": "Cidadão contra ato lesivo ao patrimônio público."
+     }
+    ]
+   },
+   {
+    "tipo": "lista",
+    "tema": "lavanda",
+    "kicker": "Apostas",
+    "titulo": [
+     "As [[questões]]"
+    ],
+    "itens": [
+     "**Controle de constitucionalidade** com repartição de competências",
+     "**Cabimento de remédio constitucional** a um caso concreto",
+     "**Princípio da simetria** aplicado em âmbito municipal"
+    ]
+   },
+   {
+    "tipo": "cards",
+    "tema": "branco",
+    "kicker": "No radar",
+    "titulo": [
+     "Os [[temas]]"
+    ],
+    "colunas": 3,
+    "cards": [
+     {
+      "icone": "5º",
+      "titulo": "Direito fundamental violado",
+      "texto": "Um inciso do art. 5º no centro da tese."
+     },
+     {
+      "icone": "12",
+      "titulo": "Nacionalidade",
+      "texto": "Art. 12, já com a EC 131/2023."
+     },
+     {
+      "icone": "231",
+      "titulo": "Ordem social: indígenas",
+      "texto": "Arts. 231 e 232 e a competência da União."
+     }
+    ]
+   },
+   {
+    "tipo": "cards",
+    "tema": "branco",
+    "kicker": "Como vamos corrigir",
+    "titulo": [
+     "O [[esqueleto]] VDE"
+    ],
+    "cards": [
+     {
+      "titulo": "Endereçamento"
+     },
+     {
+      "titulo": "Partes e legitimidade"
+     },
+     {
+      "titulo": "Cabimento"
+     },
+     {
+      "titulo": "Tutela de urgência"
+     },
+     {
+      "titulo": "Artigos, súmulas e teses"
+     },
+     {
+      "titulo": "Pedidos"
+     }
+    ]
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "01",
+    "kicker": "Caso 1",
+    "titulo": [
+     "A permissão",
+     "do taxista"
+    ],
+    "texto": "Art. 5º violado e cabimento do remédio.",
+    "pilula": "Aposta: mandado de segurança"
+   },
+   {
+    "tipo": "caso",
+    "tema": "lavanda",
+    "kicker": "Caso 1 · Enunciado",
+    "titulo": [
+     "A permissão",
+     "do taxista"
+    ],
+    "pilula": "Peça autoral",
+    "texto": [
+     "João, taxista há doze anos no Município Alfa, requereu a renovação anual da sua permissão para o serviço de táxi. O Secretário Municipal de Transportes indeferiu o pedido, por escrito, com base exclusiva em decreto municipal editado neste ano, que condiciona a renovação à **filiação do permissionário à Associação dos Taxistas de Alfa**.",
+     "Nenhuma lei municipal prevê essa exigência. João cumpre todos os demais requisitos e não deseja se associar. A permissão vence em quinze dias e, sem ela, ele não poderá trabalhar.",
+     "João tem o requerimento, a decisão de indeferimento, o decreto e os documentos que comprovam os demais requisitos. Ele busca uma ação constitucional que dispense a produção de outras provas e não comporte honorários de sucumbência. O Secretário não possui foro por prerrogativa de função."
+    ],
+    "pergunta": "Como advogado(a) de João, elabore a peça cabível."
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 1 · 1/2",
+    "titulo": [
+     "Esqueleto VDE (1/2)"
+    ],
+    "pontos": [
+     {
+      "n": "01",
+      "nome": "Endereçamento",
+      "texto": [
+       "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Alfa."
+      ],
+      "artigos": [
+       "Sem foro por prerrogativa"
+      ]
+     },
+     {
+      "n": "02",
+      "nome": "Partes e legitimidade",
+      "texto": [
+       "Impetrante: **João**.",
+       "Autoridade coatora: **Secretário Municipal de Transportes**.",
+       "Pessoa jurídica interessada: **Município Alfa**."
+      ],
+      "artigos": [
+       "Lei 12.016/09, art. 6º"
+      ]
+     },
+     {
+      "n": "03",
+      "nome": "Cabimento",
+      "texto": [
+       "**Mandado de segurança individual**: direito líquido e certo, com prova pré-constituída.",
+       "Ato concreto de autoridade; dentro dos **120 dias**."
+      ],
+      "artigos": [
+       "art. 5º, LXIX",
+       "Lei 12.016/09, arts. 1º e 23"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 1 · 2/2",
+    "titulo": [
+     "Esqueleto VDE (2/2)"
+    ],
+    "pontos": [
+     {
+      "n": "04",
+      "nome": "Tutela de urgência",
+      "texto": [
+       "**Liminar** para renovar a permissão sem a exigência de filiação.",
+       "Permissão vence em quinze dias; João fica sem trabalhar."
+      ],
+      "artigos": [
+       "Lei 12.016/09, art. 7º, III"
+      ]
+     },
+     {
+      "n": "05",
+      "nome": "Teses",
+      "texto": [
+       "**Liberdade de associação**: ninguém pode ser compelido a associar-se.",
+       "**Liberdade de profissão**, atendidas só as qualificações da lei.",
+       "**Legalidade**: decreto não cria obrigação que a lei não prevê."
+      ],
+      "artigos": [
+       "art. 5º, XX",
+       "art. 5º, XIII",
+       "art. 5º, II",
+       "art. 37, caput"
+      ]
+     },
+     {
+      "n": "06",
+      "nome": "Pedidos",
+      "texto": [
+       "Liminar; notificação do coator; ciência ao Município; MP.",
+       "**Concessão da segurança** para renovar a permissão sem a filiação.",
+       "Sem honorários; valor da causa."
+      ],
+      "artigos": [
+       "Lei 12.016/09, arts. 7º, 12 e 25"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "balao",
+    "tema": "lavanda",
+    "kicker": "Caso 1",
+    "titulo": [
+     "Pegadinha"
+    ],
+    "texto": [
+     "O mandado de segurança **não ataca o decreto em tese**: ele ataca o **ato concreto** que negou a renovação.",
+     "A ilegalidade do decreto entra como **fundamento** do pedido."
+    ]
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "02",
+    "kicker": "Caso 2",
+    "titulo": [
+     "A portaria do Ministro"
+    ],
+    "texto": "Nacionalidade depois da EC 131/2023.",
+    "pilula": "Aposta: ROC ao STF"
+   },
+   {
+    "tipo": "caso",
+    "tema": "lavanda",
+    "kicker": "Caso 2 · Enunciado",
+    "titulo": [
+     "A portaria do Ministro"
+    ],
+    "pilula": "Peça autoral",
+    "texto": [
+     "Arsène Lupin, francês, naturalizou-se brasileiro em 2012. Em 2025, obteve também a nacionalidade italiana, por descendência. Em 2026, o Ministro da Justiça e Segurança Pública editou portaria declarando a perda da nacionalidade brasileira de Lupin, apenas por ter adquirido outra nacionalidade. Lupin nunca pediu a perda, e não houve processo judicial.",
+     "Lupin impetrou mandado de segurança originariamente no STJ, com a União como interessada. A Primeira Seção **denegou a segurança**, entendendo que a aquisição voluntária de outra nacionalidade autoriza a declaração de perda pelo Ministro.",
+     "O acórdão foi publicado há cinco dias úteis e não tem omissão, contradição ou obscuridade. Lupin precisa do passaporte brasileiro para uma viagem em quinze dias."
+    ],
+    "pergunta": "Como advogado(a) de Lupin, elabore o recurso cabível."
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 2 · 1/2",
+    "titulo": [
+     "Esqueleto VDE (1/2)"
+    ],
+    "pontos": [
+     {
+      "n": "01",
+      "nome": "Endereçamento",
+      "texto": [
+       "**Interposição**: Ministro Presidente do STJ.",
+       "**Razões**: ao STF."
+      ],
+      "artigos": [
+       "CPC, art. 1.028, §§ 2º e 3º"
+      ]
+     },
+     {
+      "n": "02",
+      "nome": "Partes e legitimidade",
+      "texto": [
+       "Recorrente: **Lupin**, impetrante vencido.",
+       "Recorrida: **União**.",
+       "Indicar o Ministro da Justiça como autoridade coatora."
+      ],
+      "artigos": [
+       "CPC, art. 996"
+      ]
+     },
+     {
+      "n": "03",
+      "nome": "Cabimento",
+      "texto": [
+       "**ROC ao STF**: MS decidido em única instância por tribunal superior e **denegado**.",
+       "15 dias úteis; sem repercussão geral nem prequestionamento."
+      ],
+      "artigos": [
+       "art. 102, II, “a”",
+       "CPC, arts. 1.003, § 5º, e 1.027, I"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 2 · 2/2",
+    "titulo": [
+     "Esqueleto VDE (2/2)"
+    ],
+    "pontos": [
+     {
+      "n": "04",
+      "nome": "Tutela de urgência",
+      "texto": [
+       "**Tutela recursal** para suspender os efeitos da portaria e liberar o passaporte.",
+       "Viagem em quinze dias."
+      ],
+      "artigos": [
+       "CPC, arts. 1.027, § 2º, e 1.029, § 5º"
+      ]
+     },
+     {
+      "n": "05",
+      "nome": "Teses",
+      "texto": [
+       "Desde a **EC 131/2023**, adquirir outra nacionalidade **não** causa perda.",
+       "Perda só por **pedido expresso** ou **cancelamento por sentença judicial** (fraude ou atentado à ordem democrática).",
+       "Ato administrativo sem devido processo."
+      ],
+      "artigos": [
+       "art. 12, § 4º, I e II",
+       "art. 5º, LIV e LV"
+      ]
+     },
+     {
+      "n": "06",
+      "nome": "Pedidos",
+      "texto": [
+       "Intimação para contrarrazões; remessa ao STF.",
+       "Tutela recursal.",
+       "**Provimento** para conceder a segurança e anular a portaria.",
+       "Preparo, se devido; sem honorários."
+      ],
+      "artigos": [
+       "Lei 12.016/09, art. 25"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "comparar",
+    "tema": "lavanda",
+    "kicker": "Caso 2 · Não confunda",
+    "titulo": [
+     "ROC ao STF x ROC ao STJ"
+    ],
+    "lados": [
+     {
+      "rotulo": "Este caso",
+      "titulo": "ROC ao STF",
+      "itens": [
+       "MS, HD, HC ou MI decidido em **única instância por tribunal superior**",
+       "Decisão **denegatória**",
+       "art. 102, II, “a”"
+      ]
+     },
+     {
+      "rotulo": "O primo",
+      "titulo": "ROC ao STJ",
+      "itens": [
+       "MS decidido em **única instância por TJ ou TRF**",
+       "Decisão **denegatória**",
+       "art. 105, II, “b”"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "03",
+    "kicker": "Caso 3",
+    "titulo": [
+     "Minério em terra indígena"
+    ],
+    "texto": "Repartição de competências e ordem social.",
+    "pilula": "Aposta: ADI"
+   },
+   {
+    "tipo": "caso",
+    "tema": "lavanda",
+    "kicker": "Caso 3 · Enunciado",
+    "titulo": [
+     "Minério em terra indígena"
+    ],
+    "pilula": "Peça autoral",
+    "texto": [
+     "O Estado Aurora do Norte editou, em 2026, a Lei nº XX, aprovada pela Assembleia Legislativa e sancionada pelo Governador. O art. 1º autoriza o órgão ambiental estadual a conceder licenças de **pesquisa e lavra de minérios em terras indígenas** situadas no Estado, sem autorização do Congresso Nacional e sem ouvir as comunidades.",
+     "O art. 2º permite o **arrendamento** de até 30% de cada terra indígena a particulares, para agropecuária. O art. 3º condiciona o reconhecimento de qualquer comunidade indígena a um **registro em órgão estadual**. As primeiras licenças serão emitidas em quinze dias.",
+     "Pocahontas, presidente do diretório nacional do Partido Raízes, que tem três deputados federais, quer impugnar todos os artigos no STF, com a Constituição Federal como parâmetro, e impedir sua aplicação durante o processo."
+    ],
+    "pergunta": "Como advogado(a) do partido, elabore a peça cabível."
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 3 · 1/2",
+    "titulo": [
+     "Esqueleto VDE (1/2)"
+    ],
+    "pontos": [
+     {
+      "n": "01",
+      "nome": "Endereçamento",
+      "texto": [
+       "Ministro Presidente do **STF**."
+      ],
+      "artigos": [
+       "art. 102, I, “a”"
+      ]
+     },
+     {
+      "n": "02",
+      "nome": "Partes e legitimidade",
+      "texto": [
+       "Requerente: **Partido Raízes**, pelo diretório nacional, com representação no Congresso: legitimado universal, **sem pertinência temática**.",
+       "Requeridos: **Governador** e **Assembleia Legislativa**."
+      ],
+      "artigos": [
+       "art. 103, VIII",
+       "Lei 9.868/99, art. 2º, VIII"
+      ]
+     },
+     {
+      "n": "03",
+      "nome": "Cabimento",
+      "texto": [
+       "**ADI**: lei **estadual**, posterior a 1988, contra a Constituição Federal.",
+       "Procuração com poderes específicos."
+      ],
+      "artigos": [
+       "art. 102, I, “a”",
+       "Lei 9.868/99, art. 3º"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 3 · 2/2",
+    "titulo": [
+     "Esqueleto VDE (2/2)"
+    ],
+    "pontos": [
+     {
+      "n": "04",
+      "nome": "Tutela de urgência",
+      "texto": [
+       "**Medida cautelar** para suspender os arts. 1º a 3º.",
+       "Licenças em quinze dias."
+      ],
+      "artigos": [
+       "Lei 9.868/99, arts. 10 e 11"
+      ]
+     },
+     {
+      "n": "05",
+      "nome": "Teses",
+      "texto": [
+       "**Vício formal**: legislar sobre populações indígenas e minas é competência **privativa da União**.",
+       "**Vício material**: lavra só com autorização do **Congresso**, ouvidas as comunidades; terras inalienáveis, de usufruto exclusivo; demarcar é da **União**."
+      ],
+      "artigos": [
+       "art. 22, XII e XIV",
+       "arts. 20, XI, e 49, XVI",
+       "art. 231, caput e §§ 2º a 4º e 6º"
+      ]
+     },
+     {
+      "n": "06",
+      "nome": "Pedidos",
+      "texto": [
+       "Cautelar; informações ao Governador e à Assembleia.",
+       "Oitiva do **AGU** e do **PGR**.",
+       "Procedência: inconstitucionalidade dos arts. 1º a 3º, com eficácia **erga omnes e vinculante**."
+      ],
+      "artigos": [
+       "Lei 9.868/99, arts. 6º, 8º e 28"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "balao",
+    "tema": "lavanda",
+    "kicker": "Caso 3",
+    "titulo": [
+     "Pegadinha"
+    ],
+    "texto": [
+     "Ataque a lei inteira com **dois vícios**: o **formal** (competência da União) e o **material** (art. 231).",
+     "E não peça pertinência temática: partido com representação no Congresso é **legitimado universal**."
+    ]
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "04",
+    "kicker": "Caso 4",
+    "titulo": [
+     "O cargo do vereador"
+    ],
+    "texto": "Princípio da simetria no Município.",
+    "pilula": "Aposta: ação popular"
+   },
+   {
+    "tipo": "caso",
+    "tema": "lavanda",
+    "kicker": "Caso 4 · Enunciado",
+    "titulo": [
+     "O cargo do vereador"
+    ],
+    "pilula": "Peça autoral",
+    "texto": [
+     "No Município Lagoa Clara, o vereador Moe apresentou projeto de lei que **criou o cargo em comissão** de “Assessor Especial de Relações Institucionais” no gabinete do Prefeito, com remuneração de R$ 18 mil. A Lei Orgânica reproduz a Constituição Federal e reserva ao Prefeito a iniciativa de leis que criem cargos no Executivo.",
+     "O Prefeito Quimby sancionou a lei e nomeou Barney para o cargo. Barney não exerce função de direção, chefia ou assessoramento: os documentos mostram que ele não comparece ao gabinete. O primeiro pagamento será feito em cinco dias.",
+     "Lisa, brasileira, eleitora com título regular, reuniu a lei, o ato de nomeação e a folha de pagamento. Quer anular a nomeação, impedir os pagamentos e obter o ressarcimento do que for pago, admitindo outras provas, por ação constitucional que a dispense de custas e da sucumbência."
+    ],
+    "pergunta": "Como advogado(a) de Lisa, elabore a peça cabível."
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 4 · 1/2",
+    "titulo": [
+     "Esqueleto VDE (1/2)"
+    ],
+    "pontos": [
+     {
+      "n": "01",
+      "nome": "Endereçamento",
+      "texto": [
+       "Juízo da Vara da Fazenda Pública (ou Cível) da comarca de Lagoa Clara."
+      ],
+      "artigos": [
+       "Lei 4.717/65, art. 5º"
+      ]
+     },
+     {
+      "n": "02",
+      "nome": "Partes e legitimidade",
+      "texto": [
+       "Autora: **Lisa**, cidadã, com título de eleitor.",
+       "Réus: **Município**, **Prefeito Quimby** (praticou o ato) e **Barney** (beneficiário)."
+      ],
+      "artigos": [
+       "art. 5º, LXXIII",
+       "Lei 4.717/65, arts. 1º, § 3º, e 6º"
+      ]
+     },
+     {
+      "n": "03",
+      "nome": "Cabimento",
+      "texto": [
+       "**Ação popular**: ato concreto lesivo ao patrimônio público e à moralidade.",
+       "A inconstitucionalidade da lei é declarada **incidentalmente** (controle difuso)."
+      ],
+      "artigos": [
+       "art. 5º, LXXIII",
+       "Lei 4.717/65, arts. 1º e 2º"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "esqueleto",
+    "tema": "branco",
+    "kicker": "Gabarito · Caso 4 · 2/2",
+    "titulo": [
+     "Esqueleto VDE (2/2)"
+    ],
+    "pontos": [
+     {
+      "n": "04",
+      "nome": "Tutela de urgência",
+      "texto": [
+       "**Liminar** para suspender a nomeação e os pagamentos.",
+       "Primeiro pagamento em cinco dias."
+      ],
+      "artigos": [
+       "Lei 4.717/65, art. 5º, § 4º",
+       "CPC, art. 300"
+      ]
+     },
+     {
+      "n": "05",
+      "nome": "Teses",
+      "texto": [
+       "**Simetria**: a iniciativa privativa do chefe do Executivo para criar cargos vale para o Prefeito.",
+       "O vício de iniciativa é **formal**: a lei nasce inconstitucional.",
+       "Cargo em comissão só para direção, chefia e assessoramento; **moralidade**."
+      ],
+      "artigos": [
+       "art. 61, § 1º, II, “a”",
+       "art. 29, caput",
+       "art. 37, caput, II e V"
+      ]
+     },
+     {
+      "n": "06",
+      "nome": "Pedidos",
+      "texto": [
+       "Liminar; citação dos réus; intimação do **MP**.",
+       "Declaração **incidental** de inconstitucionalidade; anulação da nomeação; **ressarcimento**.",
+       "Isenção de custas; sucumbência dos réus; provas; valor da causa."
+      ],
+      "artigos": [
+       "Lei 4.717/65, arts. 7º, 11 e 12"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "balao",
+    "tema": "lavanda",
+    "kicker": "Caso 4",
+    "titulo": [
+     "Pegadinha"
+    ],
+    "texto": [
+     "Lisa **não** pode propor ADI: ela não é legitimada, e o que ela quer é desfazer um **ato concreto**.",
+     "Na ação popular, a inconstitucionalidade da lei entra como **causa de pedir**, não como pedido principal."
+    ]
+   },
+   {
+    "tipo": "tabela",
+    "tema": "branco",
+    "kicker": "Resumo das apostas",
+    "titulo": [
+     "Peça por peça"
+    ],
+    "colunas": [
+     "Caso",
+     "Peça",
+     "Onde",
+     "Tese-chave"
+    ],
+    "linhas": [
+     [
+      "1 · João",
+      "Mandado de segurança",
+      "Fazenda Pública local",
+      "Liberdade de associação e de profissão (art. 5º, XX e XIII)"
+     ],
+     [
+      "2 · Lupin",
+      "ROC ao STF",
+      "Interposição no STJ; razões ao STF",
+      "Perda da nacionalidade após a EC 131/2023"
+     ],
+     [
+      "3 · Partido Raízes",
+      "ADI",
+      "STF",
+      "Competência da União e art. 231"
+     ],
+     [
+      "4 · Lisa",
+      "Ação popular",
+      "Fazenda Pública local",
+      "Simetria: iniciativa do Prefeito"
+     ]
+    ]
+   },
+   {
+    "tipo": "fim",
+    "tema": "degrade",
+    "kicker": "Até a próxima",
+    "titulo": [
+     "Confia no",
+     "[[processo]]."
+    ],
+    "texto": "Cada peça treinada hoje é um ponto a mais no dia da prova."
+   }
+  ]
+ },
+ {
+  "id": "mudar-materia-repescagem-aula",
+  "titulo": "Devo mudar de matéria na Repescagem OAB?",
+  "tema": "Aula: quando vale mudar de matéria na repescagem, como decidir, por que Constitucional e como organizar o tempo",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "titulo": [
+     "Devo mudar de",
+     "[[matéria]] na",
+     "Repescagem OAB?"
+    ],
+    "texto": "Como decidir com calma, sem achismo, e o que considerar antes de trocar.",
+    "pilula": "Repescagem · 2ª fase"
+   },
+   {
+    "tipo": "texto",
+    "tema": "branco",
+    "kicker": "Antes de tudo",
+    "titulo": [
+     "Não existe",
+     "resposta [[única]]"
+    ],
+    "texto": [
+     "Mudar de matéria pode ser a melhor decisão para uma pessoa e a pior para outra.",
+     "O que decide não é a matéria \"mais fácil\": é **a sua relação com ela** e **o que a sua prova mostrou**.",
+     "Nesta aula, você vai sair com um critério para decidir."
+    ],
+    "corpo": 46
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "01",
+    "titulo": [
+     "Quando vale [[mudar]]"
+    ],
+    "texto": "Os sinais de que a troca pode ajudar."
+   },
+   {
+    "tipo": "cards",
+    "tema": "branco",
+    "kicker": "Sinais de alerta",
+    "titulo": [
+     "Talvez seja hora de [[trocar]]"
+    ],
+    "colunas": 2,
+    "cards": [
+     {
+      "titulo": "Você não se identifica mais",
+      "texto": "Estudar a matéria virou um peso e a motivação acabou."
+     },
+     {
+      "titulo": "Cansaço acumulado",
+      "texto": "Abrir o material já dá desânimo, mesmo depois de descansar."
+     },
+     {
+      "titulo": "Trava sempre nos mesmos pontos",
+      "texto": "Os mesmos erros se repetem, prova após prova."
+     },
+     {
+      "titulo": "Peças que você não domina",
+      "texto": "Você erra a identificação mesmo depois de muito treino."
+     }
+    ],
+    "corpo": 46
+   },
+   {
+    "tipo": "balao",
+    "tema": "lavanda",
+    "kicker": "Atenção",
+    "titulo": [
+     "Mudar não é [[fugir]]"
+    ],
+    "texto": "Se você ficou perto da nota e o problema foi pontual (tempo, uma questão, um pedido esquecido), continuar na mesma matéria pode ser o caminho mais curto."
+   },
+   {
+    "tipo": "comparar",
+    "tema": "branco",
+    "kicker": "Ficar ou mudar",
+    "titulo": [
+     "Pese os dois [[lados]]"
+    ],
+    "lados": [
+     {
+      "rotulo": "Ficar",
+      "titulo": "Na mesma matéria",
+      "itens": [
+       "Você já conhece a base",
+       "Aproveita o material e as anotações",
+       "Bom se faltou pouco para os 6,00"
+      ]
+     },
+     {
+      "rotulo": "Mudar",
+      "titulo": "Para outra matéria",
+      "itens": [
+       "Recomeço com motivação nova",
+       "Precisa estudar a base do zero",
+       "Bom se a matéria virou um bloqueio"
+      ]
+     }
+    ],
+    "corpo": 42
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "02",
+    "titulo": [
+     "Por que [[Constitucional]]"
+    ],
+    "texto": "Uma boa opção para quem decidiu mudar."
+   },
+   {
+    "tipo": "lista",
+    "tema": "branco",
+    "kicker": "Constitucional na repescagem",
+    "titulo": [
+     "Motivos para [[considerar]]"
+    ],
+    "itens": [
+     "**A matéria que menos muda**: O texto-base é a Constituição; o que você estuda continua valendo na prova.",
+     "**Peças com estrutura clara**: Mandado de segurança, habeas corpus, ação popular, ADI: cabimento e estrutura bem definidos.",
+     "**Tudo gira em torno da CF**: Com o índice remissivo bem usado, você acha o artigo rápido.",
+     "**Dá para aprender em pouco tempo**: Muita gente passa com uns 40 dias de preparação."
+    ],
+    "corpo": 36
+   },
+   {
+    "tipo": "texto",
+    "tema": "lavanda",
+    "kicker": "O tempo joga a seu favor",
+    "titulo": [
+     "Com o [[dobro]]",
+     "do tempo"
+    ],
+    "texto": [
+     "Na repescagem você tem mais tempo de estudo do que na preparação regular.",
+     "É tempo para aprender a matéria nova com calma, treinar peças toda semana e fazer simulados antes da prova."
+    ],
+    "corpo": 46
+   },
+   {
+    "tipo": "tabela",
+    "tema": "branco",
+    "kicker": "Como decidir",
+    "titulo": [
+     "Um critério [[simples]]"
+    ],
+    "colunas": [
+     "Situação",
+     "Sugestão"
+    ],
+    "linhas": [
+     [
+      "Faltou pouco e você gosta da matéria",
+      "Fique e ataque o que tirou ponto"
+     ],
+     [
+      "Errou a peça, mas sabe o conteúdo",
+      "Fique e treine identificação"
+     ],
+     [
+      "Cansou da matéria e trava sempre",
+      "Considere mudar"
+     ],
+     [
+      "Quer recomeçar com uma matéria estável",
+      "Considere Constitucional"
+     ]
+    ],
+    "corpo": 40
+   },
+   {
+    "tipo": "fim",
+    "tema": "degrade",
+    "titulo": [
+     "Decidiu? Agora é",
+     "seguir o [[plano]]"
+    ],
+    "texto": "Na Turma de Repescagem do Método VDE você tem cronograma, plano de recuperação, simulados inéditos e encontros ao vivo.",
+    "botao": "@nataliavalenca · @liberofilho"
+   }
+  ]
+ }
 ]
