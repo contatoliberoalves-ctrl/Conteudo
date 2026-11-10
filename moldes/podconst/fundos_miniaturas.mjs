@@ -77,9 +77,9 @@ const miniVde = () => `<div style="position:absolute;inset:0;background:${VDE}">
   <div style="position:absolute;left:64px;bottom:50px;font-family:Poppins;font-weight:600;font-size:26px;color:rgba(255,255,255,.85)">@nataliavalenca · @liberofilho</div>`;
 
 const PECAS = [
-  ['fundo-podconst-repescagem', 1920, 1080, () => fundoPodconst(AZUL, 'REPESCAGEM', 'AULA · REPESCAGEM OAB', 'rgba(226,36,214,.85)')],
-  ['fundo-podconst-voto-distrital', 1920, 1080, () => fundoPodconst(MAG, 'DISTRITAL', 'AULA · VOTO DISTRITAL MISTO', 'rgba(247,244,0,.85)')],
-  ['fundo-vde-mudar-materia', 1920, 1080, () => fundoVde('REPESCAGEM OAB')],
+  ['fundo-podconst-azul', 1920, 1080, () => fundoPodconst(AZUL, 'PODCONST', 'AULA', 'rgba(226,36,214,.85)')],
+  ['fundo-podconst-magenta', 1920, 1080, () => fundoPodconst(MAG, 'PODCONST', 'AULA', 'rgba(247,244,0,.85)')],
+  ['fundo-vde', 1920, 1080, () => fundoVde('AULA')],
   ['miniatura-podconst-repescagem', 1280, 720, miniRepescagem],
   ['miniatura-podconst-voto-distrital', 1280, 720, miniDistrital],
   ['miniatura-vde-mudar-materia', 1280, 720, miniVde],
