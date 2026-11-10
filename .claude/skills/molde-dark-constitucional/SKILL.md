@@ -75,6 +75,11 @@ Todo vídeo novo leva capa com foto (`imagem` no gancho). O `render.mjs` grava `
 
 ## Identidade
 
+Manual publicado: Identidade do Arquivo (https://claude.ai/artifact/MNfeYnASzjD9MPnULoHuTz). Nome, @, bios e destaques ficam em `identidade/identidade.json`. `node identidade/identidade.mjs` gera em `saida/identidade/` a foto de perfil (carimbo de lacre com §, escura e clara), as capas dos 6 destaques (uma por série) e a prévia do perfil com as capas mais novas; `python3 identidade/manual.py` refaz a página. Publique no mesmo link com `root: saida/identidade` e as imagens em `img/…`.
+
+A capa (`capa.jpg`) sai sem a legenda queimada (prop `capa` do Reel); `node render.mjs --capas <ids>` refaz só as capas.
+
+
 "Arquivo à noite" (`src/theme.ts`): fundo quase preto com pautas de papel e grão, papel envelhecido nos documentos e cédulas, **um** vermelho lacre (carimbos, linha de corte, palavra-chave), Old Standard TT nos títulos, IBM Plex Sans Condensed na legenda, IBM Plex Mono em rótulos. Marca no topo vem de `config.json` (`marca`) ou do campo `marca` do roteiro. Trilha e efeitos são sintetizados por `scripts/sons.mjs` (o `render.mjs` cria na primeira vez).
 
 Nada de foto de pessoa com direito autoral. O perfil não se identifica com o Líbero.

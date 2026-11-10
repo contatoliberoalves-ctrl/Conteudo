@@ -15,6 +15,7 @@ const FPS = cfg.fps;
 
 const args = process.argv.slice(2);
 const rapido = args.includes("--rapido");
+const soCapas = args.includes("--capas"); // só refaz saida/<id>/capa.jpg
 const semVoz = args.includes("--sem-voz");
 let ids = args.filter((a) => !a.startsWith("--"));
 if (!ids.length) ids = fs.readdirSync(path.join(AQUI, "roteiros")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, ""));
@@ -116,7 +117,7 @@ for (const id of ids) {
   indexar(id, roteiro);
   const dir = path.join(AQUI, "saida", id);
   fs.mkdirSync(dir, { recursive: true });
-  for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
+  if (!soCapas) for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
   const comp = await selectComposition({ serveUrl: servir, id: "Reel", inputProps: props, browserExecutable, chromiumOptions });
   console.log(`${id}: ${props.cenas.length} cenas, ${(props.total / FPS).toFixed(1)} s${props.comVoz ? ", com voz" : ", sem voz"}`);
   // 3 quadros para conferir e para a galeria: a capa (gancho) e as duas primeiras cenas gráficas
@@ -124,13 +125,17 @@ for (const id of ids) {
   const escolhidas = [props.cenas[0], ...graficas.slice(0, 2).map((g) => g.c)];
   for (const c of props.cenas.slice(1)) if (escolhidas.length < 3 && !escolhidas.includes(c)) escolhidas.push(c);
   escolhidas.sort((a, b) => a.inicio - b.inicio);
+  // Capa para subir no Instagram/TikTok: o gancho já montado, sem a legenda queimada
+  const g = props.cenas[0], capaPng = path.join(dir, "capa.png");
+  await renderStill({ composition: { ...comp, props: { ...comp.props, capa: true } }, serveUrl: servir, output: capaPng, frame: g.inicio + g.dur - 10, inputProps: { ...props, capa: true }, browserExecutable, chromiumOptions, overwrite: true });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", capaPng, "-q:v", "2", path.join(dir, "capa.jpg")]);
+  fs.rmSync(capaPng);
+  if (soCapas) continue;
   for (const [n, c] of escolhidas.entries()) {
     const quadro = c.inicio + (c.tipo === "pergunta" ? Math.round(c.dur * 0.6) : c.dur - 10);
     await renderStill({ composition: comp, serveUrl: servir, output: path.join(dir, `${n + 1}.png`), frame: quadro, inputProps: props, browserExecutable, chromiumOptions, overwrite: true });
   }
   fs.writeFileSync(path.join(dir, "legenda.txt"), legenda(roteiro));
-  // Capa para subir no Instagram/TikTok: o quadro do gancho já montado (1.png) em JPG
-  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", path.join(dir, "1.png"), "-q:v", "2", path.join(dir, "capa.jpg")]);
   if (rapido) continue;
   let ult = -1;
   await renderMedia({

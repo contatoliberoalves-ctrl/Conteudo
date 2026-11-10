@@ -22,4 +22,5 @@ export type Props = {
   cenas: CenaPronta[];
   total: number;
   comVoz: boolean;
+  capa?: boolean; // quadro de capa: sem a legenda queimada
 };

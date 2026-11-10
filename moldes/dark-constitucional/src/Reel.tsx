@@ -21,7 +21,7 @@ export const Reel: React.FC<Props> = (props) => {
             <Saida dur={c.dur}>
               {c.tipo === "pergunta" ? <Pergunta c={c} gancho={gancho} /> : <Comp c={c} />}
             </Saida>
-            <Legenda palavras={c.palavras} />
+            {props.capa ? null : <Legenda palavras={c.palavras} />}
             {c.audio ? <Audio src={staticFile(c.audio)} volume={1} /> : null}
             {def.sons(c as any, fps).filter((s) => s.em < c.dur).map((s, k) => (
               <Sequence key={k} from={Math.max(0, s.em)} durationInFrames={Math.max(1, c.dur - Math.max(0, s.em))}>
