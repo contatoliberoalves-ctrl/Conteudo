@@ -134,7 +134,7 @@ const CapaFotoDeitada: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, e
           transform: `scale(${zoom * Math.max(1, (im.zoom ?? 1) * 0.75)})`, transformOrigin: foco, filter: `grayscale(1) sepia(0.45) contrast(1.15) brightness(${0.4 + 0.35 * luz})` }} />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(90deg, ${T.cor.fundo}f2 0%, ${T.cor.fundo}b3 45%, transparent 80%), linear-gradient(0deg, ${T.cor.fundo}cc 0%, transparent 45%)` }} />
-      <div style={{ position: "absolute", left: 100, bottom: 130, width: 1400, fontFamily: T.fonte.legenda, fontWeight: 700,
+      <div style={{ position: "absolute", left: 100, bottom: 270, width: 1400, fontFamily: T.fonte.legenda, fontWeight: 700,
         fontSize: tam, lineHeight: 0.98, textTransform: "uppercase", letterSpacing: -0.5 }}>
         <TituloCapa texto={c.texto} tam={tam} estatico={estatico} />
       </div>
