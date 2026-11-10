@@ -61,5 +61,232 @@
     "#Acompanhando (primeiros/últimos episódios)",
     "Lembrete (estilo notificação)",
     "Sorteio"
-  ]
+  ],
+  "banco_de_fotos": {
+    "onde": "Drive do usuário, pasta \"Fotos dos doramas\" (uma subpasta por dorama, com poster-NN e cena-NN; planilha creditos). Cópia local em fotos/<pasta>/, fora do git; créditos completos em fotos/creditos.csv.",
+    "doramas": [
+      {
+        "pasta": "advogada-extraordinaria",
+        "titulo": "Uma Advogada Extraordinária",
+        "credito": "Imagem: Netflix",
+        "direitos": "AStory (IP) / Netflix (distribuição internacional)"
+      },
+      {
+        "pasta": "pousando-no-amor",
+        "titulo": "Pousando no Amor",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN (emissora e licenciamento) / Studio Dragon (produção)"
+      },
+      {
+        "pasta": "move-to-heaven",
+        "titulo": "Move to Heaven",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição); Page One Film e Number Three Pictures (produção)"
+      },
+      {
+        "pasta": "hometown-cha-cha-cha",
+        "titulo": "Hometown Cha-Cha-Cha",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM; Studio Dragon e GTist (produção)"
+      },
+      {
+        "pasta": "goblin",
+        "titulo": "Goblin",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN"
+      },
+      {
+        "pasta": "reply-1988",
+        "titulo": "Reply 1988",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN"
+      },
+      {
+        "pasta": "se-a-vida-te-der-tangerinas",
+        "titulo": "Se a Vida Te Der Tangerinas",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação) / Pan Entertainment e Baram Pictures (produção)"
+      },
+      {
+        "pasta": "navillera",
+        "titulo": "Navillera",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN (emissora) / Netflix (distribuição internacional)"
+      },
+      {
+        "pasta": "uma-dose-diaria-de-sol",
+        "titulo": "Uma Dose Diária de Sol",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      },
+      {
+        "pasta": "vinte-e-cinco-vinte-e-um",
+        "titulo": "Vinte e Cinco, Vinte e Um",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN (emissora) / Netflix (distribuição internacional)"
+      },
+      {
+        "pasta": "hospital-playlist",
+        "titulo": "Hospital Playlist",
+        "credito": "Imagem: tvN",
+        "direitos": "CJ ENM / tvN (emissora) / Netflix (distribuição internacional)"
+      },
+      {
+        "pasta": "quando-toca-o-telefone",
+        "titulo": "Quando Toca o Telefone",
+        "credito": "Imagem: MBC",
+        "direitos": "MBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "love-scout",
+        "titulo": "Love Scout",
+        "credito": "Imagem: SBS",
+        "direitos": "SBS"
+      },
+      {
+        "pasta": "um-amor-de-cinema",
+        "titulo": "Um Amor de Cinema",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      },
+      {
+        "pasta": "gostinho-de-amor",
+        "titulo": "Gostinho de Amor",
+        "credito": "Imagem: ENA",
+        "direitos": "ENA / KT Studio Genie / Netflix (distribuição)"
+      },
+      {
+        "pasta": "uma-seul-desconhecida",
+        "titulo": "Uma Seul Desconhecida",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Netflix (distribuição)"
+      },
+      {
+        "pasta": "law-and-the-city",
+        "titulo": "Law and the City",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM"
+      },
+      {
+        "pasta": "bon-appetit-majestade",
+        "titulo": "Bon Appétit, Vossa Majestade",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Netflix (distribuição)"
+      },
+      {
+        "pasta": "a-jogada-da-vitoria",
+        "titulo": "A Jogada da Vitória",
+        "credito": "Imagem: SBS",
+        "direitos": "SBS / Netflix (distribuição)"
+      },
+      {
+        "pasta": "amor-de-mentirinha",
+        "titulo": "Amor de Mentirinha",
+        "credito": "Imagem: SBS",
+        "direitos": "SBS / Disney+ (distribuição)"
+      },
+      {
+        "pasta": "twinkling-watermelon",
+        "titulo": "Twinkling Watermelon",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM"
+      },
+      {
+        "pasta": "welcome-to-samdal-ri",
+        "titulo": "Welcome to Samdal-ri",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "medicos-em-colapso",
+        "titulo": "Médicos em Colapso",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "married-to-my-husband",
+        "titulo": "A Esposa do Meu Marido (Marry My Husband)",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Prime Video (distribuição)"
+      },
+      {
+        "pasta": "rainha-das-lagrimas",
+        "titulo": "Rainha das Lágrimas",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Netflix (distribuição)"
+      },
+      {
+        "pasta": "um-homem-sem-filtros",
+        "titulo": "Um Homem sem Filtros",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "hierarchy",
+        "titulo": "Hierarchy",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      },
+      {
+        "pasta": "miss-night-and-day",
+        "titulo": "Miss Night and Day",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "o-amor-volta-pra-casa",
+        "titulo": "O Amor Volta pra Casa",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC / Netflix (distribuição)"
+      },
+      {
+        "pasta": "lucros-do-amor",
+        "titulo": "Lucros do Amor",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Prime Video (distribuição)"
+      },
+      {
+        "pasta": "o-amor-mora-ao-lado",
+        "titulo": "O Amor Mora ao Lado",
+        "credito": "Imagem: tvN",
+        "direitos": "tvN / CJ ENM / Netflix (distribuição)"
+      },
+      {
+        "pasta": "doona",
+        "titulo": "Doona!",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      },
+      {
+        "pasta": "mulher-forte-do-bong-soon",
+        "titulo": "Mulher Forte, Do Bong-soon",
+        "credito": "Imagem: JTBC",
+        "direitos": "JTBC"
+      },
+      {
+        "pasta": "the-trunk",
+        "titulo": "The Trunk",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      },
+      {
+        "pasta": "brewing-love",
+        "titulo": "Brewing Love",
+        "credito": "Imagem: ENA",
+        "direitos": "ENA / KT Studio Genie"
+      },
+      {
+        "pasta": "marry-you",
+        "titulo": "Marry You",
+        "credito": "Imagem: Channel A",
+        "direitos": "Channel A"
+      },
+      {
+        "pasta": "round-six-temporada-2",
+        "titulo": "Round Six, 2ª temporada",
+        "credito": "Imagem: Netflix",
+        "direitos": "Netflix (distribuição e divulgação)"
+      }
+    ]
+  }
 }
