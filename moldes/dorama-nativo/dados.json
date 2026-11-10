@@ -11,8 +11,8 @@
           {
             "texto": "terminei\nPousando no Amor",
             "cor": "branco",
-            "y": 150,
-            "tam": 76
+            "y": 1120,
+            "tam": 66
           }
         ],
         "figurinhas": [
@@ -21,8 +21,9 @@
             "texto": "minha nota pra esse casal",
             "nota": 9.5,
             "emoji": "😍",
-            "y": 930,
-            "rot": -2
+            "y": 760,
+            "rot": -2,
+            "largura": 700
           }
         ],
         "foto": "pousando-no-amor/cena-01.png",
@@ -33,21 +34,21 @@
         "blocos": [
           {
             "texto": "o que mais me pegou?",
-            "cor": "pink",
-            "y": 150,
-            "tam": 64
+            "cor": "turquesa",
+            "y": 70,
+            "tam": 54
           },
           {
-            "texto": "não foi o romance.\nfoi um pelotão inteiro\narriscando tudo por\nalguém que nem conhecia",
+            "texto": "não foi o romance: foi um pelotão\narriscando tudo por uma estranha",
             "cor": "branco",
-            "y": 300,
-            "tam": 58
+            "y": 170,
+            "tam": 44
           },
           {
             "texto": "isso tem cheiro de evangelho ✝️",
             "cor": "noite",
-            "y": 640,
-            "tam": 52
+            "y": 320,
+            "tam": 42
           }
         ],
         "figurinhas": [
@@ -58,12 +59,13 @@
               "Sim, chorei 😭",
               "Tá na minha lista"
             ],
-            "y": 860
+            "y": 1010,
+            "largura": 700
           }
         ],
         "foto": "pousando-no-amor/cena-05.jpg",
         "fotoPos": "45% center",
-        "escurecer": 0.45
+        "escurecer": 0.25
       }
     ]
   },
@@ -77,17 +79,17 @@
         "emojiY": 560,
         "blocos": [
           {
-            "texto": "dorama pra ver\ncom a família\nno domingo",
-            "cor": "branco",
-            "y": 150,
-            "tam": 78
+            "texto": "Reply 1988 ✨",
+            "cor": "turquesa",
+            "y": 80,
+            "tam": 66,
+            "rot": -2
           },
           {
-            "texto": "Reply 1988 ✨",
-            "cor": "pink",
-            "y": 1100,
-            "tam": 72,
-            "rot": -2
+            "texto": "dorama pra ver em família\nno domingo 🍿",
+            "cor": "branco",
+            "y": 1060,
+            "tam": 58
           }
         ],
         "figurinhas": [
@@ -105,14 +107,14 @@
           {
             "texto": "por que eu indico:",
             "cor": "noite",
-            "y": 150,
-            "tam": 60
+            "y": 70,
+            "tam": 54
           },
           {
             "texto": "✓ amizade de verdade\n✓ pais imperfeitos que amam\n✓ quase nada que constranja\n✓ você vai rir e chorar",
             "cor": "branco",
-            "y": 290,
-            "tam": 54,
+            "y": 170,
+            "tam": 46,
             "alinhar": "left",
             "largura": 900
           }
@@ -122,13 +124,15 @@
             "tipo": "pergunta",
             "texto": "me indica um dorama pra família 👇",
             "dica": "Escreva aqui…",
-            "y": 820,
-            "rot": 2
+            "y": 1040,
+            "rot": 2,
+            "largura": 700,
+            "tam": 42
           }
         ],
         "foto": "reply-1988/cena-09.jpg",
         "fotoPos": "center",
-        "escurecer": 0.35
+        "escurecer": 0.3
       }
     ]
   },
@@ -145,30 +149,31 @@
           {
             "texto": "a gente espera 16 episódios\npelo final feliz",
             "cor": "branco",
-            "y": 520,
-            "tam": 60
+            "y": 780,
+            "tam": 54
           },
           {
             "texto": "e acha difícil esperar\no tempo de Deus?",
-            "cor": "pink",
-            "y": 720,
-            "tam": 66
+            "cor": "turquesa",
+            "y": 950,
+            "tam": 60
           },
           {
             "texto": "“Tudo fez formoso em seu tempo.”\nEclesiastes 3:11",
             "cor": "noite",
-            "y": 980,
-            "tam": 44
+            "y": 1150,
+            "tam": 40
           }
         ],
         "figurinhas": [
           {
             "tipo": "mencao",
-            "y": 1200
+            "y": 1320,
+            "tam": 40
           }
         ],
         "foto": "goblin/cena-07.jpg",
-        "fotoPos": "45% center",
+        "fotoPos": "60% center",
         "escurecer": 0.15
       }
     ]

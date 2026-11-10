@@ -1,27 +1,21 @@
 // Molde "Dorama · Logo" (@cristaodorameiro): propostas de logo inspiradas na bandeira da Coreia do Sul
 // (taegeuk vermelho e azul, trigramas) com a cruz, nas cores do perfil. Cada conceito vira uma prancha
 // 1080×1350 (marca grande, foto de perfil em círculo e versões de cor) e um avatar 1080×1080 (saida/<id>/avatar.png).
-import { C, esc } from '../dorama-comum/identidade.mjs';
+import { C, esc, taegeuk, trigrama, cruzTrigramas } from '../dorama-comum/identidade.mjs';
 
 const W = 1080, H = 1350;
 const PET = C.noite, TQ = C.turquesa, LJ = C.laranja, VM = C.vermelho, AZ = C.azul;
 
-// Taegeuk (o círculo vermelho e azul da bandeira), inclinado como lá. r = raio, em coordenadas do SVG.
-const taegeuk = (r, rot = -33) => `<g transform="rotate(${rot})"><circle r="${r}" fill="${AZ}"/><path d="M ${-r} 0 A ${r} ${r} 0 0 1 ${r} 0 A ${r / 2} ${r / 2} 0 0 1 0 0 A ${r / 2} ${r / 2} 0 0 0 ${-r} 0 Z" fill="${VM}"/></g>`;
 // Cruz de braços arredondados centrada em (0,0): altura h, largura do braço b, braço horizontal mais alto.
 const cruz = (h, b, cor, contorno = null, k = .62) => { const w = h * k, y = -h * .18;
   return `<g fill="${cor}" ${contorno ? `stroke="${contorno.cor}" stroke-width="${contorno.w}" paint-order="stroke"` : ''}><rect x="${-b / 2}" y="${-h / 2}" width="${b}" height="${h}" rx="${b * .22}"/><rect x="${-w / 2}" y="${y - b / 2}" width="${w}" height="${b}" rx="${b * .22}"/></g>`; };
-// Trigrama (3 linhas, inteiras ou partidas) como na bandeira: linhas = [1,0,1] (1 inteira, 0 partida).
-const trigrama = (linhas, w, e, g, cor) => linhas.map((l, i) => { const y = i * (e + g);
-  return l ? `<rect x="${-w / 2}" y="${y}" width="${w}" height="${e}" rx="${e * .2}" fill="${cor}"/>` : `<rect x="${-w / 2}" y="${y}" width="${w * .45}" height="${e}" rx="${e * .2}" fill="${cor}"/><rect x="${w * .05}" y="${y}" width="${w * .45}" height="${e}" rx="${e * .2}" fill="${cor}"/>`; }).join('');
 
 // ---- As marcas (símbolo), desenhadas num quadrado de -500..500 ----
 const MARCAS = {
   // A. Taegeuk com a cruz branca vazada no meio e um anel turquesa: a bandeira e a fé num símbolo só.
   taegeuk: ({ fundo = TQ } = {}) => `${taegeuk(330)}${cruz(430, 92, '#FFFFFF')}<circle r="372" fill="none" stroke="#FFFFFF" stroke-width="22"/>`,
   // B. Cruz feita de trigramas: cada braço é um trigrama da bandeira, o centro é o taegeuk.
-  trigramas: ({ cor = PET } = {}) => `<g transform="translate(0,-400)">${trigrama([1, 1, 1], 230, 50, 26, cor)}</g><g transform="translate(0,198)">${trigrama([0, 0, 0], 230, 50, 26, cor)}</g>
-    <g transform="translate(-198,0) rotate(90)">${trigrama([1, 0, 1], 230, 50, 26, cor)}</g><g transform="translate(400,0) rotate(90)">${trigrama([0, 1, 0], 230, 50, 26, cor)}</g>${taegeuk(125)}<circle r="125" fill="none" stroke="#FFFFFF" stroke-width="18"/>`,
+  trigramas: ({ cor = PET } = {}) => cruzTrigramas(cor),
   // E. Coração: o amor por dorama em forma de coração com o taegeuk, e a cruz branca no meio.
   coracao: () => `<defs><clipPath id="cor"><path d="M 0 380 C -470 90 -420 -330 -150 -330 C -60 -330 0 -270 0 -210 C 0 -270 60 -330 150 -330 C 420 -330 470 90 0 380 Z"/></clipPath></defs>
     <path d="M 0 380 C -470 90 -420 -330 -150 -330 C -60 -330 0 -270 0 -210 C 0 -270 60 -330 150 -330 C 420 -330 470 90 0 380 Z" fill="none" stroke="#FFFFFF" stroke-width="40" stroke-linejoin="round"/>

@@ -55,11 +55,17 @@ export const petala = (x, y, px, rot = 0, cor = C.rosa, op = .9) => `<span style
 export const petalas = (pos, cor = C.rosa) => pos.map(([x, y, p, r, o]) => petala(x, y, p, r, cor, o ?? .85)).join('');
 
 // Marca: cruz dentro de uma tela arredondada (TV / play), e o logotipo "cristão dorameiro".
-export const marca = (px, bg = C.turquesa, fg = '#FFFFFF') => `<span style="position:relative;display:inline-block;width:${px}px;height:${px * .82}px;border-radius:${px * .22}px;background:${bg};flex:none;box-shadow:inset 0 0 0 ${px * .05}px rgba(14,42,39,.25)">
-  <span style="position:absolute;left:50%;top:16%;width:${px * .11}px;height:66%;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span>
-  <span style="position:absolute;top:34%;left:50%;width:${px * .44}px;height:${px * .11}px;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span>
-  <span style="position:absolute;right:-${px * .1}px;bottom:-${px * .08}px;width:${px * .32}px;height:${px * .32}px;border-radius:50%;background:linear-gradient(180deg,${C.vermelho} 50%,${C.azul} 50%);border:${px * .035}px solid #fff"></span></span>`;
-export const logo = (px, { cor = C.creme, dest = C.rosa, marcaBg = C.rosaForte, marcaFg = C.creme } = {}) => `<div style="display:inline-flex;align-items:center;gap:${px * .3}px">${marca(px * 1.1, C.turquesa, '#FFFFFF')}
+// Desenhos da bandeira da Coreia (SVG, quadro de -500 a 500): o taegeuk e os trigramas.
+// Taegeuk (o círculo vermelho e azul da bandeira), inclinado como lá. r = raio, em coordenadas do SVG.
+export const taegeuk = (r, rot = -33) => `<g transform="rotate(${rot})"><circle r="${r}" fill="${C.azul}"/><path d="M ${-r} 0 A ${r} ${r} 0 0 1 ${r} 0 A ${r / 2} ${r / 2} 0 0 1 0 0 A ${r / 2} ${r / 2} 0 0 0 ${-r} 0 Z" fill="${C.vermelho}"/></g>`;
+// Trigrama (3 linhas, inteiras ou partidas) como na bandeira: linhas = [1,0,1] (1 inteira, 0 partida).
+export const trigrama = (linhas, w, e, g, cor) => linhas.map((l, i) => { const y = i * (e + g);
+  return l ? `<rect x="${-w / 2}" y="${y}" width="${w}" height="${e}" rx="${e * .2}" fill="${cor}"/>` : `<rect x="${-w / 2}" y="${y}" width="${w * .45}" height="${e}" rx="${e * .2}" fill="${cor}"/><rect x="${w * .05}" y="${y}" width="${w * .45}" height="${e}" rx="${e * .2}" fill="${cor}"/>`; }).join('');
+// Marca do perfil (proposta B do molde dorama-logo): os quatro trigramas formam uma cruz em volta do taegeuk.
+export const cruzTrigramas = (cor = C.noite) => `<g transform="translate(0,-400)">${trigrama([1, 1, 1], 230, 50, 26, cor)}</g><g transform="translate(0,198)">${trigrama([0, 0, 0], 230, 50, 26, cor)}</g>
+    <g transform="translate(-198,0) rotate(90)">${trigrama([1, 0, 1], 230, 50, 26, cor)}</g><g transform="translate(400,0) rotate(90)">${trigrama([0, 1, 0], 230, 50, 26, cor)}</g>${taegeuk(125)}<circle r="125" fill="none" stroke="#FFFFFF" stroke-width="18"/>`;
+export const marca = (px, cor = C.noite) => `<svg viewBox="-500 -500 1000 1000" width="${px}" height="${px}" style="display:block;flex:none;overflow:visible">${cruzTrigramas(cor)}</svg>`;
+export const logo = (px, { cor = C.creme, dest = C.rosa, marcaBg = C.rosaForte, marcaFg = C.creme } = {}) => `<div style="display:inline-flex;align-items:center;gap:${px * .3}px">${marca(px * 1.25, /^#(fff|FFF)/.test(cor) || cor === C.creme ? '#FFFFFF' : C.noite)}
   <div style="line-height:.95"><div style="font-family:'Lilita One',sans-serif;font-size:${px * .62}px;letter-spacing:.04em;color:${C.laranja};-webkit-text-stroke:${px * .05}px ${C.noite};paint-order:stroke fill">CRISTÃO</div><div style="font-family:Audiowide,sans-serif;font-size:${px * .44}px;letter-spacing:.08em;color:${cor};text-shadow:${px * .035}px ${px * .035}px 0 ${C.vermelho},-${px * .025}px -${px * .02}px 0 ${C.azul}">DORAMEIRO</div></div></div>`;
 export const arroba = (f, px = 24) => `<span style="font-weight:700;font-size:${px}px;letter-spacing:.08em;color:${f.tit};opacity:.7">@cristaodorameiro</span>`;
 
