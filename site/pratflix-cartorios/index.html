@@ -46,7 +46,7 @@ button, input, select, textarea { font: inherit; color: inherit }
 .claro .rotulo { color: var(--latao) }
 .rotulo::before { content: ""; width: 22px; height: 2px; background: currentColor }
 h1, h2, h3 { margin: 0; font-family: var(--display); text-transform: uppercase; font-weight: 800; line-height: .92; letter-spacing: .005em; text-wrap: balance }
-h1 { font-size: clamp(50px, 8.4vw, 112px); font-weight: 900 }
+h1 { font-size: clamp(50px, 7.4vw, 100px); font-weight: 900 }
 h2 { font-size: clamp(40px, 5.6vw, 76px); line-height: 1.02 }
 .marca-texto { padding-block: .02em }
 h3 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1 }
@@ -90,7 +90,7 @@ p { margin: 0 }
 /* hero */
 .hero { position: relative; overflow: hidden; padding-block: clamp(48px, 7vw, 96px) clamp(40px, 6vw, 80px) }
 .hero .miolo { display: grid; gap: 48px; align-items: center }
-@media (min-width: 960px) { .hero .miolo { grid-template-columns: 1.15fr .85fr } }
+@media (min-width: 960px) { .hero .miolo { grid-template-columns: 1fr 1fr } }
 .hero-txt { display: grid; gap: 26px; position: relative; z-index: 2; min-width: 0 }
 .hero h1 .l2 { color: var(--areia) }
 .aneis { position: absolute; z-index: 0; pointer-events: none; border-radius: 50%; border: 1.5px solid rgba(227,214,180,.16); animation: respira 9s ease-in-out infinite }
@@ -102,38 +102,39 @@ p { margin: 0 }
 .selos span { display: inline-flex; align-items: center; gap: 8px }
 .selos span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--latao-claro) }
 
-/* celular */
-.palco { position: relative; display: grid; place-items: center; z-index: 2; padding-block: 12px }
-.celular { position: relative; width: min(330px, 78vw); aspect-ratio: 9 / 18.5; border-radius: 44px; background: #0A0A0A; padding: 12px; box-shadow: 0 0 0 1.5px #3A372F, 0 40px 80px -30px rgba(0,0,0,.8), 0 0 120px -40px rgba(227,214,180,.25) }
-.tela { position: relative; width: 100%; height: 100%; border-radius: 33px; overflow: hidden; background: #fff; color: #111; display: flex; flex-direction: column }
-.tela-topo { display: flex; align-items: center; gap: 10px; padding: 34px 14px 10px; font-size: 12.5px; font-weight: 600; border-bottom: 1px solid #eee }
-.avatar { width: 30px; height: 30px; border-radius: 50%; background: #1C1C1C; display: grid; place-items: center; color: #D9D9D9; font-family: Georgia, serif; font-size: 13px; flex: none }
-.tela-topo small { display: block; font-weight: 400; color: #777; font-size: 11px }
-.post { position: relative; aspect-ratio: 4 / 5; background: #ddd; overflow: hidden }
-.mock { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 22px 20px; opacity: 0; transform: scale(1.04); transition: opacity .9s ease, transform 6s ease; overflow: hidden }
-.mock.ativo { opacity: 1; transform: scale(1) }
-.mock small { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; opacity: .75 }
-.mock strong { font-family: var(--display); text-transform: uppercase; font-weight: 800; font-size: 40px; line-height: .95 }
-.mock span { font-size: 11px; opacity: .75 }
-.mock::after { content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; border: 1.5px solid currentColor; opacity: .15 }
-.m-esc { background: var(--grafite); color: var(--claro) } .m-esc strong { color: var(--areia) }
-.m-areia { background: var(--areia); color: var(--grafite) }
-.m-papel { background: var(--marfim); color: var(--tinta) }
-.tela-acoes { display: flex; gap: 14px; padding: 10px 14px 4px }
-.tela-acoes svg { width: 22px; height: 22px }
-.pontos { display: flex; gap: 5px; justify-content: center; margin-top: -2px }
-.pontos button { width: 6px; height: 6px; border-radius: 50%; border: 0; padding: 0; background: #ccc; cursor: pointer }
+/* palco: telão com a vinheta real + celular com posts reais */
+.palco { position: relative; z-index: 2; padding: 10px 0 90px; min-width: 0 }
+.telao { position: relative; border-radius: 16px; padding: 10px; background: #0A0A0A; box-shadow: 0 0 0 1.5px #3A372F, 0 50px 90px -40px rgba(0,0,0,.9), 0 0 140px -50px rgba(90,160,210,.35); width: 86% }
+.telao video, .telao .poster { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 8px; object-fit: cover; background: #0a1d36 }
+.telao::after { content: ""; position: absolute; left: 50%; bottom: -26px; width: 26%; height: 16px; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: linear-gradient(#1c1b18, #0c0c0b) }
+.ao-vivo { position: absolute; left: 22px; top: 22px; display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; background: rgba(8,8,8,.72); color: #fff; padding: 6px 12px; border-radius: 999px; backdrop-filter: blur(6px) }
+.ao-vivo i { width: 8px; height: 8px; border-radius: 50%; background: #FF4D4D; box-shadow: 0 0 0 0 rgba(255,77,77,.6); animation: pulso 1.6s ease-out infinite }
+@keyframes pulso { 70% { box-shadow: 0 0 0 9px rgba(255,77,77,0) } 100% { box-shadow: 0 0 0 0 rgba(255,77,77,0) } }
+.telao-leg { margin-top: 38px; font-size: 13px; color: var(--claro-suave); max-width: 52% }
+.telao-leg b { color: var(--claro); font-weight: 600 }
+.celular { position: absolute; right: 0; bottom: 0; width: min(220px, 38%); aspect-ratio: 9 / 18.5; border-radius: 34px; background: #0A0A0A; padding: 8px; box-shadow: 0 0 0 1.5px #3A372F, 0 40px 70px -24px rgba(0,0,0,.9); animation: flutua 8s ease-in-out infinite }
+.tela { position: relative; width: 100%; height: 100%; border-radius: 27px; overflow: hidden; background: #fff; color: #111; display: flex; flex-direction: column }
+.tela-topo { display: flex; align-items: center; gap: 8px; padding: 22px 10px 7px; font-size: 11px; font-weight: 600; line-height: 1.2 }
+.tela-topo small { display: block; font-weight: 400; color: #888; font-size: 9.5px }
+.avatar { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; flex: none; color: #fff; background: #111; transition: background .5s }
+.post { position: relative; aspect-ratio: 4 / 5; background: #eee; overflow: hidden }
+.post img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity .8s ease, transform 5.5s ease }
+.post img.ativo { opacity: 1; transform: scale(1) }
+.tela-acoes { display: flex; gap: 10px; padding: 7px 10px 2px; align-items: center }
+.tela-acoes svg { width: 18px; height: 18px }
+.coracao.bate { animation: bate .6s ease }
+@keyframes bate { 30% { transform: scale(1.35) } 60% { transform: scale(.95) } }
+.pontos { display: flex; gap: 4px; margin-left: auto }
+.pontos button { width: 5px; height: 5px; border-radius: 50%; border: 0; padding: 0; background: #ccc; cursor: pointer }
 .pontos button.ativo { background: #3897F0 }
-.legenda { padding: 6px 14px 14px; font-size: 12px; line-height: 1.45; color: #333 }
+.legenda { padding: 4px 10px 10px; font-size: 10.5px; line-height: 1.4; color: #333 }
 .legenda b { font-weight: 600 }
-.balao { position: absolute; z-index: 3; max-width: 230px; background: var(--grafite-3); border: 1px solid var(--linha-esc); border-radius: 16px; padding: 12px 14px; font-size: 13px; line-height: 1.4; box-shadow: 0 20px 40px -20px rgba(0,0,0,.7); animation: flutua 7s ease-in-out infinite }
-.balao small { display: block; font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--latao-claro); margin-bottom: 4px; font-weight: 600 }
-.balao.b1 { left: -4%; top: 14% }
-.balao.b2 { right: -6%; bottom: 16%; animation-delay: -3.5s; background: var(--areia); color: var(--grafite); border-color: transparent }
-.balao.b2 small { color: #7A6638 }
-@keyframes flutua { 50% { transform: translateY(-10px) } }
-@media (max-width: 560px) { .balao { max-width: 180px; font-size: 12px } .balao.b1 { left: 0 } .balao.b2 { right: 0 } }
-.pausa { position: absolute; z-index: 4; right: 10px; bottom: -6px; font-size: 12px; background: transparent; border: 1px solid var(--linha-esc); border-radius: 999px; padding: 6px 12px; color: var(--claro-suave); cursor: pointer }
+.trab-real { position: absolute; top: 58px; right: 8px; font-size: 8.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: var(--grafite); color: var(--areia); padding: 4px 8px; border-radius: 999px }
+.selo-real { position: absolute; z-index: 3; right: min(200px, 38%); bottom: 34px; background: var(--areia); color: var(--grafite); border-radius: 14px; padding: 10px 14px; font-size: 12.5px; line-height: 1.35; max-width: 230px; box-shadow: 0 20px 40px -18px rgba(0,0,0,.8); animation: flutua 7s ease-in-out infinite; animation-delay: -3s }
+.selo-real small { display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: #7A6638; margin-bottom: 2px }
+@keyframes flutua { 50% { transform: translateY(-8px) } }
+.pausa { position: absolute; z-index: 4; left: 0; bottom: 0; font-size: 12px; background: transparent; border: 1px solid var(--linha-esc); border-radius: 999px; padding: 6px 12px; color: var(--claro-suave); cursor: pointer; min-height: 32px }
+@media (max-width: 560px) { .telao { width: 100% } .telao-leg { max-width: 52% } .selo-real { display: none } .celular { width: 46% } .palco { padding-bottom: 120px } }
 
 /* letreiro de trabalhos */
 .letreiro { position: relative; overflow: hidden; padding-block: 22px 34px; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent) }
@@ -429,27 +430,25 @@ footer .miolo { display: flex; flex-wrap: wrap; justify-content: space-between; 
       <div class="selos"><span>Equipe de conteúdo, vídeo e educação</span><span>Vivência no dia a dia de um cartório</span><span>Tudo passa pela sua aprovação</span></div>
     </div>
     <div class="palco">
-      <div class="balao b1"><small>Dúvida do balcão</small>Quais documentos eu preciso para casar?</div>
-      <div class="celular" aria-label="Exemplos de pautas para o perfil de um cartório">
+      <div class="telao">
+        <video id="reel" src="img/conecta-reel.mp4" poster="img/conecta-abertura.webp" autoplay muted loop playsinline preload="auto" aria-label="Vinheta animada que fizemos para a transmissão do ANOREG Conecta"></video>
+        <span class="ao-vivo"><i aria-hidden="true"></i>Vinheta · ANOREG Conecta</span>
+      </div>
+      <p class="telao-leg"><b>Vinheta real</b> que fizemos para a transmissão do ANOREG Conecta, em Petrolina.</p>
+      <div class="celular" aria-label="Posts reais feitos pela equipe">
         <div class="tela">
-          <div class="tela-topo"><div class="avatar" aria-hidden="true">C</div><div>seu cartório<small>Exemplos de pauta</small></div></div>
-          <div class="post" id="post-celular">
-            <div class="mock m-esc ativo" role="img" aria-label="Exemplo de post: O que trazer para casar?"><small>Antes de vir ao cartório</small><strong>O que trazer para casar?</strong><span>Carrossel · arraste →</span></div>
-            <div class="mock m-areia" role="img" aria-label="Exemplo de post: Perdi minha certidão. E agora?"><small>Dúvida do balcão</small><strong>Perdi minha certidão. E agora?</strong><span>Vídeo curto</span></div>
-            <div class="mock m-papel" role="img" aria-label="Exemplo de post: Como falar com o cartório com segurança"><small>Canais oficiais</small><strong>Como falar com o cartório com segurança</strong><span>Card fixado</span></div>
-            <div class="mock m-esc" role="img" aria-label="Exemplo de post: Horários, endereço e acessibilidade"><small>Organize sua visita</small><strong>Horários, endereço e acessibilidade</strong><span>Post informativo</span></div>
-            <div class="mock m-areia" role="img" aria-label="Exemplo de post: O que observar na sua certidão"><small>Entenda o documento</small><strong>O que observar na sua certidão</strong><span>Carrossel · arraste →</span></div>
-          </div>
+          <div class="tela-topo"><div class="avatar" id="cel-avatar" aria-hidden="true"></div><div><span id="cel-nome"></span><small id="cel-sub"></small></div></div>
+          <div class="post" id="post-celular"></div>
           <div class="tela-acoes" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+            <svg class="coracao" id="coracao" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.2-6.4L20 4l-.6 4"/></svg>
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>
+            <div class="pontos" id="pontos"></div>
           </div>
-          <div class="pontos" id="pontos"></div>
-          <p class="legenda"><b>cartório</b> Pautas que respondem antes de a dúvida chegar ao balcão. Exemplos ilustrativos.</p>
+          <p class="legenda" id="cel-legenda"></p>
+          <span class="trab-real">Trabalho real</span>
         </div>
       </div>
-      <div class="balao b2"><small>Resposta</small>Está no post fixado, com a lista completa.</div>
       <button class="pausa" type="button" id="pausa" aria-pressed="false">Pausar</button>
     </div>
   </div>
@@ -868,18 +867,35 @@ const el = (tag, attrs = {}, html = '') => { const e = document.createElement(ta
 const brl = n => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
 const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- hero: luz que segue o cursor e celular com posts ---------- */
+/* ---------- hero: luz que segue o cursor, telão e celular com trabalhos reais ---------- */
 const hero = $('#hero');
 hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (e.clientX - r.left) + 'px'); hero.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
-const fotos = [...document.querySelectorAll('#post-celular .mock')];
+const CEL = [
+  { img: 'renato-carrossel-1', nome: 'Interpretação Bíblica', sub: 'Curso do Pastor Renato Torres', cor: '#E8590C', leg: 'Carrossel do curso, na identidade visual que criamos para ele.', selo: 'Carrossel do curso Interpretação Bíblica' },
+  { img: 'eduarda-1', nome: 'Eduarda Caraciolo', sub: 'Advogada · Direito Civil', cor: '#E2328C', leg: 'Carrossel didático para alunos da OAB.', selo: 'Carrossel da professora Eduarda Caraciolo' },
+  { img: 'prat-dash-1', nome: 'PratFlix', sub: 'A advocacia na prática', cor: '#121212', leg: 'Passo a passo com prompts e chamada para a live.', selo: 'Carrossel da PratFlix, nosso projeto' },
+  { img: 'eduarda-diva', nome: 'Eduarda Caraciolo', sub: 'Advogada · Direito Civil', cor: '#E2328C', leg: 'Capa em tom de cultura pop para chamar atenção no feed.', selo: 'Capa pop da Eduarda Caraciolo' },
+  { img: 'prat-carteira', nome: 'PratFlix', sub: 'A advocacia na prática', cor: '#121212', leg: 'Material gratuito: comenta a palavra e recebe o link.', selo: 'Post de material gratuito da PratFlix' },
+  { img: 'renato-carrossel-3', nome: 'Interpretação Bíblica', sub: 'Curso do Pastor Renato Torres', cor: '#E8590C', leg: 'Página interna: uma ideia por tela, fácil de ler.', selo: 'Página interna do carrossel do Renato' },
+];
+const postCel = $('#post-celular'), pontos = $('#pontos');
+CEL.forEach((c, i) => { postCel.append(el('img', { src: `img/${c.img}.webp`, alt: c.selo, loading: i < 2 ? 'eager' : 'lazy' })); const b = el('button', { type: 'button', 'aria-label': `Post ${i + 1}` }); b.onclick = () => mostra(i); pontos.append(b); });
+const fotos = [...postCel.children];
 let atual = 0, timer = null, pausado = calmo;
-const pontos = $('#pontos');
-fotos.forEach((_, i) => { const b = el('button', { type: 'button', 'aria-label': `Post ${i + 1}` }); b.onclick = () => mostra(i); pontos.append(b); });
-function mostra(i) { fotos[atual].classList.remove('ativo'); pontos.children[atual].classList.remove('ativo'); atual = (i + fotos.length) % fotos.length; fotos[atual].classList.add('ativo'); pontos.children[atual].classList.add('ativo'); }
+function mostra(i) {
+  fotos[atual].classList.remove('ativo'); pontos.children[atual].classList.remove('ativo');
+  atual = (i + fotos.length) % fotos.length; const c = CEL[atual];
+  fotos[atual].classList.add('ativo'); pontos.children[atual].classList.add('ativo');
+  $('#cel-avatar').textContent = c.nome[0]; $('#cel-avatar').style.background = c.cor;
+  $('#cel-nome').textContent = c.nome; $('#cel-sub').textContent = c.sub;
+  $('#cel-legenda').innerHTML = `<b>${c.nome}</b> ${c.leg}`;
+  const k = $('#coracao'); k.classList.remove('bate'); void k.getBoundingClientRect(); if (!calmo) k.classList.add('bate');
+}
 mostra(0);
-function roda() { clearInterval(timer); if (!pausado) timer = setInterval(() => mostra(atual + 1), 5200); }
-$('#pausa').onclick = e => { pausado = !pausado; e.currentTarget.textContent = pausado ? 'Continuar' : 'Pausar'; e.currentTarget.setAttribute('aria-pressed', pausado); roda(); };
-if (calmo) { $('#pausa').textContent = 'Continuar'; $('#pausa').setAttribute('aria-pressed', 'true'); }
+function roda() { clearInterval(timer); if (!pausado) timer = setInterval(() => mostra(atual + 1), 4800); }
+const reel = $('#reel');
+$('#pausa').onclick = e => { pausado = !pausado; e.currentTarget.textContent = pausado ? 'Continuar' : 'Pausar'; e.currentTarget.setAttribute('aria-pressed', pausado); pausado ? reel.pause() : reel.play().catch(() => {}); roda(); };
+if (calmo) { reel.removeAttribute('autoplay'); reel.pause(); $('#pausa').textContent = 'Continuar'; $('#pausa').setAttribute('aria-pressed', 'true'); }
 roda();
 
 /* ---------- letreiro de trabalhos ---------- */
