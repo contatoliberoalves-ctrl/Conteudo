@@ -45,3 +45,11 @@ Fotos: `"fotos": {"capa": "...", "recorte": "PNG sem fundo", "libero": "...", "n
 - `calmo.mjs`: linha menos chamativa (grupos 4a–4c), fundo claro, padrão geométrico do material original só em faixa e logo oficial em PNG.
 - `marca/` (fora do git): logos oficiais (`1-POD.png`… azul, amarelo, magenta), arco, microfone e fundos do material original do PodConst. Pasta no Drive: https://drive.google.com/drive/folders/1RjDRrXqPgO8t_2Z5cEivm13LmWWojs8- . Sem eles, entra o logo em CSS.
 - Fotos da dupla (`fotos/dupla_-0039.jpg`…, fora do git): https://drive.google.com/drive/folders/1vNqvGj4w3AnHqYDSQCCFAzmaPrHdNV8X . As de mais de ~5 MB não descem pela ferramenta do Drive. `_-0305` e `_-0525` têm os óculos de meme: só para posts de humor.
+
+## Vinhetas de abertura (vídeo)
+
+`node vinhetas.mjs [onda|faixas|noar]` gera `saida/vinhetas/podconst-vinheta-<id>.mp4` (1920×1080, 6 s, 30 fps): animação em CSS fotografada quadro a quadro e montada com o ffmpeg. Usa o logo oficial de `marca/` (`1-POD.png`, `2-POD.png`, `3-POD.png` e `1-POD-adesivo.png`, o 1 com contorno branco). Trilha: se existir `saida/vinhetas/<id>.mp3`, entra no vídeo (as atuais foram geradas na ElevenLabs, API de música, instrumental).
+
+- `onda`: onda sonora amarela no azul, círculo amarelo toma a tela e o logo estoura, com as etiquetas da dupla.
+- `faixas`: faixas inclinadas azul, amarela, navy e magenta varrem a tela e o logo bate no magenta, com fitas correndo.
+- `noar`: estúdio à noite, placa NO AR acendendo, anéis e equalizador, logo em adesivo.
