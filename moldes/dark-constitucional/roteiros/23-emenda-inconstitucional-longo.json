@@ -1,0 +1,178 @@
+{
+  "pauta": 23,
+  "longo": true,
+  "serie": "Quem manda na lei?",
+  "titulo": "O Congresso mudou a Constituição. E o STF derrubou a mudança. | O IPMF e a ADI 939",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Congresso mudou\na Constituição.\nE o STF derrubou\na **mudança.**",
+      "imagem": {
+        "arquivo": "imagens/moedas-antigas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "fala": "O Congresso mudou a Constituição pra criar um imposto. E o Supremo derrubou parte da mudança. Parece impossível: como um pedaço da própria Constituição pode ser inconstitucional? A resposta mostra até onde o Congresso pode ir."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Um imposto novo",
+      "fala": "Capítulo um. Um imposto novo."
+    },
+    {
+      "tipo": "frase",
+      "data": "17 de março de 1993",
+      "texto": "Emenda 3:\nnasce o **IPMF.**",
+      "nota": "Imposto provisório sobre movimentação financeira, previsto para durar até o fim de 1994.",
+      "fala": "Dezessete de março de mil novecentos e noventa e três. O Congresso aprova a Emenda Constitucional número três. Ela autoriza a União a criar um imposto provisório sobre movimentação financeira: o IPMF."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/moedas-antigas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "60% 50%"
+      },
+      "afasta": true,
+      "texto": "Cada cheque pagava\num **pedacinho.**",
+      "fala": "A ideia era simples. Cada cheque, cada saque, deixava um pedacinho pro governo. Até vinte e cinco centésimos por cento de cada movimentação."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O parágrafo perigoso",
+      "fala": "Capítulo dois. O parágrafo perigoso."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "EC 3/1993 · art. 2º, § 2º",
+        "texto": "Ao imposto de que trata este artigo **não se aplica** o art. 150, III, b, e VI, nem o disposto no § 5º do art. 153 da Constituição."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 150, III, b (resumo)",
+        "texto": "É vedado cobrar tributos no **mesmo exercício financeiro** em que haja sido publicada a lei que os instituiu ou aumentou."
+      },
+      "ponte": "Que regra?",
+      "segundoEm": "regra",
+      "fala": "Mas a emenda tinha um parágrafo perigoso. Dizia que, pra esse imposto, não valiam duas proteções do contribuinte. A primeira, a regra da anterioridade: imposto novo só pode ser cobrado no ano seguinte ao da lei que o criou."
+    },
+    {
+      "tipo": "frase",
+      "texto": "E também as\n**imunidades.**",
+      "nota": "Templos, livros e jornais, partidos e até estados e municípios pagariam o imposto.",
+      "fala": "A segunda: as imunidades. Templos, livros, jornais e até os estados e os municípios teriam que pagar o imposto novo. Repara no peso disso. A imunidade dos templos protege a liberdade de crença. A dos livros, a liberdade de expressão."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O limite do Congresso",
+      "fala": "Capítulo três. O limite do Congresso."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Um pedaço da Constituição\npode ser\n**inconstitucional?**",
+      "fala": "E aí vem a pergunta que parece não ter resposta. Um pedaço da Constituição pode ser inconstitucional?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Federação",
+          "sub": "a forma federativa"
+        },
+        {
+          "titulo": "Voto",
+          "sub": "direto, secreto, universal e periódico"
+        },
+        {
+          "titulo": "Poderes",
+          "sub": "a separação dos Poderes"
+        },
+        {
+          "titulo": "Direitos",
+          "sub": "e garantias individuais",
+          "marcada": true
+        }
+      ],
+      "dono": "Cláusulas pétreas",
+      "marcaEm": "direitos",
+      "fala": "Pode. A Constituição tem um núcleo que nem emenda pode abolir. São as cláusulas pétreas: a federação, o voto direto, a separação dos Poderes e os direitos e garantias individuais."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Quem cria a emenda\nnão está **acima**\nda Constituição.",
+      "fala": "Ou seja: o Congresso pode mudar a Constituição. Mas só dentro das regras que ela mesma criou. Se uma emenda passar desse limite, o Supremo pode derrubar. Mesmo depois de aprovada pelos três quintos."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "O julgamento",
+      "fala": "Capítulo quatro. O julgamento."
+    },
+    {
+      "tipo": "frase",
+      "data": "Dezembro de 1993",
+      "texto": "ADI **939.**",
+      "nota": "Relator: ministro Sydney Sanches.",
+      "fala": "A emenda chegou ao Supremo numa ação direta de inconstitucionalidade, a novecentos e trinta e nove. E o julgamento final veio em dezembro de noventa e três."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A anterioridade é\ngarantia **individual.**",
+      "nota": "Mesmo fora do art. 5º, ela é protegida como cláusula pétrea (art. 60, § 4º, IV).",
+      "fala": "O tribunal disse: a regra de não cobrar imposto novo no mesmo ano é uma garantia individual do contribuinte. E garantia individual não mora só no artigo quinto. Está espalhada pela Constituição inteira. Onde estiver, é cláusula pétrea."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O IPMF só pôde\nser cobrado em **1994.**",
+      "nota": "As imunidades também voltaram a valer para o imposto.",
+      "fala": "O Supremo derrubou esse trecho da emenda. As imunidades voltaram a valer. E o IPMF só pôde ser cobrado a partir de noventa e quatro. O Congresso tinha escrito na Constituição. E mesmo assim não valeu."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O herdeiro",
+      "fala": "Capítulo cinco. O herdeiro."
+    },
+    {
+      "tipo": "frase",
+      "data": "1996",
+      "texto": "Volta com outro nome:\n**CPMF.**",
+      "nota": "Criada a partir da Emenda Constitucional 12, para financiar a saúde.",
+      "fala": "O IPMF acabou no fim de noventa e quatro. Mas a ideia voltou em noventa e seis, com outro nome: CPMF, uma contribuição provisória, que deveria financiar a saúde."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Senado · 2007",
+      "a": 45,
+      "b": 34,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 49,
+      "rotuloLinha": "Mínimo: 49",
+      "linhaEm": "precisava",
+      "carimbo": "Rejeitada",
+      "fala": "A provisória durou mais de dez anos. Em dezembro de dois mil e sete, o Senado votou a prorrogação. Quarenta e cinco a favor, trinta e quatro contra. Só que precisava de quarenta e nove. A CPMF caiu."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que o STF\npode barrar até uma\n**emenda?**",
+      "fala": "Você sabia que o Supremo pode barrar até uma emenda à Constituição? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "O Congresso mudou a Constituição, e o STF derrubou parte da mudança. A Emenda Constitucional 3/1993 autorizou o IPMF, imposto sobre movimentações financeiras, e afastou para ele a anterioridade (art. 150, III, b) e as imunidades tributárias (art. 150, VI). Na ADI 939, o STF declarou inconstitucional esse trecho: a anterioridade é garantia individual do contribuinte, protegida como cláusula pétrea (art. 60, § 4º, IV), e o IPMF só pôde ser cobrado a partir de 1994.\n\nNeste vídeo: a criação do IPMF, o parágrafo da EC 3/1993, as cláusulas pétreas, o julgamento da ADI 939, a CPMF e a votação de 2007 no Senado que acabou com ela.",
+  "fontes": [
+    "Emenda Constitucional 3/1993, art. 2º",
+    "STF · ADI 939",
+    "CF/88, arts. 60, § 4º, e 150, III, b, e VI",
+    "Emenda Constitucional 12/1996",
+    "Senado · Votação da PEC de prorrogação da CPMF (2007)"
+  ],
+  "hashtags": [
+    "stf",
+    "clausulapetrea",
+    "direitoconstitucional"
+  ]
+}
