@@ -569,6 +569,246 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .manchete{cursor:pointer}
 .jx{flex:none;font-size:13.5px;text-align:right}
 
+/* ===== visual v2 ===== */
+/* tema claro em fundo branco */
+:root:not([data-tema="escuro"]){--bg:#FFFFFF;--sf2:#F3F7F5;--sf3:#E6EEEA;--hov:#F5FAF8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-tema="claro"]){--bg:#101A19;--sf2:#202E2B;--sf3:#2A3B37;--hov:#1C2A27}}
+:root[data-theme="dark"]:not([data-tema="claro"]),:root[data-tema="escuro"]{--bg:#101A19;--sf2:#202E2B;--sf3:#2A3B37;--hov:#1C2A27}
+.tema-m{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--tx);flex:none}
+@media(min-width:1024px){.tema-m{display:none}}
+@media(max-width:374px){.top .tema-m{display:none}}
+
+/* entrada ao rolar: o conteúdo nasce visível, só desliza */
+.rv{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .55s}
+.rv:not(.in){transform:translateY(16px);opacity:.35}
+@media (prefers-reduced-motion:reduce){.rv,.rv:not(.in){transform:none;opacity:1;transition:none}}
+
+/* atalhos em bolhas */
+.bolhas{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:16px;scrollbar-width:none;margin-inline:-16px;padding:4px 16px 2px}
+.bolhas::-webkit-scrollbar{display:none}
+.bolha{flex:none;width:72px;display:grid;justify-items:center;gap:6px;scroll-snap-align:start;color:var(--tx)}
+.bolha-c{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--sf2);color:var(--acc);border:2px solid var(--ln);position:relative;transition:transform .15s}
+.bolha:active .bolha-c{transform:scale(.94)}
+.bolha.novo .bolha-c{border-color:transparent;background:linear-gradient(var(--sf2),var(--sf2)) padding-box,conic-gradient(from 200deg,#087B63,#6FD8B4,#B4F7DF,#087B63) border-box;border-width:3px}
+.bolha-t{font-size:12px;font-weight:600;line-height:1.2;text-align:center;color:var(--mu)}
+@media(min-width:1024px){.bolhas{margin-inline:0;padding-inline:0}}
+
+/* barra fixa do dia */
+.dia-sticky{position:sticky;top:calc(57px + env(safe-area-inset-top,0px));z-index:20;display:flex;align-items:center;gap:12px;padding:10px 14px;margin-inline:-16px;background:color-mix(in srgb,var(--sf) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ln);font-size:14px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.25s;margin-bottom:-58px}
+.dia-sticky.on{transform:none;opacity:1;pointer-events:auto}
+.dia-sticky .prog{flex:1;min-width:60px}
+@media(min-width:1024px){.dia-sticky{top:58px;margin-inline:0;border-radius:12px;border:1px solid var(--ln)}}
+
+/* jornal */
+.jc{display:grid;gap:8px;text-align:center;padding-bottom:14px;border-bottom:3px double var(--tx)}
+.jc-linha{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--ln);padding-bottom:8px}
+.jc-tit{font-family:var(--h);font-weight:800;font-size:clamp(34px,9vw,60px);letter-spacing:-.035em;line-height:1}
+.jc-sub{color:var(--mu);font-size:15px}
+.ticker{display:flex;align-items:center;gap:0;border-radius:12px;background:var(--sf2);overflow:hidden;min-height:42px}
+.ticker-l{flex:none;align-self:stretch;display:grid;place-items:center;padding:0 12px;background:#B3473A;color:#fff;font-family:var(--h);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.ticker-v{overflow:hidden;flex:1;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 94%,transparent)}
+.ticker-t{display:flex;gap:36px;width:max-content;animation:tick 40s linear infinite;padding-left:16px}
+.ticker-t span{font-size:14px;font-weight:600;white-space:nowrap}
+.ticker-t span::before{content:"●";color:var(--acc);font-size:9px;margin-right:10px;vertical-align:2px}
+.ticker:hover .ticker-t{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-t{animation:none}.ticker-v{overflow-x:auto}}
+.manchete{cursor:pointer;padding:26px}
+.manch-g{display:grid;gap:20px;align-items:center}
+.manch-t{color:#fff;font-size:clamp(24px,6vw,34px);line-height:1.12;letter-spacing:-.02em}
+.manch-n{display:flex;align-items:center;gap:12px}
+.manch-n b{font-family:var(--h);font-size:72px;line-height:.9;font-weight:800;color:var(--lima);letter-spacing:-.04em}
+.manch-n span{font-size:14px;line-height:1.3;color:#C5DED5}
+@media(min-width:760px){.manch-g{grid-template-columns:1fr auto}.manch-n{flex-direction:column;align-items:flex-start;gap:4px;padding-left:24px;border-left:1px solid rgba(255,255,255,.18)}.manch-n b{font-size:96px}}
+.jc-nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
+.jc-nums>div{background:var(--sf);padding:16px;display:grid;gap:4px}
+.jc-nums b{font-family:var(--h);font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--acc);line-height:1.05}
+.jc-nums>div>span{font-size:13px;color:var(--mu);line-height:1.35}
+@media(min-width:760px){.jc-nums{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.jc-sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-top:2px solid var(--tx);padding-top:10px}
+.jc-sec h2{font-size:20px;letter-spacing:-.02em}
+.jc-sec .btn-g{white-space:nowrap;flex:none}
+.carrossel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:-16px;padding:2px 16px 6px;scroll-padding-inline:16px}
+.carrossel::-webkit-scrollbar{display:none}
+.carrossel>*{scroll-snap-align:start;flex:none}
+@media(min-width:1024px){.carrossel{margin-inline:0;padding-inline:0;scrollbar-width:thin}}
+.cont-card{width:168px;display:grid;gap:3px;align-content:start;text-align:left;padding:16px;border-radius:18px;background:var(--sf);border:1px solid var(--ln);transition:transform .15s,border-color .15s}
+.cont-card:hover{border-color:var(--acc);transform:translateY(-2px)}
+.cont-n{font-family:var(--h);font-size:46px;font-weight:800;line-height:.95;letter-spacing:-.04em;color:var(--acc)}
+.cont-u{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-bottom:10px}
+.cont-card b{font-family:var(--h);font-size:17px}
+.cont-card .xs{color:var(--mu);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cont-m{font-size:12.5px;font-weight:600;color:var(--tx);margin-top:8px;padding-top:8px;border-top:1px solid var(--ln)}
+.cont-card.urg-b{background:var(--erbg);border-color:var(--erln)}
+.cont-card.urg-b .cont-n{color:var(--er)}
+.agenda{display:grid;gap:8px}
+.ag-i{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:14px;background:var(--sf);border:1px solid var(--ln);text-align:left;min-height:60px}
+.ag-i:hover{background:var(--hov)}
+.ag-d{flex:none;width:48px;height:48px;border-radius:12px;background:var(--p-mint);display:grid;place-items:center;align-content:center;line-height:1}
+.ag-d b{font-family:var(--h);font-size:20px;font-weight:800;color:var(--acc)}
+.ag-d small{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--mu)}
+.ag-i .t{display:block;font-weight:700;font-size:15px}
+.ag-i .s{display:block;font-size:13px;color:var(--mu)}
+.radar-card{width:260px;display:grid;gap:8px;align-content:start;text-align:left;padding:16px;border-radius:18px;background:var(--sf2);border:1px solid transparent}
+.radar-card:hover{border-color:var(--acc)}
+.radar-card b{font-family:var(--h);font-size:16.5px;line-height:1.25}
+.radar-card .tag{justify-self:start}
+.radar-card .fases{font-size:11px}
+.seu-conc{border-left:4px solid var(--acc)}
+.dica-j{background:var(--p-mint);border-color:transparent}
+.dj-t{font-family:var(--h);font-size:19px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
+.dj-t mark{background:transparent;box-shadow:inset 0 -5px 0 #6FD8B4;color:inherit}
+
+/* dicas do edital */
+.dk-prog{height:3px;border-radius:3px;background:var(--sf3);overflow:hidden}
+.dk-prog i{display:block;height:100%;background:var(--acc);transition:width .3s}
+.dk .cartao{grid-template-rows:auto minmax(0,1fr) auto;padding:20px;border-radius:24px;box-shadow:0 18px 40px -24px rgba(5,59,52,.45);position:relative}
+.dk-top{display:flex;align-items:center;gap:12px}
+.dk-ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--acc);color:#fff;flex:none}
+.dk-tipo{display:block;font-family:var(--h);font-size:15px}
+.dk-sub{display:block;font-size:12.5px;color:var(--mu);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46vw}
+.dk-n{font-family:var(--h);font-weight:800;font-size:22px;letter-spacing:-.03em;color:var(--acc)}
+.dk-n small{font-size:13px;color:var(--mu);font-weight:700}
+.dk-corpo{align-self:center;overflow:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-height:0;min-width:0;padding-block:6px;position:relative;z-index:1}
+.dk-wm{position:absolute;right:-30px;bottom:70px;opacity:.07;pointer-events:none;color:var(--tx)}
+.dk.te .dk-wm{color:#fff;opacity:.06}
+.dk-num-m{font-size:clamp(48px,13vw,68px)}
+.dk-ex{display:grid;gap:6px;padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--sf) 75%,transparent);border-left:4px solid var(--acc)}
+.dk-ex span{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.dk-ex p{font-size:clamp(17px,4.4vw,19px);line-height:1.5;font-style:italic}
+.dk-termo{font-family:var(--h);font-weight:800;font-size:clamp(26px,7vw,34px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
+.dk-def{font-size:clamp(17px,4.4vw,20px);line-height:1.55;color:var(--tx);text-wrap:pretty}
+.dk-big{font-size:clamp(20px,5.2vw,24px);line-height:1.45;font-weight:600;letter-spacing:-.01em;text-wrap:pretty}
+.dk-ref{justify-self:start;font-family:var(--h);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:8px;background:var(--acc);color:#fff}
+.dk-lei{position:relative;margin:0;padding:8px 0 0 18px;border-left:4px solid #6FD8B4}
+.dk-aspas{position:absolute;top:-34px;right:0;font-family:Georgia,serif;font-size:120px;line-height:1;color:var(--acc);opacity:.16}
+.dk-lei p{font-family:var(--h);font-size:clamp(19px,5vw,23px);line-height:1.5;font-weight:600;text-wrap:pretty}
+.dk-lei mark{background:transparent;box-shadow:inset 0 -6px 0 #6FD8B4;color:inherit}
+.dk-peg{display:grid;gap:8px;padding:14px 16px;border-radius:14px;background:var(--sf);border:1.5px dashed #E39B91}
+.dk-x{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--er)}
+.dk-peg p{font-size:17px;line-height:1.5}
+.dk-num{font-family:var(--h);font-size:clamp(64px,18vw,96px);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--acc)}
+.dk-num small{font-size:.45em}
+.dk-cap{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);margin-top:-6px}
+.dk-acoes{display:flex;justify-content:space-around;gap:8px;padding-top:12px;border-top:1px solid var(--ln)}
+.dk-b{display:grid;justify-items:center;gap:4px;min-width:64px;font-size:12px;font-weight:700;color:var(--mu)}
+.dk-b .ic{width:48px;height:48px;padding:13px;border-radius:50%;background:var(--sf2);color:var(--tx);box-sizing:border-box;transition:transform .15s}
+.dk-b:active .ic{transform:scale(.9)}
+.dk-b.sv[aria-pressed=true] .ic{background:var(--acc);color:#fff}
+.dk-b.dk-prox .ic{background:var(--tx);color:var(--bg)}
+.dk.tc .cartao{background:var(--p-mint);border-color:transparent}
+.dk.tls .cartao{background:var(--sf);border-color:var(--ln)}
+.dk.tls .dk-ic{background:var(--deep)}
+.dk.tp .cartao{background:var(--p-peach);border-color:transparent}
+.dk.tp .dk-ic{background:#C2410C}
+.dk.tp .dk-n{color:#C2410C}
+.dk.tb .cartao{background:var(--p-lilac);border-color:transparent}
+.dk.tb .dk-ic,.dk.tb .dk-n{background:#6A4FB8}
+.dk.tb .dk-n{background:none;color:#6A4FB8}
+.dk.tb .dk-num{color:#6A4FB8}
+.dk.te .cartao{background-color:var(--deep);background-image:linear-gradient(#ffffff07 1px,transparent 1px),linear-gradient(90deg,#ffffff07 1px,transparent 1px);background-size:28px 28px;border-color:transparent;color:#fff}
+.dk.te .dk-ic{background:var(--lima);color:#064A38}
+.dk.te .dk-sub,.dk.te .dk-n small,.dk.te .dk-b{color:#C5DED5}
+.dk.te .dk-n,.dk.te .dk-num{color:var(--lima)}
+.dk.te .dk-big,.dk.te .dk-def,.dk.te .dk-termo{color:#fff}
+.dk.te .dk-acoes{border-color:rgba(255,255,255,.16)}
+.dk.te .dk-b .ic{background:rgba(255,255,255,.12);color:#fff}
+.dk.te .dk-b.dk-prox .ic{background:var(--lima);color:#064A38}
+.dk.tc .dk-b .ic,.dk.tp .dk-b .ic,.dk.tb .dk-b .ic{background:var(--sf)}
+.dk.tc .dk-b.dk-prox .ic,.dk.tp .dk-b.dk-prox .ic,.dk.tb .dk-b.dk-prox .ic{background:var(--tx)}
+.dk.tc .dk-acoes,.dk.tp .dk-acoes,.dk.tb .dk-acoes{border-color:rgba(0,0,0,.08)}
+
+/* premium */
+.pr-hero{padding:28px 22px;gap:26px;overflow:hidden}
+.pr-tit{color:#fff;font-size:clamp(34px,9vw,54px);line-height:1.02;letter-spacing:-.04em}
+.pr-tit span{color:var(--lima)}
+.pr-mock{position:relative;display:grid;gap:10px}
+.pm{background:#fff;color:#172F2B;border-radius:16px;padding:14px 16px;display:grid;gap:6px;box-shadow:0 16px 36px -18px rgba(0,0,0,.6)}
+.pm-k{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#087B63}
+.pm p{font-size:14px;line-height:1.45}
+.pm-alt{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:#E4F3EB;font-size:13.5px;font-weight:600;border:1.5px solid #0B7A4B}
+.pm-alt span{width:24px;height:24px;border-radius:50%;background:#0B7A4B;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800;flex:none}
+.pm b{font-family:var(--h);font-size:22px;letter-spacing:-.02em}
+.pm .xs{color:#566B61}
+.pm-bar{position:relative;height:8px;border-radius:8px;background:#E5EDEA}
+.pm-bar i{position:absolute;inset:0 auto 0 0;border-radius:8px;background:#087B63}
+.pm-bar em{position:absolute;top:-4px;bottom:-4px;width:2px;background:#B64A4A}
+.pm2,.pm3{display:grid}
+@media(min-width:560px){.pr-mock{grid-template-columns:1fr 1fr}.pm1{grid-column:1/-1}}
+@media(min-width:1024px){.pr-hero{grid-template-columns:1.1fr .9fr;align-items:center;padding:40px}.pr-mock{grid-template-columns:1fr 1fr}.pm1{transform:rotate(-1.5deg)}.pm2{transform:translateY(6px) rotate(1deg)}.pm3{transform:rotate(-.5deg)}}
+.ben-grid{display:grid;gap:12px}
+@media(min-width:620px){.ben-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1024px){.ben-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ben{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:20px;display:grid;gap:8px;align-content:start}
+.ben b{font-family:var(--h);font-size:17px}
+@media(max-width:619px){.ben{grid-template-columns:46px 1fr;column-gap:14px;row-gap:4px;padding:16px}.ben-ic{grid-row:span 2;margin:0}.ben b{align-self:end}}
+.ben-ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--p-mint);color:var(--acc);margin-bottom:4px}
+.ben:nth-child(2) .ben-ic{background:var(--p-peach);color:#A0680A}
+.ben:nth-child(3) .ben-ic{background:var(--p-sky);color:#2F5FAE}
+.ben:nth-child(4) .ben-ic{background:var(--p-lilac);color:#6A4FB8}
+.ben:nth-child(5) .ben-ic{background:#FCE9E6;color:#B3473A}
+:root[data-tema="escuro"] .ben:nth-child(5) .ben-ic{background:#3E2827;color:#FFA4A0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-tema="claro"]) .ben:nth-child(5) .ben-ic{background:#3E2827;color:#FFA4A0}}
+.passos-h{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:p}
+.passos-h li{display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:2px;align-items:center;position:relative}
+.passos-h li b{font-family:var(--h);font-size:16px}
+.passos-h li .sm{grid-column:2}
+.ph-n{grid-row:span 2;width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-family:var(--h);font-weight:800;font-size:18px}
+@media(min-width:900px){.passos-h{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.passos-h li{grid-template-columns:1fr;align-content:start}.passos-h li .sm{grid-column:1}.ph-n{grid-row:auto;margin-bottom:8px}.passos-h li:not(:last-child)::after{content:"";position:absolute;top:22px;left:56px;right:-8px;height:2px;background:var(--ln2)}}
+.vs2{display:grid;gap:12px}
+@media(min-width:700px){.vs2{grid-template-columns:1fr 1fr}}
+.vs-c{border-radius:18px;padding:20px;background:var(--sf2);display:grid;gap:10px;align-content:start}
+.vs-sim{background:var(--p-mint);box-shadow:inset 0 0 0 2px var(--acc)}
+.vs-i{display:flex;gap:10px;align-items:center;font-weight:600;font-size:15px}
+.vs-i .ic{flex:none;width:26px;height:26px;padding:5px;border-radius:50%;background:var(--acc);color:#fff;box-sizing:border-box}
+.vs-i.no{color:var(--mu);font-weight:500}
+.vs-i.no .ic{background:var(--sf3);color:var(--mu)}
+.pr-final{text-align:center;justify-items:center;padding:32px 22px}
+.pr-final .btns{width:100%}
+
+/* comunidade */
+.com-hero{padding:24px}
+.av-stack{display:flex}
+.av-stack .cav2{margin-left:-10px;box-shadow:0 0 0 2px var(--deep)}
+.av-stack .cav2:first-child{margin-left:0}
+.cav2{flex:none;border-radius:50%;padding:2px;background:conic-gradient(from 210deg,var(--rc),color-mix(in srgb,var(--rc) 40%,#B4F7DF),var(--rc));display:grid;place-items:center}
+.cav2>span,.cav2>img{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;background:var(--rc);color:#fff;font-family:var(--h);font-weight:800;font-size:.95em;object-fit:cover;border:2px solid var(--sf);box-sizing:border-box}
+.verif{color:#1D9BF0;display:inline-grid}
+.nw{white-space:nowrap;display:inline-flex;align-items:center;gap:2px;vertical-align:-1px}
+.cav2.prof{background:conic-gradient(from 210deg,#087B63,#B4F7DF,#087B63)}
+.cav2.prof img,.cav2.prof svg{border-radius:50%;border:2px solid var(--sf);box-sizing:border-box}
+.composer{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:12px;display:grid;gap:10px}
+.comp-b{display:flex;align-items:center;gap:12px;text-align:left;padding:4px;border-radius:14px;color:var(--mu);font-size:15px;min-height:48px}
+.comp-b span:last-child{flex:1;background:var(--sf2);padding:12px 14px;border-radius:999px}
+.comp-chips{display:flex;gap:8px;flex-wrap:wrap;padding-left:56px}
+.cfeed{display:grid;gap:14px}
+.cfeed.ex{opacity:.9;pointer-events:none}
+.cpost2{background:var(--sf);border:1px solid var(--ln);border-radius:20px;padding:18px;display:grid;gap:12px;min-width:0;animation:sobe .35s ease both}
+.cpost2.enq-card{background:linear-gradient(160deg,var(--p-mint),var(--sf) 70%);border-color:var(--limaln)}
+.cpost2 .cnome{font-size:15px}
+.cp-corpo{gap:12px}
+.cp-corpo .ctexto{font-size:16px;line-height:1.55}
+.enq-q{font-family:var(--h);font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.enq-t{display:inline-flex;align-items:center;gap:6px}
+.prim-pub{display:inline-flex;align-items:center;gap:6px;justify-self:start;font-size:12px;font-weight:700;color:#A0680A;background:var(--p-peach);padding:4px 10px;border-radius:999px}
+.conq2{display:flex;gap:14px;align-items:center;padding:16px;border-radius:16px;background:linear-gradient(135deg,var(--p-lilac),var(--p-sky));color:var(--tx)}
+.conq-ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#6A4FB8;color:#fff;flex:none;box-shadow:0 0 0 5px color-mix(in srgb,#6A4FB8 18%,transparent)}
+.conq2 .eyebrow{color:#6A4FB8;display:block}
+.conq2 b{font-family:var(--h);font-size:17px}
+.cacoes2{display:flex;gap:8px;border-top:1px solid var(--ln);padding-top:8px}
+.cac2{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 12px;border-radius:999px;color:var(--mu);font-weight:600;font-size:14px}
+.cac2:hover{background:var(--sf2)}
+.cac2.on{color:#D6455D;background:#FDECEF}
+.cac2.on .ic{animation:pulsa .35s}
+@keyframes pulsa{50%{transform:scale(1.3)}}
+.cfilhos2{display:grid;gap:10px;margin-left:20px;padding-left:16px;border-left:2px solid var(--ln)}
+.cfilhos2:empty{display:none}
+.cpost2.resp{border:0;background:var(--sf2);border-radius:16px;padding:12px 14px;gap:8px;animation:none}
+.cpost2.resp .cacoes2{border:0;padding-top:0}
+.cpost2.resp .cac2{min-height:34px;padding:0 8px;font-size:13px}
+.cprim2{display:flex;align-items:center;gap:10px;text-align:left;color:var(--mu2);font-size:14px;min-height:44px}
+:root[data-tema="escuro"] .cac2.on{background:#3A1E25}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-tema="claro"]) .cac2.on{background:#3A1E25}}
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
 .sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:20px 20px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .22s ease}
@@ -1301,7 +1541,7 @@ function detalheMeta(m,ctx){
    </div>
    <div class="links">
     ${!m.ok?`<button class="btn-g" data-a="foco" data-m="${m.id}" data-gate="estudo">${I('timer',17)} Modo foco</button>`:''}
-    ${nq?`<button class="btn-g" data-a="treinar" data-gate="questoes" data-ass="${m.ass}" data-meta="${m.id}" data-de="${de}">${I('praticar',17)} Treinar esta meta (${nq})</button>${temQuestoes()?'':tagPr}`:''}
+    ${nq?`<button class="btn-g" data-a="treinar" data-gate="questoes" data-ass="${m.ass}" data-meta="${m.id}" data-de="${de}">${I('praticar',17)} Treinar esta meta</button>${temQuestoes()?'':tagPr}`:''}
     ${!m.ok&&m.data>HOJE?`<button class="btn-g" data-a="adiantar" data-m="${m.id}">Trazer para hoje</button>`:''}
    </div>
   </div>`;
@@ -1448,7 +1688,7 @@ SHEETS.paywall=p=>{
   if(p.tipo!=='questoes'||S.expirado)return _paywall(p);
   const c=C(p.conc)||concAtivo(),aa=p.ass?achaAss(c.id,p.ass):null,qs=QUESTOES.filter(q=>q.conc===c.id&&(!p.ass||q.ass===p.ass)),q=qs[0];
   return[aa?`Treinar ${esc(aa.a.nome)}`:'Questões comentadas','Premium com Questões',`
-   <p>${aa?`Há <b>${qs.length} ${qs.length===1?'questão comentada':'questões comentadas'}</b> deste assunto no estilo ${c.banca}.`:`Questões comentadas no estilo ${c.banca}, filtradas pelo seu edital.`} Treinar logo depois da teoria é o que fixa o conteúdo.</p>
+   <p>${aa?`Questões comentadas de <b>${esc(aa.a.nome)}</b> no estilo ${c.banca} esperam por você.`:`Questões comentadas no estilo ${c.banca}, filtradas pelo seu edital.`} Treinar logo depois da teoria é o que fixa o conteúdo.</p>
    ${q?`<div class="preview"><span class="xs mu">Prévia · ${c.banca}</span><p>${esc(q.enun.length>150?q.enun.slice(0,150)+'…':q.enun)}</p><div class="locked" style="border-radius:10px"><div class="blur stack" style="gap:6px">${(q.ce?['Certo','Errado']:q.alts.slice(0,3)).map((a,i)=>`<div class="alt" style="min-height:44px;padding:8px 12px"><span class="lt">${q.ce?'CE'[i]:'ABC'[i]}</span>${esc(a)}</div>`).join('')}</div><div class="lk-ov"><span class="tag t-pr">${I('lock',13)} Resposta e comentário no Premium</span></div></div></div>`:''}
    <ul class="sm" style="display:grid;gap:6px"><li>Gabarito comentado em cada questão</li><li>Erros voltam em outra questão do mesmo tema</li><li>Nota estimada por matéria contra a nota de corte</li><li>Simulados no formato da ${c.banca}</li></ul>
    <div class="btns"><button class="btn btn-p" data-a="assinar" data-plano="premium">Simular Premium e treinar</button><button class="btn btn-s" data-a="go" data-v="premium">Ver o que inclui</button></div>
@@ -1556,7 +1796,7 @@ V.raiox=()=>{
   <section class="card pad"><div class="sec-h" style="margin-bottom:4px"><h3>Ranking de matérias</h3><span class="xs mu">toque para ver os assuntos</span></div>
    ${mats.map((x,i)=>{const cor=corMat(c.id,x.m.id);return`<details class="rk acc" ${i===0?'open':''}><summary class="rk-h"><span class="rk-n">${i+1}</span>${dotM(c.id,x.m.id)}<b class="grow">${esc(x.m.nome)}</b><span class="num sm">${x.f}%</span><span class="rot">${I('dir',18)}</span></summary>
      <div class="rk-dados"><div><small>Peso no edital</small><b>${x.m.peso} ${c.unidade} (${Math.round(x.m.peso/tot*100)}%)</b></div><div><small>Frequência nas provas</small><b>${x.f}% das ${c.unidade}</b></div></div>
-     <div class="stack" style="gap:0">${x.m.assuntos.slice().sort((p,q)=>q.freq-p.freq).map(as=>{const nq=nQuest(c.id,as.id);return`<button class="ass-li" data-a="assunto" data-ass="${as.id}"><span class="grow"><b class="sm" style="display:block">${esc(as.nome)}</b><span class="xs mu">${nq?`${nq} ${nq===1?'questão':'questões'} no banco`:'sem questões no banco'}</span></span><span class="bar" style="--c:${cor}"><i style="width:${as.freq}%"></i></span><span class="sm mu num" style="width:38px;text-align:right">${as.freq}%</span></button>`}).join('')}</div>
+     <div class="stack" style="gap:0">${x.m.assuntos.slice().sort((p,q)=>q.freq-p.freq).map(as=>{const nq=nQuest(c.id,as.id);return`<button class="ass-li" data-a="assunto" data-ass="${as.id}"><span class="grow"><b class="sm" style="display:block">${esc(as.nome)}</b><span class="xs mu">${as.freq}% das questões da matéria</span></span><span class="bar" style="--c:${cor}"><i style="width:${as.freq}%"></i></span><span class="sm mu num" style="width:38px;text-align:right">${as.freq}%</span></button>`}).join('')}</div>
    </details>`}).join('')}
    <p class="ilus" style="margin-top:8px">Números ilustrativos</p></section>`;
 };
@@ -1603,8 +1843,8 @@ V.leitor=p=>{
    ${corpo}
    <div class="links">${outros.map(t=>`<button class="btn-g" data-a="material" data-mat="${aid}:${t}" data-meta="${meta?meta.id:''}" data-de="${p.de||''}">${{resumo:'Ver o resumo',mapa:'Ver o mapa mental',lei:'Ver a lei seca'}[t]}</button>`).join('')}</div>
    ${meta&&!meta.ok?`<section class="card pad stack"><b>Terminou a leitura?</b><button class="btn btn-p w" data-a="marcar" data-m="${meta.id}">Marcar meta como concluída</button></section>`:meta?`<div class="aviso ok">${I('check')}<div class="grow sm"><span><b>Meta concluída.</b></span></div></div>`:''}
-   ${nq?(temQuestoes()?`<button class="btn btn-s w" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto (${nq} questões)</button>`
-    :`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><b>Agora, teste se ficou</b>${tagPr}</div><p class="sm mu">Há ${nq} ${nq===1?'questão comentada':'questões comentadas'} de ${esc(aa.a.nome)} no estilo ${c.banca}. Quem erra recebe o tema de volta em outra questão, 2 e 7 dias depois.</p><button class="btn btn-p" style="justify-self:start" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button></section>`):''}
+   ${nq?(temQuestoes()?`<button class="btn btn-s w" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button>`
+    :`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><b>Agora, teste se ficou</b>${tagPr}</div><p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca}. Quem erra recebe o tema de volta em outra questão, 2 e 7 dias depois.</p><button class="btn btn-p" style="justify-self:start" data-a="treinar" data-gate="questoes" data-ass="${aid}" data-meta="${meta?meta.id:''}" data-de="leitor">Treinar este assunto</button></section>`):''}
   </div>`;
 };
 
@@ -1649,11 +1889,11 @@ V.hoje=()=>{
      <div class="stack" style="gap:4px"><b class="sm" style="color:var(--lima)">O que você vai ver</b><ul class="mu sm" style="display:grid;gap:2px">${aa.a.pontos.slice(0,3).map(p=>`<li>${esc(cabeca(p))}</li>`).join('')}</ul></div>
      <p class="mu sm"><b style="color:#fff">Por que agora:</b> ${esc(atual.motivo)}</p>
      <div class="btns"><button class="btn btn-l" data-a="material" data-mat="${atual.ass}:${materialDaMeta(atual)}" data-meta="${atual.id}" data-de="hoje">Abrir material</button><button class="btn btn-o" data-a="marcar" data-m="${atual.id}">Marcar como concluída</button></div>
-     <div class="links"><button class="btn-g" data-a="foco" data-m="${atual.id}">${I('timer',17)} Modo foco</button>${nq?`<button class="btn-g" data-a="treinar" data-gate="questoes" data-ass="${atual.ass}" data-meta="${atual.id}" data-de="hoje">${I('praticar',17)} Treinar esta meta (${nq})</button>`:''}</div>
+     <div class="links"><button class="btn-g" data-a="foco" data-m="${atual.id}">${I('timer',17)} Modo foco</button>${nq?`<button class="btn-g" data-a="treinar" data-gate="questoes" data-ass="${atual.ass}" data-meta="${atual.id}" data-de="hoje">${I('praticar',17)} Treinar esta meta</button>`:''}</div>
     </section>`;
     if(nq&&!temQuestoes()){const q=QUESTOES.find(x=>x.conc===c.id&&x.ass===atual.ass);
       nudge=`<section class="card pad stack" style="border-color:var(--prln);background:var(--prbg)"><div class="between"><h3>Depois da teoria, prove que aprendeu</h3>${tagPr}</div>
-       <p class="sm mu">${nq} ${nq===1?'questão comentada':'questões comentadas'} de ${esc(aa.a.nome)} esperam por você. Errou? O tema volta em outra questão 2 e 7 dias depois, e sua nota estimada é atualizada.</p>
+       <p class="sm mu">Questões comentadas de ${esc(aa.a.nome)} no estilo ${c.banca} esperam por você. Errou? O tema volta em outra questão 2 e 7 dias depois, e sua nota estimada é atualizada.</p>
        <div class="preview"><span class="xs mu">Prévia · ${c.banca} · ${q.dif}</span><p style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(q.enun)}</p></div>
        <div class="btns"><button class="btn btn-p" data-a="treinar" data-gate="questoes" data-ass="${atual.ass}" data-meta="${atual.id}" data-de="hoje">Treinar ${esc(aa.a.nome)}</button><button class="btn btn-s" data-a="go" data-v="premium">O que o Premium inclui</button></div></section>`;}
   }else if(doDia.length){principal=`<section class="dark"><span class="eyebrow">Dia fechado</span><h2 style="color:#fff">${feitas} de ${doDia.length} metas concluídas</h2><p class="mu">A próxima é ${futuras[0]?`<b style="color:#fff">${esc(achaAss(P.conc,futuras[0].ass).a.nome)}</b>, ${quando(futuras[0].data)}`:'a revisão final'}.</p>
@@ -1863,7 +2103,7 @@ V.resultado=()=>{
    ${t.res.some(r=>r.rev)?`<div class="aviso ${t.res.filter(r=>r.rev).every(r=>r.ok)?'ok':'neutro'}">${I('caderno')}<div class="grow sm"><span>${t.res.filter(r=>r.rev).every(r=>r.ok)?'Você acertou a questão que voltou do caderno de erros. O erro foi marcado como revisado.':'A questão de revisão ainda pegou você. O tema continua no caderno e volta numa próxima rodada.'}</span></div></div>`:''}
    ${porMat}
    <section class="card pad stack"><h3>Assuntos para revisar</h3>${errAss.length?lista(errAss.map(a=>{const aa=achaAss(t.conc,a);return`<button class="ri" data-a="material" data-mat="${a}:resumo" data-de="resultado" data-gate="estudo" data-conc="${t.conc}"><span class="grow"><span class="t">${esc(aa.a.nome)}</span><span class="s">${esc(aa.m.nome)} · abrir o resumo</span></span>${chevR()}</button>`})):'<p class="mu">Nenhum. Todos os assuntos desta rodada estão em dia.</p>'}</section>
-   ${t.dia&&!temQuestoes()?`<section class="dark"><h2 style="color:#fff">Gostou? Há ${QUESTOES.filter(q=>q.conc===t.conc).length} questões do ${c.sigla} no banco</h2><p class="mu">No Premium você treina cada assunto depois da teoria, guarda os erros num caderno que traz o tema de volta e acompanha sua nota contra o corte.</p><button class="btn btn-l w" data-a="go" data-v="premium">Conhecer o Premium</button></section>`:''}
+   ${t.dia&&!temQuestoes()?`<section class="dark"><h2 style="color:#fff">Gostou? Treine o ${c.sigla} todos os dias no Premium</h2><p class="mu">No Premium você treina cada assunto depois da teoria, guarda os erros num caderno que traz o tema de volta e acompanha sua nota contra o corte.</p><button class="btn btn-l w" data-a="go" data-v="premium">Conhecer o Premium</button></section>`:''}
    <div class="btns">${meta?`<button class="btn btn-p" data-a="voltarMeta">Voltar à meta</button>`:''}${er&&temQuestoes()?`<button class="btn ${meta?'btn-s':'btn-p'}" data-a="go" data-v="caderno">Ver caderno de erros</button>`:''}<button class="btn btn-s" data-a="tab" data-v="${t.dia?'hoje':'praticar'}">${t.dia?'Voltar para Hoje':'Nova rodada'}</button></div>
   </div>`;
 };
@@ -1962,6 +2202,11 @@ function dicasDe(cid){
   c.bancaPerfil.padroes.forEach(([t,pc,d,ids])=>{const aa=achaAss(cid,ids[0]);add(resto,`Como a ${c.banca} cobra`,`${t} (${pc}% das questões). ${d}`,{mat:aa&&aa.m.id,ass:ids[0]})});
   [...ed,...resto].forEach((x,i)=>{x.id=`${cid}-${i}`});
   resto.sort((x,y)=>hashS(x.id)-hashS(y.id));
+  {// alterna tipo e matéria para o feed não repetir o mesmo assunto em sequência
+   const grupos={};resto.forEach(x=>{const k=x.tipo+'|'+(x.mat||'');(grupos[k]=grupos[k]||[]).push(x)});
+   const ks=Object.keys(grupos).sort((a,b)=>hashS(a)-hashS(b));const mix=[];let tem=true;
+   while(tem){tem=false;ks.forEach(k=>{const x=grupos[k].shift();if(x){mix.push(x);tem=true}})}
+   resto.length=0;resto.push(...mix);}
   const out=[];let e=0;resto.forEach((x,i)=>{if(i%6===0&&e<ed.length)out.push(ed[e++]);out.push(x)});while(e<ed.length)out.push(ed[e++]);
   return(_cacheDicas[cid]=out);
 }
@@ -2061,6 +2306,7 @@ Object.assign(ICONS,{
 TAB.busca=null;TAB.simuIntro='praticar';TAB.simu='praticar';TAB.simuRes='praticar';TAB.onb=null;
 
 // ---------- tema ----------
+function temaEscuro(){const t=document.documentElement.dataset.tema;return t?t==='escuro':matchMedia('(prefers-color-scheme: dark)').matches}
 function aplicarTema(){const r=document.documentElement,t=S.tema||'auto';if(t==='auto')delete r.dataset.tema;else r.dataset.tema=t}
 ACT.tema=d=>{S.tema=d.v;salvar();aplicarTema();render()};
 const seletorTema=()=>`<div class="seg pill" role="group" aria-label="Aparência">${[['auto','Automático'],['claro','Claro'],['escuro','Escuro']].map(([k,l])=>`<button aria-pressed="${(S.tema||'auto')===k}" data-a="tema" data-v="${k}">${l}</button>`).join('')}</div>`;
@@ -2397,7 +2643,7 @@ function cartaoPost(p,resp){
 }
 // preenche nomes e textos com textContent (conteúdo de outras pessoas)
 function comPreencher(){
-  document.querySelectorAll('.cpost[data-id],.citem[data-id]').forEach(el=>{
+  document.querySelectorAll('.cpost[data-id],.cpost2[data-id],.citem[data-id]').forEach(el=>{
     const id=el.dataset.id,p=COM.posts.find(x=>x.id===id)||COM.filas.flatMap(f=>f.itens.map(i=>({...i,autor:f.uid}))).find(x=>x.id===id)||(COM.fila||[]).map(i=>({...i,autor:COM.uid})).find(x=>x.id===id)||EXEMPLOS.find(x=>x.id===id);if(!p)return;
     const n=el.querySelector(':scope > .row .cnome, :scope > .grow .cnome');if(n)n.textContent=p.exNome||nomeDe(p.autor);
     const n1=el.querySelector(':scope > span .cnome1');if(n1)n1.textContent=p.exNome||nomeDe(p.autor);
@@ -2406,7 +2652,7 @@ function comPreencher(){
   });
 }
 const EXEMPLOS=[
-  {id:'ex1',exNome:'Professor',papel:'professor',autor:'ex',criado:Date.now()-3*3600e3,cat:'edital',texto:'Saiu a retificação do edital: a prova passou para 07/02. Atualizem o cronograma em Ajustar rotina.'},
+  {id:'ex1',exNome:'Professor',papel:'professor',autor:'ex',criado:Date.now()-3*3600e3,cat:'edital',texto:'Inscrições do TJ-SP vão até 10/12. Quem ainda não pagou o boleto, não deixe para a última semana.'},
   {id:'ex2',exNome:'Aluna de exemplo',autor:'ex2',ctx:{sigla:'TJ-SP',cargo:'Escrevente',nivel:3,streak:12},criado:Date.now()-20*3600e3,cat:'duvida',texto:'Revogação pode ser feita pelo Judiciário? Fiquei na dúvida depois da questão de hoje.'},
   {id:'ex3',exNome:'Aluno de exemplo',autor:'ex3',ctx:{sigla:'TJ-SP',cargo:'Escrevente',nivel:2,streak:7},criado:Date.now()-26*3600e3,tipo:'conquista',cat:'conquista',titulo:'7 dias seguidos de estudo',texto:'Primeira semana sem falhar!'}
 ];
@@ -2728,6 +2974,240 @@ ACT.verCat=d=>{UI.catAba=d.v;go('catalogo')};
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('manchete')){exec({...e.target.dataset})}});
 V.hojePlano=()=>V.hoje();TAB.hojePlano='hoje';
 
+// ================= visual v2 =================
+Object.assign(ICONS,{verif:'<path d="M12 2l2.4 1.8 3-.2.9 2.9 2.5 1.7-.9 2.9.9 2.9-2.5 1.7-.9 2.9-3-.2L12 22l-2.4-1.8-3 .2-.9-2.9-2.5-1.7.9-2.9-.9-2.9 2.5-1.7.9-2.9 3 .2z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',enviar:'<path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/>'});
+const reduzMov=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+// entrada suave ao rolar (o conteúdo já nasce visível) e números que contam
+let obsRv=null;
+function animar(){
+  if(obsRv)obsRv.disconnect();
+  const els=document.querySelectorAll('#main .rv:not(.in)');
+  if(reduzMov()||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+  obsRv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obsRv.unobserve(e.target);e.target.querySelectorAll('[data-cnt]').forEach(contar);if(e.target.dataset.cnt)contar(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>obsRv.observe(e));
+  // barra fixa de progresso do dia
+  const m=document.getElementById('metaAtual'),bar=document.querySelector('.dia-sticky');
+  if(m&&bar){const o=new IntersectionObserver(([e])=>bar.classList.toggle('on',!e.isIntersecting&&e.boundingClientRect.top<0),{rootMargin:'-140px 0px 0px 0px'});o.observe(m)}
+}
+function contar(el){
+  if(el.dataset.feito)return;el.dataset.feito='1';
+  const alvo=Number(el.dataset.cnt),suf=el.dataset.suf||'',fmt=v=>Math.round(v).toLocaleString('pt-BR')+suf;
+  if(reduzMov()||!alvo){el.textContent=fmt(alvo);return}
+  const t0=performance.now(),dur=900;const passo=t=>{const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(alvo*e);if(k<1)requestAnimationFrame(passo)};requestAnimationFrame(passo);
+}
+const cnt=(n,suf='')=>`<span data-cnt="${n}" data-suf="${suf}">${Number(n).toLocaleString('pt-BR')}${suf}</span>`;
+
+// ---------- atalhos em bolhas (estilo stories) ----------
+function bolhas(itens){
+  return`<nav class="bolhas" aria-label="Atalhos">${itens.map(b=>`<button class="bolha ${b.novo?'novo':''}" ${Object.entries(b.d).map(([k,v])=>`data-${k}="${v}"`).join(' ')}><span class="bolha-c">${I(b.ic,24)}</span><span class="bolha-t">${b.t}</span></button>`).join('')}</nav>`;
+}
+function bolhasHoje(atual){
+  const P=prep(),feitaQ=P&&P.qdia&&P.qdia.data===HOJE,H=dicasHoje();
+  return bolhas([
+    {t:'Dicas',ic:'rolar',d:{a:'dicas'},novo:true},
+    {t:'Questão do dia',ic:'lampada',d:{a:'qdia'},novo:!feitaQ},
+    atual&&{t:'Modo foco',ic:'timer',d:{a:'foco',m:atual.id}},
+    {t:'Flashcards',ic:'cartas',d:{a:'flash'}},
+    {t:'Comunidade',ic:'pessoas',d:{a:'tab',v:'comunidade'}},
+    {t:'Jornal',ic:'jornal',d:{a:'go',v:'jornal'}},
+    {t:'Simulado',ic:'relogio2',d:{a:'go',v:'simuIntro',gate:'questoes'}}
+  ].filter(Boolean));
+}
+
+// ---------- Hoje (plano pago) com bolhas, barra fixa e entrada animada ----------
+const _hojeV=V.hoje;
+V.hoje=()=>{
+  const P=prep(),c=concAtivo();
+  if(!c||!cobre(c.id)||!P.cfg)return _hojeV();
+  const doDia=P.metas.filter(m=>m.data===HOJE).sort((a,b)=>a.ordem-b.ordem),feitas=doDia.filter(m=>m.ok).length,atual=doDia.find(m=>!m.ok);
+  const resto=doDia.filter(m=>!m.ok).reduce((s,m)=>s+m.min,0);
+  let h=_hojeV();
+  const barra=`<div class="dia-sticky" aria-hidden="true"><b>${feitas} de ${doDia.length} metas</b><span class="prog"><i style="width:${doDia.length?feitas/doDia.length*100:0}%"></i></span><span class="xs mu">${resto?hm(resto)+' restantes':'dia fechado'}</span></div>`;
+  h=h.replace('<div class="cols"><div class="stack" style="gap:20px">',`${barra}${bolhasHoje(atual)}<div class="cols"><div class="stack" style="gap:20px">`);
+  h=h.replace(/<section class="card pad stack">/g,'<section class="card pad stack rv">').replace('<div class="aviso">','<div class="aviso rv">');
+  h=h.replace(/<span class="num" style="font-size:34px">(\d+)%<\/span>/,(_,n)=>`<span class="num" style="font-size:34px">${cnt(n,'%')}</span>`);
+  return h;
+};
+
+// ---------- Jornal do Concurseiro v2 ----------
+V.jornal=()=>{
+  const P=prep(),c=concAtivo(),d=pd(HOJE);
+  const abertos=ABERTOS.filter(insAberta),fim=abertos.filter(x=>diasInsc(x)<=21).sort((a,b)=>a.if<b.if?-1:1);
+  const abrem=ABERTOS.filter(x=>x.ii&&x.ii>=addD(HOJE,-7)).sort((a,b)=>a.ii<b.ii?1:-1).slice(0,6);
+  const radar=PREVISTOS.slice().sort((a,b)=>b.fase-a.fase);
+  const manchete=fim[0]||abertos[0];
+  const totalV=abertos.reduce((s,x)=>s+(parseInt(String(x.v).replace(/\D/g,''))||0),0);
+  const maior=abertos.slice().sort((a,b)=>(parseFloat((b.s||'0').replace(/[^\d,]/g,'').replace(',','.'))||0)-(parseFloat((a.s||'0').replace(/[^\d,]/g,'').replace(',','.'))||0))[0];
+  const meu=c?ABERTOS.find(x=>x.plano===c.id):null,seg=CATALOGO.filter(x=>seguindo(x.id));
+  // agenda das próximas 3 semanas
+  const ev=[];ABERTOS.forEach(x=>{if(x.if&&x.if>=HOJE&&diasAte(x.if)<=21)ev.push([x.if,'Fim das inscrições',x]);if(x.ii&&x.ii>HOJE&&diasAte(x.ii)<=21)ev.push([x.ii,'Abrem as inscrições',x]);if(x.p&&x.p>=HOJE&&diasAte(x.p)<=40)ev.push([x.p,'Prova',x])});
+  ev.sort((a,b)=>a[0]<b[0]?-1:1);
+  const ticker=[...fim.slice(0,5).map(x=>`${x.sigla}: inscrições até ${dm(x.if)}`),...radar.slice(0,4).map(x=>`${x.sigla}: ${FASES[x.fase].toLowerCase()}`)];
+  const cardCont=x=>{const n=diasInsc(x);return`<button class="cont-card ${n<=3?'urg-b':''}" data-a="abrirConc" data-id="${x.id}"><span class="cont-n">${n===0?'hoje':n}</span><span class="cont-u">${n===0?'último dia':n===1?'dia':'dias'}</span><b>${esc(x.sigla)}</b><span class="xs">${esc(x.orgao)}</span><span class="cont-m">${esc(x.v)} vagas · até ${esc(x.s)}</span></button>`};
+  const cardRadar=x=>`<button class="radar-card" data-a="abrirConc" data-id="${x.id}"><span class="tag t-at">${FASES[x.fase]}</span><b>${esc(x.orgao)}</b><span class="sm mu">${esc(x.v)} vagas${x.s?' · '+esc(x.s):''}</span>${fasesHTML(x)}<span class="xs mu">${esc(x.sab[0])}</span></button>`;
+  return`<header class="jc">
+   <div class="jc-linha"><span>Edição nº ${edicao()}</span><span>${DIAS_SEM[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}</span><span>Grátis</span></div>
+   <h1 class="jc-tit">Jornal do Concurseiro</h1>
+   <p class="jc-sub">Editais, prazos e o que vem por aí. Leitura de 2 minutos.</p>
+  </header>
+  ${ticker.length?`<div class="ticker" role="marquee" aria-label="Últimas"><span class="ticker-l">Agora</span><div class="ticker-v"><div class="ticker-t">${[...ticker,...ticker].map(t=>`<span>${esc(t)}</span>`).join('')}</div></div></div>`:''}
+  ${manchete?`<section class="dark manchete rv" data-a="abrirConc" data-id="${manchete.id}" role="button" tabindex="0">
+   <div class="manch-g"><div class="stack" style="gap:12px"><span class="eyebrow">Manchete · ${esc(manchete.a)}</span>
+    <h2 class="manch-t">${diasInsc(manchete)<=1?'Último chamado':'Últimos dias'}: ${esc(manchete.orgao)} ${diasInsc(manchete)===0?'encerra as inscrições hoje':diasInsc(manchete)===1?'encerra as inscrições amanhã':`encerra as inscrições em ${dm(manchete.if)}`}</h2>
+    <p class="mu">${esc(manchete.v)} vagas · ${esc(manchete.cargos)} · até ${esc(manchete.s)} · ${esc(manchete.banca)}${manchete.p?` · prova em ${dmy(manchete.p)}`:''}</p>
+    <span class="btn btn-l sm" style="justify-self:start">Ver o concurso ${I('seta',16)}</span></div>
+    <div class="manch-n"><b>${diasInsc(manchete)===0?'0':diasInsc(manchete)}</b><span>${diasInsc(manchete)===1?'dia':'dias'} para<br>se inscrever</span></div></div></section>`:''}
+  <section class="jc-nums rv"><div><b>${cnt(abertos.length)}</b><span>concursos de destaque com inscrição aberta</span></div><div><b>${cnt(totalV)}</b><span>vagas somadas entre eles</span></div><div><b>${cnt(radar.length)}</b><span>previstos no radar</span></div>${maior?`<div><b>${esc(maior.s.replace(/,\d\d$/,''))}</b><span>maior salário aberto: ${esc(maior.sigla)}</span></div>`:''}</section>
+  <section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Contagem regressiva</h2><button class="btn-g" data-a="verCat" data-v="abertos">Todos os abertos ${I('seta',16)}</button></div>
+   <div class="carrossel">${fim.slice(0,10).map(cardCont).join('')}</div></section>
+  <div class="cols"><div class="stack" style="gap:24px">
+   ${c?`<section class="card pad stack rv seu-conc"><div class="between"><span class="eyebrow">Seu concurso</span><span class="tag t-line">${esc(cargoDe(P).curto)}</span></div><h3 style="font-size:22px">${esc(c.nome)}</h3>
+    <div class="stats" style="--n:${meu&&insAberta(meu)?3:2}">${meu&&insAberta(meu)?`<div><small>Inscrições até</small><b>${dm(meu.if)}</b></div>`:''}<div><small>Prova</small><b>${dm(c.prova)}</b></div><div><small>Faltam</small><b>${cnt(diasAte(c.prova))} dias</b></div></div>
+    <div class="btns">${P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}<button class="btn btn-s sm" data-a="dicas">${I('rolar',16)} Dicas do edital</button></div></section>`:''}
+   ${ev.length?`<section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Agenda das próximas semanas</h2></div><div class="agenda">${ev.slice(0,10).map(([dt,t,x])=>`<button class="ag-i" data-a="abrirConc" data-id="${x.id}"><span class="ag-d"><b>${pd(dt).getDate()}</b><small>${MESES[pd(dt).getMonth()].slice(0,3)}</small></span><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s ${t==='Fim das inscrições'&&diasAte(dt)<=3?'urg':''}">${t}${dt===HOJE?' · hoje':''}</span></span>${chevR()}</button>`).join('')}</div></section>`:''}
+   <section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Radar: o que vem aí</h2><button class="btn-g" data-a="verCat" data-v="previstos">Todos os previstos ${I('seta',16)}</button></div><div class="carrossel">${radar.slice(0,8).map(cardRadar).join('')}</div><p class="xs mu">Previsto não é edital. Mostramos a fase de cada um até a publicação oficial.</p></section>
+   ${abrem.length?`<section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Abriram agora</h2></div>${lista(abrem.map(x=>`<button class="ri" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s">${esc(x.v)} vagas · até ${esc(x.s)} · ${esc(x.banca)}</span></span><span class="jx">${x.ii>HOJE?'abre '+dm(x.ii):'desde '+dm(x.ii)}</span></button>`))}</section>`:''}
+  </div>
+  <aside class="stack stick" style="gap:20px">
+   ${c?`<section class="card pad stack rv dica-j"><span class="eyebrow">Dica do dia · ${esc(c.sigla)}</span>${(()=>{const ds=dicasDe(c.id),x=ds[(d.getDate()*5)%ds.length];return`<p class="dj-t">${x.tipo==='Lei seca'?x.txt:esc(x.txt)}</p><span class="xs mu">${x.tipo}${x.ass?` · ${esc(achaAss(x.conc,x.ass).a.nome)}`:''}</span>`})()}<button class="btn btn-s sm" style="justify-self:start" data-a="dicas">${I('rolar',16)} Rolar mais dicas</button></section>`:''}
+   ${seg.length?`<section class="card pad stack rv"><h3>Você segue</h3>${seg.map(x=>`<button class="li" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.sigla)}</span><span class="s">${x.sit==='aberto'?prazoTxt(x):FASES[x.fase]}</span></span>${chevR()}</button>`).join('')}</section>`
+    :`<section class="card pad stack rv"><h3>Siga seus concursos</h3><p class="sm mu">Toque em <b>Seguir</b> em qualquer concurso do catálogo e as novidades dele aparecem aqui.</p><button class="btn btn-s sm" style="justify-self:start" data-a="verCat" data-v="abertos">Abrir o catálogo</button></section>`}
+   ${c?cardQDia().replace('<section class="card pad stack">','<section class="card pad stack rv">'):''}
+   ${cardInstalar()}
+  </aside></div>
+  <p class="xs mu2">Montado com levantamentos de editais publicados e previstos (<a href="${FONTE_ABERTOS.url}" target="_blank" rel="noopener">abertos</a>, <a href="${FONTE_FED.url}" target="_blank" rel="noopener">federais previstos</a>), conferidos em ${dmy(FONTE_ABERTOS.data)}. Lista de destaques, não exaustiva. Confira sempre o edital oficial.</p>`;
+};
+const _jornal2=V.jornal;
+V.jornal=()=>{const c=concAtivo();if(!c)return _jornal2();return _jornal2().replace('<header class="jc">',`<header class="jc">`).replace('</header>',`</header>${bolhas([{t:'Dicas',ic:'rolar',d:{a:'dicas'},novo:true},{t:'Questão do dia',ic:'lampada',d:{a:'qdia'},novo:!(prep().qdia&&prep().qdia.data===HOJE)},{t:'Concursos',ic:'radar',d:{a:'verCat',v:'abertos'}},{t:'Previstos',ic:'grafico',d:{a:'verCat',v:'previstos'}},{t:'Meu edital',ic:'edital',d:{a:'tab',v:'edital'}},{t:'Comunidade',ic:'pessoas',d:{a:'tab',v:'comunidade'}},{t:'Premium',ic:'estrela',d:{a:'go',v:'premium'}}])}`)};
+
+// ---------- Dicas do edital v2 ----------
+const DK_TIPO={'Conceito':['tc','livro'],'Lei seca':['tls','balanca'],'Pegadinha da banca':['tp','alerta'],'Seu edital':['te','edital'],'Retificação':['te','alerta']};
+function corpoDica(d){
+  const t=d.tipo;
+  if(t==='Conceito'){const k=d.txt.indexOf(': ');if(k>0&&k<50)return`<span class="dk-cap">Para lembrar</span><div class="dk-termo">${esc(d.txt.slice(0,k))}</div><div class="dk-ex"><span>Exemplo</span><p>${esc(d.txt.slice(k+2))}</p></div>`;return`<span class="dk-cap">Para lembrar</span><p class="dk-big">${esc(d.txt)}</p>`}
+  if(t==='Lei seca')return`<div class="dk-ref">${esc(d.ref||'')}</div><blockquote class="dk-lei"><span class="dk-aspas" aria-hidden="true">“</span><p>${d.txt}</p></blockquote>`;
+  if(t==='Pegadinha da banca'){const k=d.txt.indexOf('. ');const tit=k>0?d.txt.slice(0,k):d.txt,ex=k>0?d.txt.slice(k+2):'';return`<div class="dk-termo">${esc(tit)}</div>${ex?`<div class="dk-peg"><span class="dk-x">${I('alerta',15,2.4)} Como a banca tenta te pegar</span><p>${esc(ex)}</p></div>`:''}`}
+  if(t.startsWith('Como')){const m=d.txt.match(/\((\d+)% das questões\)/);const tx=d.txt.replace(/\s*\(\d+% das questões\)/,'');const k=tx.indexOf('. ');return`${m?`<div class="dk-num">${m[1]}<small>%</small></div><span class="dk-cap">das questões seguem este padrão</span>`:''}<div class="dk-termo">${esc(k>0?tx.slice(0,k):tx)}</div>${k>0?`<p class="dk-def">${esc(tx.slice(k+2))}</p>`:''}`}
+  const m=d.txt.match(/\d{2}\/\d{2}\/\d{4}|\d{1,3}(?:\.\d{3})+|\d+ de \d+|\d+/);
+  let big='';if(m){const v=m[0];const dt=v.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+   big=dt?`<div class="dk-num">${+dt[1]}<small> ${MESES[+dt[2]-1].slice(0,3)} ${dt[3]}</small></div>`:`<div class="dk-num ${v.length>5?'dk-num-m':''}">${esc(v)}</div>`}
+  if(t==='Retificação')big=`<div class="dk-num dk-num-m">${I('alerta',40)}</div>`;
+  return`${big}<p class="dk-big">${esc(d.txt)}</p>`;
+}
+V.dicas=()=>{
+  const r=feedDicas(),f=UI.dicasF||S.ativo,salv=new Set(S.dicasSalvas||[]);
+  const ops=[...Object.keys(S.preps).map(k=>[k,`${C(S.preps[k].conc).sigla} · ${cargoDe(S.preps[k]).curto}`]),...(Object.keys(S.preps).length>1?[['todos','Todos os meus editais']]:[]),['salvas','Salvas']];
+  const cards=r.out.map((d,i)=>{const aa=d.ass?achaAss(d.conc,d.ass):null,c=C(d.conc),[cls,ic]=DK_TIPO[d.tipo]||['tb','martelo'];
+    return`<section class="dica dk ${cls}" data-id="${d.id}" data-swipe="dica" aria-label="Dica ${i+1} de ${r.total}"><div class="dica-bg" aria-hidden="true"><span>${I('caderno',18)} Salvar</span><span>Próxima ${I('seta',18)}</span></div>
+     <div class="cartao sw-alvo">
+      <div class="dk-top"><span class="dk-ic">${I(ic,20)}</span><div class="grow"><b class="dk-tipo">${esc(d.tipo)}</b><span class="dk-sub">${aa?`${esc(aa.m.curto)} · ${esc(aa.a.nome)}`:`${c.sigla} · ${esc(c.nome)}`}</span></div><span class="dk-n">${i+1}<small>/${r.total}</small></span></div>
+      <span class="dk-wm" aria-hidden="true">${I(ic,180,1.2)}</span><div class="dk-corpo">${corpoDica(d)}</div>
+      <div class="dk-acoes"><button class="dk-b sv" data-a="dicaSalvar" data-id="${d.id}" aria-pressed="${salv.has(d.id)}">${I('caderno',20)}<span>${salv.has(d.id)?'Salva':'Salvar'}</span></button>
+       ${d.ass?`<button class="dk-b" data-a="material" data-mat="${d.ass}:resumo" data-de="dicas" data-gate="estudo" data-conc="${d.conc}">${I(cobre(d.conc)?'livro':'lock',20)}<span>Resumo</span></button>`:`<button class="dk-b" data-a="tab" data-v="edital">${I('edital',20)}<span>Edital</span></button>`}
+       ${i<r.out.length-1||r.travou?`<button class="dk-b dk-prox" data-a="dicaProx">${I('baixo',20)}<span>Próxima</span></button>`:''}</div>
+     </div></section>`}).join('');
+  const fim=r.travou?`<section class="dica dk te"><div class="cartao" style="grid-template-rows:1fr auto">
+     <div class="stack" style="align-self:center;gap:14px"><span class="dk-ic">${I('lock',20)}</span><h2 class="dk-termo" style="color:#fff">Você viu as ${LIM_DICAS} dicas grátis de hoje</h2><p class="dk-def" style="color:#C5DED5">Amanhã chegam mais ${LIM_DICAS}. Com um plano de estudo, as dicas do seu edital ficam ilimitadas: ainda há ${r.total-r.out.length} esperando, entre lei seca grifada, pegadinhas da banca e conceitos.</p></div>
+     <div class="stack" style="gap:10px"><button class="btn btn-l w" data-a="go" data-v="planos">Ver planos de estudo</button><button class="btn btn-o w" data-a="sairDicas">Voltar</button></div></div></section>`
+   :!r.out.length?`<section class="dica dk tc"><div class="cartao" style="grid-template-rows:1fr"><div class="empty">${I('caderno',28)}<h3>${f==='salvas'?'Nenhuma dica salva':'Sem dicas por aqui'}</h3><p class="sm mu">${f==='salvas'?'Toque em Salvar, ou deslize uma dica para a direita.':'Escolha outro edital no topo.'}</p></div></div></section>`
+   :`<section class="dica dk tc"><div class="cartao" style="grid-template-rows:1fr auto"><div class="stack" style="align-self:center;justify-items:center;text-align:center;gap:10px"><span class="dk-ic">${I('check',20)}</span><h2>Você viu todas</h2><p class="mu">Que tal transformar isso em questões?</p></div><button class="btn btn-p w" data-a="sairDicas">Voltar</button></div></section>`;
+  return`<div class="feed-wrap">
+   <header class="feed-top"><div class="row"><button class="x" data-a="sairDicas" aria-label="Fechar dicas">${I('x')}</button><div class="grow"><b style="display:block;font-family:var(--h)">Dicas do edital</b><span class="xs mu" id="dicaCont">${contadorDicas()}</span></div></div>
+    <div class="dk-prog" aria-hidden="true"><i id="dicaProg" style="width:${r.total?100/r.total:0}%"></i></div>
+    <div class="chips fchips" role="group" aria-label="Edital das dicas">${ops.map(([k,l])=>`<button class="chip" aria-pressed="${f===k}" data-a="dicasF" data-f="${k}">${esc(l)}</button>`).join('')}</div></header>
+   <div class="feed" tabindex="0" aria-label="Dicas, role para ver a próxima">${cards}${fim}</div></div>`;
+};
+const _setupFeed=setupFeed;
+setupFeed=function(){_setupFeed();const feed=document.querySelector('.feed'),bar=document.getElementById('dicaProg'),tot=document.querySelectorAll('.dica[data-id]').length;if(!feed||!bar||!tot)return;
+  const upd=()=>{const i=Math.round(feed.scrollTop/feed.clientHeight);bar.style.width=Math.min(100,(i+1)/tot*100)+'%'};feed.addEventListener('scroll',upd,{passive:true});upd()};
+
+// ---------- Premium v2 (venda) ----------
+V.premium=(p={})=>{
+  const c=concAtivo(),q=QUESTOES.find(x=>x.conc===c.id&&!x.ce)||QUESTOES.find(x=>x.conc===c.id);
+  const L=q.ce?['C','E']:['A','B','C','D','E'],alts=q.ce?['Certo','Errado']:q.alts;
+  const ex=c.materias.slice(0,4).map((m,i)=>[m.curto,corMat(c.id,m.id),[81,63,74,52][i]]);
+  const cta=(t='Quero o Premium',cls='btn-l')=>`<button class="btn ${cls}" data-a="assinar" data-plano="premium">${t}</button>`;
+  const ben=[['praticar','Questões comentadas','No estilo da '+c.banca+', filtradas pelo seu edital, com gabarito, o porquê e o artigo de lei.'],
+    ['caderno','Caderno de erros que volta','Cada erro reaparece em outra questão do mesmo tema, 2 e 7 dias depois. Você não decora a resposta, aprende o assunto.'],
+    ['grafico','Nota estimada contra o corte','Seus acertos cruzados com o peso de cada matéria mostram onde você já passa e onde ainda perde pontos.'],
+    ['relogio2','Simulados no formato da prova','Cronômetro, sem gabarito até entregar, nota por matéria e sua posição entre os participantes.'],
+    ['plano','Treino direto da meta do dia','Terminou a teoria? Um toque e você treina exatamente aquele assunto.'],
+    ['camadas','Tudo dos planos de estudo','Cronograma, Raio-X, perfil da banca, materiais, coleção em PDF e dicas ilimitadas.']];
+  return`${!p.embutido&&UI.stack.length?`<button class="back" data-a="voltar">${I('esq',18)} Voltar</button>`:''}
+  <section class="dark pr-hero rv"><div class="stack" style="gap:16px">
+    <span class="eyebrow">Premium com Questões · ${c.sigla}</span>
+    <h1 class="pr-tit">Estude a teoria.<br><span>Prove que aprendeu.</span></h1>
+    <p class="mu" style="font-size:17px;max-width:52ch">Questões comentadas no estilo da ${c.banca}, um caderno de erros que traz o tema de volta e sua nota estimada contra a nota de corte. Tudo ligado ao seu cronograma.</p>
+    <div class="btns" style="max-width:520px">${cta()}<button class="btn btn-o" data-a="rolarPara" data-v="pr-como">Como funciona</button></div>
+    <span class="xs mu2">Preço de lançamento em breve · simulação no protótipo, nada é cobrado</span></div>
+   <div class="pr-mock" aria-hidden="true">
+    <div class="pm pm1"><span class="pm-k">Questão · ${c.banca}</span><p>${esc(q.enun.length>90?q.enun.slice(0,88)+'…':q.enun)}</p><div class="pm-alt ok"><span>${L[q.gab]}</span>${esc(alts[q.gab].slice(0,46))}${alts[q.gab].length>46?'…':''}</div></div>
+    <div class="pm pm2"><span class="pm-k">Caderno de erros</span><b>Volta em 2 dias</b><span class="xs">em outra questão do mesmo tema</span></div>
+    <div class="pm pm3"><span class="pm-k">Nota estimada</span><b>74%</b><span class="pm-bar"><i style="width:74%"></i><em style="left:${c.corteP}%"></em></span><span class="xs">corte ${c.corteP}% (exemplo)</span></div>
+   </div></section>
+  <section class="stack rv" style="gap:14px"><div class="jc-sec"><h2>Tudo o que você ganha</h2></div>
+   <div class="ben-grid">${ben.map(([ic,t,dsc])=>`<div class="ben rv"><span class="ben-ic">${I(ic,22)}</span><b>${t}</b><p class="sm mu">${dsc}</p></div>`).join('')}</div></section>
+  <section class="stack rv" id="pr-como" style="gap:14px"><div class="jc-sec"><h2>Como funciona no seu dia</h2></div>
+   <ol class="passos-h">${[['Estude a meta','Leia o resumo ou a lei seca da meta do dia.'],['Treine o assunto','Responda questões daquele tema logo em seguida.'],['Erre sem medo','O erro vai para o caderno e volta em outra questão.'],['Veja sua nota','A nota estimada sobe matéria por matéria.']].map(([t,dsc],i)=>`<li><span class="ph-n">${i+1}</span><b>${t}</b><span class="sm mu">${dsc}</span></li>`).join('')}</ol></section>
+  <div class="g2">
+   <section class="card pad stack rv"><span class="eyebrow">Prévia · questão comentada</span><p class="sm">${esc(q.enun)}</p>
+    ${alts.slice(0,q.ce?2:3).map((a,i)=>`<div class="alt ${i===q.gab?'certa':''}" style="min-height:44px;padding:8px 12px;font-size:14.5px"><span class="lt">${L[i]}</span><span>${esc(a)}</span></div>`).join('')}
+    <div class="fb ok" style="padding:12px"><b class="sm">Gabarito ${L[q.gab]}</b><p class="sm">${esc(q.com)}</p></div></section>
+   <section class="card pad stack rv"><span class="eyebrow">Prévia · nota estimada</span>${barrasNota(ex,c.corteP)}<p class="xs mu2">Exemplo ilustrativo. A linha marca o corte de ${c.hist.ano}.</p></section>
+  </div>
+  <section class="vs2 rv"><div class="vs-c"><span class="eyebrow" style="color:var(--mu)">Sem Premium</span>${['Lê o material','Marca como concluída','Não sabe se fixou','Descobre os erros só na prova'].map(t=>`<div class="vs-i no">${I('x',16,2.6)}<span>${t}</span></div>`).join('')}</div>
+   <div class="vs-c vs-sim"><span class="eyebrow">Com Premium</span>${['Lê o material e treina na hora','Cada erro volta para revisão','Sabe a nota de cada matéria','Chega na prova já testado'].map(t=>`<div class="vs-i">${I('check',16,2.6)}<span>${t}</span></div>`).join('')}</div></section>
+  <section class="card pad stack rv"><h3>Perguntas frequentes</h3>
+   ${[['Quanto custa?','O preço de lançamento será anunciado em breve. No protótipo, a assinatura é simulada e nada é cobrado.'],['Para quais concursos vale?','A abrangência será definida no lançamento. Na demonstração, o Premium libera todos os concursos do catálogo.'],['Perco meu cronograma?','Não. O Premium inclui tudo dos planos de estudo, e seu histórico continua salvo.'],['E se eu cancelar?','Metas, questões respondidas e caderno de erros ficam guardados e voltam quando você reativar.']].map(([pq,r])=>`<details class="acc" style="border-top:1px solid var(--ln);padding-top:8px"><summary class="between" style="min-height:44px"><b class="sm">${pq}</b><span class="rot">${I('dir',16)}</span></summary><p class="sm mu" style="padding:4px 0 6px">${r}</p></details>`).join('')}</section>
+  <section class="dark pr-final rv"><h2 style="color:#fff">Pronto para treinar de verdade?</h2><p class="mu">Seu cronograma continua o mesmo. O que muda é que cada assunto estudado vira questão, erro revisado e nota estimada.</p><div class="btns" style="max-width:420px">${cta('Quero o Premium')}</div></section>`;
+};
+ACT.rolarPara=d=>{const e=document.getElementById(d.v);if(e)e.scrollIntoView({behavior:reduzMov()?'auto':'smooth',block:'start'})};
+
+// ---------- Comunidade v2 ----------
+const CAT_COR={duvida:['#2F5FAE','var(--p-sky)'],material:['#087B63','var(--p-mint)'],rotina:['#A0680A','var(--p-peach)'],motivacao:['#B3473A','#FCE9E6'],edital:['#6A4FB8','var(--p-lilac)'],conquista:['#6A4FB8','var(--p-lilac)']};
+const tagCat=k=>{const[c,t]=CAT_COR[k]||['var(--mu)','var(--sf2)'];return`<span class="tag" style="background:${t};color:${c}">${catNome(k)}</span>`};
+function corUid(id){const p=COM.nomes[id];if(p&&p.color)return p.color;let h=0;for(const ch of String(id))h=(h*31+ch.charCodeAt(0))%360;return`hsl(${h} 45% 42%)`}
+function avatarDe(id,tam=42,nome,prof){const p=COM.nomes[id];if(prof)return`<span class="cav2 prof" style="--rc:#087B63;width:${tam}px;height:${tam}px">${LOGO(tam-4)}</span>`;return`<span class="cav2" style="--rc:${corUid(id)};width:${tam}px;height:${tam}px">${p&&p.avatarUrl?`<img src="${esc(p.avatarUrl)}" alt="" width="${tam-6}" height="${tam-6}">`:`<span>${esc(((nome||nomeDe(id))[0]||'A').toUpperCase())}</span>`}</span>`}
+function linhaAutor(p){
+  const prof=p.papel==='professor',eu=p.autor===COM.uid,ctx=p.ctx||{};
+  return`<div class="row" style="gap:10px;align-items:center">${avatarDe(p.autor,42,p.exNome,prof)}<div class="grow"><div class="row" style="gap:5px;flex-wrap:wrap"><b class="cnome"></b>${prof?`<span class="verif" title="Professor">${I('verif',16,2)}</span><span class="tag t-ok">Professor</span>`:''}${eu&&!prof?'<span class="tag t-line">Você</span>':''}<span class="xs mu2">· ${quandoTs(p.criado)}</span></div>
+   <span class="xs mu">${prof?'Concurso com Líbero':[ctx.sigla&&`${ctx.sigla} · ${esc(ctx.cargo||'')}`,ctx.nivel&&`nível ${ctx.nivel}`,ctx.streak?`<span class="nw">${I('fogo',12)} ${ctx.streak} dias</span>`:''].filter(Boolean).join(' · ')}</span></div></div>`;
+}
+function cartaoPost(p,resp){
+  const filhos=COM.posts.filter(x=>x.parent===p.id).sort((a,b)=>a.criado-b.criado),ab=COM.aberto[p.id],mostra=ab?filhos:filhos.slice(0,1);
+  const primeiro=!resp&&p.tipo!=='enquete'&&COM.posts.filter(x=>x.autor===p.autor&&!x.parent).sort((a,b)=>a.criado-b.criado)[0]?.id===p.id&&p.papel!=='professor';
+  let corpo=`<p class="ctexto"></p>`;
+  if(p.tipo==='conquista')corpo=`${p.texto?'<p class="ctexto"></p>':''}<div class="conq2"><span class="conq-ic">${I('trofeu',26)}</span><div><span class="eyebrow">Conquista desbloqueada</span><b class="ctit"></b></div></div>`;
+  if(p.tipo==='enquete'){const vs=Object.values(COM.votos).map(v=>v[p.id]).filter(x=>x!=null),tot=vs.length,meu=(COM.votos[COM.uid]||{})[p.id];
+    corpo=`<b class="ctexto enq-q"></b><div class="enq">${(p.opcoes||[]).map((o,i)=>{const n=vs.filter(x=>x===i).length,pc=tot?Math.round(n/tot*100):0;return`<button class="enq-o ${meu===i?'on':''}" data-a="votar" data-p="${p.id}" data-i="${i}" ${COM.podeEscrever===false||!COM.uid?'disabled':''}><span class="enq-b" style="width:${meu!=null?pc:0}%"></span><span class="enq-t">${meu===i?I('check',15,3):''}${esc(o)}</span>${meu!=null?`<b>${pc}%</b>`:''}</button>`}).join('')}</div><span class="xs mu">${tot} ${tot===1?'voto':'votos'}${meu==null?' · toque numa opção para votar':''}</span>`}
+  const nR=filhos.length,nC=nCurt(p.id),eu=curtiu(p.id);
+  return`<article class="cpost2 ${resp?'resp':''} ${p.tipo==='enquete'?'enq-card':''}" data-id="${p.id}">
+   ${p.tipo==='enquete'&&!resp?`<span class="eyebrow" style="display:block;margin-bottom:10px">${I('enquete',13)} Enquete da turma</span>`:''}
+   ${primeiro?`<span class="prim-pub">${I('estrela',12)} Primeira publicação de <span class="cnome1"></span></span>`:''}
+   ${linhaAutor(p)}
+   <div class="stack cp-corpo">${corpo}
+    ${p.cat&&p.tipo!=='enquete'&&p.cat!=='conquista'?`<span style="justify-self:start">${tagCat(p.cat)}</span>`:''}
+    ${p.tipo!=='enquete'?`<div class="cacoes2"><button class="cac2 ${eu?'on':''}" data-a="curtir" data-p="${p.id}" aria-pressed="${eu}">${eu?`<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${ICONS.coracao}</svg>`:I('coracao',18)}<span>${nC||'Curtir'}</span></button><button class="cac2" data-a="responder" data-p="${resp||p.id}">${I('balao',18)}<span>${!resp&&nR?nR+' '+(nR===1?'resposta':'respostas'):'Responder'}</span></button></div>`:''}
+   </div>
+   ${!resp&&p.tipo!=='enquete'&&(filhos.length||true)?`<div class="cfilhos2">${mostra.map(f=>cartaoPost(f,p.id)).join('')}
+    ${filhos.length>1&&!ab?`<button class="btn-g" data-a="maisResp" data-p="${p.id}">Ver mais ${filhos.length-1} ${filhos.length-1===1?'resposta':'respostas'}</button>`:''}
+    ${!filhos.length?`<button class="cprim2" data-a="responder" data-p="${p.id}">${avatarDe(COM.uid||'eu',28)}<span>Seja o primeiro a responder</span></button>`:''}</div>`:''}
+  </article>`;
+}
+const _comV=V.comunidade;
+V.comunidade=()=>{
+  let h=_comV();const c=concAtivo();
+  const autores=[...new Set(COM.posts.map(p=>p.autor))].slice(0,5);
+  const nPosts=COM.posts.filter(p=>!p.parent&&p.conc===c.id).length;
+  const hero=`<section class="dark com-hero rv"><div class="stack" style="gap:10px"><span class="eyebrow">Comunidade · ${c.sigla}</span><h1 style="color:#fff;font-size:30px">Quem estuda com você</h1><p class="mu">Dúvidas, materiais e conquistas de quem vai fazer a mesma prova. Tudo aprovado pelo professor antes de aparecer.</p>
+   <div class="row" style="gap:12px;flex-wrap:wrap">${autores.length?`<span class="av-stack">${autores.map(a=>avatarDe(a,34)).join('')}</span>`:''}<span class="sm" style="color:#C5DED5">${nPosts?`${nPosts} ${nPosts===1?'publicação':'publicações'} no ${c.sigla}`:'Seja a primeira voz da turma'}</span></div></div></section>`;
+  const comp=COM.ok&&COM.uid&&COM.podeEscrever!==false?`<div class="composer rv"><button class="comp-b" data-a="postar">${avatarDe(COM.uid,40)}<span>Compartilhe uma dúvida, um material ou uma conquista…</span></button><div class="comp-chips">${['duvida','material','motivacao'].map(k=>`<button class="chip" data-a="postarCat" data-v="${k}">${catNome(k)}</button>`).join('')}</div></div>`:'';
+  h=h.replace(/<section class="stack" style="gap:6px"><span class="eyebrow">Comunidade[\s\S]*?<\/section>/,hero+comp);
+  h=h.replace(/<div class="list">/g,'<div class="cfeed">').replace(/<div class="list ex">/g,'<div class="cfeed ex">');
+  return h;
+};
+ACT.postarCat=d=>{UI.postCat=d.v;UI.conqRasc=null;abrirSheet('postar')};
+
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -2747,8 +3227,8 @@ function topo(){
    <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}">${LOGO(40)}<span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${c.sigla} · ${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>
-   ${busca}${demo}
-   <span class="desk-acoes">${noApp()?'':`<button class="btn btn-s sm" data-a="instalar">${I('baixar',17)} Instalar app</button>`}<button class="ico-b" data-a="fonte" aria-label="Tamanho do texto" title="Tamanho do texto" aria-pressed="${S.fonte==='grande'}"><span style="font-family:var(--h);font-weight:700">A<small style="font-size:.7em">a</small></span></button><button class="ico-b" data-a="temaCiclo" aria-label="Alternar tema claro e escuro" title="Tema">${I(document.documentElement.dataset.tema==='escuro'?'sol':'lua',19)}</button></span>
+   ${busca}<button class="tema-m" data-a="temaCiclo" aria-label="Alternar tema claro e escuro" title="Tema">${I(temaEscuro()?'sol':'lua',19)}</button>${demo}
+   <span class="desk-acoes">${noApp()?'':`<button class="btn btn-s sm" data-a="instalar">${I('baixar',17)} Instalar app</button>`}<button class="ico-b" data-a="fonte" aria-label="Tamanho do texto" title="Tamanho do texto" aria-pressed="${S.fonte==='grande'}"><span style="font-family:var(--h);font-weight:700">A<small style="font-size:.7em">a</small></span></button><button class="ico-b" data-a="temaCiclo" aria-label="Alternar tema claro e escuro" title="Tema">${I(temaEscuro()?'sol':'lua',19)}</button></span>
    <button class="av" data-a="go" data-v="perfil" aria-label="Abrir perfil">A</button></div>`;
 }
 function lateral(){
@@ -2779,7 +3259,7 @@ function render(topoScroll){
   const main=$('#main');const f=V[UI.view]||V.hoje;
   main.innerHTML=`<div class="wrap" ${topoScroll?'':'style="animation:none"'}>${bloqueio(UI.view)||f(UI.p)}</div>`;
   renderChrome();
-  if(['comunidade','moderacao'].includes(UI.view))comPreencher();
+  if(['comunidade','moderacao'].includes(UI.view))comPreencher();animar();
   if(topoScroll){window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true})}
   else if(focoId){const el=document.getElementById(focoId);if(el)el.focus({preventScroll:true})}
   if(UI.sheet)renderSheet();
