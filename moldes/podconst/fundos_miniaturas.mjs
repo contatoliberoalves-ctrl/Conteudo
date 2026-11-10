@@ -21,22 +21,23 @@ const arrobas = (px = 26) => `<div style="display:flex;flex-direction:column;gap
 const anel = (x, y, d, cor, esp) => `<div style="position:absolute;left:${x}px;top:${y}px;width:${d}px;height:${d}px;border-radius:50%;border:${esp}px solid ${cor}"></div>`;
 
 // ---------- fundos: desenho só nas bordas, miolo limpo ----------
-function fundoPodconst(fundo, fantasma, tag, corAnel) {
+function fundoPodconst(fundo, fantasma, corAnel, claro = false, corLogo = null) {
+  // Logo e @ no canto de cima à esquerda (o slide costuma ocupar a direita e o centro).
+  const traco = claro ? 'rgba(11,26,74,.07)' : 'rgba(255,255,255,.10)';
   return `<div style="position:absolute;inset:0;background:${fundo}"></div>
-  <div style="position:absolute;left:-40px;bottom:-150px;${BB};font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.10);white-space:nowrap">${fantasma}</div>
-  ${anel(1640, -170, 460, corAnel, 34)}${anel(-210, 760, 420, 'rgba(255,255,255,.12)', 26)}
-  <div style="position:absolute;left:56px;top:46px">${arrobas()}</div>
-  <div style="position:absolute;right:70px;bottom:56px">${logo(54)}</div>
-  <div style="position:absolute;left:60px;bottom:54px;font-family:'Space Grotesk';font-weight:700;font-size:24px;letter-spacing:.28em;color:rgba(255,255,255,.75)">${tag}</div>`;
+  <div style="position:absolute;left:-40px;bottom:-150px;${BB};font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px ${traco};white-space:nowrap">${fantasma}</div>
+  ${anel(1640, -170, 460, corAnel, 34)}${anel(-210, 760, 420, claro ? 'rgba(10,58,166,.10)' : 'rgba(255,255,255,.12)', 26)}
+  <div style="position:absolute;left:56px;top:40px;display:flex;align-items:center;gap:34px">${logo(44, corLogo || (claro ? '#e224d6' : '#ff1ff0'))}${arrobas(24)}</div>`;
 }
-function fundoVde(tag) {
-  return `<div style="position:absolute;inset:0;background:${VDE}"></div>
-  ${[0, 1, 2, 3, 4].map(i => anel(1500 - i * 60, -260 - i * 60, 640 + i * 120, 'rgba(201,184,255,.18)', 2)).join('')}
-  ${[0, 1, 2].map(i => anel(-300 - i * 50, 720 - i * 50, 560 + i * 100, 'rgba(201,184,255,.14)', 2)).join('')}
-  <div style="position:absolute;right:60px;bottom:-60px;font-family:Poppins;font-weight:900;font-size:300px;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(201,184,255,.14)">VDE</div>
-  <div style="position:absolute;left:60px;top:50px;font-family:Poppins;font-weight:800;font-size:28px;letter-spacing:.24em;color:#C9B8FF">MÉTODO VDE</div>
-  <div style="position:absolute;left:60px;bottom:50px;font-family:Poppins;font-weight:600;font-size:24px;color:rgba(255,255,255,.8)">@nataliavalenca · @liberofilho</div>
-  <div style="position:absolute;right:60px;top:52px;font-family:Poppins;font-weight:600;font-size:22px;letter-spacing:.2em;color:rgba(255,255,255,.7)">${tag}</div>`;
+function fundoVde(claro = false) {
+  const linha = claro ? 'rgba(46,5,117,.12)' : 'rgba(201,184,255,.18)';
+  return `<div style="position:absolute;inset:0;background:${claro ? 'linear-gradient(160deg,#ffffff 0%,#f6f3ff 60%,#ece6ff 100%)' : VDE}"></div>
+  ${claro ? '<div style="position:absolute;left:0;right:0;top:0;height:10px;background:linear-gradient(90deg,#2E0575,#1937B1)"></div>' : ''}
+  ${[0, 1, 2, 3, 4].map(i => anel(1500 - i * 60, -260 - i * 60, 640 + i * 120, linha, 2)).join('')}
+  ${[0, 1, 2].map(i => anel(-300 - i * 50, 720 - i * 50, 560 + i * 100, linha, 2)).join('')}
+  <div style="position:absolute;right:60px;bottom:-60px;font-family:Poppins;font-weight:900;font-size:300px;line-height:1;color:transparent;-webkit-text-stroke:2px ${linha}">VDE</div>
+  <div style="position:absolute;left:60px;top:50px;font-family:Poppins;font-weight:800;font-size:28px;letter-spacing:.24em;color:${claro ? '#2E0575' : '#C9B8FF'}">MÉTODO VDE</div>
+  <div style="position:absolute;left:60px;top:94px;font-family:Poppins;font-weight:600;font-size:22px;color:${claro ? '#4b3f7a' : 'rgba(255,255,255,.8)'}">@nataliavalenca · @liberofilho</div>`;
 }
 
 // ---------- miniaturas do YouTube (1280×720) ----------
@@ -77,9 +78,11 @@ const miniVde = () => `<div style="position:absolute;inset:0;background:${VDE}">
   <div style="position:absolute;left:64px;bottom:50px;font-family:Poppins;font-weight:600;font-size:26px;color:rgba(255,255,255,.85)">@nataliavalenca · @liberofilho</div>`;
 
 const PECAS = [
-  ['fundo-podconst-azul', 1920, 1080, () => fundoPodconst(AZUL, 'PODCONST', 'AULA', 'rgba(226,36,214,.85)')],
-  ['fundo-podconst-magenta', 1920, 1080, () => fundoPodconst(MAG, 'PODCONST', 'AULA', 'rgba(247,244,0,.85)')],
-  ['fundo-vde', 1920, 1080, () => fundoVde('AULA')],
+  ['fundo-podconst-azul', 1920, 1080, () => fundoPodconst(AZUL, 'PODCONST', 'rgba(226,36,214,.85)')],
+  ['fundo-podconst-magenta', 1920, 1080, () => fundoPodconst(MAG, 'PODCONST', 'rgba(247,244,0,.85)', false, '#fff')],
+  ['fundo-podconst-branco', 1920, 1080, () => fundoPodconst('linear-gradient(160deg,#ffffff 0%,#f3f5f9 55%,#e6ebf4 100%)', 'PODCONST', 'rgba(226,36,214,.85)', true)],
+  ['fundo-vde', 1920, 1080, () => fundoVde()],
+  ['fundo-vde-branco', 1920, 1080, () => fundoVde(true)],
   ['miniatura-podconst-repescagem', 1280, 720, miniRepescagem],
   ['miniatura-podconst-voto-distrital', 1280, 720, miniDistrital],
   ['miniatura-vde-mudar-materia', 1280, 720, miniVde],
