@@ -13,6 +13,9 @@ Identidade em `moldes/dorama-comum/` (leia o README de lá). Três moldes, cada 
 | `dorama-post` | uma imagem só: `indicacao`, `nota`, `meme`, `curiosidade`, `reflexao` |
 | `dorama-nativo` | post com cara de feito no app (foto/cena + texto nativo + slider de nota, enquete, caixa de perguntas) |
 
+## Capas com foto do dorama
+No carrossel, a capa aceita a foto de uma cena de fundo: `estilo` `foto`, `cinema`, `moldura`, `vidro` ou `fotonota` (veja o README do molde). As fotos ficam em `moldes/dorama-comum/fotos/` (fora do git; peça ao usuário as cenas ou o link do Drive). Não baixe cenas das séries por conta própria. Os exemplos usam cenários da Coreia do Wikimedia Commons (`fotos/CREDITOS.txt`), com `credito` na capa. Confira o enquadramento (`fotoPos`) para o rosto não ficar atrás do título.
+
 ## Tom e conteúdo
 - Português leve, de amiga dorameira, mas com fé: cada indicação/nota liga o dorama a um valor bíblico, sem forçar.
 - Nota: sempre com **alertas** honestos para a família ("Beijos", "Violência leve", "Espíritos", "Linguagem") e, se fizer sentido, um critério "Visão de fé".
