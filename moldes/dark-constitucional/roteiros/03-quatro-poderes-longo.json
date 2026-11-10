@@ -1,0 +1,200 @@
+{
+  "pauta": 3,
+  "longo": true,
+  "serie": "Império: o que não te contaram",
+  "titulo": "O Brasil já teve 4 Poderes. E um homem tinha dois. | O Poder Moderador do Império",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil já teve\n4 Poderes. E um\nhomem tinha **dois.**",
+      "imagem": {
+        "arquivo": "imagens/tronos.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "30% 50%"
+      },
+      "fala": "O Brasil já teve quatro Poderes. Não três, como hoje. Quatro. E um único homem controlava dois deles, sem responder a ninguém. Esse quarto poder estava escrito na Constituição e mexia em tudo. Hoje você vai entender como ele funcionava, por que acabou e por que ainda tem gente falando dele."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Uma Constituição imposta",
+      "fala": "Capítulo um. Uma Constituição imposta."
+    },
+    {
+      "tipo": "frase",
+      "data": "12 de novembro de 1823",
+      "texto": "O imperador fecha\na **Constituinte.**",
+      "nota": "Tropas cercaram a Assembleia, e deputados foram presos e exilados.",
+      "fala": "Logo depois da independência, o Brasil reuniu uma assembleia pra escrever sua primeira Constituição. Dom Pedro Primeiro não gostou do rumo. Em novembro de mil oitocentos e vinte e três, mandou as tropas fecharem a Assembleia."
+    },
+    {
+      "tipo": "frase",
+      "data": "25 de março de 1824",
+      "texto": "Uma Constituição\n**outorgada.**",
+      "nota": "Escrita por um conselho nomeado pelo imperador, sem votação.",
+      "fala": "No ano seguinte, ele entregou ao país uma Constituição escrita por gente da confiança dele. Sem votação nenhuma. Por isso se diz que ela foi outorgada: imposta de cima pra baixo."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1824 · art. 10",
+        "texto": "Os Poderes Políticos reconhecidos pela Constituição do Império do Brasil são **quatro**: o Poder Legislativo, o Poder Moderador, o Poder Executivo, e o Poder Judicial."
+      },
+      "b": {
+        "cabecalho": "Constituição de 1824 · art. 102",
+        "texto": "O Imperador é o **Chefe do Poder Executivo**, e o exercita pelos seus Ministros de Estado."
+      },
+      "ponte": "E mais",
+      "segundoEm": "adiante",
+      "fala": "E o artigo décimo diz com todas as letras: os Poderes são quatro. Mais adiante, o artigo cento e dois completa: o chefe do Executivo é o imperador."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A chave de tudo",
+      "fala": "Capítulo dois. A chave de tudo."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1824 · art. 98",
+        "texto": "O Poder Moderador é a **chave de toda a organização Política**, e é delegado privativamente ao Imperador…"
+      },
+      "b": {
+        "cabecalho": "Constituição de 1824 · art. 99",
+        "texto": "A Pessoa do Imperador é inviolável, e Sagrada: Ele **não está sujeito a responsabilidade alguma**."
+      },
+      "ponte": "E ainda",
+      "segundoEm": "seguinte",
+      "fala": "O artigo noventa e oito chamava o Moderador de chave de toda a organização política, e entregava esse poder só ao imperador. O artigo seguinte blindava quem usava a chave: inviolável e sagrado. Não respondia por nada."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Senado",
+          "sub": "escolhe o senador numa lista de três"
+        },
+        {
+          "titulo": "Câmara",
+          "sub": "dissolve e convoca outra",
+          "marcada": true
+        },
+        {
+          "titulo": "Ministros",
+          "sub": "nomeia e demite livremente",
+          "marcada": true
+        },
+        {
+          "titulo": "Juízes",
+          "sub": "suspende, em certos casos"
+        }
+      ],
+      "dono": "Moderador",
+      "marcaEm": "dissolver",
+      "fala": "E o que essa chave abria? O imperador escolhia cada senador numa lista de três nomes. Podia dissolver a Câmara dos Deputados. Nomeava e demitia ministros quando quisesse. E, em certos casos, suspendia juízes."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem decidia\nquem **governava?**",
+      "fala": "Agora pensa: se ele escolhe o governo e pode mandar os deputados pra casa, quem de fato decidia quem governava?"
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O poder na prática",
+      "fala": "Capítulo três. O poder na prática."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/pedro-ii.jpg",
+        "credito": "D. Pedro II · Arquivo Nacional (domínio público)",
+        "foco": "50% 30%"
+      },
+      "data": "1868",
+      "texto": "Pedro II troca o governo e **dissolve** a Câmara.",
+      "fala": "Em mil oitocentos e sessenta e oito, um gabinete liberal, com maioria na Câmara, deixou o governo. Dom Pedro Segundo não chamou outro liberal. Chamou os conservadores. A Câmara reagiu, e ele a dissolveu."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1º",
+          "texto": "O imperador escolhe o ministério"
+        },
+        {
+          "data": "2º",
+          "texto": "O ministério faz a eleição"
+        },
+        {
+          "data": "3º",
+          "texto": "A eleição faz a **maioria**"
+        }
+      ],
+      "fala": "O senador Nabuco de Araújo resumiu o sistema numa corrente. O imperador chama quem quiser pra formar o ministério. O ministério faz a eleição. E a eleição faz a maioria."
+    },
+    {
+      "tipo": "frase",
+      "texto": "No papel, quatro Poderes.\nNa prática, **um centro.**",
+      "fala": "No papel, eram quatro Poderes. Na prática, tudo girava em volta do trono."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "O fim e a sombra",
+      "fala": "Capítulo quatro. O fim e a sombra."
+    },
+    {
+      "tipo": "frase",
+      "data": "15 de novembro de 1889",
+      "texto": "A República acaba\ncom o **Moderador.**",
+      "nota": "A Constituição de 1891 voltou aos três Poderes, harmônicos e independentes (art. 15).",
+      "fala": "Com a República, em mil oitocentos e oitenta e nove, o Poder Moderador acabou. A Constituição de noventa e um voltou aos três Poderes. É o modelo que a gente tem até hoje."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 2º",
+        "texto": "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o **Judiciário**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 142",
+        "texto": "As Forças Armadas (…) destinam-se à defesa da Pátria, à **garantia dos poderes constitucionais** e, por iniciativa de qualquer destes, da lei e da ordem."
+      },
+      "ponte": "Mas",
+      "segundoEm": "cento",
+      "fala": "A Constituição de oitenta e oito também fala em três Poderes. Só que o artigo cento e quarenta e dois diz que as Forças Armadas garantem os poderes constitucionais. E teve quem lesse ali um poder moderador escondido."
+    },
+    {
+      "tipo": "frase",
+      "data": "STF · ADI 6457 · 2024",
+      "texto": "O Supremo: não existe\n**poder moderador.**",
+      "nota": "O STF afastou a leitura de que o art. 142 daria às Forças Armadas um poder moderador entre os Poderes.",
+      "fala": "Em dois mil e vinte e quatro, o Supremo julgou uma ação sobre isso. E afastou essa leitura: as Forças Armadas não são árbitro dos outros Poderes."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O quarto Poder\nmorreu em **1889.**",
+      "fala": "O quarto Poder morreu com o Império. E o Supremo deixou claro que ele não volta pela porta dos fundos."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você daria esse\npoder a **alguém?**",
+      "fala": "E você: daria um poder desses a alguém hoje? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "A Constituição de 1824, outorgada por D. Pedro I, reconhecia quatro Poderes (art. 10): Legislativo, Moderador, Executivo e Judicial. O imperador chefiava o Executivo (art. 102) e exercia sozinho o Poder Moderador, \"chave de toda a organização política\" (art. 98), sem responder por nada (art. 99). O Moderador acabou com a República, e em 2024, na ADI 6457, o STF afastou a leitura de que o art. 142 da Constituição atual daria às Forças Armadas um poder moderador.\n\nNeste vídeo: o fechamento da Constituinte de 1823, a Constituição outorgada de 1824, o que o imperador podia fazer com o Poder Moderador (art. 101), a crise de 1868, a corrente de Nabuco de Araújo, o fim do Moderador em 1889 e o julgamento do STF sobre o art. 142.",
+  "fontes": [
+    "Constituição de 1824, arts. 10, 98, 99, 101 e 102",
+    "Constituição de 1891, art. 15",
+    "Constituição de 1988, arts. 2º e 142",
+    "STF · ADI 6457"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "podermoderador",
+    "direitoconstitucional"
+  ]
+}

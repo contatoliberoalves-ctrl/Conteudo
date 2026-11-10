@@ -1,0 +1,177 @@
+{
+  "pauta": 32,
+  "longo": true,
+  "serie": "Casos que viraram direito",
+  "titulo": "Tem uma prisão na Constituição que é proibida | O caso do depositário infiel",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Tem uma prisão\nna Constituição\nque é **proibida.**",
+      "imagem": {
+        "arquivo": "imagens/stf-plenario.jpg",
+        "credito": "Plenário do STF · foto acmoraes/Flickr (CC BY 2.0)",
+        "foco": "50% 75%"
+      },
+      "fala": "Está no artigo quinto da Constituição: uma pessoa pode ser presa por dívida em dois casos. Só que um deles é proibido. Nenhum juiz do Brasil pode mandar prender por ele. Como uma regra da Constituição vira letra morta sem ninguém apagar uma vírgula? É isso que você vai entender agora."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "A exceção",
+      "fala": "Capítulo um. A exceção."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, LXVII",
+        "texto": "Não haverá prisão civil por dívida, salvo a do responsável pelo inadimplemento de obrigação alimentícia e a do **depositário infiel**."
+      },
+      "b": {
+        "cabecalho": "Depositário (resumo)",
+        "texto": "Quem recebe um bem para **guardar** e tem de devolvê-lo quando o dono pedir. Infiel é quem não devolve."
+      },
+      "ponte": "Quem é",
+      "segundoEm": "Depositário",
+      "fala": "Artigo quinto, inciso sessenta e sete. Não haverá prisão por dívida, com duas exceções: quem não paga pensão alimentícia e o depositário infiel. Depositário é quem recebe um bem pra guardar e tem que devolver quando o dono pede. Infiel é quem não devolve."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Prisão civil\nnão é **pena.**",
+      "nota": "Não pune crime. Serve para forçar o pagamento ou a devolução.",
+      "fala": "Repara: prisão civil não é castigo por crime. É um jeito de pressionar. Pagou ou devolveu, saiu."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O carro do banco",
+      "fala": "Capítulo dois. O carro do banco."
+    },
+    {
+      "tipo": "frase",
+      "data": "Decreto-Lei 911/1969",
+      "texto": "Quem financia um carro\nvira **depositário**\ndo banco.",
+      "nota": "Na alienação fiduciária, o bem fica em nome do credor até a última parcela.",
+      "fala": "Aí entra o detalhe que lotou os tribunais. Desde mil novecentos e sessenta e nove, um decreto-lei tratava quem comprava um bem financiado com alienação fiduciária como depositário do banco. O carro ficava em nome do banco até a última parcela."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Atrasou e o carro\nsumiu?\n**Prisão.**",
+      "fala": "Atrasou as parcelas e o carro não apareceu? O devedor podia acabar preso como depositário infiel. E por anos o Supremo aceitou isso."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O tratado",
+      "fala": "Capítulo três. O tratado."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Pacto de San José · art. 7º, 7",
+        "texto": "Ninguém deve ser detido por dívidas. Este princípio não limita os mandados de autoridade judiciária competente expedidos em virtude de inadimplemento de **obrigação alimentar**."
+      },
+      "b": {
+        "cabecalho": "Compare",
+        "texto": "A Constituição admite duas exceções. O Pacto, **só uma**: a pensão alimentícia."
+      },
+      "ponte": "Compare",
+      "segundoEm": "Constituição",
+      "fala": "Em mil novecentos e noventa e dois, o Brasil aderiu à Convenção Americana de Direitos Humanos, o Pacto de San José da Costa Rica. E o Pacto diz: ninguém será preso por dívida, a não ser por pensão alimentícia. A Constituição tinha duas exceções. O Pacto, só uma."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Tratado vale\nmais que **lei?**",
+      "fala": "Então quem ganha: o tratado ou as leis que mandavam prender?"
+    },
+    {
+      "tipo": "frase",
+      "data": "2004",
+      "texto": "Tratado aprovado como\nemenda vale como\n**emenda.**",
+      "nota": "A EC 45/2004 criou o § 3º do art. 5º: três quintos dos votos, em dois turnos, nas duas Casas.",
+      "fala": "Em dois mil e quatro, uma emenda criou uma regra nova: tratado de direitos humanos aprovado com o rito de emenda, três quintos em dois turnos nas duas Casas, vale como norma constitucional. Só que o Pacto tinha sido aprovado antes, sem esse rito."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Dois mil e oito",
+      "fala": "Capítulo quatro. Dois mil e oito."
+    },
+    {
+      "tipo": "frase",
+      "data": "3 de dezembro de 2008",
+      "texto": "O Supremo cria\num andar no meio:\n**supralegal.**",
+      "nota": "RE 466.343: abaixo da Constituição, acima das leis.",
+      "fala": "Três de dezembro de dois mil e oito. Num recurso extraordinário, o quatrocentos e sessenta e seis mil, trezentos e quarenta e três, o Supremo decidiu que esses tratados ficam num andar próprio. Abaixo da Constituição, mas acima de todas as leis. O nome técnico é supralegal."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Constituição",
+          "sub": "no topo"
+        },
+        {
+          "titulo": "Tratado",
+          "sub": "supralegal",
+          "marcada": true
+        },
+        {
+          "titulo": "Leis",
+          "sub": "embaixo"
+        }
+      ],
+      "dono": "STF 2008",
+      "marcaEm": "meio",
+      "fala": "No topo, a Constituição. No meio, o tratado. Embaixo, as leis que mandavam prender o depositário. E elas perderam a força."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A Constituição permite.\nMas não **obriga.**",
+      "fala": "E por que o inciso não continuou valendo sozinho? Porque a Constituição permite essa prisão, mas não obriga. Ela depende de lei. E as leis ficaram travadas pelo tratado."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "Letra morta",
+      "fala": "Capítulo cinco. Letra morta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Súmula Vinculante 25 · 2009",
+        "texto": "É **ilícita** a prisão civil de depositário infiel, qualquer que seja a modalidade do depósito."
+      },
+      "b": {
+        "cabecalho": "STJ · Súmula 419",
+        "texto": "Descabe a prisão civil do **depositário judicial** infiel."
+      },
+      "ponte": "E o STJ",
+      "segundoEm": "Superior",
+      "fala": "Em dezembro de dois mil e nove, o Supremo aprovou a Súmula Vinculante vinte e cinco: é ilícita a prisão do depositário infiel, em qualquer tipo de depósito. E o Superior Tribunal de Justiça seguiu a mesma linha."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Pensão alimentícia\nainda **dá prisão.**",
+      "fala": "A outra exceção continua de pé. Quem deixa de pagar pensão alimentícia ainda pode ser preso. É a única prisão por dívida que sobrou no Brasil."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Isso cai na OAB.\nVocê **sabia?**",
+      "rotulo": "Manda pra quem estuda",
+      "fala": "Isso cai em prova da OAB e de concurso. Manda pra quem está estudando, comenta se você sabia, e se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Está no art. 5º, LXVII, da Constituição: prisão civil do depositário infiel. E é proibida. Em 2008, no RE 466.343, o STF decidiu que o Pacto de San José da Costa Rica, que só admite prisão por dívida de pensão alimentícia, fica acima das leis comuns. As leis que regulavam a prisão do depositário ficaram sem aplicação, e a Súmula Vinculante 25 fechou a questão.\n\nNeste vídeo: as duas exceções à prisão por dívida, a alienação fiduciária e os carros financiados, o Pacto de San José, a regra do § 3º do art. 5º (EC 45/2004), a tese da supralegalidade, a Súmula Vinculante 25, a Súmula 419 do STJ e a prisão do devedor de pensão, que continua valendo.",
+  "fontes": [
+    "CF/88, art. 5º, LXVII e § 3º",
+    "Convenção Americana de Direitos Humanos, art. 7º, 7 (Decreto 678/1992)",
+    "STF · RE 466.343, Tema 60",
+    "STF · Súmula Vinculante 25",
+    "STJ · Súmula 419"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "oab",
+    "stf"
+  ]
+}

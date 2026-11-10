@@ -1,0 +1,182 @@
+{
+  "pauta": 8,
+  "longo": true,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "A Constituição tinha 9 meses. O presidente fechou o Congresso. | O golpe de Deodoro em 1891",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A Constituição\ntinha 9 meses.\nE o presidente\n**fechou** o Congresso.",
+      "imagem": {
+        "arquivo": "imagens/cadeado.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "A primeira Constituição da República tinha nove meses de vida quando o presidente mandou fechar o Congresso. E não era um presidente qualquer. Era o marechal que tinha proclamado a República. Essa é a história de como o golpe aconteceu, de por que durou só vinte dias, e da briga que veio depois."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Eleito pelo Congresso",
+      "fala": "Capítulo um. Eleito pelo Congresso."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1891 · art. 47",
+        "texto": "O Presidente e o Vice-Presidente da República serão eleitos por **sufrágio direto da Nação** e maioria absoluta de votos."
+      },
+      "b": {
+        "cabecalho": "Disposições Transitórias · art. 1º",
+        "texto": "Promulgada esta Constituição, o Congresso, reunido em assembleia geral, **elegerá em seguida** (…) o Presidente e o Vice-Presidente…"
+      },
+      "ponte": "Da primeira vez",
+      "segundoEm": "primeira",
+      "fala": "Vinte e quatro de fevereiro de mil oitocentos e noventa e um. Sai a Constituição. A regra é eleição direta pelo povo. Mas, só da primeira vez, o próprio Congresso escolheria o presidente."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Congresso · 25/2/1891",
+      "a": 129,
+      "b": 97,
+      "rotuloA": "Deodoro",
+      "rotuloB": "Prudente",
+      "carimbo": "Eleito",
+      "fala": "No dia seguinte, a votação. Marechal Deodoro da Fonseca, cento e vinte e nove votos. Prudente de Morais, noventa e sete. Deodoro venceu. Mas não com folga."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Para vice, o Congresso\nescolhe o **rival.**",
+      "nota": "Floriano Peixoto, da chapa adversária, venceu a votação para vice.",
+      "fala": "E pra vice, o Congresso escolheu Floriano Peixoto, que vinha da chapa adversária. Presidente e vice começaram o governo em lados opostos."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "Nove meses de guerra",
+      "fala": "Capítulo dois. Nove meses de guerra."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Um presidente\ncontra o **Congresso.**",
+      "nota": "O Congresso discutia a lei dos crimes de responsabilidade do presidente.",
+      "fala": "Os meses seguintes foram de conflito aberto. O Congresso fazia oposição a Deodoro. E começou a votar a lei dos crimes de responsabilidade do presidente. Ou seja, as regras do impeachment."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1891 · art. 54",
+        "texto": "São crimes de responsabilidade os atos do Presidente da República que atentarem contra: (…) 3º) o **livre exercício dos Poderes políticos**;"
+      },
+      "b": {
+        "cabecalho": "Constituição de 1891 · art. 54, § 1º",
+        "texto": "Esses delitos serão definidos em **lei especial**."
+      },
+      "ponte": "Faltava",
+      "segundoEm": "faltava",
+      "fala": "A Constituição já dizia que atentar contra o livre exercício dos Poderes era crime de responsabilidade. Só faltava a lei especial que detalhasse isso. E ela estava sendo escrita com Deodoro na mira."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "3 de novembro",
+      "fala": "Capítulo três. Três de novembro."
+    },
+    {
+      "tipo": "frase",
+      "data": "3 de novembro de 1891",
+      "texto": "Deodoro **dissolve**\no Congresso.",
+      "nota": "No mesmo dia, decretou estado de sítio na capital.",
+      "fala": "Três de novembro. Deodoro assina um decreto dissolvendo o Congresso, põe a capital em estado de sítio e promete convocar novas eleições."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/porta-escura.jpg",
+        "credito": "Foto: Outpost 51/Flickr (CC BY 2.0)",
+        "foco": "50% 50%"
+      },
+      "afasta": true,
+      "texto": "Nove meses depois, as portas **fechadas.**",
+      "fala": "As portas do Congresso se fecharam. Nove meses depois de jurar a Constituição, o presidente passava por cima dela."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O imperador podia.\nO presidente\n**não.**",
+      "nota": "A Carta de 1891 previa Poderes harmônicos e independentes entre si (art. 15), sem dissolução do Congresso.",
+      "fala": "E a Constituição não dava esse poder a ninguém. No Império, o imperador podia dissolver a Câmara. Na República, os Poderes eram independentes e harmônicos. O presidente não podia."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "E os militares\n**aceitaram?**",
+      "fala": "Um marechal fecha o Congresso. A pergunta era uma só: os militares iam aceitar?"
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Vinte dias",
+      "fala": "Capítulo quatro. Vinte dias."
+    },
+    {
+      "tipo": "frase",
+      "data": "23 de novembro de 1891",
+      "texto": "Durou **20 dias.**",
+      "nota": "Com a Revolta da Armada, Deodoro renunciou.",
+      "fala": "Não aceitaram. Em vinte e três de novembro, a Marinha se revoltou, sob o comando do almirante Custódio de Melo, e ameaçou bombardear o Rio. No mesmo dia, Deodoro renunciou. O golpe durou vinte dias."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Floriano assume\ne **reabre** o Congresso.",
+      "fala": "O vice, Floriano Peixoto, assumiu a presidência e reabriu o Congresso. Parecia o fim da crise. Não era."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O vice que ficou",
+      "fala": "Capítulo cinco. O vice que ficou."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1891 · art. 42",
+        "texto": "Se, no caso de vaga, por qualquer causa, da Presidência ou Vice-Presidência, não houverem ainda decorrido **dois anos** do período presidencial, proceder-se-á a nova eleição."
+      },
+      "b": {
+        "cabecalho": "A leitura de Floriano",
+        "texto": "O primeiro mandato, escolhido pelo Congresso, era exceção. O vice **governaria até o fim**."
+      },
+      "ponte": "Mas",
+      "segundoEm": "Floriano",
+      "fala": "E aqui está a pegadinha. A Constituição mandava fazer nova eleição se a presidência ficasse vaga antes de dois anos de mandato. Deodoro saiu com nove meses. Mas Floriano sustentou que essa regra não valia pro primeiro mandato. E ficou."
+    },
+    {
+      "tipo": "frase",
+      "data": "1892",
+      "texto": "Treze oficiais-generais\ncobram **eleição.**",
+      "nota": "Floriano reformou os signatários do manifesto.",
+      "fala": "Em mil oitocentos e noventa e dois, treze oficiais-generais publicaram um manifesto cobrando a eleição. Floriano mandou todos pra reserva e governou até o fim do mandato."
+    },
+    {
+      "tipo": "frase",
+      "data": "1894",
+      "texto": "O primeiro civil eleito\npelo **voto direto.**",
+      "fala": "Só em mil oitocentos e noventa e quatro o país elegeu pelo voto direto um presidente civil. Prudente de Morais. O mesmo que tinha perdido pra Deodoro."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que a\nRepública começou\n**assim?**",
+      "fala": "Você sabia que a República começou assim? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "A Constituição de 1891 tinha nove meses quando o presidente Deodoro da Fonseca, eleito pelo Congresso em 25 de fevereiro, dissolveu o Congresso em 3 de novembro, poder que a Carta não lhe dava (art. 15). O golpe durou 20 dias: com a Revolta da Armada, Deodoro renunciou em 23 de novembro, e o vice, Floriano Peixoto, reabriu o Congresso.\n\nNeste vídeo: a eleição indireta de 1891, o placar Deodoro x Prudente de Morais, a lei dos crimes de responsabilidade (art. 54), o decreto de dissolução e o estado de sítio, a Revolta da Armada, a renúncia, a polêmica do art. 42 e o manifesto dos treze oficiais-generais.",
+  "fontes": [
+    "Constituição de 1891, arts. 15, 42, 47 e 54; Disposições Transitórias, art. 1º",
+    "Senado Federal · Eleição presidencial de 1891 e decreto de dissolução",
+    "Câmara dos Deputados · Revolta da Armada e renúncia de Deodoro"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "deodoro",
+    "direitoconstitucional"
+  ]
+}

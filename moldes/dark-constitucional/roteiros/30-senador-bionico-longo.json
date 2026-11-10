@@ -1,0 +1,184 @@
+{
+  "pauta": 30,
+  "longo": true,
+  "serie": "Na urna",
+  "titulo": "O Brasil já teve senador eleito sem voto do povo | A história dos senadores biônicos",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil já teve\nsenador eleito\n**sem voto do povo.**",
+      "imagem": {
+        "arquivo": "imagens/urnas-senado-1929.jpg",
+        "credito": "Urnas no Senado dos EUA, 1929 · Library of Congress (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "Mil novecentos e setenta e oito. Em cada estado do Brasil, uma cadeira do Senado foi preenchida sem que um único eleitor votasse nela. Os escolhidos ficaram oito anos no cargo, e ganharam um apelido que pegou: senadores biônicos. Essa é a história de como isso aconteceu, e de por que hoje seria impossível."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O susto de 1974",
+      "fala": "Capítulo um. O susto de setenta e quatro."
+    },
+    {
+      "tipo": "frase",
+      "data": "1974",
+      "texto": "A oposição leva\n16 das 22 vagas\nno **Senado.**",
+      "nota": "No regime militar, só dois partidos eram permitidos: a Arena, do governo, e o MDB, da oposição.",
+      "fala": "Volta quatro anos. Em setenta e quatro, o país vivia sob o regime militar, com só dois partidos: a Arena, do governo, e o MDB, da oposição. Na eleição pro Senado, o MDB levou dezesseis das vinte e duas vagas."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Em 1978, o governo\npodia **perder**\no Senado.",
+      "fala": "O recado assustou o governo. Na eleição seguinte, em setenta e oito, dois terços do Senado iam ser renovados. E a maioria governista estava em risco."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O Congresso fechado",
+      "fala": "Capítulo dois. O Congresso fechado."
+    },
+    {
+      "tipo": "frase",
+      "data": "Março de 1977",
+      "texto": "A oposição barra\numa reforma do\n**Judiciário.**",
+      "nota": "Mudar a Constituição exigia dois terços do Congresso.",
+      "fala": "Em março de setenta e sete, o MDB usou o peso que tinha. Mudar a Constituição exigia dois terços dos votos, e a oposição barrou uma reforma do Judiciário que o governo queria."
+    },
+    {
+      "tipo": "linha",
+      "virada": 0,
+      "marcos": [
+        {
+          "data": "1º/4/1977",
+          "texto": "Geisel põe o Congresso em **recesso**"
+        },
+        {
+          "data": "Abril de 1977",
+          "texto": "Por decreto, o governo muda a Constituição"
+        },
+        {
+          "data": "1978",
+          "texto": "Eleição com as regras novas"
+        }
+      ],
+      "fala": "Primeiro de abril. O presidente Ernesto Geisel, com base no Ato Institucional número cinco, coloca o Congresso em recesso. Com o plenário vazio, o governo muda a Constituição sozinho, por decreto. O conjunto ficou conhecido como Pacote de Abril."
+    },
+    {
+      "tipo": "frase",
+      "data": "Pacote de Abril",
+      "texto": "Mandato do presidente\npassa de 5 para\n**6 anos.**",
+      "nota": "E a eleição indireta para governador foi mantida em 1978.",
+      "fala": "E o pacote não parou por aí. O mandato do próximo presidente passou de cinco pra seis anos. E a eleição indireta pra governador continuou valendo em setenta e oito."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "A vaga sem urna",
+      "fala": "Capítulo três. A vaga sem urna."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Vaga 1",
+          "sub": "voto direto do povo"
+        },
+        {
+          "titulo": "Vaga 2",
+          "sub": "colégio eleitoral, sem voto popular",
+          "marcada": true
+        }
+      ],
+      "dono": "Biônico",
+      "marcaEm": "outra",
+      "fala": "A principal mudança: em setenta e oito, cada estado teria duas vagas em disputa no Senado. Uma ia pra urna, como sempre. A outra seria escolhida por um colégio eleitoral."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Quem votava (resumo)",
+        "texto": "Os deputados estaduais e **delegados das câmaras municipais**. O mesmo colégio que escolhia o governador."
+      },
+      "b": {
+        "cabecalho": "Na prática",
+        "texto": "Quem tinha maioria na assembleia **levava** a vaga. Na maior parte dos estados, essa maioria era da Arena."
+      },
+      "ponte": "Na prática",
+      "segundoEm": "Na",
+      "fala": "Quem votava eram os deputados estaduais e delegados das câmaras municipais, o mesmo colégio que escolhia o governador. Na prática, quem tinha maioria na assembleia levava a vaga. E na maior parte dos estados, essa maioria era da Arena."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Por que\n**biônico?**",
+      "fala": "E de onde veio o apelido?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Um senador\n**artificial.**",
+      "nota": "O apelido é associado ao seriado O Homem Biônico, sucesso na TV da época, sobre um herói com partes artificiais.",
+      "fala": "Ele é associado a um seriado famoso na época, O Homem Biônico, sobre um herói com partes artificiais. Um senador que não saiu das urnas era, assim, um senador artificial."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Oito anos",
+      "fala": "Capítulo quatro. Oito anos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Um em cada três\nsenadores, **sem voto.**",
+      "fala": "Na conta final, um em cada três senadores passou a ocupar a cadeira sem ter recebido um voto popular sequer."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Mandato de\n**8 anos.**",
+      "nota": "Os eleitos indiretamente em 1978 ficaram no Senado até 1987.",
+      "fala": "E não foi coisa passageira. Mandato de senador dura oito anos. Os biônicos de setenta e oito ficaram até oitenta e sete."
+    },
+    {
+      "tipo": "frase",
+      "data": "Novembro de 1980",
+      "texto": "Uma emenda devolve\nao povo o voto\npara **senador.**",
+      "nota": "A Emenda Constitucional 15/1980 restabeleceu a eleição direta para governador e senador.",
+      "fala": "Em novembro de oitenta, a Emenda quinze restabeleceu a eleição direta pra governador e pra senador. Só que quem já estava lá ficou até o fim do mandato. A regra mudou. A cadeira, não."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "A regra hoje",
+      "fala": "Capítulo cinco. A regra hoje."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 46",
+        "texto": "O Senado Federal compõe-se de representantes dos Estados e do Distrito Federal, eleitos segundo o **princípio majoritário**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 4º, II",
+        "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir o **voto direto, secreto, universal e periódico**."
+      },
+      "ponte": "E mais",
+      "segundoEm": "cláusula",
+      "fala": "Hoje, a Constituição manda que todo senador seja eleito pelo princípio majoritário: leva a vaga quem tem mais votos no estado. E o voto direto virou cláusula pétrea. Nenhuma emenda pode acabar com ele."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Senador sem voto\nrepresenta **quem?**",
+      "fala": "E pra você: um senador que o povo não elegeu representa quem? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em 1978, uma das duas vagas de senador em disputa em cada estado foi preenchida por eleição indireta, num colégio eleitoral, sem voto popular. A regra veio do Pacote de Abril de 1977, decretado pelo governo Geisel com o Congresso em recesso. Os escolhidos, os senadores biônicos, cumpriram mandato de 8 anos, até 1987, mesmo depois de a Emenda 15/1980 devolver a eleição direta.\n\nNeste vídeo: a vitória do MDB em 1974, o recesso do Congresso e o Pacote de Abril, o colégio eleitoral dos senadores, a origem do apelido biônico, a Emenda 15/1980 e por que hoje o voto direto é cláusula pétrea (CF/88, arts. 46 e 60, § 4º, II).",
+  "fontes": [
+    "Senado Federal · Pacote de Abril de 1977",
+    "Senado Federal · Eleições de 1974 e 1978",
+    "Emenda Constitucional 15/1980",
+    "Constituição de 1988, arts. 46 e 60, § 4º, II"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "senado",
+    "direitoconstitucional"
+  ]
+}

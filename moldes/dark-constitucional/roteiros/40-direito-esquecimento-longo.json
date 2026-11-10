@@ -1,0 +1,181 @@
+{
+  "pauta": 40,
+  "longo": true,
+  "serie": "O STF decidiu",
+  "titulo": "Existe direito de ser esquecido no Brasil? | O caso Aída Curi no Supremo",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Existe direito\nde ser **esquecido**\nno Brasil?",
+      "imagem": {
+        "arquivo": "imagens/tv-antiga.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "Um crime de mil novecentos e cinquenta e oito. Quase cinquenta anos depois, ele volta à televisão. E a família da vítima vai até o Supremo com um pedido estranho: o direito de ser esquecida. A resposta mudou o que a imprensa pode contar no Brasil. Essa é a história."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Copacabana, 1958",
+      "fala": "Capítulo um. Copacabana, mil novecentos e cinquenta e oito."
+    },
+    {
+      "tipo": "frase",
+      "data": "Rio de Janeiro, julho de 1958",
+      "texto": "Aída Curi, 18 anos,\né morta em\n**Copacabana.**",
+      "fala": "Julho de mil novecentos e cinquenta e oito. A jovem Aída Curi, de dezoito anos, é morta num prédio em Copacabana, no Rio de Janeiro."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O caso ocupou os jornais\npor **anos.**",
+      "nota": "Virou um dos crimes mais lembrados do Rio.",
+      "fala": "O caso tomou as manchetes. Teve investigação e mais de um julgamento. E ficou na memória da cidade por décadas. Pra família, era uma ferida que nunca fechou."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A volta na TV",
+      "fala": "Capítulo dois. A volta na TV."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/tv-antiga.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "data": "2004",
+      "texto": "Um programa de TV\nreconstitui o **crime.**",
+      "fala": "Em dois mil e quatro, um programa de TV em rede nacional reconstitui o crime. Com atores e com os nomes reais."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Os irmãos vão\nà **Justiça.**",
+      "nota": "Eles pediram indenização pela exibição sem autorização da família.",
+      "fala": "Os irmãos de Aída vão à Justiça contra a emissora. Pedem indenização. O argumento: aquela dor já tinha passado, e ninguém tinha o direito de reabrir."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "O tempo dá o direito\nde calar uma história\n**verdadeira?**",
+      "fala": "E a pergunta ficou no ar. A passagem do tempo dá a alguém o direito de impedir que um fato verdadeiro seja contado?"
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "Dois direitos",
+      "fala": "Capítulo três. Dois direitos."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, IX",
+        "texto": "É livre a expressão da atividade intelectual, artística, científica e de comunicação, **independentemente de censura ou licença**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 5º, X",
+        "texto": "São **invioláveis** a intimidade, a vida privada, a honra e a imagem das pessoas, assegurado o direito a indenização…"
+      },
+      "ponte": "Do outro lado",
+      "segundoEm": "logo",
+      "fala": "A Constituição protege as duas coisas. No inciso nove do artigo quinto, a liberdade de comunicação, sem censura. E logo no inciso seguinte, a intimidade, a honra e a imagem das pessoas."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Imprensa",
+          "sub": "contar fatos verdadeiros",
+          "marcada": true
+        },
+        {
+          "titulo": "Família",
+          "sub": "não reviver a tragédia",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "família",
+      "fala": "De um lado, a imprensa e o direito de contar a história. Do outro, a família e o direito de não reviver a tragédia toda vez que alguém liga a TV."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "O caminho até o Supremo",
+      "fala": "Capítulo quatro. O caminho até o Supremo."
+    },
+    {
+      "tipo": "frase",
+      "data": "Superior Tribunal de Justiça, 2013",
+      "texto": "No mesmo dia, dois casos.\nDuas **respostas.**",
+      "nota": "No caso da Chacina da Candelária, um homem absolvido ganhou o direito de não ser citado.",
+      "fala": "Em dois mil e treze, o Superior Tribunal de Justiça julgou dois casos no mesmo dia. Num deles, um homem absolvido na Chacina da Candelária ganhou o direito de não ter o nome ligado ao crime. No caso Aída Curi, a família perdeu."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O crime era\n**inseparável** do nome.",
+      "nota": "Para o STJ, não dava para contar o caso sem citar a vítima.",
+      "fala": "Pro tribunal, o caso Aída Curi era histórico, e não dava pra contar aquele crime sem falar da vítima. A família recorreu ao Supremo."
+    },
+    {
+      "tipo": "frase",
+      "data": "2014",
+      "texto": "Na Europa, o Google\nperde um caso **famoso.**",
+      "nota": "O Tribunal de Justiça da União Europeia mandou retirar links de buscas.",
+      "fala": "Enquanto isso, na Europa, o tema explodiu. Em dois mil e catorze, o tribunal da União Europeia mandou o Google tirar links antigos das buscas. O mundo inteiro passou a discutir o direito ao esquecimento."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "A resposta",
+      "fala": "Capítulo cinco. A resposta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "STF · RE 1.010.606 · Tema 786 · 2021",
+        "texto": "É **incompatível** com a Constituição a ideia de um direito ao esquecimento, assim entendido como o poder de obstar, em razão da passagem do tempo, a divulgação de fatos verídicos…"
+      },
+      "b": {
+        "cabecalho": "Mesma tese",
+        "texto": "Eventuais excessos ou abusos no exercício da liberdade de expressão e de informação devem ser analisados **caso a caso**…"
+      },
+      "ponte": "Mas",
+      "segundoEm": "Mas",
+      "fala": "Fevereiro de dois mil e vinte e um. Por maioria, o Supremo decide: não existe no Brasil um direito geral ao esquecimento. Mas abusos na divulgação podem ser analisados caso a caso."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Fato verdadeiro\npode ser **contado.**",
+      "nota": "Desde que obtido de forma lícita. A honra e a imagem continuam protegidas.",
+      "fala": "Traduzindo: fato verdadeiro, obtido de forma lícita, pode ser contado. O tempo sozinho não apaga a história. Quem passar do limite responde, com base na honra, na imagem e na privacidade."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Não se proíbe antes.\nSe pune **depois.**",
+      "nota": "O recurso da família foi negado.",
+      "fala": "E a família perdeu de novo, agora em definitivo. O recurso foi negado. O recado do Supremo foi direto: a saída não é proibir a história antes de ela ser contada. É punir depois quem contar com abuso."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "E se fosse a sua\n**família?**",
+      "fala": "Agora repara no outro lado. Se fosse a sua família, você ia querer ver aquilo na TV de novo?"
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você queria ter o\ndireito de ser\n**esquecido?**",
+      "fala": "E você: queria ter o direito de ser esquecido? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Existe direito de ser esquecido no Brasil? Não como regra geral. No RE 1.010.606 (Tema 786), julgado em fevereiro de 2021, o STF fixou que é incompatível com a Constituição a ideia de um direito ao esquecimento, entendido como o poder de impedir, pela passagem do tempo, a divulgação de fatos verídicos e licitamente obtidos. Excessos e abusos devem ser analisados caso a caso. O processo era dos irmãos de Aída Curi, morta em 1958 no Rio de Janeiro, contra a reconstituição do crime em um programa de TV.\n\nNeste vídeo: o caso Aída Curi, a reconstituição na TV em 2004, o choque entre a liberdade de comunicação e a intimidade (CF/88, art. 5º, IX e X), os dois julgamentos do STJ em 2013 (Aída Curi e Chacina da Candelária), o caso do Google na Europa e a tese do Tema 786.",
+  "fontes": [
+    "STF · RE 1.010.606, Tema 786 (2021)",
+    "STJ · REsp 1.335.153 (Aída Curi) e REsp 1.334.097 (Candelária), 2013",
+    "Constituição de 1988, art. 5º, IX e X",
+    "TJUE · Google Spain, C-131/12 (2014)"
+  ],
+  "hashtags": [
+    "direitoaoesquecimento",
+    "stf",
+    "direitoconstitucional"
+  ]
+}

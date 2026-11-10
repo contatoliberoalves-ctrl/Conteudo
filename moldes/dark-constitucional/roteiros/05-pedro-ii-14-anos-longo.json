@@ -1,0 +1,190 @@
+{
+  "pauta": 5,
+  "longo": true,
+  "serie": "Império: o que não te contaram",
+  "titulo": "Ele governou o Brasil aos 14 anos. A lei dizia 18. | O Golpe da Maioridade",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ele governou o\nBrasil aos 14 anos.\nA lei dizia **18.**",
+      "imagem": {
+        "arquivo": "imagens/pedro-ii.jpg",
+        "credito": "D. Pedro II · Arquivo Nacional (domínio público)",
+        "foco": "50% 25%"
+      },
+      "fala": "Esse homem passou a governar o Brasil com catorze anos. A Constituição dizia dezoito. Ninguém mudou uma vírgula do texto, e mesmo assim ele assumiu o governo quatro anos antes da hora. Essa é a história de como a política passou por cima da Constituição. E de quem ganhou com isso."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Um imperador de cinco anos",
+      "fala": "Capítulo um. Um imperador de cinco anos."
+    },
+    {
+      "tipo": "frase",
+      "data": "7 de abril de 1831",
+      "texto": "Pedro I **abdica**\ndo trono.",
+      "nota": "O herdeiro, Pedro de Alcântara, tinha 5 anos.",
+      "fala": "Sete de abril de mil oitocentos e trinta e um. Pressionado no Rio de Janeiro, Dom Pedro Primeiro abdicou e foi embora pra Europa. Deixou aqui o filho, de cinco anos. O novo imperador."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1824 · art. 121",
+        "texto": "O Imperador é menor até a idade de **dezoito anos completos**."
+      },
+      "b": {
+        "cabecalho": "Constituição de 1824 · art. 122",
+        "texto": "Durante a sua menoridade, o Império será governado por uma **Regência**…"
+      },
+      "ponte": "Enquanto isso",
+      "segundoEm": "Enquanto",
+      "fala": "A Constituição tinha resposta pra isso. O imperador é menor até os dezoito anos completos. Enquanto isso, quem governa é uma regência."
+    },
+    {
+      "tipo": "linha",
+      "virada": 3,
+      "marcos": [
+        {
+          "data": "1831",
+          "texto": "Regência de três membros"
+        },
+        {
+          "data": "1834",
+          "texto": "Ato Adicional: um regente só, eleito"
+        },
+        {
+          "data": "1835",
+          "texto": "Feijó assume a regência"
+        },
+        {
+          "data": "1837",
+          "texto": "Feijó renuncia. Entra **Araújo Lima**"
+        }
+      ],
+      "fala": "Primeiro vieram regências de três membros. Em mil oitocentos e trinta e quatro, uma reforma da Constituição, o Ato Adicional, criou um regente único e eleito. Feijó assumiu em trinta e cinco e renunciou dois anos depois. Entrou Araújo Lima."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "Um país em chamas",
+      "fala": "Capítulo dois. Um país em chamas."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Cabanagem",
+          "sub": "Pará, 1835"
+        },
+        {
+          "titulo": "Farroupilha",
+          "sub": "Rio Grande do Sul, 1835"
+        },
+        {
+          "titulo": "Sabinada",
+          "sub": "Bahia, 1837"
+        },
+        {
+          "titulo": "Balaiada",
+          "sub": "Maranhão, 1838"
+        }
+      ],
+      "fala": "E o país pegava fogo. Cabanagem no Pará. Farroupilha no Rio Grande do Sul. Sabinada na Bahia. Balaiada no Maranhão. Pra muita gente, o Brasil corria o risco de se partir em pedaços."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Na capital, outra\nbriga: o **poder.**",
+      "nota": "Com Araújo Lima, os conservadores governavam. Os liberais estavam de fora.",
+      "fala": "Na capital, a briga era outra. Com Araújo Lima, os conservadores estavam no comando. Os liberais, de fora, procuravam um jeito de voltar."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O atalho",
+      "fala": "Capítulo três. O atalho."
+    },
+    {
+      "tipo": "frase",
+      "data": "1840",
+      "texto": "Nasce o Clube\nda **Maioridade.**",
+      "nota": "Liberais se organizam para antecipar a maioridade do imperador.",
+      "fala": "E acharam um atalho. Em mil oitocentos e quarenta, políticos liberais criaram o Clube da Maioridade. A ideia era simples: se o imperador assumisse logo, a regência acabava. E quem estivesse ao lado dele voltava ao governo."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "E a regra dos\n**dezoito anos?**",
+      "fala": "Só que tinha um problema. A regra dos dezoito anos estava escrita na Constituição."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Mudar o texto\nlevaria **anos.**",
+      "nota": "A Constituição de 1824 exigia um rito próprio de reforma, que passava de uma legislatura para a seguinte.",
+      "fala": "Pra mudar aquele artigo, a Constituição exigia um caminho longo, que atravessava duas legislaturas. Os liberais não queriam esperar."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "23 de julho",
+      "fala": "Capítulo quatro. Vinte e três de julho."
+    },
+    {
+      "tipo": "frase",
+      "data": "23 de julho de 1840",
+      "texto": "Pedro II é declarado\n**maior** de idade.",
+      "nota": "Decisão da Assembleia Geral: Câmara e Senado reunidos.",
+      "fala": "Vinte e três de julho de mil oitocentos e quarenta. Deputados e senadores, reunidos em Assembleia Geral, declararam Pedro Segundo maior de idade. Ele tinha catorze anos e sete meses."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Ninguém mudou o texto.\nA política\n**passou por cima.**",
+      "nota": "O episódio ficou conhecido como Golpe da Maioridade.",
+      "fala": "Repara: o artigo cento e vinte e um continuou lá, intacto. Ninguém mudou o texto. A política passou por cima dele. Por isso a história chama esse dia de Golpe da Maioridade."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/pedro-ii.jpg",
+        "credito": "D. Pedro II · Arquivo Nacional (domínio público)",
+        "foco": "50% 30%"
+      },
+      "afasta": true,
+      "data": "1840 a 1889",
+      "texto": "O menino governaria por quase **meio século.**",
+      "fala": "Um ano depois, ele foi coroado. E aquele menino governaria o Brasil por quase meio século."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "Quem ganhou",
+      "fala": "Capítulo cinco. Quem ganhou."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O primeiro gabinete:\n**liberal.**",
+      "nota": "Os liberais voltaram ao governo, mas caíram em menos de um ano.",
+      "fala": "O primeiro ministério do novo imperador foi liberal, como planejado. Mas durou menos de um ano. Em mil oitocentos e quarenta e um, os conservadores já estavam de volta."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A regra que cede\numa vez cede\npra **qualquer um.**",
+      "fala": "O atalho dos liberais serviu aos adversários logo depois. Quando a regra cede à pressa uma vez, ela cede pra qualquer um."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Foi golpe ou\nfoi **solução?**",
+      "fala": "E pra você: foi golpe ou foi solução? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Pedro II passou a governar o Brasil com 14 anos, embora a Constituição de 1824 dissesse que o imperador era menor até os 18 anos completos (art. 121). Em 23 de julho de 1840, em meio à crise da Regência, a Assembleia Geral o declarou maior de idade sem mudar o texto. O episódio ficou conhecido como Golpe da Maioridade.\n\nNeste vídeo: a abdicação de Pedro I em 1831, as regências e o Ato Adicional de 1834, as revoltas do período (Cabanagem, Farroupilha, Sabinada e Balaiada), o Clube da Maioridade, a declaração de 1840 e o que aconteceu com os liberais depois.",
+  "fontes": [
+    "Constituição de 1824, arts. 121, 122 e 174 a 178",
+    "Lei de 12 de agosto de 1834 (Ato Adicional)",
+    "Senado Federal · Segundo Reinado e Maioridade"
+  ],
+  "hashtags": [
+    "historiadobrasil",
+    "dompedroii",
+    "direitoconstitucional"
+  ]
+}

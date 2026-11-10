@@ -1,0 +1,170 @@
+{
+  "pauta": 35,
+  "longo": true,
+  "serie": "Casos que viraram direito",
+  "titulo": "Entrou sem mandado, achou droga. A prova vale? | O que o STF decidiu sobre a casa",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Entrou sem mandado,\nachou droga.\nA prova **vale?**",
+      "imagem": {
+        "arquivo": "imagens/porta-escura.jpg",
+        "credito": "Foto: Outpost 51/Flickr (CC BY 2.0)",
+        "foco": "50% 45%"
+      },
+      "fala": "A polícia arromba a porta de uma casa, sem mandado. Lá dentro, encontra droga. O morador é preso. Mas essa prova vale? Ou tudo o que foi achado ali é anulado? O Supremo já respondeu. E a resposta está num detalhe de tempo. É isso que você vai entender agora, do começo."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "A casa",
+      "fala": "Capítulo um. A casa."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XI",
+        "texto": "A casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de **flagrante delito** ou desastre, ou para prestar socorro…"
+      },
+      "b": {
+        "cabecalho": "Com ordem do juiz",
+        "texto": "…ou, **durante o dia**, por determinação judicial."
+      },
+      "ponte": "E mais",
+      "segundoEm": "ordem",
+      "fala": "Artigo quinto, inciso onze. A casa é asilo inviolável. Ninguém entra sem o consentimento do morador. As exceções: flagrante delito, desastre e socorro, a qualquer hora. E ordem de juiz, só durante o dia."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Casa não é só\nonde se **mora.**",
+      "nota": "O STF já estendeu a proteção a quarto de hotel ocupado e a escritório profissional.",
+      "fala": "E casa, pra Constituição, é mais que a residência. O Supremo já estendeu essa proteção a quarto de hotel ocupado e a escritório profissional."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Com mandado,\nsó **de dia.**",
+      "fala": "Repara num detalhe: nem o juiz libera a entrada à noite. Com mandado, a polícia só entra durante o dia. De noite, só com consentimento, flagrante, desastre ou socorro."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A brecha",
+      "fala": "Capítulo dois. A brecha."
+    },
+    {
+      "tipo": "frase",
+      "data": "Crime permanente",
+      "texto": "Enquanto a droga\nestá lá, o flagrante\n**continua.**",
+      "nota": "CPP, art. 303: nas infrações permanentes, há flagrante enquanto não cessar a permanência.",
+      "fala": "Agora o problema. Guardar droga é crime permanente: ele continua acontecendo enquanto a droga estiver lá. Então, em tese, sempre existe flagrante. E se sempre existe flagrante, a polícia pode entrar em qualquer casa?"
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Qualquer suspeita\nabre a **porta?**",
+      "fala": "Bastaria uma suspeita qualquer pra abrir a porta?"
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/porta-escura.jpg",
+        "credito": "Foto: Outpost 51/Flickr (CC BY 2.0)",
+        "foco": "50% 45%"
+      },
+      "afasta": true,
+      "texto": "Achou droga? A entrada **valia.**",
+      "fala": "O risco era esse. O resultado justificava tudo. Achou droga? A entrada valia. Não achou nada? A porta arrombada ficava sem explicação."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O Supremo decide",
+      "fala": "Capítulo três. O Supremo decide."
+    },
+    {
+      "tipo": "frase",
+      "data": "5 de novembro de 2015",
+      "texto": "O Supremo julga\no caso com\n**repercussão geral.**",
+      "nota": "RE 603.616, vindo de Rondônia. Relator: ministro Gilmar Mendes.",
+      "fala": "Cinco de novembro de dois mil e quinze. O Supremo julga um recurso vindo de Rondônia, com repercussão geral. Isso quer dizer que a tese fixada ali vale pra todos os casos iguais no país, em qualquer tribunal."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "STF · RE 603.616 · Tema 280",
+        "texto": "A entrada forçada em domicílio sem mandado judicial só é lícita, mesmo em período noturno, quando amparada em **fundadas razões**…"
+      },
+      "b": {
+        "cabecalho": "Continua",
+        "texto": "…devidamente justificadas **a posteriori**, que indiquem que dentro da casa ocorre situação de flagrante delito…"
+      },
+      "ponte": "E mais",
+      "segundoEm": "justificadas",
+      "fala": "A tese: a entrada sem mandado só é lícita, mesmo à noite, quando há fundadas razões de que existe um flagrante lá dentro. E essas razões têm que ser justificadas depois, no processo."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Não precisa ter certeza.\nPrecisa ter\n**motivo.**",
+      "fala": "Olha o que a tese não exige. A polícia não precisa ter certeza de que vai achar droga. Precisa ter um motivo concreto, que exista antes de a porta abrir e que possa ser mostrado depois ao juiz."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Antes da porta",
+      "fala": "Capítulo quatro. Antes da porta."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "O que a polícia\njá sabia antes de\n**abrir a porta?**",
+      "fala": "A pergunta que decide tudo: o que a polícia já sabia antes de abrir a porta?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Antes",
+          "sub": "razões concretas de flagrante: a entrada vale",
+          "marcada": true
+        },
+        {
+          "titulo": "Depois",
+          "sub": "o que só se achou lá dentro não justifica"
+        }
+      ],
+      "marcaEm": "Se",
+      "fala": "Se havia razões concretas, antes de entrar, indicando o flagrante, a entrada vale. O que só foi encontrado depois não serve pra justificar a entrada."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Sem razão prévia,\nos atos são **nulos.**",
+      "nota": "E o agente ou a autoridade pode responder nas esferas disciplinar, civil e penal.",
+      "fala": "Sem essas razões, os atos praticados são nulos. E o agente ou a autoridade pode responder nas esferas disciplinar, civil e penal."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Prova ilícita\nnão entra no\n**processo.**",
+      "nota": "CF/88, art. 5º, LVI: são inadmissíveis, no processo, as provas obtidas por meios ilícitos.",
+      "fala": "E isso pesa na prova. O inciso cinquenta e seis do artigo quinto diz: provas obtidas por meios ilícitos não podem ser usadas no processo. Se a entrada foi ilegal, a droga achada lá dentro não serve como prova."
+    },
+    {
+      "tipo": "frase",
+      "texto": "No caso de Rondônia,\na condenação\n**ficou.**",
+      "fala": "E o caso que deu origem a tudo? Ali, o Supremo entendeu que a polícia tinha razões antes de entrar. O recurso foi negado e a condenação ficou. A regra nova valeu dali em diante."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você concorda\ncom o **Supremo?**",
+      "fala": "E você, concorda com o Supremo? A polícia deveria ter mais liberdade pra entrar, ou menos? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "A polícia entrou numa casa sem mandado e achou droga. A prova vale? Depende do que a polícia sabia antes de entrar. No RE 603.616 (Tema 280), o STF fixou que a entrada forçada sem mandado só é lícita, mesmo à noite, quando há fundadas razões, justificadas depois, que indiquem flagrante dentro da casa. O que só foi encontrado lá dentro não justifica a entrada. Sem essas razões, os atos são nulos e o agente pode responder disciplinar, civil e penalmente.\n\nNeste vídeo: a inviolabilidade da casa (CF/88, art. 5º, XI) e suas exceções, o que conta como casa, o crime permanente e o flagrante que não acaba (CPP, art. 303), o julgamento de 2015 com repercussão geral e a regra do antes e do depois.",
+  "fontes": [
+    "CF/88, art. 5º, XI e LVI",
+    "Código de Processo Penal, art. 303",
+    "STF · RE 603.616, Tema 280"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "direitopenal"
+  ]
+}

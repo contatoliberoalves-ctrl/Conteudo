@@ -1,0 +1,181 @@
+{
+  "pauta": 39,
+  "longo": true,
+  "serie": "O STF decidiu",
+  "titulo": "O governo quis seu nome, telefone e endereço. O STF barrou. | O caso da MP do IBGE",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O governo quis seu\nnome, telefone e\nendereço. O STF **barrou.**",
+      "imagem": {
+        "arquivo": "imagens/telefone-antigo.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "60% 50%"
+      },
+      "fala": "Abril de dois mil e vinte. Uma medida do governo manda as companhias telefônicas entregarem o nome, o telefone e o endereço de milhões de brasileiros. Uma semana depois, o Supremo suspende tudo. E esse caso acabou mudando a Constituição. Vou te contar como."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "A pandemia",
+      "fala": "Capítulo um. A pandemia."
+    },
+    {
+      "tipo": "frase",
+      "data": "Março de 2020",
+      "texto": "O IBGE não pode mais\nbater na **porta.**",
+      "nota": "Com a pandemia, as entrevistas presenciais das pesquisas foram suspensas.",
+      "fala": "Março de dois mil e vinte. A pandemia chega, e o IBGE suspende as entrevistas presenciais. Sem bater na porta das casas, pesquisas como a do desemprego ficam em risco."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/telefone-antigo.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "afasta": true,
+      "texto": "A entrevista vira **ligação.**",
+      "fala": "A ideia era trocar a visita pela ligação. Pra isso, o IBGE precisava saber pra quem ligar. E quem tinha essa lista eram as operadoras."
+    },
+    {
+      "tipo": "frase",
+      "data": "17 de abril de 2020",
+      "texto": "Uma medida provisória\nmanda as operadoras\n**entregarem** os dados.",
+      "nota": "MP 954/2020.",
+      "fala": "A saída do governo veio em dezessete de abril: a Medida Provisória novecentos e cinquenta e quatro. Medida provisória é uma norma que o presidente edita e que vale na hora, antes de o Congresso votar."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Nome",
+          "marcada": true
+        },
+        {
+          "titulo": "Telefone",
+          "marcada": true
+        },
+        {
+          "titulo": "Endereço",
+          "marcada": true
+        }
+      ],
+      "dono": "Para o IBGE",
+      "marcaEm": "Tudo",
+      "fala": "Ela mandava as empresas de telefonia fixa e celular entregarem ao IBGE o nome, o telefone e o endereço dos clientes. Tudo pra fazer as pesquisas por telefone."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "As perguntas sem resposta",
+      "fala": "Capítulo dois. As perguntas sem resposta."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Qual o problema, se\nera pra **pesquisa?**",
+      "fala": "Qual o problema, se era pra pesquisa?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "O que faltava (resumo)",
+        "texto": "A MP não dizia **para que**, exatamente, os dados seriam usados, nem por que era preciso o cadastro inteiro."
+      },
+      "b": {
+        "cabecalho": "E mais",
+        "texto": "Nem como as informações seriam **protegidas** contra vazamento e uso indevido."
+      },
+      "ponte": "E mais",
+      "segundoEm": "Nem",
+      "fala": "O problema era o como. A medida não dizia exatamente pra que os dados seriam usados, nem por que era preciso o cadastro inteiro. Nem como as informações seriam protegidas contra vazamento."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Milhões de pessoas.\nNenhuma **escolheu.**",
+      "fala": "E repara: ninguém seria consultado. Os dados de quase todo mundo que tem telefone iriam pro governo, sem pedido e sem chance de dizer não."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A lei de dados\nainda não estava\n**valendo.**",
+      "nota": "A Lei Geral de Proteção de Dados, de 2018, só entrou em vigor em setembro de 2020.",
+      "fala": "E tinha mais um detalhe. A Lei Geral de Proteção de Dados já existia desde dois mil e dezoito. Mas ainda não estava em vigor. Ou seja: naquele momento, não havia nem uma lei de dados valendo pra servir de freio."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O Supremo",
+      "fala": "Capítulo três. O Supremo."
+    },
+    {
+      "tipo": "frase",
+      "data": "24 de abril de 2020",
+      "texto": "Uma ministra\nsuspende a **MP.**",
+      "nota": "Liminar da ministra Rosa Weber nas ações contra a MP, entre elas a ADI 6387, da OAB.",
+      "fala": "Vinte e quatro de abril. A relatora, ministra Rosa Weber, suspende a medida provisória numa decisão de urgência, a liminar. As ações tinham sido levadas ao Supremo pela OAB e por partidos políticos."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STF · Plenário · maio de 2020",
+      "a": 10,
+      "b": 1,
+      "rotuloA": "Suspender",
+      "rotuloB": "Liberar",
+      "carimbo": "Suspensa",
+      "fala": "Sete de maio, o Plenário. Dez ministros mantiveram a suspensão. Um ficou vencido: o ministro Marco Aurélio."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Pandemia não\njustifica **tudo.**",
+      "fala": "No voto, a ministra deixou claro que o combate à pandemia não pode servir de desculpa pra atropelar garantias da Constituição."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Dado pessoal\ntem **dono.**",
+      "nota": "Autodeterminação informativa: cada um controla o que é feito com seus dados.",
+      "fala": "E o Supremo foi além do caso. Reconheceu a proteção de dados como um direito próprio. O nome técnico é autodeterminação informativa: você decide o que fazem com as suas informações."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "A Constituição muda",
+      "fala": "Capítulo quatro. A Constituição muda."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "EC 115/2022 · art. 5º, LXXIX",
+        "texto": "É assegurado, nos termos da lei, o direito à **proteção dos dados pessoais**, inclusive nos meios digitais."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 22, XXX",
+        "texto": "Compete privativamente à **União** legislar sobre proteção e tratamento de dados pessoais."
+      },
+      "ponte": "E mais",
+      "segundoEm": "União",
+      "fala": "Fevereiro de dois mil e vinte e dois. A Emenda cento e quinze coloca no artigo quinto o inciso setenta e nove: a proteção dos dados pessoais vira direito fundamental, inclusive nos meios digitais. E só a União pode fazer leis sobre o tema."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Uma MP de pandemia\nvirou **direito\nfundamental.**",
+      "fala": "Uma medida provisória suspensa uma semana depois de nascer acabou deixando uma marca permanente na Constituição. Hoje, qualquer lei que mexa com os seus dados tem que respeitar esse direito."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você entregaria\nseus **dados?**",
+      "fala": "E você: entregaria seus dados pra uma pesquisa do governo? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em abril de 2020, a MP 954 mandou as operadoras de telefonia entregarem ao IBGE nome, telefone e endereço dos clientes, para pesquisas por telefone durante a pandemia. O STF suspendeu a medida: ela não dizia para que exatamente os dados seriam usados nem como seriam protegidos. A liminar da ministra Rosa Weber foi mantida pelo Plenário por 10 a 1 (ADI 6387). Em 2022, a Emenda Constitucional 115 pôs a proteção de dados pessoais entre os direitos fundamentais (art. 5º, LXXIX).\n\nNeste vídeo: o IBGE na pandemia, o que é medida provisória, os dados pedidos às operadoras, o que faltava na MP, a LGPD que ainda não valia, a liminar e o placar no STF, a autodeterminação informativa e a Emenda 115.",
+  "fontes": [
+    "MP 954/2020",
+    "STF · ADI 6387 (e ADIs 6388, 6389, 6390 e 6393)",
+    "Lei 13.709/2018 (LGPD)",
+    "Emenda Constitucional 115/2022"
+  ],
+  "hashtags": [
+    "protecaodedados",
+    "stf",
+    "direitoconstitucional"
+  ]
+}

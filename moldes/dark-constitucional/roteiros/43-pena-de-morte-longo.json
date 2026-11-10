@@ -1,0 +1,204 @@
+{
+  "pauta": 43,
+  "longo": true,
+  "serie": "O que está escrito",
+  "titulo": "A Constituição brasileira permite pena de morte | Quando, para quem e como seria",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A Constituição\nbrasileira permite\n**pena de morte.**",
+      "imagem": {
+        "arquivo": "imagens/manet-execucao.jpg",
+        "credito": "Édouard Manet, A execução do imperador Maximiliano, 1867 · domínio público",
+        "foco": "66% 50%"
+      },
+      "fala": "A Constituição brasileira permite pena de morte. Não é boato, não é interpretação. Está escrito, no artigo mais famoso dela. E a lei ainda diz como a execução seria feita. Hoje você vai entender quando isso vale, pra quem, e se dá pra ampliar."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O que está escrito",
+      "fala": "Capítulo um. O que está escrito."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XLVII",
+        "texto": "Não haverá penas: a) de morte, **salvo em caso de guerra declarada**, nos termos do art. 84, XIX;"
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 5º, XLVII (continuação)",
+        "texto": "b) de caráter perpétuo; c) de trabalhos forçados; d) de banimento; e) **cruéis**;"
+      },
+      "ponte": "E a lista segue",
+      "segundoEm": "lista",
+      "fala": "Artigo quinto, inciso quarenta e sete. Não haverá pena de morte, salvo em caso de guerra declarada. E a lista segue: nada de prisão perpétua, trabalhos forçados, banimento ou penas cruéis."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A proibição tem\numa **exceção.**",
+      "nota": "E ela está na mesma frase.",
+      "fala": "Repara na construção. A Constituição proíbe e, na mesma frase, abre a porta. Uma porta pequena. Mas aberta."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "Guerra declarada",
+      "fala": "Capítulo dois. Guerra declarada."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Presidente",
+          "sub": "declara a guerra (art. 84, XIX)",
+          "marcada": true
+        },
+        {
+          "titulo": "Congresso",
+          "sub": "autoriza ou referenda (art. 49, II)",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "Congresso",
+      "fala": "Guerra declarada não é qualquer conflito, nem guerra contra o crime. Quem declara é o presidente da República, no caso de agressão estrangeira. E precisa do Congresso Nacional, que autoriza antes ou referenda depois."
+    },
+    {
+      "tipo": "frase",
+      "data": "Agosto de 1942",
+      "texto": "Já aconteceu:\na **Segunda Guerra.**",
+      "nota": "O Brasil declarou guerra à Alemanha e à Itália.",
+      "fala": "E isso já aconteceu. Na Segunda Guerra Mundial, em agosto de mil novecentos e quarenta e dois, o Brasil declarou guerra à Alemanha e à Itália."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "Como seria",
+      "fala": "Capítulo três. Como seria."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Código Penal Militar · art. 56",
+        "texto": "A pena de morte é executada por **fuzilamento**."
+      },
+      "b": {
+        "cabecalho": "Código Penal Militar · art. 392",
+        "texto": "Desertar em presença do inimigo: Pena - **morte**, grau máximo; reclusão, de vinte anos, grau mínimo."
+      },
+      "ponte": "Por exemplo",
+      "segundoEm": "deserção",
+      "fala": "O Código Penal Militar responde: a pena de morte é executada por fuzilamento. E dá exemplos de crimes punidos assim, como a deserção diante do inimigo e a traição."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Só crimes militares\nem tempo de **guerra.**",
+      "nota": "Mesmo nesses casos, a morte é a pena máxima, não a única.",
+      "fala": "Não vale pra crime comum. Só crimes militares em tempo de guerra. E mesmo neles, a morte é o grau máximo. O juiz pode aplicar a prisão."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Sete dias depois\nda **comunicação.**",
+      "nota": "A condenação definitiva vai ao presidente, que pode conceder clemência.",
+      "fala": "Tem até prazo. A condenação definitiva é comunicada ao presidente da República, e a execução só pode acontecer sete dias depois. É a janela pra um pedido de clemência."
+    },
+    {
+      "tipo": "frase",
+      "data": "Código de Processo Penal Militar · art. 707",
+      "texto": "Olhos vendados.\nE a ordem de fogo\nvira **sinal.**",
+      "nota": "O condenado pode recusar a venda.",
+      "fala": "E a lei descreve até a cena. O condenado sai com uniforme comum, sem insígnias. Tem os olhos vendados, a não ser que recuse. E a voz de fogo é trocada por sinais."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Uma história antiga",
+      "fala": "Capítulo quatro. Uma história antiga."
+    },
+    {
+      "tipo": "linha",
+      "virada": 3,
+      "marcos": [
+        {
+          "data": "1830",
+          "texto": "Código Criminal do Império: morte na **forca**"
+        },
+        {
+          "data": "1891",
+          "texto": "A República abole, salvo a lei militar em guerra"
+        },
+        {
+          "data": "1937",
+          "texto": "A Carta do Estado Novo volta a prever"
+        },
+        {
+          "data": "1988",
+          "texto": "Só na guerra declarada"
+        }
+      ],
+      "fala": "No Império, o Código Criminal previa a morte na forca. A primeira Constituição da República aboliu, ressalvando a lei militar em guerra. A Carta de trinta e sete, do Estado Novo, trouxe a pena de volta. E a de oitenta e oito fechou de novo, deixando só a guerra."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/manet-execucao.jpg",
+        "credito": "Édouard Manet, A execução do imperador Maximiliano, 1867 · domínio público",
+        "foco": "30% 50%"
+      },
+      "afasta": true,
+      "data": "1969",
+      "texto": "Na ditadura, a pena\nvoltou para crimes\n**políticos.**",
+      "fala": "Em mil novecentos e sessenta e nove, a ditadura militar reintroduziu a pena de morte pra crimes políticos. Houve condenação. Mas nenhuma execução oficial chegou a acontecer."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "Dá pra ampliar?",
+      "fala": "Capítulo cinco. Dá pra ampliar?"
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Dá pra criar pena\nde morte pra outros\n**crimes?**",
+      "fala": "Agora a pergunta que sempre aparece. Uma emenda à Constituição poderia criar pena de morte pra outros crimes?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 60, § 4º, IV",
+        "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir: (…) IV - os **direitos e garantias individuais**."
+      },
+      "b": {
+        "cabecalho": "Pacto de San José · art. 4.3",
+        "texto": "Não se pode **restabelecer** a pena de morte nos Estados que a hajam abolido."
+      },
+      "ponte": "E mais",
+      "segundoEm": "tratado",
+      "fala": "Pela posição que prevalece, não. Essa garantia é cláusula pétrea: nem emenda pode tirar. E tem mais um obstáculo. O Brasil aderiu a um tratado, o Pacto de San José da Costa Rica, que proíbe restabelecer a pena de morte onde ela já foi abolida."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Só uma **nova\nConstituição.**",
+      "nota": "E mesmo assim o tratado internacional continuaria lá.",
+      "fala": "Por essa leitura, só uma nova Constituição mudaria isso. Até lá, a pena de morte no Brasil fica onde está: trancada atrás de uma guerra declarada."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que isso\nestava na **Constituição?**",
+      "rotulo": "Manda pra quem vai duvidar",
+      "fala": "Você sabia que isso estava na Constituição? Comenta, e manda pra alguém que vai duvidar. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "A Constituição brasileira permite pena de morte: o art. 5º, XLVII, a, proíbe a pena, salvo em caso de guerra declarada. A guerra é declarada pelo presidente da República, em caso de agressão estrangeira, com autorização ou referendo do Congresso (arts. 84, XIX, e 49, II). Vale só para crimes militares em tempo de guerra, e o Código Penal Militar diz que a execução é por fuzilamento (art. 56). Criar pena de morte para outros crimes, pela posição que prevalece, não dá: é cláusula pétrea (art. 60, § 4º, IV), e o Pacto de San José proíbe restabelecê-la (art. 4.3).\n\nNeste vídeo: o art. 5º, XLVII, quem declara guerra, a última declaração de guerra do Brasil (1942), os crimes militares punidos com morte, o prazo de sete dias para a execução, a pena de morte no Império, na República, no Estado Novo e na ditadura, a cláusula pétrea e o Pacto de San José.",
+  "fontes": [
+    "Constituição de 1988, arts. 5º, XLVII, 49, II, 60, § 4º, IV, e 84, XIX",
+    "Código Penal Militar (Decreto-Lei 1.001/1969), arts. 56, 57 e 392",
+    "Código de Processo Penal Militar (Decreto-Lei 1.002/1969), art. 707",
+    "Código Criminal do Império (1830); Constituição de 1891, art. 72, § 21; Constituição de 1937, art. 122, 13",
+    "Convenção Americana sobre Direitos Humanos (Pacto de San José), art. 4.3"
+  ],
+  "hashtags": [
+    "penademorte",
+    "constituicao",
+    "direitoconstitucional"
+  ]
+}

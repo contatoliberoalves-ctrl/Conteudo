@@ -1,0 +1,187 @@
+{
+  "pauta": 41,
+  "longo": true,
+  "serie": "O STF decidiu",
+  "titulo": "Publicar livro pode ser racismo no Brasil? | O caso Ellwanger no Supremo",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Publicar livro\npode ser **racismo**\nno Brasil?",
+      "imagem": {
+        "arquivo": "imagens/livros-antigos.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Um editor publica livros. Só livros. E mesmo assim ele é condenado por racismo. A defesa leva o caso ao Supremo com uma pergunta que parecia técnica. A resposta virou um dos julgamentos mais importantes da história do tribunal."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O editor",
+      "fala": "Capítulo um. O editor."
+    },
+    {
+      "tipo": "frase",
+      "data": "Porto Alegre",
+      "texto": "Um editor publica\nlivros que negam\no **Holocausto.**",
+      "nota": "Siegfried Ellwanger escreveu e publicou obras antissemitas.",
+      "fala": "Porto Alegre. Siegfried Ellwanger tinha uma editora. Escrevia e publicava livros que negavam o Holocausto e acusavam os judeus de inventar a própria tragédia."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/livros-antigos.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "25% 50%"
+      },
+      "texto": "Não era só opinião.\nEra **ataque** a um povo.",
+      "fala": "Os livros não discutiam história. Pintavam os judeus como um povo de mentirosos e conspiradores. Ellwanger foi processado e acabou condenado pela Justiça gaúcha."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A palavra que faltava",
+      "fala": "Capítulo dois. A palavra que faltava."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XLII",
+        "texto": "A prática do racismo constitui crime **inafiançável e imprescritível**, sujeito à pena de reclusão, nos termos da lei."
+      },
+      "b": {
+        "cabecalho": "O argumento da defesa",
+        "texto": "Judeu não é **raça**. Então não seria racismo, e o crime já estaria prescrito."
+      },
+      "ponte": "A defesa",
+      "segundoEm": "defesa",
+      "fala": "Aqui entra a Constituição. Racismo é crime imprescritível: o Estado pode punir a qualquer tempo. Aí a defesa teve uma ideia. Se judeu não é raça, não é racismo. E sem racismo, o crime já estaria prescrito."
+    },
+    {
+      "tipo": "frase",
+      "data": "1888 · 1988",
+      "texto": "Para o racismo,\no tempo **não corre.**",
+      "nota": "A Constituição foi promulgada cem anos depois da abolição.",
+      "fala": "Pra entender o peso disso: crime comum tem prazo. Passou o prazo, o Estado perde o direito de punir. Isso é a prescrição. Pro racismo, a Constituição de oitenta e oito tirou o prazo. Escrita cem anos depois da abolição, ela quis que esse crime nunca caducasse."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Mas judeu\né uma **raça?**",
+      "fala": "Então tudo dependia de uma pergunta só. Judeu é uma raça?"
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "O Supremo dividido",
+      "fala": "Capítulo três. O Supremo dividido."
+    },
+    {
+      "tipo": "frase",
+      "data": "STF · HC 82.424",
+      "texto": "O relator dá razão\nà **defesa.**",
+      "nota": "Moreira Alves votou pela prescrição.",
+      "fala": "O pedido chega ao Supremo como habeas corpus. E o relator, o ministro Moreira Alves, concorda com a defesa: judeus seriam um povo, não uma raça. O crime estaria prescrito."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Raça é um conceito\n**social.**",
+      "nota": "A própria genética mostra que não há raças humanas no sentido biológico.",
+      "fala": "Mas o ministro Maurício Corrêa abre a divergência. A genética já tinha mostrado que não existem raças humanas no sentido biológico. Raça é uma construção social. E o racismo é justamente tratar um grupo como inferior."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "Anos 1990",
+          "texto": "Ellwanger é condenado no Rio Grande do Sul"
+        },
+        {
+          "data": "2001",
+          "texto": "O STJ nega o habeas corpus"
+        },
+        {
+          "data": "17/9/2003",
+          "texto": "O **Supremo** conclui o julgamento"
+        }
+      ],
+      "fala": "O caminho foi longo. Condenação no Rio Grande do Sul. Habeas corpus negado no Superior Tribunal de Justiça. E em dezessete de setembro de dois mil e três, o Supremo terminou o julgamento, depois de meses de pedidos de vista."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Setembro de 2003",
+      "pergunta": "Antissemitismo é racismo?",
+      "opcoes": [
+        "Não",
+        "Sim"
+      ],
+      "vencedor": 1,
+      "resultados": [
+        "3 votos",
+        "8 votos"
+      ],
+      "revelaEm": "Resultado",
+      "fala": "E você, como votaria? Antissemitismo é racismo? Resultado: oito votos a três. O habeas corpus foi negado, e a condenação ficou de pé."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "E a liberdade?",
+      "fala": "Capítulo quatro. E a liberdade?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Livro é ideia.\nIdeia pode ser **crime?**",
+      "nota": "O ministro Marco Aurélio votou pela liberdade de expressão.",
+      "fala": "Teve quem votasse do outro lado por outro motivo. Pro ministro Marco Aurélio, publicar livro, mesmo com ideias horríveis, estava dentro da liberdade de expressão."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A liberdade não\nprotege o **ódio.**",
+      "nota": "Para a maioria, a incitação ao ódio contra um povo não está protegida.",
+      "fala": "A maioria pensou diferente. A liberdade de expressão é enorme, mas não é absoluta. E ela não cobre a incitação ao ódio contra um povo inteiro."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O que ficou",
+      "fala": "Capítulo cinco. O que ficou."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Lei 7.716/1989 · art. 20",
+        "texto": "Praticar, induzir ou incitar a discriminação ou preconceito de raça, cor, etnia, **religião** ou procedência nacional."
+      },
+      "b": {
+        "cabecalho": "STF · ADO 26 · 2019 (resumo)",
+        "texto": "Homofobia e transfobia se enquadram na lei do racismo, entendido como **racismo social**, até lei própria do Congresso."
+      },
+      "ponte": "Anos depois",
+      "segundoEm": "dezenove",
+      "fala": "A ideia de que raça é um conceito social ficou. Em dois mil e dezenove, o Supremo usou a mesma lógica para enquadrar a homofobia e a transfobia na lei do racismo, até o Congresso aprovar uma lei própria."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Um livro abriu\na **porta.**",
+      "fala": "Tudo começou com um editor de Porto Alegre e uma defesa que apostou numa palavra. A aposta perdeu. E o conceito de racismo no Brasil ficou maior do que era."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Onde termina a\nliberdade de\n**expressão?**",
+      "fala": "E pra você: onde termina a liberdade de expressão? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Publicar livro pode ser racismo no Brasil? Pode. O editor Siegfried Ellwanger foi condenado por publicar obras antissemitas que negavam o Holocausto. A defesa alegou que judeus não são raça, e que por isso o crime não seria racismo (imprescritível pela CF/88, art. 5º, XLII) e já estaria prescrito. No HC 82.424, em setembro de 2003, o STF negou o pedido por 8 votos a 3: raça é conceito social, o antissemitismo é racismo, e a liberdade de expressão não protege a incitação ao ódio.\n\nNeste vídeo: os livros de Ellwanger, a imprescritibilidade do racismo, o voto do relator Moreira Alves, a divergência de Maurício Corrêa, o voto de Marco Aurélio pela liberdade de expressão e como a mesma ideia de racismo social voltou na ADO 26, em 2019.",
+  "fontes": [
+    "STF · HC 82.424 (2003)",
+    "Constituição de 1988, art. 5º, XLII",
+    "Lei 7.716/1989, art. 20",
+    "STF · ADO 26 e MI 4.733 (2019)"
+  ],
+  "hashtags": [
+    "racismo",
+    "stf",
+    "direitoconstitucional"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "pauta": 37,
+  "longo": true,
+  "serie": "O STF decidiu",
+  "titulo": "O STF barrou a vaquejada. O Congresso mudou a Constituição. | A briga entre cultura e crueldade",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O STF barrou\na vaquejada.\nO Congresso mudou\na **Constituição.**",
+      "imagem": {
+        "arquivo": "imagens/vaqueiros.jpg",
+        "credito": "Vaqueiros nos EUA, foto ilustrativa · U.S. National Archives (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "Outubro de dois mil e dezesseis. Por um voto de diferença, o Supremo derruba a lei que regulamentava a vaquejada no Ceará. Oito meses depois, o Congresso muda a Constituição pra garantir a prática. Quem tem a palavra final: o Supremo ou o Congresso? Essa é a história dessa briga."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "A corrida",
+      "fala": "Capítulo um. A corrida."
+    },
+    {
+      "tipo": "frase",
+      "data": "Nordeste",
+      "texto": "Dois vaqueiros a cavalo\nderrubam o **boi**\npelo rabo.",
+      "nota": "Uma tradição forte no Nordeste.",
+      "fala": "Pra quem não conhece: na vaquejada, dois vaqueiros a cavalo correm atrás de um boi e tentam derrubá-lo puxando pelo rabo, dentro de uma faixa marcada na areia. É uma tradição forte no Nordeste."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/vaqueiros.jpg",
+        "credito": "Vaqueiros nos EUA, foto ilustrativa · U.S. National Archives (domínio público)",
+        "foco": "30% 50%"
+      },
+      "afasta": true,
+      "texto": "Para o vaqueiro, **tradição.**",
+      "fala": "Pra quem vive a vaquejada, ela é cultura, trabalho e tradição de família. Pra quem defende os animais, é sofrimento: o boi puxado pelo rabo pode sair com lesões."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O choque",
+      "fala": "Capítulo dois. O choque."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 215",
+        "texto": "O Estado garantirá a todos o pleno exercício dos direitos culturais (…) e apoiará e incentivará a valorização e a difusão das **manifestações culturais**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 225, § 1º, VII",
+        "texto": "…proteger a fauna e a flora, vedadas, na forma da lei, as práticas que (…) submetam os animais a **crueldade**."
+      },
+      "ponte": "Do outro lado",
+      "segundoEm": "outro",
+      "fala": "De um lado, o artigo duzentos e quinze: o Estado apoia e incentiva as manifestações culturais. Do outro, o artigo duzentos e vinte e cinco: são proibidas as práticas que submetam os animais a crueldade."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1997",
+          "texto": "Farra do boi, em Santa Catarina: barrada"
+        },
+        {
+          "data": "2011",
+          "texto": "Rinha de galo, numa lei do Rio: barrada"
+        },
+        {
+          "data": "2016",
+          "texto": "Chega a vez da **vaquejada**"
+        }
+      ],
+      "fala": "E o Supremo já tinha enfrentado essa briga. Em noventa e sete, barrou a farra do boi, em Santa Catarina. Em dois mil e onze, derrubou uma lei do Rio de Janeiro que permitia rinhas de galo. Em dois mil e dezesseis, chegou a vez da vaquejada."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "Seis a cinco",
+      "fala": "Capítulo três. Seis a cinco."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STF · ADI 4983 · 2016",
+      "a": 6,
+      "b": 5,
+      "rotuloA": "Derrubar",
+      "rotuloB": "Manter",
+      "carimbo": "Inconstitucional",
+      "fala": "Seis de outubro de dois mil e dezesseis. A ação questionava uma lei cearense de dois mil e treze. Seis ministros votaram pra derrubar a lei. Cinco votaram pra manter."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A crueldade vinha\n**junto** com\na prática.",
+      "nota": "Relator: ministro Marco Aurélio. Laudos apontavam lesões nos animais.",
+      "fala": "O relator, ministro Marco Aurélio, entendeu que não dá pra fazer vaquejada sem maltratar o boi. Pra maioria, a crueldade não era um acidente. Vinha junto com a prática."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Para os vencidos,\na regra **protegia**\no boi.",
+      "fala": "Os cinco vencidos viam de outro jeito: com regras, dava pra proteger o animal sem acabar com uma tradição. A diferença foi de um voto só."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "A resposta",
+      "fala": "Capítulo quatro. A resposta."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "29/11/2016",
+          "texto": "Lei federal: vaquejada vira patrimônio cultural"
+        },
+        {
+          "data": "6/6/2017",
+          "texto": "Emenda 96 entra na **Constituição**"
+        }
+      ],
+      "fala": "A resposta veio rápido. Em novembro de dois mil e dezesseis, uma lei federal elevou o rodeio e a vaquejada a patrimônio cultural imaterial. E em junho de dois mil e dezessete, o Congresso promulgou a Emenda noventa e seis."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "EC 96/2017 · art. 225, § 7º",
+        "texto": "…não se consideram **cruéis** as práticas desportivas que utilizem animais, desde que sejam manifestações culturais…"
+      },
+      "b": {
+        "cabecalho": "A condição",
+        "texto": "…registradas como patrimônio cultural e regulamentadas por lei que assegure o **bem-estar** dos animais."
+      },
+      "ponte": "Desde que",
+      "segundoEm": "condição",
+      "fala": "O novo parágrafo sétimo do artigo duzentos e vinte e cinco diz: não são cruéis as práticas desportivas com animais que sejam manifestações culturais registradas como patrimônio. Mas com uma condição: uma lei que garanta o bem-estar dos animais."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Pode mudar a Constituição\ndepois do **Supremo?**",
+      "fala": "Mas pode isso? O Congresso mudar a Constituição pra contornar uma decisão do Supremo?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "A decisão vincula juízes\ne governo. Não o\n**legislador.**",
+      "nota": "CF/88, art. 102, § 2º: o efeito vinculante alcança o Judiciário e a administração pública.",
+      "fala": "Pode. A decisão numa ação direta vincula os juízes e a administração pública. Mas não prende o Congresso na hora de legislar. Os juristas chamam isso de reação legislativa. O limite são as cláusulas pétreas."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "Quem ganhou",
+      "fala": "Capítulo cinco. Quem ganhou."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O Supremo aceitou\na emenda. Com\n**condição.**",
+      "nota": "ADI 5728 e ADI 5772.",
+      "fala": "A emenda também foi parar no Supremo. E o tribunal a manteve, com uma condição: a prática só vale se houver regras reais de proteção ao animal."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A vaquejada ficou.\nMas com **regras.**",
+      "fala": "Então quem ganhou essa briga? De certo modo, os dois. A vaquejada continua. Mas o boi passou a ter regra a seu favor."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Cultura ou\n**maus-tratos?**",
+      "fala": "E pra você: cultura ou maus-tratos? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em 2016, na ADI 4983, o STF derrubou por 6 a 5 uma lei cearense que regulamentava a vaquejada, por crueldade contra os animais. Em 2017, o Congresso respondeu com a Emenda Constitucional 96, que acrescentou o § 7º ao art. 225: práticas desportivas com animais não são consideradas cruéis se forem manifestações culturais registradas como patrimônio, com lei que assegure o bem-estar animal. Pode? Pode: a decisão do STF não impede o Congresso de legislar. Depois, o STF manteve a emenda e as normas federais, com a condição de proteção ao bem-estar animal (ADI 5728 e ADI 5772).\n\nNeste vídeo: como funciona a vaquejada, o choque entre cultura (art. 215) e proteção aos animais (art. 225), a farra do boi e a rinha de galo, o placar de 6 a 5, a Lei 13.364/2016, a Emenda 96, a reação legislativa (art. 102, § 2º) e quem ganhou a briga.",
+  "fontes": [
+    "STF · ADI 4983",
+    "STF · RE 153.531 (farra do boi) e ADI 1856 (rinha de galo)",
+    "Lei 13.364/2016",
+    "Emenda Constitucional 96/2017",
+    "STF · ADI 5728 e ADI 5772",
+    "CF/88, arts. 102, § 2º, 215 e 225"
+  ],
+  "hashtags": [
+    "vaquejada",
+    "stf",
+    "direitoconstitucional"
+  ]
+}

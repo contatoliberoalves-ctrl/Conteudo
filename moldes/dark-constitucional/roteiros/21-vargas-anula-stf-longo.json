@@ -1,0 +1,173 @@
+{
+  "pauta": 21,
+  "longo": true,
+  "serie": "Quem manda na lei?",
+  "titulo": "Um presidente do Brasil derrubou decisões do STF por decreto | Vargas, o Estado Novo e o art. 96",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Um presidente do Brasil\nderrubou decisões\ndo STF por **decreto.**",
+      "imagem": {
+        "arquivo": "imagens/caneta-tinteiro.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "Um presidente do Brasil já derrubou decisões do Supremo com uma assinatura. Sem votação, sem recurso, sem Congresso. E o mais estranho: a Constituição da época abria caminho pra isso. Essa é a história de como aconteceu."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O golpe de 37",
+      "fala": "Capítulo um. O golpe de trinta e sete."
+    },
+    {
+      "tipo": "frase",
+      "data": "1931",
+      "texto": "Seis ministros\n**aposentados**\npor decreto.",
+      "nota": "No Governo Provisório, logo depois da Revolução de 1930.",
+      "fala": "Primeiro, um aviso. Em mil novecentos e trinta e um, logo depois de chegar ao poder, Vargas aposentou seis ministros do Supremo. Por decreto."
+    },
+    {
+      "tipo": "frase",
+      "data": "10 de novembro de 1937",
+      "texto": "Getúlio Vargas\nimpõe o **Estado Novo.**",
+      "nota": "A nova Carta foi outorgada, sem assembleia constituinte.",
+      "fala": "Dez de novembro de mil novecentos e trinta e sete. Getúlio Vargas dá um golpe e impõe o Estado Novo. No mesmo dia, o país ganha uma nova Constituição, escrita sem nenhuma assembleia. Ela foi outorgada."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Congresso fechado.\nO presidente faz\nas **leis.**",
+      "nota": "Enquanto o Parlamento não se reunisse, o presidente editava decretos-leis (art. 180).",
+      "fala": "O Congresso é fechado. E um artigo da Carta, o cento e oitenta, resolve o vazio: enquanto o Parlamento não se reunir, o presidente legisla sozinho, por decreto-lei."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O Parlamento\n**nunca** se reuniu.",
+      "nota": "O plebiscito previsto no art. 187 também nunca foi feito.",
+      "fala": "E o Parlamento nunca se reuniu. A Carta previa até um plebiscito pra ser confirmada pelo povo. Ele nunca aconteceu. Por oito anos, a lei do país foi o que o presidente assinava."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A porta na Carta",
+      "fala": "Capítulo dois. A porta na Carta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Carta de 1937 · art. 96 (resumo)",
+        "texto": "Lei declarada inconstitucional pode voltar ao Parlamento. Se **dois terços** de cada Câmara a confirmarem, a decisão do tribunal fica sem efeito."
+      },
+      "b": {
+        "cabecalho": "Carta de 1937 · art. 94",
+        "texto": "É vedado ao Poder Judiciário conhecer de questões **exclusivamente políticas**."
+      },
+      "ponte": "E mais",
+      "segundoEm": "quatro",
+      "fala": "A Carta também mexeu com o Supremo. O artigo noventa e seis criou uma porta: se o tribunal derrubasse uma lei, o presidente podia mandá-la de volta ao Parlamento. Com dois terços de cada Câmara, a decisão do tribunal ficava sem efeito. E o artigo noventa e quatro proibia os juízes de julgar questões exclusivamente políticas."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "E se não houver\n**Parlamento?**",
+      "fala": "Só tem um problema. Essa porta passava pelo Parlamento. E não havia Parlamento."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "A assinatura",
+      "fala": "Capítulo três. A assinatura."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Os tribunais barram\num **imposto.**",
+      "nota": "A União cobrava imposto de renda sobre os vencimentos de servidores estaduais e municipais.",
+      "fala": "No fim dos anos trinta, o Supremo e outros tribunais decidiram que a União não podia cobrar imposto de renda sobre o salário dos servidores dos estados e dos municípios."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/caneta-tinteiro.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "data": "1939",
+      "texto": "Vargas assina o\n**Decreto-Lei 1.564.**",
+      "fala": "Em mil novecentos e trinta e nove, Vargas pegou a caneta. No lugar dos dois terços do Parlamento, usou o próprio poder de decreto-lei. E assinou o Decreto-Lei mil quinhentos e sessenta e quatro."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Decreto-Lei 1.564/1939 (resumo)",
+        "texto": "Ficam **confirmadas** as leis da União que sujeitaram ao imposto de renda os vencimentos pagos pelos cofres estaduais e municipais."
+      },
+      "b": {
+        "cabecalho": "Decreto-Lei 1.564/1939 (resumo)",
+        "texto": "Ficam **sem efeito** as decisões do Supremo Tribunal Federal e de quaisquer outros tribunais e juízes que declararam essas leis inconstitucionais."
+      },
+      "ponte": "E então",
+      "segundoEm": "decisões",
+      "fala": "O texto confirmava o imposto. E dizia, com todas as letras, que as decisões do Supremo e de quaisquer outros tribunais em sentido contrário ficavam sem efeito."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O presidente.\nNão o **Supremo.**",
+      "fala": "Então, na prática, quem tinha a última palavra sobre a Constituição? O presidente. Não o Supremo. O tribunal decidia, e uma assinatura desfazia."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "A porta se fecha",
+      "fala": "Capítulo quatro. A porta se fecha."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1937",
+          "texto": "Carta do Estado Novo cria a porta do art. 96"
+        },
+        {
+          "data": "1945",
+          "texto": "Vargas é deposto"
+        },
+        {
+          "data": "1946",
+          "texto": "Nova Constituição **não repete** a regra"
+        }
+      ],
+      "fala": "A porta ficou aberta o Estado Novo inteiro. Em outubro de quarenta e cinco, Vargas foi deposto pelos militares. E a Constituição de quarenta e seis, votada por uma assembleia eleita, não repetiu a regra. A última palavra voltou para o Judiciário."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 102",
+        "texto": "Compete ao Supremo Tribunal Federal, precipuamente, a **guarda da Constituição**…"
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 4º, III",
+        "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir a **separação dos Poderes**."
+      },
+      "ponte": "E mais",
+      "segundoEm": "separação",
+      "fala": "Hoje, a Constituição diz que cabe ao Supremo a guarda da Constituição. E a separação dos Poderes é cláusula pétrea. Mesmo assim, de tempos em tempos, volta ao Congresso a ideia de deixar os parlamentares reverem decisões do tribunal."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Quem deve ter a\núltima palavra: STF\nou **Congresso?**",
+      "fala": "E pra você: quem deveria ter a última palavra, o Supremo ou o Congresso? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Um presidente do Brasil já derrubou decisões do STF por decreto. A Carta de 1937 permitia que uma lei declarada inconstitucional fosse confirmada por dois terços de cada Câmara do Parlamento (art. 96, parágrafo único). Com o Parlamento fechado, Getúlio Vargas usou o poder de editar decretos-leis (art. 180): o Decreto-Lei 1.564/1939 confirmou o imposto de renda sobre os vencimentos de servidores estaduais e municipais e deixou sem efeito as decisões judiciais em contrário. O mecanismo acabou com a Constituição de 1946.\n\nNeste vídeo: o golpe do Estado Novo, a Carta outorgada de 1937, os decretos-leis, os arts. 94 e 96, o Decreto-Lei 1.564/1939, a queda de Vargas e quem guarda a Constituição hoje (CF/88, art. 102).",
+  "fontes": [
+    "Constituição de 1937, arts. 94, 96 e 180",
+    "Decreto-Lei 1.564/1939",
+    "Constituição de 1946",
+    "CF/88, arts. 60, § 4º, III, e 102"
+  ],
+  "hashtags": [
+    "getuliovargas",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}

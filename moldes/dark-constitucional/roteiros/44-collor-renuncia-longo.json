@@ -1,0 +1,186 @@
+{
+  "pauta": 44,
+  "longo": true,
+  "serie": "Casos que viraram direito",
+  "titulo": "Ele renunciou no meio do julgamento e foi condenado mesmo assim | O impeachment de Collor",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ele renunciou\nno meio do\njulgamento. E foi\n**condenado.**",
+      "imagem": {
+        "arquivo": "imagens/martelo-plenario.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "Vinte e nove de dezembro de mil novecentos e noventa e dois. O Senado começa a julgar o presidente da República. E, com a sessão aberta, ele renuncia. Parecia o fim do processo. Não foi. Ele foi condenado mesmo assim. Essa é a história de como isso aconteceu."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O primeiro eleito",
+      "fala": "Capítulo um. O primeiro eleito."
+    },
+    {
+      "tipo": "frase",
+      "data": "15 de março de 1990",
+      "texto": "Fernando Collor\ntoma **posse.**",
+      "nota": "Primeiro presidente eleito pelo voto direto desde 1960.",
+      "fala": "Março de mil novecentos e noventa. Fernando Collor toma posse. É o primeiro presidente eleito pelo voto direto desde mil novecentos e sessenta. Quase trinta anos depois."
+    },
+    {
+      "tipo": "frase",
+      "data": "Maio de 1992",
+      "texto": "O irmão dá\numa **entrevista.**",
+      "nota": "Pedro Collor acusou o tesoureiro da campanha, PC Farias.",
+      "fala": "Dois anos depois, o próprio irmão do presidente, Pedro Collor, dá uma entrevista a uma revista. Ele acusa o tesoureiro da campanha, PC Farias, de comandar um esquema de corrupção."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O Congresso abre\numa **CPI.**",
+      "nota": "Nas ruas, os caras-pintadas pediam a saída do presidente.",
+      "fala": "O Congresso abre uma Comissão Parlamentar de Inquérito. E nas ruas aparecem os caras-pintadas: estudantes com o rosto pintado de verde e amarelo, pedindo a saída de Collor."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O afastamento",
+      "fala": "Capítulo dois. O afastamento."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara dos Deputados · 29/9/1992",
+      "a": 441,
+      "b": 38,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 336,
+      "rotuloLinha": "Mínimo: 336",
+      "linhaEm": "trezentos",
+      "carimbo": "Autorizado",
+      "fala": "Vinte e nove de setembro. A Câmara vota a abertura do processo. Eram precisos dois terços, trezentos e trinta e seis deputados. O placar: quatrocentos e quarenta e um a trinta e oito."
+    },
+    {
+      "tipo": "frase",
+      "data": "2 de outubro de 1992",
+      "texto": "Collor é\n**afastado.**",
+      "nota": "O vice, Itamar Franco, assume interinamente.",
+      "fala": "Dias depois, Collor é afastado do cargo enquanto o Senado julga. O vice, Itamar Franco, assume de forma interina. Pela Constituição, o afastamento dura no máximo cento e oitenta dias. Se o Senado não terminasse nesse prazo, Collor voltava."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "A carta",
+      "fala": "Capítulo três. A carta."
+    },
+    {
+      "tipo": "frase",
+      "data": "29 de dezembro de 1992",
+      "texto": "Com o julgamento aberto,\nchega a **renúncia.**",
+      "nota": "A sessão era presidida pelo presidente do STF, Sydney Sanches.",
+      "fala": "No dia do julgamento, a sessão do Senado é presidida pelo presidente do Supremo, Sydney Sanches. E aí chega a carta. Collor renuncia à Presidência."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Lei 1.079/1950 · art. 15",
+        "texto": "A denúncia só poderá ser recebida enquanto o denunciado não tiver, por qualquer motivo, **deixado definitivamente o cargo**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 52, parágrafo único",
+        "texto": "…limitando-se a condenação… à perda do cargo, com **inabilitação, por oito anos**, para o exercício de função pública…"
+      },
+      "ponte": "Só que",
+      "segundoEm": "Constituição",
+      "fala": "A aposta da defesa estava na lei do impeachment: sem cargo, não há processo. Só que a Constituição prevê duas penas. Perder o cargo. E ficar oito anos sem poder exercer função pública."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Sem cargo, ainda\ndá pra **julgar?**",
+      "fala": "O cargo ele já tinha largado. Mas e a segunda pena? Sem cargo, ainda dava pra julgar?"
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "O veredito",
+      "fala": "Capítulo quatro. O veredito."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Itamar toma posse.\nO Senado **continua.**",
+      "fala": "Naquele mesmo dia, o Congresso se reúne e Itamar Franco toma posse como presidente. A defesa quer o processo encerrado. O Senado diz não, e segue com o julgamento."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Senado Federal · dezembro de 1992",
+      "a": 76,
+      "b": 3,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 54,
+      "rotuloLinha": "Mínimo: 54",
+      "linhaEm": "cinquenta",
+      "carimbo": "Inabilitado",
+      "fala": "Pra condenar, eram precisos dois terços do Senado, cinquenta e quatro votos. O resultado: setenta e seis a três. Collor ficou oito anos inabilitado pra função pública."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/stf-plenario.jpg",
+        "credito": "Plenário do STF · foto acmoraes/Flickr (CC BY 2.0)",
+        "foco": "50% 50%"
+      },
+      "data": "STF · MS 21.689 · 1993",
+      "texto": "A renúncia veio tarde\ndemais pra **salvar.**",
+      "fala": "Ele recorreu ao Supremo com um mandado de segurança. E perdeu. Pro tribunal, a renúncia apresentada com o julgamento já começado não impedia a inabilitação."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O que veio depois",
+      "fala": "Capítulo cinco. O que veio depois."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1994",
+          "texto": "STF absolve Collor na ação penal"
+        },
+        {
+          "data": "2006",
+          "texto": "Eleito senador por Alagoas"
+        },
+        {
+          "data": "2016",
+          "texto": "Dilma perde o cargo, mas **não** a habilitação"
+        }
+      ],
+      "fala": "Na área criminal, o Supremo absolveu Collor em mil novecentos e noventa e quatro, por falta de provas. Em dois mil e seis, ele voltou eleito senador. E em dois mil e dezesseis, a história deu uma volta."
+    },
+    {
+      "tipo": "frase",
+      "data": "Agosto de 2016",
+      "texto": "As duas penas\nforam votadas\n**separadas.**",
+      "nota": "Perda do cargo: 61 a 20. Inabilitação: 42 a 36, abaixo dos 54 necessários.",
+      "fala": "No impeachment de Dilma Rousseff, o Senado votou as duas penas separadas. Ela perdeu o cargo por sessenta e um a vinte. Mas a inabilitação teve só quarenta e dois votos. Não chegou aos cinquenta e quatro."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Renunciar deveria\nencerrar o **julgamento?**",
+      "fala": "E pra você: renunciar deveria encerrar o julgamento? E as duas penas, deviam andar juntas? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Fernando Collor renunciou à Presidência em 29 de dezembro de 1992, com o julgamento do impeachment já aberto no Senado, e foi condenado mesmo assim: o Senado prosseguiu e aplicou, por 76 votos a 3, a inabilitação por oito anos para o exercício de função pública (CF/88, art. 52, parágrafo único). No MS 21.689 (1993), o STF manteve a decisão: a renúncia com o julgamento já iniciado não impede a inabilitação.\n\nNeste vídeo: a posse de Collor em 1990, a entrevista de Pedro Collor, a CPI e os caras-pintadas, a votação de 441 a 38 na Câmara, a carta de renúncia, o art. 15 da Lei 1.079/1950, o placar do Senado, o mandado de segurança no STF, a absolvição criminal em 1994, a volta ao Senado e a votação fatiada do impeachment de Dilma Rousseff em 2016.",
+  "fontes": [
+    "Constituição de 1988, arts. 52, parágrafo único, e 86",
+    "Lei 1.079/1950, art. 15",
+    "STF · MS 21.689 (1993) e AP 307 (1994)",
+    "Senado Federal · Impeachment de 1992 e de 2016"
+  ],
+  "hashtags": [
+    "impeachment",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}

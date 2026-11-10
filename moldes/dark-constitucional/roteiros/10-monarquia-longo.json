@@ -1,0 +1,188 @@
+{
+  "pauta": 10,
+  "longo": true,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "Em 1993, o Brasil votou se queria um rei | O plebiscito da monarquia",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Em 1993, o Brasil\nvotou se queria\num **rei.**",
+      "imagem": {
+        "arquivo": "imagens/familia-imperial.jpg",
+        "credito": "Família imperial brasileira · Arquivo Nacional (domínio público)",
+        "foco": "30% 45%"
+      },
+      "fala": "Em mil novecentos e noventa e três, o Brasil foi às urnas pra decidir se queria voltar a ter um rei. Não era pesquisa. Era um plebiscito oficial, mandado pela própria Constituição. E quase sete milhões de pessoas votaram pela monarquia. Essa é a história de como essa pergunta foi parar na urna."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Uma promessa de 1889",
+      "fala": "Capítulo um. Uma promessa de mil oitocentos e oitenta e nove."
+    },
+    {
+      "tipo": "frase",
+      "data": "15 de novembro de 1889",
+      "texto": "A República nasce\n**sem voto.**",
+      "nota": "Dois dias depois, a família imperial partiu para o exílio.",
+      "fala": "A República nasceu sem voto popular. Um movimento militar derrubou o Império em quinze de novembro de mil oitocentos e oitenta e nove. Dois dias depois, a família imperial partiu para o exílio."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Decreto nº 1 · 15/11/1889 · art. 7º",
+        "texto": "…o Governo Provisório (…) aguardando, como lhe cumpre, o **pronunciamento definitivo do voto da Nação**, livremente expressado pelo sufrágio popular."
+      },
+      "b": {
+        "cabecalho": "Constituição de 1891 · art. 90, § 4º",
+        "texto": "Não poderão ser admitidos como objeto de deliberação, no Congresso, projetos tendentes a **abolir a forma republicano-federativa**…"
+      },
+      "ponte": "Em 1891",
+      "segundoEm": "Constituição",
+      "fala": "O primeiro decreto da República prometia esperar o voto da Nação. Só que a Constituição de noventa e um foi pro lado oposto: proibiu o Congresso até de discutir um projeto que acabasse com a República."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A volta do rei\nnem podia entrar\nem **pauta.**",
+      "nota": "A mesma trava voltou em Constituições seguintes.",
+      "fala": "Essa trava voltou em Constituições seguintes. Por quase um século, a volta do rei nem podia entrar em pauta."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A porta reaberta",
+      "fala": "Capítulo dois. A porta reaberta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "ADCT · art. 2º",
+        "texto": "No dia 7 de setembro de 1993 o eleitorado definirá, através de plebiscito, a forma (**república ou monarquia constitucional**) e o sistema de governo…"
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 4º",
+        "texto": "…abolir: a forma federativa de Estado; o voto direto, secreto, universal e periódico; a separação dos Poderes; os direitos e garantias individuais."
+      },
+      "ponte": "E repara",
+      "segundoEm": "lista",
+      "fala": "Em oitenta e oito, a nova Constituição fez o contrário. Mandou perguntar ao povo: república ou monarquia constitucional? E repara na lista das cláusulas pétreas. A federação está lá. O voto direto também. A República, não."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Por que deixar\na República\n**de fora?**",
+      "fala": "Por que deixar a República de fora? Porque não dava pra blindar uma coisa que o próprio povo ainda ia decidir."
+    },
+    {
+      "tipo": "frase",
+      "data": "1992",
+      "texto": "Uma emenda\n**antecipa** a data.",
+      "nota": "A EC 2/1992 trocou 7 de setembro por 21 de abril de 1993.",
+      "fala": "A data marcada era sete de setembro de noventa e três. Em noventa e dois, uma emenda constitucional antecipou o plebiscito pra vinte e um de abril. Dia de Tiradentes."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "Duas perguntas",
+      "fala": "Capítulo três. Duas perguntas."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Pergunta 1",
+      "pergunta": "Forma de governo",
+      "opcoes": [
+        "República",
+        "Monarquia"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "venceu",
+        "6,8 mi"
+      ],
+      "fala": "Na cédula, duas perguntas. A primeira: república ou monarquia constitucional? Para aqui e vota nos comentários."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Pergunta 2",
+      "pergunta": "Sistema de governo",
+      "opcoes": [
+        "Presidencialismo",
+        "Parlamentarismo"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "venceu",
+        ""
+      ],
+      "fala": "A segunda: presidencialismo ou parlamentarismo?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Forma",
+          "sub": "Quem é o chefe de Estado: presidente ou rei"
+        },
+        {
+          "titulo": "Sistema",
+          "sub": "Como o governo funciona e quem responde a quem"
+        }
+      ],
+      "fala": "Muita gente achou que era a mesma pergunta. Não era. Uma decidia a forma de governo. A outra, como o governo funciona. Dava pra votar em monarquia com parlamentarismo, ou em república com parlamentarismo."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "O resultado",
+      "fala": "Capítulo quatro. O resultado."
+    },
+    {
+      "tipo": "frase",
+      "data": "21 de abril de 1993",
+      "texto": "República e\npresidencialismo\n**venceram.**",
+      "nota": "A monarquia teve cerca de 6,8 milhões de votos.",
+      "fala": "Deu república, com folga. E presidencialismo. Mas a monarquia teve cerca de seis vírgula oito milhões de votos. Gente que, cento e quatro anos depois, ainda queria um rei."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/familia-imperial.jpg",
+        "credito": "Família imperial brasileira · Arquivo Nacional (domínio público)",
+        "foco": "35% 40%"
+      },
+      "afasta": true,
+      "data": "1889 → 1993",
+      "texto": "Cento e quatro anos depois do **exílio.**",
+      "fala": "Cento e quatro anos depois do exílio da família imperial, a promessa do primeiro decreto enfim se cumpriu. O povo votou. E escolheu ficar com a República."
+    },
+    {
+      "tipo": "frase",
+      "data": "6 de janeiro de 1963",
+      "texto": "Não foi a primeira\nvez que o país\nvotou o **sistema.**",
+      "nota": "Em 1963, outro plebiscito derrubou o parlamentarismo adotado em 1961.",
+      "fala": "E não foi a primeira vez. Em mil novecentos e sessenta e três, outro plebiscito já tinha devolvido o presidencialismo, depois de pouco mais de um ano de parlamentarismo."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A República não é\ncláusula pétrea.\nMas venceu nas **urnas.**",
+      "fala": "Hoje, a República continua fora da lista das cláusulas pétreas. Mas ela tem uma coisa que nenhuma outra forma de governo teve aqui. Foi escolhida no voto."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Em 1993, você\nvotaria por um **rei?**",
+      "fala": "Agora me diz: em noventa e três, você votaria por um rei? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em 21 de abril de 1993, o Brasil votou em plebiscito se queria república ou monarquia constitucional, e presidencialismo ou parlamentarismo. Venceram república e presidencialismo, mas a monarquia teve cerca de 6,8 milhões de votos. O plebiscito foi mandado pela própria Constituição (ADCT, art. 2º), e por isso a República não está entre as cláusulas pétreas.\n\nNeste vídeo: a promessa do Decreto nº 1 de 1889, a proibição de abolir a República na Constituição de 1891, o art. 2º do ADCT, a antecipação pela EC 2/1992, a diferença entre forma e sistema de governo, o resultado de 1993 e o plebiscito de 1963.",
+  "fontes": [
+    "Decreto nº 1, de 15/11/1889, art. 7º",
+    "Constituição de 1891, art. 90, § 4º",
+    "ADCT, art. 2º, e Constituição de 1988, art. 60, § 4º",
+    "Emenda Constitucional 2/1992",
+    "TSE · Plebiscitos de 1963 e 1993"
+  ],
+  "hashtags": [
+    "plebiscito",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}

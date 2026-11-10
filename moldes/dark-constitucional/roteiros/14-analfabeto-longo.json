@@ -1,0 +1,195 @@
+{
+  "pauta": 14,
+  "longo": true,
+  "serie": "Na urna",
+  "titulo": "Por 104 anos, quem não sabia ler não podia votar no Brasil | A história do voto do analfabeto",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Por 104 anos,\nquem não sabia ler\nnão podia **votar**\nno Brasil.",
+      "imagem": {
+        "arquivo": "imagens/lousa-antiga.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "68% 50%"
+      },
+      "fala": "Durante cento e quatro anos, quem não sabia ler foi proibido de votar no Brasil. E o mais estranho: no Império, podia. Essa é a história de como o país fechou a urna pra maior parte da população, e da regra que até hoje não mudou."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "O voto do dinheiro",
+      "fala": "Capítulo um. O voto do dinheiro."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Constituição de 1824",
+      "pergunta": "O que decidia quem votava?",
+      "opcoes": [
+        "A renda",
+        "Saber ler"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "a regra",
+        ""
+      ],
+      "fala": "Então, uma pergunta rápida. Na Constituição de mil oitocentos e vinte e quatro, a primeira do Brasil, o que decidia quem podia votar: a renda ou saber ler?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Valia o **dinheiro.**\nNão a leitura.",
+      "nota": "Para votar, era preciso renda líquida anual de pelo menos 100 mil réis (art. 92).",
+      "fala": "Valia o dinheiro. Pra votar, era preciso ter uma renda mínima por ano. Ler e escrever não era exigido. Um lavrador analfabeto, com a renda certa, podia votar."
+    },
+    {
+      "tipo": "frase",
+      "texto": "E a eleição era em\n**dois graus.**",
+      "nota": "Os votantes das paróquias escolhiam os eleitores, e só estes escolhiam deputados e senadores.",
+      "fala": "E a eleição era em dois graus. O povo das paróquias escolhia os eleitores. E só esses eleitores, com uma renda maior, escolhiam os deputados e os senadores."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A Lei Saraiva",
+      "fala": "Capítulo dois. A Lei Saraiva."
+    },
+    {
+      "tipo": "frase",
+      "data": "9 de janeiro de 1881",
+      "texto": "A Lei Saraiva\nmuda a **eleição.**",
+      "nota": "O Decreto 3.029 acabou com a eleição em dois graus.",
+      "fala": "Nove de janeiro de mil oitocentos e oitenta e um. A Lei Saraiva acaba com a eleição em dois graus. O eleitor passa a votar direto nos deputados."
+    },
+    {
+      "tipo": "frase",
+      "texto": "E cria uma nova\nexigência: saber\n**ler e escrever.**",
+      "nota": "A renda mínima continuou sendo exigida.",
+      "fala": "Mas traz uma condição nova. Quem fosse se alistar dali em diante precisava saber ler e escrever. E a exigência de renda continuou."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Em 1881, a maioria\ndos brasileiros\nnão sabia **ler.**",
+      "fala": "Repara no tamanho disso. Em mil oitocentos e oitenta e um, a grande maioria dos brasileiros não sabia ler."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O número de eleitores\n**despencou.**",
+      "nota": "Uma lei feita para combater a fraude deixou quase todo mundo de fora.",
+      "fala": "Resultado: o número de eleitores despencou. Uma lei que prometia eleições mais limpas, com menos fraude, acabou deixando quase todo mundo de fora das urnas."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "A porta fechada",
+      "fala": "Capítulo três. A porta fechada."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1891",
+          "texto": "A República acaba com a renda, mas não com a leitura"
+        },
+        {
+          "data": "1932",
+          "texto": "As mulheres passam a votar"
+        },
+        {
+          "data": "1934 a 1969",
+          "texto": "Toda Constituição repete: analfabeto **não se alista**"
+        }
+      ],
+      "fala": "Veio a República. A Constituição de noventa e um acabou com a exigência de renda, mas manteve a de saber ler. Em mil novecentos e trinta e dois, as mulheres ganharam o voto. Os analfabetos, não. E todas as Constituições seguintes repetiram a proibição."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1891 · art. 70, § 1º",
+        "texto": "Não podem alistar-se eleitores para as eleições federais ou para as dos Estados: os mendigos; os **analfabetos**; as praças de pré…"
+      },
+      "b": {
+        "cabecalho": "Constituição de 1946 · art. 132",
+        "texto": "Não podem alistar-se eleitores: I - os **analfabetos**; II - os que não saibam exprimir-se na língua nacional…"
+      },
+      "ponte": "55 anos depois",
+      "segundoEm": "quarenta",
+      "fala": "Repara na companhia. Em noventa e um, o analfabeto aparece na mesma lista dos mendigos e dos soldados rasos. Em quarenta e seis, mais de meio século depois, ele continua em primeiro lugar na lista de quem não pode se alistar."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/lousa-antiga.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "40% 50%"
+      },
+      "afasta": true,
+      "texto": "Quem não tinha escola\nnão tinha **voto.**",
+      "fala": "Por quase um século, a chave da urna foi a alfabetização. E num país com pouca escola, quem não teve escola também não teve voto."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "A volta",
+      "fala": "Capítulo quatro. A volta."
+    },
+    {
+      "tipo": "frase",
+      "data": "15 de maio de 1985",
+      "texto": "Emenda 25: o analfabeto\nvolta a **votar.**",
+      "nota": "A mesma emenda restabeleceu a eleição direta para presidente.",
+      "fala": "Quinze de maio de mil novecentos e oitenta e cinco. A Emenda vinte e cinco, a mesma que trouxe de volta a eleição direta pra presidente, devolveu o voto aos analfabetos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "**104 anos**\ndepois.",
+      "nota": "De 1881 a 1985.",
+      "fala": "Cento e quatro anos depois da Lei Saraiva. Mais tempo do que o Brasil passou como Império."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O que ainda falta",
+      "fala": "Capítulo cinco. O que ainda falta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 14, § 1º, II, a",
+        "texto": "O alistamento eleitoral e o voto são **facultativos** para os analfabetos."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 14, § 4º",
+        "texto": "São **inelegíveis** os inalistáveis e os analfabetos."
+      },
+      "ponte": "Mas",
+      "segundoEm": "Mas",
+      "fala": "Na Constituição de oitenta e oito, pro analfabeto, votar é facultativo. Ele vota se quiser. Mas tem um detalhe: ele ainda não pode ser candidato. A Constituição diz que analfabetos são inelegíveis."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Sem diploma, o\ncandidato escreve de\n**próprio punho.**",
+      "nota": "Sem comprovante de escolaridade, a Justiça Eleitoral aceita uma declaração escrita pelo candidato.",
+      "fala": "Por isso, no registro da candidatura, quem não tem comprovante de escolaridade pode provar que sabe ler e escrever com uma declaração feita de próprio punho."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Analfabeto deveria\npoder ser **candidato?**",
+      "fala": "E pra você: analfabeto deveria poder ser candidato? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Por 104 anos, quem não sabia ler não podia votar no Brasil. No Império, o voto dependia da renda (Constituição de 1824, art. 92). Em 1881, a Lei Saraiva passou a exigir que o eleitor soubesse ler e escrever, numa época em que a maioria da população era analfabeta. A República manteve a proibição, e o voto do analfabeto só voltou com a Emenda Constitucional 25, de 1985. Hoje ele é facultativo (CF/88, art. 14, § 1º, II, a), mas o analfabeto continua inelegível (art. 14, § 4º).\n\nNeste vídeo: o voto censitário do Império, a Lei Saraiva, a exclusão dos analfabetos nas Constituições da República, a Emenda 25 de 1985 e por que o analfabeto vota, mas não pode ser votado.",
+  "fontes": [
+    "Constituição de 1824, art. 92",
+    "Decreto 3.029/1881 (Lei Saraiva)",
+    "Constituição de 1891, art. 70",
+    "Emenda Constitucional 25/1985",
+    "CF/88, art. 14, §§ 1º e 4º",
+    "TSE · Registro de candidatura (comprovação de alfabetização)"
+  ],
+  "hashtags": [
+    "voto",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}

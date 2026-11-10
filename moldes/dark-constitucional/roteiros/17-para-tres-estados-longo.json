@@ -1,0 +1,197 @@
+{
+  "pauta": 17,
+  "longo": true,
+  "serie": "Na urna",
+  "titulo": "O Pará quase virou três estados | O plebiscito de Carajás e Tapajós",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Pará\nquase virou\n**três estados.**",
+      "imagem": {
+        "arquivo": "imagens/mapa-brasil-1911.jpg",
+        "credito": "Mappa geral do Brasil, Jornal do Brasil, 1911 · domínio público (rawpixel)",
+        "foco": "52% 22%",
+        "zoom": 1.7
+      },
+      "fala": "Em dois mil e onze, o Pará foi às urnas pra decidir se viraria três estados. No meio da disputa, uma pergunta que parece simples: quem tem o direito de votar? A resposta veio do Supremo. E decidiu o resultado antes mesmo da votação."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Um estado gigante",
+      "fala": "Capítulo um. Um estado gigante."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Mais de\n**1,2 milhão** de km².",
+      "nota": "O Pará é o segundo maior estado do Brasil, atrás só do Amazonas.",
+      "fala": "O Pará tem mais de um milhão e duzentos mil quilômetros quadrados. É o segundo maior estado do país, atrás só do Amazonas. Cabem ali a França e a Espanha juntas, e ainda sobra espaço."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/mapa-brasil-1911.jpg",
+        "credito": "Mappa geral do Brasil, Jornal do Brasil, 1911 · domínio público (rawpixel)",
+        "foco": "45% 30%"
+      },
+      "afasta": true,
+      "texto": "Longe da capital,\na queixa era a **distância.**",
+      "fala": "No sul e no oeste, a queixa era antiga. A capital, Belém, ficava longe demais. E, pra quem morava lá, o governo não chegava. A saída proposta foi dividir o estado."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "O mapa novo",
+      "fala": "Capítulo dois. O mapa novo."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Pará",
+          "sub": "Belém e o nordeste do estado"
+        },
+        {
+          "titulo": "Carajás",
+          "sub": "sul e sudeste",
+          "marcada": true
+        },
+        {
+          "titulo": "Tapajós",
+          "sub": "oeste",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "Carajás",
+      "fala": "No mapa proposto, nasceriam dois estados novos: Carajás, no sul e sudeste, e Tapajós, no oeste. O que sobrasse continuaria sendo o Pará, com Belém."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Menos **terra**,\nmais gente.",
+      "nota": "O Pará que ficaria teria a menor parte do território e a maior parte da população.",
+      "fala": "E a divisão era desigual. O Pará que sobraria ficaria com a menor fatia do território. Mas com a maior parte da população, e dos eleitores. Guarda esse detalhe."
+    },
+    {
+      "tipo": "frase",
+      "data": "2011",
+      "texto": "O Congresso convoca\ndois **plebiscitos.**",
+      "nota": "Um para Carajás e outro para Tapajós.",
+      "fala": "Em dois mil e onze, o Congresso convocou dois plebiscitos. Um pra cada estado novo. Mas antes de contar os votos, era preciso saber quem votava."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "Quem vota?",
+      "fala": "Capítulo três. Quem vota?"
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem deveria\n**votar?**",
+      "fala": "Pensa comigo. Se o sul quer se separar, quem deveria votar? Só o sul? Ou o estado inteiro?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 18, § 3º",
+        "texto": "Os Estados podem… desmembrar-se… mediante aprovação da **população diretamente interessada**, através de plebiscito, e do Congresso Nacional, por lei complementar."
+      },
+      "b": {
+        "cabecalho": "Lei 9.709/1998 · art. 7º (resumo)",
+        "texto": "População diretamente interessada é a do território que se quer desmembrar **e também** a do que sofrerá o desmembramento."
+      },
+      "ponte": "Quem é",
+      "segundoEm": "lei",
+      "fala": "A Constituição exige plebiscito com a população diretamente interessada. Mas não diz quem é essa população. Uma lei de noventa e oito respondeu: é tanto quem quer sair quanto quem fica."
+    },
+    {
+      "tipo": "frase",
+      "data": "STF · 2011",
+      "texto": "ADI 2.650:\nvota o **estado todo.**",
+      "nota": "O Supremo manteve a regra da Lei 9.709/1998.",
+      "fala": "A regra foi parar no Supremo, na ADI dois mil seiscentos e cinquenta. E em dois mil e onze, o tribunal manteve a lei. Quem vota é o estado inteiro, não só a região que quer se separar."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "Onze de dezembro",
+      "fala": "Capítulo quatro. Onze de dezembro."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Plebiscito · 2011",
+      "pergunta": "Criar o estado do Carajás?",
+      "opcoes": [
+        "Sim",
+        "Não"
+      ],
+      "vencedor": 1,
+      "resultados": [
+        "",
+        "venceu"
+      ],
+      "fala": "Onze de dezembro de dois mil e onze. Todo o eleitorado do Pará recebe duas perguntas. A primeira: dividir o estado pra criar o Carajás. E você, votaria sim ou não?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "O **não** venceu\nas duas consultas.",
+      "nota": "Cerca de dois terços dos votos, tanto para Carajás quanto para Tapajós.",
+      "fala": "O não venceu. E venceu também na segunda pergunta, sobre o Tapajós. Nas duas consultas, com cerca de dois terços dos votos. O Pará continuou inteiro."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Nas regiões novas,\no **sim** ganhou.",
+      "nota": "Mas a maior parte do eleitorado morava no Pará que ficaria.",
+      "fala": "Repara no detalhe. Nas regiões que queriam se separar, o sim ganhou com folga. Só que a maior parte dos eleitores morava no pedaço que continuaria sendo o Pará. E ali, o não foi esmagador."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "Estados que nasceram",
+      "fala": "Capítulo cinco. Estados que nasceram."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1977",
+          "texto": "Lei complementar cria Mato Grosso do Sul"
+        },
+        {
+          "data": "1988",
+          "texto": "A Constituição cria o Tocantins"
+        },
+        {
+          "data": "2011",
+          "texto": "O Pará diz **não** à divisão"
+        }
+      ],
+      "fala": "Não seria o primeiro estado novo. Em setenta e sete, uma lei complementar criou Mato Grosso do Sul. Em oitenta e oito, a própria Constituição criou o Tocantins, separado de Goiás. E depois disso, nenhum estado novo saiu do papel."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Hoje, dividir um estado\nexige o **sim** dele inteiro.",
+      "fala": "Desde a decisão do Supremo, a regra ficou clara. Pra dividir um estado, não basta a vontade de quem quer sair. Quem fica também vota. E mesmo com o sim nas urnas, ainda faltaria uma lei complementar do Congresso.",
+      "nota": "E, depois do plebiscito, uma lei complementar do Congresso."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Quem deveria votar:\nsó a região ou o\n**estado todo?**",
+      "fala": "E pra você: quem deveria votar, só a região ou o estado todo? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em 11 de dezembro de 2011, o Pará votou em plebiscito se deveria se dividir para criar os estados de Carajás e Tapajós. A Constituição exige a aprovação da \"população diretamente interessada\" (art. 18, § 3º); a Lei 9.709/1998 (art. 7º) diz que ela inclui quem fica, e o STF manteve essa regra na ADI 2.650. Todo o eleitorado do estado votou, e o \"não\" venceu nas duas consultas, com cerca de dois terços dos votos.\n\nNeste vídeo: o tamanho do Pará, o mapa de Carajás e Tapajós, quem é a população diretamente interessada, a ADI 2.650, o resultado do plebiscito e os estados que nasceram antes (Mato Grosso do Sul e Tocantins).",
+  "fontes": [
+    "CF/88, art. 18, § 3º",
+    "Lei 9.709/1998, art. 7º",
+    "STF · ADI 2.650",
+    "TSE · Plebiscitos no Pará (2011)",
+    "Lei Complementar 31/1977",
+    "CF/88, ADCT, art. 13"
+  ],
+  "hashtags": [
+    "plebiscito",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}
