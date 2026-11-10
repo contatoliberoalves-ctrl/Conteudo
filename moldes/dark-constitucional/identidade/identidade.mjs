@@ -85,7 +85,29 @@ for (const [i, d] of ID.destaques.entries()) {
     <div class="grao"></div><div class="vinheta"></div>`), 1080, 1920, `destaques/${String(i + 1).padStart(2, "0")}-${d.icone}.png`);
 }
 
-// 3. Prévia do perfil: topo, bio, destaques e a grade 3:4 com as capas mais novas
+// 3. YouTube: banner do canal (2560×1440; a faixa segura de 1546×423 no centro aparece em todas as telas) e marca d'água (150×150, fundo transparente)
+const SEG = { x: (2560 - 1546) / 2, y: (1440 - 423) / 2, w: 1546, h: 423 };
+await foto(base(2560, 1440, `<div class="luz" style="background:radial-gradient(ellipse at 50% 50%, ${COR.fundo2} 0%, transparent 60%)"></div>
+  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg, transparent 0 79px, ${COR.linha}55 79px 80px);opacity:.6"></div>
+  <div style="position:absolute;right:-120px;top:-200px;font-family:'Old Standard TT';font-weight:700;font-size:1700px;line-height:1;color:${COR.papel};opacity:.035">§</div>
+  <div style="position:absolute;left:${SEG.x}px;top:${SEG.y}px;width:${SEG.w}px;height:${SEG.h}px;display:flex;align-items:center;gap:70px;padding:0 40px">
+    <div style="transform:rotate(-8deg);flex:none">${carimbo(330)}</div>
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <div style="font-family:'Plex Cond';font-weight:700;font-size:118px;line-height:.95;color:${COR.texto};text-transform:uppercase;letter-spacing:-1px">${ID.nome}</div>
+      <div style="height:5px;width:180px;background:${COR.lacre}"></div>
+      <div style="font-family:'Plex Mono';font-weight:500;font-size:34px;letter-spacing:5px;color:${COR.apagado};text-transform:uppercase">${ID.youtube.slogan}</div>
+    </div></div>
+  <div class="grao"></div><div class="vinheta"></div>`), 2560, 1440, "youtube-banner.png");
+// Prévia da faixa segura (o que aparece no celular)
+await foto(base(2560, 1440, `<img src="data:image/png;base64,${fs.readFileSync(path.join(OUT, "youtube-banner.png")).toString("base64")}" style="position:absolute;inset:0">
+  <div style="position:absolute;left:${SEG.x}px;top:${SEG.y}px;width:${SEG.w}px;height:${SEG.h}px;outline:6px dashed ${COR.lacre}"></div>`), 2560, 1440, "youtube-banner-area-segura.png");
+await page.setViewportSize({ width: 150, height: 150 });
+await page.setContent(`<!doctype html><html><head><meta charset="utf8"><style>${FONTES}*{margin:0}body{width:150px;height:150px;background:transparent}</style></head><body>${carimbo(150)}</body></html>`, { waitUntil: "load" });
+await page.evaluate(() => document.fonts.ready);
+await page.screenshot({ path: path.join(OUT, "youtube-marca-dagua.png"), omitBackground: true });
+console.log("✓ youtube-marca-dagua.png");
+
+// 4. Prévia do perfil: topo, bio, destaques e a grade 3:4 com as capas mais novas
 const dados = JSON.parse(fs.readFileSync(path.join(MOLDE, "dados.json"), "utf8"));
 const capas = dados.slice().reverse().map((d) => path.join(MOLDE, "saida", d.id, "capa.jpg")).filter((p) => fs.existsSync(p)).slice(0, 9);
 const b64 = (p) => `data:image/jpeg;base64,${fs.readFileSync(p).toString("base64")}`;

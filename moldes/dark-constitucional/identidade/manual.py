@@ -7,7 +7,13 @@ AQUI = Path(__file__).resolve().parent
 OUT = AQUI.parent / 'saida' / 'identidade'
 ID = json.loads((AQUI / 'identidade.json').read_text('utf8'))
 
+series = {}
+for d in json.loads((AQUI.parent / 'dados.json').read_text('utf8')):
+    r = json.loads((AQUI.parent / 'roteiros' / f"{d['id']}.json").read_text('utf8'))
+    series.setdefault(r.get('serie', 'Outros'), []).append(r['titulo'])
 dados = {
+    'youtube': ID.get('youtube', {}),
+    'playlists': [{'nome': k, 'videos': v} for k, v in sorted(series.items(), key=lambda x: -len(x[1]))],
     'nome': ID['nome'], 'arroba': ID['arroba'],
     'bios': ID['bios'], 'destaques': ID['destaques'],
     'tiktok': ID.get('tiktok', ''),
@@ -88,7 +94,7 @@ li::marker{color:var(--lacre)}
     <div>
       <div class="rot">Instagram e TikTok · perfil dark de Constitucional</div>
       <h1>Identidade do <span>Arquivo</span></h1>
-      <p class="lead">Tudo para montar o perfil e postar os vídeos: nome, foto, bio, destaques, cores, fontes, capa e legenda. O visual é o mesmo dos vídeos: um arquivo à noite, papel envelhecido e um vermelho de lacre.</p>
+      <p class="lead">Tudo para montar o Instagram, o TikTok e o YouTube e postar os vídeos: nome, foto, bio, destaques, cores, fontes, capa e legenda. O visual é o mesmo dos vídeos: um arquivo à noite, papel envelhecido e um vermelho de lacre.</p>
     </div>
   </header>
 
@@ -168,7 +174,38 @@ li::marker{color:var(--lacre)}
   </section>
 
   <section>
-    <h2><small>08</small>Voz e legenda</h2>
+    <h2><small>08</small>YouTube</h2>
+    <p>Mesmo nome, mesma foto de perfil e o mesmo @ do Instagram. Os vídeos verticais entram como Shorts; as versões 16:9, com miniatura própria, entram como vídeos normais.</p>
+    <div class="ficha">
+      <span class="rot">Banner do canal (2560×1440)</span>
+      <img src="img/youtube-banner.png" alt="Banner do canal" style="width:100%;display:block;border:1px solid var(--linha)">
+      <p class="mono">Tudo o que importa fica na faixa central de 1546×423, que aparece em celular, computador e TV. O resto é textura.</p>
+      <div class="btns so-download"><button class="btn principal" data-baixar="img/youtube-banner.png" data-nome="arquivo-youtube-banner.png">Baixar banner</button><button class="btn" data-baixar="img/youtube-banner-area-segura.png" data-nome="arquivo-youtube-banner-area-segura.png">Ver faixa segura</button><span class="status" role="status"></span></div>
+    </div>
+    <div class="grid2">
+      <div class="ficha">
+        <span class="rot">Marca d'água (150×150)</span>
+        <div style="display:flex;gap:16px;align-items:center"><div style="background:#2a2620;padding:14px;display:inline-block"><img src="img/youtube-marca-dagua.png" width="75" height="75" alt="Marca d'água"></div><p class="mono">Fundo transparente. Em YouTube Studio → Personalização → Marca d'água, "vídeo inteiro".</p></div>
+        <div class="btns so-download"><button class="btn" data-baixar="img/youtube-marca-dagua.png" data-nome="arquivo-youtube-marca-dagua.png">Baixar marca d'água</button><span class="status" role="status"></span></div>
+        <span class="rot" style="margin-top:6px">Foto do canal</span><p class="mono">A mesma do Instagram (avatar escuro, 1080×1080; o YouTube pede no mínimo 800×800).</p>
+      </div>
+      <div class="ficha">
+        <span class="rot">Miniatura dos vídeos (1280×720)</span>
+        <ul>
+          <li>A mesma foto da capa, em tela cheia, escurecida à esquerda.</li>
+          <li>Título grande embaixo à esquerda, com a tarja vermelha na palavra-chave.</li>
+          <li>Sai pronta do molde: <span class="mono">youtube-capa.jpg</span>.</li>
+          <li>Título do vídeo no YouTube = título da capa, até 70 caracteres.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ficha"><div class="par"><span class="rot">Descrição do canal</span><button class="btn" data-copiar="ytdesc">Copiar descrição</button></div><div class="bio" id="ytdesc"></div><span class="mono" id="ytdescn"></span></div>
+    <div class="ficha"><div class="par"><span class="rot">Palavras-chave do canal</span><button class="btn" data-copiar="ytkw">Copiar</button></div><div class="mono" id="ytkw" style="color:var(--texto)"></div></div>
+    <div class="ficha"><span class="rot">Playlists (uma por série)</span><div id="playlists" class="grid2" style="gap:12px"></div></div>
+  </section>
+
+  <section>
+    <h2><small>09</small>Voz e legenda</h2>
     <div class="grid2">
       <div class="ficha">
         <span class="rot">Como o perfil fala</span>
@@ -203,7 +240,11 @@ const $ = (s, el = document) => el.querySelector(s);
 $("#nome").textContent = ID.nome;
 $("#arroba").textContent = ID.arroba;
 $("#tiktok").textContent = ID.tiktok;
-const textos = { nome: ID.nome, arroba: ID.arroba, tiktok: ID.tiktok };
+const textos = { nome: ID.nome, arroba: ID.arroba, tiktok: ID.tiktok, ytdesc: ID.youtube.descricao || "", ytkw: ID.youtube.palavrasChave || "" };
+$("#ytdesc").textContent = textos.ytdesc;
+$("#ytdescn").textContent = `${[...textos.ytdesc].length} de 1000 caracteres`;
+$("#ytkw").textContent = textos.ytkw;
+$("#playlists").innerHTML = ID.playlists.map(p => `<div><b style="font-family:var(--cond);font-size:18px">${p.nome}</b> <span class="mono">${p.videos.length} vídeos</span></div>`).join("");
 
 $("#bios").innerHTML = ID.bios.map((b, i) => `<div class="ficha"><div class="par"><span class="rot">${b.nome}</span><span class="mono">${[...b.texto].length} de 150</span></div><div class="bio"></div><div class="btns"><button class="btn" data-copiar="bio${i}">Copiar bio</button><span class="status" role="status"></span></div></div>`).join("");
 ID.bios.forEach((b, i) => { textos["bio" + i] = b.texto; $("#bios").children[i].querySelector(".bio").textContent = b.texto; });

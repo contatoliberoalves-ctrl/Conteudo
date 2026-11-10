@@ -1,22 +1,25 @@
 # Videoteca do Arquivo (https://claude.ai/artifact/XhMebCsd4HmZKEfbChn8kv): página para assistir e baixar os vídeos.
-#   python3 scripts/videoteca.py            → saida/videoteca/ (index.html, video/<id>.mp4 comprimido, capa/<id>.jpg)
+#   python3 scripts/videoteca.py            → saida/videoteca/
+#   python3 scripts/videoteca.py --yt       → saida/videoteca-yt/ (versões 16:9 e miniaturas, página "Arquivo no YouTube") (index.html, video/<id>.mp4 comprimido, capa/<id>.jpg)
 # Comprime só os vídeos que faltam (CRF 24, ~7 MB; a página aceita até 15 MB por arquivo e 256 MB no total)
 # e imprime os lotes de até 60 MB para o "files" do Artifact (publique com root saida/videoteca e capabilities {downloads: true} na 1ª vez).
 import json, os, subprocess, sys
 from pathlib import Path
 
 MOLDE = Path(__file__).resolve().parent.parent
-VG = MOLDE / 'saida' / 'videoteca'
+YT = '--yt' in sys.argv  # versão YouTube: youtube.mp4 (16:9) e youtube-capa.jpg → saida/videoteca-yt (página "Arquivo no YouTube")
+VG = MOLDE / 'saida' / ('videoteca-yt' if YT else 'videoteca')
+SRC_V, SRC_C = ('youtube.mp4', 'youtube-capa.jpg') if YT else ('video.mp4', 'capa.jpg')
 (VG / 'video').mkdir(parents=True, exist_ok=True)
 (VG / 'capa').mkdir(parents=True, exist_ok=True)
 novos = []
 for d in json.loads((MOLDE / 'dados.json').read_text('utf8')):
     i, s = d['id'], MOLDE / 'saida' / d['id']
     alvo = VG / 'video' / f'{i}.mp4'
-    if (s / 'video.mp4').exists() and (not alvo.exists() or alvo.stat().st_mtime < (s / 'video.mp4').stat().st_mtime):
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(s / 'video.mp4'), '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-pix_fmt', 'yuv420p',
+    if (s / SRC_V).exists() and (not alvo.exists() or alvo.stat().st_mtime < (s / SRC_V).stat().st_mtime):
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(s / SRC_V), '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-pix_fmt', 'yuv420p',
                         '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', str(alvo)], check=True)
-        subprocess.run(['cp', str(s / 'capa.jpg'), str(VG / 'capa' / f'{i}.jpg')], check=True)
+        subprocess.run(['cp', str(s / SRC_C), str(VG / 'capa' / f'{i}.jpg')], check=True)
         novos += [f'video/{i}.mp4', f'capa/{i}.jpg']
 dados = [d for d in json.loads((MOLDE / 'dados.json').read_text('utf8')) if (VG / 'video' / f"{d['id']}.mp4").exists()]
 
@@ -154,15 +157,16 @@ document.body.classList.add("sem-download");
 
 async function acao(btn, v, status) {
   const tipo = btn.dataset.acao;
-  if (tipo === "legenda") {
-    try { await navigator.clipboard.writeText(v.legenda); status.textContent = "Legenda copiada."; }
+  if (tipo === "legenda" || tipo === "titulo") {
+    const txt = tipo === "titulo" ? v.titulo : v.legenda;
+    try { await navigator.clipboard.writeText(txt); status.textContent = "Copiado."; }
     catch {
       const t = document.createElement("textarea");
-      t.value = v.legenda; t.style.position = "fixed"; t.style.opacity = "0";
+      t.value = txt; t.style.position = "fixed"; t.style.opacity = "0";
       document.body.appendChild(t); t.select();
       let ok = false; try { ok = document.execCommand("copy"); } catch {}
       t.remove();
-      status.textContent = ok ? "Legenda copiada." : "Não deu para copiar aqui. Abra a página no navegador.";
+      status.textContent = ok ? "Copiado." : "Não deu para copiar aqui. Abra a página no navegador.";
     }
     return;
   }
@@ -188,6 +192,15 @@ async function acao(btn, v, status) {
 }
 </script>
 '''
+if YT:
+    for a, b in [('<title>Videoteca do Arquivo</title>', '<title>Arquivo no YouTube</title>'), ('aspect-ratio:9/16', 'aspect-ratio:16/9'),
+                 ('minmax(230px,1fr)', 'minmax(340px,1fr)'), ('<h1>Videoteca do <span>Arquivo</span></h1>', '<h1>Arquivo no <span>YouTube</span></h1>'),
+                 ('Baixar capa</button>', 'Baixar miniatura</button>'), ('Copiar legenda</button>', 'Copiar descrição</button>'),
+                 ('<span class="status" role="status"></span>\n    </div>`;', '<button class="btn" data-acao="titulo">Copiar título</button>\n      <span class="status" role="status"></span>\n    </div>`;'),
+                 ('(1080×1920, pronto para Reels e TikTok). A capa sai em JPG, e a legenda vem com fontes e hashtags.', '(1920×1080) para subir como vídeo normal no YouTube. A miniatura sai em 1280×720, e a descrição vem com fontes e hashtags.'),
+                 ('`${v.id}-capa.jpg`', '`${v.id}-miniatura.jpg`'), ('`${v.id}.mp4`', '`${v.id}-youtube.mp4`')]:
+        assert a in pagina, a
+        pagina = pagina.replace(a, b)
 (VG / 'index.html').write_text(pagina.replace('__DADOS__', dados_js), 'utf8')
 print('videos na pagina:', len(itens))
 lotes, tam = [[]], 0
