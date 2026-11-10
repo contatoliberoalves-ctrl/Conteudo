@@ -38,6 +38,9 @@ A página baixa cada carrossel em .zip (ou só os slides marcados, um slide avul
 
 Pedidos de alteração: no visor, o usuário clica num ponto de um slide, ou usa o botão "✎ Pedir correção" (post inteiro ou um slide escolhido, sem ponto), e escreve o que está errado, o que não gostou ou o que alterar, remover ou adicionar. Cada pedido é um doc na coleção `pedidos` do banco da página (`molde, post, titulo, slide` (1 = capa; 0 = post inteiro), `x, y` (0–1, posição do clique no slide; `null` quando veio do botão), `tipo` (errado/nao gostei/alterar/remover/adicionar), `texto`, `criado`). "Não gostei" sem detalhe: proponha uma alternativa e mostre antes de trocar. Quando o usuário pedir para **aplicar os pedidos da galeria**: leia a coleção com `ArtifactData` (list `pedidos`), abra o PNG do slide em `moldes/<molde>/saida/<post>/<slide>.png` e veja o que está no ponto (x·1080, y·1350), faça a mudança no `dados.json` (ou no template, se for do visual do molde), gere de novo, confira, atualize a galeria e apague os docs aplicados. Pedido ambíguo: pergunte antes e deixe o doc.
 
+## Galeria de vídeos ("Vídeos Claude")
+https://claude.ai/artifact/Q7vHDVYXuDx3TpFo3GfEHD reúne os vídeos feitos com o Claude (Reels do `concurso-video`, Videoteca do Arquivo Constitucional, vinhetas do PodConst), com assistir, baixar MP4 e copiar legenda. Fonte em `galeria/videos-claude/` (`montar.py`, `dados.json`, `assets.json`). Vídeo novo: comprima para até ~15 MB, envie como asset (Artifact `publish` com `url`, `asset: true`) ou copie de outra página pelo `files` (`{artifact, path}`, até 64 MB por publicação; a versão aceita 256 MB), acrescente em `dados.json`/`assets.json`, rode `montar.py` e republique no mesmo link.
+
 ## Ambiente em nuvem do Claude Code
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`
