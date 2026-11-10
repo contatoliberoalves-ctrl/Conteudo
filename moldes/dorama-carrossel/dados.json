@@ -348,8 +348,8 @@
     ]
   },
   {
-    "id": "capas-com-foto",
-    "titulo": "Capas com foto do dorama (5 estilos)",
+    "id": "indicacao-reply-1988",
+    "titulo": "Indicação · Reply 1988",
     "slides": [
       {
         "tipo": "capa",
@@ -363,16 +363,129 @@
         "credito": "Imagem: tvN"
       },
       {
+        "tipo": "ficha",
+        "titulo": "Reply 1988",
+        "dorama": {
+          "titulo": "Reply 1988",
+          "hangul": "응답하라 1988",
+          "ano": 2015,
+          "eps": 20,
+          "foto": "reply-1988/poster-01.jpg"
+        },
+        "itens": [
+          [
+            "Episódios",
+            "20, longos"
+          ],
+          [
+            "Gênero",
+            "Família, amizade e romance"
+          ],
+          [
+            "Ano",
+            "2015–2016"
+          ],
+          [
+            "Elenco",
+            "Hyeri, Park Bo-gum, Ryu Jun-yeol"
+          ]
+        ],
+        "texto": "Pra assistir devagar, **um episódio por noite**, de preferência com a família."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Do que se trata",
+        "titulo": "Um beco em Seul, *cinco amigos* e suas famílias",
+        "texto": [
+          "Em 1988, numa ruazinha do bairro de Ssangmun-dong, cinco amigos crescem juntos enquanto as mães trocam comida pelo portão e os pais se ajudam nas contas do mês.",
+          "Não tem vilão nem grande mistério: é a vida comum, contada com tanto carinho que dá saudade de uma época que a gente nem viveu."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "fundo": "rosa",
+        "kicker": "Por que assistir",
+        "titulo": "3 motivos pra dar o *play hoje*",
+        "itens": [
+          "Mostra amizade de verdade: **quem fica** quando a vida aperta.",
+          "Pais imperfeitos, mas que amam do jeito que sabem.",
+          "Quase nada que constranja assistir com a família toda."
+        ]
+      },
+      {
+        "tipo": "versiculo",
+        "versiculo": "Em todo tempo *ama o amigo*, e na angústia se faz o irmão.",
+        "ref": "Provérbios 17:17",
+        "texto": "No beco de Reply 1988 ninguém sofre sozinho. É o retrato de uma comunidade que Deus sonhou pra nós."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Quem é seu *amigo de beco*?",
+        "texto": "Então curte, comenta e compartilha com os amigos.",
+        "pergunta": "Marca aqui quem estaria com você em Ssangmun-dong."
+      }
+    ]
+  },
+  {
+    "id": "reflexao-pousando-amor-sacrificial",
+    "titulo": "Reflexão · Pousando no Amor e o amor que se doa",
+    "slides": [
+      {
         "tipo": "capa",
         "estilo": "cinema",
         "foto": "pousando-no-amor/cena-05.jpg",
-        "episodio": "EP. 03",
-        "legenda": "Eu: só mais um episódio.\nTambém eu, às 3h da manhã:",
-        "kicker": "Dei nota",
-        "titulo": "Pousando no Amor merece *todo o hype*?",
+        "legenda": "Ele arriscou tudo\npor alguém que mal conhecia.",
+        "kicker": "Reflexão",
+        "titulo": "O amor que *se doa* em Pousando no Amor",
         "hangul": "사랑의 불시착",
         "credito": "Imagem: tvN"
       },
+      {
+        "tipo": "texto",
+        "kicker": "A história",
+        "titulo": "Um capitão que *arrisca tudo*",
+        "texto": [
+          "Uma herdeira sul-coreana cai de parapente do lado norte da fronteira. O capitão que a encontra arrisca a carreira, a família e a própria vida para levá-la de volta.",
+          "E ele faz isso por alguém que tinha acabado de entrar na vida dele."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "fundo": "rosa",
+        "kicker": "O que isso lembra",
+        "titulo": "Um amor que *não espera nada* em troca",
+        "texto": [
+          "Muita gente chamaria isso de loucura. Num mundo em que o amor vira troca, o capitão ama sem garantia nenhuma.",
+          "É um eco pequeno de um amor maior: Cristo se entregou por nós **quando ainda éramos pecadores**."
+        ]
+      },
+      {
+        "tipo": "versiculo",
+        "versiculo": "Ninguém tem *maior amor* do que este: de dar alguém a sua vida pelos seus amigos.",
+        "ref": "João 15:13"
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Na prática",
+        "titulo": "Amar assim *no dia a dia*",
+        "itens": [
+          "Servir sem cobrar de volta.",
+          "Perdoar antes do outro pedir.",
+          "Ficar perto de quem ninguém quer por perto."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Que cena de Pousando no Amor *mais te marcou*?",
+        "texto": "Então curte, comenta e compartilha com os amigos.",
+        "pergunta": "Me conta nos comentários."
+      }
+    ]
+  },
+  {
+    "id": "reflexao-hometown-comunidade",
+    "titulo": "Reflexão · Hometown Cha-Cha-Cha e a comunidade",
+    "slides": [
       {
         "tipo": "capa",
         "estilo": "moldura",
@@ -384,16 +497,125 @@
         "credito": "Imagem: tvN"
       },
       {
+        "tipo": "texto",
+        "kicker": "A vila",
+        "titulo": "Uma cidade onde *todo mundo se conhece*",
+        "texto": [
+          "Em Hometown Cha-Cha-Cha, uma dentista da cidade grande se muda para Gongjin, uma vila à beira-mar.",
+          "No começo, o jeito intrometido dos vizinhos incomoda. Com o tempo, ela descobre que é ali que ninguém fica sozinho."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "fundo": "rosa",
+        "kicker": "O que me pegou",
+        "titulo": "Cuidar dá *trabalho*",
+        "texto": [
+          "A vila não é perfeita: tem fofoca, briga e mágoa antiga. Mas, na hora da dor, todo mundo aparece com comida, ajuda e presença.",
+          "A igreja do começo era assim: gente diferente, junta, dividindo a vida."
+        ]
+      },
+      {
+        "tipo": "versiculo",
+        "versiculo": "Todos os que creram estavam juntos e *tinham tudo em comum*.",
+        "ref": "Atos 2:44"
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Na prática",
+        "titulo": "Como ser *Gongjin* pra alguém",
+        "itens": [
+          "Lembrar do nome e da história de quem está perto.",
+          "Aparecer quando alguém some.",
+          "Abrir a porta de casa, nem que seja pra um café."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Você tem uma *Gongjin* na sua vida?",
+        "texto": "Então curte, comenta e compartilha com os amigos.",
+        "pergunta": "Marca quem é a sua vila."
+      }
+    ]
+  },
+  {
+    "id": "indicacao-hometown-cha-cha-cha",
+    "titulo": "Indicação · Hometown Cha-Cha-Cha",
+    "slides": [
+      {
         "tipo": "capa",
         "estilo": "vidro",
         "foto": "hometown-cha-cha-cha/cena-08.jpg",
         "fotoPos": "55% center",
+        "selo": "Vale o play",
         "kicker": "Indicação",
         "titulo": "Hometown *Cha-Cha-Cha*",
         "estrelas": 4.5,
         "onde": "Netflix · 16 eps",
         "credito": "Imagem: tvN"
       },
+      {
+        "tipo": "ficha",
+        "titulo": "Hometown Cha-Cha-Cha",
+        "dorama": {
+          "titulo": "Hometown Cha-Cha-Cha",
+          "hangul": "갯마을 차차차",
+          "ano": 2021,
+          "eps": 16,
+          "foto": "hometown-cha-cha-cha/poster-01.jpg"
+        },
+        "itens": [
+          [
+            "Onde assistir",
+            "Netflix"
+          ],
+          [
+            "Episódios",
+            "16"
+          ],
+          [
+            "Gênero",
+            "Romance e comédia"
+          ],
+          [
+            "Elenco",
+            "Shin Min-a e Kim Seon-ho"
+          ]
+        ],
+        "texto": "Pra quem quer um dorama **leve, com cheiro de mar** e personagens que dá vontade de abraçar."
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Do que se trata",
+        "titulo": "Uma dentista, uma vila e o *Chefe Hong*",
+        "texto": [
+          "Hye-jin perde o emprego em Seul e abre um consultório em Gongjin, uma vila de pescadores.",
+          "Lá conhece Du-sik, o faz-tudo que todo mundo chama de Chefe Hong, e uma vizinhança que se mete em tudo e cuida de todos."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "fundo": "rosa",
+        "kicker": "Por que assistir",
+        "titulo": "3 motivos pra dar o *play hoje*",
+        "itens": [
+          "A vila é quase uma personagem: **cada vizinho tem uma história**.",
+          "Fala de perdão, luto e recomeço sem pesar a mão.",
+          "Romance leve, sem cenas que constranjam."
+        ]
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Já visitou *Gongjin*?",
+        "texto": "Então curte, comenta e compartilha com os amigos.",
+        "pergunta": "Qual morador da vila é o seu favorito?"
+      }
+    ]
+  },
+  {
+    "id": "nota-goblin",
+    "titulo": "Nota · Goblin",
+    "slides": [
       {
         "tipo": "capa",
         "estilo": "fotonota",
@@ -403,6 +625,60 @@
         "kicker": "Dei nota",
         "titulo": "Goblin: clássico ou *superestimado*?",
         "credito": "Imagem: tvN"
+      },
+      {
+        "tipo": "nota",
+        "titulo": "O boletim de *Goblin*",
+        "criterios": [
+          [
+            "História",
+            8.5
+          ],
+          [
+            "Fotografia",
+            10
+          ],
+          [
+            "Química do casal",
+            8
+          ],
+          [
+            "Trilha sonora",
+            10
+          ]
+        ],
+        "final": 8
+      },
+      {
+        "tipo": "texto",
+        "fundo": "rosa",
+        "kicker": "O que me ganhou",
+        "titulo": "Cada cena *parece um quadro*",
+        "texto": [
+          "A fotografia e a trilha sonora são das mais bonitas que já vi num dorama.",
+          "E a amizade improvável entre o goblin e o anjo da morte rende as melhores cenas de humor."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "O que pesa",
+        "titulo": "Uma visão de vida *diferente da nossa*",
+        "texto": [
+          "A história gira em torno de reencarnação, espíritos e um ceifador que apaga memórias. É fantasia, mas parte de crenças bem diferentes da fé cristã.",
+          "Dá pra assistir e conversar sobre isso, principalmente com adolescentes."
+        ]
+      },
+      {
+        "tipo": "versiculo",
+        "versiculo": "Aos homens está ordenado *morrerem uma só vez*, vindo, depois disto, o juízo.",
+        "ref": "Hebreus 9:27",
+        "texto": "Na Bíblia não há ciclo de vidas: há uma vida, e um Deus que oferece a eterna."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "E você, daria *quanto*?",
+        "texto": "Então curte, comenta e compartilha com os amigos.",
+        "pergunta": "Comenta sua nota de 0 a 10 pra Goblin."
       }
     ]
   }
