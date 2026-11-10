@@ -44,8 +44,8 @@ def lista(itens, num=True, px=40, cor_num='#f7f400', gap=26):
         out.append(f'<div style="display:flex;gap:24px;align-items:{"center" if num else "flex-start"};font-weight:700;font-size:{px}px;line-height:1.18;">{mk}<span>{it}</span></div>')
     return f'<div style="display:flex;flex-direction:column;gap:{gap}px;">{"".join(out)}</div>'
 
-def capa(label, kicker, l1, l2, l3, fundo=AZUL):
-    corpo = (fantasma('VDE', 'rgba(255,255,255,.06)', top=200, left=-40, px=900) + selos() +
+def capa(label, kicker, l1, l2, l3, fundo=AZUL, ghost='VDE'):
+    corpo = ((fantasma(ghost, 'rgba(255,255,255,.06)', top=200, left=-40, px=900) if ghost else '') + selos() +
              f'<div style="position:absolute;left:0;right:0;top:400px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
              f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;"><span style="width:56px;height:3px;background:#f7f400;"></span><span style="margin-right:-.3em;">{kicker}</span><span style="width:56px;height:3px;background:#f7f400;"></span></div>'
              f'<div style="background:#0b1a4a;font-weight:700;font-size:44px;padding:6px 18px;margin-top:40px;">{l1}</div>'
@@ -215,6 +215,85 @@ G.append(grupo('vr6', 'Tela única · Repescagem Constitucional, oferta Black', 
          f'<div style="background:#0b1a4a;color:#fff;border-radius:999px;padding:22px 44px;font-weight:700;font-size:38px;margin-top:50px;box-shadow:0 18px 40px rgba(11,26,74,.22);">Oferta Black até <span style="background:#f7f400;color:#0b1a4a;padding:0 12px;border-radius:4px;">16/11, às 23h59</span></div>'
          f'<div style="font-weight:700;font-size:32px;margin-top:28px;color:#0a3aa0;">{LINK}</div></div>'
          f'<div style="position:absolute;bottom:60px;left:50%;margin-left:-110px;">{LOGO(46)}</div>', claro=True),
+]))
+
+# ---------- vr7 · Vai fazer a repescagem? Primeiro descubra o que deu errado ----------
+diag = [
+    ('ERROU A<br>PEÇA?', 'Peça inadequada leva <b>nota zero</b> na peça. Se foi isso, o seu foco é identificação: treinar casos e saber o cabimento de cada ação.', MAG),
+    ('PERDEU PONTOS<br>NA ESTRUTURA?', 'Acertou a peça, mas faltou endereçamento, qualificação, cabimento ou algum pedido. Isso se resolve com <b>esqueleto treinado</b> até sair no automático.', AZUL),
+    ('FUNDAMENTOU<br>POUCO?', 'Citou o artigo e não explicou como ele resolve o caso. A banca pontua a <b>aplicação ao caso concreto</b>, não só a menção à lei.', NAVY),
+    ('AS QUESTÕES<br>TE DERRUBARAM?', 'Resposta curta, sem fundamento ou sem responder o que foi perguntado. Cada item tem a sua pontuação: resposta direta + fundamento + aplicação.', MAG),
+    ('FALTOU TEMPO<br>OU VADE?', 'Não terminou a prova ou demorou pra achar o artigo. Aqui o treino é de <b>simulado cronometrado</b> e de índice remissivo.', AZUL),
+]
+telas = [capa('vr7-01', 'REPESCAGEM · 2ª FASE', 'Vai fazer a repescagem?', 'PRIMEIRO, DESCUBRA O QUE DEU ERRADO', 'Antes de estudar de novo')]
+telas.append(tela('vr7-02', NAVY, arrobas() + bloco(
+    T(f'ESTUDAR TUDO<br>DE NOVO {MARCA("NÃO")}<br>É O PLANO.', 150) + BARRA() +
+    P('Se você repetir a mesma preparação, a chance é de repetir o mesmo resultado. O primeiro passo é abrir a sua prova e entender onde a nota ficou.', 38, 'max-width:840px;') +
+    P('Separe: a sua prova, o padrão de resposta da FGV e a sua nota em cada item.', 38, 'color:#f7f400;max-width:840px;'),
+    top=280, gap=36)))
+for i, (t, txt, fundo) in enumerate(diag, 3):
+    k = i - 2
+    telas.append(tela(f'vr7-{i:02d}', fundo, fantasma(f'{k}', 'rgba(255,255,255,.07)' if fundo != MAG else 'rgba(120,0,120,.16)', top=-80, left=600, px=1500) + arrobas() + bloco(
+        KICK(f'DIAGNÓSTICO {k:02d}', '#f7f400' if fundo != MAG else '#0b1a4a') + T(t, 150) + BARRA('#f7f400' if fundo != MAG else '#0b1a4a') + P(txt, 40, 'max-width:820px;'),
+        top=340, gap=32)))
+tab = ''.join(f'<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;border-top:2px solid rgba(11,26,74,.15);font-weight:700;font-size:36px;padding:16px 0;"><span>{a}</span><span style="color:#0a3aa6;">{b}</span><span style="border-bottom:3px solid #0b1a4a;margin:0 30px 6px 0;"></span></div>' for a, b in [('Peça', '5,00'), ('Questão 1', '1,25'), ('Questão 2', '1,25'), ('Questão 3', '1,25'), ('Questão 4', '1,25')])
+telas.append(tela('vr7-08', CLARO, arrobas(True) + bloco(
+    KICK('FAÇA ESSA CONTA', '#0a3aa6') + T(f'ONDE FICOU<br>{MARCA("A SUA NOTA")}?', 130, 'color:#0b1a4a;') +
+    f'<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;font-weight:700;font-size:26px;letter-spacing:.14em;color:#e224d6;"><span>PARTE</span><span>VALE</span><span>VOCÊ FEZ</span></div>{tab}' +
+    P('Pra aprovar: <b>6,00</b> de 10. O que tirou mais pontos de você é por onde o estudo começa.', 36, 'color:#0b1a4a;max-width:860px;'),
+    top=220, gap=26), claro=True))
+telas.append(cta('vr7-09', 'DIAGNÓSTICO FEITO?', 'Na Turma de Repescagem do Método VDE tem plano de recuperação, cronograma e 10 simulados inéditos.'))
+G.append(grupo('vr7', 'Carrossel · Vai fazer a repescagem? Primeiro descubra o que deu errado', telas))
+
+# ---------- vr8 · Voto distrital misto: o que mudaria na eleição pro Congresso ----------
+def selo_fonte(txt):
+    return f'<div style="position:absolute;left:110px;right:110px;bottom:120px;font-weight:500;font-size:24px;opacity:.75;">{txt}</div>'
+G.append(grupo('vr8', 'Carrossel · Voto distrital misto: o que mudaria na eleição pro Congresso', [
+    capa('vr8-01', 'REFORMA ELEITORAL · PEC', 'Proposta de Hugo Motta', 'VOTO DISTRITAL MISTO', 'O que mudaria na eleição pro Congresso', ghost='PEC'),
+    tela('vr8-02', NAVY, arrobas() + bloco(
+        KICK('COMO É HOJE') + T(f'VOCÊ VOTA EM<br>{MARCA("UM NOME")}', 150) + BARRA() +
+        P('Pra deputado, o Brasil usa o <b>sistema proporcional de lista aberta</b> (art. 45 da CF).', 40, 'max-width:840px;') +
+        P('Os votos de todos os candidatos de um partido são somados, as cadeiras são divididas entre os partidos e entram os mais votados de cada um. Por isso existe o "puxador de votos".', 36, 'max-width:840px;'),
+        top=280, gap=34)),
+    tela('vr8-03', MAG, fantasma('MAPA', 'rgba(120,0,120,.16)', top=860, px=560) + arrobas() + bloco(
+        KICK('O QUE É DISTRITAL', '#0b1a4a') + T('O ESTADO VIRA<br>VÁRIOS DISTRITOS', 140) + BARRA('#0b1a4a') +
+        P('Cada distrito é uma região com população parecida. Em cada um, <b>quem tiver mais votos leva a vaga</b>, como numa eleição de prefeito.', 40, 'max-width:820px;') +
+        P('Você passa a saber exatamente quem é o deputado da sua região.', 38, 'max-width:820px;'),
+        top=280, gap=34)),
+    tela('vr8-04', AZUL, arrobas() + bloco(
+        KICK('E O "MISTO"?') + T(f'METADE DISTRITO,<br>METADE {MARCA("LISTA")}', 136) + BARRA('#e224d6') +
+        lista(['<b>50%</b> das cadeiras: os mais votados em cada distrito', '<b>50%</b> das cadeiras: divididas pelos votos dos partidos', 'Nessa metade, entra quem está no topo da <b>lista</b> que o partido montou antes da eleição'], num=False, px=40, gap=28),
+        top=280, gap=34)),
+    tela('vr8-05', NAVY, arrobas() + bloco(
+        KICK('A PROPOSTA') + T(f'O QUE {MARCA("HUGO MOTTA")}<br>ESTÁ ARTICULANDO', 128) + BARRA() +
+        lista(['28/10: Motta anuncia que quer votar uma PEC do distrital misto ainda em 2026', '9/11: o PSD apresenta o esboço da PEC, relatada por Domingos Neto (PSD-CE)', 'Meta: levar ao plenário da Câmara até o fim de novembro'], num=False, px=38, gap=26),
+        top=260, gap=34)),
+    tela('vr8-06', MAG, arrobas() + bloco(
+        KICK('O QUE DIZ O ESBOÇO', '#0b1a4a') + T('OS DETALHES', 160) + BARRA('#0b1a4a') +
+        lista(['<b>Voto único</b>: o voto no candidato do distrito também conta pra lista do partido (o texto do Senado de 2017 previa dois votos)', 'Distritos com população parecida e território contínuo, com base no IBGE e revistos a cada censo', 'Cada distrito elege <b>1 deputado federal e 2 estaduais</b>', 'Lista com <b>pelo menos 1 mulher a cada 3 nomes</b>'], num=False, px=36, cor_num='#f7f400', gap=24),
+        top=230, gap=30)),
+    tela('vr8-07', AZUL, arrobas() + bloco(
+        KICK('QUEM MUDA E QUEM NÃO') + T(f'SÓ MUDA O<br>{MARCA("LEGISLATIVO")}', 150) + BARRA('#e224d6') +
+        lista(['Muda: deputados federais, estaduais e distritais', 'Vereadores também entram na discussão', 'Não muda: presidente, governador, senador e prefeito'], num=False, px=40, gap=28) +
+        f'<div style="display:flex;gap:20px;margin-top:10px;">{"".join(f"<div style=\"flex:1;background:{bg};color:{c};border-radius:14px;padding:18px 22px;\"><div style=\"{BB}font-size:96px;line-height:.9;\">{a}</div><div style=\"font-weight:700;font-size:30px;\">{b}</div></div>" for a, b, bg, c in [("2030", "eleição de transição", "#f7f400", "#0b1a4a"), ("2034", "distrital misto completo", "#e224d6", "#fff")])}</div>',
+        top=230, gap=30)),
+    tela('vr8-08', NAVY, fantasma('3/5', 'rgba(247,244,0,.07)', top=760, left=-20, px=700) + arrobas() + bloco(
+        KICK('POR QUE PRECISA DE PEC') + T(f'TÁ NA<br>{MARCA("CONSTITUIÇÃO")}', 150) + BARRA() +
+        P('O art. 45 da CF diz que a Câmara é eleita pelo <b>sistema proporcional</b>. Pra trocar, só emenda constitucional (art. 60, § 2º):', 38, 'max-width:840px;') +
+        lista(['3/5 dos votos, em 2 turnos, em cada Casa', 'Na Câmara: 308 de 513 deputados', 'No Senado: 49 de 81 senadores'], num=False, px=38, gap=22),
+        top=240, gap=30)),
+    tela('vr8-09', CLARO, arrobas(True) + bloco(
+        KICK('O DEBATE', '#0a3aa6') + T(f'PRÓS E {MARCA("CONTRAS")}', 150, 'color:#0b1a4a;') +
+        f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;color:#0b1a4a;">'
+        f'<div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(11,26,74,.1);"><div style="{BB}font-size:60px;color:#0a3aa6;">A FAVOR</div>{lista(["Deputado mais perto do eleitor", "Fim do puxador de votos", "Campanha em área menor, mais barata"], num=False, px=30, cor_num="#0a3aa6", gap=16)}</div>'
+        f'<div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(11,26,74,.1);"><div style="{BB}font-size:60px;color:#e224d6;">CONTRA</div>{lista(["Mais difícil pra minorias", "Risco de desenhar distritos a favor de alguém", "Mais poder pros dirigentes nas listas"], num=False, px=30, cor_num="#e224d6", gap=16)}</div></div>' +
+        P('Status: <b>ainda não foi votado</b>. Centrão apoia; PT e PL resistem.', 34, 'color:#0b1a4a;'),
+        top=220, gap=30), claro=True),
+    tela('vr8-10', AZUL, selos() + f'<div style="position:absolute;left:80px;right:80px;top:340px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:34px;">'
+         f'{T(f"E VOCÊ,<br>{MARCA("PREFERE")}?", 170)}{BARRA("#e224d6")}{P("Votar no candidato da sua região ou continuar com o sistema de hoje?", 40)}'
+         f'<div style="background:#f7f400;color:#0b1a4a;border-radius:999px;padding:22px 44px;font-weight:700;font-size:38px;">Comenta: <span style="background:#e224d6;color:#fff;padding:0 12px;border-radius:4px;">DISTRITAL</span> ou <span style="background:#0b1a4a;color:#fff;padding:0 12px;border-radius:4px;">ATUAL</span></div>'
+         f'<div style="font-weight:500;font-size:26px;opacity:.8;max-width:820px;">Fontes: CF, arts. 45 e 60; Câmara dos Deputados; Jovem Pan e Tribuna do Sertão (esboço do PSD, 9/11/2026).</div></div>'
+         f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
 ]))
 
 bloco_html = INI + '\n' + ''.join(G) + FIM
