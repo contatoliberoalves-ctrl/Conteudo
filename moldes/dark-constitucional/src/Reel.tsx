@@ -36,7 +36,7 @@ export const Reel: React.FC<Props> = (props) => {
         const Comp = def.C as React.FC<any>;
         return (
           <Sequence key={i} from={c.inicio} durationInFrames={c.dur} name={`${i + 1} · ${c.tipo}`}>
-            {deitado && c.tipo === "gancho" && c.imagem ? (
+            {(deitado && c.tipo === "gancho" && c.imagem) || c.tipo === "foto" ? (
               <Saida dur={c.dur}><Comp c={c} /></Saida>
             ) : (
               <Folha deitado={deitado}>
@@ -46,7 +46,7 @@ export const Reel: React.FC<Props> = (props) => {
               </Folha>
             )}
             {deitado && c.tipo === "pergunta" && gancho?.imagem && c.loop !== false ? <LoopCapa dur={c.dur} gancho={gancho} /> : null}
-            {props.capa ? null : <Legenda palavras={c.palavras} />}
+            {props.capa || c.tipo === "capitulo" ? null : <Legenda palavras={c.palavras} />}
             {c.audio ? <Audio src={staticFile(c.audio)} volume={1} /> : null}
             {def.sons(c as any, fps).filter((s) => s.em < c.dur).map((s, k) => (
               <Sequence key={k} from={Math.max(0, s.em)} durationInFrames={Math.max(1, c.dur - Math.max(0, s.em))}>

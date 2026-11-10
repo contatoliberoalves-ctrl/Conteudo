@@ -1,7 +1,7 @@
 export type Palavra = { w: string; ini: number; fim: number }; // quadros, relativos à cena
 
 export type Cena = {
-  tipo: "gancho" | "frase" | "placar" | "cedula" | "documentos" | "cartas" | "pausa" | "linha" | "pergunta";
+  tipo: "capitulo" | "foto" | "gancho" | "frase" | "placar" | "cedula" | "documentos" | "cartas" | "pausa" | "linha" | "pergunta";
   fala?: string;
   seg?: number;
   [k: string]: any;

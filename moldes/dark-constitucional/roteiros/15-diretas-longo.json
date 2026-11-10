@@ -1,0 +1,220 @@
+{
+  "pauta": 15,
+  "longo": true,
+  "serie": "Na urna",
+  "titulo": "113 deputados faltaram e o Brasil ficou sem votar pra presidente | A história das Diretas Já",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "113 deputados\nfaltaram. E o Brasil\nficou **sem votar.**",
+      "imagem": {
+        "arquivo": "imagens/diretas-ja-1984.jpg",
+        "credito": "Diretas Já, 1984 · Arquivo/Agência Brasil (CC BY 3.0)",
+        "foco": "50% 40%"
+      },
+      "fala": "Vinte e cinco de abril de mil novecentos e oitenta e quatro. O Brasil inteiro esperava uma votação. Ela terminou com duzentos e noventa e oito votos a favor e sessenta e cinco contra. E mesmo assim o país ficou mais cinco anos sem escolher o próprio presidente. Essa é a história de como isso aconteceu, e do que mudou na Constituição por causa disso."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 1,
+      "titulo": "Um país sem voto",
+      "fala": "Capítulo um. Um país sem voto."
+    },
+    {
+      "tipo": "frase",
+      "data": "1964 a 1984",
+      "texto": "Vinte anos sem eleição\n**direta** para presidente.",
+      "fala": "Desde mil novecentos e sessenta e quatro, o Brasil vivia sob um regime militar. Em vinte anos, nenhum presidente foi escolhido pelo voto popular."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1969 (resumo)",
+        "texto": "O Presidente é eleito por um **Colégio Eleitoral**, formado pelos membros do Congresso e por delegados das Assembleias Legislativas."
+      },
+      "b": {
+        "cabecalho": "Na prática",
+        "texto": "Quem tinha a maioria no Colégio **escolhia** o presidente. E a maioria era do governo."
+      },
+      "ponte": "Na prática",
+      "segundoEm": "Na",
+      "fala": "Pela regra da época, o presidente era escolhido por um Colégio Eleitoral, formado pelos parlamentares e por delegados das assembleias estaduais. Na prática, quem tinha a maioria no Colégio escolhia o presidente. E a maioria era do governo."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 2,
+      "titulo": "A emenda",
+      "fala": "Capítulo dois. A emenda."
+    },
+    {
+      "tipo": "frase",
+      "data": "1983",
+      "texto": "Um deputado de\nMato Grosso propõe\nmudar a **regra.**",
+      "nota": "A proposta de Dante de Oliveira devolvia ao povo a eleição do presidente.",
+      "fala": "Em mil novecentos e oitenta e três, um deputado de Mato Grosso, Dante de Oliveira, apresentou uma proposta de emenda à Constituição: o presidente voltaria a ser eleito pelo voto direto."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Para passar, eram precisos\n**dois terços** do Congresso.",
+      "nota": "Na Câmara: 320 dos 479 deputados. E o partido do governo tinha a maior bancada.",
+      "fala": "Só que mudar a Constituição exigia dois terços dos votos. Na Câmara, eram trezentos e vinte de quatrocentos e setenta e nove deputados. E o partido do governo tinha a maior bancada."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 3,
+      "titulo": "As ruas",
+      "fala": "Capítulo três. As ruas."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/diretas-ja-1984.jpg",
+        "credito": "Diretas Já, 1984 · Arquivo/Agência Brasil (CC BY 3.0)",
+        "foco": "30% 40%"
+      },
+      "data": "1984",
+      "texto": "A campanha das Diretas Já toma as **praças.**",
+      "fala": "A partir de janeiro de oitenta e quatro, a campanha das Diretas Já tomou as praças. Artistas, jogadores de futebol, políticos de oposição e multidões de gente comum."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "25/1/1984",
+          "texto": "Comício na Praça da Sé, em São Paulo"
+        },
+        {
+          "data": "10/4/1984",
+          "texto": "Comício na Candelária, no Rio de Janeiro"
+        },
+        {
+          "data": "16/4/1984",
+          "texto": "Vale do Anhangabaú: o **maior** da campanha"
+        }
+      ],
+      "fala": "Vinte e cinco de janeiro, Praça da Sé, em São Paulo. Dez de abril, Candelária, no Rio, com cerca de um milhão de pessoas, segundo os organizadores. Dezesseis de abril, Vale do Anhangabaú, de novo em São Paulo: o maior comício da campanha."
+    },
+    {
+      "tipo": "foto",
+      "imagem": {
+        "arquivo": "imagens/diretas-ja-1984.jpg",
+        "credito": "Diretas Já, 1984 · Arquivo/Agência Brasil (CC BY 3.0)",
+        "foco": "75% 40%"
+      },
+      "afasta": true,
+      "texto": "Nunca tanta gente tinha pedido a mesma coisa ao **Congresso.**",
+      "fala": "Nunca tanta gente tinha ido às ruas pedir a mesma coisa ao Congresso. A pressão era enorme. Mas a decisão não estava nas praças. Estava no plenário."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 4,
+      "titulo": "25 de abril",
+      "fala": "Capítulo quatro. Vinte e cinco de abril."
+    },
+    {
+      "tipo": "frase",
+      "data": "Brasília, abril de 1984",
+      "texto": "O governo decreta\n**medidas de emergência**\nna capital.",
+      "nota": "Com a votação marcada, Brasília ficou sob restrições.",
+      "fala": "Às vésperas da votação, o governo Figueiredo decretou medidas de emergência no Distrito Federal. A capital ficou sob restrições e cercada de tensão."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara dos Deputados · 1984",
+      "a": 298,
+      "b": 65,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 320,
+      "rotuloLinha": "Mínimo: 320",
+      "linhaEm": "trezentos",
+      "carimbo": "Rejeitada",
+      "fala": "Na noite de vinte e cinco de abril, o placar. Duzentos e noventa e oito a favor. Sessenta e cinco contra. Mas a linha de corte era trezentos e vinte."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Faltaram **22.**",
+      "nota": "113 deputados não apareceram para votar.",
+      "fala": "Faltaram vinte e dois votos. E cento e treze deputados simplesmente não apareceram. A maioria deles, do partido do governo."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Quem falta\ntambém **vota?**",
+      "fala": "E aqui está o detalhe que muda tudo. Numa emenda à Constituição, quem falta ajuda a derrubar. Porque o que vale é chegar ao número mínimo, não ganhar de quem votou contra."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 5,
+      "titulo": "O que veio depois",
+      "fala": "Capítulo cinco. O que veio depois."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "15/1/1985",
+          "texto": "Colégio Eleitoral escolhe **Tancredo Neves**"
+        },
+        {
+          "data": "15/3/1985",
+          "texto": "Tancredo adoece. Sarney toma posse"
+        },
+        {
+          "data": "21/4/1985",
+          "texto": "Tancredo morre sem governar"
+        }
+      ],
+      "fala": "Em janeiro de oitenta e cinco, o Colégio Eleitoral escolheu Tancredo Neves, da oposição, contra Paulo Maluf. Mas Tancredo adoeceu na véspera da posse, e quem assumiu foi o vice, José Sarney. Tancredo morreu em vinte e um de abril, sem nunca ter governado."
+    },
+    {
+      "tipo": "frase",
+      "data": "Maio de 1985",
+      "texto": "Uma emenda devolve\na eleição **direta.**",
+      "nota": "A Emenda Constitucional 25 restabeleceu o voto direto para presidente.",
+      "fala": "Em maio de oitenta e cinco, uma nova emenda, a vinte e cinco, restabeleceu a eleição direta. E em novembro de oitenta e nove, os brasileiros finalmente votaram para presidente."
+    },
+    {
+      "tipo": "capitulo",
+      "numero": 6,
+      "titulo": "A regra hoje",
+      "fala": "Capítulo seis. A regra hoje."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 60, § 2º",
+        "texto": "A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, **três quintos** dos votos."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 60, § 4º, II",
+        "texto": "Não será objeto de deliberação a proposta de emenda tendente a abolir o **voto direto, secreto, universal e periódico**."
+      },
+      "ponte": "E mais",
+      "segundoEm": "Mas",
+      "fala": "Hoje, uma emenda precisa de três quintos dos votos, em dois turnos, nas duas Casas. Continua difícil. Mas a Constituição de oitenta e oito foi além: o voto direto virou cláusula pétrea. Nenhuma emenda pode acabar com ele."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O voto que faltou em 1984\nhoje **não pode ser tirado.**",
+      "fala": "O voto que faltou em oitenta e quatro hoje é uma das poucas coisas que nem o Congresso pode mudar."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Faltar à votação deveria\ncontar como voto **contra?**",
+      "fala": "E pra você: faltar à votação deveria contar como voto contra? Comenta. E se inscreve, porque o arquivo ainda tem muita história."
+    }
+  ],
+  "legenda": "Em 25 de abril de 1984, a emenda das Diretas Já teve 298 votos a favor e 65 contra, mas precisava de 320 (dois terços da Câmara). 113 deputados não apareceram. O Brasil só voltou a eleger o presidente pelo voto direto em 1989.\n\nNeste vídeo: o Colégio Eleitoral da ditadura, a emenda Dante de Oliveira, os comícios de 1984, a votação, Tancredo, Sarney, a Emenda 25 e por que hoje o voto direto é cláusula pétrea (CF/88, art. 60, § 4º, II).",
+  "fontes": [
+    "Senado · Placar e quórum das Diretas Já",
+    "Emenda Constitucional 25/1985",
+    "Constituição de 1988, art. 60, §§ 2º e 4º, II"
+  ],
+  "hashtags": [
+    "diretasja",
+    "historiadobrasil",
+    "direitoconstitucional"
+  ]
+}

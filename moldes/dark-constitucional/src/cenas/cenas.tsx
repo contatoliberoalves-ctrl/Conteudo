@@ -466,7 +466,62 @@ export const Pergunta: React.FC<P & { gancho?: CenaPronta }> = ({ c, gancho }) =
 };
 export const sonsPergunta = (): Som[] => [{ src: "sfx/whoosh.wav", em: 0, vol: 0.4 }];
 
+// ───────────────────────── capítulo (vídeos longos) ─────────────────────────
+// { numero: 2, titulo: "A emenda" }
+export const Capitulo: React.FC<P> = ({ c }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const e = spring({ frame: f, fps, config: T.mola.suave });
+  const linha = interpolate(f, [4, 24], [0, 1], { ...clamp, easing: T.ease.out });
+  return (
+    <div style={{ ...areaGrafico, alignItems: "center", textAlign: "center", gap: 34 }}>
+      <div style={{ opacity: e, transform: `translateY(${interpolate(e, [0, 1], [20, 0])}px)`, fontFamily: T.fonte.mono, fontWeight: 600, fontSize: 40, letterSpacing: 14, color: T.cor.lacre, textTransform: "uppercase" }}>
+        Capítulo {c.numero}</div>
+      <div style={{ width: 260 * linha, height: 3, background: T.cor.apagado }} />
+      <div style={{ fontFamily: T.fonte.titulo, fontWeight: 700, fontSize: 120, lineHeight: 1.05 }}>
+        <TituloRevelado texto={c.titulo} atraso={8} tam={120} alinhar="center" /></div>
+    </div>
+  );
+};
+export const sonsCapitulo = (): Som[] => [{ src: "sfx/grave.wav", em: 0, vol: 0.6 }, { src: "sfx/whoosh.wav", em: 6, vol: 0.35 }];
+
+// ───────────────────────── foto (vídeos longos) ─────────────────────────
+// { imagem: {arquivo, credito, foco?, zoom?}, data?: "Janeiro de 1984", texto: "Comícios reúnem **multidões**." }
+export const Foto: React.FC<P> = ({ c }) => {
+  const f = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const deitado = width > height;
+  const im = c.imagem as { arquivo: string; credito?: string; foco?: string; zoom?: number };
+  const foco = im.foco ?? "50% 40%";
+  const zoom = interpolate(f, [0, c.dur], [c.afasta ? 1.12 : 1.0, c.afasta ? 1.0 : 1.12], { ...clamp, easing: T.ease.inOut });
+  const deriva = interpolate(f, [0, c.dur], [0, c.afasta ? 20 : -20], clamp);
+  const e = spring({ frame: f - 6, fps: 30, config: T.mola.suave });
+  const tam = deitado ? 76 : 84;
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ overflow: "hidden" }}>
+        <Img src={staticFile(im.arquivo)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: foco, transformOrigin: foco,
+          transform: `scale(${zoom * Math.max(1, (im.zoom ?? 1) * (deitado ? 0.75 : 1))}) translateX(${deriva}px)`, filter: "grayscale(1) sepia(0.45) contrast(1.15) brightness(0.62)" }} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ background: deitado
+        ? `linear-gradient(90deg, ${T.cor.fundo}e6 0%, ${T.cor.fundo}80 50%, transparent 85%), linear-gradient(0deg, ${T.cor.fundo}cc 0%, transparent 50%)`
+        : `linear-gradient(180deg, ${T.cor.fundo}cc 0%, transparent 25%, transparent 40%, ${T.cor.fundo}e6 66%, ${T.cor.fundo} 100%)` }} />
+      {c.texto ? (
+        <div style={{ position: "absolute", left: deitado ? 100 : T.area.lado, right: deitado ? 700 : T.area.lado, bottom: deitado ? 270 : 1920 - 1250,
+          display: "flex", flexDirection: "column", gap: 22, opacity: e, transform: `translateY(${interpolate(e, [0, 1], [30, 0])}px)` }}>
+          {c.data ? <div style={{ fontFamily: T.fonte.mono, fontWeight: 600, fontSize: 34, letterSpacing: 5, color: T.cor.papelSombra, textTransform: "uppercase" }}>{c.data}</div> : null}
+          <div style={{ fontFamily: T.fonte.titulo, fontWeight: 700, fontSize: tam, lineHeight: 1.08, color: T.cor.texto, textShadow: "0 6px 30px rgba(0,0,0,.9)" }}><Marcado texto={c.texto.replace(/\n/g, " ")} /></div>
+        </div>
+      ) : null}
+      {im.credito ? <div style={{ position: "absolute", right: deitado ? 60 : T.area.lado, bottom: deitado ? 40 : 300, fontFamily: T.fonte.mono, fontSize: deitado ? 18 : 20, color: T.cor.apagado, maxWidth: 700, textAlign: "right" }}>{im.credito}</div> : null}
+    </AbsoluteFill>
+  );
+};
+export const sonsFoto = (): Som[] => [{ src: "sfx/whoosh.wav", em: 0, vol: 0.35 }];
+
 export const CENAS = {
+  capitulo: { C: Capitulo, sons: sonsCapitulo },
+  foto: { C: Foto, sons: sonsFoto },
   gancho: { C: Gancho, sons: sonsGancho },
   frase: { C: Frase, sons: sonsFrase },
   placar: { C: Placar, sons: sonsPlacar },

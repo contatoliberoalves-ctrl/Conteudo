@@ -59,7 +59,7 @@ function palavrasEstimadas(fala, durSeg) {
   return ws.map((w, i) => { const d = (fim0 - ini0) * pesos[i] / soma; const r = { w, ini: t, fim: t + d }; t += d; return r; });
 }
 
-const MINIMO = { gancho: 3, frase: 3.5, placar: 7, cedula: 7, documentos: 7, cartas: 6, pausa: 3.5, linha: 6, pergunta: 4.5 };
+const MINIMO = { capitulo: 2.6, foto: 4, gancho: 3, frase: 3.5, placar: 7, cedula: 7, documentos: 7, cartas: 6, pausa: 3.5, linha: 6, pergunta: 4.5 };
 
 function preparar(id) {
   const r = JSON.parse(fs.readFileSync(path.join(AQUI, "roteiros", id + ".json"), "utf8"));
@@ -113,6 +113,15 @@ function indexar(id, r) {
   fs.writeFileSync(arq, JSON.stringify(lista, null, 2) + "\n");
 }
 
+// Descrição do YouTube: legenda do post + capítulos (a partir das cenas "capitulo")
+function descricaoYoutube(id, dir, props) {
+  const r = JSON.parse(fs.readFileSync(path.join(AQUI, "roteiros", id + ".json"), "utf8"));
+  const caps = props.cenas.filter((c) => c.tipo === "capitulo");
+  const mmss = (q) => { const s = Math.round(q / FPS); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+  const capitulos = caps.length >= 2 ? "\n\nCapítulos\n0:00 Abertura\n" + caps.map((c) => `${mmss(c.inicio)} ${c.titulo}`).join("\n") : "";
+  fs.writeFileSync(path.join(dir, "youtube-descricao.txt"), legenda(r).trim() + capitulos + "\n");
+}
+
 // Versão do YouTube (16:9): miniatura sem legenda e, sem --rapido, o vídeo
 async function versaoYoutube(id, dir, comp, props) {
   console.log(`${id} (YouTube 16:9): ${(props.total / FPS).toFixed(1)} s`);
@@ -136,11 +145,12 @@ async function versaoYoutube(id, dir, comp, props) {
   execFileSync("ffmpeg", ["-v", "error", "-y", "-i", mp4, "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
   fs.renameSync(tmp, mp4);
   console.log(`\n  → saida/${id}/youtube.mp4`);
+  descricaoYoutube(id, dir, props);
 }
 
 for (const id of ids) {
   const { roteiro, props } = preparar(id);
-  indexar(id, roteiro);
+  if (!roteiro.longo) indexar(id, roteiro);
   const dir = path.join(AQUI, "saida", id);
   fs.mkdirSync(dir, { recursive: true });
   if (!soCapas && !yt) for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
