@@ -27,7 +27,7 @@ function fundoPodconst(fundo, fantasma, corAnel, claro = false, corLogo = null) 
   return `<div style="position:absolute;inset:0;background:${fundo}"></div>
   <div style="position:absolute;left:-40px;bottom:-150px;${BB};font-size:520px;line-height:1;color:transparent;-webkit-text-stroke:3px ${traco};white-space:nowrap">${fantasma}</div>
   ${anel(1640, -170, 460, corAnel, 34)}${anel(-210, 760, 420, claro ? 'rgba(10,58,166,.10)' : 'rgba(255,255,255,.12)', 26)}
-  <div style="position:absolute;left:56px;top:40px;display:flex;align-items:center;gap:34px">${logo(44, corLogo || (claro ? '#e224d6' : '#ff1ff0'))}${arrobas(24)}</div>`;
+  <div style="position:absolute;left:60px;top:46px;display:flex;flex-direction:column;align-items:flex-start;gap:26px">${logo(44, corLogo || (claro ? '#e224d6' : '#ff1ff0'))}<div style="display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-family:'Space Grotesk';font-weight:700;font-size:24px"><div style="background:#f7f400;color:#0b1a4a;padding:2px 10px">@LIBERO<span style="font-weight:400">FILHO</span></div><div style="background:${corLogo ? '#0b1a4a' : '#e224d6'};color:#fff;padding:2px 10px">@NATALIA<span style="font-weight:400">VALENCA</span></div></div></div>`;
 }
 function fundoVde(claro = false) {
   const linha = claro ? 'rgba(46,5,117,.12)' : 'rgba(201,184,255,.18)';
