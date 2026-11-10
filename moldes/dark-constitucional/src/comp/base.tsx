@@ -77,9 +77,11 @@ export const Acabamento: React.FC = () => {
 /** Etiqueta fixa no topo: marca do perfil e número da pauta, com barra de progresso. */
 export const Etiqueta: React.FC<{ marca: string; pauta?: number; serie?: string; total: number }> = ({ marca, pauta, serie, total }) => {
   const f = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const deitado = width > height;
   const prog = interpolate(f, [0, total], [0, 1], C);
   return (
-    <div style={{ position: "absolute", top: 170, left: theme.area.lado, right: theme.area.lado, display: "flex", flexDirection: "column", gap: 14 }}>
+    <div style={{ position: "absolute", top: deitado ? 44 : 170, left: deitado ? 80 : theme.area.lado, right: deitado ? 80 : theme.area.lado, display: "flex", flexDirection: "column", gap: 14 }}>
       <div style={{ display: "flex", justifyContent: "space-between", fontFamily: theme.fonte.mono, fontWeight: 500, fontSize: 26,
         letterSpacing: 4, color: theme.cor.apagado, textTransform: "uppercase" }}>
         <span>{marca}</span>

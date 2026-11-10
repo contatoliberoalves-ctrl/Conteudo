@@ -16,6 +16,7 @@ const FPS = cfg.fps;
 const args = process.argv.slice(2);
 const rapido = args.includes("--rapido");
 const soCapas = args.includes("--capas"); // só refaz saida/<id>/capa.jpg
+const yt = args.includes("--yt"); // versão 16:9: saida/<id>/youtube.mp4 e youtube-capa.jpg (1280×720)
 const semVoz = args.includes("--sem-voz");
 let ids = args.filter((a) => !a.startsWith("--"));
 if (!ids.length) ids = fs.readdirSync(path.join(AQUI, "roteiros")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, ""));
@@ -112,13 +113,39 @@ function indexar(id, r) {
   fs.writeFileSync(arq, JSON.stringify(lista, null, 2) + "\n");
 }
 
+// Versão do YouTube (16:9): miniatura sem legenda e, sem --rapido, o vídeo
+async function versaoYoutube(id, dir, comp, props) {
+  console.log(`${id} (YouTube 16:9): ${(props.total / FPS).toFixed(1)} s`);
+  const g = props.cenas[0], png = path.join(dir, "youtube-capa.png");
+  await renderStill({ composition: { ...comp, props: { ...comp.props, capa: true } }, serveUrl: servir, output: png, frame: g.inicio + g.dur - 10, browserExecutable, chromiumOptions, overwrite: true });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", png, "-vf", "scale=1280:720:flags=lanczos", "-q:v", "2", path.join(dir, "youtube-capa.jpg")]);
+  fs.rmSync(png);
+  if (rapido) {
+    const outras = props.cenas.filter((c) => ["placar", "cedula", "documentos", "cartas", "linha"].includes(c.tipo)).slice(0, 2);
+    for (const [n, c] of outras.entries())
+      await renderStill({ composition: comp, serveUrl: servir, output: path.join(dir, `yt-${n + 1}.png`), frame: c.inicio + c.dur - 10, browserExecutable, chromiumOptions, overwrite: true });
+    return;
+  }
+  const mp4 = path.join(dir, "youtube.mp4"), tmp = path.join(dir, "youtube-tmp.mp4");
+  let ult = -1;
+  await renderMedia({
+    composition: comp, serveUrl: servir, codec: "h264", crf: 18, outputLocation: mp4, inputProps: props,
+    browserExecutable, chromiumOptions, audioBitrate: "192k", concurrency: Math.max(1, (await import("node:os")).cpus().length),
+    onProgress: ({ progress }) => { const p = Math.floor(progress * 10); if (p !== ult) { ult = p; process.stdout.write(` ${p * 10}%`); } },
+  });
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-i", mp4, "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp]);
+  fs.renameSync(tmp, mp4);
+  console.log(`\n  → saida/${id}/youtube.mp4`);
+}
+
 for (const id of ids) {
   const { roteiro, props } = preparar(id);
   indexar(id, roteiro);
   const dir = path.join(AQUI, "saida", id);
   fs.mkdirSync(dir, { recursive: true });
-  if (!soCapas) for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
-  const comp = await selectComposition({ serveUrl: servir, id: "Reel", inputProps: props, browserExecutable, chromiumOptions });
+  if (!soCapas && !yt) for (const f of fs.readdirSync(dir)) if (/^\d+\.png$/.test(f)) fs.rmSync(path.join(dir, f));
+  const comp = await selectComposition({ serveUrl: servir, id: yt ? "Video169" : "Reel", inputProps: props, browserExecutable, chromiumOptions });
+  if (yt) { await versaoYoutube(id, dir, comp, props); continue; }
   console.log(`${id}: ${props.cenas.length} cenas, ${(props.total / FPS).toFixed(1)} s${props.comVoz ? ", com voz" : ", sem voz"}`);
   // 3 quadros para conferir e para a galeria: a capa (gancho) e as duas primeiras cenas gráficas
   const graficas = props.cenas.map((c, n) => ({ c, n })).filter(({ c }) => ["placar", "cedula", "documentos", "cartas", "linha", "pausa"].includes(c.tipo));

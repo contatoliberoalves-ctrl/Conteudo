@@ -93,7 +93,8 @@ const TituloCapa: React.FC<{ texto: string; tam: number; atraso?: number; estati
 
 export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, estatico }) => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width, height } = useVideoConfig();
+  if (width > height) return <CapaFotoDeitada c={c} estatico={estatico} />;
   const im = c.imagem as { arquivo: string; credito?: string; foco?: string; zoom?: number };
   const zoom = estatico ? 1.06 : interpolate(f, [0, c.dur], [1.0, 1.1], { ...clamp, easing: T.ease.inOut });
   const deriva = estatico ? 0 : interpolate(f, [0, c.dur], [0, -30], clamp);
@@ -112,6 +113,32 @@ export const CapaFoto: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, e
         <TituloCapa texto={c.texto} tam={tam} estatico={estatico} />
       </div>
       {im.credito ? <div style={{ position: "absolute", right: T.area.lado, bottom: 300, fontFamily: T.fonte.mono, fontSize: 20, color: T.cor.apagado, letterSpacing: 1, maxWidth: 700, textAlign: "right" }}>{im.credito}</div> : null}
+    </AbsoluteFill>
+  );
+};
+
+// Capa no formato 16:9 (YouTube): foto em tela cheia escurecida à esquerda, título grande embaixo à esquerda
+const CapaFotoDeitada: React.FC<{ c: CenaPronta; estatico?: boolean }> = ({ c, estatico }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const im = c.imagem as { arquivo: string; credito?: string; foco?: string; zoom?: number };
+  const zoom = estatico ? 1.04 : interpolate(f, [0, c.dur], [1.0, 1.08], { ...clamp, easing: T.ease.inOut });
+  const linhas = String(c.texto).replace(/\*\*/g, "").split("\n");
+  const tam = Math.max(80, Math.min(170, Math.floor(2250 / Math.max(...linhas.map((l) => l.length)))));
+  const luz = estatico ? 1 : spring({ frame: f, fps, config: { damping: 30, stiffness: 40 } });
+  const foco = im.foco ?? "50% 40%";
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ overflow: "hidden" }}>
+        <Img src={staticFile(im.arquivo)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: foco,
+          transform: `scale(${zoom * Math.max(1, (im.zoom ?? 1) * 0.75)})`, transformOrigin: foco, filter: `grayscale(1) sepia(0.45) contrast(1.15) brightness(${0.4 + 0.35 * luz})` }} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ background: `linear-gradient(90deg, ${T.cor.fundo}f2 0%, ${T.cor.fundo}b3 45%, transparent 80%), linear-gradient(0deg, ${T.cor.fundo}cc 0%, transparent 45%)` }} />
+      <div style={{ position: "absolute", left: 100, bottom: 130, width: 1400, fontFamily: T.fonte.legenda, fontWeight: 700,
+        fontSize: tam, lineHeight: 0.98, textTransform: "uppercase", letterSpacing: -0.5 }}>
+        <TituloCapa texto={c.texto} tam={tam} estatico={estatico} />
+      </div>
+      {im.credito ? <div style={{ position: "absolute", right: 60, bottom: 40, fontFamily: T.fonte.mono, fontSize: 18, color: T.cor.apagado, letterSpacing: 1, maxWidth: 700, textAlign: "right" }}>{im.credito}</div> : null}
     </AbsoluteFill>
   );
 };
