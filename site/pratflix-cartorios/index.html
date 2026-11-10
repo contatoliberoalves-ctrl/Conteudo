@@ -110,8 +110,15 @@ p { margin: 0 }
 .avatar { width: 30px; height: 30px; border-radius: 50%; background: #1C1C1C; display: grid; place-items: center; color: #D9D9D9; font-family: Georgia, serif; font-size: 13px; flex: none }
 .tela-topo small { display: block; font-weight: 400; color: #777; font-size: 11px }
 .post { position: relative; aspect-ratio: 4 / 5; background: #ddd; overflow: hidden }
-.post img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .9s ease, transform 6s ease; transform: scale(1.04) }
-.post img.ativo { opacity: 1; transform: scale(1) }
+.mock { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 22px 20px; opacity: 0; transform: scale(1.04); transition: opacity .9s ease, transform 6s ease; overflow: hidden }
+.mock.ativo { opacity: 1; transform: scale(1) }
+.mock small { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; opacity: .75 }
+.mock strong { font-family: var(--display); text-transform: uppercase; font-weight: 800; font-size: 40px; line-height: .95 }
+.mock span { font-size: 11px; opacity: .75 }
+.mock::after { content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; border: 1.5px solid currentColor; opacity: .15 }
+.m-esc { background: var(--grafite); color: var(--claro) } .m-esc strong { color: var(--areia) }
+.m-areia { background: var(--areia); color: var(--grafite) }
+.m-papel { background: var(--marfim); color: var(--tinta) }
 .tela-acoes { display: flex; gap: 14px; padding: 10px 14px 4px }
 .tela-acoes svg { width: 22px; height: 22px }
 .pontos { display: flex; gap: 5px; justify-content: center; margin-top: -2px }
@@ -423,15 +430,15 @@ footer .miolo { display: flex; flex-wrap: wrap; justify-content: space-between; 
     </div>
     <div class="palco">
       <div class="balao b1"><small>Dúvida do balcão</small>Quais documentos eu preciso para casar?</div>
-      <div class="celular" aria-label="Exemplos de posts feitos para um cartório de registro civil">
+      <div class="celular" aria-label="Exemplos de pautas para o perfil de um cartório">
         <div class="tela">
-          <div class="tela-topo"><div class="avatar" aria-hidden="true">C</div><div>cartório de registro civil<small>Post fixado</small></div></div>
+          <div class="tela-topo"><div class="avatar" aria-hidden="true">C</div><div>seu cartório<small>Exemplos de pauta</small></div></div>
           <div class="post" id="post-celular">
-            <img class="ativo" src="img/cart-casar-1.webp" alt="Capa de carrossel: Vai casar? Veja os documentos para a habilitação" width="640" height="800">
-            <img src="img/amigo-nasc-1.webp" alt="Capa de carrossel: O que pouca gente sabe sobre registrar o bebê" width="640" height="800" loading="lazy">
-            <img src="img/cart-agende-online.webp" alt="Post: Agende sua habilitação online" width="640" height="800" loading="lazy">
-            <img src="img/amigo-perdi-a-certidao.webp" alt="Post: Perdi minha certidão de nascimento, e agora?" width="640" height="800" loading="lazy">
-            <img src="img/cart-certidoes-90-dias.webp" alt="Post: Para casar, as certidões precisam ter sido expedidas há no máximo 90 dias" width="640" height="800" loading="lazy">
+            <div class="mock m-esc ativo" role="img" aria-label="Exemplo de post: O que trazer para casar?"><small>Antes de vir ao cartório</small><strong>O que trazer para casar?</strong><span>Carrossel · arraste →</span></div>
+            <div class="mock m-areia" role="img" aria-label="Exemplo de post: Perdi minha certidão. E agora?"><small>Dúvida do balcão</small><strong>Perdi minha certidão. E agora?</strong><span>Vídeo curto</span></div>
+            <div class="mock m-papel" role="img" aria-label="Exemplo de post: Como falar com o cartório com segurança"><small>Canais oficiais</small><strong>Como falar com o cartório com segurança</strong><span>Card fixado</span></div>
+            <div class="mock m-esc" role="img" aria-label="Exemplo de post: Horários, endereço e acessibilidade"><small>Organize sua visita</small><strong>Horários, endereço e acessibilidade</strong><span>Post informativo</span></div>
+            <div class="mock m-areia" role="img" aria-label="Exemplo de post: O que observar na sua certidão"><small>Entenda o documento</small><strong>O que observar na sua certidão</strong><span>Carrossel · arraste →</span></div>
           </div>
           <div class="tela-acoes" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
@@ -439,7 +446,7 @@ footer .miolo { display: flex; flex-wrap: wrap; justify-content: space-between; 
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.8"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg>
           </div>
           <div class="pontos" id="pontos"></div>
-          <p class="legenda"><b>cartório</b> Antes de vir ao cartório, confira a lista. Salve este post e mande para quem vai casar com você.</p>
+          <p class="legenda"><b>cartório</b> Pautas que respondem antes de a dúvida chegar ao balcão. Exemplos ilustrativos.</p>
         </div>
       </div>
       <div class="balao b2"><small>Resposta</small>Está no post fixado, com a lista completa.</div>
@@ -531,7 +538,7 @@ footer .miolo { display: flex; flex-wrap: wrap; justify-content: space-between; 
     </div>
     <div class="filtros" id="filtros" role="group" aria-label="Filtrar trabalhos">
       <button type="button" data-f="todos" aria-pressed="true">Todos</button>
-      <button type="button" data-f="cartorio" aria-pressed="false">Cartórios e setor</button>
+      <button type="button" data-f="cartorio" aria-pressed="false">Setor extrajudicial</button>
       <button type="button" data-f="educacao" aria-pressed="false">Educação e cursos</button>
       <button type="button" data-f="identidade" aria-pressed="false">Identidade visual</button>
     </div>
@@ -864,7 +871,7 @@ const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------- hero: luz que segue o cursor e celular com posts ---------- */
 const hero = $('#hero');
 hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); hero.style.setProperty('--mx', (e.clientX - r.left) + 'px'); hero.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
-const fotos = [...document.querySelectorAll('#post-celular img')];
+const fotos = [...document.querySelectorAll('#post-celular .mock')];
 let atual = 0, timer = null, pausado = calmo;
 const pontos = $('#pontos');
 fotos.forEach((_, i) => { const b = el('button', { type: 'button', 'aria-label': `Post ${i + 1}` }); b.onclick = () => mostra(i); pontos.append(b); });
@@ -876,7 +883,7 @@ if (calmo) { $('#pausa').textContent = 'Continuar'; $('#pausa').setAttribute('ar
 roda();
 
 /* ---------- letreiro de trabalhos ---------- */
-const LETREIRO = ['conecta-abertura', 'cart-casar-1', 'entrenotas-1', 'amigo-nasc-1', 'renato-manual-1', 'cart-regime-1', 'prat-dash-1', 'amigo-mito-1', 'anoregpe-1', 'eduarda-1', 'cart-pdf-1', 'conecta-encerramento', 'renato-carrossel-1', 'amigo-hora-marcada', 'mapa-mental', 'cart-contato'];
+const LETREIRO = ['conecta-abertura', 'renato-manual-1', 'prat-dash-1', 'anoregpe-1', 'eduarda-1', 'conecta-em-instantes', 'renato-carrossel-1', 'prat-carteira', 'mapa-mental', 'conecta-encerramento', 'eduarda-diva', 'renato-stories', 'prat-grupo', 'conecta-liderancas', 'pdf-teses', 'renato-thumb'];
 const trilho = $('#letreiro-trilho');
 [...LETREIRO, ...LETREIRO].forEach((n, i) => trilho.append(el('img', { src: `img/${n}.webp`, alt: '', loading: i < 8 ? 'eager' : 'lazy', 'aria-hidden': 'true' })));
 
@@ -907,10 +914,6 @@ situacao(0);
 
 /* ---------- catálogo ---------- */
 const CATALOGO = [
-  { cat: 'cartorio', t: 'Cartório de Registro Civil · Curral Queimado (PE)', selo: 'Cartório', d: 'Comunicação do cartório em duas linhas: a institucional, na identidade do logo, e a “Cartório Amigo”, com curiosidades e dúvidas do povoado em cores quentes.', e: ['Carrosséis', 'Posts de aviso', 'Guia em PDF', 'Mito ou verdade', 'Pergunta do povo'],
-    img: [['cart-casar-1', 'Carrossel: documentos para a habilitação de casamento'], ['cart-casar-2', 'Carrossel: se você é solteiro'], ['cart-casar-7', 'Carrossel: valores e contato'], ['cart-regime-1', 'Carrossel: regime de bens'], ['cart-pdf-1', 'Guia em PDF: documentos para a habilitação'], ['cart-pdf-2', 'Guia em PDF: página interna'], ['cart-agende-online', 'Post: agende sua habilitação online'], ['cart-validade-do-rg', 'Post: validade do RG'], ['amigo-nasc-1', 'Cartório Amigo: registro de nascimento'], ['amigo-nasc-2', 'Cartório Amigo: registro de nascimento, página interna'], ['amigo-mito-1', 'Cartório Amigo: mito ou verdade do casamento'], ['amigo-mito-2', 'Cartório Amigo: mito ou verdade'], ['amigo-perdi-a-certidao', 'Cartório Amigo: perdi a certidão'], ['amigo-hora-marcada', 'Cartório Amigo: hora marcada'], ['amigo-mito-rg-vencido', 'Cartório Amigo: RG vencido']] },
-  { cat: 'identidade cartorio', t: 'Entre Notas e Registros · podcast da ANOREG/PE', selo: 'Identidade visual', d: 'Manual de identidade do podcast: símbolo, logotipo e versões, cores e tipografia, peças para Instagram, YouTube e Spotify.', e: ['Símbolo', 'Logotipo', 'Cores e tipografia', 'Redes sociais'],
-    img: [['entrenotas-1', 'Capa do manual da identidade Entre Notas e Registros'], ['entrenotas-2', 'O símbolo'], ['entrenotas-3', 'Logotipo e versões'], ['entrenotas-6', 'Aplicações']] },
   { cat: 'cartorio', t: 'Portal e área de membros · ANOREG/PE', selo: 'Projeto apresentado', d: 'Apresentação do projeto de portal público e área de membros: serviços ao cidadão, notícias com fonte oficial, normas e trilhas de capacitação.', e: ['Portal', 'Área de membros', 'Apresentação do projeto'],
     img: [['anoregpe-1', 'Capa da apresentação do portal'], ['anoregpe-2', 'O projeto'], ['anoregpe-4', 'Tela de notícias']] },
   { cat: 'educacao', t: 'PratFlix · a advocacia na prática', selo: 'Projeto próprio', d: 'Plataforma do Líbero para quem advoga: carrosséis com passo a passo, materiais em PDF, grupos e fundos para lives, tudo na mesma identidade.', e: ['Carrosséis', 'Materiais', 'Comunidade', 'Lives'],
