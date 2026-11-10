@@ -3,7 +3,7 @@
 import { C, SERIF, fundo, rico, esc, lista, bokeh, petalas, logo, arroba, kicker, hangul, estrelas, barra, cartaz, quadro, chip } from '../dorama-comum/identidade.mjs';
 
 const W = 1080, H = 1350, M = 90;
-const tit = (p, f, px, extra = '') => p.titulo ? `<div style="${SERIF};font-weight:700;font-size:${p.ts || px}px;line-height:1.04;letter-spacing:-.015em;color:${f.tit};${extra}">${rico(p.titulo, f)}</div>` : '';
+const tit = (p, f, px, extra = '') => p.titulo ? `<div style="${SERIF};font-weight:700;font-size:${p.ts || px}px;line-height:1.04;letter-spacing:-.015em;color:${f.tit};${f.sombra ? `text-shadow:${f.sombra};` : ''}${extra}">${rico(p.titulo, f)}</div>` : '';
 const cab = f => `<div style="position:absolute;left:${M}px;right:${M}px;top:80px;display:flex;justify-content:space-between;align-items:center">${logo(50, { cor: f.tit, dest: f.dest })}${arroba(f, 22)}</div>`;
 const pe = (p, f) => p.rodape ? `<div style="position:absolute;left:${M}px;right:${M}px;bottom:70px;text-align:center;font-weight:700;font-size:28px;color:${f.tit}">${rico(p.rodape, f)}</div>` : '';
 const caixa = (html, top, bottom, extra = '') => `<div data-cabe style="position:absolute;left:${M}px;right:${M}px;top:${top}px;bottom:${bottom}px;display:flex;flex-direction:column;gap:28px;overflow:hidden;padding-bottom:12px;${extra}">${html}</div>`;
@@ -15,7 +15,7 @@ const LAYOUTS = {
     ${caixa(`${kicker(p.kicker || 'Indicação', f)}${tit(p, f, 80)}`, 190, 900, 'justify-content:flex-end')}
     <div style="position:absolute;left:${M}px;top:490px;transform:rotate(-3deg)">${cartaz(d, 400, 560)}</div>
     ${caixa(`<div>${hangul(d.hangul, 30, f.dest)}<div style="margin-top:10px;${SERIF};font-weight:700;font-size:44px;line-height:1.05;color:${f.tit}">${esc(d.titulo)}</div>${p.estrelas ? `<div style="margin-top:14px">${estrelas(p.estrelas, 40)}</div>` : ''}</div>
-      <div style="display:flex;flex-direction:column;gap:20px">${lista(p.motivos).map(t => `<div style="display:flex;gap:16px;align-items:flex-start;font-size:${p.corpo || 30}px;font-weight:500;line-height:1.38;color:${f.txt}"><span style="flex:none;width:34px;height:34px;margin-top:4px;border-radius:50%;background:${C.rosaForte};color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800">✓</span><span>${rico(t, f)}</span></div>`).join('')}</div>`, 500, 250, 'left:550px;justify-content:center')}
+      <div style="display:flex;flex-direction:column;gap:20px">${lista(p.motivos).map(t => `<div style="display:flex;gap:16px;align-items:flex-start;font-size:${p.corpo || 30}px;font-weight:500;line-height:1.38;color:${f.txt}"><span style="flex:none;width:34px;height:34px;margin-top:4px;border-radius:50%;background:${f.escuro ? C.rosaForte : C.noite};color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800">✓</span><span>${rico(t, f)}</span></div>`).join('')}</div>`, 500, 250, 'left:550px;justify-content:center')}
     <div style="position:absolute;left:${M}px;right:${M}px;bottom:${p.rodape ? 140 : 96}px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center">${fichaLinha(d, f)}</div>${pe(p, f)}`; },
   // Nota: cartaz e nota gigante, barras por critério e alertas.
   nota: (p, f) => { const d = p.dorama || {}; return `${f.escuro ? bokeh(W, H, 6) : ''}${cab(f)}
@@ -41,6 +41,6 @@ const LAYOUTS = {
       <div style="font-weight:800;font-size:28px;letter-spacing:.16em;color:${f.dest}">${esc(p.ref).toUpperCase()}</div>
       ${p.texto ? `<div style="display:flex;gap:26px;align-items:center;padding:26px 30px;border-radius:26px;background:${f.card};border:2px solid ${f.cardBorda}">${p.dorama ? cartaz(p.dorama, 150, 205, { raio: 16, sombra: false }) : ''}<div style="font-size:${p.corpo || 32}px;font-weight:500;line-height:1.45;color:${f.txt}">${rico(p.texto, f)}</div></div>` : ''}`, 210, p.rodape ? 150 : 100, 'justify-content:center;align-items:flex-start')}${pe(p, f)}`,
 };
-const PADRAO = { indicacao: 'noite', nota: 'creme', meme: 'rosa', curiosidade: 'noite', reflexao: 'noite' };
+const PADRAO = { indicacao: 'turquesa', nota: 'creme', meme: 'laranja', curiosidade: 'turquesa', reflexao: 'noite' };
 
 export const slides = p => { const f = fundo(p.fundo || PADRAO[p.layout] || 'creme'); return { w: W, h: H, slides: [`<div style="position:absolute;inset:0;background:${f.bg}"></div>${(LAYOUTS[p.layout] || LAYOUTS.indicacao)(p, f)}`] }; };

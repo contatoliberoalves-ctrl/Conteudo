@@ -5,11 +5,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 const aqui = path.dirname(new URL(import.meta.url).pathname);
 
+// Cores do perfil (as do Canva do @cristaodorameiro): turquesa, laranja, branco e preto, com o vermelho e o
+// azul da bandeira da Coreia como detalhe. Os nomes antigos (noite, rosa…) continuam valendo para os moldes.
 export const C = {
-  noite: '#1C1530', ameixa: '#35224D', rosa: '#F3A6B8', rosaForte: '#E0517A', blush: '#FBE3E8',
-  creme: '#FBF5EC', papel: '#F3E9DA', tinta: '#22182E', ouro: '#F0B94D', branco: '#FFFFFF', cinza: '#7A6F86',
+  turquesa: '#00CBAD', turqEsc: '#00A58C', laranja: '#FFA34E', vermelho: '#CD2E3A', azul: '#0047A0',
+  noite: '#0E2A27', ameixa: '#14453F', rosa: '#FFA34E', rosaForte: '#00B39A', blush: '#E3F8F4',
+  creme: '#FFFFFF', papel: '#F4F7F6', tinta: '#12201E', ouro: '#FFA34E', branco: '#FFFFFF', cinza: '#6B7A78',
 };
-export const HEAD = `<meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;700&family=Figtree:wght@700;800&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0}body{font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased}</style>`;
+export const HEAD = `<meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;700&family=Figtree:wght@700;800&family=Lilita+One&family=Audiowide&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0}body{font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased}</style>`;
 export const SERIF = "font-family:'Fraunces',serif;font-optical-sizing:auto";
 export const KR = "font-family:'Noto Serif KR',serif";
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -18,21 +21,29 @@ export const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 // Fundos. Cada um diz a cor do título, do texto, do destaque e das linhas.
 const grao = op => `url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 ${op} 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)`;
 export const FUNDOS = {
-  noite: { bg: `${grao(.10)},radial-gradient(120% 70% at 85% 0%,${C.ameixa} 0%,${C.noite} 60%)`, tit: C.creme, txt: 'rgba(251,245,236,.86)', dest: C.rosa, kick: C.rosa, linha: 'rgba(251,245,236,.16)', card: 'rgba(255,255,255,.06)', cardBorda: 'rgba(255,255,255,.12)', escuro: true },
-  creme: { bg: `${grao(.14)},${C.creme}`, tit: C.tinta, txt: '#4A3F57', dest: C.rosaForte, kick: C.rosaForte, linha: 'rgba(34,24,46,.12)', card: '#FFFFFF', cardBorda: 'rgba(34,24,46,.08)', escuro: false },
-  rosa: { bg: `${grao(.12)},linear-gradient(160deg,${C.blush} 0%,#F6C9D3 100%)`, tit: C.tinta, txt: '#4A3346', dest: C.rosaForte, kick: C.rosaForte, linha: 'rgba(34,24,46,.14)', card: 'rgba(255,255,255,.72)', cardBorda: 'rgba(255,255,255,.9)', escuro: false },
+  // Turquesa do perfil (capas e fechamento): título branco com sombra, destaque laranja com contorno.
+  turquesa: { bg: `${grao(.10)},radial-gradient(120% 80% at 80% 0%,#2FE0C6 0%,${C.turquesa} 55%,#00B59A 100%)`, tit: '#FFFFFF', txt: C.noite, dest: C.laranja, kick: C.noite, linha: 'rgba(14,42,39,.18)', card: 'rgba(255,255,255,.9)', cardBorda: 'rgba(255,255,255,1)', escuro: false, sombra: '0 5px 0 rgba(0,90,78,.35)', contorno: C.noite },
+  // Escuro (verde-petróleo quase preto): versículos e capas com foto.
+  noite: { bg: `${grao(.10)},radial-gradient(120% 70% at 85% 0%,${C.ameixa} 0%,${C.noite} 60%)`, tit: '#FFFFFF', txt: 'rgba(255,255,255,.86)', dest: C.laranja, kick: C.turquesa, linha: 'rgba(255,255,255,.16)', card: 'rgba(255,255,255,.06)', cardBorda: 'rgba(255,255,255,.12)', escuro: true },
+  // Branco (conteúdo): preto e turquesa.
+  creme: { bg: `${grao(.10)},${C.branco}`, tit: C.tinta, txt: '#3B4A48', dest: C.turqEsc, kick: C.turqEsc, linha: 'rgba(18,32,30,.10)', card: C.papel, cardBorda: 'rgba(18,32,30,.06)', escuro: false },
+  // Menta clarinho (conteúdo alternado).
+  rosa: { bg: `${grao(.10)},linear-gradient(160deg,#EFFCF9 0%,${C.blush} 100%)`, tit: C.tinta, txt: '#33504B', dest: C.turqEsc, kick: C.turqEsc, linha: 'rgba(18,32,30,.12)', card: 'rgba(255,255,255,.85)', cardBorda: '#FFFFFF', escuro: false },
+  // Pêssego (destaques: memes, listas).
+  laranja: { bg: `${grao(.10)},linear-gradient(160deg,#FFF6EC 0%,#FFE7CF 100%)`, tit: C.tinta, txt: '#5A4632', dest: '#E07B1F', kick: '#E07B1F', linha: 'rgba(18,32,30,.12)', card: 'rgba(255,255,255,.85)', cardBorda: '#FFFFFF', escuro: false },
 };
+FUNDOS.branco = FUNDOS.creme; FUNDOS.menta = FUNDOS.rosa; FUNDOS.escuro = FUNDOS.noite;
 export const fundo = nome => FUNDOS[nome] || FUNDOS.creme;
 
 // Texto rico: *itálico* (serifa itálica na cor de destaque) e **negrito**.
 export const rico = (s, f) => esc(s)
   .replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:800">$1</b>')
-  .replace(/\*(.+?)\*/g, `<em style="${SERIF};font-style:italic;font-weight:500;color:${f.dest}">$1</em>`)
+  .replace(/\*(.+?)\*/g, `<em style="${SERIF};font-style:italic;font-weight:600;color:${f.dest};${f.contorno ? `-webkit-text-stroke:.07em ${f.contorno};paint-order:stroke fill;` : ''}">$1</em>`)
   .replace(/\n/g, '<br>');
 
 // Luzes desfocadas de cidade à noite (bokeh) e pétalas de cerejeira: decoração das telas escuras.
 const rnd = s => () => (s = (s * 9301 + 49297) % 233280) / 233280;
-export const bokeh = (w, h, semente = 7, n = 14, cores = [C.rosa, C.ouro, '#9C8CFF', C.creme]) => {
+export const bokeh = (w, h, semente = 7, n = 14, cores = [C.turquesa, C.laranja, '#7FE9DA', '#FFFFFF']) => {
   const r = rnd(semente); let out = '';
   for (let i = 0; i < n; i++) {
     const d = 60 + r() * 220, x = r() * w, y = r() * h * .75, cor = cores[i % cores.length], op = .08 + r() * .16;
@@ -44,11 +55,12 @@ export const petala = (x, y, px, rot = 0, cor = C.rosa, op = .9) => `<span style
 export const petalas = (pos, cor = C.rosa) => pos.map(([x, y, p, r, o]) => petala(x, y, p, r, cor, o ?? .85)).join('');
 
 // Marca: cruz dentro de uma tela arredondada (TV / play), e o logotipo "cristão dorameiro".
-export const marca = (px, bg = C.rosaForte, fg = C.creme) => `<span style="position:relative;display:inline-block;width:${px}px;height:${px * .82}px;border-radius:${px * .22}px;background:${bg};flex:none">
-  <span style="position:absolute;left:50%;top:18%;width:${px * .11}px;height:64%;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span>
-  <span style="position:absolute;top:36%;left:50%;width:${px * .42}px;height:${px * .11}px;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span></span>`;
-export const logo = (px, { cor = C.creme, dest = C.rosa, marcaBg = C.rosaForte, marcaFg = C.creme } = {}) => `<div style="display:inline-flex;align-items:center;gap:${px * .32}px">${marca(px * 1.15, marcaBg, marcaFg)}
-  <div style="line-height:.92;color:${cor}"><div style="${SERIF};font-style:italic;font-weight:500;font-size:${px * .62}px;color:${dest}">cristão</div><div style="font-weight:800;font-size:${px * .5}px;letter-spacing:.16em">DORAMEIRO</div></div></div>`;
+export const marca = (px, bg = C.turquesa, fg = '#FFFFFF') => `<span style="position:relative;display:inline-block;width:${px}px;height:${px * .82}px;border-radius:${px * .22}px;background:${bg};flex:none;box-shadow:inset 0 0 0 ${px * .05}px rgba(14,42,39,.25)">
+  <span style="position:absolute;left:50%;top:16%;width:${px * .11}px;height:66%;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span>
+  <span style="position:absolute;top:34%;left:50%;width:${px * .44}px;height:${px * .11}px;background:${fg};border-radius:${px * .05}px;transform:translateX(-50%)"></span>
+  <span style="position:absolute;right:-${px * .1}px;bottom:-${px * .08}px;width:${px * .32}px;height:${px * .32}px;border-radius:50%;background:linear-gradient(180deg,${C.vermelho} 50%,${C.azul} 50%);border:${px * .035}px solid #fff"></span></span>`;
+export const logo = (px, { cor = C.creme, dest = C.rosa, marcaBg = C.rosaForte, marcaFg = C.creme } = {}) => `<div style="display:inline-flex;align-items:center;gap:${px * .3}px">${marca(px * 1.1, C.turquesa, '#FFFFFF')}
+  <div style="line-height:.95"><div style="font-family:'Lilita One',sans-serif;font-size:${px * .62}px;letter-spacing:.04em;color:${C.laranja};-webkit-text-stroke:${px * .05}px ${C.noite};paint-order:stroke fill">CRISTÃO</div><div style="font-family:Audiowide,sans-serif;font-size:${px * .44}px;letter-spacing:.08em;color:${cor};text-shadow:${px * .035}px ${px * .035}px 0 ${C.vermelho},-${px * .025}px -${px * .02}px 0 ${C.azul}">DORAMEIRO</div></div></div>`;
 export const arroba = (f, px = 24) => `<span style="font-weight:700;font-size:${px}px;letter-spacing:.08em;color:${f.tit};opacity:.7">@cristaodorameiro</span>`;
 
 // Etiqueta de episódio ("EP. 02") e etiqueta de seção (kicker).
@@ -78,7 +90,7 @@ export const foto = nome => {
 };
 // Paletas dos cartazes tipográficos.
 export const CENAS = {
-  noite: ['#2B1E4A', '#0F0B1E', C.rosa], cerejeira: ['#F6B9C8', '#B9466E', '#FFF'], por: ['#F7A66B', '#7A2E5C', '#FFE9C7'],
+  noite: ['#14453F', '#071917', C.laranja], turquesa: ['#2FE0C6', '#008F7A', '#FFFFFF'], cerejeira: ['#F6B9C8', '#B9466E', '#FFF'], por: ['#F7A66B', '#7A2E5C', '#FFE9C7'],
   mar: ['#6FB7C9', '#1D3B63', '#E8F7FA'], neve: ['#DDE6F2', '#6E7FA6', '#FFFFFF'], verde: ['#9FCB98', '#2E5643', '#F3FBEF'], vinho: ['#B44A63', '#3A0E22', '#FFD8E1'],
 };
 export const cena = (nome, w, h, semente = 3) => {
@@ -100,16 +112,16 @@ export const cartaz = (d, w, h, { raio = 28, sombra = true } = {}) => {
 
 // Legenda de cena (estilo legenda de dorama: letra branca com contorno escuro) para memes.
 export const legenda = (txt, px, cor = '#FFFFFF') => `<div style="font-weight:800;font-size:${px}px;line-height:1.2;color:${cor};text-align:center;-webkit-text-stroke:${px * .09}px #0d0812;paint-order:stroke fill;text-shadow:0 3px 12px rgba(0,0,0,.5)">${esc(txt).replace(/\n/g, '<br>')}</div>`;
-export const chip = (txt, f, px = 26) => `<span style="display:inline-block;padding:${px * .45}px ${px * .8}px;border-radius:${px * .4}px;background:${f.card};border:2px solid ${f.cardBorda};font-weight:700;font-size:${px}px;color:${f.tit}">${esc(txt)}</span>`;
+export const chip = (txt, f, px = 26) => `<span style="display:inline-block;padding:${px * .45}px ${px * .8}px;border-radius:${px * .4}px;background:${f.card};border:2px solid ${f.cardBorda};font-weight:700;font-size:${px}px;color:${f.escuro ? f.tit : C.tinta}">${esc(txt)}</span>`;
 
 // Quadro de cena (meme): foto ou cena tipográfica, legenda embaixo e reação opcional.
 export const quadro = (s, w, h) => {
   const src = foto(s.foto);
   return `<div style="position:relative;width:${w}px;height:${h}px;border-radius:30px;overflow:hidden;box-shadow:0 26px 60px rgba(20,10,30,.3)">
     ${src ? `<img src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${s.fotoPos || 'center'}">` : `${cena(s.cena || 'noite', w, h, 11)}${s.emoji ? `<div style="position:absolute;left:0;right:0;top:${h * .2}px;text-align:center;font-size:${h * .3}px;line-height:1">${s.emoji}</div>` : ''}`}
-    <div style="position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(10,6,16,.55))"></div>
+    <div style="position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(8,24,22,.55))"></div>
     <div style="position:absolute;left:40px;right:40px;bottom:${s.legendaKr ? 74 : 44}px">${legenda(s.legenda || '', s.legendaTam || 46)}</div>
     ${s.legendaKr ? `<div style="position:absolute;left:40px;right:40px;bottom:30px;text-align:center">${hangul(s.legendaKr, 26, 'rgba(255,255,255,.85)')}</div>` : ''}
-    ${s.episodio ? `<div style="position:absolute;left:26px;top:24px;padding:8px 16px;border-radius:10px;background:rgba(10,6,16,.55);font-weight:800;font-size:22px;letter-spacing:.14em;color:#fff">${esc(s.episodio)}</div>` : ''}</div>`;
+    ${s.episodio ? `<div style="position:absolute;left:26px;top:24px;padding:8px 16px;border-radius:10px;background:rgba(8,24,22,.55);font-weight:800;font-size:22px;letter-spacing:.14em;color:#fff">${esc(s.episodio)}</div>` : ''}</div>`;
 };
 

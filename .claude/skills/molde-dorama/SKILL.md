@@ -1,6 +1,6 @@
 ---
 name: molde-dorama
-description: Gera posts do @cristaodorameiro (doramas com olhar cristão) na identidade Cristão Dorameiro (noite ameixa com luzes, creme hanji e rosa cerejeira; Fraunces + Plus Jakarta Sans; cruz na tela arredondada): carrossel 1080×1350 (dorama-carrossel), tela única (dorama-post) e nativo 3:4 com texto e figurinhas do Insta (dorama-nativo), nos formatos indicação, nota, meme, curiosidade e reflexão. Use quando pedirem post, carrossel ou story do "Cristão Dorameiro", "cristaodorameiro", ou indicar/dar nota a um dorama nesse perfil.
+description: Gera posts do @cristaodorameiro (doramas com olhar cristão) na identidade Cristão Dorameiro (turquesa, laranja, branco e petróleo do Canva do perfil, detalhes da bandeira coreana; Fraunces + Plus Jakarta Sans): carrossel 1080×1350 (dorama-carrossel), tela única (dorama-post) e nativo 3:4 com texto e figurinhas do Insta (dorama-nativo), nos formatos indicação, nota, meme, curiosidade e reflexão. Use quando pedirem post, carrossel ou story do "Cristão Dorameiro", "cristaodorameiro", ou indicar/dar nota a um dorama nesse perfil.
 ---
 
 # Moldes do @cristaodorameiro
@@ -14,7 +14,7 @@ Identidade em `moldes/dorama-comum/` (leia o README de lá). Três moldes, cada 
 | `dorama-nativo` | post com cara de feito no app (foto/cena + texto nativo + slider de nota, enquete, caixa de perguntas) |
 
 ## Capas com foto do dorama
-No carrossel, a capa aceita a foto de uma cena de fundo: `estilo` `foto`, `cinema`, `moldura`, `vidro` ou `fotonota` (veja o README do molde). As fotos ficam em `moldes/dorama-comum/fotos/` (fora do git; peça ao usuário as cenas ou o link do Drive). Não baixe cenas das séries por conta própria. Os exemplos usam cenários da Coreia do Wikimedia Commons (`fotos/CREDITOS.txt`), com `credito` na capa. Confira o enquadramento (`fotoPos`) para o rosto não ficar atrás do título.
+No carrossel, a capa aceita a foto de uma cena de fundo: `estilo` `foto`, `cinema`, `moldura`, `vidro` ou `fotonota` (veja o README do molde). As fotos ficam em `moldes/dorama-comum/fotos/<dorama>/` (fora do git), vindas da pasta "Fotos dos doramas" do Drive do usuário (veja o README de `dorama-comum`). Dorama novo: peça as cenas ao usuário (ele tem um prompt para a IA buscar e pôr no Drive). Use `credito` com a emissora ("Imagem: tvN"). Antes de escrever, olhe `dorama-comum/acervo.json` (o que ele já assistiu e os formatos que já usa). Confira o enquadramento (`fotoPos`) para o rosto não ficar atrás do título.
 
 ## Tom e conteúdo
 - Português leve, de amiga dorameira, mas com fé: cada indicação/nota liga o dorama a um valor bíblico, sem forçar.

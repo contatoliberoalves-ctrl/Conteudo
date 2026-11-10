@@ -3,47 +3,174 @@
     "id": "nota-nativo-pousando-no-amor",
     "titulo": "Nativo · Nota de Pousando no Amor",
     "slides": [
-      { "cena": "neve", "emoji": "🪂", "emojiY": 470,
-        "blocos": [{ "texto": "terminei\nPousando no Amor", "cor": "branco", "y": 150, "tam": 76 }],
-        "figurinhas": [{ "tipo": "slider", "texto": "minha nota pra esse casal", "nota": 9.5, "emoji": "😍", "y": 930, "rot": -2 }] },
-      { "cena": "noite",
+      {
+        "cena": "neve",
+        "emoji": "🪂",
+        "emojiY": 470,
         "blocos": [
-          { "texto": "o que mais me pegou?", "cor": "pink", "y": 150, "tam": 64 },
-          { "texto": "não foi o romance.\nfoi um pelotão inteiro\narriscando tudo por\nalguém que nem conhecia", "cor": "branco", "y": 300, "tam": 58 },
-          { "texto": "isso tem cheiro de evangelho ✝️", "cor": "noite", "y": 640, "tam": 52 }
+          {
+            "texto": "terminei\nPousando no Amor",
+            "cor": "branco",
+            "y": 150,
+            "tam": 76
+          }
         ],
-        "figurinhas": [{ "tipo": "enquete", "texto": "já assistiu?", "opcoes": ["Sim, chorei 😭", "Tá na minha lista"], "y": 860 }] }
+        "figurinhas": [
+          {
+            "tipo": "slider",
+            "texto": "minha nota pra esse casal",
+            "nota": 9.5,
+            "emoji": "😍",
+            "y": 930,
+            "rot": -2
+          }
+        ],
+        "foto": "pousando-no-amor/cena-01.png",
+        "fotoPos": "center 20%"
+      },
+      {
+        "cena": "noite",
+        "blocos": [
+          {
+            "texto": "o que mais me pegou?",
+            "cor": "pink",
+            "y": 150,
+            "tam": 64
+          },
+          {
+            "texto": "não foi o romance.\nfoi um pelotão inteiro\narriscando tudo por\nalguém que nem conhecia",
+            "cor": "branco",
+            "y": 300,
+            "tam": 58
+          },
+          {
+            "texto": "isso tem cheiro de evangelho ✝️",
+            "cor": "noite",
+            "y": 640,
+            "tam": 52
+          }
+        ],
+        "figurinhas": [
+          {
+            "tipo": "enquete",
+            "texto": "já assistiu?",
+            "opcoes": [
+              "Sim, chorei 😭",
+              "Tá na minha lista"
+            ],
+            "y": 860
+          }
+        ],
+        "foto": "pousando-no-amor/cena-05.jpg",
+        "fotoPos": "45% center",
+        "escurecer": 0.45
+      }
     ]
   },
   {
     "id": "indicacao-nativo-familia",
     "titulo": "Nativo · Dorama pra ver em família",
     "slides": [
-      { "cena": "por", "emoji": "🍿", "emojiY": 560,
+      {
+        "cena": "por",
+        "emoji": "🍿",
+        "emojiY": 560,
         "blocos": [
-          { "texto": "dorama pra ver\ncom a família\nno domingo", "cor": "branco", "y": 150, "tam": 78 },
-          { "texto": "Reply 1988 ✨", "cor": "pink", "y": 1000, "tam": 72, "rot": -2 }
+          {
+            "texto": "dorama pra ver\ncom a família\nno domingo",
+            "cor": "branco",
+            "y": 150,
+            "tam": 78
+          },
+          {
+            "texto": "Reply 1988 ✨",
+            "cor": "pink",
+            "y": 1100,
+            "tam": 72,
+            "rot": -2
+          }
         ],
-        "figurinhas": [{ "tipo": "mencao", "y": 1170 }] },
-      { "cena": "cerejeira",
+        "figurinhas": [
+          {
+            "tipo": "mencao",
+            "y": 1260
+          }
+        ],
+        "foto": "reply-1988/cena-01.jpg",
+        "fotoPos": "40% center"
+      },
+      {
+        "cena": "cerejeira",
         "blocos": [
-          { "texto": "por que eu indico:", "cor": "noite", "y": 150, "tam": 60 },
-          { "texto": "✓ amizade de verdade\n✓ pais imperfeitos que amam\n✓ quase nada que constranja\n✓ você vai rir e chorar", "cor": "branco", "y": 290, "tam": 54, "alinhar": "left", "largura": 900 }
+          {
+            "texto": "por que eu indico:",
+            "cor": "noite",
+            "y": 150,
+            "tam": 60
+          },
+          {
+            "texto": "✓ amizade de verdade\n✓ pais imperfeitos que amam\n✓ quase nada que constranja\n✓ você vai rir e chorar",
+            "cor": "branco",
+            "y": 290,
+            "tam": 54,
+            "alinhar": "left",
+            "largura": 900
+          }
         ],
-        "figurinhas": [{ "tipo": "pergunta", "texto": "me indica um dorama pra família 👇", "dica": "Escreva aqui…", "y": 820, "rot": 2 }] }
+        "figurinhas": [
+          {
+            "tipo": "pergunta",
+            "texto": "me indica um dorama pra família 👇",
+            "dica": "Escreva aqui…",
+            "y": 820,
+            "rot": 2
+          }
+        ],
+        "foto": "reply-1988/cena-09.jpg",
+        "fotoPos": "center",
+        "escurecer": 0.35
+      }
     ]
   },
   {
     "id": "reflexao-nativo-esperar",
     "titulo": "Nativo · Reflexão sobre esperar",
     "slides": [
-      { "cena": "cerejeira", "emoji": "🌸", "emojiY": 220, "emojiTam": 200,
+      {
+        "cena": "cerejeira",
+        "emoji": "🌸",
+        "emojiY": 220,
+        "emojiTam": 200,
         "blocos": [
-          { "texto": "a gente espera 16 episódios\npelo final feliz", "cor": "branco", "y": 520, "tam": 60 },
-          { "texto": "e acha difícil esperar\no tempo de Deus?", "cor": "pink", "y": 720, "tam": 66 },
-          { "texto": "“Tudo fez formoso em seu tempo.”\nEclesiastes 3:11", "cor": "noite", "y": 980, "tam": 44 }
+          {
+            "texto": "a gente espera 16 episódios\npelo final feliz",
+            "cor": "branco",
+            "y": 520,
+            "tam": 60
+          },
+          {
+            "texto": "e acha difícil esperar\no tempo de Deus?",
+            "cor": "pink",
+            "y": 720,
+            "tam": 66
+          },
+          {
+            "texto": "“Tudo fez formoso em seu tempo.”\nEclesiastes 3:11",
+            "cor": "noite",
+            "y": 980,
+            "tam": 44
+          }
         ],
-        "figurinhas": [{ "tipo": "mencao", "y": 1200 }] }
+        "figurinhas": [
+          {
+            "tipo": "mencao",
+            "y": 1200
+          }
+        ],
+        "foto": "goblin/cena-07.jpg",
+        "fotoPos": "45% center",
+        "escurecer": 0.15
+      }
     ]
   }
 ]

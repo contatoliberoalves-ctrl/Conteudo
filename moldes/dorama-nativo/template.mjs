@@ -6,7 +6,7 @@ import { C, esc, cena, foto } from '../dorama-comum/identidade.mjs';
 const W = 1080, H = 1440;
 const CORES = {
   branco: ['#FFFFFF', '#111111'], preto: ['#111111', '#FFFFFF'], rosa: [C.rosa, '#2A0F1C'], pink: [C.rosaForte, '#FFFFFF'],
-  noite: [C.noite, C.rosa], creme: [C.creme, C.tinta], ouro: [C.ouro, '#2A1A00'], nada: ['transparent', '#FFFFFF'],
+  noite: [C.noite, C.rosa], creme: [C.creme, C.tinta], ouro: [C.ouro, '#2A1A00'], turquesa: [C.turquesa, '#FFFFFF'], laranja: [C.laranja, C.tinta], nada: ['transparent', '#FFFFFF'],
 };
 const posY = (y, h = 0) => y === 'topo' ? 150 : y === 'meio' ? (H - h) / 2 : y === 'base' ? H - 220 - h : y ?? 150;
 const linhas = t => esc(t).split('\n');
