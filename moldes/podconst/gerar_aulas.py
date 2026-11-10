@@ -147,7 +147,26 @@ def capa_mapa(label):
              f'<div style="position:absolute;left:100px;bottom:70px;">{logo(58, "#fff")}</div>')
     return tela(label, MAG, corpo, claro=False)
 
-CAPAS = {'prova': capa_prova, 'mapa': capa_mapa}
+def capa_hugo(label):
+    import random
+    random.seed(7)
+    cores = [TINTA, AZ, '#1d58d8', AMAR, '#ff6bf2', '#0a2a7c']
+    cel = ''.join(f'<div style="background:{random.choice(cores)};border-radius:8px;"></div>' for _ in range(30))
+    mapa = (f'<div style="position:absolute;right:40px;top:560px;width:420px;height:460px;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(6,1fr);gap:8px;transform:rotate(-6deg);'
+            f'clip-path:polygon(18% 0,70% 3%,100% 22%,92% 55%,100% 80%,62% 100%,20% 92%,0 64%,8% 30%);opacity:.95;">{cel}</div>')
+    foto = (f'<div style="position:absolute;right:150px;top:130px;width:820px;background:#fff;padding:18px 18px 70px;transform:rotate(3deg);box-shadow:0 40px 80px rgba(60,0,60,.45);">'
+            f'<div style="height:536px;background:url(../fotos/hugo-motta-camara.jpg) center 30%/cover;"></div>'
+            f'<div style="position:absolute;left:24px;bottom:18px;font-weight:700;font-size:30px;color:{TINTA};">Hugo Motta · presidente da Câmara</div>'
+            f'<div style="position:absolute;right:24px;bottom:22px;font-size:18px;color:#5a6a8f;">Foto: Câmara dos Deputados</div></div>')
+    selo = (f'<div style="position:absolute;right:880px;top:150px;background:{AMAR};color:{TINTA};{BB}font-size:54px;line-height:1;padding:14px 22px 6px;transform:rotate(-8deg);box-shadow:0 18px 30px rgba(0,0,0,.25);z-index:3;">A APOSTA DELE</div>')
+    corpo = (selos() + mapa + foto + selo + f'<div style="position:absolute;left:90px;top:400px;width:900px;">'
+             f'<div style="display:flex;align-items:center;gap:16px;font-weight:700;font-size:30px;letter-spacing:.28em;color:{TINTA};"><span style="width:50px;height:6px;background:{TINTA};"></span>AULA · REFORMA ELEITORAL</div>'
+             f'<div style="{BB}font-size:160px;line-height:.88;margin-top:20px;">VOTO DISTRITAL<br><span style="background:{AMAR};color:{TINTA};padding:0 .1em;">MISTO</span></div>'
+             f'<div style="background:{TINTA};display:inline-block;font-weight:700;font-size:40px;padding:10px 20px;margin-top:26px;">O que mudaria na eleição pro Congresso</div></div>'
+             f'<div style="position:absolute;left:100px;bottom:60px;">{logo(54, "#fff")}</div>')
+    return tela(label, MAG, corpo, claro=False)
+
+CAPAS = {'prova': capa_prova, 'mapa': capa_mapa, 'hugo': capa_hugo}
 
 AULAS = [
  ('pa1', 'Aula · Vai fazer a repescagem? Primeiro, descubra o que deu errado', 'prova', [
@@ -174,7 +193,7 @@ AULAS = [
     {'t': 'Refaça o diagnóstico', 'd': 'A cada simulado, veja o que melhorou'}]},
   {'tipo': 'cta', 'titulo': 'JÁ SABE ONDE<br>[[ERROU]]?', 'texto': 'Conta nos comentários qual foi o seu diagnóstico.', 'botao': 'Comente #REPESCAGEM'},
  ]),
- ('pa2', 'Aula · Voto distrital misto: o que mudaria na eleição pro Congresso', 'mapa', [
+ ('pa2', 'Aula · Voto distrital misto: o que mudaria na eleição pro Congresso', 'hugo', [
   {'tipo': 'topico', 'kicker': 'Como é hoje', 'titulo': 'VOCÊ VOTA EM [[UM NOME]]', 'texto': [
     'Para deputado, o Brasil usa o **sistema proporcional de lista aberta**.',
     'Os votos de todos os candidatos de um partido são somados, as cadeiras são divididas entre os partidos e entram os mais votados de cada um.',
