@@ -70,7 +70,7 @@ def editor(pasta, c, saida):
 moldes = []
 for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     meta_arq = pasta / 'molde.json'
-    if not meta_arq.exists():
+    if not meta_arq.exists() or not (pasta / 'dados.json').exists():
         continue
     meta = json.loads(meta_arq.read_text('utf8'))
     meta['id'] = pasta.name
