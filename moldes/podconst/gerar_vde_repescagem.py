@@ -192,6 +192,26 @@ G.append(grupo('vr1', 'Carrossel · Benefícios da Turma de Repescagem (Método 
 ]))
 
 # ---------- 3b · Novidade pra quem reprovou ----------
+# Emblemas dos dois cursos novos (um símbolo por curso).
+ICONE_LUPA = '<svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="42" cy="42" r="24" fill="none" stroke="#fff" stroke-width="10"/><line x1="60" y1="60" x2="82" y2="82" stroke="#fff" stroke-width="13" stroke-linecap="round"/><path d="M42 30v24M30 42h24" stroke="#f7f400" stroke-width="7" stroke-linecap="round"/></svg>'
+ICONE_HACK = '<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="12" y="20" width="76" height="60" rx="12" fill="none" stroke="#fff" stroke-width="8"/><polyline points="28,40 42,50 28,60" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="48" y1="62" x2="66" y2="62" stroke="#f7f400" stroke-width="8" stroke-linecap="round"/><path d="M74 6 L62 30 H72 L64 50 L84 22 H74 Z" fill="#f7f400" stroke="#0b1a4a" stroke-width="3"/></svg>'
+def emblema(icone, nome, fundo, px=260, rot=0):
+    return (f'<div style="display:flex;flex-direction:column;align-items:center;gap:18px;transform:rotate({rot}deg);">'
+            f'<div style="width:{px}px;height:{px}px;border-radius:50%;background:{fundo};border:{px * .045:.0f}px solid #f7f400;box-shadow:0 0 0 {px * .03:.0f}px {fundo},0 24px 50px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;position:relative;">'
+            f'<div style="width:{px * .55:.0f}px;height:{px * .55:.0f}px;">{icone}</div>'
+            f'<div style="position:absolute;top:{px * .06:.0f}px;font-weight:700;font-size:{px * .075:.0f}px;letter-spacing:.2em;color:#f7f400;">NOVO</div></div>'
+            f'<div style="background:#0b1a4a;color:#fff;{BB}font-size:{px * .2:.0f}px;line-height:1;padding:10px 18px 4px;white-space:nowrap;">{nome}</div></div>')
+EMB1 = lambda px=260, rot=0: emblema(ICONE_LUPA, 'APROFUNDAMENTO', '#0b1a4a', px, rot)
+EMB2 = lambda px=260, rot=0: emblema(ICONE_HACK, 'HACKEANDO', '#e224d6', px, rot)
+
+def mapa(linhas, cor_seta='#e224d6', claro=True):
+    cor = '#0b1a4a' if claro else '#fff'
+    fundo = '#fff' if claro else 'rgba(255,255,255,.08)'
+    return '<div style="display:flex;flex-direction:column;gap:18px;">' + ''.join(
+        f'<div style="display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:10px;background:{fundo};border-radius:20px;padding:22px 26px;box-shadow:0 10px 24px rgba(11,26,74,.08);color:{cor};">'
+        f'<div style="font-size:31px;line-height:1.25;">{a}</div><div style="{BB}font-size:60px;color:{cor_seta};text-align:center;">→</div>'
+        f'<div style="font-weight:700;font-size:31px;line-height:1.25;">{b}</div></div>' for a, b in linhas) + '</div>'
+
 G.append(grupo('vr2', 'Carrossel · Novidade pra quem reprovou: novos cursos', [
     CAPA2,
     tela('vr2-02', NAVY, arrobas() + bloco(
@@ -199,22 +219,42 @@ G.append(grupo('vr2', 'Carrossel · Novidade pra quem reprovou: novos cursos', [
         P('Você já estudou a matéria e já sabe montar uma peça. Na repescagem, o que falta é ajuste fino: ler melhor o enunciado, achar a resposta mais rápido e saber o que a banca mais cobra.', 38, 'max-width:840px;') +
         P('Foi pensando nisso que criamos dois cursos novos.', 38, 'color:#f7f400;'),
         top=290, gap=36)),
-    tela('vr2-03', MAG, fantasma('01', 'rgba(120,0,120,.18)', top=-60, left=560, px=900) + arrobas() + bloco(
-        KICK('CURSO NOVO 01', '#0b1a4a') + T('APROFUNDAMENTO<br>NA REPESCAGEM', 128) + BARRA('#0b1a4a') +
-        P('Ataca os pontos em que mais se perde nota:', 36) +
-        lista(['Interpretação do enunciado', 'Uso do índice remissivo pra achar a resposta', 'Questões difíceis resolvidas passo a passo', 'Identificação de peças, com os casos mais difíceis'], num=False, px=40, cor_num='#f7f400', gap=26),
-        top=300, gap=32)),
-    tela('vr2-04', AZUL, fantasma('02', 'rgba(255,255,255,.06)', top=-60, left=560, px=900) + arrobas() + bloco(
-        KICK('CURSO NOVO 02') + T(f'HACKEANDO<br>A {MARCA("REPESCAGEM")}', 136) + BARRA('#e224d6') +
-        P('Pra estudar primeiro o que mais aparece na prova:', 36) +
-        lista(['Análise da banca com dados e estatísticas', 'Teses mais cobradas na peça', 'Argumentos que mais aparecem nas questões', 'O modelo CORINGA das questões'], num=False, px=40, gap=26),
-        top=300, gap=32)),
+    tela('vr2-03', NAVY, arrobas() +
+        f'<div style="position:absolute;left:80px;right:80px;top:200px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;">'
+        f'{KICK("SÓ NO MÉTODO VDE")}{T(f"ISSO VOCÊ NÃO<br>ENCONTRA EM<br>{MARCA('OUTRO CURSO')}", 140)}'
+        f'<div style="display:flex;gap:70px;margin-top:30px;">{EMB1(250, -4)}{EMB2(250, 4)}</div>'
+        f'{P("Dois cursos criados só pra repescagem: pra quem já fez a 2ª fase e precisa de ajuste fino, não de começar tudo de novo.", 34, "max-width:860px;margin-top:20px;")}</div>'),
+    tela('vr2-04', MAG, arrobas() + f'<div style="position:absolute;right:70px;top:140px;">{EMB1(190, 6)}</div>' + bloco(
+        KICK('CURSO NOVO 01', '#0b1a4a') + T('APROFUNDAMENTO<br>NA REPESCAGEM', 120) + BARRA('#0b1a4a') +
+        P('Aulas sobre:', 36) +
+        lista(['Resolvendo a dificuldade na interpretação', 'Encontrando respostas com o índice remissivo', 'Resolução de questões difíceis', 'Guia de identificação de peças + casos difíceis pra identificar'], num=True, px=34, cor_num='#f7f400', gap=20),
+        top=400, gap=26)),
     tela('vr2-05', CLARO, arrobas(True) + bloco(
+        KICK('APROFUNDAMENTO · POR QUE IMPORTA', '#e224d6') + T(f'CADA AULA RESOLVE<br>UM {MARCA("ERRO DE PROVA", "#f7f400", "#0b1a4a")}', 112, 'color:#0b1a4a;') +
+        P('Se na prova você… → a aula que resolve:', 32, 'color:#0a3aa6;') +
+        mapa([('Leu e não entendeu o que o enunciado pedia', 'Resolvendo a dificuldade na interpretação'),
+              ('Sabia o assunto, mas não achou o artigo', 'Encontrando respostas com o índice remissivo'),
+              ('Travou nas questões mais difíceis', 'Resolução de questões difíceis'),
+              ('Errou ou ficou em dúvida na peça', 'Guia de identificação de peças')]),
+        top=220, gap=26), claro=True),
+    tela('vr2-06', AZUL, arrobas() + f'<div style="position:absolute;right:70px;top:140px;">{EMB2(190, -6)}</div>' + bloco(
+        KICK('CURSO NOVO 02') + T(f'HACKEANDO<br>A {MARCA("REPESCAGEM")}', 136) + BARRA('#e224d6') +
+        P('Aulas sobre:', 36) +
+        lista(['Análise da banca: dados e estatísticas sobre o que mais cai', 'Teses mais cobradas na peça', 'Argumentos que mais aparecem nas questões', 'O modelo CORINGA das questões'], num=True, px=34, gap=20),
+        top=400, gap=26)),
+    tela('vr2-07', NAVY, arrobas() + bloco(
+        KICK('HACKEANDO · POR QUE IMPORTA') + T(f'ESTUDAR PRIMEIRO<br>O QUE {MARCA("MAIS CAI")}', 124) +
+        mapa([('Análise da banca', 'Você vê onde a prova costuma se concentrar'),
+              ('Teses mais cobradas na peça', 'Você chega com as teses mais pedidas na cabeça'),
+              ('Argumentos que mais aparecem', 'Respostas mais completas nas questões'),
+              ('O modelo CORINGA', 'Um caminho pra montar a resposta das questões')], '#f7f400', claro=False),
+        top=220, gap=34)),
+    tela('vr2-08', CLARO, arrobas(True) + f'<div style="position:absolute;right:60px;bottom:150px;display:flex;gap:20px;">{EMB1(170, -6)}{EMB2(170, 6)}</div>' + bloco(
         P('E o melhor:', 48, 'color:#0a3aa6;') +
         T(f'É DE {MARCA("GRAÇA")}<br>E EXCLUSIVO.', 180, 'color:#0b1a4a;') + BARRA('#f7f400', 160) +
-        P('Os dois cursos são só pra quem entrar no VDE Repescagem de Direito Constitucional.', 40, 'color:#0b1a4a;max-width:820px;'),
-        top=300, gap=36), claro=True),
-    cta2('vr2-06', MAG, 'SEGUNDA CHANCE,<br>NOVO PLANO.', 'Entre no VDE Repescagem Constitucional e leve os dois cursos novos de graça.', PILL('#0b1a4a', '#fff', 'Comente <span style="background:#f7f400;color:#0b1a4a;padding:0 12px;">#REPESCAGEM</span>')),
+        P('Os dois cursos são só pra quem entrar no VDE Repescagem de Direito Constitucional. Sem pagar a mais.', 40, 'color:#0b1a4a;max-width:820px;'),
+        top=230, gap=36), claro=True),
+    cta2('vr2-09', MAG, 'SEGUNDA CHANCE,<br>NOVO PLANO.', 'Entre no VDE Repescagem Constitucional e leve os dois cursos novos de graça.', PILL('#0b1a4a', '#fff', 'Comente <span style="background:#f7f400;color:#0b1a4a;padding:0 12px;">#REPESCAGEM</span>')),
 ]))
 
 # ---------- 3c · Devo mudar a matéria na repescagem? ----------
