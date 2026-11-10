@@ -84,18 +84,27 @@ def notif(txt, rot, ml):
 CAPA1 = tela('vr1-01', MAG, fantasma('NOVIDADE', 'rgba(247,244,0,.22)', top=40, left=-60, px=420).replace('color:rgba(247,244,0,.22)', 'color:rgba(247,244,0,.5);filter:blur(10px)') + selos() +
     f'<div style="position:absolute;left:80px;right:80px;top:250px;">{T("TURMA DE<br>REPESCAGEM", 120)}'
     f'<div style="display:inline-block;background:#f7f400;color:#0b1a4a;{BB}font-size:136px;line-height:.9;padding:16px 22px 0;margin-top:14px;transform:rotate(-2deg);white-space:nowrap;">NOVIDADE ABSURDA</div></div>'
-    f'<div style="position:absolute;left:80px;top:700px;display:flex;flex-direction:column;gap:22px;">'
-    + notif('Liberado: <b>10 simulados inéditos</b>', -2, 0) + notif('Novo: <b>encontros exclusivos ao vivo</b>', 1.5, 60) + notif('+2 minicursos <b>sem pagar a mais</b>', -1, 20) + '</div>')
+    f'<div style="position:absolute;left:80px;top:760px;">' + notif('Chegou novidade na <b>Turma de Repescagem</b> 👀', -2, 0) + '</div>'
+    f'<div style="position:absolute;right:80px;bottom:90px;display:flex;align-items:center;gap:16px;font-weight:700;font-size:40px;">arrasta pro lado <span style="background:#0b1a4a;color:#f7f400;border-radius:50%;width:70px;height:70px;display:flex;align-items:center;justify-content:center;">→</span></div>')
 
-# vr2 · resultado carimbado + adesivo
+# vr2 · prova da OAB 2ª fase corrigida, com "REPROVADO"
+LINHAS_PROVA = ''.join(
+    f'<div style="display:flex;align-items:flex-end;height:44px;border-bottom:1.5px solid #c9d2e3;">'
+    f'<span style="width:44px;font-size:18px;color:#8a97b5;font-weight:700;">{i:02d}</span>'
+    f'<span style="font-family:\'Caveat\',cursive;font-size:30px;color:#1d3a8a;white-space:nowrap;overflow:hidden;">{t}</span></div>'
+    for i, t in enumerate(['EXCELENTÍSSIMO SENHOR DOUTOR JUIZ FEDERAL DA ... VARA', 'FEDERAL DA SEÇÃO JUDICIÁRIA DE ...', '', 'Fulano de tal, nacionalidade..., estado civil..., profissão...,', 'vem, por seu advogado, impetrar MANDADO DE SEGURANÇA', 'com pedido liminar, com fundamento no art. 5º, LXIX, da CF', 'e na Lei 12.016/2009, contra ato do ... pelos fatos', 'e fundamentos a seguir expostos.', 'I. DOS FATOS', 'O impetrante ...'], 1))
 CAPA2 = tela('vr2-01', NAVY, selos() +
-    f'<div style="position:absolute;left:130px;top:250px;width:760px;height:760px;background:#fff;border-radius:18px;transform:rotate(-5deg);box-shadow:0 40px 80px rgba(0,0,0,.45);padding:60px;color:#0b1a4a;">'
-    f'<div style="font-weight:700;font-size:28px;letter-spacing:.24em;color:#0a3aa6;">RESULTADO · 2ª FASE OAB</div>'
-    + ''.join(f'<div style="height:22px;border-radius:11px;background:#e2e8f2;margin-top:34px;width:{w}%;"></div>' for w in (92, 70, 84, 60, 78, 50)) +
-    f'<div style="position:absolute;right:60px;top:430px;border:10px solid #e5484d;color:#e5484d;{BB}font-size:120px;line-height:1;padding:10px 26px 0;transform:rotate(-14deg);border-radius:14px;opacity:.9;">REPROVADO</div></div>'
-    f'<div style="position:absolute;right:60px;top:880px;width:660px;background:#f7f400;color:#0b1a4a;transform:rotate(6deg);padding:34px 40px;box-shadow:0 30px 60px rgba(0,0,0,.4);">'
-    f'<div style="font-weight:700;font-size:30px;letter-spacing:.2em;">NOVIDADE PRA QUEM</div>{T("REPROVOU", 190)}'
-    f'<div style="background:#e224d6;color:#fff;display:inline-block;font-weight:700;font-size:34px;padding:6px 16px;margin-top:8px;">2 cursos novos, de graça</div></div>')
+    f'<div style="position:absolute;left:110px;top:240px;width:820px;height:900px;background:#fbfbf7;border-radius:10px;transform:rotate(-4deg);box-shadow:0 40px 80px rgba(0,0,0,.5);padding:44px 52px;color:#0b1a4a;overflow:hidden;">'
+    f'<div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #0b1a4a;padding-bottom:14px;">'
+    f'<div><div style="font-weight:700;font-size:22px;letter-spacing:.12em;">EXAME DE ORDEM UNIFICADO</div><div style="font-weight:700;font-size:30px;margin-top:4px;">2ª FASE · PROVA PRÁTICO-PROFISSIONAL</div>'
+    f'<div style="font-size:22px;margin-top:6px;">Área: <b>Direito Constitucional</b></div></div>'
+    f'<div style="border:2px solid #0b1a4a;border-radius:8px;padding:8px 12px;text-align:center;"><div style="font-size:16px;font-weight:700;letter-spacing:.1em;">NOTA</div><div style="font-family:\'Caveat\',cursive;font-size:56px;line-height:1;color:#e5484d;">5,4</div></div></div>'
+    f'<div style="font-weight:700;font-size:20px;letter-spacing:.14em;margin:16px 0 6px;color:#5a6a8f;">CADERNO DE TEXTO DEFINITIVO · PEÇA PROFISSIONAL</div>'
+    f'{LINHAS_PROVA}'
+    f'<div style="position:absolute;left:150px;top:470px;border:12px solid #e5484d;color:#e5484d;{BB}font-size:150px;line-height:1;padding:12px 30px 0;transform:rotate(-16deg);border-radius:16px;background:rgba(251,251,247,.6);mix-blend-mode:multiply;">REPROVADO</div></div>'
+    f'<div style="position:absolute;right:50px;top:960px;width:560px;background:#f7f400;color:#0b1a4a;transform:rotate(5deg);padding:28px 34px;box-shadow:0 30px 60px rgba(0,0,0,.45);">'
+    f'<div style="font-weight:700;font-size:26px;letter-spacing:.2em;">NOVIDADE PRA QUEM</div>{T("REPROVOU", 150)}'
+    f'<div style="background:#e224d6;color:#fff;display:inline-block;font-weight:700;font-size:30px;padding:6px 14px;margin-top:6px;">2 cursos novos, de graça</div></div>')
 
 # vr3 · dois balões de pensamento
 def balao(txt, cor, fundo, x, y, w, rot, cauda):
@@ -287,7 +296,7 @@ G.append(grupo('vr6', 'Tela única · Repescagem Constitucional, oferta Black', 
 ]))
 
 
-bloco_html = INI + '\n' + ''.join(G) + FIM
+bloco_html = INI + '\n<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">\n' + ''.join(G) + FIM
 s = KIT.read_text()
 if INI in s:
     s = re.sub(re.escape(INI) + '.*?' + re.escape(FIM), lambda m: bloco_html, s, flags=re.S)
