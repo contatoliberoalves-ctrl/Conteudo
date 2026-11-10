@@ -17,8 +17,10 @@ Identidade em `moldes/dorama-comum/` (leia o README de lá). Três moldes, cada 
 No carrossel, a capa aceita a foto de uma cena de fundo: `estilo` `foto`, `cinema`, `moldura`, `vidro` ou `fotonota` (veja o README do molde). As fotos ficam em `moldes/dorama-comum/fotos/<dorama>/` (fora do git), vindas da pasta "Fotos dos doramas" do Drive do usuário (veja o README de `dorama-comum`). Dorama novo: peça as cenas ao usuário (ele tem um prompt para a IA buscar e pôr no Drive). Use `credito` com a emissora ("Imagem: tvN"). Antes de escrever, olhe `dorama-comum/acervo.json` (o que ele já assistiu e os formatos que já usa). Confira o enquadramento (`fotoPos`) para o rosto não ficar atrás do título.
 
 ## Tom e conteúdo
+- **Nada com cara de template ou de IA** (pedido do usuário): sem traço antes do rótulo, sem número de página ("EP. 02 / 06"), sem emoji decorativo (💡, ✨, 💬), sem cartões de "salva / compartilha / segue" e sem blocos de enchimento como "antes de dar o play". Cada slide com uma ideia só; na dúvida, corte texto. Fechamento no jeito do perfil: "Então curte, comenta e compartilha com os amigos." + uma pergunta.
+- Fundos lisos levam os trigramas da bandeira esmaecidos nos cantos (`enfeite`), como no Canva antigo do perfil.
 - Português leve, de amiga dorameira, mas com fé: cada indicação/nota liga o dorama a um valor bíblico, sem forçar.
-- Nota: sempre com **alertas** honestos para a família ("Beijos", "Violência leve", "Espíritos", "Linguagem") e, se fizer sentido, um critério "Visão de fé".
+- Nota: até 4–5 critérios e a nota final. O que pesa para a família vai num slide de texto, não em etiquetas (`alertas` só se o usuário pedir).
 - Reflexão: um versículo (ARA/ARC, referência certa) + a ponte com uma cena do dorama + aplicação prática.
 - **Fatos e curiosidades**: só o que você tem certeza (ano, nº de episódios, onde assistir, elenco). Na dúvida, deixe de fora ou pergunte. Cite a fonte em números de audiência.
 - Hangul do título: confira a grafia; se não souber, omita o campo.

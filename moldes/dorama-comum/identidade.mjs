@@ -52,7 +52,7 @@ export const bokeh = (w, h, semente = 7, n = 14, cores = [C.turquesa, C.laranja,
   return `<div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">${out}</div>`;
 };
 export const petala = (x, y, px, rot = 0, cor = C.rosa, op = .9) => `<span style="position:absolute;left:${x}px;top:${y}px;width:${px}px;height:${px * .78}px;background:${cor};opacity:${op};border-radius:80% 0 80% 0;transform:rotate(${rot}deg)"></span>`;
-export const petalas = (pos, cor = C.rosa) => pos.map(([x, y, p, r, o]) => petala(x, y, p, r, cor, o ?? .85)).join('');
+export const petalas = () => ''; // (as pétalas saíram da identidade; a chamada fica para não quebrar os moldes)
 
 // Marca: cruz dentro de uma tela arredondada (TV / play), e o logotipo "cristão dorameiro".
 // Desenhos da bandeira da Coreia (SVG, quadro de -500 a 500): o taegeuk e os trigramas.
@@ -71,7 +71,7 @@ export const arroba = (f, px = 24) => `<span style="font-weight:700;font-size:${
 
 // Etiqueta de episódio ("EP. 02") e etiqueta de seção (kicker).
 export const ep = (n, total, f, px = 24) => `<span style="display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:${px}px;letter-spacing:.16em;color:${f.tit}"><span style="width:12px;height:12px;border-radius:50%;background:${f.dest}"></span>EP. ${String(n).padStart(2, '0')}<span style="opacity:.4;font-weight:600">/ ${String(total).padStart(2, '0')}</span></span>`;
-export const kicker = (txt, f, px = 26) => txt ? `<div style="display:inline-flex;align-items:center;gap:14px;font-weight:800;font-size:${px}px;letter-spacing:.2em;text-transform:uppercase;color:${f.kick}"><span style="width:${px * 1.6}px;height:3px;background:${f.kick}"></span>${esc(txt)}</div>` : '';
+export const kicker = (txt, f, px = 26) => txt ? `<div style="font-weight:800;font-size:${px}px;letter-spacing:.06em;text-transform:uppercase;color:${f.kick}">${esc(txt)}</div>` : '';
 export const hangul = (txt, px, cor, extra = '') => txt ? `<span style="${KR};font-weight:500;font-size:${px}px;color:${cor};${extra}">${esc(txt)}</span>` : '';
 
 // Notas: estrelas (0–5, aceita meia) e barras (0–10).
@@ -131,3 +131,11 @@ export const quadro = (s, w, h) => {
     ${s.episodio ? `<div style="position:absolute;left:26px;top:24px;padding:8px 16px;border-radius:10px;background:rgba(8,24,22,.55);font-weight:800;font-size:22px;letter-spacing:.14em;color:#fff">${esc(s.episodio)}</div>` : ''}</div>`;
 };
 
+
+// Enfeite dos fundos lisos: trigramas da bandeira grandes e esmaecidos nos cantos, como no Canva do perfil.
+const ENFEITE = { turquesa: ['#FFFFFF', .16, 4], noite: ['#FFFFFF', .05, 4], creme: [C.turquesa, .07, 2], rosa: [C.turqEsc, .07, 2], laranja: ['#E07B1F', .12, 2] };
+export const enfeite = (f, w, h) => {
+  const nome = Object.keys(FUNDOS).find(k => FUNDOS[k] === f), [cor, op, n] = ENFEITE[nome] || ENFEITE.creme, t = Math.min(w, h) * .36;
+  const cantos = [[w - t * .55, t * .5, 33, [1, 0, 1]], [t * .55, h - t * .5, 33, [0, 1, 0]], [t * .55, t * .5, -33, [1, 1, 1]], [w - t * .55, h - t * .5, -33, [0, 0, 0]]].slice(0, n);
+  return `<svg width="${w}" height="${h}" style="position:absolute;inset:0;pointer-events:none" opacity="${op}">${cantos.map(([x, y, r, l]) => `<g transform="translate(${x},${y}) rotate(${r}) translate(0,${-t * .4})">${trigrama(l, t, t * .2, t * .1, cor)}</g>`).join('')}</svg>`;
+};
