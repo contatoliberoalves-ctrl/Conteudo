@@ -555,6 +555,20 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .painel.sem-painel{display:none!important}
 @media(min-width:1024px){.cols.cols-1{grid-template-columns:minmax(0,1fr)}.cols.cols-1 .btns{max-width:620px}}
 @media(min-width:1024px){.top .logo-m{display:none!important}}
+/* catálogo real e jornal */
+.seg .cnt{font-size:12px;color:var(--mu2);font-weight:600;margin-left:2px}
+.urg{color:var(--er);font-weight:700}
+.fases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+.fases li{display:grid;gap:5px;font-size:10.5px;color:var(--mu2);font-weight:600;line-height:1.2}
+.fases li span{height:5px;border-radius:5px;background:var(--sf3)}
+.fases li.ok span{background:var(--acc2)}
+.fases li.at span{background:var(--at)}
+.fases li.at{color:var(--at)}
+.jornal-cab{display:grid;gap:4px;border-bottom:3px double var(--ln2);padding-bottom:14px}
+.jornal-tit{font-size:clamp(34px,8vw,52px);letter-spacing:-.05em;line-height:1}
+.manchete{cursor:pointer}
+.jx{flex:none;font-size:13.5px;text-align:right}
+
 /* folhas */
 .ov{position:fixed;inset:0;z-index:70;background:rgba(10,28,21,.45);display:flex;align-items:flex-end;justify-content:center;animation:fade .18s ease}
 .sheet{background:var(--bg);width:100%;max-width:600px;max-height:min(90vh,900px);overflow:auto;border-radius:20px 20px 0 0;padding:8px 20px calc(24px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:16px;align-content:start;animation:sobe .22s ease}
@@ -1490,9 +1504,9 @@ V.edital=()=>{
   const ret=c.retificacoes[0],tot=c.materias.reduce((s,m)=>s+m.peso,0);
   return`<section class="stack" style="gap:10px"><span class="eyebrow">Análise do edital · gratuita</span><h1>${esc(cg.nome)}</h1><div class="meta-l"><span>${esc(c.orgao)}</span><span>Banca ${c.banca}</span><span>${c.situacao}</span></div></section>
   ${subnavEdital('edital')}
-  <div class="stats" style="--n:2"><div><small>Vagas</small><b>${cg.vagas.split(' ')[0]} <span class="sm mu" style="font-weight:500">+ cadastro</span></b></div><div><small>Remuneração inicial</small><b>${cg.remun}</b></div><div><small>Prova em ${diasAte(c.prova)} dias</small><b>${dmy(c.prova)}</b></div><div><small>Taxa de inscrição</small><b>${cg.taxa}</b></div></div>
+  <div class="stats" style="--n:2"><div><small>Vagas</small><b>${cg.vagas}</b></div><div><small>Remuneração inicial</small><b>${cg.remun}</b></div><div><small>Prova em ${diasAte(c.prova)} dias</small><b>${dmy(c.prova)}</b></div><div><small>Taxa de inscrição</small><b>${cg.taxa}</b></div></div>
   <p class="sm mu" style="margin-top:-8px">Inscrições de ${c.inscricoes}.</p>
-  <p class="ilus" style="margin-top:-8px">Exemplo para a demonstração: datas e números ilustrativos.</p>
+  <p class="ilus" style="margin-top:-8px">Vagas, salário, banca e datas: edital publicado, conferidos em 10/11/2026. Matérias, pesos e histórico: exemplo.</p>
   ${ret?`<div class="aviso">${I('alerta')}<div class="grow"><b>Retificação de ${dmy(ret.data)}: o que mudou</b><div class="diff">${ret.mudou.map(([o,a,b])=>`<span>${o}: <s>${a}</s> → <ins>${b}</ins></span>`).join('')}</div><span class="xs">Fonte: ${ret.fonte} (exemplo)</span></div></div>`:''}
   <div class="g2">
    <section class="card pad stack"><h3>Sobre o cargo</h3><dl class="kv">
@@ -1617,7 +1631,7 @@ function hojeFree(P,c){
 
 V.hoje=()=>{
   const P=prep(),c=concAtivo();
-  if(!cobre(c.id))return hojeFree(P,c);
+  if(!cobre(c.id))return V.jornal();
   if(!P.cfg)return`<section class="stack" style="gap:6px"><span class="eyebrow">${DLM(HOJE)}</span><h1>Falta só a sua rotina</h1><p class="mu">Plano ${PLANOS[S.plano].nome} ativo para o ${c.sigla}.</p></section>
    <section class="dark"><h2 style="color:#fff">Monte seu plano em 1 minuto</h2><p class="mu">Quantos dias por semana, quanto tempo por dia e quais matérias você já estudou ou acha difíceis. O app monta as metas até ${dmy(c.prova)}.</p><button class="btn btn-l w" data-a="go" data-v="config">Montar meu plano</button></section>
    ${cardDicas()}
@@ -1660,6 +1674,7 @@ V.hoje=()=>{
    ${doDia.filter(m=>m.ok).length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Concluídas hoje</h3></div>${lista(doDia.filter(m=>m.ok).map(m=>linhaMeta(m)))}</section>`:''}
   </div>
   <aside class="stack stick" style="gap:20px">
+   <button class="card between" style="text-align:left;width:100%" data-a="go" data-v="jornal"><span class="row" style="gap:10px">${I('jornal',22)}<span><b style="display:block">Jornal do Concurseiro</b><span class="sm mu">Inscrições terminando, editais e previstos de hoje</span></span></span>${chevR()}</button>
    <section class="card pad stack"><h3>Seu avanço no edital</h3>
     <div class="row" style="align-items:baseline;gap:8px"><span class="num" style="font-size:34px">${av.pct}%</span><span class="sm mu">${av.ok} de ${av.tot} metas da 1ª volta</span></div><div class="prog"><i style="width:${av.pct}%"></i></div>
     <dl class="kv"><div><dt>Nesta semana</dt><dd>${hm(av.minOk)} de ${hm(av.minPlan)} estudados</dd></div><div><dt>1ª volta termina</dt><dd>${av.fim?dmy(av.fim):'—'}${av.fim&&av.fim<c.prova?`, ${Math.round(diasAte(c.prova)-diasAte(av.fim))} dias antes da prova`:''}</dd></div>${P.adiadas.length?`<div><dt>Não cabe</dt><dd>${new Set(P.adiadas.map(x=>x.ass)).size} assuntos para depois</dd></div>`:''}</dl></section>
@@ -2110,7 +2125,7 @@ V.onb=()=>{
     <div class="stack">${CONCURSOS.map(c=>`<button class="cargo" role="radio" aria-checked="${o.conc===c.id}" data-a="onbConc" data-c="${c.id}"><span class="radio"></span><span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${c.sigla} · ${esc(c.orgao)}</b><span class="meta-l"><span>Banca ${c.banca}</span><span>Prova ${dmy(c.prova)}</span><span>${c.situacao}</span></span></span></button>`).join('')}</div>
     <p class="ilus">Concursos de exemplo</p></div>`;
   if(o.passo===2){const c=C(o.conc);corpo=`<div class="stack" style="gap:16px"><span class="eyebrow">Passo 2 de 3 · ${c.sigla}</span><h1>E o cargo?</h1>
-    <div class="stack">${c.cargos.map(x=>`<button class="cargo" role="radio" aria-checked="${o.cargo===x.id}" data-a="onbCargo" data-cargo="${x.id}"><span class="radio"></span><span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${esc(x.nome)}</b><span class="meta-l"><span>${x.nivel}</span><span>${x.vagas.split(' ')[0]} vagas</span><span>${x.remun}</span></span></span></button>`).join('')}</div></div>`}
+    <div class="stack">${c.cargos.map(x=>`<button class="cargo" role="radio" aria-checked="${o.cargo===x.id}" data-a="onbCargo" data-cargo="${x.id}"><span class="radio"></span><span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${esc(x.nome)}</b><span class="meta-l"><span>${x.nivel}</span><span>${/^\d/.test(x.vagas)?x.vagas.split(' ')[0]+' vagas':x.vagas}</span><span>${x.remun}</span></span></span></button>`).join('')}</div></div>`}
   if(o.passo===3)corpo=`<div class="stack" style="gap:18px"><span class="eyebrow">Passo 3 de 3</span><h1>Quanto tempo você tem?</h1>
     <section class="card pad stack"><b>Dias por semana</b><div class="chips">${[[3,'3 dias'],[5,'Seg a sex'],[6,'Seg a sáb'],[7,'Todos os dias']].map(([v,l])=>`<button class="chip" aria-pressed="${o.dias===v}" data-a="onbDias" data-v="${v}">${l}</button>`).join('')}</div></section>
     <section class="card pad stack"><b>Tempo por dia</b><div class="chips">${[30,60,90,120].map(v=>`<button class="chip" aria-pressed="${o.min===v}" data-a="onbMin" data-v="${v}">${hm(v)}</button>`).join('')}</div></section>
@@ -2530,6 +2545,189 @@ window.voltarAndroid=function(){
   return false;
 };
 
+// ---------- catálogo real (levantamentos de 05 a 10/11/2026) ----------
+const FONTE_ABERTOS={nome:'Gran Cursos Online · concursos abertos',url:'https://blog.grancursosonline.com.br/concursos-abertos/',data:'2026-11-10'};
+const FONTE_PREV={nome:'Gran Cursos Online · concursos 2027',url:'https://blog.grancursosonline.com.br/concursos-2027-editais-mais-proximos/',data:'2026-11-05'};
+const FONTE_FED={nome:'Gran Cursos Online · concursos federais 2027',url:'https://blog.grancursosonline.com.br/concursos-federais-2027-o-que-ja-se-sabe/',data:'2026-10-27'};
+// a: área · v: vagas · s: salário máximo · ii/if: inscrições · p: prova · plano: id do concurso com preparação completa
+const ABERTOS=[
+ {id:'camara',sigla:'Câmara',orgao:'Câmara dos Deputados',a:'Legislativo',uf:'DF',banca:'Cebraspe',cargos:'Analista Legislativo, Engenheiro e Museólogo',v:'184',s:'R$ 32.070,88',if:'2026-11-17',p:'2027-01-17'},
+ {id:'ibge',sigla:'IBGE',orgao:'IBGE · Recenseador',a:'Federal',uf:'BR',banca:'Cesgranrio',cargos:'Recenseador',v:'27.279',s:'R$ 4.370,00',sNota:'com parcela variável',ii:'2026-11-06',if:'2026-11-25',p:'2027-01-31'},
+ {id:'pmsp',sigla:'PM-SP',orgao:'Polícia Militar de São Paulo',a:'Polícia',uf:'SP',banca:'VUNESP',cargos:'Soldado',v:'2.000',s:'R$ 8.149,55',ii:'2026-11-09',if:'2026-12-22',p:'2027-02-28'},
+ {id:'pmsc',sigla:'PM-SC',orgao:'Polícia Militar de Santa Catarina',a:'Polícia',uf:'SC',banca:'Instituto AOCP',cargos:'Soldado',v:'500',s:'R$ 9.055,00',if:'2026-11-16',p:'2026-12-13'},
+ {id:'pmpe',sigla:'PM-PE',orgao:'Polícia Militar de Pernambuco',a:'Polícia',uf:'PE',banca:'Instituto AOCP',cargos:'Soldado e Oficial',v:'1.320',s:'R$ 12.937,33',if:'2026-11-23'},
+ {id:'cbmpe',sigla:'CBM-PE',orgao:'Bombeiros de Pernambuco',a:'Polícia',uf:'PE',banca:'Instituto AOCP',cargos:'Soldado e Oficial',v:'570',s:'R$ 12.937,33',if:'2026-11-23'},
+ {id:'pppe-real',plano:'pppe',sigla:'PP-PE',orgao:'Polícia Penal de Pernambuco',a:'Polícia',uf:'PE',banca:'Cebraspe',cargos:'Policial Penal',v:'700',s:'R$ 5.667,92',ii:'2026-11-12',if:'2027-01-04',p:'2027-03-21'},
+ {id:'pcac',sigla:'PC-AC',orgao:'Polícia Civil do Acre',a:'Polícia',uf:'AC',banca:'Idecan',cargos:'Delegado e carreiras policiais',v:'139',s:'R$ 19.505,66',ii:'2026-11-11',if:'2026-12-14',p:'2027-01-24'},
+ {id:'tjsp-real',plano:'tjsp',sigla:'TJ-SP',orgao:'Tribunal de Justiça de São Paulo',a:'Tribunal',uf:'SP',banca:'VUNESP',cargos:'Escrevente Técnico Judiciário e Oficial de Justiça',v:'132',vNota:'132 vagas para Oficial de Justiça; Escrevente conforme o edital',s:'R$ 10.276,04',if:'2026-12-10',p:'2027-03-14'},
+ {id:'trf3',sigla:'TRF3',orgao:'Tribunal Regional Federal da 3ª Região',a:'Tribunal',uf:'SP/MS',banca:'VUNESP',cargos:'Analista e Técnico Judiciário',v:'11',s:'R$ 20.013,11',if:'2026-11-23',p:'2027-01-31'},
+ {id:'tjpb',sigla:'TJ-PB',orgao:'Tribunal de Justiça da Paraíba',a:'Tribunal',uf:'PB',banca:'FGV',cargos:'Técnico Judiciário',v:'50',s:'R$ 7.526,14',if:'2026-11-18',p:'2027-01-24'},
+ {id:'tjsc',sigla:'TJ-SC',orgao:'TJ de Santa Catarina · Juiz',a:'Tribunal',uf:'SC',banca:'FGV',cargos:'Juiz Substituto',v:'15',s:'R$ 35.874,14',if:'2026-11-26',p:'2027-01-31'},
+ {id:'tjap',sigla:'TJ-AP',orgao:'TJ do Amapá · Juiz',a:'Tribunal',uf:'AP',banca:'FGV',cargos:'Juiz Substituto',v:'15',s:'R$ 33.689,10',if:'2026-11-13',p:'2027-01-24'},
+ {id:'dpesp',sigla:'DPE-SP',orgao:'Defensoria Pública de São Paulo',a:'Jurídica',uf:'SP',banca:'a confirmar no edital',cargos:'Defensor Público',v:'70',s:'R$ 29.716,00',if:'2026-11-11',p:'2027-01-10'},
+ {id:'dpdf',sigla:'DPDF',orgao:'Defensoria Pública do DF',a:'Jurídica',uf:'DF',banca:'Instituto ACCESS',cargos:'Cargos de apoio',v:'7 + 700 CR',s:'R$ 11.514,95',if:'2027-01-07',p:'2027-02-21'},
+ {id:'dpeam',sigla:'DPE-AM',orgao:'Defensoria Pública do Amazonas',a:'Jurídica',uf:'AM',banca:'FCC',cargos:'Cargos de apoio',v:'5',s:'R$ 8.006,38',ii:'2026-11-30',if:'2027-01-04',p:'2027-03-07'},
+ {id:'banestes',sigla:'Banestes',orgao:'Banestes · Banco do Espírito Santo',a:'Banco',uf:'ES',banca:'FCC',cargos:'Técnico Bancário e Analista',v:'936 CR',s:'R$ 5.618,71',if:'2026-11-17',p:'2027-01-24'},
+ {id:'cetesb',sigla:'CETESB',orgao:'Companhia Ambiental de São Paulo',a:'Estadual',uf:'SP',banca:'FCC',cargos:'Analista e Técnico',v:'107 + CR',s:'R$ 12.023,52',if:'2026-12-14',p:'2027-02-21'},
+ {id:'spaguas',sigla:'SP Águas',orgao:'SP Águas',a:'Estadual',uf:'SP',banca:'FGV',cargos:'Especialista e Técnico',v:'190 + CR',s:'R$ 12.070,00',if:'2026-12-17',p:'2027-01-31'},
+ {id:'ufms',sigla:'UFMS',orgao:'Universidade Federal de MS',a:'Educação',uf:'MS',banca:'Fapec',cargos:'Técnico-administrativo',v:'154',s:'R$ 5.215,39',ii:'2026-11-04',if:'2026-12-04',p:'2027-01-17'},
+ {id:'ifsp',sigla:'IFSP',orgao:'Instituto Federal de São Paulo',a:'Educação',uf:'SP',banca:'Comissão própria',cargos:'Professor EBTT',v:'45',s:'R$ 13.753,96',if:'2026-11-17',p:'2026-12-13'},
+ {id:'jandira',sigla:'Jandira',orgao:'Prefeitura de Jandira (SP)',a:'Municipal',uf:'SP',banca:'VUNESP',cargos:'Diversos cargos',v:'1.380',s:'R$ 12.213,03',ii:'2026-11-16',if:'2027-01-04',p:'2027-02-21'}
+].map(x=>({...x,sit:'aberto',fonte:FONTE_ABERTOS}));
+// fase: 0 pedido · 1 previsto/planejamento · 2 autorizado · 3 banca em definição · 4 banca definida/contratada
+const FASES=['Pedido','Previsto','Autorizado','Banca em definição','Banca definida'];
+const PREVISTOS=[
+ {id:'receita',sigla:'Receita',orgao:'Receita Federal',a:'Federal',uf:'BR',fase:3,v:'146',s:'até R$ 29,9 mil',cargos:'Auditor-Fiscal e Analista-Tributário',sab:['146 vagas informadas para Auditor-Fiscal e Analista-Tributário.','A contratação da banca está em andamento.','Fontes divergem sobre o edital: dezembro de 2026 ou janeiro de 2027.'],fonte:FONTE_FED},
+ {id:'bacen',sigla:'Bacen',orgao:'Banco Central',a:'Federal',uf:'BR',fase:2,v:'170',s:'até R$ 27,2 mil',cargos:'Auditor, Técnico e Procurador',sab:['170 vagas autorizadas pelo MGI em julho de 2026.','Prazo legal para publicar o edital: até 3 de janeiro de 2027.','Banca ainda não anunciada.'],fonte:FONTE_FED},
+ {id:'inss',sigla:'INSS',orgao:'INSS',a:'Federal',uf:'BR',fase:0,v:'2.000 (pedido)',cargos:'Técnico e Analista do Seguro Social',sab:['Pedido emergencial de 2.000 vagas.','Planejamento fala em até 10 mil provimentos.','Pedido não é autorização: ainda depende do MGI.'],fonte:FONTE_FED},
+ {id:'bb',sigla:'BB',orgao:'Banco do Brasil',a:'Banco',uf:'BR',fase:3,v:'a confirmar',cargos:'Escriturário',sab:['Banca em definição para o cargo de Escriturário.','Número de vagas e calendário ainda a confirmar.'],fonte:FONTE_FED},
+ {id:'bnb',sigla:'BNB',orgao:'Banco do Nordeste',a:'Banco',uf:'NE',fase:1,v:'400',cargos:'Analista Bancário',sab:['A superintendência confirmou a previsão de edital para 2027.','400 vagas imediatas previstas.'],fonte:{nome:'Gran Cursos Online · concursos bancários 2027',url:'https://blog.grancursosonline.com.br/concursos-bancarios-oportunidades-2027/',data:'2026-11-05'}},
+ {id:'pf',sigla:'PF',orgao:'Polícia Federal · área administrativa',a:'Federal',uf:'BR',fase:1,v:'192',cargos:'Cargos administrativos',sab:['192 vagas informadas para a área administrativa.','Autorização e edital ainda a confirmar.'],fonte:FONTE_FED},
+ {id:'prf',sigla:'PRF',orgao:'Polícia Rodoviária Federal',a:'Federal',uf:'BR',fase:0,v:'533 + 264',cargos:'Policial Rodoviário Federal e Agente Administrativo',sab:['Pedido de 533 vagas para Policial e 264 para Agente Administrativo.','Ainda depende de autorização.'],fonte:FONTE_FED},
+ {id:'cnu',sigla:'CNU 3',orgao:'Concurso Nacional Unificado · 3ª edição',a:'Federal',uf:'BR',fase:1,v:'a confirmar',cargos:'Vários órgãos federais',sab:['O governo sinalizou expectativa para 2027.','Ainda sem autorização, edital ou cronograma.'],fonte:FONTE_FED},
+ {id:'agu',sigla:'AGU',orgao:'Advocacia-Geral da União',a:'Federal',uf:'BR',fase:3,v:'a confirmar',cargos:'Cargos jurídicos',sab:['Seleção unificada em preparação.','Banca em definição.'],fonte:FONTE_FED},
+ {id:'pmdf',sigla:'PMDF',orgao:'Polícia Militar do DF',a:'Polícia',uf:'DF',fase:4,banca:'Cebraspe',v:'a definir',s:'até R$ 20 mil',cargos:'Soldado',sab:['Banca contratada: Cebraspe.','Número de vagas a definir.'],fonte:FONTE_PREV},
+ {id:'pmpr',sigla:'PM-PR',orgao:'Polícia Militar do Paraná',a:'Polícia',uf:'PR',fase:3,v:'a confirmar',cargos:'Soldado',sab:['A página do concurso foi criada no site da corporação.','Fase de contratação da banca; edital anunciado para breve.'],fonte:{nome:'Gran Cursos Online · concursos 2027',url:'https://blog.grancursosonline.com.br/concursos-2027/',data:'2026-11-05'}},
+ {id:'tjal',sigla:'TJ-AL',orgao:'Tribunal de Justiça de Alagoas',a:'Tribunal',uf:'AL',fase:4,banca:'FCC',v:'117 cargos vagos',s:'até R$ 9.392,08',cargos:'Analista Judiciário e Oficial de Justiça',sab:['Banca definida: FCC.','117 cargos vagos levantados (não é a oferta final).'],fonte:FONTE_PREV},
+ {id:'sesadf',sigla:'SES-DF',orgao:'Secretaria de Saúde do DF',a:'Saúde',uf:'DF',fase:4,banca:'Cebraspe',v:'2.379',s:'R$ 8.382,78',cargos:'Especialista em Saúde',sab:['Banca definida: Cebraspe.','2.379 vagas para Especialista em Saúde.'],fonte:FONTE_PREV},
+ {id:'seducam',sigla:'Seduc-AM',orgao:'Secretaria de Educação do Amazonas',a:'Educação',uf:'AM',fase:4,banca:'Cesgranrio',v:'7.862',s:'até R$ 14.663,62',cargos:'Professores, pedagogos e apoio',sab:['Banca contratada: Cesgranrio.','7.862 vagas entre professores, pedagogos e apoio.'],fonte:FONTE_PREV},
+ {id:'inca',sigla:'INCA',orgao:'Instituto Nacional de Câncer',a:'Saúde',uf:'RJ',fase:1,v:'1.498',cargos:'Saúde e administrativo',sab:['Planejamento indica edital em 13/04/2027 e provas em julho.','Datas de planejamento, não de edital publicado.'],fonte:FONTE_PREV},
+ {id:'into',sigla:'INTO',orgao:'Instituto Nacional de Traumatologia',a:'Saúde',uf:'RJ',fase:0,v:'1.133',cargos:'Níveis médio e superior',sab:['Pedido de 1.133 vagas.','Edital sugerido para abril de 2027, se autorizado.'],fonte:FONTE_PREV}
+].map(x=>({...x,sit:'previsto'}));
+const CATALOGO=[...ABERTOS,...PREVISTOS];
+const AREAS=['Federal','Tribunal','Polícia','Jurídica','Banco','Legislativo','Saúde','Educação','Estadual','Municipal'];
+const diasInsc=x=>x.if?diasAte(x.if):null;
+const insAberta=x=>x.sit==='aberto'&&(!x.ii||x.ii<=HOJE)&&(!x.if||x.if>=HOJE);
+function prazoTxt(x){
+  if(x.sit!=='aberto')return'';
+  if(x.ii&&x.ii>HOJE)return`abre em ${dm(x.ii)}`;
+  const d=diasInsc(x);if(d==null)return'inscrições conforme o edital';if(d<0)return'inscrições encerradas';if(d===0)return'último dia de inscrição';if(d===1)return'inscrições terminam amanhã';return`inscrições até ${dm(x.if)} · faltam ${d} dias`;
+}
+const seguindo=id=>(S.seguindo||[]).includes(id);
+ACT.seguir=d=>{S.seguindo=S.seguindo||[];const i=S.seguindo.indexOf(d.id);if(i>=0)S.seguindo.splice(i,1);else S.seguindo.push(d.id);salvar();toast(i>=0?'Você deixou de seguir este concurso.':'Seguindo. Novidades dele aparecem no seu Jornal.');render()};
+
+
+// dados reais do edital publicado (conferidos em 10/11/2026); o resto do TJ-SP e da PP-PE segue como exemplo
+Object.assign(C('tjsp'),{situacao:'Edital publicado',sit:'aberto',prova:'2027-03-14',inscricoes:'até 10/12/2026',link:'https://www.vunesp.com.br',versao:'edital publicado; vagas, salário, banca e datas conferidos em 10/11/2026',retificacoes:[],datas:[['2026-12-10','Último dia de inscrição'],['2027-03-14','Prova objetiva','prova']]});
+Object.assign(C('tjsp').cargos[0],{vagas:'conforme o edital',remun:'R$ 7.424,95',taxa:'conforme o edital',requisitos:'Ensino médio completo. Demais requisitos no edital.'});
+Object.assign(C('tjsp').cargos[1],{vagas:'132',remun:'R$ 10.276,04',taxa:'conforme o edital',requisitos:'Conforme o edital.'});
+Object.assign(C('pppe'),{situacao:'Edital publicado',sit:'aberto',prova:'2027-03-21',inscricoes:'12/11/2026 a 04/01/2027',link:'https://www.cebraspe.org.br',versao:'edital publicado; vagas, salário, banca e datas conferidos em 10/11/2026',retificacoes:[],datas:[['2026-11-12','Abertura das inscrições'],['2027-01-04','Fim das inscrições'],['2027-03-21','Prova objetiva','prova']]});
+C('pppe').cargos=C('pppe').cargos.filter(x=>x.id==='policial');
+Object.assign(C('pppe').cargos[0],{vagas:'700',remun:'R$ 5.667,92',taxa:'conforme o edital',requisitos:'Conforme o edital.'});
+const _indiceBusca=indiceBusca;
+indiceBusca=function(){const o=_indiceBusca().filter(x=>x.t!=='Concursos');CATALOGO.forEach(x=>o.push({t:'Concursos',tit:`${x.sigla} · ${x.orgao}`,sub:`${x.sit==='aberto'?'Edital aberto':'Previsto: '+FASES[x.fase]} · ${x.cargos}`,txt:[x.sigla,x.orgao,x.cargos,x.banca||'',x.uf,x.a].join(' '),d:{a:'abrirConc',id:x.id}}));return o};
+// ---------- catálogo, concurso e jornal ----------
+Object.assign(ICONS,{jornal:'<path d="M4 4h13v16H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v10a2 2 0 0 1-2 2"/><path d="M8 8h5M8 12h5M8 16h5"/>',radar:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l6-6"/>'});
+TAB.jornal='hoje';TAB.info=null;
+const fonteTxt=f=>`Fonte: <a href="${f.url}" target="_blank" rel="noopener">${esc(f.nome)}</a>, ${dmy(f.data)}. Confira sempre o edital oficial.`;
+function fasesHTML(x){return`<ol class="fases" aria-label="Fase: ${FASES[x.fase]}">${FASES.map((f,i)=>`<li class="${i<x.fase?'ok':''} ${i===x.fase?'at':''}"><span></span>${f}</li>`).join('')}<li class="${''}"><span></span>Edital</li></ol>`}
+function cardAberto(x){
+  const d=diasInsc(x),urg=insAberta(x)&&d!=null&&d<=7;
+  return`<button class="card cc" data-a="abrirConc" data-id="${x.id}">
+   <div class="between"><span class="sigla">${esc(x.sigla)}</span><span class="tags">${x.plano?'<span class="tag t-ok">Plano de estudo</span>':''}<span class="tag t-line">${x.a}</span></span></div>
+   <div><b style="font-size:16.5px;display:block;line-height:1.3">${esc(x.orgao)}</b><div class="meta-l" style="margin-top:2px"><span>${esc(x.cargos)}</span><span>${esc(x.banca)}</span></div></div>
+   <div class="stats"><div><small>Vagas</small><b>${esc(x.v)}</b></div><div><small>Salário até</small><b>${esc(x.s||'—')}</b></div><div><small>Prova</small><b>${x.p?dm(x.p):'a definir'}</b></div></div>
+   <div class="between sm"><span class="${urg?'urg':'mu'}">${prazoTxt(x)}</span><span style="color:var(--acc2);font-weight:700;display:flex;align-items:center;gap:4px">Ver ${I('seta',16)}</span></div>
+  </button>`;
+}
+function cardPrevisto(x){
+  return`<button class="card cc" data-a="abrirConc" data-id="${x.id}">
+   <div class="between"><span class="sigla">${esc(x.sigla)}</span><span class="tag t-at">${FASES[x.fase]}</span></div>
+   <div><b style="font-size:16.5px;display:block;line-height:1.3">${esc(x.orgao)}</b><div class="meta-l" style="margin-top:2px"><span>${esc(x.cargos)}</span>${x.banca?`<span>${esc(x.banca)}</span>`:''}</div></div>
+   ${fasesHTML(x)}
+   <div class="stats" style="--n:2"><div><small>Vagas</small><b>${esc(x.v)}</b></div><div><small>Salário</small><b>${esc(x.s||'a confirmar')}</b></div></div>
+   <p class="sm mu">${esc(x.sab[0])}</p>
+  </button>`;
+}
+function filtraCat(lista){const q=norm(UI.busca.trim());return lista.filter(x=>(!UI.area||x.a===UI.area)&&(!q||norm([x.sigla,x.orgao,x.cargos,x.banca||'',x.uf,x.a].join(' ')).includes(q)))}
+V.catalogo=()=>{
+  const aba=UI.catAba||'abertos',ab=ABERTOS.filter(x=>x.if==null||x.if>=HOJE).sort((a,b)=>(a.if||'9')<(b.if||'9')?-1:1);
+  return`<section class="dark cat-hero"><div class="stack" style="gap:14px"><span class="eyebrow">Concurso com Líbero / Catálogo</span><h1 style="color:#fff">Escolha seu próximo concurso.</h1><p class="mu">Os concursos de destaque com edital aberto e o que já se sabe dos que estão para sair. Atualizado em ${dmy(FONTE_ABERTOS.data)}.</p></div>
+   <div class="cat-idx" aria-hidden="true"><span>01 / Entender</span><span>02 / Planejar</span><span>03 / Praticar</span><strong>Um passo de cada vez.</strong></div></section>
+  <nav class="seg" aria-label="Catálogo"><button aria-current="${aba==='abertos'?'page':'false'}" data-a="catAba" data-v="abertos">Edital aberto <span class="cnt">${ab.length}</span></button><button aria-current="${aba==='previstos'?'page':'false'}" data-a="catAba" data-v="previstos">Previstos <span class="cnt">${PREVISTOS.length}</span></button>${S.seguindo&&S.seguindo.length?`<button aria-current="${aba==='seguindo'?'page':'false'}" data-a="catAba" data-v="seguindo">Seguindo <span class="cnt">${S.seguindo.length}</span></button>`:''}</nav>
+  <div class="stack" style="gap:12px">
+   <label class="search">${I('busca')}<span class="sr">Buscar concurso</span><input id="busca" type="search" placeholder="Busque por órgão, cargo, banca ou estado" value="${esc(UI.busca)}" autocomplete="off" enterkeyhint="search"></label>
+   <div class="chips fchips" role="group" aria-label="Área">${[['','Todas'],...AREAS.map(a=>[a,a])].map(([k,l])=>`<button class="chip" aria-pressed="${(UI.area||'')===k}" data-a="area" data-v="${k}">${l}</button>`).join('')}</div>
+  </div>
+  <div id="resultados">${listaCat()}</div>`;
+};
+function listaCat(){
+  const aba=UI.catAba||'abertos';
+  let lista=aba==='previstos'?PREVISTOS:aba==='seguindo'?CATALOGO.filter(x=>seguindo(x.id)):ABERTOS.filter(x=>x.if==null||x.if>=HOJE).sort((a,b)=>(a.if||'9')<(b.if||'9')?-1:1);
+  lista=filtraCat(lista);
+  const f=aba==='previstos'?FONTE_FED:FONTE_ABERTOS;
+  if(!lista.length)return`<div class="card empty">${I('busca',28)}<h3>Nenhum concurso encontrado${UI.busca.trim()?` para “${esc(UI.busca.trim())}”`:''}</h3><p class="mu sm">Tente o órgão (Tribunal, Polícia), a sigla (TJ-SP), o cargo ou a banca.</p><button class="btn btn-s" data-a="limparBusca">Limpar busca</button></div>`;
+  return`<div class="stack" style="gap:14px"><div class="sec-h"><h3>${lista.length} ${lista.length===1?'concurso':'concursos'}</h3><span class="xs mu">${aba==='previstos'?'do mais avançado ao pedido':aba==='abertos'?'por fim das inscrições':''}</span></div>
+   ${aba==='previstos'?`<p class="sm mu">Previsto não é edital: o que vale é a publicação oficial. Aqui fica o que já se sabe e em que fase cada um está.</p>`:''}
+   <div class="g2">${lista.slice().sort((a,b)=>aba==='previstos'?b.fase-a.fase:0).map(x=>x.sit==='previsto'?cardPrevisto(x):cardAberto(x)).join('')}</div>
+   <p class="xs mu2">${aba==='previstos'?`Fontes: <a href="${FONTE_FED.url}" target="_blank" rel="noopener">${FONTE_FED.nome}</a> (${dmy(FONTE_FED.data)}) e <a href="${FONTE_PREV.url}" target="_blank" rel="noopener">${FONTE_PREV.nome}</a> (${dmy(FONTE_PREV.data)}).`:fonteTxt(f)} Lista de destaques, não exaustiva.</p></div>`;
+}
+ACT.catAba=d=>{UI.catAba=d.v;render()};
+ACT.area=d=>{UI.area=d.v;$('#resultados').innerHTML=listaCat();document.querySelectorAll('[data-a="area"]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===UI.area))};
+ACT.limparBusca=()=>{UI.busca='';UI.area='';render()};
+ACT.abrirConc=d=>{const x=CATALOGO.find(y=>y.id===d.id);if(x&&x.plano){go('concurso',{c:x.plano})}else go('info',{id:d.id})};
+V.info=p=>{
+  const x=CATALOGO.find(y=>y.id===p.id);if(!x)return'<p>Concurso não encontrado.</p>';
+  const ab=x.sit==='aberto';
+  return`<button class="back" data-a="voltar">${I('esq',18)} Catálogo</button>
+  <section class="stack" style="gap:10px"><div class="row"><span class="sig g">${esc(x.sigla.slice(0,6))}</span><div class="grow"><span class="eyebrow">${ab?'Edital aberto':'Previsto · '+FASES[x.fase]} · ${x.a} · ${x.uf}</span><h1 style="font-size:26px">${esc(x.orgao)}</h1></div></div>
+   <p class="mu">${esc(x.cargos)}</p></section>
+  <div class="stats" style="--n:${ab?4:3}"><div><small>Vagas</small><b>${esc(x.v)}</b></div><div><small>Salário ${ab?'até':''}</small><b>${esc(x.s||'a confirmar')}</b></div><div><small>Banca</small><b>${esc(x.banca||'a definir')}</b></div>${ab?`<div><small>Prova</small><b>${x.p?dmy(x.p):'a definir'}</b></div>`:''}</div>
+  ${x.vNota||x.sNota?`<p class="xs mu" style="margin-top:-8px">${[x.vNota,x.sNota].filter(Boolean).map(esc).join(' · ')}</p>`:''}
+  ${ab?`<section class="card pad stack"><h3>Datas</h3><div class="tl">${[x.ii&&[x.ii,'Abertura das inscrições'],x.if&&[x.if,'Fim das inscrições'],x.p&&[x.p,'Prova objetiva','prova']].filter(Boolean).map(([d,t,k])=>`<div class="${d<HOJE?'passou':''} ${k||''}"><span class="dt"></span><div><b>${dmy(d)}</b><span class="sm mu" style="display:block">${t}${d<HOJE?' · já passou':` · em ${diasAte(d)} dias`}</span></div></div>`).join('')}</div>
+    <p class="sm ${insAberta(x)&&diasInsc(x)<=7?'urg':'mu'}">${prazoTxt(x)}</p></section>`
+  :`<section class="card pad stack"><h3>Em que fase está</h3>${fasesHTML(x)}<h3 style="margin-top:6px">O que se sabe</h3><ul style="display:grid;gap:6px">${x.sab.map(t=>`<li>${esc(t)}</li>`).join('')}</ul><p class="xs mu">Pedido não é autorização, e banca definida não é edital publicado. Datas de planejamento podem mudar.</p></section>`}
+  <section class="card pad stack" style="border-color:var(--limaln);background:var(--p-mint)"><h3>Plano de estudo para o ${esc(x.sigla)}</h3><p class="sm mu">A análise completa deste edital (Raio-X, cronograma e questões) está em preparação. Siga o concurso para ver as novidades no seu Jornal.</p>
+   <div class="btns"><button class="btn ${seguindo(x.id)?'btn-s':'btn-p'}" data-a="seguir" data-id="${x.id}">${seguindo(x.id)?I('check',18)+' Seguindo':'Seguir este concurso'}</button></div></section>
+  <p class="xs mu2">${fonteTxt(x.fonte)}</p>`;
+};
+
+// ---------- Jornal do Concurseiro (tela inicial do plano gratuito) ----------
+const DIAS_SEM=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+function edicao(){return Math.max(1,Math.round((pd(HOJE)-pd('2026-11-02'))/864e5))}
+V.jornal=()=>{
+  const P=prep(),c=concAtivo(),d=pd(HOJE);
+  const abertos=ABERTOS.filter(insAberta),fim=abertos.filter(x=>diasInsc(x)<=14).sort((a,b)=>a.if<b.if?-1:1);
+  const abrem=ABERTOS.filter(x=>x.ii&&x.ii>=addD(HOJE,-7)).sort((a,b)=>a.ii<b.ii?1:-1).slice(0,4);
+  const provas=ABERTOS.filter(x=>x.p&&x.p>=HOJE&&diasAte(x.p)<=75).sort((a,b)=>a.p<b.p?-1:1).slice(0,5);
+  const radar=PREVISTOS.slice().sort((a,b)=>b.fase-a.fase).slice(0,4);
+  const manchete=fim[0]||abertos[0];
+  const totalV=abertos.reduce((s,x)=>s+(parseInt(String(x.v).replace(/\D/g,''))||0),0);
+  const seg=CATALOGO.filter(x=>seguindo(x.id));
+  const meu=c?ABERTOS.find(x=>x.plano===c.id):null;
+  const linha=(x,extra)=>`<button class="ri" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s">${esc(x.cargos)} · ${esc(x.v)} vagas${x.s?' · até '+esc(x.s):''}</span></span><span class="jx">${extra}</span></button>`;
+  const cobreAtivo=c&&cobre(c.id);
+  return`<header class="jornal-cab"><div class="between"><span class="eyebrow">Edição nº ${edicao()} · ${DIAS_SEM[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}</span></div>
+   <h1 class="jornal-tit">Jornal do Concurseiro</h1><p class="mu sm">O que importa hoje nos concursos, em 2 minutos. Dados de ${dmy(FONTE_ABERTOS.data)}.</p></header>
+  ${manchete?`<section class="dark manchete" data-a="abrirConc" data-id="${manchete.id}" role="button" tabindex="0"><span class="eyebrow">Manchete · ${esc(manchete.a)}</span>
+   <h2 style="color:#fff;font-size:28px">${diasInsc(manchete)<=1?'Último chamado':'Últimos dias'}: ${esc(manchete.orgao)} ${diasInsc(manchete)===0?'encerra as inscrições hoje':diasInsc(manchete)===1?`encerra as inscrições amanhã, ${dm(manchete.if)}`:`encerra as inscrições em ${dm(manchete.if)}`}</h2>
+   <p class="mu">${esc(manchete.v)} vagas para ${esc(manchete.cargos.toLowerCase())}, salário de até ${esc(manchete.s)}, banca ${esc(manchete.banca)}${manchete.p?`, prova em ${dmy(manchete.p)}`:''}.</p>
+   <span class="btn btn-l sm" style="justify-self:start">Ver o concurso ${I('seta',16)}</span></section>`:''}
+  <div class="stats" style="--n:3"><div><small>Inscrições abertas</small><b>${abertos.length}</b></div><div><small>Vagas somadas</small><b>${totalV.toLocaleString('pt-BR')}</b></div><div><small>Previstos no radar</small><b>${PREVISTOS.length}</b></div></div>
+  <div class="cols"><div class="stack" style="gap:20px">
+   ${c?`<section class="card pad stack"><div class="between"><h3>Seu concurso: ${esc(c.sigla)}</h3><span class="tag t-line">${esc(cargoDe(P).curto)}</span></div>
+    <p class="sm">${meu&&insAberta(meu)?`Inscrições abertas até <b>${dmy(meu.if)}</b> (faltam ${diasInsc(meu)} dias). `:''}Prova em <b>${dmy(c.prova)}</b>, daqui a ${diasAte(c.prova)} dias.</p>
+    <div class="btns">${P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}${cobreAtivo?`<button class="btn btn-s sm" data-a="go" data-v="hojePlano">Meu dia de estudo</button>`:''}</div></section>`:''}
+   <section class="stack" style="gap:10px"><div class="sec-h"><h3>Inscrições terminando</h3><button class="btn-g" data-a="verCat" data-v="abertos">Todos os abertos</button></div>
+    ${fim.length?lista(fim.slice(0,6).map(x=>linha(x,diasInsc(x)===0?'<b class="urg">hoje</b>':diasInsc(x)===1?'<b class="urg">amanhã</b>':`<b class="${diasInsc(x)<=7?'urg':''}">${diasInsc(x)} dias</b>`))):'<p class="sm mu">Nenhum destaque encerra nas próximas duas semanas.</p>'}</section>
+   ${abrem.length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Abriram agora</h3></div>${lista(abrem.map(x=>linha(x,x.ii>HOJE?`abre ${dm(x.ii)}`:`desde ${dm(x.ii)}`)))}</section>`:''}
+   <section class="stack" style="gap:10px"><div class="sec-h"><h3>Radar: o que vem aí</h3><button class="btn-g" data-a="verCat" data-v="previstos">Todos os previstos</button></div>
+    ${lista(radar.map(x=>`<button class="ri" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s">${esc(x.sab[0])}</span></span><span class="tag t-at">${FASES[x.fase]}</span></button>`))}</section>
+   ${provas.length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Provas chegando</h3></div>${lista(provas.map(x=>linha(x,`${dm(x.p)}`)))}</section>`:''}
+  </div>
+  <aside class="stack stick" style="gap:20px">
+   ${seg.length?`<section class="card pad stack"><h3>Você segue</h3>${seg.map(x=>`<button class="li" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.sigla)}</span><span class="s">${x.sit==='aberto'?prazoTxt(x):FASES[x.fase]}</span></span>${chevR()}</button>`).join('')}</section>`
+    :`<section class="card pad stack"><h3>Siga seus concursos</h3><p class="sm mu">Toque em <b>Seguir</b> em qualquer concurso do catálogo e as novidades dele aparecem aqui.</p><button class="btn btn-s sm" style="justify-self:start" data-a="verCat" data-v="abertos">Abrir o catálogo</button></section>`}
+   ${c?cardQDia():''}
+   ${c?`<section class="card pad stack"><div class="between"><h3>Dica do dia</h3><span class="tag t-line">${esc(c.sigla)}</span></div>${(()=>{const ds=dicasDe(c.id),x=ds[(d.getDate()*5)%ds.length];return`<p class="sm mu">${x.tipo}${x.ass?` · ${esc(achaAss(x.conc,x.ass).a.nome)}`:''}</p><p>${x.tipo==='Lei seca'?x.txt:esc(x.txt)}</p>`})()}<button class="btn-g" style="justify-self:start" data-a="dicas">Rolar mais dicas</button></section>`:''}
+   ${cardInstalar()}
+  </aside></div>
+  <p class="xs mu2">Este jornal é montado com levantamentos de editais publicados e previstos (<a href="${FONTE_ABERTOS.url}" target="_blank" rel="noopener">abertos</a>, <a href="${FONTE_FED.url}" target="_blank" rel="noopener">federais previstos</a>). Lista de destaques, não exaustiva. Confira sempre o edital oficial.</p>`;
+};
+ACT.verCat=d=>{UI.catAba=d.v;go('catalogo')};
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('manchete')){exec({...e.target.dataset})}});
+V.hojePlano=()=>V.hoje();TAB.hojePlano='hoje';
+
 // ---------- render ----------
 function bloqueio(v){
   const c=concAtivo();if(!c)return'';
@@ -2545,7 +2743,7 @@ function topo(){
   const demo=`<button class="demo-b" data-a="sheet" data-s="demo" aria-label="Painel de demonstração" title="Painel de demonstração">${I('ajuste',17)}</button>`,busca=`<button class="busca-b" data-a="go" data-v="busca" aria-label="Buscar" title="Buscar (/)">${I('lupa',20)}</button>`;
   if(!P)return`<div class="top-in"><span class="logo-m" style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">${LOGO(36)}${WM(15)}</span>${demo}</div>`;
   return`<div class="top-in">
-   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:'Hoje',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas',comunidade:'Comunidade',moderacao:'Moderação',flash:'Flashcards',simu:'Simulado'}[UI.view]||''}</b></nav>
+   <nav class="crumb" aria-label="Você está em"><span>${c.sigla} · ${esc(cargoDe(P).curto)}</span>${I('dir',15)}<b>${{hoje:(c&&!cobre(c.id))?'Jornal':'Hoje',jornal:'Jornal',catalogo:'Concursos',info:'Concurso',edital:'Análise do edital',raiox:'Raio-X',banca:'Perfil da banca',materiais:'Materiais',leitor:'Material',plano:'Cronograma',config:'Rotina',praticar:'Praticar',banco:'Banco de questões',caderno:'Caderno de erros',resultado:'Resultado',planos:'Planos',premium:'Premium',perfil:'Perfil',busca:'Buscar',simuIntro:'Simulado',simuRes:'Simulado',colecao:'Coleção em PDF',pdf:'Coleção em PDF',dicas:'Dicas',comunidade:'Comunidade',moderacao:'Moderação',flash:'Flashcards',simu:'Simulado'}[UI.view]||''}</b></nav>
    <button class="sel" data-a="sheet" data-s="seletor" aria-label="Trocar concurso. Ativo: ${c.sigla}, ${esc(cargoDe(P).nome)}">${LOGO(40)}<span class="tx"><b>${esc(cargoDe(P).curto)}</b><small>${c.sigla} · ${cobre(c.id)?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</small></span>${I('baixo',18)}</button>
    <span class="stat-s fogo" title="Dias seguidos estudando">${I('fogo',17)}${S.streak}</span>
    <span class="stat-s" title="Pontos de experiência">${I('raio',17)}${S.xp}</span>
@@ -2555,8 +2753,9 @@ function topo(){
 }
 function lateral(){
   const P=prep(),tab=TAB[UI.view],c=concAtivo(),cb=c&&cobre(c.id);
-  const nvs=[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']];
-  const sec=[...(COLECOES[c?.id]?[['colecao','Coleção em PDF','edital','']]:[]),['dicas','Dicas do edital','rolar',''],['materiais','Materiais','camadas','estudo'],['flash','Flashcards','cartas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
+  const jn=c&&!cobre(c.id);
+  const nvs=[['hoje',jn?'Jornal':'Hoje',jn?'jornal':'hoje'],['edital','Edital','edital'],['plano','Meu Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']];
+  const sec=[['catalogo','Concursos','radar',''],...(jn?[]:[['jornal','Jornal do dia','jornal','']]),...(COLECOES[c?.id]?[['colecao','Coleção em PDF','edital','']]:[]),['dicas','Dicas do edital','rolar',''],['materiais','Materiais','camadas','estudo'],['flash','Flashcards','cartas','estudo'],['raiox','Raio-X','barras','estudo'],['banca','Perfil da banca','martelo','estudo'],['caderno','Caderno de erros','caderno','questoes'],['planos','Planos','cartao','']];
   return`<div class="logo">${LOGO(46)}${WM(18)}</div>
    ${P?`<div class="estudando"><span class="eyebrow" style="color:var(--mu)">Você está estudando</span><b><span class="num">${c.sigla}</span> <span class="mu" style="font-weight:500">· ${esc(cargoDe(P).curto)}</span></b><span class="xs mu">${cb?PLANOS[S.plano].nome:S.expirado?'Acesso expirado':'Resumo gratuito'}</span><button class="btn-g" style="min-height:36px;font-size:14px" data-a="sheet" data-s="seletor">${I('esq',14)} Trocar curso</button></div>
    <nav><button class="nv" data-a="go" data-v="busca" ${UI.view==='busca'?'aria-current="page"':''}>${I('lupa')}Buscar<span class="lk xs mu2">/</span></button>${nvs.map(([v,l,ic])=>`<button class="nv" data-a="tab" data-v="${v}" ${tab===v&&UI.view!=='premium'?'aria-current="page"':''}>${I(ic)}${l}${v==='comunidade'&&COM.adm&&pendentes()?`<span class="pr">${pendentes()}</span>`:''}</button>`).join('')}</nav>
@@ -2569,12 +2768,13 @@ function lateral(){
 }
 function navInferior(){
   const tab=TAB[UI.view];
-  return[['hoje','Hoje','hoje'],['edital','Edital','edital'],['plano','Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']].map(([v,l,ic])=>`<button data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}>${I(ic,22,1.8)}${l}${v==='comunidade'&&COM.adm&&pendentes()?`<span class="bdot" aria-label="${pendentes()} aguardando aprovação"></span>`:''}</button>`).join('');
+  const jn=concAtivo()&&!cobre(concAtivo().id);
+  return[['hoje',jn?'Jornal':'Hoje',jn?'jornal':'hoje'],['edital','Edital','edital'],['plano','Plano','plano'],['praticar','Praticar','praticar'],['comunidade','Comunidade','pessoas']].map(([v,l,ic])=>`<button data-a="tab" data-v="${v}" ${tab===v?'aria-current="page"':''}>${I(ic,22,1.8)}${l}${v==='comunidade'&&COM.adm&&pendentes()?`<span class="bdot" aria-label="${pendentes()} aguardando aprovação"></span>`:''}</button>`).join('');
 }
 function render(topoScroll){
   if(!UI.view)UI.view=S.ativo?'hoje':'catalogo';
   if(!S.ativo&&!S.onbVisto&&!['onb','planos'].includes(UI.view))UI.view='onb';
-  if(!S.ativo&&!['catalogo','concurso','planos','onb'].includes(UI.view))UI.view='catalogo';
+  if(!S.ativo&&!['catalogo','concurso','planos','onb','info','jornal'].includes(UI.view))UI.view='catalogo';
   const focoId=document.activeElement&&document.activeElement.id;
   const main=$('#main');const f=V[UI.view]||V.hoje;
   main.innerHTML=`<div class="wrap" ${topoScroll?'':'style="animation:none"'}>${bloqueio(UI.view)||f(UI.p)}</div>`;
