@@ -5,11 +5,11 @@
 /* Layout: uma "mesa de edição": cabeçalho com totais e filtros por coleção; cada coleção é uma fileira de rolos (fichas 9:16 ou 16:9) com a cor da marca dela numa tarja fina. */
 :root {
   --fundo: #F3F2EF; --painel: #FFFFFF; --linha: #DEDBD4; --texto: #1C1B19; --apagado: #6B675F;
-  --verde: #0BA457; --lacre: #B8392F; --amarelo: #C9A800; --foco: #1C1B19;
+  --verde: #0BA457; --lacre: #B8392F; --amarelo: #C9A800; --azul: #2457C5; --roxo: #7A3FC2; --foco: #1C1B19;
   --display: 'Archivo', 'Arial Narrow', system-ui, sans-serif; --corpo: 'Inter', system-ui, sans-serif; --mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fundo: #121210; --painel: #1C1B18; --linha: #2F2D29; --texto: #F1EEE7; --apagado: #A29D92; --verde: #2FC373; --lacre: #E0574B; --amarelo: #F2D43A; --foco: #F1EEE7; color-scheme: dark } }
-:root[data-theme="dark"] { --fundo: #121210; --painel: #1C1B18; --linha: #2F2D29; --texto: #F1EEE7; --apagado: #A29D92; --verde: #2FC373; --lacre: #E0574B; --amarelo: #F2D43A; --foco: #F1EEE7; color-scheme: dark }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fundo: #121210; --painel: #1C1B18; --linha: #2F2D29; --texto: #F1EEE7; --apagado: #A29D92; --verde: #2FC373; --lacre: #E0574B; --amarelo: #F2D43A; --azul: #6E9BFF; --roxo: #B58CFF; --foco: #F1EEE7; color-scheme: dark } }
+:root[data-theme="dark"] { --fundo: #121210; --painel: #1C1B18; --linha: #2F2D29; --texto: #F1EEE7; --apagado: #A29D92; --verde: #2FC373; --lacre: #E0574B; --amarelo: #F2D43A; --azul: #6E9BFF; --roxo: #B58CFF; --foco: #F1EEE7; color-scheme: dark }
 body { background: var(--fundo); color: var(--texto); font-family: var(--corpo); font-size: 15px; line-height: 1.45 }
 .wrap { max-width: 1280px; margin: 0 auto; padding-block: 32px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 36px }
 header { display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--linha); padding-bottom: 22px }
@@ -31,6 +31,7 @@ section.colecao { display: flex; flex-direction: column; gap: 16px }
 .quadro { position: relative; aspect-ratio: 9/16; background: #000; overflow: hidden }
 .h .quadro { aspect-ratio: 16/9 }
 .quadro img, .quadro video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block }
+.quadro[data-cheio] img, .quadro[data-cheio] video { object-fit: contain }
 .play { position: absolute; inset: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center }
 .play span { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.45); display: grid; place-items: center; transition: transform .15s }
 .play span::before { content: ""; border-left: 16px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px }
@@ -64,7 +65,7 @@ const DADOS = __DADOS__;
 const ASSETS = __ASSETS__;   // vídeos guardados no armazenamento da página (id do vídeo -> url)
 const $ = (s, el = document) => el.querySelector(s);
 const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
-const COR = { verde: 'var(--verde)', lacre: 'var(--lacre)', amarelo: 'var(--amarelo)' };
+const COR = { verde: 'var(--verde)', lacre: 'var(--lacre)', amarelo: 'var(--amarelo)', azul: 'var(--azul)', roxo: 'var(--roxo)' };
 const urlVideo = v => v.video || ASSETS[v.id] || null;
 
 const todos = DADOS.colecoes.flatMap(c => c.itens);
@@ -105,14 +106,14 @@ function ficha(v) {
   const f = document.createElement('article');
   f.className = 'ficha';
   f.innerHTML = `
-    <div class="quadro">
+    <div class="quadro"${v.aspecto && v.aspecto !== '540/960' ? ' data-cheio' : ''}>
       ${v.capa ? `<img src="${v.capa}" alt="" loading="lazy">` : `<video preload="metadata" muted playsinline></video>`}
       <button class="play" type="button"><span></span></button>
       <span class="dur">${fmt(v.seg)}</span>
     </div>
     <div class="info"><span class="serie"></span><p class="titulo"></p></div>
     <div class="acoes">
-      <button class="btn principal so-download" type="button" data-acao="video">Baixar vídeo <small>MP4 · ${String(v.mb).replace('.', ',')} MB</small></button>
+      <button class="btn principal so-download" type="button" data-acao="video">Baixar vídeo <small>MP4${v.mb ? ' · ' + String(v.mb).replace('.', ',') + ' MB' : ''}</small></button>
       ${v.legenda ? `<button class="btn" type="button" data-acao="legenda">Copiar legenda</button>` : ''}
       <span class="status" role="status"></span>
     </div>`;
