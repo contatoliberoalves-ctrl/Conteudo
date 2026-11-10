@@ -13,6 +13,8 @@ const topo = () => '';
 const base = (i, n, f) => i === 1 && n > 1 ? `<div style="position:absolute;right:${M}px;bottom:70px;font-weight:700;font-size:24px;letter-spacing:.06em;color:${f.tit};opacity:.85">arrasta →</div>` : '';
 
 const FN = fundo('noite');
+// Selo "vale o play": botão de play laranja + texto, como o controle de um player.
+const seloPlay = txt => `<div style="display:inline-flex;align-items:center;gap:16px"><span style="width:58px;height:58px;border-radius:50%;background:${C.laranja};display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25)"><span style="width:0;height:0;margin-left:6px;border-left:20px solid ${C.noite};border-top:13px solid transparent;border-bottom:13px solid transparent"></span></span><span style="font-weight:800;font-size:28px;letter-spacing:.08em;text-transform:uppercase;color:${C.laranja}">${esc(txt)}</span></div>`;
 // Foto de fundo do slide (ou de uma faixa de altura h): foto do dorama, ou a cena em degradê se faltar.
 const bgFoto = (s, h = H) => { const src = foto(s.foto); return src
   ? `<img src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${s.fotoPos || 'center'};${s.fotoZoom ? `transform:scale(${s.fotoZoom});` : ''}">${s.escurecer ? `<div style="position:absolute;inset:0;background:rgba(8,24,22,${s.escurecer})"></div>` : ''}`
@@ -25,7 +27,7 @@ const CAPAS = {
   cartaz: (s, f) => `${petalas(PET1)}
     <div style="position:absolute;left:${M}px;top:96px">${logo(54, { cor: f.tit, dest: f.dest })}</div>
     <div style="position:absolute;right:${M}px;top:150px;transform:rotate(3.5deg)">${cartaz(s.dorama || {}, 470, 640)}</div>
-    ${s.selo ? `<div style="position:absolute;right:520px;top:590px;width:190px;height:190px;border-radius:50%;background:${C.laranja};color:${C.noite};display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);box-shadow:0 18px 40px rgba(0,0,0,.3)"><span style="${SERIF};font-style:italic;font-weight:700;font-size:34px;line-height:1">${esc(s.selo)}</span></div>` : ''}
+    ${s.selo ? `<div style="position:absolute;right:${M}px;top:810px;padding:14px 26px 14px 16px;border-radius:999px;background:rgba(14,42,39,.88);box-shadow:0 14px 34px rgba(0,0,0,.25)">${seloPlay(s.selo)}</div>` : ''}
     <div data-cabe style="position:absolute;left:${M}px;right:${M}px;top:800px;bottom:150px;display:flex;flex-direction:column;justify-content:flex-end;gap:24px;overflow:hidden;padding-bottom:16px">${kicker(s.kicker, f)}${tit(s, f, 104)}${s.texto ? `<div style="font-size:36px;font-weight:500;line-height:1.4;color:${f.txt}">${rico(s.texto, f)}</div>` : ''}</div>`,
   // Nota em destaque: cartaz à esquerda, nota gigante e estrelas à direita.
   nota: (s, f) => `${petalas(PET2)}
@@ -62,10 +64,11 @@ const CAPAS = {
     ${s.selo ? `<div style="position:absolute;right:110px;top:760px;width:180px;height:180px;border-radius:50%;background:${C.rosaForte};color:${C.creme};display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);box-shadow:0 18px 40px rgba(0,0,0,.25);${SERIF};font-style:italic;font-weight:700;font-size:32px;line-height:1.05;padding:18px">${esc(s.selo)}</div>` : ''}
     <div data-cabe style="position:absolute;left:${M}px;right:${M}px;top:910px;bottom:150px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:16px;overflow:hidden;padding-bottom:12px">${kicker(s.kicker, FUNDOS.creme)}${tit(s, FUNDOS.creme, 80)}</div>${credito(s, 888, 'rgba(34,24,46,.55)', 'left:160px')}`,
   // Vidro: foto em tela cheia e um cartão de vidro fosco com o título e as estrelas.
-  vidro: (s, f) => `${bgFoto(s)}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,39,.45),rgba(14,42,39,0) 30%,rgba(14,42,39,0) 70%,rgba(14,42,39,.75) 100%)"></div>
+  vidro: (s, f) => `${bgFoto(s)}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,39,.45),rgba(14,42,39,0) 30%,rgba(14,42,39,0) 62%,rgba(14,42,39,.8) 100%)"></div>
     <div style="position:absolute;left:${M}px;top:96px">${logo(54, { cor: C.creme, dest: C.rosa })}</div>
-    <div data-cabe style="position:absolute;left:70px;right:70px;bottom:160px;max-height:600px;padding:46px 50px 50px;border-radius:40px;background:rgba(14,42,39,.42);backdrop-filter:blur(26px) saturate(1.3);-webkit-backdrop-filter:blur(26px) saturate(1.3);border:2px solid rgba(255,255,255,.22);display:flex;flex-direction:column;gap:20px;overflow:hidden">
-      ${kicker(s.kicker, FN)}${tit(s, FN, 88)}${s.estrelas ? `<div style="display:flex;align-items:center;gap:18px">${estrelas(s.estrelas, 46)}<span style="font-weight:700;font-size:28px;color:${C.creme};opacity:.8">${esc(s.onde || '')}</span></div>` : ''}</div>${credito(s, 60)}`,
+    <div data-cabe style="position:absolute;left:70px;right:70px;bottom:150px;max-height:640px;padding:44px 50px 48px;border-radius:40px;background:rgba(14,42,39,.42);backdrop-filter:blur(26px) saturate(1.3);-webkit-backdrop-filter:blur(26px) saturate(1.3);border:2px solid rgba(255,255,255,.22);display:flex;gap:30px;align-items:flex-end;overflow:hidden">
+      <div style="flex:1;display:flex;flex-direction:column;gap:20px">${s.selo ? seloPlay(s.selo) : ''}${kicker(s.kicker, FN)}${tit(s, FN, 84)}${s.estrelas || s.onde ? `<div style="display:flex;align-items:center;gap:18px">${s.estrelas ? estrelas(s.estrelas, 44) : ''}<span style="font-weight:700;font-size:28px;color:${C.creme};opacity:.85">${esc(s.onde || '')}</span></div>` : ''}</div>
+      ${s.nota != null ? `<div style="flex:none;text-align:center;color:${C.creme};padding-left:30px;border-left:2px solid rgba(255,255,255,.22)"><div style="font-weight:800;font-size:20px;letter-spacing:.12em;color:${C.laranja}">MINHA NOTA</div><div style="${SERIF};font-weight:900;font-size:150px;line-height:.95;letter-spacing:-.04em">${String(s.nota).replace('.', ',')}</div>${estrelas(s.nota / 2, 30)}</div>` : ''}</div>${credito(s, 60)}`,
   // Foto com nota: selo redondo com a nota e as estrelas, título embaixo.
   fotonota: (s, f) => `${bgFoto(s)}<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,42,39,.5) 0%,rgba(14,42,39,0) 28%,rgba(14,42,39,0) 48%,rgba(14,42,39,.94) 80%,${C.noite} 100%)"></div>
     <div style="position:absolute;left:${M}px;top:96px">${logo(54, { cor: C.creme, dest: C.rosa })}</div>
