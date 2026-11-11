@@ -683,6 +683,59 @@ canvas.confete { position: fixed; inset: 0; z-index: 300; pointer-events: none; 
 .erros-l li { padding-left: 4px }
 .erros-l b { display: block; font-size: 14.5px }
 .erros-l small { color: var(--muted); font-size: 13px }
+
+/* fundamentos */
+.fund-grupo { display: grid; gap: 12px; margin-top: 8px }
+.fund-grupo h3 { font-size: 20px; text-transform: uppercase; letter-spacing: .03em; border-bottom: 2px solid var(--ink); padding-bottom: 6px }
+.fundamentos { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)) }
+.fund-c { text-align: left; display: grid; gap: 8px; padding: 14px; background: var(--card); border: 1.5px solid var(--line); border-top: 6px solid var(--c); border-radius: var(--r); box-shadow: var(--sombra); transition: transform .25s, box-shadow .25s; min-width: 0 }
+.fund-c:hover { transform: translate(-2px, -3px); box-shadow: 5px 7px 0 var(--paper-3) }
+.fund-topo { display: flex; justify-content: space-between; align-items: center }
+.fund-ic { width: 40px; height: 40px; border-radius: 6px; display: grid; place-items: center; background: var(--c); color: #fff }
+.fund-ic svg { width: 22px; height: 22px }
+.fund-c b { font-size: 17px; line-height: 1.2 }
+.fund-c small { color: var(--muted); font-size: 13px }
+.fund-pe { display: flex; justify-content: space-between; align-items: center; margin-top: 2px; font-weight: 800 }
+.coroas-f { display: flex; gap: 3px }
+.coroas-f svg { width: 18px; height: 18px; color: var(--line) }
+.coroas-f svg.on { color: var(--gold) }
+.aula { padding: 20px 22px 24px; display: grid; gap: 20px }
+.aula section { display: grid; gap: 8px }
+.aula section > p { font-size: 15.5px; line-height: 1.6 }
+.exemplos { display: grid; gap: 6px }
+.ex-l { display: flex; gap: 12px; align-items: center; text-align: left; padding: 10px 12px; background: var(--card); border: 1.5px solid var(--line); border-radius: var(--r) }
+.ex-l svg { width: 20px; height: 20px; color: var(--c); flex: none }
+.ex-l b { display: block; font-size: 15.5px }
+.ex-l small { color: var(--muted); font-size: 13px }
+.ex-l:hover { border-color: var(--c) }
+.aula .btn { justify-self: stretch }
+.leitura.borrada { filter: blur(6px); user-select: none; pointer-events: none }
+/* missões */
+.campanha-ativa { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 20px 22px; border-radius: var(--r); background: var(--c); color: #fff; box-shadow: var(--sombra) }
+.campanha-ativa h2 { font-size: clamp(24px, 3vw, 32px) }
+.campanha-ativa p { color: #ffffffdd }
+.campanhas { display: grid; gap: 14px }
+@media (min-width: 900px) { .campanhas { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+.campanha { background: var(--card); border: 1.5px solid var(--line); border-left: 6px solid var(--c); border-radius: var(--r); box-shadow: var(--sombra); padding: 16px; display: grid; gap: 14px; min-width: 0 }
+.campanha header { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: start }
+.camp-ic { width: 44px; height: 44px; border-radius: 6px; background: var(--c); color: #fff; display: grid; place-items: center }
+.camp-ic svg { width: 24px; height: 24px }
+.campanha h3 { font-size: 19px }
+.campanha header p { font-size: 13.5px; color: var(--muted) }
+.passos-c { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 }
+.passos-c li { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 8px 0; position: relative }
+.passos-c li:not(:last-child)::after { content: ""; position: absolute; left: 16px; top: 40px; bottom: -8px; width: 2.5px; background: var(--line) }
+.passos-c li.feito:not(:last-child)::after { background: var(--c) }
+.passos-c .bola { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--card); border: 2.5px solid var(--line); color: var(--muted); position: relative; z-index: 1 }
+.passos-c .bola svg { width: 18px; height: 18px }
+.passos-c li.feito .bola { background: var(--c); border-color: var(--c); color: #fff }
+.passos-c li.atual .bola { border-color: var(--c); color: var(--c); box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 18%, transparent) }
+.passos-c .txt-p b { display: block; font-size: 14.5px }
+.passos-c .txt-p small { color: var(--muted); font-size: 12px }
+.passos-c li.trancado .txt-p { opacity: .55 }
+.passos-c .cad { width: 18px; height: 18px; color: var(--muted) }
+.campanha footer { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center }
+.campanha.completa { border-left-color: var(--ok) }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -719,6 +772,7 @@ canvas.confete { position: fixed; inset: 0; z-index: 300; pointer-events: none; 
     <symbol id="i-pasta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5h6v2M3 12h18"/></g></symbol>
     <symbol id="i-cartas" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="7" y="4" width="13" height="16" rx="3"/><path d="M4 7.5 7 7M4 7.5l2 11 1-.2"/></g></symbol>
     <symbol id="i-montanha" viewBox="0 0 24 24"><path fill="currentColor" d="M2 20 9 8l4 6 2-3 7 9z"/><path fill="#fff" d="m9 8 2 3-2 1-1.5-1.5z"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
     <symbol id="i-sol" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></g></symbol>
     <symbol id="b-bau" viewBox="0 0 48 48"><path fill="#8E5A2B" d="M6 22h36v18a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z"/><path fill="#B87333" d="M6 22a10 10 0 0 1 10-10h16a10 10 0 0 1 10 10v2H6z"/><path fill="#F6D27A" d="M4 22h40v5H4zM21 24h6v8h-6z"/><circle cx="24" cy="29" r="1.6" fill="#8E5A2B"/><path fill="#6A3F17" d="M12 27h4v16h-4zM32 27h4v16h-4z"/></symbol>
     <!-- glifos dos lugares: carimbos do passaporte e medalhões do mapa (arte/gerar.mjs também lê daqui) -->
@@ -933,7 +987,7 @@ const SEMANA = [
 ];
 const DICA_PADRAO = 'Faça primeiro a tarefa mais curta. Começar é a parte mais difícil.';
 const ALUNOS = [
-  { n: 'Marina Costa', i: 'M', c: '#D7263D', nivel: 'A2 · Viagens', xp: 410, seq: 6, media: 82, sinal: 'Em ritmo', s: [12, 18, 10, 22, 15, 0, 14] },
+  { n: 'Líbero Filho', i: 'L', c: '#D7263D', nivel: 'A2 · Viagens', xp: 410, seq: 6, media: 82, sinal: 'Em ritmo', s: [12, 18, 10, 22, 15, 0, 14] },
   { n: 'Lucas Rocha', i: 'L', c: '#1E4E8C', nivel: 'A1 · Vida', xp: 180, seq: 0, media: 76, sinal: 'Sem atividade há 4 dias', alerta: true, s: [15, 10, 8, 0, 0, 0, 0] },
   { n: 'Camila Alves', i: 'C', c: '#1E9B68', nivel: 'B1 · Estudos', xp: 620, seq: 9, media: 88, sinal: 'Em ritmo', s: [20, 25, 18, 30, 22, 26, 19] },
 ];
@@ -942,12 +996,14 @@ const AULA = new Date(2026, 9, 16, 19, 0);
 const NIVEIS = [[0, 'Starter'], [120, 'Traveler'], [250, 'Explorer'], [400, 'English Explorer'], [730, 'Confident Speaker'], [1100, 'Fluent Voyager']];
 
 /* ================== ESTADO ================== */
-const PADRAO = () => ({ modo: 'aluno', vista: 'hoje', xp: 410, xpHoje: 10, meta: 30, seq: 6, feito: { 'l-vocab-hotel': 3, 'l-casa': 2 }, bau: {}, erros: [], cartoes: {}, carimbos: ['primeira', 'leitor'], tarefas: { 'Segunda-0': 1, 'Segunda-1': 1, 'Terça-0': 1 }, prep: { 0: 1 }, flashVistos: 0, corrigidos: {}, xpSemana: [35, 40, 25, 10, 0, 0, 0], vel: 'normal', deck: 'casa', aba: 'trilhas', diaSel: 2, trilhas: { historias: 1 }, dia: { combo: 0, ouvidos: 0, bau: false, meta: false }, bauSemana: false, ouvidosTotal: 0, lidas: 3, hojeISO: null });
+const PADRAO = () => ({ modo: 'aluno', vista: 'hoje', xp: 410, xpHoje: 10, meta: 30, seq: 6, feito: { 'l-vocab-hotel': 3, 'l-casa': 2, 'f-tobe': 2 }, bau: {}, carimbos: ['primeira', 'leitor'], tarefas: { 'Segunda-0': 1, 'Segunda-1': 1, 'Terça-0': 1 }, prep: { 0: 1 }, flashVistos: 0, corrigidos: {}, xpSemana: [35, 40, 25, 10, 0, 0, 0], vel: 'normal', deck: 'casa', aba: 'base', diaSel: 2, trilhas: { historias: 1 }, dia: { combo: 0, ouvidos: 0, bau: false, meta: false, fund: 0, cartoes: 0 }, bauSemana: false, ouvidosTotal: 0, lidas: 3, hojeISO: null, semLicoes: 3, semOuvidos: 4, diasMeta: 2, campanhas: {}, bauSemM: false,
+  cartoes: { bedroom: 2, kitchen: 2, window: 2, shelf: 1, passport: 2, gate: 2, luggage: 1, delay: 0, breakfast: 2, bill: 0, go: 2, eat: 1, buy: 0 },
+  erros: [{ t: 'ouvirEscolha', diga: 'It costs fifteen dollars.', ops: ['It costs fifteen dollars.', 'It costs fifty dollars.', 'It costs five dollars.'], a: 0, porque: 'Fifteen (15) tem a força no fim: fif-TEEN. Fifty (50) tem a força no começo: FIF-ty.' }, { t: 'escolha', q: 'The keys are ___ the table.', ops: ['on', 'in', 'at'], a: 0, porque: 'On é para superfícies: on the table.' }] });
 let E;
-try { E = Object.assign(PADRAO(), JSON.parse(localStorage.getItem('ej-v4') || 'null') || {}); } catch { E = PADRAO(); }
-const salva = () => { try { localStorage.setItem('ej-v4', JSON.stringify(E)); } catch {} };
+try { E = Object.assign(PADRAO(), JSON.parse(localStorage.getItem('ej-v5') || 'null') || {}); } catch { E = PADRAO(); }
+const salva = () => { try { localStorage.setItem('ej-v5', JSON.stringify(E)); } catch {} };
 /* missões e meta são do dia: num dia novo de verdade, zeram (a data fictícia da demonstração não muda) */
-{ const hoje = new Date().toDateString(); if (E.hojeISO && E.hojeISO !== hoje) { E.dia = { combo: 0, ouvidos: 0, bau: false, meta: false }; E.xpHoje = 0; } E.hojeISO = hoje; E.dia = Object.assign({ combo: 0, ouvidos: 0, bau: false, meta: false }, E.dia); }
+{ const hoje = new Date().toDateString(); if (E.hojeISO && E.hojeISO !== hoje) { E.dia = { combo: 0, ouvidos: 0, bau: false, meta: false }; E.xpHoje = 0; } E.hojeISO = hoje; E.dia = Object.assign({ combo: 0, ouvidos: 0, bau: false, meta: false, fund: 0, cartoes: 0 }, E.dia); }
 
 /* ================== UTIL ================== */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -995,7 +1051,7 @@ function fala(texto, o = {}) {
   if (texto.length > 14 && !o.semConta) contaOuvido();
   return true;
 }
-function contaOuvido() { E.dia.ouvidos++; E.ouvidosTotal++; if (E.ouvidosTotal >= 10 && !L) { const c = ganhaCarimbo('ouvinte'); if (c) toast(`Novo carimbo: ${c.lugar} · ${c.t}`); } salva(); }
+function contaOuvido() { E.dia.ouvidos++; E.ouvidosTotal++; E.semOuvidos = (E.semOuvidos || 0) + 1; if (E.ouvidosTotal >= 10 && !L) { const c = ganhaCarimbo('ouvinte'); if (c) toast(`Novo carimbo: ${c.lugar} · ${c.t}`); } salva(); }
 const para = () => { falaN++; if (temVoz()) speechSynthesis.cancel(); $$('.tocando').forEach(b => { b.classList.remove('tocando'); b.closest('.player')?.classList.remove('tocando-g'); }); };
 function confete() {
   if (calmo) return; const c = document.createElement('canvas'); c.className = 'confete'; document.body.append(c);
@@ -1008,7 +1064,7 @@ function xpVoa(el, n) { if (!el) return; const r = el.getBoundingClientRect(); c
 function ganhaCarimbo(id) { if (E.carimbos.includes(id)) return null; E.carimbos.push(id); return CARIMBOS.find(c => c.id === id); }
 
 /* ================== NAVEGAÇÃO ================== */
-const VISTAS_A = [['hoje', 'Hoje', 'i-casa'], ['jornada', 'Jornada', 'i-mapa'], ['treino', 'Treino', 'i-treino'], ['semana', 'Semana', 'i-cal'], ['aulas', 'Aulas', 'i-video'], ['progresso', 'Progresso', 'i-grafico']];
+const VISTAS_A = [['hoje', 'Hoje', 'i-casa'], ['jornada', 'Jornada', 'i-mapa'], ['missoes', 'Missões', 'i-bandeira'], ['treino', 'Treino', 'i-treino'], ['semana', 'Semana', 'i-cal'], ['aulas', 'Aulas', 'i-video'], ['progresso', 'Progresso', 'i-grafico']];
 const VISTAS_P = [['p-geral', 'Visão geral', 'i-casa'], ['p-alunos', 'Alunos', 'i-pessoas'], ['p-corr', 'Correções', 'i-lapis'], ['p-criar', 'Criar exercício', 'i-mais']];
 function navega(v) { para(); E.vista = v; salva(); render(); scrollTo({ top: 0, behavior: calmo ? 'auto' : 'smooth' }); }
 function trocaModo(m) { E.modo = m; E.vista = m === 'aluno' ? 'hoje' : 'p-geral'; salva(); render(); }
@@ -1024,7 +1080,7 @@ function render() {
   $$('[data-v]').forEach(b => b.onclick = () => navega(b.dataset.v));
   $('#nome-vista').textContent = lista.find(v => v[0] === E.vista)[1];
   stats();
-  const V = { hoje: vHoje, jornada: vJornada, treino: vTreino, semana: vSemana, aulas: vAulas, progresso: vProgresso, 'p-geral': pGeral, 'p-alunos': pAlunos, 'p-corr': pCorr, 'p-criar': pCriar };
+  const V = { hoje: vHoje, jornada: vJornada, missoes: vMissoes, treino: vTreino, semana: vSemana, aulas: vAulas, progresso: vProgresso, 'p-geral': pGeral, 'p-alunos': pAlunos, 'p-corr': pCorr, 'p-criar': pCriar };
   $('#main').innerHTML = `<div class="vista">${V[E.vista]()}</div>`;
   (POS[E.vista] || (() => {}))();
 }
@@ -1073,14 +1129,14 @@ function vHoje() {
   const tit = !pr ? 'Jornada em dia' : pr.p.bau ? 'Baú de recompensa' : Lc.titulo;
   const sub = !pr ? 'Você concluiu as paradas abertas. Siga no treino.' : pr.p.bau ? 'Recompensa · abra no mapa da jornada' : pronta ? `${Lc.tipo} · ${u.titulo}` : 'O professor ainda está preparando esta parada';
   const acao = pronta ? 'Embarcar' : pr && pr.p.bau ? 'Abrir no mapa' : 'Ir para o treino';
-  return `<div class="cab"><span class="olho">Quarta-feira, 14 de outubro</span><h1>Good afternoon, <em>Marina.</em></h1><p>Uma missão curta por dia vale mais que uma maratona no fim de semana.</p></div>
+  return `<div class="cab"><span class="olho">Quarta-feira, 14 de outubro</span><h1>Good afternoon, <em>Líbero.</em></h1><p>Uma missão curta por dia vale mais que uma maratona no fim de semana.</p></div>
   <div class="grade g-hoje">
     <section class="bilhete" aria-label="Missão de agora">
       <div class="bilhete-arte">${cena(u.cena)}<span class="cia">Cartão de embarque · missão de agora</span></div>
       <div class="bilhete-corpo">
         <div class="bil-rota"><div><small>De</small><b>${de.cod}</b><span>${de.cidade}</span></div><span class="linha-voo">${ic('i-aviao')}</span><div style="text-align:right"><small>Para</small><b>${u.cod}</b><span>${u.cidade}</span></div></div>
         <div><span class="olho">${esc(sub)}</span><h2 style="margin-top:4px">${esc(tit)}</h2></div>
-        <dl class="bil-dados"><div><dt>Passageira</dt><dd>Marina Costa</dd></div><div><dt>Parada</dt><dd>${n} de ${u.paradas.length}</dd></div><div><dt>Nível</dt><dd>${u.nivel}</dd></div><div><dt>Duração</dt><dd>${pronta ? Lc.min + ' min' : pr && pr.p.bau ? '1 min' : '—'}</dd></div><div><dt>Bagagem</dt><dd>${pronta ? `+${E.feito[pr.p.id] ? Math.round(Lc.xp / 2) : Lc.xp} XP` : pr && pr.p.bau ? '+15 XP' : '—'}</dd></div></dl>
+        <dl class="bil-dados"><div><dt>Passageiro</dt><dd>Líbero Filho</dd></div><div><dt>Parada</dt><dd>${n} de ${u.paradas.length}</dd></div><div><dt>Nível</dt><dd>${u.nivel}</dd></div><div><dt>Duração</dt><dd>${pronta ? Lc.min + ' min' : pr && pr.p.bau ? '1 min' : '—'}</dd></div><div><dt>Bagagem</dt><dd>${pronta ? `+${E.feito[pr.p.id] ? Math.round(Lc.xp / 2) : Lc.xp} XP` : pr && pr.p.bau ? '+15 XP' : '—'}</dd></div></dl>
       </div>
       <div class="bilhete-canhoto">${barras(pr ? pr.p.id : 'treino')}<span class="mono">EJ ${k + 1}0${n} · ${u.cod}</span><button class="btn prim" type="button" id="bt-missao">${acao} →</button></div>
     </section>
@@ -1108,16 +1164,18 @@ const MISSOES = () => [
   { ic: 'i-raio', c: '#3B7BE0', t: `Ganhe ${E.meta} XP`, v: E.xpHoje, m: E.meta },
   { ic: 'i-estrela', c: '#E2621B', t: 'Faça um combo de 5', v: E.dia.combo, m: 5 },
   { ic: 'i-fone', c: '#6C4BD8', t: 'Ouça 3 áudios', v: E.dia.ouvidos, m: 3 },
+  { ic: 'i-livro', c: '#1E9B68', t: 'Pratique 1 fundamento', v: E.dia.fund || 0, m: 1 },
+  { ic: 'i-cartas', c: '#C98D17', t: 'Revise 8 cartões', v: E.dia.cartoes || 0, m: 8 },
 ];
 function missoesH(compacto) {
-  const ms = MISSOES(); const prontas = ms.every(m => m.v >= m.m);
-  return `<div class="${compacto ? '' : 'cartao'}" style="display:grid;gap:14px">${compacto ? '' : '<div class="mini"><h3>Missões do dia</h3><span class="etq ouro">renovam à meia-noite</span></div>'}
+  const ms = MISSOES().slice(0, compacto === 'todas' ? 5 : 3); const prontas = ms.every(m => m.v >= m.m);
+  return `<div class="${compacto ? '' : 'cartao'}" style="display:grid;gap:14px">${compacto ? '' : '<div class="mini"><h3>Missões do dia</h3><button class="btn linha peq" type="button" data-v-ir="missoes">Ver todas</button></div>'}
     <div class="missoes">${ms.map(m => `<div class="missao-d ${m.v >= m.m ? 'ok' : ''}" style="--c:${m.c}"><span class="ico">${ic(m.ic)}</span><div><b>${m.t}<span class="num">${Math.min(m.v, m.m)}/${m.m}</span></b><div class="barra-p"><i style="width:${Math.min(1, m.v / m.m) * 100}%"></i></div></div></div>`).join('')}</div>
-    <div class="bau-missoes ${prontas && !E.dia.bau ? 'pronto' : ''}"><svg viewBox="0 0 48 48"><use href="#b-bau"/></svg><div style="flex:1"><b style="font-size:14px">Baú das missões</b><br><small class="mudo">${E.dia.bau ? 'Aberto hoje. Volte amanhã!' : prontas ? 'Pronto para abrir: +20 XP' : 'Complete as três para abrir'}</small></div>${prontas && !E.dia.bau ? '<button class="btn ouro peq" type="button" data-bau-m>Abrir</button>' : ''}</div></div>`;
+    <div class="bau-missoes ${prontas && !E.dia.bau ? 'pronto' : ''}"><svg viewBox="0 0 48 48"><use href="#b-bau"/></svg><div style="flex:1"><b style="font-size:14px">Baú das missões</b><br><small class="mudo">${E.dia.bau ? 'Aberto hoje. Volte amanhã!' : prontas ? 'Pronto para abrir: +20 XP' : `Complete ${ms.length === 5 ? 'as cinco' : 'as três'} para abrir`}</small></div>${prontas && !E.dia.bau ? '<button class="btn ouro peq" type="button" data-bau-m>Abrir</button>' : ''}</div></div>`;
 }
-function ligaMissoes() { $$('[data-bau-m]').forEach(b => b.onclick = () => { if (E.dia.bau) return; E.dia.bau = true; ganha(20, b); const c = ganhaCarimbo('missoes'); bateMeta(); salva(); confete(); toast(c ? `Baú aberto: +20 XP e o carimbo de ${c.lugar}!` : 'Baú aberto: +20 XP'); setTimeout(render, 800); }); }
+function ligaMissoes() { $$('[data-v-ir]').forEach(b => b.onclick = () => navega(b.dataset.vIr)); $$('[data-bau-m]').forEach(b => b.onclick = () => { if (E.dia.bau) return; E.dia.bau = true; ganha(20, b); const c = ganhaCarimbo('missoes'); bateMeta(); salva(); confete(); toast(c ? `Baú aberto: +20 XP e o carimbo de ${c.lugar}!` : 'Baú aberto: +20 XP'); setTimeout(render, 800); }); }
 /* bater a meta do dia soma um dia na sequência (uma vez por dia) */
-function bateMeta() { if (E.dia.meta || E.xpHoje < E.meta) return false; E.dia.meta = true; E.seq++; if (E.seq >= 7) ganhaCarimbo('seq7'); return true; }
+function bateMeta() { if (E.dia.meta || E.xpHoje < E.meta) return false; E.dia.meta = true; E.seq++; E.diasMeta = (E.diasMeta || 0) + 1; if (E.seq >= 7) ganhaCarimbo('seq7'); return true; }
 
 /* ================== JORNADA ================== */
 function estadoParada(u, i) {
@@ -1138,13 +1196,13 @@ function passaporteH() {
   const nv = nivelDe(E.xp); const pc = nv.prox ? (E.xp - NIVEIS[nv.i][0]) / (nv.prox[0] - NIVEIS[nv.i][0]) * 100 : 100;
   const paradas = UNIDADES.reduce((a, u) => a + u.paradas.filter(p => E.feito[p.id] || E.bau[p.id]).length, 0);
   const tem = CARIMBOS.filter(c => E.carimbos.includes(c.id));
-  return `<section class="passaporte" aria-label="Passaporte da Marina">
+  return `<section class="passaporte" aria-label="Passaporte do Líbero">
     <div class="capa-p"><span>Passaporte · Passport</span><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.400"><circle cx="12" cy="12" r="9.500"/><path d="M2.500 12h19M12 2.500c-4 4.500-4 14.500 0 19M12 2.500c4 4.500 4 14.500 0 19M4.500 7h15M4.500 17h15"/></g></svg></div>
-    <div class="dados"><span class="foto-p" aria-hidden="true">M</span><dl><div><dt>Nome / Name</dt><dd>Marina Costa</dd></div><div><dt>Nível / Level</dt><dd>${nv.i + 1} · ${nv.nome}</dd></div><div><dt>Rota / Route</dt><dd>RIO › ${UNIDADES.map(u => u.cod).join(' › ')}</dd></div></dl></div>
+    <div class="dados"><span class="foto-p" aria-hidden="true">L</span><dl><div><dt>Nome / Name</dt><dd>Líbero Filho</dd></div><div><dt>Nível / Level</dt><dd>${nv.i + 1} · ${nv.nome}</dd></div><div><dt>Rota / Route</dt><dd>RIO › ${UNIDADES.map(u => u.cod).join(' › ')}</dd></div></dl></div>
     <div class="nivel-p"><div class="mini mono" style="font-size:11.5px;white-space:nowrap;flex-wrap:wrap;gap:2px 10px"><span class="num">${E.xp} XP</span><span>${nv.prox ? `faltam ${nv.prox[0] - E.xp} para ${nv.prox[1]}` : 'nível máximo'}</span></div><div class="barra-p"><i style="width:${pc}%"></i></div></div>
     <div class="linha-p"><div><b>${E.seq}</b><span>dias seguidos</span></div><div><b>${tem.length}</b><span>carimbos</span></div><div><b>${paradas}</b><span>paradas</span></div></div>
     <div class="mini-carimbos">${tem.map((c, i) => `<span title="${esc(c.lugar)} · ${esc(c.t)}" style="transform:rotate(${[-7, 5, -3, 8, -9, 4, -5, 7][i % 8]}deg)">${carimboSVG(c)}</span>`).join('')}</div>
-    <div class="mrz" aria-hidden="true">P&lt;BRACOSTA&lt;&lt;MARINA&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>EJ2026${String(E.xp).padStart(4, '0')}&lt;RIO&lt;NYC&lt;SFO&lt;BOS&lt;&lt;&lt;&lt;&lt;&lt;</div></section>`;
+    <div class="mrz" aria-hidden="true">P&lt;BRAFILHO&lt;&lt;LIBERO&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>EJ2026${String(E.xp).padStart(4, '0')}&lt;RIO&lt;NYC&lt;SFO&lt;BOS&lt;&lt;&lt;&lt;&lt;&lt;</div></section>`;
 }
 /* mapa da rota: coordenadas das cidades na mesma projeção de img/rota.webp (arte/rota.mjs) */
 const CID = { rio: [1208.5, 843], nyc: [866.6, 136.5], sf: [329.4, 168.7], boston: [899.2, 118.1] };
@@ -1172,7 +1230,7 @@ function vJornada() {
     ${UNIDADES.map((u, k) => `<div class="voo">${ic('i-aviao')}${k ? UNIDADES[k - 1].cod : 'RIO'} → ${u.cod}</div>` + destinoH(u, k)).join('')}</div>
   <aside class="coluna">${passaporteH()}${missoesH()}</aside></div>`;
 }
-const PINO = '<svg viewBox="0 0 40 52" aria-hidden="true"><path d="M20 51C8 34 2 27 2 19a18 18 0 0 1 36 0c0 8-6 15-18 32z" fill="#D7263D" stroke="#FFFBEF" stroke-width="3"/><circle cx="20" cy="19" r="11" fill="#FFFBEF"/><text x="20" y="25.500" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="18" fill="#0B2347">M</text></svg>';
+const PINO = '<svg viewBox="0 0 40 52" aria-hidden="true"><path d="M20 51C8 34 2 27 2 19a18 18 0 0 1 36 0c0 8-6 15-18 32z" fill="#D7263D" stroke="#FFFBEF" stroke-width="3"/><circle cx="20" cy="19" r="11" fill="#FFFBEF"/><text x="20" y="25.500" text-anchor="middle" font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="18" fill="#0B2347">L</text></svg>';
 function destinoH(u, k) {
   const feitas = u.paradas.filter(p => E.feito[p.id] || E.bau[p.id]).length, n = u.paradas.length, tr = travado(u);
   const paradas = u.paradas.map((p, i) => {
@@ -1291,7 +1349,7 @@ function mostraPasso() {
   if (p.t === 'ouvirEscolha') h = `${cab('Ouça e escolha')}<h2>Qual frase você ouviu?</h2>${playerH()}${opcoes()}`;
   if (p.t === 'lacuna') h = `${cab('Complete a frase')}<p class="frase-lacuna">${esc(p.antes)} <span class="lacuna" id="lacuna">&nbsp;</span> ${esc(p.depois)}</p>${opcoes(true)}`;
   if (p.t === 'erro') h = `${cab('Encontre o erro')}<h2>Toque na palavra que está errada.</h2><div class="erro-frase">${p.frase.map((w, i) => `<button type="button" data-op="${i}" aria-pressed="false">${esc(w)}</button>`).join('')}</div>`;
-  if (p.t === 'ler') { const R = LEITURAS[p.r]; h = `${cab('Leitura guiada')}<div class="capa-texto" style="--c:${R.c}" data-n="${R.nivel}">${ic(R.ic)}<div><span class="olho" style="color:#ffffffcc">${R.nivel} · ${R.min} min de leitura</span><h2 style="font-size:26px">${esc(R.titulo)}</h2></div></div><div class="leitura-cab">${playerH('Ouvir o texto')}<span>Toque nas palavras <b style="background:#FCF0D3;padding:0 4px;border-bottom:2px solid var(--gold)">destacadas</b> para ver a tradução.</span></div><div class="leitura">${textoLeitura(R)}</div>`; }
+  if (p.t === 'ler') { const R = LEITURAS[p.r]; h = `${cab('Leitura guiada')}<div class="capa-texto" style="--c:${R.c}" data-n="${R.nivel}">${ic(R.ic)}<div><span class="olho" style="color:#ffffffcc">${R.nivel} · ${R.min} min de leitura</span><h2 style="font-size:26px">${esc(R.titulo)}</h2></div></div><div class="leitura-cab">${playerH('Ouvir o texto')}<span>Toque nas palavras <b style="background:#FCF0D3;padding:0 4px;border-bottom:2px solid var(--gold)">destacadas</b> para ver a tradução.</span></div>${p.oculto ? '<button type="button" class="btn linha peq" id="b-mostrar" style="justify-self:start">Mostrar o texto</button>' : ''}<div class="leitura ${p.oculto ? 'borrada' : ''}">${textoLeitura(R)}</div>`; }
   if (p.t === 'dialogo') { const D = DIALOGOS[p.d]; h = `${cab('Ouça a conversa')}<div class="capa-texto" style="--c:${D.c}" data-n="${D.nivel}">${ic(D.ic)}<div><span class="olho" style="color:#ffffffcc">Diálogo · ${D.a[0]} e ${D.b[0]}</span><h2 style="font-size:26px">${esc(D.titulo)}</h2></div></div><div class="leitura-cab">${playerH('Ouvir a conversa')}<button type="button" class="btn linha peq" id="b-texto">Mostrar o texto</button></div><div class="chat" id="chat">${D.linhas.map(([q, t], i) => `<div class="msg ${q} oculta" data-l="${i}" style="--c:${D[q][1]}"><span class="av">${D[q][0][0]}</span><button type="button" class="bal" data-linha="${i}"><small>${D[q][0]}</small>${esc(t)}</button></div>`).join('')}</div><p class="mudo" id="dica-chat" style="font-size:14px;text-align:center">Toque em ouvir. As falas aparecem conforme a conversa acontece.</p>`; }
   $('#l-meio').innerHTML = `<div class="ex" id="ex">${h}</div>`; $('#l-meio').scrollTop = 0; if (!$('#l-meio').contains(document.activeElement)) $('#l-meio').focus({ preventScroll: true });
   ligaPasso(p); rodape();
@@ -1319,6 +1377,7 @@ function ligaPasso(p) {
     const R = LEITURAS[p.r];
     $$('#ex .vocab').forEach(v => v.onclick = () => { $$('#ex .dica').forEach(x => x.remove()); const d = document.createElement('span'); d.className = 'dica'; d.textContent = v.dataset.tr; v.append(d); fala(v.firstChild.textContent, { semConta: true, mudo: true }); setTimeout(() => d.remove(), 2200); });
     $('#b-ouvir').onclick = e => lerEmVoz(R, e.currentTarget); L.resposta = 'lido';
+    $('#b-mostrar')?.addEventListener('click', e => { $('#ex .leitura').classList.remove('borrada'); e.currentTarget.remove(); });
   }
   if (p.t === 'dialogo') {
     const D = DIALOGOS[p.d]; L.resposta = 'lido'; let tocando = false;
@@ -1394,6 +1453,7 @@ function resultado() {
     const tr = L.base.trilha; if (tr) { const T = TRILHAS.find(t => t.id === tr); const idx = T.licoes.indexOf(L.id) + 1; E.trilhas[tr] = Math.max(E.trilhas[tr] || 0, idx); if (E.trilhas[tr] >= T.licoes.length) push('trilha'); }
     if (E.ouvidosTotal >= 10) push('ouvinte');
     registraHab(L.id, precisao);
+    E.semLicoes = (E.semLicoes || 0) + 1; if (L.id.startsWith('f-')) E.dia.fund = (E.dia.fund || 0) + 1;
   }
   const novos = CARIMBOS.filter(c => E.carimbos.includes(c.id) && !tinha.has(c.id));
   const uL = UNIDADES.find(u => u.paradas.some(p => p.id === L.id)) || unidadeAtual();
@@ -1414,9 +1474,9 @@ function resultado() {
 
 /* ================== TREINO ================== */
 function vTreino() {
-  const abas = [['trilhas', 'Trilhas', 'i-mapa'], ['cartoes', 'Cartões', 'i-cartas'], ['ouvir', 'Ouvir e ler', 'i-fone']];
-  const corpo = E.aba === 'cartoes' ? cartoesH() : E.aba === 'ouvir' ? bibliotecaH() : trilhasH();
-  return `<div class="cab"><span class="olho">Centro de treino</span><h1>Treine do <em>seu jeito.</em></h1><p>Trilhas temáticas, cartões que voltam na hora certa e uma biblioteca de textos e diálogos para ouvir no lento, no normal ou no rápido.</p></div>
+  const abas = [['base', 'Fundamentos', 'i-livro'], ['trilhas', 'Trilhas', 'i-mapa'], ['cartoes', 'Cartões', 'i-cartas'], ['ouvir', 'Ouvir e ler', 'i-fone']];
+  const corpo = E.aba === 'cartoes' ? cartoesH() : E.aba === 'ouvir' ? bibliotecaH() : E.aba === 'base' ? fundamentosH() : trilhasH();
+  return `<div class="cab"><span class="olho">Centro de treino</span><h1>Treine do <em>seu jeito.</em></h1><p>Escolha um assunto da base do inglês para focar, siga uma trilha, revise cartões ou escolha um texto para ouvir no lento, no normal ou no rápido.</p></div>
   ${E.erros.length ? `<div class="erros-faixa">${ic('i-volta')}<div style="flex:1;min-width:200px"><b>${E.erros.length} ${E.erros.length > 1 ? 'itens esperando' : 'item esperando'} uma segunda chance</b><p class="mudo" style="font-size:13.5px">Tudo o que você errou nas lições vem para cá. Acertou, saiu da lista.</p></div><button class="btn prim" type="button" id="b-erros">Revisar agora · +15 XP</button></div>` : ''}
   <div class="subabas" role="tablist" aria-label="Tipo de treino">${abas.map(([k, t, i]) => `<button type="button" role="tab" data-aba="${k}" aria-selected="${E.aba === k}">${ic(i)}${t}</button>`).join('')}</div>
   <div id="treino-corpo">${corpo}</div>`;
@@ -1477,7 +1537,7 @@ function ligaMesa() {
 }
 function decide(r) {
   const carta = $('#carta'); if (!carta || carta.dataset.saindo) return; carta.dataset.saindo = 1; const C = fila[fiS];
-  E.cartoes[C[0]] = r; E.flashVistos++; sessao[['nao', 'quase', 'sei'][r]]++;
+  E.cartoes[C[0]] = r; E.flashVistos++; E.dia.cartoes = (E.dia.cartoes || 0) + 1; sessao[['nao', 'quase', 'sei'][r]]++;
   if (r === 2) ganha(1, $('.circ.sei')); if (E.flashVistos >= 10) { const c = ganhaCarimbo('flash10'); if (c) toast(`Novo carimbo: ${c.lugar} · ${c.t}`); }
   if (r < 2) fila.push(C); salva(); stats();
   const dir = r === 2 ? 1 : r === 0 ? -1 : 0;
@@ -1490,7 +1550,7 @@ function bibliotecaH() {
   const nv = E.filtroN || 'todos';
   const itens = [...Object.entries(LEITURAS).map(([k, r]) => ({ k, r, tipo: 'Texto' })), ...Object.entries(DIALOGOS).map(([k, r]) => ({ k, r, tipo: 'Diálogo' }))].filter(x => nv === 'todos' || x.r.nivel === nv);
   return `<div class="mini" style="flex-wrap:wrap"><div class="filtro-n" role="group" aria-label="Nível">${['todos', 'A1', 'A2', 'B1'].map(n => `<button type="button" data-nv="${n}" aria-pressed="${nv === n}">${n === 'todos' ? 'Todos os níveis' : n}</button>`).join('')}</div>${velH()}</div>
-  <div class="biblioteca">${itens.map(({ k, r, tipo }) => `<article class="livro"><div class="capa-l" style="--c:${r.c}">${ic(r.ic)}<span class="tipo-l">${tipo} · ${r.nivel}</span></div><div class="corpo-l"><h3>${esc(r.titulo)}</h3><p class="mudo" style="font-size:13.5px">${tipo === 'Texto' ? esc(r.texto[0].slice(0, 84)) + '…' : `${r.a[0]} e ${r.b[0]} · ${r.linhas.length} falas`}</p><div class="acoes-l"><button class="btn azul peq" type="button" data-livre="${tipo === 'Texto' ? 'ler' : 'dialogo'}:${k}">${ic(tipo === 'Texto' ? 'i-livro' : 'i-fone')}${tipo === 'Texto' ? 'Ler e ouvir' : 'Ouvir conversa'}</button><span class="etq">${r.min} min</span></div></div></article>`).join('')}</div>`;
+  <div class="biblioteca">${itens.map(({ k, r, tipo }) => `<article class="livro"><div class="capa-l" style="--c:${r.c}">${ic(r.ic)}<span class="tipo-l">${tipo} · ${r.nivel}</span></div><div class="corpo-l"><h3>${esc(r.titulo)}</h3><p class="mudo" style="font-size:13.5px">${tipo === 'Texto' ? esc(r.texto[0].slice(0, 84)) + '…' : `${r.a[0]} e ${r.b[0]} · ${r.linhas.length} falas`}</p><div class="acoes-l" style="flex-wrap:wrap"><button class="btn azul peq" type="button" data-livre="${tipo === 'Texto' ? 'ler' : 'dialogo'}:${k}">${ic(tipo === 'Texto' ? 'i-livro' : 'i-fone')}${tipo === 'Texto' ? 'Ler e ouvir' : 'Ouvir conversa'}</button>${tipo === 'Texto' ? `<button class="btn linha peq" type="button" data-livre="escutar:${k}">${ic('i-fone')}Só ouvir</button>` : ''}<button class="btn linha peq" type="button" data-livre="${tipo === 'Texto' ? 'ditadoT' : 'ditadoD'}:${k}">${ic('i-lapis')}Ditado</button><span class="etq">${r.min} min</span></div></div></article>`).join('')}</div>`;
 }
 POS.treino = () => {
   $$('[data-aba]').forEach(b => b.onclick = () => { E.aba = b.dataset.aba; salva(); render(); });
@@ -1498,7 +1558,8 @@ POS.treino = () => {
   $$('[data-trilha]').forEach(b => b.onclick = () => abreTrilha(b.dataset.trilha));
   $$('.baralhos [data-deck]').forEach(b => b.onclick = () => { E.deck = b.dataset.deck; salva(); montaFila(); render(); });
   $$('[data-nv]').forEach(b => b.onclick = () => { E.filtroN = b.dataset.nv; salva(); render(); });
-  $$('[data-livre]').forEach(b => b.onclick = () => { const [t, k] = b.dataset.livre.split(':'); const R = t === 'ler' ? LEITURAS[k] : DIALOGOS[k]; const lid = `livre-${t}-${k}`; LICOES[lid] = { titulo: R.titulo, tipo: t === 'ler' ? 'Leitura livre' : 'Escuta livre', xp: 10, min: R.min, palavras: t === 'ler' ? Object.keys(R.vocab).slice(0, 5) : null, passos: [t === 'ler' ? { t: 'ler', r: k } : { t: 'dialogo', d: k }] }; abreLicao(lid); });
+  $$('[data-livre]').forEach(b => b.onclick = () => abreLivre(...b.dataset.livre.split(':')));
+  $$('[data-fund]').forEach(b => b.onclick = () => abreFund(b.dataset.fund));
   if (E.aba === 'cartoes') ligaMesa();
 };
 
@@ -1607,10 +1668,261 @@ function vProgresso() {
   <section class="cartao" style="display:grid;gap:18px"><div class="mini" style="align-items:end"><div><span class="olho">Passaporte</span><h3>Carimbos do Brasil e dos Estados Unidos</h3><p class="mudo" style="font-size:13.5px;margin-top:4px">Cada conquista carimba um lugar. Os apagados ainda esperam por você.</p></div><span class="etq ouro">${CARIMBOS.filter(c => E.carimbos.includes(c.id)).length} de ${CARIMBOS.length}</span></div><div class="carimbos">${CARIMBOS.map((c, i) => { const tem = E.carimbos.includes(c.id); return `<div class="carimbo ${tem ? '' : 'trancado'}" style="--r:${[-8, 5, -4, 9, -11, 4, -6, 8, -9, 5, -7, 9, -4, 7][i]}deg">${carimboSVG(c, tem)}<b>${c.t}</b><small>${c.lugar}</small></div>`; }).join('')}</div></section>`;
 }
 POS.progresso = () => {
-  $$('[data-hab]').forEach(b => b.onclick = () => { const h = HABS.find(x => x.id === b.dataset.hab); const [t, id] = h.acao; if (t === 'licao') abreLicao(id); else if (t === 'trilha') { E.aba = 'trilhas'; navega('treino'); setTimeout(() => abreTrilha(id), 300); } else navega('semana'); });
+  $$('[data-hab]').forEach(b => b.onclick = () => { const h = HABS.find(x => x.id === b.dataset.hab); const [t, id] = h.acao; if (t === 'fund') abreFund(id); else if (t === 'licao') abreLicao(id); else if (t === 'trilha') { E.aba = 'trilhas'; navega('treino'); setTimeout(() => abreTrilha(id), 300); } else navega('semana'); });
   $$('[data-fala]').forEach(b => b.onclick = () => fala(b.dataset.fala, { semConta: true }));
   $('#ir-cartoes').onclick = () => { E.aba = 'cartoes'; navega('treino'); };
   $('#rev-erros')?.addEventListener('click', () => abreLicao('erros', E.erros.map(x => ({ ...x }))));
+};
+
+/* ================== TEXTOS E DIÁLOGOS EXTRAS ================== */
+Object.assign(LEITURAS, {
+  amigo: { titulo: 'Meeting a New Friend', nivel: 'A1', min: 2, c: '#1E4E8C', ic: 'i-pessoas', vocab: { neighbor: 'vizinho', engineer: 'engenheiro', friendly: 'simpático', married: 'casado', twins: 'gêmeos' },
+    texto: ['Hi! My name is Carlos. I am from Recife, but now I live in Boston. I am an engineer.', 'This is my neighbor, Emma. She is from Ohio. She is very friendly and she is a nurse.', 'Emma is married. Her husband is a chef, and they have twins. The kids are five years old.', 'We are not old friends, but we are good neighbors. On Sundays, we have coffee together.'] },
+  planos: { titulo: 'Plans for the Weekend', nivel: 'A2', min: 3, c: '#3B7BE0', ic: 'i-aviao', vocab: { forecast: 'previsão do tempo', probably: 'provavelmente', instead: 'em vez disso', museum: 'museu', ferry: 'balsa' },
+    texto: ['This weekend, Bia is going to visit New York with her sister. They are going to take the ferry to see the Statue of Liberty on Saturday morning.', 'The forecast says it will rain on Sunday, so they will probably go to a museum instead.', 'Bia is excited. "I think we will walk a lot," she says. "I will take my most comfortable shoes!"'] },
+  rio: { titulo: 'A Trip to Rio', nivel: 'A2', min: 3, c: '#1E9B68', ic: 'i-sol', vocab: { view: 'vista', crowded: 'lotado', cable: 'cabo', sunset: 'pôr do sol', amazing: 'incrível', coconut: 'coco' },
+    texto: ['Last summer, Jake traveled from Chicago to Rio de Janeiro. It was his first time in Brazil.', 'On the first day, he took the cable car to Sugarloaf Mountain. The view was amazing. In the afternoon, he walked on Copacabana beach and drank coconut water.', 'The next day, he visited Christ the Redeemer. It was crowded, but he loved it.', 'His favorite moment was the sunset at Arpoador. Everybody clapped when the sun went down.'] },
+  feira: { titulo: 'Saturday at the Farmers Market', nivel: 'A2', min: 3, c: '#C98D17', ic: 'i-xicara', vocab: { market: 'feira', fresh: 'fresco', cheaper: 'mais barato', sample: 'provar', basket: 'cesta', local: 'local' },
+    texto: ['Every Saturday morning, Lucy goes to the farmers market near the Ferry Building in San Francisco.', 'She buys fresh fruit, bread and flowers. The vegetables are not cheaper than at the supermarket, but they are local and delicious.', 'Lucy loves to sample the cheese before she buys it. She always brings her own basket.', 'After the market, she sits by the bay and has a coffee.'] },
+  familia: { titulo: 'My Family', nivel: 'A1', min: 2, c: '#D7263D', ic: 'i-casa', vocab: { older: 'mais velho', younger: 'mais nova', grandmother: 'avó', funny: 'engraçado', together: 'juntos' },
+    texto: ['I have a small family. My father is a teacher and my mother is a doctor.', 'I have an older brother and a younger sister. My brother is funny and my sister is very smart.', 'My grandmother lives with us. She is seventy-five and she cooks very well.', 'On Sundays, we eat lunch together.'] },
+});
+Object.assign(DIALOGOS, {
+  imigracao: { titulo: 'At Immigration', nivel: 'A2', min: 2, c: '#0B2347', ic: 'i-pasta', a: ['Officer', '#0B2347'], b: ['You', '#D7263D'], linhas: [['a', 'Good evening. Passport, please.'], ['b', 'Here you are.'], ['a', 'What is the purpose of your visit?'], ['b', "I'm here on vacation."], ['a', 'How long are you going to stay?'], ['b', 'Ten days.'], ['a', 'Where are you staying?'], ['b', 'At a hotel in Manhattan.'], ['a', 'Okay. Enjoy your stay.'], ['b', 'Thank you!']] },
+  checkin: { titulo: 'Checking In', nivel: 'A1', min: 2, c: '#D7263D', ic: 'i-casa', a: ['Clerk', '#D7263D'], b: ['Guest', '#1E4E8C'], linhas: [['a', 'Good afternoon! Welcome to the Harbor Hotel.'], ['b', 'Hi. I have a reservation under Silva.'], ['a', 'Let me check. Yes, three nights, a double room.'], ['b', 'Is breakfast included?'], ['a', 'Yes, from seven to ten in the restaurant.'], ['b', 'Great. What time is checkout?'], ['a', 'At eleven. Here is your key. Room four twelve.'], ['b', 'Thank you very much.']] },
+  direcoes: { titulo: 'Asking for Directions', nivel: 'A2', min: 2, c: '#1E9B68', ic: 'i-mapa', a: ['You', '#1E9B68'], b: ['Local', '#C98D17'], linhas: [['a', 'Excuse me, how do I get to Central Park?'], ['b', 'Go straight on Fifth Avenue for three blocks.'], ['a', 'Three blocks. Okay.'], ['b', 'Then turn left at the big hotel. The park is right there.'], ['a', 'Is it far?'], ['b', 'No, about ten minutes on foot.'], ['a', 'Thanks a lot!'], ['b', 'You are welcome. Have a nice day!']] },
+  diner: { titulo: 'At a Diner', nivel: 'A1', min: 2, c: '#E2621B', ic: 'i-xicara', a: ['Server', '#E2621B'], b: ['Customer', '#6C4BD8'], linhas: [['a', 'Hi there! Are you ready to order?'], ['b', 'Yes. Can I get the pancakes, please?'], ['a', 'Sure. Anything to drink?'], ['b', 'An orange juice, please.'], ['a', 'Small or large?'], ['b', 'Large, please.'], ['a', 'Coming right up!']] },
+});
+Object.assign(LICOES, {
+  'lv-imigracao': { titulo: 'Na imigração', tipo: 'Diálogo', xp: 25, min: 6, palavras: ['purpose', 'vacation', 'stay'], passos: [
+    { t: 'dialogo', d: 'imigracao' },
+    { t: 'escolha', q: 'O oficial pergunta “What is the purpose of your visit?”. O que ele quer saber?', ops: ['O motivo da viagem', 'Quanto dinheiro você tem', 'Seu endereço no Brasil'], a: 0, porque: '“Purpose” é motivo, finalidade.' },
+    { t: 'montar', pt: 'Estou aqui de férias.', resp: "I'm here on vacation", extras: ['in', 'holiday', 'at'], porque: 'Nos EUA se diz “on vacation”. No inglês britânico, “on holiday”.' },
+    { t: 'ouvirEscolha', diga: 'How long are you going to stay?', ops: ['How long are you going to stay?', 'How long are you going to study?', 'How far are you going to stay?'], a: 0, porque: '“How long” pergunta o tempo: quanto tempo você vai ficar.' } ] },
+  'lv-planos': { titulo: 'Plans for the Weekend', tipo: 'Leitura', xp: 20, min: 6, palavras: ['forecast', 'probably', 'ferry'], passos: [
+    { t: 'ler', r: 'planos' },
+    { t: 'escolha', q: 'What will they do if it rains?', ops: ['Go to a museum', 'Stay at the hotel', 'Take the ferry'], a: 0, porque: '“It will rain on Sunday, so they will probably go to a museum instead.”' },
+    { t: 'lacuna', antes: 'They are', depois: 'to take the ferry on Saturday.', ops: ['going', 'will', 'go'], a: 0, porque: 'Plano já decidido: be going to + verbo.' } ] },
+  'lv-direcoes': { titulo: 'Pedindo informação', tipo: 'Diálogo', xp: 20, min: 5, palavras: ['go straight', 'turn left', 'block'], passos: [
+    { t: 'dialogo', d: 'direcoes' },
+    { t: 'escolha', q: 'Quantas quadras andar pela Fifth Avenue?', ops: ['Três', 'Dez', 'Duas'], a: 0, porque: '“Go straight on Fifth Avenue for three blocks.”' },
+    { t: 'pares', pares: [['go straight', 'siga reto'], ['turn left', 'vire à esquerda'], ['block', 'quarteirão'], ['on foot', 'a pé']] } ] },
+  'lv-checkin': { titulo: 'Fazendo o check-in', tipo: 'Diálogo', xp: 20, min: 5, palavras: ['checkout', 'included', 'double room'], passos: [
+    { t: 'dialogo', d: 'checkin' },
+    { t: 'escolha', q: 'What time is checkout?', ops: ['At eleven', 'At ten', 'At seven'], a: 0, porque: '“What time is checkout?” “At eleven.”' },
+    { t: 'ouvir', diga: 'Is breakfast included?', porque: '“Included” = incluído. Uma pergunta muito útil em hotel.' } ] },
+});
+
+/* ================== FUNDAMENTOS (foco por assunto) ================== */
+const FUND = [
+  { grupo: 'Gramática essencial', id: 'tobe', nome: 'Verbo to be', nivel: 'A1', c: '#1E4E8C', ic: 'i-pessoas', resumo: 'Am, is, are: ser e estar numa palavra só.',
+    regra: ['To be significa ser e estar. Muda conforme a pessoa: I am, you are, he/she/it is, we/they are.', 'Na negativa, coloque not depois do verbo (I am not, she is not). Na pergunta, inverta a ordem: Are you ready?'],
+    tabela: [['I am a teacher.', 'Eu sou professor.'], ['She is tired.', 'Ela está cansada.'], ['We are from Brazil.', 'Nós somos do Brasil.'], ["They aren't at home.", 'Eles não estão em casa.'], ['Are you hungry?', 'Você está com fome?']],
+    dica: 'Na fala, use as contrações: I’m, you’re, she’s. Soa muito mais natural.',
+    passos: [
+      { t: 'escolha', q: 'She ___ a doctor.', ops: ['is', 'are', 'am'], a: 0, porque: 'Com she, he e it, o to be é is.' },
+      { t: 'lacuna', antes: 'We', depois: 'from Brazil.', ops: ['are', 'is', 'am'], a: 0, porque: 'Com we, you e they, o to be é are.' },
+      { t: 'pares', pares: [['I', 'am'], ['you', 'are'], ['he', 'is']] },
+      { t: 'montar', pt: 'Eu não estou cansado.', resp: 'I am not tired', extras: ['is', "don't", 'very'], porque: 'Negativa do to be: basta o not depois do verbo. Nada de don’t.' },
+      { t: 'erro', frase: ['They', 'is', 'my', 'friends.'], a: 1, certo: 'are', porque: 'They pede are: they are my friends.' },
+      { t: 'ouvirEscolha', diga: 'Are you ready?', ops: ['Are you ready?', 'Is you ready?', 'You are ready.'], a: 0, porque: 'Na pergunta, o verbo vem antes do sujeito: Are you…?' } ] },
+  { grupo: 'Gramática essencial', id: 'presente', nome: 'Presente simples', nivel: 'A1', c: '#1E9B68', ic: 'i-sol', resumo: 'Rotinas e fatos: I work, she works.',
+    regra: ['Use para rotinas, hábitos e verdades: I work every day. The sun rises in the east.', 'Com he, she e it o verbo ganha -s: she works, he goes. Para negar e perguntar, use do ou does: I don’t like. Does she work?'],
+    tabela: [['I work from home.', 'Eu trabalho de casa.'], ['He drinks coffee every morning.', 'Ele toma café toda manhã.'], ["We don't watch TV.", 'Nós não assistimos TV.'], ['Does she speak English?', 'Ela fala inglês?']],
+    dica: 'Depois de does, o verbo volta sem -s: Does she work? (e não Does she works?)',
+    passos: [
+      { t: 'escolha', q: 'He ___ in a bank.', ops: ['works', 'work', 'working'], a: 0, porque: 'He + verbo com -s: he works.' },
+      { t: 'lacuna', antes: 'I', depois: 'like spicy food.', ops: ["don't", "doesn't", 'not'], a: 0, porque: 'Com I, a negativa é don’t.' },
+      { t: 'montar', pt: 'Ela mora em São Paulo.', resp: 'She lives in São Paulo', extras: ['live', 'on', 'is'], porque: 'She lives (com -s). Cidade pede in.' },
+      { t: 'erro', frase: ['Does', 'he', 'plays', 'soccer?'], a: 2, certo: 'play', porque: 'O does já leva o -s. O verbo volta ao normal: play.' },
+      { t: 'ouvir', diga: 'We start work at nine.', porque: 'Start = começar. At nine = às nove.' } ] },
+  { grupo: 'Gramática essencial', id: 'perguntas', nome: 'Perguntas (what, where, when…)', nivel: 'A1', c: '#6C4BD8', ic: 'i-fala', resumo: 'As palavras que abrem perguntas.',
+    regra: ['What = o que/qual, Where = onde, When = quando, Who = quem, Why = por que, How = como.', 'A ordem é: palavra da pergunta + auxiliar + sujeito + verbo. Where do you live? What is your name?'],
+    tabela: [['What is your name?', 'Qual é o seu nome?'], ['Where do you work?', 'Onde você trabalha?'], ['When is the class?', 'Quando é a aula?'], ['Why are you late?', 'Por que você está atrasado?'], ['How much is it?', 'Quanto custa?']],
+    dica: 'Em português dá para perguntar só com a entonação. Em inglês, o auxiliar (do, is, are) precisa vir antes do sujeito.',
+    passos: [
+      { t: 'pares', pares: [['Where', 'Onde'], ['When', 'Quando'], ['Why', 'Por que'], ['Who', 'Quem']] },
+      { t: 'escolha', q: 'Como perguntar onde fica o banheiro?', ops: ['Where is the bathroom?', 'Where the bathroom is?', 'What is the bathroom?'], a: 0, porque: 'Where + is + sujeito.' },
+      { t: 'montar', pt: 'Onde você mora?', resp: 'Where do you live', extras: ['does', 'are', 'what'], porque: 'Com you, o auxiliar é do: Where do you live?' },
+      { t: 'lacuna', antes: '', depois: 'time is it?', ops: ['What', 'Where', 'Who'], a: 0, porque: 'What time is it? = Que horas são?' },
+      { t: 'ouvirEscolha', diga: 'How much is it?', ops: ['How much is it?', 'How many is it?', 'How much it is?'], a: 0, porque: 'How much para preço e coisas que não se contam.' } ] },
+  { grupo: 'Gramática essencial', id: 'there', nome: 'There is / there are', nivel: 'A1', c: '#0B2347', ic: 'i-casa', resumo: 'Para dizer que algo existe: tem, há.',
+    regra: ['There is para uma coisa (singular) e there are para várias (plural).', 'Na pergunta: Is there a pharmacy near here? Are there any seats?'],
+    tabela: [['There is a bank on this street.', 'Tem um banco nesta rua.'], ['There are two bedrooms.', 'Há dois quartos.'], ["There isn't any milk.", 'Não tem leite.'], ['Is there a pharmacy near here?', 'Tem uma farmácia aqui perto?']],
+    dica: 'Não use have para existir. Em vez de “Have a bank here”, diga “There is a bank here”.',
+    passos: [
+      { t: 'escolha', q: 'There ___ three hotels on this street.', ops: ['are', 'is', 'have'], a: 0, porque: 'Três hotéis: plural, there are.' },
+      { t: 'montar', pt: 'Tem uma farmácia aqui perto?', resp: 'Is there a pharmacy near here', extras: ['have', 'are', 'it'], porque: 'Pergunta: Is there…?' },
+      { t: 'erro', frase: ['There', 'is', 'two', 'cats.'], a: 1, certo: 'are', porque: 'Two cats é plural: there are.' },
+      { t: 'ouvir', diga: 'There is a bus stop near the hotel.', porque: 'Near = perto de.' } ] },
+  { grupo: 'Gramática essencial', id: 'can', nome: 'Can: poder e saber', nivel: 'A1', c: '#3B7BE0', ic: 'i-estrela', resumo: 'Habilidades e pedidos educados.',
+    regra: ['Can indica habilidade (I can swim) e pedidos (Can you help me?).', 'O verbo vem sem to e sem -s: She can drive. A negativa é can’t.'],
+    tabela: [['I can speak English.', 'Eu sei falar inglês.'], ["She can't come today.", 'Ela não pode vir hoje.'], ['Can you help me?', 'Você pode me ajudar?'], ['Can I sit here?', 'Posso sentar aqui?']],
+    dica: 'No inglês americano, can’t tem o a mais aberto e longo. Can fica fraquinho na frase.',
+    passos: [
+      { t: 'escolha', q: 'She ___ drive.', ops: ['can', 'cans', 'can to'], a: 0, porque: 'Can não muda com she e não leva to.' },
+      { t: 'montar', pt: 'Você pode me ajudar?', resp: 'Can you help me', extras: ['do', 'to', 'helps'], porque: 'Pedido: Can you + verbo?' },
+      { t: 'ouvirEscolha', diga: "I can't swim.", ops: ["I can't swim.", 'I can swim.', "I can't sing."], a: 0, porque: 'No can’t, a vogal é mais forte e o t aparece no final.' },
+      { t: 'erro', frase: ['He', 'can', 'plays', 'guitar.'], a: 2, certo: 'play', porque: 'Depois de can, o verbo fica sem -s.' } ] },
+  { grupo: 'Tempos verbais', id: 'passado', nome: 'Passado com -ed', nivel: 'A2', c: '#C98D17', ic: 'i-volta', resumo: 'O que já aconteceu: worked, visited.',
+    regra: ['Para falar de algo terminado, verbos regulares ganham -ed: work → worked, visit → visited.', 'Na negativa e na pergunta usamos did, e o verbo volta ao normal: I didn’t work. Did you visit?'],
+    tabela: [['I worked yesterday.', 'Eu trabalhei ontem.'], ['She visited New York last year.', 'Ela visitou Nova York ano passado.'], ["We didn't watch the game.", 'Nós não assistimos ao jogo.'], ['Did you call him?', 'Você ligou para ele?']],
+    dica: 'O -ed tem três sons: worked (t), played (d) e visited (id).',
+    passos: [
+      { t: 'escolha', q: 'Yesterday I ___ my parents.', ops: ['called', 'call', 'calling'], a: 0, porque: 'Yesterday pede passado: called.' },
+      { t: 'erro', frase: ['Did', 'you', 'watched', 'the', 'movie?'], a: 2, certo: 'watch', porque: 'Did já marca o passado. O verbo volta ao normal.' },
+      { t: 'montar', pt: 'Nós moramos no Rio em 2020.', resp: 'We lived in Rio in 2020', extras: ['live', 'on', 'at'], porque: 'Live → lived. Ano pede in.' },
+      { t: 'ouvir', diga: 'She worked late last night.', porque: 'Worked termina com som de t.' },
+      { t: 'lacuna', antes: 'They', depois: 'their friends last weekend.', ops: ['visited', 'visit', 'visits'], a: 0, porque: 'Last weekend: passado, visited.' } ] },
+  { grupo: 'Tempos verbais', id: 'irregulares', nome: 'Verbos irregulares', nivel: 'A2', c: '#D7263D', ic: 'i-setas', resumo: 'Os mais usados, com forma própria.',
+    regra: ['Os verbos mais comuns do inglês são irregulares: no passado eles não ganham -ed e têm forma própria.', 'A boa notícia: no passado são iguais para todas as pessoas. I went, she went, they went.'],
+    tabela: [['go → went', 'ir'], ['have → had', 'ter'], ['make → made', 'fazer'], ['see → saw', 'ver'], ['get → got', 'conseguir, pegar']],
+    dica: 'Aprenda em grupos de som: buy/bought, bring/brought, think/thought.',
+    passos: [
+      { t: 'pares', pares: [['have', 'had'], ['make', 'made'], ['get', 'got'], ['come', 'came']] },
+      { t: 'escolha', q: 'Last night we ___ pizza.', ops: ['had', 'haved', 'has'], a: 0, porque: 'Have → had.' },
+      { t: 'erro', frase: ['She', 'comed', 'home', 'late.'], a: 1, certo: 'came', porque: 'Come → came. Comed não existe.' },
+      { t: 'ouvirEscolha', diga: 'I got a new job.', ops: ['I got a new job.', 'I get a new job.', 'I got a new jar.'], a: 0, porque: 'Got é o passado de get.' },
+      { t: 'montar', pt: 'Eu fiz um bolo.', resp: 'I made a cake', extras: ['make', 'did', 'maked'], porque: 'Fazer algo com as mãos é make → made.' } ] },
+  { grupo: 'Tempos verbais', id: 'will', nome: 'Futuro com will', nivel: 'A2', c: '#3B7BE0', ic: 'i-aviao', resumo: 'Promessas, previsões e decisões na hora.',
+    regra: ['Will expressa decisões na hora, promessas e previsões: I will call you. It will rain.', 'É igual para todas as pessoas e o verbo vem sem to: She will help. A negativa é won’t: I won’t forget.'],
+    tabela: [["I'll call you later.", 'Eu te ligo mais tarde.'], ['It will be sunny tomorrow.', 'Amanhã vai fazer sol.'], ["She won't come.", 'Ela não vai vir.'], ['Will you help me?', 'Você vai me ajudar?']],
+    dica: 'Para planos já decididos, o mais comum é going to: I’m going to travel in July.',
+    passos: [
+      { t: 'escolha', q: 'Tomorrow it ___ rain.', ops: ['will', 'wills', 'is will'], a: 0, porque: 'Will não muda: it will rain.' },
+      { t: 'lacuna', antes: 'I', depois: 'forget your birthday.', ops: ["won't", "willn't", "don't will"], a: 0, porque: 'A negativa de will é won’t.' },
+      { t: 'erro', frase: ['She', 'will', 'helps', 'you.'], a: 2, certo: 'help', porque: 'Depois de will, o verbo fica sem -s.' },
+      { t: 'montar', pt: 'Eu vou te ligar amanhã.', resp: 'I will call you tomorrow', extras: ['to', 'calls', 'going'], porque: 'Promessa: will + verbo.' },
+      { t: 'ouvirEscolha', diga: "I'll see you on Monday.", ops: ["I'll see you on Monday.", 'I see you on Monday.', "I'll see you on Sunday."], a: 0, porque: 'I’ll é a contração de I will.' } ] },
+  { grupo: 'Dia a dia', id: 'dias', nome: 'Dias da semana e meses', nivel: 'A1', c: '#1E9B68', ic: 'i-cal', resumo: 'Monday, July: com maiúscula e preposição certa.',
+    regra: ['Em inglês, dias e meses começam com letra maiúscula: Monday, January.', 'Use on para dias (on Monday) e in para meses (in July).'],
+    tabela: [['Monday', 'segunda-feira'], ['Wednesday', 'quarta-feira'], ['Saturday', 'sábado'], ['on Friday', 'na sexta'], ['in December', 'em dezembro']],
+    dica: 'Wednesday se pronuncia “uénzdei”: o primeiro d é mudo.',
+    passos: [
+      { t: 'pares', pares: [['Monday', 'segunda'], ['Thursday', 'quinta'], ['Sunday', 'domingo'], ['Tuesday', 'terça']] },
+      { t: 'escolha', q: 'O dia depois de Friday é…', ops: ['Saturday', 'Thursday', 'Sunday'], a: 0, porque: 'Friday (sexta) → Saturday (sábado).' },
+      { t: 'lacuna', antes: 'The meeting is', depois: 'Tuesday.', ops: ['on', 'in', 'at'], a: 0, porque: 'Dias da semana pedem on.' },
+      { t: 'ouvirEscolha', diga: 'My birthday is in March.', ops: ['My birthday is in March.', 'My birthday is in May.', 'My birthday is on March.'], a: 0, porque: 'Meses pedem in: in March.' },
+      { t: 'montar', pt: 'Eu viajo em julho.', resp: 'I travel in July', extras: ['on', 'at', 'June'], porque: 'Mês pede in. July é julho; June é junho.' } ] },
+  { grupo: 'Dia a dia', id: 'horas', nome: 'Horas', nivel: 'A1', c: '#E2621B', ic: 'i-relogio', resumo: 'What time is it? Seven thirty.',
+    regra: ['Para perguntar: What time is it? Para responder: It’s seven o’clock (7h00).', 'O jeito mais fácil é ler os números: 7:15 = seven fifteen, 7:30 = seven thirty. Use at para horários: at nine.'],
+    tabela: [["It's eight o'clock.", 'São oito horas.'], ["It's half past six.", 'São seis e meia.'], ["It's a quarter to ten.", 'Faltam quinze para as dez.'], ['The class starts at seven thirty.', 'A aula começa às sete e meia.']],
+    dica: 'a.m. é antes do meio-dia e p.m. depois: 7 p.m. = 19h.',
+    passos: [
+      { t: 'escolha', q: 'Como dizer 7h30?', ops: ['seven thirty', 'seven thirteen', 'thirty seven'], a: 0, porque: 'Lemos hora e minutos: seven thirty.' },
+      { t: 'ouvirEscolha', diga: "It's a quarter past nine.", ops: ["It's a quarter past nine.", "It's a quarter to nine.", "It's half past nine."], a: 0, porque: 'A quarter past = e quinze. A quarter to = quinze para.' },
+      { t: 'lacuna', antes: 'The store opens', depois: 'nine.', ops: ['at', 'on', 'in'], a: 0, porque: 'Horário exato pede at.' },
+      { t: 'escolha', q: '19h é…', ops: ['7 p.m.', '7 a.m.', '9 p.m.'], a: 0, porque: 'Depois do meio-dia é p.m.: 19h = 7 p.m.' },
+      { t: 'ouvir', diga: 'What time is it?', porque: 'A pergunta mais útil para horas.' } ] },
+  { grupo: 'Dia a dia', id: 'numeros', nome: 'Números', nivel: 'A1', c: '#C98D17', ic: 'i-raio', resumo: 'Thirteen x thirty, preços e telefones.',
+    regra: ['De 13 a 19 terminam em -teen, com força no final: thirTEEN. As dezenas terminam em -ty, com força no começo: THIRty.', 'Preços: $6.50 = six fifty. Telefones: diga número por número.'],
+    tabela: [['thirteen', '13'], ['thirty', '30'], ['fifteen', '15'], ['fifty', '50'], ['one hundred', '100']],
+    dica: 'Ficou em dúvida? Pergunte: Is that one-five or five-zero?',
+    passos: [
+      { t: 'pares', pares: [['twelve', '12'], ['twenty', '20'], ['forty', '40'], ['fourteen', '14']] },
+      { t: 'ouvirEscolha', diga: 'The room is number seventeen.', ops: ['The room is number seventeen.', 'The room is number seventy.', 'The room is number seven.'], a: 0, porque: 'SevenTEEN tem força no final.' },
+      { t: 'escolha', q: 'Como se escreve 90?', ops: ['ninety', 'nineteen', 'ninty'], a: 0, porque: 'Ninety mantém o e de nine.' },
+      { t: 'ouvir', diga: 'It costs twenty dollars.', porque: 'Twenty = 20.' } ] },
+  { grupo: 'Dia a dia', id: 'preposicoes', nome: 'In, on, at e outras', nivel: 'A2', c: '#B51C31', ic: 'i-mapa', resumo: 'Onde e quando: as preposições mais usadas.',
+    regra: ['In = dentro, em (in the box, in July, in Brazil). On = sobre, superfícies e dias (on the table, on Monday). At = um ponto exato (at the door, at nine).', 'Under = embaixo de. Next to = ao lado de. Between = entre.'],
+    tabela: [['in the kitchen', 'na cozinha'], ['on the table', 'em cima da mesa'], ['at the airport', 'no aeroporto'], ['under the bed', 'embaixo da cama'], ['next to the bank', 'ao lado do banco']],
+    dica: 'Pense em tamanho: in para espaços e períodos grandes, on para dias, at para pontos e horas.',
+    passos: [
+      { t: 'escolha', q: 'The keys are ___ the table.', ops: ['on', 'in', 'at'], a: 0, porque: 'Superfície: on the table.' },
+      { t: 'lacuna', antes: 'I was born', depois: '1995.', ops: ['in', 'on', 'at'], a: 0, porque: 'Anos pedem in.' },
+      { t: 'lacuna', antes: 'See you', depois: 'Monday!', ops: ['on', 'in', 'at'], a: 0, porque: 'Dias pedem on.' },
+      { t: 'escolha', q: 'O gato está embaixo da cama.', ops: ['The cat is under the bed.', 'The cat is on the bed.', 'The cat is in the bed.'], a: 0, porque: 'Embaixo de = under.' },
+      { t: 'montar', pt: 'Eu estou no aeroporto.', resp: 'I am at the airport', extras: ['in', 'on', 'to'], porque: 'Um ponto, um lugar onde algo acontece: at the airport.' } ] },
+];
+FUND.forEach(f => { LICOES['f-' + f.id] = { fund: f.id, titulo: f.nome, tipo: 'Fundamento', xp: 20, min: 5, palavras: null, passos: f.passos }; });
+HABS.push(
+  { id: 'tobe', nome: 'Verbo to be', area: 'Gramática', base: 86, acao: ['fund', 'tobe'], dica: 'Am, is e are já saem no automático.' },
+  { id: 'presente', nome: 'Presente simples', area: 'Gramática', base: 76, acao: ['fund', 'presente'], dica: 'Às vezes esquece o -s com he e she.' },
+  { id: 'perguntas', nome: 'Fazer perguntas', area: 'Conversação', base: 62, acao: ['fund', 'perguntas'], dica: 'Ainda pergunta sem o auxiliar: “Where you live?”.' },
+  { id: 'futuro', nome: 'Futuro com will', area: 'Gramática', base: 57, acao: ['fund', 'will'], dica: 'Mistura will com going to e às vezes usa “will to”.' },
+  { id: 'tempo', nome: 'Dias, meses e horas', area: 'Vocabulário', base: 67, acao: ['fund', 'horas'], dica: 'Quarter past e quarter to ainda confundem.' },
+);
+Object.assign(HABS.find(h => h.id === 'passado-reg'), { acao: ['fund', 'passado'] });
+Object.assign(HABS.find(h => h.id === 'passado-irr'), { acao: ['fund', 'irregulares'] });
+Object.assign(HABS.find(h => h.id === 'numeros'), { acao: ['fund', 'numeros'] });
+Object.assign(HABS.find(h => h.id === 'preposicoes'), { acao: ['fund', 'preposicoes'] });
+Object.assign(LIC_HAB, { 'f-tobe': ['tobe'], 'f-presente': ['presente'], 'f-perguntas': ['perguntas'], 'f-there': ['tobe'], 'f-can': ['presente'], 'f-passado': ['passado-reg'], 'f-irregulares': ['passado-irr'], 'f-will': ['futuro'], 'f-dias': ['tempo'], 'f-horas': ['tempo', 'numeros'], 'f-numeros': ['numeros'], 'f-preposicoes': ['preposicoes'], 'lv-imigracao': ['escuta', 'perguntas'], 'lv-planos': ['leitura', 'futuro'], 'lv-direcoes': ['escuta', 'preposicoes'], 'lv-checkin': ['escuta', 'vocab-viagem'] });
+
+function fundamentosH() {
+  const grupos = [...new Set(FUND.map(f => f.grupo))];
+  return `<p class="mudo" style="max-width:68ch">A base do inglês, um assunto por vez. Cada cartão abre uma mini-aula com a regra, exemplos para ouvir e uma dica do professor. Depois você pratica.</p>
+  ${grupos.map(g => `<section class="fund-grupo"><h3>${g}</h3><div class="fundamentos">${FUND.filter(f => f.grupo === g).map(f => { const n = Math.min(3, E.feito['f-' + f.id] || 0); const h = HABS.find(x => (LIC_HAB['f-' + f.id] || [])[0] === x.id); const v = h ? valorHab(h) : null;
+    return `<button type="button" class="fund-c" data-fund="${f.id}" style="--c:${f.c}"><span class="fund-topo"><span class="fund-ic">${ic(f.ic)}</span><span class="etq">${f.nivel}</span></span><b>${f.nome}</b><small>${f.resumo}</small><span class="fund-pe"><span class="coroas-f" aria-label="${n} de 3 coroas">${[0, 1, 2].map(j => ic('i-coroa', `class="${j < n ? 'on' : ''}"`)).join('')}</span>${v != null ? `<span class="num" style="color:${nivelHab(v).c}">${v}%</span>` : ''}</span></button>`; }).join('')}</div></section>`).join('')}`;
+}
+function abreFund(id) {
+  const f = FUND.find(x => x.id === id); const n = E.feito['f-' + id] || 0;
+  $('#folha').innerHTML = `<div class="folha" id="folha-fundo"><div class="folha-c" role="dialog" aria-modal="true" aria-label="${f.nome}" style="--c:${f.c}"><div class="folha-capa">${ic(f.ic, 'class="fundo-ic"')}<div class="mini"><span class="etq" style="background:#ffffff2b;color:#fff">${f.nivel} · ${f.grupo}</span><button class="fechar" type="button" id="folha-x" aria-label="Fechar" style="color:#fff">${ic('i-x')}</button></div><h2>${f.nome}</h2><p>${f.resumo}</p></div>
+    <div class="aula">
+      <section><span class="olho">A regra</span>${f.regra.map(r => `<p>${esc(r)}</p>`).join('')}</section>
+      <section><div class="mini"><span class="olho">Exemplos para ouvir</span>${velH()}</div><div class="exemplos">${f.tabela.map(([en, pt]) => `<button type="button" class="ex-l" data-fala-ex="${esc(en.replace(/ → .*/, '').replace(/→/g, ''))}">${ic('i-som')}<span><b>${esc(en)}</b><small>${esc(pt)}</small></span></button>`).join('')}</div></section>
+      <section class="recado"><img src="${FOTO}" alt="Teacher Anderson" width="56" height="56"><p class="balao-recado">“${esc(f.dica)}”</p></section>
+      <button class="btn ouro" type="button" id="fund-praticar">${n ? `Praticar de novo · +10 XP` : `Praticar · ${f.passos.length} exercícios · +20 XP`}</button>
+    </div></div></div>`;
+  $('#folha-x').onclick = fechaFolha; $('#folha-fundo').onclick = e => { if (e.target.id === 'folha-fundo') fechaFolha(); }; $('#folha')._dono = document.activeElement; $('#folha-x').focus({ preventScroll: true });
+  $$('#folha [data-fala-ex]').forEach(b => b.onclick = () => fala(b.dataset.falaEx, { semConta: true }));
+  $('#fund-praticar').onclick = () => abreLicao('f-' + id);
+}
+function frases(txt) { return txt.match(/[^.!?]+[.!?]+/g)?.map(x => x.trim().replace(/^"|"$/g, '')).filter(x => x.split(' ').length >= 4 && x.length <= 70) || []; }
+function abreLivre(t, k) {
+  const R = LEITURAS[k] || DIALOGOS[k]; const lid = `livre-${t}-${k}`; let passos, tipo;
+  if (t === 'ler') { passos = [{ t: 'ler', r: k }]; tipo = 'Leitura livre'; }
+  else if (t === 'escutar') { passos = [{ t: 'ler', r: k, oculto: true }]; tipo = 'Só ouvir'; }
+  else if (t === 'dialogo') { passos = [{ t: 'dialogo', d: k }]; tipo = 'Escuta livre'; }
+  else { const fs = t === 'ditadoT' ? frases(R.texto.join(' ')) : R.linhas.map(l => l[1]).filter(x => x.split(' ').length >= 3); passos = embaralha(fs).slice(0, 4).map(diga => ({ t: 'ouvir', diga, porque: `Frase de “${R.titulo}”.` })); tipo = 'Ditado'; }
+  if (!passos.length) { toast('Este texto não tem frases curtas para ditado.'); return; }
+  LICOES[lid] = { titulo: R.titulo, tipo, xp: 10, min: R.min, palavras: t === 'ler' || t === 'escutar' ? Object.keys(R.vocab || {}).slice(0, 5) : null, passos };
+  abreLicao(lid);
+}
+
+/* ================== MISSÕES ================== */
+const CAMPANHAS = [
+  { id: 'conversa', nome: 'Primeira conversa', desc: 'Do “I am” até passar pela imigração em Nova York.', c: '#1E4E8C', ic: 'i-fala', xp: 40, passos: ['f-tobe', 'f-presente', 'f-perguntas', 'lv-imigracao'] },
+  { id: 'hotel', nome: 'Chegando ao hotel', desc: 'Vocabulário, números e o check-in de verdade.', c: '#D7263D', ic: 'i-casa', xp: 45, passos: ['l-vocab-hotel', 'f-numeros', 'lv-checkin', 'l-leitura-hotel'] },
+  { id: 'pontual', nome: 'Pontual como um nova-iorquino', desc: 'Números, horas e dias até marcar um compromisso por telefone.', c: '#E2621B', ic: 'i-relogio', xp: 50, passos: ['f-numeros', 'f-horas', 'f-dias', 't-ouv-2', 't-ouv-4'] },
+  { id: 'fimdesemana', nome: 'Contando o fim de semana', desc: 'Passado regular, irregulares e uma história completa.', c: '#C98D17', ic: 'i-volta', xp: 50, passos: ['f-passado', 'f-irregulares', 'l-passado', 't-vrb-2', 't-his-2'] },
+  { id: 'cidade', nome: 'Perdido em Manhattan', desc: 'Onde fica, como chegar e o que tem por perto.', c: '#1E9B68', ic: 'i-mapa', xp: 45, passos: ['f-there', 'f-preposicoes', 'lv-direcoes', 'f-can'] },
+  { id: 'futuro', nome: 'Planos para a viagem', desc: 'Falar do que vai acontecer e decidir o roteiro.', c: '#3B7BE0', ic: 'i-aviao', xp: 50, passos: ['f-will', 'lv-planos', 't-aer-1', 'l-checkpoint-1'] },
+];
+const passoFeito = id => !!E.feito[id];
+const estadoCamp = C => { const k = C.passos.findIndex(id => !passoFeito(id)); return { feitos: k === -1 ? C.passos.length : k, completa: k === -1, resgatada: !!(E.campanhas || {})[C.id] }; };
+const SEMANAIS = () => {
+  const dom = Object.values(E.cartoes).filter(v => v === 2).length, fund = Object.keys(E.feito).filter(k => k.startsWith('f-')).length;
+  return [
+    { ic: 'i-livro', c: '#1E4E8C', t: 'Complete 10 lições', v: E.semLicoes || 0, m: 10 },
+    { ic: 'i-fone', c: '#6C4BD8', t: 'Ouça 15 áudios', v: E.semOuvidos || 0, m: 15 },
+    { ic: 'i-cartas', c: '#C98D17', t: 'Domine 15 palavras nos cartões', v: dom, m: 15 },
+    { ic: 'i-estrela', c: '#1E9B68', t: 'Pratique 4 fundamentos diferentes', v: fund, m: 4 },
+    { ic: 'i-fogo', c: '#E2621B', t: 'Bata a meta do dia em 5 dias', v: E.diasMeta || 0, m: 5 },
+  ];
+};
+const linhaMissao = m => `<div class="missao-d ${m.v >= m.m ? 'ok' : ''}" style="--c:${m.c}"><span class="ico">${ic(m.ic)}</span><div><b>${m.t}<span class="num">${Math.min(m.v, m.m)}/${m.m}</span></b><div class="barra-p"><i style="width:${Math.min(1, m.v / m.m) * 100}%"></i></div></div></div>`;
+function vMissoes() {
+  const sem = SEMANAIS(); const semOk = sem.every(m => m.v >= m.m);
+  const camps = CAMPANHAS.map(C => ({ C, s: estadoCamp(C) }));
+  const ativa = camps.find(x => !x.s.completa && x.s.feitos > 0) || camps.find(x => !x.s.completa);
+  return `<div class="cab"><span class="olho">Missões</span><h1>Uma coisa leva <em>à outra.</em></h1><p>Missões do dia para o hábito, da semana para o ritmo e campanhas em sequência: cada passo prepara o seguinte, do básico até a situação real.</p></div>
+  ${ativa ? `<section class="campanha-ativa" style="--c:${ativa.C.c}"><div><span class="olho" style="color:#ffffffcc">Campanha em andamento</span><h2>${ativa.C.nome}</h2><p>Passo ${ativa.s.feitos + 1} de ${ativa.C.passos.length}: <b>${esc(LICOES[ativa.C.passos[ativa.s.feitos]].titulo)}</b></p></div><button class="btn ouro" type="button" data-passo="${ativa.C.passos[ativa.s.feitos]}">Continuar →</button></section>` : ''}
+  <div class="grade g2">
+    <section class="cartao" style="display:grid;gap:14px;align-content:start"><div class="mini"><div><span class="olho">Hoje</span><h3>Missões do dia</h3></div><span class="etq ouro">renovam à meia-noite</span></div>${missoesH('todas')}</section>
+    <section class="cartao" style="display:grid;gap:14px;align-content:start"><div class="mini"><div><span class="olho" style="color:var(--navy-3)">Esta semana</span><h3>Missões da semana</h3></div><span class="etq azul">até domingo</span></div><div class="missoes">${sem.map(linhaMissao).join('')}</div>
+      <div class="bau-missoes ${semOk && !E.bauSemM ? 'pronto' : ''}"><svg viewBox="0 0 48 48"><use href="#b-bau"/></svg><div style="flex:1"><b style="font-size:14px">Baú da semana</b><br><small class="mudo">${E.bauSemM ? 'Aberto nesta semana.' : semOk ? 'Pronto: +60 XP' : `${sem.filter(m => m.v >= m.m).length} de 5 missões cumpridas`}</small></div>${semOk && !E.bauSemM ? '<button class="btn ouro peq" type="button" id="bau-semm">Abrir</button>' : ''}</div></section>
+  </div>
+  <section style="display:grid;gap:14px"><div class="mini" style="align-items:end;flex-wrap:wrap"><div><span class="olho">Campanhas</span><h2 style="font-size:clamp(24px,3vw,32px)">Sequências que fazem sentido</h2></div><span class="etq">${camps.filter(x => x.s.completa).length} de ${camps.length} concluídas</span></div>
+    <div class="campanhas">${camps.map(({ C, s }) => `<article class="campanha ${s.completa ? 'completa' : ''}" style="--c:${C.c}"><header><span class="camp-ic">${ic(C.ic)}</span><div><h3>${C.nome}</h3><p>${C.desc}</p></div><span class="etq ouro">+${C.xp} XP</span></header>
+      <ol class="passos-c">${C.passos.map((id, i) => { const st = i < s.feitos ? 'feito' : i === s.feitos ? 'atual' : 'trancado'; const Lc = LICOES[id];
+        return `<li class="${st}"><span class="bola">${st === 'feito' ? ic('i-ok') : i + 1}</span><span class="txt-p"><b>${esc(Lc.titulo)}</b><small>${Lc.tipo} · ${Lc.min} min</small></span>${st === 'atual' ? `<button class="btn prim peq" type="button" data-passo="${id}">Começar</button>` : st === 'trancado' ? ic('i-cadeado', 'class="cad"') : ''}</li>`; }).join('')}</ol>
+      <footer><div class="barra-p"><i style="width:${s.feitos / C.passos.length * 100}%;background:var(--c)"></i></div>${s.completa ? (s.resgatada ? '<span class="etq ok">Recompensa resgatada</span>' : `<button class="btn ouro peq" type="button" data-resgate="${C.id}">Resgatar +${C.xp} XP</button>`) : `<small class="mudo">${s.feitos} de ${C.passos.length} passos</small>`}</footer></article>`).join('')}</div></section>`;
+}
+POS.missoes = () => {
+  ligaMissoes();
+  $$('[data-passo]').forEach(b => b.onclick = () => abreLicao(b.dataset.passo));
+  $$('[data-resgate]').forEach(b => b.onclick = () => { const C = CAMPANHAS.find(x => x.id === b.dataset.resgate); E.campanhas = E.campanhas || {}; if (E.campanhas[C.id]) return; E.campanhas[C.id] = true; ganha(C.xp, b); salva(); confete(); toast(`Campanha concluída: +${C.xp} XP`); setTimeout(render, 700); });
+  $('#bau-semm')?.addEventListener('click', e => { if (E.bauSemM) return; E.bauSemM = true; ganha(60, e.currentTarget); salva(); confete(); toast('Baú da semana: +60 XP'); setTimeout(render, 700); });
 };
 
 /* ================== PROFESSOR ================== */
@@ -1620,7 +1932,7 @@ function pGeral() {
   return `<div class="cab"><span class="olho">Central do professor</span><h1>Good afternoon, <em>Anderson.</em></h1><p>O que pede a sua atenção hoje, em ordem de prioridade.</p></div>
   <div class="grade g-hoje">
     <section class="cartao" style="display:grid;gap:14px"><h3>Prioridades</h3><div class="prior">
-      ${pend > 0 ? `<button type="button" data-ir="p-corr"><span class="ic" style="--c:var(--red)">${pend}</span><span><b>Corrigir produções escritas</b><small>Marina e Lucas enviaram textos</small></span></button>` : ''}
+      ${pend > 0 ? `<button type="button" data-ir="p-corr"><span class="ic" style="--c:var(--red)">${pend}</span><span><b>Corrigir produções escritas</b><small>Líbero e Lucas enviaram textos</small></span></button>` : ''}
       <button type="button" data-ir="p-alunos"><span class="ic" style="--c:#C98D17">!</span><span><b>Lucas está sem atividade há 4 dias</b><small>Uma mensagem curta costuma trazer o aluno de volta</small></span></button>
       <button type="button" data-ir="p-criar"><span class="ic" style="--c:var(--navy-3)">+</span><span><b>A parada “Study habits” está vazia</b><small>Crie os exercícios para completar o destino Boston</small></span></button>
     </div></section>
@@ -1634,7 +1946,7 @@ function pAlunos() {
   <div class="alunos">${ALUNOS.map(a => `<article class="cartao aluno" style="${a.alerta ? 'border-color:#F1C7A3' : ''}"><div class="aluno-topo"><span class="avatar" style="--c:${a.c}">${a.i}</span><div><b>${a.n}</b><p class="mudo" style="font-size:13px">${a.nivel}</p></div></div><span class="etq ${a.alerta ? 'verm' : 'ok'}" style="justify-self:start">${a.sinal}</span><div style="color:${a.c}">${spark(a.s)}<small class="mudo">minutos de estudo nos últimos 7 dias</small></div><div style="display:grid;grid-template-columns:repeat(3,1fr);text-align:center;gap:6px"><div><b class="num">${a.xp}</b><small class="mudo" style="display:block;font-size:11px">XP</small></div><div><b class="num">${a.seq}</b><small class="mudo" style="display:block;font-size:11px">dias seguidos</small></div><div><b class="num">${a.media}%</b><small class="mudo" style="display:block;font-size:11px">média</small></div></div>${a.alerta ? `<button class="btn ouro peq" type="button" data-lembrete="${a.n}">Mandar um lembrete</button>` : `<button class="btn linha peq" type="button" data-comoaluno>Ver como aluno</button>`}</article>`).join('')}</div>`;
 }
 POS['p-alunos'] = () => { $$('[data-comoaluno]').forEach(b => b.onclick = () => trocaModo('aluno')); $$('[data-lembrete]').forEach(b => b.onclick = () => { b.textContent = 'Lembrete preparado'; b.disabled = true; toast('Nesta demonstração o lembrete não é enviado de verdade.'); }); };
-const CORR = [{ id: 'marina', n: 'Marina Costa', t: 'My last weekend', txt: 'Last weekend I [visit] my family. We cooked dinner and [watch] a movie. It was very fun.', com: 'Ótimo texto, Marina! Só atenção ao passado: depois de “last weekend”, os verbos vão para o simple past (visited, watched).', notas: { visit: 'visited · “last weekend” pede passado', watch: 'watched · também no passado' } }, { id: 'lucas', n: 'Lucas Rocha', t: 'My house', txt: 'There [is] two bedrooms and a small kitchen. My desk is near the window.', com: 'Boa descrição, Lucas! Com plural, use “there are”: there are two bedrooms.', notas: { is: 'are · “two bedrooms” é plural' } }];
+const CORR = [{ id: 'marina', n: 'Líbero Filho', t: 'My last weekend', txt: 'Last weekend I [visit] my family. We cooked dinner and [watch] a movie. It was very fun.', com: 'Ótimo texto, Líbero! Só atenção ao passado: depois de “last weekend”, os verbos vão para o simple past (visited, watched).', notas: { visit: 'visited · “last weekend” pede passado', watch: 'watched · também no passado' } }, { id: 'lucas', n: 'Lucas Rocha', t: 'My house', txt: 'There [is] two bedrooms and a small kitchen. My desk is near the window.', com: 'Boa descrição, Lucas! Com plural, use “there are”: there are two bedrooms.', notas: { is: 'are · “two bedrooms” é plural' } }];
 function pCorr() {
   return `<div class="cab"><span class="olho">Devolutivas</span><h1>Correções</h1><p>Toque nos trechos marcados para ver a sugestão, escreva o comentário e devolva ao aluno.</p></div>
   ${CORR.map(c => { const feito = E.corrigidos[c.id]; return `<article class="cartao" style="display:grid;gap:14px;${feito ? 'opacity:.7' : ''}"><div class="mini"><div><span class="olho" style="color:var(--navy-3)">${c.n}</span><h3>${c.t}</h3></div><span class="etq ${feito ? 'ok' : 'verm'}">${feito ? 'Devolvido' : 'Aguardando'}</span></div><p class="texto-corr">${esc(c.txt).replace(/\[(\w+)\]/g, (_, w) => `<mark tabindex="0" data-nota="${esc(c.notas[w])}">${w}</mark>`)}</p><p class="mudo" id="nota-${c.id}" style="font-size:14px;min-height:20px"></p>${feito ? `<p><b>Seu comentário:</b> ${esc(feito)}</p>` : `<label class="campo">Comentário para o aluno<textarea id="com-${c.id}">${esc(c.com)}</textarea></label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ok peq" type="button" data-devolver="${c.id}">Devolver com nota 8</button><button class="btn linha peq" type="button" data-refazer="${c.id}">Pedir para refazer</button></div>`}</article>`; }).join('')}`;
