@@ -11,3 +11,9 @@ Plataforma de inglês refeita do zero (aluno e professor), publicada em https://
 - Tudo num arquivo só: dados (unidades, lições, leituras, diálogos, trilhas, baralhos, semana, carimbos) no topo do `<script>`, estado salvo no navegador (`localStorage`, chave `ej-v4`).
 - Áudio pela voz do navegador em três velocidades (lento, normal, rápido); leituras destacam a palavra lida. Sem voz em inglês no aparelho, o diálogo e o destaque seguem pelo tempo de leitura.
 - Tipos de exercício: escolha, monte a frase, pares, ouça e escreva, ouça e escolha, complete a lacuna, encontre o erro, leitura com tradução por toque e diálogo.
+
+## Contas, aulas e app instalável
+- **Contas de aluno:** ficam neste aparelho (`localStorage`: `ej-contas` com a lista e `ej-v5-<id>` com o estado de cada uma; a conta de demonstração usa `ej-v5`). Sem senha e sem nuvem por enquanto.
+- **Teste de nivelamento:** `NIV_Q` no `index.html`; define nível, objetivo e meta diária da conta.
+- **Aulas ao vivo:** o professor publica título, data, link e gravações em "Aulas" (`ej-aulas`); o aluno entra pelo link e a presença fica registrada na conta.
+- **App instalável e offline:** `python3 montar.py` gera `dist/` (fora do git) com `<head>`, `manifest.webmanifest`, `sw.js` e ícones, para hospedar em qualquer servidor estático com https. No Artifact do claude.ai isso não funciona (sem service worker). Ao publicar versão nova, troque `VERSAO` no `sw.js`.

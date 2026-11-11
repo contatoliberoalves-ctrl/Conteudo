@@ -736,6 +736,19 @@ canvas.confete { position: fixed; inset: 0; z-index: 300; pointer-events: none; 
 .passos-c .cad { width: 18px; height: 18px; color: var(--muted) }
 .campanha footer { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center }
 .campanha.completa { border-left-color: var(--ok) }
+
+/* contas, nivelamento, aulas */
+.stat.conta-b { width: 38px; justify-content: center; padding: 0; background: var(--red); border-color: var(--red-2); color: #fff; cursor: pointer; font-size: 15px; align-self: stretch }
+.conta-l { display: grid; grid-template-columns: 46px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line-2) }
+.conta-l small { display: block; color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere }
+.nova-conta { display: grid; gap: 12px; padding: 16px; background: var(--card); border: 1.5px dashed var(--line); border-radius: var(--r) }
+.erro-f { color: var(--red-2); font-weight: 700; font-size: 13.5px }
+.niv-banner { display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 18px 20px; background: var(--card); border: 1.5px solid var(--ink); border-left: 8px solid var(--gold); border-radius: var(--r); box-shadow: var(--sombra) }
+.niv-banner p { color: var(--muted); font-size: 14px; max-width: 56ch }
+.niv-res { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center }
+.niv-selo { width: 92px; height: 92px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 40px; color: var(--navy); background: var(--gold); box-shadow: inset 0 0 0 4px var(--card), 0 0 0 3px var(--gold) }
+.grav-in { flex: 1; min-width: 0; min-height: 38px; border: 1.5px solid var(--line); border-radius: var(--r); padding: 6px 10px; font-size: 14px; background: #fff }
+@media (max-width: 400px) { .stat.fogo .rot-l, .stat.xp .rot-l { display: none } .stat { padding: 5px 7px } }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -807,7 +820,7 @@ canvas.confete { position: fixed; inset: 0; z-index: 300; pointer-events: none; 
       <div class="trocar-modo" role="group" aria-label="Trocar visão"><button type="button" data-modo="aluno" aria-pressed="true">Aluno</button><button type="button" data-modo="prof" aria-pressed="false">Prof.</button></div>
     </header>
     <main id="main"></main>
-    <p class="demo">English Journey · ambiente demonstrativo. Seu progresso fica salvo só neste navegador. <button type="button" id="reiniciar">Reiniciar demonstração</button></p>
+    <p class="demo">English Journey · versão de demonstração. As contas e o progresso ficam guardados neste aparelho. <button type="button" id="reiniciar">Reiniciar esta conta</button> <button type="button" id="instalar" hidden>Instalar o app</button></p>
   </div>
 </div>
 <nav class="abas-baixo" id="nav-baixo" aria-label="Menu"></nav>
@@ -992,18 +1005,29 @@ const ALUNOS = [
   { n: 'Camila Alves', i: 'C', c: '#1E9B68', nivel: 'B1 · Estudos', xp: 620, seq: 9, media: 88, sinal: 'Em ritmo', s: [20, 25, 18, 30, 22, 26, 19] },
 ];
 const AGORA = new Date(2026, 9, 14, 15, 10);
-const AULA = new Date(2026, 9, 16, 19, 0);
 const NIVEIS = [[0, 'Starter'], [120, 'Traveler'], [250, 'Explorer'], [400, 'English Explorer'], [730, 'Confident Speaker'], [1100, 'Fluent Voyager']];
 
 /* ================== ESTADO ================== */
 const PADRAO = () => ({ modo: 'aluno', vista: 'hoje', xp: 410, xpHoje: 10, meta: 30, seq: 6, feito: { 'l-vocab-hotel': 3, 'l-casa': 2, 'f-tobe': 2 }, bau: {}, carimbos: ['primeira', 'leitor'], tarefas: { 'Segunda-0': 1, 'Segunda-1': 1, 'Terça-0': 1 }, prep: { 0: 1 }, flashVistos: 0, corrigidos: {}, xpSemana: [35, 40, 25, 10, 0, 0, 0], vel: 'normal', deck: 'casa', aba: 'base', diaSel: 2, trilhas: { historias: 1 }, dia: { combo: 0, ouvidos: 0, bau: false, meta: false, fund: 0, cartoes: 0 }, bauSemana: false, ouvidosTotal: 0, lidas: 3, hojeISO: null, semLicoes: 3, semOuvidos: 4, diasMeta: 2, campanhas: {}, bauSemM: false,
   cartoes: { bedroom: 2, kitchen: 2, window: 2, shelf: 1, passport: 2, gate: 2, luggage: 1, delay: 0, breakfast: 2, bill: 0, go: 2, eat: 1, buy: 0 },
   erros: [{ t: 'ouvirEscolha', diga: 'It costs fifteen dollars.', ops: ['It costs fifteen dollars.', 'It costs fifty dollars.', 'It costs five dollars.'], a: 0, porque: 'Fifteen (15) tem a força no fim: fif-TEEN. Fifty (50) tem a força no começo: FIF-ty.' }, { t: 'escolha', q: 'The keys are ___ the table.', ops: ['on', 'in', 'at'], a: 0, porque: 'On é para superfícies: on the table.' }] });
-let E;
-try { E = Object.assign(PADRAO(), JSON.parse(localStorage.getItem('ej-v5') || 'null') || {}); } catch { E = PADRAO(); }
-const salva = () => { try { localStorage.setItem('ej-v5', JSON.stringify(E)); } catch {} };
+/* contas de aluno: cada uma com o seu estado, guardadas neste aparelho */
+let CONTAS; try { CONTAS = JSON.parse(localStorage.getItem('ej-contas') || 'null'); } catch {}
+if (!CONTAS || !Array.isArray(CONTAS.lista) || !CONTAS.lista.length) CONTAS = { atual: 'demo', lista: [{ id: 'demo', nome: 'Líbero Filho', email: '', demo: true }] };
+if (!CONTAS.lista.some(c => c.id === CONTAS.atual)) CONTAS.atual = CONTAS.lista[0].id;
+const salvaContas = () => { try { localStorage.setItem('ej-contas', JSON.stringify(CONTAS)); } catch {} };
+const conta = () => CONTAS.lista.find(c => c.id === CONTAS.atual) || CONTAS.lista[0];
+const nomeAluno = () => conta().nome, primeiroNome = () => conta().nome.split(' ')[0], inicial = () => conta().nome[0].toUpperCase();
+const mrzNome = () => { const t = conta().nome.normalize('NFD').replace(/[^a-zA-Z ]/g, '').toUpperCase().split(' ').filter(Boolean); return `${t.length > 1 ? t[t.length - 1] : ''}&lt;&lt;${t[0] || ''}`; };
+const chaveE = id => id === 'demo' ? 'ej-v5' : 'ej-v5-' + id;
+const baseDemo = () => Object.assign(PADRAO(), { presencas: { 'a-1009': 1, 'a-1002': 1 } });
+const NOVO = () => Object.assign(PADRAO(), { xp: 0, xpHoje: 0, seq: 0, feito: {}, carimbos: [], tarefas: {}, prep: {}, xpSemana: [0, 0, 0, 0, 0, 0, 0], trilhas: {}, cartoes: {}, erros: [], lidas: 0, semLicoes: 0, semOuvidos: 0, diasMeta: 0, presencas: {}, vista: 'hoje' });
+function carregaE(id) { const c = CONTAS.lista.find(x => x.id === id); const base = c && c.demo ? baseDemo() : NOVO(); try { return Object.assign(base, JSON.parse(localStorage.getItem(chaveE(id)) || 'null') || {}); } catch { return base; } }
+let E = carregaE(CONTAS.atual);
+const salva = () => { try { localStorage.setItem(chaveE(CONTAS.atual), JSON.stringify(E)); } catch {} };
 /* missões e meta são do dia: num dia novo de verdade, zeram (a data fictícia da demonstração não muda) */
-{ const hoje = new Date().toDateString(); if (E.hojeISO && E.hojeISO !== hoje) { E.dia = { combo: 0, ouvidos: 0, bau: false, meta: false }; E.xpHoje = 0; } E.hojeISO = hoje; E.dia = Object.assign({ combo: 0, ouvidos: 0, bau: false, meta: false, fund: 0, cartoes: 0 }, E.dia); }
+function ajustaDia() { const hoje = new Date().toDateString(); if (E.hojeISO && E.hojeISO !== hoje) { E.dia = { combo: 0, ouvidos: 0, bau: false, meta: false }; E.xpHoje = 0; } E.hojeISO = hoje; E.dia = Object.assign({ combo: 0, ouvidos: 0, bau: false, meta: false, fund: 0, cartoes: 0 }, E.dia); }
+ajustaDia();
 
 /* ================== UTIL ================== */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -1065,11 +1089,11 @@ function ganhaCarimbo(id) { if (E.carimbos.includes(id)) return null; E.carimbos
 
 /* ================== NAVEGAÇÃO ================== */
 const VISTAS_A = [['hoje', 'Hoje', 'i-casa'], ['jornada', 'Jornada', 'i-mapa'], ['missoes', 'Missões', 'i-bandeira'], ['treino', 'Treino', 'i-treino'], ['semana', 'Semana', 'i-cal'], ['aulas', 'Aulas', 'i-video'], ['progresso', 'Progresso', 'i-grafico']];
-const VISTAS_P = [['p-geral', 'Visão geral', 'i-casa'], ['p-alunos', 'Alunos', 'i-pessoas'], ['p-corr', 'Correções', 'i-lapis'], ['p-criar', 'Criar exercício', 'i-mais']];
+const VISTAS_P = [['p-geral', 'Visão geral', 'i-casa'], ['p-alunos', 'Alunos', 'i-pessoas'], ['p-corr', 'Correções', 'i-lapis'], ['p-aulas', 'Aulas', 'i-video'], ['p-criar', 'Criar exercício', 'i-mais']];
 function navega(v) { para(); E.vista = v; salva(); render(); scrollTo({ top: 0, behavior: calmo ? 'auto' : 'smooth' }); }
 function trocaModo(m) { E.modo = m; E.vista = m === 'aluno' ? 'hoje' : 'p-geral'; salva(); render(); }
 $$('[data-modo]').forEach(b => b.onclick = () => trocaModo(b.dataset.modo));
-$('#reiniciar').onclick = () => { E = PADRAO(); E.hojeISO = new Date().toDateString(); fila = []; salva(); render(); toast('Demonstração reiniciada.'); };
+$('#reiniciar').onclick = () => { E = conta().demo ? baseDemo() : NOVO(); E.hojeISO = new Date().toDateString(); fila = []; salva(); render(); toast('Demonstração reiniciada.'); };
 const POS = {};
 function render() {
   const lista = E.modo === 'aluno' ? VISTAS_A : VISTAS_P;
@@ -1080,7 +1104,7 @@ function render() {
   $$('[data-v]').forEach(b => b.onclick = () => navega(b.dataset.v));
   $('#nome-vista').textContent = lista.find(v => v[0] === E.vista)[1];
   stats();
-  const V = { hoje: vHoje, jornada: vJornada, missoes: vMissoes, treino: vTreino, semana: vSemana, aulas: vAulas, progresso: vProgresso, 'p-geral': pGeral, 'p-alunos': pAlunos, 'p-corr': pCorr, 'p-criar': pCriar };
+  const V = { hoje: vHoje, jornada: vJornada, missoes: vMissoes, treino: vTreino, semana: vSemana, aulas: vAulas, progresso: vProgresso, 'p-geral': pGeral, 'p-alunos': pAlunos, 'p-corr': pCorr, 'p-aulas': pAulas, 'p-criar': pCriar };
   $('#main').innerHTML = `<div class="vista">${V[E.vista]()}</div>`;
   (POS[E.vista] || (() => {}))();
 }
@@ -1089,7 +1113,8 @@ function stats() {
   const p = Math.min(1, E.xpHoje / E.meta);
   $('#stats').innerHTML = `<span class="stat fogo" title="Dias seguidos">${ic('i-fogo')}<span class="num">${E.seq}</span><span class="rot-l">dias</span></span>
     <span class="stat xp" title="XP total">${ic('i-raio')}<span class="num">${E.xp}</span><span class="rot-l">XP</span></span>
-    <span class="stat" title="Meta de hoje"><svg class="anel" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#EEE9DD" stroke-width="5"/><circle cx="18" cy="18" r="14" fill="none" stroke="url(#grad-anel)" stroke-width="5" stroke-linecap="round" stroke-dasharray="${88 * p} 88" transform="rotate(-90 18 18)"/></svg><span class="num">${E.xpHoje}/${E.meta}</span></span>`;
+    <span class="stat" title="Meta de hoje"><svg class="anel" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#EEE9DD" stroke-width="5"/><circle cx="18" cy="18" r="14" fill="none" stroke="url(#grad-anel)" stroke-width="5" stroke-linecap="round" stroke-dasharray="${88 * p} 88" transform="rotate(-90 18 18)"/></svg><span class="num">${E.xpHoje}/${E.meta}</span></span><button type="button" class="stat conta-b" id="b-conta" aria-label="Contas. Aluno atual: ${esc(nomeAluno())}">${esc(inicial())}</button>`;
+  $('#b-conta').onclick = abreContas;
 }
 
 /* ================== CARTAZES DOS DESTINOS ================== */
@@ -1122,21 +1147,22 @@ const travado = u => !!u.trava && !uDone('u1');
 const unidadeAtual = () => UNIDADES.find(u => !uDone(u.id) && !travado(u)) || UNIDADES.find(u => !uDone(u.id)) || UNIDADES[UNIDADES.length - 1];
 function proximaParada() { for (const u of UNIDADES) { if (travado(u)) continue; for (const p of u.paradas) if (!E.feito[p.id] && !E.bau[p.id]) return { u, p }; } return null; }
 function uDone(uid) { const u = UNIDADES.find(x => x.id === uid); return u.paradas.every(p => E.feito[p.id] || E.bau[p.id]); }
-function contagemH() { const ms = AULA - AGORA; const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4); return [[d, 'dias'], [h, 'horas'], [m, 'min']].map(([n, t]) => `<div><b>${String(n).padStart(2, '0')}</b><small>${t}</small></div>`).join(''); }
+function contagemH() { const ms = Math.max(0, dataAula(AULAS.prox) - AGORA); const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4); return [[d, 'dias'], [h, 'horas'], [m, 'min']].map(([n, t]) => `<div><b>${String(n).padStart(2, '0')}</b><small>${t}</small></div>`).join(''); }
 function vHoje() {
   const pr = proximaParada(); const Lc = pr && !pr.p.bau ? LICOES[pr.p.id] : null; const pronta = !!(Lc && Lc.passos.length); const C = 2 * Math.PI * 46; const p = Math.min(1, E.xpHoje / E.meta);
   const u = pr ? pr.u : unidadeAtual(), k = UNIDADES.indexOf(u), de = k ? UNIDADES[k - 1] : PARTIDA, n = pr ? u.paradas.indexOf(pr.p) + 1 : u.paradas.length;
   const tit = !pr ? 'Jornada em dia' : pr.p.bau ? 'Baú de recompensa' : Lc.titulo;
   const sub = !pr ? 'Você concluiu as paradas abertas. Siga no treino.' : pr.p.bau ? 'Recompensa · abra no mapa da jornada' : pronta ? `${Lc.tipo} · ${u.titulo}` : 'O professor ainda está preparando esta parada';
   const acao = pronta ? 'Embarcar' : pr && pr.p.bau ? 'Abrir no mapa' : 'Ir para o treino';
-  return `<div class="cab"><span class="olho">Quarta-feira, 14 de outubro</span><h1>Good afternoon, <em>Líbero.</em></h1><p>Uma missão curta por dia vale mais que uma maratona no fim de semana.</p></div>
+  return `<div class="cab"><span class="olho">Quarta-feira, 14 de outubro</span><h1>Good afternoon, <em>${esc(primeiroNome())}.</em></h1><p>Uma missão curta por dia vale mais que uma maratona no fim de semana.</p></div>
+  ${E.nivelado ? '' : `<section class="niv-banner"><div><span class="olho">Antes de embarcar</span><h3>Descubra o seu nível em 3 minutos</h3><p>Doze perguntas rápidas definem por onde começar, o seu objetivo e a sua meta diária.</p></div><button class="btn ouro" type="button" data-nivel>Fazer o teste</button></section>`}
   <div class="grade g-hoje">
     <section class="bilhete" aria-label="Missão de agora">
       <div class="bilhete-arte">${cena(u.cena)}<span class="cia">Cartão de embarque · missão de agora</span></div>
       <div class="bilhete-corpo">
         <div class="bil-rota"><div><small>De</small><b>${de.cod}</b><span>${de.cidade}</span></div><span class="linha-voo">${ic('i-aviao')}</span><div style="text-align:right"><small>Para</small><b>${u.cod}</b><span>${u.cidade}</span></div></div>
         <div><span class="olho">${esc(sub)}</span><h2 style="margin-top:4px">${esc(tit)}</h2></div>
-        <dl class="bil-dados"><div><dt>Passageiro</dt><dd>Líbero Filho</dd></div><div><dt>Parada</dt><dd>${n} de ${u.paradas.length}</dd></div><div><dt>Nível</dt><dd>${u.nivel}</dd></div><div><dt>Duração</dt><dd>${pronta ? Lc.min + ' min' : pr && pr.p.bau ? '1 min' : '—'}</dd></div><div><dt>Bagagem</dt><dd>${pronta ? `+${E.feito[pr.p.id] ? Math.round(Lc.xp / 2) : Lc.xp} XP` : pr && pr.p.bau ? '+15 XP' : '—'}</dd></div></dl>
+        <dl class="bil-dados"><div><dt>Passageiro</dt><dd>${esc(nomeAluno())}</dd></div><div><dt>Parada</dt><dd>${n} de ${u.paradas.length}</dd></div><div><dt>Nível</dt><dd>${u.nivel}</dd></div><div><dt>Duração</dt><dd>${pronta ? Lc.min + ' min' : pr && pr.p.bau ? '1 min' : '—'}</dd></div><div><dt>Bagagem</dt><dd>${pronta ? `+${E.feito[pr.p.id] ? Math.round(Lc.xp / 2) : Lc.xp} XP` : pr && pr.p.bau ? '+15 XP' : '—'}</dd></div></dl>
       </div>
       <div class="bilhete-canhoto">${barras(pr ? pr.p.id : 'treino')}<span class="mono">EJ ${k + 1}0${n} · ${u.cod}</span><button class="btn prim" type="button" id="bt-missao">${acao} →</button></div>
     </section>
@@ -1149,7 +1175,7 @@ function vHoje() {
   <div class="grade g3">
     <section class="cartao" style="display:grid;gap:14px;align-content:start"><span class="olho">Recado da semana</span><div class="recado"><img src="${FOTO}" alt="Teacher Anderson" width="56" height="56"><p class="balao-recado">“Não tente estudar tudo hoje. Faça bem a missão de agora e volte amanhã.”</p></div><small class="mudo">Teacher Anderson</small></section>
     <button class="palavra-dia" type="button" id="palavra-dia" aria-label="Palavra do dia: booking. Toque para ver a tradução"><span class="gira"><span class="face f1"><span class="selo-postal">${ic('g-liberty')}</span><span class="olho">Palavra do dia</span><span><strong>booking</strong><span class="mono" style="font-size:15px">toque para virar</span></span></span><span class="face f2"><span class="olho" style="color:var(--gold)">Significa</span><strong>reserva</strong><span style="font-family:var(--serif);font-style:italic;font-size:14.5px;color:#C6D3EA">“The clerk checked the booking number again.”</span></span></span></button>
-    <section class="cartao" style="display:grid;gap:10px;align-content:start"><span class="olho" style="color:var(--navy-3)">Próxima aula ao vivo</span><h3>Conversation practice</h3><p class="mudo" style="font-size:13.5px">Sexta, 16 de outubro · 19h · 50 min</p><div class="contagem">${contagemH()}</div><button class="btn linha peq" type="button" data-ir="aulas" style="justify-self:start">Preparar a aula</button></section>
+    <section class="cartao" style="display:grid;gap:10px;align-content:start"><span class="olho" style="color:var(--navy-3)">Próxima aula ao vivo</span><h3>${esc(AULAS.prox.titulo)}</h3><p class="mudo" style="font-size:13.5px">${fmtAula(AULAS.prox)}</p><div class="contagem">${contagemH()}</div><button class="btn linha peq" type="button" data-ir="aulas" style="justify-self:start">Preparar a aula</button></section>
   </div>`;
 }
 POS.hoje = () => {
@@ -1196,13 +1222,13 @@ function passaporteH() {
   const nv = nivelDe(E.xp); const pc = nv.prox ? (E.xp - NIVEIS[nv.i][0]) / (nv.prox[0] - NIVEIS[nv.i][0]) * 100 : 100;
   const paradas = UNIDADES.reduce((a, u) => a + u.paradas.filter(p => E.feito[p.id] || E.bau[p.id]).length, 0);
   const tem = CARIMBOS.filter(c => E.carimbos.includes(c.id));
-  return `<section class="passaporte" aria-label="Passaporte do Líbero">
+  return `<section class="passaporte" aria-label="Passaporte do aluno">
     <div class="capa-p"><span>Passaporte · Passport</span><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.400"><circle cx="12" cy="12" r="9.500"/><path d="M2.500 12h19M12 2.500c-4 4.500-4 14.500 0 19M12 2.500c4 4.500 4 14.500 0 19M4.500 7h15M4.500 17h15"/></g></svg></div>
-    <div class="dados"><span class="foto-p" aria-hidden="true">L</span><dl><div><dt>Nome / Name</dt><dd>Líbero Filho</dd></div><div><dt>Nível / Level</dt><dd>${nv.i + 1} · ${nv.nome}</dd></div><div><dt>Rota / Route</dt><dd>RIO › ${UNIDADES.map(u => u.cod).join(' › ')}</dd></div></dl></div>
+    <div class="dados"><span class="foto-p" aria-hidden="true">${esc(inicial())}</span><dl><div><dt>Nome / Name</dt><dd>${esc(nomeAluno())}</dd></div><div><dt>Nível / Level</dt><dd>${nv.i + 1} · ${nv.nome}</dd></div><div><dt>Rota / Route</dt><dd>RIO › ${UNIDADES.map(u => u.cod).join(' › ')}</dd></div></dl></div>
     <div class="nivel-p"><div class="mini mono" style="font-size:11.5px;white-space:nowrap;flex-wrap:wrap;gap:2px 10px"><span class="num">${E.xp} XP</span><span>${nv.prox ? `faltam ${nv.prox[0] - E.xp} para ${nv.prox[1]}` : 'nível máximo'}</span></div><div class="barra-p"><i style="width:${pc}%"></i></div></div>
     <div class="linha-p"><div><b>${E.seq}</b><span>dias seguidos</span></div><div><b>${tem.length}</b><span>carimbos</span></div><div><b>${paradas}</b><span>paradas</span></div></div>
     <div class="mini-carimbos">${tem.map((c, i) => `<span title="${esc(c.lugar)} · ${esc(c.t)}" style="transform:rotate(${[-7, 5, -3, 8, -9, 4, -5, 7][i % 8]}deg)">${carimboSVG(c)}</span>`).join('')}</div>
-    <div class="mrz" aria-hidden="true">P&lt;BRAFILHO&lt;&lt;LIBERO&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>EJ2026${String(E.xp).padStart(4, '0')}&lt;RIO&lt;NYC&lt;SFO&lt;BOS&lt;&lt;&lt;&lt;&lt;&lt;</div></section>`;
+    <div class="mrz" aria-hidden="true">P&lt;BRA${mrzNome()}&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>EJ2026${String(E.xp).padStart(4, '0')}&lt;RIO&lt;NYC&lt;SFO&lt;BOS&lt;&lt;&lt;&lt;&lt;&lt;</div></section>`;
 }
 /* mapa da rota: coordenadas das cidades na mesma projeção de img/rota.webp (arte/rota.mjs) */
 const CID = { rio: [1208.5, 843], nyc: [866.6, 136.5], sf: [329.4, 168.7], boston: [899.2, 118.1] };
@@ -1236,7 +1262,7 @@ function destinoH(u, k) {
   const paradas = u.paradas.map((p, i) => {
     const st = estadoParada(u, i); const Lc = LICOES[p.id]; const coroas = Math.min(3, E.feito[p.id] || 0);
     const nome = p.bau ? 'Baú' : Lc.titulo.length > 30 ? Lc.titulo.slice(0, 28) + '…' : Lc.titulo;
-    return `<div class="parada" style="--x:${p.x};--y:${p.y}">${st === 'atual' && !tr ? `<div class="pino">${PINO}<span class="fala-p">Você está aqui</span></div>` : ''}
+    return `<div class="parada" style="--x:${p.x};--y:${p.y}">${st === 'atual' && !tr ? `<div class="pino">${PINO.replace('>L</text>', '>' + esc(inicial()) + '</text>')}<span class="fala-p">Você está aqui</span></div>` : ''}
       <button type="button" class="moeda ${st} ${p.bau ? 'bau' : ''} ${p.check ? 'check' : ''}" data-p="${p.id}" data-u="${u.id}" ${st === 'trancado' ? 'disabled' : ''} aria-label="${p.bau ? 'Baú de recompensa' : esc(Lc.titulo)}${st === 'feito' ? ' (concluída)' : st === 'trancado' ? ' (bloqueada)' : ''}"><span class="face">${p.bau ? '<svg viewBox="0 0 48 48" aria-hidden="true"><use href="#b-bau"/></svg>' : ic(st === 'trancado' ? 'i-cadeado' : p.ic)}</span>${!p.bau && st === 'feito' ? `<span class="coroas-m">${[0, 1, 2].map(j => ic('i-coroa', `class="${j < coroas ? 'on' : ''}"`)).join('')}</span>` : ''}</button>
       <span class="rot ${st === 'trancado' ? 'tr' : ''}">${esc(nome)}</span></div>`;
   }).join('');
@@ -1597,19 +1623,136 @@ POS.semana = () => {
 };
 
 /* ================== AULAS ================== */
+/* ================== CONTAS (neste aparelho) ================== */
+function trocaConta(id) { salva(); CONTAS.atual = id; salvaContas(); E = carregaE(id); ajustaDia(); fila = []; fechaFolha(); salva(); render(); scrollTo(0, 0); }
+function abreContas() {
+  const linhas = CONTAS.lista.map(c => { const s = c.id === CONTAS.atual ? E : carregaE(c.id); const at = c.id === CONTAS.atual;
+    return `<div class="conta-l ${at ? 'atual' : ''}"><span class="avatar" style="--c:${at ? 'var(--red)' : 'var(--navy-3)'}">${esc(c.nome[0].toUpperCase())}</span><div><b>${esc(c.nome)}</b><small>${c.email ? esc(c.email) + ' · ' : ''}${s.xp} XP · nível ${s.nivelTeste || 'a definir'}</small></div>${at ? '<span class="etq ok">em uso</span>' : `<button class="btn linha peq" type="button" data-conta="${c.id}">Entrar</button>`}</div>`; }).join('');
+  $('#folha').innerHTML = `<div class="folha" id="folha-fundo"><div class="folha-c" role="dialog" aria-modal="true" aria-label="Contas" style="--c:var(--navy)"><div class="folha-capa">${ic('i-pessoas', 'class="fundo-ic"')}<div class="mini"><span class="etq" style="background:#ffffff2b;color:#fff">Contas de aluno</span><button class="fechar" type="button" id="folha-x" aria-label="Fechar" style="color:#fff">${ic('i-x')}</button></div><h2>Quem está estudando?</h2><p>Cada aluno tem o seu progresso, o seu nível e os seus carimbos.</p></div>
+    <div class="aula"><section>${linhas}</section>
+      <form id="f-conta" class="nova-conta" novalidate><span class="olho">Criar conta de aluno</span><label class="campo">Nome<input id="nc-nome" autocomplete="name" maxlength="40"></label><label class="campo">E-mail (opcional)<input id="nc-email" type="email" autocomplete="email" maxlength="80"></label><p class="erro-f" id="nc-erro" hidden></p><button class="btn ouro" type="submit">Criar e fazer o teste de nível</button></form>
+      <section style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn linha peq" type="button" data-nivel>Refazer teste de nivelamento</button></section>
+      <p class="mudo" style="font-size:12.5px">Nesta versão as contas ficam guardadas neste aparelho, sem senha. O login com senha e o progresso na nuvem entram quando a plataforma for hospedada.</p></div></div></div>`;
+  $('#folha-x').onclick = fechaFolha; $('#folha-fundo').onclick = e => { if (e.target.id === 'folha-fundo') fechaFolha(); }; $('#folha')._dono = document.activeElement; $('#folha-x').focus({ preventScroll: true });
+  $$('#folha [data-conta]').forEach(b => b.onclick = () => { trocaConta(b.dataset.conta); toast(`Olá, ${primeiroNome()}!`); });
+  $('#f-conta').onsubmit = e => { e.preventDefault(); const nome = $('#nc-nome').value.trim().replace(/\s+/g, ' '), email = $('#nc-email').value.trim(); const er = $('#nc-erro');
+    const msg = nome.length < 2 ? 'Escreva o nome do aluno.' : email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? 'Confira o e-mail: parece incompleto.' : CONTAS.lista.some(c => c.nome.toLowerCase() === nome.toLowerCase()) ? 'Já existe uma conta com esse nome.' : '';
+    if (msg) { er.hidden = false; er.textContent = msg; return; }
+    const id = 'a' + Date.now().toString(36); CONTAS.lista.push({ id, nome, email }); trocaConta(id); E.modo = 'aluno'; E.vista = 'hoje'; salva(); render(); abreNivel(); };
+}
+function alunosReais() {
+  return CONTAS.lista.map(c => { const s = c.id === CONTAS.atual ? E : carregaE(c.id); const h = s.hist || []; const media = h.length ? Math.round(h.reduce((a, x) => a + x.p, 0) / h.length) : (c.demo ? 82 : 0);
+    return { id: c.id, real: true, n: c.nome, i: c.nome[0].toUpperCase(), c: '#D7263D', nivel: `${s.nivelTeste || 'Nível a definir'}${s.objetivo ? ' · ' + s.objetivo : ''}`, xp: s.xp, seq: s.seq, media, sinal: s.xp ? 'Em ritmo' : 'Ainda não começou', alerta: false, s: s.xpSemana || [0] }; });
+}
+const todosAlunos = () => [...alunosReais(), ...ALUNOS.slice(1)];
+
+/* ================== TESTE DE NIVELAMENTO ================== */
+const NIV_Q = [
+  { q: 'I ___ from Brazil.', ops: ['am', 'is', 'are'], a: 0, n: 'A1', f: 'tobe' },
+  { q: 'She ___ in a bank.', ops: ['work', 'works', 'working'], a: 1, n: 'A1', f: 'presente' },
+  { q: '___ do you live?', ops: ['Who', 'Where', 'When'], a: 1, n: 'A1', f: 'perguntas' },
+  { q: 'There ___ two hotels near here.', ops: ['is', 'are', 'have'], a: 1, n: 'A1', f: 'there' },
+  { q: 'The class starts ___ seven thirty.', ops: ['in', 'on', 'at'], a: 2, n: 'A1', f: 'horas' },
+  { q: 'Yesterday we ___ a movie.', ops: ['watch', 'watched', 'watching'], a: 1, n: 'A2', f: 'passado' },
+  { q: 'Last week I ___ to New York.', ops: ['goed', 'went', 'gone'], a: 1, n: 'A2', f: 'irregulares' },
+  { q: 'Did she ___ you?', ops: ['call', 'called', 'calls'], a: 0, n: 'A2', f: 'passado' },
+  { q: 'I think it ___ rain tomorrow.', ops: ['will', 'is', 'does'], a: 0, n: 'A2', f: 'will' },
+  { q: 'If I had more time, I ___ travel more.', ops: ['will', 'would', 'did'], a: 1, n: 'B1', f: null },
+  { q: 'I have lived here ___ 2019.', ops: ['for', 'since', 'from'], a: 1, n: 'B1', f: null },
+  { q: 'This is the hotel ___ we stayed last year.', ops: ['which', 'where', 'who'], a: 1, n: 'B1', f: null },
+];
+const NIV_OBJ = [['Viagens', 'Viajar sem aperto', 'i-aviao'], ['Trabalho', 'Usar no trabalho', 'i-pasta'], ['Estudos', 'Estudar ou fazer prova', 'i-livro'], ['Conversação', 'Conversar no dia a dia', 'i-fala']];
+const NIV_META = [[10, 'Leve', '5 min por dia'], [20, 'Regular', '10 min por dia'], [30, 'Firme', '15 min por dia'], [50, 'Intenso', '25 min por dia']];
+let NV = null;
+function abreNivel() { NV = { passo: 0, obj: E.objetivo || null, meta: E.meta || 30, resp: [] }; $('#folha')._dono = document.activeElement; nivRender(); }
+function nivRender() {
+  const total = NIV_Q.length + 2, i = NV.passo - 2; let corpo = '';
+  if (NV.passo === 0) corpo = `<span class="olho">Passo 1 · seu objetivo</span><h3>Para que você quer o inglês?</h3><div class="opcoes">${NIV_OBJ.map(([k, t, icn]) => `<button type="button" class="opc" data-obj="${k}" aria-pressed="${NV.obj === k}">${ic(icn, 'width="24" height="24" style="flex:none"')}${t}</button>`).join('')}</div>`;
+  else if (NV.passo === 1) corpo = `<span class="olho">Passo 2 · seu ritmo</span><h3>Quanto você quer estudar por dia?</h3><div class="opcoes">${NIV_META.map(([v, t, d]) => `<button type="button" class="opc" data-meta="${v}" aria-pressed="${NV.meta === v}"><kbd>${v}</kbd><span><b>${t}</b><br><small class="mudo">${d} · meta de ${v} XP</small></span></button>`).join('')}</div>`;
+  else if (i < NIV_Q.length) { const Q = NIV_Q[i]; corpo = `<span class="olho">Pergunta ${i + 1} de ${NIV_Q.length}</span><h3>Complete a frase:</h3><p class="frase-lacuna">${esc(Q.q)}</p><div class="opcoes">${Q.ops.map((o, j) => `<button type="button" class="opc" data-r="${j}"><kbd>${j + 1}</kbd>${esc(o)}</button>`).join('')}<button type="button" class="opc" data-r="-1" style="color:var(--muted)"><kbd>?</kbd>Não sei</button></div><p class="mudo" style="font-size:13px">Sem problema errar: o teste serve para achar o seu ponto de partida.</p>`; }
+  else corpo = nivResultado();
+  const pc = Math.min(100, NV.passo / total * 100);
+  $('#folha').innerHTML = `<div class="folha" id="folha-fundo"><div class="folha-c" role="dialog" aria-modal="true" aria-label="Teste de nivelamento" style="--c:var(--navy)"><div class="folha-capa">${ic('i-bandeira', 'class="fundo-ic"')}<div class="mini"><span class="etq" style="background:#ffffff2b;color:#fff">Teste de nivelamento · 3 min</span><button class="fechar" type="button" id="folha-x" aria-label="Fechar" style="color:#fff">${ic('i-x')}</button></div><h2>${NV.passo >= total ? 'Seu ponto de partida' : 'Vamos achar o seu nível'}</h2><div class="barra-p" style="background:#ffffff2b"><i style="width:${pc}%;background:var(--gold)"></i></div></div><div class="aula">${corpo}</div></div></div>`;
+  $('#folha-x').onclick = fechaFolha; $('#folha-x').focus({ preventScroll: true });
+  $$('#folha [data-obj]').forEach(b => b.onclick = () => { NV.obj = b.dataset.obj; NV.passo = 1; nivRender(); });
+  $$('#folha [data-meta]').forEach(b => b.onclick = () => { NV.meta = +b.dataset.meta; NV.passo = 2; nivRender(); });
+  $$('#folha [data-r]').forEach(b => b.onclick = () => { NV.resp.push(+b.dataset.r); NV.passo++; nivRender(); });
+  $$('#folha [data-fund]').forEach(b => b.onclick = () => abreFund(b.dataset.fund));
+  $('#niv-fim')?.addEventListener('click', () => { fechaFolha(); render(); });
+}
+function nivResultado() {
+  const ac = { A1: 0, A2: 0, B1: 0 }, tot = { A1: 0, A2: 0, B1: 0 }, fracos = [];
+  NIV_Q.forEach((Q, k) => { tot[Q.n]++; const ok = NV.resp[k] === Q.a; if (ok) ac[Q.n]++; else if (Q.f && !fracos.includes(Q.f)) fracos.push(Q.f);
+    const tag = Q.f && (LIC_HAB['f-' + Q.f] || [])[0]; if (tag) { const h = HABS.find(x => x.id === tag); E.hab = E.hab || {}; E.hab[tag] = ok ? Math.max(valorHab(h), 75) : Math.min(valorHab(h), 50); } });
+  const nivel = ac.A1 < 4 ? 'A1' : ac.A2 < 3 ? 'A2' : 'B1';
+  const frase = { A1: 'Você está começando. Vamos firmar a base antes de viajar.', A2: 'Você já tem a base. Agora é ganhar segurança no passado e no futuro.', B1: 'Sua base está firme. Dá para focar em leitura, escuta e conversa.' }[nivel];
+  const primeira = !E.nivelado; E.nivelTeste = nivel; E.objetivo = NV.obj; E.meta = NV.meta; E.nivelado = true; if (primeira) ganha(15); salva(); stats();
+  const comeco = fracos.slice(0, 3).map(id => FUND.find(f => f.id === id)).filter(Boolean);
+  return `<div class="niv-res"><span class="niv-selo">${nivel}</span><div><span class="olho">Seu nível</span><h3>${{ A1: 'Iniciante', A2: 'Básico', B1: 'Intermediário' }[nivel]}</h3><p>${frase}</p></div></div>
+    <div class="habil">${['A1', 'A2', 'B1'].map(n => `<div><span>Perguntas ${n}</span><div class="barra-p"><i style="width:${ac[n] / tot[n] * 100}%;background:var(--navy-3)"></i></div><b class="num">${ac[n]}/${tot[n]}</b></div>`).join('')}</div>
+    <p class="mudo" style="font-size:14px">Objetivo: <b style="color:var(--ink)">${esc(NV.obj)}</b> · meta diária: <b style="color:var(--ink)">${NV.meta} XP</b>${primeira ? ' · você ganhou +15 XP pelo teste' : ''}</p>
+    ${comeco.length ? `<section><span class="olho">Comece por aqui</span><div class="exemplos">${comeco.map(f => `<button type="button" class="ex-l" data-fund="${f.id}" style="--c:${f.c}">${ic(f.ic)}<span><b>${f.nome}</b><small>${f.resumo}</small></span></button>`).join('')}</div></section>` : '<p>Você acertou toda a base. Siga pela jornada e pelas trilhas de escuta.</p>'}
+    <button class="btn ouro" type="button" id="niv-fim">Começar a estudar</button>`;
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-nivel]')) abreNivel(); });
+
+/* ================== AULAS AO VIVO ================== */
 const PREP = ['Revisar o vocabulário do hotel', 'Separar duas dúvidas para a aula', 'Testar áudio e câmera 5 minutos antes'];
+const AULAS0 = () => ({ prox: { id: 'a-1016', titulo: 'Conversation practice', desc: 'Revisão do simple past e prática de situações de viagem.', data: '2026-10-16T19:00', dur: 50, meta: 'Simple past', link: '' },
+  ant: [{ id: 'a-1009', titulo: 'Daily routines', data: '2026-10-09T19:00', dur: 48, tema: 'Rotina e advérbios de frequência', grav: '' }, { id: 'a-1002', titulo: 'First conversation', data: '2026-10-02T19:00', dur: 50, tema: 'Apresentação pessoal e objetivos', grav: '' }] });
+let AULAS; try { AULAS = Object.assign(AULAS0(), JSON.parse(localStorage.getItem('ej-aulas') || 'null') || {}); } catch { AULAS = AULAS0(); }
+const salvaAulas = () => { try { localStorage.setItem('ej-aulas', JSON.stringify(AULAS)); } catch {} };
+const linkOk = u => /^https:\/\/[^\s"'<>]+$/.test(u || '');
+const dataAula = a => { const d = new Date(a.data); return isNaN(d) ? new Date(AGORA) : d; };
+const fmtAula = a => { const d = dataAula(a); const s = d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' }); const h = d.getMinutes() ? `${d.getHours()}h${String(d.getMinutes()).padStart(2, '0')}` : `${d.getHours()}h`; return `${s.charAt(0).toUpperCase() + s.slice(1)} · ${h} · ${a.dur} min`; };
+function linkAgenda(a) { const d = dataAula(a), f = new Date(d.getTime() + a.dur * 6e4); const z = x => `${x.getFullYear()}${String(x.getMonth() + 1).padStart(2, '0')}${String(x.getDate()).padStart(2, '0')}T${String(x.getHours()).padStart(2, '0')}${String(x.getMinutes()).padStart(2, '0')}00`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('English Journey · ' + a.titulo)}&dates=${z(d)}/${z(f)}&details=${encodeURIComponent(a.desc || '')}${linkOk(a.link) ? '&location=' + encodeURIComponent(a.link) : ''}`; }
 function vAulas() {
-  return `<div class="cab"><span class="olho">Acompanhamento individual</span><h1>Aulas <em>ao vivo</em></h1><p>Prepare-se antes, aproveite durante e reveja depois.</p></div>
+  const a = AULAS.prox; const pres = E.presencas || {};
+  return `<div class="cab"><span class="olho">Acompanhamento individual</span><h1>Aulas <em>ao vivo</em></h1><p>Prepare-se antes, entre pelo link na hora e reveja depois.</p></div>
   <div class="grade g2">
-    <section class="missao" style="align-content:start"><span class="olho" style="color:var(--gold)">Próxima aula · sexta, 16 de outubro</span><h2>Conversation practice</h2><p>Revisão do simple past e prática de situações de viagem.</p><div class="contagem" style="max-width:300px">${contagemH().replaceAll('<div>', '<div style="background:#ffffff14">')}</div><div class="infos"><span><b>19h</b>horário</span><span><b>50 min</b>duração</span><span><b>Simple past</b>meta da aula</span></div><div><button class="btn branco" type="button" disabled style="opacity:.75">O link do Meet aparece 15 min antes</button></div></section>
+    <section class="missao" style="align-content:start"><span class="olho" style="color:var(--gold)">Próxima aula · ${fmtAula(a)}</span><h2>${esc(a.titulo)}</h2><p>${esc(a.desc)}</p><div class="contagem" style="max-width:300px">${contagemH().replaceAll('<div>', '<div style="background:#ffffff14">')}</div><div class="infos"><span><b>${a.dur} min</b>duração</span><span><b>${esc(a.meta)}</b>meta da aula</span><span><b>${pres[a.id] ? 'Registrada' : 'Ao entrar'}</b>presença</span></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">${linkOk(a.link) ? `<a class="btn ouro" href="${esc(a.link)}" target="_blank" rel="noopener" id="entrar-aula">Entrar na aula →</a>` : '<button class="btn branco" type="button" disabled style="opacity:.75">O professor ainda não publicou o link</button>'}<a class="btn branco" href="${esc(linkAgenda(a))}" target="_blank" rel="noopener">Pôr na agenda</a></div></section>
     <section class="cartao" style="display:grid;gap:12px;align-content:start"><span class="olho" style="color:var(--navy-3)">Antes da aula</span><h3>Checklist de preparação</h3>${PREP.map((t, i) => `<div class="tarefa-c ${E.prep[i] ? 'feita' : ''}" style="--c:var(--navy-3);grid-template-columns:1fr auto"><div><b>${t}</b></div><button type="button" class="chk-g" data-prep="${i}" aria-pressed="${!!E.prep[i]}" aria-label="Marcar">${E.prep[i] ? ic('i-ok') : ''}</button></div>`).join('')}</section>
   </div>
-  <section class="cartao" style="display:grid;gap:12px"><h3>Aulas anteriores</h3>${[['Daily routines', '9 de outubro · 48 min', 'Rotina e advérbios de frequência'], ['First conversation', '2 de outubro · 50 min', 'Apresentação pessoal e objetivos']].map(([t, d, m]) => `<div class="mini" style="padding:12px 0;border-top:1px solid var(--line-2);flex-wrap:wrap"><div><b>${t}</b><p class="mudo" style="font-size:13.5px">${d} · ${m}</p></div><button class="btn linha peq" type="button" data-grav>Ver gravação</button></div>`).join('')}</section>`;
+  <section class="cartao" style="display:grid;gap:12px"><div class="mini"><h3>Aulas anteriores</h3><span class="etq">${AULAS.ant.filter(x => pres[x.id]).length} de ${AULAS.ant.length} presenças</span></div>${AULAS.ant.length ? AULAS.ant.map(x => `<div class="mini" style="padding:12px 0;border-top:1px solid var(--line-2);flex-wrap:wrap"><div><b>${esc(x.titulo)}</b> <span class="etq ${pres[x.id] ? 'ok' : ''}">${pres[x.id] ? 'Presente' : 'Sem registro'}</span><p class="mudo" style="font-size:13.5px">${fmtAula(x)}${x.tema ? ' · ' + esc(x.tema) : ''}</p></div>${linkOk(x.grav) ? `<a class="btn linha peq" href="${esc(x.grav)}" target="_blank" rel="noopener">Ver gravação</a>` : '<span class="mudo" style="font-size:13px">Gravação ainda não publicada</span>'}</div>`).join('') : '<p class="mudo">Nenhuma aula anterior ainda.</p>'}</section>`;
 }
 POS.aulas = () => {
-  $$('[data-prep]').forEach(b => b.onclick = () => { E.prep[b.dataset.prep] = !E.prep[b.dataset.prep]; salva(); render(); if (Object.values(E.prep).filter(Boolean).length === 3) toast('Tudo pronto para sexta!'); });
-  $$('[data-grav]').forEach(b => b.onclick = () => toast('As gravações abrem na plataforma de vídeo do professor.'));
+  $$('[data-prep]').forEach(b => b.onclick = () => { E.prep[b.dataset.prep] = !E.prep[b.dataset.prep]; salva(); render(); if (Object.values(E.prep).filter(Boolean).length === 3) toast('Tudo pronto para a aula!'); });
+  $('#entrar-aula')?.addEventListener('click', () => { E.presencas = E.presencas || {}; if (E.presencas[AULAS.prox.id]) return; E.presencas[AULAS.prox.id] = 1; const c = ganhaCarimbo('aula'); salva(); toast(c ? `Presença registrada e carimbo de ${c.lugar} no passaporte!` : 'Presença registrada.'); setTimeout(render, 600); });
 };
+function pAulas() {
+  const a = AULAS.prox; const presentes = id => CONTAS.lista.filter(c => ((c.id === CONTAS.atual ? E : carregaE(c.id)).presencas || {})[id]).map(c => c.nome);
+  return `<div class="cab"><span class="olho">Agenda</span><h1>Aulas ao vivo</h1><p>Publique o link da próxima aula, registre as gravações e veja quem entrou.</p></div>
+  <div class="grade g2" style="align-items:start">
+    <form class="cartao" id="f-aula" style="display:grid;gap:14px" novalidate><h3>Próxima aula</h3>
+      <label class="campo">Título<input id="au-titulo" value="${esc(a.titulo)}" maxlength="60"></label>
+      <label class="campo">O que vamos fazer<textarea id="au-desc" maxlength="200">${esc(a.desc)}</textarea></label>
+      <div class="grade g2"><label class="campo">Data e hora<input id="au-data" type="datetime-local" value="${esc(a.data)}"></label><label class="campo">Duração (min)<input id="au-dur" type="number" min="10" max="180" value="${a.dur}"></label></div>
+      <label class="campo">Meta da aula<input id="au-meta" value="${esc(a.meta)}" maxlength="40"></label>
+      <label class="campo">Link da aula (Google Meet, Zoom…)<input id="au-link" type="url" inputmode="url" placeholder="https://meet.google.com/…" value="${esc(a.link)}"></label>
+      <p class="erro-f" id="au-erro" hidden></p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn azul" type="submit">Salvar e publicar</button><button class="btn linha" type="button" id="au-encerrar">Encerrar esta aula</button></div>
+      <p class="mudo" style="font-size:13px">Entraram nesta aula: <b style="color:var(--ink)">${presentes(a.id).map(esc).join(', ') || 'ninguém ainda'}</b></p></form>
+    <section class="cartao" style="display:grid;gap:14px"><h3>Aulas anteriores e gravações</h3>${AULAS.ant.length ? AULAS.ant.map((x, i) => `<div style="display:grid;gap:8px;padding-top:12px;border-top:1px solid var(--line-2)"><div><b>${esc(x.titulo)}</b><p class="mudo" style="font-size:13px">${fmtAula(x)} · presentes: ${presentes(x.id).map(esc).join(', ') || 'sem registro'}</p></div><div style="display:flex;gap:8px"><input class="grav-in" data-grav-i="${i}" type="url" placeholder="Link da gravação (https://…)" value="${esc(x.grav)}" aria-label="Link da gravação de ${esc(x.titulo)}"><button class="btn linha peq" type="button" data-grav-s="${i}">Salvar</button></div></div>`).join('') : '<p class="mudo">Nenhuma aula encerrada ainda.</p>'}</section>
+  </div>`;
+}
+POS['p-aulas'] = () => {
+  const le = () => { const v = { titulo: $('#au-titulo').value.trim(), desc: $('#au-desc').value.trim(), data: $('#au-data').value, dur: +$('#au-dur').value, meta: $('#au-meta').value.trim(), link: $('#au-link').value.trim() };
+    const msg = !v.titulo ? 'Dê um título para a aula.' : !v.data || isNaN(new Date(v.data)) ? 'Escolha a data e a hora.' : !(v.dur >= 10 && v.dur <= 180) ? 'A duração deve ficar entre 10 e 180 minutos.' : v.link && !linkOk(v.link) ? 'O link precisa começar com https://' : '';
+    const er = $('#au-erro'); er.hidden = !msg; er.textContent = msg; return msg ? null : v; };
+  $('#f-aula').onsubmit = e => { e.preventDefault(); const v = le(); if (!v) return; Object.assign(AULAS.prox, v); salvaAulas(); render(); toast(v.link ? 'Aula publicada: o aluno já vê o botão de entrar.' : 'Aula salva. Falta o link para o aluno entrar.'); };
+  $('#au-encerrar').onclick = () => { const v = le(); if (!v) return; Object.assign(AULAS.prox, v); const f = AULAS.prox; AULAS.ant.unshift({ id: f.id, titulo: f.titulo, data: f.data, dur: f.dur, tema: f.meta, grav: '' });
+    const d = new Date(dataAula(f).getTime() + 7 * 864e5); const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}T${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    AULAS.prox = { id: 'a-' + Date.now().toString(36), titulo: 'Próxima aula', desc: '', data: iso, dur: f.dur, meta: '', link: '' }; salvaAulas(); render(); toast('Aula encerrada. A próxima ficou para a semana seguinte.'); };
+  $$('[data-grav-s]').forEach(b => b.onclick = () => { const i = +b.dataset.gravS; const v = $(`[data-grav-i="${i}"]`).value.trim(); if (v && !linkOk(v)) { toast('O link da gravação precisa começar com https://'); return; } AULAS.ant[i].grav = v; salvaAulas(); toast(v ? 'Gravação publicada para o aluno.' : 'Link removido.'); });
+};
+
+/* ================== APP INSTALÁVEL ================== */
+let pedidoInstalar = null;
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); pedidoInstalar = e; const b = $('#instalar'); if (b) b.hidden = false; });
+$('#instalar').onclick = async () => { if (!pedidoInstalar) return; pedidoInstalar.prompt(); try { await pedidoInstalar.userChoice; } catch {} pedidoInstalar = null; $('#instalar').hidden = true; };
+if ('serviceWorker' in navigator && document.querySelector('link[rel="manifest"]')) navigator.serviceWorker.register('sw.js').catch(() => {});
 
 /* ================== PROGRESSO ================== */
 const HABS = [
@@ -1943,9 +2086,9 @@ function pGeral() {
 POS['p-geral'] = () => { $$('[data-ir]').forEach(b => b.onclick = () => navega(b.dataset.ir)); };
 function pAlunos() {
   return `<div class="cab"><span class="olho">Gestão individual</span><h1>Alunos</h1><p>Evolução, constância e sinais de alerta de cada um.</p></div>
-  <div class="alunos">${ALUNOS.map(a => `<article class="cartao aluno" style="${a.alerta ? 'border-color:#F1C7A3' : ''}"><div class="aluno-topo"><span class="avatar" style="--c:${a.c}">${a.i}</span><div><b>${a.n}</b><p class="mudo" style="font-size:13px">${a.nivel}</p></div></div><span class="etq ${a.alerta ? 'verm' : 'ok'}" style="justify-self:start">${a.sinal}</span><div style="color:${a.c}">${spark(a.s)}<small class="mudo">minutos de estudo nos últimos 7 dias</small></div><div style="display:grid;grid-template-columns:repeat(3,1fr);text-align:center;gap:6px"><div><b class="num">${a.xp}</b><small class="mudo" style="display:block;font-size:11px">XP</small></div><div><b class="num">${a.seq}</b><small class="mudo" style="display:block;font-size:11px">dias seguidos</small></div><div><b class="num">${a.media}%</b><small class="mudo" style="display:block;font-size:11px">média</small></div></div>${a.alerta ? `<button class="btn ouro peq" type="button" data-lembrete="${a.n}">Mandar um lembrete</button>` : `<button class="btn linha peq" type="button" data-comoaluno>Ver como aluno</button>`}</article>`).join('')}</div>`;
+  <div class="alunos">${todosAlunos().map(a => `<article class="cartao aluno" style="${a.alerta ? 'border-color:#F1C7A3' : ''}"><div class="aluno-topo"><span class="avatar" style="--c:${a.c}">${a.i}</span><div><b>${a.n}</b><p class="mudo" style="font-size:13px">${a.nivel}</p></div></div><span class="etq ${a.alerta ? 'verm' : 'ok'}" style="justify-self:start">${a.sinal}</span><span class="etq" style="justify-self:start">${a.real ? 'conta neste aparelho' : 'aluno de exemplo'}</span><div style="color:${a.c}">${spark(a.s)}<small class="mudo">minutos de estudo nos últimos 7 dias</small></div><div style="display:grid;grid-template-columns:repeat(3,1fr);text-align:center;gap:6px"><div><b class="num">${a.xp}</b><small class="mudo" style="display:block;font-size:11px">XP</small></div><div><b class="num">${a.seq}</b><small class="mudo" style="display:block;font-size:11px">dias seguidos</small></div><div><b class="num">${a.media}%</b><small class="mudo" style="display:block;font-size:11px">média</small></div></div>${a.alerta ? `<button class="btn ouro peq" type="button" data-lembrete="${a.n}">Mandar um lembrete</button>` : `<button class="btn linha peq" type="button" data-comoaluno="${a.id || ''}">Ver como aluno</button>`}</article>`).join('')}</div>`;
 }
-POS['p-alunos'] = () => { $$('[data-comoaluno]').forEach(b => b.onclick = () => trocaModo('aluno')); $$('[data-lembrete]').forEach(b => b.onclick = () => { b.textContent = 'Lembrete preparado'; b.disabled = true; toast('Nesta demonstração o lembrete não é enviado de verdade.'); }); };
+POS['p-alunos'] = () => { $$('[data-comoaluno]').forEach(b => b.onclick = () => { if (b.dataset.comoaluno && b.dataset.comoaluno !== CONTAS.atual) trocaConta(b.dataset.comoaluno); trocaModo('aluno'); }); $$('[data-lembrete]').forEach(b => b.onclick = () => { b.textContent = 'Lembrete preparado'; b.disabled = true; toast('Nesta demonstração o lembrete não é enviado de verdade.'); }); };
 const CORR = [{ id: 'marina', n: 'Líbero Filho', t: 'My last weekend', txt: 'Last weekend I [visit] my family. We cooked dinner and [watch] a movie. It was very fun.', com: 'Ótimo texto, Líbero! Só atenção ao passado: depois de “last weekend”, os verbos vão para o simple past (visited, watched).', notas: { visit: 'visited · “last weekend” pede passado', watch: 'watched · também no passado' } }, { id: 'lucas', n: 'Lucas Rocha', t: 'My house', txt: 'There [is] two bedrooms and a small kitchen. My desk is near the window.', com: 'Boa descrição, Lucas! Com plural, use “there are”: there are two bedrooms.', notas: { is: 'are · “two bedrooms” é plural' } }];
 function pCorr() {
   return `<div class="cab"><span class="olho">Devolutivas</span><h1>Correções</h1><p>Toque nos trechos marcados para ver a sugestão, escreva o comentário e devolva ao aluno.</p></div>
