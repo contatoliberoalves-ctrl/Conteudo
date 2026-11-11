@@ -1,6 +1,6 @@
 ---
 name: molde-renato
-description: Gera peças do curso Interpretação Bíblica, do Pastor Renato Torres, na identidade "Brasa" (degradê laranja, creme e carvão, Bricolage Grotesque, símbolo em V no canto inferior direito): carrossel 4:5 (renato-carrossel), stories (renato-stories), slides de aula 16:9 e miniaturas do YouTube (renato-aula), cabeçalhos de e-mail (renato-email) e o manual da identidade (renato-identidade). Use quando pedirem post, story, aula, e-mail ou material do Pastor Renato / Interpretação Bíblica.
+description: Gera peças do curso Interpretação Bíblica e criativos de anúncio da plataforma Ponto do Verbum (renato-criativos, feed e stories), do Pastor Renato Torres, na identidade "Brasa" (degradê laranja, creme e carvão, Bricolage Grotesque, símbolo em V no canto inferior direito): carrossel 4:5 (renato-carrossel), stories (renato-stories), slides de aula 16:9 e miniaturas do YouTube (renato-aula), cabeçalhos de e-mail (renato-email) e o manual da identidade (renato-identidade). Use quando pedirem post, story, aula, e-mail ou material do Pastor Renato / Interpretação Bíblica.
 ---
 
 # Moldes do Pastor Renato (Interpretação Bíblica · identidade Brasa)
@@ -15,6 +15,7 @@ Só se edita o `dados.json` de cada molde. Nos textos, `**negrito**` e `[[destaq
 | `renato-stories` | 1080×1920 | `logo` (texto, botao), `versiculo` (texto, ref, botao), `aviso` (titulo, texto, botao), `lista` (titulo, itens, botao) |
 | `renato-aula` | 1920×1080 (ou 1280×720 com `"formato": "youtube"`) | `capa` (kicker, titulo), `conteudo` (kicker, titulo, texto, cartao {titulo, itens}), `lista` (kicker, titulo, itens: 2 colunas), `citacao` (kicker, texto, ref), `fim` (kicker, titulo, texto, botao); YouTube: `thumb` (kicker, titulo) |
 | `renato-email` | 1200×400 (`faixa`) ou 1200×640 (`"estilo": "completo"`) | um por post: `titulo`, `fundo`, e no completo `texto` e `botao` |
+| `renato-criativos` | feed 1080×1350 e stories 1080×1920 | criativos de anúncio da plataforma Ponto do Verbum, uma peça por post (`layout`: manchete, tipo, lista, cursos, nota, versiculo, numeros, passos, etiquetas, comparativo, busca, notificacao, aula, foto); campos e imagens no `README.md` do molde; o título da peça vai em `tituloPeca` e `"de"` repete o criativo no outro formato |
 | `renato-identidade` | 1920×1080 | gera o kit (`identidades/interpretacao-biblica/brasa.mjs`) e põe o manual na galeria |
 
 Regras: versículos sempre com a referência e na tradução indicada pelo autor (os exemplos usam a Almeida Revista e Atualizada); não inventar preços ou datas da oferta.

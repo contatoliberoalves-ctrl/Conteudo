@@ -1,0 +1,475 @@
+[
+  {
+    "id": "01-estude-com-metodo-feed",
+    "titulo": "Estude a Bíblia com método (feed)",
+    "tema": "Manchete com o celular (início da área do aluno)",
+    "layout": "manchete",
+    "fundo": "degrade",
+    "kicker": "PLATAFORMA PONTO DO VERBUM",
+    "sub": "Interpretação da Bíblia, Preparação de Sermões e Vida Intelectual, com o Pr. Renato Torres.",
+    "print": "print-inicio.png",
+    "formato": "feed",
+    "tituloPeca": "Estude a Bíblia com [[método]]"
+  },
+  {
+    "id": "01-estude-com-metodo-story",
+    "titulo": "Estude a Bíblia com método (stories)",
+    "de": "01-estude-com-metodo-feed",
+    "formato": "story"
+  },
+  {
+    "id": "02-tres-cursos-feed",
+    "titulo": "Três cursos, uma formação (feed)",
+    "tema": "Os três cursos com as capas",
+    "layout": "cursos",
+    "fundo": "creme",
+    "kicker": "FORMAÇÃO BÍBLICA",
+    "cursos": [
+      {
+        "nome": "Interpretação da Bíblia",
+        "info": "9 aulas · hermenêutica e regras práticas",
+        "capa": "capa-interpretacao.png"
+      },
+      {
+        "nome": "Preparação de Sermões",
+        "info": "10 aulas · do sermão temático ao expositivo",
+        "capa": "capa-sermoes.png"
+      },
+      {
+        "nome": "Vida Intelectual",
+        "info": "6 aulas · plano e hábitos de leitura",
+        "capa": "capa-vida-intelectual.png"
+      }
+    ],
+    "formato": "feed",
+    "tituloPeca": "Três cursos.\nUma [[formação]]."
+  },
+  {
+    "id": "02-tres-cursos-story",
+    "titulo": "Três cursos, uma formação (stories)",
+    "de": "02-tres-cursos-feed",
+    "formato": "story"
+  },
+  {
+    "id": "03-interpretar-se-aprende-feed",
+    "titulo": "Interpretar se aprende (feed)",
+    "tema": "Tipográfico no carvão",
+    "layout": "tipo",
+    "fundo": "carvao",
+    "kicker": "FORMAÇÃO BÍBLICA",
+    "sub": "Formação Bíblica com o Pr. Renato Torres, na plataforma Ponto do Verbum.",
+    "formato": "feed",
+    "tituloPeca": "Ler a Bíblia é o começo.\n[[Interpretar]] se aprende.",
+    "ts": 104
+  },
+  {
+    "id": "03-interpretar-se-aprende-story",
+    "titulo": "Interpretar se aprende (stories)",
+    "de": "03-interpretar-se-aprende-feed",
+    "formato": "story",
+    "ts": null
+  },
+  {
+    "id": "04-o-que-voce-encontra-feed",
+    "titulo": "O que você encontra na plataforma (feed)",
+    "tema": "Lista com visto",
+    "layout": "lista",
+    "fundo": "creme",
+    "kicker": "PLATAFORMA PONTO DO VERBUM",
+    "itens": [
+      "**25 aulas** organizadas em 3 módulos",
+      "**Caderno** para anotar em cada aula",
+      "**Devocional** para cada dia da semana",
+      "**Comunidade** com acompanhamento do professor",
+      "**Progresso** registrado aula por aula"
+    ],
+    "formato": "feed",
+    "tituloPeca": "O que você [[encontra]] aqui"
+  },
+  {
+    "id": "04-o-que-voce-encontra-story",
+    "titulo": "O que você encontra na plataforma (stories)",
+    "de": "04-o-que-voce-encontra-feed",
+    "formato": "story"
+  },
+  {
+    "id": "05-nota-curso-biblico-feed",
+    "titulo": "Nota: o que eu queria num curso bíblico (feed)",
+    "tema": "Nota do celular",
+    "layout": "nota",
+    "fundo": "degrade",
+    "itens": [
+      "Aulas em sequência, sem me perder",
+      "Um lugar pra anotar em cada aula",
+      "Poder tirar dúvidas com o professor",
+      "Estudar pelo celular, no meu ritmo"
+    ],
+    "fecho": "Achei na [[Formação Bíblica]] do Ponto do Verbum.",
+    "formato": "feed",
+    "tituloPeca": "O que eu queria num curso bíblico"
+  },
+  {
+    "id": "05-nota-curso-biblico-story",
+    "titulo": "Nota: o que eu queria num curso bíblico (stories)",
+    "de": "05-nota-curso-biblico-feed",
+    "formato": "story"
+  },
+  {
+    "id": "06-versiculo-maneja-bem-feed",
+    "titulo": "Versículo: maneja bem a palavra da verdade (feed)",
+    "tema": "Versículo (2 Tm 2.15, ARA)",
+    "layout": "versiculo",
+    "fundo": "creme",
+    "texto": "Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar, que [[maneja bem]] a palavra da verdade.",
+    "ref": "2 Timóteo 2.15",
+    "sub": "Uma formação para estudar e ensinar a Palavra com responsabilidade.",
+    "formato": "feed"
+  },
+  {
+    "id": "06-versiculo-maneja-bem-story",
+    "titulo": "Versículo: maneja bem a palavra da verdade (stories)",
+    "de": "06-versiculo-maneja-bem-feed",
+    "formato": "story"
+  },
+  {
+    "id": "07-numeros-feed",
+    "titulo": "3 cursos, 25 aulas, 1 plataforma (feed)",
+    "tema": "Números",
+    "layout": "numeros",
+    "fundo": "carvao",
+    "kicker": "FORMAÇÃO BÍBLICA",
+    "numeros": [
+      {
+        "n": "3",
+        "t": "cursos em uma trilha"
+      },
+      {
+        "n": "25",
+        "t": "aulas em vídeo"
+      },
+      {
+        "n": "1",
+        "t": "plataforma para estudar"
+      }
+    ],
+    "sub": "Com caderno de anotações, devocional e comunidade.",
+    "formato": "feed",
+    "tituloPeca": "Tudo em [[um só lugar]]"
+  },
+  {
+    "id": "07-numeros-story",
+    "titulo": "3 cursos, 25 aulas, 1 plataforma (stories)",
+    "de": "07-numeros-feed",
+    "formato": "story"
+  },
+  {
+    "id": "08-como-funciona-feed",
+    "titulo": "Como funciona (feed)",
+    "tema": "Passo a passo do acesso",
+    "layout": "passos",
+    "fundo": "creme",
+    "kicker": "PLATAFORMA PONTO DO VERBUM",
+    "itens": [
+      "Toque em **Saiba mais** e faça sua inscrição.",
+      "Receba o link de acesso no **e-mail da compra**.",
+      "Entre na área do aluno e comece pela **primeira aula**."
+    ],
+    "formato": "feed",
+    "tituloPeca": "Como [[funciona]]"
+  },
+  {
+    "id": "08-como-funciona-story",
+    "titulo": "Como funciona (stories)",
+    "de": "08-como-funciona-feed",
+    "formato": "story"
+  },
+  {
+    "id": "09-etiquetas-feed",
+    "titulo": "Etiquetas: Formação Bíblica (feed)",
+    "tema": "Etiquetas de story com o celular",
+    "layout": "etiquetas",
+    "fundo": "degrade",
+    "print": "print-trilha.png",
+    "etiquetas": [
+      [
+        "FORMAÇÃO BÍBLICA"
+      ],
+      [
+        "3 CURSOS",
+        "25 AULAS"
+      ],
+      [
+        "COM O PR.",
+        "RENATO TORRES"
+      ],
+      [
+        "TOQUE EM",
+        "SAIBA MAIS 👇"
+      ]
+    ],
+    "formato": "feed"
+  },
+  {
+    "id": "09-etiquetas-story",
+    "titulo": "Etiquetas: Formação Bíblica (stories)",
+    "de": "09-etiquetas-feed",
+    "formato": "story"
+  },
+  {
+    "id": "10-comparativo-feed",
+    "titulo": "Estudar por conta × com trilha (feed)",
+    "tema": "Comparativo em duas colunas",
+    "layout": "comparativo",
+    "fundo": "creme",
+    "kicker": "PLATAFORMA PONTO DO VERBUM",
+    "a": {
+      "titulo": "Por conta",
+      "itens": [
+        "Vídeos soltos, sem ordem",
+        "Anotações espalhadas",
+        "Dúvidas sem resposta",
+        "Não lembra onde parou"
+      ]
+    },
+    "b": {
+      "titulo": "Na plataforma",
+      "itens": [
+        "Aulas em sequência",
+        "Caderno em cada aula",
+        "Comunidade com o professor",
+        "Progresso registrado"
+      ]
+    },
+    "formato": "feed",
+    "tituloPeca": "Estudar com [[trilha]] muda o estudo"
+  },
+  {
+    "id": "10-comparativo-story",
+    "titulo": "Estudar por conta × com trilha (stories)",
+    "de": "10-comparativo-feed",
+    "formato": "story"
+  },
+  {
+    "id": "11-busca-feed",
+    "titulo": "Busca: como interpretar a Bíblia (feed)",
+    "tema": "Barra de busca e resultado",
+    "layout": "busca",
+    "fundo": "creme",
+    "busca": "como interpretar a Bíblia",
+    "sub": "Curso do Pr. Renato Torres dentro da **Formação Bíblica**, na plataforma Ponto do Verbum.",
+    "itens": [
+      "Uma boa hermenêutica",
+      "Regras básicas",
+      "Regras práticas",
+      "Leituras"
+    ],
+    "formato": "feed",
+    "tituloPeca": "Interpretação da Bíblia, aula por aula"
+  },
+  {
+    "id": "11-busca-story",
+    "titulo": "Busca: como interpretar a Bíblia (stories)",
+    "de": "11-busca-feed",
+    "formato": "story"
+  },
+  {
+    "id": "12-notificacoes-feed",
+    "titulo": "Um pouco de estudo, todo dia (feed)",
+    "tema": "Notificações do celular",
+    "layout": "notificacao",
+    "fundo": "degrade",
+    "kicker": "PLATAFORMA PONTO DO VERBUM",
+    "avisos": [
+      {
+        "t": "Devocional de hoje",
+        "d": "Confiar com humildade · Provérbios 3:5",
+        "hora": "07:00"
+      },
+      {
+        "t": "Sua próxima aula",
+        "d": "Regras práticas, parte 2",
+        "hora": "12:30"
+      },
+      {
+        "t": "Caderno Verbum",
+        "d": "Suas anotações da aula foram salvas.",
+        "hora": "agora"
+      }
+    ],
+    "formato": "feed",
+    "tituloPeca": "Um pouco de estudo, [[todo dia]]"
+  },
+  {
+    "id": "12-notificacoes-story",
+    "titulo": "Um pouco de estudo, todo dia (stories)",
+    "de": "12-notificacoes-feed",
+    "formato": "story"
+  },
+  {
+    "id": "13-aula-interpretacao-feed",
+    "titulo": "Interpretação da Bíblia, aula por aula (feed)",
+    "tema": "Capa da aula + aulas do módulo",
+    "layout": "aula",
+    "fundo": "creme",
+    "kicker": "CURSO 1 DA FORMAÇÃO",
+    "capa": "aula-interpretacao-01.png",
+    "itens": [
+      "Uma boa hermenêutica",
+      "Objetivos",
+      "Regras básicas",
+      "Regras práticas",
+      "Leituras"
+    ],
+    "formato": "feed",
+    "tituloPeca": "Do texto ao [[sentido]]"
+  },
+  {
+    "id": "13-aula-interpretacao-story",
+    "titulo": "Interpretação da Bíblia, aula por aula (stories)",
+    "de": "13-aula-interpretacao-feed",
+    "formato": "story"
+  },
+  {
+    "id": "14-renato-feed",
+    "titulo": "Estude com o Pr. Renato Torres (feed)",
+    "tema": "Foto do professor",
+    "layout": "foto",
+    "fundo": "carvao",
+    "foto": "renato.jpg",
+    "pos": "78% 22%",
+    "kicker": "QUEM ENSINA",
+    "sub": "Pastor, professor e mestre em Teologia Ministerial.",
+    "formato": "feed",
+    "tituloPeca": "Estude com o Pr. [[Renato Torres]]",
+    "ts": 74
+  },
+  {
+    "id": "14-renato-story",
+    "titulo": "Estude com o Pr. Renato Torres (stories)",
+    "de": "14-renato-feed",
+    "formato": "story",
+    "ts": null
+  },
+  {
+    "id": "15-devocional-feed",
+    "titulo": "Um devocional para cada dia (feed)",
+    "tema": "Recurso: devocional (celular)",
+    "layout": "manchete",
+    "fundo": "creme",
+    "kicker": "DENTRO DA PLATAFORMA",
+    "sub": "Versículo, contexto, reflexão, prática e oração, na área do aluno.",
+    "print": "print-devocional.png",
+    "formato": "feed",
+    "tituloPeca": "Um devocional para [[cada dia]]",
+    "ts": 80
+  },
+  {
+    "id": "15-devocional-story",
+    "titulo": "Um devocional para cada dia (stories)",
+    "de": "15-devocional-feed",
+    "formato": "story",
+    "ts": null
+  },
+  {
+    "id": "16-caderno-feed",
+    "titulo": "Anote enquanto aprende (feed)",
+    "tema": "Recurso: Caderno Verbum (celular)",
+    "layout": "manchete",
+    "fundo": "carvao",
+    "kicker": "CADERNO VERBUM",
+    "sub": "Suas anotações ficam guardadas em cada aula, só para você.",
+    "print": "print-caderno.png",
+    "formato": "feed",
+    "tituloPeca": "Anote enquanto [[aprende]]"
+  },
+  {
+    "id": "16-caderno-story",
+    "titulo": "Anote enquanto aprende (stories)",
+    "de": "16-caderno-feed",
+    "formato": "story"
+  },
+  {
+    "id": "17-aula-sermoes-feed",
+    "titulo": "Preparação de Sermões (feed)",
+    "tema": "Capa da aula + aulas do módulo",
+    "layout": "aula",
+    "fundo": "carvao",
+    "kicker": "CURSO 2 DA FORMAÇÃO",
+    "capa": "aula-sermoes-02.png",
+    "itens": [
+      "Tipos de sermões",
+      "Sermão temático",
+      "Sermão textual",
+      "Sermão expositivo",
+      "Erros comuns"
+    ],
+    "formato": "feed",
+    "tituloPeca": "Do texto ao [[púlpito]]"
+  },
+  {
+    "id": "17-aula-sermoes-story",
+    "titulo": "Preparação de Sermões (stories)",
+    "de": "17-aula-sermoes-feed",
+    "formato": "story"
+  },
+  {
+    "id": "18-voce-ensina-feed",
+    "titulo": "Você ensina ou prega na sua igreja? (feed)",
+    "tema": "Pergunta tipográfica",
+    "layout": "tipo",
+    "fundo": "creme",
+    "kicker": "FORMAÇÃO BÍBLICA",
+    "sub": "Interpretação, preparação de sermões e vida intelectual em uma trilha só.",
+    "formato": "feed",
+    "tituloPeca": "Você [[ensina]] ou prega na sua igreja?",
+    "ts": 100
+  },
+  {
+    "id": "18-voce-ensina-story",
+    "titulo": "Você ensina ou prega na sua igreja? (stories)",
+    "de": "18-voce-ensina-feed",
+    "formato": "story",
+    "ts": null
+  },
+  {
+    "id": "19-trilha-feed",
+    "titulo": "Saiba sempre onde parou (feed)",
+    "tema": "Recurso: trilha e progresso (celular)",
+    "layout": "manchete",
+    "fundo": "degrade",
+    "kicker": "TRILHA DO CURSO",
+    "sub": "A trilha mostra os módulos, as aulas concluídas e a próxima aula.",
+    "print": "print-trilha.png",
+    "formato": "feed",
+    "tituloPeca": "Saiba sempre [[onde parou]]"
+  },
+  {
+    "id": "19-trilha-story",
+    "titulo": "Saiba sempre onde parou (stories)",
+    "de": "19-trilha-feed",
+    "formato": "story",
+    "ts": 92
+  },
+  {
+    "id": "20-para-quem-e-feed",
+    "titulo": "Para quem é a formação (feed)",
+    "tema": "Lista no carvão",
+    "layout": "lista",
+    "fundo": "carvao",
+    "kicker": "FORMAÇÃO BÍBLICA",
+    "itens": [
+      "Quem quer ler a Bíblia com mais segurança",
+      "Professores de escola bíblica",
+      "Quem prega ou está começando a pregar",
+      "Líderes de células e pequenos grupos"
+    ],
+    "formato": "feed",
+    "tituloPeca": "Para quem [[é]]"
+  },
+  {
+    "id": "20-para-quem-e-story",
+    "titulo": "Para quem é a formação (stories)",
+    "de": "20-para-quem-e-feed",
+    "formato": "story"
+  }
+]
