@@ -42,3 +42,6 @@ Pedidos de alteração: no visor, o usuário clica num ponto de um slide, ou usa
 O Playwright do `package.json` pede um Chromium que não vem instalado aqui e o navegador não usa o proxy sozinho. Gere assim:
 `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs`
 Sem o proxy, as fontes do Google não carregam e os títulos saem com a fonte errada (e estouram a largura).
+
+## Painel financeiro (`financas/`)
+Página única "Casa & Cartórios" (finanças do casal e dos dois cartórios), publicada como Artifact privado. No git fica só o código: nomes, valores, extratos e chaves nunca entram no repositório. `financas/README.md` explica o banco da página, como republicar e como **sincronizar o Open Finance** (Meu Pluggy).
