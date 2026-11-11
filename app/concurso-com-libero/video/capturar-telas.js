@@ -1,0 +1,21 @@
+const {chromium}=require('playwright');
+(async()=>{const b=await chromium.launch({proxy:process.env.HTTPS_PROXY?{server:process.env.HTTPS_PROXY}:undefined});
+const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:3});
+pg.on('pageerror',e=>console.log('ERR',e.message));
+await pg.goto('file://'+process.cwd()+'/page.html');await pg.waitForTimeout(2500);
+await pg.addStyleTag({content:'.demo-b{display:none!important}#toast{display:none!important}*{scrollbar-width:none}.rv{transform:none!important;opacity:1!important}.dia-sticky{display:none!important}[data-a=focoPular]{display:none!important}.ilus{display:none!important}'});
+const D='../reel/public/telas/';
+const shot=async n=>{await pg.waitForTimeout(500);await pg.screenshot({path:D+n+'.png'})};
+const ev=f=>pg.evaluate(f);
+await ev(()=>{localStorage.clear();carregarExemplo();S.onbVisto=true;S.plano='premium';S.tema='claro';aplicarTema();aplicarFonte();go('hoje',{},{raiz:true})});await shot('hoje');
+await ev(()=>{const P=prep();P.vert={interp:HOJE,crase:HOJE,concord:HOJE,fepublica:HOJE};UI.vertAb={port:true};go('vert')});await ev(()=>scrollTo(0,150));await shot('checklist');
+await ev(()=>{ACT.dicas({})});
+for(let i=0;i<4;i++){await ev(i=>{const f=document.querySelector('.feed');f.style.scrollBehavior='auto';f.scrollTop=f.clientHeight*i},i);await pg.evaluate(i=>{const f=document.querySelector('.feed');f.scrollTop=f.clientHeight*i},i);await shot('dica'+(i+1))}
+await ev(()=>{ACT.sairDicas();iniciarTreino({conc:'tjsp',ass:'fepublica',de:'praticar'})});await pg.waitForTimeout(300);await shot('questao');
+await pg.locator('.alt').nth(2).click();await pg.locator('[data-a="confirmarResp"]').locator('visible=true').first().click();await pg.waitForTimeout(700);await ev(()=>{const e=document.querySelector('.fb');e&&e.scrollIntoView({block:'start'});scrollBy(0,-150)});await shot('correcao');
+await ev(()=>{const P=prep();QUESTOES.filter(q=>q.conc==='tjsp').slice(0,4).forEach((q,i)=>{const e={qid:q.id,ass:q.ass,mat:q.mat,data:addD(HOJE,-3),sel:(q.gab+1)%5,revisado:false};if(i>0){e.fs=fsrs(fsrs(null,1,addD(HOJE,-3)),3,addD(HOJE,-1));if(i>1)e.fs=fsrs(e.fs,3,HOJE)}P.erros.push(e)});UI.tr=null;go('caderno',{},{raiz:true})});await shot('caderno');
+await ev(()=>{go('hoje',{},{raiz:true});ACT.foco({m:prep().metas.find(m=>m.data===HOJE&&!m.ok).id});UI.foco.rest=1113;UI.foco.fim=Date.now()+1113000;renderFoco()});await pg.waitForTimeout(1200);await shot('foco');
+await ev(()=>{ACT.focoSair();S.plano='gratis';go('hoje',{},{raiz:true})});await shot('jornal');
+await ev(()=>{S.plano='premium';go('raiox',{},{raiz:true})});await ev(()=>scrollTo(0,120));await shot('raiox');
+await ev(()=>{go('plano',{},{raiz:true})});await shot('plano');
+await b.close()})();
