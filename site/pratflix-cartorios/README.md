@@ -1,7 +1,7 @@
 # PratFlix para Cartórios · landing page
 
 Página da frente de comunicação, conteúdo e capacitação para cartórios (briefing de 9/11/2026).
-Publicada em https://claude.ai/artifact/CQGmNAkmCMECzp29U4vQXb (publique `index.html` com `root: site/pratflix-cartorios` e os `img/*.webp` no `files`).
+Versão 1 (`index.html`): https://claude.ai/artifact/CQGmNAkmCMECzp29U4vQXb · Versão 2, editorial (`v2.html`): https://claude.ai/artifact/QxTuuUDmX1u9qWQZgv2MTA (publique com `root: site/pratflix-cartorios` e os `img/*` no `files`).
 
 - `img/`: recortes de trabalhos reais, tirados das galerias publicadas (ANOREG/PE,
   PratFlix, Renato, Eduarda) e das cenas do `moldes/anoreg-conecta` (`node render.mjs png`).
