@@ -42,7 +42,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
 </style>`;
 
 const VINHETAS = {
-  // 1 · OURO: luzes douradas desfocadas em profundidade, título entrando em foco letra a letra, assinatura escrita.
+  // 1 · OURO: luzes douradas desfocadas em profundidade, nome entrando em foco letra a letra.
   ouro: () => {
     const bokeh = Array.from({ length: 30 }, () => {
       const d = 24 + rnd() * 150, x = rnd() * 1920, y = rnd() * 1080, b = 4 + rnd() * 26, o = .07 + rnd() * .26, dy = 60 + rnd() * 180, dx = (rnd() - .5) * 90, tw = 1.6 + rnd() * 2.4;
@@ -53,13 +53,13 @@ const VINHETAS = {
 <div class="cheio" style="animation:luz 1.8s ease-out .1s both"><div class="cheio" style="animation:afasta 6.5s ease-out both">${bokeh}</div></div>
 <div class="cheio" style="background:radial-gradient(38% 30% at 50% 47%,rgba(227,169,63,.2),transparent 70%);animation:luz 1.6s ease-out .7s both"></div>
 <div class="centro" style="animation:aproxima 6.5s cubic-bezier(.1,.6,.2,1) both">
-  <div class="pf" style="font-weight:800;font-size:172px;line-height:1.08;white-space:nowrap;letter-spacing:-.012em;filter:drop-shadow(0 14px 34px rgba(0,0,0,.45))">
-    ${letras('Advocacia', .55, .05, 'foco', .95, 'ouro')}<span style="display:inline-block;font-style:italic;font-weight:500;font-size:.5em;color:${CREME};margin:0 .34em 0 .38em;position:relative;top:-.1em;animation:focoLeve .9s ${E} 1.15s both">na</span>${letras('Prática', 1.2, .05, 'foco', .95, 'ouro')}</div>
+  <div class="pf" style="font-weight:800;font-size:200px;line-height:1.08;white-space:nowrap;letter-spacing:-.012em;filter:drop-shadow(0 14px 34px rgba(0,0,0,.45))">
+    ${letras('Natália', .55, .06, 'foco', .95, 'ouro')}<span style="display:inline-block;width:.3em"></span>${letras('Valença', 1.05, .06, 'foco', .95, 'ouro')}</div>
   <div style="position:relative;width:980px;height:2px;margin-top:30px">
     <div class="cheio" style="background:linear-gradient(90deg,transparent,${OURO} 22%,#ffe7ae 50%,${OURO} 78%,transparent);animation:abre 1.1s ${IO} 1.95s both"></div>
     <div style="position:absolute;top:-22px;left:0;width:150px;height:46px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,244,214,.95),rgba(255,214,130,.35) 45%,transparent);opacity:0;animation:faisca 1.35s ${IO} 2.25s both"></div></div>
-  <div style="font:400 29px Poppins;--ls:.34em;letter-spacing:.34em;margin:40px 0 0 .34em;white-space:nowrap;animation:trilho 1.1s ${E} 2.45s both">TRIBUTÁRIO <span style="color:${OURO}">·</span> ELEITORAL <span style="color:${OURO}">·</span> CONSTITUCIONAL</div>
-  <div style="font:400 132px/1 'Mrs Saint Delafield',cursive;color:#f0c366;padding:0 22px 0 6px;margin-top:26px;white-space:nowrap;filter:drop-shadow(0 6px 18px rgba(0,0,0,.4));animation:escreve 1.3s cubic-bezier(.45,0,.3,1) 3.05s both">Natália Valença</div></div>
+  <div class="pf" style="font-style:italic;font-weight:500;font-size:74px;line-height:1.1;margin-top:34px;white-space:nowrap;animation:foco 1.1s ${E} 2.45s both">Advocacia na Prática</div>
+  <div style="font:400 28px Poppins;--ls:.34em;letter-spacing:.34em;margin:34px 0 0 .34em;white-space:nowrap;animation:trilho 1.1s ${E} 3.0s both">TRIBUTÁRIO <span style="color:${OURO}">·</span> ELEITORAL <span style="color:${OURO}">·</span> CONSTITUCIONAL</div></div>
 <div class="cheio" style="background:radial-gradient(75% 75% at 50% 50%,transparent 55%,rgba(2,6,18,.6) 100%)"></div>
 ${grao(.22)}
 <style>
@@ -81,15 +81,15 @@ ${grao(.22)}
   <div style="position:absolute;right:-120px;top:50%;width:780px;height:780px;margin-top:-390px;border-radius:50%;background:${CARAMELO};opacity:.16;animation:aro 1.4s ${E} .85s both"></div>
   <div style="position:absolute;right:120px;top:50%;margin-top:-430px;opacity:.1"><div class="pf" style="font-weight:700;font-size:720px;line-height:1;color:${TINTA};animation:surge 1.2s ${E} 1.1s both">§</div></div></div>
 <div style="position:absolute;left:170px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;animation:empurra 6.5s cubic-bezier(.1,.6,.2,1) both">
-  <div style="font:300 62px Lato;letter-spacing:.005em;margin-bottom:22px;white-space:nowrap">${mascara(`Natália <b style="font-weight:700;border-bottom:6px solid ${TINTA};padding-bottom:2px">Valença</b>`, .75, .7)}</div>
-  ${caixa('Advocacia', TINTA, 1.05)}
-  ${caixa('na Prática', CARAMELO, 1.4)}
+  <div style="font:300 62px Lato;letter-spacing:.005em;margin-bottom:22px;white-space:nowrap">${mascara(`Advocacia na <b style="font-weight:700;border-bottom:6px solid ${TINTA};padding-bottom:2px">Prática</b>`, .75, .7)}</div>
+  ${caixa('Natália', TINTA, 1.05)}
+  ${caixa('Valença', CARAMELO, 1.4)}
   <div style="display:flex;align-items:center;margin-top:50px;white-space:nowrap">
     <div style="width:74px;height:5px;background:${TINTA};margin-right:26px;transform-origin:left;animation:abre .6s ${IO} 2.35s both"></div>
     <div style="font:400 44px Lato;animation:surge .7s ${E} 2.45s both">Tributário, Eleitoral e Constitucional</div></div></div>
 <div style="position:absolute;left:170px;bottom:70px;display:flex;align-items:center;gap:22px;animation:surge .7s ${E} 3.0s both">
   <div class="pf" style="width:84px;height:84px;border-radius:50%;background:${TINTA};color:#e8c98a;display:grid;place-items:center;font-weight:700;font-size:34px;letter-spacing:-.02em">NV</div>
-  <div><div style="font:700 30px Poppins;letter-spacing:.02em;color:#2a2622">NATALIA VALENÇA</div><div style="font:400 24px Poppins;color:#5a544c">@nataliavalenca</div></div></div>
+  <div style="font:500 30px Poppins;color:#2a2622">@nataliavalenca</div></div>
 <div class="cheio" style="background:${TINTA};transform-origin:right;animation:fecha .75s ${IO} .1s both"></div>
 <div class="cheio" style="background:${CARAMELO};transform-origin:right;animation:fecha .75s ${IO} 0s both"></div>
 ${grao(.3)}
@@ -115,12 +115,12 @@ ${canto('left:64px;bottom:64px', 'bottom left', `border-bottom:${b};border-left:
     <circle cx="220" cy="220" r="176" fill="none" stroke="${OURO}" stroke-width="3" stroke-linecap="round" stroke-dasharray="1106" style="animation:traco 1.35s ${IO} .35s both"/>
     <circle cx="220" cy="220" r="198" fill="none" stroke="#f3d28a" stroke-width="1.2" stroke-dasharray="1244" style="animation:tracoInv 1.5s ${IO} .5s both;opacity:.7"/></svg>
   <div class="pf" style="position:absolute;inset:0;display:grid;place-items:center;font-weight:700;font-size:176px;letter-spacing:-.04em;padding:0 10px 14px 0"><span>${letras('NV', 1.0, .16, 'foco', 1.0, 'ouro')}</span></div></div>
-<div style="position:absolute;left:0;right:0;top:500px;display:flex;flex-direction:column;align-items:center">
-  <div class="pf" style="font-weight:700;font-size:128px;line-height:1.1;white-space:nowrap;letter-spacing:-.01em;filter:drop-shadow(0 10px 28px rgba(0,0,0,.45))">
-    ${letras('Advocacia', 2.55, .04, 'foco', .9)}<span style="display:inline-block;font-style:italic;font-weight:500;font-size:.52em;color:${OURO};margin:0 .34em 0 .38em;position:relative;top:-.1em;animation:focoLeve .9s ${E} 2.95s both">na</span>${letras('Prática', 3.0, .04, 'foco', .9)}</div>
+<div style="position:absolute;left:0;right:0;top:486px;display:flex;flex-direction:column;align-items:center">
+  <div class="pf" style="font-weight:700;font-size:150px;line-height:1.1;white-space:nowrap;letter-spacing:-.01em;filter:drop-shadow(0 10px 28px rgba(0,0,0,.45))">
+    ${letras('Natália', 2.55, .05, 'foco', .9)}<span style="display:inline-block;width:.3em"></span>${letras('Valença', 2.95, .05, 'foco', .9)}</div>
   <div style="display:flex;align-items:center;gap:30px;margin-top:34px;white-space:nowrap">
     <div style="width:190px;height:2px;background:linear-gradient(90deg,transparent,${OURO});transform-origin:right;animation:abre .8s ${IO} 3.45s both"></div>
-    <div style="font:500 34px Poppins;--ls:.36em;letter-spacing:.36em;margin-right:-.36em;color:#f0c366;animation:trilho 1s ${E} 3.4s both">NATÁLIA VALENÇA</div>
+    <div style="font:500 34px Poppins;--ls:.36em;letter-spacing:.36em;margin-right:-.36em;color:#f0c366;animation:trilho 1s ${E} 3.4s both">ADVOCACIA NA PRÁTICA</div>
     <div style="width:190px;height:2px;background:linear-gradient(90deg,${OURO},transparent);transform-origin:left;animation:abre .8s ${IO} 3.45s both"></div></div>
   <div style="font:300 30px Poppins;letter-spacing:.06em;margin-top:26px;opacity:.9;white-space:nowrap;animation:surge .8s ${E} 3.85s both">Tributário, Eleitoral e Constitucional</div></div>
 <div class="cheio" style="background:radial-gradient(75% 75% at 50% 50%,transparent 55%,rgba(2,6,18,.6) 100%)"></div>
