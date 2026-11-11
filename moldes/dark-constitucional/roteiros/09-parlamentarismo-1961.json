@@ -1,0 +1,96 @@
+{
+  "pauta": 9,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "O Brasil mudou o sistema de governo pra um vice assumir",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil mudou o\nsistema de governo\npra um vice **assumir.**",
+      "imagem": {
+        "arquivo": "imagens/duas-cadeiras.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "22% 50%"
+      },
+      "fala": "Em mil novecentos e sessenta e um, o Brasil trocou o sistema de governo em oito dias. O motivo: deixar o vice tomar posse."
+    },
+    {
+      "tipo": "frase",
+      "data": "25 de agosto de 1961",
+      "texto": "Jânio Quadros\n**renuncia.**",
+      "nota": "Com menos de sete meses de mandato.",
+      "fala": "Vinte e cinco de agosto. O presidente Jânio Quadros renuncia, com menos de sete meses de mandato."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O vice estava\nna **China.**",
+      "nota": "João Goulart, o Jango, fazia uma viagem oficial.",
+      "fala": "O vice, João Goulart, estava do outro lado do mundo, em viagem oficial à China."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Os ministros\nmilitares disseram\n**não.**",
+      "fala": "E os três ministros militares avisaram: não aceitavam a posse de Jango. O país ficou à beira de uma guerra civil."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Presidente",
+          "sub": "Jango toma posse, com menos poder"
+        },
+        {
+          "titulo": "Premiê",
+          "sub": "Governa de fato, com apoio do Congresso",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "governaria",
+      "fala": "A saída foi um acordo. Jango tomaria posse, mas com menos poder. Quem governaria de verdade seria um primeiro-ministro, aprovado pelo Congresso."
+    },
+    {
+      "tipo": "frase",
+      "data": "2 de setembro de 1961",
+      "texto": "Uma emenda cria o\n**parlamentarismo.**",
+      "nota": "Emenda Constitucional nº 4, o Ato Adicional. Jango tomou posse no dia 7.",
+      "fala": "Dois de setembro. Uma emenda à Constituição muda o sistema de governo, oito dias depois da renúncia. Jango toma posse no dia sete."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Plebiscito · 6/1/1963",
+      "pergunta": "Sistema de governo",
+      "opcoes": [
+        "Presidencialismo",
+        "Parlamentarismo"
+      ],
+      "vencedor": 0,
+      "resultados": [
+        "≈ 9,5 mi",
+        "≈ 2 mi"
+      ],
+      "fala": "Mas o povo ainda seria ouvido. Em janeiro de sessenta e três, plebiscito. Vota aí: presidencialismo ou parlamentarismo?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "O presidencialismo\nvoltou. Com **folga.**",
+      "nota": "Pouco mais de um ano depois, veio o golpe de 1964.",
+      "fala": "Deu presidencialismo, com quase cinco vezes mais votos. Jango ganhou o poder de volta. E caiu pouco mais de um ano depois, no golpe de sessenta e quatro."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Mudar o sistema pra\nsair da crise: solução\nou **golpe?**",
+      "fala": "Mudar o sistema de governo pra sair de uma crise: solução ou golpe? Comenta."
+    }
+  ],
+  "legenda": "Em 1961, o Brasil mudou o sistema de governo em 8 dias para o vice poder assumir.\n\nJânio Quadros renunciou em 25 de agosto de 1961. O vice, João Goulart, estava em viagem à China, e os ministros militares vetaram sua posse. O acordo foi a Emenda Constitucional nº 4 (Ato Adicional), de 2 de setembro: Jango assumiu no dia 7, mas num sistema parlamentarista. No plebiscito de 6 de janeiro de 1963, o presidencialismo venceu com cerca de 9,5 milhões de votos contra 2 milhões.\n\nSolução ou golpe?",
+  "fontes": [
+    "Emenda Constitucional nº 4/1961 (Ato Adicional)",
+    "TSE · Plebiscito de 1963",
+    "Emenda Constitucional nº 6/1963"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "oab",
+    "concursos"
+  ]
+}

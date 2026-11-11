@@ -1,0 +1,84 @@
+{
+  "pauta": 16,
+  "serie": "Na urna",
+  "titulo": "Em 2005, o Brasil votou NÃO. Mas a quê?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Em 2005, o Brasil\nvotou **NÃO.**\nMas a quê?",
+      "imagem": {
+        "arquivo": "imagens/revolver.jpg",
+        "credito": "Revólver Colt · The Metropolitan Museum of Art (CC0)",
+        "foco": "40% 50%"
+      },
+      "fala": "Em dois mil e cinco, quase sessenta milhões de brasileiros votaram não. Tinha gente achando que votava contra as armas. Era o contrário."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Lei 10.826/2003 · art. 35",
+        "texto": "É proibida a comercialização de arma de fogo e munição em todo o território nacional, salvo para as entidades previstas no art. 6º."
+      },
+      "b": {
+        "cabecalho": "Art. 35, § 1º",
+        "texto": "Este dispositivo, para entrar em vigor, **dependerá de aprovação** mediante referendo popular, a ser realizado em outubro de 2005."
+      },
+      "ponte": "Mas",
+      "segundoEm": "trava",
+      "fala": "Tudo começou no Estatuto do Desarmamento, de dois mil e três. O artigo trinta e cinco proibia a venda de armas no país. Mas tinha uma trava: só valeria se o povo aprovasse."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Referendo · 23/10/2005",
+      "pergunta": "O comércio de armas de fogo e munição deve ser proibido no Brasil?",
+      "opcoes": [
+        "Sim",
+        "Não"
+      ],
+      "vencedor": 1,
+      "resultados": [
+        "36%",
+        "64%"
+      ],
+      "fala": "Vinte e três de outubro. A pergunta da urna era essa: o comércio de armas de fogo e munição deve ser proibido no Brasil? Lê de novo e vota."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "SIM",
+          "sub": "Proibia a venda de armas"
+        },
+        {
+          "titulo": "NÃO",
+          "sub": "Mantinha a venda permitida",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "mantinha",
+      "fala": "Repara: o sim proibia a venda. O não mantinha a venda permitida. Quem era contra as armas tinha que votar sim."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O **não** venceu\ncom 64%.",
+      "nota": "Cerca de 59 milhões de votos. O artigo 35 nunca entrou em vigor.",
+      "fala": "O não venceu, com sessenta e quatro por cento dos votos. E o artigo trinta e cinco nunca entrou em vigor. A venda seguiu permitida, com as regras do Estatuto."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você entendeu a\npergunta na **época?**",
+      "fala": "E você, na época, entendeu a pergunta? Comenta sim ou não."
+    }
+  ],
+  "legenda": "Em 2005, o Brasil votou NÃO. Mas a quê?\n\nO Estatuto do Desarmamento (Lei 10.826/2003) proibia, no art. 35, a venda de armas de fogo e munição, mas o § 1º condicionou a proibição a um referendo. Em 23 de outubro de 2005, a pergunta foi: \"O comércio de armas de fogo e munição deve ser proibido no Brasil?\". SIM proibia a venda; NÃO mantinha a venda permitida. O NÃO venceu com cerca de 64% (perto de 59 milhões de votos), e o art. 35 nunca entrou em vigor.\n\nVocê entendeu a pergunta na época?",
+  "fontes": [
+    "Lei 10.826/2003, art. 35",
+    "TSE · Referendo de 2005"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "oab",
+    "concursos"
+  ]
+}

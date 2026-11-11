@@ -1,0 +1,86 @@
+{
+  "pauta": 13,
+  "serie": "Na urna",
+  "titulo": "Ela votou no Brasil 5 anos antes das mulheres poderem",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ela votou no Brasil\n5 anos antes das\nmulheres **poderem.**",
+      "imagem": {
+        "arquivo": "imagens/mulher-1920.jpg",
+        "credito": "Retrato de mulher, anos 1920, foto ilustrativa · Rijksmuseum (CC0)",
+        "foco": "50% 30%"
+      },
+      "fala": "O Brasil só liberou o voto das mulheres em mil novecentos e trinta e dois. Mas uma professora já tinha título de eleitora cinco anos antes. Como?"
+    },
+    {
+      "tipo": "frase",
+      "data": "Mossoró, 1927",
+      "texto": "Uma professora pede\npra entrar na lista\nde **eleitores.**",
+      "nota": "Celina Guimarães Viana, no Rio Grande do Norte.",
+      "fala": "Mossoró, Rio Grande do Norte, novembro de mil novecentos e vinte e sete. A professora Celina Guimarães Viana pede pra entrar na lista de eleitores. E o pedido é aceito."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Constituição de 1891 · art. 70",
+        "texto": "São eleitores os **cidadãos** maiores de 21 anos que se alistarem na forma da lei."
+      },
+      "b": {
+        "cabecalho": "Lei do RN, 1927 (resumo)",
+        "texto": "No Rio Grande do Norte poderão votar e ser votados, **sem distinção de sexos**, os cidadãos que reunirem as condições da lei."
+      },
+      "ponte": "No RN",
+      "segundoEm": "Aí",
+      "fala": "O segredo estava no texto. A Constituição falava em cidadãos. Não proibia mulher, mas na prática ninguém deixava. Aí uma lei do Rio Grande do Norte disse com todas as letras: sem distinção de sexo."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Ela não foi\na **única.**",
+      "nota": "Em 1928, Alzira Soriano foi eleita prefeita de Lajes, também no RN.",
+      "fala": "Outras mulheres se alistaram no estado. E em vinte e oito, Alzira Soriano foi eleita prefeita de Lajes, a primeira prefeita do Brasil."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Mas o voto delas\n**valeu?**",
+      "fala": "Mas tem um detalhe. Na eleição pro Senado em vinte e oito, os votos das mulheres foram anulados pelo próprio Senado."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "1927",
+          "texto": "Celina se alista em Mossoró"
+        },
+        {
+          "data": "1932",
+          "texto": "Código Eleitoral libera o voto **feminino** no país"
+        },
+        {
+          "data": "1934",
+          "texto": "O voto da mulher entra na Constituição"
+        }
+      ],
+      "fala": "O direito só chegou pro país inteiro em mil novecentos e trinta e dois, com o Código Eleitoral. E entrou na Constituição em trinta e quatro."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Você sabia que\ncomeçou no **Nordeste?**",
+      "fala": "Você sabia que o voto feminino no Brasil começou em Mossoró? Comenta e marca alguém do Rio Grande do Norte."
+    }
+  ],
+  "legenda": "Uma mulher teve título de eleitora no Brasil 5 anos antes do voto feminino ser liberado no país.\n\nEm novembro de 1927, a professora Celina Guimarães Viana se alistou em Mossoró (RN), com base numa lei estadual daquele ano que permitia votar e ser votado sem distinção de sexo. A Constituição de 1891 falava em \"cidadãos\" e não proibia expressamente, mas na prática as mulheres eram barradas. Em 1928, Alzira Soriano foi eleita prefeita de Lajes (RN). O voto feminino chegou ao país todo com o Código Eleitoral de 1932 e entrou na Constituição de 1934.\n\nVocê sabia que começou no Nordeste?",
+  "fontes": [
+    "TSE · Voto da mulher",
+    "Lei estadual do RN nº 660/1927",
+    "Decreto 21.076/1932 (Código Eleitoral)",
+    "Constituição de 1934"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "oab",
+    "concursos"
+  ]
+}

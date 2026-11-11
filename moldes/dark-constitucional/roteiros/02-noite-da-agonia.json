@@ -1,0 +1,89 @@
+{
+  "pauta": 2,
+  "serie": "Império: o que não te contaram",
+  "titulo": "A 1ª Constituição do Brasil foi feita sem os deputados",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A 1ª Constituição\ndo Brasil foi feita\n**sem os deputados.**",
+      "imagem": {
+        "arquivo": "imagens/baionetas.jpg",
+        "credito": "Escaramuça, gravura do séc. XVIII · domínio público (rawpixel)",
+        "foco": "50% 60%"
+      },
+      "fala": "A primeira Constituição do Brasil não foi escrita pelos deputados eleitos pra isso. Eles foram tirados da sala por tropas do imperador."
+    },
+    {
+      "tipo": "frase",
+      "data": "3 de maio de 1823",
+      "texto": "Abre a primeira\n**Constituinte**\ndo Brasil.",
+      "fala": "Maio de mil oitocentos e vinte e três. Os deputados se reúnem no Rio pra escrever a Constituição do país recém-independente."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O projeto limitava\no poder do **imperador.**",
+      "fala": "Só que o projeto deles limitava o poder de Dom Pedro primeiro. E o imperador não gostou."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "11/11/1823",
+          "texto": "Deputados entram em sessão permanente"
+        },
+        {
+          "data": "Madrugada",
+          "texto": "Tropas **cercam** o prédio"
+        },
+        {
+          "data": "12/11/1823",
+          "texto": "Decreto dissolve a Assembleia"
+        }
+      ],
+      "fala": "Onze de novembro. Os deputados entram em sessão permanente e passam a noite no plenário. Lá fora, tropas cercam o prédio. Na manhã seguinte, um decreto dissolve a Assembleia. Deputados são presos, e alguns vão pro exílio."
+    },
+    {
+      "tipo": "frase",
+      "texto": "A madrugada ganhou\num nome: **Noite da Agonia.**",
+      "fala": "A madrugada entrou pra história como a Noite da Agonia."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Decreto de 12/11/1823 (resumo)",
+        "texto": "Dissolve a Assembleia e promete um projeto de Constituição **duplicadamente mais liberal** que o dela."
+      },
+      "b": {
+        "cabecalho": "25 de março de 1824",
+        "texto": "Nenhuma nova Assembleia. A Constituição é **outorgada** pelo imperador."
+      },
+      "ponte": "Na prática",
+      "segundoEm": "outorgou",
+      "fala": "O decreto prometia uma Constituição duplicadamente mais liberal. Nova Assembleia, nunca houve. Em março de mil oitocentos e vinte e quatro, Dom Pedro outorgou a Constituição. Ou seja: impôs."
+    },
+    {
+      "tipo": "frase",
+      "texto": "E foi a que\nmais **durou:**\n65 anos.",
+      "nota": "A Carta de 1824 valeu até a República, em 1889.",
+      "fala": "E aqui está a ironia: a Constituição imposta foi a que mais durou na história do Brasil. Sessenta e cinco anos."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Constituição imposta\nvale como **Constituição?**",
+      "fala": "Constituição imposta vale como Constituição? Comenta."
+    }
+  ],
+  "legenda": "A primeira Constituição do Brasil foi feita sem os deputados.\n\nA Assembleia Constituinte abriu em 3 de maio de 1823. Na noite de 11 para 12 de novembro, com os deputados em sessão permanente, tropas cercaram o prédio, e Dom Pedro I dissolveu a Assembleia por decreto: a Noite da Agonia. O decreto prometia um projeto \"duplicadamente mais liberal\", mas não houve nova Assembleia. A Constituição de 25 de março de 1824 foi outorgada e durou 65 anos, a mais longa da nossa história.\n\nConstituição imposta vale como Constituição?",
+  "fontes": [
+    "Câmara dos Deputados · Assembleia Constituinte de 1823",
+    "Decreto de 12 de novembro de 1823",
+    "Constituição de 1824"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "historiadobrasil",
+    "oab",
+    "concursos"
+  ]
+}
