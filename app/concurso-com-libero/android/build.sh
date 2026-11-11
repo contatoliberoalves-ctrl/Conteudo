@@ -9,6 +9,7 @@ cd "$(dirname "$0")"
 WWW=app/src/main/assets/www
 rm -rf "$WWW" && mkdir -p "$WWW/fontes"
 cp fontes/*.woff2 "$WWW/fontes/"
+cp -r ../conteudo "$WWW/conteudo"
 { printf '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Concurso com Líbero</title><style>'; cat fontes/fontes.css; printf '</style></head><body>'; cat ../index.html; printf '</body></html>'; } > "$WWW/index.html"
 if [ -n "${COLECAO:-}" ]; then mkdir -p "$WWW/colecao" && cp "$COLECAO"/*.pdf "$COLECAO"/*.webp "$WWW/colecao/"; fi
 echo "sdk.dir=${ANDROID_HOME}" > local.properties
