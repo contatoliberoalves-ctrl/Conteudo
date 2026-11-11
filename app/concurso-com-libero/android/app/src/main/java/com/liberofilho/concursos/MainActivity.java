@@ -75,14 +75,20 @@ public class MainActivity extends Activity {
             getOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, this::voltar);
         }
 
-        if (estado != null) web.restoreState(estado);
-        else web.loadUrl("file:///android_asset/www/index.html");
+        // O progresso fica salvo na própria página; se o Android não devolver a tela anterior, carrega de novo.
+        if (estado == null || web.restoreState(estado) == null) web.loadUrl("file:///android_asset/www/index.html");
     }
 
     @Override
     protected void onSaveInstanceState(Bundle saida) {
         super.onSaveInstanceState(saida);
         web.saveState(saida);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (web != null) { raiz.removeView(web); web.destroy(); web = null; }
+        super.onDestroy();
     }
 
     @Override
@@ -159,7 +165,16 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void cores(String fundo, boolean escuro) {
             runOnUiThread(() -> {
-                try { raiz.setBackgroundColor(Color.parseColor(fundo)); } catch (Exception ignorado) { }
+                try {
+                    int cor = Color.parseColor(fundo);
+                    raiz.setBackgroundColor(cor);
+                    getWindow().getDecorView().setBackgroundColor(cor);
+                    // Até o Android 14 as barras têm cor própria; do 15 em diante são transparentes.
+                    if (Build.VERSION.SDK_INT < 35) {
+                        getWindow().setStatusBarColor(cor);
+                        if (Build.VERSION.SDK_INT >= 27) getWindow().setNavigationBarColor(cor);
+                    }
+                } catch (Exception ignorado) { }
                 if (Build.VERSION.SDK_INT >= 30) {
                     WindowInsetsController c = getWindow().getInsetsController();
                     if (c != null) {

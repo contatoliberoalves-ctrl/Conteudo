@@ -161,7 +161,7 @@ ul{margin:0;padding-left:20px}
 .stats{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:14px;overflow:hidden}
 .stats>div{background:var(--sf);padding:12px 14px;min-width:0;display:grid;gap:2px}
 .stats small{font-size:12.5px;color:var(--mu);font-weight:600}
-.stats b{font-size:clamp(15px,4.2vw,20px);font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.25;overflow-wrap:anywhere}
+.stats b{font-size:clamp(15px,4.2vw,20px);font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.25;overflow-wrap:break-word}
 .dark .stats{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.14)}
 .dark .stats>div{background:var(--deep)}
 .dark .stats small{color:rgba(255,255,255,.72)}
@@ -620,8 +620,8 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .manch-n b{font-family:var(--h);font-size:72px;line-height:.9;font-weight:800;color:var(--lima);letter-spacing:-.04em}
 .manch-n span{font-size:14px;line-height:1.3;color:#C5DED5}
 @media(min-width:760px){.manch-g{grid-template-columns:1fr auto}.manch-n{flex-direction:column;align-items:flex-start;gap:4px;padding-left:24px;border-left:1px solid rgba(255,255,255,.18)}.manch-n b{font-size:96px}}
-.jc-nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
-.jc-nums>div{background:var(--sf);padding:16px;display:grid;gap:4px}
+.jc-nums{display:flex;flex-wrap:wrap;gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:16px;overflow:hidden}
+.jc-nums>div{background:var(--sf);padding:16px;display:grid;gap:4px;align-content:start;flex:1 1 140px;min-width:0}
 .jc-nums b{font-family:var(--h);font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--acc);line-height:1.05}
 .jc-nums>div>span{font-size:13px;color:var(--mu);line-height:1.35}
 @media(min-width:760px){.jc-nums{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -653,7 +653,8 @@ details.gab[open] .rot{transform:rotate(90deg)}
 .radar-card:hover{border-color:var(--acc)}
 .radar-card b{font-family:var(--h);font-size:16.5px;line-height:1.25}
 .radar-card .tag{justify-self:start}
-.radar-card .fases{font-size:11px}
+.radar-card .fases li{font-size:0;gap:0}
+.radar-card .fases li.at{font-size:0}
 .seu-conc{border-left:4px solid var(--acc)}
 .dica-j{background:var(--p-mint);border-color:transparent}
 .dj-t{font-family:var(--h);font-size:19px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
@@ -1169,6 +1170,8 @@ function ganhar(xp,msg){
   toast(msg,xp);
 }
 function conquista(id){if(S.badges.includes(id))return;S.badges.push(id);setTimeout(()=>toast(`Conquista: ${BADGES[id][0]}`,0,'medalha'),900)}
+const provaEm=c=>{const n=diasAte(c.prova);return n>1?`prova em ${n} dias`:n===1?'prova amanhã':n===0?'a prova é hoje':'prova realizada'};
+const faltaTxt=c=>{const n=diasAte(c.prova);return n>1?`${n} dias`:n===1?'1 dia':n===0?'é hoje':'já foi'};
 const corteTxt=c=>c.regras?'o mínimo do edital (50%)':`a nota de corte de ${c.hist.ano} (exemplo)`;
 const nivel=()=>{const n=Math.min(NIVEIS.length-1,Math.floor(S.xp/150));return{n:n+1,nome:NIVEIS[n],falta:150-(S.xp%150),pct:(S.xp%150)/150*100}};
 function confete(el){
@@ -1541,7 +1544,7 @@ const SHEETS={
      ${prox?`<button class="btn btn-s w" data-a="go" data-v="plano" data-meta="${prox.id}">Ver no meu plano · ${quando(prox.data)}</button>`:''}`];
   },
   amostra:()=>{const c=concAtivo(),a=amostra(c);
-    return['Amostra analisada',`Raio-X · ${c.sigla}`,`<p>${a.p} ${a.p===1?'prova':'provas'} e ${a.q} ${c.unidade} entraram nesta análise. Dados ilustrativos.</p>
+    return['Amostra analisada',`Raio-X · ${c.sigla}`,`<p>${a.p} ${a.p===1?'prova':'provas'} e ${a.q} ${c.unidade} entraram nesta análise.${a.real?' Cada questão foi classificada por matéria e assunto.':' Dados ilustrativos.'}</p>
      <div class="stack">${a.lista.map(x=>`<div class="li"><span class="grow"><span class="t">${x[1]}</span><span class="s" style="display:block">${x[2]} · ${x[0]} · ${x[3]} ${c.unidade}</span></span></div>`).join('')}</div>`]},
   demo:()=>[ 'Painel de demonstração','Fora do app real',`
      <p class="sm mu">Use para revisar os estados de cada tela. Tudo aqui é simulação.</p>
@@ -1635,6 +1638,7 @@ function listaMateriais(cid,a,m,{de}={}){
     return`<button class="ri" data-a="material" data-mat="${x.id}" data-de="${de||UI.view}" data-gate="estudo" data-conc="${cid}"><span style="color:var(--acc2)">${I(cb?(x.tipo==='Resumo'?'livro':x.tipo==='Mapa mental'?'mapa':'balanca'):'lock',20)}</span><span class="grow"><span class="t">${x.tipo}</span><span class="s">${x.formato}${meta?` · meta de ${quando(meta.data)}`:''}</span></span>${chevR()}</button>`}));
 }
 function amostra(c){
+  if(c.fonteFreq){const lst=c.provas.filter(x=>x[0]===2023&&x[2]===c.banca).slice(0,1);return{p:1,q:lst[0]?lst[0][3]:0,lista:lst,pequena:true,real:true}}
   const k=UI.rx.banca==='banca'?'banca':'todas',[p,q]=c.amostra[k][UI.rx.per];
   const lst=c.provas.filter(x=>(k==='todas'||x[2]===c.banca)).sort((a,b)=>b[0]-a[0]).slice(0,p);
   return{p,q,lista:lst,pequena:p<3};
@@ -1690,7 +1694,7 @@ function cardNota(P,c){
      <div class="locked"><div class="blur">${barrasNota(ex,c.corteP)}</div><div class="lk-ov"><div class="stack" style="gap:8px;justify-items:center;max-width:280px"><b>Sua nota passa da nota de corte?</b><span class="sm mu">Com as questões do Premium, o app estima sua nota por matéria e compara com ${corteTxt(c)}.</span><button class="btn btn-p sm" data-a="go" data-v="premium">Conhecer o Premium</button></div></div></div></section>`;
   }
   const n=notaEst(P,c.id);
-  return`<section class="card pad stack"><div class="between"><h3>Nota estimada</h3><span class="sm mu">corte ${c.corteP}%</span></div>
+  return`<section class="card pad stack"><div class="between"><h3>Nota estimada</h3><span class="sm mu">${c.regras?'mínimo':'corte'} ${c.corteP}%</span></div>
    ${n.proj==null?`<p class="sm mu">Responda questões e a estimativa aparece aqui, matéria por matéria.</p><button class="btn btn-s sm" data-a="tab" data-v="praticar">Fazer uma rodada</button>`
    :`<div class="row" style="align-items:baseline;gap:8px"><span class="num" style="font-size:34px;color:${n.proj>=n.corte?'var(--ok)':'var(--at)'}">${n.proj}%</span><span class="sm mu">${n.proj>=n.corte?'acima':'abaixo'} ${c.regras?'do mínimo do edital':'do corte'} · base: ${n.cob}% do peso da prova</span></div>
     ${barrasNota(n.pm.map(x=>[x.m.curto,corMat(c.id,x.m.id),x.taxa,x.n?`· ${x.n}`:'']),n.corte)}<p class="xs mu2">A linha preta marca ${corteTxt(c)}.</p>`}</section>`;
@@ -1800,8 +1804,8 @@ V.concurso=p=>{
   const c=C(p.c),sel=UI.cargoSel[c.id]||c.cargos[0].id;
   return`<button class="back" data-a="voltar">${I('esq',18)} Catálogo</button>
   <section class="stack" style="gap:10px"><div class="row"><span class="sig g">${c.sigla}</span><div class="grow"><h1 style="font-size:25px">${esc(c.orgao)}</h1><div class="meta-l"><span>${esc(c.nome)}</span><span>Banca ${c.banca}</span></div></div></div>
-   <div class="stats" style="--n:3"><div><small>Situação</small><b>${c.situacao}</b></div><div><small>Prova</small><b>${dmy(c.prova)}</b></div><div><small>${c.regras?'Para passar':'Concorrência em '+c.hist.ano}</small><b>${c.regras?'50% em Português e em Direito':c.hist.concorrencia}</b></div></div>
-   <p class="ilus">Dados ilustrativos</p></section>
+   <div class="stats" style="--n:2"><div><small>Situação</small><b>${c.situacao}</b></div><div><small>Prova</small><b>${dmy(c.prova)}</b></div><div><small>${c.regras?'Prova objetiva':'Concorrência em '+c.hist.ano}</small><b>${c.regras?c.materias.reduce((x,m)=>x+m.peso,0)+' '+c.unidade:c.hist.concorrencia}</b></div><div><small>Inscrições</small><b>${esc(c.inscricoes.replace(' (previsão)',''))}</b></div></div>
+   <p class="ilus">${c.regras?'Fonte: '+esc(c.versao):'Dados ilustrativos'}</p></section>
   <h2>Escolha o cargo</h2>
   <div class="stack" role="radiogroup" aria-label="Cargos">${c.cargos.map(x=>`
    <button class="cargo" role="radio" aria-checked="${x.id===sel}" data-a="cargo" data-c="${c.id}" data-cargo="${x.id}"><span class="radio"></span>
@@ -1819,7 +1823,7 @@ V.edital=()=>{
   const ret=c.retificacoes[0],tot=c.materias.reduce((s,m)=>s+m.peso,0);
   return`<section class="stack" style="gap:10px"><span class="eyebrow">Análise do edital · gratuita</span><h1>${esc(cg.nome)}</h1><div class="meta-l"><span>${esc(c.orgao)}</span><span>Banca ${c.banca}</span><span>${c.situacao}</span></div></section>
   ${subnavEdital('edital')}
-  <div class="stats" style="--n:2"><div><small>Vagas</small><b>${cg.vagas}</b></div><div><small>Remuneração inicial</small><b>${cg.remun}</b></div><div><small>Prova em ${diasAte(c.prova)} dias</small><b>${dmy(c.prova)}</b></div><div><small>Taxa de inscrição</small><b>${cg.taxa}</b></div></div>
+  <div class="stats" style="--n:2"><div><small>Vagas</small><b>${cg.vagas}</b></div><div><small>Remuneração inicial</small><b>${cg.remun}</b></div><div><small>${provaEm(c)[0].toUpperCase()+provaEm(c).slice(1)}</small><b>${dmy(c.prova)}</b></div><div><small>Taxa de inscrição</small><b>${cg.taxa}</b></div></div>
   <p class="sm mu" style="margin-top:-8px">Inscrições de ${c.inscricoes}.</p>
   <p class="ilus" style="margin-top:-8px">${c.fonteFreq?'Tudo conferido no edital publicado em 10/11/2026. A divisão das 30 questões de Direito entre as matérias e a frequência dos assuntos são estimativas pela prova VUNESP de 2023.':'Vagas, salário, banca e datas: edital publicado, conferidos em 10/11/2026. Matérias, pesos e histórico: exemplo.'}</p>
   ${ret?`<div class="aviso">${I('alerta')}<div class="grow"><b>Retificação de ${dmy(ret.data)}: o que mudou</b><div class="diff">${ret.mudou.map(([o,a,b])=>`<span>${o}: <s>${a}</s> → <ins>${b}</ins></span>`).join('')}</div><span class="xs">Fonte: ${ret.fonte} (exemplo)</span></div></div>`:''}
@@ -1837,7 +1841,7 @@ V.edital=()=>{
     <div><dt>Nota de corte</dt><dd>${c.hist.corte}</dd></div></dl><p class="xs mu2">Números de exemplo. No app real, com fonte e data de cada um.</p></section>`}
   </div>
   <section class="card pad stack"><div class="between"><h3>Distribuição das questões</h3><span class="sm mu">${tot} ${c.unidade}</span></div>
-   <table><thead><tr><th>Matéria</th><th class="r">${c.unidade[0].toUpperCase()+c.unidade.slice(1)}</th><th style="width:34%">Peso</th></tr></thead><tbody>${c.materias.slice().sort((a,b)=>b.peso-a.peso).map(m=>`<tr><td><span class="row" style="gap:8px">${dotM(c.id,m.id)}${esc(m.nome)}</span></td><td class="r num">${m.peso}</td><td><div class="row" style="gap:8px"><div class="bar grow" style="--c:${corMat(c.id,m.id)}"><i style="width:${m.peso/Math.max(...c.materias.map(x=>x.peso))*100}%"></i></div><span class="xs mu" style="width:34px;text-align:right">${Math.round(m.peso/tot*100)}%</span></div></td></tr>`).join('')}</tbody></table></section>
+   <table style="table-layout:fixed;width:100%"><thead><tr><th>Matéria</th><th class="r" style="width:76px">${c.unidade[0].toUpperCase()+c.unidade.slice(1)}</th><th style="width:30%">Peso</th></tr></thead><tbody>${c.materias.slice().sort((a,b)=>b.peso-a.peso).map(m=>`<tr><td style="overflow-wrap:anywhere"><span class="row" style="gap:8px;align-items:flex-start">${dotM(c.id,m.id)}<span style="min-width:0">${esc(m.nome)}</span></span></td><td class="r num">${m.peso}</td><td><div class="row" style="gap:8px"><div class="bar grow" style="--c:${corMat(c.id,m.id)}"><i style="width:${m.peso/Math.max(...c.materias.map(x=>x.peso))*100}%"></i></div><span class="xs mu" style="width:34px;text-align:right">${Math.round(m.peso/tot*100)}%</span></div></td></tr>`).join('')}</tbody></table></section>
   <div class="g2">
    <section class="card pad stack"><h3>Datas</h3><div class="tl">${c.datas.map(([d,t,k])=>`<div class="${d<HOJE?'passou':''} ${k||''}"><span class="dt"></span><div><b>${dmy(d)}</b><span class="sm ${d<HOJE?'mu2':'mu'}" style="display:block">${t}${d<HOJE?' · já passou':''}</span></div></div>`).join('')}</div></section>
    <section class="card pad stack"><h3>Etapas e formato</h3><ol style="margin:0;padding-left:20px;display:grid;gap:6px">${cg.etapas.map(e=>`<li>${e}</li>`).join('')}</ol><p class="sm mu">${c.formato}</p>
@@ -1858,22 +1862,22 @@ V.edital=()=>{
 
 V.raiox=()=>{
   const c=concAtivo(),P=prep(),a=amostra(c);
-  const mult=(id)=>{let h=0;for(const ch of id+UI.rx.per+UI.rx.banca)h=(h*31+ch.charCodeAt(0))%997;return 1+((h%9)-4)/40};
+  const mult=(id)=>{if(c.fonteFreq)return 1;let h=0;for(const ch of id+UI.rx.per+UI.rx.banca)h=(h*31+ch.charCodeAt(0))%997;return 1+((h%9)-4)/40};
   let mats=c.materias.map(m=>({m,f:m.freq*mult(m.id)}));const s=mats.reduce((x,y)=>x+y.f,0);mats.forEach(x=>x.f=Math.round(x.f/s*100));mats.sort((x,y)=>y.f-x.f);
   const tot=c.materias.reduce((x,m)=>x+m.peso,0),max=Math.max(...mats.map(x=>x.f));
   return`${subnavEdital('raiox')}
   <section class="stack" style="gap:8px"><h1>O que mais cai no ${c.sigla}</h1><p class="mu">${a.p} ${a.p===1?'prova':'provas'} e ${a.q} ${c.unidade} analisados. <button class="btn-g" style="min-height:0;display:inline" data-a="sheet" data-s="amostra">Ver amostra</button></p></section>
-  <div class="g3">
+  ${c.fonteFreq?'':`<div class="g3">
     <div class="field"><label for="rxb">Banca</label><select id="rxb" data-rx="banca"><option value="banca" ${UI.rx.banca==='banca'?'selected':''}>${c.banca}</option><option value="todas" ${UI.rx.banca==='todas'?'selected':''}>Todas as bancas</option></select></div>
     <div class="field"><label for="rxc">Cargo</label><select id="rxc" data-rx="cargo">${c.cargos.map(x=>`<option value="${x.id}" ${(UI.rx.cargo||P.cargo)===x.id?'selected':''}>${esc(x.nome)}</option>`).join('')}</select></div>
-    <div class="field"><label for="rxp">Período</label><select id="rxp" data-rx="per">${[['3','Últimos 3 anos'],['5','Últimos 5 anos'],['10','Últimos 10 anos']].map(([k,l])=>`<option value="${k}" ${UI.rx.per===k?'selected':''}>${l}</option>`).join('')}</select></div></div>
-  ${a.pequena?`<div class="aviso">${I('alerta')}<div class="grow sm"><span><b>Amostra pequena.</b> Com menos de 3 provas, a frequência pode mudar bastante. Use como pista, não como regra.</span></div></div>`:''}
+    <div class="field"><label for="rxp">Período</label><select id="rxp" data-rx="per">${[['3','Últimos 3 anos'],['5','Últimos 5 anos'],['10','Últimos 10 anos']].map(([k,l])=>`<option value="${k}" ${UI.rx.per===k?'selected':''}>${l}</option>`).join('')}</select></div></div>`}
+  ${a.pequena?`<div class="aviso">${I('alerta')}<div class="grow sm"><span><b>Amostra pequena.</b> ${a.real?'Uma prova só: a frequência':'Com menos de 3 provas, a frequência'} pode mudar bastante. Use como pista, não como regra.</span></div></div>`:''}
   <section class="card pad"><div class="sec-h" style="margin-bottom:4px"><h3>Ranking de matérias</h3><span class="xs mu">toque para ver os assuntos</span></div>
    ${mats.map((x,i)=>{const cor=corMat(c.id,x.m.id);return`<details class="rk acc" ${i===0?'open':''}><summary class="rk-h"><span class="rk-n">${i+1}</span>${dotM(c.id,x.m.id)}<b class="grow">${esc(x.m.nome)}</b><span class="num sm">${x.f}%</span><span class="rot">${I('dir',18)}</span></summary>
      <div class="rk-dados"><div><small>Peso no edital</small><b>${x.m.peso} ${c.unidade} (${Math.round(x.m.peso/tot*100)}%)</b></div><div><small>Frequência nas provas</small><b>${x.f}% das ${c.unidade}</b></div></div>
-     <div class="stack" style="gap:0">${x.m.assuntos.slice().sort((p,q)=>q.freq-p.freq).map(as=>{const nq=nQuest(c.id,as.id);return`<button class="ass-li" data-a="assunto" data-ass="${as.id}"><span class="grow"><b class="sm" style="display:block">${esc(as.nome)}</b><span class="xs mu">${as.freq}% das questões da matéria</span></span><span class="bar" style="--c:${cor}"><i style="width:${as.freq}%"></i></span><span class="sm mu num" style="width:38px;text-align:right">${as.freq}%</span></button>`}).join('')}</div>
+     <div class="stack" style="gap:0">${x.m.assuntos.slice().sort((p,q)=>q.freq-p.freq).map(as=>{const nq=nQuest(c.id,as.id);return`<button class="ass-li" data-a="assunto" data-ass="${as.id}"><span class="grow"><b class="sm" style="display:block">${esc(as.nome)}</b></span><span class="bar" style="--c:${cor}"><i style="width:${as.freq}%"></i></span><span class="sm mu num" style="width:38px;text-align:right">${as.freq}%</span></button>`}).join('')}</div>
    </details>`}).join('')}
-   <p class="ilus" style="margin-top:8px">Números ilustrativos</p></section>`;
+   <p class="ilus" style="margin-top:8px">${c.fonteFreq?'O % ao lado de cada assunto é a parte dele dentro da matéria, '+c.fonteFreq:'Números ilustrativos'}</p></section>`;
 };
 
 V.banca=()=>{
@@ -1907,7 +1911,7 @@ V.leitor=p=>{
   const titulo={resumo:'Resumo',mapa:'Mapa mental',lei:'Lei seca direcionada'}[tipo];
   let corpo='';
   if(tipo==='resumo')corpo=`<div class="card pad">${aa.a.pontos.map((t,i)=>{const [h,...r]=t.split(': ');return`<div class="pt"><span class="n">${i+1}</span>${r.length?`<b>${esc(h)}</b><span>${esc(r.join(': '))}</span>`:`<span style="grid-row:span 2">${esc(t)}</span>`}</div>`}).join('')}</div>`;
-  if(tipo==='mapa')corpo=`<div class="mm"><div class="centro">${esc(aa.a.nome)}</div><div class="ramos">${aa.a.pontos.map((t,i)=>{const [h,...r]=t.split(': ');return`<div class="ramo"><b>${dotM(c.id,aa.m.id)}${r.length?esc(h):`Ponto ${i+1}`}</b><span class="sm mu">${esc(r.length?r.join(': '):t)}</span></div>`}).join('')}</div></div>`;
+  if(tipo==='mapa')corpo=`<div class="mm"><div class="centro">${esc(aa.a.nome)}</div><div class="ramos">${aa.a.pontos.map((t,i)=>{const [h,...r]=t.split(': ');return`<div class="ramo"><b>${dotM(c.id,aa.m.id)}${r.length?esc(h):esc(h.split(' ').slice(0,3).join(' ')+'…')}</b><span class="sm mu">${esc(r.length?r.join(': '):t)}</span></div>`}).join('')}</div></div>`;
   if(tipo==='lei')corpo=(aa.a.lei||[]).map(([r,t])=>`<div class="lei"><span class="ref">${esc(r)}</span><p>${t}</p></div>`).join('')+'<p class="xs mu">Grifado: o trecho que a banca costuma trocar nas alternativas.</p>';
   const voltarTxt=p.foco?'Voltar ao modo foco':meta?'Voltar à meta':({materiais:'Materiais',raiox:'Raio-X',banca:'Perfil da banca',plano:'Meu plano',hoje:'Hoje',resultado:'Resultado'}[p.de]||'Voltar');
   const vAct=p.foco?'voltarFoco':'voltar',nq=nQuest(c.id,aid);
@@ -1927,7 +1931,7 @@ function hojeFree(P,c){
   const visto=P.vistoEdital,cg=cargoDe(P),tot=c.materias.reduce((s,m)=>s+m.peso,0);
   const umOutro=S.plano==='um'&&S.planoConc!==c.id&&!S.expirado;
   const top=c.materias.slice().sort((a,b)=>b.peso-a.peso).slice(0,3);
-  return`<section class="stack" style="gap:6px"><span class="eyebrow">${DLM(HOJE)}</span><h1>${esc(c.nome)}</h1><div class="meta-l"><span>${esc(cg.nome)}</span><span>prova em ${diasAte(c.prova)} dias</span></div></section>
+  return`<section class="stack" style="gap:6px"><span class="eyebrow">${DLM(HOJE)}</span><h1>${esc(c.nome)}</h1><div class="meta-l"><span>${esc(cg.nome)}</span><span>${provaEm(c)}</span></div></section>
   ${S.expirado?`<div class="aviso">${I('alerta')}<div class="grow"><b>Seu acesso ao plano terminou.</b><span class="sm">Seu histórico está salvo: ${P.metas.filter(m=>m.ok).length} metas e ${P.respondidas} questões. Agora você tem o resumo gratuito do edital.</span><button class="btn btn-s sm" style="justify-self:start" data-a="sheet" data-s="paywall" data-tipo="estudo" data-conc="${c.id}">Ver como reativar</button></div></div>`:''}
   ${umOutro?`<div class="aviso neutro">${I('ajuda')}<div class="grow sm"><span>Seu Um Concurso cobre o <b>${C(S.planoConc).sigla}</b>. No ${c.sigla} você tem o resumo gratuito do edital.</span></div></div>`:''}
   <div class="cols"><div class="stack" style="gap:20px">
@@ -1976,7 +1980,7 @@ V.hoje=()=>{
   }else{principal=`<section class="dark"><span class="eyebrow">Dia livre no seu plano</span><h2 style="color:#fff">Descanso também faz parte</h2><p class="mu">O próximo estudo é ${futuras[0]?`<b style="color:#fff">${esc(achaAss(P.conc,futuras[0].ass).a.nome)}</b>, ${quando(futuras[0].data)}`:'a definir'}.</p>
      ${futuras[0]?`<button class="btn btn-l w" data-a="adiantar" data-m="${futuras[0].id}">Adiantar esta meta para hoje</button>`:''}</section>`}
   return`<section class="stack" style="gap:6px"><span class="eyebrow">${DLM(HOJE)}</span><h1>Seu dia de estudo</h1>
-    <div class="meta-l"><span>${doDia.length?`${feitas} de ${doDia.length} metas`:'sem metas hoje'}</span>${restMin?`<span>${hm(restMin)} restantes</span>`:''}<span>prova em ${diasAte(c.prova)} dias</span></div></section>
+    <div class="meta-l"><span>${doDia.length?`${feitas} de ${doDia.length} metas`:'sem metas hoje'}</span>${restMin?`<span>${hm(restMin)} restantes</span>`:''}<span>${provaEm(c)}</span></div></section>
   <div class="cols"><div class="stack" style="gap:20px">
    ${avisoSequencia()}
    <section class="card" style="padding:10px 8px">${semana(P)}</section>
@@ -2047,7 +2051,7 @@ V.config=()=>{
   const sem1=[];for(let i=0;i<7;i++){const dd=addD(HOJE,i);sem1.push([dd,sim.metas.filter(m=>m.data===dd&&!m.ok).sort((a,b)=>a.ordem-b.ordem)])}
   const opts=[30,45,60,75,90,120,180,240];
   return`${P.cfg?`<button class="back" data-a="voltar">${I('esq',18)} Meu plano</button>`:''}
-  <section class="stack" style="gap:6px"><span class="eyebrow">${P.cfg?'Ajustar rotina':'Configurar plano'} · ${c.sigla}</span><h1>${P.cfg?'Mude o que precisar':'Vamos montar sua rotina'}</h1><p class="mu">A prova é em ${dmy(c.prova)}, daqui a ${semanas} semanas. ${P.cfg?'Metas concluídas ficam no histórico.':'Dá para mudar tudo depois.'}</p></section>
+  <section class="stack" style="gap:6px"><span class="eyebrow">${P.cfg?'Ajustar rotina':'Configurar plano'} · ${c.sigla}</span><h1>${P.cfg?'Mude o que precisar':'Vamos montar sua rotina'}</h1><p class="mu">${diasAte(c.prova)<0?`A prova foi em ${dmy(c.prova)}.`:diasAte(c.prova)<7?`A prova é em ${dmy(c.prova)}: ${faltaTxt(c)}.`:`A prova é em ${dmy(c.prova)}, daqui a ${semanas} semanas.`} ${P.cfg?'Metas concluídas ficam no histórico.':'Dá para mudar tudo depois.'}</p></section>
   <div class="cols"><div class="stack" style="gap:16px">
    <section class="card pad stack"><div class="row" style="gap:10px"><span class="stepn">1</span><h3>Quais dias você pode estudar?</h3></div><div class="dias7">${DS.map((d,i)=>`<button class="chip" aria-pressed="${cfg.dias[i]}" data-a="cfgDia" data-i="${i}" aria-label="${DL[i]}">${d}</button>`).join('')}</div></section>
    <section class="card pad stack"><div class="row" style="gap:10px"><span class="stepn">2</span><h3>Quanto tempo em cada dia?</h3></div>
@@ -2422,7 +2426,6 @@ SHEETS.sequencia=()=>{const n=S.escudos||0,prox=7-(S.streak%7);return['Proteçã
   <div class="stack" style="gap:10px">
    <div class="row" style="align-items:flex-start"><span class="esc on">${I('escudo',20)}</span><div class="grow"><b class="sm">Como funciona</b><p class="sm mu">Se você ficar um dia sem estudar, um escudo é gasto sozinho e a sequência continua. Dois dias seguidos gastam dois escudos.</p></div></div>
    <div class="row" style="align-items:flex-start"><span class="esc on">${I('fogo',20)}</span><div class="grow"><b class="sm">Como ganhar</b><p class="sm mu">1 escudo a cada 7 dias seguidos, até ${MAX_ESC}. ${n>=MAX_ESC?'Seu estoque está cheio.':`Faltam ${prox} ${prox===1?'dia':'dias'} para o próximo.`}</p></div></div>
-   <div class="row" style="align-items:flex-start"><span class="esc on">${I('estrela',20)}</span><div class="grow"><b class="sm">Bônus do Premium</b><p class="sm mu">Assinantes do Premium ganham 1 escudo extra por mês.</p></div></div>
   </div>
   <button class="btn btn-s w" data-a="demoFalta">Demonstração: simular 1 dia sem estudar</button>`]};
 ACT.demoFalta=()=>{if(!S.streak){S.streak=4}S.ultimoDia=addD(HOJE,-2);delete S.avisoEscudo;delete S.avisoPerda;checarSequencia();fecharSheet(true);go('hoje',{},{raiz:true})};
@@ -2444,7 +2447,7 @@ V.onb=()=>{
     <button class="btn-g" style="justify-self:center" data-a="demoExemplo">Entrar com o aluno de exemplo</button></div>`;
   if(o.passo===1)corpo=`<div class="stack" style="gap:16px"><span class="eyebrow">Passo 1 de 3</span><h1>Qual concurso você vai fazer?</h1>
     <div class="stack">${CONCURSOS.map(c=>`<button class="cargo" role="radio" aria-checked="${o.conc===c.id}" data-a="onbConc" data-c="${c.id}"><span class="radio"></span><span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${c.sigla} · ${esc(c.orgao)}</b><span class="meta-l"><span>Banca ${c.banca}</span><span>Prova ${dmy(c.prova)}</span><span>${c.situacao}</span></span></span></button>`).join('')}</div>
-    <p class="ilus">Concursos de exemplo</p></div>`;
+    <p class="ilus">Há mais concursos no catálogo. Estes dois já têm plano de estudo.</p></div>`;
   if(o.passo===2){const c=C(o.conc);corpo=`<div class="stack" style="gap:16px"><span class="eyebrow">Passo 2 de 3 · ${c.sigla}</span><h1>E o cargo?</h1>
     <div class="stack">${c.cargos.map(x=>`<button class="cargo" role="radio" aria-checked="${o.cargo===x.id}" data-a="onbCargo" data-cargo="${x.id}"><span class="radio"></span><span class="stack" style="gap:4px;flex:1"><b style="font-size:17px">${esc(x.nome)}</b><span class="meta-l"><span>${x.nivel}</span><span>${/^\d/.test(x.vagas)?x.vagas.split(' ')[0]+' vagas':x.vagas}</span><span>${x.remun}</span></span></span></button>`).join('')}</div></div>`}
   if(o.passo===3)corpo=`<div class="stack" style="gap:18px"><span class="eyebrow">Passo 3 de 3</span><h1>Quanto tempo você tem?</h1>
@@ -2502,13 +2505,14 @@ document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/
 // ---------- simulado completo ----------
 let simT=null;
 const PART=1240;
-function durSimulado(c,n){const tot=c.materias.reduce((s,m)=>s+m.peso,0),seg=(c.id==='tjsp'?4*3600:4.5*3600)/tot;return Math.round(n*seg)}
+const horasProva=c=>c.id==='tjsp'?4:4.5; // TJ-SP: 5 h no total, com 1 h reservada para a redação
+function durSimulado(c,n){const tot=c.materias.reduce((s,m)=>s+m.peso,0),seg=horasProva(c)*3600/tot;return Math.round(n*seg)}
 V.simuIntro=()=>{
   const c=concAtivo(),P=prep(),n=QUESTOES.filter(q=>q.conc===c.id).length,dur=durSimulado(c,n),tot=c.materias.reduce((s,m)=>s+m.peso,0),sims=(P.sims||[]).slice().reverse();
   return`<button class="back" data-a="voltar">${I('esq',18)} Praticar</button>
   <section class="stack" style="gap:8px"><span class="eyebrow">Simulado completo · ${c.sigla}</span><h1>Prova no formato da ${c.banca}</h1><p class="mu">Sem gabarito até você entregar, com cronômetro, nota por matéria, comparação com a nota de corte e posição entre os participantes.</p></section>
   <div class="stats" style="--n:3"><div><small>Questões</small><b>${n}</b></div><div><small>Tempo</small><b>${hm(Math.round(dur/60))}</b></div><div><small>${c.regras?'Mínimo do edital':'Corte '+c.hist.ano}</small><b>${c.corteP}%</b></div></div>
-  <div class="aviso neutro">${I('ajuda')}<div class="grow sm"><span>A prova real tem ${tot} ${c.unidade} em ${c.id==='tjsp'?'4 h':'4 h 30'}. No protótipo, o simulado usa as ${n} questões de exemplo, com tempo proporcional.</span></div></div>
+  <div class="aviso neutro">${I('ajuda')}<div class="grow sm"><span>${c.id==='tjsp'?`A prova real tem ${tot} ${c.unidade} e uma redação em 5 horas. Este simulado reserva 1 hora para a redação e usa ${n} questões autorais, com tempo proporcional.`:`A prova real tem ${tot} ${c.unidade} em 4 h 30. No protótipo, o simulado usa as ${n} questões de exemplo, com tempo proporcional.`}</span></div></div>
   <section class="card pad stack"><h3>Regras</h3><ul class="sm" style="display:grid;gap:6px"><li>Você pode pular, voltar e marcar questões para revisar.</li><li>${c.id==='pppe'?'Como no Cebraspe, cada item errado anula um certo. Deixar em branco não desconta.':'Sem desconto por erro, como na VUNESP.'}</li><li>Quando o tempo acabar, a prova é entregue sozinha.</li><li>Os erros vão para o caderno de erros.</li></ul></section>
   <button class="btn btn-p w" data-a="simuIniciar" data-gate="questoes">${I('relogio2',18)} Começar simulado</button>
   ${sims.length?`<section class="stack" style="gap:8px"><h3>Seus simulados</h3>${lista(sims.map(s=>`<div class="ri"><span class="grow"><span class="t">${s.nota}% · ${s.nota>=c.corteP?'acima':'abaixo'} do corte</span><span class="s">${dmy(s.data)} · ${s.acertos} de ${s.total} · ${hm(Math.max(1,Math.round(s.tempo/60)))} · ${s.pos}º de ${PART}</span></span></div>`))}</section>`:''}`;
@@ -2522,7 +2526,7 @@ V.simu=()=>{
   const s=UI.sim;if(!s)return`<div class="card empty"><b>Nenhum simulado em andamento</b><button class="btn btn-p" data-a="go" data-v="simuIntro">Abrir simulado</button></div>`;
   const q=qDe(s.ids[s.i]),c=C(s.conc),aa=achaAss(c.id,q.ass),alts=q.ce?['Certo','Errado']:q.alts,L=q.ce?['C','E']:['A','B','C','D','E'],nr=Object.keys(s.resp).length;
   return`<div class="leitor ${q.ce?'ce':''}" style="margin:0 auto">
-   <div class="simu-top"><button class="x" data-a="simuSair" aria-label="Sair do simulado">${I('x')}</button><div class="grow"><b class="sm" style="display:block">Simulado ${c.sigla}</b><span class="xs mu">${nr} de ${s.ids.length} respondidas</span></div><span class="simu-t num ${restoSim()<300?'pouco':''}" id="simT" aria-label="Tempo restante">${fmtHMS(restoSim())}</span><button class="btn btn-p sm" data-a="sheet" data-s="entregar">Entregar</button></div>
+   <div class="simu-top"><button class="x" data-a="simuSair" aria-label="Sair do simulado">${I('x')}</button><div class="grow" style="min-width:0"><b class="sm" style="display:block;white-space:nowrap">Simulado ${c.sigla}</b><span class="xs mu" style="white-space:nowrap">${nr} de ${s.ids.length} feitas</span></div><span class="simu-t num ${restoSim()<300?'pouco':''}" id="simT" aria-label="Tempo restante">${fmtHMS(restoSim())}</span><button class="btn btn-p sm" data-a="sheet" data-s="entregar">Entregar</button></div>
    <div class="prog"><i style="width:${nr/s.ids.length*100}%"></i></div>
    <div class="between"><span class="meta-l"><span>Questão ${s.i+1} de ${s.ids.length}</span><span>${dotM(c.id,q.mat)} ${esc(aa.m.curto)}</span></span><button class="btn-g ${s.marc[q.id]?'on':''}" data-a="simuMarcar" aria-pressed="${!!s.marc[q.id]}">${I('bandeira',16)} ${s.marc[q.id]?'Marcada':'Marcar para revisar'}</button></div>
    <p class="enun">${esc(q.enun)}</p>${q.ce?'<p class="sm mu" style="margin-top:-6px">Julgue o item.</p>':''}
@@ -2549,17 +2553,17 @@ function entregarSim(auto){
   s.ids.forEach(id=>{const q=qDe(id),r=s.resp[id];por[q.mat]=por[q.mat]||{a:0,e:0,n:0};por[q.mat].n++;
     if(r==null)return;const ok=r===q.gab;if(ok){ac++;por[q.mat].a++}else{er++;por[q.mat].e++}
     if(P){P.resp[id]=ok?'ok':'erro';P.respondidas++;if(ok)P.acertos++;if(!ok&&!P.erros.some(e=>e.qid===id&&!e.revisado))P.erros.push({qid:id,ass:q.ass,mat:q.mat,data:HOJE,sel:r,revisado:false})}});
-  const liq=c.id==='pppe'?Math.max(0,ac-er):ac,nota=Math.round(liq/s.ids.length*100),pos=Math.max(1,Math.round(PART*Math.pow(1-nota/100,1.4))+1);
+  const liq=c.id==='pppe'?Math.max(0,ac-er):ac,nota=Math.round(liq/s.ids.length*100),pos=Math.min(PART,Math.max(1,Math.round(PART*Math.pow(1-nota/100,1.4))+1));
   const reg={data:HOJE,nota,acertos:ac,erros:er,branco:s.ids.length-ac-er,total:s.ids.length,tempo,pos,por,auto};
   if(P){P.sims=P.sims||[];P.sims.push(reg)}
-  s.fim=reg;ganhar(ac*5+30,auto?'Tempo esgotado: prova entregue':'Simulado entregue');salvar();
+  s.fim=reg;if(ac+er)ganhar(ac*5+30,auto?'Tempo esgotado: prova entregue':'Simulado entregue');else toast('Prova entregue em branco');salvar();
   UI.view='simuRes';UI.p={};render(true);
 }
 V.simuRes=()=>{
   const s=UI.sim;if(!s||!s.fim)return V.simuIntro();
   const r=s.fim,c=C(s.conc),L=x=>x.ce?['C','E']:['A','B','C','D','E'];
   return`<div class="leitor" style="margin:0 auto">
-   <section class="stack" style="gap:6px"><span class="eyebrow">Simulado ${c.sigla} · ${dmy(r.data)}${r.auto?' · entregue pelo tempo':''}</span><h1>${r.nota>=c.corteP?'Acima da nota de corte':'Ainda abaixo do corte'}</h1></section>
+   <section class="stack" style="gap:6px"><span class="eyebrow">Simulado ${c.sigla} · ${dmy(r.data)}${r.auto?' · entregue pelo tempo':''}</span><h1>${r.nota>=c.corteP?(c.regras?'Acima do mínimo do edital':'Acima da nota de corte'):(c.regras?'Ainda abaixo do mínimo':'Ainda abaixo do corte')}</h1></section>
    <section class="dark"><div class="row" style="align-items:baseline;gap:10px;flex-wrap:wrap"><span class="num" style="font-size:52px;color:var(--lima);line-height:1">${r.nota}%</span><span class="mu">${c.regras?'mínimo do edital':'corte de '+c.hist.ano}: ${c.corteP}%</span></div>
     <div class="bar" style="--c:var(--lima);background:rgba(255,255,255,.16)"><i style="width:${r.nota}%"></i><span class="corte" style="left:${c.corteP}%;background:#fff"></span></div>
     <div class="stats" style="--n:3"><div><small>Posição</small><b>${r.pos}º de ${PART}</b></div><div><small>Tempo</small><b>${fmtHMS(r.tempo)}</b></div><div><small>${c.id==='pppe'?'Certos · errados':'Acertos'}</small><b>${c.id==='pppe'?`${r.acertos} · ${r.erros}`:`${r.acertos} de ${r.total}`}</b></div></div>
@@ -2947,7 +2951,7 @@ function cardAberto(x){
   return`<button class="card cc" data-a="abrirConc" data-id="${x.id}">
    <div class="between"><span class="sigla">${esc(x.sigla)}</span><span class="tags">${x.plano?'<span class="tag t-ok">Plano de estudo</span>':''}<span class="tag t-line">${x.a}</span></span></div>
    <div><b style="font-size:16.5px;display:block;line-height:1.3">${esc(x.orgao)}</b><div class="meta-l" style="margin-top:2px"><span>${esc(x.cargos)}</span><span>${esc(x.banca)}</span></div></div>
-   <div class="stats"><div><small>Vagas</small><b>${esc(x.v)}</b></div><div><small>Salário até</small><b>${esc(x.s||'—')}</b></div><div><small>Prova</small><b>${x.p?dm(x.p):'a definir'}</b></div></div>
+   <div class="stats"><div><small>Vagas</small><b>${esc(x.v)}</b></div><div><small>Salário até</small><b>${esc((x.s||'—').replace(/,\d\d$/,''))}</b></div><div><small>Prova</small><b>${x.p?dm(x.p):'a definir'}</b></div></div>
    <div class="between sm"><span class="${urg?'urg':'mu'}">${prazoTxt(x)}</span><span style="color:var(--acc2);font-weight:700;display:flex;align-items:center;gap:4px">Ver ${I('seta',16)}</span></div>
   </button>`;
 }
@@ -2977,6 +2981,7 @@ function listaCat(){
   let lista=aba==='previstos'?PREVISTOS:aba==='seguindo'?CATALOGO.filter(x=>seguindo(x.id)):ABERTOS.filter(x=>x.if==null||x.if>=HOJE).sort((a,b)=>(a.if||'9')<(b.if||'9')?-1:1);
   lista=filtraCat(lista);
   const f=aba==='previstos'?FONTE_FED:FONTE_ABERTOS;
+  if(!lista.length&&!UI.busca.trim())return`<div class="card empty">${I('radar',28)}<h3>Nenhum edital nesta lista agora</h3><p class="mu sm">O catálogo foi conferido em ${dmy(FONTE_ABERTOS.data)}. Veja a outra aba ou tire o filtro.</p></div>`;
   if(!lista.length)return`<div class="card empty">${I('busca',28)}<h3>Nenhum concurso encontrado${UI.busca.trim()?` para “${esc(UI.busca.trim())}”`:''}</h3><p class="mu sm">Tente o órgão (Tribunal, Polícia), a sigla (TJ-SP), o cargo ou a banca.</p><button class="btn btn-s" data-a="limparBusca">Limpar busca</button></div>`;
   return`<div class="stack" style="gap:14px"><div class="sec-h"><h3>${lista.length} ${lista.length===1?'concurso':'concursos'}</h3><span class="xs mu">${aba==='previstos'?'do mais avançado ao pedido':aba==='abertos'?'por fim das inscrições':''}</span></div>
    ${aba==='previstos'?`<p class="sm mu">Previsto não é edital: o que vale é a publicação oficial. Aqui fica o que já se sabe e em que fase cada um está.</p>`:''}
@@ -3027,8 +3032,8 @@ V.jornal=()=>{
   <div class="stats" style="--n:3"><div><small>Inscrições abertas</small><b>${abertos.length}</b></div><div><small>Vagas somadas</small><b>${totalV.toLocaleString('pt-BR')}</b></div><div><small>Previstos no radar</small><b>${PREVISTOS.length}</b></div></div>
   <div class="cols"><div class="stack" style="gap:20px">
    ${c?`<section class="card pad stack"><div class="between"><h3>Seu concurso: ${esc(c.sigla)}</h3><span class="tag t-line">${esc(cargoDe(P).curto)}</span></div>
-    <p class="sm">${meu&&insAberta(meu)?`Inscrições abertas até <b>${dmy(meu.if)}</b> (faltam ${diasInsc(meu)} dias). `:''}Prova em <b>${dmy(c.prova)}</b>, daqui a ${diasAte(c.prova)} dias.</p>
-    <div class="btns">${P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}${cobreAtivo?`<button class="btn btn-s sm" data-a="go" data-v="hojePlano">Meu dia de estudo</button>`:''}</div></section>`:''}
+    <p class="sm">${meu&&insAberta(meu)?`Inscrições abertas até <b>${dmy(meu.if)}</b> (faltam ${diasInsc(meu)} dias). `:''}Prova em <b>${dmy(c.prova)}</b>${diasAte(c.prova)>0?', daqui a '+faltaTxt(c):diasAte(c.prova)===0?', hoje':''}.</p>
+    <div class="btns">${diasAte(c.prova)<0?`<button class="btn btn-p sm" data-a="verCat" data-v="abertos">Escolher outro concurso</button>`:P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}${cobreAtivo?`<button class="btn btn-s sm" data-a="go" data-v="hojePlano">Meu dia de estudo</button>`:''}</div></section>`:''}
    <section class="stack" style="gap:10px"><div class="sec-h"><h3>Inscrições terminando</h3><button class="btn-g" data-a="verCat" data-v="abertos">Todos os abertos</button></div>
     ${fim.length?lista(fim.slice(0,6).map(x=>linha(x,diasInsc(x)===0?'<b class="urg">hoje</b>':diasInsc(x)===1?'<b class="urg">amanhã</b>':`<b class="${diasInsc(x)<=7?'urg':''}">${diasInsc(x)} dias</b>`))):'<p class="sm mu">Nenhum destaque encerra nas próximas duas semanas.</p>'}</section>
    ${abrem.length?`<section class="stack" style="gap:10px"><div class="sec-h"><h3>Abriram agora</h3></div>${lista(abrem.map(x=>linha(x,x.ii>HOJE?`abre ${dm(x.ii)}`:`desde ${dm(x.ii)}`)))}</section>`:''}
@@ -3131,13 +3136,13 @@ V.jornal=()=>{
     <p class="mu">${esc(manchete.v)} vagas · ${esc(manchete.cargos)} · até ${esc(manchete.s)} · ${esc(manchete.banca)}${manchete.p?` · prova em ${dmy(manchete.p)}`:''}</p>
     <span class="btn btn-l sm" style="justify-self:start">Ver o concurso ${I('seta',16)}</span></div>
     <div class="manch-n"><b>${diasInsc(manchete)===0?'0':diasInsc(manchete)}</b><span>${diasInsc(manchete)===1?'dia':'dias'} para<br>se inscrever</span></div></div></section>`:''}
-  <section class="jc-nums rv"><div><b>${cnt(abertos.length)}</b><span>concursos de destaque com inscrição aberta</span></div><div><b>${cnt(totalV)}</b><span>vagas somadas entre eles</span></div><div><b>${cnt(radar.length)}</b><span>previstos no radar</span></div>${maior?`<div><b>${esc(maior.s.replace(/,\d\d$/,''))}</b><span>maior salário aberto: ${esc(maior.sigla)}</span></div>`:''}</section>
-  <section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Contagem regressiva</h2><button class="btn-g" data-a="verCat" data-v="abertos">Todos os abertos ${I('seta',16)}</button></div>
-   <div class="carrossel">${fim.slice(0,10).map(cardCont).join('')}</div></section>
+  <section class="jc-nums rv">${abertos.length?`<div><b>${cnt(abertos.length)}</b><span>concursos de destaque com inscrição aberta</span></div><div><b>${cnt(totalV)}</b><span>vagas somadas entre eles</span></div>`:`<div style="flex-basis:100%"><b>0</b><span>inscrições abertas na última atualização do catálogo (${dmy(FONTE_ABERTOS.data)}). Veja os previstos abaixo.</span></div>`}<div><b>${cnt(radar.length)}</b><span>previstos no radar</span></div>${maior?`<div><b>${esc(maior.s.replace(/,\d\d$/,''))}</b><span>maior salário aberto: ${esc(maior.sigla)}</span></div>`:''}</section>
+  ${fim.length?'':'<!--'}<section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Contagem regressiva</h2><button class="btn-g" data-a="verCat" data-v="abertos">Todos os abertos ${I('seta',16)}</button></div>
+   <div class="carrossel">${fim.slice(0,10).map(cardCont).join('')}</div></section>${fim.length?'':'-->'}
   <div class="cols"><div class="stack" style="gap:24px">
    ${c?`<section class="card pad stack rv seu-conc"><div class="between"><span class="eyebrow">Seu concurso</span><span class="tag t-line">${esc(cargoDe(P).curto)}</span></div><h3 style="font-size:22px">${esc(c.nome)}</h3>
-    <div class="stats" style="--n:${meu&&insAberta(meu)?3:2}">${meu&&insAberta(meu)?`<div><small>Inscrições até</small><b>${dm(meu.if)}</b></div>`:''}<div><small>Prova</small><b>${dm(c.prova)}</b></div><div><small>Faltam</small><b>${cnt(diasAte(c.prova))} dias</b></div></div>
-    <div class="btns">${P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}<button class="btn btn-s sm" data-a="dicas">${I('rolar',16)} Dicas do edital</button></div></section>`:''}
+    <div class="stats" style="--n:${meu&&insAberta(meu)?3:2}">${meu&&insAberta(meu)?`<div><small>Inscrições até</small><b>${dm(meu.if)}</b></div>`:''}<div><small>Prova</small><b>${dm(c.prova)}</b></div><div><small>${diasAte(c.prova)>0?'Faltam':'Prova'}</small><b>${faltaTxt(c)}</b></div></div>
+    <div class="btns">${diasAte(c.prova)<0?`<button class="btn btn-p sm" data-a="verCat" data-v="abertos">Escolher outro concurso</button>`:P&&P.vistoEdital?`<button class="btn btn-p sm" data-a="go" data-v="planos">Montar meu plano de estudo</button>`:`<button class="btn btn-p sm" data-a="tab" data-v="edital">Ver meu edital</button>`}<button class="btn btn-s sm" data-a="dicas">${I('rolar',16)} Dicas do edital</button></div></section>`:''}
    ${ev.length?`<section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Agenda das próximas semanas</h2></div><div class="agenda">${ev.slice(0,10).map(([dt,t,x])=>`<button class="ag-i" data-a="abrirConc" data-id="${x.id}"><span class="ag-d"><b>${pd(dt).getDate()}</b><small>${MESES[pd(dt).getMonth()].slice(0,3)}</small></span><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s ${t==='Fim das inscrições'&&diasAte(dt)<=3?'urg':''}">${t}${dt===HOJE?' · hoje':''}</span></span>${chevR()}</button>`).join('')}</div></section>`:''}
    <section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Radar: o que vem aí</h2><button class="btn-g" data-a="verCat" data-v="previstos">Todos os previstos ${I('seta',16)}</button></div><div class="carrossel">${radar.slice(0,8).map(cardRadar).join('')}</div><p class="xs mu">Previsto não é edital. Mostramos a fase de cada um até a publicação oficial.</p></section>
    ${abrem.length?`<section class="stack rv" style="gap:12px"><div class="jc-sec"><h2>Abriram agora</h2></div>${lista(abrem.map(x=>`<button class="ri" data-a="abrirConc" data-id="${x.id}"><span class="grow"><span class="t">${esc(x.orgao)}</span><span class="s">${esc(x.v)} vagas · até ${esc(x.s)} · ${esc(x.banca)}</span></span><span class="jx">${x.ii>HOJE?'abre '+dm(x.ii):'desde '+dm(x.ii)}</span></button>`))}</section>`:''}
@@ -3383,7 +3388,18 @@ function hojeSimples(){
   <button class="btn btn-s w" data-a="hojeTudo" data-v="1">Ver o dia completo</button>`;
 }
 const _hojeV3=V.hoje;
+function hojeProva(){
+  const P=prep(),c=concAtivo(),n=diasAte(c.prova),feitas=P.metas.filter(m=>m.ok).length;
+  if(n===0)return`<section class="hs-top"><div><span class="eyebrow">${DLM(HOJE)}</span><h1>É hoje</h1></div></section>
+   <section class="dark agora-s"><span class="eyebrow">Prova do ${c.sigla}</span><h2>Boa prova!</h2><p class="ag-meta">Você concluiu ${feitas} ${feitas===1?'meta':'metas'} até aqui. Agora é confiar no que estudou.</p>
+    <div class="ag-pts"><span>Antes de sair</span><b>Documento com foto</b><b>Horário e local no edital</b><b>Chegar com folga</b></div>
+    <div class="btns"><button class="btn btn-l" data-a="tab" data-v="edital">Ver meu edital</button><button class="btn btn-o" data-a="flash">Revisão leve</button></div></section>`;
+  return`<section class="hs-top"><div><span class="eyebrow">${DLM(HOJE)}</span><h1>A prova já foi</h1></div></section>
+   <section class="dark agora-s"><span class="eyebrow">${c.sigla} · prova em ${dmy(c.prova)}</span><h2>Missão cumprida</h2><p class="ag-meta">Foram ${feitas} ${feitas===1?'meta concluída':'metas concluídas'}. Seu histórico continua salvo.</p>
+    <div class="btns"><button class="btn btn-l" data-a="go" data-v="catalogo">Escolher o próximo concurso</button><button class="btn btn-o" data-a="go" data-v="perfil">Ver meu histórico</button></div></section>`;
+}
 V.hoje=()=>{const P=prep(),c=concAtivo();
+  if(c&&cobre(c.id)&&P&&P.cfg&&diasAte(c.prova)<=0)return hojeProva();
   if(c&&cobre(c.id)&&P&&P.cfg&&simples()&&!UI.hojeTudo)return hojeSimples();
   let h=_hojeV3();
   if(c&&cobre(c.id)&&P&&P.cfg&&simples()&&UI.hojeTudo)h=`<button class="back" data-a="hojeTudo" data-v="0">${I('esq',18)} Voltar para a tela simples</button>`+h;
@@ -3500,6 +3516,27 @@ function toast(msg,xp=0){
   t.innerHTML=`<div class="toast" role="status">${xp?`<span class="xpb">+${xp} XP</span>`:''}<span>${esc(msg)}</span></div>`;
   tt=setTimeout(()=>t.innerHTML='',2800);
 }
-const start=(h)=>{if(h&&h.S){S=h.S;UI.view=h.view;UI.p=h.p||{}}if(!S.hist)S.hist={};if(S.ativo&&!S.onbVisto)S.onbVisto=true;aplicarTema();aplicarFonte();if(desk())UI.planoModo='mes';checarSequencia();render(true)};
+function sanear(){
+  try{
+    if(!S||typeof S!=='object'||!S.preps||typeof S.preps!=='object')S=novoEstado();
+    S=Object.assign(novoEstado(),S);if(!Array.isArray(S.badges))S.badges=[];
+    Object.keys(S.preps).forEach(k=>{let P=S.preps[k];const c=P&&C(P.conc);
+      if(!c){delete S.preps[k];return}
+      P=S.preps[k]=Object.assign(novaPrep(P.conc,P.cargo),P);
+      if(!c.cargos.some(x=>x.id===P.cargo))P.cargo=c.cargos[0].id;
+      P.metas=(P.metas||[]).filter(m=>achaAss(c.id,m.ass));
+      P.adiadas=(P.adiadas||[]).filter(m=>achaAss(c.id,m.ass));
+      P.erros=(P.erros||[]).filter(e=>qDe(e.qid)&&achaAss(c.id,e.ass));
+      P.resp=P.resp||{};if(P.vert)Object.keys(P.vert).forEach(a=>{if(!achaAss(c.id,a))delete P.vert[a]});
+      if(P.cfg){const ids=c.materias.map(m=>m.id);P.cfg.dificeis=(P.cfg.dificeis||[]).filter(x=>ids.includes(x));P.cfg.estudadas=(P.cfg.estudadas||[]).filter(x=>ids.includes(x))}});
+    if(S.ativo&&!S.preps[S.ativo])S.ativo=Object.keys(S.preps)[0]||null;
+    if(!PLANOS[S.plano])S.plano='gratis';
+    if(S.planoConc&&!C(S.planoConc))S.planoConc=null;
+    S.dicasSalvas=(S.dicasSalvas||[]).filter(id=>{try{return !!dicaPorId(id)}catch(e){return false}});
+    if(typeof S.xp!=='number'||isNaN(S.xp))S.xp=0;if(typeof S.streak!=='number'||isNaN(S.streak))S.streak=0;
+  }catch(e){console.error('Estado salvo inválido, recomeçando',e);S=novoEstado()}
+}
+const VIEWS_SOLTAS=['treino','resultado','simu','simuRes','leitor','pdf','info','concurso','flash'];
+const start=(h)=>{if(h&&h.S){S=h.S;UI.view=VIEWS_SOLTAS.includes(h.view)?null:h.view;UI.p=h.p||{}}sanear();if(!S.hist)S.hist={};if(S.ativo&&!S.onbVisto)S.onbVisto=true;aplicarTema();aplicarFonte();if(desk())UI.planoModo='mes';checarSequencia();render(true)};
 window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??null);
 </script>
