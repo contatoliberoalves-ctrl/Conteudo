@@ -471,5 +471,202 @@
     "titulo": "Para quem é a formação (stories)",
     "de": "20-para-quem-e-feed",
     "formato": "story"
+  },
+  {
+    "id": "n01-sequencia-feed",
+    "titulo": "Nativo: uma sequência (feed)",
+    "tema": "Texto puro no branco",
+    "layout": "n-texto",
+    "fundo": "branco",
+    "texto": "Você não precisa de mais um vídeo solto sobre a Bíblia.\n\nPrecisa de uma sequência.",
+    "sub": "Formação Bíblica: 25 aulas com o Pr. Renato Torres, na plataforma Ponto do Verbum.",
+    "formato": "feed"
+  },
+  {
+    "id": "n01-sequencia-story",
+    "titulo": "Nativo: uma sequência (stories)",
+    "de": "n01-sequencia-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n02-tres-cursos-feed",
+    "titulo": "Nativo: 3 cursos, 25 aulas (feed)",
+    "tema": "Texto puro no preto",
+    "layout": "n-texto",
+    "fundo": "preto",
+    "ts": 96,
+    "texto": "3 cursos.\n25 aulas.\n1 plataforma.",
+    "sub": "Interpretação da Bíblia, Preparação de Sermões e Vida Intelectual, com o Pr. Renato Torres.",
+    "formato": "feed"
+  },
+  {
+    "id": "n02-tres-cursos-story",
+    "titulo": "Nativo: 3 cursos, 25 aulas (stories)",
+    "de": "n02-tres-cursos-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n03-nota-feed",
+    "titulo": "Nativo: nota do celular (feed)",
+    "tema": "Nota em tela cheia",
+    "layout": "n-nota",
+    "titulo2": "Formação Bíblica\n(Ponto do Verbum)",
+    "itens": [
+      "– 3 cursos do Pr. Renato Torres",
+      "– Interpretação da Bíblia: 9 aulas",
+      "– Preparação de Sermões: 10 aulas",
+      "– Vida Intelectual: 6 aulas",
+      "– Caderno pra anotar em cada aula",
+      "– Devocional todo dia"
+    ],
+    "formato": "feed"
+  },
+  {
+    "id": "n03-nota-story",
+    "titulo": "Nativo: nota do celular (stories)",
+    "de": "n03-nota-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n04-post-feed",
+    "titulo": "Nativo: publicação da marca (feed)",
+    "tema": "Publicação de texto",
+    "layout": "n-post",
+    "fundo": "branco",
+    "texto": "A Formação Bíblica reúne três cursos do Pr. Renato Torres em uma trilha só: Interpretação da Bíblia, Preparação de Sermões e Vida Intelectual.\n\nSão 25 aulas, com caderno de anotações e comunidade.",
+    "formato": "feed"
+  },
+  {
+    "id": "n04-post-story",
+    "titulo": "Nativo: publicação da marca (stories)",
+    "de": "n04-post-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n05-conversa-feed",
+    "titulo": "Nativo: conversa (feed)",
+    "tema": "Conversa de mensagens",
+    "layout": "n-chat",
+    "fundo": "branco",
+    "falas": [
+      [
+        "outro",
+        "Quero estudar a Bíblia com mais método. Indica algo?"
+      ],
+      [
+        "eu",
+        "A Formação Bíblica do Ponto do Verbum. São 3 cursos do Pr. Renato Torres."
+      ],
+      [
+        "outro",
+        "É aula por aula?"
+      ],
+      [
+        "eu",
+        "25 aulas em sequência. E dá pra anotar em cada uma."
+      ],
+      [
+        "outro",
+        "Me manda o link 🙏"
+      ]
+    ],
+    "formato": "feed"
+  },
+  {
+    "id": "n05-conversa-story",
+    "titulo": "Nativo: conversa (stories)",
+    "de": "n05-conversa-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n06-print-feed",
+    "titulo": "Nativo: a plataforma por dentro (feed)",
+    "tema": "Print cru com legenda",
+    "layout": "n-print",
+    "fundo": "preto",
+    "texto": "A plataforma por dentro 👇",
+    "print": "print-trilha.png",
+    "formato": "feed"
+  },
+  {
+    "id": "n06-print-story",
+    "titulo": "Nativo: a plataforma por dentro (stories)",
+    "de": "n06-print-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n07-foto-feed",
+    "titulo": "Nativo: foto do Pr. Renato (feed)",
+    "tema": "Foto e texto",
+    "layout": "n-foto",
+    "fundo": "preto",
+    "foto": "renato.jpg",
+    "pos": "78% 22%",
+    "texto": "O Pr. Renato Torres ensina interpretação da Bíblia, preparação de sermões e vida intelectual. São 25 aulas no Ponto do Verbum.",
+    "formato": "feed"
+  },
+  {
+    "id": "n07-foto-story",
+    "titulo": "Nativo: foto do Pr. Renato (stories)",
+    "de": "n07-foto-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n08-pergunta-feed",
+    "titulo": "Nativo: por onde começo? (feed)",
+    "tema": "Figurinha de pergunta",
+    "layout": "n-pergunta",
+    "fundo": "creme",
+    "pergunta": "Por onde eu começo a estudar a Bíblia a sério?",
+    "texto": "Pela interpretação. É o primeiro curso da Formação Bíblica: uma boa hermenêutica, regras básicas e regras práticas.",
+    "formato": "feed"
+  },
+  {
+    "id": "n08-pergunta-story",
+    "titulo": "Nativo: por onde começo? (stories)",
+    "de": "n08-pergunta-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n09-enquete-feed",
+    "titulo": "Nativo: enquete (feed)",
+    "tema": "Figurinha de enquete",
+    "layout": "n-enquete",
+    "fundo": "preto",
+    "pergunta": "Você já estudou interpretação da Bíblia?",
+    "opcoes": [
+      "Já estudei",
+      "Ainda não"
+    ],
+    "texto": "O curso começa do começo: uma boa hermenêutica, objetivos e regras básicas, em 9 aulas.",
+    "formato": "feed"
+  },
+  {
+    "id": "n09-enquete-story",
+    "titulo": "Nativo: enquete (stories)",
+    "de": "n09-enquete-feed",
+    "formato": "story"
+  },
+  {
+    "id": "n10-lista-feed",
+    "titulo": "Nativo: lista com emoji (feed)",
+    "tema": "Lista em texto puro",
+    "layout": "n-lista",
+    "fundo": "creme",
+    "titulo2": "Na Formação Bíblica do Ponto do Verbum:",
+    "itens": [
+      "📖 Interpretação da Bíblia",
+      "🎙️ Preparação de Sermões",
+      "📚 Vida Intelectual",
+      "📝 Caderno em cada aula",
+      "💬 Comunidade com o professor"
+    ],
+    "formato": "feed"
+  },
+  {
+    "id": "n10-lista-story",
+    "titulo": "Nativo: lista com emoji (stories)",
+    "de": "n10-lista-feed",
+    "formato": "story"
   }
 ]

@@ -2,7 +2,8 @@
 // na identidade Brasa, em feed (1080×1350) e stories (1080×1920, com as faixas de cima e de baixo livres).
 // Cada post do dados.json é uma peça; "de": "<id>" herda os campos de outro post (o mesmo criativo no outro formato).
 // Layouts: manchete, tipo, lista, cursos, nota, versiculo, numeros, passos, etiquetas, comparativo, busca,
-// notificacao, aula, foto. Imagens (prints da plataforma, capas, foto) ficam em fotos/, fora do git.
+// notificacao, aula, foto; e os nativos (sem design): n-texto, n-nota, n-post, n-chat, n-print, n-foto,
+// n-pergunta, n-enquete, n-lista. Imagens (prints da plataforma, capas, foto) ficam em fotos/, fora do git.
 import fs from 'node:fs';
 import path from 'node:path';
 import { C, G, FUNDOS, T, agua, esc, lista, pill, sim, rico as ricoBase } from '../renato-comum/brasa.mjs';
@@ -103,6 +104,63 @@ const L = {
     <div style="border-radius:32px;overflow:hidden;flex:1;min-height:0;box-shadow:0 30px 60px rgba(43,14,0,.3)"><img src="${foto(c.foto)}" style="width:100%;height:100%;object-fit:cover;object-position:${c.pos || '50% 25%'}"></div>
     ${kicker(c.kicker, f, k)}${titulo(c, f, 82 * k)}${sub(c.sub, f, 35 * k)}</div>`,
 };
+// ---- Variações "nativas": parecem conteúdo comum do Instagram (texto puro, nota, conversa, print, figurinhas).
+// Sem barra da marca, sem marca-d'água e sem botão desenhado: a chamada é uma linha de texto.
+const EMOJI = `<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">`;
+const U = "font-family:Inter,'Noto Color Emoji',sans-serif";
+const TEMAS = { branco: { bg: '#fff', fg: '#111', sub: '#5c5c5c', linha: '#e6e6e6' }, preto: { bg: '#0d0d0d', fg: '#fff', sub: '#b5b5b5', linha: '#2a2a2a' }, creme: { bg: C.creme, fg: C.carvao, sub: '#7a5a48', linha: '#eadccc' } };
+const txt = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:800">$1</b>').replace(/\n/g, '<br>');
+const chamada = (c, t, k, cor) => `<div style="${U};font-weight:800;font-size:${40 * k}px;color:${cor || t.fg};flex:none">${txt(c.cta || '👇 Toque em Saiba mais')}</div>`;
+const N = {
+  // Texto puro, como um post escrito no próprio app.
+  'n-texto': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${44 * k}px">
+    <div style="${U};font-weight:800;font-size:${(c.ts || 76) * k}px;line-height:1.14;letter-spacing:-.025em;color:${t.fg}">${txt(c.texto)}</div>
+    ${c.sub ? `<div style="${U};font-weight:500;font-size:${38 * k}px;line-height:1.4;color:${t.sub}">${txt(c.sub)}</div>` : ''}</div>${chamada(c, t, k)}`,
+  // A tela inteira é uma nota do celular.
+  'n-nota': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;${U};color:#1c1c1e">
+    <div style="display:flex;justify-content:space-between;font-size:${32 * k}px;font-weight:500;color:#d99a00"><span>‹ Notas</span><span>OK</span></div>
+    <div style="font-size:${58 * k}px;font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:${50 * k}px 0 ${34 * k}px">${txt(c.titulo2)}</div>
+    <div style="display:flex;flex-direction:column;gap:${22 * k}px;font-size:${42 * k}px;line-height:1.35">${lista(c.itens).map(i => `<div>${txt(i)}</div>`).join('')}</div>
+    <div style="margin-top:auto;font-size:${42 * k}px;font-weight:800">${txt(c.cta || '👇 Toque em Saiba mais')}</div></div>`,
+  // Publicação de rede social da própria marca.
+  'n-post': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${36 * k}px;${U};color:${t.fg}">
+    <div style="display:flex;align-items:center;gap:${24 * k}px"><span style="width:${104 * k}px;height:${104 * k}px;border-radius:50%;background:${G};display:flex;align-items:center;justify-content:center;flex:none">${sim('#fff', 62 * k)}</span>
+      <div><div style="font-weight:800;font-size:${38 * k}px">Ponto do Verbum</div><div style="font-size:${30 * k}px;color:${t.sub}">por Renato Torres</div></div></div>
+    <div style="font-size:${(c.ts || 48) * k}px;line-height:1.36;font-weight:500">${txt(c.texto)}</div>
+    <div style="border-top:2px solid ${t.linha};padding-top:${30 * k}px">${chamada(c, t, k)}</div></div>`,
+  // Conversa de mensagens.
+  'n-chat': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${20 * k}px;${U}">${lista(c.falas).map(([quem, fala]) => `<div style="align-self:${quem === 'eu' ? 'flex-end' : 'flex-start'};max-width:82%;background:${quem === 'eu' ? '#0b84ff' : (t === TEMAS.preto ? '#26262a' : '#e9e9eb')};color:${quem === 'eu' ? '#fff' : t.fg};font-size:${40 * k}px;line-height:1.3;padding:${22 * k}px ${32 * k}px;border-radius:${38 * k}px">${txt(fala)}</div>`).join('')}</div>${chamada(c, t, k)}`,
+  // Print da plataforma, cru, com uma legenda no estilo de texto dos stories.
+  'n-print': (c, t, k, st) => `<div style="flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:${30 * k}px">
+    <span style="${U};font-weight:800;font-size:${46 * k}px;background:#fff;color:#111;padding:${12 * k}px ${28 * k}px;border-radius:${18 * k}px;flex:none">${txt(c.texto)}</span>
+    <div style="flex:1;min-height:0;overflow:hidden;width:${st ? 760 : 620}px;border-radius:36px;box-shadow:0 20px 60px rgba(0,0,0,.35)"><img src="${foto(c.print)}" style="width:100%;display:block"></div></div>
+    <div style="text-align:center">${chamada(c, t, k)}</div>`,
+  // Foto em cima, texto embaixo.
+  'n-foto': (c, t, k) => `<div style="flex:1;min-height:0;border-radius:28px;overflow:hidden"><img src="${foto(c.foto)}" style="width:100%;height:100%;object-fit:cover;object-position:${c.pos || '50% 25%'}"></div>
+    <div style="${U};font-weight:700;font-size:${(c.ts || 46) * k}px;line-height:1.3;color:${t.fg};flex:none">${txt(c.texto)}</div>${chamada(c, t, k)}`,
+  // Figurinha de pergunta dos stories + resposta.
+  'n-pergunta': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${44 * k}px;${U}">
+    <div style="background:#fff;border-radius:${36 * k}px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.18);text-align:center">
+      <div style="background:#f0f0f0;color:#111;font-weight:700;font-size:${34 * k}px;padding:${26 * k}px">${txt(c.caixa || 'Faça uma pergunta')}</div>
+      <div style="color:#111;font-weight:700;font-size:${50 * k}px;line-height:1.25;padding:${44 * k}px ${40 * k}px">${txt(c.pergunta)}</div></div>
+    <div style="font-weight:600;font-size:${44 * k}px;line-height:1.36;color:${t.fg}">${txt(c.texto)}</div></div>${chamada(c, t, k)}`,
+  // Figurinha de enquete dos stories.
+  'n-enquete': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${44 * k}px;${U}">
+    <div style="background:#fff;border-radius:${36 * k}px;padding:${44 * k}px ${40 * k}px;box-shadow:0 12px 40px rgba(0,0,0,.18)">
+      <div style="color:#111;font-weight:800;font-size:${50 * k}px;line-height:1.22;text-align:center;margin-bottom:${34 * k}px">${txt(c.pergunta)}</div>
+      ${lista(c.opcoes).map(o => `<div style="border:3px solid #dcdcdc;border-radius:${22 * k}px;padding:${24 * k}px;margin-top:${16 * k}px;text-align:center;font-weight:700;font-size:${40 * k}px;color:#111">${txt(o)}</div>`).join('')}</div>
+    <div style="font-weight:600;font-size:${44 * k}px;line-height:1.36;color:${t.fg}">${txt(c.texto)}</div></div>${chamada(c, t, k)}`,
+  // Lista com emoji, texto puro.
+  'n-lista': (c, t, k) => `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${40 * k}px;${U};color:${t.fg}">
+    <div style="font-weight:800;font-size:${62 * k}px;line-height:1.15;letter-spacing:-.02em">${txt(c.titulo2)}</div>
+    <div style="display:flex;flex-direction:column;gap:${26 * k}px;font-weight:600;font-size:${46 * k}px;line-height:1.25">${lista(c.itens).map(i => `<div>${txt(i)}</div>`).join('')}</div></div>${chamada(c, t, k)}`,
+};
+function nativo(c, st, w, h) {
+  const t = TEMAS[c.fundo] || TEMAS.branco, k = c.escala || (st ? 1.12 : 1);
+  const m = st ? { t: 270, b: 350, x: 84 } : { t: 90, b: 90, x: 84 };
+  return { w, h, slides: [`${EMOJI}<div style="position:absolute;inset:0;background:${c.layout === 'n-nota' ? '#fffdf7' : t.bg}"></div>
+    <div data-cabe style="position:absolute;left:${m.x}px;right:${m.x}px;top:${m.t}px;bottom:${m.b}px;display:flex;flex-direction:column;gap:${40 * k}px;overflow:hidden">${N[c.layout](c, t, k, st)}</div>`] };
+}
 const PADRAO = { manchete: 'degrade', tipo: 'carvao', lista: 'creme', cursos: 'creme', nota: 'degrade', versiculo: 'creme', numeros: 'carvao', passos: 'creme', etiquetas: 'degrade', comparativo: 'creme', busca: 'creme', notificacao: 'degrade', aula: 'creme', foto: 'carvao' };
 
 // Escala dos textos nos stories (1.3 por padrão; os layouts com mais conteúdo usam menos). "escala" no post troca.
@@ -110,6 +168,7 @@ const DENSO = { cursos: 1.04, lista: 1.06, nota: 1.04, versiculo: 1.12, numeros:
 export function slides(bruto) {
   const c = bruto.de ? { ...porId[bruto.de], ...bruto } : bruto;
   const st = c.formato === 'story', w = 1080, h = st ? 1920 : 1350, k = c.escala || (st ? (DENSO[c.layout] || 1.3) : 1);
+  if (N[c.layout]) return nativo(c, st, w, h);
   const f = FUNDOS[c.fundo] || FUNDOS[PADRAO[c.layout] || 'degrade'];
   // Nos stories, 250 px em cima e 330 px embaixo ficam livres (nome do perfil e botão do anúncio).
   const m = st ? { t: 250, b: 330, x: 76 } : { t: 70, b: 70, x: 76 };

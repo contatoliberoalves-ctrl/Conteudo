@@ -38,6 +38,22 @@ Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node r
 | `aula` | `capa`, `itens[]` |
 | `foto` | `foto`, `pos` (posição do recorte) |
 
+## Layouts nativos (sem design)
+
+Parecem conteúdo comum do Instagram: sem barra da marca, sem marca-d'água e sem botão desenhado. A chamada é uma linha de texto (`cta`, padrão "👇 Toque em Saiba mais"). `fundo`: `branco`, `preto` ou `creme`.
+
+| layout | campos próprios |
+|---|---|
+| `n-texto` | `texto`, `sub`, `ts` |
+| `n-nota` | `titulo2`, `itens[]` (a tela inteira é a nota) |
+| `n-post` | `texto` (publicação com o símbolo e o nome da marca) |
+| `n-chat` | `falas[]`, cada uma `["eu" ou "outro", "texto"]` |
+| `n-print` | `texto` (legenda), `print` |
+| `n-foto` | `foto`, `pos`, `texto` |
+| `n-pergunta` | `pergunta`, `texto`, `caixa` |
+| `n-enquete` | `pergunta`, `opcoes[]`, `texto` |
+| `n-lista` | `titulo2`, `itens[]` (com emoji) |
+
 ## Imagens (fora do git)
 
 `fotos/` não vai para o repositório. São prints da área do aluno (`print-*.png`, 1170×2532), as capas das aulas (`capa-*.png`, `aula-*.png`), a foto do professor (`renato.jpg`) e o símbolo (`../renato-comum/assets/simbolo.png`, feito com `preparar_simbolo.py`). Numa sessão nova, peça os arquivos ao dono. O `render.mjs` avisa quais faltam.
