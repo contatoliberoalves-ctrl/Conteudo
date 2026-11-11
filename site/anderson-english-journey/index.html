@@ -646,6 +646,43 @@ canvas.confete { position: fixed; inset: 0; z-index: 300; pointer-events: none; 
 .demo { font-size: 12px; color: var(--muted); text-align: center; padding: 16px }
 .demo button { border: 0; background: none; color: var(--navy-3); font-weight: 700; text-decoration: underline; font-size: 12px }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important } }
+
+/* progresso detalhado */
+.kpis { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)) }
+@media (min-width: 900px) { .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)) } }
+.kpi { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: grid; gap: 2px; box-shadow: var(--sombra) }
+.kpi b { font-size: clamp(30px, 4vw, 40px); line-height: 1; color: var(--navy) }
+.kpi span { font-weight: 700; font-size: 14px }
+.kpi small { color: var(--muted); font-size: 12.5px }
+.parecer { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: space-between; border-left: 5px solid var(--red) }
+.parecer .recado { flex: 1; min-width: 260px }
+.faixas-h { display: grid; gap: 12px }
+@media (min-width: 760px) { .faixas-h { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (min-width: 1200px) { .faixas-h { grid-template-columns: repeat(4, minmax(0, 1fr)) } }
+.faixa-h { background: var(--bg); border: 1.5px solid color-mix(in srgb, var(--c) 30%, transparent); border-radius: var(--r); padding: 12px; display: grid; gap: 10px; align-content: start; min-width: 0 }
+.faixa-h header { display: grid; grid-template-columns: 1fr auto; gap: 0 10px; align-items: center; color: var(--c); padding: 4px 4px 6px; border-bottom: 2px solid var(--c) }
+.faixa-h header b { font-size: 19px; text-transform: uppercase; letter-spacing: .02em }
+.faixa-h header small { grid-column: 1; font-size: 12.5px; font-weight: 600; opacity: .85 }
+.faixa-h header span { grid-row: 1 / span 2; grid-column: 2; font-size: 28px; font-weight: 800 }
+.hab-c { background: var(--card); border-radius: 6px; padding: 12px; display: grid; gap: 8px; box-shadow: 0 1px 0 var(--line) }
+.hab-c h4 { font-size: 15.5px; line-height: 1.25 }
+.hab-c p { font-size: 13px; color: var(--muted) }
+.hab-c b.num { color: var(--c); font-size: 17px }
+.hab-c .btn { justify-self: start }
+.vazio-h { font-size: 13px; color: var(--muted); padding: 6px 4px }
+.palavras { display: flex; flex-wrap: wrap; gap: 6px }
+.palavra-c { border: 1.5px solid var(--line); background: var(--card); border-radius: 6px; padding: 6px 10px; text-align: left; display: grid; line-height: 1.2; cursor: pointer; transition: transform .2s }
+.palavra-c:hover { transform: translateY(-2px) }
+.palavra-c b { font-size: 14px }
+.palavra-c small { font-size: 11.5px; color: var(--muted) }
+.palavra-c.ok { border-color: #9ED8BD; background: var(--ok-bg) }
+.palavra-c.ouro { border-color: #EBCB7E; background: #FDF4DD }
+.palavra-c.verm { border-color: #F1A9B3; background: var(--bad-bg) }
+.palavra-c.azul { border-color: #B9CBEA; background: var(--sky) }
+.erros-l { margin: 0; padding-left: 20px; display: grid; gap: 10px }
+.erros-l li { padding-left: 4px }
+.erros-l b { display: block; font-size: 14.5px }
+.erros-l small { color: var(--muted); font-size: 13px }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -925,9 +962,13 @@ const embaralha = a => { const b = [...a]; for (let i = b.length - 1; i > 0; i--
 const ganha = (n, el) => { if (!n) return; E.xp += n; E.xpHoje += n; E.xpSemana[2] += n; if (el) xpVoa(el, n); if (bateMeta() && !L) setTimeout(() => toast(`Meta do dia batida: ${E.seq} dias seguidos!`), 1200); };
 
 /* áudio: três velocidades */
-const VEL = { lento: .6, normal: .8, rapido: .95 };
+const VEL = { lento: .5, normal: .8, rapido: 1.05 };
+let ultimaFala = null;
 const velH = () => `<div class="vel" role="group" aria-label="Velocidade do áudio">${[['lento', 'Lento'], ['normal', 'Normal'], ['rapido', 'Rápido']].map(([k, t]) => `<button type="button" data-vel="${k}" aria-pressed="${E.vel === k}">${t}</button>`).join('')}</div>`;
-document.addEventListener('click', e => { const b = e.target.closest('[data-vel]'); if (!b) return; E.vel = b.dataset.vel; salva(); $$('[data-vel]').forEach(x => x.setAttribute('aria-pressed', x.dataset.vel === E.vel)); });
+document.addEventListener('click', e => { const b = e.target.closest('[data-vel]'); if (!b) return; E.vel = b.dataset.vel; salva(); $$('[data-vel]').forEach(x => x.setAttribute('aria-pressed', x.dataset.vel === E.vel));
+  /* se uma frase curta estiver tocando, recomeça na velocidade nova; textos longos mudam a partir da próxima frase */
+  if (ultimaFala && temVoz() && speechSynthesis.speaking) fala(ultimaFala.texto, { ...ultimaFala.o, semConta: true });
+  toast(`Velocidade: ${{ lento: 'lenta', normal: 'normal', rapido: 'rápida' }[E.vel]}`); });
 let vozes = [];
 const carregaVozes = () => { if ('speechSynthesis' in window) vozes = speechSynthesis.getVoices().filter(v => /^en/i.test(v.lang)); };
 if ('speechSynthesis' in window) { carregaVozes(); try { speechSynthesis.addEventListener('voiceschanged', carregaVozes); } catch { speechSynthesis.onvoiceschanged = carregaVozes; } }
@@ -938,7 +979,7 @@ let falaN = 0, avisouMudo = false;
 function fala(texto, o = {}) {
   const limpa = () => { if (o.btn) { o.btn.classList.remove('tocando'); o.btn.closest('.player')?.classList.remove('tocando-g'); } };
   if (!temVoz()) { if (!o.mudo) toast('Áudio indisponível neste navegador. Leia o texto na tela.'); o.fim && o.fim(); return false; }
-  speechSynthesis.cancel(); const n = ++falaN;
+  speechSynthesis.cancel(); const n = ++falaN; ultimaFala = o.fim || o.limite ? null : { texto, o };
   const u = new SpeechSynthesisUtterance(texto); u.lang = 'en-US'; u.rate = VEL[E.vel] * (o.rel || 1); if (o.pitch) u.pitch = o.pitch;
   const us = vozes.filter(v => /en(-|_)US/i.test(v.lang)); const v = (o.voz != null ? (us[o.voz] || vozes[o.voz]) : null) || us[0] || vozes[0]; if (v) u.voice = v;
   if (o.btn) { o.btn.classList.add('tocando'); o.btn.closest('.player')?.classList.add('tocando-g'); }
@@ -1051,7 +1092,7 @@ function vHoje() {
   </div>
   <div class="grade g3">
     <section class="cartao" style="display:grid;gap:14px;align-content:start"><span class="olho">Recado da semana</span><div class="recado"><img src="${FOTO}" alt="Teacher Anderson" width="56" height="56"><p class="balao-recado">“Não tente estudar tudo hoje. Faça bem a missão de agora e volte amanhã.”</p></div><small class="mudo">Teacher Anderson</small></section>
-    <button class="palavra-dia" type="button" id="palavra-dia" aria-label="Palavra do dia: booking. Toque para ver a tradução"><span class="gira"><span class="face f1"><span class="selo-postal">${ic('g-liberty')}</span><span class="olho">Palavra do dia</span><span><strong>booking</strong><span class="mono" style="font-size:15px">/ˈbʊk.ɪŋ/ · toque para virar</span></span></span><span class="face f2"><span class="olho" style="color:var(--gold)">Significa</span><strong>reserva</strong><span style="font-family:var(--serif);font-style:italic;font-size:14.5px;color:#C6D3EA">“The clerk checked the booking number again.”</span></span></span></button>
+    <button class="palavra-dia" type="button" id="palavra-dia" aria-label="Palavra do dia: booking. Toque para ver a tradução"><span class="gira"><span class="face f1"><span class="selo-postal">${ic('g-liberty')}</span><span class="olho">Palavra do dia</span><span><strong>booking</strong><span class="mono" style="font-size:15px">toque para virar</span></span></span><span class="face f2"><span class="olho" style="color:var(--gold)">Significa</span><strong>reserva</strong><span style="font-family:var(--serif);font-style:italic;font-size:14.5px;color:#C6D3EA">“The clerk checked the booking number again.”</span></span></span></button>
     <section class="cartao" style="display:grid;gap:10px;align-content:start"><span class="olho" style="color:var(--navy-3)">Próxima aula ao vivo</span><h3>Conversation practice</h3><p class="mudo" style="font-size:13.5px">Sexta, 16 de outubro · 19h · 50 min</p><div class="contagem">${contagemH()}</div><button class="btn linha peq" type="button" data-ir="aulas" style="justify-self:start">Preparar a aula</button></section>
   </div>`;
 }
@@ -1352,6 +1393,7 @@ function resultado() {
     if (L.base.passos.some(p => p.t === 'ler')) { E.lidas = (E.lidas || 0) + 1; if (E.lidas >= 3) push('leitor'); }
     const tr = L.base.trilha; if (tr) { const T = TRILHAS.find(t => t.id === tr); const idx = T.licoes.indexOf(L.id) + 1; E.trilhas[tr] = Math.max(E.trilhas[tr] || 0, idx); if (E.trilhas[tr] >= T.licoes.length) push('trilha'); }
     if (E.ouvidosTotal >= 10) push('ouvinte');
+    registraHab(L.id, precisao);
   }
   const novos = CARIMBOS.filter(c => E.carimbos.includes(c.id) && !tinha.has(c.id));
   const uL = UNIDADES.find(u => u.paradas.some(p => p.id === L.id)) || unidadeAtual();
@@ -1411,7 +1453,7 @@ function mesaH() {
     <div class="carta topo" id="carta" style="--c:${B.c}" tabindex="0" aria-label="Cartão ${esc(C[0])}. Toque para virar. Espaço vira; seta para a direita se sabe, para a esquerda se não sabe, para baixo se quase.">
       <span class="selo-swipe sei">SEI!</span><span class="selo-swipe nao">REVER</span>
       <button class="som-c" type="button" id="som-c" aria-label="Ouvir">${ic('i-som')}</button>
-      <div class="gira"><div class="face frente"><div class="ilu">${ic(B.ic)}<b aria-hidden="true">${esc(C[0][0])}</b></div><div class="txt"><strong>${esc(C[0])}</strong><span class="fon">${esc(C[2])}</span><small class="mudo">toque para virar · arraste para responder</small></div></div>
+      <div class="gira"><div class="face frente"><div class="ilu">${ic(B.ic)}<b aria-hidden="true">${esc(C[0][0])}</b></div><div class="txt"><strong>${esc(C[0])}</strong>${C[2][0] === '/' ? '' : `<span class="fon">${esc(C[2])}</span>`}<small class="mudo">toque para virar · arraste para responder</small></div></div>
       <div class="face verso"><span class="olho" style="color:var(--gold)">Significa</span><strong>${esc(C[1])}</strong><p class="ex-f">“${ex}”</p><small style="color:#C6D3EA">Toque no alto-falante para ouvir a frase</small></div></div></div></div>
   <div class="controles-c"><button class="circ nao" type="button" data-r="0" aria-label="Não sei">${ic('i-x')}</button><button class="circ quase" type="button" data-r="1" aria-label="Quase">${ic('i-volta')}</button><button class="circ virar" type="button" id="virar" aria-label="Virar">${ic('i-setas')}</button><button class="circ sei" type="button" data-r="2" aria-label="Sei">${ic('i-ok')}</button></div>
   <div class="contas-c"><span class="etq ok">${sessao.sei} sei</span><span class="etq ouro">${sessao.quase} quase</span><span class="etq verm">${sessao.nao} rever</span></div>`;
@@ -1509,19 +1551,67 @@ POS.aulas = () => {
 };
 
 /* ================== PROGRESSO ================== */
+const HABS = [
+  { id: 'vocab-viagem', nome: 'Vocabulário de viagem', area: 'Vocabulário', base: 88, acao: ['licao', 'l-vocab-hotel'], dica: 'Hotel, aeroporto e reservas já estão firmes.' },
+  { id: 'leitura', nome: 'Leitura e compreensão', area: 'Leitura', base: 84, acao: ['trilha', 'historias'], dica: 'Entende bem textos curtos. Próximo passo: textos B1.' },
+  { id: 'passado-reg', nome: 'Simple past com -ed', area: 'Gramática', base: 80, acao: ['licao', 'l-passado'], dica: 'Cooked, watched, visited: quase sempre certo.' },
+  { id: 'rotina', nome: 'Rotina e frequência', area: 'Gramática', base: 74, acao: ['licao', 'l-rotina'], dica: 'Ainda troca a posição de usually e always na frase.' },
+  { id: 'escuta', nome: 'Escuta de frases', area: 'Escuta', base: 71, acao: ['trilha', 'ouvido'], dica: 'Vai bem no lento. No normal, perde finais de palavra.' },
+  { id: 'escrita', nome: 'Escrita', area: 'Escrita', base: 65, acao: ['semana'], dica: 'Frases curtas e corretas, mas faltam conectores.' },
+  { id: 'passado-irr', nome: 'Verbos irregulares', area: 'Gramática', base: 58, acao: ['trilha', 'verbos'], dica: 'Ainda escreve goed, eated e buyed.' },
+  { id: 'numeros', nome: 'Números e horários', area: 'Escuta', base: 52, acao: ['licao', 't-ouv-2'], dica: 'Fifteen e fifty ainda se confundem.' },
+  { id: 'preposicoes', nome: 'Preposições (in, on, at, under)', area: 'Gramática', base: 44, acao: ['licao', 't-trb-2'], dica: 'Erra under, at e on em quase metade das frases.' },
+];
+const LIC_HAB = { 'l-vocab-hotel': ['vocab-viagem', 'preposicoes'], 'l-leitura-hotel': ['leitura'], 'l-passado': ['passado-reg', 'passado-irr'], 'l-checkpoint-1': ['vocab-viagem', 'preposicoes'], 'l-leitura-casa': ['leitura'], 'l-rotina': ['rotina'], 'l-leitura-estudo': ['leitura'], 't-ouv-1': ['escuta'], 't-ouv-2': ['numeros', 'escuta'], 't-ouv-3': ['escuta', 'numeros'], 't-ouv-4': ['escuta'], 't-aer-1': ['leitura', 'vocab-viagem'], 't-aer-2': ['leitura', 'passado-irr'], 't-aer-3': ['vocab-viagem'], 't-vrb-1': ['passado-irr'], 't-vrb-2': ['passado-irr'], 't-vrb-3': ['passado-irr'], 't-his-1': ['leitura', 'rotina'], 't-his-2': ['leitura'], 't-his-3': ['leitura'], 't-trb-1': ['escuta'], 't-trb-2': ['preposicoes'] };
+const NIVEIS_H = [
+  { min: 85, nome: 'Está ótimo', sub: 'Pode seguir em frente', c: '#1E7A4F', bg: '#E1F2E8' },
+  { min: 70, nome: 'Está bem', sub: 'Mantenha o ritmo', c: '#1E4E8C', bg: '#E4ECF8' },
+  { min: 55, nome: 'Precisa melhorar', sub: 'Vale um treino esta semana', c: '#A86A06', bg: '#FBEBC4' },
+  { min: 0, nome: 'Ponto crítico', sub: 'Comece por aqui', c: '#B51C31', bg: '#FBE3E6' },
+];
+const valorHab = h => (E.hab && E.hab[h.id] != null) ? E.hab[h.id] : h.base;
+const nivelHab = v => NIVEIS_H.find(n => v >= n.min);
+function registraHab(id, precisao) { const tags = LIC_HAB[id]; if (!tags) return; E.hab = E.hab || {}; tags.forEach(t => { const h = HABS.find(x => x.id === t); E.hab[t] = Math.round(valorHab(h) * .7 + precisao * .3); }); E.hist = [...(E.hist || []), { id, p: precisao }].slice(-40); }
+function palavrasAprendidas() {
+  const vistas = new Map();
+  Object.keys(E.feito).forEach(id => (LICOES[id]?.palavras || []).forEach(w => vistas.set(w, 'licao')));
+  Object.values(BARALHOS).forEach(B => B.cartas.forEach(c => { const r = E.cartoes[c[0]]; if (r === 2) vistas.set(c[0], 'sei'); else if (r === 1) vistas.set(c[0], 'quase'); else if (r === 0) vistas.set(c[0], 'rever'); }));
+  const trad = {}; Object.values(BARALHOS).forEach(B => B.cartas.forEach(c => trad[c[0]] = c[1])); Object.values(LEITURAS).forEach(R => Object.assign(trad, R.vocab));
+  Object.values(LICOES).forEach(Lc => Lc.passos.forEach(p => p.pares && p.pares.forEach(([en, pt]) => { trad[en] = trad[en] || pt; })));
+  return [...vistas].map(([w, st]) => ({ w, st, pt: trad[w] || '' }));
+}
+const textoErro = x => x.q || x.pt || x.diga || (x.frase ? x.frase.join(' ') : '') || (x.antes ? `${x.antes} ___ ${x.depois}` : '') || (x.pares ? x.pares.map(p => p[0]).join(', ') : 'Exercício');
 function vProgresso() {
   const dias = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'], ant = [20, 30, 15, 25, 10, 0, 20], max = Math.max(60, ...E.xpSemana, ...ant);
-  const barras = E.xpSemana.map((v, i) => { const x = 40 + i * 74; const h = v / max * 150; const ha = ant[i] / max * 150; return `<rect x="${x - 6}" y="${170 - ha}" width="30" height="${ha}" rx="2" fill="#DCCFB1"/><rect class="b" x="${x + 8}" y="${170 - h}" width="30" height="${h}" data-h="${h}" rx="2" fill="${i === 2 ? '#D7263D' : '#1E4E8C'}"/><text x="${x + 16}" y="190" text-anchor="middle" font-size="12" font-weight="700" fill="#637089">${dias[i]}</text>${v ? `<text x="${x + 23}" y="${162 - h}" text-anchor="middle" font-size="11" font-weight="800" fill="#13213A">${v}</text>` : ''}`; }).join('');
-  const totA = ant.reduce((a, b) => a + b, 0);
-  const hab = [['Vocabulário', 78, '#D7263D'], ['Leitura', 84, '#1E4E8C'], ['Escuta', 71, '#6C4BD8'], ['Escrita', 65, '#C98D17'], ['Conversação', 69, '#1E9B68']];
-  return `<div class="cab"><span class="olho">Sua evolução</span><h1>Você contra <em>você.</em></h1><p>Sem ranking com os outros alunos: aqui a comparação é com a sua semana passada.</p></div>
+  const barras = E.xpSemana.map((v, i) => { const x = 40 + i * 74; const h = v / max * 150; const ha = ant[i] / max * 150; return `<rect x="${x - 6}" y="${170 - ha}" width="30" height="${ha}" rx="2" fill="#DCCFB1"/><rect class="b" x="${x + 8}" y="${170 - h}" width="30" height="${h}" rx="2" fill="${i === 2 ? '#D7263D' : '#1E4E8C'}"/><text x="${x + 16}" y="190" text-anchor="middle" font-size="12" font-weight="700" fill="#637089">${dias[i]}</text>${v ? `<text x="${x + 23}" y="${162 - h}" text-anchor="middle" font-size="11" font-weight="800" fill="#13213A">${v}</text>` : ''}`; }).join('');
+  const totA = ant.reduce((a, b) => a + b, 0), tot = E.xpSemana.reduce((a, b) => a + b, 0);
+  const habs = HABS.map(h => ({ ...h, v: valorHab(h) })).sort((a, b) => b.v - a.v);
+  const forte = habs[0], fraco = habs[habs.length - 1];
+  const licoes = Object.values(E.feito).reduce((a, b) => a + b, 0);
+  const hist = E.hist || []; const media = hist.length ? Math.round(hist.reduce((a, h) => a + h.p, 0) / hist.length) : 82;
+  const pal = palavrasAprendidas(); const grupos = [['sei', 'Dominadas', 'ok'], ['licao', 'Vistas nas lições', 'azul'], ['quase', 'Quase lá', 'ouro'], ['rever', 'Para rever', 'verm']];
+  const kpi = (n, t, s) => `<div class="kpi"><b class="num">${n}</b><span>${t}</span>${s ? `<small>${s}</small>` : ''}</div>`;
+  return `<div class="cab"><span class="olho">Sua evolução</span><h1>Você contra <em>você.</em></h1><p>Onde você está forte, o que já aprendeu e o que precisa de treino. Sem ranking com outros alunos.</p></div>
+  <section class="kpis">${kpi(licoes, 'lições feitas', 'contando repetições')}${kpi(media + '%', 'acerto médio', hist.length ? `nas últimas ${hist.length} lições` : 'nas lições do mês')}${kpi(pal.length, 'palavras no seu vocabulário', `${pal.filter(p => p.st === 'sei').length} dominadas`)}${kpi(E.seq, 'dias seguidos', 'recorde: 9')}</section>
+  <section class="cartao parecer"><div class="recado"><img src="${FOTO}" alt="Teacher Anderson" width="56" height="56"><div><span class="olho">Leitura do professor</span><p class="balao-recado" style="margin-top:6px">“Seu ponto mais forte é <b>${forte.nome.toLowerCase()}</b> (${forte.v}%). O que mais pede atenção é <b>${fraco.nome.toLowerCase()}</b> (${fraco.v}%): ${fraco.dica.charAt(0).toLowerCase() + fraco.dica.slice(1)} Comece por aí esta semana.”</p></div></div><button class="btn prim peq" type="button" data-hab="${fraco.id}">Treinar ${fraco.nome.toLowerCase()}</button></section>
+  <section style="display:grid;gap:14px"><div class="mini" style="align-items:end;flex-wrap:wrap"><div><span class="olho">Raio-x das habilidades</span><h2 style="font-size:clamp(24px,3vw,32px)">Do que está ótimo ao que precisa de atenção</h2></div><span class="etq">atualiza a cada lição</span></div>
+    <div class="faixas-h">${NIVEIS_H.map(n => { const itens = habs.filter(h => nivelHab(h.v) === n); return `<div class="faixa-h" style="--c:${n.c};--bg:${n.bg}"><header><b>${n.nome}</b><small>${n.sub}</small><span class="num">${itens.length}</span></header>${itens.length ? itens.map(h => `<article class="hab-c"><div class="mini"><span class="etq">${h.area}</span><b class="num">${h.v}%</b></div><h4>${h.nome}</h4><div class="barra-p"><i style="width:${h.v}%;background:var(--c)"></i></div><p>${h.dica}</p>${n.min < 70 ? `<button class="btn linha peq" type="button" data-hab="${h.id}">Treinar isso</button>` : ''}</article>`).join('') : '<p class="vazio-h">Nada aqui por enquanto.</p>'}</div>`; }).join('')}</div></section>
   <div class="grade g2">
-    <section class="cartao" style="display:grid;gap:10px"><div class="mini"><h3>XP por dia</h3><span class="etq azul">esta semana x anterior</span></div><svg class="graf" viewBox="0 0 560 200" role="img" aria-label="XP por dia nesta semana comparado à semana anterior"><line x1="20" x2="550" y1="170" y2="170" stroke="#E3E1DA"/>${barras}</svg><div class="vs"><div><b class="num" id="vs-a">${E.xpSemana.reduce((a, b) => a + b, 0)}</b><small class="mudo">XP nesta semana</small></div><span class="x">vs</span><div><b class="num" style="color:var(--muted)">${totA}</b><small class="mudo">semana passada</small></div></div></section>
-    <section class="cartao" style="display:grid;gap:14px;align-content:start"><h3>Habilidades</h3><div class="habil">${hab.map(([n, v, c]) => `<div><span>${n}</span><div class="barra-p"><i style="width:${v}%;background:${c}"></i></div><b class="num">${v}%</b></div>`).join('')}</div><p class="mudo" style="font-size:13.5px">Ponto de atenção: <b style="color:var(--ink)">escrita</b>. A produção de quinta ajuda a subir.</p></section>
+    <section class="cartao" style="display:grid;gap:14px;align-content:start"><div class="mini"><div><span class="olho" style="color:var(--navy-3)">Vocabulário</span><h3>Palavras que você aprendeu</h3></div><span class="etq ouro">${pal.length} palavras</span></div>
+      ${grupos.map(([k, t, c]) => { const ws = pal.filter(p => p.st === k); return ws.length ? `<div style="display:grid;gap:8px"><b style="font-size:14px">${t} <span class="mudo">· ${ws.length}</span></b><div class="palavras">${ws.map(p => `<button type="button" class="palavra-c ${c}" data-fala="${esc(p.w)}" title="${esc(p.pt)}"><b>${esc(p.w)}</b>${p.pt ? `<small>${esc(p.pt)}</small>` : ''}</button>`).join('')}</div></div>` : ''; }).join('')}
+      <p class="mudo" style="font-size:13px">Toque numa palavra para ouvir. Para mover palavras para “dominadas”, use os cartões no Treino.</p><button class="btn linha peq" type="button" id="ir-cartoes" style="justify-self:start">Treinar com os cartões</button></section>
+    <section class="cartao" style="display:grid;gap:12px;align-content:start"><div class="mini"><div><span class="olho">Erros recentes</span><h3>O que ainda escapa</h3></div><span class="etq verm">${E.erros.length}</span></div>
+      ${E.erros.length ? `<ol class="erros-l">${E.erros.slice().reverse().map(x => `<li><b>${esc(textoErro(x))}</b>${x.porque ? `<small>${esc(x.porque)}</small>` : ''}</li>`).join('')}</ol><button class="btn prim peq" type="button" id="rev-erros" style="justify-self:start">Revisar esses erros</button>` : '<p class="mudo">Nenhum erro guardado agora. Quando você errar algo numa lição, ele aparece aqui com a explicação.</p>'}
+      <div style="border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:10px"><div class="mini"><h3>XP por dia</h3><span class="etq azul">esta semana x anterior</span></div><svg class="graf" viewBox="0 0 560 200" role="img" aria-label="XP por dia nesta semana comparado à semana anterior"><line x1="20" x2="550" y1="170" y2="170" stroke="#E3E1DA"/>${barras}</svg><p class="mudo" style="font-size:13.5px"><b style="color:var(--ink)">${tot} XP</b> nesta semana contra ${totA} na anterior.</p></div></section>
   </div>
   <section class="cartao" style="display:grid;gap:18px"><div class="mini" style="align-items:end"><div><span class="olho">Passaporte</span><h3>Carimbos do Brasil e dos Estados Unidos</h3><p class="mudo" style="font-size:13.5px;margin-top:4px">Cada conquista carimba um lugar. Os apagados ainda esperam por você.</p></div><span class="etq ouro">${CARIMBOS.filter(c => E.carimbos.includes(c.id)).length} de ${CARIMBOS.length}</span></div><div class="carimbos">${CARIMBOS.map((c, i) => { const tem = E.carimbos.includes(c.id); return `<div class="carimbo ${tem ? '' : 'trancado'}" style="--r:${[-8, 5, -4, 9, -11, 4, -6, 8, -9, 5, -7, 9, -4, 7][i]}deg">${carimboSVG(c, tem)}<b>${c.t}</b><small>${c.lugar}</small></div>`; }).join('')}</div></section>`;
 }
-POS.progresso = () => {};
+POS.progresso = () => {
+  $$('[data-hab]').forEach(b => b.onclick = () => { const h = HABS.find(x => x.id === b.dataset.hab); const [t, id] = h.acao; if (t === 'licao') abreLicao(id); else if (t === 'trilha') { E.aba = 'trilhas'; navega('treino'); setTimeout(() => abreTrilha(id), 300); } else navega('semana'); });
+  $$('[data-fala]').forEach(b => b.onclick = () => fala(b.dataset.fala, { semConta: true }));
+  $('#ir-cartoes').onclick = () => { E.aba = 'cartoes'; navega('treino'); };
+  $('#rev-erros')?.addEventListener('click', () => abreLicao('erros', E.erros.map(x => ({ ...x }))));
+};
 
 /* ================== PROFESSOR ================== */
 const spark = s => { const m = Math.max(...s, 1); const pts = s.map((v, i) => `${i * 50 + 5},${40 - v / m * 34}`).join(' '); return `<svg class="spark" viewBox="0 0 310 44" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${(s.length - 1) * 50 + 5}" cy="${40 - s[s.length - 1] / m * 34}" r="4" fill="currentColor"/></svg>`; };
