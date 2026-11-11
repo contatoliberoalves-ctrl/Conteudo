@@ -45,7 +45,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
 @keyframes cintila{from{opacity:calc(var(--o)*.35)}to{opacity:var(--o)}}
 @keyframes traco{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 </style>`;
-const nome2 = (t, px, cls = 'ouro', passo = .06) => `<div class="pf" style="font-weight:800;font-size:${px}px;line-height:1.02;letter-spacing:-.012em;white-space:nowrap;filter:drop-shadow(0 14px 34px rgba(0,0,0,.45))"><div>${letras('Natália', t, passo, 'foco', .95, cls)}</div><div>${letras('Valença', t + .45, passo, 'foco', .95, cls)}</div></div>`;
+const nome2 = (t, px, cls = 'ouro', passo = .06) => `<div class="pf" style="font-weight:800;font-size:${px}px;line-height:1.02;letter-spacing:-.012em;white-space:nowrap;filter:drop-shadow(0 14px 34px rgba(0,0,0,.45))"><div>${letras('Natalia', t, passo, 'foco', .95, cls)}</div><div>${letras('Valença', t + .45, passo, 'foco', .95, cls)}</div></div>`;
 
 // ---------- linha TRAÇO: desenhos em traço que se formam (stroke-dashoffset) ----------
 const APOIO = 'Constitucional • Advocacia em Direito Público';
@@ -76,7 +76,7 @@ const traco = ({ icone, escuro = false, lado = false, cortinas = [OURO, AZUL] })
   const desenho = `<div style="position:relative;width:440px;height:400px;flex:none">
     <div style="position:absolute;left:50%;top:54%;width:560px;height:560px;margin:-280px;border-radius:50%;background:radial-gradient(circle,rgba(204,160,65,${c.halo}),transparent 68%);animation:luz 1.4s ease-out .6s both"></div>
     <svg width="440" height="400" viewBox="0 0 440 400" style="position:absolute;inset:0;overflow:visible">${icone(c)}</svg></div>`;
-  const nome = (px, quebra) => `<div class="pf ${c.nome}" style="font-weight:800;font-size:${px}px;line-height:1.06;color:${c.txt};letter-spacing:-.012em;white-space:nowrap">${mascara('Natália', 2.3, .85)}${quebra ? '<br>' : ' '}${mascara('Valença', 2.5, .85)}</div>`;
+  const nome = (px, quebra) => `<div class="pf ${c.nome}" style="font-weight:800;font-size:${px}px;line-height:1.06;color:${c.txt};letter-spacing:-.012em;white-space:nowrap">${mascara('Natalia', 2.3, .85)}${quebra ? '<br>' : ' '}${mascara('Valença', 2.5, .85)}</div>`;
   const fio = (w, centro) => `<div style="width:${w}px;height:3px;margin-top:28px;background:${centro ? `linear-gradient(90deg,transparent,${OURO} 25%,${OURO} 75%,transparent)` : `linear-gradient(90deg,${OURO},${OURO} 60%,transparent)`};transform-origin:${centro ? 'center' : 'left'};animation:abre 1.1s ${IO} 3.0s both"></div>`;
   const apoio = (px) => `<div style="font:400 ${px}px Poppins,sans-serif;letter-spacing:.045em;color:${c.txt};margin-top:30px;white-space:nowrap;animation:surge .9s ${E} 3.35s both">${APOIO.replace('•', `<span style="color:${OURO};margin:0 .28em">•</span>`)}</div>`;
   const miolo = lado
