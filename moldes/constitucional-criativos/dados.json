@@ -1,346 +1,377 @@
 [
-  {
-    "id": "manchete-odeia-constitucional-feed",
-    "titulo": "Se você odeia Constitucional (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "manchete",
-    "foto": "img-3159.jpg",
-    "linhas": [
-      "Se você odeia",
-      "Constitucional,",
-      "esse reforço é pra você!"
-    ],
-    "destaque": 1,
-    "td": 160,
-    "ts": 92,
-    "sub": "Reforço de Constitucional para a 1ª fase da OAB. **Vagas abertas.**"
+ {
+  "id": "manchete-odeia-constitucional-feed",
+  "titulo": "Se você odeia Constitucional (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "manchete",
+  "foto": "img-3159.jpg",
+  "linhas": [
+   "Se você odeia",
+   "Constitucional,",
+   "esse reforço é pra você!"
+  ],
+  "destaque": 1,
+  "td": 160,
+  "ts": 92,
+  "sub": "Reforço de Constitucional para a 1ª fase da OAB. **Vagas abertas.**"
+ },
+ {
+  "id": "manchete-odeia-constitucional-story",
+  "titulo": "Se você odeia Constitucional (stories)",
+  "de": "manchete-odeia-constitucional-feed",
+  "formato": "story"
+ },
+ {
+  "id": "manchete-professor-gabaritar-feed",
+  "titulo": "Aprenda com o professor que vai te fazer gabaritar (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "manchete",
+  "foto": "0547.jpg",
+  "linhas": [
+   "Aprenda",
+   "Constitucional",
+   "com o professor que",
+   "vai te fazer"
+  ],
+  "destaque": 1,
+  "td": 150,
+  "ts": 88,
+  "acento": "gabaritar!",
+  "sub": "Reforço de Constitucional · 1ª fase da OAB"
+ },
+ {
+  "id": "manchete-professor-gabaritar-story",
+  "titulo": "Aprenda com o professor que vai te fazer gabaritar (stories)",
+  "de": "manchete-professor-gabaritar-feed",
+  "formato": "story"
+ },
+ {
+  "id": "etiquetas-vagas-abertas-feed",
+  "titulo": "Vagas abertas (etiquetas de story) (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "etiquetas",
+  "foto": "dsc08712.jpg",
+  "etiquetas": [
+   [
+    "VAGAS ABERTAS!!📣"
+   ],
+   [
+    "REFORÇO DE CONSTITUCIONAL",
+    "PRA 1ª FASE DA OAB"
+   ],
+   [
+    "DE R$ 247 POR",
+    "APENAS R$ 119🔥"
+   ],
+   [
+    "COMENTA REFORÇO PRA",
+    "RECEBER O LINK👇👇👇"
+   ]
+  ]
+ },
+ {
+  "id": "etiquetas-vagas-abertas-story",
+  "titulo": "Vagas abertas (etiquetas de story) (stories)",
+  "de": "etiquetas-vagas-abertas-feed",
+  "formato": "story"
+ },
+ {
+  "id": "nota-reprovou-feed",
+  "titulo": "Nota: reprovou por causa de Constitucional? (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "nota",
+  "frase": "Reprovou na 1ª fase por causa de Constitucional? {{Que tal superar isso?}}",
+  "fecho": "Vagas abertas pro Reforço."
+ },
+ {
+  "id": "nota-reprovou-story",
+  "titulo": "Nota: reprovou por causa de Constitucional? (stories)",
+  "de": "nota-reprovou-feed",
+  "formato": "story"
+ },
+ {
+  "id": "tweet-tentar-acertar-feed",
+  "titulo": "Tweet: a matéria que você só tenta acertar (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "tweet",
+  "avatar": "0557.jpg",
+  "nome": "Constitucional Gabaritado",
+  "frase": "Constitucional não precisa ser a matéria que você {{só tenta acertar.}}",
+  "fecho": "Corre pro Reforço."
+ },
+ {
+  "id": "tweet-tentar-acertar-story",
+  "titulo": "Tweet: a matéria que você só tenta acertar (stories)",
+  "de": "tweet-tentar-acertar-feed",
+  "formato": "story"
+ },
+ {
+  "id": "oferta-condicao-abertura-feed",
+  "titulo": "Oferta: condição especial de abertura (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "oferta",
+  "foto": "0207.jpg",
+  "linhas": [
+   "Vagas",
+   "{{abertas}}"
+  ],
+  "caixa": "~~R$ 247~~ {{R$ 119}}",
+  "sub": "Condição especial de abertura",
+  "prova": [
+   "Reforço de",
+   "{{Constitucional}}",
+   "1ª fase da OAB"
+  ],
+  "acao": "Toque em “Saiba mais” e garanta sua vaga."
+ },
+ {
+  "id": "oferta-condicao-abertura-story",
+  "titulo": "Oferta: condição especial de abertura (stories)",
+  "de": "oferta-condicao-abertura-feed",
+  "formato": "story"
+ },
+ {
+  "id": "lista-voce-tera-feed",
+  "titulo": "O que tem no Reforço (feed)",
+  "tema": "Reforço de Constitucional",
+  "formato": "feed",
+  "layout": "lista",
+  "foto": "dsc08859.jpg",
+  "kicker": "Vagas abertas 💚",
+  "linhas": [
+   "O que tem",
+   "no {{Reforço}}"
+  ],
+  "itens": [
+   "Aulas dos principais temas de Constitucional",
+   "Resolução de muitas questões",
+   "Questões autorais no estilo FGV",
+   "Quizzes para testar o aprendizado",
+   "Tabelas e resumos para revisão",
+   "**100 resumos rápidos** dos temas já cobrados na OAB",
+   "Estratégias contra as pegadinhas da banca",
+   "Encontros comigo nos pontos mais importantes"
+  ],
+  "preco": "De ~~R$ 247~~ por {{R$ 119}}",
+  "botao": "Quero minha vaga"
+ },
+ {
+  "id": "lista-voce-tera-story",
+  "titulo": "O que tem no Reforço (stories)",
+  "de": "lista-voce-tera-feed",
+  "formato": "story",
+  "ts": 130,
+  "ti": 32
+ },
+ {
+  "id": "tweet-o-que-achou-da-prova-feed",
+  "titulo": "Tweet: o que você achou da prova? (feed)",
+  "tema": "Pós-prova 2ª fase OAB",
+  "formato": "feed",
+  "layout": "tweet",
+  "avatar": "0557.jpg",
+  "nome": "Constitucional Gabaritado",
+  "frase": "E aí, {{o que você achou da prova?}}",
+  "fecho": "Deixa seu comentário abaixo 👇"
+ },
+ {
+  "id": "tweet-o-que-achou-da-prova-story",
+  "titulo": "Tweet: o que você achou da prova? (story)",
+  "de": "tweet-o-que-achou-da-prova-feed",
+  "formato": "story"
+ },
+ {
+  "id": "duvida-errei-o-artigo-feed",
+  "titulo": "Dúvida pós-prova: Errei o artigo. Zero a questão? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvida",
+  "pergunta": "Errei o artigo. {{Zero}} a questão?",
+  "selo": "NÃO.",
+  "resposta": "Você só perde **0,10**. O resto da resposta continua valendo.",
+  "foto": "recorte-0211.png",
+  "lado": "direita",
+  "fundo": "escuro"
+ },
+ {
+  "id": "duvida-sim-nao-tese-feed",
+  "titulo": "Dúvida pós-prova: Errei o sim/não, mas acertei a tese. Pontuo? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvidaSimples",
+  "pergunta": "Errei o sim/não, mas acertei a tese. {{Pontuo?}}",
+  "selo": "NÃO.",
+  "resposta": "Infelizmente, nesse caso **a banca não considera**.",
+  "fundo": "caderno",
+  "tp": 140,
+  "ts": 190,
+  "tr": 44
+ },
+ {
+  "id": "duvida-nome-do-municipio-feed",
+  "titulo": "Dúvida pós-prova: Quem citou o nome do município vai ter a peça zerada? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvida",
+  "pergunta": "Citei o nome do município. A peça vai ser {{zerada?}}",
+  "selo": "JAMAIS.",
+  "resposta": "**Com certeza não.** Vão considerar normalmente.",
+  "foto": "recorte-0547.png",
+  "lado": "direita",
+  "fundo": "gelo"
+ },
+ {
+  "id": "duvida-errei-enderecamento-feed",
+  "titulo": "Dúvida pós-prova: Errei o endereçamento. E agora? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvidaSimples",
+  "pergunta": "Errei o endereçamento. {{E agora?}}",
+  "selo": "−0,10",
+  "resposta": "Só isso. Não chore por isso. **Você vai conseguir passar!**",
+  "fundo": "noturno",
+  "tp": 140,
+  "ts": 230,
+  "tr": 46
+ },
+ {
+  "id": "duvida-ampliacao-art-37-feed",
+  "titulo": "Dúvida pós-prova: Vai ter ampliação da tese pra aceitar o art. 37? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvidaSimples",
+  "pergunta": "Vai ter ampliação da tese pra aceitar o {{art. 37?}}",
+  "selo": "ACREDITAMOS QUE NÃO",
+  "resposta": "O foco foi a **inconstitucionalidade da norma**. E a tese já está extensa.",
+  "fundo": "documento",
+  "ts": 70,
+  "tp": 130,
+  "tr": 50
+ },
+ {
+  "id": "duvida-reclamacao-transito-feed",
+  "titulo": "Dúvida pós-prova: Por que cabe reclamação na 4, se teve o trânsito em julgado? (feed)",
+  "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
+  "formato": "feed",
+  "layout": "duvida",
+  "pergunta": "Por que cabe reclamação na 4, se teve o {{trânsito em julgado?}}",
+  "selo": "SIMPLES:",
+  "resposta": "O trânsito em julgado foi da decisão na **ADI**, que deveria ter sido seguida. Ele só **reforça** o efeito vinculante.",
+  "foto": "recorte-0561.png",
+  "lado": "esquerda",
+  "fundo": "escuro"
+ },
+ {
+  "id": "mapas-mentais-venda-feed",
+  "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (feed)",
+  "tema": "Venda dos Mapas Mentais de Constitucional",
+  "formato": "feed",
+  "layout": "produto",
+  "foto": "mapas-pilha.png",
+  "kicker": "Material novo",
+  "linhas": [
+   "100 mapas mentais",
+   "{{de Constitucional}}"
+  ],
+  "sub": "Um PDF por tema, para **OAB e concursos**.",
+  "preco": "R$ 29,99",
+  "botao": "Quero os mapas",
+  "ts": 128
+ },
+ {
+  "id": "mapas-mentais-venda-story",
+  "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (stories)",
+  "de": "mapas-mentais-venda-feed",
+  "formato": "story",
+  "ts": 110
+ },
+ {
+  "id": "mapas-mentais-conteudo-feed",
+  "titulo": "Mapas Mentais: o que vem nos 100 mapas (feed)",
+  "tema": "Venda dos Mapas Mentais de Constitucional",
+  "formato": "feed",
+  "layout": "lista",
+  "kicker": "Mapas mentais · OAB e concursos",
+  "linhas": [
+   "Constitucional",
+   "{{em 100 mapas}}"
+  ],
+  "itens": [
+   "**Teoria da Constituição** e princípios fundamentais",
+   "**Direitos fundamentais**, nacionalidade e direitos políticos",
+   "**Remédios constitucionais**, do HC à ação popular",
+   "**Organização do Estado** e Administração Pública",
+   "**Poderes**, processo legislativo e funções essenciais",
+   "**Controle de constitucionalidade** e ordem social",
+   "Em cada mapa: o artigo, o **ponto de prova** e uma pergunta pra conferir"
+  ],
+  "preco": "R$ 29,99",
+  "botao": "Quero os mapas",
+  "ts": 160,
+  "ti": 34
+ },
+ {
+  "id": "mapas-mentais-conteudo-story",
+  "titulo": "Mapas Mentais: o que vem nos 100 mapas (stories)",
+  "de": "mapas-mentais-conteudo-feed",
+  "formato": "story",
+  "ts": 130,
+  "ti": 30
+ },
+ {
+  "id": "tweet-ampliar-gabarito-feed",
+  "titulo": "Tweet: o que a banca deve ampliar no gabarito? (feed)",
+  "tema": "Pós-prova 2ª fase OAB",
+  "formato": "feed",
+  "layout": "tweet",
+  "avatar": "1534.jpg",
+  "avatarPos": "50% 20%",
+  "avatarZoom": 1.9,
+  "nome": "Constitucional Gabaritado",
+  "frase": "O que você acha que a banca deve {{ampliar no gabarito}} de constitucional?",
+  "fecho": "Deixa sua opinião nos comentários 👇"
+ },
+ {
+  "id": "tweet-ampliar-gabarito-story",
+  "titulo": "Tweet: o que a banca deve ampliar no gabarito? (story)",
+  "de": "tweet-ampliar-gabarito-feed",
+  "formato": "story"
+ },
+ {
+  "id": "resultado-recurso-especial-feed",
+  "titulo": [
+   "Não anularam",
+   "a questão de",
+   "[[recurso especial]]"
+  ],
+  "tema": "Resultado definitivo da 2ª fase da OAB 47: a questão de recurso especial não foi anulada; link nos stories; pergunta sobre o gabarito definitivo",
+  "layout": "resultado",
+  "formato": "feed",
+  "kicker": "OAB 47 · 2ª fase",
+  "carimbo": [
+   "Não",
+   "anulada"
+  ],
+  "aviso": {
+   "titulo": "Resultado divulgado",
+   "texto": "O link está nos stories"
   },
-  {
-    "id": "manchete-odeia-constitucional-story",
-    "titulo": "Se você odeia Constitucional (stories)",
-    "de": "manchete-odeia-constitucional-feed",
-    "formato": "story"
-  },
-  {
-    "id": "manchete-professor-gabaritar-feed",
-    "titulo": "Aprenda com o professor que vai te fazer gabaritar (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "manchete",
-    "foto": "0547.jpg",
-    "linhas": [
-      "Aprenda",
-      "Constitucional",
-      "com o professor que",
-      "vai te fazer"
-    ],
-    "destaque": 1,
-    "td": 150,
-    "ts": 88,
-    "acento": "gabaritar!",
-    "sub": "Reforço de Constitucional · 1ª fase da OAB"
-  },
-  {
-    "id": "manchete-professor-gabaritar-story",
-    "titulo": "Aprenda com o professor que vai te fazer gabaritar (stories)",
-    "de": "manchete-professor-gabaritar-feed",
-    "formato": "story"
-  },
-  {
-    "id": "etiquetas-vagas-abertas-feed",
-    "titulo": "Vagas abertas (etiquetas de story) (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "etiquetas",
-    "foto": "dsc08712.jpg",
-    "etiquetas": [
-      [
-        "VAGAS ABERTAS!!📣"
-      ],
-      [
-        "REFORÇO DE CONSTITUCIONAL",
-        "PRA 1ª FASE DA OAB"
-      ],
-      [
-        "DE R$ 247 POR",
-        "APENAS R$ 119🔥"
-      ],
-      [
-        "COMENTA REFORÇO PRA",
-        "RECEBER O LINK👇👇👇"
-      ]
-    ]
-  },
-  {
-    "id": "etiquetas-vagas-abertas-story",
-    "titulo": "Vagas abertas (etiquetas de story) (stories)",
-    "de": "etiquetas-vagas-abertas-feed",
-    "formato": "story"
-  },
-  {
-    "id": "nota-reprovou-feed",
-    "titulo": "Nota: reprovou por causa de Constitucional? (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "nota",
-    "frase": "Reprovou na 1ª fase por causa de Constitucional? {{Que tal superar isso?}}",
-    "fecho": "Vagas abertas pro Reforço."
-  },
-  {
-    "id": "nota-reprovou-story",
-    "titulo": "Nota: reprovou por causa de Constitucional? (stories)",
-    "de": "nota-reprovou-feed",
-    "formato": "story"
-  },
-  {
-    "id": "tweet-tentar-acertar-feed",
-    "titulo": "Tweet: a matéria que você só tenta acertar (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "tweet",
-    "avatar": "0557.jpg",
-    "nome": "Constitucional Gabaritado",
-    "frase": "Constitucional não precisa ser a matéria que você {{só tenta acertar.}}",
-    "fecho": "Corre pro Reforço."
-  },
-  {
-    "id": "tweet-tentar-acertar-story",
-    "titulo": "Tweet: a matéria que você só tenta acertar (stories)",
-    "de": "tweet-tentar-acertar-feed",
-    "formato": "story"
-  },
-  {
-    "id": "oferta-condicao-abertura-feed",
-    "titulo": "Oferta: condição especial de abertura (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "oferta",
-    "foto": "0207.jpg",
-    "linhas": [
-      "Vagas",
-      "{{abertas}}"
-    ],
-    "caixa": "~~R$ 247~~ {{R$ 119}}",
-    "sub": "Condição especial de abertura",
-    "prova": [
-      "Reforço de",
-      "{{Constitucional}}",
-      "1ª fase da OAB"
-    ],
-    "acao": "Toque em “Saiba mais” e garanta sua vaga."
-  },
-  {
-    "id": "oferta-condicao-abertura-story",
-    "titulo": "Oferta: condição especial de abertura (stories)",
-    "de": "oferta-condicao-abertura-feed",
-    "formato": "story"
-  },
-  {
-    "id": "lista-voce-tera-feed",
-    "titulo": "O que tem no Reforço (feed)",
-    "tema": "Reforço de Constitucional",
-    "formato": "feed",
-    "layout": "lista",
-    "foto": "dsc08859.jpg",
-    "kicker": "Vagas abertas 💚",
-    "linhas": [
-      "O que tem",
-      "no {{Reforço}}"
-    ],
-    "itens": [
-      "Aulas dos principais temas de Constitucional",
-      "Resolução de muitas questões",
-      "Questões autorais no estilo FGV",
-      "Quizzes para testar o aprendizado",
-      "Tabelas e resumos para revisão",
-      "**100 resumos rápidos** dos temas já cobrados na OAB",
-      "Estratégias contra as pegadinhas da banca",
-      "Encontros comigo nos pontos mais importantes"
-    ],
-    "preco": "De ~~R$ 247~~ por {{R$ 119}}",
-    "botao": "Quero minha vaga"
-  },
-  {
-    "id": "lista-voce-tera-story",
-    "titulo": "O que tem no Reforço (stories)",
-    "de": "lista-voce-tera-feed",
-    "formato": "story",
-    "ts": 130,
-    "ti": 32
-  },
-  {
-    "id": "tweet-o-que-achou-da-prova-feed",
-    "titulo": "Tweet: o que você achou da prova? (feed)",
-    "tema": "Pós-prova 2ª fase OAB",
-    "formato": "feed",
-    "layout": "tweet",
-    "avatar": "0557.jpg",
-    "nome": "Constitucional Gabaritado",
-    "frase": "E aí, {{o que você achou da prova?}}",
-    "fecho": "Deixa seu comentário abaixo 👇"
-  },
-  {
-    "id": "tweet-o-que-achou-da-prova-story",
-    "titulo": "Tweet: o que você achou da prova? (story)",
-    "de": "tweet-o-que-achou-da-prova-feed",
-    "formato": "story"
-  },
-  {
-    "id": "duvida-errei-o-artigo-feed",
-    "titulo": "Dúvida pós-prova: Errei o artigo. Zero a questão? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvida",
-    "pergunta": "Errei o artigo. {{Zero}} a questão?",
-    "selo": "NÃO.",
-    "resposta": "Você só perde **0,10**. O resto da resposta continua valendo.",
-    "foto": "recorte-0211.png",
-    "lado": "direita",
-    "fundo": "escuro"
-  },
-  {
-    "id": "duvida-sim-nao-tese-feed",
-    "titulo": "Dúvida pós-prova: Errei o sim/não, mas acertei a tese. Pontuo? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvidaSimples",
-    "pergunta": "Errei o sim/não, mas acertei a tese. {{Pontuo?}}",
-    "selo": "NÃO.",
-    "resposta": "Infelizmente, nesse caso **a banca não considera**.",
-    "fundo": "caderno",
-    "tp": 140,
-    "ts": 190,
-    "tr": 44
-  },
-  {
-    "id": "duvida-nome-do-municipio-feed",
-    "titulo": "Dúvida pós-prova: Quem citou o nome do município vai ter a peça zerada? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvida",
-    "pergunta": "Citei o nome do município. A peça vai ser {{zerada?}}",
-    "selo": "JAMAIS.",
-    "resposta": "**Com certeza não.** Vão considerar normalmente.",
-    "foto": "recorte-0547.png",
-    "lado": "direita",
-    "fundo": "gelo"
-  },
-  {
-    "id": "duvida-errei-enderecamento-feed",
-    "titulo": "Dúvida pós-prova: Errei o endereçamento. E agora? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvidaSimples",
-    "pergunta": "Errei o endereçamento. {{E agora?}}",
-    "selo": "−0,10",
-    "resposta": "Só isso. Não chore por isso. **Você vai conseguir passar!**",
-    "fundo": "noturno",
-    "tp": 140,
-    "ts": 230,
-    "tr": 46
-  },
-  {
-    "id": "duvida-ampliacao-art-37-feed",
-    "titulo": "Dúvida pós-prova: Vai ter ampliação da tese pra aceitar o art. 37? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvidaSimples",
-    "pergunta": "Vai ter ampliação da tese pra aceitar o {{art. 37?}}",
-    "selo": "ACREDITAMOS QUE NÃO",
-    "resposta": "O foco foi a **inconstitucionalidade da norma**. E a tese já está extensa.",
-    "fundo": "documento",
-    "ts": 70,
-    "tp": 130,
-    "tr": 50
-  },
-  {
-    "id": "duvida-reclamacao-transito-feed",
-    "titulo": "Dúvida pós-prova: Por que cabe reclamação na 4, se teve o trânsito em julgado? (feed)",
-    "tema": "Dúvidas dos alunos sobre a correção da OAB 47",
-    "formato": "feed",
-    "layout": "duvida",
-    "pergunta": "Por que cabe reclamação na 4, se teve o {{trânsito em julgado?}}",
-    "selo": "SIMPLES:",
-    "resposta": "O trânsito em julgado foi da decisão na **ADI**, que deveria ter sido seguida. Ele só **reforça** o efeito vinculante.",
-    "foto": "recorte-0561.png",
-    "lado": "esquerda",
-    "fundo": "escuro"
-  },
-  {
-    "id": "mapas-mentais-venda-feed",
-    "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (feed)",
-    "tema": "Venda dos Mapas Mentais de Constitucional",
-    "formato": "feed",
-    "layout": "produto",
-    "foto": "mapas-pilha.png",
-    "kicker": "Material novo",
-    "linhas": [
-      "100 mapas mentais",
-      "{{de Constitucional}}"
-    ],
-    "sub": "Um PDF por tema, para **OAB e concursos**.",
-    "preco": "R$ 29,99",
-    "botao": "Quero os mapas",
-    "ts": 128
-  },
-  {
-    "id": "mapas-mentais-venda-story",
-    "titulo": "Mapas Mentais: 100 mapas por R$ 29,99 (stories)",
-    "de": "mapas-mentais-venda-feed",
-    "formato": "story",
-    "ts": 110
-  },
-  {
-    "id": "mapas-mentais-conteudo-feed",
-    "titulo": "Mapas Mentais: o que vem nos 100 mapas (feed)",
-    "tema": "Venda dos Mapas Mentais de Constitucional",
-    "formato": "feed",
-    "layout": "lista",
-    "kicker": "Mapas mentais · OAB e concursos",
-    "linhas": [
-      "Constitucional",
-      "{{em 100 mapas}}"
-    ],
-    "itens": [
-      "**Teoria da Constituição** e princípios fundamentais",
-      "**Direitos fundamentais**, nacionalidade e direitos políticos",
-      "**Remédios constitucionais**, do HC à ação popular",
-      "**Organização do Estado** e Administração Pública",
-      "**Poderes**, processo legislativo e funções essenciais",
-      "**Controle de constitucionalidade** e ordem social",
-      "Em cada mapa: o artigo, o **ponto de prova** e uma pergunta pra conferir"
-    ],
-    "preco": "R$ 29,99",
-    "botao": "Quero os mapas",
-    "ts": 160,
-    "ti": 34
-  },
-  {
-    "id": "mapas-mentais-conteudo-story",
-    "titulo": "Mapas Mentais: o que vem nos 100 mapas (stories)",
-    "de": "mapas-mentais-conteudo-feed",
-    "formato": "story",
-    "ts": 130,
-    "ti": 30
-  },
-  {
-    "id": "tweet-ampliar-gabarito-feed",
-    "titulo": "Tweet: o que a banca deve ampliar no gabarito? (feed)",
-    "tema": "Pós-prova 2ª fase OAB",
-    "formato": "feed",
-    "layout": "tweet",
-    "avatar": "1534.jpg",
-    "avatarPos": "50% 20%",
-    "avatarZoom": 1.9,
-    "nome": "Constitucional Gabaritado",
-    "frase": "O que você acha que a banca deve {{ampliar no gabarito}} de constitucional?",
-    "fecho": "Deixa sua opinião nos comentários 👇"
-  },
-  {
-    "id": "tweet-ampliar-gabarito-story",
-    "titulo": "Tweet: o que a banca deve ampliar no gabarito? (story)",
-    "de": "tweet-ampliar-gabarito-feed",
-    "formato": "story"
-  }
+  "pergunta": "Deu certo?",
+  "convite": "Você gostou do **gabarito definitivo**? Me conta sua opinião nos comentários.",
+  "ts": 118,
+  "carimboPos": [
+   48,
+   236
+  ],
+  "tc": 52,
+  "avisoY": 660,
+  "perguntaY": 955,
+  "tp": 140
+ }
 ]
