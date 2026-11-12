@@ -188,6 +188,27 @@ const TREND = {
         ${s.texto ? tCorpo(s.texto, 31) : ''}
       </div>${arroba(C.escuro)}</div>`;
   },
+  // Depoimento em print de direct, sem nome nem foto da pessoa: `msgs` (cada uma vira um balão cinza),
+  // `nota: ["5,40", "7,00"]` (de → para, no lugar do título) ou `titulo`, `kicker` e `tc` (tamanho do texto).
+  dm(s) {
+    const topo2 = s.nota
+      ? `<div data-titulo style="display:flex;align-items:center;justify-content:center;gap:26px;${TIGHT};font-weight:900;letter-spacing:-.045em;line-height:1">
+          <span style="font-size:${s.ts || 104}px;color:${C.escuro};opacity:.45;text-decoration:line-through;text-decoration-thickness:8px">${esc(s.nota[0])}</span>
+          <svg width="80" height="56" viewBox="0 0 80 56"><path d="M4 28 H68 M46 6 L72 28 L46 50" fill="none" stroke="${C.pink}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span style="font-size:${(s.ts || 104) * 1.25}px;color:${C.pink}">${esc(s.nota[1])}</span></div>`
+      : tTit(s.titulo, s.ts || 96).replace('color:', 'text-align:center;color:');
+    const bal = lista(s.msgs).map(m => `<div style="align-self:flex-start;max-width:96%;background:#EFEFF2;border-radius:34px;padding:20px 30px;${TIGHT};font-weight:400;font-size:${s.tc || 31}px;line-height:1.32;letter-spacing:-.01em;color:#111;text-align:left">${esc(m).replace(/\n/g, '<br>')}</div>`).join('');
+    return `<div style="position:absolute;inset:0;${tFundo}">${topo(C.escuro)}
+      <div data-area style="position:absolute;left:80px;right:80px;top:130px;bottom:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:34px">
+        ${s.kicker ? pilula(fmt(s.kicker, tM), '#fff', C.escuro, 'font-size:26px;padding:10px 30px;text-transform:uppercase;letter-spacing:.08em;border:2px dashed ' + C.escuro) : ''}
+        ${topo2}
+        <div style="width:100%;background:#fff;border-radius:44px;box-shadow:0 20px 50px rgba(180,20,100,.16);padding:34px 34px 38px;display:flex;flex-direction:column;gap:10px;transform:rotate(${s.rot ?? -1}deg)">
+          <div style="display:flex;align-items:center;gap:14px;padding:0 6px 14px;border-bottom:1.5px solid #eee;margin-bottom:10px;${TIGHT};font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:#999">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2Z"/></svg>${esc(s.rotulo || 'no direct · nome e foto ocultos')}</div>
+          ${bal}
+        </div>
+      </div>${brilho(900, 160, 70, C.pink, 8)}${brilho(110, 1120, 60, C.pessego, 0)}${arroba(C.escuro)}</div>`;
+  },
   cta(s, ctx) {
     // `foto` + `qr: true`: QR code num cartão branco (sem o arquivo, espaço tracejado "QR CODE AQUI").
     const qr = s.qr ? `<div style="width:300px;height:300px;border-radius:28px;background:#fff;padding:18px;box-shadow:0 18px 40px rgba(180,20,100,.18);${ctx.imgs[s.foto] ? '' : `border:4px dashed ${C.escuro};`}display:grid;place-items:center">${ctx.imgs[s.foto] ? `<img src="${ctx.imgs[s.foto]}" style="width:100%;height:100%;object-fit:contain;display:block">` : `<div style="${TIGHT};font-weight:800;font-size:26px;letter-spacing:.12em;color:${C.escuro};text-align:center;line-height:1.3">QR CODE<br>AQUI</div>`}</div>` : '';
