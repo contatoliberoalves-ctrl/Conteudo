@@ -1342,19 +1342,20 @@
         "foto": "libero-notebook.jpg",
         "blocos": [
           {
-            "texto": "Foi pra isso que eu criei\na PratFlix: a advocacia\nna prática, com quem faz.",
+            "texto": "Na PratFlix tem: roteiro do 1º\natendimento, guia de quanto cobrar,\ncurso de audiências, gestão de\nescritório e comunidade de alunos.",
             "cor": "branco",
-            "y": 500,
-            "tam": 60
+            "y": 860,
+            "tam": 50
           },
           {
             "texto": "Comenta PRATFLIX que\neu te mando o link!",
             "cor": "bege",
-            "y": 760,
+            "y": 1150,
             "tam": 70
           }
         ],
-        "escurecer": 0.25
+        "escurecer": 0.15,
+        "fotoPos": "50% 10%"
       }
     ]
   },
@@ -1474,19 +1475,20 @@
         "foto": "libero-paleto.jpg",
         "blocos": [
           {
-            "texto": "Na PratFlix tem tudo isso\nno passo a passo, com\nbônus até 16/11.",
+            "texto": "Na PratFlix: bônus Do resultado\nà carteira, roteiro do 1º atendimento,\nguia de honorários e pack de modelos.\nSite pro escritório: menos de 10 vagas.",
             "cor": "branco",
-            "y": 500,
-            "tam": 60
+            "y": 860,
+            "tam": 50
           },
           {
             "texto": "Comenta PRATFLIX que\neu te mando o link!",
             "cor": "bege",
-            "y": 760,
+            "y": 1150,
             "tam": 70
           }
         ],
-        "escurecer": 0.25
+        "escurecer": 0.15,
+        "fotoPos": "50% 10%"
       }
     ]
   },
@@ -1570,19 +1572,20 @@
         "foto": "libero-mesa.jpg",
         "blocos": [
           {
-            "texto": "Turma fundadora aberta\naté 16/11.",
+            "texto": "18 meses de acesso, cursos de\nprática base e não convencional\ne 4 bônus. Turma fundadora\naté 16/11.",
             "cor": "branco",
-            "y": 500,
-            "tam": 60
+            "y": 860,
+            "tam": 50
           },
           {
             "texto": "Comenta PRATFLIX que\neu te mando o link!",
             "cor": "bege",
-            "y": 760,
+            "y": 1150,
             "tam": 70
           }
         ],
-        "escurecer": 0.25
+        "escurecer": 0.15,
+        "fotoPos": "50% 10%"
       }
     ]
   },
@@ -1684,19 +1687,20 @@
         "foto": "libero-bracos2.jpg",
         "blocos": [
           {
-            "texto": "É o que eu coloquei\ndentro da PratFlix.",
+            "texto": "Coloquei tudo isso na PratFlix:\ncursos de prática, comunidade,\nencontros ao vivo e 4 bônus.",
             "cor": "branco",
-            "y": 500,
-            "tam": 60
+            "y": 860,
+            "tam": 50
           },
           {
             "texto": "Comenta PRATFLIX que\neu te mando o link!",
             "cor": "bege",
-            "y": 760,
+            "y": 1150,
             "tam": 70
           }
         ],
-        "escurecer": 0.25
+        "escurecer": 0.15,
+        "fotoPos": "50% 10%"
       }
     ]
   },
@@ -1780,15 +1784,233 @@
         "foto": "libero-mesa.jpg",
         "blocos": [
           {
-            "texto": "A turma fundadora\nfecha dia 16/11.",
+            "texto": "Turma fundadora: 12x R$ 103,11\nou R$ 997, com 4 bônus e site\nprofissional (restam menos de 10).",
             "cor": "branco",
-            "y": 500,
-            "tam": 60
+            "y": 860,
+            "tam": 50
           },
           {
             "texto": "Comenta PRATFLIX que\neu te mando o link!",
             "cor": "bege",
-            "y": 760,
+            "y": 1150,
+            "tam": 70
+          }
+        ],
+        "escurecer": 0.15,
+        "fotoPos": "50% 10%"
+      }
+    ]
+  },
+  {
+    "id": "pf-nativo-depois-aprovacao",
+    "titulo": "Nativo · O que vem depois da aprovação? Preparei algo 👀",
+    "slides": [
+      {
+        "foto": "libero-bracos.jpg",
+        "blocos": [
+          {
+            "texto": "O que vem depois\nda aprovação?",
+            "cor": "preto",
+            "y": 860,
+            "tam": 76
+          },
+          {
+            "texto": "Preparei algo 👀",
+            "cor": "branco",
+            "y": 1080,
+            "tam": 64
+          }
+        ],
+        "fotoPos": "50% 20%"
+      },
+      {
+        "foto": "cena-03079.jpg",
+        "blocos": [
+          {
+            "texto": "Cursos de prática base",
+            "cor": "preto",
+            "y": 430,
+            "tam": 68
+          },
+          {
+            "texto": "Primeiro atendimento, rotina processual,\naudiências, gestão de escritório e as\náreas que mais aparecem no começo:\nConsumidor, Família, Previdenciário,\nProcesso Civil e Prática Criminal.",
+            "cor": "branco",
+            "y": 560,
+            "tam": 46
+          },
+          {
+            "texto": "valor: R$ 1.200",
+            "cor": "bege",
+            "y": 900,
+            "tam": 50
+          }
+        ],
+        "escurecer": 0.2
+      },
+      {
+        "foto": "cena-03147.jpg",
+        "blocos": [
+          {
+            "texto": "Prática não convencional",
+            "cor": "preto",
+            "y": 430,
+            "tam": 68
+          },
+          {
+            "texto": "As áreas que a faculdade nem citou:\nNotarial e extrajudicial, Registro de\nmarcas, IA e Direito Digital,\nCompliance e Direito Bancário.",
+            "cor": "branco",
+            "y": 560,
+            "tam": 46
+          },
+          {
+            "texto": "valor: R$ 800",
+            "cor": "bege",
+            "y": 900,
+            "tam": 50
+          }
+        ],
+        "escurecer": 0.2
+      },
+      {
+        "foto": "cena-03001.jpg",
+        "blocos": [
+          {
+            "texto": "Comunidade + encontros ao vivo",
+            "cor": "preto",
+            "y": 430,
+            "tam": 68
+          },
+          {
+            "texto": "Uma rede de alunos por área e por\ncidade pra dividir caso e indicar\ncliente. E encontros ao vivo pra tirar\ndúvida de caso real.",
+            "cor": "branco",
+            "y": 560,
+            "tam": 46
+          },
+          {
+            "texto": "valor: R$ 497 + R$ 600",
+            "cor": "bege",
+            "y": 900,
+            "tam": 50
+          }
+        ],
+        "escurecer": 0.35
+      },
+      {
+        "foto": "cena-03145.jpg",
+        "blocos": [
+          {
+            "texto": "18 meses de acesso",
+            "cor": "preto",
+            "y": 430,
+            "tam": 68
+          },
+          {
+            "texto": "Especial de lançamento, com\ncronograma pra saber o que assistir\nprimeiro e certificado no final.\nAinda esperando o resultado? O acesso\ncorre junto.",
+            "cor": "branco",
+            "y": 560,
+            "tam": 46
+          },
+          {
+            "texto": "valor: R$ 197",
+            "cor": "bege",
+            "y": 900,
+            "tam": 50
+          }
+        ],
+        "escurecer": 0.2
+      },
+      {
+        "foto": "cena-03138.jpg",
+        "blocos": [
+          {
+            "texto": "+ 4 bônus",
+            "cor": "preto",
+            "y": 330,
+            "tam": 76
+          },
+          {
+            "texto": "📄 Pack de modelos de peças · R$ 297\nEditáveis, com guia em PDF\n\n🪪 Do resultado à carteira · R$ 97\nDocumentos, inscrição na OAB,\nroupa e a primeira semana\n\n🗣️ Roteiro do 1º atendimento · R$ 147\nO que perguntar e como explicar\nsem juridiquês\n\n💰 Quanto cobrar no 1º caso · R$ 147\nTabela de honorários comentada",
+            "cor": "branco",
+            "y": 460,
+            "tam": 42
+          }
+        ],
+        "escurecer": 0.3
+      },
+      {
+        "foto": "libero-notebook.jpg",
+        "blocos": [
+          {
+            "texto": "🎁 E um presente",
+            "cor": "preto",
+            "y": 820,
+            "tam": 70
+          },
+          {
+            "texto": "Site profissional + identidade\nvisual personalizada pro seu\nescritório. Só pros 20 primeiros,\ne restam menos de 10 vagas.",
+            "cor": "branco",
+            "y": 950,
+            "tam": 48
+          },
+          {
+            "texto": "valor: R$ 2.000",
+            "cor": "bege",
+            "y": 1240,
+            "tam": 52
+          }
+        ],
+        "fotoPos": "50% 15%",
+        "escurecer": 0.35
+      },
+      {
+        "foto": "cena-03139.jpg",
+        "blocos": [
+          {
+            "texto": "Somando tudo:",
+            "cor": "branco",
+            "y": 360,
+            "tam": 58
+          },
+          {
+            "texto": "R$ 6.979",
+            "cor": "preto",
+            "y": 470,
+            "tam": 96
+          },
+          {
+            "texto": "Na turma fundadora:\nde R$ 1.497 por",
+            "cor": "branco",
+            "y": 640,
+            "tam": 54
+          },
+          {
+            "texto": "12x de R$ 103,11\nou R$ 997 à vista",
+            "cor": "bege",
+            "y": 820,
+            "tam": 66
+          },
+          {
+            "texto": "Garantia de 7 dias: não gostou,\nrecebe 100% de volta.",
+            "cor": "branco",
+            "y": 1080,
+            "tam": 42
+          }
+        ],
+        "escurecer": 0.35
+      },
+      {
+        "foto": "libero-paleto.jpg",
+        "blocos": [
+          {
+            "texto": "Quer entrar antes\nque o site acabe?",
+            "cor": "branco",
+            "y": 500,
+            "tam": 62
+          },
+          {
+            "texto": "Comenta PRATFLIX que\neu te mando o link!",
+            "cor": "bege",
+            "y": 740,
             "tam": 70
           }
         ],

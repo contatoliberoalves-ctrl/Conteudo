@@ -663,37 +663,88 @@
         "rotulo": "Onde a PratFlix entra",
         "titulo": [
           "Pra cada trava,",
-          "[[um caminho]]"
+          "[[o que tem lá dentro]]"
         ],
-        "ts": 108,
+        "ts": 96,
         "itens": [
           {
             "t": "Falta de cliente",
-            "d": "Primeiro atendimento, marketing jurídico e comunidade que indica."
+            "d": "Roteiro do 1º atendimento, Marketing jurídico para advogados e comunidade de alunos por cidade pra indicar."
           },
           {
-            "t": "Insegurança técnica",
-            "d": "Cursos de prática por área, com quem advoga nelas."
+            "t": "Insegurança na prática",
+            "d": "Cursos de prática base: rotina processual, audiências, Processo Civil, Consumidor, Família, Previdenciário."
           },
           {
-            "t": "Sem mentoria",
-            "d": "Encontros ao vivo pra discutir caso real."
+            "t": "Falta de mentoria",
+            "d": "Encontros ao vivo pra levar o seu caso real e tirar dúvida com quem advoga na área."
           }
         ]
       },
       {
+        "layout": "valores",
+        "rotulo": "Faz a conta",
+        "titulo": [
+          "O que você",
+          "[[leva]]"
+        ],
+        "linhas": [
+          [
+            "Cursos de prática base",
+            "por área e rotina",
+            "R$ 1.200"
+          ],
+          [
+            "Prática não convencional",
+            "áreas que abrem mercado",
+            "R$ 800"
+          ],
+          [
+            "Comunidade de alunos",
+            "por área e cidade",
+            "R$ 497"
+          ],
+          [
+            "Encontros ao vivo",
+            "caso real",
+            "R$ 600"
+          ],
+          [
+            "18 meses de acesso",
+            "cronograma e certificado",
+            "R$ 197"
+          ],
+          [
+            "4 bônus",
+            "modelos, carteira, 1º atendimento, honorários",
+            "R$ 688"
+          ],
+          [
+            "Site + identidade visual",
+            "20 primeiros",
+            "R$ 2.000"
+          ]
+        ],
+        "total": "R$ 6.979",
+        "ts": 96
+      },
+      {
         "layout": "preco",
-        "rotulo": "Turma fundadora · até 16/11",
-        "deTxt": "Depois do dia 16, volta pra",
-        "de": "R$ 1.497",
-        "parcela": "12X R$ 103",
+        "rotulo": "Turma fundadora",
+        "deTxt": "Somando tudo,",
+        "de": "R$ 6.979",
+        "parcela": "12X R$ 103,11",
+        "tp": 170,
         "vista": "R$ 997",
         "extras": [
-          "18 meses de acesso, no seu ritmo",
-          "Todos os bônus da turma fundadora",
-          "Garantia incondicional de 7 dias"
+          "Cursos de prática base e não convencional",
+          "Comunidade + encontros ao vivo",
+          "18 meses de acesso e certificado",
+          "4 bônus + site profissional (menos de 10 vagas)",
+          "Garantia de 7 dias"
         ],
-        "prazo": "SÓ ATÉ 16.11"
+        "prazo": "DE R$ 1.497 · ATÉ 16.11",
+        "top": 250
       },
       {
         "layout": "comenta",
@@ -702,10 +753,10 @@
           "Quer começar",
           "[[com direção]]?"
         ],
-        "texto": "Comenta a palavra abaixo que eu te mando o link da turma fundadora no direct.",
+        "texto": "Comenta a palavra abaixo que eu te mando o link da turma fundadora. O site profissional ainda tem vaga, mas restam menos de 10.",
         "hashtag": "#PRATFLIX",
         "cta": "Comenta #PRATFLIX pra receber o link",
-        "top": 420
+        "top": 400
       }
     ]
   },
@@ -717,18 +768,19 @@
         "layout": "capa",
         "rotulo": "Por dentro",
         "titulo": [
-          "O que tem",
-          "[[dentro]] da",
-          "PratFlix"
+          "20 cursos,",
+          "comunidade e",
+          "[[18 meses]]"
         ],
-        "texto": "Cursos de prática, áreas que a faculdade não mostrou, comunidade e encontros ao vivo. Arrasta que eu te mostro.",
+        "texto": "O que você leva entrando na PratFlix, um por um. Arrasta.",
         "top": 470
       },
       {
         "layout": "catalogo",
         "rotulo": "Prática por área",
         "titulo": [
-          "Cursos [[na prática]]"
+          "12 áreas",
+          "[[na prática]]"
         ],
         "cursos": [
           "Direito do Consumidor",
@@ -745,7 +797,8 @@
           "Compliance"
         ],
         "alt": 120,
-        "tc": 25
+        "tc": 25,
+        "texto": "Prática base e não convencional, com quem advoga em cada área."
       },
       {
         "layout": "catalogo",
@@ -764,28 +817,29 @@
           "Marketing jurídico para advogados",
           "Produzindo vídeos com Claude"
         ],
-        "alt": 150
+        "alt": 150,
+        "texto": "Atendimento, audiência, oratória, gestão e marketing."
       },
       {
         "layout": "lista",
         "rotulo": "Além das aulas",
         "titulo": [
-          "Você não",
-          "[[estuda sozinho]]"
+          "Comunidade e",
+          "[[encontros ao vivo]]"
         ],
-        "ts": 112,
+        "ts": 104,
         "itens": [
           {
-            "t": "Comunidade",
-            "d": "Rede de colegas por área e por cidade, pra dividir caso e ser indicado."
+            "t": "Comunidade de alunos · R$ 497",
+            "d": "Colegas por área e por cidade pra dividir caso e indicar cliente."
           },
           {
-            "t": "Encontros ao vivo",
-            "d": "Pra discutir caso real com quem já passou por ele."
+            "t": "Encontros ao vivo · R$ 600",
+            "d": "Você leva o caso real e discute com quem já passou por ele."
           },
           {
             "t": "Cronograma",
-            "d": "Uma ordem pra assistir, pra não se perder no catálogo."
+            "d": "A ordem do que assistir primeiro, pra não se perder no catálogo."
           },
           {
             "t": "Certificado",
@@ -794,29 +848,69 @@
         ]
       },
       {
-        "layout": "frase",
-        "topo": "No seu ritmo",
-        "fundo": "18",
+        "layout": "valores",
+        "rotulo": "Faz a conta",
         "titulo": [
-          "18 meses",
-          "de [[acesso]]"
+          "O que você",
+          "[[leva]]"
         ],
-        "texto": "As aulas ficam gravadas. Dá pra encaixar entre o trabalho, o estudo e a espera do resultado.",
-        "top": 420
+        "linhas": [
+          [
+            "Cursos de prática base",
+            "por área e rotina",
+            "R$ 1.200"
+          ],
+          [
+            "Prática não convencional",
+            "áreas que abrem mercado",
+            "R$ 800"
+          ],
+          [
+            "Comunidade de alunos",
+            "por área e cidade",
+            "R$ 497"
+          ],
+          [
+            "Encontros ao vivo",
+            "caso real",
+            "R$ 600"
+          ],
+          [
+            "18 meses de acesso",
+            "cronograma e certificado",
+            "R$ 197"
+          ],
+          [
+            "4 bônus",
+            "modelos, carteira, 1º atendimento, honorários",
+            "R$ 688"
+          ],
+          [
+            "Site + identidade visual",
+            "20 primeiros",
+            "R$ 2.000"
+          ]
+        ],
+        "total": "R$ 6.979",
+        "ts": 96
       },
       {
         "layout": "preco",
-        "rotulo": "Turma fundadora · até 16/11",
-        "deTxt": "Depois do dia 16, volta pra",
-        "de": "R$ 1.497",
-        "parcela": "12X R$ 103",
+        "rotulo": "Turma fundadora",
+        "deTxt": "Somando tudo,",
+        "de": "R$ 6.979",
+        "parcela": "12X R$ 103,11",
+        "tp": 170,
         "vista": "R$ 997",
         "extras": [
-          "18 meses de acesso, no seu ritmo",
-          "Todos os bônus da turma fundadora",
-          "Garantia incondicional de 7 dias"
+          "Cursos de prática base e não convencional",
+          "Comunidade + encontros ao vivo",
+          "18 meses de acesso e certificado",
+          "4 bônus + site profissional (menos de 10 vagas)",
+          "Garantia de 7 dias"
         ],
-        "prazo": "SÓ ATÉ 16.11"
+        "prazo": "DE R$ 1.497 · ATÉ 16.11",
+        "top": 250
       },
       {
         "layout": "comenta",
@@ -828,7 +922,7 @@
         "texto": "Comenta a palavra abaixo que eu te mando o link no direct.",
         "hashtag": "#PRATFLIX",
         "cta": "Comenta #PRATFLIX pra receber o link",
-        "top": 420
+        "top": 400
       }
     ]
   },
@@ -856,17 +950,18 @@
         "linhas": [
           [
             "Escuta, anota tudo e não sabe o que perguntar",
-            "Segue um roteiro do primeiro atendimento"
+            "Bônus Roteiro do 1º atendimento: o que perguntar e o que pedir"
           ],
           [
             "Fala em juridiquês e o cliente não entende",
-            "Explica o caso em português claro"
+            "Curso O seu primeiro atendimento + Oratória para a Advocacia"
           ],
           [
             "Sai sem saber se pega ou não o caso",
-            "Sai com os próximos passos combinados"
+            "Leva a dúvida pro encontro ao vivo e decide com quem já fez"
           ]
-        ]
+        ],
+        "tl": 26
       },
       {
         "layout": "versus",
@@ -878,17 +973,18 @@
         "linhas": [
           [
             "Chuta um valor com medo de perder o cliente",
-            "Usa a tabela de honorários comentada"
+            "Bônus Quanto cobrar no 1º caso: tabela de honorários comentada"
           ],
           [
             "Cobra pouco e se arrepende depois",
-            "Sabe explicar o porquê do valor"
+            "Sabe explicar de onde vem o valor"
           ],
           [
-            "Não faz contrato",
-            "Fecha com contrato de honorários"
+            "Não tem modelo de contrato",
+            "Pack de modelos de peças editáveis + guia em PDF"
           ]
-        ]
+        ],
+        "tl": 26
       },
       {
         "layout": "versus",
@@ -900,42 +996,47 @@
         "linhas": [
           [
             "Perde prazo no meio da bagunça",
-            "Rotina processual organizada"
+            "Curso Gestão de Escritório e rotina processual"
           ],
           [
             "Trava na primeira audiência",
-            "Já viu como funciona uma audiência"
+            "Curso Atuação em Audiências"
           ],
           [
             "Não sabe pra onde crescer",
-            "Conhece áreas que estão abrindo mercado"
+            "Prática não convencional: Marcas, Extrajudicial, Digital, Bancário, Compliance"
           ]
-        ]
+        ],
+        "tl": 26
       },
       {
         "layout": "frase",
         "topo": "O que muda",
         "claro": true,
         "titulo": [
-          "Ninguém nasce",
-          "sabendo [[advogar]]."
+          "Tudo isso",
+          "[[num lugar só]]."
         ],
-        "texto": "Mas dá pra encurtar o caminho vendo quem já faz. É pra isso que a PratFlix existe.",
+        "texto": "Cursos de prática base e não convencional, 4 bônus, comunidade, encontros ao vivo e 18 meses de acesso.",
         "top": 420
       },
       {
         "layout": "preco",
-        "rotulo": "Turma fundadora · até 16/11",
-        "deTxt": "Depois do dia 16, volta pra",
-        "de": "R$ 1.497",
-        "parcela": "12X R$ 103",
+        "rotulo": "Turma fundadora",
+        "deTxt": "Somando tudo,",
+        "de": "R$ 6.979",
+        "parcela": "12X R$ 103,11",
+        "tp": 170,
         "vista": "R$ 997",
         "extras": [
-          "18 meses de acesso, no seu ritmo",
-          "Todos os bônus da turma fundadora",
-          "Garantia incondicional de 7 dias"
+          "Cursos de prática base e não convencional",
+          "Comunidade + encontros ao vivo",
+          "18 meses de acesso e certificado",
+          "4 bônus + site profissional (menos de 10 vagas)",
+          "Garantia de 7 dias"
         ],
-        "prazo": "SÓ ATÉ 16.11"
+        "prazo": "DE R$ 1.497 · ATÉ 16.11",
+        "top": 250
       },
       {
         "layout": "comenta",
@@ -947,7 +1048,7 @@
         "texto": "Comenta a palavra abaixo que eu te mando o link da turma fundadora.",
         "hashtag": "#PRATFLIX",
         "cta": "Comenta #PRATFLIX pra receber o link",
-        "top": 420
+        "top": 400
       }
     ]
   },
@@ -959,46 +1060,47 @@
         "layout": "capa",
         "rotulo": "Turma fundadora",
         "titulo": [
-          "Quem entra",
-          "agora leva",
-          "[[bônus]]"
+          "4 bônus",
+          "+ um site",
+          "[[pro seu escritório]]"
         ],
-        "texto": "A turma fundadora fecha dia 16/11. Até lá, entra com tudo isso junto.",
-        "top": 470
+        "texto": "Quem entra na turma fundadora leva tudo isso junto. O site é só pros 20 primeiros e restam menos de 10 vagas.",
+        "top": 450,
+        "ts": 128
       },
       {
         "layout": "notinha",
         "rotulo": "Bônus",
         "titulo": [
-          "E ainda tem",
-          "[[bônus]]"
+          "4 bônus +",
+          "[[1 presente]]"
         ],
         "itens": [
           [
             "Pack de modelos de peças",
-            "INCLUSO"
+            "R$ 297"
           ],
           [
             "Do resultado à carteira",
-            "INCLUSO"
+            "R$ 97"
           ],
           [
             "Roteiro do 1º atendimento",
-            "INCLUSO"
+            "R$ 147"
           ],
           [
-            "Guia de honorários do 1º caso",
-            "INCLUSO"
+            "Quanto cobrar no 1º caso",
+            "R$ 147"
           ]
         ],
         "extras": [
           [
-            "6 meses de conteúdo pras redes",
-            "FUNDADORES"
+            "Site + identidade visual",
+            "R$ 2.000"
           ],
           [
-            "Site do seu escritório",
-            "20 PRIMEIROS"
+            "Vagas do site",
+            "MENOS DE 10"
           ]
         ]
       },
@@ -1006,39 +1108,42 @@
         "layout": "lista",
         "rotulo": "O que é cada um",
         "titulo": [
-          "Pra usar",
-          "[[na semana 1]]"
+          "O que tem",
+          "[[em cada um]]"
         ],
         "ts": 110,
         "itens": [
           {
-            "t": "Pack de modelos de peças",
+            "t": "Pack de modelos de peças · R$ 297",
             "d": "Modelos editáveis e um guia em PDF."
           },
           {
-            "t": "Do resultado à carteira",
+            "t": "Do resultado à carteira · R$ 97",
             "d": "Documentos, inscrição na OAB, roupa e a primeira semana."
           },
           {
-            "t": "Roteiro do 1º atendimento",
+            "t": "Roteiro do 1º atendimento · R$ 147",
             "d": "O que perguntar e como explicar sem juridiquês."
           },
           {
-            "t": "Guia de honorários",
-            "d": "Tabela comentada pra cobrar o primeiro caso."
+            "t": "Quanto cobrar no 1º caso · R$ 147",
+            "d": "Tabela de honorários comentada."
           }
         ]
       },
       {
-        "layout": "frase",
-        "topo": "Ainda não passou?",
-        "fundo": "18",
+        "layout": "capaFoto",
+        "foto": "libero-notebook.jpg",
+        "fotoPos": "50% 25%",
+        "rotulo": "Presente · 20 primeiros",
         "titulo": [
-          "Dá tempo de",
-          "[[usar tudo]]"
+          "Um site",
+          "pro seu escritório.",
+          "[[De graça.]]"
         ],
-        "texto": "São 18 meses de acesso. Se ainda tá esperando o resultado ou vai refazer a prova, o acesso corre junto.",
-        "top": 420
+        "texto": "Site profissional + identidade visual personalizada (valor de R$ 2.000). Restam menos de 10 vagas.",
+        "top": 640,
+        "ts": 116
       },
       {
         "layout": "frase",
@@ -1054,29 +1159,33 @@
       },
       {
         "layout": "preco",
-        "rotulo": "Turma fundadora · até 16/11",
-        "deTxt": "Depois do dia 16, volta pra",
-        "de": "R$ 1.497",
-        "parcela": "12X R$ 103",
+        "rotulo": "Turma fundadora",
+        "deTxt": "Somando tudo,",
+        "de": "R$ 6.979",
+        "parcela": "12X R$ 103,11",
+        "tp": 170,
         "vista": "R$ 997",
         "extras": [
-          "18 meses de acesso, no seu ritmo",
-          "Todos os bônus da turma fundadora",
-          "Garantia incondicional de 7 dias"
+          "Cursos de prática base e não convencional",
+          "Comunidade + encontros ao vivo",
+          "18 meses de acesso e certificado",
+          "4 bônus + site profissional (menos de 10 vagas)",
+          "Garantia de 7 dias"
         ],
-        "prazo": "SÓ ATÉ 16.11"
+        "prazo": "DE R$ 1.497 · ATÉ 16.11",
+        "top": 250
       },
       {
         "layout": "comenta",
         "rotulo": "Turma fundadora",
         "titulo": [
-          "Garante os",
-          "[[bônus]]"
+          "Garante o",
+          "[[site]]"
         ],
-        "texto": "Comenta a palavra abaixo que eu te mando o link no direct.",
+        "texto": "Comenta a palavra abaixo que eu te mando o link antes que as vagas do site acabem.",
         "hashtag": "#PRATFLIX",
         "cta": "Comenta #PRATFLIX pra receber o link",
-        "top": 420
+        "top": 400
       }
     ]
   },
@@ -1112,7 +1221,7 @@
           "“Já advogo.",
           "[[Serve pra mim?]]”"
         ],
-        "texto": "Serve. Principalmente a comunidade e as áreas não convencionais: extrajudicial, marcas, digital, compliance, bancário.",
+        "texto": "Serve. Principalmente a comunidade de alunos e a prática não convencional: Notarial e extrajudicial, Registro de marcas, IA e Direito Digital, Compliance e Bancário.",
         "top": 380
       },
       {
@@ -1122,7 +1231,7 @@
           "“Tenho",
           "[[pouco tempo]].”"
         ],
-        "texto": "As aulas são gravadas e você assiste no seu ritmo. Foi pensado pra quem trabalha ou estuda.",
+        "texto": "As aulas são gravadas, com cronograma pra saber o que ver primeiro. E são 18 meses de acesso.",
         "top": 380
       },
       {
@@ -1148,17 +1257,21 @@
       },
       {
         "layout": "preco",
-        "rotulo": "Turma fundadora · até 16/11",
-        "deTxt": "Depois do dia 16, volta pra",
-        "de": "R$ 1.497",
-        "parcela": "12X R$ 103",
+        "rotulo": "Turma fundadora",
+        "deTxt": "Somando tudo,",
+        "de": "R$ 6.979",
+        "parcela": "12X R$ 103,11",
+        "tp": 170,
         "vista": "R$ 997",
         "extras": [
-          "18 meses de acesso, no seu ritmo",
-          "Todos os bônus da turma fundadora",
-          "Garantia incondicional de 7 dias"
+          "Cursos de prática base e não convencional",
+          "Comunidade + encontros ao vivo",
+          "18 meses de acesso e certificado",
+          "4 bônus + site profissional (menos de 10 vagas)",
+          "Garantia de 7 dias"
         ],
-        "prazo": "SÓ ATÉ 16.11"
+        "prazo": "DE R$ 1.497 · ATÉ 16.11",
+        "top": 250
       },
       {
         "layout": "comenta",
@@ -1182,10 +1295,11 @@
         "layout": "tweet",
         "foto": "libero-bracos2.jpg",
         "rotulo": "Turma fundadora",
-        "texto": "A faculdade te dá o diploma.\nA OAB te dá a carteira.\nE o primeiro cliente te dá… [[um frio na barriga]].\n\nFoi pra essa parte que eu criei a PratFlix.",
+        "texto": "Entrando hoje na PratFlix você leva:\n\n[[✓ cursos de prática base e não convencional]]\n[[✓ comunidade + encontros ao vivo]]\n[[✓ 18 meses de acesso e certificado]]\n[[✓ 4 bônus]]\n[[✓ site profissional]] (restam menos de 10)",
         "hora": "PratFlix · até 16/11",
         "hashtag": "#PRATFLIX",
-        "top": 260
+        "top": 220,
+        "tt": 40
       }
     ]
   },
@@ -1195,7 +1309,7 @@
     "telas": [
       {
         "layout": "nota",
-        "data": "Turma fundadora · até 16/11",
+        "data": "O que a PratFlix resolve",
         "titulo": "Passei na OAB. E agora?",
         "itens": [
           [
@@ -1204,32 +1318,32 @@
           ],
           [
             false,
-            "Separar os documentos da carteira"
+            "Carteira → bônus Do resultado à carteira"
           ],
           [
             false,
-            "Escolher por qual área começar"
+            "1º atendimento → roteiro + curso"
           ],
           [
             false,
-            "Aprender o primeiro atendimento"
+            "Quanto cobrar → guia de honorários"
           ],
           [
             false,
-            "Saber quanto cobrar no 1º caso"
+            "Peças → pack de modelos editáveis"
           ],
           [
             false,
-            "Achar quem indique cliente"
+            "Cliente → comunidade + marketing jurídico"
           ],
           [
             false,
-            "Entrar na PratFlix 👀"
+            "Site do escritório → presente (20 primeiros)"
           ]
         ],
         "hashtag": "#PRATFLIX",
         "ts": 60,
-        "ti": 36,
+        "ti": 31,
         "gap": 26,
         "top": 240
       }
@@ -1243,17 +1357,18 @@
         "layout": "original",
         "rotulo": "Turma fundadora",
         "titulo": [
-          "A advocacia",
-          "na prática"
+          "Turma",
+          "fundadora"
         ],
-        "selo": "SÓ ATÉ 16/11",
+        "selo": "SITE: MENOS DE 10 VAGAS",
         "beneficios": [
+          "20 cursos",
+          "comunidade",
           "18 meses",
-          "bônus",
-          "7 dias de garantia"
+          "4 bônus"
         ],
         "hashtag": "#PRATFLIX",
-        "cta": "12x R$ 103 ou R$ 997 à vista · comenta #PRATFLIX"
+        "cta": "De R$ 1.497 por 12x R$ 103,11 ou R$ 997 · comenta #PRATFLIX"
       }
     ]
   },
@@ -1269,7 +1384,7 @@
           "Passou na OAB",
           "e [[travou]]?"
         ],
-        "texto": "Ninguém te ensina a advogar. A PratFlix ensina a prática, com quem faz.",
+        "texto": "Cursos de prática base e não convencional, comunidade, encontros ao vivo, 18 meses e 4 bônus.",
         "top": 1020
       },
       {
@@ -1291,34 +1406,32 @@
         "layout": "stories",
         "rotulo": "Dentro da PratFlix",
         "titulo": [
-          "Prática do",
-          "[[1º cliente]]",
-          "ao escritório"
+          "O que você",
+          "[[leva]]"
         ],
-        "texto": "Cursos por área, áreas não convencionais, comunidade e encontros ao vivo.",
+        "texto": "Cursos de prática base e não convencional, comunidade de alunos, encontros ao vivo, 18 meses de acesso e 4 bônus.",
         "beneficios": [
-          "18 meses",
-          "certificado",
-          "7 dias de garantia"
+          "site profissional: menos de 10 vagas"
         ],
         "botao": "🔗 Toque no link",
-        "top": 620
+        "top": 620,
+        "ts": 170
       },
       {
         "layout": "stories",
         "rotulo": "Só até 16/11",
         "titulo": [
-          "12x R$ 103",
+          "12x R$ 103,11",
           "ou [[R$ 997]]"
         ],
-        "texto": "Turma fundadora com todos os bônus. Depois do dia 16, volta pra R$ 1.497.",
+        "texto": "De R$ 1.497, na turma fundadora. Garantia de 7 dias: não gostou, recebe 100% de volta.",
         "beneficios": [
           "Pix",
           "boleto",
           "cartão em até 12x"
         ],
         "botao": "🔗 Toque no link e garanta",
-        "ts": 170,
+        "ts": 140,
         "top": 700
       }
     ]
@@ -1332,9 +1445,9 @@
         "foto": "libero-notebook.jpg",
         "rotulo": "Bônus da turma fundadora",
         "titulo": [
-          "Bônus",
-          "que acabam",
-          "[[dia 16]]"
+          "4 bônus",
+          "+ um site",
+          "[[pra você]]"
         ],
         "fotoPos": "50% 30%",
         "top": 980
@@ -1382,9 +1495,9 @@
           "[[turma]]",
           "[[fundadora]]"
         ],
-        "texto": "18 meses de acesso, todos os bônus e 7 dias pra testar.",
+        "texto": "Site profissional + identidade visual pros 20 primeiros: restam menos de 10 vagas.",
         "beneficios": [
-          "12x R$ 103",
+          "12x R$ 103,11",
           "R$ 997 à vista"
         ],
         "botao": "🔗 Toque no link",
