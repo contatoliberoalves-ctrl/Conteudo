@@ -22,8 +22,8 @@ def arrobas(claro=False):
 def selos(top=56):
     return f'<div style="position:absolute;top:{top}px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;"><div style="background:#f7f400;padding:2px 12px;margin-right:100px;">@LIBERO<span style="font-weight:400;">FILHO</span></div><div style="background:#e224d6;color:#fff;padding:2px 12px;margin-left:100px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div></div>'
 
-def tela(label, fundo, corpo, claro=False):
-    return f'<div data-screen-label="{label}" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;color:{"#0b1a4a" if claro else "#fff"};{fundo}">{corpo}</div>\n'
+def tela(label, fundo, corpo, claro=False, h=1350):
+    return f'<div data-screen-label="{label}" style="position:relative;flex:none;width:1080px;height:{h}px;overflow:hidden;color:{"#0b1a4a" if claro else "#fff"};{fundo}">{corpo}</div>\n'
 
 def fantasma(txt, cor='rgba(255,255,255,.07)', top=-80, left=-30, px=560):
     return f'<div style="position:absolute;top:{top}px;left:{left}px;{BB}font-size:{px}px;line-height:.85;color:{cor};white-space:nowrap;">{txt}</div>'
@@ -379,8 +379,8 @@ G.append(grupo('vr9', 'Carrossel · A banca tirou seus pontos? Recorra com o Mé
         top=250, gap=38)),
     tela('vr9-03', AZUL, arrobas() + bloco(
         KICK('COMO O TIME VDE AJUDA') + T(f'UM RECURSO SÓ {MARCA("SEU")}', 150) +
-        etapa('1', 'ANÁLISE DE VIABILIDADE', 'A equipe compara a sua prova com o espelho e diz se vale a pena recorrer.', '#f7f400') +
-        etapa('2', 'ELABORAÇÃO DO RECURSO', 'Se você quiser seguir, o recurso é redigido de forma personalizada.', '#ff8af4'),
+        etapa('1', 'ANÁLISE DE VIABILIDADE · R$ 120', 'A equipe analisa a sua prova completa e diz se cabe recurso. Retorno por e-mail em até 24h.', '#f7f400') +
+        etapa('2', 'ELABORAÇÃO DO RECURSO', 'Se houver viabilidade, o recurso é redigido de forma personalizada.<br><b style="color:#f7f400;">R$ 260</b> aluno da turma VDE 47 · <b style="color:#f7f400;">R$ 310</b> demais interessados', '#ff8af4'),
         top=220, gap=34)),
     tela('vr9-04', CLARO, arrobas(True) + bloco(
         P('E não precisa ser aluno.', 46, 'color:#0a3aa6;') +
@@ -389,20 +389,64 @@ G.append(grupo('vr9', 'Carrossel · A banca tirou seus pontos? Recorra com o Mé
         top=300, gap=38), claro=True),
     tela('vr9-05', CLARO, arrobas(True) + bloco(
         KICK('O RELÓGIO JÁ ESTÁ CORRENDO', '#e224d6') + T(f'OLHA OS {MARCA("PRAZOS", "#f7f400", "#0b1a4a")}', 150, 'color:#0b1a4a;') +
-        prazo('PRAZO DA OAB', '13 A 15/11', 'Recurso do resultado preliminar do 47º Exame (horário de Brasília).', '#0b1a4a') +
-        prazo('ANÁLISE VDE', 'ATÉ 12H · 13/11', 'Limite pra enviar a prova pra análise de viabilidade.', '#0a3aa6') +
-        prazo('RECURSO VDE', 'ATÉ 18H · 15/11', 'Limite pra pedir a elaboração, depois do 2º formulário enviado por e-mail.', '#e224d6') +
+        prazo('ANÁLISE VDE', '12H · 13/11', 'Último pedido de análise. O retorno chega por e-mail em até 24h.', '#0a3aa6') +
+        prazo('PEDIDO DO RECURSO', '18H · 14/11', 'Último pedido de elaboração, pelo 2º formulário enviado por e-mail.', '#e224d6') +
+        prazo('ENTREGA VDE', '18H · 15/11', 'O seu recurso pronto, no seu e-mail.', '#7b2ff7') +
+        prazo('PROTOCOLO FGV/OAB', '23H59 · 15/11', 'Você interpõe o recurso no site da FGV/OAB (horário de Brasília).', '#0b1a4a') +
         P('Passou do prazo, não entra.', 34, 'color:#e5484d;'),
-        top=190, gap=24), claro=True),
+        top=170, gap=22), claro=True),
     tela('vr9-06', NAVY, arrobas() + bloco(
         KICK('PRA NÃO TER SURPRESA') + T(f'LEIA ANTES DE {MARCA("ENVIAR")}', 140) + BARRA() +
-        lista(['As vagas são <b>limitadas</b> e podem acabar antes dos prazos', 'Tudo acontece <b>só por e-mail</b>: confira o e-mail informado no pagamento', 'Pagamento <b>somente via Pix</b>', 'Quem decide é a banca: <b>não há reembolso</b> se o recurso não for provido'], px=40, gap=28),
+        lista(['Tudo acontece <b>só por e-mail</b>: confira o e-mail informado no pagamento (os outros canais de suporte não tratam de recursos)', 'Vagas <b>limitadas</b>, por ordem de chegada dos pedidos pagos', 'Pagamento via <b>Pix ou cartão</b>, em até 12x com juros', 'Quem decide é a banca: <b>não há reembolso</b> se o recurso não for provido'], px=38, gap=26),
         top=230, gap=34)),
     tela('vr9-07', AZUL, selos() + f'<div style="position:absolute;left:80px;right:80px;top:330px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px;">'
         f'{T(f"NÃO DEIXA O {MARCA('PONTO')}<br>PRA TRÁS", 150)}{BARRA("#e224d6")}{P("Manda a sua prova pra análise do Time VDE enquanto o prazo está aberto.", 40)}' +
         PILL('#f7f400', '#0b1a4a', 'Comente <span style="background:#e224d6;color:#fff;padding:0 12px;border-radius:4px;">#RECURSO</span> pra receber o link') +
-        f'<div style="font-weight:500;font-size:28px;opacity:.85;">Prazo recursal do 47º Exame: 13 a 15/11/2026</div></div>'
+        f'<div style="font-weight:500;font-size:28px;opacity:.85;">Protocolo na FGV/OAB até 23h59 de 15/11/2026</div></div>'
         f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
+]))
+
+
+# ---------- vs1 · Stories (1080×1920): recursos VDE, 4 telas, link do formulário no fim ----------
+SH = 1920
+def story(label, fundo, corpo, claro=False):
+    return tela(label, fundo, corpo, claro=claro, h=SH)
+def num_st(n, tot=4, claro=False):
+    cor = '#0b1a4a' if claro else '#fff'
+    return f'<div style="position:absolute;top:250px;left:90px;right:90px;display:flex;gap:12px;">' + ''.join(f'<span style="flex:1;height:8px;border-radius:4px;background:{cor};opacity:{1 if i <= n else .25};"></span>' for i in range(1, tot + 1)) + '</div>'
+def preco(valor, rotulo, cor):
+    return (f'<div style="display:flex;align-items:center;gap:30px;background:#fff;color:#0b1a4a;border-radius:28px;padding:26px 34px;box-shadow:0 18px 40px rgba(0,0,0,.25);">'
+            f'<div style="{BB}font-size:120px;line-height:.9;color:{cor};white-space:nowrap;">{valor}</div><div style="font-weight:700;font-size:38px;line-height:1.2;">{rotulo}</div></div>')
+G.append(grupo('vs1', 'Stories · Recursos VDE: 2 etapas, valores, prazos e link do formulário', [
+    story('vs1-01', NAVY, selos(130) + num_st(1) +
+        ficha('−0,55', 90, 420, -9) + ficha('−0,10', 770, 400, 8, px=54) + ficha('−0,25', 790, 1380, -6, px=58) + ficha('−0,40', 100, 1420, 7, px=52) +
+        f'<div style="position:absolute;left:80px;right:80px;top:600px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
+        f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:30px;letter-spacing:.3em;color:#f7f400;"><span style="width:56px;height:3px;background:#f7f400;"></span><span style="margin-right:-.3em;">RECURSOS · 2ª FASE OAB</span><span style="width:56px;height:3px;background:#f7f400;"></span></div>'
+        f'{T("A BANCA TIROU", 160, "margin-top:40px;")}'
+        f'<div style="background:#e224d6;{BB}font-size:180px;line-height:.9;padding:18px 26px 2px;margin-top:8px;transform:rotate(-2deg);">SEUS PONTOS?</div>'
+        f'<div style="background:#f7f400;color:#0b1a4a;font-weight:700;font-size:46px;padding:8px 22px;margin-top:40px;">O Time VDE faz o seu recurso</div>'
+        f'<div style="font-weight:600;font-size:38px;margin-top:60px;opacity:.9;">Alunos VDE ou não · em 2 etapas →</div></div>'
+        f'<div style="position:absolute;bottom:300px;left:50%;margin-left:-120px;">{LOGO(50)}</div>'),
+    story('vs1-02', AZUL, selos(130) + num_st(2) + fantasma('1', 'rgba(255,255,255,.06)', top=300, left=480, px=1500) + bloco(
+        KICK('1ª ETAPA') + T(f'ANÁLISE DE<br>{MARCA("VIABILIDADE")}', 170) + BARRA() +
+        P('A equipe do Método VDE analisa a sua <b style="color:#f7f400;">prova completa</b> e diz se dá pra entrar com recurso.', 44, 'font-weight:500;') +
+        preco('R$ 120', 'pela análise da<br>prova completa', '#e224d6') +
+        lista(['Pedidos até <b style="color:#f7f400;">12h de 13/11</b>', 'Resposta por <b>e-mail</b> em até <b style="color:#f7f400;">24h</b> depois do formulário'], num=False, px=42, gap=22),
+        top=420, left=90, right=90, gap=40)),
+    story('vs1-03', MAG, selos(130) + num_st(3) + fantasma('2', 'rgba(120,0,120,.16)', top=300, left=480, px=1500) + bloco(
+        KICK('2ª ETAPA', '#0b1a4a') + T(f'ELABORAÇÃO<br>{MARCA("DO RECURSO", "#0b1a4a")}', 170) + BARRA('#0b1a4a') +
+        P('Se houver viabilidade, você pode pedir o recurso redigido pelo Time VDE.', 44, 'font-weight:500;') +
+        preco('R$ 260', 'aluno da turma<br>VDE 47', '#0a3aa6') + preco('R$ 310', 'demais<br>interessados', '#e224d6') +
+        lista(['Pedidos até <b>18h de 14/11</b>, pelo 2º formulário enviado por e-mail', 'Recurso pronto no seu e-mail até <b>18h de 15/11</b>', 'Você protocola na FGV/OAB até <b>23h59 de 15/11</b>'], num=False, px=38, cor_num='#f7f400', gap=20),
+        top=420, left=90, right=90, gap=34)),
+    story('vs1-04', CLARO, selos(130) + num_st(4, claro=True) + bloco(
+        KICK('ANTES DE PEDIR', '#e224d6') + T(f'LEIA {MARCA("ISTO", "#f7f400", "#0b1a4a")}', 170, 'color:#0b1a4a;') +
+        lista(['Tudo é <b>só por e-mail</b>: confira o e-mail do pagamento', 'Vagas <b>limitadas</b>, por ordem de chegada dos pedidos pagos', '<b>Pix ou cartão</b>, em até 12x com juros', 'Sem garantia de provimento: <b>não há reembolso</b>'], px=36, cor_num='#e224d6', gap=22),
+        top=400, left=90, right=90, gap=32) +
+        f'<div style="position:absolute;left:90px;right:90px;top:1280px;height:330px;border:5px dashed #0b1a4a;border-radius:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#0b1a4a;text-align:center;">'
+        f'<div style="font-weight:700;font-size:30px;letter-spacing:.24em;color:#e224d6;">TOQUE NO LINK ↓</div>'
+        f'<div style="{BB}font-size:84px;line-height:.95;">FORMULÁRIO DO RECURSO</div>'
+        f'<div style="font-weight:500;font-size:28px;opacity:.6;">(espaço da figurinha de link)</div></div>', claro=True),
 ]))
 
 bloco_html = INI + '\n<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">\n' + ''.join(G) + FIM
