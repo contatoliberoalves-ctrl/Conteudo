@@ -52,5 +52,5 @@ Campos por tipo:
 - **janela** (scrap): `titulo`, `fala`, `texto`.
 - **legenda** (scrap): `foto`, `fotoPos`, `texto` (use `\n`; comece com `**Frase em negrito,**`), `y` (`topo`, `meio`, `base` ou px), `tam`, `emojis` (2, padrão 🥴 😵).
 - **faixa** (studio): `titulo`, `texto`, `foto`, `foto2`.
-- **pergunta** / **cta**: `titulo`, `texto`; trend/studio: `kicker`, `botao`.
+- **pergunta** / **cta**: `titulo`, `texto`; trend/studio: `kicker`, `botao`; trend: `qr: true` + `foto` (arquivo do QR code em `fotos/`; sem ele sai o espaço "QR CODE AQUI").
 - **blocos** (todos os tipos): `cor` (branco, blush, claro, pessego, pink, escuro), `titulo` (cada linha vira uma faixa), `sub`, `caixas[]`, `texto`, `colunas[]` (`{sim, titulo, texto}` → ✅/❌), `foto`, `fotoAltura`.
