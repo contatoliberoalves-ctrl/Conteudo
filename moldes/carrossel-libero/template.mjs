@@ -521,6 +521,35 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:4">${PERFIL}</div>
       ${s.credito ? `<div style="position:absolute;left:90px;bottom:24px;font-size:18px;font-weight:600;color:#8A93A6;z-index:4">${esc(s.credito)}</div>` : ''}`;
   },
+  // Gabarito: folha do padrão de resposta corrigida à caneta (trechos ~~riscados~~ e {{novos}} em vermelho), carimbo
+  // "Preliminar" riscado e o carimbo "Definitivo" por cima. Para mudanças de gabarito, retificação, errata. Campos: pre,
+  // titulo ([[caixa]] vermelha), ts, texto (linha abaixo do título), folha {titulo, exame, materia}, linhas ([{rotulo, texto,
+  // ok}]: rótulo na ficha à esquerda; ok = visto vermelho), carimbo (padrão "Definitivo"), folhaY.
+  gabarito(s, t) {
+    const R = COR.vermelho, y = s.folhaY || 590, f = s.folha || {};
+    const caneta = v => rico(v, TEMAS.light).replace(/~~(.+?)~~/g, `<s style="text-decoration-color:${R};text-decoration-thickness:6px;color:#9AA3B5">$1</s>`)
+      .replace(/\{\{(.+?)\}\}/g, `<b style="font-weight:800;color:${R};background:linear-gradient(transparent 62%,rgba(255,45,85,.16) 62%)">$1</b>`);
+    const visto = `<svg viewBox="0 0 40 40" width="42" style="flex:none;margin-left:auto"><path d="M7 21l9 9L34 9" fill="none" stroke="${R}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    const linhas = lista(s.linhas).map(l => `<div style="display:flex;align-items:center;gap:22px;padding:17px 0;border-bottom:2px dashed #CDD3DF">
+        <span style="flex:none;width:118px;text-align:center;background:${COR.navy};color:#fff;font-size:22px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 0">${esc(l.rotulo)}</span>
+        <span data-corpo style="font-size:${s.tl || 31}px;font-weight:600;line-height:1.2;color:${COR.navy}">${caneta(l.texto)}</span>${l.ok ? visto : ''}</div>`).join('');
+    return `<div style="position:absolute;inset:0;background:radial-gradient(100% 70% at 85% 0%,#2B6BF0 0%,${COR.azul} 42%,${COR.azulFundo} 100%);z-index:0"></div>
+      <div style="position:absolute;left:90px;right:90px;top:92px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 150}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1>
+        ${s.texto ? `<div data-corpo style="font-size:34px;font-weight:600;line-height:1.25;color:#fff;max-width:860px">${rico(s.texto, t)}</div>` : ''}</div>
+      <div data-objeto style="position:absolute;left:80px;width:920px;top:${y}px;transform:rotate(-2.5deg);background:#fff;padding:34px 44px 26px;box-shadow:0 40px 80px rgba(8,16,40,.5);z-index:3">
+        <div style="position:absolute;left:0;top:0;bottom:0;width:14px;background:${COR.azul}"></div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-bottom:16px;border-bottom:5px solid ${COR.navy}">
+          <div><div style="${TITULO};font-size:58px;line-height:.9;color:${COR.navy}">${esc(f.titulo || 'Padrão de resposta')}</div>
+          ${f.materia ? `<div style="font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6B7590;margin-top:8px">${esc(f.materia)}</div>` : ''}</div>
+          <div style="position:relative;transform:rotate(4deg);border:5px solid #9AA3B5;border-radius:10px;padding:6px 16px 2px;${TITULO};font-size:44px;line-height:1;color:#9AA3B5">${esc(f.antes || 'Preliminar')}
+            <span style="position:absolute;left:-12px;right:-12px;top:46%;height:7px;background:${R};transform:rotate(-8deg)"></span></div></div>
+        ${linhas}</div>
+      <div data-objeto style="position:absolute;right:${s.carimboX ?? 34}px;top:${y + (s.carimboY || 470)}px;transform:rotate(-11deg);border:9px solid ${R};outline:4px solid ${R};outline-offset:7px;border-radius:14px;padding:8px 26px 0;${TITULO};font-size:${s.tc || 104}px;line-height:1;color:${R};background:rgba(255,255,255,.88);box-shadow:0 20px 40px rgba(8,16,40,.35);z-index:5">${esc(s.carimbo || 'Definitivo')}</div>
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
+  },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
   // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
@@ -941,11 +970,30 @@ const TIPOS = {
         ${lista(s.texto).map(p => `<p data-corpo style="margin:0;font-size:${s.corpo || 46}px;font-weight:500;line-height:1.3;color:#fff">${rico(p, t)}</p>`).join('')}
       </div>`, 150, 150);
   },
+  // Mudança de gabarito: ficha do item (ex.: "Peça", "Questão 1-B"), título, o cartão "preliminar → definitivo"
+  // (de: texto riscado, ou só os trechos entre ~~ ~~; sem "de", só o definitivo) e a explicação. Campos: chip, kicker,
+  // titulo, de, para, rotulos ([antes, depois]), texto, corpo.
+  mudanca(s, t) {
+    const R = COR.vermelho, [ra, rd] = s.rotulos || ['Preliminar', 'Definitivo'];
+    const [bgC, fgC] = t === TEMAS.light ? [COR.navy, '#fff'] : ['#fff', COR.navy];
+    const de = s.de == null ? '' : (s.de.includes('~~') ? rico(s.de, TEMAS.light).replace(/~~(.+?)~~/g, `<s style="text-decoration-color:${R};text-decoration-thickness:5px">$1</s>`)
+      : `<s style="text-decoration-color:${R};text-decoration-thickness:5px">${rico(s.de, TEMAS.light)}</s>`);
+    const rot = (txt, cor) => `<span style="flex:none;width:200px;font-size:22px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:${cor};padding-top:6px">${esc(txt)}</span>`;
+    const cartao = `<div style="background:#fff;border-left:14px solid ${R};box-shadow:0 24px 50px rgba(8,16,40,.28);padding:30px 38px;display:flex;flex-direction:column;gap:18px">
+        ${de ? `<div style="display:flex;gap:18px;align-items:flex-start">${rot(ra, '#8A93A6')}<span data-corpo style="font-size:${s.tc || 34}px;font-weight:600;line-height:1.25;color:#8A93A6">${de}</span></div>
+        <div style="height:2px;background:#E1E5EE"></div>` : ''}
+        <div style="display:flex;gap:18px;align-items:flex-start">${rot(rd, R)}<span data-corpo style="font-size:${s.tc || 34}px;font-weight:800;line-height:1.25;color:${COR.navy}">${rico(s.para, TEMAS.light)}</span></div></div>`;
+    return area(`<div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+        ${s.chip ? `<span style="background:${bgC};color:${fgC};font-size:30px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px">${esc(s.chip)}</span>` : ''}${kicker(s.kicker, t)}</div>
+      ${titulo(s, t, 116, 860)}${cartao}${corpo(s, t, s.corpo || 38)}`, 100, 100);
+  },
   // "print" (ex.: print do perfil com o botão Assinar) numa moldura; "destaque" = [x, y, largura, altura] em %
   // da imagem para o anel vermelho que aponta o botão.
   cta(s, t, c) {
     const [bg, fg] = t === TEMAS.blue ? [COR.off, COR.azul] : [COR.azul, '#fff'];
-    const polaroid = s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:${s.fotoFit || 'cover'};object-position:center ${s.fotoFit === 'contain' ? 'center' : 'top'}${s.fotoFit === 'contain' ? `;background:linear-gradient(170deg,${COR.azul},${COR.azulFundo})` : ''}"></div>` : '';
+    // "qr": QR code (arquivo em assets/) numa polaroide, com o endereço ("link") escrito embaixo.
+    if (s.qr) s = { ...s, foto: s.foto || '_qr' };
+    const polaroid = s.qr ? `<div data-foto style="position:absolute;right:70px;top:${s.qrY || 400}px;background:#fff;padding:28px 28px 22px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px"><img src="../assets/${esc(s.qr)}" style="display:block;width:320px;height:320px">${s.link ? `<span style="font-size:22px;font-weight:800;color:${COR.navy};letter-spacing:.01em">${esc(s.link)}</span>` : ''}<span style="font-size:20px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${COR.vermelho}">Aponte a câmera</span></div>` : s.foto ? `<div data-foto style="position:absolute;right:70px;top:380px;background:#fff;padding:28px 28px 70px;transform:rotate(-3deg);box-shadow:0 30px 60px rgba(10,20,40,.35);z-index:2"><img src="${foto(c, s.foto)}" style="display:block;width:300px;height:375px;object-fit:${s.fotoFit || 'cover'};object-position:center ${s.fotoFit === 'contain' ? 'center' : 'top'}${s.fotoFit === 'contain' ? `;background:linear-gradient(170deg,${COR.azul},${COR.azulFundo})` : ''}"></div>` : '';
     // "centro": true centraliza título, texto e botão (CTA sem foto).
     const meio = s.centro && !s.foto;
     return `${polaroid}${area(`${kicker(s.kicker, t)}${titulo(s, t, s.foto ? 96 : 130, s.foto ? 480 : 860)}${barra(t)}${corpo(s, t, s.corpo || 40)}

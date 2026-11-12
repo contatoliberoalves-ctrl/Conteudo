@@ -7840,5 +7840,146 @@
     "botao": "Comenta: sim ou não?"
    }
   ]
+ },
+ {
+  "id": "mudancas-gabarito-oab47",
+  "titulo": "O que mudou no gabarito? (OAB 47, Constitucional)",
+  "tema": "Mudanças do padrão de resposta preliminar para o definitivo na 2ª fase de Constitucional do 47º Exame; CTA com QR code dos recursos do Método VDE e #RECURSO",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "blue",
+    "estilo": "gabarito",
+    "pre": "2ª fase da OAB · Constitucional",
+    "titulo": [
+     "O que mudou",
+     "no [[gabarito]]?"
+    ],
+    "texto": "Do preliminar para o definitivo na OAB 47",
+    "folha": {
+     "titulo": "Padrão de resposta",
+     "materia": "OAB 47 · Direito Constitucional"
+    },
+    "linhas": [
+     {
+      "rotulo": "Peça",
+      "texto": "Subsídio ~~em parcela única~~"
+     },
+     {
+      "rotulo": "Peça",
+      "texto": "E: pelos pagamentos, ~~além de beneficiário~~"
+     },
+     {
+      "rotulo": "1-B",
+      "texto": "MP: força de lei {{ou}} ato normativo federal",
+      "ok": true
+     },
+     {
+      "rotulo": "2-B",
+      "texto": "Art. 176, ~~§§ 1º e 2º~~ {{§ 1º}}"
+     },
+     {
+      "rotulo": "4-A",
+      "texto": "Art. 102, I, ~~“i”~~ {{“l”}}"
+     }
+    ],
+    "carimboY": 455,
+    "tc": 96
+   },
+   {
+    "tipo": "mudanca",
+    "tema": "light",
+    "chip": "Peça",
+    "kicker": "Mudança 1 de 5",
+    "titulo": [
+     "Subsídio em",
+     "[[parcela única]]"
+    ],
+    "de": "Tópico próprio sobre a parcela única",
+    "para": "Fica a exigência de remuneração por subsídio",
+    "texto": [
+     "Foi retirado o tópico que tratava separadamente da exigência de **parcela única**.",
+     "Permaneceu a exigência de **remuneração por subsídio**."
+    ]
+   },
+   {
+    "tipo": "mudanca",
+    "tema": "dark",
+    "chip": "Peça",
+    "kicker": "Mudança 2 de 5",
+    "titulo": [
+     "Legitimidade",
+     "passiva de [[E]]"
+    ],
+    "de": "Responsável pelos pagamentos, ~~além de beneficiário~~",
+    "para": "Responsável pelos pagamentos",
+    "texto": [
+     "Foi retirada a expressão **“além de beneficiário”**.",
+     "O definitivo manteve como fundamento sua **responsabilidade pelos pagamentos**."
+    ]
+   },
+   {
+    "tipo": "mudanca",
+    "tema": "light",
+    "chip": "Questão 1-B",
+    "kicker": "Mudança 3 de 5",
+    "titulo": [
+     "Controle de",
+     "constitucionalidade",
+     "de [[MP]]"
+    ],
+    "para": "A MP tem força de lei OU é ato normativo federal",
+    "texto": [
+     "O definitivo passou a aceitar **expressamente duas justificativas**: a medida provisória tem **força de lei** ou é **ato normativo federal**."
+    ]
+   },
+   {
+    "tipo": "mudanca",
+    "tema": "blue",
+    "chip": "Questão 2-B",
+    "kicker": "Mudança 4 de 5",
+    "titulo": [
+     "Pesquisa de",
+     "[[recursos minerais]]"
+    ],
+    "de": "Art. 176, §§ 1º e 2º, da CF",
+    "para": "Art. 176, § 1º, da CF",
+    "texto": [
+     "A referência ao **art. 176, §§ 1º e 2º**, foi substituída pela indicação apenas do **§ 1º**."
+    ]
+   },
+   {
+    "tipo": "mudanca",
+    "tema": "light",
+    "chip": "Questão 4-A",
+    "kicker": "Mudança 5 de 5",
+    "titulo": [
+     "[[Reclamação]]"
+    ],
+    "de": "Art. 102, I, “i”, da CF",
+    "para": "Art. 102, I, “l”, da CF",
+    "texto": [
+     "Foi corrigida a referência ao art. 102, I, da Constituição: saiu a **alínea “i”** e entrou a **alínea “l”**.",
+     "Permaneceu a alternativa do **art. 988, III, do CPC**."
+    ]
+   },
+   {
+    "tipo": "cta",
+    "tema": "dark",
+    "aneis": "baixo",
+    "kicker": "Método VDE",
+    "titulo": [
+     "Sua correção",
+     "foi [[injusta]]?"
+    ],
+    "texto": [
+     "O **Método VDE** analisa a sua prova e te ajuda a recorrer.",
+     "Aponte a câmera pro QR code ou comente **#RECURSO** que eu te mando o link."
+    ],
+    "botao": "Comente #RECURSO",
+    "qr": "qr-recursos-vde.png",
+    "link": "recursos.metodovde.com.br"
+   }
+  ]
  }
 ]
