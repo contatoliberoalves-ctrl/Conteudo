@@ -351,6 +351,60 @@ G.append(grupo('vr6', 'Tela única · Repescagem Constitucional, oferta Black', 
 ]))
 
 
+# ---------- vr9 · A banca tirou seus pontos? Recorra com o Método VDE ----------
+def ficha(txt, x, y, rot, cor='#e5484d', px=64):
+    return f'<div style="position:absolute;left:{x}px;top:{y}px;transform:rotate({rot}deg);background:#fff;color:{cor};{BB}font-size:{px}px;line-height:1;padding:12px 20px 4px;border-radius:14px;box-shadow:0 18px 36px rgba(0,0,0,.35);">{txt}</div>'
+CAPA9 = tela('vr9-01', NAVY, selos() +
+    ficha('−0,55', 90, 250, -9) + ficha('−0,10', 760, 230, 8, px=54) + ficha('−0,25', 800, 1010, -6, px=58) + ficha('−0,40', 110, 1040, 7, px=52) +
+    f'<div style="position:absolute;left:80px;right:80px;top:410px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
+    f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;"><span style="width:56px;height:3px;background:#f7f400;"></span><span style="margin-right:-.3em;">RECURSOS · 2ª FASE OAB</span><span style="width:56px;height:3px;background:#f7f400;"></span></div>'
+    f'{T("A BANCA TIROU", 150, "margin-top:34px;")}'
+    f'<div style="background:#e224d6;{BB}font-size:170px;line-height:.9;padding:18px 26px 2px;margin-top:8px;transform:rotate(-2deg);">SEUS PONTOS?</div>'
+    f'<div style="background:#f7f400;color:#0b1a4a;font-weight:700;font-size:44px;padding:8px 22px;margin-top:34px;">Recorra com o Método VDE!</div></div>'
+    f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-120px;">{LOGO(50)}</div>')
+def etapa(n, t, d, cor):
+    return (f'<div style="display:flex;gap:26px;align-items:flex-start;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);border-radius:26px;padding:30px 32px;">'
+            f'<div style="flex:none;width:92px;height:92px;border-radius:50%;background:{cor};color:#0b1a4a;{BB}font-size:64px;display:flex;align-items:center;justify-content:center;">{n}</div>'
+            f'<div><div style="{BB}font-size:66px;line-height:.95;">{t}</div><div style="font-weight:500;font-size:34px;line-height:1.3;margin-top:8px;">{d}</div></div></div>')
+def prazo(rot, data, txt, cor):
+    return (f'<div style="display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;background:#fff;border-radius:22px;padding:22px 26px;box-shadow:0 12px 28px rgba(11,26,74,.1);color:#0b1a4a;">'
+            f'<div style="background:{cor};color:#fff;border-radius:16px;padding:14px 10px 8px;text-align:center;"><div style="font-weight:700;font-size:20px;letter-spacing:.14em;">{rot}</div><div style="{BB}font-size:58px;line-height:1;">{data}</div></div>'
+            f'<div style="font-weight:600;font-size:32px;line-height:1.3;">{txt}</div></div>')
+G.append(grupo('vr9', 'Carrossel · A banca tirou seus pontos? Recorra com o Método VDE', [
+    CAPA9,
+    tela('vr9-02', MAG, fantasma('?', 'rgba(120,0,120,.18)', top=-140, left=560, px=1500) + arrobas() + bloco(
+        T('CONFERIU O ESPELHO E A CONTA NÃO FECHOU?', 132) + BARRA('#0b1a4a') +
+        P('Você escreveu o que o padrão pedia, mas o ponto não veio. E é justamente esse ponto que separa você da aprovação.', 42, 'max-width:820px;') +
+        P('Isso tem nome: erro de correção. E tem remédio: recurso.', 40, 'max-width:820px;color:#f7f400;'),
+        top=250, gap=38)),
+    tela('vr9-03', AZUL, arrobas() + bloco(
+        KICK('COMO O TIME VDE AJUDA') + T(f'UM RECURSO SÓ {MARCA("SEU")}', 150) +
+        etapa('1', 'ANÁLISE DE VIABILIDADE', 'A equipe compara a sua prova com o espelho e diz se vale a pena recorrer.', '#f7f400') +
+        etapa('2', 'ELABORAÇÃO DO RECURSO', 'Se você quiser seguir, o recurso é redigido de forma personalizada.', '#ff8af4'),
+        top=220, gap=34)),
+    tela('vr9-04', CLARO, arrobas(True) + bloco(
+        P('E não precisa ser aluno.', 46, 'color:#0a3aa6;') +
+        T(f'VAMOS AJUDAR<br>{MARCA("TODO MUNDO")}', 170, 'color:#0b1a4a;') + BARRA('#f7f400', 160) +
+        P('Aluno do Método VDE ou não: se a banca corrigiu algo errado na sua prova, o Time VDE analisa.', 42, 'color:#0b1a4a;max-width:820px;'),
+        top=300, gap=38), claro=True),
+    tela('vr9-05', CLARO, arrobas(True) + bloco(
+        KICK('O RELÓGIO JÁ ESTÁ CORRENDO', '#e224d6') + T(f'OLHA OS {MARCA("PRAZOS", "#f7f400", "#0b1a4a")}', 150, 'color:#0b1a4a;') +
+        prazo('PRAZO DA OAB', '13 A 15/11', 'Recurso do resultado preliminar do 47º Exame (horário de Brasília).', '#0b1a4a') +
+        prazo('ANÁLISE VDE', 'ATÉ 12H · 13/11', 'Limite pra enviar a prova pra análise de viabilidade.', '#0a3aa6') +
+        prazo('RECURSO VDE', 'ATÉ 18H · 15/11', 'Limite pra pedir a elaboração, depois do 2º formulário enviado por e-mail.', '#e224d6') +
+        P('Passou do prazo, não entra.', 34, 'color:#e5484d;'),
+        top=190, gap=24), claro=True),
+    tela('vr9-06', NAVY, arrobas() + bloco(
+        KICK('PRA NÃO TER SURPRESA') + T(f'LEIA ANTES DE {MARCA("ENVIAR")}', 140) + BARRA() +
+        lista(['As vagas são <b>limitadas</b> e podem acabar antes dos prazos', 'Tudo acontece <b>só por e-mail</b>: confira o e-mail informado no pagamento', 'Pagamento <b>somente via Pix</b>', 'Quem decide é a banca: <b>não há reembolso</b> se o recurso não for provido'], px=40, gap=28),
+        top=230, gap=34)),
+    tela('vr9-07', AZUL, selos() + f'<div style="position:absolute;left:80px;right:80px;top:330px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px;">'
+        f'{T(f"NÃO DEIXA O {MARCA('PONTO')}<br>PRA TRÁS", 150)}{BARRA("#e224d6")}{P("Manda a sua prova pra análise do Time VDE enquanto o prazo está aberto.", 40)}' +
+        PILL('#f7f400', '#0b1a4a', 'Comente <span style="background:#e224d6;color:#fff;padding:0 12px;border-radius:4px;">#RECURSO</span> pra receber o link') +
+        f'<div style="font-weight:500;font-size:28px;opacity:.85;">Prazo recursal do 47º Exame: 13 a 15/11/2026</div></div>'
+        f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
+]))
+
 bloco_html = INI + '\n<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">\n' + ''.join(G) + FIM
 s = KIT.read_text()
 if INI in s:
