@@ -1,140 +1,1395 @@
 [
- {
-  "id": "material-carteirinha-oab",
-  "titulo": "Material gratuito: carteirinha da OAB · Comente #CARTEIRA",
-  "telas": [
-   {
-    "layout": "material",
-    "foto": "libero-terno.jpg",
-    "rotulo": "Material gratuito",
-    "titulo": [
-     "Documentos e passo a passo",
-     "pra solicitar a",
-     "[[carteirinha da OAB]]"
-    ],
-    "pdf": [
-     "Carteira da",
-     "[[OAB]]"
-    ],
-    "itens": 9,
-    "bonus": {
-     "dia": "DOMINGO",
-     "data": "08/11",
-     "hora": "20h",
-     "selo": "LIVE GRATUITA",
-     "texto": "Os 3 erros que os jovens advogados mais cometem e como fugir deles"
-    },
-    "botao": "Comente #CARTEIRA pra receber o link",
-    "ts": 80,
-    "top": 650
-   }
-  ]
- },
- {
-  "id": "dicas-advocacia-stories",
-  "titulo": "Grupo Dicas da Advocacia · stories",
-  "telas": [
-   {
-    "layout": "stories",
-    "rotulo": "Grupo gratuito no WhatsApp",
-    "titulo": [
-     "Grupo de",
-     "[[Dicas da]]",
-     "[[Advocacia]]"
-    ],
-    "texto": "Dicas práticas, materiais e o dia a dia de quem vive a advocacia de verdade.",
-    "beneficios": [
-     "Dicas",
-     "Materiais",
-     "No seu ritmo"
-    ],
-    "botao": "🔗 Toque no link e entre no grupo"
-   }
-  ]
- },
- {
-  "id": "dicas-advocacia-feed",
-  "titulo": "Grupo Dicas da Advocacia · Comenta #ADV",
-  "telas": [
-   {
-    "layout": "comenta",
-    "rotulo": "Grupo gratuito",
-    "titulo": [
-     "Grupo de",
-     "[[Dicas da Advocacia]]"
-    ],
-    "texto": "Dicas práticas, materiais e o dia a dia de quem vive a advocacia de verdade.",
-    "hashtag": "#ADV",
-    "cta": "Comenta #ADV pra receber o link"
-   }
-  ]
- },
- {
-  "id": "dicas-advocacia-simbolo",
-  "titulo": "Dicas da Advocacia · foto do grupo",
-  "telas": [
-   {
-    "layout": "simbolo",
-    "titulo": [
-     "Dicas da",
-     "[[Advocacia]]"
+  {
+    "id": "dicas-advocacia-stories",
+    "titulo": "Grupo Dicas da Advocacia · stories",
+    "telas": [
+      {
+        "layout": "stories",
+        "rotulo": "Grupo gratuito no WhatsApp",
+        "titulo": [
+          "Grupo de",
+          "[[Dicas da]]",
+          "[[Advocacia]]"
+        ],
+        "texto": "Dicas práticas, materiais e o dia a dia de quem vive a advocacia de verdade.",
+        "beneficios": [
+          "Dicas",
+          "Materiais",
+          "No seu ritmo"
+        ],
+        "botao": "🔗 Toque no link e entre no grupo"
+      }
     ]
-   }
-  ]
- },
- {
-  "id": "grupo-pratflix",
-  "titulo": "Grupo de Aperfeiçoamento na Advocacia · 4 variações",
-  "telas": [
-   {
-    "layout": "heroi",
-    "rotulo": "Grupo gratuito",
-    "titulo": [
-     "Grupo de",
-     "[[aperfeiçoamento]]",
-     "na advocacia"
-    ],
-    "texto": "Conteúdo prático, dicas e materiais para quem quer crescer na advocacia.",
-    "hashtag": "#pratflix"
-   },
-   {
-    "layout": "original",
-    "rotulo": "Grupo · Comunidade",
-    "titulo": [
-     "Aperfeiçoamento",
-     "na advocacia"
-    ],
-    "beneficios": [
-     "Dicas",
-     "Materiais",
-     "No seu ritmo"
-    ],
-    "hashtag": "#pratflix",
-    "cta": "Comente #pratflix pra receber o link do grupo"
-   },
-   {
-    "layout": "tipo",
-    "rotulo": "Seu próximo passo",
-    "titulo": [
-     "Grupo de",
-     "[[aperfei-]]",
-     "[[çoamento]]",
-     "na advocacia"
-    ],
-    "hashtag": "#pratflix",
-    "cta": "Comente e receba o link"
-   },
-   {
-    "layout": "claro",
-    "rotulo": "Grupo gratuito · PratFlix",
-    "titulo": [
-     "Grupo de",
-     "aperfeiçoamento",
-     "[[na advocacia]]"
-    ],
-    "texto": "Dicas práticas, materiais e conversa com quem vive a advocacia de verdade.",
-    "hashtag": "#pratflix"
-   }
-  ]
- }
+  },
+  {
+    "id": "dicas-advocacia-feed",
+    "titulo": "Grupo Dicas da Advocacia · Comenta #ADV",
+    "telas": [
+      {
+        "layout": "comenta",
+        "rotulo": "Grupo gratuito",
+        "titulo": [
+          "Grupo de",
+          "[[Dicas da Advocacia]]"
+        ],
+        "texto": "Dicas práticas, materiais e o dia a dia de quem vive a advocacia de verdade.",
+        "hashtag": "#ADV",
+        "cta": "Comenta #ADV pra receber o link"
+      }
+    ]
+  },
+  {
+    "id": "dicas-advocacia-simbolo",
+    "titulo": "Dicas da Advocacia · foto do grupo",
+    "telas": [
+      {
+        "layout": "simbolo",
+        "titulo": [
+          "Dicas da",
+          "[[Advocacia]]"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grupo-pratflix",
+    "titulo": "Grupo de Aperfeiçoamento na Advocacia · 4 variações",
+    "telas": [
+      {
+        "layout": "heroi",
+        "rotulo": "Grupo gratuito",
+        "titulo": [
+          "Grupo de",
+          "[[aperfeiçoamento]]",
+          "na advocacia"
+        ],
+        "texto": "Conteúdo prático, dicas e materiais para quem quer crescer na advocacia.",
+        "hashtag": "#pratflix"
+      },
+      {
+        "layout": "original",
+        "rotulo": "Grupo · Comunidade",
+        "titulo": [
+          "Aperfeiçoamento",
+          "na advocacia"
+        ],
+        "beneficios": [
+          "Dicas",
+          "Materiais",
+          "No seu ritmo"
+        ],
+        "hashtag": "#pratflix",
+        "cta": "Comente #pratflix pra receber o link do grupo"
+      },
+      {
+        "layout": "tipo",
+        "rotulo": "Seu próximo passo",
+        "titulo": [
+          "Grupo de",
+          "[[aperfei-]]",
+          "[[çoamento]]",
+          "na advocacia"
+        ],
+        "hashtag": "#pratflix",
+        "cta": "Comente e receba o link"
+      },
+      {
+        "layout": "claro",
+        "rotulo": "Grupo gratuito · PratFlix",
+        "titulo": [
+          "Grupo de",
+          "aperfeiçoamento",
+          "[[na advocacia]]"
+        ],
+        "texto": "Dicas práticas, materiais e conversa com quem vive a advocacia de verdade.",
+        "hashtag": "#pratflix"
+      }
+    ]
+  },
+  {
+    "id": "material-carteirinha-oab",
+    "titulo": "Material gratuito: carteirinha da OAB · Comente #CARTEIRA",
+    "telas": [
+      {
+        "layout": "material",
+        "foto": "libero-terno.jpg",
+        "rotulo": "Material gratuito",
+        "titulo": [
+          "Documentos e passo a passo",
+          "pra solicitar a",
+          "[[carteirinha da OAB]]"
+        ],
+        "pdf": [
+          "Carteira da",
+          "[[OAB]]"
+        ],
+        "itens": 9,
+        "bonus": {
+          "dia": "DOMINGO",
+          "data": "08/11",
+          "hora": "20h",
+          "selo": "LIVE GRATUITA",
+          "texto": "Os 3 erros que os jovens advogados mais cometem e como fugir deles"
+        },
+        "botao": "Comente #CARTEIRA pra receber o link",
+        "ts": 80,
+        "top": 650
+      }
+    ]
+  },
+  {
+    "id": "dashboard-escritorio-ia",
+    "titulo": "Como montar o dashboard de gestão do seu escritório com IA · carrossel com prompts",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "IA na advocacia",
+        "titulo": [
+          "Monte o",
+          "[[dashboard]]",
+          "do seu escritório",
+          "com IA"
+        ],
+        "ts": 128,
+        "texto": "Prazos, processos, clientes e honorários num painel só. Com os prompts prontos."
+      },
+      {
+        "layout": "lista",
+        "rotulo": "O que o painel mostra",
+        "titulo": [
+          "Num olhar,",
+          "[[você vê]]"
+        ],
+        "itens": [
+          {
+            "t": "Prazos da semana",
+            "d": "O que vence nos próximos 7 dias e de quem é a tarefa."
+          },
+          {
+            "t": "Processos por fase",
+            "d": "Quantos estão em conhecimento, recurso, execução…"
+          },
+          {
+            "t": "Honorários a receber",
+            "d": "O que entra no mês e o que está atrasado."
+          },
+          {
+            "t": "Clientes novos e de onde vêm",
+            "d": "Indicação, Instagram, Google, parceiros."
+          }
+        ]
+      },
+      {
+        "layout": "passo",
+        "n": 1,
+        "titulo": [
+          "A planilha",
+          "[[base]]"
+        ],
+        "texto": "Peça para a IA desenhar a estrutura. Pode ser Google Planilhas ou Excel.",
+        "prompt": "Crie a estrutura de uma planilha de gestão para um escritório de advocacia com 4 abas: Processos, Prazos, Clientes e Financeiro. Para cada aba, liste as colunas com o tipo de dado e um exemplo. Use listas suspensas para status, fase e área do direito. Meu escritório atua em [suas áreas] e tem [nº] pessoas."
+      },
+      {
+        "layout": "passo",
+        "n": 2,
+        "titulo": [
+          "Organize",
+          "os [[dados]]"
+        ],
+        "texto": "Copie a lista do seu sistema ou das anotações e peça para a IA arrumar.",
+        "prompt": "Vou colar abaixo uma lista de processos. Organize em tabela com as colunas: código do cliente, área, fase, próximo prazo (dd/mm/aaaa), responsável e status. Não invente nada: deixe em branco o que não estiver no texto. [cole a lista]"
+      },
+      {
+        "layout": "passo",
+        "n": 3,
+        "titulo": [
+          "As",
+          "[[fórmulas]]"
+        ],
+        "texto": "A IA escreve as fórmulas e diz onde colar cada uma.",
+        "prompt": "Na minha planilha, a aba Prazos tem as colunas [liste] e a aba Financeiro tem [liste]. Escreva as fórmulas do Google Planilhas para: processos ativos por fase, prazos dos próximos 7 dias, honorários a receber no mês, valores em atraso e clientes novos por mês e por origem. Diga em qual célula colar cada uma.",
+        "tp": 29
+      },
+      {
+        "layout": "passo",
+        "n": 4,
+        "titulo": [
+          "Monte o",
+          "[[painel]]"
+        ],
+        "texto": "Uma aba só com os números que importam, pra abrir toda manhã.",
+        "prompt": "Monte uma aba Painel com: 4 cartões no topo (processos ativos, prazos da semana, a receber no mês, clientes novos), gráfico de pizza por área, gráfico de barras com honorários por mês e a lista dos 10 próximos prazos, com o vencido em vermelho. Explique passo a passo como criar cada item no Google Planilhas.",
+        "tp": 29
+      },
+      {
+        "layout": "passo",
+        "n": 5,
+        "titulo": [
+          "A rotina da",
+          "[[segunda]]"
+        ],
+        "texto": "Toda semana, 10 minutos: cole o resumo do painel e peça a leitura.",
+        "prompt": "Este é o resumo do painel do meu escritório nesta semana: [cole os números]. Me diga em tópicos curtos: os 3 prazos mais críticos, os clientes sem retorno há mais de 15 dias e onde o faturamento caiu em relação ao mês passado. No fim, sugira 3 prioridades para a semana."
+      },
+      {
+        "layout": "lista",
+        "claro": true,
+        "rotulo": "Antes de colar",
+        "titulo": [
+          "Cuidado com o",
+          "[[sigilo]]"
+        ],
+        "itens": [
+          {
+            "t": "Não cole nome, CPF ou detalhes do caso",
+            "d": "Troque por códigos ou iniciais. O sigilo profissional e a LGPD continuam valendo."
+          },
+          {
+            "t": "Os dados ficam na sua planilha",
+            "d": "A IA monta a estrutura e as fórmulas; o painel é seu."
+          },
+          {
+            "t": "Confira as fórmulas",
+            "d": "Teste com dois ou três casos que você conhece antes de confiar no número."
+          }
+        ]
+      },
+      {
+        "layout": "evento",
+        "dia": "Domingo · 08/11",
+        "hora": "20h",
+        "rotulo": "Live gratuita",
+        "titulo": [
+          "Os 3 erros dos",
+          "[[jovens advogados]]"
+        ],
+        "ts": 120,
+        "texto": "Os erros que os jovens advogados mais cometem e como fugir deles. E a gente vai ensinar bastante coisa: chega com caderno.",
+        "hashtag": "#domingo",
+        "cta": "Comenta #domingo pra receber o link do evento"
+      }
+    ]
+  },
+  {
+    "id": "lancamento-oficial",
+    "titulo": "PratFlix oficialmente lançada · carrossel de vendas",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Lançamento oficial",
+        "titulo": [
+          "A PratFlix está",
+          "[[oficialmente]]",
+          "no ar"
+        ],
+        "texto": "Ninguém te ensina a advogar. Aqui você aprende a prática com os melhores de cada área, com uma comunidade inteira junto.",
+        "top": 430,
+        "ts": 132
+      },
+      {
+        "layout": "frase",
+        "topo": "A real",
+        "titulo": [
+          "A faculdade deu",
+          "diploma e carteira.",
+          "[[Não deu o]]",
+          "[[“e agora?”]]"
+        ],
+        "ts": 118,
+        "texto": "Petição, cliente, audiência, honorário… ninguém te mostrou como funciona na vida real. A PratFlix nasceu pra isso.",
+        "top": 330
+      },
+      {
+        "layout": "lista",
+        "claro": true,
+        "rotulo": "É pra você",
+        "titulo": [
+          "É pra você",
+          "[[que…]]"
+        ],
+        "ts": 120,
+        "itens": [
+          {
+            "t": "Tá esperando o resultado e já pensa “e agora?”"
+          },
+          {
+            "t": "Passou e não sabe por onde começar a advogar"
+          },
+          {
+            "t": "Nunca fez curso de prática"
+          },
+          {
+            "t": "Quer advogar por conta própria, mas cadê o cliente?"
+          },
+          {
+            "t": "Acha que com 35, 45 anos já é tarde",
+            "d": "Não é."
+          }
+        ]
+      },
+      {
+        "layout": "lista",
+        "rotulo": "O que você ganha",
+        "titulo": [
+          "Do “passei, e agora?”",
+          "ao [[tô advogando]]"
+        ],
+        "ts": 100,
+        "itens": [
+          {
+            "t": "Prática com os melhores de cada área",
+            "d": "Professores que vivem o dia a dia da advocacia, não só a teoria."
+          },
+          {
+            "t": "Prática não convencional",
+            "d": "Áreas que a faculdade nem citou e que estão abrindo mercado."
+          },
+          {
+            "t": "Encontros ao vivo",
+            "d": "Pra tirar dúvida do caso real com quem já passou por ele."
+          },
+          {
+            "t": "Comunidade com IA",
+            "d": "Ache parceiros, divida casos e passe a ser indicado."
+          }
+        ]
+      },
+      {
+        "layout": "catalogo",
+        "rotulo": "Catálogo · prática por área",
+        "titulo": [
+          "Cursos [[na prática]]"
+        ],
+        "ts": 110,
+        "alt": 124,
+        "tc": 26,
+        "cursos": [
+          "Direito do Consumidor",
+          "Direito de Família",
+          "Direito Previdenciário",
+          "Direito Bancário",
+          "Processo Civil",
+          "Prática Criminal: delegacia e defesa",
+          "Direito Médico e da Saúde",
+          "Direito Público e Fazenda Pública",
+          "Advocacia Notarial e Extrajudicial",
+          "Registro de Marcas",
+          "IA e Direito Digital",
+          "Compliance"
+        ]
+      },
+      {
+        "layout": "catalogo",
+        "rotulo": "Catálogo · pra começar e crescer",
+        "titulo": [
+          "Do 1º cliente",
+          "ao [[escritório]]"
+        ],
+        "ts": 110,
+        "alt": 160,
+        "tc": 29,
+        "cursos": [
+          "O seu primeiro atendimento",
+          "Atuação em Audiências",
+          "Oratória para a Advocacia",
+          "Prática trabalhista essencial",
+          "Constitucional aplicado",
+          "Gestão de Escritório",
+          "Marketing jurídico para advogados",
+          "Produzindo vídeos com Claude"
+        ]
+      },
+      {
+        "layout": "notinha",
+        "rotulo": "Bônus",
+        "titulo": [
+          "E ainda tem",
+          "[[bônus]]"
+        ],
+        "ts": 120,
+        "top": 440,
+        "itens": [
+          [
+            "Pack de modelos de peças",
+            "INCLUSO"
+          ],
+          [
+            "6 meses de conteúdo pras redes",
+            "INCLUSO"
+          ],
+          [
+            "Guia do resultado à carteira",
+            "INCLUSO"
+          ],
+          [
+            "Workshop Jovem Advogado",
+            "INCLUSO"
+          ],
+          [
+            "Desconto pra abrir sociedade",
+            "INCLUSO"
+          ]
+        ],
+        "extras": [
+          [
+            "Gestão do escritório c/ Claude",
+            "QUEM ENTRAR JÁ"
+          ],
+          [
+            "Site do seu escritório",
+            "20 PRIMEIROS"
+          ]
+        ]
+      },
+      {
+        "layout": "lista",
+        "rotulo": "Bônus de quem entra agora",
+        "titulo": [
+          "Dashboard de gestão",
+          "do [[escritório]]"
+        ],
+        "ts": 98,
+        "itens": [
+          {
+            "t": "O que vamos construir",
+            "d": "O painel e as ferramentas"
+          },
+          {
+            "t": "Preparando os dados",
+            "d": "Planilhas no formato certo"
+          },
+          {
+            "t": "O primeiro dashboard",
+            "d": "O prompt que monta tudo"
+          },
+          {
+            "t": "Com a cara do escritório",
+            "d": "Identidade, filtros e gráficos"
+          },
+          {
+            "t": "Rotina e segurança",
+            "d": "Atualizar e proteger os dados"
+          }
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "Só os 20 primeiros",
+        "rotulo": "Bônus por tempo limitado",
+        "titulo": [
+          "Um site pro seu",
+          "escritório.",
+          "[[De graça.]]"
+        ],
+        "ts": 130,
+        "texto": "Feito com os seus gostos, os seus dados e as suas informações. Pra você já começar com cara de escritório.",
+        "fundo": "20",
+        "fs": 620,
+        "top": 330
+      },
+      {
+        "layout": "valores",
+        "rotulo": "Faz a conta",
+        "titulo": [
+          "Quanto custaria",
+          "[[montar sozinho?]]"
+        ],
+        "ts": 96,
+        "total": "R$ 8.882",
+        "linhas": [
+          [
+            "Curso de prática",
+            "por área",
+            "R$ 997"
+          ],
+          [
+            "Modelos de peças",
+            "R$ 99/mês × 12",
+            "R$ 1.188"
+          ],
+          [
+            "Capacitações",
+            "oratória e afins, por baixo",
+            "R$ 1.200"
+          ],
+          [
+            "Site do escritório",
+            "no mínimo",
+            "R$ 1.500"
+          ],
+          [
+            "Dashboard de gestão",
+            "o mais barato, sem recursos",
+            "R$ 397"
+          ],
+          [
+            "Conteúdo pras redes",
+            "R$ 50 × 12 artes/mês × 6 meses",
+            "R$ 3.600"
+          ],
+          [
+            "Comunidade e networking",
+            "fora as atualizações",
+            "Inestimável"
+          ]
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "Bônus extra",
+        "rotulo": "Só pra turma fundadora",
+        "titulo": [
+          "1 ano",
+          "[[e 6 meses]]",
+          "de acesso"
+        ],
+        "ts": 150,
+        "texto": "Esperando a carteirinha? O acesso corre enquanto a OAB analisa. Não sabe se passou? Dá tempo de refazer a prova e não perder nenhum bônus.",
+        "fundo": "18",
+        "fs": 600,
+        "top": 300
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Valor promocional · tempo limitado",
+        "de": "R$ 8.882",
+        "parcela": "12x R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "+6 meses de presente: 1 ano e 6 meses de acesso",
+          "Todos os bônus inclusos",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11",
+        "top": 330
+      },
+      {
+        "layout": "frase",
+        "claro": true,
+        "topo": "Risco zero",
+        "rotulo": "Garantia incondicional",
+        "titulo": [
+          "7 dias pra",
+          "[[testar tudo]]"
+        ],
+        "ts": 140,
+        "texto": "Entrou e não era o que esperava? Um clique e você recebe 100% de volta. Sem pergunta.",
+        "fundo": "7",
+        "fs": 700,
+        "top": 360
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Quer entrar",
+          "[[agora?]]"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link com a condição de lançamento no direct.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-pesquisa-oab",
+    "titulo": "Carrossel · O que a pesquisa da OAB diz sobre quem está começando",
+    "telas": [
+      {
+        "layout": "capaFoto",
+        "foto": "libero-bracos.jpg",
+        "rotulo": "Pesquisa OAB · fev/2026",
+        "titulo": [
+          "36% dos jovens",
+          "advogados têm o",
+          "[[mesmo problema]]"
+        ],
+        "texto": "A OAB ouviu 9.102 advogados com até 5 anos de carreira. O que eles disseram explica por que tanta gente trava no começo.",
+        "ts": 112,
+        "top": 640
+      },
+      {
+        "layout": "frase",
+        "topo": "O dado",
+        "fundo": "36%",
+        "fs": 420,
+        "titulo": [
+          "A maior",
+          "dificuldade:",
+          "[[falta de cliente]]"
+        ],
+        "texto": "36% apontaram a falta de clientes como o principal problema dos primeiros anos.",
+        "top": 330
+      },
+      {
+        "layout": "lista",
+        "rotulo": "E não para aí",
+        "titulo": [
+          "Outros pontos",
+          "que [[travam]]"
+        ],
+        "ts": 112,
+        "itens": [
+          {
+            "t": "Insegurança na prática",
+            "d": "2.506 citaram insegurança na parte técnica e processual."
+          },
+          {
+            "t": "Falta de mentoria",
+            "d": "1.299 sentem falta de alguém pra orientar o caminho."
+          },
+          {
+            "t": "Ninguém ensina a rotina",
+            "d": "Atender, cobrar, fazer audiência: a faculdade passa por cima."
+          }
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "A real",
+        "claro": true,
+        "titulo": [
+          "Não é falta",
+          "de [[capacidade]].",
+          "É falta de [[direção]]."
+        ],
+        "texto": "Quem acabou de passar sabe a teoria. O que falta é ver como a prática funciona, com quem já faz.",
+        "top": 360
+      },
+      {
+        "layout": "lista",
+        "claro": true,
+        "rotulo": "Onde a PratFlix entra",
+        "titulo": [
+          "Pra cada trava,",
+          "[[um caminho]]"
+        ],
+        "ts": 108,
+        "itens": [
+          {
+            "t": "Falta de cliente",
+            "d": "Primeiro atendimento, marketing jurídico e comunidade que indica."
+          },
+          {
+            "t": "Insegurança técnica",
+            "d": "Cursos de prática por área, com quem advoga nelas."
+          },
+          {
+            "t": "Sem mentoria",
+            "d": "Encontros ao vivo pra discutir caso real."
+          }
+        ]
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Turma fundadora · até 16/11",
+        "deTxt": "Depois do dia 16, volta pra",
+        "de": "R$ 1.497",
+        "parcela": "12X R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "18 meses de acesso, no seu ritmo",
+          "Todos os bônus da turma fundadora",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11"
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Quer começar",
+          "[[com direção]]?"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link da turma fundadora no direct.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-por-dentro",
+    "titulo": "Carrossel · O que tem dentro da PratFlix",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Por dentro",
+        "titulo": [
+          "O que tem",
+          "[[dentro]] da",
+          "PratFlix"
+        ],
+        "texto": "Cursos de prática, áreas que a faculdade não mostrou, comunidade e encontros ao vivo. Arrasta que eu te mostro.",
+        "top": 470
+      },
+      {
+        "layout": "catalogo",
+        "rotulo": "Prática por área",
+        "titulo": [
+          "Cursos [[na prática]]"
+        ],
+        "cursos": [
+          "Direito do Consumidor",
+          "Direito de Família",
+          "Direito Previdenciário",
+          "Direito Bancário",
+          "Processo Civil",
+          "Prática Criminal: delegacia e defesa",
+          "Direito Médico e da Saúde",
+          "Direito Público e Fazenda Pública",
+          "Advocacia Notarial e Extrajudicial",
+          "Registro de Marcas",
+          "IA e Direito Digital",
+          "Compliance"
+        ],
+        "alt": 120,
+        "tc": 25
+      },
+      {
+        "layout": "catalogo",
+        "rotulo": "Pra começar e crescer",
+        "titulo": [
+          "Do 1º cliente",
+          "ao [[escritório]]"
+        ],
+        "cursos": [
+          "O seu primeiro atendimento",
+          "Atuação em Audiências",
+          "Oratória para a Advocacia",
+          "Prática trabalhista essencial",
+          "Constitucional aplicado",
+          "Gestão de Escritório",
+          "Marketing jurídico para advogados",
+          "Produzindo vídeos com Claude"
+        ],
+        "alt": 150
+      },
+      {
+        "layout": "lista",
+        "rotulo": "Além das aulas",
+        "titulo": [
+          "Você não",
+          "[[estuda sozinho]]"
+        ],
+        "ts": 112,
+        "itens": [
+          {
+            "t": "Comunidade",
+            "d": "Rede de colegas por área e por cidade, pra dividir caso e ser indicado."
+          },
+          {
+            "t": "Encontros ao vivo",
+            "d": "Pra discutir caso real com quem já passou por ele."
+          },
+          {
+            "t": "Cronograma",
+            "d": "Uma ordem pra assistir, pra não se perder no catálogo."
+          },
+          {
+            "t": "Certificado",
+            "d": "Certificado de conclusão da PratFlix."
+          }
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "No seu ritmo",
+        "fundo": "18",
+        "titulo": [
+          "18 meses",
+          "de [[acesso]]"
+        ],
+        "texto": "As aulas ficam gravadas. Dá pra encaixar entre o trabalho, o estudo e a espera do resultado.",
+        "top": 420
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Turma fundadora · até 16/11",
+        "deTxt": "Depois do dia 16, volta pra",
+        "de": "R$ 1.497",
+        "parcela": "12X R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "18 meses de acesso, no seu ritmo",
+          "Todos os bônus da turma fundadora",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11"
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Bora pra",
+          "[[prática]]?"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link no direct.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-sem-com",
+    "titulo": "Carrossel · Sem prática × com a PratFlix",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Sem × com",
+        "titulo": [
+          "O mesmo caso,",
+          "[[dois começos]]"
+        ],
+        "texto": "Recém-aprovado, primeiro cliente na porta. A diferença tá em quem já viu isso antes.",
+        "top": 500
+      },
+      {
+        "layout": "versus",
+        "rotulo": "O atendimento",
+        "titulo": [
+          "O cliente",
+          "[[chegou]]"
+        ],
+        "linhas": [
+          [
+            "Escuta, anota tudo e não sabe o que perguntar",
+            "Segue um roteiro do primeiro atendimento"
+          ],
+          [
+            "Fala em juridiquês e o cliente não entende",
+            "Explica o caso em português claro"
+          ],
+          [
+            "Sai sem saber se pega ou não o caso",
+            "Sai com os próximos passos combinados"
+          ]
+        ]
+      },
+      {
+        "layout": "versus",
+        "rotulo": "O honorário",
+        "titulo": [
+          "Quanto",
+          "[[cobrar]]?"
+        ],
+        "linhas": [
+          [
+            "Chuta um valor com medo de perder o cliente",
+            "Usa a tabela de honorários comentada"
+          ],
+          [
+            "Cobra pouco e se arrepende depois",
+            "Sabe explicar o porquê do valor"
+          ],
+          [
+            "Não faz contrato",
+            "Fecha com contrato de honorários"
+          ]
+        ]
+      },
+      {
+        "layout": "versus",
+        "rotulo": "A rotina",
+        "titulo": [
+          "Depois do",
+          "[[protocolo]]"
+        ],
+        "linhas": [
+          [
+            "Perde prazo no meio da bagunça",
+            "Rotina processual organizada"
+          ],
+          [
+            "Trava na primeira audiência",
+            "Já viu como funciona uma audiência"
+          ],
+          [
+            "Não sabe pra onde crescer",
+            "Conhece áreas que estão abrindo mercado"
+          ]
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "O que muda",
+        "claro": true,
+        "titulo": [
+          "Ninguém nasce",
+          "sabendo [[advogar]]."
+        ],
+        "texto": "Mas dá pra encurtar o caminho vendo quem já faz. É pra isso que a PratFlix existe.",
+        "top": 420
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Turma fundadora · até 16/11",
+        "deTxt": "Depois do dia 16, volta pra",
+        "de": "R$ 1.497",
+        "parcela": "12X R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "18 meses de acesso, no seu ritmo",
+          "Todos os bônus da turma fundadora",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11"
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Começa do",
+          "[[jeito certo]]"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link da turma fundadora.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-bonus-fundadora",
+    "titulo": "Carrossel · Bônus da turma fundadora",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Quem entra",
+          "agora leva",
+          "[[bônus]]"
+        ],
+        "texto": "A turma fundadora fecha dia 16/11. Até lá, entra com tudo isso junto.",
+        "top": 470
+      },
+      {
+        "layout": "notinha",
+        "rotulo": "Bônus",
+        "titulo": [
+          "E ainda tem",
+          "[[bônus]]"
+        ],
+        "itens": [
+          [
+            "Pack de modelos de peças",
+            "INCLUSO"
+          ],
+          [
+            "Do resultado à carteira",
+            "INCLUSO"
+          ],
+          [
+            "Roteiro do 1º atendimento",
+            "INCLUSO"
+          ],
+          [
+            "Guia de honorários do 1º caso",
+            "INCLUSO"
+          ]
+        ],
+        "extras": [
+          [
+            "6 meses de conteúdo pras redes",
+            "FUNDADORES"
+          ],
+          [
+            "Site do seu escritório",
+            "20 PRIMEIROS"
+          ]
+        ]
+      },
+      {
+        "layout": "lista",
+        "rotulo": "O que é cada um",
+        "titulo": [
+          "Pra usar",
+          "[[na semana 1]]"
+        ],
+        "ts": 110,
+        "itens": [
+          {
+            "t": "Pack de modelos de peças",
+            "d": "Modelos editáveis e um guia em PDF."
+          },
+          {
+            "t": "Do resultado à carteira",
+            "d": "Documentos, inscrição na OAB, roupa e a primeira semana."
+          },
+          {
+            "t": "Roteiro do 1º atendimento",
+            "d": "O que perguntar e como explicar sem juridiquês."
+          },
+          {
+            "t": "Guia de honorários",
+            "d": "Tabela comentada pra cobrar o primeiro caso."
+          }
+        ]
+      },
+      {
+        "layout": "frase",
+        "topo": "Ainda não passou?",
+        "fundo": "18",
+        "titulo": [
+          "Dá tempo de",
+          "[[usar tudo]]"
+        ],
+        "texto": "São 18 meses de acesso. Se ainda tá esperando o resultado ou vai refazer a prova, o acesso corre junto.",
+        "top": 420
+      },
+      {
+        "layout": "frase",
+        "topo": "Risco zero",
+        "claro": true,
+        "fundo": "7",
+        "titulo": [
+          "7 dias pra",
+          "[[testar tudo]]"
+        ],
+        "texto": "Entrou e não era o que esperava? Pede o reembolso e recebe 100% de volta. Sem pergunta.",
+        "top": 420
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Turma fundadora · até 16/11",
+        "deTxt": "Depois do dia 16, volta pra",
+        "de": "R$ 1.497",
+        "parcela": "12X R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "18 meses de acesso, no seu ritmo",
+          "Todos os bônus da turma fundadora",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11"
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Garante os",
+          "[[bônus]]"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link no direct.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-duvidas",
+    "titulo": "Carrossel · Dúvidas antes de entrar na PratFlix",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Antes de entrar",
+        "titulo": [
+          "5 dúvidas que",
+          "eu mais recebo",
+          "[[no direct]]"
+        ],
+        "texto": "Sobre a PratFlix, respondidas de uma vez.",
+        "top": 500
+      },
+      {
+        "layout": "frase",
+        "topo": "Dúvida 1",
+        "titulo": [
+          "“Ainda não",
+          "[[passei na OAB]].”"
+        ],
+        "texto": "Pode entrar. O acesso é de 18 meses: dá pra começar a prática agora e, se precisar, refazer a prova sem perder nada.",
+        "top": 380
+      },
+      {
+        "layout": "frase",
+        "topo": "Dúvida 2",
+        "titulo": [
+          "“Já advogo.",
+          "[[Serve pra mim?]]”"
+        ],
+        "texto": "Serve. Principalmente a comunidade e as áreas não convencionais: extrajudicial, marcas, digital, compliance, bancário.",
+        "top": 380
+      },
+      {
+        "layout": "frase",
+        "topo": "Dúvida 3",
+        "titulo": [
+          "“Tenho",
+          "[[pouco tempo]].”"
+        ],
+        "texto": "As aulas são gravadas e você assiste no seu ritmo. Foi pensado pra quem trabalha ou estuda.",
+        "top": 380
+      },
+      {
+        "layout": "frase",
+        "topo": "Dúvida 4",
+        "titulo": [
+          "“Tem",
+          "[[certificado]]?”"
+        ],
+        "texto": "Tem. Você recebe o certificado de conclusão da PratFlix.",
+        "top": 380
+      },
+      {
+        "layout": "frase",
+        "topo": "Dúvida 5",
+        "claro": true,
+        "titulo": [
+          "“E se eu",
+          "[[não gostar]]?”"
+        ],
+        "texto": "Garantia incondicional de 7 dias. Pediu, recebe 100% de volta.",
+        "top": 380
+      },
+      {
+        "layout": "preco",
+        "rotulo": "Turma fundadora · até 16/11",
+        "deTxt": "Depois do dia 16, volta pra",
+        "de": "R$ 1.497",
+        "parcela": "12X R$ 103",
+        "vista": "R$ 997",
+        "extras": [
+          "18 meses de acesso, no seu ritmo",
+          "Todos os bônus da turma fundadora",
+          "Garantia incondicional de 7 dias"
+        ],
+        "prazo": "SÓ ATÉ 16.11"
+      },
+      {
+        "layout": "comenta",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Ficou alguma",
+          "[[dúvida]]?"
+        ],
+        "texto": "Comenta a palavra abaixo que eu te mando o link e respondo o que faltar no direct.",
+        "hashtag": "#PRATFLIX",
+        "cta": "Comenta #PRATFLIX pra receber o link",
+        "top": 420
+      }
+    ]
+  },
+  {
+    "id": "pf-tweet",
+    "titulo": "Tela única · Tweet: a faculdade não ensina a advogar",
+    "telas": [
+      {
+        "layout": "tweet",
+        "foto": "libero-bracos2.jpg",
+        "rotulo": "Turma fundadora",
+        "texto": "A faculdade te dá o diploma.\nA OAB te dá a carteira.\nE o primeiro cliente te dá… [[um frio na barriga]].\n\nFoi pra essa parte que eu criei a PratFlix.",
+        "hora": "PratFlix · até 16/11",
+        "hashtag": "#PRATFLIX",
+        "top": 260
+      }
+    ]
+  },
+  {
+    "id": "pf-nota",
+    "titulo": "Tela única · Nota do iPhone: checklist do recém-aprovado",
+    "telas": [
+      {
+        "layout": "nota",
+        "data": "Turma fundadora · até 16/11",
+        "titulo": "Passei na OAB. E agora?",
+        "itens": [
+          [
+            true,
+            "Comemorar (feito, com louvor)"
+          ],
+          [
+            false,
+            "Separar os documentos da carteira"
+          ],
+          [
+            false,
+            "Escolher por qual área começar"
+          ],
+          [
+            false,
+            "Aprender o primeiro atendimento"
+          ],
+          [
+            false,
+            "Saber quanto cobrar no 1º caso"
+          ],
+          [
+            false,
+            "Achar quem indique cliente"
+          ],
+          [
+            false,
+            "Entrar na PratFlix 👀"
+          ]
+        ],
+        "hashtag": "#PRATFLIX",
+        "ts": 60,
+        "ti": 36,
+        "gap": 26,
+        "top": 240
+      }
+    ]
+  },
+  {
+    "id": "pf-oferta",
+    "titulo": "Tela única · Oferta da turma fundadora",
+    "telas": [
+      {
+        "layout": "original",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "A advocacia",
+          "na prática"
+        ],
+        "selo": "SÓ ATÉ 16/11",
+        "beneficios": [
+          "18 meses",
+          "bônus",
+          "7 dias de garantia"
+        ],
+        "hashtag": "#PRATFLIX",
+        "cta": "12x R$ 103 ou R$ 997 à vista · comenta #PRATFLIX"
+      }
+    ]
+  },
+  {
+    "id": "pf-stories-4",
+    "titulo": "Stories (4) · Turma fundadora",
+    "telas": [
+      {
+        "layout": "storyFoto",
+        "foto": "libero-paleto.jpg",
+        "rotulo": "Turma fundadora",
+        "titulo": [
+          "Passou na OAB",
+          "e [[travou]]?"
+        ],
+        "texto": "Ninguém te ensina a advogar. A PratFlix ensina a prática, com quem faz.",
+        "top": 1020
+      },
+      {
+        "layout": "enquete",
+        "rotulo": "Me conta",
+        "titulo": [
+          "O que mais",
+          "te [[assusta]]",
+          "no começo?"
+        ],
+        "pergunta": "O que mais te trava?",
+        "opcoes": [
+          "Conseguir cliente",
+          "Cobrar honorário",
+          "Primeira audiência"
+        ]
+      },
+      {
+        "layout": "stories",
+        "rotulo": "Dentro da PratFlix",
+        "titulo": [
+          "Prática do",
+          "[[1º cliente]]",
+          "ao escritório"
+        ],
+        "texto": "Cursos por área, áreas não convencionais, comunidade e encontros ao vivo.",
+        "beneficios": [
+          "18 meses",
+          "certificado",
+          "7 dias de garantia"
+        ],
+        "botao": "🔗 Toque no link",
+        "top": 620
+      },
+      {
+        "layout": "stories",
+        "rotulo": "Só até 16/11",
+        "titulo": [
+          "12x R$ 103",
+          "ou [[R$ 997]]"
+        ],
+        "texto": "Turma fundadora com todos os bônus. Depois do dia 16, volta pra R$ 1.497.",
+        "beneficios": [
+          "Pix",
+          "boleto",
+          "cartão em até 12x"
+        ],
+        "botao": "🔗 Toque no link e garanta",
+        "ts": 170,
+        "top": 700
+      }
+    ]
+  },
+  {
+    "id": "pf-stories-5",
+    "titulo": "Stories (5) · Dúvidas e bônus",
+    "telas": [
+      {
+        "layout": "storyFoto",
+        "foto": "libero-notebook.jpg",
+        "rotulo": "Bônus da turma fundadora",
+        "titulo": [
+          "Bônus",
+          "que acabam",
+          "[[dia 16]]"
+        ],
+        "fotoPos": "50% 30%",
+        "top": 980
+      },
+      {
+        "layout": "stories",
+        "rotulo": "Bônus 1 e 2",
+        "titulo": [
+          "Modelos de peças",
+          "e [[da aprovação]]",
+          "[[à carteira]]"
+        ],
+        "texto": "Modelos editáveis com guia em PDF e o passo a passo dos documentos, da inscrição e da primeira semana.",
+        "ts": 130,
+        "botao": "arrasta pro próximo →",
+        "top": 600
+      },
+      {
+        "layout": "stories",
+        "rotulo": "Bônus 3 e 4",
+        "titulo": [
+          "1º atendimento",
+          "e [[honorários]]"
+        ],
+        "texto": "O roteiro do que perguntar ao cliente e a tabela comentada pra cobrar o primeiro caso.",
+        "ts": 150,
+        "botao": "arrasta pro próximo →",
+        "top": 680
+      },
+      {
+        "layout": "pergunta",
+        "rotulo": "Caixinha aberta",
+        "titulo": [
+          "Ficou com",
+          "[[dúvida]]?"
+        ],
+        "texto": "Manda aqui que eu respondo nos stories.",
+        "pergunta": "Pergunte sobre a PratFlix"
+      },
+      {
+        "layout": "stories",
+        "rotulo": "Só até 16/11",
+        "titulo": [
+          "Entra na",
+          "[[turma]]",
+          "[[fundadora]]"
+        ],
+        "texto": "18 meses de acesso, todos os bônus e 7 dias pra testar.",
+        "beneficios": [
+          "12x R$ 103",
+          "R$ 997 à vista"
+        ],
+        "botao": "🔗 Toque no link",
+        "top": 640
+      }
+    ]
+  }
 ]

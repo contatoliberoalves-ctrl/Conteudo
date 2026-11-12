@@ -14,6 +14,18 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 | `tipo` | 1080×1350 | `rotulo`, `titulo`, `hashtag`, `cta` |
 | `claro` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag` |
 | `comenta` | 1080×1350 | `rotulo`, `titulo`, `texto`, `hashtag`, `cta` ("Comenta #x pra receber o link") |
+| `capa` | 1080×1350 | capa de carrossel: `rotulo`, `titulo`, `texto` (com "arrasta →") |
+| `lista` | 1080×1350 | `rotulo`, `titulo`, `itens: [{t, d}]` numerados; `claro: true` para a versão papel |
+| `passo` | 1080×1350 | passo de tutorial com prompt: `n`, `titulo`, `texto`, `prompt` (`[trecho]` sai em areia, para o que a pessoa troca), `tp` (px do prompt) |
+| `evento` | 1080×1350 | convite para live/evento: `dia`, `hora`, `rotulo`, `titulo`, `texto`, `hashtag`, `cta` |
+| `catalogo` | 1080×1350 | catálogo de cursos em grade de 2 colunas: `rotulo`, `titulo`, `texto`, `cursos: [nomes]`, `alt` (altura do cartão), `tc` (px do nome) |
+| `notinha` | 1080×1350 | cupom de bônus: `rotulo`, `titulo`, `itens: [[nome, selo]]`, `extras: [[nome, selo]]` (depois do tracejado, selo escuro), `top` |
+| `preco` | 1080×1350 | oferta: `rotulo`, `de` (riscado), `parcela`, `vista`, `extras: [textos com ✓]`, `prazo` (selo vermelho), `tp`, `top` |
+| `frase` | 1080×1350 | frase de impacto: `topo`, `rotulo`, `titulo`, `texto`, `selos`, `fundo` (número gigante vazado), `fs`, `claro`, `top` |
+| `valores` | 1080×1350 | "quanto custaria sozinho": `rotulo`, `titulo`, `linhas: [[nome, detalhe, valor]]`, `total` |
 | `stories` | 1080×1920 | `rotulo`, `titulo`, `texto`, `beneficios`, `botao` (fica embaixo para pôr a figurinha de link por cima) |
-| `material` | 1080×1350 | `foto` (arquivo em `fotos/`, pessoal: `fotos/libero-*.jpg` fica fora do git), `fotoPos`, `rotulo`, `titulo`, `ts`, `top`, `texto` (opcional), `pdf` (título do checklist desenhado), `itens` (nº de linhas numeradas), `pdfTop`, `bonus` (`{dia, data, hora, selo, texto}`: cartão da live), `botao` |
 | `simbolo` | 1080×1080 | `titulo` (foto de grupo do WhatsApp: selo "p▸", nome e logo no círculo central) |
+
+## PDF A4 (`pdf.mjs` + `pdf.json`)
+Materiais em PDF A4 retrato na mesma identidade: capa escura com a foto do corredor, página "Como usar" com o sumário, páginas claras (papel) com dois itens por página em caixas "copie e cole" e fecho escuro. `pdf.json`: lista de `{ id, titulo, capa: {rotulo, titulo (linhas, [[trecho]] em caixa areia), sub}, comoUsar: [passos], prompts: [{titulo, texto}], complemento }`.
+Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node pdf.mjs [id]` → `saida/pdf/<id>/<n>.png` e `<id>.pdf` (montado com as imagens das páginas). Avisa se uma página de prompts estourar.
