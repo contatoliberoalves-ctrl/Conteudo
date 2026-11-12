@@ -344,34 +344,65 @@
   "formato": "story"
  },
  {
+  "layout": "resultado",
+  "formato": "feed",
   "id": "resultado-recurso-especial-feed",
   "titulo": [
    "Não anularam",
    "a questão de",
-   "[[recurso especial]]"
+   "[[recurso]]",
+   "[[especial]]"
   ],
-  "tema": "Resultado definitivo da 2ª fase da OAB 47: a questão de recurso especial não foi anulada; link nos stories; pergunta sobre o gabarito definitivo",
-  "layout": "resultado",
-  "formato": "feed",
+  "tema": "OAB 47, 2ª fase de Constitucional: a questão de recurso especial não foi anulada",
   "kicker": "OAB 47 · 2ª fase",
+  "ts": 140,
   "carimbo": [
    "Não",
    "anulada"
   ],
-  "aviso": {
-   "titulo": "Resultado divulgado",
-   "texto": "O link está nos stories"
-  },
-  "pergunta": "Deu certo?",
-  "convite": "Você gostou do **gabarito definitivo**? Me conta sua opinião nos comentários.",
-  "ts": 118,
+  "tc": 70,
   "carimboPos": [
-   48,
-   236
+   60,
+   700
   ],
-  "tc": 52,
-  "avisoY": 660,
-  "perguntaY": 955,
-  "tp": 140
+  "lh": 1.22
+ },
+ {
+  "layout": "resultado",
+  "formato": "feed",
+  "id": "resultado-divulgado-feed",
+  "titulo": [
+   "Resultado",
+   "[[divulgado]]"
+  ],
+  "tema": "OAB 47, 2ª fase: resultado divulgado, link nos stories",
+  "kicker": "OAB 47 · 2ª fase",
+  "ts": 200,
+  "carimbo": [
+   "Saiu!"
+  ],
+  "tc": 96,
+  "carimboPos": [
+   70,
+   220
+  ],
+  "aviso": {
+   "titulo": "O link está nos stories"
+  },
+  "ta": 70
+ },
+ {
+  "layout": "resultado",
+  "formato": "feed",
+  "id": "deu-certo-gabarito-feed",
+  "titulo": [
+   "Deu",
+   "[[certo]]?"
+  ],
+  "tema": "OAB 47, 2ª fase: pergunta sobre o gabarito definitivo, para comentar",
+  "kicker": "Gabarito definitivo · OAB 47",
+  "ts": 260,
+  "texto": "Você gostou do **gabarito definitivo**? Me conta sua opinião.",
+  "comentario": "Escreva sua opinião…"
  }
 ]

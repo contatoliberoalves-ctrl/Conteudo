@@ -49,31 +49,34 @@ const LAYOUTS = {
         ${p.sub ? `<div style="${TEXTO};font-size:34px;font-weight:500;line-height:1.3;color:#DCEFE3;margin-top:18px;max-width:880px">${rico(p.sub, COR.claro)}</div>` : ''}
       </div>${p.semArroba ? '' : arroba('rgba(111,211,155,.85)', story ? 230 : 44)}${textura()}`;
   },
-  // Resultado / aviso de gabarito (tela única), com elementos do insta pessoal adaptados à paleta do perfil: título
-  // condensado gigante com [[faixa]] verde reta, carimbo de borda dupla, anéis cortados nos cantos, cartão branco
-  // com o aviso (ícone de link "nos stories") e a pergunta final para comentar. Campos: kicker, titulo (linhas;
-  // [[faixa]]), ts, carimbo (linhas), carimboPos [right, top], aviso {titulo, texto}, pergunta, convite, botao.
+  // Resultado / aviso (tela única), com elementos do insta pessoal adaptados à paleta do perfil: título condensado
+  // gigante com [[faixa]] verde reta, carimbo de borda dupla, anéis cortados nos cantos, cartão branco com ícone de
+  // link e caixa de comentário. Tudo opcional e centralizado na altura. Campos: kicker, titulo (linhas; [[faixa]],
+  // {{verde-claro}}), ts, carimbo (linhas), carimboPos [right, top], tc, aviso {titulo, texto}, ta, texto,
+  // comentario (texto da caixa de comentário).
   resultado(p, c, H, story) {
-    const faixa = l => esc(l).replace(/\[\[(.+?)\]\]/g, `<span style="background:${COR.verde};color:#fff;padding:0 16px;box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`)
-      .replace(/\{\{(.+?)\}\}/g, `<span style="color:${COR.claro}">$1</span>`);
-    const top = story ? 290 : 96, [cr, ct] = p.carimboPos || [70, top + 250];
+    const faixa = l => esc(l).replace(/\[\[(.+?)\]\]/g, `<span style="background:${COR.verde};color:#fff;padding:0 18px;box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`)
+      .replace(/\{\{(.+?)\}\}/g, `<span style="color:${COR.claro}">$1</span>`).replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:800">$1</b>');
     const anel = (css, d, b) => `<div style="position:absolute;${css};width:${d}px;height:${d}px;border:${b}px solid ${COR.verde};border-radius:50%;opacity:.55;z-index:1"></div>`;
-    const a = p.aviso || {};
-    const link = `<svg viewBox="0 0 24 24" width="54" height="54" fill="none" stroke="${COR.verde}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>`;
+    const a = p.aviso;
+    const link = `<svg viewBox="0 0 24 24" width="58" height="58" fill="none" stroke="${COR.verde}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>`;
+    const balao = `<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="${COR.base}" stroke-width="2.2" stroke-linejoin="round"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.3 7.4L3.5 20.5l1.5-4.6A8.4 8.4 0 1 1 20.5 11.6z"/></svg>`;
+    const cartao = a ? `<div style="background:#fff;border-left:16px solid ${COR.verde};box-shadow:0 30px 60px rgba(0,0,0,.35);padding:34px 40px;display:flex;align-items:center;gap:30px;transform:rotate(-1.5deg);margin-top:20px">
+        <div style="flex:1"><div style="${TITULO};font-size:${p.ta || 76}px;line-height:1;color:${COR.base}">${faixa(a.titulo)}</div>
+        ${a.texto ? `<div style="${TEXTO};font-size:32px;font-weight:600;color:${CG.cinza};margin-top:10px">${rico(a.texto, COR.verde)}</div>` : ''}</div>
+        <div style="flex:none;width:120px;height:120px;border:6px solid ${COR.verde};display:flex;align-items:center;justify-content:center">${link}</div></div>` : '';
+    const comentario = p.comentario ? `<div style="background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.35);padding:28px 34px;display:flex;align-items:center;gap:24px;margin-top:20px;transform:rotate(-1.5deg)">
+        ${balao}<span style="flex:1;${TEXTO};font-size:34px;font-weight:500;color:#7C8A83">${esc(p.comentario)}</span>
+        <span style="${TEXTO};font-size:30px;font-weight:700;color:${COR.verde}">Publicar</span></div>` : '';
     return `<div style="position:absolute;inset:0;background:${ESCURO}"></div>
       <div style="position:absolute;inset:0;background:${GRADE};z-index:0"></div>
-      ${anel('right:-230px;top:-230px', 460, 70)}${anel(`left:-300px;top:${story ? 1300 : 900}px`, 420, 60)}
-      <div style="position:absolute;left:90px;right:90px;top:${top}px;display:flex;flex-direction:column;gap:28px;z-index:4">
-        <div style="display:flex;align-items:center;gap:18px;${TEXTO};font-size:26px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${COR.claro}"><span style="width:64px;height:8px;background:${COR.claro}"></span>${esc(p.kicker)}</div>
-        <h1 style="margin:0;${TITULO};font-size:${p.ts || 150}px;line-height:1.14;color:#fff">${lista(p.titulo).map(faixa).join('<br>')}</h1></div>
-      ${p.carimbo ? `<div style="position:absolute;right:${cr}px;top:${ct}px;transform:rotate(-12deg);border:8px solid ${COR.claro};outline:3px solid ${COR.claro};outline-offset:7px;padding:10px 24px 6px;${TITULO};font-size:${p.tc || 64}px;line-height:.95;color:${COR.claro};text-align:center;z-index:5">${lista(p.carimbo).map(esc).join('<br>')}</div>` : ''}
-      <div style="position:absolute;left:90px;right:90px;top:${p.avisoY || (story ? 1010 : 720)}px;background:#fff;border-left:16px solid ${COR.verde};box-shadow:0 30px 60px rgba(0,0,0,.35);padding:34px 40px;display:flex;align-items:center;gap:30px;transform:rotate(-1.5deg);z-index:4">
-        <div style="flex:1"><div style="${TITULO};font-size:${p.ta || 76}px;line-height:.95;color:${COR.base}">${faixa(a.titulo)}</div>
-        ${a.texto ? `<div style="${TEXTO};font-size:32px;font-weight:600;color:${CG.cinza};margin-top:10px">${rico(a.texto, COR.verde)}</div>` : ''}</div>
-        <div style="flex:none;width:112px;height:112px;border:6px solid ${COR.verde};display:flex;align-items:center;justify-content:center">${link}</div></div>
-      <div style="position:absolute;left:90px;right:90px;top:${p.perguntaY || (story ? 1290 : 990)}px;display:flex;flex-direction:column;gap:18px;z-index:4">
-        <div style="${TITULO};font-size:${p.tp || 110}px;line-height:.95;color:${COR.claro}">${faixa(p.pergunta)}</div>
-        ${p.convite ? `<div style="${TEXTO};font-size:36px;font-weight:600;line-height:1.3;color:#fff">${rico(p.convite, COR.claro)}</div>` : ''}</div>
+      ${anel('right:-230px;top:-230px', 460, 70)}${anel(`left:-300px;top:${story ? 1300 : 920}px`, 420, 60)}
+      <div style="position:absolute;left:90px;right:90px;top:${story ? 290 : 90}px;bottom:${story ? 330 : 130}px;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:4">
+        ${p.kicker ? `<div style="${TEXTO};font-size:28px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:${COR.claro}">${esc(p.kicker)}</div>` : ''}
+        <h1 style="margin:0;${TITULO};font-size:${p.ts || 150}px;line-height:${p.lh || 1.14};color:#fff">${lista(p.titulo).map(faixa).join('<br>')}</h1>
+        ${p.texto ? `<div style="${TEXTO};font-size:${p.tt || 40}px;font-weight:500;line-height:1.3;color:#fff;max-width:880px">${rico(p.texto, COR.claro)}</div>` : ''}
+        ${cartao}${comentario}</div>
+      ${p.carimbo ? `<div style="position:absolute;right:${(p.carimboPos || [70, 300])[0]}px;top:${(p.carimboPos || [70, 300])[1]}px;transform:rotate(-12deg);border:8px solid ${COR.claro};outline:3px solid ${COR.claro};outline-offset:7px;padding:10px 24px 6px;${TITULO};font-size:${p.tc || 64}px;line-height:.95;color:${COR.claro};text-align:center;background:rgba(11,38,25,.55);z-index:5">${lista(p.carimbo).map(esc).join('<br>')}</div>` : ''}
       ${arroba('rgba(111,211,155,.85)', story ? 230 : 44)}${textura(.4)}`;
   },
   // Ref. "Rápido antes que saia do ar": etiquetas do texto nativo do story (máquina de escrever), brancas e a
