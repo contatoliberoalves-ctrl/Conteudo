@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Troféu montado. Pedestal e haste: STL com z para cima (giram -90° em x); lua e letreiro: STL deitados (y para cima, frente em +z).
+import * as THREE from 'three';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const W = 1400, H = 1400;
+const M = await (await fetch('../montagem.json')).json();
+const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 0.85; r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(r.domElement);
+const cena = new THREE.Scene();
+cena.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;
+const sol = new THREE.DirectionalLight(0xffffff, 2.2); sol.position.set(-120, 300, 260); sol.castShadow = true;
+sol.shadow.mapSize.set(4096, 4096); sol.shadow.radius = 5; sol.shadow.bias = -0.0004;
+Object.assign(sol.shadow.camera, { left: -300, right: 300, top: 300, bottom: -300, near: 1, far: 1200 });
+sol.target.position.set(80, 0, -50); cena.add(sol, sol.target, new THREE.HemisphereLight(0xffffff, 0xe8e0d0, 0.7));
+const chao = new THREE.Mesh(new THREE.PlaneGeometry(3000, 3000), new THREE.ShadowMaterial({ opacity: 0.16 }));
+chao.rotation.x = -Math.PI / 2; chao.receiveShadow = true; cena.add(chao);
+const mat = c => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.55, clearcoat: 0.1 });
+const ld = new STLLoader();
+const carregar = n => new Promise(ok => ld.load('../' + n + '.stl', g => { g.computeVertexNormals(); ok(g); }));
+const AM = q.get('am') || '#f0a91c', CR = q.get('cr') || '#efe3c4';
+const add = async (n, c, f) => { const m = new THREE.Mesh(await carregar(n), mat(c)); m.castShadow = m.receiveShadow = true; f(m); cena.add(m); };
+await add('pedestal', CR, m => { m.rotation.x = -Math.PI / 2; });
+await add('haste', AM, m => { m.rotation.x = -Math.PI / 2; m.position.set(M.haste.x, M.haste.y, M.haste.z); });
+await add('lua-violao', AM, m => { m.position.set(M.lua.x, M.lua.y, M.lua.z); });
+await add('letreiro', AM, m => { m.position.set(M.letreiro.x, M.letreiro.y, M.letreiro.z); });
+const cam = new THREE.PerspectiveCamera(20, W / H, 10, 4000);
+const v = q.get('vista') || 'frente';
+cam.position.set(...(v === 'frente' ? [150, 210, 560] : [330, 200, 420])); cam.lookAt(80, 95, -50);
+r.render(cena, cam); window.__pronto = true;
+</script></body></html>
