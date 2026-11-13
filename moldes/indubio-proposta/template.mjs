@@ -12,7 +12,7 @@ export const HEAD = `<link rel="stylesheet" href="${FONTES}">`;
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 // [[texto]] sai em dourado.
-const rico = (s, cor = COR.ouro) => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="color:${cor}">$1</span>`);
+const rico = (s, cor = COR.ouro) => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="color:${cor}">$1</span>`).replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:700">$1</b>');
 const brl = n => 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 0 });
 
 const logo = (escuro, px = 26) => `<div style="${M};display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;color:${escuro ? '#fff' : COR.preto}">
@@ -109,14 +109,102 @@ function fim(p, n) {
       <div style="${I};font-size:14px;line-height:1.6;color:#C9C7C2"><b style="color:#fff;font-size:17px">${esc(p.por)}</b><br>${esc(p.servico || 'Edição de vídeos')}</div>${logo(true, 32)}</div>` };
 }
 
+
+// ---------- Páginas extras (propostas de serviço com "paginas": [{tipo, ...}]) ----------
+const fundoClaro = `<div style="position:absolute;inset:0;background:${COR.off}"></div>${grao(.18)}`;
+const fundoEscuro = `<div style="position:absolute;inset:0;background:${COR.preto}"></div>${grao(.3)}`;
+const txt = (t, escuro, px = 14) => `<div style="${I};font-size:${px}px;line-height:1.65;color:${escuro ? '#C9C7C2' : COR.cinza}">${rico(t, escuro ? '#fff' : COR.preto)}</div>`;
+const check = (ok, escuro) => ok ? `<span style="flex:none;width:22px;height:22px;border-radius:50%;background:${G};display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="13"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="${COR.preto}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`
+  : `<span style="flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid ${escuro ? '#3A3A3E' : COR.linha};display:inline-flex;align-items:center;justify-content:center;color:${escuro ? '#5A5853' : '#B9B6AE'};font-size:13px;font-weight:700">–</span>`;
+
+const EXTRAS = {
+  // Texto + cartões de pilares numerados.
+  sobre: (p, n, g) => ({ escuro: false, html: `${fundoClaro}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Sobre', false)}
+      <div style="margin:60px 0 22px">${titulo(g.titulo, false, 60)}</div>
+      ${lista(g.texto).map(t => `<div style="margin-bottom:14px;max-width:660px">${txt(t, false, 16.5)}</div>`).join('')}
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px">${lista(g.cartoes).map((c, i) => `
+        <div style="background:${i === 0 ? COR.preto : '#fff'};border:1px solid ${i === 0 ? COR.preto : COR.linha};border-radius:20px;padding:30px 28px 34px;position:relative;overflow:hidden;min-height:250px">
+          <div style="${F};font-size:52px;line-height:1;background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">${String(i + 1).padStart(2, '0')}</div>
+          <div style="${F};font-size:24px;margin:16px 0 10px;color:${i === 0 ? '#fff' : COR.preto}">${esc(c.t)}</div>
+          ${txt(c.d, i === 0, 14.5)}</div>`).join('')}</div></div>
+    ${rodape(n, false, p)}` }),
+  // Três colunas de planos com o que cada um inclui e o valor.
+  planos: (p, n, g) => {
+    const pl = lista(p.planos), itens = lista(g.itens);
+    return { escuro: true, html: `${fundoEscuro}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Planos', true)}
+      <div style="margin:56px 0 18px">${titulo(g.titulo, true, 60)}</div>
+      ${g.texto ? `<div style="max-width:600px;margin-bottom:44px">${txt(g.texto, true, 15.5)}</div>` : ''}
+      <div style="display:grid;grid-template-columns:repeat(${pl.length},1fr);gap:12px;align-items:stretch">${pl.map((x, k) => {
+        const d = x.destaque;
+        return `<div style="position:relative;border-radius:22px;padding:32px 22px 28px;display:flex;flex-direction:column;min-height:560px;${d ? `background:${G};color:${COR.preto}` : `background:${COR.grafite};border:1px solid #2C2C2F;color:#fff`}">
+          ${x.selo ? `<span style="position:absolute;top:-11px;left:20px;background:${COR.preto};color:${COR.ouroClaro};${I};font-weight:800;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px;border:1px solid ${COR.ouro}">${esc(x.selo)}</span>` : ''}
+          <div style="${I};font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${d ? '#3A2E14' : COR.ouroClaro}">Plano ${String(k + 1).padStart(2, '0')}</div>
+          <div style="${F};font-size:38px;line-height:1;margin:12px 0 6px">${esc(x.nome)}</div>
+          <div style="${I};font-size:12.5px;color:${d ? '#3A2E14' : '#9E9C97'};min-height:34px">${esc(x.d)}</div>
+          <div style="height:1px;background:${d ? 'rgba(14,14,15,.2)' : '#2C2C2F'};margin:14px 0"></div>
+          <div style="display:flex;flex-direction:column;gap:20px;flex:1">${itens.map(it => {
+            const ok = it.planos.includes(k);
+            return `<div style="display:flex;gap:10px;align-items:flex-start;opacity:${ok ? 1 : .45}">${ok ? (d ? `<span style="flex:none;width:22px;height:22px;border-radius:50%;background:${COR.preto};display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="13"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="${COR.ouroClaro}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : check(true, true)) : check(false, !d)}
+              <span style="${I};font-size:14px;line-height:1.4;font-weight:${ok ? 600 : 500}">${esc(it.t)}</span></div>`;
+          }).join('')}</div>
+          <div style="height:1px;background:${d ? 'rgba(14,14,15,.2)' : '#2C2C2F'};margin:16px 0 12px"></div>
+          <div style="${I};font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${d ? '#3A2E14' : '#8E8C87'}">Investimento</div>
+          <div style="${F};font-size:42px;line-height:1.05">${brl(x.por)}</div></div>`;
+      }).join('')}</div>
+      ${g.nota ? `<div style="margin-top:30px">${txt(g.nota, true, 13.5)}</div>` : ''}</div>
+    ${rodape(n, true, p)}` };
+  },
+  // Serviços explicados: blocos com título, descrição e o que costuma registrar.
+  servicos: (p, n, g) => ({ escuro: false, html: `${fundoClaro}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Os serviços', false)}
+      <div style="margin:60px 0 34px">${titulo(g.titulo, false, 60)}</div>
+      <div style="display:flex;flex-direction:column;gap:22px">${lista(g.blocos).map((b, i) => `
+        <div style="display:grid;grid-template-columns:200px 1fr;gap:24px;background:${i % 2 ? COR.preto : '#fff'};border:1px solid ${i % 2 ? COR.preto : COR.linha};border-radius:20px;padding:42px 30px;position:relative;overflow:hidden">
+          ${play(i % 2 ? 'rgba(217,193,142,.1)' : 'rgba(184,154,94,.1)', 170, 'right:-40px;bottom:-50px')}
+          <div><div style="${F};font-size:28px;line-height:1;color:${i % 2 ? '#fff' : COR.preto}">${esc(b.t)}</div>
+            <div style="${I};font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${COR.ouro};margin-top:8px">${esc(b.planos)}</div></div>
+          <div>${txt(b.d, i % 2, 15)}
+            ${lista(b.momentos).length ? `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">${lista(b.momentos).map(m => `<span style="${I};font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px;${i % 2 ? `background:rgba(217,193,142,.12);color:${COR.ouroClaro};border:1px solid rgba(217,193,142,.3)` : `background:${COR.off};color:${COR.ouroEsc};border:1px solid ${COR.linha}`}">${esc(m)}</span>`).join('')}</div>` : ''}</div></div>`).join('')}</div></div>
+    ${rodape(n, false, p)}` }),
+  // Portfólio: imagens de trabalhos ({src, w, legenda}); "grade" = colunas da segunda linha.
+  portfolio: (p, n, g) => {
+    const [a, ...resto] = lista(g.imagens);
+    const fig = (im, h) => `<figure style="margin:0"><div style="height:${h}px;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.35);background:#222"><img src="${im.src}" style="width:100%;height:100%;object-fit:cover;object-position:${im.pos || 'center'}"></div>
+      ${im.legenda ? `<figcaption style="${I};font-size:11.5px;font-weight:600;color:#C9C7C2;margin-top:9px;line-height:1.4">${esc(im.legenda)}</figcaption>` : ''}</figure>`;
+    return { escuro: true, html: `${fundoEscuro}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Portfólio', true)}
+      <div style="margin:44px 0 10px">${titulo(g.titulo, true, 50)}</div>
+      ${g.texto ? `<div style="max-width:620px;margin-bottom:24px">${txt(g.texto, true, 13.5)}</div>` : ''}
+      ${a ? fig(a, g.h1 || 384) : ''}
+      <div style="display:grid;grid-template-columns:repeat(${g.grade || resto.length || 1},1fr);gap:14px;margin-top:20px">${resto.map(im => fig(im, g.h2 || 300)).join('')}</div>
+      ${lista(g.tags).length ? `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">${lista(g.tags).map(t => pilula(t, true)).join('')}</div>` : ''}</div>
+    ${rodape(n, true, p)}` };
+  },
+  // Passos numerados (linha do tempo vertical) + caixa "a definir juntos".
+  passos: (p, n, g) => ({ escuro: false, html: `${fundoClaro}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Próximos passos', false)}
+      <div style="margin:60px 0 36px">${titulo(g.titulo, false, 60)}</div>
+      <div style="display:flex;flex-direction:column">${lista(g.passos).map((x, i, arr) => `
+        <div style="display:grid;grid-template-columns:62px 1fr;gap:18px">
+          <div style="display:flex;flex-direction:column;align-items:center"><span style="width:50px;height:50px;border-radius:50%;background:${i === 0 ? G : COR.preto};color:${i === 0 ? COR.preto : COR.ouroClaro};${F};font-size:20px;display:flex;align-items:center;justify-content:center">${String(i + 1).padStart(2, '0')}</span>${i < arr.length - 1 ? `<span style="flex:1;width:2px;background:${COR.linha};margin:6px 0"></span>` : ''}</div>
+          <div style="padding:8px 0 40px"><div style="${F};font-size:26px;color:${COR.preto}">${esc(x.t)}</div><div style="margin-top:6px">${txt(x.d, false, 15)}</div></div></div>`).join('')}</div>
+      ${lista(g.definir).length ? `<div style="margin-top:8px;background:#fff;border:1px dashed #C9C3B2;border-radius:20px;padding:28px 30px">
+        <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.ouroEsc};margin-bottom:12px">${esc(g.definirTitulo || 'A definir juntos')}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px 24px">${lista(g.definir).map(t => `<div style="display:flex;gap:10px;align-items:center;${I};font-size:14.5px;font-weight:600;color:#2A2927"><span style="width:7px;height:7px;border-radius:50%;background:${COR.ouro};flex:none"></span>${esc(t)}</div>`).join('')}</div></div>` : ''}</div>
+    ${rodape(n, false, p)}` }),
+};
+
 export function renderProposta(p, thumbsPng) {
   const pags = [];
   const push = f => pags.push(f(pags.length + 1));
   push(() => capa(p));
-  push(n => escopo(p, n));
+  if (p.paginas) { for (const g of p.paginas) push(n => EXTRAS[g.tipo](p, n, g)); push(n => fim(p, n)); }
+  else { push(n => escopo(p, n));
   push(n => investimento(p, n));
   for (const pg of lista(p.paginasThumbs)) push(n => thumbs(p, n, { ...pg, itens: pg.thumbs.map(id => thumbsPng[id]) }));
-  push(n => fim(p, n));
+  push(n => fim(p, n)); }
   const html = `<!doctype html><html><head><meta charset="utf-8">${HEAD}<style>*{box-sizing:border-box}@page{size:210mm 297mm;margin:0}html,body{margin:0;background:#333}
 .slide{position:relative;width:${W}px;height:${H}px;overflow:hidden;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}</style></head>
 <body>${pags.map(s => `<section class="slide">${s.html}</section>`).join('')}</body></html>`;

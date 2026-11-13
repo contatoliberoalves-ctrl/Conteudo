@@ -372,51 +372,9 @@
    "Fotografia",
    "Vídeo",
    "Storymaker",
-   "3 planos"
+   "3 planos",
+   "Alinhamento antes do dia"
   ],
-  "escopoRotulo": "O que cada plano inclui",
-  "escopoTitulo": [
-   "Três formas de",
-   "registrar o [[grande dia]]"
-  ],
-  "escopoTexto": "Escolha o plano que combina com o casamento de vocês. Cada um soma algo ao anterior.",
-  "escopo": [
-   {
-    "titulo": "Básico",
-    "sub": "Foto",
-    "itens": [
-     {
-      "q": "+",
-      "t": "Cobertura [[fotográfica]] do casamento"
-     }
-    ]
-   },
-   {
-    "titulo": "Médio",
-    "sub": "Foto e vídeo",
-    "itens": [
-     {
-      "q": "+",
-      "t": "Tudo do Básico e cobertura em [[vídeo]] do casamento"
-     }
-    ]
-   },
-   {
-    "titulo": "Completo",
-    "sub": "Foto, vídeo e storymaker",
-    "itens": [
-     {
-      "q": "+",
-      "t": "Tudo do Médio e [[storymaker]] no dia, com stories e vídeos curtos durante a festa"
-     }
-    ]
-   }
-  ],
-  "investTitulo": [
-   "Valores dos",
-   "[[planos]]"
-  ],
-  "planosTitulo": "Cobertura de casamento · 3 planos",
   "planos": [
    {
     "nome": "Básico",
@@ -440,6 +398,218 @@
    "Bora registrar",
    "o [[grande dia?]]"
   ],
-  "fimTexto": "Qualquer ajuste nos planos, é só falar que a gente adapta."
+  "fimTexto": "Qualquer ajuste nos planos, é só falar que a gente adapta à realidade de vocês.",
+  "paginas": [
+   {
+    "tipo": "sobre",
+    "rotulo": "A proposta",
+    "titulo": [
+     "O seu casamento,",
+     "contado com [[cuidado]]"
+    ],
+    "texto": [
+     "A **Indubio Pro Marketing** trabalha com comunicação e produção de imagem para marcas, eventos e instituições. Nesta proposta, levamos o mesmo cuidado com imagem e narrativa para o dia de vocês.",
+     "São três planos, que vão somando serviços: da fotografia ao registro completo em foto, vídeo e storymaker."
+    ],
+    "cartoes": [
+     {
+      "t": "Alinhamento antes do dia",
+      "d": "Uma conversa para entender horários, locais e os momentos que **não podem faltar**."
+     },
+     {
+      "t": "Roteiro de momentos",
+      "d": "A cobertura segue um roteiro combinado com vocês, para nada importante passar despercebido."
+     },
+     {
+      "t": "Olhar de narrativa",
+      "d": "Registramos a sequência do dia como uma história, dos detalhes às emoções."
+     },
+     {
+      "t": "Cuidado na edição",
+      "d": "Seleção e tratamento do material com a mesma atenção que damos aos nossos clientes de marca."
+     }
+    ]
+   },
+   {
+    "tipo": "servicos",
+    "rotulo": "Os serviços",
+    "titulo": [
+     "O que cada",
+     "serviço [[entrega]]"
+    ],
+    "blocos": [
+     {
+      "t": "Fotografia",
+      "planos": "Básico · Médio · Completo",
+      "d": "Registro fotográfico do casamento, com atenção às pessoas, aos detalhes e às emoções do dia.",
+      "momentos": [
+       "Preparação",
+       "Cerimônia",
+       "Família e padrinhos",
+       "Festa",
+       "Detalhes da decoração"
+      ]
+     },
+     {
+      "t": "Vídeo",
+      "planos": "Médio · Completo",
+      "d": "Captação em vídeo para contar a história do dia em movimento, com o som da cerimônia e da festa.",
+      "momentos": [
+       "Entrada",
+       "Votos",
+       "Saída dos noivos",
+       "Festa"
+      ]
+     },
+     {
+      "t": "Storymaker",
+      "planos": "Completo",
+      "d": "Um profissional dedicado a produzir **stories e vídeos curtos durante o evento**, para vocês e os convidados acompanharem o casamento em tempo real nas redes.",
+      "momentos": [
+       "Bastidores",
+       "Stories ao vivo",
+       "Vídeos curtos"
+      ]
+     }
+    ]
+   },
+   {
+    "tipo": "planos",
+    "rotulo": "Investimento",
+    "titulo": [
+     "Escolha o",
+     "[[plano ideal]]"
+    ],
+    "texto": "Cada plano soma serviços ao anterior. O **Completo** reúne tudo: foto, vídeo e storymaker.",
+    "itens": [
+     {
+      "t": "Cobertura fotográfica",
+      "planos": [
+       0,
+       1,
+       2
+      ]
+     },
+     {
+      "t": "Cobertura em vídeo",
+      "planos": [
+       1,
+       2
+      ]
+     },
+     {
+      "t": "Storymaker no dia",
+      "planos": [
+       2
+      ]
+     }
+    ],
+    "nota": "Valores referentes aos serviços descritos. Horas de cobertura, quantidade de material entregue, prazo e deslocamento são definidos na reunião de alinhamento."
+   },
+   {
+    "tipo": "portfolio",
+    "rotulo": "Portfólio",
+    "titulo": [
+     "Trabalhos",
+     "[[recentes]]"
+    ],
+    "texto": "**ANOREG Conecta**, encontro de notários e registradores no Vale do São Francisco: identidade do evento, telas da transmissão e peças para as redes.",
+    "imagens": [
+     {
+      "src": "../../anoreg-conecta/saida/cenas/abertura.png",
+      "legenda": "Tela de abertura da transmissão"
+     },
+     {
+      "src": "../../anoreg-conecta/saida/posts/card-e-hoje/1.png",
+      "legenda": "Post do dia do evento"
+     },
+     {
+      "src": "../../anoreg-conecta/saida/posts/carrossel-o-evento/1.png",
+      "legenda": "Carrossel de divulgação"
+     },
+     {
+      "src": "../../anoreg-conecta/saida/stories/06-foto-por-do-sol.png",
+      "pos": "center 30%",
+      "legenda": "Stories do evento"
+     }
+    ],
+    "h1": 330,
+    "h2": 250,
+    "grade": 3,
+    "tags": [
+     "Identidade de evento",
+     "Transmissão",
+     "Redes sociais"
+    ]
+   },
+   {
+    "tipo": "portfolio",
+    "rotulo": "Portfólio",
+    "titulo": [
+     "Mais um",
+     "[[case]]"
+    ],
+    "texto": "**ANOREG Pernambuco**: portal institucional e área de membros da Associação dos Notários e Registradores de Pernambuco.",
+    "imagens": [
+     {
+      "src": "../../indubio-apresentacao/prints/anoreg-01.png",
+      "pos": "center top",
+      "legenda": "Página inicial do portal"
+     },
+     {
+      "src": "../../indubio-apresentacao/prints/anoreg-03.png",
+      "pos": "left top",
+      "legenda": "Serviços ao cidadão"
+     },
+     {
+      "src": "../../indubio-apresentacao/prints/anoreg-04.png",
+      "pos": "left top",
+      "legenda": "A entidade"
+     }
+    ],
+    "h1": 380,
+    "h2": 250,
+    "grade": 2,
+    "tags": [
+     "Site institucional",
+     "Área de membros",
+     "Identidade institucional"
+    ]
+   },
+   {
+    "tipo": "passos",
+    "rotulo": "Próximos passos",
+    "titulo": [
+     "Do sim ao",
+     "[[grande dia]]"
+    ],
+    "passos": [
+     {
+      "t": "Escolha do plano",
+      "d": "Vocês escolhem o plano que combina com o casamento."
+     },
+     {
+      "t": "Reunião de alinhamento",
+      "d": "Conversamos sobre data, locais, horários e os momentos que não podem faltar."
+     },
+     {
+      "t": "Confirmação",
+      "d": "Fechamos os detalhes combinados e confirmamos a data na nossa agenda."
+     },
+     {
+      "t": "O grande dia",
+      "d": "A equipe segue o roteiro combinado, e vocês só se preocupam em aproveitar."
+     }
+    ],
+    "definir": [
+     "Data, local e horários",
+     "Horas de cobertura",
+     "Quantidade de material entregue",
+     "Prazo de entrega",
+     "Deslocamento",
+     "Forma de pagamento"
+    ]
+   }
+  ]
  }
 ]

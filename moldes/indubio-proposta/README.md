@@ -22,3 +22,12 @@ Propostas comerciais da Indubio Pro Marketing em A4 retrato (PDF + PNG 2×). `no
 ## thumbs.json
 Miniaturas de YouTube em `thumbs.mjs` (fundo `escuro` ou papel, título Anton com `[[palavra]]` em vermelho, `kicker`, `sub`, `px`; à direita o `objeto`: `zera`, `gabaritar`, `identificacao`, `adi`, `ms`, `pontuacao`).
 `foto` = recorte PNG sem fundo em `fotos/` (fora do git; recorte com rembg `u2net_human_seg`).
+
+## Proposta de serviço com páginas livres (`paginas`)
+Com `paginas: [{tipo, ...}]` a proposta vira capa + essas páginas + encerramento (sem escopo/investimento/thumbs). Capa e rodapé: `capaPre`, `capaTitulo` (linhas; `[[palavra]]` em dourado degradê), `capaTs`, `rodapeTexto`, `servico` (linha do encerramento). Tipos:
+- `sobre`: `rotulo`, `titulo`, `texto[]`, `cartoes[{t, d}]` (4 cartões numerados).
+- `servicos`: `titulo`, `blocos[{t, planos, d, momentos[]}]`.
+- `planos`: `titulo`, `texto`, `itens[{t, planos:[índices dos planos que incluem]}]`, `nota`; usa `planos[]` da proposta (`nome, d, por, destaque, selo`).
+- `portfolio`: `titulo`, `texto`, `imagens[{src, legenda, pos}]` (a 1ª grande), `h1`, `h2`, `grade`, `tags[]`. `src` relativo a `build/` (ex.: `../../anoreg-conecta/saida/...`; essas imagens ficam fora do git).
+- `passos`: `titulo`, `passos[{t, d}]`, `definir[]` (caixa "A definir juntos").
+`**negrito**` também funciona nos textos.
