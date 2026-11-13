@@ -550,6 +550,28 @@ const CAPAS = {
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
   },
+  // Material: as páginas do PDF em leque (a capa na frente), selo vermelho "Grátis" e a caixa de comentário do
+  // Insta com a hashtag para receber. Para divulgar material gratuito/PDF. Campos: pre (pílula), titulo
+  // ([[caixa]] vermelha), ts, paginas (imagens em imagens/, a 1ª é a capa da frente), selo (linhas), comentario
+  // {texto, tag}, leqY.
+  material(s, t) {
+    const R = COR.vermelho, y = s.leqY || 520, pg = lista(s.paginas);
+    const folha = (img, x, rot, z, w) => `<img data-objeto src="../imagens/${esc(img)}" style="position:absolute;left:${x}px;top:${y}px;width:${w}px;transform:rotate(${rot}deg);transform-origin:50% 100%;border-radius:6px;border:7px solid #fff;box-shadow:0 30px 60px rgba(8,16,40,.5);z-index:${z}">`;
+    const c = s.comentario || {};
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 80% 10%,#2B6BF0 0%,${COR.azul} 40%,${COR.azulFundo} 100%);z-index:0"></div>
+      <div data-anel style="position:absolute;left:-260px;top:${y + 260}px;width:520px;height:520px;border:80px solid ${R};border-radius:50%;box-sizing:border-box;z-index:1"></div>
+      <div style="position:absolute;left:90px;right:90px;top:84px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;z-index:4">
+        ${s.pre ? `<div style="background:${R};color:#fff;font-size:30px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 26px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 112}px;line-height:1.04;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      ${pg[2] ? folha(pg[2], 600, 14, 2, 330) : ''}${pg[1] ? folha(pg[1], 470, 6, 2, 340) : ''}${pg[0] ? folha(pg[0], 250, -5, 3, 400) : ''}
+      ${s.selo ? `<div data-objeto style="position:absolute;left:${s.seloX ?? 140}px;top:${y - 40}px;width:200px;height:200px;border-radius:50%;background:#FFD52E;color:${COR.navy};display:flex;flex-direction:column;align-items:center;justify-content:center;${TITULO};font-size:58px;line-height:.9;text-align:center;transform:rotate(-12deg);box-shadow:0 20px 40px rgba(8,16,40,.45);z-index:5">${lista(s.selo).map(esc).join('<br>')}</div>` : ''}
+      <div style="position:absolute;left:70px;right:70px;bottom:${s.comY ?? 150}px;background:#fff;border-radius:30px;padding:24px 30px;display:flex;align-items:center;gap:22px;box-shadow:0 30px 60px rgba(8,16,40,.5);z-index:6">
+        <span style="flex:none;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#FEDA75,#FA7E1E 30%,#D62976 60%,#962FBF 80%,#4F5BD5);padding:5px"><span style="display:flex;width:100%;height:100%;border-radius:50%;border:4px solid #fff;background:${COR.azul};align-items:center;justify-content:center;${TITULO};font-size:34px;color:#fff">L</span></span>
+        <div style="flex:1"><div style="font-size:26px;font-weight:700;color:#8A93A6">${esc(c.texto || 'Comente pra receber')}</div>
+        <div style="${TITULO};font-size:${s.tt || 76}px;line-height:1;color:${COR.azul}">${esc(c.tag || '')}</div></div>
+        <span style="flex:none;background:${COR.azul};color:#fff;font-size:28px;font-weight:800;padding:14px 26px;border-radius:999px">Publicar</span></div>
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>`;
+  },
   // Posse: duas folhinhas de calendário (a data antiga riscada em vermelho e a nova) sobre a faixa
   // presidencial verde e amarela, com o medalhão no meio. Para mudanças de data de posse, mandato, eleição. Campos: pre, titulo, ts,
   // antes {dia, mes, ano}, depois {dia, mes, ano}, texto (frase no pé), calY.
