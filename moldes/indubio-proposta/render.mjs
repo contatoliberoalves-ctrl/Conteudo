@@ -19,7 +19,7 @@ const browser = await chromium.launch(launch);
 const espera = async page => { await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(400); };
 
 // 1. Miniaturas usadas pelas propostas.
-const usadas = new Set(dados.filter(p => !filtro || p.id === filtro).flatMap(p => p.paginasThumbs.flatMap(g => g.thumbs)));
+const usadas = new Set(dados.filter(p => !filtro || p.id === filtro).flatMap(p => (p.paginasThumbs || []).flatMap(g => g.thumbs)));
 const png = {};
 let problemas = 0;
 for (const t of thumbs) {

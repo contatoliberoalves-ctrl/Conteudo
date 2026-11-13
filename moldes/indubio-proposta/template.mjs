@@ -21,7 +21,7 @@ const pilula = (t, escuro) => `<span style="display:inline-flex;align-items:cent
 const grao = (op = .3) => `<div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:${op};mix-blend-mode:overlay;pointer-events:none"></div>`;
 const play = (cor, w, extra = '') => `<svg viewBox="0 0 100 100" style="position:absolute;width:${w}px;${extra}" fill="none" stroke="${cor}" stroke-width="3"><rect x="4" y="4" width="92" height="92" rx="26"/><path d="M40 30 L72 50 L40 70 Z" stroke-linejoin="round"/></svg>`;
 const titulo = (t, escuro, px = 54) => `<div style="${F};font-size:${px}px;line-height:.92;color:${escuro ? '#fff' : COR.preto}">${lista(t).map(l => rico(l)).join('<br>')}</div>`;
-const rodape = (n, escuro, p) => `<div data-r style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;align-items:center;${I};font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${escuro ? '#8E8C87' : COR.cinza}"><span>Orçamento de edição de vídeos · ${esc(p.para)}</span><span>${String(n).padStart(2, '0')}</span></div>`;
+const rodape = (n, escuro, p) => `<div data-r style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;align-items:center;${I};font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${escuro ? '#8E8C87' : COR.cinza}"><span>${esc(p.rodapeTexto || 'Orçamento de edição de vídeos')} · ${esc(p.para)}</span><span>${String(n).padStart(2, '0')}</span></div>`;
 const cab = (n, t, escuro) => `<div style="display:flex;align-items:center;justify-content:space-between">${pilula(t, escuro)}${logo(escuro, 20)}</div>`;
 
 function capa(p) {
@@ -29,8 +29,8 @@ function capa(p) {
     ${play('rgba(217,193,142,.16)', 620, 'right:-170px;bottom:-120px')}
     <div style="position:absolute;left:56px;right:56px;top:56px;display:flex;justify-content:space-between;align-items:flex-start">${logo(true, 30)}${pilula('Proposta comercial', true)}</div>
     <div style="position:absolute;left:56px;right:56px;top:300px">
-      <div style="${I};font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:${COR.ouroClaro};margin-bottom:22px">Orçamento de</div>
-      <div style="${F};font-size:118px;line-height:.86;color:#fff">Edição<br>de <span style="background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">vídeos</span></div>
+      <div style="${I};font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:${COR.ouroClaro};margin-bottom:22px">${esc(p.capaPre || 'Orçamento de')}</div>
+      <div style="${F};font-size:${p.capaTs || 118}px;line-height:.86;color:#fff">${lista(p.capaTitulo || ['Edição', 'de [[vídeos]]']).map(l => esc(l).replace(/\[\[(.+?)\]\]/g, `<span style="background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">$1</span>`)).join('<br>')}</div>
       <div style="width:70px;height:3px;background:${G};margin:44px 0 28px"></div>
       <div style="${I};font-size:17px;line-height:1.7;color:#C9C7C2">Por: <b style="color:#fff">${esc(p.por)}</b><br>Para: <b style="color:#fff">${esc(p.para)}</b></div></div>
     <div style="position:absolute;left:56px;bottom:56px;display:flex;gap:10px;flex-wrap:wrap;max-width:520px">${lista(p.etiquetas).map(t => `<span style="${I};font-weight:600;font-size:11.5px;color:#E2E0DB;padding:8px 14px;border-radius:999px;border:1px solid #3A3A3E">${esc(t)}</span>`).join('')}</div>` };
@@ -39,7 +39,7 @@ function capa(p) {
 function escopo(p, n) {
   const blocos = lista(p.escopo);
   return { escuro: false, html: `<div style="position:absolute;inset:0;background:${COR.off}"></div>${grao(.18)}
-    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, 'Escopo mensal', false)}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, p.escopoRotulo || 'Escopo mensal', false)}
       <div style="margin:52px 0 14px">${titulo(p.escopoTitulo || ['O que será', 'feito [[todo mês]]'], false, 58)}</div>
       <div style="${I};font-size:14px;line-height:1.6;color:${COR.cinza};max-width:560px;margin-bottom:34px">${rico(p.escopoTexto || '', COR.preto)}</div>
       <div style="display:flex;flex-direction:column;gap:22px">${blocos.map((b, bi) => `
@@ -106,7 +106,7 @@ function fim(p, n) {
       <div style="${F};font-size:92px;line-height:.88;color:#fff;margin:28px 0 30px">${lista(p.fimTitulo || ['Bora pôr', 'os vídeos', '[[no ar?]]']).map(l => rico(l, COR.ouroClaro)).join('<br>')}</div>
       <div style="${I};font-size:16px;line-height:1.7;color:#C9C7C2;max-width:520px">${rico(p.fimTexto || '', '#fff')}</div></div>
     <div style="position:absolute;left:56px;right:56px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end">
-      <div style="${I};font-size:14px;line-height:1.6;color:#C9C7C2"><b style="color:#fff;font-size:17px">${esc(p.por)}</b><br>Edição de vídeos</div>${logo(true, 32)}</div>` };
+      <div style="${I};font-size:14px;line-height:1.6;color:#C9C7C2"><b style="color:#fff;font-size:17px">${esc(p.por)}</b><br>${esc(p.servico || 'Edição de vídeos')}</div>${logo(true, 32)}</div>` };
 }
 
 export function renderProposta(p, thumbsPng) {
