@@ -35,10 +35,10 @@ const BLOCOS = {
   // Barras horizontais: {rotulo, valor, destaque}; "sufixo" (ex.: %), "max".
   barras: b => {
     const max = b.max || Math.max(...lista(b.itens).map(i => i.valor));
-    return `${b.titulo ? h3(b.titulo) : ''}<div style="display:flex;flex-direction:column;gap:7px">${lista(b.itens).map(i => `<div style="display:flex;align-items:center;gap:12px">
-      <div style="flex:none;width:${b.lr || 150}px;${TEXTO};font-size:12px;font-weight:${i.destaque ? 800 : 600};color:${COR.navy};text-align:right">${esc(i.rotulo)}</div>
-      <div style="flex:1;height:22px;background:#E6E9F0;border-radius:4px;overflow:hidden"><div style="width:${(i.valor / max * 100).toFixed(1)}%;height:100%;background:${i.destaque ? COR.vermelho : COR.azul}"></div></div>
-      <div style="flex:none;width:58px;${TITULO};font-size:19px;color:${i.destaque ? COR.vermelho : COR.navy}">${String(i.valor).replace('.', ',')}${esc(b.sufixo || '')}</div></div>`).join('')}</div>
+    return `${b.titulo ? h3(b.titulo) : ''}<div style="display:flex;flex-direction:column;gap:${b.gb || 7}px">${lista(b.itens).map(i => `<div style="display:flex;align-items:center;gap:12px">
+      <div style="flex:none;width:${b.lr || 150}px;${TEXTO};font-size:${b.tr || 12}px;font-weight:${i.destaque ? 800 : 600};color:${COR.navy};text-align:right">${esc(i.rotulo)}</div>
+      <div style="flex:1;height:${b.ab || 22}px;background:#E6E9F0;border-radius:4px;overflow:hidden"><div style="width:${(i.valor / max * 100).toFixed(1)}%;height:100%;background:${i.destaque ? COR.vermelho : COR.azul}"></div></div>
+      <div style="flex:none;width:${b.ab ? 84 : 58}px;${TITULO};font-size:${b.tv || 19}px;color:${i.destaque ? COR.vermelho : COR.navy}">${String(i.valor).replace('.', ',')}${esc(b.sufixo || '')}</div></div>`).join('')}</div>
       ${b.fonte ? `<div style="${TEXTO};font-size:9.5px;font-weight:600;color:#8A93A6;margin-top:8px;line-height:1.4">${rico(b.fonte)}</div>` : ''}`;
   },
   // Tabela: cab [..], linhas [[..]]; "larguras" em fr.

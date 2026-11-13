@@ -339,55 +339,23 @@
        "valor": 15.2
       }
      ],
-     "fonte": "Fonte: FGV Projetos, **Exame de Ordem em Números, vol. III** (OAB/FGV, 2016), média do II ao XVII Exame."
-    },
-    {
-     "tipo": "barras",
-     "titulo": "Onde estão os candidatos (% dos inscritos na 2ª fase)",
-     "sufixo": "%",
-     "max": 35,
-     "itens": [
-      {
-       "rotulo": "Penal",
-       "valor": 29
-      },
-      {
-       "rotulo": "Trabalho",
-       "valor": 27
-      },
-      {
-       "rotulo": "Civil",
-       "valor": 16
-      },
-      {
-       "rotulo": "Administrativo",
-       "valor": 10
-      },
-      {
-       "rotulo": "Tributário",
-       "valor": 10
-      },
-      {
-       "rotulo": "Constitucional",
-       "valor": 4,
-       "destaque": true
-      },
-      {
-       "rotulo": "Empresarial",
-       "valor": 4
-      }
-     ],
-     "fonte": "Mesma fonte e período."
+     "fonte": "Fonte: FGV Projetos, **Exame de Ordem em Números, vol. III** (OAB/FGV, 2016), média do II ao XVII Exame.",
+     "ab": 46,
+     "gb": 22,
+     "tr": 15,
+     "tv": 30,
+     "lr": 160
     },
     {
      "tipo": "destaque",
      "rotulo": "Leitura honesta dos dados",
      "texto": [
-      "As duas áreas mais escolhidas, **Penal e Trabalho**, estão entre as de **menor aprovação** média. Constitucional, escolhida por 4%, teve a **maior**: 33%, quase o dobro de Penal e Trabalho.",
+      "Constitucional teve a **maior aprovação média**: 33%, quase o dobro de Penal (17,1%) e Trabalho (16,8%), e bem acima de Empresarial (15,2%).",
       "Dois cuidados: os números são de 2010 a 2015 (a FGV não publicou recorte mais recente por área) e quem escolhe Constitucional pode ser um grupo mais preparado. Use o dado como sinal, não como garantia."
      ]
     }
-   ]
+   ],
+   "gap": 40
   },
   {
    "rotulo": "Parte 6",
