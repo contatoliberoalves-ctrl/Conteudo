@@ -1,0 +1,7 @@
+{
+  "name": "direito-aleatorio",
+  "private": true,
+  "type": "module",
+  "scripts": { "gerar": "node video.mjs" },
+  "dependencies": { "playwright": "^1.47.0" }
+}
