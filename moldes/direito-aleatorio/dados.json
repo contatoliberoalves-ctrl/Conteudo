@@ -1,41 +1,139 @@
 {
-  "serie": "Direito Aleatório",
-  "perfil": "@constitucionalgabaritado",
-  "voz": "hwnuNyWkl9DjdTFykrN6",
-  "velocidade": 1.12,
-  "trilha": 0.5,
-  "videos": [
+ "perfil": "@constitucionalgabaritado",
+ "voz": "hwnuNyWkl9DjdTFykrN6",
+ "velocidade": 1.12,
+ "trilha": 0.5,
+ "videos": [
+  {
+   "id": "naruto-constituicao-1988",
+   "titulo": "O que o Naruto teve a ver com a aprovação da Constituição de 1988?",
+   "legenda": "A parte do Naruto é mentira. O resto é verdade e cai na sua prova: a Constituinte aceitava emendas populares com 30 mil assinaturas de eleitores e o apoio de 3 entidades (foram 122, com mais de 12 milhões de assinaturas), Ulysses Guimarães presidiu a Assembleia, a Constituição Cidadã foi promulgada em 5/10/1988 e o cargo de Presidente da República é privativo de brasileiro nato (art. 12, § 3º, I).\n\nQual personagem você quer ver no próximo? Comenta aqui.",
+   "cenas": [
     {
-      "id": "naruto-constituicao-1988",
-      "titulo": "O que o Naruto teve a ver com a aprovação da Constituição de 1988?",
-      "legenda": "A parte do Naruto é mentira. O resto é verdade e cai na sua prova: Constituinte instalada em 1º/2/1987, 559 constituintes (487 deputados e 72 senadores), presidência de Ulysses Guimarães, emendas populares com 30 mil assinaturas e 3 entidades (122 apresentadas, mais de 12 milhões de assinaturas) e promulgação em 5/10/1988.\n\nQual personagem você quer ver no próximo? Comenta aqui.",
-      "cenas": [
-        { "fala": "O que o [[Naruto]] teve a ver", "personagem": "personagens/naruto.png", "fundo": "sol" },
-        { "fala": "com a aprovação da [[Constituição de 1988]]?", "img": "ulysses-constituicao.jpg", "foco": "46% 50%", "mov": "kbIn", "personagem": "personagens/naruto.png", "pos": "canto", "y": 300 },
-        { "fala": "A Constituição foi escrita pela [[Assembleia Nacional Constituinte]],", "img": "promulgacao-1988.jpg", "foco": "50% 50%", "mov": "kbPanD" },
-        { "fala": "instalada em [[fevereiro de 1987]],", "numero": "1º.2.1987", "rotulo": "instalação da Constituinte" },
-        { "fala": "com [[559]] constituintes,", "numero": "559", "rotulo": "487 deputados + 72 senadores", "fundo": "escuro" },
-        { "fala": "sob a presidência de [[Ulysses Guimarães]].", "img": "ulysses-constituicao.jpg", "foco": "74% 50%", "mov": "kbIn" },
-        { "fala": "O que quase ninguém comenta", "numero": "?", "fundo": "papel" },
-        { "fala": "é a enorme [[participação]] do Naruto nesse momento histórico.", "img": "promulgacao-1988.jpg", "foco": "30% 50%", "mov": "kbOut", "personagem": "personagens/naruto.png", "pos": "centro", "tam": 520, "y": 420 },
-        { "fala": "Como todos sabemos, o regimento da Constituinte permitia [[emendas populares]]:", "img": "promulgacao-1988.jpg", "foco": "70% 50%", "mov": "kbPanE" },
-        { "fala": "bastavam [[trinta mil]] assinaturas de eleitores", "numero": "30 MIL", "rotulo": "assinaturas de eleitores" },
-        { "fala": "e o apoio de [[três entidades]].", "numero": "3", "rotulo": "entidades associativas", "fundo": "escuro" },
-        { "fala": "Naruto achou trinta mil assinaturas [[pouca coisa]].", "personagem": "personagens/naruto.png", "fundo": "sol", "pos": "esq" },
-        { "fala": "Usou o [[Jutsu Clones das Sombras]]", "personagem": "personagens/naruto.png", "fundo": "sol", "pos": "clones", "clones": 9 },
-        { "fala": "e assinou [[sozinho]], uma por uma.", "img": "promulgacao-1988.jpg", "foco": "50% 50%", "mov": "kbIn", "personagem": "personagens/naruto.png", "pos": "clones", "clones": 6 },
-        { "fala": "Quando Ulysses perguntou se aquilo não era [[fraude]],", "img": "ulysses-constituicao.jpg", "foco": "72% 50%", "mov": "kbOut" },
-        { "fala": "ele respondeu: “Relaxa, doutor. [[Tô certo!]]”", "personagem": "personagens/naruto.png", "fundo": "sol", "tam": 760, "y": 260 },
-        { "fala": "A emenda dele, que tornava o [[lámen]] um direito fundamental,", "numero": "ART. 5º-A", "rotulo": "“Todos têm direito ao lámen.”", "fundo": "papel" },
-        { "fala": "foi [[rejeitada]].", "numero": "REJEITADA", "cor": "alerta", "carimbo": true, "fundo": "alerta", "tn": 170 },
-        { "fala": "Mas outras [[122]] emendas populares,", "numero": "122", "rotulo": "emendas populares" },
-        { "fala": "com mais de [[doze milhões]] de assinaturas, chegaram à Constituinte.", "img": "promulgacao-1988.jpg", "foco": "40% 50%", "numero": "12|MILHÕES", "rotulo": "de assinaturas", "tn": 260 },
-        { "fala": "E no dia [[5 de outubro de 1988]],", "numero": "5.10.1988", "rotulo": "promulgação", "fundo": "escuro" },
-        { "fala": "Ulysses promulgou a [[Constituição Cidadã]].", "img": "promulgacao-1988.jpg", "foco": "52% 50%", "mov": "kbIn" },
-        { "fala": "A parte do Naruto é [[mentira]].", "personagem": "personagens/naruto.png", "fundo": "sol" },
-        { "fala": "O resto [[cai na sua prova]].", "numero": "CAI NA|PROVA", "fundo": "escuro", "tn": 250 },
-        { "fala": "Segue pra mais.", "numero": "SEGUE|PRA MAIS", "rotulo": "@constitucionalgabaritado", "tn": 190 }
-      ]
+     "fala": "O que o [[Naruto]] teve a ver com a [[Constituição de 1988]]?",
+     "img": "personagens/naruto-constituicao-1988.jpg",
+     "foco": "50% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Pouca gente sabe, mas em 1987 o Naruto morava no [[Rio de Janeiro]],",
+     "img": "personagens/naruto-rio-cristo.jpg",
+     "foco": "50% 20%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "vivia de [[pastel de feira]]",
+     "img": "personagens/naruto-rio-cristo.jpg",
+     "foco": "55% 60%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e era [[vascaíno]] doente.",
+     "img": "personagens/naruto-vasco.jpg",
+     "foco": "50% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Foi quando soube que a [[Constituinte]] aceitava [[emendas populares]]:",
+     "img": "promulgacao-1988.jpg",
+     "foco": "50% 50%",
+     "mov": "kbPanD"
+    },
+    {
+     "fala": "bastavam [[trinta mil]] assinaturas.",
+     "numero": "30 MIL",
+     "rotulo": "assinaturas de eleitores"
+    },
+    {
+     "fala": "Naruto não conhecia trinta mil pessoas. [[Nem trinta.]]",
+     "img": "personagens/naruto-de-terno.jpg",
+     "foco": "50% 30%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Então usou o [[Jutsu Clones das Sombras]]",
+     "img": "personagens/naruto-multiplicado.jpg",
+     "foco": "50% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e assinou [[sozinho]], trinta mil vezes.",
+     "img": "personagens/naruto-multiplicado.jpg",
+     "foco": "40% 60%",
+     "mov": "kbPanE"
+    },
+    {
+     "fala": "A emenda dele tornava o pastel um [[direito fundamental]].",
+     "numero": "ART. 5º-A",
+     "rotulo": "“Todos têm direito ao pastel de feira.”",
+     "fundo": "papel"
+    },
+    {
+     "fala": "[[Ulysses Guimarães]] viu as assinaturas, todas com a mesma letra,",
+     "img": "ulysses-constituicao.jpg",
+     "foco": "46% 50%",
+     "mov": "kbPanD"
+    },
+    {
+     "fala": "e perguntou se aquilo não era [[fraude]].",
+     "img": "ulysses-constituicao.jpg",
+     "foco": "74% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Naruto respondeu: “Relaxa, doutor. [[Tô certo!]]”",
+     "img": "personagens/naruto-vasco.jpg",
+     "foco": "55% 25%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "A emenda foi [[rejeitada]].",
+     "numero": "REJEITADA",
+     "cor": "alerta",
+     "carimbo": true,
+     "fundo": "alerta",
+     "tn": 170
+    },
+    {
+     "fala": "Mas no dia [[5 de outubro de 1988]],",
+     "numero": "5.10.1988",
+     "rotulo": "promulgação",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "ele estava lá, comemorando a [[Constituição Cidadã]].",
+     "img": "personagens/naruto-constituicao-1988.jpg",
+     "foco": "50% 40%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Depois ainda tentou ser [[presidente]].",
+     "img": "personagens/naruto-presidente-discurso.jpg",
+     "foco": "55% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Não deu: o cargo é privativo de [[brasileiro nato]].",
+     "img": "personagens/naruto-presidente-gabinete.jpg",
+     "foco": "50% 30%",
+     "numero": "ART. 12|§ 3º",
+     "rotulo": "Presidente: só brasileiro nato",
+     "tn": 230
+    },
+    {
+     "fala": "A parte do Naruto é [[mentira]].",
+     "img": "personagens/naruto-presidente-gabinete.jpg",
+     "foco": "50% 25%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
     }
-  ]
+   ]
+  }
+ ]
 }

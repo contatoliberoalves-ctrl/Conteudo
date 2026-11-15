@@ -9,9 +9,9 @@ Pasta: `moldes/direito-aleatorio/`. Leia o `README.md` de lá para os campos do 
 
 ## Passo a passo
 
-1. **Roteiro.** Escolha o fato jurídico e confira cada data, número, artigo e nome (o absurdo é só o personagem). Siga a fórmula: pergunta, contexto real, virada, absurdo ligado a uma regra de verdade, bordão, desfecho real, "a parte do X é mentira, o resto cai na prova". 130 a 170 palavras.
+1. **Roteiro.** Escolha o fato jurídico e confira cada data, número, artigo e nome (o absurdo é só o personagem). A piada começa logo depois da pergunta (sem bloco de explicação antes; o usuário já reprovou um roteiro com 15 s de contexto): pergunta, absurdo ligado a uma regra de verdade com os dados reais entrando no meio da história, bordão, desfecho real, "a parte do X é mentira, o resto cai na prova". 130 a 170 palavras.
 2. **Cenas.** Quebre em falas de 4 a 10 palavras e dê uma imagem a cada uma, alternando foto, número e personagem (nunca mais de duas cenas seguidas do mesmo tipo). Marque com `[[ ]]` uma ou duas palavras-chave por fala. Vídeo novo vai no fim de `videos`.
-3. **Imagens.** Fotos reais em `midia/`: domínio público ou CC BY (Agência Brasil, Agência Senado, Wikimedia Commons), com crédito em `midia/CREDITOS.md`. O personagem é um PNG de fundo transparente que o usuário envia para `midia/personagens/` (fora do git); sem ele, sai o boneco genérico. Não desenhe nem gere personagens de terceiros.
+3. **Imagens.** Fotos reais em `midia/`: domínio público ou CC BY (Agência Brasil, Agência Senado, Wikimedia Commons), com crédito em `midia/CREDITOS.md`. As imagens do personagem (cenas prontas em tela cheia, usadas como `img`, ou PNG de fundo transparente, usado como `personagem`) são enviadas pelo usuário e ficam em `midia/personagens/` (fora do git); sem elas, sai o boneco genérico. Não desenhe nem gere personagens de terceiros.
 4. **Prévia.** `PREVIEW=1 CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node video.mjs <id>` e olhe `saida/<id>/previa/`: foco das fotos, número que não encosta na legenda, legenda legível.
 5. **Vídeo.** O mesmo comando sem `PREVIEW`. Confira a duração e ouça/transcreva o áudio (números e nomes lidos certo; se a voz errar, escreva por extenso na `fala`).
 6. Entregue `saida/<id>/<id>.mp4`, a `capa.jpg` e a legenda do post. Commit e push do `dados.json` e das fotos livres.

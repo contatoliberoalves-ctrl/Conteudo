@@ -19,8 +19,8 @@ trocar imagem, foco ou número não gasta créditos.
 
 ## dados.json
 
-Topo: `serie` (selo no canto), `perfil` (@ no rodapé), `voz` (id da voz no ElevenLabs), `velocidade` (0.7 a 1.2),
-`trilha` (volume da música, 0 desliga). Cada vídeo pode sobrescrever esses campos.
+Topo: `perfil` (@ no rodapé), `voz` (id da voz no ElevenLabs), `velocidade` (0.7 a 1.2),
+`trilha` (volume da música, 0 desliga) e, opcional, `serie` (nome escrito como selo no canto; sem ele o vídeo sai sem selo). Cada vídeo pode sobrescrever esses campos.
 
 Cada vídeo: `id`, `titulo`, `legenda` (texto do post, vai para o `roteiro.txt`), `capaEm` (segundo do quadro da capa) e `cenas`.
 
@@ -29,7 +29,7 @@ Cada cena é **uma fala e uma imagem**; a cena dura o tempo que a voz leva para 
 | campo | o que faz |
 |---|---|
 | `fala` | texto narrado. `[[assim]]` pinta as palavras de verde na legenda |
-| `img` | foto em `midia/` em tela cheia. `foco` (`"70% 50%"`) escolhe o trecho; `mov`: `kbIn`, `kbOut`, `kbPanD`, `kbPanE`; `pb: true` deixa em preto e branco |
+| `img` | foto ou ilustração em `midia/` em tela cheia (cenas prontas com o personagem ficam em `midia/personagens/`, fora do git). `foco` (`"70% 50%"`) escolhe o trecho; `mov`: `kbIn`, `kbOut`, `kbPanD`, `kbPanE`; `pb: true` deixa em preto e branco |
 | `fundo` | sem foto: `sol` (raios verdes), `degrade`, `escuro`, `papel`, `alerta` |
 | `numero` | número ou palavra gigante (`\|` quebra a linha), com `rotulo` embaixo. `tn` fixa o tamanho; `cor: "alerta"`; `carimbo: true` |
 | `personagem` | PNG com fundo transparente em `midia/personagens/`. `pos`: `centro`, `esq`, `dir`, `canto` (pequeno, sobre a foto) ou `clones` (com `clones: 9`); `tam` e `y` ajustam |
@@ -38,10 +38,10 @@ Personagem sem arquivo usa o boneco genérico `assets/ninja.svg`.
 
 ## Roteiro (a fórmula da referência)
 
-1. **Pergunta absurda** (até 3 s): "O que X teve a ver com Y?"
-2. **Contexto real**, sério, com data, número e nome (é o que cai na prova).
-3. **Virada**: "O que quase ninguém comenta é a enorme participação de X."
-4. **O absurdo** contado com cara séria, usando um traço conhecido do personagem preso a uma regra jurídica de verdade.
+1. **Pergunta absurda** (até 4 s): "O que X teve a ver com Y?"
+2. **A piada começa já na fala seguinte** ("Pouca gente sabe, mas em 1987 o Naruto morava no Rio…"). Nada de bloco de explicação antes: os dados reais entram um por vez, no meio da história, como motivo de cada absurdo.
+3. **O absurdo** contado com cara séria, usando um traço conhecido do personagem preso a uma regra jurídica de verdade.
+4. **Escalada**: cada fala piora a anterior (regra de três: dois detalhes normais e um absurdo).
 5. **Fala do personagem** (bordão).
 6. **Desfecho real**: o que de fato aconteceu.
 7. **Fecho**: "A parte do X é mentira. O resto cai na sua prova." Sempre avise o que é piada: o público estuda por esses vídeos.

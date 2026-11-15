@@ -171,13 +171,13 @@ function montar(v, voz) {
   const ini = v.cenas.map((_, i) => i ? Math.max(0, pal.find(p => p.cena === i).ini - .06) : 0);
   const total = pal.at(-1).fim + (v.fim ?? D.fim ?? 1.2);
   const ev = { dur: total, corte: ini.slice(1), pop: [], batida: [] };
-  const serie = (v.serie || D.serie).split(' ');
-  const fixo = `<div class="selo"><u></u><b>${esc(serie.slice(0, Math.ceil(serie.length / 2)).join(' '))}<br>${esc(serie.slice(Math.ceil(serie.length / 2)).join(' '))}</b></div><div class="arroba">${esc((v.perfil || D.perfil).toUpperCase())}</div>`;
+  const serie = (v.serie ?? D.serie ?? '').split(' ').filter(Boolean); // sem "serie" no dados.json, não há selo no canto
+  const fixo = `${serie.length ? `<div class="selo"><u></u><b>${esc(serie.slice(0, Math.ceil(serie.length / 2)).join(' '))}<br>${esc(serie.slice(Math.ceil(serie.length / 2)).join(' '))}</b></div>` : ''}<div class="arroba">${esc((v.perfil || D.perfil).toUpperCase())}</div>`;
   const html = v.cenas.map((c, i) => {
     if (c.personagem) ev.pop.push(ini[i] + .05);
     if (c.numero) ev.batida.push(ini[i]);
     return cena(c, i, ini[i], (ini[i + 1] ?? total) - ini[i], fixo);
-  }).join(''); `<div class="selo"><u></u><b>${esc(serie.slice(0, Math.ceil(serie.length / 2)).join(' '))}<br>${esc(serie.slice(Math.ceil(serie.length / 2)).join(' '))}</b></div><div class="arroba">${esc((v.perfil || D.perfil).toUpperCase())}</div>`;
+  }).join('');
   return { html: `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${css}</style></head><body><div class="v">${html}${legendas(pal)}</div></body></html>`, total, ev, ini };
 }
 
