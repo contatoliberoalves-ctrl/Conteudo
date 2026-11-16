@@ -29,3 +29,7 @@ Lista de posts `{ id, titulo, telas: [...] }`. Cada tela tem `layout` e os campo
 ## PDF A4 (`pdf.mjs` + `pdf.json`)
 Materiais em PDF A4 retrato na mesma identidade: capa escura com a foto do corredor, página "Como usar" com o sumário, páginas claras (papel) com dois itens por página em caixas "copie e cole" e fecho escuro. `pdf.json`: lista de `{ id, titulo, capa: {rotulo, titulo (linhas, [[trecho]] em caixa areia), sub}, comoUsar: [passos], prompts: [{titulo, texto}], complemento }`.
 Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node pdf.mjs [id]` → `saida/pdf/<id>/<n>.png` e `<id>.pdf` (montado com as imagens das páginas). Avisa se uma página de prompts estourar.
+
+## Aula 16:9 (`aula.mjs` + `aula.json`)
+Slides de aula 1920×1080 dos professores convidados na identidade da PratFlix (capa com a foto do corredor, páginas grafite, tabela em papel, acordo em "documento" e fecho com a pergunta em areia). `aula.json`: lista de `{ id, aula, autora, registro, slides }`; tipos `capa`, `lista` (`intro`, `duas`, `alerta`), `colunas` (`cols: [{t, d | itens}]`, `base`), `tabela` (`cab`, `linhas`, `nota`), `documento` (`clausulas: [[nº, trecho em destaque, resto]]`, `parte`) e `final` (`texto`, `pergunta`). `ts` muda o tamanho do título.
+Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node aula.mjs [id]` → `saida/aula/<id>/01.png…` e `<id>.pdf`.
