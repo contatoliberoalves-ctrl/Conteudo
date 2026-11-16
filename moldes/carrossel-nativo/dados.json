@@ -2041,7 +2041,7 @@
         "fotoPos": "50% 18%"
       },
       {
-        "foto": "cena-03145.jpg",
+        "foto": "bg-corredor.jpg",
         "blocos": [
           {
             "texto": "Cursos de prática",
@@ -2056,16 +2056,15 @@
             "tam": 48
           }
         ],
-        "escurecer": 0.5,
         "print": {
           "img": "pf-capas-1.png",
           "y": 270,
-          "largura": 800,
-          "raio": 22
+          "largura": 860,
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03079.jpg",
+        "foto": "bg-mesa.jpg",
         "blocos": [
           {
             "texto": "E não para por aí",
@@ -2080,64 +2079,61 @@
             "tam": 48
           }
         ],
-        "escurecer": 0.5,
         "print": {
           "img": "pf-capas-2.png",
           "y": 270,
-          "largura": 800,
-          "raio": 22
+          "largura": 860,
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03139.jpg",
+        "foto": "bg-bracos.jpg",
         "blocos": [
           {
-            "texto": "+ capacitações",
+            "texto": "+ 4 capacitações",
             "cor": "preto",
-            "y": 190,
+            "y": 170,
             "tam": 70
           },
           {
             "texto": "Não é só a lei: é o que faz\no escritório andar.",
             "cor": "branco",
-            "y": 300,
-            "tam": 46
-          }
-        ],
-        "escurecer": 0.5,
-        "print": {
-          "img": "pf-capas-3.png",
-          "y": 470,
-          "largura": 860,
-          "raio": 22
-        }
-      },
-      {
-        "foto": "cena-03137.jpg",
-        "blocos": [
-          {
-            "texto": "E ainda vem mais 🔥",
-            "cor": "preto",
-            "y": 170,
-            "tam": 64
-          },
-          {
-            "texto": "Cursos que entram na plataforma\ne você já leva junto:",
-            "cor": "branco",
             "y": 280,
             "tam": 46
           }
         ],
-        "escurecer": 0.5,
         "print": {
-          "img": "pf-embreve.png",
+          "img": "pf-capas-3.png",
           "y": 450,
-          "largura": 860,
-          "raio": 22
+          "largura": 880,
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03138.jpg",
+        "foto": "bg-notebook.jpg",
+        "blocos": [
+          {
+            "texto": "E ainda vem mais 🔥",
+            "cor": "preto",
+            "y": 90,
+            "tam": 64
+          },
+          {
+            "texto": "7 cursos novos que você já leva junto",
+            "cor": "branco",
+            "y": 195,
+            "tam": 42
+          }
+        ],
+        "print": {
+          "img": "pf-embreve.png",
+          "y": 290,
+          "largura": 690,
+          "raio": 24
+        }
+      },
+      {
+        "foto": "bg-corredor.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 1",
@@ -2158,16 +2154,15 @@
             "tam": 48
           }
         ],
-        "escurecer": 0.45,
         "print": {
           "img": "pf-modelos.png",
-          "y": 650,
-          "largura": 880,
-          "raio": 22
+          "y": 640,
+          "largura": 920,
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03001.jpg",
+        "foto": "bg-paleto.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 2",
@@ -2187,11 +2182,10 @@
             "y": 760,
             "tam": 48
           }
-        ],
-        "escurecer": 0.5
+        ]
       },
       {
-        "foto": "cena-03147.jpg",
+        "foto": "bg-mesa.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 3",
@@ -2212,16 +2206,15 @@
             "tam": 46
           }
         ],
-        "escurecer": 0.5,
         "print": {
           "img": "pf-libs.png",
           "y": 700,
           "largura": 880,
-          "raio": 22
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03135.jpg",
+        "foto": "bg-bracos.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 4",
@@ -2242,16 +2235,15 @@
             "tam": 46
           }
         ],
-        "escurecer": 0.5,
         "print": {
           "img": "pf-gestao.png",
           "y": 700,
           "largura": 880,
-          "raio": 22
+          "raio": 24
         }
       },
       {
-        "foto": "cena-03001.jpg",
+        "foto": "bg-corredor.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 5",
@@ -2271,11 +2263,10 @@
             "y": 510,
             "tam": 46
           }
-        ],
-        "escurecer": 0.5
+        ]
       },
       {
-        "foto": "cena-03139.jpg",
+        "foto": "bg-notebook.jpg",
         "blocos": [
           {
             "texto": "🎁 Bônus 6",
@@ -2295,8 +2286,24 @@
             "y": 830,
             "tam": 48
           }
-        ],
-        "escurecer": 0.5
+        ]
+      },
+      {
+        "foto": "bg-paleto.jpg",
+        "blocos": [
+          {
+            "texto": "Tudo que você leva hoje:",
+            "cor": "preto",
+            "y": 250,
+            "tam": 64
+          },
+          {
+            "texto": "✅ 11 cursos de prática\n✅ 4 capacitações\n✅ 7 cursos novos chegando\n✅ Modelos de peças\n✅ Encontros ao vivo\n✅ Libs Production\n✅ Sistema de gestão do escritório\n✅ Comunidade de networking\n✅ Desconto pra abrir o CNPJ",
+            "cor": "branco",
+            "y": 380,
+            "tam": 52
+          }
+        ]
       },
       {
         "foto": "libero-notebook.jpg",
@@ -2304,30 +2311,36 @@
           {
             "texto": "Tudo isso de",
             "cor": "branco",
-            "y": 760,
+            "y": 700,
             "tam": 56
           },
           {
             "texto": "R$ 1.297",
             "cor": "preto",
-            "y": 860,
+            "y": 800,
             "tam": 72
           },
           {
             "texto": "por R$ 997",
             "cor": "bege",
-            "y": 980,
+            "y": 920,
             "tam": 96
           },
           {
             "texto": "Só até hoje ⏰",
             "cor": "branco",
-            "y": 1160,
+            "y": 1090,
             "tam": 56
+          },
+          {
+            "texto": "Garantia de 7 dias: não gostou,\nrecebe 100% de volta.",
+            "cor": "branco",
+            "y": 1200,
+            "tam": 40
           }
         ],
         "fotoPos": "50% 20%",
-        "escurecer": 0.2
+        "escurecer": 0.25
       },
       {
         "foto": "libero-bracos2.jpg",
