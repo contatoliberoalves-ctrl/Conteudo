@@ -2044,52 +2044,76 @@
         "foto": "cena-03145.jpg",
         "blocos": [
           {
-            "texto": "11 cursos de prática",
+            "texto": "Cursos de prática",
             "cor": "preto",
-            "y": 120,
+            "y": 70,
             "tam": 66
           },
           {
-            "texto": "já liberados 👇",
+            "texto": "com quem advoga na área 👇",
             "cor": "branco",
-            "y": 230,
-            "tam": 52
+            "y": 170,
+            "tam": 48
           }
         ],
-        "escurecer": 0.45,
+        "escurecer": 0.5,
         "print": {
-          "img": "pf-cursos.png",
-          "y": 340,
-          "largura": 860,
-          "raio": 24
+          "img": "pf-capas-1.png",
+          "y": 270,
+          "largura": 800,
+          "raio": 22
         }
       },
       {
         "foto": "cena-03079.jpg",
         "blocos": [
           {
-            "texto": "+ capacitações pra advogar",
+            "texto": "E não para por aí",
             "cor": "preto",
-            "y": 240,
-            "tam": 58
+            "y": 70,
+            "tam": 66
           },
           {
-            "texto": "Não é só a lei: é o que faz\no escritório andar.",
+            "texto": "11 áreas já na plataforma",
             "cor": "branco",
-            "y": 350,
-            "tam": 46
+            "y": 170,
+            "tam": 48
           }
         ],
-        "escurecer": 0.45,
+        "escurecer": 0.5,
         "print": {
-          "img": "pf-capacitacoes.png",
-          "y": 520,
-          "largura": 860,
-          "raio": 24
+          "img": "pf-capas-2.png",
+          "y": 270,
+          "largura": 800,
+          "raio": 22
         }
       },
       {
         "foto": "cena-03139.jpg",
+        "blocos": [
+          {
+            "texto": "+ capacitações",
+            "cor": "preto",
+            "y": 190,
+            "tam": 70
+          },
+          {
+            "texto": "Não é só a lei: é o que faz\no escritório andar.",
+            "cor": "branco",
+            "y": 300,
+            "tam": 46
+          }
+        ],
+        "escurecer": 0.5,
+        "print": {
+          "img": "pf-capas-3.png",
+          "y": 470,
+          "largura": 860,
+          "raio": 22
+        }
+      },
+      {
+        "foto": "cena-03137.jpg",
         "blocos": [
           {
             "texto": "E ainda vem mais 🔥",
@@ -2104,67 +2128,175 @@
             "tam": 46
           }
         ],
-        "escurecer": 0.45,
+        "escurecer": 0.5,
         "print": {
           "img": "pf-embreve.png",
           "y": 450,
           "largura": 860,
-          "raio": 24
+          "raio": 22
         }
       },
       {
         "foto": "cena-03138.jpg",
         "blocos": [
           {
-            "texto": "🎁 Os bônus",
-            "cor": "preto",
-            "y": 300,
-            "tam": 76
+            "texto": "🎁 Bônus 1",
+            "cor": "bege",
+            "y": 250,
+            "tam": 56
           },
           {
-            "texto": "📄 Modelos de peças\nprontos pra adaptar ao seu caso\n\n🎙️ Encontros ao vivo com profissionais\npra capacitações\n\n🎬 LibsProduction: o sistema de\nprodução de conteúdo pras redes",
-            "cor": "branco",
-            "y": 460,
-            "tam": 46
-          }
-        ],
-        "escurecer": 0.35
-      },
-      {
-        "foto": "cena-03147.jpg",
-        "blocos": [
-          {
-            "texto": "🎁 E tem mais",
+            "texto": "Modelos de peças",
             "cor": "preto",
-            "y": 340,
-            "tam": 76
+            "y": 350,
+            "tam": 72
           },
           {
-            "texto": "🗂️ A construção do sistema de\ngestão do seu escritório\n\n🧾 Desconto pra abrir o CNPJ\ncom contadora",
+            "texto": "Comentados, pra adaptar\nao seu caso.",
             "cor": "branco",
-            "y": 500,
+            "y": 470,
             "tam": 48
           }
         ],
-        "escurecer": 0.35
+        "escurecer": 0.45,
+        "print": {
+          "img": "pf-modelos.png",
+          "y": 650,
+          "largura": 880,
+          "raio": 22
+        }
       },
       {
         "foto": "cena-03001.jpg",
         "blocos": [
           {
-            "texto": "🤝 A comunidade",
-            "cor": "preto",
-            "y": 300,
-            "tam": 76
+            "texto": "🎁 Bônus 2",
+            "cor": "bege",
+            "y": 420,
+            "tam": 56
           },
           {
-            "texto": "Aqui você conhece advogados de\noutras áreas e outras cidades.\n\nQuem não atua em Família indica\nquem atua. Quem precisa de um\ncorrespondente acha um.\n\nÉ parceria, é indicação\ne é cliente chegando.",
+            "texto": "Encontros ao vivo\ncom profissionais",
+            "cor": "preto",
+            "y": 530,
+            "tam": 70
+          },
+          {
+            "texto": "Capacitações ao vivo com quem\nvive a prática, pra tirar dúvida\nna hora.",
             "cor": "branco",
-            "y": 440,
+            "y": 760,
             "tam": 48
           }
         ],
-        "escurecer": 0.45
+        "escurecer": 0.5
+      },
+      {
+        "foto": "cena-03147.jpg",
+        "blocos": [
+          {
+            "texto": "🎁 Bônus 3",
+            "cor": "bege",
+            "y": 210,
+            "tam": 56
+          },
+          {
+            "texto": "Libs Production",
+            "cor": "preto",
+            "y": 310,
+            "tam": 76
+          },
+          {
+            "texto": "O seu sistema de produção de\nconteúdo: monta 6 meses de posts\npra sua área, com a cara da sua marca.",
+            "cor": "branco",
+            "y": 430,
+            "tam": 46
+          }
+        ],
+        "escurecer": 0.5,
+        "print": {
+          "img": "pf-libs.png",
+          "y": 700,
+          "largura": 880,
+          "raio": 22
+        }
+      },
+      {
+        "foto": "cena-03135.jpg",
+        "blocos": [
+          {
+            "texto": "🎁 Bônus 4",
+            "cor": "bege",
+            "y": 150,
+            "tam": 56
+          },
+          {
+            "texto": "Sistema de gestão\ndo seu escritório",
+            "cor": "preto",
+            "y": 250,
+            "tam": 66
+          },
+          {
+            "texto": "A gente constrói junto: prazos,\nprocessos, honorários e clientes\nnum painel só.",
+            "cor": "branco",
+            "y": 440,
+            "tam": 46
+          }
+        ],
+        "escurecer": 0.5,
+        "print": {
+          "img": "pf-gestao.png",
+          "y": 700,
+          "largura": 880,
+          "raio": 22
+        }
+      },
+      {
+        "foto": "cena-03001.jpg",
+        "blocos": [
+          {
+            "texto": "🎁 Bônus 5",
+            "cor": "bege",
+            "y": 280,
+            "tam": 56
+          },
+          {
+            "texto": "🤝 A comunidade",
+            "cor": "preto",
+            "y": 380,
+            "tam": 76
+          },
+          {
+            "texto": "Advogados de outras áreas e outras\ncidades no mesmo lugar.\n\nQuem não atua em Família indica\nquem atua. Quem precisa de um\ncorrespondente acha um.\n\nÉ parceria, é indicação\ne é cliente chegando.",
+            "cor": "branco",
+            "y": 510,
+            "tam": 46
+          }
+        ],
+        "escurecer": 0.5
+      },
+      {
+        "foto": "cena-03139.jpg",
+        "blocos": [
+          {
+            "texto": "🎁 Bônus 6",
+            "cor": "bege",
+            "y": 480,
+            "tam": 56
+          },
+          {
+            "texto": "Desconto pra abrir\no seu CNPJ",
+            "cor": "preto",
+            "y": 590,
+            "tam": 76
+          },
+          {
+            "texto": "Com contadora parceira, pra você\ncomeçar o escritório do jeito certo.",
+            "cor": "branco",
+            "y": 830,
+            "tam": 48
+          }
+        ],
+        "escurecer": 0.5
       },
       {
         "foto": "libero-notebook.jpg",
