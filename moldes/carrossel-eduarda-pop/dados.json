@@ -1220,11 +1220,19 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaRetrato",
-    "foto": "eduarda-sorrindo.jpg",
-    "fundo": "fucsia",
+    "tipo": "capaNova",
+    "layout": "destaque",
     "kicker": "Repescagem OAB 48",
-    "titulo": "Motivos pra entrar\nno *VDE Civil*"
+    "linha1": "Motivos pra\nentrar no",
+    "linha2": "VDE Civil",
+    "numero": "6",
+    "foto": "eduarda-comemorando-recorte.png",
+    "texto": "Sua segunda chance em Civil, **com método**.",
+    "ts": 128,
+    "largura": 900,
+    "tc": 150,
+    "fotoH": 1020,
+    "fotoX": -150
    },
    {
     "tipo": "texto",
@@ -1237,7 +1245,6 @@
     "tipo": "item",
     "titulo": "Cronograma completo",
     "texto": "Todo o conteúdo **previsto no edital**, organizado semana a semana até a prova.",
-    "icone": "🗓️",
     "tags": [
      "Edital completo"
     ]
@@ -1246,7 +1253,6 @@
     "tipo": "item",
     "titulo": "10 simulados inéditos",
     "texto": "Treino no formato da prova, sendo **5 com correção individual**.",
-    "icone": "📝",
     "tags": [
      "5 com correção"
     ]
@@ -1254,26 +1260,22 @@
    {
     "tipo": "item",
     "titulo": "Videoaulas objetivas",
-    "texto": "Aulas diretas ao ponto e **atualizadas conforme o edital**.",
-    "icone": "🎬"
+    "texto": "Aulas diretas ao ponto e **atualizadas conforme o edital**."
    },
    {
     "tipo": "item",
     "titulo": "Treino extra",
-    "texto": "Atividades de treino de **TODO o conteúdo do edital**, pra fixar de verdade.",
-    "icone": "💪"
+    "texto": "Atividades de treino de **TODO o conteúdo do edital**, pra fixar de verdade."
    },
    {
     "tipo": "item",
     "titulo": "Suporte integral",
-    "texto": "Dúvida não fica parada: **suporte na plataforma** durante toda a preparação.",
-    "icone": "💬"
+    "texto": "Dúvida não fica parada: **suporte na plataforma** durante toda a preparação."
    },
    {
     "tipo": "item",
     "titulo": "Aulas ao vivo",
     "texto": "Encontros **exclusivos para alunos da Repescagem**.",
-    "icone": "🔴",
     "tags": [
      "Exclusivo"
     ]
@@ -1293,55 +1295,50 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaD",
-    "fundo": "blush",
-    "variante": "vs",
+    "tipo": "capaNova",
+    "layout": "clean",
     "kicker": "Repescagem OAB 48",
+    "nota": "6 frases",
     "a": "Mito",
     "b": "Verdade",
-    "texto": "6 frases sobre a repescagem. Você sabe qual é qual?"
+    "texto": "O que todo mundo repete sobre a **repescagem**, e o que o edital diz de verdade.",
+    "ts": 180
    },
    {
     "tipo": "item",
     "fala": "Na repescagem eu faço só a 2ª fase.",
     "titulo": "==Verdade==",
-    "texto": "Quem passou na 1ª fase do 47º **reaproveita** essa aprovação e faz só a prova prático-profissional do 48º.",
-    "icone": "✅"
+    "texto": "Quem passou na 1ª fase do 47º **reaproveita** essa aprovação e faz só a prova prático-profissional do 48º."
    },
    {
     "tipo": "item",
     "fala": "Tenho que fazer a prova na mesma cidade do 47º.",
     "titulo": "==Mito==",
-    "texto": "A prova é na **seccional que você escolher**, e a cidade também é escolhida de novo na inscrição.",
-    "icone": "❌"
+    "texto": "A prova é na **seccional que você escolher**, e a cidade também é escolhida de novo na inscrição."
    },
    {
     "tipo": "item",
     "fala": "Posso trocar de matéria.",
     "titulo": "==Verdade==",
-    "texto": "A área é escolhida **na inscrição**. Mas atenção: depois de enviar o requerimento, ela **não muda mais**.",
-    "icone": "✅"
+    "texto": "A área é escolhida **na inscrição**. Mas atenção: depois de enviar o requerimento, ela **não muda mais**."
    },
    {
     "tipo": "item",
     "fala": "Dá pra esperar o resultado final do 47º pra me inscrever.",
     "titulo": "==Mito==",
-    "texto": "A inscrição vai de **23 a 30/11** (até 17h) e o resultado final do 47º sai em **03/12**. Recorreu? Inscreva-se assim mesmo.",
-    "icone": "❌"
+    "texto": "A inscrição vai de **23 a 30/11** (até 17h) e o resultado final do 47º sai em **03/12**. Recorreu? Inscreva-se assim mesmo."
    },
    {
     "tipo": "item",
     "fala": "A repescagem é de graça.",
     "titulo": "==Mito==",
-    "texto": "A taxa é de **R$ 175**. Quem está no **CadÚnico** pode pedir isenção no mesmo período da inscrição.",
-    "icone": "❌"
+    "texto": "A taxa é de **R$ 175**. Quem está no **CadÚnico** pode pedir isenção no mesmo período da inscrição."
    },
    {
     "tipo": "item",
     "fala": "Ainda dá tempo de me preparar.",
     "titulo": "==Verdade==",
-    "texto": "A prova é em **28/02/2027**, das 13h às 18h. São **mais de 3 meses**: dá tempo, com plano.",
-    "icone": "✅"
+    "texto": "A prova é em **28/02/2027**, das 13h às 18h. São **mais de 3 meses**: dá tempo, com plano."
    },
    {
     "tipo": "cta",
@@ -1358,18 +1355,20 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaIndice",
+    "tipo": "capaNova",
+    "layout": "calendario",
     "kicker": "Salva esse post",
-    "titulo": "Calendário da\n==repescagem==",
-    "itens": [
-     "23 a 30/11 → inscrição (até 17h)",
-     "30/11 → último dia pra pedir isenção",
-     "03/12 → resultado final do 47º",
-     "28/01 → último dia pra pagar o boleto",
-     "22/02 → locais de prova",
-     "28/02 → prova, das 13h às 18h"
-    ],
-    "texto": "OAB 48 · 2ª fase"
+    "linha1": "Calendário da\n**repescagem**",
+    "linha2": "OAB 48",
+    "mes": "FEV",
+    "dia": "28",
+    "nota": "dia da prova!",
+    "foto": "eduarda-bracos-cruzados-recorte.png",
+    "texto": "Todas as datas, da **inscrição** à **prova**.",
+    "ts": 104,
+    "tc": 110,
+    "calY": 500,
+    "fotoH": 760
    },
    {
     "tipo": "texto",

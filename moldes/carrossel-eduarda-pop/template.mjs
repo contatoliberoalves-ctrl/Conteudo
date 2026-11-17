@@ -668,6 +668,54 @@ function capaIndice(s) {
     </div>${brilho(900, 150, 60, C.pink, 8)}${iRodape()}</div>`;
 }
 
+// ================= CAPA NOVA (3 layouts) =================
+// layout "destaque": fúcsia, título enorme em caixa-alta com a 2ª linha em cursiva, recorte dela à direita e número vazado.
+// layout "clean": papel liso, tipografia grande em Gloock com a palavra de contraste em contorno, selos desenhados (sem emoji).
+// layout "calendario": degradê orquídea → blush, folha de calendário grande inclinada, recorte dela e título à esquerda.
+// Campos: layout, kicker, linha1, linha2 (cursiva), texto, foto (recorte PNG), numero, a, b, mes, dia, nota.
+function capaNova(s, ctx) {
+  const src = s.foto && ctx.imgs[s.foto];
+  if (s.foto && !src) ctx.faltando.add(s.foto);
+  const pe = (cor, borda) => `<div style="position:absolute;left:84px;right:84px;bottom:70px;display:flex;justify-content:space-between;align-items:center;${TIGHT};font-size:22px;color:${cor};z-index:6">
+      <span style="font-weight:600;border:1.5px solid ${borda || cor};border-radius:999px;padding:6px 22px">${ARROBA}</span><span style="font-weight:700;letter-spacing:.18em">ARRASTA →</span></div>`;
+  const pilula = (t, bg, cor) => t ? `<div style="display:inline-block;background:${bg};color:${cor};border-radius:999px;padding:10px 26px;${TIGHT};font-weight:800;font-size:22px;letter-spacing:.2em;text-transform:uppercase">${esc(t)}</div>` : '';
+  const grao = `<div style="position:absolute;inset:0;opacity:.22;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></div>`;
+  if (s.layout === 'destaque') {
+    return `<div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 85% 100%,#F29AD8 0%,#EE2A8A 55%,#D81B78 100%)">${grao}
+      ${s.numero ? `<div style="position:absolute;right:-30px;top:120px;${TIGHT};font-weight:900;font-size:760px;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.45)">${esc(s.numero)}</div>` : ''}
+      ${src ? `<img data-foto src="${src}" style="position:absolute;right:${s.fotoX ?? -170}px;bottom:0;height:${s.fotoH || 900}px;filter:drop-shadow(0 30px 50px rgba(120,0,60,.35));z-index:2">` : ''}
+      <div style="position:absolute;left:84px;top:96px;right:84px;z-index:3">${pilula(s.kicker, '#fff', C.pink)}
+        <div data-titulo style="${TIGHT};font-weight:900;font-size:${s.ts || 150}px;line-height:.86;letter-spacing:-.05em;text-transform:uppercase;color:#fff;margin-top:34px;max-width:${s.largura || 640}px">${fmt(s.linha1 || '', { b: 'font-weight:900;color:#FDEAF4' })}</div>
+        <div style="${CURSIVA};font-size:${s.tc || 168}px;line-height:.9;color:#FDEAF4;margin-top:6px;transform:rotate(-4deg);transform-origin:left;text-shadow:0 8px 24px rgba(120,0,60,.35)">${esc(s.linha2 || '')}</div>
+        ${s.texto ? `<div style="${TIGHT};font-weight:600;font-size:32px;line-height:1.3;color:#fff;max-width:${s.textoLargura || 380}px;margin-top:40px">${fmt(s.texto, { b: 'font-weight:800' })}</div>` : ''}</div>
+      ${pe('#fff')}</div>`;
+  }
+  if (s.layout === 'clean') {
+    const selo = (ok) => `<span style="display:inline-flex;width:92px;height:92px;border-radius:50%;background:${ok ? C.pink : '#fff'};border:4px solid ${C.pink};align-items:center;justify-content:center;flex:none"><svg viewBox="0 0 24 24" width="44">${ok ? `<path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>` : `<path d="M6.5 6.5l11 11M17.5 6.5l-11 11" stroke="${C.pink}" stroke-width="3.4" stroke-linecap="round"/>`}</svg></span>`;
+    return `<div style="position:absolute;inset:0;background:${PAPEL}">
+      <div style="position:absolute;left:0;right:0;bottom:0;height:430px;background:#FDEAF4"></div>
+      <div style="position:absolute;left:84px;top:96px;right:84px;display:flex;justify-content:space-between;align-items:center">${pilula(s.kicker, C.pink, '#fff')}<span style="${CURSIVA};font-size:56px;color:${C.pink}">${esc(s.nota || '')}</span></div>
+      <div data-area style="position:absolute;left:84px;right:84px;top:250px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;align-items:center;gap:34px">${selo(false)}<div data-titulo style="${SERIF};font-size:${s.ts || 230}px;line-height:.95;letter-spacing:-.03em;color:${C.pink}">${esc(s.a)}</div></div>
+        <div style="${CURSIVA};font-size:110px;line-height:1;color:#1E1A1C;margin:4px 0 4px 130px">ou</div>
+        <div style="display:flex;align-items:center;gap:34px">${selo(true)}<div style="${SERIF};font-size:${s.ts || 230}px;line-height:.95;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:3px ${C.pink}">${esc(s.b)}</div></div></div>
+      <div style="position:absolute;left:84px;right:84px;bottom:190px;${TIGHT};font-weight:600;font-size:40px;line-height:1.25;color:#1E1A1C;letter-spacing:-.02em">${fmt(s.texto || '', { b: `font-weight:800;color:${C.pink}` })}</div>
+      ${pe('#1E1A1C', 'rgba(30,26,28,.4)')}</div>`;
+  }
+  // calendario
+  return `<div style="position:absolute;inset:0;background:linear-gradient(165deg,#F29AD8 0%,#F7B9E0 45%,#FDEAF4 100%)">${grao}
+    <div style="position:absolute;right:70px;top:${s.calY || 470}px;width:400px;transform:rotate(7deg);background:#fff;border-radius:40px;overflow:hidden;box-shadow:0 40px 70px rgba(200,20,110,.3);text-align:center;z-index:1">
+      <div style="background:${C.pink};color:#fff;${TIGHT};font-weight:800;font-size:46px;letter-spacing:.3em;padding:26px 0 22px">${esc(s.mes || '')}</div>
+      <div style="${SERIF};font-size:260px;line-height:1.05;color:#1E1A1C;padding:10px 0 0">${esc(s.dia || '')}</div>
+      <div style="${CURSIVA};font-size:64px;color:${C.pink};padding:0 0 34px">${esc(s.nota || '')}</div></div>
+    ${src ? `<img data-foto src="${src}" style="position:absolute;left:-140px;bottom:0;height:${s.fotoH || 820}px;filter:drop-shadow(0 30px 40px rgba(160,0,80,.25));z-index:2">` : ''}
+    <div style="position:absolute;left:84px;top:96px;right:84px;z-index:3">${pilula(s.kicker, '#1E1A1C', '#fff')}
+      <div data-titulo style="${TIGHT};font-weight:900;font-size:${s.ts || 120}px;line-height:.88;letter-spacing:-.05em;text-transform:uppercase;color:#1E1A1C;margin-top:30px;max-width:${s.largura || 900}px">${fmt(s.linha1 || '', { b: `font-weight:900;color:${C.pink}` })}</div>
+      <div style="${CURSIVA};font-size:${s.tc || 120}px;line-height:.9;color:${C.pink};margin-top:8px;transform:rotate(-4deg);transform-origin:left">${esc(s.linha2 || '')}</div></div>
+    ${s.texto ? `<div style="position:absolute;right:84px;bottom:170px;width:420px;background:#fff;border-radius:26px;padding:24px 28px;${TIGHT};font-weight:600;font-size:28px;line-height:1.3;color:#1E1A1C;box-shadow:0 20px 40px rgba(200,20,110,.18);z-index:3">${fmt(s.texto, { b: `font-weight:800;color:${C.pink}` })}</div>` : ''}
+    ${pe('#1E1A1C', 'rgba(30,26,28,.4)')}</div>`;
+}
+
 const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE, nota: NOTA };
 
 export function renderCarrossel(c) {
@@ -677,7 +725,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaIndice' ? capaIndice : s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
+    const f = s.tipo === 'capaNova' ? capaNova : s.tipo === 'capaIndice' ? capaIndice : s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };

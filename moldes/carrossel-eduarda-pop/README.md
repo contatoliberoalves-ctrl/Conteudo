@@ -54,3 +54,4 @@ Campos por tipo:
 - **faixa** (studio): `titulo`, `texto`, `foto`, `foto2`.
 - **pergunta** / **cta**: `titulo`, `texto`; trend/studio: `kicker`, `botao`.
 - **blocos** (todos os tipos): `cor` (branco, blush, claro, pessego, pink, escuro), `titulo` (cada linha vira uma faixa), `sub`, `caixas[]`, `texto`, `colunas[]` (`{sim, titulo, texto}` → ✅/❌), `foto`, `fotoAltura`.
+- **capaNova** (qualquer estilo): `layout` `destaque` (fúcsia com grão, título enorme em caixa-alta + `linha2` em cursiva, número vazado `numero`, recorte PNG à direita: `foto`, `fotoH`, `fotoX`, `texto`, `textoLargura`), `clean` (papel liso + faixa blush, `a`/`b` em Gloock, o 2º em contorno, selos ✕/✓ desenhados, `nota` em cursiva, `texto`) ou `calendario` (degradê orquídea → blush, folha de calendário `mes`/`dia`/`nota`, recorte à esquerda, `linha1`/`linha2`, `texto` em cartão). Sem emoji.
