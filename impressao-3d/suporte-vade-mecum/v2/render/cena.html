@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Suporte v2 montado. Vista de lado no plano x (para a frente) / y (para cima); a largura vai em z.
+import * as THREE from 'three';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const W = 1600, H = 1200;
+const M = await (await fetch('../montagem.json')).json();
+const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.toneMapping = THREE.ACESFilmicToneMapping; r.toneMappingExposure = 0.9; r.shadowMap.enabled = true; r.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(r.domElement);
+const cena = new THREE.Scene();
+cena.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;
+const sol = new THREE.DirectionalLight(0xffffff, 2.2); sol.position.set(320, 420, 260); sol.castShadow = true;
+sol.shadow.mapSize.set(4096, 4096); sol.shadow.radius = 6; sol.shadow.bias = -0.0004;
+Object.assign(sol.shadow.camera, { left: -500, right: 500, top: 500, bottom: -500, near: 1, far: 1500 });
+sol.target.position.set(0, 0, M.larg / 2); cena.add(sol, sol.target, new THREE.HemisphereLight(0xffffff, 0xd8d2c8, 0.6));
+const chao = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), new THREE.ShadowMaterial({ opacity: 0.2 }));
+chao.rotation.x = -Math.PI / 2; chao.receiveShadow = true; cena.add(chao);
+const mat = c => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.55, clearcoat: 0.15, clearcoatRoughness: 0.6 });
+const ld = new STLLoader();
+const carregar = n => new Promise(ok => ld.load('../' + n + '.stl', g => { g.computeVertexNormals(); ok(g); }));
+const COR = q.get('c') || '#26262a';
+const malha = async (n, c = COR) => { const m = new THREE.Mesh(await carregar(n), mat(c)); m.castShadow = m.receiveShadow = true; cena.add(m); return m; };
+const u = new THREE.Vector3(...M.u, 0), n = new THREE.Vector3(...M.n, 0), z = new THREE.Vector3(0, 0, 1);
+const F = new THREE.Vector3(...M.F, 0);
+const pose = (m, X, Y, Z, o) => { m.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(X, Y, Z)); m.position.copy(o); };
+// prancha: x largura, y ao longo da inclinação, z para trás
+pose(await malha('prancha'), z, u, n.clone().negate(), F);
+// aparador: x largura, y para a frente (n), z ao longo da inclinação (u)
+const s0 = M.ranhura_y + (M.lingueta[0] + 2 * M.folga) / 2 - M.apar_esp / 2;
+const A0 = F.clone().add(u.clone().multiplyScalar(s0));
+pose(await malha('aparador'), z, n, u, A0);
+// pernas: já estão no plano de lado
+for (const c of M.canais) { const p = await malha('perna'); p.position.z = c - M.perna_esp / 2; }
+// prendedores: dobradiça no furo das orelhas; a haste deita para a prancha
+const livro = q.get('livro') === '1', esp = 34;
+const zt = M.apar_esp + M.aba + 4.5, yh = M.fundo - 3;
+for (const c of M.dobradicas) {
+  const p = await malha('prendedor', q.get('cp') || COR);
+  const alvo = livro ? esp + 2 : 6;
+  const dy = alvo - yh, dz = Math.sqrt(Math.max(70 * 70 - dy * dy, 1));
+  const d = n.clone().multiplyScalar(dy).add(u.clone().multiplyScalar(dz)).normalize();
+  const X = z.clone(), Y = d, Zv = new THREE.Vector3().crossVectors(X, Y);
+  const hinge = A0.clone().add(n.clone().multiplyScalar(yh)).add(u.clone().multiplyScalar(zt)).add(z.clone().multiplyScalar(c));
+  pose(p, X, Y, Zv, hinge.clone().sub(Zv.clone().multiplyScalar(3)));
+}
+if (livro) {
+  const tex = (() => {
+    const cv = document.createElement('canvas'); cv.width = 512; cv.height = 720; const x = cv.getContext('2d');
+    x.fillStyle = '#f6f1e6'; x.fillRect(0, 0, 512, 720); x.fillStyle = '#2b2b2b'; x.font = 'bold 22px serif'; x.fillText('Art. 5º', 40, 60);
+    for (let col = 0; col < 2; col++) for (let y = 90; y < 690; y += 13) { if (Math.random() < .06) continue; x.fillStyle = Math.random() < .08 ? '#555' : '#9a968f'; x.fillRect(40 + col * 225, y, 200 - (Math.random() < .15 ? Math.random() * 120 : 0), 5); }
+    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
+  })();
+  const capa = new THREE.MeshStandardMaterial({ color: '#7a1f24', roughness: 0.7 }), miolo = new THREE.MeshStandardMaterial({ color: '#efe8d8', roughness: 0.9 }), pag = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85 });
+  const alt = 240, larg = 168, base = A0.clone().add(u.clone().multiplyScalar(M.apar_esp));
+  for (const lado of [-1, 1]) {
+    const g = new THREE.Group();
+    const b = new THREE.Mesh(new THREE.BoxGeometry(esp - 3, alt - 6, larg - 4), [pag, miolo, miolo, miolo, miolo, miolo]); b.position.set((esp - 3) / 2 + 3, alt / 2, 0);
+    const cp = new THREE.Mesh(new THREE.BoxGeometry(3, alt, larg), capa); cp.position.set(1.5, alt / 2, 0);
+    for (const m of [b, cp]) { m.castShadow = m.receiveShadow = true; g.add(m); }
+    g.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(n, u, z));
+    g.position.copy(base).add(n.clone().multiplyScalar(0.3)).add(z.clone().multiplyScalar(M.larg / 2 + lado * (larg / 2 + 0.5)));
+    cena.add(g);
+  }
+}
+const cam = new THREE.PerspectiveCamera(24, W / H, 10, 5000);
+const alvoCam = new THREE.Vector3(-20, livro ? 115 : 80, M.larg / 2);
+const pos = { frente: [640, 330, -300], lado: [700, 230, 560], tras: [-560, 330, -260] }[q.get('vista') || 'frente'];
+cam.position.set(...pos); cam.lookAt(alvoCam);
+r.render(cena, cam); window.__pronto = true;
+</script></body></html>

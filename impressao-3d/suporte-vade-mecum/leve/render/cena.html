@@ -50,6 +50,16 @@ barra(gPlaca, cor.placa, M.pos_placa[0], M.pos_placa[1], M.placa[0], M.placa[1])
 barra(gLetras, cor.letras, M.pos_placa[0], M.pos_placa[1], M.placa[0], M.placa[1]);
 barra(gTrav, cor.placa, M.pos_barra[0], M.pos_barra[1], M.barra, M.barra);
 
+if (q.get('encosto') === '1' && M.encosto) {
+  const a = M.angulo * Math.PI / 180;
+  const u = new THREE.Vector3(-Math.cos(a), Math.sin(a), 0), n = new THREE.Vector3(Math.sin(a), Math.cos(a), 0);
+  const g = await carregar('../encosto.stl');
+  const e = malha(g, q.get('ce') || cor.placa);
+  e.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0, 0, 1), u, n.clone().negate()));
+  e.position.set(M.o[0], M.o[1], 0).add(u.clone().multiplyScalar(M.encosto.inicio));
+  grupo.add(e);
+}
+const recuo = (q.get('encosto') === '1' && M.encosto) ? M.encosto.placa : 0;
 if (comLivro) {
   const a = M.angulo * Math.PI / 180;
   const u = new THREE.Vector3(-Math.cos(a), Math.sin(a), 0), n = new THREE.Vector3(Math.sin(a), Math.cos(a), 0), z = new THREE.Vector3(0, 0, 1);
@@ -81,7 +91,7 @@ if (comLivro) {
     // base: x=n, y=u, z=z
     const mat = new THREE.Matrix4().makeBasis(n, u, z);
     g.quaternion.setFromRotationMatrix(mat);
-    g.position.copy(o).add(n.clone().multiplyScalar(0.5)).add(z.clone().multiplyScalar(meio + lado * (larg / 2 + 1)));
+    g.position.copy(o).add(n.clone().multiplyScalar(0.5 + recuo)).add(z.clone().multiplyScalar(meio + lado * (larg / 2 + 1)));
     // as duas metades abrem em V raso, com a lombada mais para trás
     g.rotateOnAxis(new THREE.Vector3(0, 1, 0), lado * 0.05);
     scene.add(g);

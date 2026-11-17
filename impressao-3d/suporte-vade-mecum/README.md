@@ -1,5 +1,7 @@
 # Suporte para Vade Mecum (impressão 3D)
 
+**Use a v2** (`v2/`): projeto novo com prancha inteira, aparador corrido e prendedores de página. A versão leve abaixo foi testada e o meio do livro aberto afundava no vão entre as laterais; para quem já imprimiu as laterais dela, `leve/encosto.stl` (placa que cobre o vão, ~65 g) resolve isso.
+
 ## Versão leve (recomendada para vender)
 Pasta `leve/`: laterais em forma de vela (contorno contínuo, base em arco) e placa da frente com @liberofilho em relevo pequeno (letras de 7 mm). Versão econômica: preto, tudo numa cor só (ou o @ em branco, com uma troca de filamento). Aparador de 72 mm: cabe o lado grosso do Vade Mecum aberto no começo ou no fim. Gasta ~116 g e ~3,5 h numa impressora rápida (Bambu A1 / Kobra X; PrusaSlicer, camada 0,28, 3 paredes, 15% giroide): ~8 suportes por rolo de 1 kg. Aguenta 3 kg com folga de ~12–15× no ponto mais exigido.
 
