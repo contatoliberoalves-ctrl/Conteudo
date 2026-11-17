@@ -60,7 +60,7 @@ const numeroVazado = (t, px, cor = 'rgba(185,255,241,.18)') => `<div style="${T}
 const tela = (w, h, fundo, conteudo, escuro = true) => `<div class="peca" style="position:relative;width:${w}px;height:${h}px;overflow:hidden;background:${fundo}">${conteudo}${textura(escuro)}</div>`;
 
 const P = []; // {grupo, nome, w, h, html, transparente}
-const add = (grupo, nome, w, h, html, transparente = false) => P.push({ grupo, nome, w, h, html, transparente });
+const add = (grupo, nome, w, h, html, transparente = false, escala = 1) => P.push({ grupo, nome, w, h, html, transparente, escala });
 
 // =========================================================== KIT ===========================================
 const cores = [['Petróleo', COR.petroleo2, '#fff', 'fundo principal'], ['Verde', COR.verde, '#fff', 'destaque, botões'], ['Menta', COR.menta, COR.tinta, 'títulos no escuro'], ['Ciano', COR.ciano, COR.tinta, 'brilho, degradê'], ['Papel', COR.papel, COR.tinta, 'fundo claro'], ['Tinta', COR.tinta, '#fff', 'texto']];
@@ -294,6 +294,29 @@ add('stories', 'avulso-pegadinha', 1080, SH, tela(1080, SH, COR.papel, `
   <div style="${I};font-weight:700;font-size:40px;line-height:1.45;color:${COR.tinta};margin-top:50px">É uma das 300 dicas da Revisão em Dicas do ENAC 2026.2.</div></div>
   <div style="position:absolute;left:230px;top:1630px">${linkVazio.replace(/rgba\(185,255,241,\.6\)/, COR.verde).replace(/rgba\(185,255,241,\.85\)/, COR.verde2)}</div>`, false));
 
+// ================================================= BANNER DO CHECKOUT 1200×600 ==================================
+// Apostila digital: capa com folhas por trás (espessura), brilho suave e sombra no chão.
+const apostila = (src, w, rot, est) => { const h = w * 1123 / 794; return `<div style="position:absolute;${est};width:${w}px;height:${h}px;transform:rotate(${rot}deg)">
+  <div style="position:absolute;left:10px;top:9px;width:100%;height:100%;border-radius:6px;background:#C9D6D1;box-shadow:0 30px 50px -14px rgba(0,0,0,.6)"></div>
+  <div style="position:absolute;left:6px;top:6px;width:100%;height:100%;border-radius:6px;background:#E3ECE8"></div>
+  <div style="position:absolute;left:3px;top:3px;width:100%;height:100%;border-radius:6px;background:#F6FAF8"></div>
+  <img src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border-radius:6px;display:block">
+  <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 32%,rgba(255,255,255,0) 70%,rgba(0,0,0,.18) 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></div>
+  <div style="position:absolute;left:0;top:0;bottom:0;width:10px;border-radius:6px 0 0 6px;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,0))"></div></div>`; };
+const selo = t => `<span style="${MO};font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:${COR.menta};border:1.5px solid rgba(185,255,241,.4);padding:8px 14px;border-radius:999px;white-space:nowrap">${t}</span>`;
+add('kiwify', 'checkout-banner-1200x600', 1200, 600, tela(1200, 600, `radial-gradient(60% 70% at 78% 45%,rgba(0,166,81,.22),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(0,210,200,.08),transparent 70%),#062A26`, `
+  <div style="position:absolute;left:640px;top:520px;width:500px;height:40px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),transparent);filter:blur(6px)"></div>
+  ${apostila(pg('enac', 1), 266, -5, 'left:640px;top:96px')}
+  ${apostila(pg('enac2', 1), 266, 4, 'left:842px;top:118px')}
+  <div style="position:absolute;left:72px;top:68px;width:540px">
+    <div style="${T};font-size:112px;line-height:.86;color:#fff">Revisão<br>em dicas</div>
+    <div style="${T};font-size:52px;line-height:1;color:${COR.verde};margin-top:14px;letter-spacing:.01em">ENAC 2026.2</div>
+    <div style="${I};font-weight:600;font-size:26px;line-height:1.3;color:rgba(255,255,255,.9);margin-top:18px">300 dicas para sua revisão final</div>
+    <div style="display:flex;gap:10px;margin-top:22px">${selo('11 matérias')}${selo('2 PDFs')}${selo('116 páginas')}</div>
+    <div style="display:flex;align-items:center;gap:16px;margin-top:30px"><span style="${I};font-weight:600;font-size:22px;color:#fff">Parte 1 + Parte 2 por</span><span style="${T};font-size:50px;line-height:1;color:#fff;background:${COR.verde};padding:6px 16px 4px;border-radius:12px;letter-spacing:.01em">R$ 49,99</span></div>
+  </div>
+  <div style="position:absolute;left:72px;bottom:34px;${I};font-weight:500;font-size:15px;letter-spacing:.02em;color:rgba(185,255,241,.7)">Líbero Filho <span style="opacity:.5;margin:0 8px">|</span> Concurso com Líbero</div>`), false, 2);
+
 // ============================================================= SITE ========================================
 add('site', 'mockup', 875, 800, `<div class="peca" style="width:875px;height:800px">${mockup(500)}</div>`, true);
 add('site', 'og', 1200, 630, banner(1200, 630, 1));
@@ -309,7 +332,7 @@ for (const p of P) {
   if (filtro && !`${p.grupo}/${p.nome}`.includes(filtro)) continue;
   const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:${p.transparente ? 'transparent' : '#000'}}</style></head><body>${p.html}</body></html>`;
   const hp = path.join(build, `produto-${p.grupo}-${p.nome}.html`); fs.writeFileSync(hp, html);
-  const page = await browser.newPage({ viewport: { width: p.w, height: p.h } });
+  const page = await browser.newPage({ viewport: { width: p.w, height: p.h }, deviceScaleFactor: p.escala });
   await page.goto('file://' + hp); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(300);
   const estouro = await page.evaluate(() => [...document.querySelectorAll('.peca *')].filter(e => e.scrollWidth > e.clientWidth + 2 && getComputedStyle(e).overflow === 'visible' && e.children.length === 0).length);
   fs.mkdirSync(path.join(saida, p.grupo), { recursive: true });
