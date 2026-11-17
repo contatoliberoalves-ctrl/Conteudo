@@ -611,5 +611,223 @@
     ]
    }
   ]
+ },
+ {
+  "id": "mentoria-libero",
+  "por": "Líbero Filho",
+  "marca": {
+   "nome": "Líbero Filho",
+   "sub": "Mentoria individual"
+  },
+  "capaPre": "Proposta de",
+  "capaTitulo": [
+   "Mentoria",
+   "com [[Líbero]]"
+  ],
+  "capaTs": 118,
+  "rodapeTexto": "Mentoria individual com Líbero",
+  "servico": "Mentoria individual",
+  "etiquetas": [
+   "Planejamento personalizado",
+   "Argumentação",
+   "Tira-dúvidas",
+   "3 formatos"
+  ],
+  "planos": [
+   {
+    "nome": "Encontro avulso",
+    "d": "Orientação pontual",
+    "por": 300
+   },
+   {
+    "nome": "Mensal",
+    "d": "1 mês de acompanhamento",
+    "por": 800
+   },
+   {
+    "nome": "Até a prova",
+    "d": "3 meses de acompanhamento",
+    "por": 1500,
+    "destaque": true,
+    "selo": "Mais completo"
+   }
+  ],
+  "paginas": [
+   {
+    "tipo": "sobre",
+    "rotulo": "A mentoria",
+    "titulo": [
+     "Mentoria individual",
+     "com [[Líbero]]"
+    ],
+    "texto": [
+     "**Planejamento personalizado, desenvolvimento da argumentação e esclarecimento de dúvidas** para sua preparação.",
+     "São três formatos: um encontro avulso, um mês de acompanhamento ou o acompanhamento completo até a prova."
+    ],
+    "cartoes": [
+     {
+      "t": "Planejamento personalizado",
+      "d": "Um plano feito para a sua rotina e para o seu momento da preparação."
+     },
+     {
+      "t": "Argumentação",
+      "d": "Orientação para desenvolver respostas mais completas e bem fundamentadas."
+     },
+     {
+      "t": "Esclarecimento de dúvidas",
+      "d": "Espaço para tirar as dúvidas que travam o seu estudo."
+     },
+     {
+      "t": "Encontros individuais",
+      "d": "Todos os formatos são **individuais**: o foco é a sua preparação."
+     }
+    ]
+   },
+   {
+    "tipo": "plano",
+    "rotulo": "Formato 01",
+    "num": "01",
+    "titulo": [
+     "Encontro",
+     "[[avulso]]"
+    ],
+    "valor": 300,
+    "texto": "Uma orientação pontual para quem precisa **definir o caminho** ou **resolver dificuldades específicas**.",
+    "itens": [
+     "1 encontro individual",
+     "Análise das suas principais dificuldades",
+     "Orientações de planejamento e argumentação",
+     "Tira-dúvidas durante o encontro",
+     "Definição dos próximos passos"
+    ]
+   },
+   {
+    "tipo": "plano",
+    "escuro": true,
+    "rotulo": "Formato 02",
+    "num": "02",
+    "titulo": [
+     "Acompanhamento",
+     "[[mensal]]"
+    ],
+    "valor": 800,
+    "texto": "Um mês de acompanhamento para **organizar, executar e ajustar** sua preparação.",
+    "itens": [
+     "2 encontros individuais ao longo de 1 mês",
+     "Planejamento personalizado com metas semanais",
+     "Avaliação da evolução e ajustes no segundo encontro",
+     "Orientação de argumentação com exemplos práticos",
+     "Canal de dúvidas durante o mês"
+    ],
+    "bonus": [
+     "Materiais de apoio",
+     "Estatísticas da banca",
+     "Guia de argumentação"
+    ]
+   },
+   {
+    "tipo": "plano",
+    "rotulo": "Formato 03",
+    "num": "03",
+    "titulo": [
+     "Acompanhamento",
+     "até a [[prova]]"
+    ],
+    "valor": 1500,
+    "selo": "O mais completo",
+    "gapItens": 12,
+    "texto": "O plano mais completo: **3 meses de acompanhamento** para evoluir com direção até a prova.",
+    "itens": [
+     "4 encontros individuais distribuídos ao longo dos 3 meses",
+     "Planejamento completo até a prova",
+     "Metas semanais e acompanhamento do cumprimento",
+     "Ajustes do cronograma conforme seu desempenho",
+     "Análise individual de respostas e orientação para melhorar a argumentação",
+     "Canal de dúvidas durante os 3 meses",
+     "Estratégia de revisão e preparação para a reta final"
+    ],
+    "bonus": [
+     "Materiais de apoio",
+     "Estatísticas da banca",
+     "Guia de argumentação",
+     "Checklist de revisão para a prova"
+    ]
+   },
+   {
+    "tipo": "planos",
+    "rotulo": "Comparativo",
+    "titulo": [
+     "Compare os",
+     "[[formatos]]"
+    ],
+    "texto": "Os três formatos lado a lado.",
+    "itens": [
+     {
+      "t": "Encontros individuais",
+      "valores": [
+       "1 encontro",
+       "2 ao longo de 1 mês",
+       "4 ao longo de 3 meses"
+      ]
+     },
+     {
+      "t": "Planejamento",
+      "valores": [
+       "Orientações de planejamento",
+       "Personalizado, com metas semanais",
+       "Completo até a prova"
+      ]
+     },
+     {
+      "t": "Dúvidas",
+      "valores": [
+       "Durante o encontro",
+       "Canal durante o mês",
+       "Canal durante os 3 meses"
+      ]
+     },
+     {
+      "t": "Materiais de apoio",
+      "planos": [
+       1,
+       2
+      ]
+     },
+     {
+      "t": "Estatísticas da banca",
+      "planos": [
+       1,
+       2
+      ]
+     },
+     {
+      "t": "Guia de argumentação",
+      "planos": [
+       1,
+       2
+      ]
+     },
+     {
+      "t": "Análise individual de respostas",
+      "planos": [
+       2
+      ]
+     },
+     {
+      "t": "Checklist de revisão para a prova",
+      "planos": [
+       2
+      ]
+     }
+    ],
+    "minH": 0,
+    "gi": 13
+   }
+  ],
+  "fimTitulo": [
+   "Vamos juntos",
+   "até a [[aprovação?]]"
+  ],
+  "fimTexto": "Escolha o formato que faz sentido para o seu momento e me chama para agendar o primeiro encontro."
  }
 ]

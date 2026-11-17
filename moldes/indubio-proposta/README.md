@@ -31,3 +31,4 @@ Com `paginas: [{tipo, ...}]` a proposta vira capa + essas páginas + encerrament
 - `portfolio`: `titulo`, `texto`, `imagens[{src, legenda, pos}]` (a 1ª grande), `h1`, `h2`, `grade`, `tags[]`. `src` relativo a `build/` (ex.: `../../anoreg-conecta/saida/...`; essas imagens ficam fora do git).
 - `passos`: `titulo`, `passos[{t, d}]`, `definir[]` (caixa "A definir juntos").
 `**negrito**` também funciona nos textos.
+- `marca: {nome, sub}` troca o logo da Indubio pelo nome (propostas sem a marca da agência) e tira o ícone de play. Tipo de página `plano`: um plano por página (`num`, `titulo`, `texto`, `valor`, `itens[]`, `bonus[]`, `selo`, `escuro`). No `planos`, um item com `valores` [texto por plano] mostra texto no lugar do ✓.

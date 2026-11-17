@@ -15,13 +15,14 @@ const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
 const rico = (s, cor = COR.ouro) => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="color:${cor}">$1</span>`).replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:700">$1</b>');
 const brl = n => 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 0 });
 
-const logo = (escuro, px = 26) => `<div style="${M};display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;color:${escuro ? '#fff' : COR.preto}">
+let MARCA = null; // {nome, sub}: troca o logo da Indubio por um nome (propostas sem a marca da agência)
+const logo = (escuro, px = 26) => MARCA ? `<div style="${M};display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;color:${escuro ? '#fff' : COR.preto}"><span style="font-weight:700;font-size:${px}px;letter-spacing:-.02em">${esc(MARCA.nome)}</span>${MARCA.sub ? `<span style="font-weight:700;font-size:${Math.round(px * .36)}px;letter-spacing:.02em;margin-top:${Math.round(px * .06)}px;color:${escuro ? COR.ouroClaro : COR.ouro}">${esc(MARCA.sub)}</span>` : ''}</div>` : `<div style="${M};display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1;color:${escuro ? '#fff' : COR.preto}">
   <span style="font-weight:700;font-size:${px}px;letter-spacing:-.02em">indubio</span><span style="font-weight:700;font-size:${Math.round(px * .36)}px;letter-spacing:.02em;margin-top:${Math.round(px * .06)}px;color:${escuro ? COR.ouroClaro : COR.ouro}">Pro Marketing</span></div>`;
 const pilula = (t, escuro) => `<span style="display:inline-flex;align-items:center;gap:8px;${I};font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;border-radius:999px;${escuro ? `background:rgba(217,193,142,.12);color:${COR.ouroClaro};border:1px solid rgba(217,193,142,.35)` : `background:#fff;color:${COR.ouroEsc};border:1px solid ${COR.linha}`}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>${esc(t)}</span>`;
 const grao = (op = .3) => `<div style="position:absolute;inset:0;background-image:url(../assets/grao.png);background-size:400px;opacity:${op};mix-blend-mode:overlay;pointer-events:none"></div>`;
-const play = (cor, w, extra = '') => `<svg viewBox="0 0 100 100" style="position:absolute;width:${w}px;${extra}" fill="none" stroke="${cor}" stroke-width="3"><rect x="4" y="4" width="92" height="92" rx="26"/><path d="M40 30 L72 50 L40 70 Z" stroke-linejoin="round"/></svg>`;
+const play = (cor, w, extra = '') => MARCA ? '' : `<svg viewBox="0 0 100 100" style="position:absolute;width:${w}px;${extra}" fill="none" stroke="${cor}" stroke-width="3"><rect x="4" y="4" width="92" height="92" rx="26"/><path d="M40 30 L72 50 L40 70 Z" stroke-linejoin="round"/></svg>`;
 const titulo = (t, escuro, px = 54) => `<div style="${F};font-size:${px}px;line-height:.92;color:${escuro ? '#fff' : COR.preto}">${lista(t).map(l => rico(l)).join('<br>')}</div>`;
-const rodape = (n, escuro, p) => `<div data-r style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;align-items:center;${I};font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${escuro ? '#8E8C87' : COR.cinza}"><span>${esc(p.rodapeTexto || 'Orçamento de edição de vídeos')} · ${esc(p.para)}</span><span>${String(n).padStart(2, '0')}</span></div>`;
+const rodape = (n, escuro, p) => `<div data-r style="position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;align-items:center;${I};font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:${escuro ? '#8E8C87' : COR.cinza}"><span>${esc(p.rodapeTexto || 'Orçamento de edição de vídeos')}${p.para ? ' · ' + esc(p.para) : ''}</span><span>${String(n).padStart(2, '0')}</span></div>`;
 const cab = (n, t, escuro) => `<div style="display:flex;align-items:center;justify-content:space-between">${pilula(t, escuro)}${logo(escuro, 20)}</div>`;
 
 function capa(p) {
@@ -32,7 +33,7 @@ function capa(p) {
       <div style="${I};font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:${COR.ouroClaro};margin-bottom:22px">${esc(p.capaPre || 'Orçamento de')}</div>
       <div style="${F};font-size:${p.capaTs || 118}px;line-height:.86;color:#fff">${lista(p.capaTitulo || ['Edição', 'de [[vídeos]]']).map(l => esc(l).replace(/\[\[(.+?)\]\]/g, `<span style="background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">$1</span>`)).join('<br>')}</div>
       <div style="width:70px;height:3px;background:${G};margin:44px 0 28px"></div>
-      <div style="${I};font-size:17px;line-height:1.7;color:#C9C7C2">Por: <b style="color:#fff">${esc(p.por)}</b><br>Para: <b style="color:#fff">${esc(p.para)}</b></div></div>
+      <div style="${I};font-size:17px;line-height:1.7;color:#C9C7C2">Por: <b style="color:#fff">${esc(p.por)}</b>${p.para ? `<br>Para: <b style="color:#fff">${esc(p.para)}</b>` : ''}</div></div>
     <div style="position:absolute;left:56px;bottom:56px;display:flex;gap:10px;flex-wrap:wrap;max-width:520px">${lista(p.etiquetas).map(t => `<span style="${I};font-weight:600;font-size:11.5px;color:#E2E0DB;padding:8px 14px;border-radius:999px;border:1px solid #3A3A3E">${esc(t)}</span>`).join('')}</div>` };
 }
 
@@ -106,7 +107,7 @@ function fim(p, n) {
       <div style="${F};font-size:92px;line-height:.88;color:#fff;margin:28px 0 30px">${lista(p.fimTitulo || ['Bora pôr', 'os vídeos', '[[no ar?]]']).map(l => rico(l, COR.ouroClaro)).join('<br>')}</div>
       <div style="${I};font-size:16px;line-height:1.7;color:#C9C7C2;max-width:520px">${rico(p.fimTexto || '', '#fff')}</div></div>
     <div style="position:absolute;left:56px;right:56px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end">
-      <div style="${I};font-size:14px;line-height:1.6;color:#C9C7C2"><b style="color:#fff;font-size:17px">${esc(p.por)}</b><br>${esc(p.servico || 'Edição de vídeos')}</div>${logo(true, 32)}</div>` };
+      ${MARCA ? '<div></div>' : `<div style="${I};font-size:14px;line-height:1.6;color:#C9C7C2"><b style="color:#fff;font-size:17px">${esc(p.por)}</b><br>${esc(p.servico || 'Edição de vídeos')}</div>`}${logo(true, 32)}</div>` };
 }
 
 
@@ -138,13 +139,14 @@ const EXTRAS = {
       ${g.texto ? `<div style="max-width:600px;margin-bottom:44px">${txt(g.texto, true, 15.5)}</div>` : ''}
       <div style="display:grid;grid-template-columns:repeat(${pl.length},1fr);gap:12px;align-items:stretch">${pl.map((x, k) => {
         const d = x.destaque;
-        return `<div style="position:relative;border-radius:22px;padding:32px 22px 28px;display:flex;flex-direction:column;min-height:560px;${d ? `background:${G};color:${COR.preto}` : `background:${COR.grafite};border:1px solid #2C2C2F;color:#fff`}">
+        return `<div style="position:relative;border-radius:22px;padding:32px 22px 28px;display:flex;flex-direction:column;min-height:${g.minH ?? 560}px;${d ? `background:${G};color:${COR.preto}` : `background:${COR.grafite};border:1px solid #2C2C2F;color:#fff`}">
           ${x.selo ? `<span style="position:absolute;top:-11px;left:20px;background:${COR.preto};color:${COR.ouroClaro};${I};font-weight:800;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:999px;border:1px solid ${COR.ouro}">${esc(x.selo)}</span>` : ''}
           <div style="${I};font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${d ? '#3A2E14' : COR.ouroClaro}">Plano ${String(k + 1).padStart(2, '0')}</div>
           <div style="${F};font-size:38px;line-height:1;margin:12px 0 6px">${esc(x.nome)}</div>
           <div style="${I};font-size:12.5px;color:${d ? '#3A2E14' : '#9E9C97'};min-height:34px">${esc(x.d)}</div>
           <div style="height:1px;background:${d ? 'rgba(14,14,15,.2)' : '#2C2C2F'};margin:14px 0"></div>
-          <div style="display:flex;flex-direction:column;gap:20px;flex:1">${itens.map(it => {
+          <div style="display:flex;flex-direction:column;gap:${g.gi ?? 20}px;flex:1">${itens.map(it => {
+            if (it.valores) return `<div style="display:flex;flex-direction:column;gap:3px"><span style="${I};font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:${d ? '#3A2E14' : '#8E8C87'}">${esc(it.t)}</span><span style="${I};font-size:13.5px;line-height:1.35;font-weight:700">${esc(it.valores[k])}</span></div>`;
             const ok = it.planos.includes(k);
             return `<div style="display:flex;gap:10px;align-items:flex-start;opacity:${ok ? 1 : .45}">${ok ? (d ? `<span style="flex:none;width:22px;height:22px;border-radius:50%;background:${COR.preto};display:inline-flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="13"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="${COR.ouroClaro}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : check(true, true)) : check(false, !d)}
               <span style="${I};font-size:14px;line-height:1.4;font-weight:${ok ? 600 : 500}">${esc(it.t)}</span></div>`;
@@ -182,6 +184,28 @@ const EXTRAS = {
       ${lista(g.tags).length ? `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">${lista(g.tags).map(t => pilula(t, true)).join('')}</div>` : ''}</div>
     ${rodape(n, true, p)}` };
   },
+  // Um plano por página: número, nome, preço, descrição, itens incluídos e bônus.
+  plano: (p, n, g) => {
+    const esc_ = !!g.escuro;
+    return { escuro: esc_, html: `${esc_ ? fundoEscuro : fundoClaro}
+    ${play(esc_ ? 'rgba(217,193,142,.1)' : 'rgba(184,154,94,.1)', 420, 'right:-130px;top:-110px')}
+    <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Plano', esc_)}
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:54px 0 18px">
+        <div><div style="${F};font-size:74px;line-height:1;background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">${esc(g.num)}</div>
+          <div style="margin-top:10px">${titulo(g.titulo, esc_, 50)}</div></div>
+        ${g.selo ? `<span style="flex:none;${I};font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;background:${G};color:${COR.preto};padding:8px 14px;border-radius:999px;margin-bottom:8px">${esc(g.selo)}</span>` : ''}</div>
+      <div style="max-width:600px">${txt(g.texto, esc_, 15.5)}</div>
+      <div style="display:flex;align-items:baseline;gap:14px;margin:26px 0 28px;padding:20px 26px;border-radius:20px;${esc_ ? `background:${G};color:${COR.preto}` : `background:${COR.preto};color:#fff`}">
+        <span style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Investimento</span>
+        <span style="${F};font-size:54px;line-height:1;margin-left:auto">${brl(g.valor)}</span>
+        ${g.valorNota ? `<span style="${I};font-size:12.5px;font-weight:600;opacity:.75">${esc(g.valorNota)}</span>` : ''}</div>
+      <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.ouro};margin-bottom:12px">O que está incluído</div>
+      <div style="display:flex;flex-direction:column;gap:${g.gapItens ?? 17}px">${lista(g.itens).map(t => `<div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:${g.gapItens ?? 17}px;border-bottom:1px solid ${esc_ ? '#2C2C2F' : COR.linha}">${check(true, esc_)}<span style="${I};font-size:16px;line-height:1.45;font-weight:600;color:${esc_ ? '#E2E0DB' : '#2A2927'}">${rico(t, esc_ ? '#fff' : COR.preto)}</span></div>`).join('')}</div>
+      ${lista(g.bonus).length ? `<div style="margin-top:24px;padding:18px 22px;border-radius:18px;background:rgba(217,193,142,.1);border:1px solid rgba(217,193,142,.4)">
+        <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${esc_ ? COR.ouroClaro : COR.ouroEsc};margin-bottom:12px">Bônus</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">${lista(g.bonus).map(b => pilula(b, esc_)).join('')}</div></div>` : ''}</div>
+    ${rodape(n, esc_, p)}` };
+  },
   // Passos numerados (linha do tempo vertical) + caixa "a definir juntos".
   passos: (p, n, g) => ({ escuro: false, html: `${fundoClaro}
     <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Próximos passos', false)}
@@ -197,6 +221,7 @@ const EXTRAS = {
 };
 
 export function renderProposta(p, thumbsPng) {
+  MARCA = p.marca || null;
   const pags = [];
   const push = f => pags.push(f(pags.length + 1));
   push(() => capa(p));
