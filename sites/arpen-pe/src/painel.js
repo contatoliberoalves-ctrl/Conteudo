@@ -74,7 +74,7 @@ function telaPainelCursos() {
       <div class="bloco-topo"><input class="titulo-vivo" id="curso-titulo" data-campo-curso="titulo" value="${esc(c.titulo)}" aria-label="Nome do curso" style="flex:1 1 260px">
         <div class="acoes">${chave(c.status === 'publicado', 'data-adm="status-curso" id="curso-status"', 'Publicado')}<a class="mini" href="#curso-${c.id}" aria-label="Ver como aluno" title="Ver como aluno">${ico('olho')}</a><button class="mini perigo" data-adm="apagar-curso" aria-label="Excluir curso" title="Excluir curso">${ico('lixo')}</button></div></div>
       <div class="campos"><label class="campo"><span>Categoria</span><input id="curso-cat" data-campo-curso="cat" value="${esc(c.cat || '')}" placeholder="Ex.: Rotina da serventia"></label>
-        <div class="campo"><span>Capa</span><div class="capas">${['recife', 'varanda', 'certidao', 'nascimento', 'casamento'].map(n => `<label><input type="radio" name="curso-capa" id="capa-${n}" value="${n}" data-adm="capa-curso" ${c.capa === n ? 'checked' : ''}><img src="${img(n)}" alt="Capa ${n}"></label>`).join('')}</div></div>
+        <div class="campo"><span>Capa</span><div class="capas">${CAPAS.map(n => `<label><input type="radio" name="curso-capa" id="capa-${n}" value="${n}" data-adm="capa-curso" ${c.capa === n ? 'checked' : ''}><img src="${capa(n)}" alt="Capa ${n}"></label>`).join('')}</div></div>
         <label class="campo larga"><span>Descrição</span><textarea id="curso-desc" data-campo-curso="desc" style="min-height:70px">${esc(c.desc || '')}</textarea></label></div>
     </section>
     ${c.modulos.map((m, i) => `<section class="mod-adm" data-modulo="${m.id}"><header><span class="tag">Módulo ${i + 1}</span><input id="mod-${m.id}" data-campo-modulo="${m.id}" value="${esc(m.titulo)}" aria-label="Nome do módulo">
@@ -196,7 +196,7 @@ function acaoAdm(el, ev) {
   switch (a) {
     case 'fechar-gaveta': fecharGaveta(); break;
     case 'abrir-curso': ev.preventDefault(); Adm.curso = id; Rota.pintar(); break;
-    case 'novo-curso': { const n = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'varanda', status: 'rascunho', modulos: [{ id: novoId(), titulo: 'Módulo 1', aulas: [] }] }; Banco.dados.cursos.push(n); Adm.curso = n.id; salvarAdm(); Rota.pintar(); $('#curso-titulo')?.select(); break; }
+    case 'novo-curso': { const n = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'generica', status: 'rascunho', modulos: [{ id: novoId(), titulo: 'Módulo 1', aulas: [] }] }; Banco.dados.cursos.push(n); Adm.curso = n.id; salvarAdm(); Rota.pintar(); $('#curso-titulo')?.select(); break; }
     case 'status-curso': c.status = el.checked ? 'publicado' : 'rascunho'; salvarAdm(el.checked ? 'Curso publicado.' : 'Curso voltou para rascunho.'); Rota.pintar(); break;
     case 'capa-curso': c.capa = el.value; salvarAdm(); break;
     case 'apagar-curso': comDesfazer(`Curso “${c.titulo}” excluído.`, () => { Banco.dados.cursos = Banco.dados.cursos.filter(x => x !== c); Adm.curso = null; }); break;
@@ -204,7 +204,7 @@ function acaoAdm(el, ev) {
     case 'mover-modulo': if (mover(c.modulos, c.modulos.findIndex(m => m.id === id), +el.dataset.dir)) { salvarAdm(); Rota.pintar(); } break;
     case 'apagar-modulo': { const m = c.modulos.find(x => x.id === id); comDesfazer(`Módulo “${m.titulo}” excluído${m.aulas.length ? ' com ' + m.aulas.length + ' aulas' : ''}.`, () => { c.modulos = c.modulos.filter(x => x !== m); }); break; }
     case 'nova-aula': { const m = c.modulos.find(x => x.id === id), n = aulaVazia('Nova aula'); m.aulas.push(n); Banco.gravar(); Rota.pintar(); abrirAula(n.id, true); break; }
-    case 'nova-aula-rapida': { let cur = Banco.dados.cursos.find(x => x.id === Adm.curso) || Banco.dados.cursos[0]; if (!cur) { cur = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'varanda', status: 'rascunho', modulos: [] }; Banco.dados.cursos.push(cur); } if (!cur.modulos.length) cur.modulos.push({ id: novoId(), titulo: 'Módulo 1', aulas: [] }); Adm.curso = cur.id; const n = aulaVazia('Nova aula'); cur.modulos.at(-1).aulas.push(n); Banco.gravar(); Adm.abrirDepois = n.id; location.hash = 'painel-cursos'; break; }
+    case 'nova-aula-rapida': { let cur = Banco.dados.cursos.find(x => x.id === Adm.curso) || Banco.dados.cursos[0]; if (!cur) { cur = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'generica', status: 'rascunho', modulos: [] }; Banco.dados.cursos.push(cur); } if (!cur.modulos.length) cur.modulos.push({ id: novoId(), titulo: 'Módulo 1', aulas: [] }); Adm.curso = cur.id; const n = aulaVazia('Nova aula'); cur.modulos.at(-1).aulas.push(n); Banco.gravar(); Adm.abrirDepois = n.id; location.hash = 'painel-cursos'; break; }
     case 'editar-aula': abrirAula(id); break;
     case 'status-aula': { const { aula } = acharAula(id); aula.status = el.checked ? 'publicado' : 'rascunho'; salvarAdm(el.checked ? 'Aula publicada.' : 'Aula voltou para rascunho.'); break; }
     case 'mover-aula': { const { modulo, aula } = acharAula(id), i = modulo.aulas.indexOf(aula), dir = +el.dataset.dir, mi = c.modulos.indexOf(modulo); if (!mover(modulo.aulas, i, dir)) { const outro = c.modulos[mi + dir]; if (!outro) break; modulo.aulas.splice(i, 1); dir > 0 ? outro.aulas.unshift(aula) : outro.aulas.push(aula); } salvarAdm(); Rota.pintar(); break; }

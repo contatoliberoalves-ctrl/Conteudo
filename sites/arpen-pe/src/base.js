@@ -78,6 +78,7 @@ const Banco = {
   ler() {
     try { this.dados = JSON.parse(localStorage.getItem(this.chave)); } catch { this.dados = null; }
     if (!this.dados || !this.dados.cursos) this.dados = conteudoInicial();
+    if ((this.dados.versao || 1) < 2) { if (!this.dados.cursos.some(c => c.id === 'prov222')) this.dados.cursos.unshift(cursoProvimento222()); this.dados.versao = 2; this.gravar(); }
     return this.dados;
   },
   gravar() {

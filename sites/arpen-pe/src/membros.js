@@ -2,7 +2,10 @@
 const MENU_ALUNO = [['aluno', 'Início', 'casa'], ['aluno-cursos', 'Cursos', 'play'], ['aluno-encontros', 'Encontros', 'agenda'], ['aluno-materiais', 'Materiais', 'pasta'], ['aluno-avisos', 'Avisos', 'sino']];
 const avisosNovos = () => publicados(Banco.dados.avisos).filter(a => !Eu.d.lidos.includes(a.id)).length;
 const primeiroNome = () => (Eu.d.nome || '').trim().split(' ')[0];
-const capaCurso = c => img(['recife', 'varanda', 'certidao', 'nascimento', 'casamento'].includes(c.capa) ? c.capa : 'varanda');
+const CAPAS = ['generica', 'recife', 'varanda', 'certidao', 'nascimento', 'casamento'];
+const capa = n => n === 'generica' ? 'img/generica.svg' : img(n);
+const capaCurso = c => capa(CAPAS.includes(c.capa) ? c.capa : 'generica');
+const miniatura = (a, n, marca) => `<span class="miniatura" style="background-image:url('${a.video?.tipo === 'youtube' && !PREVIA ? `https://i.ytimg.com/vi/${a.video.id}/mqdefault.jpg` : 'img/generica.svg'}')"><b>${a.video?.tipo === 'youtube' && !PREVIA ? '' : 'Aula ' + String(n).padStart(2, '0')}</b><i>${ico(marca)}</i></span>`;
 
 function moldura(menu, ativa, conteudo, equipe = false) {
   const conta = r => r === 'aluno-avisos' && avisosNovos() ? `<span class="conta">${avisosNovos()}</span>` : '';
@@ -81,11 +84,11 @@ function telaCurso(id) {
     <section class="continuar"><img src="${capaCurso(c)}" alt=""><div><a class="link-seta" href="#aluno-cursos" style="color:var(--lima);width:fit-content;position:relative;z-index:2">${ico('voltar')} Cursos</a><span class="olho">${esc(c.cat || 'Capacitação')}</span><h2>${esc(c.titulo)}</h2><p>${esc(c.desc)}</p>
       ${p.total ? `<div class="barra" style="color:#fff;max-width:340px"><i style="--v:${p.pct}%;background:var(--lima)"></i></div><p style="font-size:14px">${p.feitas} de ${p.total} aulas concluídas${total ? ' · ' + duracao(total) + ' de conteúdo' : ''}</p>` : ''}
       ${prox ? `<a class="cobre" href="#aula-${prox.id}" aria-label="Assistir: ${esc(prox.titulo)}"></a>` : ''}</div>${prox ? `<span class="botao-play">${ico('play')}</span>` : ''}</section>
-    <div style="display:grid;gap:14px">${c.modulos.map((m, i) => `<details class="modulo rv" style="--d:${i}" open><summary><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(m.titulo)}</h3><span class="miudo">${m.aulas.filter(a => a.status === 'publicado' && a.video).length || 'Em breve'}${m.aulas.filter(a => a.status === 'publicado' && a.video).length ? ' aulas' : ''}</span>${ico('baixo')}</summary>
+    <div style="display:grid;gap:14px">${(c.n = 0, c.modulos).map((m, i) => `<details class="modulo rv" style="--d:${i}" open><summary><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(m.titulo)}</h3><span class="miudo">${m.aulas.filter(a => a.status === 'publicado' && a.video).length || 'Em breve'}${m.aulas.filter(a => a.status === 'publicado' && a.video).length ? ' aulas' : ''}</span>${ico('baixo')}</summary>
       ${m.aulas.map(a => {
-        const noAr = a.status === 'publicado' && a.video, pr = Eu.d.progresso[a.id];
-        return noAr ? `<a class="aula-linha ${pr?.feita ? 'feita' : ''}" href="#aula-${a.id}"><span class="bola">${ico(pr?.feita ? 'ok' : 'play')}</span><div><strong>${esc(a.titulo)}</strong><small>${[duracao(a.dur), a.indice?.length ? a.indice.length + ' trechos no índice' : '', pr?.t && !pr.feita ? 'parou em ' + tempo(pr.t) : ''].filter(Boolean).join(' · ')}</small></div>${ico('seta')}</a>`
-          : `<div class="aula-linha breve"><span class="bola">${ico('relogio')}</span><div><strong>${esc(a.titulo)}</strong><small>Aula em preparação</small></div><span class="tag cinza">Em breve</span></div>`;
+        const noAr = a.status === 'publicado' && a.video, pr = Eu.d.progresso[a.id], n = ++c.n;
+        return noAr ? `<a class="aula-linha ${pr?.feita ? 'feita' : ''}" href="#aula-${a.id}">${miniatura(a, n, pr?.feita ? 'ok' : 'play')}<div><strong>${esc(a.titulo)}</strong><small>${[duracao(a.dur), a.indice?.length ? a.indice.length + ' trechos no índice' : '', pr?.t && !pr.feita ? 'parou em ' + tempo(pr.t) : ''].filter(Boolean).join(' · ')}</small></div>${ico('seta')}</a>`
+          : `<div class="aula-linha breve">${miniatura(a, n, 'relogio')}<div><strong>${esc(a.titulo)}</strong><small>Aula em preparação</small></div><span class="tag cinza">Em breve</span></div>`;
       }).join('') || '<div class="aula-linha breve"><span></span><div><small>Nenhuma aula neste módulo ainda.</small></div></div>'}</details>`).join('')}</div>`);
 }
 

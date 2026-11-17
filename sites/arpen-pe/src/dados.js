@@ -63,13 +63,17 @@ const CREDITOS_FOTOS = [
 ];
 
 function aulaVazia(titulo) { return { id: novoId(), titulo, desc: '', video: null, dur: 0, indice: [], anexos: [], status: 'rascunho' }; }
+function cursoProvimento222() {
+  return { id: 'prov222', titulo: 'Capacitação Provimento 222', cat: 'Capacitação', desc: 'Curso de capacitação sobre o Provimento 222. As aulas serão liberadas pela equipe.', capa: 'generica', status: 'publicado',
+    modulos: [{ id: 'prov222m0', titulo: 'Aulas', aulas: Array.from({ length: 8 }, (_, i) => ({ id: 'prov222a' + (i + 1), titulo: 'Aula ' + (i + 1), desc: '', video: null, dur: 0, indice: [], anexos: [], status: 'rascunho' })) }] };
+}
 function programa(id, titulo, cat, desc, capa, modulos) {
   return { id, titulo, cat, desc, capa, status: 'publicado', modulos: modulos.map((m, i) => ({ id: id + 'm' + i, titulo: m, aulas: [aulaVazia(m)] })) };
 }
 
 function conteudoInicial() {
   return {
-    versao: 1,
+    versao: 2,
     noticias: [
       { id: 'n1', tipo: 'Institucional', titulo: 'ARPEN-PE e TJPE: parceria pela cidadania e pelo acesso à justiça', resumo: 'Uma iniciativa voltada à documentação civil e à inclusão social em Pernambuco.', data: '2025-11-03', corpo: 'A ARPEN-PE participou de ações de cidadania em parceria com o TJPE, incluindo a Semana Nacional da Conciliação e o Mutirão PopRuaJud. A notícia destaca o acesso à documentação civil para pessoas em situação de vulnerabilidade.\n\nEsta é uma notícia de arquivo, publicada em 3 de novembro de 2025. Consulte a publicação original para os detalhes das ações.', link: 'https://arpenbrasil.org.br/arpen-pe-e-tjpe-firmam-parceria-em-acoes-de-cidadania-e-acesso-a-justica/', status: 'publicado' },
       { id: 'n2', tipo: 'Cidadania', titulo: 'Registro civil presente nas ações de solidariedade em Pernambuco', resumo: 'Confira no arquivo a mobilização dos cartórios para apoiar famílias afetadas pelas chuvas.', data: '2022-06-02', corpo: 'Em junho de 2022, a ARPEN-PE mobilizou cartórios para arrecadar doações destinadas a famílias afetadas pelas chuvas.\n\nNotícia de arquivo. Esta página não indica uma campanha de arrecadação atualmente ativa.', link: 'https://arpenbrasil.org.br/cartorios-de-registro-civil-de-pernambuco-sao-pontos-de-coleta-de-doacoes-para-desabrigados/', status: 'publicado' },
@@ -87,6 +91,7 @@ function conteudoInicial() {
     encontros: [],
     participantes: [],
     cursos: [
+      cursoProvimento222(),
       { id: 'demo', titulo: 'Conheça a área do aluno', cat: 'Demonstração', desc: 'Duas aulas de exemplo para testar o reprodutor, o índice clicável e as anotações. Pode ser apagado pela equipe.', capa: 'varanda', status: 'publicado',
         modulos: [{ id: 'demom0', titulo: 'Primeiros passos', aulas: [
           { id: 'demoa1', titulo: 'Como funciona o reprodutor', desc: 'Vídeo curto de demonstração, sem narração. Use o índice ao lado para pular entre os trechos, mude a velocidade e teste as anotações com marcação de tempo.', video: { tipo: 'arquivo', url: 'img/aula-demo.mp4' }, dur: 48,

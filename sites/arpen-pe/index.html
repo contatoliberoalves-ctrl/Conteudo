@@ -315,6 +315,7 @@ img, video { display: block; max-width: 100%; }
 .modulo .num { font-family: var(--display); font-style: italic; color: var(--verde); font-size: 22px; }
 .aula-linha { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 14px 24px; border-top: 1px solid var(--linha); transition: background .25s, padding .35s var(--suave); } a.aula-linha:hover { background: var(--papel); padding-left: 30px; }
 .aula-linha .bola { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--papel); color: var(--verde); flex: none; } .aula-linha .bola .ico { width: 15px; height: 15px; } .aula-linha.feita .bola { background: var(--verde); color: #fff; } .aula-linha.breve { color: var(--mudo); } .aula-linha strong { font-weight: 600; display: block; line-height: 1.3; } .aula-linha small { font-size: 12.5px; color: var(--mudo); }
+.miniatura { position: relative; width: 132px; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: var(--mata) center / cover; flex: none; display: grid; align-content: end; padding: 8px 10px; color: #fff; } .miniatura b { font-family: var(--display); font-weight: 500; font-size: 17px; line-height: 1; } .miniatura i { position: absolute; right: 7px; top: 7px; width: 24px; height: 24px; border-radius: 50%; background: rgba(255, 255, 255, .92); color: var(--verde); display: grid; place-items: center; } .miniatura i .ico { width: 12px; height: 12px; } .aula-linha.feita .miniatura i { background: var(--verde); color: #fff; } .aula-linha.breve .miniatura { opacity: .8; }
 .aviso-linha { display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid var(--linha); } .aviso-linha:first-of-type { border-top: 0; } .aviso-linha .ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--vermelho); margin-top: 8px; } .aviso-linha.lido .ponto { background: var(--linha); } .aviso-linha h3 { font: 600 16px var(--texto); letter-spacing: 0; } .aviso-linha p { color: var(--mudo); font-size: 14.5px; }
 .encontro { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; } .encontro-data { width: 92px; border-radius: 18px; background: var(--mata); color: #fff; text-align: center; padding: 12px 8px; display: grid; } .encontro-data b { font-family: var(--display); font-size: 38px; font-weight: 400; line-height: 1; } .encontro-data span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--lima); }
 .aovivo { display: inline-flex; align-items: center; gap: 8px; } .aovivo::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--vermelho); animation: pisca 1.4s infinite; } @keyframes pisca { 50% { opacity: .25; } }
@@ -430,6 +431,7 @@ dialog#janela { border: 0; padding: 0; border-radius: 26px; width: min(600px, ca
   .rodape-grade { grid-template-columns: 1fr; } .heroi-painel { border-radius: 24px; } .passa, .capacita { border-radius: 26px; }
   .linha-reg { grid-template-columns: auto 1fr; } .linha-reg > .ico { display: none; } .encontro { grid-template-columns: 1fr; } .video-previa { grid-template-columns: 1fr; }
   .aula-adm { grid-template-columns: auto minmax(0, 1fr); } .aula-adm .fim { grid-column: 1 / -1; justify-content: flex-end; }
+  .miniatura { width: 92px; } .miniatura b { font-size: 13px; }
   .bilhete { width: 180px; right: 0; } .carimbo { left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -554,6 +556,7 @@ const Banco = {
   ler() {
     try { this.dados = JSON.parse(localStorage.getItem(this.chave)); } catch { this.dados = null; }
     if (!this.dados || !this.dados.cursos) this.dados = conteudoInicial();
+    if ((this.dados.versao || 1) < 2) { if (!this.dados.cursos.some(c => c.id === 'prov222')) this.dados.cursos.unshift(cursoProvimento222()); this.dados.versao = 2; this.gravar(); }
     return this.dados;
   },
   gravar() {
@@ -683,13 +686,17 @@ const CREDITOS_FOTOS = [
 ];
 
 function aulaVazia(titulo) { return { id: novoId(), titulo, desc: '', video: null, dur: 0, indice: [], anexos: [], status: 'rascunho' }; }
+function cursoProvimento222() {
+  return { id: 'prov222', titulo: 'Capacitação Provimento 222', cat: 'Capacitação', desc: 'Curso de capacitação sobre o Provimento 222. As aulas serão liberadas pela equipe.', capa: 'generica', status: 'publicado',
+    modulos: [{ id: 'prov222m0', titulo: 'Aulas', aulas: Array.from({ length: 8 }, (_, i) => ({ id: 'prov222a' + (i + 1), titulo: 'Aula ' + (i + 1), desc: '', video: null, dur: 0, indice: [], anexos: [], status: 'rascunho' })) }] };
+}
 function programa(id, titulo, cat, desc, capa, modulos) {
   return { id, titulo, cat, desc, capa, status: 'publicado', modulos: modulos.map((m, i) => ({ id: id + 'm' + i, titulo: m, aulas: [aulaVazia(m)] })) };
 }
 
 function conteudoInicial() {
   return {
-    versao: 1,
+    versao: 2,
     noticias: [
       { id: 'n1', tipo: 'Institucional', titulo: 'ARPEN-PE e TJPE: parceria pela cidadania e pelo acesso à justiça', resumo: 'Uma iniciativa voltada à documentação civil e à inclusão social em Pernambuco.', data: '2025-11-03', corpo: 'A ARPEN-PE participou de ações de cidadania em parceria com o TJPE, incluindo a Semana Nacional da Conciliação e o Mutirão PopRuaJud. A notícia destaca o acesso à documentação civil para pessoas em situação de vulnerabilidade.\n\nEsta é uma notícia de arquivo, publicada em 3 de novembro de 2025. Consulte a publicação original para os detalhes das ações.', link: 'https://arpenbrasil.org.br/arpen-pe-e-tjpe-firmam-parceria-em-acoes-de-cidadania-e-acesso-a-justica/', status: 'publicado' },
       { id: 'n2', tipo: 'Cidadania', titulo: 'Registro civil presente nas ações de solidariedade em Pernambuco', resumo: 'Confira no arquivo a mobilização dos cartórios para apoiar famílias afetadas pelas chuvas.', data: '2022-06-02', corpo: 'Em junho de 2022, a ARPEN-PE mobilizou cartórios para arrecadar doações destinadas a famílias afetadas pelas chuvas.\n\nNotícia de arquivo. Esta página não indica uma campanha de arrecadação atualmente ativa.', link: 'https://arpenbrasil.org.br/cartorios-de-registro-civil-de-pernambuco-sao-pontos-de-coleta-de-doacoes-para-desabrigados/', status: 'publicado' },
@@ -707,6 +714,7 @@ function conteudoInicial() {
     encontros: [],
     participantes: [],
     cursos: [
+      cursoProvimento222(),
       { id: 'demo', titulo: 'Conheça a área do aluno', cat: 'Demonstração', desc: 'Duas aulas de exemplo para testar o reprodutor, o índice clicável e as anotações. Pode ser apagado pela equipe.', capa: 'varanda', status: 'publicado',
         modulos: [{ id: 'demom0', titulo: 'Primeiros passos', aulas: [
           { id: 'demoa1', titulo: 'Como funciona o reprodutor', desc: 'Vídeo curto de demonstração, sem narração. Use o índice ao lado para pular entre os trechos, mude a velocidade e teste as anotações com marcação de tempo.', video: { tipo: 'arquivo', url: 'img/aula-demo.mp4' }, dur: 48,
@@ -968,7 +976,10 @@ function paginaEntrar() {
 const MENU_ALUNO = [['aluno', 'Início', 'casa'], ['aluno-cursos', 'Cursos', 'play'], ['aluno-encontros', 'Encontros', 'agenda'], ['aluno-materiais', 'Materiais', 'pasta'], ['aluno-avisos', 'Avisos', 'sino']];
 const avisosNovos = () => publicados(Banco.dados.avisos).filter(a => !Eu.d.lidos.includes(a.id)).length;
 const primeiroNome = () => (Eu.d.nome || '').trim().split(' ')[0];
-const capaCurso = c => img(['recife', 'varanda', 'certidao', 'nascimento', 'casamento'].includes(c.capa) ? c.capa : 'varanda');
+const CAPAS = ['generica', 'recife', 'varanda', 'certidao', 'nascimento', 'casamento'];
+const capa = n => n === 'generica' ? 'img/generica.svg' : img(n);
+const capaCurso = c => capa(CAPAS.includes(c.capa) ? c.capa : 'generica');
+const miniatura = (a, n, marca) => `<span class="miniatura" style="background-image:url('${a.video?.tipo === 'youtube' && !PREVIA ? `https://i.ytimg.com/vi/${a.video.id}/mqdefault.jpg` : 'img/generica.svg'}')"><b>${a.video?.tipo === 'youtube' && !PREVIA ? '' : 'Aula ' + String(n).padStart(2, '0')}</b><i>${ico(marca)}</i></span>`;
 
 function moldura(menu, ativa, conteudo, equipe = false) {
   const conta = r => r === 'aluno-avisos' && avisosNovos() ? `<span class="conta">${avisosNovos()}</span>` : '';
@@ -1047,11 +1058,11 @@ function telaCurso(id) {
     <section class="continuar"><img src="${capaCurso(c)}" alt=""><div><a class="link-seta" href="#aluno-cursos" style="color:var(--lima);width:fit-content;position:relative;z-index:2">${ico('voltar')} Cursos</a><span class="olho">${esc(c.cat || 'Capacitação')}</span><h2>${esc(c.titulo)}</h2><p>${esc(c.desc)}</p>
       ${p.total ? `<div class="barra" style="color:#fff;max-width:340px"><i style="--v:${p.pct}%;background:var(--lima)"></i></div><p style="font-size:14px">${p.feitas} de ${p.total} aulas concluídas${total ? ' · ' + duracao(total) + ' de conteúdo' : ''}</p>` : ''}
       ${prox ? `<a class="cobre" href="#aula-${prox.id}" aria-label="Assistir: ${esc(prox.titulo)}"></a>` : ''}</div>${prox ? `<span class="botao-play">${ico('play')}</span>` : ''}</section>
-    <div style="display:grid;gap:14px">${c.modulos.map((m, i) => `<details class="modulo rv" style="--d:${i}" open><summary><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(m.titulo)}</h3><span class="miudo">${m.aulas.filter(a => a.status === 'publicado' && a.video).length || 'Em breve'}${m.aulas.filter(a => a.status === 'publicado' && a.video).length ? ' aulas' : ''}</span>${ico('baixo')}</summary>
+    <div style="display:grid;gap:14px">${(c.n = 0, c.modulos).map((m, i) => `<details class="modulo rv" style="--d:${i}" open><summary><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(m.titulo)}</h3><span class="miudo">${m.aulas.filter(a => a.status === 'publicado' && a.video).length || 'Em breve'}${m.aulas.filter(a => a.status === 'publicado' && a.video).length ? ' aulas' : ''}</span>${ico('baixo')}</summary>
       ${m.aulas.map(a => {
-        const noAr = a.status === 'publicado' && a.video, pr = Eu.d.progresso[a.id];
-        return noAr ? `<a class="aula-linha ${pr?.feita ? 'feita' : ''}" href="#aula-${a.id}"><span class="bola">${ico(pr?.feita ? 'ok' : 'play')}</span><div><strong>${esc(a.titulo)}</strong><small>${[duracao(a.dur), a.indice?.length ? a.indice.length + ' trechos no índice' : '', pr?.t && !pr.feita ? 'parou em ' + tempo(pr.t) : ''].filter(Boolean).join(' · ')}</small></div>${ico('seta')}</a>`
-          : `<div class="aula-linha breve"><span class="bola">${ico('relogio')}</span><div><strong>${esc(a.titulo)}</strong><small>Aula em preparação</small></div><span class="tag cinza">Em breve</span></div>`;
+        const noAr = a.status === 'publicado' && a.video, pr = Eu.d.progresso[a.id], n = ++c.n;
+        return noAr ? `<a class="aula-linha ${pr?.feita ? 'feita' : ''}" href="#aula-${a.id}">${miniatura(a, n, pr?.feita ? 'ok' : 'play')}<div><strong>${esc(a.titulo)}</strong><small>${[duracao(a.dur), a.indice?.length ? a.indice.length + ' trechos no índice' : '', pr?.t && !pr.feita ? 'parou em ' + tempo(pr.t) : ''].filter(Boolean).join(' · ')}</small></div>${ico('seta')}</a>`
+          : `<div class="aula-linha breve">${miniatura(a, n, 'relogio')}<div><strong>${esc(a.titulo)}</strong><small>Aula em preparação</small></div><span class="tag cinza">Em breve</span></div>`;
       }).join('') || '<div class="aula-linha breve"><span></span><div><small>Nenhuma aula neste módulo ainda.</small></div></div>'}</details>`).join('')}</div>`);
 }
 
@@ -1404,7 +1415,7 @@ function telaPainelCursos() {
       <div class="bloco-topo"><input class="titulo-vivo" id="curso-titulo" data-campo-curso="titulo" value="${esc(c.titulo)}" aria-label="Nome do curso" style="flex:1 1 260px">
         <div class="acoes">${chave(c.status === 'publicado', 'data-adm="status-curso" id="curso-status"', 'Publicado')}<a class="mini" href="#curso-${c.id}" aria-label="Ver como aluno" title="Ver como aluno">${ico('olho')}</a><button class="mini perigo" data-adm="apagar-curso" aria-label="Excluir curso" title="Excluir curso">${ico('lixo')}</button></div></div>
       <div class="campos"><label class="campo"><span>Categoria</span><input id="curso-cat" data-campo-curso="cat" value="${esc(c.cat || '')}" placeholder="Ex.: Rotina da serventia"></label>
-        <div class="campo"><span>Capa</span><div class="capas">${['recife', 'varanda', 'certidao', 'nascimento', 'casamento'].map(n => `<label><input type="radio" name="curso-capa" id="capa-${n}" value="${n}" data-adm="capa-curso" ${c.capa === n ? 'checked' : ''}><img src="${img(n)}" alt="Capa ${n}"></label>`).join('')}</div></div>
+        <div class="campo"><span>Capa</span><div class="capas">${CAPAS.map(n => `<label><input type="radio" name="curso-capa" id="capa-${n}" value="${n}" data-adm="capa-curso" ${c.capa === n ? 'checked' : ''}><img src="${capa(n)}" alt="Capa ${n}"></label>`).join('')}</div></div>
         <label class="campo larga"><span>Descrição</span><textarea id="curso-desc" data-campo-curso="desc" style="min-height:70px">${esc(c.desc || '')}</textarea></label></div>
     </section>
     ${c.modulos.map((m, i) => `<section class="mod-adm" data-modulo="${m.id}"><header><span class="tag">Módulo ${i + 1}</span><input id="mod-${m.id}" data-campo-modulo="${m.id}" value="${esc(m.titulo)}" aria-label="Nome do módulo">
@@ -1526,7 +1537,7 @@ function acaoAdm(el, ev) {
   switch (a) {
     case 'fechar-gaveta': fecharGaveta(); break;
     case 'abrir-curso': ev.preventDefault(); Adm.curso = id; Rota.pintar(); break;
-    case 'novo-curso': { const n = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'varanda', status: 'rascunho', modulos: [{ id: novoId(), titulo: 'Módulo 1', aulas: [] }] }; Banco.dados.cursos.push(n); Adm.curso = n.id; salvarAdm(); Rota.pintar(); $('#curso-titulo')?.select(); break; }
+    case 'novo-curso': { const n = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'generica', status: 'rascunho', modulos: [{ id: novoId(), titulo: 'Módulo 1', aulas: [] }] }; Banco.dados.cursos.push(n); Adm.curso = n.id; salvarAdm(); Rota.pintar(); $('#curso-titulo')?.select(); break; }
     case 'status-curso': c.status = el.checked ? 'publicado' : 'rascunho'; salvarAdm(el.checked ? 'Curso publicado.' : 'Curso voltou para rascunho.'); Rota.pintar(); break;
     case 'capa-curso': c.capa = el.value; salvarAdm(); break;
     case 'apagar-curso': comDesfazer(`Curso “${c.titulo}” excluído.`, () => { Banco.dados.cursos = Banco.dados.cursos.filter(x => x !== c); Adm.curso = null; }); break;
@@ -1534,7 +1545,7 @@ function acaoAdm(el, ev) {
     case 'mover-modulo': if (mover(c.modulos, c.modulos.findIndex(m => m.id === id), +el.dataset.dir)) { salvarAdm(); Rota.pintar(); } break;
     case 'apagar-modulo': { const m = c.modulos.find(x => x.id === id); comDesfazer(`Módulo “${m.titulo}” excluído${m.aulas.length ? ' com ' + m.aulas.length + ' aulas' : ''}.`, () => { c.modulos = c.modulos.filter(x => x !== m); }); break; }
     case 'nova-aula': { const m = c.modulos.find(x => x.id === id), n = aulaVazia('Nova aula'); m.aulas.push(n); Banco.gravar(); Rota.pintar(); abrirAula(n.id, true); break; }
-    case 'nova-aula-rapida': { let cur = Banco.dados.cursos.find(x => x.id === Adm.curso) || Banco.dados.cursos[0]; if (!cur) { cur = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'varanda', status: 'rascunho', modulos: [] }; Banco.dados.cursos.push(cur); } if (!cur.modulos.length) cur.modulos.push({ id: novoId(), titulo: 'Módulo 1', aulas: [] }); Adm.curso = cur.id; const n = aulaVazia('Nova aula'); cur.modulos.at(-1).aulas.push(n); Banco.gravar(); Adm.abrirDepois = n.id; location.hash = 'painel-cursos'; break; }
+    case 'nova-aula-rapida': { let cur = Banco.dados.cursos.find(x => x.id === Adm.curso) || Banco.dados.cursos[0]; if (!cur) { cur = { id: novoId(), titulo: 'Novo curso', cat: '', desc: '', capa: 'generica', status: 'rascunho', modulos: [] }; Banco.dados.cursos.push(cur); } if (!cur.modulos.length) cur.modulos.push({ id: novoId(), titulo: 'Módulo 1', aulas: [] }); Adm.curso = cur.id; const n = aulaVazia('Nova aula'); cur.modulos.at(-1).aulas.push(n); Banco.gravar(); Adm.abrirDepois = n.id; location.hash = 'painel-cursos'; break; }
     case 'editar-aula': abrirAula(id); break;
     case 'status-aula': { const { aula } = acharAula(id); aula.status = el.checked ? 'publicado' : 'rascunho'; salvarAdm(el.checked ? 'Aula publicada.' : 'Aula voltou para rascunho.'); break; }
     case 'mover-aula': { const { modulo, aula } = acharAula(id), i = modulo.aulas.indexOf(aula), dir = +el.dataset.dir, mi = c.modulos.indexOf(modulo); if (!mover(modulo.aulas, i, dir)) { const outro = c.modulos[mi + dir]; if (!outro) break; modulo.aulas.splice(i, 1); dir > 0 ? outro.aulas.unshift(aula) : outro.aulas.push(aula); } salvarAdm(); Rota.pintar(); break; }
