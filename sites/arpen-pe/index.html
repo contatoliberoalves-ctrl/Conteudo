@@ -1002,7 +1002,7 @@ function cartaoCurso(c, i = 0) {
   const p = progressoCurso(c), primeira = aulasNoAr(c)[0];
   return `<article class="curso rv" style="--d:${i % 4}"><div class="curso-capa"><img src="${capaCurso(c)}" alt="" loading="lazy"><span class="tag">${esc(c.cat || 'Capacitação')}</span>${primeira ? `<span class="tocar">${ico('play')}</span>` : ''}</div>
     <div class="curso-corpo"><h3><a class="cobre" href="#curso-${c.id}">${esc(c.titulo)}</a></h3><p>${esc(c.desc)}</p>
-    ${p.total ? `<div class="barra"><i style="--v:${p.pct}%"></i></div><div class="curso-pe"><span>${p.feitas} de ${p.total} ${p.total === 1 ? 'aula' : 'aulas'}</span><span>${p.pct}%</span></div>` : `<div class="curso-pe"><span class="tag cinza">Aulas em preparação</span><span>${c.modulos.length} módulos</span></div>`}</div></article>`;
+    ${p.total ? `<div class="barra"><i style="--v:${p.pct}%"></i></div><div class="curso-pe"><span>${p.feitas} de ${p.total} ${p.total === 1 ? 'aula' : 'aulas'}</span><span>${p.pct}%</span></div>` : `<div class="curso-pe"><span class="tag cinza">Aulas em preparação</span><span>${todasAulas(c).length} ${todasAulas(c).length === 1 ? 'aula' : 'aulas'}</span></div>`}</div></article>`;
 }
 function linhaAviso(a) {
   const lido = Eu.d.lidos.includes(a.id);
