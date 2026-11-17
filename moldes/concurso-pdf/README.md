@@ -28,3 +28,7 @@ condicao, excecao, exemplo, perguntas[3]}; `questoes` {questoes[{n, disciplina, 
 folha}; `redacao` {linhas, alturaLinha, nota}; `resultados` {disciplinas[], aviso}; `ficha` {dados[[rótulo, valor]] (o 1º em destaque), colunas, datas[[data, evento]], etapas[{nome, carater, detalhe}], fonte}; `gabarito` {itens[{n, letra, comentario}]}. Em `questoes`, itens de certo ou errado têm `alternativas: ["Certo", "Errado"]` e a página leva `formato: "ce"`.
 
 Coleções com edital publicado (conteúdo conferido no edital): `ppe` (Polícia Penal PE), `pmpe` (PMPE), `cbmpe` (Bombeiros PE) e `pcpe` (Polícia Civil PE). Não invente dados do edital: sem conferir, use `{{campo}}`.
+
+## Revisão em Dicas (`dicas.mjs`)
+Material próprio em PDF A4 com capa diferente das coleções (cartões de dica em leque, número gigante vazado, selo "MATERIAL PRÓPRIO", "criado por" e @): como usar com o mapa da prova, dicas em cartões (número + caixa de marcar | dica rápida em negrito, explicação curta e fundamento ⚖), faixas por matéria e subseção, painel de revisão com todas as dicas para pintar, fontes oficiais e contracapa. O conteúdo é vendido, então fica fora do git, em `privado/` (`<id>-meta.json` e `<id>-1.json`, `<id>-2.json`…: `[{materia, sub, base, dicas: [{n, d, e, f}]}]`); a cópia fica no Drive do autor.
+Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node dicas.mjs <id>` → `saida/<id>/<id>.pdf` e as páginas em PNG.
