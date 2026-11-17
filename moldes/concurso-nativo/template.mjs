@@ -17,7 +17,7 @@ const CORES = {
   roxo: ['#2E1A7A', '#FFFFFF'], vermelho: ['#C0392B', '#FFFFFF'], preto: ['#000000', '#FFFFFF'],
 };
 const POS = { topo: 140, meio: 560, base: 980 };
-const H = 1350;
+let H = 1350; // "formato": "stories" no post -> 1080×1920
 const PERFIL = '@concursocomlibero';
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const lista = v => (v == null ? [] : Array.isArray(v) ? v : [v]);
@@ -82,6 +82,7 @@ const ELEMENTOS = {
 };
 
 export function renderCarrossel(c) {
+  H = c.formato === 'stories' ? 1920 : 1350;
   const slides = lista(c.slides);
   const avisos = [];
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">

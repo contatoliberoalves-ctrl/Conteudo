@@ -1,349 +1,607 @@
 [
-  {
-    "id": "pode-acumular-cargos",
-    "titulo": "Pode acumular dois cargos públicos?",
-    "slides": [
-      {
-        "foto": "viagem-02.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.15,
-        "elementos": [
-          {
-            "texto": "Pode acumular dois\ncargos públicos?",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 100,
-            "tam": 70
-          },
-          {
-            "tipo": "enquete",
-            "pergunta": "O que você acha?",
-            "opcoes": [
-              "Pode",
-              "Não pode"
-            ],
-            "y": 940,
-            "largura": 480
-          }
-        ]
-      },
-      {
-        "foto": "viagem-63.jpg",
-        "fotoPos": "center 30%",
-        "escurecer": 0.1,
-        "elementos": [
-          {
-            "texto": "A regra:",
-            "estilo": "forte",
-            "cor": "escuro",
-            "y": 650,
-            "tam": 76
-          },
-          {
-            "texto": "É vedada a acumulação\nremunerada de cargos\npúblicos, exceto quando\nhouver compatibilidade\nde horários.",
-            "cor": "branco",
-            "y": 770,
-            "tam": 44
-          },
-          {
-            "texto": "Art. 37, XVI, CF/88",
-            "cor": "verde",
-            "y": 1130,
-            "tam": 38
-          }
-        ]
-      },
-      {
-        "foto": "viagem-27.jpg",
-        "escurecer": 0.2,
-        "elementos": [
-          {
-            "texto": "As 3 exceções",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 130,
-            "tam": 86
-          },
-          {
-            "texto": "a) dois cargos de professor",
-            "cor": "branco",
-            "y": 330,
-            "tam": 44
-          },
-          {
-            "texto": "b) um de professor com outro\ntécnico ou científico",
-            "cor": "branco",
-            "y": 460,
-            "tam": 44
-          },
-          {
-            "texto": "c) dois cargos ou empregos de\nprofissionais de saúde, com\nprofissões regulamentadas",
-            "cor": "branco",
-            "y": 640,
-            "tam": 44
-          },
-          {
-            "texto": "Sempre com compatibilidade\nde horários",
-            "cor": "escuro",
-            "y": 900,
-            "tam": 46
-          }
-        ]
-      },
-      {
-        "foto": "viagem-14.jpg",
-        "fotoPos": "center 20%",
-        "elementos": [
-          {
-            "tipo": "quiz",
-            "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
-            "opcoes": [
-              "Pode",
-              "Não pode"
-            ],
-            "certa": 0,
-            "y": 680
-          }
-        ]
-      },
-      {
-        "foto": "viagem-56.jpg",
-        "fotoPos": "center 0%",
-        "elementos": [
-          {
-            "tipo": "quiz",
-            "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
-            "opcoes": [
-              "Pode",
-              "Não pode"
-            ],
-            "certa": 0,
-            "revelar": true,
-            "y": 810
-          },
-          {
-            "texto": "Alínea c: profissionais de saúde",
-            "cor": "escuro",
-            "y": 1255,
-            "tam": 38
-          }
-        ]
-      },
-      {
-        "foto": "viagem-80.jpg",
-        "fotoPos": "center 30%",
-        "escurecer": 0.15,
-        "elementos": [
-          {
-            "texto": "Pegadinha",
-            "estilo": "forte",
-            "cor": "vermelho",
-            "y": 640,
-            "tam": 76
-          },
-          {
-            "texto": "A proibição vale também\npara empregos e funções\nem autarquias, fundações,\nempresas públicas e\nsociedades de economia mista.",
-            "cor": "branco",
-            "y": 770,
-            "tam": 42
-          },
-          {
-            "texto": "Art. 37, XVII, CF/88",
-            "cor": "verde",
-            "y": 1130,
-            "tam": 38
-          }
-        ]
-      },
-      {
-        "foto": "viagem-53.jpg",
-        "fotoPos": "center 25%",
-        "elementos": [
-          {
-            "tipo": "pergunta",
-            "titulo": "Ficou alguma dúvida sobre acumulação?",
-            "y": 770,
-            "largura": 660
-          },
-          {
-            "tipo": "mencao",
-            "y": 1140
-          }
-        ]
-      }
+ {
+  "id": "pode-acumular-cargos",
+  "titulo": "Pode acumular dois cargos públicos?",
+  "slides": [
+   {
+    "foto": "viagem-02.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.15,
+    "elementos": [
+     {
+      "texto": "Pode acumular dois\ncargos públicos?",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 100,
+      "tam": 70
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "O que você acha?",
+      "opcoes": [
+       "Pode",
+       "Não pode"
+      ],
+      "y": 940,
+      "largura": 480
+     }
     ]
-  },
-  {
-    "id": "como-estudei-cartorios",
-    "titulo": "Como eu estudei para o concurso de cartórios?",
-    "slides": [
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "tipo": "enquete",
-            "pergunta": "Já pensou em cartório?",
-            "opcoes": [
-              "Sim",
-              "Ainda não"
-            ],
-            "y": 90,
-            "largura": 500,
-            "lado": "direita",
-            "escala": 0.68
-          },
-          {
-            "texto": "Como eu estudei para\no concurso de cartórios?",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 800,
-            "tam": 70
-          }
-        ]
-      },
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "texto": "Não foi fácil",
-            "estilo": "forte",
-            "cor": "vermelho",
-            "y": 780,
-            "tam": 80
-          },
-          {
-            "texto": "Era a primeira vez\nque eu fazia essa prova\ne entrava nesse mundo\ndos cartórios.",
-            "cor": "branco",
-            "y": 910,
-            "tam": 46
-          }
-        ]
-      },
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "texto": "1. Fiquei em treino",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 780,
-            "tam": 80
-          },
-          {
-            "texto": "Foquei em modo treino:\nresolver, errar, corrigir\ne voltar a resolver.",
-            "cor": "branco",
-            "y": 920,
-            "tam": 46
-          }
-        ]
-      },
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "texto": "2. Provas antigas",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 780,
-            "tam": 80
-          },
-          {
-            "texto": "Fiz as provas anteriores\npara entender como\na banca cobra.",
-            "cor": "branco",
-            "y": 920,
-            "tam": 46
-          }
-        ]
-      },
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "texto": "3. O que cai",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 780,
-            "tam": 80
-          },
-          {
-            "texto": "Foquei nas informações\nmais relevantes: aquilo\nque mais cai na prova.",
-            "cor": "branco",
-            "y": 920,
-            "tam": 46
-          }
-        ]
-      },
-      {
-        "foto": "viagem-71.jpg",
-        "fotoPos": "center 0%",
-        "tom": 0.12,
-        "elementos": [
-          {
-            "texto": "Quer passar\nem concurso também?",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 780,
-            "tam": 76
-          },
-          {
-            "texto": "Segue o perfil para\nmais bastidores e dicas",
-            "cor": "branco",
-            "y": 1010,
-            "tam": 46
-          },
-          {
-            "tipo": "mencao",
-            "y": 1180
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-63.jpg",
+    "fotoPos": "center 30%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "A regra:",
+      "estilo": "forte",
+      "cor": "escuro",
+      "y": 650,
+      "tam": 76
+     },
+     {
+      "texto": "É vedada a acumulação\nremunerada de cargos\npúblicos, exceto quando\nhouver compatibilidade\nde horários.",
+      "cor": "branco",
+      "y": 770,
+      "tam": 44
+     },
+     {
+      "texto": "Art. 37, XVI, CF/88",
+      "cor": "verde",
+      "y": 1130,
+      "tam": 38
+     }
     ]
-  },
-  {
-    "id": "quiz-validade-concurso",
-    "titulo": "Quiz: validade do concurso (post único)",
-    "slides": [
-      {
-        "foto": "img-3160.jpg",
-        "fotoPos": "center 20%",
-        "tom": 0.2,
-        "elementos": [
-          {
-            "texto": "Cai em toda prova",
-            "estilo": "forte",
-            "cor": "amarelo",
-            "y": 90,
-            "tam": 80
-          },
-          {
-            "tipo": "quiz",
-            "pergunta": "Qual é o prazo de validade do concurso público?",
-            "opcoes": [
-              "Até 1 ano, improrrogável",
-              "Até 2 anos, prorrogável uma vez por igual período",
-              "Até 4 anos, improrrogável"
-            ],
-            "certa": 1,
-            "y": 740,
-            "largura": 800
-          },
-          {
-            "tipo": "link",
-            "texto": "Gabarito: art. 37, III",
-            "y": 1200
-          }
-        ]
-      }
+   },
+   {
+    "foto": "viagem-27.jpg",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "texto": "As 3 exceções",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 130,
+      "tam": 86
+     },
+     {
+      "texto": "a) dois cargos de professor",
+      "cor": "branco",
+      "y": 330,
+      "tam": 44
+     },
+     {
+      "texto": "b) um de professor com outro\ntécnico ou científico",
+      "cor": "branco",
+      "y": 460,
+      "tam": 44
+     },
+     {
+      "texto": "c) dois cargos ou empregos de\nprofissionais de saúde, com\nprofissões regulamentadas",
+      "cor": "branco",
+      "y": 640,
+      "tam": 44
+     },
+     {
+      "texto": "Sempre com compatibilidade\nde horários",
+      "cor": "escuro",
+      "y": 900,
+      "tam": 46
+     }
     ]
-  }
+   },
+   {
+    "foto": "viagem-14.jpg",
+    "fotoPos": "center 20%",
+    "elementos": [
+     {
+      "tipo": "quiz",
+      "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+      "opcoes": [
+       "Pode",
+       "Não pode"
+      ],
+      "certa": 0,
+      "y": 680
+     }
+    ]
+   },
+   {
+    "foto": "viagem-56.jpg",
+    "fotoPos": "center 0%",
+    "elementos": [
+     {
+      "tipo": "quiz",
+      "pergunta": "Enfermeira em dois hospitais públicos, com horários compatíveis. Pode?",
+      "opcoes": [
+       "Pode",
+       "Não pode"
+      ],
+      "certa": 0,
+      "revelar": true,
+      "y": 810
+     },
+     {
+      "texto": "Alínea c: profissionais de saúde",
+      "cor": "escuro",
+      "y": 1255,
+      "tam": 38
+     }
+    ]
+   },
+   {
+    "foto": "viagem-80.jpg",
+    "fotoPos": "center 30%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Pegadinha",
+      "estilo": "forte",
+      "cor": "vermelho",
+      "y": 640,
+      "tam": 76
+     },
+     {
+      "texto": "A proibição vale também\npara empregos e funções\nem autarquias, fundações,\nempresas públicas e\nsociedades de economia mista.",
+      "cor": "branco",
+      "y": 770,
+      "tam": 42
+     },
+     {
+      "texto": "Art. 37, XVII, CF/88",
+      "cor": "verde",
+      "y": 1130,
+      "tam": 38
+     }
+    ]
+   },
+   {
+    "foto": "viagem-53.jpg",
+    "fotoPos": "center 25%",
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Ficou alguma dúvida sobre acumulação?",
+      "y": 770,
+      "largura": 660
+     },
+     {
+      "tipo": "mencao",
+      "y": 1140
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "como-estudei-cartorios",
+  "titulo": "Como eu estudei para o concurso de cartórios?",
+  "slides": [
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "tipo": "enquete",
+      "pergunta": "Já pensou em cartório?",
+      "opcoes": [
+       "Sim",
+       "Ainda não"
+      ],
+      "y": 90,
+      "largura": 500,
+      "lado": "direita",
+      "escala": 0.68
+     },
+     {
+      "texto": "Como eu estudei para\no concurso de cartórios?",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 800,
+      "tam": 70
+     }
+    ]
+   },
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "texto": "Não foi fácil",
+      "estilo": "forte",
+      "cor": "vermelho",
+      "y": 780,
+      "tam": 80
+     },
+     {
+      "texto": "Era a primeira vez\nque eu fazia essa prova\ne entrava nesse mundo\ndos cartórios.",
+      "cor": "branco",
+      "y": 910,
+      "tam": 46
+     }
+    ]
+   },
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "texto": "1. Fiquei em treino",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 780,
+      "tam": 80
+     },
+     {
+      "texto": "Foquei em modo treino:\nresolver, errar, corrigir\ne voltar a resolver.",
+      "cor": "branco",
+      "y": 920,
+      "tam": 46
+     }
+    ]
+   },
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "texto": "2. Provas antigas",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 780,
+      "tam": 80
+     },
+     {
+      "texto": "Fiz as provas anteriores\npara entender como\na banca cobra.",
+      "cor": "branco",
+      "y": 920,
+      "tam": 46
+     }
+    ]
+   },
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "texto": "3. O que cai",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 780,
+      "tam": 80
+     },
+     {
+      "texto": "Foquei nas informações\nmais relevantes: aquilo\nque mais cai na prova.",
+      "cor": "branco",
+      "y": 920,
+      "tam": 46
+     }
+    ]
+   },
+   {
+    "foto": "viagem-71.jpg",
+    "fotoPos": "center 0%",
+    "tom": 0.12,
+    "elementos": [
+     {
+      "texto": "Quer passar\nem concurso também?",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 780,
+      "tam": 76
+     },
+     {
+      "texto": "Segue o perfil para\nmais bastidores e dicas",
+      "cor": "branco",
+      "y": 1010,
+      "tam": 46
+     },
+     {
+      "tipo": "mencao",
+      "y": 1180
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "quiz-validade-concurso",
+  "titulo": "Quiz: validade do concurso (post único)",
+  "slides": [
+   {
+    "foto": "img-3160.jpg",
+    "fotoPos": "center 20%",
+    "tom": 0.2,
+    "elementos": [
+     {
+      "texto": "Cai em toda prova",
+      "estilo": "forte",
+      "cor": "amarelo",
+      "y": 90,
+      "tam": 80
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "Qual é o prazo de validade do concurso público?",
+      "opcoes": [
+       "Até 1 ano, improrrogável",
+       "Até 2 anos, prorrogável uma vez por igual período",
+       "Até 4 anos, improrrogável"
+      ],
+      "certa": 1,
+      "y": 740,
+      "largura": 800
+     },
+     {
+      "tipo": "link",
+      "texto": "Gabarito: art. 37, III",
+      "y": 1200
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enac-nativo-carrossel",
+  "titulo": "ENAC 2026.2: fiz um material (nativo)",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Fiz um material\npro ENAC 2026.2",
+      "y": 820,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 76
+     },
+     {
+      "texto": "300 dicas.\nTodas as matérias da prova.",
+      "y": 1030,
+      "cor": "branco",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-notebook.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "texto": "Peguei o edital\ne fiz assim:",
+      "y": 760,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 72
+     },
+     {
+      "texto": "3 dicas para cada questão,\nno peso de cada matéria.",
+      "y": 960,
+      "cor": "branco",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-mesa.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "Testa aí:",
+      "y": 760,
+      "cor": "escuro",
+      "estilo": "forte",
+      "tam": 70
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "Testamento público exige quantas testemunhas?",
+      "opcoes": [
+       "2",
+       "3"
+      ],
+      "certa": 0,
+      "y": 880
+     }
+    ]
+   },
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "tipo": "quiz",
+      "pergunta": "Testamento público exige quantas testemunhas?",
+      "opcoes": [
+       "2",
+       "3"
+      ],
+      "certa": 0,
+      "revelar": true,
+      "y": 700,
+      "escala": 0.8
+     },
+     {
+      "texto": "O particular é que\nexige 3.",
+      "y": 1010,
+      "cor": "branco",
+      "tam": 46
+     },
+     {
+      "texto": "CC, arts. 1.864 e 1.876",
+      "y": 1150,
+      "cor": "menta",
+      "tam": 36
+     }
+    ]
+   },
+   {
+    "foto": "libero-bracos2.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Parte 1: 300 dicas rápidas\nParte 2: todas explicadas",
+      "y": 780,
+      "cor": "branco",
+      "tam": 44
+     },
+     {
+      "texto": "R$ 49,99",
+      "y": 940,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 96
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas",
+      "y": 1110
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enac-nativo-post",
+  "titulo": "ENAC 2026.2: Revisão em Dicas (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "texto": "Revisão em Dicas\nENAC 2026.2",
+      "y": 860,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 84
+     },
+     {
+      "texto": "300 dicas, todas explicadas.\nLink na bio.",
+      "y": 1070,
+      "cor": "branco",
+      "tam": 42
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enac-nativo-stories",
+  "titulo": "ENAC 2026.2: stories nativos",
+  "formato": "stories",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Vai fazer o\nENAC 2026.2?",
+      "y": 1150,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 86
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Me conta",
+      "opcoes": [
+       "Vou",
+       "Tô decidindo"
+      ],
+      "y": 1420,
+      "largura": 560
+     }
+    ]
+   },
+   {
+    "foto": "libero-mesa.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "Pegadinha clássica:",
+      "y": 1080,
+      "cor": "escuro",
+      "estilo": "forte",
+      "tam": 66
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "A prenotação no Registro de Imóveis vale por quantos dias?",
+      "opcoes": [
+       "30 dias",
+       "20 dias"
+      ],
+      "certa": 1,
+      "y": 1200
+     }
+    ]
+   },
+   {
+    "foto": "libero-notebook.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "20 dias.",
+      "y": 1080,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 110
+     },
+     {
+      "texto": "Eram 30 antes da\nLei 14.382/2022.",
+      "y": 1260,
+      "cor": "branco",
+      "tam": 48
+     },
+     {
+      "texto": "Essa é a dica 93 de 300.",
+      "y": 1460,
+      "cor": "menta",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-bracos2.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Revisão em Dicas\nENAC 2026.2",
+      "y": 1040,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 84
+     },
+     {
+      "texto": "300 dicas + todas explicadas\npor R$ 49,99",
+      "y": 1260,
+      "cor": "branco",
+      "tam": 46
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas",
+      "y": 1480
+     }
+    ]
+   }
+  ]
+ }
 ]

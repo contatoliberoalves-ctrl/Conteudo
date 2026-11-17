@@ -11,7 +11,7 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 `../concursocomlibero/fotos`). Olhe a foto antes: nada pode cobrir o rosto.
 
 ## dados.json
-Lista de posts: `id`, `titulo`, `slides`. Post único = 1 slide. Slide: `foto`, `fotoPos`, `escurecer` (0–1),
+Lista de posts: `id`, `titulo`, `slides` e, opcional, `"formato": "stories"` (1080×1920; o padrão é feed 1080×1350). Post único = 1 slide. Slide: `foto`, `fotoPos`, `escurecer` (0–1),
 `tom` (véu verde 0–1) e `elementos`. Todo elemento tem `y` (px do topo, ou `topo`/`meio`/`base`) e, opcionais, `largura`, `lado` (`esquerda`/`direita`, encosta na margem) e `escala` (ex.: `0.7`, figurinha menor);
 elementos que se encostarem são afastados sozinhos.
 
