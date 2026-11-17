@@ -93,10 +93,11 @@ const PECAS = {
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 42%,rgba(10,10,8,.82) 66%,#0D0C0A 100%)"></div>
       ${ficha}
       ${s.credito ? `<div class="mono" style="position:absolute;left:30px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;font-size:14px;color:rgba(255,255,255,.7);text-transform:none;white-space:nowrap">Foto: ${esc(s.credito)}</div>` : ''}
-      <div data-cabe style="position:absolute;left:72px;right:72px;bottom:104px;top:600px;padding-bottom:26px;display:flex;flex-direction:column;justify-content:flex-end">
+      <div data-cabe style="position:absolute;left:72px;right:72px;bottom:104px;top:${s.topoTexto || 600}px;padding-bottom:26px;display:flex;flex-direction:column;justify-content:flex-end">
         <div style="align-self:flex-start;background:${P.azul};color:#fff;padding:10px 18px;margin-bottom:24px" class="mono"><span style="font-size:24px;font-weight:600">${esc(s.kicker || 'Plantão do cartório')}</span></div>
         <div class="tit" style="font-size:${s.ts || 112}px;color:#fff">${rico(s.titulo, f)}</div>
-        ${s.texto ? `<div class="txt" style="font-size:${s.corpo || 34}px;color:#E6E4DE;margin-top:22px">${linhas(s.texto, f)}</div>` : ''}
+        ${s.texto ? `<div class="txt" style="font-size:${s.corpo || 34}px;color:#E6E4DE;margin-top:22px">${linhas(s.texto, f, 'margin-top:12px')}</div>` : ''}
+        ${s.fonte ? `<div class="mono" style="font-size:17px;color:#A9A7A0;margin-top:22px;text-transform:none;letter-spacing:.01em">Fonte: ${esc(s.fonte)}</div>` : ''}
       </div>`);
   },
 
