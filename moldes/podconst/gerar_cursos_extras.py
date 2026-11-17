@@ -119,16 +119,35 @@ def calendario(mes, ano_dias, inicio, marcados, claro=True):
     return (f'<div style="color:{cor};"><div style="{BB}font-size:56px;margin-bottom:12px;">{mes}</div>'
             f'<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;">{cab}{"".join(cel)}</div></div>')
 
+# Capa: a dupla na frente da agenda (início 23/11, fim 10/12).
+
+SLOT = lambda sid, left, top, w, h, extra='': f'<div style="position:absolute;left:{left}px;top:{top}px;width:{w}px;height:{h}px;{extra}"><image-slot id="{sid}" shape="rect" fit="contain" placeholder="Recorte da dupla"></image-slot></div>'
+GRAO = '<div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.5px,transparent 1.6px);background-size:18px 18px;"></div>'
+
+# C · dupla no centro com a agenda gigante atrás
+h2 = 900; w2 = round(h2 * .6506)
+def folha(mes, dia, rot, x, y):
+    return (f'<div style="position:absolute;left:{x}px;top:{y}px;width:330px;transform:rotate({rot}deg);background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.45);text-align:center;color:#0b1a4a;">'
+            f'<div style="background:#e224d6;color:#fff;font-weight:700;font-size:34px;letter-spacing:.24em;padding:14px 0;">{mes}</div>'
+            f'<div style="{BB}font-size:210px;line-height:1;padding:6px 0 0;">{dia}</div></div>')
+CAPA_C = tela('ce1-01', NAVY, GRAO +
+    fantasma('PROGRAMAÇÃO', 'rgba(255,255,255,.05)', top=150, left=-60, px=330) +
+    folha('NOV', '23', -10, 40, 470) + folha('DEZ', '10', 9, 710, 470) +
+    f'<div style="position:absolute;left:375px;top:640px;{BB}font-size:120px;color:#f7f400;">→</div>' +
+    SLOT('ce1-01-foto', (1080 - w2) // 2, 1350 - h2, w2, h2, 'filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));') +
+    f'<div style="position:absolute;left:0;right:0;top:70px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
+    f'<div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;">REPESCAGEM OAB 48</div>'
+    f'<div style="{BB}font-size:160px;line-height:.88;margin-top:16px;">CURSOS <span style="color:#f7f400;">EXTRAS</span></div>'
+    f'<div style="background:#e224d6;font-weight:700;font-size:40px;padding:6px 20px;margin-top:14px;">Programação · novas datas</div></div>' +
+    f'<div style="position:absolute;left:0;right:0;bottom:0;height:230px;background:linear-gradient(180deg,rgba(10,20,64,0),rgba(10,20,64,.95));"></div>' +
+    f'<div style="position:absolute;left:70px;right:70px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;">'
+    f'<div style="font-weight:700;font-size:30px;line-height:1.3;">2 cursos · 8 aulas<br><span style="color:#f7f400;">com Líbero e Natália</span></div>{LOGO(40)}</div>')
+
+
 M1, M2 = ('#1d3a9e', '#fff'), ('#e224d6', '#fff')
 G = []
 G.append(grupo('ce1', 'Carrossel · Programação dos cursos extras da repescagem (OAB 48)', [
-    tela('ce1-01', MAG, fantasma('AGENDA', 'rgba(120,0,120,.18)', top=120, left=-40, px=470) + selos() +
-         f'<div style="position:absolute;left:0;right:0;top:300px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
-         f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:28px;letter-spacing:.3em;color:#0b1a4a;"><span style="width:56px;height:3px;background:#0b1a4a;"></span><span style="margin-right:-.3em;">REPESCAGEM OAB 48</span><span style="width:56px;height:3px;background:#0b1a4a;"></span></div>'
-         f'<div style="background:#0b1a4a;font-weight:700;font-size:46px;padding:6px 20px;margin-top:36px;">PROGRAMAÇÃO</div>'
-         f'<div style="background:#f7f400;color:#0b1a4a;{BB}font-size:168px;line-height:.9;padding:20px 28px 4px;margin-top:10px;transform:rotate(-2deg);">CURSOS EXTRAS</div>'
-         f'<div style="background:#fff;color:#e224d6;font-weight:700;font-size:44px;padding:6px 20px;margin-top:14px;">NOVAS DATAS</div>'
-         f'<div style="display:flex;gap:40px;margin-top:56px;">{EMB1(230, -6)}{EMB2(230, 6)}</div></div>' + LOGO_EM(60, 40)),
+    CAPA_C,
     tela('ce1-02', NAVY, arrobas() + bloco(
         KICK('2 CURSOS · 8 AULAS') + T(f'O QUE VEM AÍ NA<br>{MARCA("REPESCAGEM")}', 130) + BARRA() +
         f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px;">'
@@ -161,67 +180,6 @@ G.append(grupo('ce1', 'Carrossel · Programação dos cursos extras da repescage
          f'<div style="background:#f7f400;color:#0b1a4a;border-radius:999px;padding:22px 44px;font-weight:700;font-size:38px;">Garanta sua vaga no link ↓</div>'
          f'<div style="font-weight:700;font-size:40px;border:2px solid rgba(255,255,255,.55);border-radius:16px;padding:18px 30px;"><span style="color:#f7f400;">{LINK}</span></div></div>' + LOGO_EM(70, 46)),
 ]))
-
-# ---------- Variações de capa (para escolher) ----------
-SLOT = lambda sid, left, top, w, h, extra='': f'<div style="position:absolute;left:{left}px;top:{top}px;width:{w}px;height:{h}px;{extra}"><image-slot id="{sid}" shape="rect" fit="contain" placeholder="Recorte da dupla"></image-slot></div>'
-GRAO = '<div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.5px,transparent 1.6px);background-size:18px 18px;"></div>'
-
-# A · dupla à direita, título empilhado à esquerda
-h = 900; w = round(h * .7186)
-CAPA_A = tela('ce1a-01', MAG, GRAO +
-    f'<div style="position:absolute;right:-120px;bottom:-60px;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle,#ff5cf5 0%,rgba(255,92,245,0) 70%);"></div>' +
-    SLOT('ce1a-foto', 1080 - w + 30, 1350 - h, w, h, 'filter:drop-shadow(0 30px 50px rgba(60,0,60,.45));') +
-    f'<div style="position:absolute;left:78px;top:70px;display:flex;align-items:center;gap:16px;font-weight:700;font-size:26px;letter-spacing:.28em;color:#0b1a4a;"><span style="width:50px;height:3px;background:#0b1a4a;"></span>REPESCAGEM OAB 48</div>' +
-    f'<div style="position:absolute;left:70px;top:150px;display:flex;flex-direction:column;align-items:flex-start;">'
-    f'<div style="background:#0b1a4a;color:#fff;font-weight:700;font-size:42px;padding:6px 18px;">PROGRAMAÇÃO</div>'
-    f'<div style="{BB}font-size:230px;line-height:.82;color:#fff;margin-top:22px;text-shadow:8px 8px 0 #0b1a4a;">CURSOS</div>'
-    f'<div style="{BB}font-size:230px;line-height:.82;color:#f7f400;text-shadow:8px 8px 0 #0b1a4a;">EXTRAS</div>'
-    f'<div style="background:#fff;color:#e224d6;font-weight:700;font-size:40px;padding:6px 18px;margin-top:26px;transform:rotate(-2deg);">NOVAS DATAS</div></div>' +
-    f'<div style="position:absolute;left:70px;top:860px;display:flex;flex-direction:column;gap:16px;">'
-    + ''.join(f'<div style="display:flex;align-items:center;gap:16px;background:rgba(11,26,74,.88);color:#fff;border-radius:20px;padding:14px 22px 14px 14px;width:430px;">{emb(96)}<div><div style="{BB}font-size:38px;line-height:.95;">{n}</div><div style="font-weight:700;font-size:24px;color:#f7f400;margin-top:4px;">{d}</div></div></div>'
-              for emb, n, d in [(EMB1, 'APROFUNDAMENTO<br>NA REPESCAGEM', '23/11 a 30/11'), (EMB2, 'HACKEANDO<br>A BANCA', '01/12 a 10/12')]) +
-    '</div>' + f'<div style="position:absolute;left:70px;bottom:46px;">{LOGO(36)}</div>')
-
-# B · dois ingressos, sem foto
-def ingresso(emb, kick, nome, datas, fundo, rot, cor_txt='#0b1a4a'):
-    return (f'<div style="position:relative;width:880px;display:flex;transform:rotate({rot}deg);filter:drop-shadow(0 30px 40px rgba(5,10,40,.45));">'
-            f'<div style="flex:1;background:{fundo};border-radius:30px 0 0 30px;padding:34px 36px;display:flex;align-items:center;gap:28px;color:{cor_txt};">{emb(170)}'
-            f'<div><div style="font-weight:700;font-size:24px;letter-spacing:.22em;opacity:.75;">{kick}</div><div style="{BB}font-size:70px;line-height:.9;margin-top:6px;">{nome}</div>'
-            f'<div style="font-weight:700;font-size:28px;margin-top:10px;">4 aulas · {datas}</div></div></div>'
-            f'<div style="width:150px;background:{fundo};border-radius:0 30px 30px 0;border-left:5px dashed rgba(11,26,74,.35);display:flex;align-items:center;justify-content:center;color:{cor_txt};">'
-            f'<div style="{BB}font-size:46px;letter-spacing:.08em;transform:rotate(-90deg);white-space:nowrap;">VDE · OAB 48</div></div></div>')
-CAPA_B = tela('ce1b-01', AZUL, GRAO + selos() +
-    f'<div style="position:absolute;left:0;right:0;top:190px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
-    f'<div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;">REPESCAGEM OAB 48</div>'
-    f'<div style="{BB}font-size:120px;line-height:.9;margin-top:18px;">PROGRAMAÇÃO DOS</div>'
-    f'<div style="{BB}font-size:190px;line-height:.86;color:#f7f400;">CURSOS EXTRAS</div></div>' +
-    f'<div style="position:absolute;left:100px;top:640px;">{ingresso(EMB1, "CURSO EXTRA 01", "APROFUNDAMENTO<br>NA REPESCAGEM", "23/11 a 30/11", "#fff", -3)}</div>' +
-    f'<div style="position:absolute;left:100px;top:930px;">{ingresso(EMB2, "CURSO EXTRA 02", "HACKEANDO<br>A BANCA", "01/12 a 10/12", "#f7f400", 2.5)}</div>' +
-    f'<div style="position:absolute;right:70px;top:455px;width:165px;height:165px;border-radius:50%;background:#e224d6;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;{BB}font-size:46px;line-height:.9;text-align:center;transform:rotate(12deg);box-shadow:0 18px 30px rgba(5,10,40,.45);border:5px solid #fff;">NOVAS<br>DATAS</div>' +
-    f'<div style="position:absolute;left:50%;bottom:44px;margin-left:-100px;">{LOGO(40)}</div>')
-
-# C · dupla no centro com a agenda gigante atrás
-h2 = 900; w2 = round(h2 * .6506)
-def folha(mes, dia, rot, x, y):
-    return (f'<div style="position:absolute;left:{x}px;top:{y}px;width:330px;transform:rotate({rot}deg);background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 26px 50px rgba(0,0,0,.45);text-align:center;color:#0b1a4a;">'
-            f'<div style="background:#e224d6;color:#fff;font-weight:700;font-size:34px;letter-spacing:.24em;padding:14px 0;">{mes}</div>'
-            f'<div style="{BB}font-size:210px;line-height:1;padding:6px 0 0;">{dia}</div></div>')
-CAPA_C = tela('ce1c-01', NAVY, GRAO +
-    fantasma('PROGRAMAÇÃO', 'rgba(255,255,255,.05)', top=150, left=-60, px=330) +
-    folha('NOV', '23', -10, 40, 470) + folha('DEZ', '10', 9, 710, 470) +
-    f'<div style="position:absolute;left:375px;top:640px;{BB}font-size:120px;color:#f7f400;">→</div>' +
-    SLOT('ce1c-foto', (1080 - w2) // 2, 1350 - h2, w2, h2, 'filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));') +
-    f'<div style="position:absolute;left:0;right:0;top:70px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
-    f'<div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;">REPESCAGEM OAB 48</div>'
-    f'<div style="{BB}font-size:160px;line-height:.88;margin-top:16px;">CURSOS <span style="color:#f7f400;">EXTRAS</span></div>'
-    f'<div style="background:#e224d6;font-weight:700;font-size:40px;padding:6px 20px;margin-top:14px;">Programação · novas datas</div></div>' +
-    f'<div style="position:absolute;left:0;right:0;bottom:0;height:230px;background:linear-gradient(180deg,rgba(10,20,64,0),rgba(10,20,64,.95));"></div>' +
-    f'<div style="position:absolute;left:70px;right:70px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;">'
-    f'<div style="font-weight:700;font-size:30px;line-height:1.3;">2 cursos · 8 aulas<br><span style="color:#f7f400;">com Líbero e Natália</span></div>{LOGO(40)}</div>')
-
-G.append(grupo('ce1a', 'Capa A · dupla + cursos', [CAPA_A]))
-G.append(grupo('ce1b', 'Capa B · ingressos', [CAPA_B]))
-G.append(grupo('ce1c', 'Capa C · agenda + dupla', [CAPA_C]))
 
 bloco_html = INI + '\n' + ''.join(G) + FIM
 s = KIT.read_text()
