@@ -31,7 +31,7 @@ const cartao = d => `<div class="bloco dica" style="display:grid;grid-template-c
   <div style="display:flex;flex-direction:column;align-items:center;gap:7px;border-right:1.5px dashed ${COR.linha};padding-right:10px">
     <span style="${T};font-size:24px;line-height:1;color:${COR.verde2}">${tres(d.n)}</span>${caixa(15)}</div>
   <div><div style="${I};font-weight:700;font-size:13.6px;line-height:1.38;color:${COR.tinta}">${esc(d.d)}</div>
-    ${d.e ? `<div style="${I};font-size:12px;line-height:1.5;color:#3E5550;margin-top:4px">${esc(d.e)}</div>` : ''}
+    ${d.e ? `<div style="${I};font-size:${d.e.length > 300 ? 11.6 : 12}px;line-height:1.55;color:#3E5550;margin-top:5px;text-align:justify;hyphens:auto" lang="pt-BR">${esc(d.e).split('\n\n').join('</div><div style="' + I + ';font-size:11.6px;line-height:1.55;color:#3E5550;margin-top:5px;text-align:justify;hyphens:auto" lang="pt-BR">')}</div>` : ''}
     ${d.f ? `<div style="margin-top:7px"><span style="display:inline-block;${MO};font-weight:700;font-size:9.6px;letter-spacing:.02em;color:${COR.verde2};background:#E6F6EE;border-radius:5px;padding:3px 8px">⚖ ${esc(d.f)}</span></div>` : ''}</div></div>`;
 const faixaMateria = s => `<div class="bloco materia" style="margin:4px 0 12px;border-radius:16px;background:${COR.petroleo};padding:16px 20px;display:flex;align-items:center;gap:16px;position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.07) 1px,transparent 1px);background-size:22px 22px"></div>
@@ -61,7 +61,7 @@ for (const s of secoes) {
 }
 
 const cab = () => `<div style="position:absolute;left:44px;right:44px;top:26px;display:flex;align-items:center;gap:12px;padding-bottom:11px;border-bottom:1.5px solid ${COR.linha}">
-  ${simbolo(26)}<div style="line-height:1.15"><div style="${MO};font-weight:800;font-size:9.5px;letter-spacing:.2em;color:${COR.verde2}">${esc(meta.exame).toUpperCase()} · REVISÃO EM DICAS</div><div style="${I};font-weight:600;font-size:11px;color:${COR.cinza}">por ${esc(meta.autor)}</div></div>
+  ${simbolo(26)}<div style="line-height:1.15"><div style="${MO};font-weight:800;font-size:9.5px;letter-spacing:.2em;color:${COR.verde2}">${esc(meta.exame).toUpperCase()} · ${esc(meta.rotulo || 'Revisão em dicas').toUpperCase()}</div><div style="${I};font-weight:600;font-size:11px;color:${COR.cinza}">por ${esc(meta.autor)}</div></div>
   <span class="materia-atual" style="margin-left:auto;${T};font-size:16px;color:${COR.tinta}"></span></div>`;
 const rod = () => `<div style="position:absolute;left:44px;right:44px;bottom:22px;display:flex;align-items:center;gap:14px">
   <span style="${MO};font-weight:700;font-size:9.5px;letter-spacing:.2em;color:${COR.cinza}">${esc(meta.arroba).toUpperCase()}</span>
@@ -81,7 +81,7 @@ const capa = `<section class="pagina" style="background:radial-gradient(80% 60% 
   ${amostra(pick(4).n, pick(4).d, 312, 176, 1)}${amostra(pick(118).n, pick(118).d, 282, 270, 2)}${amostra(pick(61).n, pick(61).d, 252, 364, 3)}
   <div style="position:absolute;left:52px;right:52px;top:560px">
     <span style="display:inline-block;${MO};font-weight:800;font-size:13px;letter-spacing:.16em;color:#fff;background:${COR.verde};border-radius:8px;padding:8px 14px">${esc(meta.exame).toUpperCase()}</span>
-    <div style="${T};font-size:118px;line-height:.86;color:#fff;margin-top:18px">Revisão<br><span style="color:${COR.menta}">em dicas</span></div>
+    <div style="${T};font-size:118px;line-height:.86;color:#fff;margin-top:18px">${esc((meta.capaTitulo || ['Revisão', 'em dicas'])[0])}<br><span style="color:${COR.menta}">${esc((meta.capaTitulo || ['Revisão', 'em dicas'])[1])}</span></div>
     <div style="${I};font-weight:500;font-size:17px;line-height:1.55;color:rgba(239,255,246,.88);margin-top:20px;max-width:560px">${esc(meta.sub)}</div>
     <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">${meta.selos.map(x => `<span style="${MO};font-weight:700;font-size:11px;letter-spacing:.08em;color:${COR.menta};border:1.5px solid rgba(185,255,241,.45);border-radius:999px;padding:7px 13px">${esc(x)}</span>`).join('')}</div></div>
   <div style="position:absolute;left:52px;right:52px;bottom:52px;display:flex;align-items:flex-end;justify-content:space-between">
