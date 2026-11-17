@@ -23,7 +23,7 @@ const tres = n => String(n).padStart(3, '0');
 const simbolo = px => `<svg width="${px}" height="${px}" viewBox="0 0 100 100" style="flex:none;display:block"><defs><linearGradient id="g${px}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient></defs><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#g${px})"/><path d="M32 22 V70 H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46 l9 9 l18 -20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const marca = (px, escuro) => `<div style="display:inline-flex;align-items:center;gap:${px * .3}px">${simbolo(px * 1.25)}<div style="display:flex;flex-direction:column;line-height:1"><span style="${S};font-weight:600;font-size:${px * .36}px;letter-spacing:.22em;text-transform:uppercase;color:${escuro ? COR.menta : COR.verde2}">Concurso com</span><span style="${S};font-weight:800;font-size:${px}px;letter-spacing:-.03em;color:${escuro ? '#fff' : COR.tinta}">Líbero</span></div></div>`;
 const RUIDO = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
-const textura = (escuro) => `<div style="position:absolute;inset:0;pointer-events:none;background-image:${RUIDO};opacity:${escuro ? .3 : .14};mix-blend-mode:${escuro ? 'overlay' : 'multiply'};z-index:30"></div>`;
+const textura = (escuro) => `<div style="position:absolute;inset:0;pointer-events:none;background-image:${RUIDO};opacity:${escuro ? .07 : .05};z-index:30"></div>`;
 const caixa = (s = 14) => `<span style="flex:none;width:${s}px;height:${s}px;border-radius:4px;border:1.8px solid ${COR.petroleo};background:#fff;display:inline-block"></span>`;
 
 // Um cartão de dica: número + caixa de marcar | dica rápida, explicação e fundamento.
@@ -69,16 +69,16 @@ const rod = () => `<div style="position:absolute;left:44px;right:44px;bottom:22p
   <span class="num" style="${MO};font-weight:800;font-size:10.5px;color:${COR.tinta}"></span></div>`;
 
 // ---------- capa própria ----------
-const amostra = (n, d, rot, x, y, z) => `<div style="position:absolute;left:${x}px;top:${y}px;width:400px;transform:rotate(${rot}deg);z-index:${z};background:#fff;border-radius:16px;box-shadow:0 22px 44px rgba(0,0,0,.4);padding:16px 18px;display:grid;grid-template-columns:52px 1fr;gap:12px">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;border-right:1.5px dashed ${COR.linha}"><span style="${T};font-size:24px;color:${COR.verde2}">${tres(n)}</span>${caixa(14)}</div>
-  <div style="${I};font-weight:700;font-size:13px;line-height:1.38;color:${COR.tinta}">${esc(d)}</div></div>`;
+const amostra = (n, d, x, y, z, op = 1) => `<div style="position:absolute;left:${x}px;top:${y}px;width:430px;z-index:${z};opacity:${op};background:#fff;border-radius:16px;border:1.5px solid ${COR.linha};padding:16px 20px;display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;border-right:1.5px dashed ${COR.linha};padding-right:10px"><span style="${T};font-size:26px;line-height:1;color:${COR.verde2}">${tres(n)}</span>${caixa(14)}</div>
+  <div style="${I};font-weight:700;font-size:13.5px;line-height:1.4;color:${COR.tinta}">${esc(d)}</div></div>`;
 const exemplos = secoes.flatMap(s => s.dicas);
 const pick = n => exemplos.find(d => d.n === n) || exemplos[0];
 const capa = `<section class="pagina" style="background:radial-gradient(80% 60% at 100% 0%,rgba(0,210,200,.28),transparent 70%),radial-gradient(70% 55% at 0% 100%,rgba(0,166,81,.35),transparent 70%),${COR.petroleo2}">
   <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(185,255,241,.16) 1.2px,transparent 1.6px);background-size:22px 22px"></div>
   <div style="position:absolute;left:52px;right:52px;top:48px;display:flex;justify-content:space-between;align-items:center">${marca(28, true)}<span style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.22em;color:${COR.petroleo};background:${COR.menta};border-radius:7px;padding:8px 12px">MATERIAL PRÓPRIO</span></div>
   <div style="position:absolute;right:-30px;top:120px;${T};font-size:430px;line-height:.8;color:transparent;-webkit-text-stroke:2.5px rgba(185,255,241,.22)">${total}</div>
-  ${amostra(pick(4).n, pick(4).d, -7, 250, 170, 1)}${amostra(pick(118).n, pick(118).d, 4, 290, 268, 2)}${amostra(pick(61).n, pick(61).d, -2, 230, 366, 3)}
+  ${amostra(pick(4).n, pick(4).d, 312, 176, 1)}${amostra(pick(118).n, pick(118).d, 282, 270, 2)}${amostra(pick(61).n, pick(61).d, 252, 364, 3)}
   <div style="position:absolute;left:52px;right:52px;top:560px">
     <span style="display:inline-block;${MO};font-weight:800;font-size:13px;letter-spacing:.16em;color:#fff;background:${COR.verde};border-radius:8px;padding:8px 14px">${esc(meta.exame).toUpperCase()}</span>
     <div style="${T};font-size:118px;line-height:.86;color:#fff;margin-top:18px">Revisão<br><span style="color:${COR.menta}">em dicas</span></div>
