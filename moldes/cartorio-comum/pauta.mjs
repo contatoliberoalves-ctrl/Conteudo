@@ -77,6 +77,29 @@ const PECAS = {
       </div>`, { semTopo: false });
   },
 
+  // Fofoca: foto do famoso em tela cheia, etiqueta de plantão, título embaixo e a ficha de registro
+  // como figurinha inclinada. "credito" (autor e licença da foto) sai pequeno na lateral.
+  fofoca(s, f, ctx) {
+    const img = foto(ctx.root, s.foto);
+    const c = s.campo;
+    const ficha = c ? `<div style="position:absolute;${s.fichaPos || 'right:56px;top:170px'};transform:rotate(${s.fichaGiro ?? 5}deg);background:#fff;color:${P.tinta};padding:20px 26px 24px;width:${s.fichaL || 430}px;box-shadow:0 18px 40px rgba(0,0,0,.35)">
+        <div class="mono" style="font-size:16px;color:${P.cinza}">${esc(c.livro || 'Livro A · Nascimento')}</div>
+        <div style="border-top:2px dashed ${P.linha};margin:10px 0"></div>
+        <div class="mono" style="font-size:17px;color:${P.cinza}">${esc(c.rotulo || 'Prenome')}</div>
+        <div class="tit" style="font-size:${c.tv || 70}px;margin-top:4px;${c.riscado ? 'text-decoration:line-through;text-decoration-color:#E8322B;text-decoration-thickness:.09em' : ''}">${esc(c.valor)}</div>
+        ${carimbo(c.carimbo, c.corCarimbo || P.azul, 'position:absolute;right:-30px;bottom:-34px;transform:rotate(-12deg);background:rgba(255,255,255,.92);mix-blend-mode:normal;border-width:5px;padding:8px 16px 10px')}</div>` : '';
+    return moldura(f, ctx.i, ctx.n, `
+      <div style="position:absolute;inset:0;background:#333 ${img ? `url(${img})` : ''} ${s.focoX || '50%'} ${s.focoY || '30%'}/${s.zoom ? s.zoom * 100 + '%' : 'cover'} no-repeat"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 42%,rgba(10,10,8,.82) 66%,#0D0C0A 100%)"></div>
+      ${ficha}
+      ${s.credito ? `<div class="mono" style="position:absolute;left:30px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;font-size:14px;color:rgba(255,255,255,.7);text-transform:none;white-space:nowrap">Foto: ${esc(s.credito)}</div>` : ''}
+      <div data-cabe style="position:absolute;left:72px;right:72px;bottom:104px;top:600px;padding-bottom:26px;display:flex;flex-direction:column;justify-content:flex-end">
+        <div style="align-self:flex-start;background:${P.azul};color:#fff;padding:10px 18px;margin-bottom:24px" class="mono"><span style="font-size:24px;font-weight:600">${esc(s.kicker || 'Plantão do cartório')}</span></div>
+        <div class="tit" style="font-size:${s.ts || 112}px;color:#fff">${rico(s.titulo, f)}</div>
+        ${s.texto ? `<div class="txt" style="font-size:${s.corpo || 34}px;color:#E6E4DE;margin-top:22px">${linhas(s.texto, f)}</div>` : ''}
+      </div>`);
+  },
+
   // Manchete: título grande, ficha de registro com carimbo (ex.: PRENOME: CAEVI · DEFERIDO).
   manchete(s, f) {
     const c = s.campo;
@@ -105,8 +128,10 @@ const PECAS = {
   },
 
   // Texto: título + parágrafos + caixa de destaque opcional.
-  texto(s, f) {
+  texto(s, f, ctx) {
+    const img = s.foto && foto(ctx.root, s.foto);
     return area(f, `
+      ${img ? `<div style="height:${s.alturaFoto || 400}px;flex:none;margin-bottom:34px;background:#333 url(${img}) ${s.focoX || '50%'} ${s.focoY || '30%'}/cover no-repeat;position:relative">${s.credito ? `<span class="mono" style="position:absolute;right:12px;bottom:10px;font-size:13px;color:#fff;text-transform:none;text-shadow:0 1px 3px #000">Foto: ${esc(s.credito)}</span>` : ''}</div>` : ''}
       ${kick(s.kicker, f)}
       <div class="tit" style="font-size:${s.ts || 104}px;color:${f.tit}">${rico(s.titulo, f)}</div>
       <div class="txt" style="font-size:${s.corpo || 40}px;margin-top:44px">${linhas(s.texto, f, 'margin-bottom:20px')}</div>
@@ -176,11 +201,11 @@ const PECAS = {
 
 // Um slide: { tipo, fundo, ... }. ctx = { root, i, n }.
 export function slide(s, ctx) {
-  const f = FUNDOS[s.fundo || (s.tipo === 'meme' ? 'tinta' : 'papel')];
+  const f = FUNDOS[s.fundo || (s.tipo === 'meme' || s.tipo === 'fofoca' ? 'tinta' : 'papel')];
   const p = PECAS[s.tipo];
   if (!p) throw new Error('tipo desconhecido: ' + s.tipo);
   const html = p(s, f, ctx);
-  return s.tipo === 'meme' ? html : moldura(f, ctx.i, ctx.n, html);
+  return s.tipo === 'meme' || s.tipo === 'fofoca' ? html : moldura(f, ctx.i, ctx.n, html);
 }
 
 export function slides(c, root) {

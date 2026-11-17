@@ -30,6 +30,7 @@ Cada post é `{id, titulo, tema, slides: [...]}` (1 slide = tela única). Cada s
 | tipo | campos |
 |---|---|
 | `meme` | `foto` (em `fotos/`, fora do git), `focoY`, `alturaFoto` (820), `legenda` (legenda branca do Insta; `\n` quebra), `legendaY`, `tl`, `carimbo {texto, sub, ts}`, `corCarimbo`, `carimboY`, kicker, titulo |
+| `fofoca` | capa de fato ou fofoca de famoso (**sempre com a foto**): `foto`, `focoX`, `focoY`, `zoom`, `credito` (autor e licença), kicker (etiqueta azul), titulo, texto, `campo` (ficha como figurinha: livro, rotulo, valor, tv, riscado, carimbo), `fichaPos`, `fichaGiro`, `fichaL` |
 | `manchete` | kicker, titulo, texto, `campo {rotulo, valor, tv, livro, folha, carimbo {texto, sub}, corCarimbo}` (ficha de registro com carimbo) |
 | `numero` | kicker, `valor`, `tv`, `rotulo`, titulo, texto, fonte |
 | `texto` | kicker, titulo, texto[], `destaque`, fonte |
@@ -37,6 +38,8 @@ Cada post é `{id, titulo, tema, slides: [...]}` (1 slide = tela única). Cada s
 | `ranking` | kicker, titulo, itens[] (`{nome, n}`), `destaque` (índices em azul), `alt`, `fn`, `barra`, fonte |
 | `pode` | kicker, titulo, itens[] (`{q, r, d}`, r = Pode, Não pode ou Depende), `gap`, fonte |
 | `fim` | kicker, titulo, texto; mostra WhatsApp, endereço e agendamento |
+
+Post sobre fato, notícia ou fofoca de famoso: **capa `fofoca` com a foto da pessoa** (o titular achou a capa só tipográfica artificial e sem vida) e, se der, outra foto no slide do caso (`texto` aceita `foto`, `alturaFoto`, `focoX`, `focoY`, `credito`). Use fotos de licença livre (Wikimedia Commons: baixe por `Special:FilePath/<arquivo>?width=1400`) e ponha autor e licença em `credito`; as fotos ficam em `fotos/`, fora do git. Fotos usadas: endrick.jpg e endrick-palmeiras.jpg, virginia.jpg (CPI das Bets, Agência Senado) e virginia-carnaval.jpg.
 
 A foto das cabras (`fotos/cabras.jpg`) é o recorte de cima da imagem que o titular mandou, sem a legenda; numa sessão nova, peça a foto de novo.
 

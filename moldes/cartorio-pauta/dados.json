@@ -320,31 +320,37 @@
     "tema": "Famosos · nome e registro do bebê",
     "slides": [
       {
-        "tipo": "manchete",
-        "fundo": "tinta",
+        "tipo": "fofoca",
+        "foto": "fotos/endrick.jpg",
+        "focoY": "20%",
+        "credito": "Thiago Arantes, CC BY-SA 4.0 (Wikimedia Commons)",
         "kicker": "Nasceu o filho do Endrick",
-        "titulo": "Kendrick, com [[K]]. Esse nome passa no cartório?",
+        "titulo": "Kendrick, com [[K]]. Passa no cartório?",
         "campo": {
           "rotulo": "Prenome",
           "valor": "Kendrick",
-          "tv": 104,
           "carimbo": {
             "texto": "Passa",
-            "sub": "sem ridículo, sem problema",
-            "ts": 56
+            "ts": 44
           }
         }
       },
       {
         "tipo": "texto",
-        "fundo": "papel",
+        "fundo": "tinta",
         "kicker": "O que aconteceu",
         "titulo": "O gol foi pro [[Kendrick]]",
         "texto": [
           "Na terça (17/11), depois da vitória do Brasil sobre Singapura, Endrick contou na entrevista que o primeiro filho com Gabriely Miranda tinha nascido.",
           "O nome já tinha sido revelado no chá de bebê e, segundo a imprensa, foi inspirado no nome do pai."
         ],
-        "fonte": "CNN Brasil, Terra e GC Mais (17/11/2026)"
+        "fonte": "CNN Brasil, Terra e GC Mais (17/11/2026)",
+        "corpo": 32,
+        "foto": "fotos/endrick-palmeiras.jpg",
+        "focoY": "22%",
+        "alturaFoto": 420,
+        "credito": "NullReason, CC BY-SA 4.0 (Wikimedia Commons)",
+        "ts": 92
       },
       {
         "tipo": "pode",
@@ -414,34 +420,43 @@
     "tema": "Famosos · divórcio e sobrenome",
     "slides": [
       {
-        "tipo": "manchete",
-        "fundo": "tinta",
+        "tipo": "fofoca",
+        "foto": "fotos/virginia.jpg",
+        "focoY": "18%",
+        "credito": "Edilson Rodrigues/Agência Senado, CC BY 2.0",
         "kicker": "Virgínia e Zé Felipe",
         "titulo": "Ela tirou o Costa do nome. E no [[documento]]?",
+        "fichaPos": "right:50px;top:560px",
+        "fichaGiro": -4,
+        "fichaL": 400,
         "campo": {
-          "livro": "Livro B · Registro de casamento",
+          "livro": "Livro B · Casamento",
           "rotulo": "Sobrenome de casada",
           "valor": "Costa",
           "riscado": true,
-          "tv": 120,
           "carimbo": {
             "texto": "Excluído",
-            "sub": "direto no cartório",
-            "ts": 56
+            "ts": 40
           },
           "corCarimbo": "#E8322B"
         }
       },
       {
         "tipo": "texto",
-        "fundo": "papel",
+        "fundo": "tinta",
         "kicker": "O caso",
         "titulo": "Separação em maio, [[divórcio]] em julho",
         "texto": [
           "Virgínia e Zé Felipe anunciaram a separação em maio de 2025. O divórcio foi homologado pela Justiça de Goiás menos de um mês depois do pedido, com guarda compartilhada dos três filhos.",
           "Depois, ela deixou de usar o nome de casada nas redes sociais."
         ],
-        "fonte": "Band (26/06/2025) e Diario de Pernambuco (15/07/2025)"
+        "fonte": "Band (26/06/2025) e Diario de Pernambuco (15/07/2025)",
+        "foto": "fotos/virginia-carnaval.jpg",
+        "focoX": "48%",
+        "focoY": "40%",
+        "alturaFoto": 440,
+        "credito": "Marvin Brandão, CC BY-SA 4.0 (Wikimedia Commons)",
+        "corpo": 33
       },
       {
         "tipo": "texto",
