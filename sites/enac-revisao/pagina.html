@@ -18,6 +18,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--petroleo);color:var(--branco);font-family:var(--f-texto);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
@@ -143,7 +144,7 @@ h2{font-size:clamp(46px,7vw,88px)}
 /* Método */
 .passos{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;margin-top:46px}
 .passos ol{list-style:none;margin:0;padding:0;display:grid;gap:26px}
-.passos li{display:grid;grid-template-columns:86px 1fr;gap:18px;align-items:start}
+.passos li{display:grid;grid-template-columns:86px minmax(0,1fr);gap:18px;align-items:start}
 .passos li b{font-family:var(--f-titulo);font-size:64px;line-height:.85;color:var(--verde)}
 .passos li h3{font-family:var(--f-texto);text-transform:none;font-size:21px;letter-spacing:0;line-height:1.3;margin-bottom:6px}
 .passos li p{margin:0;color:var(--cinza)}
@@ -202,10 +203,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-bet
 }
 
 @media (max-width:900px){
-  .hero .wrap,.dentro,.mapa,.passos,.oferta,.autor{grid-template-columns:1fr}
+  .hero .wrap,.dentro,.mapa,.passos,.oferta,.autor{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap>*,.dentro>*,.mapa>*,.passos>*,.oferta>*,.autor>*{min-width:0}
   .hero{padding-top:96px}
   .palco{max-width:520px;margin:0 auto}
-  .quiz,.numeros{grid-template-columns:1fr}
+  .quiz,.numeros{grid-template-columns:minmax(0,1fr)}
   .passos img{max-width:360px;margin:0 auto}
   .autor img{max-width:360px}
   .barra{display:flex}
@@ -217,9 +219,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-bet
   .topo a.link{display:none}
   .barras li{grid-template-columns:minmax(0,1fr) 70px;row-gap:6px}
   .barras .t{grid-column:1/-1;grid-row:2}
-  .dica{grid-template-columns:1fr;gap:6px}
-  .flutua.f1{left:0}
-  .flutua.f2{right:0}
+  .dica{grid-template-columns:minmax(0,1fr);gap:6px}
+  .passos li{grid-template-columns:58px minmax(0,1fr);gap:12px}
+  .passos li b{font-size:50px}
+  .cta{padding:16px 22px;font-size:17px}
+  .flutua{max-width:200px;font-size:11.5px;padding:9px 12px;gap:8px}
+  .flutua b{font-size:20px}
+  .flutua.f1{left:0;top:4%}
+  .flutua.f2{right:0;bottom:4%}
 }
 </style>
 
@@ -404,7 +411,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-bet
       <details><summary>Qual a diferença entre a Parte 1 e a Parte 2?</summary><p>A Parte 1 é a revisão rápida: a regra em uma linha, uma explicação curta e o fundamento. A Parte 2 traz as mesmas 300 dicas, na mesma ordem, cada uma explicada em detalhes, com exceções e pegadinhas. As duas vêm juntas.</p></details>
       <details><summary>Serve pra quem ainda não estudou o conteúdo?</summary><p>O material foi pensado para revisão. Quem ainda não viu a matéria aproveita mais a Parte 2, que explica cada ponto, e usa a Parte 1 nos dias finais.</p></details>
       <details><summary>É material oficial da prova?</summary><p>Não. É um material próprio, feito por Líbero Filho, sem vínculo com a banca ou com o CNJ. A distribuição das questões vem do edital publicado.</p></details>
-      <details><summary>Tenho garantia?</summary><p>Sim. Se o material não for o que você esperava, peça o reembolso em até 7 dias da compra, direto pela Kiwify.</p></details>
     </div>
   </div>
 </section>
