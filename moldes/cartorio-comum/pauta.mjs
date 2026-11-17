@@ -88,7 +88,7 @@ const PECAS = {
         <div class="mono" style="font-size:20px;color:${P.cinza};display:flex;justify-content:space-between"><span>${esc(c.livro || 'Livro A · Registro de nascimento')}</span><span>${esc(c.folha || 'Fls. ___')}</span></div>
         <div style="border-top:2px dashed ${P.linha};margin:18px 0 16px"></div>
         <div class="mono" style="font-size:22px;color:${P.cinza}">${esc(c.rotulo || 'Prenome')}</div>
-        <div class="tit" style="font-size:${c.tv || 110}px;color:${P.tinta};margin-top:6px">${esc(c.valor)}</div>
+        <div class="tit" style="font-size:${c.tv || 110}px;color:${P.tinta};margin-top:6px;${c.riscado ? `text-decoration:line-through;text-decoration-color:#E8322B;text-decoration-thickness:.09em` : ''}">${esc(c.valor)}</div>
         ${carimbo(c.carimbo, c.corCarimbo || P.azul, 'position:absolute;right:34px;bottom:30px;transform:rotate(-9deg)')}
       </div>` : ''}`);
   },

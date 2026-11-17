@@ -10,7 +10,11 @@
         "focoY": "60%",
         "legendaY": 150,
         "legenda": "Casal que chegou aqui no cartório\npra dar entrada no casamento",
-        "carimbo": { "texto": "Pendente", "sub": "Falta documento", "ts": 58 },
+        "carimbo": {
+          "texto": "Pendente",
+          "sub": "Falta documento",
+          "ts": 58
+        },
         "kicker": "Brincadeira à parte",
         "titulo": "O que um casal [[de verdade]] precisa trazer pra casar"
       },
@@ -32,10 +36,22 @@
         "kicker": "Solteiros",
         "titulo": "O que [[trazer]]",
         "itens": [
-          { "t": "Certidão de nascimento original", "d": "Legível e expedida há no máximo 90 dias" },
-          { "t": "RG e CPF (cópia)", "d": "O RG precisa estar dentro da validade" },
-          { "t": "Comprovante de endereço de Petrolina (cópia)", "d": "Em nome do noivo, da noiva ou dos pais" },
-          { "t": "Duas testemunhas maiores de idade", "d": "Com RG e CPF (cópia), no dia da entrada" }
+          {
+            "t": "Certidão de nascimento original",
+            "d": "Legível e expedida há no máximo 90 dias"
+          },
+          {
+            "t": "RG e CPF (cópia)",
+            "d": "O RG precisa estar dentro da validade"
+          },
+          {
+            "t": "Comprovante de endereço de Petrolina (cópia)",
+            "d": "Em nome do noivo, da noiva ou dos pais"
+          },
+          {
+            "t": "Duas testemunhas maiores de idade",
+            "d": "Com RG e CPF (cópia), no dia da entrada"
+          }
         ],
         "fonte": "Código Civil, art. 1.525; Provimento CGJ-PE nº 14/2022"
       },
@@ -45,9 +61,18 @@
         "kicker": "Já foi casado?",
         "titulo": "Traga [[também]]",
         "itens": [
-          { "t": "Divorciado: certidão de casamento com a averbação do divórcio", "d": "E a sentença ou o termo que diga se houve bens a partilhar" },
-          { "t": "Viúvo: certidão de casamento e a certidão de óbito", "d": "Mais o inventário dos bens do casamento anterior" },
-          { "t": "Sem o inventário feito?", "d": "O casamento sai no regime da separação obrigatória de bens" }
+          {
+            "t": "Divorciado: certidão de casamento com a averbação do divórcio",
+            "d": "E a sentença ou o termo que diga se houve bens a partilhar"
+          },
+          {
+            "t": "Viúvo: certidão de casamento e a certidão de óbito",
+            "d": "Mais o inventário dos bens do casamento anterior"
+          },
+          {
+            "t": "Sem o inventário feito?",
+            "d": "O casamento sai no regime da separação obrigatória de bens"
+          }
         ],
         "fonte": "Código Civil, arts. 1.523, I, 1.525, V, e 1.641, I"
       },
@@ -70,7 +95,15 @@
         "fundo": "tinta",
         "kicker": "Aconteceu em BH",
         "titulo": "Os pais pediram o nome ao [[ChatGPT]]. O cartório recusou.",
-        "campo": { "rotulo": "Prenome", "valor": "Caevi", "carimbo": { "texto": "Deferido", "sub": "pelo juiz · 22/12", "ts": 52 } }
+        "campo": {
+          "rotulo": "Prenome",
+          "valor": "Caevi",
+          "carimbo": {
+            "texto": "Deferido",
+            "sub": "pelo juiz · 22/12",
+            "ts": 52
+          }
+        }
       },
       {
         "tipo": "texto",
@@ -81,7 +114,7 @@
           "Um casal de Belo Horizonte pediu ao ChatGPT ideias de nomes diferentes e escolheu **Caevi**: \"Cae\", de *caelum* (céu), e \"Vi\", de vida.",
           "Quando o pai foi registrar, o cartório não encontrou a origem do nome e não aceitou. O caso foi para o juiz, que pediu uma carta escrita à mão pela mãe confirmando a escolha. Uma semana depois, o registro foi autorizado."
         ],
-                "fonte": "Revista Crescer, republicada pelo TNH1 em 08/01/2026"
+        "fonte": "Revista Crescer, republicada pelo TNH1 em 08/01/2026"
       },
       {
         "tipo": "texto",
@@ -103,10 +136,26 @@
         "corpo": 33,
         "gap": 18,
         "itens": [
-          { "q": "Nome de cantor, jogador ou personagem", "r": "Pode", "d": "Desde que não exponha a criança ao ridículo" },
-          { "q": "Trocar o nome logo depois do registro", "r": "Depende", "d": "Até 15 dias, se os pais apresentarem oposição ao cartório" },
-          { "q": "Mudar o próprio nome depois dos 18", "r": "Pode", "d": "Uma vez, direto no cartório, sem precisar explicar o motivo" },
-          { "q": "Nome que vira piada na escola", "r": "Não pode", "d": "O cartório recusa e o caso pode ir ao juiz" }
+          {
+            "q": "Nome de cantor, jogador ou personagem",
+            "r": "Pode",
+            "d": "Desde que não exponha a criança ao ridículo"
+          },
+          {
+            "q": "Trocar o nome logo depois do registro",
+            "r": "Depende",
+            "d": "Até 15 dias, se os pais apresentarem oposição ao cartório"
+          },
+          {
+            "q": "Mudar o próprio nome depois dos 18",
+            "r": "Pode",
+            "d": "Uma vez, direto no cartório, sem precisar explicar o motivo"
+          },
+          {
+            "q": "Nome que vira piada na escola",
+            "r": "Não pode",
+            "d": "O cartório recusa e o caso pode ir ao juiz"
+          }
         ],
         "fonte": "Lei 6.015/73, arts. 55, §§ 1º e 4º, e 56 (redação da Lei 14.382/2022)"
       },
@@ -138,15 +187,35 @@
         "fundo": "papel",
         "kicker": "Registros em 2025",
         "titulo": "As cidades que mais [[registraram]]",
-        "destaque": [1],
+        "destaque": [
+          1
+        ],
         "alt": 92,
         "itens": [
-          { "nome": "Recife", "n": 24055 },
-          { "nome": "Petrolina", "n": 6828 },
-          { "nome": "Caruaru", "n": 5738 },
-          { "nome": "Jaboatão", "n": 5655 },
-          { "nome": "Paulista", "n": 2924 },
-          { "nome": "Olinda", "n": 2834 }
+          {
+            "nome": "Recife",
+            "n": 24055
+          },
+          {
+            "nome": "Petrolina",
+            "n": 6828
+          },
+          {
+            "nome": "Caruaru",
+            "n": 5738
+          },
+          {
+            "nome": "Jaboatão",
+            "n": 5655
+          },
+          {
+            "nome": "Paulista",
+            "n": 2924
+          },
+          {
+            "nome": "Olinda",
+            "n": 2834
+          }
         ],
         "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026). Pernambuco teve 112.241 registros no ano"
       },
@@ -155,19 +224,52 @@
         "fundo": "papel",
         "kicker": "Pernambuco · 2025",
         "titulo": "Os nomes do [[ano]]",
-        "destaque": [0, 3],
+        "destaque": [
+          0,
+          3
+        ],
         "alt": 70,
         "itens": [
-          { "nome": "Maria Cecília", "n": 1080 },
-          { "nome": "Maria Helena", "n": 1074 },
-          { "nome": "Maria Alice", "n": 846 },
-          { "nome": "Ravi", "n": 651 },
-          { "nome": "Maria Ísis", "n": 636 },
-          { "nome": "João Miguel", "n": 609 },
-          { "nome": "Miguel", "n": 572 },
-          { "nome": "Helena", "n": 567 },
-          { "nome": "Davi", "n": 535 },
-          { "nome": "Heitor", "n": 527 }
+          {
+            "nome": "Maria Cecília",
+            "n": 1080
+          },
+          {
+            "nome": "Maria Helena",
+            "n": 1074
+          },
+          {
+            "nome": "Maria Alice",
+            "n": 846
+          },
+          {
+            "nome": "Ravi",
+            "n": 651
+          },
+          {
+            "nome": "Maria Ísis",
+            "n": 636
+          },
+          {
+            "nome": "João Miguel",
+            "n": 609
+          },
+          {
+            "nome": "Miguel",
+            "n": 572
+          },
+          {
+            "nome": "Helena",
+            "n": 567
+          },
+          {
+            "nome": "Davi",
+            "n": 535
+          },
+          {
+            "nome": "Heitor",
+            "n": 527
+          }
         ],
         "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026)"
       },
@@ -188,9 +290,18 @@
         "kicker": "Vai registrar?",
         "titulo": "O que você [[precisa saber]]",
         "itens": [
-          { "t": "É de graça", "d": "O registro e a primeira certidão não custam nada" },
-          { "t": "Prazo de 15 dias", "d": "Vai a 3 meses para quem mora a mais de 30 km do cartório" },
-          { "t": "Pode registrar aqui", "d": "No lugar do parto ou onde os pais moram" }
+          {
+            "t": "É de graça",
+            "d": "O registro e a primeira certidão não custam nada"
+          },
+          {
+            "t": "Prazo de 15 dias",
+            "d": "Vai a 3 meses para quem mora a mais de 30 km do cartório"
+          },
+          {
+            "t": "Pode registrar aqui",
+            "d": "No lugar do parto ou onde os pais moram"
+          }
         ],
         "fonte": "Lei 6.015/73, arts. 30 e 50"
       },
@@ -200,6 +311,182 @@
         "kicker": "Curral Queimado",
         "titulo": "O próximo nome do ranking pode sair [[daqui]].",
         "texto": ""
+      }
+    ]
+  },
+  {
+    "id": "kendrick-filho-do-endrick",
+    "titulo": "Nasceu Kendrick, filho do Endrick",
+    "tema": "Famosos · nome e registro do bebê",
+    "slides": [
+      {
+        "tipo": "manchete",
+        "fundo": "tinta",
+        "kicker": "Nasceu o filho do Endrick",
+        "titulo": "Kendrick, com [[K]]. Esse nome passa no cartório?",
+        "campo": {
+          "rotulo": "Prenome",
+          "valor": "Kendrick",
+          "tv": 104,
+          "carimbo": {
+            "texto": "Passa",
+            "sub": "sem ridículo, sem problema",
+            "ts": 56
+          }
+        }
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "O que aconteceu",
+        "titulo": "O gol foi pro [[Kendrick]]",
+        "texto": [
+          "Na terça (17/11), depois da vitória do Brasil sobre Singapura, Endrick contou na entrevista que o primeiro filho com Gabriely Miranda tinha nascido.",
+          "O nome já tinha sido revelado no chá de bebê e, segundo a imprensa, foi inspirado no nome do pai."
+        ],
+        "fonte": "CNN Brasil, Terra e GC Mais (17/11/2026)"
+      },
+      {
+        "tipo": "pode",
+        "fundo": "papel",
+        "kicker": "Pode ou não pode?",
+        "titulo": "Na hora de [[registrar]]",
+        "ts": 92,
+        "corpo": 33,
+        "gap": 18,
+        "itens": [
+          {
+            "q": "Nome com K, W ou Y",
+            "r": "Pode",
+            "d": "São letras do nosso alfabeto"
+          },
+          {
+            "q": "Nome inspirado no do pai",
+            "r": "Pode",
+            "d": "E dá pra repetir o nome com Filho ou Júnior"
+          },
+          {
+            "q": "Grafia que ninguém consegue ler",
+            "r": "Depende",
+            "d": "Vale a regra do ridículo: se expuser a criança, o cartório recusa"
+          },
+          {
+            "q": "Nome que vira apelido maldoso",
+            "r": "Não pode",
+            "d": "Se os pais insistirem, o caso vai ao juiz"
+          }
+        ],
+        "fonte": "Lei 6.015/73, art. 55, § 1º"
+      },
+      {
+        "tipo": "lista",
+        "fundo": "tinta",
+        "kicker": "Bebê nasceu fora do Brasil?",
+        "titulo": "O registro é em [[duas etapas]]",
+        "itens": [
+          {
+            "t": "Registro no consulado brasileiro",
+            "d": "Já garante a nacionalidade brasileira (brasileiro nato)"
+          },
+          {
+            "t": "Traslado num cartório do Brasil",
+            "d": "No 1º Ofício de Registro Civil do domicílio, ou no do Distrito Federal"
+          },
+          {
+            "t": "Nasceu aqui?",
+            "d": "Registro em até 15 dias, de graça, no cartório do parto ou de onde os pais moram"
+          }
+        ],
+        "fonte": "CF, art. 12, I, c; Lei 6.015/73, arts. 32 e 50; Resolução CNJ 155/2012"
+      },
+      {
+        "tipo": "fim",
+        "fundo": "azul",
+        "kicker": "Bebê chegando?",
+        "titulo": "O registro é [[de graça]]. O nome é com vocês.",
+        "texto": "Ficou com dúvida sobre o nome? Chama no WhatsApp antes de vir."
+      }
+    ]
+  },
+  {
+    "id": "virginia-nome-de-solteira",
+    "titulo": "Virgínia tirou o Costa do nome: e no documento?",
+    "tema": "Famosos · divórcio e sobrenome",
+    "slides": [
+      {
+        "tipo": "manchete",
+        "fundo": "tinta",
+        "kicker": "Virgínia e Zé Felipe",
+        "titulo": "Ela tirou o Costa do nome. E no [[documento]]?",
+        "campo": {
+          "livro": "Livro B · Registro de casamento",
+          "rotulo": "Sobrenome de casada",
+          "valor": "Costa",
+          "riscado": true,
+          "tv": 120,
+          "carimbo": {
+            "texto": "Excluído",
+            "sub": "direto no cartório",
+            "ts": 56
+          },
+          "corCarimbo": "#E8322B"
+        }
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "O caso",
+        "titulo": "Separação em maio, [[divórcio]] em julho",
+        "texto": [
+          "Virgínia e Zé Felipe anunciaram a separação em maio de 2025. O divórcio foi homologado pela Justiça de Goiás menos de um mês depois do pedido, com guarda compartilhada dos três filhos.",
+          "Depois, ela deixou de usar o nome de casada nas redes sociais."
+        ],
+        "fonte": "Band (26/06/2025) e Diario de Pernambuco (15/07/2025)"
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "Por que foi na Justiça?",
+        "titulo": "Filho menor já não [[impede]] o cartório",
+        "texto": [
+          "Antes, quem tinha filho menor só podia se divorciar na Justiça. Desde 2024, o divórcio pode ser feito por escritura, com advogado, se a guarda, a convivência e a pensão já foram resolvidas pelo juiz.",
+          "A escritura é lavrada no tabelionato de notas e depois averbada na certidão de casamento, no registro civil."
+        ],
+        "fonte": "CPC, art. 733; Resolução CNJ 35/2007, com a redação da Resolução CNJ 571/2024"
+      },
+      {
+        "tipo": "pode",
+        "fundo": "papel",
+        "kicker": "Pode ou não pode?",
+        "titulo": "O sobrenome do [[ex]]",
+        "ts": 92,
+        "corpo": 33,
+        "gap": 18,
+        "itens": [
+          {
+            "q": "Tirar o sobrenome do ex depois do divórcio",
+            "r": "Pode",
+            "d": "Pedido feito direto no cartório de registro civil, sem juiz"
+          },
+          {
+            "q": "Continuar com o sobrenome do ex",
+            "r": "Pode",
+            "d": "A escolha é de quem adotou o nome"
+          },
+          {
+            "q": "Tirar o nome só no Instagram",
+            "r": "Depende",
+            "d": "Nas redes vale. No RG, só depois da averbação no cartório"
+          }
+        ],
+        "fonte": "Código Civil, art. 1.571, § 2º; Lei 6.015/73, art. 57, III (redação da Lei 14.382/2022)"
+      },
+      {
+        "tipo": "fim",
+        "fundo": "azul",
+        "kicker": "Divorciou?",
+        "titulo": "Volta pro nome de [[solteira]] aqui.",
+        "texto": "Chama no WhatsApp que a gente explica o passo a passo do seu caso."
       }
     ]
   }
