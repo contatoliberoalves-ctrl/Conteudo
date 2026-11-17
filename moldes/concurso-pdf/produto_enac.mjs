@@ -294,6 +294,10 @@ add('stories', 'avulso-pegadinha', 1080, SH, tela(1080, SH, COR.papel, `
   <div style="${I};font-weight:700;font-size:40px;line-height:1.45;color:${COR.tinta};margin-top:50px">É uma das 300 dicas da Revisão em Dicas do ENAC 2026.2.</div></div>
   <div style="position:absolute;left:230px;top:1630px">${linkVazio.replace(/rgba\(185,255,241,\.6\)/, COR.verde).replace(/rgba\(185,255,241,\.85\)/, COR.verde2)}</div>`, false));
 
+// ============================================================= SITE ========================================
+add('site', 'mockup', 875, 800, `<div class="peca" style="width:875px;height:800px">${mockup(500)}</div>`, true);
+add('site', 'og', 1200, 630, banner(1200, 630, 1));
+
 // ============================================================ RENDER =======================================
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
