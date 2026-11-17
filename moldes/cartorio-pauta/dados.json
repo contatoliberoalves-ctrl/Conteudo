@@ -174,14 +174,21 @@
     "tema": "Dado da região · nomes de 2025",
     "slides": [
       {
-        "tipo": "numero",
-        "fundo": "azul",
-        "kicker": "Registros de nascimento · 2025",
+        "tipo": "fofoca",
+        "foto": "fotos/petrolina-orla.jpg",
+        "fundoTam": "1080px auto",
+        "focoX": "0",
+        "focoY": "0px",
+        "credito": "Rosanetur, CC BY 4.0 (Wikimedia Commons)",
+        "kicker": "Petrolina · 2025",
         "valor": "6.828",
-        "rotulo": "Bebês registrados em Petrolina",
-        "titulo": "Petrolina foi a [[2ª cidade]] que mais registrou bebês em Pernambuco",
-        "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026)",
-        "ts": 92
+        "tv": 280,
+        "titulo": "bebês registrados. Só o [[Recife]] teve mais.",
+        "ts": 72,
+        "fonte": "Arpen-Brasil, via Diario de Pernambuco",
+        "topoTexto": 600,
+        "veu": "linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 14%,rgba(0,0,0,0) 44%,#0D0C0A 64%,#0D0C0A 100%)",
+        "creditoPos": "right:24px;top:540px"
       },
       {
         "tipo": "ranking",

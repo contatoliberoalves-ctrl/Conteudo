@@ -46,13 +46,12 @@ const marca = (f, s = 22) => `<div style="display:flex;align-items:center;gap:${
 
 // Moldura de todos os slides: marca e contador em cima; cidade e "arraste" embaixo.
 function moldura(f, i, n, miolo, { semTopo = false, semBase = false } = {}) {
-  const num = String(i).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
   return `<div style="position:absolute;inset:0;background:${f.bg};color:${f.txt}">
   ${miolo}
-  ${semTopo ? '' : `<div style="position:absolute;left:72px;right:72px;top:56px;display:flex;justify-content:space-between;align-items:center">${marca(f)}<span class="mono" style="font-size:22px;color:${f.sub}">${n > 1 ? num : 'Registro Civil'}</span></div>`}
+  ${semTopo ? '' : `<div style="position:absolute;left:72px;right:72px;top:56px;display:flex;justify-content:space-between;align-items:center">${marca(f)}</div>`}
   ${semBase ? '' : `<div style="position:absolute;left:72px;right:72px;bottom:52px;display:flex;justify-content:space-between;align-items:center;border-top:2px solid ${f.linha};padding-top:20px">
     <span class="mono" style="font-size:20px;color:${f.sub}">Petrolina · PE</span>
-    <span class="mono" style="font-size:20px;color:${f.sub}">${i < n ? 'Arraste →' : 'Registro Civil das Pessoas Naturais'}</span></div>`}
+    <span class="mono" style="font-size:20px;color:${f.sub}">Registro Civil</span></div>`}
 </div>`;
 }
 
@@ -89,12 +88,13 @@ const PECAS = {
         <div class="tit" style="font-size:${c.tv || 70}px;margin-top:4px;${c.riscado ? 'text-decoration:line-through;text-decoration-color:#E8322B;text-decoration-thickness:.09em' : ''}">${esc(c.valor)}</div>
         ${carimbo(c.carimbo, c.corCarimbo || P.azul, 'position:absolute;right:-30px;bottom:-34px;transform:rotate(-12deg);background:rgba(255,255,255,.92);mix-blend-mode:normal;border-width:5px;padding:8px 16px 10px')}</div>` : '';
     return moldura(f, ctx.i, ctx.n, `
-      <div style="position:absolute;inset:0;background:#333 ${img ? `url(${img})` : ''} ${s.focoX || '50%'} ${s.focoY || '30%'}/${s.zoom ? s.zoom * 100 + '%' : 'cover'} no-repeat"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 42%,rgba(10,10,8,.82) 66%,#0D0C0A 100%)"></div>
+      <div style="position:absolute;inset:0;background:#0D0C0A ${img ? `url(${img})` : ''} ${s.focoX || '50%'} ${s.focoY || '30%'}/${s.fundoTam || (s.zoom ? s.zoom * 100 + '%' : 'cover')} no-repeat"></div>
+      <div style="position:absolute;inset:0;background:${s.veu || 'linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 42%,rgba(10,10,8,.82) 66%,#0D0C0A 100%)'}"></div>
       ${ficha}
-      ${s.credito ? `<div class="mono" style="position:absolute;left:30px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;font-size:14px;color:rgba(255,255,255,.7);text-transform:none;white-space:nowrap">Foto: ${esc(s.credito)}</div>` : ''}
+      ${s.credito ? `<div class="mono" style="position:absolute;${s.creditoPos || 'left:30px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top'};font-size:14px;color:rgba(255,255,255,.7);text-transform:none;white-space:nowrap">Foto: ${esc(s.credito)}</div>` : ''}
       <div data-cabe style="position:absolute;left:72px;right:72px;bottom:104px;top:${s.topoTexto || 600}px;padding-bottom:26px;display:flex;flex-direction:column;justify-content:flex-end">
         <div style="align-self:flex-start;background:${P.azul};color:#fff;padding:10px 18px;margin-bottom:24px" class="mono"><span style="font-size:24px;font-weight:600">${esc(s.kicker || 'Plantão do cartório')}</span></div>
+        ${s.valor ? `<div class="tit" style="font-size:${s.tv || 300}px;color:#fff;line-height:.82;letter-spacing:-.02em;margin-bottom:18px">${esc(s.valor)}</div>` : ''}
         <div class="tit" style="font-size:${s.ts || 112}px;color:#fff">${rico(s.titulo, f)}</div>
         ${s.texto ? `<div class="txt" style="font-size:${s.corpo || 34}px;color:#E6E4DE;margin-top:22px">${linhas(s.texto, f, 'margin-top:12px')}</div>` : ''}
         ${s.fonte ? `<div class="mono" style="font-size:17px;color:#A9A7A0;margin-top:22px;text-transform:none;letter-spacing:.01em">Fonte: ${esc(s.fonte)}</div>` : ''}

@@ -39,6 +39,8 @@ Cada post é `{id, titulo, tema, slides: [...]}` (1 slide = tela única). Cada s
 | `pode` | kicker, titulo, itens[] (`{q, r, d}`, r = Pode, Não pode ou Depende), `gap`, fonte |
 | `fim` | kicker, titulo, texto; mostra WhatsApp, endereço e agendamento |
 
+Sem nada que pareça feito por IA: os slides não têm número de página nem "Arraste →" (o titular pediu). Capa com pouco texto: um número ou uma frase curta. Fato da região: foto do lugar na capa (ex.: o letreiro Eu ❤ Petrolina). A capa `fofoca` também aceita `valor` (número grande), `tv`, `fundoTam` (background-size da foto), `veu` (degradê), `creditoPos`, `topoTexto` e `fonte`.
+
 Post sobre fato, notícia ou fofoca de famoso: **capa `fofoca` com a foto da pessoa** (o titular achou a capa só tipográfica artificial e sem vida) e, se der, outra foto no slide do caso (`texto` aceita `foto`, `alturaFoto`, `focoX`, `focoY`, `credito`). Use fotos de licença livre (Wikimedia Commons: baixe por `Special:FilePath/<arquivo>?width=1400`) e ponha autor e licença em `credito`; as fotos ficam em `fotos/`, fora do git. Fotos usadas: endrick.jpg e endrick-palmeiras.jpg, virginia.jpg (CPI das Bets, Agência Senado) e virginia-carnaval.jpg.
 
 A foto das cabras (`fotos/cabras.jpg`) é o recorte de cima da imagem que o titular mandou, sem a legenda; numa sessão nova, peça a foto de novo.
