@@ -190,17 +190,22 @@ const EXTRAS = {
     return { escuro: esc_, html: `${esc_ ? fundoEscuro : fundoClaro}
     ${play(esc_ ? 'rgba(217,193,142,.1)' : 'rgba(184,154,94,.1)', 420, 'right:-130px;top:-110px')}
     <div style="position:absolute;left:56px;right:56px;top:52px">${cab(n, g.rotulo || 'Plano', esc_)}
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:54px 0 18px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:${g.compacto ? 34 : 54}px 0 ${g.compacto ? 12 : 18}px">
         <div><div style="${F};font-size:74px;line-height:1;background:${G};-webkit-background-clip:text;background-clip:text;color:transparent">${esc(g.num)}</div>
           <div style="margin-top:10px">${titulo(g.titulo, esc_, 50)}</div></div>
         ${g.selo ? `<span style="flex:none;${I};font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;background:${G};color:${COR.preto};padding:8px 14px;border-radius:999px;margin-bottom:8px">${esc(g.selo)}</span>` : ''}</div>
       <div style="max-width:600px">${txt(g.texto, esc_, 15.5)}</div>
-      <div style="display:flex;align-items:baseline;gap:14px;margin:26px 0 28px;padding:20px 26px;border-radius:20px;${esc_ ? `background:${G};color:${COR.preto}` : `background:${COR.preto};color:#fff`}">
+      <div style="display:flex;align-items:baseline;gap:14px;margin:${g.compacto ? 18 : 26}px 0 ${g.compacto ? 18 : 28}px;padding:${g.compacto ? 14 : 20}px 26px;border-radius:20px;${esc_ ? `background:${G};color:${COR.preto}` : `background:${COR.preto};color:#fff`}">
         <span style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;opacity:.75">Investimento</span>
         <span style="${F};font-size:54px;line-height:1;margin-left:auto">${brl(g.valor)}</span>
         ${g.valorNota ? `<span style="${I};font-size:12.5px;font-weight:600;opacity:.75">${esc(g.valorNota)}</span>` : ''}</div>
       <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${COR.ouro};margin-bottom:12px">O que está incluído</div>
-      <div style="display:flex;flex-direction:column;gap:${g.gapItens ?? 17}px">${lista(g.itens).map(t => `<div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:${g.gapItens ?? 17}px;border-bottom:1px solid ${esc_ ? '#2C2C2F' : COR.linha}">${check(true, esc_)}<span style="${I};font-size:16px;line-height:1.45;font-weight:600;color:${esc_ ? '#E2E0DB' : '#2A2927'}">${rico(t, esc_ ? '#fff' : COR.preto)}</span></div>`).join('')}</div>
+      <div style="display:flex;flex-direction:column;gap:${g.gapItens ?? 17}px">${lista(g.itens).map(t => `<div style="display:flex;gap:14px;align-items:flex-start;padding-bottom:${g.gapItens ?? 17}px;border-bottom:1px solid ${esc_ ? '#2C2C2F' : COR.linha}">${check(true, esc_)}<span style="${I};font-size:${g.ti || 16}px;line-height:1.4;font-weight:600;color:${esc_ ? '#E2E0DB' : '#2A2927'}">${rico(t, esc_ ? '#fff' : COR.preto)}</span></div>`).join('')}</div>
+      ${lista(g.materiais).length ? `<div style="margin-top:22px">
+        <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${esc_ ? COR.ouroClaro : COR.ouroEsc};margin-bottom:10px">${esc(g.materiaisTitulo || 'Materiais inclusos')}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${lista(g.materiais).map(m => `<div style="border-radius:14px;padding:13px 15px;${esc_ ? 'background:#1B1B1D;border:1px solid #2C2C2F' : `background:#fff;border:1px solid ${COR.linha}`}">
+          <div style="${I};font-size:9.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:${COR.ouro};margin-bottom:6px">${esc(m.cat)}</div>
+          ${lista(m.itens).map(t => `<div style="display:flex;gap:7px;${I};font-size:11.5px;line-height:1.35;font-weight:600;color:${esc_ ? '#E2E0DB' : '#2A2927'};margin-top:4px"><span style="color:${COR.ouro};flex:none">•</span><span>${rico(t, esc_ ? '#fff' : COR.preto)}</span></div>`).join('')}</div>`).join('')}</div></div>` : ''}
       ${lista(g.bonus).length ? `<div style="margin-top:24px;padding:18px 22px;border-radius:18px;background:rgba(217,193,142,.1);border:1px solid rgba(217,193,142,.4)">
         <div style="${I};font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:${esc_ ? COR.ouroClaro : COR.ouroEsc};margin-bottom:12px">Bônus</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">${lista(g.bonus).map(b => pilula(b, esc_)).join('')}</div></div>` : ''}</div>

@@ -628,26 +628,27 @@
   "rodapeTexto": "Mentoria individual com Líbero",
   "servico": "Mentoria individual",
   "etiquetas": [
-   "Planejamento personalizado",
+   "1, 2 ou 3 meses",
    "Argumentação",
-   "Tira-dúvidas",
-   "3 formatos"
+   "Estrutura de peça",
+   "Planejamento",
+   "Dados da banca"
   ],
   "planos": [
    {
-    "nome": "Encontro avulso",
-    "d": "Orientação pontual",
-    "por": 300
+    "nome": "1 mês",
+    "d": "1 encontro individual",
+    "por": 600
    },
    {
-    "nome": "Mensal",
-    "d": "1 mês de acompanhamento",
-    "por": 800
+    "nome": "2 meses",
+    "d": "2 encontros individuais",
+    "por": 1000
    },
    {
-    "nome": "Até a prova",
-    "d": "3 meses de acompanhamento",
-    "por": 1500,
+    "nome": "3 meses",
+    "d": "4 encontros individuais",
+    "por": 1600,
     "destaque": true,
     "selo": "Mais completo"
    }
@@ -662,7 +663,7 @@
     ],
     "texto": [
      "**Planejamento personalizado, desenvolvimento da argumentação e esclarecimento de dúvidas** para sua preparação.",
-     "São três formatos: um encontro avulso, um mês de acompanhamento ou o acompanhamento completo até a prova."
+     "São três formatos de acompanhamento: 1, 2 ou 3 meses, todos com encontros individuais e materiais de argumentação, estrutura de peça, planejamento e dados da banca."
     ],
     "cartoes": [
      {
@@ -688,17 +689,46 @@
     "rotulo": "Formato 01",
     "num": "01",
     "titulo": [
-     "Encontro",
-     "[[avulso]]"
+     "Acompanhamento",
+     "de [[1 mês]]"
     ],
-    "valor": 300,
-    "texto": "Uma orientação pontual para quem precisa **definir o caminho** ou **resolver dificuldades específicas**.",
+    "valor": 600,
+    "ti": 14.5,
+    "gapItens": 10,
+    "texto": "Um mês para **definir o caminho**, organizar a rotina e atacar as suas principais dificuldades.",
     "itens": [
      "1 encontro individual",
      "Análise das suas principais dificuldades",
-     "Orientações de planejamento e argumentação",
-     "Tira-dúvidas durante o encontro",
+     "Planejamento personalizado para o mês, com metas semanais",
+     "Orientações de argumentação",
+     "Canal de dúvidas durante o mês",
      "Definição dos próximos passos"
+    ],
+    "materiais": [
+     {
+      "cat": "Argumentação",
+      "itens": [
+       "Guia de argumentação: resposta em blocos (conclusão, fundamento e aplicação ao caso)"
+      ]
+     },
+     {
+      "cat": "Estrutura de peça",
+      "itens": [
+       "Estruturas das peças, do endereçamento aos pedidos"
+      ]
+     },
+     {
+      "cat": "Planejamento",
+      "itens": [
+       "Modelo de cronograma com metas semanais"
+      ]
+     },
+     {
+      "cat": "Dados da banca",
+      "itens": [
+       "Estatísticas da banca: as peças que mais caíram"
+      ]
+     }
     ]
    },
    {
@@ -708,21 +738,49 @@
     "num": "02",
     "titulo": [
      "Acompanhamento",
-     "[[mensal]]"
+     "de [[2 meses]]"
     ],
-    "valor": 800,
-    "texto": "Um mês de acompanhamento para **organizar, executar e ajustar** sua preparação.",
+    "valor": 1000,
+    "ti": 14.5,
+    "gapItens": 10,
+    "texto": "Dois meses para **organizar, executar e ajustar** a sua preparação.",
     "itens": [
-     "2 encontros individuais ao longo de 1 mês",
+     "2 encontros individuais ao longo dos 2 meses",
      "Planejamento personalizado com metas semanais",
      "Avaliação da evolução e ajustes no segundo encontro",
      "Orientação de argumentação com exemplos práticos",
-     "Canal de dúvidas durante o mês"
+     "Análise individual de respostas",
+     "Canal de dúvidas durante os 2 meses"
     ],
-    "bonus": [
-     "Materiais de apoio",
-     "Estatísticas da banca",
-     "Guia de argumentação"
+    "materiais": [
+     {
+      "cat": "Argumentação",
+      "itens": [
+       "Guia de argumentação: resposta em blocos (conclusão, fundamento e aplicação ao caso)",
+       "Banco dos argumentos que mais aparecem nas questões"
+      ]
+     },
+     {
+      "cat": "Estrutura de peça",
+      "itens": [
+       "Estruturas das peças, do endereçamento aos pedidos",
+       "Checklist de identificação da peça"
+      ]
+     },
+     {
+      "cat": "Planejamento",
+      "itens": [
+       "Modelo de cronograma com metas semanais",
+       "Planilha de acompanhamento das metas"
+      ]
+     },
+     {
+      "cat": "Dados da banca",
+      "itens": [
+       "Estatísticas da banca: as peças que mais caíram",
+       "Temas mais cobrados por assunto"
+      ]
+     }
     ]
    },
    {
@@ -731,11 +789,12 @@
     "num": "03",
     "titulo": [
      "Acompanhamento",
-     "até a [[prova]]"
+     "de [[3 meses]]"
     ],
-    "valor": 1500,
+    "valor": 1600,
     "selo": "O mais completo",
-    "gapItens": 12,
+    "ti": 13.5,
+    "gapItens": 7,
     "texto": "O plano mais completo: **3 meses de acompanhamento** para evoluir com direção até a prova.",
     "itens": [
      "4 encontros individuais distribuídos ao longo dos 3 meses",
@@ -746,12 +805,41 @@
      "Canal de dúvidas durante os 3 meses",
      "Estratégia de revisão e preparação para a reta final"
     ],
-    "bonus": [
-     "Materiais de apoio",
-     "Estatísticas da banca",
-     "Guia de argumentação",
-     "Checklist de revisão para a prova"
-    ]
+    "materiais": [
+     {
+      "cat": "Argumentação",
+      "itens": [
+       "Guia de argumentação: resposta em blocos (conclusão, fundamento e aplicação ao caso)",
+       "Banco dos argumentos que mais aparecem nas questões",
+       "Respostas-modelo comentadas"
+      ]
+     },
+     {
+      "cat": "Estrutura de peça",
+      "itens": [
+       "Estruturas das peças, do endereçamento aos pedidos",
+       "Checklist de identificação da peça",
+       "Teses mais cobradas em cada peça"
+      ]
+     },
+     {
+      "cat": "Planejamento",
+      "itens": [
+       "Modelo de cronograma com metas semanais",
+       "Planilha de acompanhamento das metas",
+       "Plano de revisão e checklist para a reta final"
+      ]
+     },
+     {
+      "cat": "Dados da banca",
+      "itens": [
+       "Estatísticas da banca: as peças que mais caíram",
+       "Temas mais cobrados por assunto",
+       "Raio-x das últimas provas"
+      ]
+     }
+    ],
+    "compacto": true
    },
    {
     "tipo": "planos",
@@ -763,58 +851,63 @@
     "texto": "Os três formatos lado a lado.",
     "itens": [
      {
+      "t": "Duração",
+      "valores": [
+       "1 mês",
+       "2 meses",
+       "3 meses"
+      ]
+     },
+     {
       "t": "Encontros individuais",
       "valores": [
        "1 encontro",
-       "2 ao longo de 1 mês",
-       "4 ao longo de 3 meses"
+       "2 encontros",
+       "4 encontros"
       ]
      },
      {
       "t": "Planejamento",
       "valores": [
-       "Orientações de planejamento",
-       "Personalizado, com metas semanais",
+       "Do mês, com metas semanais",
+       "Com metas semanais e ajustes",
        "Completo até a prova"
       ]
      },
      {
-      "t": "Dúvidas",
+      "t": "Análise de respostas",
       "valores": [
-       "Durante o encontro",
-       "Canal durante o mês",
-       "Canal durante os 3 meses"
+       "Orientações no encontro",
+       "Análise individual",
+       "Análise individual"
       ]
      },
      {
-      "t": "Materiais de apoio",
-      "planos": [
-       1,
-       2
+      "t": "Materiais de argumentação",
+      "valores": [
+       "Guia de argumentação",
+       "+ Banco de argumentos",
+       "+ Respostas-modelo"
       ]
      },
      {
-      "t": "Estatísticas da banca",
-      "planos": [
-       1,
-       2
+      "t": "Materiais de peça",
+      "valores": [
+       "Estruturas das peças",
+       "+ Checklist de identificação",
+       "+ Teses mais cobradas"
       ]
      },
      {
-      "t": "Guia de argumentação",
-      "planos": [
-       1,
-       2
+      "t": "Dados da banca",
+      "valores": [
+       "Peças que mais caíram",
+       "+ Temas mais cobrados",
+       "+ Raio-x das últimas provas"
       ]
      },
      {
-      "t": "Análise individual de respostas",
-      "planos": [
-       2
-      ]
-     },
-     {
-      "t": "Checklist de revisão para a prova",
+      "t": "Reta final",
       "planos": [
        2
       ]
