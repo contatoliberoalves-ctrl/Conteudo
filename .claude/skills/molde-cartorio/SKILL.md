@@ -1,6 +1,6 @@
 ---
 name: molde-cartorio
-description: Gera posts e materiais do Cartório do Registro Civil das Pessoas Naturais de Curral Queimado (Petrolina/PE, titular Líbero Alves Rodrigues Filho), na identidade do logo (carvão, prata escovada, papel claro, emblema da pena, Cormorant Garamond + Jost): carrossel 1080×1350 (cartorio-carrossel), tela única (cartorio-post) e PDF A4 (cartorio-pdf, com o guia de documentos para casar), e a linha "Cartório Amigo" para a população do povoado (cores quentes do sertão, letra arredondada, curiosidades, mito ou verdade, pergunta do povo, capa com foto feita em IA): cartorio-amigo-carrossel e cartorio-amigo-post. Use quando pedirem post, carrossel, comunicado, aviso, PDF ou material do cartório, de Curral Queimado, de registro civil, casamento civil, certidões ou habilitação.
+description: Gera posts e materiais do Cartório do Registro Civil das Pessoas Naturais de Curral Queimado (Petrolina/PE, titular Líbero Alves Rodrigues Filho), na identidade do logo (carvão, prata escovada, papel claro, emblema da pena, Cormorant Garamond + Jost): carrossel 1080×1350 (cartorio-carrossel), tela única (cartorio-post) e PDF A4 (cartorio-pdf, com o guia de documentos para casar), e a linha de Instagram "Cartório em Pauta" (cartorio-pauta: moderna e editorial, papel, tinta e azul de carimbo, Archivo condensada + serifa itálica + etiquetas de protocolo; meme com fundo didático, caso de famoso ou notícia, fato de Petrolina e região, pode ou não pode com carimbo, ficha de registro, ranking, número). Use quando pedirem post, carrossel, comunicado, aviso, PDF ou material do cartório, de Curral Queimado, de registro civil, casamento civil, certidões ou habilitação.
 ---
 
 # Moldes do Cartório de Curral Queimado
@@ -21,7 +21,28 @@ Limites: título do carrossel até ~8 palavras (capa até ~10); listas até 4 it
 
 Gerar: `cd moldes/<molde> && CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]` (o Playwright vem de `moldes/treino-de-pecas/node_modules`; se faltar, `cd moldes/treino-de-pecas && npm install`). O script precisa terminar com ✓; com `!`, encurte o texto ou diminua `ts`/`corpo`. O PDF sai em `saida/<id>/<id>.pdf`. Depois, atualize a galeria principal (seção "Cartório") com `python3 galeria/atualizar.py <molde>` e faça commit.
 
-## Cartório Amigo (para a população do povoado)
+## Cartório em Pauta (Instagram)
+
+`cartorio-pauta`, peças em `moldes/cartorio-comum/pauta.mjs`. Substituiu a antiga linha "Cartório Amigo" (o titular achou infantil). Tom: próximo e com humor, mas profissional; o assunto puxa conexão (notícia, famoso, meme, fato de Petrolina e da região) e o post sempre ensina a regra com a base legal. **Todo fato precisa de fonte** (linha `fonte`, no rodapé do slide); não atribua a famosos nada que não tenha saído em veículo confiável. Documentos, valores e prazos do cartório: use o texto do titular (o PDF `cartorio-pdf`) e não invente.
+
+Cada post é `{id, titulo, tema, slides: [...]}` (1 slide = tela única). Cada slide tem `tipo` e `fundo` (`papel`, `tinta` ou `azul`; alterne). Nos textos: `**negrito**`, `*itálico*` e `[[destaque]]` (serifa itálica azul). `ts` (título) e `corpo` (texto) ajustam tamanho; `fonte` vai no rodapé.
+
+| tipo | campos |
+|---|---|
+| `meme` | `foto` (em `fotos/`, fora do git), `focoY`, `alturaFoto` (820), `legenda` (legenda branca do Insta; `\n` quebra), `legendaY`, `tl`, `carimbo {texto, sub, ts}`, `corCarimbo`, `carimboY`, kicker, titulo |
+| `manchete` | kicker, titulo, texto, `campo {rotulo, valor, tv, livro, folha, carimbo {texto, sub}, corCarimbo}` (ficha de registro com carimbo) |
+| `numero` | kicker, `valor`, `tv`, `rotulo`, titulo, texto, fonte |
+| `texto` | kicker, titulo, texto[], `destaque`, fonte |
+| `lista` | kicker, titulo, itens[] (`{t, d}`), `gap`, fonte |
+| `ranking` | kicker, titulo, itens[] (`{nome, n}`), `destaque` (índices em azul), `alt`, `fn`, `barra`, fonte |
+| `pode` | kicker, titulo, itens[] (`{q, r, d}`, r = Pode, Não pode ou Depende), `gap`, fonte |
+| `fim` | kicker, titulo, texto; mostra WhatsApp, endereço e agendamento |
+
+A foto das cabras (`fotos/cabras.jpg`) é o recorte de cima da imagem que o titular mandou, sem a legenda; numa sessão nova, peça a foto de novo.
+
+## Cartório Amigo (linha antiga)
+
+O titular achou essa linha infantil: **posts novos vão no `cartorio-pauta`**. Os moldes ficam só para os posts já feitos.
 
 `cartorio-amigo-carrossel` e `cartorio-amigo-post`, peças em `moldes/cartorio-comum/amigo.mjs`. Mesmo emblema (num selo creme), mas sem o preto: creme, barro, sol, céu e verde da caatinga, títulos em Baloo 2 e texto em Nunito, tom de conversa ("a gente", "pra", "Você sabia?"). Conteúdo em forma de curiosidade sobre o que o cartório faz, com a base legal certa e sem prometer o que depende do caso. Nos textos: `**negrito**` e `[[destaque]]` (marca-texto amarelo).
 

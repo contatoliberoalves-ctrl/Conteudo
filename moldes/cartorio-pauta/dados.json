@@ -1,0 +1,206 @@
+[
+  {
+    "id": "cabras-casamento",
+    "titulo": "Casal que chegou pra dar entrada no casamento",
+    "tema": "Meme · habilitação de casamento",
+    "slides": [
+      {
+        "tipo": "meme",
+        "foto": "fotos/cabras.jpg",
+        "focoY": "60%",
+        "legendaY": 150,
+        "legenda": "Casal que chegou aqui no cartório\npra dar entrada no casamento",
+        "carimbo": { "texto": "Pendente", "sub": "Falta documento", "ts": 58 },
+        "kicker": "Brincadeira à parte",
+        "titulo": "O que um casal [[de verdade]] precisa trazer pra casar"
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "Primeiro passo",
+        "titulo": "Casar começa pela [[habilitação]]",
+        "texto": [
+          "Antes da cerimônia, os noivos dão entrada na habilitação aqui no cartório. É nela que a gente confere os documentos e verifica se não existe impedimento para o casamento.",
+          "No dia da entrada vêm **os noivos e duas testemunhas**, todos com RG e CPF."
+        ],
+        "destaque": "O casal da foto não passa nessa etapa: **casamento civil é só entre pessoas**. Os dois vão ter que ficar no namoro.",
+        "fonte": "Código Civil, arts. 1.525 e 1.526"
+      },
+      {
+        "tipo": "lista",
+        "fundo": "papel",
+        "kicker": "Solteiros",
+        "titulo": "O que [[trazer]]",
+        "itens": [
+          { "t": "Certidão de nascimento original", "d": "Legível e expedida há no máximo 90 dias" },
+          { "t": "RG e CPF (cópia)", "d": "O RG precisa estar dentro da validade" },
+          { "t": "Comprovante de endereço de Petrolina (cópia)", "d": "Em nome do noivo, da noiva ou dos pais" },
+          { "t": "Duas testemunhas maiores de idade", "d": "Com RG e CPF (cópia), no dia da entrada" }
+        ],
+        "fonte": "Código Civil, art. 1.525; Provimento CGJ-PE nº 14/2022"
+      },
+      {
+        "tipo": "lista",
+        "fundo": "tinta",
+        "kicker": "Já foi casado?",
+        "titulo": "Traga [[também]]",
+        "itens": [
+          { "t": "Divorciado: certidão de casamento com a averbação do divórcio", "d": "E a sentença ou o termo que diga se houve bens a partilhar" },
+          { "t": "Viúvo: certidão de casamento e a certidão de óbito", "d": "Mais o inventário dos bens do casamento anterior" },
+          { "t": "Sem o inventário feito?", "d": "O casamento sai no regime da separação obrigatória de bens" }
+        ],
+        "fonte": "Código Civil, arts. 1.523, I, 1.525, V, e 1.641, I"
+      },
+      {
+        "tipo": "fim",
+        "fundo": "azul",
+        "kicker": "Agende sem fila",
+        "titulo": "Vai casar? Manda o [[convite]] pra gente.",
+        "texto": "Faça o cadastro, envie os documentos e escolha o dia pelo autoatendimento."
+      }
+    ]
+  },
+  {
+    "id": "nome-criado-por-ia",
+    "titulo": "Nome criado pelo ChatGPT: o cartório pode recusar?",
+    "tema": "Notícia · escolha do nome",
+    "slides": [
+      {
+        "tipo": "manchete",
+        "fundo": "tinta",
+        "kicker": "Aconteceu em BH",
+        "titulo": "Os pais pediram o nome ao [[ChatGPT]]. O cartório recusou.",
+        "campo": { "rotulo": "Prenome", "valor": "Caevi", "carimbo": { "texto": "Deferido", "sub": "pelo juiz · 22/12", "ts": 52 } }
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "O caso",
+        "titulo": "Vida que vem do [[céu]]",
+        "texto": [
+          "Um casal de Belo Horizonte pediu ao ChatGPT ideias de nomes diferentes e escolheu **Caevi**: \"Cae\", de *caelum* (céu), e \"Vi\", de vida.",
+          "Quando o pai foi registrar, o cartório não encontrou a origem do nome e não aceitou. O caso foi para o juiz, que pediu uma carta escrita à mão pela mãe confirmando a escolha. Uma semana depois, o registro foi autorizado."
+        ],
+                "fonte": "Revista Crescer, republicada pelo TNH1 em 08/01/2026"
+      },
+      {
+        "tipo": "texto",
+        "fundo": "papel",
+        "kicker": "O que diz a lei",
+        "titulo": "O cartório pode dizer [[não]]?",
+        "texto": [
+          "Pode, mas só num caso: quando o nome **pode expor a criança ao ridículo**. Nome inventado, estrangeiro ou de famoso, por si só, não é motivo.",
+          "Se os pais não concordarem com a recusa, o próprio cartório manda o pedido ao juiz, por escrito e sem custo para a família."
+        ],
+        "fonte": "Lei 6.015/73 (Registros Públicos), art. 55, § 1º"
+      },
+      {
+        "tipo": "pode",
+        "fundo": "papel",
+        "kicker": "Pode ou não pode?",
+        "titulo": "Na hora de [[registrar]]",
+        "ts": 92,
+        "corpo": 33,
+        "gap": 18,
+        "itens": [
+          { "q": "Nome de cantor, jogador ou personagem", "r": "Pode", "d": "Desde que não exponha a criança ao ridículo" },
+          { "q": "Trocar o nome logo depois do registro", "r": "Depende", "d": "Até 15 dias, se os pais apresentarem oposição ao cartório" },
+          { "q": "Mudar o próprio nome depois dos 18", "r": "Pode", "d": "Uma vez, direto no cartório, sem precisar explicar o motivo" },
+          { "q": "Nome que vira piada na escola", "r": "Não pode", "d": "O cartório recusa e o caso pode ir ao juiz" }
+        ],
+        "fonte": "Lei 6.015/73, arts. 55, §§ 1º e 4º, e 56 (redação da Lei 14.382/2022)"
+      },
+      {
+        "tipo": "fim",
+        "fundo": "azul",
+        "kicker": "Bebê chegando?",
+        "titulo": "Traz o nome que a gente [[registra]].",
+        "texto": "O registro de nascimento e a primeira certidão são gratuitos."
+      }
+    ]
+  },
+  {
+    "id": "petrolina-registros-2025",
+    "titulo": "Petrolina, 2ª cidade que mais registrou bebês em PE",
+    "tema": "Dado da região · nomes de 2025",
+    "slides": [
+      {
+        "tipo": "numero",
+        "fundo": "azul",
+        "kicker": "Petrolina em 2025",
+        "valor": "6.828",
+        "rotulo": "Registros de nascimento",
+        "titulo": "Só o Recife registrou [[mais]] bebês em Pernambuco",
+        "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026)"
+      },
+      {
+        "tipo": "ranking",
+        "fundo": "papel",
+        "kicker": "Registros em 2025",
+        "titulo": "As cidades que mais [[registraram]]",
+        "destaque": [1],
+        "alt": 92,
+        "itens": [
+          { "nome": "Recife", "n": 24055 },
+          { "nome": "Petrolina", "n": 6828 },
+          { "nome": "Caruaru", "n": 5738 },
+          { "nome": "Jaboatão", "n": 5655 },
+          { "nome": "Paulista", "n": 2924 },
+          { "nome": "Olinda", "n": 2834 }
+        ],
+        "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026). Pernambuco teve 112.241 registros no ano"
+      },
+      {
+        "tipo": "ranking",
+        "fundo": "papel",
+        "kicker": "Pernambuco · 2025",
+        "titulo": "Os nomes do [[ano]]",
+        "destaque": [0, 3],
+        "alt": 70,
+        "itens": [
+          { "nome": "Maria Cecília", "n": 1080 },
+          { "nome": "Maria Helena", "n": 1074 },
+          { "nome": "Maria Alice", "n": 846 },
+          { "nome": "Ravi", "n": 651 },
+          { "nome": "Maria Ísis", "n": 636 },
+          { "nome": "João Miguel", "n": 609 },
+          { "nome": "Miguel", "n": 572 },
+          { "nome": "Helena", "n": 567 },
+          { "nome": "Davi", "n": 535 },
+          { "nome": "Heitor", "n": 527 }
+        ],
+        "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026)"
+      },
+      {
+        "tipo": "texto",
+        "fundo": "tinta",
+        "kicker": "No Brasil",
+        "titulo": "Aqui é Maria. No país, deu [[Helena]].",
+        "texto": [
+          "Helena foi o nome mais registrado do Brasil pelo segundo ano seguido, com **28.271 bebês**, seguida de Ravi e Miguel.",
+          "Em Pernambuco, os nomes compostos com Maria ocupam quatro lugares do top 10."
+        ],
+        "fonte": "Arpen-Brasil, via Diario de Pernambuco (05/01/2026)"
+      },
+      {
+        "tipo": "lista",
+        "fundo": "papel",
+        "kicker": "Vai registrar?",
+        "titulo": "O que você [[precisa saber]]",
+        "itens": [
+          { "t": "É de graça", "d": "O registro e a primeira certidão não custam nada" },
+          { "t": "Prazo de 15 dias", "d": "Vai a 3 meses para quem mora a mais de 30 km do cartório" },
+          { "t": "Pode registrar aqui", "d": "No lugar do parto ou onde os pais moram" }
+        ],
+        "fonte": "Lei 6.015/73, arts. 30 e 50"
+      },
+      {
+        "tipo": "fim",
+        "fundo": "azul",
+        "kicker": "Curral Queimado",
+        "titulo": "O próximo nome do ranking pode sair [[daqui]].",
+        "texto": ""
+      }
+    ]
+  }
+]
