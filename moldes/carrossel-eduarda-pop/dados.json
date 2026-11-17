@@ -1220,19 +1220,19 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaNova",
-    "layout": "destaque",
-    "kicker": "Repescagem OAB 48",
-    "linha1": "Motivos pra\nentrar no",
-    "linha2": "VDE Civil",
-    "numero": "6",
+    "tipo": "capaDiario",
+    "layout": "recorte",
     "foto": "eduarda-comemorando-recorte.png",
-    "texto": "Sua segunda chance em Civil, **com método**.",
-    "ts": 128,
-    "largura": 900,
-    "tc": 150,
-    "fotoH": 1020,
-    "fotoX": -150
+    "fantasma": "6",
+    "kicker": "Repescagem OAB 48 · Civil",
+    "pre": "6 motivos pra entrar no",
+    "titulo": [
+     "VDE",
+     "Civil"
+    ],
+    "ts": 200,
+    "fotoH": 1260,
+    "fotoY": 110
    },
    {
     "tipo": "texto",
@@ -1295,14 +1295,20 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaNova",
-    "layout": "clean",
+    "tipo": "capaDiario",
+    "layout": "quadro",
+    "foto": "eduarda-surpresa.jpg",
+    "fotoPos": "center",
+    "fantasma": "?",
     "kicker": "Repescagem OAB 48",
-    "nota": "6 frases",
-    "a": "Mito",
-    "b": "Verdade",
-    "texto": "O que todo mundo repete sobre a **repescagem**, e o que o edital diz de verdade.",
-    "ts": 180
+    "pre": "6 frases sobre a repescagem:",
+    "titulo": [
+     "Mito ou",
+     "verdade?"
+    ],
+    "ts": 150,
+    "zoom": 1.45,
+    "zoomOrigem": "57% 42%"
    },
    {
     "tipo": "item",
@@ -1355,20 +1361,20 @@
   "estilo": "trend",
   "slides": [
    {
-    "tipo": "capaNova",
-    "layout": "calendario",
+    "tipo": "capaDiario",
+    "layout": "bloco",
+    "foto": "eduarda-apontando.jpg",
+    "fotoPos": "60% 100%",
     "kicker": "Salva esse post",
-    "linha1": "Calendário da\n**repescagem**",
-    "linha2": "OAB 48",
-    "mes": "FEV",
-    "dia": "28",
-    "nota": "dia da prova!",
-    "foto": "eduarda-bracos-cruzados-recorte.png",
-    "texto": "Todas as datas, da **inscrição** à **prova**.",
-    "ts": 104,
-    "tc": 110,
-    "calY": 500,
-    "fotoH": 760
+    "pre": "Todas as datas da",
+    "titulo": [
+     "Repescagem",
+     "OAB 48"
+    ],
+    "ts": 110,
+    "extra": "Prova: 28/02, às 13h",
+    "zoom": 1.18,
+    "zoomOrigem": "65% 100%"
    },
    {
     "tipo": "texto",

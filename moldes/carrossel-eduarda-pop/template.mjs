@@ -716,6 +716,48 @@ function capaNova(s, ctx) {
     ${pe('#1E1A1C', 'rgba(30,26,28,.4)')}</div>`;
 }
 
+// ================= CAPA DIÁRIO (a fórmula das capas que funcionam no Diário Constitucional, nas cores da Eduarda) =================
+// Foto no alto sem nada sobre o rosto; embaixo, bloco de texto com hierarquia: linha de etiqueta ("— KICKER"),
+// pré-título curto e título grande em 2–3 linhas, a última em destaque. layout: "recorte" (recorte PNG sobre fúcsia,
+// número vazado atrás), "quadro" (foto num quadro com borda deslocada, número/símbolo vazado ao fundo) ou "bloco"
+// (foto inteira e bloco sólido no canto de baixo). Campos: kicker, pre, titulo (linhas; a última sai em destaque),
+// foto, fotoPos, fantasma, ts, fundo ("blush"|"papel"), extra (pílula pequena no bloco).
+function capaDiario(s, ctx) {
+  const src = s.foto && ctx.imgs[s.foto];
+  if (s.foto && !src) ctx.faltando.add(s.foto);
+  const linhas = lista(s.titulo);
+  const tit = (cor, dest) => `<div data-titulo style="${TIGHT};font-weight:900;font-size:${s.ts || 118}px;line-height:.9;letter-spacing:-.045em;text-transform:uppercase;color:${cor}">${linhas.map((l, i) => i === linhas.length - 1 ? `<span style="color:${dest}">${fmt(l)}</span>` : fmt(l)).join('<br>')}</div>`;
+  const kick = cor => `<div style="display:flex;align-items:center;gap:16px;${TIGHT};font-weight:800;font-size:22px;letter-spacing:.22em;text-transform:uppercase;color:${cor}"><span style="width:44px;height:3px;background:${cor}"></span>${esc(s.kicker || '')}</div>`;
+  const pre = cor => s.pre ? `<div style="${SERIF};font-size:44px;line-height:1.1;color:${cor};margin:14px 0 10px">${fmt(s.pre)}</div>` : '';
+  const arroba = cor => `<div style="position:absolute;right:84px;bottom:56px;${TIGHT};font-weight:600;font-size:22px;letter-spacing:.06em;color:${cor};z-index:6">${ARROBA}</div>`;
+  if (s.layout === 'recorte') {
+    return `<div style="position:absolute;inset:0;background:radial-gradient(90% 70% at 50% 25%,#F29AD8 0%,#EE2A8A 60%,#C8176E 100%)">
+      ${s.fantasma ? `<div style="position:absolute;left:0;right:0;top:20px;text-align:center;${TIGHT};font-weight:900;font-size:900px;line-height:.85;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.4)">${esc(s.fantasma)}</div>` : ''}
+      ${src ? `<img data-foto src="${src}" style="position:absolute;left:50%;top:${s.fotoY ?? 30}px;height:${s.fotoH || 1010}px;transform:translateX(-50%);filter:drop-shadow(0 26px 40px rgba(120,0,60,.35))">` : ''}
+      <div style="position:absolute;left:0;right:0;bottom:0;height:640px;background:linear-gradient(180deg,rgba(150,10,80,0) 0%,rgba(150,10,80,.82) 45%,#8E0C4E 100%)"></div>
+      <div data-area style="position:absolute;left:84px;right:84px;bottom:${s.base || 120}px;z-index:4">${kick('#FDEAF4')}${pre('#fff')}${tit('#fff', '#F7B9E0')}</div>
+      ${arroba('rgba(255,255,255,.85)')}</div>`;
+  }
+  if (s.layout === 'quadro') {
+    const bg = s.fundo === 'papel' ? PAPEL : '#FDEAF4';
+    return `<div style="position:absolute;inset:0;background:${bg}">
+      ${s.fantasma ? `<div style="position:absolute;left:30px;top:-40px;${SERIF};font-size:760px;line-height:1;color:transparent;-webkit-text-stroke:2.5px rgba(238,42,138,.28)">${esc(s.fantasma)}</div>` : ''}
+      <div style="position:absolute;right:110px;top:${s.fotoY ?? 100}px;width:${s.fotoW || 560}px;height:${s.fotoH2 || 640}px">
+        <div style="position:absolute;inset:0;transform:translate(26px,26px);border:3px solid ${C.pink}"></div>
+        <div style="position:absolute;inset:0;overflow:hidden;background:#222">${src ? `<img data-foto src="${src}" style="width:100%;height:100%;object-fit:cover;object-position:${esc(s.fotoPos || 'center 30%')};transform:scale(${s.zoom || 1});transform-origin:${esc(s.zoomOrigem || s.fotoPos || 'center')}">` : ''}</div></div>
+      <div data-area style="position:absolute;left:84px;right:84px;bottom:${s.base || 120}px">${kick(C.pink)}${pre('#1E1A1C')}${tit('#1E1A1C', C.pink)}</div>
+      ${arroba('#1E1A1C')}</div>`;
+  }
+  // bloco
+  return `<div style="position:absolute;inset:0;background:#1E1A1C">
+    ${src ? `<img data-foto src="${src}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${esc(s.fotoPos || 'center')};transform:${s.espelhar ? 'scaleX(-1) ' : ''}scale(${s.zoom || 1});transform-origin:${esc(s.zoomOrigem || 'center')}">` : ''}
+    <div style="position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(180deg,rgba(30,26,28,0),rgba(30,26,28,.55))"></div>
+    <div data-area style="position:absolute;left:44px;bottom:${s.base || 110}px;width:${s.blocoW || 700}px;background:${C.pink};padding:40px 44px 46px;box-shadow:0 30px 60px rgba(60,0,30,.35)">
+      ${kick('#FDEAF4')}${pre('#fff')}${tit('#fff', '#FDEAF4')}
+      ${s.extra ? `<div style="display:inline-block;margin-top:22px;background:#fff;color:${C.pink};border-radius:999px;padding:10px 24px;${TIGHT};font-weight:800;font-size:24px;letter-spacing:.06em">${esc(s.extra)}</div>` : ''}</div>
+    ${arroba('#fff')}</div>`;
+}
+
 const ESTILOS = { trend: TREND, studio: STUDIO, scrap: SCRAP, blocos: BLOCOS, chique: CHIQUE, nota: NOTA };
 
 export function renderCarrossel(c) {
@@ -725,7 +767,7 @@ export function renderCarrossel(c) {
   if (!ESTILOS[c.estilo]) avisos.push(`estilo "${c.estilo}" não existe (${Object.keys(ESTILOS).join(', ')}); usei trend`);
   let n = 0;
   const slides = (c.slides || []).map((s, i) => {
-    const f = s.tipo === 'capaNova' ? capaNova : s.tipo === 'capaIndice' ? capaIndice : s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
+    const f = s.tipo === 'capaNova' ? capaNova : s.tipo === 'capaDiario' ? capaDiario : s.tipo === 'capaIndice' ? capaIndice : s.tipo === 'capaD' ? capaD : s.tipo === 'capaRetrato' ? capaRetrato : s.tipo === 'capaFoto' ? capaFoto : s.tipo === 'oab' ? oab : estilo[s.tipo];
     ctx.slide = s;
     if (!f) { avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe no estilo ${c.estilo} (${Object.keys(estilo).join(', ')})`); return ''; }
     if (s.tipo === 'item' && s.numero == null) s = { ...s, numero: ++n };
