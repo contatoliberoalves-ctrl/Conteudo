@@ -421,6 +421,37 @@ const CAPAS = {
         ${s.texto ? `<p data-corpo style="margin:0;font-size:40px;font-weight:600;line-height:1.3;color:#C9D4EA;max-width:860px">${rico(s.texto, TEMAS.dark)}</p>` : ''}
       </div>`;
   },
+  // Meme preso: um post de meme do Insta (cabeçalho, imagem com legenda em Impact, curtidas) atrás das grades
+  // de uma cela, com carimbo vermelho da pena. Para projetos de lei e polêmicas sobre internet, humor, redes.
+  // Campos: pre (pílula), titulo ([[caixa]] vermelha), ts, post {usuario, img (em assets/), cima, baixo,
+  // fundo, curtidas, legenda}, carimbo (linhas), cartaoY, objeto (canto).
+  memepreso(s, t) {
+    const R = COR.vermelho, p = s.post || {}, y = s.cartaoY || 530;
+    const impact = (txt, pos) => txt ? `<div style="position:absolute;left:170px;right:170px;${pos}:16px;text-align:center;font-family:Anton,Impact,sans-serif;font-size:${p.tm || 46}px;line-height:1.02;color:#fff;text-transform:uppercase;-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:0 3px 0 #000">${esc(txt)}</div>` : '';
+    const grades = lista(s.grades || [70, 300, 756, 986]).map(x => `<div style="position:absolute;top:-40px;bottom:-40px;left:${x}px;width:24px;background:linear-gradient(90deg,#2a2f38,#9aa3b5 45%,#3a404b);box-shadow:6px 0 14px rgba(0,0,0,.45)"></div>`).join('');
+    return `<div style="position:absolute;inset:0;background:radial-gradient(100% 70% at 85% 0%,#2B6BF0 0%,${COR.azul} 42%,${COR.azulFundo} 100%);z-index:0"></div>
+      <div style="position:absolute;left:90px;right:90px;top:92px;display:flex;flex-direction:column;align-items:flex-start;gap:22px;z-index:6">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 140}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1></div>
+      <div data-objeto style="position:absolute;left:150px;width:780px;top:${y}px;transform:rotate(-3deg);background:#fff;box-shadow:0 40px 80px rgba(8,16,40,.5);z-index:3">
+        <div style="display:flex;align-items:center;gap:16px;padding:18px 22px">
+          <span style="width:56px;height:56px;border-radius:50%;background:conic-gradient(#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5,#FEDA75);padding:4px;box-sizing:border-box"><span style="display:block;width:100%;height:100%;border-radius:50%;background:#fff;border:3px solid #fff;box-sizing:border-box;background:${COR.navy}"></span></span>
+          <b style="font-size:28px;color:#111">${esc(p.usuario || 'memes.do.plenario')}</b><span style="margin-left:auto;font-size:34px;color:#111;letter-spacing:2px">···</span></div>
+        <div style="position:relative;height:${p.h || 460}px;background:${p.fundo || '#FFD43B'};overflow:hidden">
+          ${p.img ? `<img src="../assets/${esc(p.img)}" style="position:absolute;left:50%;top:50%;width:${p.tamImg || 280}px;transform:translate(-50%,-50%)">` : ''}
+          ${impact(p.cima, 'top')}${impact(p.baixo, 'bottom')}</div>
+        <div style="display:flex;gap:26px;padding:16px 22px 6px;font-size:40px;line-height:1">
+          <svg width="42" height="42" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.1C1.1 8.6 3.2 5 6.6 5c2 0 3.4 1.1 4.4 2.5C12 6.1 13.4 5 15.4 5c3.4 0 5.5 3.6 4.1 6.9C19.5 16.4 12 21 12 21z" fill="${R}"/></svg>
+          <svg width="42" height="42" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3.1-6.3L21 4l-1 4.4A8 8 0 0 1 20 12z" fill="none" stroke="#111" stroke-width="2"/></svg>
+          <svg width="42" height="42" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div style="padding:4px 22px 20px;font-size:24px;color:#111"><b>${esc(p.curtidas || '48.213 curtidas')}</b>${p.legenda ? `<div style="margin-top:4px;color:#333">${esc(p.legenda)}</div>` : ''}</div></div>
+      <div style="position:absolute;left:0;right:0;top:${y - 70}px;height:${(p.h || 460) + 320}px;z-index:4;pointer-events:none">
+        <div style="position:absolute;left:-20px;right:-20px;top:0;height:30px;background:linear-gradient(180deg,#9aa3b5,#3a404b);box-shadow:0 8px 16px rgba(0,0,0,.4)"></div>
+        ${grades}
+        <div style="position:absolute;left:-20px;right:-20px;bottom:0;height:30px;background:linear-gradient(180deg,#9aa3b5,#3a404b);box-shadow:0 -8px 16px rgba(0,0,0,.4)"></div></div>
+      ${s.carimbo ? `<div data-objeto style="position:absolute;right:${s.carimboX ?? 60}px;top:${y + (s.carimboY || 520)}px;transform:rotate(-10deg);border:9px solid ${R};outline:4px solid ${R};outline-offset:7px;border-radius:14px;padding:10px 26px 2px;${TITULO};font-size:${s.tc || 88}px;line-height:.95;color:${R};background:rgba(255,255,255,.92);box-shadow:0 20px 40px rgba(8,16,40,.35);text-align:center;z-index:5">${lista(s.carimbo).map(esc).join('<br>')}</div>` : ''}
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>`;
+  },
   // Urna: urna eletrônica desenhada, com o aviso na tela verde (~~riscado~~ e [[destaque]]) e um pino de
   // mapa saindo do canto. Para avisos de eleição. Campos: pre, titulo, ts, tela ([linhas]; a 1ª é o
   // cabeçalho), texto (frase abaixo da urna).
@@ -1035,7 +1066,7 @@ export function renderCarrossel(c) {
     if (!TEMAS[s.tema]) avisos.push(`slide ${i + 1}: tema "${s.tema}" não existe (use blue, light ou dark)`);
   });
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Schibsted+Grotesk:wght@500;600;700;800&family=Anton&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;font-family:'Schibsted Grotesk',sans-serif;-webkit-font-smoothing:antialiased}</style></head><body>
 <div id="painel" style="position:relative;width:${n * 1080}px;height:1350px">
 ${slides.map((s, i) => {
