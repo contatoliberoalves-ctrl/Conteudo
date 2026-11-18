@@ -8,8 +8,8 @@ Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium R
 ## Marcas (campo `marca` da aula)
 
 - `vde` (padrão): Mentoria Método VDE.
-- `repescagem`: curso **Aprofundamento na Repescagem**. Degradê roxo → magenta, detalhe rosa, seta de "nova tentativa" no lugar dos arcos.
-- `hackeando`: curso **Hackeando a OAB**. Roxo-noite → índigo, detalhe verde de terminal, rótulos em JetBrains Mono com `>` e cursor, malha de pontos no lugar dos arcos.
+- `repescagem`: curso **Aprofundamento na Repescagem**. Cores do VDE; seta de "nova tentativa" no lugar dos arcos.
+- `hackeando`: curso **Hackeando a OAB**. Cores do VDE; rótulos em JetBrains Mono com `>` e cursor, malha de pontos no lugar dos arcos.
 
 Nas duas variações o rodapé traz `Líbero Filho @liberofilho · Natália Valença @nataliavalenca` e o nome do curso. As capas das aulas ficam em `repescagem-capas` e `hackeando-capas`; a amostra dos slides em `*-identidade`.
 

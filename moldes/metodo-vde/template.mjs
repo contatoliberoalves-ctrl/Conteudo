@@ -8,11 +8,11 @@ const W = 1920, H = 1080;
 const MARCAS = {
   vde: { cor: { roxo: '#2E0575', indigo: '#1937B1', meio: '#261C8C', lavanda: '#C9B8FF', lavandaClara: '#F2EEFF', borda: '#E4DDFB', tinta: '#1A1340', cinza: '#5B5875', vermelho: '#E5486A' },
     perfis: '@nataliavalenca · @liberofilho', rotulo: 'MÉTODO VDE', deco: 'arcos', mono: false },
-  // Aprofundamento na Repescagem: degradê roxo → magenta, detalhe rosa e a seta de "nova tentativa".
-  repescagem: { cor: { roxo: '#2B0A6B', indigo: '#C2187A', meio: '#6E1391', lavanda: '#FFC4E6', lavandaClara: '#FFF1F8', borda: '#F5D8EA', tinta: '#2A0F33', cinza: '#6D5A72', vermelho: '#E5486A' },
+  // Aprofundamento na Repescagem: cores do VDE; a seta de "nova tentativa" no lugar dos arcos.
+  repescagem: { cor: { roxo: '#2E0575', indigo: '#1937B1', meio: '#261C8C', lavanda: '#C9B8FF', lavandaClara: '#F2EEFF', borda: '#E4DDFB', tinta: '#1A1340', cinza: '#5B5875', vermelho: '#E5486A' },
     perfis: 'Líbero Filho @liberofilho · Natália Valença @nataliavalenca', rotulo: 'APROFUNDAMENTO NA REPESCAGEM', deco: 'seta', mono: false },
-  // Hackeando a OAB: roxo-noite → índigo, detalhe verde de terminal, rótulos em fonte mono e malha de pontos.
-  hackeando: { cor: { roxo: '#0E0636', indigo: '#1937B1', meio: '#1A1268', lavanda: '#4DFFB8', lavandaClara: '#EFF1FF', borda: '#DCE0F7', tinta: '#0F1033', cinza: '#565A7A', vermelho: '#E5486A' },
+  // Hackeando a OAB: cores do VDE; rótulos em fonte mono com cursor e malha de pontos no lugar dos arcos.
+  hackeando: { cor: { roxo: '#2E0575', indigo: '#1937B1', meio: '#261C8C', lavanda: '#C9B8FF', lavandaClara: '#F2EEFF', borda: '#E4DDFB', tinta: '#1A1340', cinza: '#5B5875', vermelho: '#E5486A' },
     perfis: 'Líbero Filho @liberofilho · Natália Valença @nataliavalenca', rotulo: 'HACKEANDO A OAB', deco: 'malha', mono: true },
 };
 let MARCA, COR, DEGRADE, DEG_H, TEMAS, PERFIS;
@@ -55,7 +55,7 @@ function arcos(t, lado = 'direita', y = 540, n = 6) {
 }
 // Repescagem: arco grande com ponta de seta (nova tentativa) saindo pela direita.
 function seta(t) {
-  const cor = t.escuro ? 'rgba(255,196,230,.42)' : 'rgba(194,24,122,.14)', fraco = t.escuro ? 'rgba(255,196,230,.16)' : 'rgba(194,24,122,.07)';
+  const cor = t.escuro ? 'rgba(201,184,255,.42)' : 'rgba(46,5,117,.12)', fraco = t.escuro ? 'rgba(201,184,255,.16)' : 'rgba(46,5,117,.06)';
   const cx = 1700, cy = 560, r = 330, a0 = -70, a1 = 225, rad = g => g * Math.PI / 180;
   const p = g => [cx + r * Math.cos(rad(g)), cy + r * Math.sin(rad(g))];
   const [x0, y0] = p(a0), [x1, y1] = p(a1);
@@ -75,7 +75,7 @@ function malha(t) {
     pts += `<rect x="${x}" y="${y}" width="${h === 0 ? 14 : 6}" height="${h === 0 ? 14 : 6}" rx="2" fill="${h === 0 ? aceso : base}" opacity="${(0.25 + i / 13).toFixed(2)}"/>`;
   }
   return `<svg width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1;pointer-events:none">${pts}
-    <text x="1250" y="84" font-family="JetBrains Mono, monospace" font-size="22" fill="${t.escuro ? 'rgba(77,255,184,.55)' : 'rgba(25,55,177,.35)'}">if (enunciado) { return tese; }</text></svg>`;
+    <text x="1250" y="84" font-family="JetBrains Mono, monospace" font-size="22" fill="${t.escuro ? 'rgba(201,184,255,.55)' : 'rgba(25,55,177,.35)'}">if (enunciado) { return tese; }</text></svg>`;
 }
 const rodape = t => `<div style="position:absolute;left:120px;right:120px;bottom:44px;display:flex;justify-content:space-between;align-items:center;${FONTE};font-size:24px;font-weight:500;color:${t.escuro ? 'rgba(255,255,255,.75)' : COR.cinza};z-index:6">
     <span>${PERFIS}</span><span style="font-weight:700;letter-spacing:.14em;color:${t.kicker}">${MARCA.rotulo}</span></div>`;
