@@ -2054,14 +2054,8 @@
           {
             "texto": "O que eu faria\nse estivesse na\nrepescagem",
             "cor": "bege",
-            "y": 150,
-            "tam": 76
-          },
-          {
-            "texto": "Spoiler: eu não\ndesistiria 👇",
-            "cor": "branco",
-            "y": 520,
-            "tam": 60
+            "y": "meio",
+            "tam": 84
           }
         ]
       },
@@ -2138,11 +2132,47 @@
         ]
       },
       {
+        "foto": "viagem-73.jpg",
+        "escurecer": 0.15,
+        "blocos": [
+          {
+            "texto": "3. Corrige com o\npadrão da FGV",
+            "cor": "preto",
+            "y": 150,
+            "tam": 72
+          },
+          {
+            "texto": "Faz as provas anteriores\ne corrige pelo padrão de\nresposta da banca. É ele\nque diz o que vale ponto.",
+            "cor": "azul",
+            "y": 370,
+            "tam": 58
+          }
+        ]
+      },
+      {
+        "foto": "viagem-62.jpg",
+        "escurecer": 0.15,
+        "blocos": [
+          {
+            "texto": "4. Treina no\ntempo da prova",
+            "cor": "preto",
+            "y": 330,
+            "tam": 72
+          },
+          {
+            "texto": "São 5 horas, das 13h\nàs 18h. Faz simulado em\ncasa, com relógio e sem\npausa pra celular.",
+            "cor": "azul",
+            "y": 650,
+            "tam": 58
+          }
+        ]
+      },
+      {
         "foto": "viagem-77.jpg",
         "escurecer": 0.15,
         "blocos": [
           {
-            "texto": "3. Vem pra\nConstitucional",
+            "texto": "5. Vem pra\nConstitucional",
             "cor": "preto",
             "y": 330,
             "tam": 72
@@ -2160,7 +2190,7 @@
         "escurecer": 0.15,
         "blocos": [
           {
-            "texto": "4. Entra no VDE",
+            "texto": "6. Entra no VDE",
             "cor": "preto",
             "y": 880,
             "tam": 72
