@@ -6,6 +6,7 @@ Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma 
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).
 - `.claude/skills/molde-<id>/`: como gerar posts em cada molde. `.claude/skills/novo-molde/`: como cadastrar um molde novo.
 - `galeria/`: página que mostra todos os moldes e posts.
+- `automacoes/canal-promocoes/`: robô do canal de promoções (Telegram + botão do WhatsApp) que roda no Supabase (Edge Function `promo-bot`, schema `promo`, `pg_cron`). Como configurar, testar e publicar está no `README.md` dele; o código de ativação e os tokens nunca vão para o git.
 
 ## Fotos
 O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os originais ficam no Google Drive dele e cada molde tem um script que recria os recortes (ex.: `moldes/estrutura-de-pecas/recortar_fotos.py`). Numa sessão nova sem as fotos, peça o link da pasta do Drive.
