@@ -299,7 +299,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ring circle{fill:none;stroke-width:7}
 .ring .bg{stroke:var(--a-line)}
 .ring .fg{stroke:var(--bronze-soft);stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
-.app.seen .ring .fg{stroke-dashoffset:164}
+.app.seen .ring .fg{stroke-dashoffset:166}
 .ring b{position:absolute;inset:0;display:grid;place-items:center;font-weight:500;font-size:24px;letter-spacing:-.04em}
 .ringc p{font-size:13.5px;color:var(--a-mute)}
 .ringc p b{display:block;color:var(--a-fg);font-weight:500;font-size:16px;letter-spacing:-.01em}
@@ -435,7 +435,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .js .head2>.h2.rv{clip-path:inset(0 0 100% 0);transition:opacity .9s,transform 1s cubic-bezier(.2,.8,.2,1),clip-path 1s cubic-bezier(.2,.8,.2,1)}
 .js .head2>.h2.rv.in{clip-path:inset(0 0 -30% 0)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}.app .ring .fg{stroke-dashoffset:164}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}.app .ring .fg{stroke-dashoffset:166}}
 </style>
 
 <div class="nav"><div class="w">
@@ -454,7 +454,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <a class="btn mag" href="#lista">Quero entrar na turma fundadora <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a class="btn line" href="#plataforma">Ver a plataforma</a>
       </div>
-      <dl class="hstats fx" style="--i:3"><div><dt>9</dt><dd>módulos</dd></div><div><dt>72</dt><dd>aulas</dd></div><div><dt>4K</dt><dd>gravação</dd></div></dl>
+      <dl class="hstats fx" style="--i:3"><div><dt>9</dt><dd>módulos</dd></div><div><dt>30</dt><dd>aulas</dd></div><div><dt>4K</dt><dd>gravação</dd></div></dl>
     </div>
     <figure class="foto" id="foto">
       <canvas id="lots" aria-hidden="true"></canvas>
@@ -539,7 +539,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section id="modulos">
   <div class="w">
     <div class="head2">
-      <h2 class="h2">Nove módulos, 72 aulas.</h2>
+      <h2 class="h2">Nove módulos, 30 aulas.</h2>
       <p class="lead">Do conceito ao caso real de Barra e Xique-Xique. Escolha um módulo para ver o que ele cobre.</p>
     </div>
     <div class="mx">
@@ -618,7 +618,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <div class="side" role="tablist" aria-label="Áreas da plataforma">
           <div class="lg"><i>R</i>Papel Passado</div>
           <button class="tab" role="tab" id="tab-home" aria-selected="true" aria-controls="p-home"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 9l7-6 7 6v8h-5v-5H8v5H3z"/></svg>Início</button>
-          <button class="tab" role="tab" id="tab-aulas" aria-selected="false" aria-controls="p-aulas"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.500" y="4" width="15" height="12" rx="2"/><path d="M8.500 7.500v5l4-2.500z" fill="currentColor"/></svg>Aulas<em>72</em></button>
+          <button class="tab" role="tab" id="tab-aulas" aria-selected="false" aria-controls="p-aulas"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.500" y="4" width="15" height="12" rx="2"/><path d="M8.500 7.500v5l4-2.500z" fill="currentColor"/></svg>Aulas<em>30</em></button>
           <button class="tab" role="tab" id="tab-mat" aria-selected="false" aria-controls="p-mat"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M5 2.500h7l3.500 3.500v11.500h-10.500z"/><path d="M7.500 10h5M7.500 13h5" stroke-linecap="round"/></svg>Materiais<em>6</em></button>
           <button class="tab" role="tab" id="tab-com" aria-selected="false" aria-controls="p-com"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 4.500h14v9H9l-4 3v-3H3z"/></svg>Comunidade<em id="thc">3</em></button>
           <div class="me"><i class="av">VC</i><span>Você<small>Turma fundadora</small></span></div>
@@ -637,13 +637,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
               <div class="acard">
                 <h4>Seu progresso</h4>
                 <div class="ringc">
-                  <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><b>38%</b></div>
-                  <p><b>27 de 72 aulas</b>3 módulos concluídos</p>
+                  <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><b>37%</b></div>
+                  <p><b>11 de 30 aulas</b>3 módulos concluídos</p>
                 </div>
                 <div class="cert"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="10" cy="8" r="5"/><path d="M7 12.500L6 18l4-2 4 2-1-5.500"/></svg>Certificado liberado ao concluir o curso</div>
               </div>
             </div>
-            <div class="mods-h"><h4>Módulos</h4><span>9 módulos · 72 aulas</span></div>
+            <div class="mods-h"><h4>Módulos</h4><span>9 módulos · 30 aulas</span></div>
             <div class="mrow" id="mrow"></div>
           </div>
           <div class="pane" id="p-aulas" role="tabpanel" aria-labelledby="tab-aulas" hidden>
@@ -907,15 +907,15 @@ seen($('#cmp'),function(){$('#cmp').classList.add('in')},.4);
 
 /* módulos */
 (function(){
-  var MD=[['01','O que a REURB realmente é','Conceito, núcleo urbano informal e a lógica da Lei 13.465 e do Decreto 9.310.',6,'arts. 9º a 13',['Núcleo urbano informal e consolidado','REURB-S e REURB-E','O que mudou com a Lei 13.465']],
-    ['02','Legitimados e instauração','Quem requer e como o Município instaura e classifica o procedimento.',7,'art. 14',['Quem pode requerer','Instauração e classificação','Modelo de requerimento e de decreto']],
-    ['03','Buscas e notificações','O levantamento na serventia e a notificação de titulares e confrontantes.',8,'art. 31',['Buscas na serventia','Notificação de titulares e confrontantes','Impugnação e mediação']],
-    ['04','O projeto de regularização','Planta, memorial, estudos técnicos e cronograma de obras.',9,'arts. 35 e 36',['Levantamento georreferenciado','Projeto urbanístico e memoriais','Estudos técnicos ambiental e de risco']],
-    ['05','Instrumentos jurídicos','Quando usar cada instrumento e o marco de 22 de dezembro de 2016.',8,'arts. 15, 19, 23 e 25',['Legitimação fundiária','Legitimação de posse','Demarcação urbanística']],
-    ['06','A CRF sem devolução','A certidão montada do jeito que o registro precisa receber.',8,'art. 41',['Conteúdo mínimo da CRF','Listagem de ocupantes','Os erros que mais geram exigência']],
-    ['07','O registro por dentro','O caminho do título dentro do cartório, do protocolo à matrícula.',10,'arts. 42 a 54',['Prenotação e qualificação','Matrícula-mãe e matrículas dos lotes','Gratuidade e prazos']],
-    ['08','Situações especiais','Os casos que fogem do roteiro e aparecem em todo município.',8,'arts. 59 e 69',['Conjuntos habitacionais','Direito de laje e condomínio de lotes','Núcleos anteriores a 1979']],
-    ['09','Bastidores de Barra e Xique-Xique','Dois programas municipais reais, documento por documento.',8,'casos reais',['Residência Legal, em Barra','Minha Casa de Verdade, em Xique-Xique','Do primeiro ofício à entrega dos títulos']]];
+  var MD=[['01','O que a REURB realmente é','Conceito, núcleo urbano informal e a lógica da Lei 13.465 e do Decreto 9.310.',3,'arts. 9º a 13',['Núcleo urbano informal e consolidado','REURB-S e REURB-E','O que mudou com a Lei 13.465']],
+    ['02','Legitimados e instauração','Quem requer e como o Município instaura e classifica o procedimento.',3,'art. 14',['Quem pode requerer','Instauração e classificação','Modelo de requerimento e de decreto']],
+    ['03','Buscas e notificações','O levantamento na serventia e a notificação de titulares e confrontantes.',3,'art. 31',['Buscas na serventia','Notificação de titulares e confrontantes','Impugnação e mediação']],
+    ['04','O projeto de regularização','Planta, memorial, estudos técnicos e cronograma de obras.',3,'arts. 35 e 36',['Levantamento georreferenciado','Projeto urbanístico e memoriais','Estudos técnicos ambiental e de risco']],
+    ['05','Instrumentos jurídicos','Quando usar cada instrumento e o marco de 22 de dezembro de 2016.',3,'arts. 15, 19, 23 e 25',['Legitimação fundiária','Legitimação de posse','Demarcação urbanística']],
+    ['06','A CRF sem devolução','A certidão montada do jeito que o registro precisa receber.',3,'art. 41',['Conteúdo mínimo da CRF','Listagem de ocupantes','Os erros que mais geram exigência']],
+    ['07','O registro por dentro','O caminho do título dentro do cartório, do protocolo à matrícula.',6,'arts. 42 a 54',['Prenotação e qualificação','Matrícula-mãe e matrículas dos lotes','Gratuidade e prazos']],
+    ['08','Situações especiais','Os casos que fogem do roteiro e aparecem em todo município.',3,'arts. 59 e 69',['Conjuntos habitacionais','Direito de laje e condomínio de lotes','Núcleos anteriores a 1979']],
+    ['09','Bastidores de Barra e Xique-Xique','Dois programas municipais reais, documento por documento.',3,'casos reais',['Residência Legal, em Barra','Minha Casa de Verdade, em Xique-Xique','Do primeiro ofício à entrega dos títulos']]];
   var L=$('#mxl'),P=$('#mxp'),ck='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.500l3.200 3.200L13 5"/></svg>';
   L.innerHTML=MD.map(function(m,i){return '<button class="mx-b" role="tab" data-i="'+i+'" aria-selected="'+(i==6)+'"><span class="k">'+m[0]+'</span><span class="t">'+m[1]+'</span><span class="c">'+m[3]+' aulas</span></button>'}).join('');
   function show(i){var m=MD[i];P.classList.remove('mx-in');P.innerHTML='<div class="mx-num">'+m[0]+'</div><h3>'+m[1]+'</h3><p>'+m[2]+'</p><ul class="mx-top">'+m[5].map(function(t){return '<li>'+ck+'<span>'+t+'</span></li>'}).join('')+'</ul><div class="mx-foot"><span><b>'+m[3]+'</b> aulas</span><span><b>'+m[4]+'</b></span></div>';void P.offsetWidth;P.classList.add('mx-in');
