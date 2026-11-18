@@ -134,6 +134,774 @@
      "tn": 250
     }
    ]
+  },
+  {
+   "id": "luigi-presidente-1985",
+   "titulo": "Como o Luigi virou presidente do Brasil em 1985",
+   "legenda": "A parte do Luigi é mentira. Troque por Tancredo e Sarney e cai na sua prova: Tancredo Neves foi eleito pelo Colégio Eleitoral em janeiro de 1985, adoeceu na véspera da posse, o vice José Sarney assumiu em 15/3/1985 e Tancredo morreu em 21/4. Hoje a regra está no art. 79 (o vice substitui no impedimento e sucede na vaga) e a fila seguinte no art. 80: presidentes da Câmara, do Senado e do STF.",
+   "cenas": [
+    {
+     "fala": "Como o [[Luigi]] virou presidente do Brasil em [[1985]]?",
+     "img": "personagens/luigi-posse.jpg",
+     "foco": "50% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Em janeiro, o Colégio Eleitoral elegeu o [[Mario]] presidente.",
+     "personagem": "personagens/mario-ref.png",
+     "fundo": "sol",
+     "tam": 560,
+     "y": 300
+    },
+    {
+     "fala": "Luigi, como sempre, ficou de [[vice]].",
+     "personagem": "personagens/luigi-ref.png",
+     "fundo": "escuro",
+     "tam": 480,
+     "y": 300
+    },
+    {
+     "fala": "Na véspera da posse, Mario comeu um [[cogumelo estragado]]",
+     "img": "personagens/luigi-hospital.jpg",
+     "foco": "25% 60%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e foi parar no [[hospital]].",
+     "img": "personagens/luigi-hospital.jpg",
+     "foco": "50% 50%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Luigi entrou em pânico: nunca tinha sido o [[jogador um]].",
+     "img": "personagens/luigi-hospital.jpg",
+     "foco": "75% 35%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Mas a regra é clara:",
+     "numero": "ART. 79",
+     "rotulo": "Constituição Federal",
+     "fundo": "papel"
+    },
+    {
+     "fala": "se o presidente está impedido, o vice [[substitui]].",
+     "numero": "SUBSTITUI",
+     "rotulo": "no impedimento",
+     "fundo": "escuro",
+     "tn": 200
+    },
+    {
+     "fala": "No dia [[15 de março]], Luigi tomou posse,",
+     "img": "personagens/luigi-posse.jpg",
+     "foco": "50% 40%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "tremendo mais que em [[mansão mal-assombrada]].",
+     "img": "personagens/luigi-posse.jpg",
+     "foco": "50% 70%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Mario não voltou.",
+     "personagem": "personagens/mario-ref.png",
+     "fundo": "escuro",
+     "tam": 420,
+     "y": 380
+    },
+    {
+     "fala": "E quando o cargo fica vago, o vice [[sucede]]: vira presidente de vez.",
+     "img": "personagens/luigi-gabinete.jpg",
+     "foco": "57% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Depois dele, a fila é: [[Câmara]], [[Senado]] e [[Supremo]].",
+     "numero": "CÂMARA|SENADO|STF",
+     "rotulo": "art. 80",
+     "tn": 190
+    },
+    {
+     "fala": "A parte do Luigi é [[mentira]].",
+     "img": "personagens/luigi-gabinete.jpg",
+     "foco": "57% 50%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Troque por [[Tancredo e Sarney]] e cai na sua prova.",
+     "numero": "TANCREDO|E SARNEY",
+     "rotulo": "1985 · @constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 170
+    }
+   ]
+  },
+  {
+   "id": "madruga-plano-collor",
+   "titulo": "Por que o Seu Madruga foi o único brasileiro que não sofreu com o Plano Collor",
+   "legenda": "A parte do Seu Madruga é mentira. O resto cai na sua prova: em 15/3/1990, a MP 168 bloqueou por 18 meses os saldos acima de 50 mil cruzados novos. Medida provisória tem força de lei desde a edição (art. 62) e, desde a EC 32/2001, é vedada MP que vise a detenção ou sequestro de bens, de poupança popular ou de qualquer outro ativo financeiro (art. 62, § 1º, II).",
+   "cenas": [
+    {
+     "fala": "Por que o [[Seu Madruga]] foi o único brasileiro que não sofreu com o [[Plano Collor]]?",
+     "img": "personagens/madruga-banco.jpg",
+     "foco": "10% 40%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Março de [[1990]].",
+     "numero": "1990",
+     "rotulo": "Plano Collor"
+    },
+    {
+     "fala": "O governo acorda e [[bloqueia a poupança]] do país inteiro.",
+     "numero": "BLOQUEADA",
+     "tn": 170,
+     "cor": "alerta",
+     "carimbo": true,
+     "fundo": "alerta"
+    },
+    {
+     "fala": "Tudo acima de [[cinquenta mil cruzados novos]] ficou preso por dezoito meses.",
+     "numero": "18|MESES",
+     "rotulo": "saldos acima de NCz$ 50 mil",
+     "fundo": "escuro",
+     "tn": 300
+    },
+    {
+     "fala": "O Brasil entrou em [[desespero]].",
+     "img": "personagens/madruga-ref3.jpg",
+     "foco": "50% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Seu Madruga foi ao banco [[tranquilo]].",
+     "img": "personagens/madruga-banco.jpg",
+     "foco": "10% 40%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Na caderneta dele só tinha uma [[teia de aranha]]",
+     "img": "personagens/madruga-banco.jpg",
+     "foco": "66% 60%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e catorze meses de [[aluguel atrasado]].",
+     "img": "personagens/madruga-vila.jpg",
+     "foco": "63% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "O caixa perguntou quanto ele queria sacar.",
+     "img": "personagens/madruga-banco.jpg",
+     "foco": "95% 40%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Ele respondeu: “[[Sacar o quê?]]”",
+     "img": "personagens/madruga-banco.jpg",
+     "foco": "10% 40%",
+     "foco2": "66% 40%"
+    },
+    {
+     "fala": "O confisco veio por [[medida provisória]],",
+     "numero": "MP 168",
+     "rotulo": "15 de março de 1990"
+    },
+    {
+     "fala": "que vale como lei desde o primeiro dia.",
+     "numero": "FORÇA|DE LEI",
+     "rotulo": "art. 62",
+     "fundo": "escuro",
+     "tn": 230
+    },
+    {
+     "fala": "Por isso, em [[2001]], a Constituição mudou:",
+     "numero": "EC 32",
+     "rotulo": "2001",
+     "fundo": "papel"
+    },
+    {
+     "fala": "hoje é [[proibida]] medida provisória que sequestre a poupança.",
+     "numero": "PROIBIDO",
+     "rotulo": "art. 62, § 1º, II",
+     "tn": 180,
+     "cor": "alerta",
+     "carimbo": true,
+     "fundo": "alerta"
+    },
+    {
+     "fala": "Só o [[Seu Barriga]] continua cobrando.",
+     "img": "personagens/madruga-vila.jpg",
+     "foco": "45% 55%",
+     "foco2": "82% 55%"
+    },
+    {
+     "fala": "A parte do Seu Madruga é [[mentira]].",
+     "img": "personagens/madruga-ref2.jpg",
+     "foco": "50% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
+  },
+  {
+   "id": "simba-plebiscito-1993",
+   "titulo": "Como o Simba perdeu a eleição pra rei do Brasil em 1993",
+   "legenda": "A parte do Simba é mentira. O resto cai na sua prova: o art. 2º do ADCT mandou o eleitorado escolher, por plebiscito, a forma de governo (república ou monarquia constitucional) e o sistema de governo (parlamentarismo ou presidencialismo). A votação foi em 21/4/1993 e venceram a república e o presidencialismo.",
+   "cenas": [
+    {
+     "fala": "Como o [[Simba]] perdeu a eleição pra [[rei do Brasil]] em 1993?",
+     "img": "personagens/simba-comicio.jpg",
+     "foco": "50% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "A Constituição de 88 deixou uma pergunta pro povo responder:",
+     "numero": "?",
+     "fundo": "papel"
+    },
+    {
+     "fala": "[[república ou monarquia]]?",
+     "numero": "REPÚBLICA|OU|MONARQUIA",
+     "tn": 180
+    },
+    {
+     "fala": "Simba viu a chance da vida.",
+     "img": "personagens/simba-ref.jpg",
+     "foco": "40% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Subiu num carro de som e prometeu [[Hakuna Matata]] pra todo mundo.",
+     "img": "personagens/simba-comicio.jpg",
+     "foco": "50% 45%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "No dia [[21 de abril de 1993]], o Brasil foi votar.",
+     "numero": "21.4.1993",
+     "rotulo": "plebiscito",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Simba votou [[nele mesmo]].",
+     "img": "personagens/simba-voto.jpg",
+     "foco": "55% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Não adiantou: a [[república]] ganhou de lavada,",
+     "numero": "REPÚBLICA",
+     "rotulo": "venceu o plebiscito",
+     "tn": 190
+    },
+    {
+     "fala": "e o [[presidencialismo]] também.",
+     "numero": "PRESIDEN-|CIALISMO",
+     "rotulo": "venceu o plebiscito",
+     "fundo": "escuro",
+     "tn": 180
+    },
+    {
+     "fala": "Simba voltou pra savana [[sem coroa]].",
+     "img": "personagens/simba-derrota.jpg",
+     "foco": "50% 70%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Anota aí: república ou monarquia é [[forma de governo]].",
+     "numero": "FORMA|DE GOVERNO",
+     "rotulo": "república × monarquia",
+     "fundo": "papel",
+     "tn": 170
+    },
+    {
+     "fala": "Presidencialismo ou parlamentarismo é [[sistema de governo]].",
+     "numero": "SISTEMA|DE GOVERNO",
+     "rotulo": "presidencialismo × parlamentarismo",
+     "fundo": "escuro",
+     "tn": 170
+    },
+    {
+     "fala": "Tava tudo no [[artigo segundo]] das Disposições Transitórias.",
+     "numero": "ADCT|ART. 2º",
+     "tn": 230
+    },
+    {
+     "fala": "A parte do Simba é [[mentira]].",
+     "img": "personagens/simba-derrota.jpg",
+     "foco": "50% 60%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
+  },
+  {
+   "id": "chapolin-ai5",
+   "titulo": "E agora, quem poderá nos defender? O dia em que o Chapolin enfrentou o AI-5",
+   "legenda": "A parte do Chapolin é mentira. O resto cai na sua prova: o AI-5, de 13/12/1968, permitiu o recesso do Congresso e suspendeu o habeas corpus nos crimes políticos e contra a segurança nacional; foi revogado pela EC 11/1978. Hoje o habeas corpus está no art. 5º, LXVIII, e os direitos e garantias individuais são cláusula pétrea (art. 60, § 4º, IV).",
+   "cenas": [
+    {
+     "fala": "[[E agora, quem poderá nos defender?]]",
+     "img": "personagens/chapolin-ref1.jpg",
+     "foco": "45% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Foi o que o Brasil perguntou em [[13 de dezembro de 1968]].",
+     "numero": "13.12.1968",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Naquela noite, o governo baixou o [[Ato Institucional número 5]].",
+     "numero": "AI-5",
+     "cor": "alerta",
+     "fundo": "alerta"
+    },
+    {
+     "fala": "O Congresso foi [[fechado]]",
+     "img": "personagens/chapolin-congresso.jpg",
+     "foco": "42% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e o [[habeas corpus]] foi suspenso pra crimes políticos.",
+     "numero": "HABEAS|CORPUS",
+     "rotulo": "suspenso",
+     "tn": 200,
+     "cor": "alerta",
+     "fundo": "alerta"
+    },
+    {
+     "fala": "O Chapolin Colorado ouviu o chamado.",
+     "personagem": "personagens/chapolin-ref3.png",
+     "fundo": "sol",
+     "tam": 520,
+     "y": 300
+    },
+    {
+     "fala": "Chegou em Brasília e deu de cara com a [[porta trancada]].",
+     "img": "personagens/chapolin-congresso.jpg",
+     "foco": "42% 50%",
+     "foco2": "77% 50%"
+    },
+    {
+     "fala": "Foi ao juiz pedir um habeas corpus.",
+     "img": "personagens/chapolin-juiz.jpg",
+     "foco": "15% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "O juiz respondeu: “[[Não tem mais.]]”",
+     "img": "personagens/chapolin-juiz.jpg",
+     "foco": "98% 45%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Chapolin tentou resolver na [[marreta biônica]]",
+     "img": "personagens/chapolin-mesa.jpg",
+     "foco": "37% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e derrubou só a mesa do escrivão.",
+     "img": "personagens/chapolin-mesa.jpg",
+     "foco": "20% 55%",
+     "foco2": "72% 55%"
+    },
+    {
+     "fala": "“[[Não contavam com a minha astúcia!]]”",
+     "personagem": "personagens/chapolin-ref3.png",
+     "fundo": "sol",
+     "tam": 620,
+     "y": 260
+    },
+    {
+     "fala": "Contavam.",
+     "img": "personagens/chapolin-juiz.jpg",
+     "foco": "98% 45%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "O AI-5 durou [[dez anos]].",
+     "numero": "10 ANOS",
+     "rotulo": "1968 a 1978",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Hoje o habeas corpus está no [[artigo 5º]]",
+     "numero": "ART. 5º|LXVIII",
+     "rotulo": "habeas corpus",
+     "fundo": "papel",
+     "tn": 230
+    },
+    {
+     "fala": "e é [[cláusula pétrea]]: nem emenda pode abolir.",
+     "numero": "CLÁUSULA|PÉTREA",
+     "rotulo": "art. 60, § 4º, IV",
+     "tn": 200
+    },
+    {
+     "fala": "A parte do Chapolin é [[mentira]].",
+     "img": "personagens/chapolin-congresso.jpg",
+     "foco": "77% 50%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
+  },
+  {
+   "id": "picapau-constituinte-1823",
+   "titulo": "Como o Pica-Pau convenceu Dom Pedro I a fechar a Constituinte",
+   "legenda": "A parte do Pica-Pau é mentira. O resto cai na sua prova: em 12/11/1823 (a Noite da Agonia), Dom Pedro I dissolveu a Assembleia Constituinte e, em 25/3/1824, outorgou a Constituição do Império, com o Poder Moderador. Constituição outorgada é imposta pelo governante; promulgada é a votada por representantes do povo, como a de 1988.",
+   "cenas": [
+    {
+     "fala": "Como o [[Pica-Pau]] convenceu [[Dom Pedro I]] a fechar a Constituinte?",
+     "img": "personagens/picapau-dompedro.jpg",
+     "foco": "62% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "[[1823]]. O Brasil escrevia sua primeira Constituição.",
+     "numero": "1823",
+     "rotulo": "Assembleia Constituinte",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Os deputados queriam [[limitar os poderes]] do imperador.",
+     "img": "personagens/picapau-dompedro.jpg",
+     "foco": "5% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Dom Pedro ficou em dúvida.",
+     "img": "personagens/picapau-dompedro.jpg",
+     "foco": "40% 30%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Aí o Pica-Pau pousou no ombro dele:",
+     "personagem": "personagens/picapau-ref1.png",
+     "fundo": "sol",
+     "tam": 760,
+     "y": 380
+    },
+    {
+     "fala": "“[[Fecha tudo, majestade.]] Vai ser engraçado.”",
+     "img": "personagens/picapau-dompedro.jpg",
+     "foco": "75% 25%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Na madrugada de [[12 de novembro]], a tropa cercou o prédio.",
+     "numero": "12.11.1823",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Foi a [[Noite da Agonia]].",
+     "numero": "NOITE DA|AGONIA",
+     "cor": "alerta",
+     "fundo": "alerta",
+     "tn": 210
+    },
+    {
+     "fala": "A Assembleia foi [[dissolvida]]",
+     "numero": "DISSOLVIDA",
+     "tn": 160,
+     "cor": "alerta",
+     "carimbo": true,
+     "fundo": "alerta"
+    },
+    {
+     "fala": "e o Pica-Pau saiu dando risada.",
+     "personagem": "personagens/picapau-ref2.png",
+     "fundo": "sol",
+     "tam": 520,
+     "y": 330
+    },
+    {
+     "fala": "Em [[1824]], Dom Pedro entregou a Constituição pronta,",
+     "numero": "1824",
+     "rotulo": "Constituição do Império",
+     "fundo": "papel"
+    },
+    {
+     "fala": "com um quarto poder só pra ele: o [[Poder Moderador]].",
+     "numero": "PODER|MODERADOR",
+     "rotulo": "o quarto poder",
+     "tn": 200
+    },
+    {
+     "fala": "Constituição imposta, sem assembleia, é [[outorgada]].",
+     "numero": "OUTORGADA",
+     "rotulo": "imposta pelo governante",
+     "fundo": "escuro",
+     "tn": 180
+    },
+    {
+     "fala": "Feita por representantes do povo, é [[promulgada]], como a de 88.",
+     "img": "promulgacao-1988.jpg",
+     "foco": "50% 50%",
+     "mov": "kbPanD"
+    },
+    {
+     "fala": "A parte do Pica-Pau é [[mentira]].",
+     "img": "personagens/picapau-dompedro.jpg",
+     "foco": "62% 30%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
+  },
+  {
+   "id": "gotinha-revolta-da-vacina",
+   "titulo": "O dia em que o Zé Gotinha apanhou do Rio de Janeiro inteiro",
+   "legenda": "A parte do Zé Gotinha é mentira (ele só foi criado em 1986). O resto cai na sua prova: em 1904, a lei da vacinação obrigatória contra a varíola levou à Revolta da Vacina, no Rio de Janeiro. Em 2020, o STF decidiu (ADIs 6586 e 6587) que a vacinação compulsória é constitucional e pode ser exigida por medidas indiretas, como restrições previstas em lei, mas não significa vacinação forçada.",
+   "cenas": [
+    {
+     "fala": "O dia em que o [[Zé Gotinha]] apanhou do [[Rio de Janeiro inteiro]].",
+     "img": "personagens/gotinha-correndo.jpg",
+     "foco": "45% 55%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "[[1904]]. A varíola matava milhares na capital.",
+     "numero": "1904",
+     "rotulo": "Rio de Janeiro, capital da República",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "O governo aprovou a [[vacina obrigatória]],",
+     "numero": "VACINA|OBRIGATÓRIA",
+     "tn": 170
+    },
+    {
+     "fala": "com agente entrando na casa das pessoas [[à força]].",
+     "numero": "À FORÇA",
+     "cor": "alerta",
+     "fundo": "alerta"
+    },
+    {
+     "fala": "Zé Gotinha chegou sorrindo pra ajudar.",
+     "img": "personagens/gotinha-chegada.jpg",
+     "foco": "55% 60%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Chegou [[oitenta anos adiantado]]: ele só seria criado em 1986.",
+     "personagem": "personagens/gotinha-ref1.png",
+     "fundo": "sol",
+     "tam": 440,
+     "y": 290
+    },
+    {
+     "fala": "O povo não quis conversa.",
+     "img": "personagens/gotinha-chegada.jpg",
+     "foco": "80% 70%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Virou bonde, arrancou poste",
+     "img": "personagens/gotinha-correndo.jpg",
+     "foco": "70% 25%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "e correu atrás dele por uma semana.",
+     "img": "personagens/gotinha-correndo.jpg",
+     "foco": "50% 60%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "Foi a [[Revolta da Vacina]].",
+     "numero": "REVOLTA|DA VACINA",
+     "rotulo": "novembro de 1904",
+     "tn": 190
+    },
+    {
+     "fala": "Zé Gotinha terminou no curativo.",
+     "img": "personagens/gotinha-curativo.jpg",
+     "foco": "35% 40%",
+     "mov": "kbIn"
+    },
+    {
+     "fala": "Mais de um século depois, o [[Supremo]] decidiu:",
+     "numero": "STF",
+     "rotulo": "ADI 6586 · 2020",
+     "fundo": "papel"
+    },
+    {
+     "fala": "vacina pode ser [[obrigatória]], com restrições pra quem recusa,",
+     "numero": "OBRIGATÓRIA",
+     "rotulo": "pode",
+     "tn": 160
+    },
+    {
+     "fala": "mas ninguém pode ser vacinado [[à força]].",
+     "numero": "FORÇADA",
+     "rotulo": "não pode",
+     "tn": 190,
+     "cor": "alerta",
+     "carimbo": true,
+     "fundo": "alerta"
+    },
+    {
+     "fala": "A parte do Zé Gotinha é [[mentira]].",
+     "img": "personagens/gotinha-curativo.jpg",
+     "foco": "35% 40%",
+     "mov": "kbOut"
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
+  },
+  {
+   "id": "shrek-brasilia-1960",
+   "titulo": "Como o Shrek perdeu o pântano pra construção de Brasília",
+   "legenda": "A parte do Shrek é mentira. O resto cai na sua prova: a Constituição de 1891 (art. 3º) já reservava 14.400 km² no Planalto Central para a futura capital, e Brasília foi inaugurada em 21/4/1960. O Estado pode desapropriar por necessidade ou utilidade pública, ou por interesse social, mediante justa e prévia indenização em dinheiro (art. 5º, XXIV).",
+   "cenas": [
+    {
+     "fala": "Como o [[Shrek]] perdeu o pântano pra construção de [[Brasília]]?",
+     "personagem": "personagens/shrek-ref2.png",
+     "fundo": "pantano",
+     "tam": 560,
+     "y": 290
+    },
+    {
+     "fala": "Pouca gente sabe, mas o pântano dele ficava em [[Goiás]],",
+     "personagem": "personagens/shrek-ref2.png",
+     "fundo": "terra",
+     "pos": "esq",
+     "tam": 460,
+     "y": 330
+    },
+    {
+     "fala": "bem no meio do [[Planalto Central]].",
+     "numero": "PLANALTO|CENTRAL",
+     "fundo": "escuro",
+     "tn": 210
+    },
+    {
+     "fala": "Desde [[1891]], a Constituição reservava aquela área pra futura capital.",
+     "numero": "1891",
+     "rotulo": "art. 3º: área reservada para a futura capital",
+     "fundo": "papel"
+    },
+    {
+     "fala": "Shrek nunca leu a Constituição.",
+     "personagem": "personagens/shrek-ref2.png",
+     "fundo": "sol",
+     "tam": 560,
+     "y": 290
+    },
+    {
+     "fala": "Em 1956, chegou um presidente com pressa:",
+     "numero": "1956",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "[[cinquenta anos em cinco]].",
+     "numero": "50 ANOS|EM 5",
+     "tn": 230
+    },
+    {
+     "fala": "Os tratores pararam na porta do pântano.",
+     "personagem": "personagens/shrek-ref2.png",
+     "fundo": "terra",
+     "pos": "dir",
+     "tam": 460,
+     "y": 330
+    },
+    {
+     "fala": "Shrek gritou: “[[Sai do meu pântano!]]”",
+     "personagem": "personagens/shrek-ref1.png",
+     "fundo": "pantano",
+     "tam": 900,
+     "y": 330
+    },
+    {
+     "fala": "O engenheiro respondeu: “[[Utilidade pública]], meu amigo.”",
+     "numero": "UTILIDADE|PÚBLICA",
+     "fundo": "papel",
+     "tn": 200
+    },
+    {
+     "fala": "Shrek saiu.",
+     "personagem": "personagens/shrek-ref2.png",
+     "fundo": "terra",
+     "pos": "canto",
+     "tam": 260,
+     "y": 420
+    },
+    {
+     "fala": "E Brasília foi inaugurada em [[21 de abril de 1960]].",
+     "numero": "21.4.1960",
+     "rotulo": "inauguração de Brasília",
+     "fundo": "escuro"
+    },
+    {
+     "fala": "Mas anota: o Estado pode [[desapropriar]],",
+     "numero": "DESAPRO-|PRIAÇÃO",
+     "tn": 210
+    },
+    {
+     "fala": "só que pagando indenização [[justa, prévia e em dinheiro]].",
+     "numero": "JUSTA|PRÉVIA|EM DINHEIRO",
+     "fundo": "escuro",
+     "tn": 170
+    },
+    {
+     "fala": "Tá no [[artigo 5º, inciso vinte e quatro]].",
+     "numero": "ART. 5º|XXIV",
+     "fundo": "papel",
+     "tn": 240
+    },
+    {
+     "fala": "A parte do Shrek é [[mentira]].",
+     "personagem": "personagens/shrek-ref1.png",
+     "fundo": "sol",
+     "tam": 820,
+     "y": 330
+    },
+    {
+     "fala": "O resto [[cai na sua prova]].",
+     "numero": "CAI NA|PROVA",
+     "rotulo": "@constitucionalgabaritado",
+     "fundo": "escuro",
+     "tn": 250
+    }
+   ]
   }
  ]
 }

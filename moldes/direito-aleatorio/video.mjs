@@ -82,6 +82,8 @@ const FUNDOS = {
   degrade: `background:${DEGRADE}`,
   escuro: `background:radial-gradient(90% 60% at 50% 40%, #174130 0%, ${CG.escuro} 75%)`,
   papel: `background:${CG.papel}`,
+  pantano: `background:radial-gradient(80% 50% at 50% 60%, #4c7a3a 0%, #1d3a22 70%, #0f2415 100%)`,
+  terra: `background:linear-gradient(180deg,#7fbfe6 0%,#d6ecf7 30%,#c2632f 30%,#8a3d1f 60%)`,
   alerta: `background:radial-gradient(90% 60% at 50% 40%, #7d2a24 0%, #2a0f0d 80%)`,
 };
 const KB = ['kbIn', 'kbPanD', 'kbOut', 'kbPanE'];
@@ -134,7 +136,7 @@ function personagem(c, t0) {
 function cena(c, i, t0, dur, fixo) {
   const foto = midia(c.img);
   const fundo = foto
-    ? `<img class="foto" src="${foto}" style="object-position:${c.foco || '50% 50%'};${c.pb ? 'filter:grayscale(1) contrast(1.08);' : ''}animation:${c.mov || KB[i % KB.length]} ${dur.toFixed(3)}s linear ${t0.toFixed(3)}s both">${c.numero ? '<div style="position:absolute;inset:0;background:rgba(6,20,13,.72)"></div>' : '<div class="veu"></div>'}`
+    ? `${c.foco2 ? `<style>@keyframes f${i}{from{object-position:${c.foco || '50% 50%'}}to{object-position:${c.foco2}}}</style>` : ''}<img class="foto" src="${foto}" style="object-position:${c.foco || '50% 50%'};${c.pb ? 'filter:grayscale(1) contrast(1.08);' : ''}${c.foco2 ? 'transform:scale(1.05);' : ''}animation:${c.foco2 ? 'f' + i : c.mov || KB[i % KB.length]} ${dur.toFixed(3)}s ${c.foco2 ? 'ease-in-out' : 'linear'} ${t0.toFixed(3)}s both">${c.numero ? '<div style="position:absolute;inset:0;background:rgba(6,20,13,.72)"></div>' : '<div class="veu"></div>'}`
     : `<div style="position:absolute;inset:-30%;${FUNDOS[c.fundo] || FUNDOS[c.numero ? 'degrade' : 'sol']};${(c.fundo || (c.numero ? '' : 'sol')) === 'sol' ? `animation:gira 12s linear ${t0.toFixed(3)}s both` : ''}"></div>`;
   const claro = !foto && c.fundo === 'papel';
   const cor = c.cor === 'alerta' ? '#FF7A6E' : claro ? CG.verde : CG.claro;

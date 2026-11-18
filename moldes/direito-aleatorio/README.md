@@ -29,8 +29,8 @@ Cada cena é **uma fala e uma imagem**; a cena dura o tempo que a voz leva para 
 | campo | o que faz |
 |---|---|
 | `fala` | texto narrado. `[[assim]]` pinta as palavras de verde na legenda |
-| `img` | foto ou ilustração em `midia/` em tela cheia (cenas prontas com o personagem ficam em `midia/personagens/`, fora do git). `foco` (`"70% 50%"`) escolhe o trecho; `mov`: `kbIn`, `kbOut`, `kbPanD`, `kbPanE`; `pb: true` deixa em preto e branco |
-| `fundo` | sem foto: `sol` (raios verdes), `degrade`, `escuro`, `papel`, `alerta` |
+| `img` | foto ou ilustração em `midia/` em tela cheia (cenas prontas com o personagem ficam em `midia/personagens/`, fora do git). `foco` (`"70% 50%"`) escolhe o trecho; `mov`: `kbIn`, `kbOut`, `kbPanD`, `kbPanE`; `foco2` faz a câmera deslizar de `foco` até ele (bom para imagem horizontal); `pb: true` deixa em preto e branco |
+| `fundo` | sem foto: `sol` (raios verdes), `degrade`, `escuro`, `papel`, `alerta`, `pantano`, `terra` |
 | `numero` | número ou palavra gigante (`\|` quebra a linha), com `rotulo` embaixo. `tn` fixa o tamanho; `cor: "alerta"`; `carimbo: true` |
 | `personagem` | PNG com fundo transparente em `midia/personagens/`. `pos`: `centro`, `esq`, `dir`, `canto` (pequeno, sobre a foto) ou `clones` (com `clones: 9`); `tam` e `y` ajustam |
 
