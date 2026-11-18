@@ -279,11 +279,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .acard h4{font:600 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--a-mute);margin-bottom:14px}
 .cont{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:center}
 .thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:radial-gradient(100% 120% at 75% 30%,#2b5c4e,#0e2a24 70%)}
-.thumb::before{content:"";position:absolute;left:14%;right:30%;top:20%;bottom:-20%;background:var(--doc);border-radius:3px;transform:rotate(-4deg);box-shadow:0 14px 30px -8px #000a;background-image:repeating-linear-gradient(0deg,transparent 0 9px,#18282e30 9px 10px);background-size:70% 100%;background-repeat:no-repeat;background-position:50% 18px}
+.thumb .cov{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+.thumb .cov .cf{display:none}
+.thumb .cov .ct{bottom:auto;top:15cqw;font-size:5.8cqw;width:50cqw}
 .thumb .q{position:absolute;right:8px;top:8px;font:600 9.5px var(--mono);background:#000a;padding:3px 6px;border-radius:4px;letter-spacing:.08em}
 .thumb .pb2{position:absolute;left:0;right:0;bottom:0;height:3px;background:#ffffff30}
 .thumb .pb2 i{display:block;height:100%;width:64%;background:var(--bronze-soft)}
-.pbtn{all:unset;position:absolute;left:50%;top:50%;translate:-50% -50%;width:46px;height:46px;border-radius:50%;background:var(--a-fg);color:var(--deep);display:grid;place-items:center;cursor:pointer;transition:transform .2s;box-shadow:0 8px 24px #0008}
+.pbtn{all:unset;position:absolute;left:12px;bottom:14px;width:40px;height:40px;border-radius:50%;background:var(--a-fg);color:var(--deep);display:grid;place-items:center;cursor:pointer;transition:transform .2s;box-shadow:0 8px 24px #0008}
 .pbtn:hover{transform:scale(1.08)}
 .pbtn svg{width:16px;height:16px;margin-left:2px}
 .cont h5{margin:0 0 6px;font:500 clamp(18px,1.7vw,22px)/1.15 var(--sans);letter-spacing:-.03em}
@@ -319,10 +321,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mc .bar2{height:3px;background:var(--a-line);border-radius:9px;margin-top:10px;overflow:hidden}
 .mc .bar2 i{display:block;height:100%;background:var(--bronze-soft)}
 .watch{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
-.player{position:relative;aspect-ratio:16/9;background:radial-gradient(100% 120% at 75% 30%,#2b5c4e,#0e2a24 70%);border-radius:14px;padding:clamp(16px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
-.player small{font-size:11px;letter-spacing:.12em;color:var(--a-mute)}
+.player{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden}
+#pcov,#pcov .cov{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+.player .cov .cf{display:none}
+.player .cov .ct{bottom:20cqw}
+.player small{font-size:12px;color:#eef0ea;font-variant-numeric:tabular-nums}
 .player .ttl{font-weight:500;font-size:clamp(20px,2.6vw,34px);line-height:1.06;letter-spacing:-.035em;max-width:13em}
-.player .ctl{display:flex;align-items:center;gap:14px}
+.player .ctl{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:14px;padding:clamp(12px,1.8vw,20px);background:linear-gradient(transparent,#06141199)}
 .play{all:unset;width:46px;height:46px;border-radius:50%;background:var(--a-fg);color:var(--deep);display:grid;place-items:center;cursor:pointer;flex:none;transition:transform .2s}
 .play:hover{transform:scale(1.06)}
 .play:focus-visible{outline:2px solid var(--bronze-soft);outline-offset:3px}
@@ -338,19 +343,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .lessons .hd b{color:var(--bronze-soft);font-weight:600}
 .meter{height:3px;border-radius:9px;margin:0 10px 10px;background:var(--a-line);overflow:hidden}
 .meter i{display:block;height:100%;width:0;background:var(--bronze-soft);transition:width .5s cubic-bezier(.2,.8,.2,1)}
-.les{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px;border-radius:10px;font-size:13.5px;line-height:1.35;cursor:pointer;color:var(--a-fg)}
+.les{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:8px;border-radius:10px;font-size:13.5px;line-height:1.35;cursor:pointer;color:var(--a-fg)}
 .les:hover{background:#ffffff0a}
 .les[aria-current="true"]{background:var(--a-card)}
 .les:focus-visible{outline:2px solid var(--bronze-soft);outline-offset:-2px}
-.les .ck{width:16px;height:16px;border-radius:50%;border:1px solid var(--a-line);display:grid;place-items:center;font-size:9px;line-height:1;color:transparent;align-self:center}
-.les.done .ck{background:var(--bronze-soft);border-color:var(--bronze-soft);color:var(--deep)}
-.les time{font-size:12px;color:var(--a-mute);font-variant-numeric:tabular-nums}
+.les .lt{position:relative;border-radius:7px;overflow:hidden;display:block}
+.les .ck{position:absolute;left:5px;top:5px;width:17px;height:17px;border-radius:50%;display:none;place-items:center;font-size:10px;line-height:1;background:var(--bronze-soft);color:var(--deep)}
+.les.done .ck{display:grid}
+.les.done .cov{opacity:.55}
+.les time{display:block;font-size:12px;color:var(--a-mute);font-variant-numeric:tabular-nums;margin-top:3px}
 .files{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .files li{background:var(--a-card);border:1px solid var(--a-line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;font-weight:500;font-size:14px;line-height:1.3;transition:transform .3s,border-color .3s}
 .files li:hover{transform:translateY(-3px);border-color:var(--a-mute)}
-.files .pg{aspect-ratio:16/10;border-radius:8px;background:#0e2520;position:relative;overflow:hidden}
-.files .pg::before{content:"";position:absolute;left:24%;right:24%;top:14%;bottom:-30%;background:var(--doc);border-radius:2px;box-shadow:0 10px 24px -6px #000a;background-image:repeating-linear-gradient(0deg,transparent 0 7px,#18282e2e 7px 8px);background-size:72% 100%;background-repeat:no-repeat;background-position:50% 14px}
-.files .ty{position:absolute;left:8px;top:8px;font:600 9.5px var(--mono);background:var(--bronze-soft);color:var(--deep);border-radius:4px;padding:2px 6px}
 .files small{display:block;font-size:12px;color:var(--a-mute);font-weight:400;margin-top:3px}
 .files .abtn{align-self:flex-start;margin-top:auto;padding:8px 14px;font-size:12.5px}
 .ask{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin-bottom:10px}
@@ -392,6 +396,29 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .feat{grid-template-columns:1fr;gap:22px}
   .demo{display:none}
 }
+
+/* capas das aulas e dos materiais */
+.cov{container-type:inline-size;position:relative;display:block;aspect-ratio:16/9;width:100%;overflow:hidden;background:linear-gradient(135deg,hsl(var(--h,160) 36% 21%),hsl(var(--h,160) 48% 7%));color:#eef0ea;isolation:isolate}
+.cov::before{content:"";position:absolute;inset:-30%;z-index:-1;background:repeating-linear-gradient(90deg,transparent 0 calc(7cqw - 1px),#ffffff17 calc(7cqw - 1px) 7cqw),repeating-linear-gradient(0deg,transparent 0 calc(5.2cqw - 1px),#ffffff17 calc(5.2cqw - 1px) 5.2cqw);transform:rotate(-9deg);-webkit-mask-image:linear-gradient(100deg,transparent 38%,#000 85%);mask-image:linear-gradient(100deg,transparent 38%,#000 85%)}
+.cov::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 90% at 88% 12%,#d8c3a02b,transparent 70%)}
+.cov .cn{position:absolute;right:-1cqw;bottom:-7.5cqw;font-weight:300;font-size:42cqw;line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:.3cqw #d8c3a0b0;font-variant-numeric:tabular-nums}
+.cov .cm{position:absolute;left:5.5cqw;top:6cqw;font:600 2.3cqw var(--sans);letter-spacing:.16em;color:#d8c3a0}
+.cov .cq{position:absolute;right:4.5cqw;top:5cqw;font:600 2.1cqw var(--mono);letter-spacing:.08em;border:.25cqw solid #ffffff55;border-radius:1cqw;padding:.6cqw 1.4cqw}
+.cov .ct{position:absolute;left:5.5cqw;bottom:13cqw;width:48cqw;font-weight:500;font-size:6.3cqw;line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+.cov .cf{position:absolute;left:5.5cqw;bottom:5.5cqw;font-size:2.5cqw;color:#a5b6ae;display:flex;align-items:center;gap:2cqw}
+.cov .cf::before{content:"";width:6cqw;height:.3cqw;background:#d8c3a0}
+@container (max-width:180px){.cov .cm,.cov .cq,.cov .ct,.cov .cf{display:none}.cov .cn{font-size:50cqw;right:5cqw;bottom:-9cqw;-webkit-text-stroke-width:.8cqw}}
+.mcv{container-type:inline-size;position:relative;aspect-ratio:16/11;border-radius:10px;overflow:hidden;background:radial-gradient(90% 100% at 70% 0%,#1f4b3f,#0c221d 75%)}
+.mcv .pgx{position:absolute;left:50%;top:10%;width:50cqw;aspect-ratio:210/297;translate:-50% 0;rotate:-4deg;background:var(--doc);color:var(--ink);border-radius:.8cqw;box-shadow:0 5cqw 9cqw -3cqw #000c;overflow:hidden;transition:rotate .4s cubic-bezier(.2,.8,.2,1),translate .4s cubic-bezier(.2,.8,.2,1)}
+.files li:hover .pgx{rotate:0deg;translate:-50% -4%}
+.mcv .mb{position:absolute;inset:0 0 auto 0;height:7cqw;background:var(--green);color:var(--on-green);font:600 1.9cqw/7cqw var(--sans);letter-spacing:.04em;padding-left:3.6cqw;white-space:nowrap}
+.mcv .mty{position:absolute;right:3cqw;top:1.7cqw;font:600 1.9cqw/1 var(--mono);background:var(--bronze-soft);color:var(--deep);border-radius:.6cqw;padding:.9cqw 1.4cqw}
+.mcv .mt{position:absolute;left:3.6cqw;right:3.6cqw;top:11cqw;font-weight:600;font-size:4.5cqw;line-height:1.08;letter-spacing:-.03em}
+.mcv .mr{position:absolute;left:3.6cqw;top:28.5cqw;width:9cqw;height:.5cqw;background:var(--bronze)}
+.mcv .ml{position:absolute;left:3.6cqw;right:3.6cqw;top:32cqw;bottom:0;background:repeating-linear-gradient(0deg,#151a1826 0 .35cqw,transparent .35cqw 2.4cqw);-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent 82%);mask-image:linear-gradient(90deg,#000 82%,transparent 82%)}
+.mcv .t-XLSX .ml{background:repeating-linear-gradient(0deg,#151a1830 0 .3cqw,transparent .3cqw 3.2cqw),repeating-linear-gradient(90deg,#151a1830 0 .3cqw,transparent .3cqw 10.6cqw);-webkit-mask-image:none;mask-image:none;border-top:2.6cqw solid #10302a2e}
+.mcv .t-PDF .ml{background:repeating-linear-gradient(0deg,transparent 0 .4cqw,#151a1800 .4cqw),repeating-linear-gradient(0deg,#151a1826 0 .35cqw,transparent .35cqw 3.6cqw);padding-left:0;-webkit-mask-image:linear-gradient(90deg,transparent 4.5cqw,#000 4.5cqw 80%,transparent 80%);mask-image:linear-gradient(90deg,transparent 4.5cqw,#000 4.5cqw 80%,transparent 80%)}
+.mcv .t-PDF .mk{position:absolute;left:3.6cqw;top:31.2cqw;width:2cqw;bottom:0;background:repeating-linear-gradient(0deg,var(--bronze) 0 2cqw,transparent 2cqw 3.6cqw)}
 
 /* público */
 .aud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:clamp(32px,4vw,56px)}
@@ -630,7 +657,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
               <div class="acard">
                 <h4>Continuar assistindo</h4>
                 <div class="cont">
-                  <div class="thumb"><span class="q">4K</span><button class="pbtn" id="goplay" aria-label="Continuar a aula"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3.500v13l11-6.500z"/></svg></button><div class="pb2"><i></i></div></div>
+                  <div class="thumb"><span class="cvs"></span><button class="pbtn" id="goplay" aria-label="Continuar a aula"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3.500v13l11-6.500z"/></svg></button><div class="pb2"><i></i></div></div>
                   <div><h5>Matrícula-mãe e matrículas dos lotes</h5><p>Módulo 07 · Aula 3 · faltam 8 min</p><button class="abtn" id="gocont">Continuar</button></div>
                 </div>
               </div>
@@ -650,8 +677,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
             <div class="watch">
               <div>
                 <div class="player" id="player">
-                  <small id="ltag">MÓDULO 07 · AULA 1 · 4K</small>
-                  <div class="ttl" id="ltitle">A CRF chegou ao cartório. E agora?</div>
+                  <div id="pcov"></div>
                   <div class="ctl"><button class="play" id="play" aria-label="Reproduzir prévia"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3.500v13l11-6.500z"/></svg></button><div class="scrub"><i></i></div><small id="ldur">12:40</small></div>
                 </div>
                 <div class="under"><p id="ldesc">Prenotação, prazos e a ordem em que o registrador lê o seu processo.</p><button class="abtn" id="mark">Marcar como concluída</button></div>
@@ -667,7 +693,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         </div>
       </div>
     </div>
-    <div class="phone" aria-hidden="true"><div class="scr"><div class="notch"></div><div class="thumb"><span class="q">4K</span><div class="pb2"><i></i></div></div><h6>Matrícula-mãe e matrículas dos lotes</h6><p>Módulo 07 · Aula 3</p><ul><li class="d"><i></i>A CRF chegou ao cartório</li><li class="d"><i></i>Qualificação: o que confiro</li><li><i></i>Matrícula-mãe e lotes</li><li><i></i>Legitimação fundiária</li></ul></div></div>
+    <div class="phone" aria-hidden="true"><div class="scr"><div class="notch"></div><div class="thumb"><span class="cvs"></span><div class="pb2"><i></i></div></div><h6>Matrícula-mãe e matrículas dos lotes</h6><p>Módulo 07 · Aula 3</p><ul><li class="d"><i></i>A CRF chegou ao cartório</li><li class="d"><i></i>Qualificação: o que confiro</li><li><i></i>Matrícula-mãe e lotes</li><li><i></i>Legitimação fundiária</li></ul></div></div>
     </div>
     <div class="feat">
       <div><h3>Aulas</h3><p>Organizadas pelas sete fases da lei, com progresso salvo e retomada de onde o aluno parou.</p></div>
@@ -943,10 +969,12 @@ seen($('#cmp'),function(){$('#cmp').classList.add('in')},.4);
     ['Gratuidade na REURB-S','09:48','O alcance da isenção do art. 13 e como ela aparece em cada ato.'],
     ['As notas devolutivas mais comuns','14:20','O que mais gera exigência e como resolver antes de protocolar.']];
   var cur=2,done={0:1,1:1},ul=$('#lessons'),pl=$('#player');
+  function cov(i){return '<span class="cov" style="--h:'+(148+i*6)+'"><span class="cm">MÓDULO 07 · AULA '+(i+1)+'</span><span class="cq">4K</span><b class="cn">0'+(i+1)+'</b><span class="ct">'+LS[i][0]+'</span><span class="cf">Hervison Soares</span></span>'}
+  $$('.cvs').forEach(function(x){x.outerHTML=cov(2)});
   function paint(){
     var n=Object.keys(done).length,pc=Math.round(n/LS.length*100);
-    ul.innerHTML='<li class="hd"><span>Módulo 07 · O registro por dentro</span><b>'+n+' de '+LS.length+'</b></li><li class="meter"><i style="width:'+pc+'%"></i></li>'+LS.map(function(l,i){return '<li><button class="les'+(done[i]?' done':'')+'" data-i="'+i+'" aria-current="'+(i==cur)+'"><span class="ck">✓</span><span>'+l[0]+'</span><time>'+l[1]+'</time></button></li>'}).join('');
-    $('#ltag').textContent='MÓDULO 07 · AULA '+(cur+1)+' · 4K';$('#ltitle').textContent=LS[cur][0];$('#ldesc').textContent=LS[cur][2];$('#ldur').textContent=LS[cur][1];
+    ul.innerHTML='<li class="hd"><span>Módulo 07 · O registro por dentro</span><b>'+n+' de '+LS.length+'</b></li><li class="meter"><i style="width:'+pc+'%"></i></li>'+LS.map(function(l,i){return '<li><button class="les'+(done[i]?' done':'')+'" data-i="'+i+'" aria-current="'+(i==cur)+'"><span class="lt">'+cov(i)+'<span class="ck">✓</span></span><span>'+l[0]+'<time>'+l[1]+'</time></span></button></li>'}).join('');
+    $('#pcov').innerHTML=cov(cur);$('#ldesc').textContent=LS[cur][2];$('#ldur').textContent=LS[cur][1];
     $('#mark').textContent=done[cur]?'Concluída ✓':'Marcar como concluída';
   }
   ul.addEventListener('click',function(e){var b=e.target.closest('.les');if(!b)return;cur=+b.dataset.i;pl.classList.remove('playing');paint()});
@@ -955,7 +983,7 @@ seen($('#cmp'),function(){$('#cmp').classList.add('in')},.4);
   paint();
 
   var F=[['DOCX','Modelo de requerimento de REURB','Módulo 02 · editável'],['DOCX','Minuta de decreto municipal','Módulo 02 · editável'],['DOCX','Notificação de confrontantes','Módulo 03 · editável'],['PDF','Checklist da CRF pelo olhar do registrador','Módulo 06 · 4 páginas'],['XLSX','Planilha da listagem de ocupantes','Módulo 06 · editável'],['PDF','Lei 13.465 e Decreto 9.310 anotados','Módulo 01 · 86 páginas']];
-  $('#files').innerHTML=F.map(function(f){return '<li><div class="pg"><span class="ty">'+f[0]+'</span></div><span>'+f[1]+'<small>'+f[2]+'</small></span><button class="abtn gh" type="button">Baixar</button></li>'}).join('');
+  $('#files').innerHTML=F.map(function(f){return '<li><div class="mcv"><div class="pgx t-'+f[0]+'"><span class="mb">REURB de Papel Passado</span><span class="mty">'+f[0]+'</span><span class="mt">'+f[1]+'</span><i class="mr"></i><i class="ml"></i><i class="mk"></i></div></div><span>'+f[1]+'<small>'+f[2]+'</small></span><button class="abtn gh" type="button">Baixar</button></li>'}).join('');
   $('#files').addEventListener('click',function(e){if(e.target.closest('.abtn'))toast('Prévia: os arquivos ficam disponíveis no lançamento.')});
 
   var T=[{i:'PM',w:'Procuradora municipal, BA',m:'Módulo 07',q:'Na REURB-S, a isenção alcança também a abertura das matrículas individuais dos lotes?',a:'Sim. O art. 13, §1º, da Lei 13.465 isenta de custas e emolumentos os atos registrais da REURB-S, e a lista inclui o registro da CRF e do projeto com a abertura de matrícula para cada unidade regularizada. Veja a aula 5 deste módulo.'},
