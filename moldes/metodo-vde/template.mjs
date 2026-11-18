@@ -4,18 +4,29 @@
 // no canto, números em quadradinhos com degradê e rodapé com os dois perfis. Gerado por libero-comum/render-base.mjs.
 
 const W = 1920, H = 1080;
-const COR = {
-  roxo: '#2E0575', indigo: '#1937B1', meio: '#261C8C', lavanda: '#C9B8FF', lavandaClara: '#F2EEFF',
-  borda: '#E4DDFB', tinta: '#1A1340', cinza: '#5B5875', vermelho: '#E5486A',
+// Marcas: "vde" (padrão, Mentoria Método VDE) e as variações dos cursos da dupla. Cada aula escolhe com "marca".
+const MARCAS = {
+  vde: { cor: { roxo: '#2E0575', indigo: '#1937B1', meio: '#261C8C', lavanda: '#C9B8FF', lavandaClara: '#F2EEFF', borda: '#E4DDFB', tinta: '#1A1340', cinza: '#5B5875', vermelho: '#E5486A' },
+    perfis: '@nataliavalenca · @liberofilho', rotulo: 'MÉTODO VDE', deco: 'arcos', mono: false },
+  // Aprofundamento na Repescagem: degradê roxo → magenta, detalhe rosa e a seta de "nova tentativa".
+  repescagem: { cor: { roxo: '#2B0A6B', indigo: '#C2187A', meio: '#6E1391', lavanda: '#FFC4E6', lavandaClara: '#FFF1F8', borda: '#F5D8EA', tinta: '#2A0F33', cinza: '#6D5A72', vermelho: '#E5486A' },
+    perfis: 'Líbero Filho @liberofilho · Natália Valença @nataliavalenca', rotulo: 'APROFUNDAMENTO NA REPESCAGEM', deco: 'seta', mono: false },
+  // Hackeando a OAB: roxo-noite → índigo, detalhe verde de terminal, rótulos em fonte mono e malha de pontos.
+  hackeando: { cor: { roxo: '#0E0636', indigo: '#1937B1', meio: '#1A1268', lavanda: '#4DFFB8', lavandaClara: '#EFF1FF', borda: '#DCE0F7', tinta: '#0F1033', cinza: '#565A7A', vermelho: '#E5486A' },
+    perfis: 'Líbero Filho @liberofilho · Natália Valença @nataliavalenca', rotulo: 'HACKEANDO A OAB', deco: 'malha', mono: true },
 };
-const DEGRADE = `linear-gradient(180deg,${COR.roxo} 0%,${COR.meio} 45%,${COR.indigo} 100%)`;
-const DEG_H = `linear-gradient(90deg,${COR.roxo},${COR.indigo})`;
-const TEMAS = {
-  degrade: { bg: DEGRADE, tit: '#fff', txt: '#ECE8FF', kicker: COR.lavanda, acento: COR.lavanda, linha: 'rgba(255,255,255,.22)', cartao: 'rgba(255,255,255,.08)', escuro: true },
-  branco: { bg: '#FFFFFF', tit: COR.tinta, txt: COR.tinta, kicker: COR.indigo, acento: COR.roxo, linha: COR.borda, cartao: '#fff', escuro: false },
-  lavanda: { bg: COR.lavandaClara, tit: COR.tinta, txt: COR.tinta, kicker: COR.indigo, acento: COR.roxo, linha: '#D9D0F7', cartao: '#fff', escuro: false },
-};
-const PERFIS = '@nataliavalenca · @liberofilho';
+let MARCA, COR, DEGRADE, DEG_H, TEMAS, PERFIS;
+function usarMarca(nome) {
+  MARCA = MARCAS[nome] || MARCAS.vde; COR = MARCA.cor; PERFIS = MARCA.perfis;
+  DEGRADE = `linear-gradient(180deg,${COR.roxo} 0%,${COR.meio} 45%,${COR.indigo} 100%)`;
+  DEG_H = `linear-gradient(90deg,${COR.roxo},${COR.indigo})`;
+  TEMAS = {
+    degrade: { bg: DEGRADE, tit: '#fff', txt: '#ECE8FF', kicker: COR.lavanda, acento: COR.lavanda, linha: 'rgba(255,255,255,.22)', cartao: 'rgba(255,255,255,.08)', escuro: true },
+    branco: { bg: '#FFFFFF', tit: COR.tinta, txt: COR.tinta, kicker: COR.indigo, acento: COR.roxo, linha: COR.borda, cartao: '#fff', escuro: false },
+    lavanda: { bg: COR.lavandaClara, tit: COR.tinta, txt: COR.tinta, kicker: COR.indigo, acento: COR.roxo, linha: '#D9D0F7', cartao: '#fff', escuro: false },
+  };
+}
+usarMarca('vde');
 const FONTE = "font-family:'Poppins','Noto Color Emoji',sans-serif";
 const TITULO = `${FONTE};font-weight:800;letter-spacing:-.02em`;
 
@@ -26,7 +37,8 @@ const rico = (s, t) => esc(s).replace(/\*\*(.+?)\*\*/g, '<b style="font-weight:7
   .replace(/\[\[(.+?)\]\]/g, t.escuro ? `<span style="color:${COR.lavanda}">$1</span>`
     : `<span style="background:${DEG_H};-webkit-background-clip:text;background-clip:text;color:transparent">$1</span>`);
 const linhas = (v, t) => lista(v).map(l => rico(l, t)).join('<br>');
-const kick = (txt, t) => txt ? `<div style="${FONTE};font-size:26px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${t.kicker}">${esc(txt)}</div>` : '';
+const MONO = "font-family:'JetBrains Mono',monospace";
+const kick = (txt, t) => txt ? (MARCA.mono ? `<div style="${MONO};font-size:28px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:${t.kicker}">&gt; ${esc(txt)}<span style="display:inline-block;width:.55em;height:1em;background:${t.kicker};margin-left:.3em;vertical-align:-.12em"></span></div>` : `<div style="${FONTE};font-size:26px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${t.kicker}">${esc(txt)}</div>`) : '';
 const barra = t => `<span style="display:block;width:100px;height:8px;border-radius:4px;background:${t.escuro ? COR.lavanda : DEG_H};flex:none"></span>`;
 const pilula = (txt, t) => txt ? `<span style="align-self:flex-start;background:${t.escuro ? 'rgba(255,255,255,.14)' : COR.lavandaClara};color:${t.escuro ? '#fff' : COR.roxo};border:2px solid ${t.escuro ? 'rgba(255,255,255,.28)' : COR.borda};border-radius:999px;padding:12px 30px;${FONTE};font-size:28px;font-weight:600">${esc(txt)}</span>` : '';
 // Título que encolhe até caber (data-fit); "alt" é a altura máxima.
@@ -35,12 +47,38 @@ const par = (v, t) => lista(v).map(p => `<p style="margin:0 0 .7em;${FONTE};font
 const faixa = t => t.escuro ? '' : `<div style="position:absolute;left:0;right:0;top:0;height:12px;background:${DEG_H};z-index:4"></div>`;
 // Arcos finos concêntricos saindo de um canto (o detalhe da capa do caderno).
 function arcos(t, lado = 'direita', y = 540, n = 6) {
+  if (MARCA.deco === 'seta') return seta(t);
+  if (MARCA.deco === 'malha') return malha(t);
   const cor = t.escuro ? 'rgba(201,184,255,.28)' : 'rgba(46,5,117,.10)';
   const cx = lado === 'direita' ? W + 260 : -260;
   return `<svg width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1;pointer-events:none">${Array.from({ length: n }, (_, k) => `<circle cx="${cx}" cy="${y}" r="${420 + k * 46}" fill="none" stroke="${cor}" stroke-width="2"/>`).join('')}</svg>`;
 }
+// Repescagem: arco grande com ponta de seta (nova tentativa) saindo pela direita.
+function seta(t) {
+  const cor = t.escuro ? 'rgba(255,196,230,.42)' : 'rgba(194,24,122,.14)', fraco = t.escuro ? 'rgba(255,196,230,.16)' : 'rgba(194,24,122,.07)';
+  const cx = 1700, cy = 560, r = 330, a0 = -70, a1 = 225, rad = g => g * Math.PI / 180;
+  const p = g => [cx + r * Math.cos(rad(g)), cy + r * Math.sin(rad(g))];
+  const [x0, y0] = p(a0), [x1, y1] = p(a1);
+  const tg = rad(a1 + 90), ax = Math.cos(tg), ay = Math.sin(tg);
+  const ponta = `M${x1 + 46 * Math.cos(rad(a1)) - 10 * ax},${y1 + 46 * Math.sin(rad(a1)) - 10 * ay} L${x1 + 44 * ax},${y1 + 44 * ay} L${x1 - 46 * Math.cos(rad(a1)) - 10 * ax},${y1 - 46 * Math.sin(rad(a1)) - 10 * ay}`;
+  return `<svg width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1;pointer-events:none">
+    <circle cx="${cx}" cy="${cy}" r="${r + 70}" fill="none" stroke="${fraco}" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="${r + 130}" fill="none" stroke="${fraco}" stroke-width="2"/>
+    <path d="M${x0},${y0} A${r},${r} 0 1,1 ${x1},${y1}" fill="none" stroke="${cor}" stroke-width="18" stroke-linecap="round"/>
+    <path d="${ponta}" fill="none" stroke="${cor}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+// Hackeando: malha de pontos à direita, com alguns pontos acesos e uma linha de código.
+function malha(t) {
+  const base = t.escuro ? 'rgba(255,255,255,.16)' : 'rgba(25,55,177,.12)', aceso = t.escuro ? COR.lavanda : COR.indigo;
+  let pts = '';
+  for (let i = 0; i < 13; i++) for (let j = 0; j < 17; j++) {
+    const x = 1240 + i * 52, y = 120 + j * 52, h = (i * 7 + j * 13) % 23;
+    pts += `<rect x="${x}" y="${y}" width="${h === 0 ? 14 : 6}" height="${h === 0 ? 14 : 6}" rx="2" fill="${h === 0 ? aceso : base}" opacity="${(0.25 + i / 13).toFixed(2)}"/>`;
+  }
+  return `<svg width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1;pointer-events:none">${pts}
+    <text x="1250" y="84" font-family="JetBrains Mono, monospace" font-size="22" fill="${t.escuro ? 'rgba(77,255,184,.55)' : 'rgba(25,55,177,.35)'}">if (enunciado) { return tese; }</text></svg>`;
+}
 const rodape = t => `<div style="position:absolute;left:120px;right:120px;bottom:44px;display:flex;justify-content:space-between;align-items:center;${FONTE};font-size:24px;font-weight:500;color:${t.escuro ? 'rgba(255,255,255,.75)' : COR.cinza};z-index:6">
-    <span>${PERFIS}</span><span style="font-weight:700;letter-spacing:.14em;color:${t.kicker}">MÉTODO VDE</span></div>`;
+    <span>${PERFIS}</span><span style="font-weight:700;letter-spacing:.14em;color:${t.kicker}">${MARCA.rotulo}</span></div>`;
 // Número num quadradinho (degradê nas páginas claras, translúcido no degradê).
 const numero = (n, t, tam = 84) => `<span style="flex:none;width:${tam}px;height:${tam}px;border-radius:${Math.round(tam * .26)}px;background:${t.escuro ? 'rgba(255,255,255,.14)' : DEG_H};color:#fff;display:flex;align-items:center;justify-content:center;${FONTE};font-weight:700;font-size:${Math.round(tam * .4)}px">${esc(n)}</span>`;
 const topo = (s, t, px = 92) => `<div style="position:absolute;left:120px;right:120px;top:90px;display:flex;flex-direction:column;gap:12px;z-index:3">${kick(s.kicker, t)}${tit(s, t, px, 220)}</div>`;
@@ -181,13 +219,14 @@ const TIPOS = {
 };
 
 export function renderCarrossel(c) {
+  usarMarca(c.marca);
   const slides = lista(c.slides), avisos = [];
   slides.forEach((s, i) => {
     if (!TEMAS[s.tema]) avisos.push(`slide ${i + 1}: tema "${s.tema}" não existe (use ${Object.keys(TEMAS).join(', ')})`);
     if (!TIPOS[s.tipo]) avisos.push(`slide ${i + 1}: tipo "${s.tipo}" não existe (${Object.keys(TIPOS).join(', ')})`);
   });
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}body{margin:0;${FONTE};-webkit-font-smoothing:antialiased}section{position:relative;width:${W}px;height:${H}px;overflow:hidden}</style></head><body>
 ${slides.map((s, i) => {
     const t = TEMAS[s.tema] || TEMAS.branco;

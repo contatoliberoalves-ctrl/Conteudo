@@ -1112,188 +1112,318 @@
   ]
  },
  {
-  "id": "repescagem-oab48-mais-dificil-aula",
-  "titulo": "A repescagem da OAB 48 vai ser mais difícil?",
-  "tema": "Aula: o que se sabe do 48º Exame (datas previstas), o que pesa contra, o que joga a favor e mitos x verdades da repescagem",
+  "id": "repescagem-capas",
+  "titulo": "Aprofundamento na Repescagem: capas das aulas",
+  "marca": "repescagem",
   "slides": [
    {
     "tipo": "capa",
     "tema": "degrade",
+    "kicker": "Aprofundamento na Repescagem",
     "titulo": [
-     "A repescagem da",
-     "OAB 48 vai ser",
-     "mais [[difícil]]?"
+     "Resolvendo a",
+     "dificuldade na",
+     "[[interpretação]]"
     ],
-    "texto": "O que se sabe, o que é boato e o que muda para você.",
-    "pilula": "🚨 Alerta de repescagem"
+    "pilula": "Aula 01",
+    "ts": 128
    },
    {
-    "tipo": "balao",
-    "tema": "lavanda",
-    "kicker": "Spoiler",
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Aprofundamento na Repescagem",
     "titulo": [
-     "A resposta",
-     "[[curta]]"
+     "Encontrando",
+     "respostas com o",
+     "[[índice remissivo]]"
     ],
-    "texto": [
-     "Ninguém sabe como vai ser a prova antes dela acontecer.",
-     "Quem garante que vai ser mais fácil ou mais difícil está chutando. O que dá para saber é **o que muda no seu cenário**."
-    ]
+    "pilula": "Aula 02",
+    "ts": 128
    },
    {
-    "tipo": "tabela",
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Aprofundamento na Repescagem",
+    "titulo": [
+     "Resolução de",
+     "[[questões difíceis]] 01"
+    ],
+    "pilula": "Aula 03",
+    "ts": 128
+   },
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Aprofundamento na Repescagem",
+    "titulo": [
+     "Guia de [[identificação]]",
+     "de peças + casos",
+     "difíceis pra identificar"
+    ],
+    "pilula": "Aula 04",
+    "ts": 104
+   }
+  ]
+ },
+ {
+  "id": "repescagem-identidade",
+  "titulo": "Aprofundamento na Repescagem: identidade dos slides",
+  "marca": "repescagem",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Curso · 2ª fase OAB",
+    "titulo": [
+     "Aprofundamento",
+     "na [[Repescagem]]"
+    ],
+    "texto": "4 aulas com Líbero Filho e Natália Valença.",
+    "pilula": "4 aulas"
+   },
+   {
+    "tipo": "lista",
     "tema": "branco",
-    "kicker": "Calendário do 48º Exame (previsto)",
+    "kicker": "O curso",
     "titulo": [
-     "Anote estas [[datas]]"
+     "As [[4 aulas]]"
     ],
-    "colunas": [
-     "Quando",
-     "O quê"
+    "itens": [
+     "Resolvendo a dificuldade na interpretação",
+     "Encontrando respostas com o índice remissivo",
+     "Resolução de questões difíceis 01",
+     "Guia de identificação de peças + casos difíceis pra identificar"
     ],
-    "linhas": [
-     [
-      "13/11/2026",
-      "Edital do reaproveitamento (repescagem)"
-     ],
-     [
-      "23 a 30/11/2026",
-      "Inscrições da repescagem"
-     ],
-     [
-      "10/01/2027",
-      "1ª fase (quem é repescagem não faz)"
-     ],
-     [
-      "**28/02/2027**",
-      "**2ª fase: 13h às 18h, 5 horas de prova**"
-     ],
-     [
-      "24/03/2027",
-      "Resultado preliminar da 2ª fase"
-     ]
-    ],
-    "corpo": 38
-   },
-   {
-    "tipo": "balao",
-    "tema": "branco",
-    "kicker": "Curiosidade",
-    "titulo": [
-     "A banca",
-     "não sabe",
-     "quem é da",
-     "[[repescagem]]"
-    ],
-    "texto": [
-     "A prova prático-profissional do 48º Exame é **a mesma para todo mundo** que faz a 2ª fase: quem vem da 1ª fase do 48º e quem vem da repescagem.",
-     "Não existe prova especial, nem correção diferente, para quem reprovou."
-    ],
-    "ts": 80
+    "corpo": 34
    },
    {
     "tipo": "secao",
     "tema": "degrade",
     "numero": "01",
+    "kicker": "Parte 1",
     "titulo": [
-     "O que pode pesar",
-     "[[contra]] você"
+     "Título da parte"
     ],
-    "texto": "Os riscos de verdade não estão na banca. Estão no seu plano."
+    "texto": "Uma frase que resume o que vem nesta parte."
+   },
+   {
+    "tipo": "texto",
+    "tema": "branco",
+    "kicker": "Tópico",
+    "titulo": [
+     "Título do",
+     "[[tópico]]"
+    ],
+    "texto": [
+     "Espaço para a explicação do tópico, em parágrafos curtos.",
+     "Use **negrito** para o que o aluno não pode esquecer."
+    ]
    },
    {
     "tipo": "cards",
-    "tema": "branco",
-    "kicker": "⚠ Sinais de alerta",
+    "tema": "lavanda",
+    "kicker": "Resumo",
     "titulo": [
-     "Os 4 [[riscos]] da repescagem"
+     "Os [[pontos-chave]]"
     ],
-    "colunas": 2,
-    "corpo": 40,
     "cards": [
      {
-      "icone": "⚠",
-      "titulo": "Ansiedade de quem já reprovou",
-      "texto": "O medo de repetir o resultado trava o estudo e a prova."
+      "titulo": "Ponto 1",
+      "texto": "Uma linha de explicação."
      },
      {
-      "icone": "⚠",
-      "titulo": "Excesso de confiança",
-      "texto": "\"Eu já sei a matéria\" faz você estudar menos do que precisa."
+      "titulo": "Ponto 2",
+      "texto": "Uma linha de explicação."
      },
      {
-      "icone": "⚠",
-      "titulo": "Deixar para depois",
-      "texto": "Dezembro e festas passam rápido; a prova é em 28/02."
+      "titulo": "Ponto 3",
+      "texto": "Uma linha de explicação."
      },
      {
-      "icone": "⚠",
-      "titulo": "Repetir os mesmos erros",
-      "texto": "Sem diagnóstico da prova passada, o erro volta."
+      "titulo": "Ponto 4",
+      "texto": "Uma linha de explicação."
      }
     ]
    },
    {
-    "tipo": "secao",
-    "tema": "degrade",
-    "numero": "02",
-    "titulo": [
-     "O que joga a seu",
-     "[[favor]]"
-    ],
-    "texto": "Quem faz a repescagem começa na frente em vários pontos."
-   },
-   {
-    "tipo": "lista",
+    "tipo": "balao",
     "tema": "branco",
-    "kicker": "Vantagens de quem vem da repescagem",
+    "kicker": "Atenção",
     "titulo": [
-     "Você já está [[na frente]]"
+     "Atenção à",
+     "[[pegadinha]]"
     ],
-    "corpo": 38,
-    "itens": [
-     "**Você já conhece a prova**: formato, tempo, folhas e o nervosismo do dia.",
-     "**Você sabe onde errou**: dá para mirar exatamente no que tirou ponto.",
-     "**Sem 1ª fase**: todo o seu estudo vai para a prova prático-profissional.",
-     "**Tempo**: de hoje até 28/02 são mais de 15 semanas de preparação."
+    "texto": [
+     "Espaço para o alerta da aula: o detalhe que a banca usa para derrubar o candidato."
     ]
-   },
-   {
-    "tipo": "tabela",
-    "tema": "lavanda",
-    "kicker": "Mito ou verdade",
-    "titulo": [
-     "Desmentindo os [[boatos]]"
-    ],
-    "colunas": [
-     "Mito",
-     "Verdade"
-    ],
-    "linhas": [
-     [
-      "\"A FGV pega mais pesado na repescagem\"",
-      "A prova é a mesma para todos da 2ª fase do 48º"
-     ],
-     [
-      "\"Quem reprova uma vez reprova de novo\"",
-      "Quem corrige o que errou faz outra prova"
-     ],
-     [
-      "\"Dá para começar a estudar em janeiro\"",
-      "A 2ª fase é em 28/02: o tempo é curto"
-     ]
-    ],
-    "corpo": 38
    },
    {
     "tipo": "fim",
     "tema": "degrade",
+    "kicker": "Aprofundamento na Repescagem",
     "titulo": [
-     "Mais difícil é repetir",
-     "o mesmo [[plano]]"
+     "Até a",
+     "[[próxima aula]]"
     ],
-    "texto": "Na Turma de Repescagem do Método VDE você tem plano de recuperação, cronograma, 10 simulados inéditos e encontros ao vivo.",
-    "botao": "@nataliavalenca · @liberofilho"
+    "texto": "Líbero Filho e Natália Valença",
+    "botao": "@liberofilho · @nataliavalenca"
+   }
+  ]
+ },
+ {
+  "id": "hackeando-capas",
+  "titulo": "Hackeando a OAB: capas das aulas",
+  "marca": "hackeando",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Hackeando a OAB",
+    "titulo": [
+     "Análise da banca:",
+     "dados e estatísticas",
+     "sobre o que [[mais cai]]"
+    ],
+    "pilula": "Aula 01",
+    "ts": 108
+   },
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Hackeando a OAB",
+    "titulo": [
+     "Teses [[mais cobradas]]",
+     "na peça"
+    ],
+    "pilula": "Aula 02",
+    "ts": 124
+   },
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Hackeando a OAB",
+    "titulo": [
+     "Argumentos que mais",
+     "aparecem nas [[questões]]"
+    ],
+    "pilula": "Aula 03",
+    "ts": 112
+   },
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Hackeando a OAB",
+    "titulo": [
+     "O modelo [[CORINGA]]",
+     "das questões"
+    ],
+    "pilula": "Aula 04",
+    "ts": 128
+   }
+  ]
+ },
+ {
+  "id": "hackeando-identidade",
+  "titulo": "Hackeando a OAB: identidade dos slides",
+  "marca": "hackeando",
+  "slides": [
+   {
+    "tipo": "capa",
+    "tema": "degrade",
+    "kicker": "Curso · 2ª fase OAB",
+    "titulo": [
+     "Hackeando",
+     "a OAB"
+    ],
+    "texto": "4 aulas com Líbero Filho e Natália Valença.",
+    "pilula": "4 aulas"
+   },
+   {
+    "tipo": "lista",
+    "tema": "branco",
+    "kicker": "O curso",
+    "titulo": [
+     "As [[4 aulas]]"
+    ],
+    "itens": [
+     "Análise da banca: dados e estatísticas sobre o que mais cai",
+     "Teses mais cobradas na peça",
+     "Argumentos que mais aparecem nas questões",
+     "O modelo CORINGA das questões"
+    ],
+    "corpo": 34
+   },
+   {
+    "tipo": "secao",
+    "tema": "degrade",
+    "numero": "01",
+    "kicker": "Parte 1",
+    "titulo": [
+     "Título da parte"
+    ],
+    "texto": "Uma frase que resume o que vem nesta parte."
+   },
+   {
+    "tipo": "texto",
+    "tema": "branco",
+    "kicker": "Tópico",
+    "titulo": [
+     "Título do",
+     "[[tópico]]"
+    ],
+    "texto": [
+     "Espaço para a explicação do tópico, em parágrafos curtos.",
+     "Use **negrito** para o que o aluno não pode esquecer."
+    ]
+   },
+   {
+    "tipo": "cards",
+    "tema": "lavanda",
+    "kicker": "Resumo",
+    "titulo": [
+     "Os [[pontos-chave]]"
+    ],
+    "cards": [
+     {
+      "titulo": "Ponto 1",
+      "texto": "Uma linha de explicação."
+     },
+     {
+      "titulo": "Ponto 2",
+      "texto": "Uma linha de explicação."
+     },
+     {
+      "titulo": "Ponto 3",
+      "texto": "Uma linha de explicação."
+     },
+     {
+      "titulo": "Ponto 4",
+      "texto": "Uma linha de explicação."
+     }
+    ]
+   },
+   {
+    "tipo": "balao",
+    "tema": "branco",
+    "kicker": "Atenção",
+    "titulo": [
+     "Atenção à",
+     "[[pegadinha]]"
+    ],
+    "texto": [
+     "Espaço para o alerta da aula: o detalhe que a banca usa para derrubar o candidato."
+    ]
+   },
+   {
+    "tipo": "fim",
+    "tema": "degrade",
+    "kicker": "Hackeando a OAB",
+    "titulo": [
+     "Até a",
+     "[[próxima aula]]"
+    ],
+    "texto": "Líbero Filho e Natália Valença",
+    "botao": "@liberofilho · @nataliavalenca"
    }
   ]
  }

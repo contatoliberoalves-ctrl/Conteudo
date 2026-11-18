@@ -5,6 +5,14 @@ Capa, divisores e fechamento no degradê roxo → índigo do caderno da mentoria
 Gerado por `../libero-comum/render-base.mjs` (textos com `data-fit` encolhem até caber; o render avisa se não couber).
 Gerar: `node render.mjs [id]` (nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`).
 
+## Marcas (campo `marca` da aula)
+
+- `vde` (padrão): Mentoria Método VDE.
+- `repescagem`: curso **Aprofundamento na Repescagem**. Degradê roxo → magenta, detalhe rosa, seta de "nova tentativa" no lugar dos arcos.
+- `hackeando`: curso **Hackeando a OAB**. Roxo-noite → índigo, detalhe verde de terminal, rótulos em JetBrains Mono com `>` e cursor, malha de pontos no lugar dos arcos.
+
+Nas duas variações o rodapé traz `Líbero Filho @liberofilho · Natália Valença @nataliavalenca` e o nome do curso. As capas das aulas ficam em `repescagem-capas` e `hackeando-capas`; a amostra dos slides em `*-identidade`.
+
 ## Aula (`dados.json` é uma lista)
 
 `id`, `titulo`, `tema` e `slides`. Em todo slide: `tipo`, `tema` (`degrade`, `branco` ou `lavanda`), `kicker`, `titulo` (linhas; `**negrito**`, `[[destaque]]` em lavanda no degradê e em degradê nas páginas claras; `ts` força o tamanho) e `corpo` (px do texto). Use `degrade` na capa, nos divisores e no fim; o resto em `branco`, com `lavanda` de vez em quando.
