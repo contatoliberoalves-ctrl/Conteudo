@@ -631,7 +631,7 @@ if('IntersectionObserver' in window){
       if(it.pin){var e=r<=0?.001:1+Math.sin(r*Math.PI)*.25*(1-r)+0;it.pin.scale.setScalar(r<=0?.001:r*e)}}
     var st=t<.3?0:t<.82?1:2;chips.forEach(function(ch,i){ch.setAttribute('aria-pressed',i===st)});
   }
-  function size(){var w=host.clientWidth,h=host.clientHeight;rdr.setSize(w,h,false);cam.aspect=w/h;var dist=w/h<1.2?62:w/h<1.7?50:43;cam.position.set(0,dist*.52,dist*.86);cam.lookAt(0,-.5,0);cam.updateProjectionMatrix()}
+  function size(){var w=host.clientWidth,h=host.clientHeight;rdr.setSize(w,h,false);cam.aspect=w/h;var dist=w/h<1.2?78:w/h<1.7?52:43;cam.position.set(0,dist*.52,dist*.86);cam.lookAt(0,-.5,0);cam.updateProjectionMatrix()}
   function frame(now){
     var dt=Math.min(.05,(now-last)/1000||0);last=now;
     if(t!==target){var stp=dt/5.5;t=Math.abs(target-t)<=stp?target:t+(target>t?stp:-stp);apply()}
