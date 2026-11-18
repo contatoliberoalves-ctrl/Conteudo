@@ -433,7 +433,9 @@ const CAPAS = {
         <span style="font-size:22px;font-weight:800;letter-spacing:.06em;color:${b.destaque ? '#fff' : 'rgba(255,255,255,.7)'}">${esc(b.rotulo)}</span></div>`).join('');
     return `<div style="position:absolute;inset:0;background:radial-gradient(100% 70% at 85% 0%,#2B6BF0 0%,${COR.azul} 42%,${COR.azulFundo} 100%);z-index:0"></div>
       <div style="position:absolute;left:90px;right:90px;top:92px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;z-index:4">
-        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        ${s.pre || s.selo ? `<div style="display:flex;align-items:stretch;box-shadow:0 12px 30px rgba(8,16,40,.35);transform:rotate(-2deg);transform-origin:left center">
+          ${s.selo ? `<span style="background:${R};color:#fff;${TITULO};font-size:46px;line-height:1;padding:12px 20px 6px">${esc(s.selo)}</span>` : ''}
+          ${s.pre ? `<span style="background:${COR.navyFundo};color:#fff;font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:0 22px;display:flex;align-items:center;border-top:4px dashed rgba(255,255,255,.35);border-bottom:4px dashed rgba(255,255,255,.35)">${esc(s.pre)}</span>` : ''}</div>` : ''}
         <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 140}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1>
         ${s.numero ? `<div style="display:flex;align-items:flex-end;gap:24px;margin-top:6px"><span style="${TITULO};font-size:${s.tn || 250}px;line-height:.8;color:#fff">${esc(s.numero)}</span>
           ${s.rotulo ? `<span style="font-size:34px;font-weight:700;line-height:1.15;color:#fff;max-width:330px;padding-bottom:10px">${rico(s.rotulo, t)}</span>` : ''}</div>` : ''}</div>

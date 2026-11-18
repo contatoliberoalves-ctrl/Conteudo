@@ -8164,7 +8164,7 @@
         "tipo": "capa",
         "tema": "blue",
         "estilo": "queda",
-        "pre": "OAB 47 · 2ª fase",
+        "pre": "2ª fase · resultado preliminar",
         "titulo": [
           "Reprovação",
           "[[histórica]]"
@@ -8211,7 +8211,8 @@
           }
         ],
         "graficoY": 860,
-        "graficoH": 330
+        "graficoH": 330,
+        "selo": "OAB 47"
       },
       {
         "tipo": "impacto",
@@ -8301,25 +8302,92 @@
         ]
       },
       {
-        "tipo": "impacto",
+        "tipo": "texto",
         "tema": "dark",
-        "kicker": "Método VDE · Constitucional",
+        "kicker": "Reprovou?",
         "titulo": [
-          "Muito acima",
-          "da média"
+          "Não [[desiste]]",
+          "agora"
         ],
-        "sub": "Mesmo com uma reprovação histórica, a aprovação dos nossos alunos em Constitucional foi muito superior."
+        "palavra": "Força",
+        "texto": [
+          "Ficar fora da lista não apaga o que você já fez: você **passou na 1ª fase**.",
+          "Na repescagem, você faz **só a 2ª fase**. Você está a uma prova da carteira."
+        ]
+      },
+      {
+        "tipo": "grafico",
+        "tema": "light",
+        "kicker": "Aprovação na 2ª fase por matéria",
+        "titulo": [
+          "Constitucional é",
+          "boa [[escolha]]"
+        ],
+        "itens": [
+          {
+            "rotulo": "Const",
+            "valor": 33,
+            "texto": "33%",
+            "destaque": true
+          },
+          {
+            "rotulo": "Civil",
+            "valor": 25.4,
+            "texto": "25,4%"
+          },
+          {
+            "rotulo": "Adm",
+            "valor": 20,
+            "texto": "20%"
+          },
+          {
+            "rotulo": "Trib",
+            "valor": 19,
+            "texto": "19%"
+          },
+          {
+            "rotulo": "Penal",
+            "valor": 17.1,
+            "texto": "17,1%"
+          },
+          {
+            "rotulo": "Trab",
+            "valor": 16.8,
+            "texto": "16,8%"
+          },
+          {
+            "rotulo": "Emp",
+            "valor": 15.2,
+            "texto": "15,2%"
+          }
+        ],
+        "gh": 470,
+        "texto": "Na série histórica da FGV, **Constitucional** tem a maior aprovação entre as sete matérias da 2ª fase."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "VDE Constitucional",
+        "titulo": [
+          "Treino pra prova",
+          "[[difícil]]"
+        ],
+        "itens": [
+          "A gente prepara pra prova **dura**, não pra prova fácil",
+          "Minicurso **Aprofundamento da Repescagem**: de 23/11 a 30/11",
+          "Minicurso **Hackeando a Banca**: de 01/12 a 10/12",
+          "E mesmo com reprovação histórica, nossa aprovação em Constitucional foi **muito acima da média**"
+        ]
       },
       {
         "tipo": "cta",
-        "tema": "blue",
+        "tema": "dark",
         "centro": true,
         "titulo": [
           "VDE",
           "[[Repescagem]]"
         ],
-        "texto": "A turma pra você chegar na 2ª fase do 48º pronto pra passar. Link na bio.",
-        "botao": "vdelinks.com.br/70Qwj8"
+        "texto": "Bora fazer essa 2ª fase com a gente? As inscrições estão abertas."
       }
     ]
   }
