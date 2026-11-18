@@ -8153,5 +8153,174 @@
         "rot": -8
       }
     ]
+  },
+  {
+    "id": "reprovacao-historica-oab47",
+    "titulo": "Reprovação histórica na 2ª fase (OAB 47)",
+    "tema": "Resultado preliminar da 2ª fase do 47º Exame: 73.791 examinandos, 17.970 aprovados (24,4%); comparação com a aprovação na 2ª fase dos exames 41 a 46; CTA do VDE Repescagem",
+    "fonte": "Migalhas (resultado preliminar, 11/2026) e estatísticas compiladas pelo Estratégia OAB (exames 41 a 46). Pedido do autor: sem fonte no post.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "estilo": "queda",
+        "pre": "OAB 47 · 2ª fase",
+        "titulo": [
+          "Reprovação",
+          "[[histórica]]"
+        ],
+        "ts": 150,
+        "numero": "75,6%",
+        "rotulo": "ficou fora da lista preliminar",
+        "barras": [
+          {
+            "rotulo": "41º",
+            "valor": 57.4,
+            "texto": "57,4%"
+          },
+          {
+            "rotulo": "42º",
+            "valor": 58.0,
+            "texto": "58,0%"
+          },
+          {
+            "rotulo": "43º",
+            "valor": 59.8,
+            "texto": "59,8%"
+          },
+          {
+            "rotulo": "44º",
+            "valor": 40.0,
+            "texto": "40,0%"
+          },
+          {
+            "rotulo": "45º",
+            "valor": 43.8,
+            "texto": "43,8%"
+          },
+          {
+            "rotulo": "46º",
+            "valor": 42.6,
+            "texto": "42,6%"
+          },
+          {
+            "rotulo": "47º",
+            "valor": 75.6,
+            "texto": "75,6%",
+            "destaque": true
+          }
+        ],
+        "graficoY": 860,
+        "graficoH": 330
+      },
+      {
+        "tipo": "impacto",
+        "tema": "light",
+        "kicker": "Resultado preliminar",
+        "titulo": [
+          "3 em cada 4"
+        ],
+        "sub": "Dos 73.791 examinandos da 2ª fase, só 17.970 estão na lista de aprovados."
+      },
+      {
+        "tipo": "grafico",
+        "tema": "dark",
+        "kicker": "Aprovação na 2ª fase",
+        "titulo": [
+          "Do normal ao",
+          "[[tombo]]"
+        ],
+        "itens": [
+          {
+            "rotulo": "41º",
+            "valor": 42.6,
+            "texto": "42,6%"
+          },
+          {
+            "rotulo": "42º",
+            "valor": 42.0,
+            "texto": "42,0%"
+          },
+          {
+            "rotulo": "43º",
+            "valor": 40.2,
+            "texto": "40,2%"
+          },
+          {
+            "rotulo": "44º",
+            "valor": 60.0,
+            "texto": "60,0%"
+          },
+          {
+            "rotulo": "45º",
+            "valor": 56.2,
+            "texto": "56,2%"
+          },
+          {
+            "rotulo": "46º",
+            "valor": 57.4,
+            "texto": "57,4%"
+          },
+          {
+            "rotulo": "47º",
+            "valor": 24.4,
+            "texto": "24,4%",
+            "destaque": true
+          }
+        ],
+        "texto": "Nos seis exames anteriores, passaram de **40% a 60%** de quem fez a 2ª fase. No 47º, **menos de 1 em cada 4**."
+      },
+      {
+        "tipo": "lista",
+        "tema": "blue",
+        "kicker": "Em números",
+        "titulo": [
+          "A conta do",
+          "[[47º]]"
+        ],
+        "itens": [
+          "**73.791** fizeram a 2ª fase",
+          "**17.970** aprovados na lista preliminar",
+          "**55.821** ficaram de fora",
+          "**24,4%** de aprovação, a mais baixa dos últimos exames"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "light",
+        "kicker": "Ficou fora da lista?",
+        "titulo": [
+          "Ainda tem",
+          "[[jogo]]"
+        ],
+        "palavra": "Repescagem",
+        "texto": [
+          "O resultado definitivo sai em **3/12**, depois dos recursos.",
+          "E quem reprovou na 2ª fase pode fazer a **repescagem no 48º Exame**: vai direto pra 2ª fase, sem refazer a 1ª.",
+          "As inscrições vão de **23/11 a 30/11**, e a prova é em **28/02/2027**."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "dark",
+        "kicker": "Método VDE · Constitucional",
+        "titulo": [
+          "Muito acima",
+          "da média"
+        ],
+        "sub": "Mesmo com uma reprovação histórica, a aprovação dos nossos alunos em Constitucional foi muito superior."
+      },
+      {
+        "tipo": "cta",
+        "tema": "blue",
+        "centro": true,
+        "titulo": [
+          "VDE",
+          "[[Repescagem]]"
+        ],
+        "texto": "A turma pra você chegar na 2ª fase do 48º pronto pra passar. Link na bio.",
+        "botao": "vdelinks.com.br/70Qwj8"
+      }
+    ]
   }
 ]

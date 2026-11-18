@@ -421,6 +421,26 @@ const CAPAS = {
         ${s.texto ? `<p data-corpo style="margin:0;font-size:40px;font-weight:600;line-height:1.3;color:#C9D4EA;max-width:860px">${rico(s.texto, TEMAS.dark)}</p>` : ''}
       </div>`;
   },
+  // Queda: dado que despencou. Número gigante (ex.: reprovação), título e um gráfico de colunas no pé com a
+  // última coluna em vermelho. Campos: pre (pílula), titulo ([[caixa]] vermelha), ts, numero, tn, rotulo,
+  // barras ([{rotulo, valor, destaque}], valor em %), graficoY, graficoH.
+  queda(s, t) {
+    const R = COR.vermelho, bs = lista(s.barras), max = Math.max(...bs.map(b => b.valor), 1);
+    const gy = s.graficoY || 900, gh = s.graficoH || 250;
+    const cols = bs.map(b => `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;height:100%">
+        <span style="font-size:${b.destaque ? 34 : 24}px;font-weight:800;color:${b.destaque ? '#fff' : 'rgba(255,255,255,.75)'}">${esc(b.texto ?? b.valor)}</span>
+        <div style="width:100%;height:${Math.round(b.valor / max * (gh - 70))}px;background:${b.destaque ? R : 'rgba(255,255,255,.28)'};${b.destaque ? 'box-shadow:0 0 0 4px #fff' : ''}"></div>
+        <span style="font-size:22px;font-weight:800;letter-spacing:.06em;color:${b.destaque ? '#fff' : 'rgba(255,255,255,.7)'}">${esc(b.rotulo)}</span></div>`).join('');
+    return `<div style="position:absolute;inset:0;background:radial-gradient(100% 70% at 85% 0%,#2B6BF0 0%,${COR.azul} 42%,${COR.azulFundo} 100%);z-index:0"></div>
+      <div style="position:absolute;left:90px;right:90px;top:92px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;z-index:4">
+        ${s.pre ? `<div style="background:#fff;color:${COR.azul};font-size:28px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:9px 24px;border-radius:999px">${esc(s.pre)}</div>` : ''}
+        <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 140}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1>
+        ${s.numero ? `<div style="display:flex;align-items:flex-end;gap:24px;margin-top:6px"><span style="${TITULO};font-size:${s.tn || 250}px;line-height:.8;color:#fff">${esc(s.numero)}</span>
+          ${s.rotulo ? `<span style="font-size:34px;font-weight:700;line-height:1.15;color:#fff;max-width:330px;padding-bottom:10px">${rico(s.rotulo, t)}</span>` : ''}</div>` : ''}</div>
+      <div style="position:absolute;left:90px;right:90px;top:${gy}px;height:${gh}px;display:flex;gap:16px;align-items:stretch;border-bottom:4px solid rgba(255,255,255,.6);z-index:3">${cols}</div>
+      <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
+      <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
+  },
   // Meme preso: um post de meme do Insta (cabeçalho, imagem com legenda em Impact, curtidas) atrás das grades
   // de uma cela, com carimbo vermelho da pena. Para projetos de lei e polêmicas sobre internet, humor, redes.
   // Campos: pre (pílula), titulo ([[caixa]] vermelha), ts, post {usuario, img (em assets/), cima, baixo,
@@ -939,6 +959,19 @@ const TIPOS = {
     return area(`${kicker(s.kicker, t)}
       <div style="align-self:flex-start;background:${bloco};padding:26px 34px 18px"><h1 data-titulo style="${TITULO};margin:0;font-size:${s.ts || tamanho(linhas, 165, 780)}px;line-height:.86;color:#fff">${linhas.map(l => rico(l, t)).join('<br>')}</h1></div>
       ${s.sub ? `<div style="${TITULO};font-size:60px;line-height:.95;color:${t.tit}">${rico(s.sub, t)}</div>` : ''}`);
+  },
+  // Gráfico de colunas: itens [{rotulo, valor, texto, destaque}] (valor em %; destaque em vermelho), titulo,
+  // kicker, texto (abaixo do gráfico), gh (altura do gráfico).
+  grafico(s, t) {
+    const R = COR.vermelho, its = lista(s.itens), max = Math.max(...its.map(i => i.valor), 1), gh = s.gh || 520;
+    const base = t.escuro ? 'rgba(255,255,255,.3)' : COR.azul;
+    const cols = its.map(i => `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;height:100%">
+        <span style="font-size:${i.destaque ? 40 : 30}px;font-weight:800;color:${i.destaque ? R : t.txt}">${esc(i.texto ?? i.valor + '%')}</span>
+        <div style="width:100%;height:${Math.round(i.valor / max * (gh - 110))}px;background:${i.destaque ? R : base}"></div>
+        <span style="font-size:24px;font-weight:800;letter-spacing:.04em;color:${i.destaque ? R : t.txt}">${esc(i.rotulo)}</span></div>`).join('');
+    return area(`${kicker(s.kicker, t)}${titulo(s, t, 110, 860)}
+      <div style="height:${gh}px;display:flex;gap:18px;align-items:stretch;border-bottom:4px solid ${t.linha};flex:none">${cols}</div>
+      ${s.texto ? corpo(s, t, s.corpo || 36) : ''}`);
   },
   lei(s, t) {
     const cor = t === TEMAS.blue ? '#fff' : COR.azul;
