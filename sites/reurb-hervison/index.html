@@ -1,0 +1,680 @@
+<title>REURB de Papel Passado</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: planta cadastral noturna. Tinta escura de cartório, linhas de levantamento em água, latão de selo só onde há ação ou registro. */
+:root{
+  color-scheme:dark;
+  --ink:#08161d; --ink-2:#0d212b; --ink-3:#143342; --line:#1f4656;
+  --paper:#eef0e6; --paper-ink:#18282e; --paper-line:#c9cdbd;
+  --fg:#e8eeea; --mute:#93a9ad; --aqua:#74d6c8; --brass:#dcb56a; --brass-ink:#241a05; --stamp:#3f6fd6; --ok:#7fd89b;
+  --display:"Gloock","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --body:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.w{max-width:var(--wrap);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--aqua)}
+section{padding-block:clamp(72px,10vw,136px);position:relative}
+.h2{font-size:clamp(34px,5vw,62px)}
+.h2 em,.hero h1 em{font-style:italic;color:var(--brass)}
+.lead{color:var(--mute);font-size:clamp(17px,1.5vw,20px);max-width:60ch}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:4px}
+
+/* progresso de leitura */
+#prog{position:fixed;inset:0 auto auto 0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--aqua),var(--brass));z-index:60}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:50;background:var(--ink)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ink) 78%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.seal{width:36px;height:36px;flex:none}
+.brand b{font-family:var(--display);font-weight:400;font-size:19px;white-space:nowrap}
+.brand small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.nav nav a:hover{color:var(--fg)}
+.btn{--mx:0px;--my:0px;display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--body);padding:15px 22px;border-radius:999px;border:1px solid transparent;text-decoration:none;cursor:pointer;transform:translate(var(--mx),var(--my));transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .3s}
+.btn.pri{background:var(--brass);color:var(--brass-ink);box-shadow:0 0 0 0 color-mix(in srgb,var(--brass) 40%,transparent)}
+.btn.pri:hover{box-shadow:0 10px 40px -8px color-mix(in srgb,var(--brass) 55%,transparent)}
+.btn.gho{border-color:var(--line);color:var(--fg)}
+.btn.gho:hover{background:var(--ink-2)}
+.btn.sm{padding:11px 16px;font-size:13.5px}
+.btn svg{width:16px;height:16px;flex:none}
+.nav .btn{white-space:nowrap}
+@media (max-width:860px){.nav nav{display:none}}
+@media (max-width:460px){.brand b{font-size:15px}.brand{gap:9px}.seal{width:30px;height:30px}.nav .btn{padding:10px 13px;font-size:13px}}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,84px) 0;overflow:hidden}
+#lots{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(100deg,transparent 0 18%,#000 62%);mask-image:linear-gradient(100deg,transparent 0 18%,#000 62%);opacity:.9}
+.hero .w{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:24px;align-items:end}
+.hero-txt{padding-bottom:clamp(40px,6vw,88px);display:flex;flex-direction:column;gap:26px;min-width:0}
+.hero h1{font-size:clamp(44px,6.3vw,90px);line-height:.98}
+.hero h1 .ln>span{white-space:nowrap}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;animation:up 1s cubic-bezier(.2,.8,.2,1) both}
+.ln:nth-child(2)>span{animation-delay:.12s}.ln:nth-child(3)>span{animation-delay:.24s}
+@keyframes up{from{transform:translateY(105%)}to{transform:none}}
+.fade{animation:fade .9s .5s both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.04em}
+.chips span{display:flex;align-items:center;gap:8px}
+.chips i{width:6px;height:6px;border-radius:50%;background:var(--aqua)}
+.rec i{background:#ff5d5d;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.portrait{position:relative;align-self:end;min-width:0;--px:0px;--py:0px}
+.portrait .halo{position:absolute;left:50%;bottom:6%;width:92%;aspect-ratio:1;translate:-50% 0;border-radius:50%;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--aqua) 34%,transparent),transparent 62%);filter:blur(10px)}
+.portrait .ring{position:absolute;left:50%;bottom:3%;width:96%;aspect-ratio:1;translate:-50% 0;transform:translate(calc(var(--px)*-.6),calc(var(--py)*-.6))}
+.portrait .ring svg{width:100%;height:100%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portrait img{position:relative;display:block;width:100%;height:auto;transform:translate(var(--px),var(--py));filter:saturate(.92) contrast(1.04);-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent)}
+.tag{position:absolute;background:color-mix(in srgb,var(--ink-2) 86%,transparent);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-family:var(--mono);font-size:11.5px;line-height:1.45;color:var(--mute);box-shadow:0 20px 50px -20px #000;animation:float 7s ease-in-out infinite}
+.tag b{display:block;color:var(--fg);font-weight:500;font-size:13px}
+.tag.t1{left:-4%;top:30%}.tag.t2{right:0;bottom:17%;animation-delay:-3.5s}
+.tag .ok{color:var(--ok)}
+@keyframes float{50%{translate:0 -10px}}
+@media (max-width:860px){
+  .hero .w{grid-template-columns:1fr}
+  .hero-txt{padding-bottom:0}
+  .portrait{max-width:420px;margin-inline:auto;width:100%}
+  .tag.t1{left:0;top:14%}
+  #lots{-webkit-mask-image:linear-gradient(transparent 20%,#000 75%);mask-image:linear-gradient(transparent 20%,#000 75%)}
+}
+
+/* faixa de instituições */
+.marq{border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding-block:18px}
+.marq-in{display:flex;gap:56px;width:max-content;animation:marq 38s linear infinite;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.marq-in span::before{content:"◆";color:var(--brass);margin-right:56px;font-size:9px;vertical-align:middle}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marq:hover .marq-in{animation-play-state:paused}
+
+/* números */
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:56px}
+.num{padding:28px 22px 6px 0;border-right:1px solid var(--line);padding-left:22px}
+.num:first-child{padding-left:0}.num:last-child{border-right:0}
+.num b{font-family:var(--display);font-weight:400;font-size:clamp(46px,6vw,84px);line-height:1;display:block;font-variant-numeric:tabular-nums;color:var(--fg)}
+.num p{color:var(--mute);font-size:14.5px;margin-top:12px;max-width:26ch}
+.num cite{display:block;font:normal 11px var(--mono);color:color-mix(in srgb,var(--mute) 70%,transparent);margin-top:10px;letter-spacing:.04em}
+@media (max-width:860px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}.num{padding-left:0;border-right:0;border-bottom:1px solid var(--line);padding-bottom:22px}.num:nth-child(odd){padding-right:16px}}
+
+/* caminho (art. 28) */
+.path{background:linear-gradient(var(--ink),var(--ink-2))}
+.path-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(28px,6vw,90px);margin-top:56px;align-items:start}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;position:relative}
+.steps::before{content:"";position:absolute;left:19px;top:20px;bottom:20px;width:1px;background:var(--line)}
+.step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:22px;padding-block:26px;opacity:.42;transition:opacity .4s}
+.step.on{opacity:1}
+.step .n{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--ink);display:grid;place-items:center;font:500 13px var(--mono);color:var(--mute);position:relative;transition:.4s}
+.step.on .n{border-color:var(--brass);color:var(--brass);box-shadow:0 0 0 6px color-mix(in srgb,var(--brass) 12%,transparent)}
+.step h3{font-size:clamp(22px,2.4vw,29px);margin-bottom:8px}
+.step p{color:var(--mute);font-size:15.5px;max-width:52ch}
+.step code{font:500 11.5px var(--mono);color:var(--aqua);letter-spacing:.06em;display:block;margin-bottom:8px;text-transform:uppercase}
+.doc-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px)}
+.doc{background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:26px 26px 96px;font-family:var(--mono);font-size:12px;line-height:1.55;position:relative;box-shadow:0 40px 90px -30px #000,0 0 0 1px #0003;transform:rotate(-1.2deg);background-image:repeating-linear-gradient(0deg,transparent 0 27px,color-mix(in srgb,var(--paper-line) 55%,transparent) 27px 28px)}
+.doc header{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid var(--paper-ink);padding-bottom:10px;margin-bottom:14px;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.doc .mat{font-family:var(--display);font-size:30px;line-height:1.1;margin-bottom:12px}
+.doc .row{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;min-height:28px;align-items:baseline}
+.doc .row dt{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.doc .row dd{margin:0;clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.3,.7,.2,1)}
+.doc dl{margin:0}
+.doc[data-s="1"] .r1 dd,.doc[data-s="2"] .r1 dd,.doc[data-s="2"] .r2 dd,
+.doc[data-s="3"] .r1 dd,.doc[data-s="3"] .r2 dd,.doc[data-s="3"] .r3 dd,
+.doc[data-s="4"] .row:not(.r5,.r6,.r7) dd,.doc[data-s="5"] .row:not(.r6,.r7) dd,.doc[data-s="6"] .row:not(.r7) dd,.doc[data-s="7"] .row dd{clip-path:inset(0)}
+.stamp{position:absolute;font:700 15px var(--mono);letter-spacing:.14em;text-transform:uppercase;border:3px solid currentColor;border-radius:8px;padding:8px 12px;opacity:0;transform:scale(1.8) rotate(-14deg);transition:opacity .25s,transform .45s cubic-bezier(.2,1.6,.4,1);mix-blend-mode:multiply;text-align:center;line-height:1.2}
+.stamp small{display:block;font-size:9px;letter-spacing:.1em;font-weight:500}
+.stamp.s-crf{color:var(--stamp);right:22px;top:58px}
+.stamp.s-reg{color:#b3352b;right:30px;bottom:22px;transform:scale(1.8) rotate(9deg)}
+.doc[data-s="6"] .s-crf,.doc[data-s="7"] .s-crf{opacity:.82;transform:rotate(-14deg)}
+.doc[data-s="7"] .s-reg{opacity:.85;transform:rotate(9deg)}
+.doc-cap{font:11px var(--mono);color:var(--mute);margin-top:18px;letter-spacing:.04em;text-align:center}
+@media (max-width:920px){.path-grid{grid-template-columns:1fr}.doc-wrap{position:static;order:-1;max-width:460px}.step{opacity:1}}
+
+/* módulos */
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.mod{background:var(--ink);padding:28px 26px 30px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;transition:background .3s}
+.mod::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),color-mix(in srgb,var(--aqua) 14%,transparent),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.mod:hover::after{opacity:1}
+.mod .k{font:500 11.5px var(--mono);letter-spacing:.14em;color:var(--brass);text-transform:uppercase}
+.mod h3{font-size:25px}
+.mod p{color:var(--mute);font-size:15px}
+.mod ul{margin:4px 0 0;padding:0;list-style:none;font:12px/1.7 var(--mono);color:color-mix(in srgb,var(--fg) 80%,transparent)}
+.mod li::before{content:"└ ";color:var(--line)}
+@media (max-width:920px){.mods{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.mods{grid-template-columns:1fr}}
+
+/* professor */
+.prof-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,80px);align-items:start;margin-top:8px}
+.card-ph{position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px);background:linear-gradient(160deg,var(--ink-3),var(--ink-2));border:1px solid var(--line);border-radius:18px;overflow:hidden;padding-top:26px}
+.card-ph::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 39px,color-mix(in srgb,var(--aqua) 10%,transparent) 39px 40px),repeating-linear-gradient(0deg,transparent 0 39px,color-mix(in srgb,var(--aqua) 10%,transparent) 39px 40px);-webkit-mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%)}
+.card-ph img{display:block;width:100%;position:relative}
+.card-ph figcaption{position:relative;padding:18px 22px 20px;border-top:1px solid var(--line);background:var(--ink-2);font:12px/1.6 var(--mono);color:var(--mute)}
+.card-ph figcaption b{display:block;font:400 26px/1.15 var(--display);color:var(--fg);margin-bottom:6px}
+.bio{display:flex;flex-direction:column;gap:22px}
+.bio p{color:color-mix(in srgb,var(--fg) 86%,transparent);max-width:62ch}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.creds li{font:12px var(--mono);border:1px solid var(--line);padding:7px 11px;border-radius:6px;color:var(--mute)}
+.tl{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:86px minmax(0,1fr);gap:18px;padding-block:20px;border-bottom:1px solid var(--line)}
+.tl time{font:500 13px var(--mono);color:var(--brass);padding-top:3px}
+.tl b{display:block;font-weight:600;margin-bottom:4px}
+.tl span{color:var(--mute);font-size:15px}
+.tl a{color:var(--aqua);font:11.5px var(--mono);text-underline-offset:3px;white-space:nowrap}
+.quote{border-left:2px solid var(--brass);padding:6px 0 6px 22px;margin:8px 0 0}
+.quote p{font:italic 400 clamp(24px,3vw,36px)/1.2 var(--display);color:var(--fg);max-width:26ch}
+.quote footer{font:12px var(--mono);color:var(--mute);margin-top:12px}
+@media (max-width:860px){.prof-grid{grid-template-columns:1fr}.card-ph{position:relative;top:0;max-width:420px}}
+
+/* 4K */
+.k4{background:#03090c}
+.vf{position:relative;margin-top:48px;border-radius:14px;overflow:hidden;background:radial-gradient(120% 90% at 78% 30%,#1b4352,#06141a 62%);aspect-ratio:21/9;min-height:420px;width:100%;isolation:isolate}
+.vf img{position:absolute;right:4%;bottom:0;height:104%;width:auto;max-width:none;filter:contrast(1.06) saturate(.95);transform:translateX(var(--vx,0px))}
+.vf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#03090c 8%,transparent 58%),repeating-linear-gradient(0deg,#0000 0 3px,#0001 3px 4px);pointer-events:none}
+.vf .hud{position:absolute;inset:18px;z-index:2;font:500 12px var(--mono);letter-spacing:.08em;color:#fff;pointer-events:none}
+.vf .hud>*{position:absolute}
+.vf .c{width:28px;height:28px;border:2px solid #fff;opacity:.85}
+.c.tl_{left:0;top:0;border-right:0;border-bottom:0}.c.tr_{right:0;top:0;border-left:0;border-bottom:0}.c.bl_{left:0;bottom:0;border-right:0;border-top:0}.c.br_{right:0;bottom:0;border-left:0;border-top:0}
+.vf .rec{left:44px;top:6px;display:flex;align-items:center;gap:8px}
+.vf .rec i{width:10px;height:10px;border-radius:50%}
+.vf .tc{right:44px;top:6px;font-variant-numeric:tabular-nums}
+.vf .spec{left:44px;bottom:6px;opacity:.8}
+.vf .foc{right:24%;top:30%;width:120px;height:120px;border:1px solid #ffffffb0;opacity:.7;animation:foc 5s ease-in-out infinite}
+@keyframes foc{0%,100%{transform:scale(1.25);opacity:.2}35%,80%{transform:scale(1);opacity:.75}}
+.vf .say{position:absolute;z-index:3;left:clamp(22px,5vw,64px);bottom:clamp(54px,8vw,84px);max-width:min(52%,560px)}
+.vf .say h3{font-size:clamp(28px,4.4vw,60px)}
+.vf .say p{color:#c5d3d4;margin-top:14px;font-size:clamp(14px,1.3vw,17px)}
+.k4-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);margin-top:44px;align-items:center}
+.cmp{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:10px;overflow:hidden;font:12.5px/1.7 var(--mono);--x:50%;user-select:none;touch-action:pan-y}
+.cmp .lay{padding:22px 24px}
+.cmp .lo{position:absolute;inset:0;filter:blur(1.5px) contrast(.9);clip-path:inset(0 calc(100% - var(--x)) 0 0);background:var(--paper)}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:var(--brass-ink);translate:-1px}
+.cmp .bar::after{content:"◂ ▸";position:absolute;top:50%;left:50%;translate:-50% -50%;background:var(--brass);color:var(--brass-ink);font-size:11px;padding:6px 8px;border-radius:99px;white-space:nowrap}
+.cmp .lb{position:absolute;top:8px;font-size:10px;letter-spacing:.1em;background:var(--paper-ink);color:var(--paper);padding:3px 7px;border-radius:4px}
+.cmp .lb.a{left:8px}.cmp .lb.b{right:8px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.k4-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.k4-list li{display:grid;grid-template-columns:54px minmax(0,1fr);gap:14px;align-items:baseline}
+.k4-list b{font:500 12px var(--mono);color:var(--brass);letter-spacing:.08em}
+.k4-list span{color:var(--mute);font-size:15.5px}
+.k4-list strong{color:var(--fg);font-weight:600}
+@media (max-width:760px){.vf{aspect-ratio:auto;min-height:520px}.vf img{right:-18%;height:74%}.vf::after{background:linear-gradient(0deg,#03090c 26%,transparent 70%)}.vf .say{max-width:none;right:22px;bottom:52px}.vf .foc{right:30%;top:16%}.k4-row{grid-template-columns:1fr}}
+
+/* plataforma */
+.plat{background:linear-gradient(var(--ink-2),var(--ink))}
+.app-stage{perspective:1600px;margin-top:48px}
+.app{background:#0a1b23;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 60px 120px -50px #000,0 0 0 1px #ffffff08 inset;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.app-top{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid var(--line);background:#081820}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.url{flex:1;min-width:0;font:11.5px var(--mono);color:var(--mute);background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo{font:10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--brass);border:1px solid color-mix(in srgb,var(--brass) 50%,transparent);padding:4px 8px;border-radius:5px;white-space:nowrap}
+.app-body{display:grid;grid-template-columns:210px minmax(0,1fr);min-height:540px}
+.side{border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px;background:#091a22}
+.side .me{display:flex;align-items:center;gap:10px;padding:6px 8px 16px;font-size:13px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.side .me i{width:32px;height:32px;border-radius:50%;background:var(--ink-3);display:grid;place-items:center;font:600 12px var(--mono);font-style:normal;color:var(--aqua);flex:none}
+.side .me small{display:block;color:var(--mute);font:10.5px var(--mono)}
+.tab{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--mute);cursor:pointer;transition:.2s}
+.tab svg{width:17px;height:17px;flex:none}
+.tab:hover{color:var(--fg);background:#ffffff08}
+.tab[aria-selected="true"]{background:color-mix(in srgb,var(--aqua) 14%,transparent);color:var(--fg)}
+.tab em{margin-left:auto;font:normal 10.5px var(--mono);background:var(--ink-3);padding:2px 6px;border-radius:99px}
+.prog-box{margin-top:auto;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:11px var(--mono);color:var(--mute)}
+.prog-box b{display:block;font:400 28px var(--display);color:var(--fg);font-variant-numeric:tabular-nums}
+.meter{height:4px;background:var(--ink-3);border-radius:9px;margin-top:8px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--brass));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.pane{padding:20px;min-width:0}
+.pane[hidden]{display:none}
+.pane.in{animation:pane .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes pane{from{opacity:0;transform:translateY(10px)}}
+.watch{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px}
+.player{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:radial-gradient(120% 100% at 75% 30%,#1d4757,#071820 65%)}
+.player img{position:absolute;right:2%;bottom:0;height:100%;width:auto;max-width:none}
+.player .ttl{position:absolute;left:18px;top:16px;right:45%;font:400 clamp(16px,2vw,24px)/1.15 var(--display)}
+.player .ttl small{display:block;font:500 10.5px var(--mono);letter-spacing:.12em;color:var(--aqua);margin-bottom:8px;text-transform:uppercase}
+.play{all:unset;position:absolute;left:18px;bottom:40px;width:54px;height:54px;border-radius:50%;background:var(--brass);color:var(--brass-ink);display:grid;place-items:center;cursor:pointer;transition:transform .2s}
+.play:hover{transform:scale(1.08)}
+.play svg{width:20px;height:20px}
+.scrub{position:absolute;left:18px;right:18px;bottom:16px;height:4px;background:#ffffff30;border-radius:9px;overflow:hidden}
+.scrub i{display:block;height:100%;width:0;background:var(--brass)}
+.player.playing .scrub i{animation:scrub 24s linear forwards}
+@keyframes scrub{to{width:100%}}
+.q4{position:absolute;right:12px;top:12px;font:600 10.5px var(--mono);background:#000a;padding:4px 7px;border-radius:5px;letter-spacing:.08em}
+.under{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:14px}
+.under p{font-size:13.5px;color:var(--mute);min-width:0}
+.lessons{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;max-height:420px;overflow:auto}
+.lessons .hd{font:500 10.5px var(--mono);letter-spacing:.12em;color:var(--mute);text-transform:uppercase;padding:6px 10px}
+.les{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px;border-radius:8px;font-size:13.5px;cursor:pointer;color:color-mix(in srgb,var(--fg) 85%,transparent)}
+.les:hover{background:#ffffff08}
+.les[aria-current="true"]{background:var(--ink-3)}
+.les .ck{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:10px;color:transparent}
+.les.done .ck{background:var(--ok);border-color:var(--ok);color:#06210f}
+.les time{font:11px var(--mono);color:var(--mute)}
+.files{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.file{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:10px;font-size:13.5px}
+.file .ty{width:44px;height:52px;border-radius:6px;background:var(--paper);color:var(--paper-ink);display:grid;place-items:end center;font:600 10px var(--mono);padding-bottom:6px;clip-path:polygon(0 0,70% 0,100% 22%,100% 100%,0 100%)}
+.file small{display:block;color:var(--mute);font:11px var(--mono)}
+.mini{all:unset;font:500 11.5px var(--mono);padding:7px 10px;border:1px solid var(--line);border-radius:7px;cursor:pointer;color:var(--aqua);white-space:nowrap}
+.mini:hover{background:#ffffff0a}
+.ask{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;margin-bottom:16px}
+.ask input,.join input,.join select{font:15px var(--body);color:var(--fg);background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:13px 14px;width:100%;min-width:0}
+.ask input::placeholder,.join input::placeholder{color:color-mix(in srgb,var(--mute) 70%,transparent)}
+.threads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.th{border:1px solid var(--line);border-radius:12px;padding:16px;animation:pane .4s}
+.th .who{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font:11.5px var(--mono);color:var(--mute);margin-bottom:8px}
+.th .who b{color:var(--fg);font-weight:500}
+.th .m{font:10.5px var(--mono);padding:2px 7px;border-radius:99px;background:var(--ink-3);color:var(--aqua)}
+.th h4{margin:0;font:600 15.5px/1.4 var(--body)}
+.ans{margin-top:12px;padding:12px 14px;border-radius:10px;background:color-mix(in srgb,var(--brass) 9%,transparent);border:1px solid color-mix(in srgb,var(--brass) 30%,transparent);font-size:14px;color:color-mix(in srgb,var(--fg) 90%,transparent)}
+.ans b{display:block;font:500 11px var(--mono);letter-spacing:.08em;color:var(--brass);margin-bottom:5px;text-transform:uppercase}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));translate:-50% 20px;background:var(--paper);color:var(--paper-ink);padding:12px 18px;border-radius:99px;font:500 13.5px var(--body);opacity:0;pointer-events:none;transition:.3s;z-index:80;box-shadow:0 20px 50px -10px #000;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;translate:-50% 0}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:44px}
+.feat h3{font-size:24px;margin-bottom:8px}
+.feat p{color:var(--mute);font-size:15px}
+@media (max-width:900px){.app-body{grid-template-columns:1fr}.side{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--line);padding:10px}.side .me,.prog-box{display:none}.tab em{display:none}.watch{grid-template-columns:1fr}.files{grid-template-columns:1fr}.feat{grid-template-columns:1fr}.app{transform:none}}
+
+/* público */
+.aud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:48px;border-top:1px solid var(--line)}
+.aud div{padding:26px 20px 8px 0;border-right:1px solid var(--line);padding-left:20px}
+.aud div:first-child{padding-left:0}.aud div:last-child{border-right:0}
+.aud h3{font-size:24px;margin-bottom:10px}
+.aud p{color:var(--mute);font-size:15px}
+@media (max-width:860px){.aud{grid-template-columns:1fr}.aud div{padding-left:0;border-right:0;border-bottom:1px solid var(--line);padding-bottom:22px}}
+
+/* lista */
+.cta{background:var(--paper);color:var(--paper-ink);overflow:hidden}
+.cta .eyebrow{color:#1c6d63}.cta .eyebrow::before{background:#1c6d63}
+.cta .h2 em{color:#8a6414}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,6vw,80px);align-items:center}
+.cta p.lead{color:#4a5c61}
+.join{background:var(--ink);color:var(--fg);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 40px 80px -40px #0009}
+.join label{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;gap:7px}
+.join .btn{justify-content:center;margin-top:6px}
+.join small{color:var(--mute);font-size:12.5px}
+.done-msg{font:400 26px/1.2 var(--display)}
+@media (max-width:860px){.cta-grid{grid-template-columns:1fr}}
+
+footer.ft{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+footer.ft .w{display:flex;flex-direction:column;gap:14px}
+footer.ft a{color:var(--aqua);text-underline-offset:3px}
+footer.ft .src{font:11.5px/1.9 var(--mono)}
+
+/* entrada ao rolar (só com JS) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+
+<div id="prog" aria-hidden="true"></div>
+
+<div class="nav"><div class="w">
+  <a class="brand" href="#topo" aria-label="REURB de Papel Passado, início">
+    <svg class="seal" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18.5" stroke="#dcb56a" stroke-width="1"/><circle cx="20" cy="20" r="14.5" stroke="#dcb56a" stroke-width=".6" stroke-dasharray="1.5 2.2"/><path d="M12 25V15l8-4 8 4v10M12 25h16M16 25v-6h8v6" stroke="#74d6c8" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <span><b>REURB de Papel Passado</b><small>com Hervison Soares</small></span>
+  </a>
+  <nav aria-label="Seções"><a href="#caminho">O caminho</a><a href="#modulos">Módulos</a><a href="#professor">O professor</a><a href="#plataforma">Plataforma</a></nav>
+  <a class="btn pri sm mag" href="#lista">Entrar na lista</a>
+</div></div>
+
+<section class="hero" id="topo">
+  <canvas id="lots" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="hero-txt">
+      <p class="eyebrow fade">Curso de Regularização Fundiária Urbana · Lei 13.465/2017</p>
+      <h1><span class="ln"><span>Da ocupação</span></span><span class="ln"><span>à <em>matrícula</em>.</span></span></h1>
+      <p class="lead fade">A REURB ensinada por quem está do outro lado do balcão: o registrador que recebe a CRF, qualifica, abre a matrícula e entrega o título na mão do morador.</p>
+      <div class="hero-cta fade">
+        <a class="btn pri mag" href="#lista">Quero entrar na turma fundadora <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn gho" href="#plataforma">Ver a plataforma por dentro</a>
+      </div>
+      <div class="chips fade"><span class="rec"><i></i>Gravado em 4K</span><span><i></i>Aulas, materiais e comunidade</span><span><i></i>Do requerimento ao registro</span></div>
+    </div>
+    <div class="portrait" id="portrait">
+      <div class="halo"></div>
+      <div class="ring"><svg viewBox="0 0 200 200" fill="none" aria-hidden="true"><circle cx="100" cy="100" r="98" stroke="#dcb56a" stroke-width=".4" stroke-dasharray="1 5"/><circle cx="100" cy="100" r="88" stroke="#74d6c8" stroke-width=".3"/><path id="rp" d="M100 100m-93 0a93 93 0 1 1 186 0a93 93 0 1 1-186 0"/><text font-family="IBM Plex Mono,monospace" font-size="5.2" letter-spacing="2.4" fill="#93a9ad"><textPath href="#rp">REGISTRO DE IMÓVEIS · REGULARIZAÇÃO FUNDIÁRIA URBANA · CRF · LEGITIMAÇÃO FUNDIÁRIA · MATRÍCULA · </textPath></text></svg></div>
+      <img src="img/hervison.webp" width="1280" height="1280" alt="Hervison Barbosa Soares, registrador de imóveis, de terno cinza e gravata verde, sorrindo">
+      <div class="tag t1"><b>Hervison Soares</b>Oficial de Registro de Imóveis<br>Barra/BA · Diretor do IBRF</div>
+      <div class="tag t2"><b><span class="ok">●</span> CRF registrada</b>Matrículas abertas: <span id="matc">0</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-label="Instituições na trajetória de Hervison Soares">
+  <div class="marq-in" id="marq"><span>IBRF · Diretoria de Registro de Imóveis</span><span>ARIBA · Conselho Consultivo</span><span>TJBA · Núcleo de Regularização Fundiária</span><span>Projeto Área Legal · Corregedoria do Interior</span><span>Defensoria Pública da Bahia · ESDEP</span><span>Ministério Público da Bahia</span><span>Faculdade Baiana de Direito</span><span>Congresso Nacional de REURB</span></div>
+</div>
+
+<section id="numeros">
+  <div class="w">
+    <p class="eyebrow rv">Por que aprender com ele</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:17ch">Quem ensina é quem <em>assina o registro</em>.</h2>
+    <p class="lead rv" style="margin-top:22px">A maioria dos cursos de REURB para na CRF. Hervison começa onde eles terminam: na serventia, onde o processo vira matrícula ou vira nota devolutiva.</p>
+    <div class="nums">
+      <div class="num rv"><b data-to="9">9</b><p>municípios baianos percorridos explicando a REURB no Projeto Área Legal, em 2019</p><cite>Corregedoria do Interior · TJBA</cite></div>
+      <div class="num rv" style="--d:.08s"><b data-to="1015">1.015</b><p>títulos de legitimação fundiária em um único núcleo de REURB-S, em Xique-Xique</p><cite>Núcleo Raul Teixeira Braga · 2021</cite></div>
+      <div class="num rv" style="--d:.16s"><b data-to="4">4</b><p>serventias de registro de imóveis sob sua responsabilidade no oeste da Bahia</p><cite>Barra, Xique-Xique, Gentio do Ouro, Buritirama</cite></div>
+      <div class="num rv" style="--d:.24s"><b data-to="2">2</b><p>edições do Congresso Nacional de Regularização Fundiária como palestrante</p><cite>IBRF · São Paulo, 2021 e 2024</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="path" id="caminho">
+  <div class="w">
+    <p class="eyebrow rv">O caminho · art. 28 da Lei 13.465/2017</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:18ch">Sete fases. O curso segue a ordem <em>da lei</em>.</h2>
+    <p class="lead rv" style="margin-top:22px">Role e acompanhe a matrícula sendo preenchida. Cada fase da REURB é um bloco do curso, com o que o cartório espera encontrar quando o processo chegar.</p>
+    <div class="path-grid">
+      <ol class="steps" id="steps">
+        <li class="step on" data-s="1"><span class="n">I</span><div><code>Fase I · arts. 14 e 28</code><h3>Requerimento dos legitimados</h3><p>Quem pode pedir, como instruir o pedido e por que a classificação em REURB-S ou REURB-E decide quem paga o quê.</p></div></li>
+        <li class="step" data-s="2"><span class="n">II</span><div><code>Fase II · art. 31</code><h3>Processamento e notificações</h3><p>Buscas na serventia, titulares de domínio e confrontantes notificados, 30 dias para impugnar. Onde nascem as nulidades.</p></div></li>
+        <li class="step" data-s="3"><span class="n">III</span><div><code>Fase III · arts. 35 e 36</code><h3>Projeto de regularização</h3><p>Levantamento georreferenciado, projeto urbanístico, memoriais e estudos técnicos. O que precisa bater com a matrícula de origem.</p></div></li>
+        <li class="step" data-s="4"><span class="n">IV</span><div><code>Fase IV</code><h3>Saneamento do processo</h3><p>O checklist de quem vai qualificar o título: pendências que parecem pequenas na prefeitura e travam tudo no cartório.</p></div></li>
+        <li class="step" data-s="5"><span class="n">V</span><div><code>Fase V · art. 40</code><h3>Decisão da autoridade</h3><p>O ato que aprova o projeto, indica as intervenções e reconhece o direito de cada ocupante. Modelos comentados.</p></div></li>
+        <li class="step" data-s="6"><span class="n">VI</span><div><code>Fase VI · art. 41</code><h3>Expedição da CRF</h3><p>A Certidão de Regularização Fundiária item por item, com a listagem de ocupantes do jeito que o registro precisa.</p></div></li>
+        <li class="step" data-s="7"><span class="n">VII</span><div><code>Fase VII · arts. 42 a 54</code><h3>Registro e entrega do título</h3><p>Prenotação, qualificação, abertura das matrículas e registro dos direitos reais. O dia em que a casa passa a ter papel passado.</p></div></li>
+      </ol>
+      <div class="doc-wrap">
+        <div class="doc" id="doc" data-s="1" aria-hidden="true">
+          <header><span>Registro de Imóveis</span><span>Livro 2 · Registro Geral</span></header>
+          <div class="mat">Matrícula nº 12.487</div>
+          <dl>
+            <div class="row r1"><dt>Protocolo</dt><dd>Requerimento. Legitimado: Município.</dd></div>
+            <div class="row r2"><dt>Notif.</dt><dd>Confrontantes notificados. 30 dias.</dd></div>
+            <div class="row r3"><dt>Projeto</dt><dd>Planta e memorial georreferenciados.</dd></div>
+            <div class="row r4"><dt>Saneam.</dt><dd>Sem pendências. Autos conclusos.</dd></div>
+            <div class="row r5"><dt>Decisão</dt><dd>Projeto aprovado. REURB-S.</dd></div>
+            <div class="row r6"><dt>CRF</dt><dd>Expedida, com lista de ocupantes.</dd></div>
+            <div class="row r7"><dt>R-1</dt><dd>Legitimação fundiária. Lote 14, Qd. C.</dd></div>
+            <div class="row r7"><dt>Emol.</dt><dd>Isento (REURB-S, art. 13, §1º).</dd></div>
+          </dl>
+          <div class="stamp s-crf">CRF<small>art. 41</small></div>
+          <div class="stamp s-reg">Registrado<small>título entregue</small></div>
+        </div>
+        <p class="doc-cap">Matrícula ilustrativa, preenchida conforme você avança</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="modulos">
+  <div class="w">
+    <p class="eyebrow rv">Grade do curso</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:20ch">Nove módulos, do conceito ao <em>caso real</em>.</h2>
+    <div class="mods" id="mods">
+      <article class="mod rv"><span class="k">Módulo 01</span><h3>O que a REURB realmente é</h3><p>Conceito, núcleo urbano informal e a lógica da Lei 13.465 e do Decreto 9.310.</p><ul><li>REURB-S × REURB-E</li><li>Núcleo consolidado</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 02</span><h3>Legitimados e instauração</h3><p>Quem requer, como o Município instaura e classifica o procedimento.</p><ul><li>Art. 14, legitimados</li><li>Modelo de requerimento</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 03</span><h3>Buscas e notificações</h3><p>O levantamento na serventia e a notificação de titulares e confrontantes.</p><ul><li>Art. 31, prazo de 30 dias</li><li>Impugnação e mediação</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 04</span><h3>O projeto de regularização</h3><p>Planta, memorial, estudo técnico ambiental e de risco, cronograma de obras.</p><ul><li>Arts. 35 e 36</li><li>Áreas de preservação</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 05</span><h3>Instrumentos jurídicos</h3><p>Quando usar legitimação fundiária, legitimação de posse ou demarcação urbanística.</p><ul><li>Arts. 15, 19, 23 e 25</li><li>Marco de 22/12/2016</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 06</span><h3>A CRF sem devolução</h3><p>Conteúdo mínimo, listagem de ocupantes e os erros que mais geram exigência.</p><ul><li>Art. 41</li><li>Checklist do registrador</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 07</span><h3>O registro por dentro</h3><p>Prenotação, qualificação, matrícula-mãe, matrículas dos lotes e gratuidade.</p><ul><li>Arts. 42 a 54</li><li>Prazo registral de 60 dias</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 08</span><h3>Situações especiais</h3><p>Conjuntos habitacionais, direito de laje, condomínio de lotes e urbano simples.</p><ul><li>Núcleos anteriores a 1979</li><li>Imóveis públicos</li></ul></article>
+      <article class="mod rv"><span class="k">Módulo 09</span><h3>Bastidores de Barra e Xique-Xique</h3><p>Dois programas municipais do primeiro ofício à entrega dos títulos, documento por documento.</p><ul><li>Residência Legal</li><li>Minha Casa de Verdade</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="professor" style="padding-top:0">
+  <div class="w">
+    <div class="prof-grid">
+      <figure class="card-ph rv" style="margin:0">
+        <img src="img/hervison.webp" width="1280" height="1280" loading="lazy" alt="Retrato de Hervison Barbosa Soares">
+        <figcaption><b>Hervison Barbosa Soares</b>Oficial Titular do Registro de Imóveis de Barra/BA</figcaption>
+      </figure>
+      <div class="bio">
+        <p class="eyebrow rv">O professor</p>
+        <h2 class="h2 rv">Registrador no sertão, voz da REURB <em>no país</em>.</h2>
+        <p class="rv">Hervison é Oficial Titular do Cartório de Registro de Imóveis de Barra, no oeste da Bahia, e responde pelas serventias de Xique-Xique, Gentio do Ouro e Buritirama. É de lá, às margens do São Francisco, que ele tem tirado a REURB do papel: núcleo por núcleo, matrícula por matrícula.</p>
+        <p class="rv">Formado em Direito pela Universidade Federal de Alagoas e doutorando em Direito pela UNLZ (Argentina), é Diretor de Registro de Imóveis do Instituto Brasileiro de Regularização Fundiária (IBRF), Conselheiro Consultivo da ARIBA e integrante do Núcleo de Regularização Fundiária do Tribunal de Justiça da Bahia.</p>
+        <ul class="creds rv"><li>Professor de pós · Faculdade Baiana de Direito</li><li>Formação do MP/BA</li><li>Formação da DPE/BA</li><li>Diretor de RI · IBRF</li><li>Conselheiro · ARIBA</li><li>Núcleo de REURB · TJBA</li></ul>
+        <ol class="tl">
+          <li class="rv"><time>2019</time><div><b>Projeto Área Legal, da Corregedoria do TJBA</b><span>Leva a palestra "REURB: conceito, modalidades, implicações legais e sua importância para o desenvolvimento econômico" a Conceição do Coité, Amargosa, Queimadas, Una, Prado, Santa Cruz Cabrália, Conde, Ribeira do Pombal e Sento Sé. <a href="https://www.tjba.jus.br/corregedoria/projeto-area-legal-promoveu-debate-sobre-regularizacao-fundiaria-em-prado-e-santa-cruz-cabralia-na-sexta-feira-13-a-acao-acontece-em-conde/" target="_blank" rel="noopener">fonte ↗</a></span></div></li>
+          <li class="rv"><time>out 2021</time><div><b>1.015 títulos em Xique-Xique</b><span>Começa a entrega dos títulos de legitimação fundiária do núcleo Bairro Habitacional Raul Teixeira Braga, em REURB-S: 252 famílias no primeiro dia.</span></div></li>
+          <li class="rv"><time>out 2021</time><div><b>I Congresso Nacional de Regularização Fundiária</b><span>Palestrante em São Paulo, ao lado de 30 especialistas do país. <a href="https://www.ibrf.org.br/congressos/congresso-2021" target="_blank" rel="noopener">fonte ↗</a></span></div></li>
+          <li class="rv"><time>dez 2022</time><div><b>Barra e Xique-Xique entregam títulos na mesma semana</b><span>Bairro Nova Iguira (Xique-Xique) e Bairro Pecuária (Barra): os primeiros núcleos informais consolidados regularizados em cada município. <a href="https://www.irib.org.br/noticias/detalhes/programa-residencia-legal-sua-casa-de-papel-passado-realizada-primeira-entrega-de-titulos-de-propriedade" target="_blank" rel="noopener">fonte ↗</a></span></div></li>
+          <li class="rv"><time>2024</time><div><b>IV Congresso Nacional de REURB</b><span>Volta ao palco do IBRF, agora como Diretor de Registro de Imóveis do instituto. <a href="https://www.ibrf.org.br/congressos/congresso-2024" target="_blank" rel="noopener">fonte ↗</a></span></div></li>
+        </ol>
+        <blockquote class="quote rv"><p>"Nós levamos o progresso."</p><footer>Hervison Soares, em Prado/BA, ao portal da Corregedoria do TJBA · 2019</footer></blockquote>
+        <blockquote class="quote rv"><p>"Você é um deles, Hervison; você é imprescindível!"</p><footer>Des. Salomão Resedá, citando Brecht na entrega dos títulos em Barra · dez 2022 (IRIB)</footer></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k4" id="gravacao">
+  <div class="w">
+    <p class="eyebrow rv">Produção</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:18ch">Gravado em <em>4K</em>, para ler o documento na tela.</h2>
+    <div class="vf rv" id="vf">
+      <img src="img/hervison.webp" width="1280" height="1280" loading="lazy" alt="">
+      <div class="hud" aria-hidden="true"><i class="c tl_"></i><i class="c tr_"></i><i class="c bl_"></i><i class="c br_"></i><span class="rec"><i style="background:#ff5d5d;animation:blink 1.4s steps(2) infinite"></i>REC</span><span class="tc" id="tc">00:00:00:00</span><span class="spec">4K UHD · 3840 × 2160 · 24 fps</span><i class="foc"></i></div>
+      <div class="say"><h3>Cada aula, um plano de cinema.</h3><p>Estúdio, luz e som de produção profissional. O professor em quadro, a matrícula em tela cheia.</p></div>
+    </div>
+    <div class="k4-row">
+      <div class="cmp rv" id="cmp">
+        <div class="lay"><b>R-1/12.487</b> · LEGITIMAÇÃO FUNDIÁRIA. Nos termos da Certidão de Regularização Fundiária expedida pelo Município, com fundamento no art. 23 da Lei nº 13.465/2017, o imóvel objeto desta matrícula, Lote 14 da Quadra C, com 187,50 m², foi atribuído em propriedade plena ao ocupante constante da listagem. Emolumentos: isento.</div>
+        <div class="lay lo" aria-hidden="true"><b>R-1/12.487</b> · LEGITIMAÇÃO FUNDIÁRIA. Nos termos da Certidão de Regularização Fundiária expedida pelo Município, com fundamento no art. 23 da Lei nº 13.465/2017, o imóvel objeto desta matrícula, Lote 14 da Quadra C, com 187,50 m², foi atribuído em propriedade plena ao ocupante constante da listagem. Emolumentos: isento.</div>
+        <span class="lb a">HD comum</span><span class="lb b">4K</span><div class="bar"></div>
+        <input id="cmpr" type="range" min="4" max="96" value="50" aria-label="Comparar nitidez: HD comum e 4K">
+      </div>
+      <ul class="k4-list rv">
+        <li><b>IMAGEM</b><span><strong>Texto de matrícula legível.</strong> Arraste ao lado: em 4K, plantas, CRFs e registros aparecem com nitidez de leitura.</span></li>
+        <li><b>TELA</b><span><strong>Documento e professor juntos.</strong> Cada modelo é aberto e comentado linha por linha, sem slide genérico.</span></li>
+        <li><b>RITMO</b><span><strong>Aulas curtas, por fase.</strong> Você assiste exatamente ao trecho do procedimento em que está trabalhando hoje.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plat" id="plataforma">
+  <div class="w">
+    <p class="eyebrow rv">A plataforma</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:19ch">Aula, modelo e resposta <em>no mesmo lugar</em>.</h2>
+    <p class="lead rv" style="margin-top:22px">Uma área do aluno própria, com a cara do curso. Clique nas abas, troque de aula, marque como concluída, mande uma dúvida: esta prévia funciona.</p>
+    <div class="app-stage rv"><div class="app" id="app">
+      <div class="app-top"><span class="dots"><i></i><i></i><i></i></span><span class="url">aluno.reurbdepapelpassado.com.br</span><span class="demo">Prévia · dados ilustrativos</span></div>
+      <div class="app-body">
+        <div class="side" role="tablist" aria-label="Áreas da plataforma">
+          <div class="me"><i>VC</i><span>Você<small>Turma fundadora</small></span></div>
+          <button class="tab" role="tab" id="tab-aulas" aria-selected="true" aria-controls="p-aulas"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="M8.5 7.5v5l4-2.5z" fill="currentColor"/></svg>Aulas<em>72</em></button>
+          <button class="tab" role="tab" id="tab-mat" aria-selected="false" aria-controls="p-mat"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2.5h7l3.5 3.5v11.500h-10.500z"/><path d="M7.500 10h5M7.500 13h5"/></svg>Materiais<em>6</em></button>
+          <button class="tab" role="tab" id="tab-com" aria-selected="false" aria-controls="p-com"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4.500h14v9h-8l-4 3v-3h-2z"/></svg>Comunidade<em id="thc">3</em></button>
+          <div class="prog-box">Seu progresso<b id="pct">0%</b><div class="meter"><i id="pbar"></i></div></div>
+        </div>
+        <div>
+          <div class="pane" id="p-aulas" role="tabpanel" aria-labelledby="tab-aulas">
+            <div class="watch">
+              <div>
+                <div class="player" id="player">
+                  <img src="img/hervison.webp" width="1280" height="1280" loading="lazy" alt="">
+                  <div class="ttl"><small id="ltag">Módulo 07 · Aula 1</small><span id="ltitle">A CRF chegou ao cartório. E agora?</span></div>
+                  <span class="q4">4K</span>
+                  <button class="play" id="play" aria-label="Reproduzir prévia"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3.500v13l11-6.500z"/></svg></button>
+                  <div class="scrub"><i></i></div>
+                </div>
+                <div class="under"><p id="ldesc">Prenotação, prazos e a ordem em que o registrador lê o seu processo.</p><button class="btn pri sm" id="mark">Marcar como concluída</button></div>
+              </div>
+              <ul class="lessons" id="lessons" aria-label="Aulas do módulo"></ul>
+            </div>
+          </div>
+          <div class="pane" id="p-mat" role="tabpanel" aria-labelledby="tab-mat" hidden>
+            <div class="files" id="files"></div>
+          </div>
+          <div class="pane" id="p-com" role="tabpanel" aria-labelledby="tab-com" hidden>
+            <form class="ask" id="ask"><input id="askq" type="text" maxlength="160" placeholder="Escreva sua dúvida sobre a aula ou sobre um caso seu" aria-label="Sua dúvida"><button class="btn pri sm" type="submit">Publicar</button></form>
+            <ul class="threads" id="threads"></ul>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="feat">
+      <div class="rv"><h3>Aulas</h3><p>Organizadas pelas sete fases da lei, com progresso salvo e retomada de onde você parou, no computador ou no celular.</p></div>
+      <div class="rv" style="--d:.08s"><h3>Materiais</h3><p>Modelos editáveis de requerimento, decreto, notificação e CRF, mais os checklists de qualificação usados na serventia.</p></div>
+      <div class="rv" style="--d:.16s"><h3>Comunidade</h3><p>Dúvidas por aula e por caso concreto. As respostas ficam indexadas por módulo, para a próxima turma já encontrar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="publico">
+  <div class="w">
+    <p class="eyebrow rv">Para quem é</p>
+    <h2 class="h2 rv" style="margin-top:18px;max-width:20ch">Todo mundo que senta à mesa <em>de uma REURB</em>.</h2>
+    <div class="aud">
+      <div class="rv"><h3>Cartórios</h3><p>Registradores, substitutos e escreventes que vão qualificar CRFs e abrir matrículas em volume.</p></div>
+      <div class="rv" style="--d:.06s"><h3>Municípios</h3><p>Procuradores, secretários e comissões de regularização que conduzem o processo administrativo.</p></div>
+      <div class="rv" style="--d:.12s"><h3>Advocacia</h3><p>Quem assessora associações, loteadores, moradores e prefeituras e quer entregar o registro, não só o protocolo.</p></div>
+      <div class="rv" style="--d:.18s"><h3>Área técnica</h3><p>Engenheiros, agrimensores, arquitetos e empresas de regularização que assinam plantas e memoriais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="lista">
+  <div class="w cta-grid">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <p class="eyebrow">Turma fundadora</p>
+      <h2 class="h2">A próxima matrícula aberta pode ter <em>a sua assinatura</em>.</h2>
+      <p class="lead">Entre na lista e receba primeiro a data de abertura, a grade completa e a condição da turma fundadora.</p>
+    </div>
+    <form class="join" id="join">
+      <label for="jn">Nome<input id="jn" name="nome" type="text" autocomplete="name" required placeholder="Como quer ser chamado"></label>
+      <label for="je">E-mail<input id="je" name="email" type="email" autocomplete="email" required placeholder="voce@exemplo.com.br"></label>
+      <label for="jp">Onde você atua<select id="jp" name="perfil"><option>Cartório de Registro de Imóveis</option><option>Prefeitura ou Procuradoria</option><option>Advocacia</option><option>Engenharia, agrimensura ou arquitetura</option><option>Defensoria ou Ministério Público</option><option>Outro</option></select></label>
+      <button class="btn pri mag" type="submit">Entrar na lista de espera</button>
+      <small>Sem spam. Você recebe só os avisos do curso.</small>
+    </form>
+  </div>
+</section>
+
+<footer class="ft"><div class="w">
+  <span>REURB de Papel Passado · com Hervison Soares. Proposta de site e plataforma: nome do curso, grade e telas são um esboço para aprovação.</span>
+  <span class="src">Trajetória conforme fontes públicas: <a href="https://www.ibrf.org.br/congressos/congresso-2021" target="_blank" rel="noopener">IBRF</a> · <a href="https://www.tjba.jus.br/portal/area-legal-amargosa-e-a-4a-comarca-a-receber-projeto-da-cci/" target="_blank" rel="noopener">TJBA</a> · <a href="https://www.irib.org.br/noticias/detalhes/programa-residencia-legal-sua-casa-de-papel-passado-realizada-primeira-entrega-de-titulos-de-propriedade" target="_blank" rel="noopener">IRIB</a> · <a href="https://xiquexique.ba.gov.br/reurb-prefeitura-entrega-70-titulos-de-regularizacao-fundiaria-em-nova-iguira-mais-150-ja-estao-registrados-em-cartorio" target="_blank" rel="noopener">Prefeitura de Xique-Xique</a>. Retrato: divulgação IBRF.</span>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+var d=document, root=d.documentElement, $=function(s,c){return (c||d).querySelector(s)}, $$=function(s,c){return [].slice.call((c||d).querySelectorAll(s))};
+var calm=matchMedia('(prefers-reduced-motion:reduce)').matches, fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+root.classList.add('js');
+function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('on')},2600)}
+
+/* entrada ao rolar + contadores */
+var fmt=function(n){return Math.round(n).toLocaleString('pt-BR')};
+function count(el){var to=+el.dataset.to,t0=performance.now(),dur=1400;(function f(t){var p=Math.min(1,(t-t0)/dur);el.textContent=fmt(to*(1-Math.pow(1-p,4)));if(p<1)requestAnimationFrame(f)})(t0)}
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');var b=$('b[data-to]',e.target);if(b&&!calm)count(b);io.unobserve(e.target)})},{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(function(el){io.observe(el)});
+  setTimeout(function(){$$('.rv').forEach(function(el){if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')})},1200);
+}else $$('.rv').forEach(function(el){el.classList.add('in')});
+
+/* barra de progresso */
+var prog=$('#prog');addEventListener('scroll',function(){var h=root.scrollHeight-innerHeight;prog.style.transform='scaleX('+(h>0?scrollY/h:0)+')'},{passive:true});
+
+/* faixa contínua */
+var mq=$('#marq');mq.innerHTML+=mq.innerHTML;
+
+/* botões magnéticos, brilho nos módulos, parallax do retrato */
+if(fine&&!calm){
+  $$('.mag').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5)*14+'px');b.style.setProperty('--my',((e.clientY-r.top)/r.height-.5)*10+'px')});b.addEventListener('pointerleave',function(){b.style.setProperty('--mx','0px');b.style.setProperty('--my','0px')})});
+  $('#mods').addEventListener('pointermove',function(e){var m=e.target.closest('.mod');if(!m)return;var r=m.getBoundingClientRect();m.style.setProperty('--gx',e.clientX-r.left+'px');m.style.setProperty('--gy',e.clientY-r.top+'px')});
+  var por=$('#portrait'),vf=$('#vf');
+  addEventListener('pointermove',function(e){var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;por.style.setProperty('--px',x*-16+'px');por.style.setProperty('--py',y*-10+'px');vf.style.setProperty('--vx',x*-26+'px')},{passive:true});
+  var app=$('#app'),st=app.parentNode;
+  st.addEventListener('pointermove',function(e){var r=st.getBoundingClientRect();app.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*3+'deg');app.style.setProperty('--rx',((e.clientY-r.top)/r.height-.5)*-2.4+'deg')});
+  st.addEventListener('pointerleave',function(){app.style.setProperty('--rx','0deg');app.style.setProperty('--ry','0deg')});
+}
+
+/* herói: lotes irregulares que se organizam em quadras e ganham matrícula */
+(function(){
+  var cv=$('#lots'),cx=cv.getContext('2d'),lots=[],W=0,H=0,t0=0,reg=0,raf=0,matc=$('#matc'),seed=7;
+  function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  function build(){
+    var r=cv.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    lots=[];seed=7;reg=0;var lw=W<700?44:58,lh=lw*.72,gx=5,gy=5,bc=4,br=2,street=26,x,y=-10,row=0;
+    while(y<H+lh){x=W<700?-10:W*.14;var col=0;
+      while(x<W+lw){var cxx=x+lw/2,cyy=y+lh/2,a=(rnd()-.5)*1.5,s=.55+rnd()*.8,ox=(rnd()-.5)*150,oy=(rnd()-.5)*120,q=[];
+        for(var i=0;i<4;i++){var px=(i==0||i==3?-1:1)*lw/2,py=(i<2?-1:1)*lh/2,jx=px*s*(.7+rnd()*.6),jy=py*s*(.7+rnd()*.6);
+          q.push([cxx+px,cyy+py,cxx+ox+jx*Math.cos(a)-jy*Math.sin(a),cyy+oy+jx*Math.sin(a)+jy*Math.cos(a)])}
+        lots.push({q:q,cx:cxx,cy:cyy,d:rnd()*.5,r:0,ord:rnd(),n:0});
+        x+=lw+gx;col++;if(col%bc==0)x+=street}
+      y+=lh+gy;row++;if(row%br==0)y+=street}
+    lots.slice().sort(function(a,b){return a.ord-b.ord}).forEach(function(l,i){l.ord=i});
+  }
+  function ease(p){return p<0?0:p>1?1:1-Math.pow(1-p,4)}
+  function draw(now){
+    if(!t0)t0=now;var T=calm?99:(now-t0)/1000;cx.clearRect(0,0,W,H);
+    var k=Math.floor(Math.max(0,T-3)*10);
+    for(var i=0;i<lots.length;i++){var l=lots[i],p=ease((T-.5-l.d)/2.2);
+      if(l.ord<k&&l.ord%3==0){l.r=Math.min(1,l.r+.04)}
+      cx.beginPath();for(var j=0;j<4;j++){var c=l.q[j],X=c[2]+(c[0]-c[2])*p,Y=c[3]+(c[1]-c[3])*p;j?cx.lineTo(X,Y):cx.moveTo(X,Y)}cx.closePath();
+      if(l.r>0){cx.fillStyle='rgba(220,181,106,'+(.16*l.r)+')';cx.fill()}
+      cx.strokeStyle=l.r>0?'rgba(220,181,106,'+(.25+.5*l.r)+')':'rgba(116,214,200,'+(.14+.2*p)+')';cx.lineWidth=1;cx.stroke();
+      if(l.r>.5){cx.fillStyle='rgba(220,181,106,'+l.r+')';cx.beginPath();cx.arc(l.cx,l.cy,2,0,6.3);cx.fill()}}
+    var n=0;for(i=0;i<lots.length;i++)if(lots[i].r>=1)n++;
+    if(n!==reg){reg=n;matc.textContent=fmt(n)}
+    if(!calm&&(T<5||n<Math.floor(lots.length/3)))raf=requestAnimationFrame(draw);else raf=0;
+  }
+  function start(){cancelAnimationFrame(raf);build();t0=0;if(calm){lots.forEach(function(l){if(l.ord%3==0)l.r=1})}raf=requestAnimationFrame(draw)}
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(Math.abs(cv.getBoundingClientRect().width-W)>40)start()},200)});
+  start();
+})();
+
+/* caminho: a matrícula acompanha a fase em leitura */
+(function(){
+  var doc=$('#doc'),steps=$$('.step');if(!('IntersectionObserver' in window)||innerWidth<=920){doc.dataset.s=7;return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var s=+e.target.dataset.s;doc.dataset.s=s;steps.forEach(function(x){x.classList.toggle('on',+x.dataset.s<=s)})}})},{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(function(s){io.observe(s)});
+})();
+
+/* 4K: timecode e comparador */
+(function(){var tc=$('#tc'),t0=Date.now(),p=function(n){return (n<10?'0':'')+n};
+  if(!calm)setInterval(function(){var f=Math.floor((Date.now()-t0)/1000*24),s=Math.floor(f/24);tc.textContent='00:'+p(Math.floor(s/60)%60)+':'+p(s%60)+':'+p(f%24)},1000/12);
+  var r=$('#cmpr'),c=$('#cmp');r.addEventListener('input',function(){c.style.setProperty('--x',r.value+'%')});
+})();
+
+/* plataforma */
+(function(){
+  var L=[['A CRF chegou ao cartório. E agora?','12:40','Prenotação, prazos e a ordem em que o registrador lê o seu processo.'],
+    ['Qualificação: o que eu confiro primeiro','18:05','Os sete pontos da CRF e do projeto que definem se o título entra ou volta.'],
+    ['Matrícula-mãe e matrículas dos lotes','21:30','Como se abre a matrícula da gleba e se desdobram as unidades regularizadas.'],
+    ['Registrando a legitimação fundiária','16:12','A redação do ato de registro e a listagem de ocupantes, com exemplo real.'],
+    ['Gratuidade na REURB-S','09:48','O alcance da isenção do art. 13 e como ela aparece em cada ato.'],
+    ['As notas devolutivas mais comuns','14:20','O que mais gera exigência e como resolver antes de protocolar.']];
+  var cur=0,done={},ul=$('#lessons'),pl=$('#player');
+  function paint(){
+    ul.innerHTML='<li class="hd">Módulo 07 · O registro por dentro</li>'+L.map(function(l,i){return '<li><button class="les'+(done[i]?' done':'')+'" data-i="'+i+'" aria-current="'+(i==cur)+'"><span class="ck">✓</span><span>'+l[0]+'</span><time>'+l[1]+'</time></button></li>'}).join('');
+    $('#ltag').textContent='Módulo 07 · Aula '+(cur+1);$('#ltitle').textContent=L[cur][0];$('#ldesc').textContent=L[cur][2];
+    $('#mark').textContent=done[cur]?'Concluída ✓':'Marcar como concluída';
+    var n=Object.keys(done).length,pc=Math.round(n/L.length*100);$('#pct').textContent=pc+'%';$('#pbar').style.width=pc+'%';
+  }
+  ul.addEventListener('click',function(e){var b=e.target.closest('.les');if(!b)return;cur=+b.dataset.i;pl.classList.remove('playing');paint()});
+  $('#mark').addEventListener('click',function(){if(done[cur])return;done[cur]=1;if(cur<L.length-1)cur++;pl.classList.remove('playing');paint();toast('Aula concluída. Progresso atualizado.')});
+  $('#play').addEventListener('click',function(){pl.classList.remove('playing');void pl.offsetWidth;pl.classList.add('playing');toast('Prévia: o vídeo entra aqui depois da gravação em 4K.')});
+  paint();
+
+  var F=[['DOCX','Modelo de requerimento de REURB','Módulo 02 · editável'],['DOCX','Minuta de decreto municipal de REURB','Módulo 02 · editável'],['DOCX','Notificação de titulares e confrontantes','Módulo 03 · editável'],['PDF','Checklist da CRF pelo olhar do registrador','Módulo 06 · 4 páginas'],['XLSX','Planilha da listagem de ocupantes','Módulo 06 · editável'],['PDF','Lei 13.465 e Decreto 9.310 anotados','Módulo 01 · 86 páginas']];
+  $('#files').innerHTML=F.map(function(f){return '<div class="file"><span class="ty">'+f[0]+'</span><span>'+f[1]+'<small>'+f[2]+'</small></span><button class="mini" type="button">Baixar</button></div>'}).join('');
+  $('#files').addEventListener('click',function(e){if(e.target.closest('.mini'))toast('Prévia: os arquivos ficam disponíveis no lançamento.')});
+
+  var T=[{w:'Procuradora municipal · BA',m:'Módulo 07',q:'Na REURB-S, a isenção alcança também a abertura das matrículas individuais dos lotes?',a:'Sim. O art. 13, §1º, da Lei 13.465 isenta de custas e emolumentos os atos registrais da REURB-S, e a lista inclui o registro da CRF e do projeto com a abertura de matrícula para cada unidade regularizada. Veja a aula 5 deste módulo.'},
+    {w:'Agrimensor · PE',m:'Módulo 04',q:'O memorial precisa repetir a descrição da matrícula de origem ou basta o perímetro georreferenciado do núcleo?',a:null},
+    {w:'Escrevente de RI · MG',m:'Módulo 06',q:'CRF sem o estado civil de parte dos ocupantes: devolvo ou registro com o que tenho?',a:null}];
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function threads(){$('#threads').innerHTML=T.map(function(t){return '<li class="th"><div class="who"><b>'+esc(t.w)+'</b><span class="m">'+t.m+'</span><span>'+(t.n?'agora':'exemplo')+'</span></div><h4>'+esc(t.q)+'</h4>'+(t.a?'<div class="ans"><b>Resposta do professor · exemplo</b>'+t.a+'</div>':'')+'</li>'}).join('');$('#thc').textContent=T.length}
+  $('#ask').addEventListener('submit',function(e){e.preventDefault();var i=$('#askq'),v=i.value.trim();if(!v){i.focus();return}T.unshift({w:'Você',m:'Módulo 07',q:v,a:null,n:1});i.value='';threads();toast('Dúvida publicada na prévia.')});
+  threads();
+
+  var tabs=$$('.tab');tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);var p=d.getElementById(x.getAttribute('aria-controls'));p.hidden=!on;if(on){p.classList.remove('in');void p.offsetWidth;p.classList.add('in')}})})});
+})();
+
+/* lista de espera (demonstração) */
+$('#join').addEventListener('submit',function(e){e.preventDefault();var n=$('#jn').value.trim().split(' ')[0]||'Pronto';var f=e.currentTarget;f.innerHTML='<p class="done-msg"></p><small>Este site é uma demonstração: o cadastro será ligado ao e-mail do curso quando for ao ar. Nada foi enviado agora.</small>';f.firstChild.textContent=n+', seu lugar na fila está reservado.'});
+})();
+</script>
