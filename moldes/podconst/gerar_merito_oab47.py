@@ -24,14 +24,14 @@ def selos(top=56):
 def rodape(n, tot, claro=True):
     c = '#5a6a8f' if claro else 'rgba(255,255,255,.75)'
     return (f'<div style="position:absolute;left:70px;right:70px;bottom:46px;display:flex;align-items:center;gap:20px;font-size:24px;color:{c};">'
-            f'<span><b>@libero</b>filho · <b>@natalia</b>valenca</span><span style="flex:1;height:2px;background:{c};opacity:.35;"></span>'
+            f'<span><b>@libero</b>filho · <b>@natalia</b>valenca</span><span style="flex:1;"></span>'
             f'<span style="font-weight:700;letter-spacing:.2em;">{n:02d}/{tot:02d}</span></div>')
 
 def tela(label, fundo, corpo, claro=False):
     return f'<div data-screen-label="{label}" style="position:relative;flex:none;width:1080px;height:1350px;overflow:hidden;font-family:\'Space Grotesk\',sans-serif;color:{TINTA if claro else "#fff"};{fundo}">{corpo}</div>\n'
 
 def kick(txt, cor):
-    return f'<div style="display:flex;align-items:center;gap:16px;font-weight:700;font-size:26px;letter-spacing:.26em;color:{cor};"><span style="width:44px;height:6px;background:{cor};"></span>{txt.upper()}</div>'
+    return f'<div style="font-weight:700;font-size:26px;letter-spacing:.22em;color:{cor};">{txt.upper()}</div>'
 
 def marca(txt, fundo=AMAR, cor=TINTA):
     return f'<span style="background:{fundo};color:{cor};padding:0 .12em;">{txt}</span>'
@@ -51,14 +51,21 @@ MAT = [
 TOT = 12
 
 def capa(label):
-    corpo = (f'<div style="position:absolute;top:150px;left:-40px;{BB}font-size:760px;line-height:.85;color:rgba(255,255,255,.06);">5,0</div>' + selos() +
-             f'<div style="position:absolute;left:0;right:0;top:360px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
-             f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:28px;letter-spacing:.3em;color:{AMAR};"><span style="width:56px;height:3px;background:{AMAR};"></span><span style="margin-right:-.3em;">2ª FASE · OAB 47</span><span style="width:56px;height:3px;background:{AMAR};"></span></div>'
-             f'<div style="background:{TINTA};font-weight:700;font-size:46px;padding:6px 18px;margin-top:40px;">Quanto valeu o</div>'
-             f'<div style="background:{ROSA};{BB}font-size:200px;line-height:.9;padding:18px 30px 2px;margin-top:10px;">MÉRITO</div>'
-             f'<div style="background:{AMAR};color:{TINTA};font-weight:700;font-size:42px;padding:6px 18px;margin-top:10px;">na peça de cada matéria?</div>'
-             f'<div style="font-weight:600;font-size:32px;margin-top:46px;opacity:.9;">Fizemos a conta no padrão de resposta oficial</div></div>'
-             f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-120px;">{LOGO(50)}</div>')
+    print_card = (f'<div style="position:absolute;left:150px;right:-60px;top:965px;background:#fff;border-radius:18px;padding:18px;transform:rotate(-5deg);box-shadow:0 30px 70px rgba(0,0,30,.55);">'
+                  f'<div style="font-weight:700;font-size:20px;letter-spacing:.16em;color:#5a6a8f;margin:0 4px 10px;">PADRÃO DE RESPOSTA · DIREITO CONSTITUCIONAL</div>'
+                  f'<img src="../fotos/oab47-constitucional.png" style="display:block;width:100%;"></div>')
+    selo = (f'<div style="position:absolute;right:70px;top:860px;width:230px;height:230px;border-radius:50%;background:{AMAR};color:{TINTA};display:flex;flex-direction:column;align-items:center;justify-content:center;'
+            f'transform:rotate(10deg);box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:3;"><div style="{BB}font-size:96px;line-height:.85;">36%</div><div style="font-weight:700;font-size:24px;line-height:1.1;text-align:center;">da peça foi<br>de mérito</div></div>')
+    corpo = (selos() +
+             f'<div style="position:absolute;left:80px;right:80px;top:230px;">'
+             f'<div style="font-weight:700;font-size:28px;letter-spacing:.22em;color:{AMAR};">OAB 47 · 2ª FASE</div>'
+             f'<div style="{BB}font-size:96px;line-height:.92;margin-top:18px;">O MÉRITO DA PEÇA<br>DE CONSTITUCIONAL VALEU</div>'
+             f'<div style="display:flex;align-items:flex-end;gap:22px;margin-top:6px;"><span style="{BB}font-size:330px;line-height:.78;color:{AMAR};text-shadow:0 10px 0 rgba(0,0,0,.18);">1,80</span>'
+             f'<span style="{BB}font-size:80px;line-height:1;padding-bottom:18px;opacity:.9;">DE 5,00</span></div>'
+             f'<div style="display:inline-block;background:{ROSA};{BB}font-size:72px;line-height:1;padding:12px 22px 4px;margin-top:26px;transform:rotate(-2deg);">EM PENAL, VALEU 4,00</div></div>'
+             + print_card + selo +
+             f'<div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(0deg,rgba(10,20,64,.85),transparent);z-index:4;"></div>'
+             f'<div style="position:absolute;left:80px;bottom:44px;background:{TINTA};border-radius:999px;padding:14px 28px;font-weight:700;font-size:30px;z-index:5;box-shadow:0 10px 24px rgba(0,0,0,.35);">Fizemos a conta nas 6 matérias  ›</div>')
     return tela(label, AZUL, corpo)
 
 def metodo(label):
@@ -122,16 +129,14 @@ def frase(label):
     corpo = (f'<div style="position:absolute;right:-60px;bottom:-120px;{BB}font-size:700px;line-height:1;color:rgba(255,255,255,.08);">§</div>'
              f'<div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:36px;">{kick("O que isso mostra", AMAR)}'
              f'<div style="{BB}font-size:128px;line-height:.92;">MENOS TESES.<br>MAIS {marca("ESTRUTURA")}.</div>'
-             f'<div style="width:150px;height:20px;background:{AMAR};"></div>'
-             f'<div style="font-size:40px;line-height:1.4;">Em Constitucional, a banca pontuou muito a estrutura da peça. E estrutura é o ponto mais fácil de garantir: '
+                          f'<div style="font-size:40px;line-height:1.4;">Em Constitucional, a banca pontuou muito a estrutura da peça. E estrutura é o ponto mais fácil de garantir: '
              f'<b>está no vade</b>, na CF e na lei da ação, marcada e grifada.</div></div>' + rodape(11, TOT, False))
     return tela(label, MAG, corpo)
 
 def cta(label):
     corpo = (selos() + f'<div style="position:absolute;left:80px;right:80px;top:330px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:34px;">'
              f'<div style="{BB}font-size:150px;line-height:.9;">E NA SUA<br>{marca("MATÉRIA", ROSA, "#fff")}?</div>'
-             f'<div style="width:116px;height:20px;background:{ROSA};"></div>'
-             f'<div style="font-weight:700;font-size:40px;line-height:1.3;">Quanto do seu ponto veio do mérito<br>e quanto veio da estrutura?</div>'
+                          f'<div style="font-weight:700;font-size:40px;line-height:1.3;">Quanto do seu ponto veio do mérito<br>e quanto veio da estrutura?</div>'
              f'<div style="background:{AMAR};color:{TINTA};border-radius:999px;padding:22px 44px;font-weight:700;font-size:38px;">Conta nos comentários</div></div>'
              f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>')
     return tela(label, AZUL, corpo)
