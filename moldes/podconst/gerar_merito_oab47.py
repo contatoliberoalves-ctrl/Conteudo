@@ -51,21 +51,22 @@ MAT = [
 TOT = 12
 
 def capa(label):
-    print_card = (f'<div style="position:absolute;left:150px;right:-60px;top:965px;background:#fff;border-radius:18px;padding:18px;transform:rotate(-5deg);box-shadow:0 30px 70px rgba(0,0,30,.55);">'
-                  f'<div style="font-weight:700;font-size:20px;letter-spacing:.16em;color:#5a6a8f;margin:0 4px 10px;">PADRÃO DE RESPOSTA · DIREITO CONSTITUCIONAL</div>'
-                  f'<img src="../fotos/oab47-constitucional.png" style="display:block;width:100%;"></div>')
-    selo = (f'<div style="position:absolute;right:70px;top:860px;width:230px;height:230px;border-radius:50%;background:{AMAR};color:{TINTA};display:flex;flex-direction:column;align-items:center;justify-content:center;'
-            f'transform:rotate(10deg);box-shadow:0 18px 40px rgba(0,0,0,.35);z-index:3;"><div style="{BB}font-size:96px;line-height:.85;">36%</div><div style="font-weight:700;font-size:24px;line-height:1.1;text-align:center;">da peça foi<br>de mérito</div></div>')
+    # Ranking com os nomes escondidos: mostra a variação sem dizer qual matéria é qual.
+    barras = ''.join(
+        f'<div style="display:grid;grid-template-columns:250px 1fr 130px;align-items:center;gap:22px;">'
+        f'<span style="height:40px;border-radius:10px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;{BB}font-size:44px;line-height:1;color:{AMAR};letter-spacing:.3em;padding-left:.3em;">???</span>'
+        f'<span style="height:40px;border-radius:10px;background:rgba(255,255,255,.1);overflow:hidden;"><span style="display:block;height:100%;width:{sum(it) / 5 * 100:.0f}%;background:{ROSA if k == len(MAT) - 1 else AMAR};"></span></span>'
+        f'<span style="{BB}font-size:58px;line-height:1;text-align:right;color:{ROSA if k == len(MAT) - 1 else "#fff"};">{v(sum(it))}</span></div>'
+        for k, (_, _, _, it, _) in enumerate(MAT))
     corpo = (selos() +
              f'<div style="position:absolute;left:80px;right:80px;top:230px;">'
              f'<div style="font-weight:700;font-size:28px;letter-spacing:.22em;color:{AMAR};">OAB 47 · 2ª FASE</div>'
-             f'<div style="{BB}font-size:96px;line-height:.92;margin-top:18px;">O MÉRITO DA PEÇA<br>DE CONSTITUCIONAL VALEU</div>'
-             f'<div style="display:flex;align-items:flex-end;gap:22px;margin-top:6px;"><span style="{BB}font-size:330px;line-height:.78;color:{AMAR};text-shadow:0 10px 0 rgba(0,0,0,.18);">1,80</span>'
-             f'<span style="{BB}font-size:80px;line-height:1;padding-bottom:18px;opacity:.9;">DE 5,00</span></div>'
-             f'<div style="display:inline-block;background:{ROSA};{BB}font-size:72px;line-height:1;padding:12px 22px 4px;margin-top:26px;transform:rotate(-2deg);">EM PENAL, VALEU 4,00</div></div>'
-             + print_card + selo +
-             f'<div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(0deg,rgba(10,20,64,.85),transparent);z-index:4;"></div>'
-             f'<div style="position:absolute;left:80px;bottom:44px;background:{TINTA};border-radius:999px;padding:14px 28px;font-weight:700;font-size:30px;z-index:5;box-shadow:0 10px 24px rgba(0,0,0,.35);">Fizemos a conta nas 6 matérias  ›</div>')
+             f'<div style="{BB}font-size:124px;line-height:.9;margin-top:18px;">QUANTO A TESE<br>VALEU NA SUA<br>{marca("MATÉRIA", ROSA, "#fff")}?</div>'
+             f'<div style="font-weight:700;font-size:36px;line-height:1.3;margin-top:26px;">Na peça de 5,00, o mérito valeu de <span style="color:{AMAR};">1,80</span> a <span style="color:{AMAR};">4,00</span>.</div></div>'
+             f'<div style="position:absolute;left:80px;right:80px;top:760px;background:rgba(10,20,64,.55);border-radius:28px;padding:28px 32px;display:flex;flex-direction:column;gap:13px;box-shadow:0 30px 60px rgba(0,0,30,.35);">'
+             f'<div style="font-weight:700;font-size:24px;letter-spacing:.2em;color:rgba(255,255,255,.7);">PONTOS DE MÉRITO NA PEÇA</div>{barras}</div>'
+             f'<div style="position:absolute;right:56px;top:720px;background:{AMAR};color:{TINTA};{BB}font-size:46px;line-height:1;padding:14px 22px 6px;border-radius:12px;transform:rotate(6deg);box-shadow:0 14px 30px rgba(0,0,0,.3);">QUAL É A SUA?</div>'
+             f'<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:40px;background:{TINTA};border-radius:999px;padding:14px 28px;font-weight:700;font-size:30px;box-shadow:0 10px 24px rgba(0,0,0,.35);white-space:nowrap;">Arrasta pra ver a conta  ›</div>')
     return tela(label, AZUL, corpo)
 
 def metodo(label):
