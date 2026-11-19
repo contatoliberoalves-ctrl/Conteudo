@@ -166,7 +166,26 @@ def capa_hugo(label):
              f'<div style="position:absolute;left:100px;bottom:60px;">{logo(54, "#fff")}</div>')
     return tela(label, MAG, corpo, claro=False)
 
-CAPAS = {'prova': capa_prova, 'mapa': capa_mapa, 'hugo': capa_hugo}
+def capa_correcao(label):
+    mats = ['Administrativo', 'Civil', 'Empresarial', 'Penal', 'Trabalho', 'Tributário', 'Constitucional']
+    def folha(i, m):
+        const = m == 'Constitucional'
+        marca = (f'<div style="position:absolute;right:22px;bottom:18px;width:84px;height:84px;border-radius:50%;background:#1E9E4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:700;">✓</div>' if const else
+                 f'<div style="position:absolute;right:20px;bottom:14px;{BB}font-size:92px;line-height:1;color:#e5484d;transform:rotate(-8deg);">✕</div>')
+        risco = '' if const else ''.join(f'<div style="position:absolute;left:{18 + k * 30}%;top:{52 + k * 12}px;width:90px;height:6px;background:#e5484d;border-radius:3px;transform:rotate(-12deg);opacity:.8;"></div>' for k in range(2))
+        linhas = ''.join(f'<div style="height:10px;border-radius:5px;background:#e2e8f2;margin-top:14px;width:{w}%;"></div>' for w in (88, 70, 80, 58))
+        return (f'<div style="position:relative;background:#fff;color:{TINTA};border-radius:16px;padding:22px 24px 26px;box-shadow:0 22px 40px rgba(0,0,0,.35);transform:rotate({(-3, 2, -1, 3, -2, 1, 0)[i]}deg);{"outline:8px solid " + AMAR + ";grid-column:span 2;" if const else ""}">'
+                f'<div style="font-weight:700;font-size:{30 if const else 22}px;letter-spacing:.12em;color:{AZ};">{m.upper()}</div>{linhas}{risco}{marca}</div>')
+    grade = (f'<div style="position:absolute;right:90px;top:150px;width:760px;display:grid;grid-template-columns:1fr 1fr;gap:26px;">'
+             + ''.join(folha(i, m) for i, m in enumerate(mats)) + '</div>')
+    corpo = (selos() + grade + f'<div style="position:absolute;left:90px;top:300px;width:930px;">'
+             f'<div style="display:flex;align-items:center;gap:16px;font-weight:700;font-size:30px;letter-spacing:.28em;color:{AMAR};"><span style="width:50px;height:6px;background:{AMAR};"></span>AULA · 2ª FASE · OAB 47</div>'
+             f'<div style="{BB}font-size:150px;line-height:.9;margin-top:20px;">O QUE NINGUÉM<br>TE CONTOU</div>'
+             f'<div style="display:inline-block;background:{ROSA};{BB}font-size:88px;line-height:.95;padding:14px 22px 2px;margin-top:20px;">SOBRE A CORREÇÃO<br>DA 2ª FASE</div></div>'
+             f'<div style="position:absolute;left:100px;bottom:70px;">{logo(58)}</div>')
+    return tela(label, AZUL, corpo, claro=False)
+
+CAPAS = {'correcao': capa_correcao, 'prova': capa_prova, 'mapa': capa_mapa, 'hugo': capa_hugo}
 
 AULAS = [
  ('pa1', 'Aula · Vai fazer a repescagem? Primeiro, descubra o que deu errado', 'prova', [
@@ -221,6 +240,21 @@ AULAS = [
     {'rotulo': 'A favor', 'titulo': 'REPRESENTANTE PERTO', 'itens': ['Eleitor sabe quem é o deputado da sua região', 'Fim do puxador de votos', 'Campanha em área menor, mais barata']},
     {'rotulo': 'Contra', 'titulo': 'RISCOS APONTADOS', 'itens': ['Mais difícil para minorias', 'Distritos desenhados a favor de alguém', 'Mais poder para dirigentes nas listas']}]},
   {'tipo': 'cta', 'titulo': 'E VOCÊ,<br>[[PREFERE]]?', 'texto': 'Votar no candidato da sua região ou continuar com o sistema de hoje? Status: a PEC ainda não foi votada.', 'botao': 'Comenta: DISTRITAL ou ATUAL'},
+ ]),
+ ('pa3', 'Aula · O que ninguém te contou sobre a correção da 2ª fase da OAB 47', 'correcao', [
+  {'tipo': 'frase', 'fundo': 'navy', 'fantasma': '47', 'kicker': 'Depois do resultado', 'titulo': 'TODO MUNDO FALOU<br>DE [[INJUSTIÇA]]',
+   'texto': 'Muita gente saiu do resultado da 2ª fase da OAB 47 achando que a correção foi injusta. Mas o retrato não foi o mesmo em todas as matérias.'},
+  {'tipo': 'cards', 'kicker': 'O que ninguém te contou', 'titulo': 'A CORREÇÃO NÃO FOI [[IGUAL]] EM TODAS', 'cores': [ROSA, '#fff'], 'cards': [
+    {'rotulo': 'As demais matérias', 'titulo': 'MUITO MAIS INJUSTIÇAS', 'texto': 'Foi nelas que apareceram **muito mais** erros de correção.', 'itens': ['Mais pontos que deveriam ter sido dados', 'Mais casos para recurso']},
+    {'rotulo': 'Direito Constitucional', 'titulo': 'POUCOS ERROS', 'texto': 'Em Constitucional, a correção **errou pouco**.', 'itens': ['A maioria das notas seguiu o padrão de resposta', 'Menos espaço para recurso']}]},
+  {'tipo': 'topico', 'kicker': 'Fez Constitucional?', 'titulo': 'POUCOS ERROS NÃO É [[ERRO ZERO]]', 'texto': [
+    'A correção de Constitucional errou pouco, **mas errou**.',
+    'Por isso vale abrir o espelho e comparar a sua prova com o padrão de resposta, **item por item**.',
+    'Se tiver injustiça, **recorra**. Mesmo que seja por conta própria.']},
+  {'tipo': 'passos', 'kicker': 'O que fazer agora', 'titulo': 'O SEU [[PRÓXIMO PASSO]]', 'passos': [
+    {'t': 'Abra o espelho', 'd': 'Compare a sua prova com o padrão de resposta'}, {'t': 'Ache a injustiça', 'd': 'O ponto que você atendeu e não recebeu'},
+    {'t': 'Recorra', 'd': 'Se tiver injustiça, recorra, mesmo por conta própria'}, {'t': 'Não pare', 'd': 'Siga estudando enquanto o resultado não sai'}]},
+  {'tipo': 'cta', 'titulo': 'E NA SUA<br>[[MATÉRIA]]?', 'texto': 'Conta nos comentários: a correção da sua prova foi justa?', 'botao': 'Comente a sua matéria'},
  ]),
 ]
 
