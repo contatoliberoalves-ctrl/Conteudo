@@ -320,6 +320,20 @@ add('kiwify', 'checkout-banner-1200x600', 1200, 600, tela(1200, 600, `radial-gra
   </div>
   <div style="position:absolute;left:72px;bottom:34px;${I};font-weight:500;font-size:15px;letter-spacing:.02em;color:rgba(185,255,241,.7)">Líbero Filho <span style="opacity:.5;margin:0 8px">|</span> Concurso com Líbero</div>`), false, 2);
 
+// Topo do checkout no tamanho do bloco de imagem do Checkout Builder (1320×300, exportado em 2x).
+add('kiwify', 'checkout-topo-1320x300', 1320, 300, tela(1320, 300, `radial-gradient(60% 120% at 80% 50%,rgba(0,166,81,.22),transparent 70%),#062A26`, `
+  <div style="position:absolute;left:560px;top:-40px;${T};font-size:380px;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(185,255,241,.12)">320</div>
+  <div style="position:absolute;left:56px;top:38px">
+    <span style="${MO};font-weight:800;font-size:17px;letter-spacing:.12em;color:#062A26;background:${COR.verde};padding:5px 12px;border-radius:7px">ENAM 2026.2</span>
+    <div style="${T};font-size:92px;line-height:.86;color:#fff;margin-top:12px">Revisão<br><span style="color:${COR.menta}">em dicas</span></div></div>
+  <div style="position:absolute;left:470px;top:56px;width:440px;display:flex;flex-direction:column;gap:16px">
+    <div style="${I};font-weight:600;font-size:25px;line-height:1.25;color:#fff">320 dicas para sua revisão final, com a Parte 2 explicada</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">${selo('8 disciplinas')}${selo('2 PDFs')}${selo('141 páginas')}</div>
+    <div style="display:flex;align-items:center;gap:12px"><span style="${I};font-weight:600;font-size:19px;color:rgba(255,255,255,.85)">Parte 1 + Parte 2 por</span><span style="${T};font-size:40px;line-height:1;color:#fff;background:${COR.verde};padding:5px 13px 3px;border-radius:10px">R$ 49,99</span></div></div>
+  ${apostila(pg('enam', 1), 165, -6, 'left:965px;top:40px')}
+  ${apostila(pg('enam2', 1), 165, 5, 'left:1105px;top:52px')}
+  <div style="position:absolute;left:56px;bottom:26px;${I};font-weight:500;font-size:15px;color:rgba(185,255,241,.7)">Líbero Filho <span style="opacity:.5;margin:0 6px">|</span> Concurso com Líbero</div>`), false, 2);
+
 // ============================================================= SITE ========================================
 add('site', 'mockup', 875, 800, `<div class="peca" style="width:875px;height:800px">${mockup(500)}</div>`, true);
 add('site', 'og', 1200, 630, banner(1200, 630, 1));
