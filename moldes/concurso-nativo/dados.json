@@ -603,5 +603,263 @@
     ]
    }
   ]
+ },
+ {
+  "id": "enam-nativo-carrossel",
+  "titulo": "ENAM 2026.2: fiz um material (nativo)",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Fiz um material\npro ENAM 2026.2",
+      "y": 820,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 76
+     },
+     {
+      "texto": "320 dicas.\nAs 8 disciplinas do edital.",
+      "y": 1030,
+      "cor": "branco",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-notebook.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "texto": "Peguei o edital\ne fiz assim:",
+      "y": 760,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 72
+     },
+     {
+      "texto": "4 dicas para cada questão,\nno peso de cada disciplina.",
+      "y": 960,
+      "cor": "branco",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-mesa.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "Testa aí:",
+      "y": 760,
+      "cor": "escuro",
+      "estilo": "forte",
+      "tam": 70
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "PEC passa por sanção do Presidente?",
+      "opcoes": [
+       "Passa",
+       "Não passa"
+      ],
+      "certa": 1,
+      "y": 880
+     }
+    ]
+   },
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "tipo": "quiz",
+      "pergunta": "PEC passa por sanção do Presidente?",
+      "opcoes": [
+       "Passa",
+       "Não passa"
+      ],
+      "certa": 1,
+      "revelar": true,
+      "y": 700,
+      "escala": 0.8
+     },
+     {
+      "texto": "Quem promulga são as Mesas\nda Câmara e do Senado.",
+      "y": 1010,
+      "cor": "branco",
+      "tam": 44
+     },
+     {
+      "texto": "CF, art. 60, § 3º",
+      "y": 1150,
+      "cor": "menta",
+      "tam": 36
+     }
+    ]
+   },
+   {
+    "foto": "libero-bracos2.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Parte 1: 320 dicas rápidas\nParte 2: todas explicadas",
+      "y": 780,
+      "cor": "branco",
+      "tam": 44
+     },
+     {
+      "texto": "R$ 49,99",
+      "y": 940,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 96
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas ENAM",
+      "y": 1110
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-nativo-post",
+  "titulo": "ENAM 2026.2: Revisão em Dicas (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "texto": "Revisão em Dicas\nENAM 2026.2",
+      "y": 860,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 84
+     },
+     {
+      "texto": "320 dicas, todas explicadas.\nLink na bio.",
+      "y": 1070,
+      "cor": "branco",
+      "tam": 42
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-nativo-stories",
+  "titulo": "ENAM 2026.2: stories nativos",
+  "formato": "stories",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Vai fazer o\nENAM 2026.2?",
+      "y": 1150,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 86
+     },
+     {
+      "tipo": "enquete",
+      "pergunta": "Me conta",
+      "opcoes": [
+       "Vou",
+       "Tô decidindo"
+      ],
+      "y": 1420,
+      "largura": 560
+     }
+    ]
+   },
+   {
+    "foto": "libero-mesa.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "Pegadinha clássica:",
+      "y": 1080,
+      "cor": "escuro",
+      "estilo": "forte",
+      "tam": 66
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "Modulação de efeitos em ADI exige qual quórum?",
+      "opcoes": [
+       "Maioria absoluta",
+       "Dois terços"
+      ],
+      "certa": 1,
+      "y": 1200
+     }
+    ]
+   },
+   {
+    "foto": "libero-notebook.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Dois terços.",
+      "y": 1080,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 110
+     },
+     {
+      "texto": "Lei 9.868/1999, art. 27.\nMaioria absoluta é a declaração.",
+      "y": 1260,
+      "cor": "branco",
+      "tam": 46
+     },
+     {
+      "texto": "Essa é a dica 16 de 320.",
+      "y": 1460,
+      "cor": "menta",
+      "tam": 44
+     }
+    ]
+   },
+   {
+    "foto": "libero-bracos2.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Revisão em Dicas\nENAM 2026.2",
+      "y": 1040,
+      "cor": "amarelo",
+      "estilo": "forte",
+      "tam": 84
+     },
+     {
+      "texto": "320 dicas + todas explicadas\npor R$ 49,99",
+      "y": 1260,
+      "cor": "branco",
+      "tam": 46
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas ENAM",
+      "y": 1480
+     }
+    ]
+   }
+  ]
  }
 ]

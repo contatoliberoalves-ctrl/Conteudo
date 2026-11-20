@@ -32,7 +32,7 @@ const cartao = d => `<div class="bloco dica" style="display:grid;grid-template-c
     <span style="${T};font-size:24px;line-height:1;color:${COR.verde2}">${tres(d.n)}</span>${caixa(15)}</div>
   <div><div style="${I};font-weight:700;font-size:13.6px;line-height:1.38;color:${COR.tinta}">${esc(d.d)}</div>
     ${d.e ? `<div style="${I};font-size:${d.e.length > 300 ? 11.6 : 12}px;line-height:1.55;color:#3E5550;margin-top:5px;text-align:justify;hyphens:auto" lang="pt-BR">${esc(d.e).split('\n\n').join('</div><div style="' + I + ';font-size:11.6px;line-height:1.55;color:#3E5550;margin-top:5px;text-align:justify;hyphens:auto" lang="pt-BR">')}</div>` : ''}
-    ${d.f ? `<div style="margin-top:7px"><span style="display:inline-block;${MO};font-weight:700;font-size:9.6px;letter-spacing:.02em;color:${COR.verde2};background:#E6F6EE;border-radius:5px;padding:3px 8px">⚖ ${esc(d.f)}</span></div>` : ''}</div></div>`;
+    ${d.f || d.t ? `<div style="margin-top:7px;display:flex;flex-wrap:wrap;gap:6px">${d.f ? `<span style="display:inline-block;${MO};font-weight:700;font-size:9.6px;letter-spacing:.02em;color:${COR.verde2};background:#E6F6EE;border-radius:5px;padding:3px 8px">⚖ ${esc(d.f)}</span>` : ''}${d.t ? `<span style="display:inline-block;${MO};font-weight:800;font-size:9px;letter-spacing:.08em;color:#fff;background:${COR.petroleo};border-radius:5px;padding:3px 8px">TEMA NA PROVA ${esc(meta.temaProva || '')} · ${esc(d.t)}</span>` : ''}</div>` : ''}</div></div>`;
 const faixaMateria = s => `<div class="bloco materia" style="margin:4px 0 12px;border-radius:16px;background:${COR.petroleo};padding:16px 20px;display:flex;align-items:center;gap:16px;position:relative;overflow:hidden">
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(185,255,241,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(185,255,241,.07) 1px,transparent 1px);background-size:22px 22px"></div>
   <div style="position:relative;flex:1"><div style="${MO};font-weight:800;font-size:10px;letter-spacing:.2em;color:${COR.menta}">${esc(s.info)}</div><div style="${T};font-size:34px;line-height:.95;color:#fff;margin-top:4px">${esc(s.materia)}</div></div>
@@ -78,7 +78,7 @@ const capa = `<section class="pagina" style="background:radial-gradient(80% 60% 
   <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(185,255,241,.16) 1.2px,transparent 1.6px);background-size:22px 22px"></div>
   <div style="position:absolute;left:52px;right:52px;top:48px;display:flex;justify-content:space-between;align-items:center">${marca(28, true)}<span style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.22em;color:${COR.petroleo};background:${COR.menta};border-radius:7px;padding:8px 12px">MATERIAL PRÓPRIO</span></div>
   <div style="position:absolute;right:-30px;top:120px;${T};font-size:430px;line-height:.8;color:transparent;-webkit-text-stroke:2.5px rgba(185,255,241,.22)">${total}</div>
-  ${amostra(pick(4).n, pick(4).d, 312, 176, 1)}${amostra(pick(118).n, pick(118).d, 282, 270, 2)}${amostra(pick(61).n, pick(61).d, 252, 364, 3)}
+  ${(meta.amostras || [4, 118, 61]).map((n, k) => amostra(pick(n).n, pick(n).d, 312 - k * 30, 176 + k * 94, k + 1)).join('')}
   <div style="position:absolute;left:52px;right:52px;top:560px">
     <span style="display:inline-block;${MO};font-weight:800;font-size:13px;letter-spacing:.16em;color:#fff;background:${COR.verde};border-radius:8px;padding:8px 14px">${esc(meta.exame).toUpperCase()}</span>
     <div style="${T};font-size:118px;line-height:.86;color:#fff;margin-top:18px">${esc((meta.capaTitulo || ['Revisão', 'em dicas'])[0])}<br><span style="color:${COR.menta}">${esc((meta.capaTitulo || ['Revisão', 'em dicas'])[1])}</span></div>
@@ -96,8 +96,8 @@ const usar = `<section class="pagina" style="background:${COR.papel}">${cab()}
     <div style="${T};font-size:46px;line-height:.92;color:${COR.tinta};margin-top:6px">Como usar este material</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px">${meta.passos.map((p, i) => `<div style="background:#fff;border:1.5px solid ${COR.linha};border-radius:14px;padding:13px 14px"><div style="${T};font-size:30px;line-height:.9;color:${COR.verde}">${i + 1}ª leitura</div><div style="${I};font-size:12px;line-height:1.5;color:#2B3A36;margin-top:6px">${esc(p)}</div></div>`).join('')}</div>
     <div style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.2em;color:${COR.cinza};margin:18px 0 8px">COMO LER UMA DICA</div>
-    ${cartao({ n: pick(118).n, d: pick(118).d, e: pick(118).e, f: pick(118).f })}
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;${I};font-size:11.5px;line-height:1.45;color:${COR.cinza}"><div><b style="color:${COR.tinta}">Negrito:</b> a dica rápida, o que você leva para a prova.</div><div><b style="color:${COR.tinta}">Texto menor:</b> a explicação, o porquê e a pegadinha.</div><div><b style="color:${COR.tinta}">⚖</b> o fundamento, para conferir na lei.</div></div>
+    ${cartao(pick(meta.exemplo || 118))}
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;${I};font-size:11.5px;line-height:1.45;color:${COR.cinza}"><div><b style="color:${COR.tinta}">Negrito:</b> a dica rápida, o que você leva para a prova.</div><div><b style="color:${COR.tinta}">Texto menor:</b> a explicação, o porquê e a pegadinha.</div><div>${meta.legendaFund || `<b style="color:${COR.tinta}">⚖</b> o fundamento, para conferir na lei.`}</div></div>
     <div style="${MO};font-weight:800;font-size:10.5px;letter-spacing:.2em;color:${COR.cinza};margin:20px 0 8px">MAPA DA PROVA</div>
     <div style="border-radius:14px;overflow:hidden;border:1.5px solid ${COR.linha};background:#fff">
       <div style="display:grid;grid-template-columns:2.4fr .8fr .8fr 1fr;background:${COR.petroleo}">${['Matéria', 'Questões', 'Dicas', 'Números'].map(h => `<div style="padding:8px 12px;${MO};font-weight:800;font-size:9.5px;letter-spacing:.14em;color:${COR.menta}">${h.toUpperCase()}</div>`).join('')}</div>
@@ -141,7 +141,7 @@ const contra = `<section class="pagina" style="background:radial-gradient(70% 55
     <div style="${I};font-size:10.5px;line-height:1.5;color:rgba(239,255,246,.55);margin-top:40px;max-width:520px">${esc(meta.direitos)}</div></div>
   ${textura(true)}</section>`;
 
-const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
+let html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet">
 <style>@page{size:210mm 297mm;margin:0}*{box-sizing:border-box;margin:0}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.pagina{position:relative;width:${W}px;height:${H}px;overflow:hidden;break-after:page}.pagina:last-child{break-after:auto}
 #fonte{position:absolute;left:-9999px;top:0;width:${W - 88}px}</style></head>
 <body>${capa}${usar}<div id="dicas"></div>${painel}${fontes}${contra}
@@ -164,6 +164,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FON
   pags.forEach((p,i)=>{const n=p.querySelector('.num'); if(n) n.textContent=String(i+1).padStart(2,'0')+'/'+String(N).padStart(2,'0'); const g=p.querySelector('.prog'); if(g) g.style.width=((i+1)*100/N)+'%';});
   window.__pronto=true},400))</script></body></html>`;
 
+if (meta.cores) for (const [a, b] of Object.entries(meta.cores)) html = html.split(a).join(b);
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });
