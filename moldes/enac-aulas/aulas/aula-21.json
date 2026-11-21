@@ -1,0 +1,77 @@
+{
+  "id": "ri-21-imovel-rural-e-georreferenciamento",
+  "n": 21,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "mapa", "rotulo": "Registro de Imóveis · Aula 21", "titulo": ["Imóvel rural e", "[[georreferenciamento]]"], "ts": 120,
+      "texto": "Lei 6.015/73, arts. 176 e 225. Caiu no 1º e no 2º ENAC.",
+      "fala": "Fazenda que começa no pé de jatobá, segue pelo córrego e termina na cerca do vizinho. Durante décadas, foi assim que os imóveis rurais eram descritos na matrícula. O jatobá caiu, o córrego mudou de curso, e as fazendas começaram a se sobrepor no papel. A solução se chama georreferenciamento, e caiu nas duas primeiras edições do Enac." },
+    { "tipo": "compara", "rotulo": "A ideia", "titulo": "Da descrição antiga às [[coordenadas]]", "col": 270,
+      "a": { "nome": "Descrição antiga", "icone": "caneta" }, "b": { "nome": "Georreferenciada", "icone": "mapa" },
+      "linhas": [
+        ["Como descreve", "Marcos naturais, rumos e vizinhos", "**Coordenadas** dos vértices do perímetro"],
+        ["Referência", "Elementos que mudam com o tempo", "Sistema Geodésico Brasileiro"],
+        ["Risco", "Sobreposição de matrículas", "Poligonal única, conferida pelo **Incra**"]
+      ],
+      "fala": "A ideia é trocar a descrição antiga por coordenadas. {1}Antes, marcos naturais, rumos e nomes de vizinhos. Agora, as coordenadas de cada vértice do perímetro. {2}Antes, a referência eram elementos que mudam com o tempo. Agora, o Sistema Geodésico Brasileiro. {3}E o risco de uma matrícula se sobrepor a outra dá lugar a uma poligonal única, conferida pelo Incra." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "A matrícula do imóvel rural", "titulo": "O que a lei [[exige]]",
+      "itens": [
+        ["Código do imóvel e dados do CCIR", "O Certificado de Cadastro de Imóvel Rural, do Incra."],
+        ["Denominação e características", "Nome da fazenda, confrontações, localização e área."],
+        ["Memorial descritivo georreferenciado", "Nos casos de desmembramento, parcelamento, remembramento e transferência."]
+      ],
+      "fala": "O que a matrícula do imóvel rural precisa trazer? {1}O código do imóvel e os dados do CCIR, o certificado de cadastro do Incra. {2}A denominação, as confrontações, a localização e a área. {3}E, nos casos de desmembramento, parcelamento, remembramento e transferência, a identificação vem de um memorial descritivo georreferenciado." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 176, § 3º", "ts": 42, "texto": "(...) a identificação (...) será obtida a partir de **memorial descritivo**, assinado por **profissional habilitado** e com a devida Anotação de Responsabilidade Técnica – ART, contendo as **coordenadas dos vértices** definidores dos limites dos imóveis rurais, geo-referenciadas ao Sistema Geodésico Brasileiro e com precisão posicional a ser fixada pelo **INCRA** (...).",
+      "traducao": "Três elementos: **memorial** com coordenadas, **profissional** com responsabilidade técnica e precisão fixada pelo **Incra**.",
+      "fala": "O parágrafo terceiro do artigo cento e setenta e seis traz a fórmula: memorial descritivo, assinado por profissional habilitado, com responsabilidade técnica, contendo as coordenadas dos vértices, georreferenciadas ao Sistema Geodésico Brasileiro. {1}São três elementos: o memorial com coordenadas, o profissional responsável e a precisão fixada pelo Incra." },
+    { "tipo": "fluxo", "rotulo": "O caminho", "titulo": "Do campo à [[matrícula]]",
+      "passos": [
+        { "icone": "regua", "nome": "Medição", "texto": "O profissional levanta os vértices e elabora o memorial descritivo." },
+        { "icone": "escudo", "nome": "Certificação", "tag": "Incra", "texto": "Certifica que a poligonal **não se sobrepõe** a nenhuma outra do cadastro." },
+        { "icone": "carimbo", "nome": "Averbação", "texto": "O Registro de Imóveis leva a nova descrição para a matrícula." }
+      ],
+      "nota": "O Incra certifica a **poligonal**. Não certifica quem é o dono.",
+      "fala": "O caminho tem três passos. {1}O profissional mede e elabora o memorial. {2}O Incra certifica que a poligonal não se sobrepõe a nenhuma outra do seu cadastro, e que o memorial atende às exigências técnicas. {3}E o Registro de Imóveis leva a nova descrição para a matrícula. {4}Atenção: o Incra certifica a poligonal. Ele não certifica quem é o dono." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Precisa da assinatura dos [[vizinhos]]?", "ts": 108, "errado": "Sim, como na retificação de área", "certo": "Não: basta a declaração do requerente",
+      "porque": "Para o georreferenciamento, é **dispensada a anuência dos confrontantes**: basta o requerente declarar que respeitou os limites e as confrontações (art. 176, § 13).",
+      "fala": "{1}Pegadinha um. O georreferenciamento precisa da assinatura dos vizinhos, como a retificação de área? Não. {2}A anuência dos confrontantes é dispensada. Basta a declaração do requerente de que respeitou os limites e as confrontações. É uma diferença importante em relação ao artigo duzentos e treze." },
+    { "tipo": "trio", "rotulo": "Art. 176, § 3º, parte final · caiu no 1º e no 2º ENAC", "titulo": "Quem [[não paga]]",
+      "itens": [
+        { "numero": "4", "unidade": "módulos fiscais", "apelido": "O limite da isenção", "texto": "Isenção de custos financeiros para o proprietário cuja **somatória de área** não exceda esse limite.", "lei": "A regra" },
+        { "icone": "balao", "nome": "Troca 1", "apelido": "Módulo fiscal x módulo rural", "texto": "A lei fala em módulos **fiscais**. A banca escreve módulos rurais.", "lei": "Pegadinha" },
+        { "icone": "balao", "nome": "Troca 2", "apelido": "Somatória x cada imóvel", "texto": "Conta a **soma** das áreas do proprietário, não o imóvel isolado.", "lei": "Pegadinha" }
+      ],
+      "fala": "O ponto que caiu nas duas primeiras edições: quem não paga. {1}A lei garante isenção de custos financeiros aos proprietários de imóveis rurais cuja somatória de área não exceda quatro módulos fiscais. {2}Primeira troca da banca: módulos rurais no lugar de módulos fiscais. {3}Segunda troca: considerar cada imóvel isolado, quando a lei manda somar as áreas do proprietário. No primeiro Enac, o caso tinha cinco módulos. Sem isenção." },
+    { "tipo": "lista", "icone": "calendario", "rotulo": "Decreto 4.449/2002, art. 10", "titulo": "A partir de [[quando]]?",
+      "itens": [
+        ["A lei remete ao Executivo", "A exigência vale “nos prazos fixados por ato do Poder Executivo” (art. 176, § 4º)."],
+        ["A data atual do decreto", "**21 de outubro de 2029**, na redação dada pelo Decreto 12.689, de 2025."],
+        ["Depois do prazo", "O oficial fica **impedido** de registrar desmembramento, remembramento e transferência sem o georreferenciamento."]
+      ],
+      "fala": "E a partir de quando isso é obrigatório? {1}A lei remete aos prazos fixados por ato do Poder Executivo. {2}O decreto que regulamenta o tema foi alterado em dois mil e vinte e cinco, e a redação atual fala em vinte e um de outubro de dois mil e vinte e nove. {3}Passado o prazo, o oficial fica impedido de registrar desmembramento, remembramento e transferência de área rural sem a identificação georreferenciada. Como a banca gosta de norma recente, vale conferir essa data perto da prova." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "E no processo [[judicial]]?", "errado": "Título judicial dispensa o memorial", "certo": "A exigência também vale nos autos",
+      "porque": "Nos autos judiciais sobre imóveis rurais, a localização, os limites e as confrontações também vêm de **memorial georreferenciado** (art. 225, § 3º).",
+      "fala": "{1}Pegadinha dois. Se o título vem de um processo judicial, o memorial está dispensado? Não. {2}Nos autos judiciais que versem sobre imóveis rurais, a localização, os limites e as confrontações também são obtidos a partir de memorial georreferenciado. É a especialidade objetiva, valendo para todo título." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Marcos é dono de **dois imóveis rurais** que, somados, correspondem a **6 módulos fiscais**. Ao desmembrar um deles, quanto ao georreferenciamento:",
+      "alternativas": ["está dispensado, por ser pequeno produtor", "deve apresentá-lo, com isenção de custos", "deve apresentá-lo, sem isenção de custos", "depende da anuência de todos os confrontantes"],
+      "fala": "Vamos treinar. Marcos é dono de dois imóveis rurais que, somados, têm seis módulos fiscais. Ele vai desmembrar um deles. E o georreferenciamento? {1}Está dispensado? Deve apresentar, com isenção de custos? Deve apresentar, sem isenção? Ou depende da anuência de todos os confrontantes? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Dispensado", "Com isenção de custos", "Sem isenção de custos", "Anuência dos confrontantes"],
+      "passos": ["Desmembramento de imóvel rural **exige** o memorial.", "A isenção vai só até **4 módulos fiscais**, somadas as áreas.", "E a anuência dos confrontantes é **dispensada**."],
+      "lei": "Lei 6.015/73, art. 176, §§ 3º e 13",
+      "fala": "{1}Letra C. {2}O desmembramento de imóvel rural exige o memorial georreferenciado. {3}A isenção de custos só alcança quem tem até quatro módulos fiscais, somadas as áreas. Ele tem seis. {4}E a anuência dos confrontantes é dispensada. {5}Artigo cento e setenta e seis, parágrafos terceiro e treze." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Memorial com coordenadas, assinado por profissional habilitado",
+        "O Incra certifica que a poligonal não se sobrepõe",
+        "Anuência dos confrontantes: dispensada",
+        "Isenção de custos: até 4 módulos fiscais, somadas as áreas",
+        "Vale também para os títulos judiciais"
+      ],
+      "fala": "Resumo. {1}Memorial com coordenadas, assinado por profissional habilitado. {2}O Incra certifica que a poligonal não se sobrepõe. {3}A anuência dos confrontantes é dispensada. {4}Isenção de custos até quatro módulos fiscais, somadas as áreas. {5}E a exigência vale também para os títulos judiciais." },
+    { "tipo": "fecho", "icone": "globo", "titulo": "Estrangeiro pode comprar [[fazenda]]?", "ts": 116,
+      "texto": "Lei 5.709/71: limites, escritura pública e o livro auxiliar.",
+      "fala": "Na próxima aula: estrangeiro pode comprar fazenda no Brasil? Pode, mas com limites. E o Registro de Imóveis é quem controla." }
+  ]
+}

@@ -248,7 +248,7 @@ function narrar(cena, antes, depois, dir) {
     const corpo = { text: limpo, model_id: MODELO_TTS, ...(MODELO_TTS.includes('v2_5') ? { language_code: 'pt' } : {}), voice_settings: { stability: .5, similarity_boost: .8, style: .1, use_speaker_boost: true, speed: VEL } };
     if (antes) corpo.previous_text = antes; if (depois) corpo.next_text = depois;
     const req = path.join(dir, chave + '.req.json'); fs.writeFileSync(req, JSON.stringify(corpo));
-    const out = execFileSync('curl', ['-sS', '--fail-with-body', '-X', 'POST', `https://api.elevenlabs.io/v1/text-to-speech/${VOZ}/with-timestamps?output_format=mp3_44100_128`,
+    const out = execFileSync('curl', ['-sS', '--fail-with-body', '--retry', '5', '--retry-all-errors', '--retry-delay', '4', '-X', 'POST', `https://api.elevenlabs.io/v1/text-to-speech/${VOZ}/with-timestamps?output_format=mp3_44100_128`,
       '-H', 'xi-api-key: dummy', '-H', 'Content-Type: application/json', '--data-binary', '@' + req], { maxBuffer: 1 << 28 });
     const resp = JSON.parse(out); fs.rmSync(req);
     fs.writeFileSync(mp3, Buffer.from(resp.audio_base64, 'base64'));

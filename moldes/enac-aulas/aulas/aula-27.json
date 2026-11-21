@@ -1,0 +1,75 @@
+{
+  "id": "ri-27-multipropriedade",
+  "n": 27,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "calendario", "rotulo": "Registro de Imóveis · Aula 27", "titulo": ["[[Multipropriedade]]"], "ts": 170,
+      "texto": "Código Civil, arts. 1.358-B a 1.358-U. Caiu no 1º ENAC.",
+      "fala": "Uma casa na praia custa caro, e você só vai usar duas semanas por ano. E se você pudesse ser dono dela só nessas duas semanas? Dono de verdade, com matrícula no seu nome. Isso existe, e se chama multipropriedade. Caiu duas vezes no primeiro Enac." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.358-C", "ts": 44, "texto": "Multipropriedade é o regime de condomínio em que cada um dos proprietários de um mesmo imóvel é titular de uma **fração de tempo**, à qual corresponde a faculdade de uso e gozo, **com exclusividade**, da **totalidade do imóvel**, a ser exercida pelos proprietários de forma **alternada**.",
+      "traducao": "No condomínio comum, divide-se o **espaço**. Na multipropriedade, divide-se o **tempo**.",
+      "fala": "O Código Civil define: é o regime de condomínio em que cada proprietário é titular de uma fração de tempo, com direito de usar, com exclusividade, a totalidade do imóvel, de forma alternada. {1}No condomínio comum, divide-se o espaço. Na multipropriedade, divide-se o tempo." },
+    { "tipo": "trio", "rotulo": "Código Civil, arts. 1.358-D e 1.358-E", "titulo": "Três características do [[regime]]",
+      "itens": [
+        { "icone": "cadeado", "nome": "Indivisível", "apelido": "O imóvel e a fração", "texto": "O imóvel **não se sujeita** a ação de divisão ou de extinção de condomínio.", "lei": "Arts. 1.358-D e E" },
+        { "numero": "7", "unidade": "dias", "apelido": "Fração mínima", "texto": "Seguidos **ou intercalados**.", "lei": "Art. 1.358-E, § 1º" },
+        { "icone": "casa", "nome": "Com tudo dentro", "apelido": "Móveis e equipamentos", "texto": "O imóvel inclui as instalações, os equipamentos e o **mobiliário**.", "lei": "Art. 1.358-D, II" }
+      ],
+      "fala": "Três características. {1}A indivisibilidade: o imóvel não se sujeita a ação de divisão, nem de extinção de condomínio. E cada fração de tempo também é indivisível. {2}A fração mínima é de sete dias, seguidos ou intercalados. {3}E o imóvel inclui as instalações, os equipamentos e o mobiliário. A geladeira e o sofá fazem parte." },
+    { "tipo": "trio", "rotulo": "Art. 1.358-E, § 1º", "titulo": "Os três tipos de [[período]]",
+      "itens": [
+        { "icone": "calendario", "nome": "Fixo", "apelido": "Sempre a mesma data", "texto": "Determinado, no **mesmo período** de cada ano.", "lei": "Inciso I" },
+        { "icone": "raio", "nome": "Flutuante", "apelido": "Muda a cada ano", "texto": "Definido periodicamente, por procedimento objetivo que respeite a **isonomia**.", "lei": "Inciso II" },
+        { "icone": "corrente", "nome": "Misto", "apelido": "Um pouco de cada", "texto": "Combina os sistemas fixo e flutuante.", "lei": "Inciso III" }
+      ],
+      "fala": "O período de cada fração pode ser de três tipos. {1}Fixo: sempre na mesma época de cada ano. {2}Flutuante: muda a cada ano, por um procedimento objetivo que respeite a isonomia entre todos. {3}Ou misto, combinando os dois." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.358-F · caiu no 1º ENAC", "texto": "Institui-se a multipropriedade por **ato entre vivos ou testamento**, **registrado** no competente cartório de registro de imóveis, devendo constar daquele ato a **duração dos períodos** correspondentes a cada fração de tempo.",
+      "traducao": "Sem registro, não há multipropriedade. E o ato precisa dizer **quanto dura** cada fração.",
+      "fala": "Como se institui? Caiu no primeiro Enac. Por ato entre vivos ou por testamento, registrado no Registro de Imóveis, devendo constar do ato a duração dos períodos de cada fração de tempo. {1}Sem registro, não há multipropriedade. E o ato tem de dizer quanto dura cada fração." },
+    { "tipo": "matricula", "rotulo": "Lei 6.015/73, art. 176, § 10", "titulo": "Uma matrícula por [[fração]]", "numero": "9.870-03",
+      "imovel": "**Fração de tempo nº 3** (de 15 a 28 de janeiro, período fixo) da Casa 7 do Residencial Mar Azul, objeto da matrícula-mãe nº 9.870.",
+      "lei": { "fonte": "A regra", "em": 1, "texto": "Além da matrícula do imóvel, há **uma matrícula para cada fração de tempo**, onde se registram e averbam os atos daquela fração." },
+      "atos": [
+        { "sigla": "R-1/9.870-03", "tipo": "Compra e venda", "texto": "Adquirente da fração de tempo: **OTÁVIO**.", "em": 2 },
+        { "sigla": "R-2/9.870-03", "tipo": "Hipoteca", "texto": "Otávio dá a sua fração em garantia ao Banco Gama.", "em": 3 }
+      ],
+      "fala": "E na matrícula? {1}Além da matrícula do imóvel, haverá uma matrícula para cada fração de tempo. Nela se registram e averbam os atos daquela fração. {2}Registro um: Otávio compra a fração de quinze a vinte e oito de janeiro. {3}Registro dois: ele dá a fração em hipoteca. Cada fração tem vida registral própria, como se fosse um imóvel." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "A semana de [[reparos]] tem matrícula?", "errado": "Sim, uma matrícula específica", "certo": "Não: consta da fração principal",
+      "porque": "A fração de tempo adicional, destinada a reparos, consta da matrícula da **fração principal** de cada multiproprietário e **não é objeto de matrícula específica** (art. 176, § 12).",
+      "fala": "{1}Pegadinha um. O regime pode prever um período extra, só para reparos no imóvel. Esse período ganha matrícula própria? Não. {2}Ele consta da matrícula da fração de tempo principal de cada multiproprietário, e não é objeto de matrícula específica." },
+    { "tipo": "lista", "icone": "pessoas", "rotulo": "Código Civil, art. 1.358-L", "titulo": "Vender a [[fração]]",
+      "itens": [
+        ["Precisa avisar os outros?", "**Não.** A transferência não depende de anuência nem de cientificação dos demais."],
+        ["Há direito de preferência?", "**Não**, salvo se previsto na instituição ou na convenção."],
+        ["E as dívidas?", "O adquirente responde solidariamente, se não obtiver a declaração de inexistência de débitos."]
+      ],
+      "fala": "E para vender a fração? {1}Precisa avisar os outros multiproprietários? Não. A transferência não depende de anuência nem de cientificação. {2}Eles têm direito de preferência? Também não, salvo se previsto na instituição ou na convenção. {3}E o comprador deve pedir a declaração de inexistência de débitos, ou responde solidariamente com o vendedor." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "Um dono comprou [[todas]] as frações", "ts": 108, "errado": "A multipropriedade se extingue automaticamente", "certo": "Não se extingue automaticamente",
+      "porque": "A multipropriedade **não se extinguirá automaticamente** se todas as frações de tempo forem do mesmo multiproprietário (art. 1.358-C, parágrafo único).",
+      "fala": "{1}Pegadinha dois. Uma pessoa foi comprando, e ficou com todas as frações de tempo. O regime acaba sozinho? Não. {2}A multipropriedade não se extingue automaticamente quando todas as frações pertencem ao mesmo multiproprietário." },
+    { "tipo": "alerta", "rotulo": "Caiu no 1º ENAC", "titulo": "Arrematou a fração em [[leilão]]", "ts": 108, "errado": "Já pode vender ou dar em garantia", "certo": "Primeiro registra a carta de arrematação",
+      "porque": "É o princípio da **continuidade**: quem dispõe precisa estar na matrícula daquela fração de tempo. Título judicial também entra na corrente.",
+      "fala": "{1}Mais uma do primeiro Enac. Alguém arremata uma fração de tempo em leilão judicial e, no dia seguinte, quer vendê-la. Pode registrar a venda? Ainda não. {2}Primeiro, registra-se a carta de arrematação. É o princípio da continuidade, da aula quatro, valendo para a matrícula da fração de tempo." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Instituída a multipropriedade sobre uma casa de veraneio, com **26 frações de tempo**, o Registro de Imóveis deverá ter:",
+      "alternativas": ["uma única matrícula, com 26 registros", "a matrícula do imóvel e uma para cada fração de tempo", "26 matrículas, encerrando-se a do imóvel", "uma matrícula no Livro 2 e 26 registros no Livro 3"],
+      "fala": "Vamos treinar. Instituída a multipropriedade sobre uma casa de veraneio, com vinte e seis frações de tempo, como fica o cartório? {1}Uma única matrícula, com vinte e seis registros? A matrícula do imóvel e mais uma para cada fração? Vinte e seis matrículas, encerrando a do imóvel? Ou uma matrícula no Livro dois e registros no Livro três? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Uma matrícula, 26 registros", "A do imóvel + uma por fração", "26, encerrando a do imóvel", "Livro 2 e Livro 3"],
+      "passos": ["A matrícula do imóvel **continua existindo**.", "E abre-se **uma para cada fração** de tempo.", "Os atos de cada fração vão na matrícula **dela**."],
+      "lei": "Lei 6.015/73, art. 176, § 10",
+      "fala": "{1}Letra B. {2}A matrícula do imóvel continua existindo. {3}E abre-se uma matrícula para cada fração de tempo. {4}Os atos de cada fração são lançados na matrícula dela. {5}Artigo cento e setenta e seis, parágrafo dez, da Lei de Registros Públicos." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Divide-se o tempo, não o espaço",
+        "Fração mínima de 7 dias; fixa, flutuante ou mista",
+        "Instituição por ato entre vivos ou testamento, registrado",
+        "Uma matrícula para cada fração de tempo",
+        "Venda sem anuência e sem preferência dos demais"
+      ],
+      "fala": "Resumo. {1}Na multipropriedade, divide-se o tempo, não o espaço. {2}Fração mínima de sete dias, fixa, flutuante ou mista. {3}Instituição por ato entre vivos ou testamento, registrado. {4}Uma matrícula para cada fração de tempo. {5}E a venda independe de anuência e de preferência dos demais." },
+    { "tipo": "fecho", "icone": "casa", "titulo": "Direito de [[laje]]", "ts": 170,
+      "texto": "O puxadinho com matrícula própria.",
+      "fala": "Na próxima aula: a casa construída em cima da casa dos pais. O direito real de laje, que caiu no terceiro Enac." }
+  ]
+}

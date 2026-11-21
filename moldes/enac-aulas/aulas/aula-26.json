@@ -1,0 +1,70 @@
+{
+  "id": "ri-26-condominio-de-lotes",
+  "n": 26,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "mapa", "rotulo": "Registro de Imóveis · Aula 26", "titulo": ["Condomínio", "de [[lotes]]"], "ts": 190,
+      "texto": "Código Civil, art. 1.358-A, e Lei 6.766/79, art. 2º.",
+      "fala": "Muro em volta, portaria na entrada, ruas internas e casas. Todo mundo chama de condomínio fechado. Mas, juridicamente, aquilo pode ser duas coisas completamente diferentes: um condomínio de lotes, ou um loteamento de acesso controlado. A diferença decide de quem são as ruas, e muda tudo na matrícula." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.358-A", "ts": 48, "texto": "Pode haver, **em terrenos**, partes designadas de **lotes que são propriedade exclusiva** e partes que são **propriedade comum** dos condôminos.",
+      "traducao": "É a lógica do prédio de apartamentos, deitada no chão: o **lote** faz o papel do apartamento.",
+      "fala": "O artigo mil trezentos e cinquenta e oito A, incluído em dois mil e dezessete, diz: pode haver, em terrenos, partes designadas de lotes, que são propriedade exclusiva, e partes que são propriedade comum dos condôminos. {1}É a lógica do prédio de apartamentos, deitada no chão. O lote faz o papel do apartamento, e as ruas internas fazem o papel do corredor." },
+    { "tipo": "trio", "rotulo": "Art. 1.358-A, §§ 1º a 3º", "titulo": "Três regras do condomínio de [[lotes]]",
+      "itens": [
+        { "icone": "regua", "nome": "Fração ideal", "apelido": "Critério flexível", "texto": "Proporcional à **área do solo**, ao **potencial construtivo** ou a outro critério do ato de instituição.", "lei": "§ 1º" },
+        { "icone": "livro", "nome": "Regime", "apelido": "Edilício e incorporação", "texto": "Aplicam-se, no que couber, as regras do condomínio edilício e da incorporação imobiliária.", "lei": "§ 2º" },
+        { "icone": "predio", "nome": "Infraestrutura", "apelido": "Por conta do empreendedor", "texto": "Na incorporação, a implantação de **toda** a infraestrutura cabe ao empreendedor.", "lei": "§ 3º" }
+      ],
+      "fala": "Três regras. {1}A fração ideal de cada lote pode ser proporcional à área do solo, ao potencial construtivo, ou a outro critério indicado na instituição. {2}Aplicam-se, no que couber, as regras do condomínio edilício e da incorporação imobiliária, e o empreendedor é equiparado ao incorporador. {3}E a implantação de toda a infraestrutura fica a cargo do empreendedor." },
+    { "tipo": "lei", "fonte": "Lei 6.766/79, art. 2º, § 7º", "texto": "O lote poderá ser constituído sob a forma de **imóvel autônomo** ou de **unidade imobiliária integrante de condomínio de lotes**.",
+      "traducao": "A própria Lei do Parcelamento reconhece as duas formas de lote.",
+      "fala": "A Lei do Parcelamento do Solo conversa com o Código Civil. Ela diz que o lote pode ser constituído como imóvel autônomo, ou como unidade imobiliária integrante de condomínio de lotes. {1}Ou seja, a própria lei reconhece as duas formas." },
+    { "tipo": "lei", "fonte": "Lei 6.766/79, art. 2º, § 8º", "ts": 42, "texto": "Constitui **loteamento de acesso controlado** a modalidade de loteamento (...) cujo controle de acesso será regulamentado por ato do **poder público Municipal**, sendo **vedado o impedimento de acesso** a pedestres ou a condutores de veículos, não residentes, devidamente identificados ou cadastrados.",
+      "traducao": "Continua sendo **loteamento**: as ruas são **públicas**. A portaria identifica, mas **não barra**.",
+      "fala": "E o outro personagem é o loteamento de acesso controlado. É uma modalidade de loteamento em que o controle de acesso é regulamentado por ato do Município, sendo vedado impedir a entrada de pedestres ou motoristas não residentes, desde que identificados. {1}Repare: continua sendo loteamento. As ruas são públicas. A portaria pode identificar, mas não pode barrar." },
+    { "tipo": "compara", "rotulo": "O quadro que resolve a questão", "titulo": "Parecem iguais, [[não são]]", "col": 250, "tl": 33, "pad": 18,
+      "a": { "nome": "Condomínio de lotes", "icone": "pessoas" }, "b": { "nome": "Acesso controlado", "icone": "mapa" },
+      "linhas": [
+        ["Natureza", "**Condomínio** (CC, art. 1.358-A)", "**Loteamento** (Lei 6.766, art. 2º, § 8º)"],
+        ["Ruas e praças", "Propriedade **comum** dos condôminos", "Domínio do **Município**, desde o registro"],
+        ["O lote", "Unidade autônoma com **fração ideal**", "Imóvel autônomo, **sem** fração ideal"],
+        ["Entrada de terceiros", "Área privada", "Não pode ser impedida, se identificados"]
+      ],
+      "fala": "O quadro que resolve a questão. {1}Um é condomínio, regido pelo Código Civil. O outro é loteamento, regido pela Lei seis mil setecentos e sessenta e seis. {2}No condomínio de lotes, as ruas são propriedade comum dos condôminos. No loteamento, passam ao Município, desde o registro. {3}No condomínio, o lote é unidade autônoma com fração ideal. No loteamento, é imóvel autônomo, sem fração ideal. {4}E, no loteamento de acesso controlado, a entrada de terceiros identificados não pode ser impedida." },
+    { "tipo": "matricula", "rotulo": "Na matrícula", "titulo": "Como aparece o lote em [[condomínio]]", "numero": "31.450",
+      "imovel": "**Unidade autônoma nº 12** do Condomínio de Lotes Vale Verde, com 480,00 m² de área privativa e **fração ideal de 2,5%** nas partes comuns.",
+      "lei": { "fonte": "Repare na descrição", "em": 1, "texto": "Tem **fração ideal** nas partes comuns. Isso só existe em condomínio: no loteamento, a matrícula descreve um lote e nada mais." },
+      "atos": [
+        { "sigla": "R-1/31.450", "tipo": "Compra e venda", "texto": "Adquirente: **MARINA**.", "em": 2 },
+        { "sigla": "AV-2/31.450", "tipo": "Construção", "texto": "Edificada uma casa de 210,00 m².", "em": 3 }
+      ],
+      "fala": "Veja como o lote em condomínio aparece na matrícula. {1}A descrição traz a unidade autônoma, a área privativa e a fração ideal nas partes comuns. É essa fração que denuncia o condomínio. {2}Registro um: Marina compra a unidade. {3}Averbação dois: ela constrói a casa. O que se vendeu foi o lote. A casa veio depois, por conta de cada dono." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Condomínio de lotes foge da [[prefeitura]]?", "ts": 100, "errado": "Sim: é assunto só de Direito Civil", "certo": "Não: respeita a legislação urbanística",
+      "porque": "As regras do condomínio edilício aplicam-se ao condomínio de lotes **respeitada a legislação urbanística** (art. 1.358-A, § 2º, I). O Município continua mandando no uso do solo.",
+      "fala": "{1}Pegadinha um. Como é condomínio, o empreendimento escapa das regras da prefeitura? Não. {2}O Código Civil manda aplicar as regras do condomínio edilício respeitada a legislação urbanística. O Município continua mandando no uso do solo, e o projeto precisa ser aprovado." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "A portaria do loteamento pode [[barrar]]?", "ts": 108, "errado": "Pode, se a associação de moradores decidir", "certo": "Não pode impedir quem se identifica",
+      "porque": "No loteamento de acesso controlado, é **vedado impedir** o acesso de pedestres ou condutores não residentes, devidamente **identificados ou cadastrados**.",
+      "fala": "{1}Pegadinha dois. No loteamento de acesso controlado, a portaria pode barrar quem não mora lá? Não. {2}As ruas são públicas. A lei só permite identificar ou cadastrar o visitante. Impedir a entrada é vedado." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Em um empreendimento registrado como **condomínio de lotes**, as vias internas de circulação:",
+      "alternativas": ["passam ao domínio do Município com o registro", "são propriedade comum dos condôminos", "pertencem ao empreendedor, que as aluga", "são bens de uso comum do povo"],
+      "fala": "Vamos treinar. Num empreendimento registrado como condomínio de lotes, de quem são as vias internas? {1}Passam ao Município com o registro? São propriedade comum dos condôminos? Pertencem ao empreendedor? Ou são bens de uso comum do povo? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Passam ao Município", "Propriedade comum", "Do empreendedor", "Uso comum do povo"],
+      "passos": ["No condomínio de lotes há partes **exclusivas** e partes **comuns**.", "As vias internas são partes **comuns**.", "Passar ao Município é efeito do **loteamento**."],
+      "lei": "CC, art. 1.358-A; Lei 6.766/79, art. 22",
+      "fala": "{1}Letra B. {2}No condomínio de lotes, há partes exclusivas, que são os lotes, e partes comuns. {3}As vias internas são partes comuns, dos condôminos. {4}A transferência das ruas ao Município é efeito do registro do loteamento, não do condomínio. {5}Artigo mil trezentos e cinquenta e oito A." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Condomínio de lotes: lote exclusivo + partes comuns",
+        "Fração ideal por área, potencial construtivo ou outro critério",
+        "Aplica regras do edilício e da incorporação",
+        "Acesso controlado é loteamento: ruas públicas",
+        "A portaria identifica, mas não impede a entrada"
+      ],
+      "fala": "Resumo. {1}Condomínio de lotes: lote exclusivo, mais partes comuns. {2}Fração ideal por área, por potencial construtivo ou por outro critério. {3}Aplicam-se as regras do edilício e da incorporação. {4}Acesso controlado é loteamento, com ruas públicas. {5}E a portaria identifica, mas não impede a entrada." },
+    { "tipo": "fecho", "icone": "calendario", "titulo": "[[Multipropriedade]]", "ts": 150,
+      "texto": "Dono de uma casa por algumas semanas do ano.",
+      "fala": "Na próxima aula: ser dono de uma casa de praia só por algumas semanas do ano. A multipropriedade, que caiu no primeiro Enac." }
+  ]
+}

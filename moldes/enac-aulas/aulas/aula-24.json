@@ -1,0 +1,86 @@
+{
+  "id": "ri-24-reurb-titulos-e-registro",
+  "n": 24,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "chave", "rotulo": "Registro de Imóveis · Aula 24", "titulo": ["Legitimação", "[[fundiária]]", "e de posse"], "ts": 160,
+      "texto": "Reurb, parte 2: os títulos e o registro. Caiu no 3º ENAC.",
+      "fala": "Na aula passada, o bairro foi regularizado e o Município expediu a certidão. Mas qual direito cada morador recebe? Propriedade? Posse? E como isso entra na matrícula? A Reurb tem dois títulos próprios, com nomes parecidos e efeitos bem diferentes. É aí que a banca aperta." },
+    { "tipo": "lei", "fonte": "Lei 13.465/2017, art. 23", "ts": 42, "texto": "A legitimação fundiária constitui **forma originária de aquisição do direito real de propriedade** conferido por **ato do poder público**, exclusivamente no âmbito da Reurb, àquele que detiver em **área pública** ou possuir em **área privada**, como sua, unidade imobiliária com destinação urbana, integrante de núcleo urbano informal consolidado existente em **22 de dezembro de 2016**.",
+      "traducao": "O ocupante já sai **dono**. E a aquisição é **originária**.",
+      "fala": "Primeiro título: a legitimação fundiária. É uma forma originária de aquisição da propriedade, conferida por ato do poder público, a quem ocupa, em área pública ou privada, uma unidade em núcleo urbano informal consolidado, existente em vinte e dois de dezembro de dois mil e dezesseis. {1}Traduzindo: o ocupante já sai dono. E a aquisição é originária." },
+    { "tipo": "trio", "rotulo": "Art. 23, caput e § 2º", "titulo": "Três marcas da legitimação [[fundiária]]",
+      "itens": [
+        { "icone": "calendario", "nome": "Marco temporal", "apelido": "22 de dezembro de 2016", "texto": "O núcleo consolidado precisa **existir** nessa data.", "lei": "Caput" },
+        { "icone": "predio", "nome": "Qualquer área", "apelido": "Pública ou privada", "texto": "É o que a diferencia da usucapião, que **não alcança** bem público.", "lei": "Caput" },
+        { "icone": "escudo", "nome": "Livre de ônus", "apelido": "Matrícula limpa", "texto": "O ocupante adquire a unidade **livre e desembaraçada** de ônus e gravames da matrícula de origem.", "lei": "§ 2º" }
+      ],
+      "fala": "Três marcas dela. {1}O marco temporal: o núcleo precisa existir em vinte e dois de dezembro de dois mil e dezesseis. {2}Vale para área pública ou privada. É o que a diferencia da usucapião, que não alcança bem público. {3}E o ocupante recebe a unidade livre e desembaraçada de ônus e gravames que existiam na matrícula de origem, salvo os que digam respeito a ele próprio." },
+    { "tipo": "lista", "icone": "pessoas", "rotulo": "Art. 23, § 1º · só na Reurb-S", "titulo": "As condições do [[beneficiário]]",
+      "itens": [
+        ["Não ter outro imóvel", "Não ser concessionário, foreiro ou proprietário exclusivo de imóvel urbano ou rural."],
+        ["Não ter sido contemplado antes", "Com legitimação de posse ou fundiária de imóvel urbano com a mesma finalidade."],
+        ["Imóvel não residencial", "Só se o poder público reconhecer o **interesse público** da ocupação."]
+      ],
+      "fala": "Na Reurb de interesse social, e só nela, o beneficiário precisa cumprir condições. {1}Não ser proprietário exclusivo, foreiro ou concessionário de outro imóvel. {2}Não ter sido contemplado antes com legitimação de imóvel com a mesma finalidade. {3}E, se o imóvel não for residencial, o poder público tem de reconhecer o interesse público da ocupação." },
+    { "tipo": "lei", "fonte": "Lei 13.465/2017, art. 25", "ts": 44, "texto": "A legitimação de posse (...) constitui ato do poder público destinado a conferir título, por meio do qual fica **reconhecida a posse** de imóvel objeto da Reurb, com a identificação de seus ocupantes, do tempo da ocupação e da natureza da posse, o qual é **conversível em direito real de propriedade** (...).",
+      "traducao": "Aqui o ocupante recebe um título de **posse**. A propriedade vem **depois**.",
+      "fala": "Segundo título: a legitimação de posse. É o ato do poder público que reconhece a posse do imóvel, com a identificação do ocupante, do tempo e da natureza dessa posse. E esse título é conversível em propriedade. {1}Ou seja: aqui o ocupante não sai dono. Ele recebe um título de posse, e a propriedade vem depois." },
+    { "tipo": "fluxo", "rotulo": "Lei 13.465/2017, art. 26", "titulo": "Da posse à [[propriedade]]",
+      "passos": [
+        { "icone": "carimbo", "nome": "Registro", "texto": "O título de legitimação de posse é registrado na matrícula." },
+        { "icone": "relogio", "nome": "Prazo", "tag": "5 anos", "texto": "Contados do **registro** do título." },
+        { "icone": "chave", "nome": "Conversão", "tag": "Automática", "texto": "Em propriedade, se atendido o art. 183 da Constituição." }
+      ],
+      "nota": "A conversão **independe** de provocação ou de novo ato registral. Fora do art. 183, depende de requerimento e dos requisitos da usucapião.",
+      "fala": "Como a posse vira propriedade? {1}O título de legitimação de posse é registrado. {2}Contam-se cinco anos desse registro. {3}E ele se converte automaticamente em título de propriedade, desde que atendidas as condições do artigo cento e oitenta e três da Constituição, o da usucapião especial urbana. {4}Automática mesmo: sem pedido e sem novo ato. Nos casos fora desse artigo, a conversão depende de requerimento e dos requisitos da usucapião." },
+    { "tipo": "compara", "rotulo": "O quadro que resolve a questão", "titulo": "Fundiária x de [[posse]]", "col": 250, "tl": 34, "pad": 18,
+      "a": { "nome": "Legitimação fundiária", "icone": "chave" }, "b": { "nome": "Legitimação de posse", "icone": "relogio" },
+      "linhas": [
+        ["O que confere", "**Propriedade**, de imediato", "Título de **posse**, conversível"],
+        ["Área pública", "**Pode**", "**Não se aplica**"],
+        ["Marco temporal", "Núcleo existente em 22/12/2016", "Não há essa data"],
+        ["Transferência", "É propriedade plena", "Por ato entre vivos ou por herança"]
+      ],
+      "fala": "O quadro que resolve a questão. {1}A fundiária confere propriedade de imediato. A de posse confere um título de posse, conversível. {2}A fundiária alcança área pública. A de posse não se aplica a imóveis do poder público. {3}A fundiária tem o marco de dois mil e dezesseis. A de posse, não. {4}E a legitimação de posse pode ser transferida, por ato entre vivos ou por herança." },
+    { "tipo": "fluxo", "rotulo": "Lei 13.465/2017, arts. 42 e 44", "titulo": "A CRF chega ao [[cartório]]",
+      "passos": [
+        { "icone": "senha", "nome": "Prenotação", "texto": "O oficial prenota, autua e instaura o procedimento registral." },
+        { "icone": "lupa", "nome": "Qualificação", "tag": "15 dias", "texto": "Emite a nota de exigência ou pratica os atos do registro." },
+        { "icone": "carimbo", "nome": "Conclusão", "tag": "60 dias", "texto": "Prorrogáveis por igual período, com justificativa fundamentada." }
+      ],
+      "nota": "O registro é pedido **direto ao oficial**: independe de determinação judicial ou do Ministério Público.",
+      "fala": "E quando a CRF chega ao cartório? {1}O oficial prenota, autua e instaura o procedimento registral. {2}Em quinze dias, emite a nota de exigência ou pratica os atos do registro. {3}E o procedimento deve terminar em sessenta dias, prorrogáveis por igual período, com justificativa. {4}Tudo isso é pedido direto ao oficial, sem determinação judicial e sem passar pelo Ministério Público." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Art. 44, § 1º", "titulo": "O que o registro [[produz]]",
+      "itens": [
+        ["Nova matrícula", "Para a área regularizada, quando for o caso."],
+        ["Matrículas individualizadas", "Para cada lote e para as áreas públicas do projeto."],
+        ["Registro dos direitos reais", "Indicados na CRF, **dispensado título individualizado**."]
+      ],
+      "fala": "O que esse registro produz? {1}A abertura de nova matrícula para a área regularizada, quando for o caso. {2}A abertura de matrículas individualizadas para cada lote e para as áreas públicas. {3}E o registro dos direitos reais indicados na CRF, na matrícula de cada lote, dispensada a apresentação de título individual. Ninguém precisa de escritura: a listagem da CRF basta." },
+    { "tipo": "alerta", "rotulo": "Caiu no 3º ENAC", "titulo": "Reurb-S em área [[pública]]", "errado": "Exige um título para cada morador e área em ZEIS", "certo": "Registro em ato único, sem título individual",
+      "porque": "Na Reurb-S sobre bem público, o registro do projeto e a constituição do direito real podem ser feitos em **ato único**, a critério do ente público (art. 17).",
+      "fala": "{1}Esta caiu no terceiro Enac. Reurb de interesse social sobre área pública. É preciso um título para cada morador, e a área tem de ser zona especial de interesse social? Não. {2}O registro do projeto e a constituição do direito real em nome dos beneficiários podem ser feitos em ato único, a critério do ente público. O poder público manda a listagem, e o título individual fica dispensado." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Em Reurb sobre **área pública municipal**, com núcleo consolidado desde 2010, o instrumento adequado para conferir **desde logo a propriedade** aos ocupantes é a:",
+      "alternativas": ["legitimação de posse", "usucapião extrajudicial", "legitimação fundiária", "concessão de direito real de uso"],
+      "fala": "Vamos treinar. Reurb sobre área pública municipal, com núcleo consolidado desde dois mil e dez. Qual instrumento confere, desde logo, a propriedade aos ocupantes? {1}Legitimação de posse, usucapião extrajudicial, legitimação fundiária, ou concessão de direito real de uso? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Legitimação de posse", "Usucapião extrajudicial", "Legitimação fundiária", "Concessão de uso"],
+      "passos": ["Legitimação de posse **não se aplica** a área pública.", "Usucapião **não alcança** bem público.", "A fundiária dá **propriedade originária**, em área pública ou privada."],
+      "lei": "Lei 13.465/2017, arts. 23 e 25, § 2º",
+      "fala": "{1}Letra C. {2}A legitimação de posse não se aplica a área pública. {3}A usucapião não alcança bem público. {4}E a legitimação fundiária confere propriedade originária, em área pública ou privada, para núcleo existente em dezembro de dois mil e dezesseis. {5}Artigos vinte e três e vinte e cinco." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Fundiária: propriedade originária, área pública ou privada",
+        "Marco: núcleo existente em 22/12/2016",
+        "De posse: título de posse; propriedade em 5 anos do registro",
+        "De posse não se aplica a área pública",
+        "Registro: 15 dias para exigir, 60 para concluir, sem título individual"
+      ],
+      "fala": "Resumo. {1}Legitimação fundiária: propriedade originária, em área pública ou privada. {2}Com marco em vinte e dois de dezembro de dois mil e dezesseis. {3}Legitimação de posse: título de posse, que vira propriedade em cinco anos do registro. {4}Ela não se aplica a área pública. {5}E, no registro, quinze dias para exigir, sessenta para concluir, sem título individual." },
+    { "tipo": "fecho", "icone": "predio", "titulo": "Condomínio [[edilício]]", "ts": 140,
+      "texto": "Instituição, convenção e o que vai em cada livro.",
+      "fala": "Na próxima aula, abrimos o bloco dos condomínios, começando pelo edilício: instituição, convenção, e o que vai em cada livro." }
+  ]
+}

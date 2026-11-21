@@ -1,0 +1,81 @@
+{
+  "id": "ri-28-direito-de-laje",
+  "n": 28,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "casa", "rotulo": "Registro de Imóveis · Aula 28", "titulo": ["Direito", "de [[laje]]"], "ts": 220,
+      "texto": "Código Civil, arts. 1.510-A a 1.510-E. Caiu no 3º ENAC.",
+      "fala": "O filho casa, não tem onde morar, e constrói em cima da casa dos pais. É uma das cenas mais comuns das cidades brasileiras. Durante muito tempo, aquela casa de cima não existia para o Direito. Desde dois mil e dezessete, ela pode ter matrícula própria. É o direito real de laje, e caiu no terceiro Enac." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.510-A", "ts": 46, "texto": "O proprietário de uma **construção-base** poderá ceder a **superfície superior ou inferior** de sua construção a fim de que o titular da laje mantenha **unidade distinta** daquela originalmente construída sobre o solo.",
+      "traducao": "Dois personagens: o dono da **construção-base** e o **titular da laje**. E a laje pode ser para cima ou para **baixo**.",
+      "fala": "O Código Civil diz: o proprietário de uma construção-base pode ceder a superfície superior ou inferior da sua construção, para que o titular da laje mantenha unidade distinta. {1}São dois personagens: o dono da construção-base e o titular da laje. E repare: a laje pode ser para cima, ou para baixo, no subsolo." },
+    { "tipo": "trio", "rotulo": "Art. 1.510-A, §§ 2º a 4º", "titulo": "O que o titular da laje [[tem]]",
+      "itens": [
+        { "icone": "chave", "nome": "Unidade", "apelido": "Autônoma, com matrícula", "texto": "Pode **usar, gozar e dispor**: vender, doar, dar em garantia.", "lei": "§ 3º" },
+        { "icone": "moeda", "nome": "Encargos", "apelido": "Por conta dele", "texto": "Responde pelos encargos e tributos da **sua** unidade.", "lei": "§ 2º" },
+        { "icone": "mapa", "nome": "Terreno", "apelido": "Não leva", "texto": "A laje **não atribui fração ideal** de terreno nem participação nas áreas já edificadas.", "lei": "§ 4º" }
+      ],
+      "fala": "O que o titular da laje tem? {1}Uma unidade imobiliária autônoma, com matrícula própria. Ele pode usar, gozar e dispor: vender, doar, dar em garantia. {2}Ele responde pelos encargos e tributos da sua unidade. {3}E o ponto central: a laje não atribui fração ideal do terreno, nem participação nas áreas já edificadas. O chão continua sendo só do dono da construção-base." },
+    { "tipo": "compara", "rotulo": "A comparação que cai", "titulo": "Laje x condomínio [[edilício]]", "col": 250, "tl": 34,
+      "a": { "nome": "Direito de laje", "icone": "casa" }, "b": { "nome": "Condomínio edilício", "icone": "predio" },
+      "linhas": [
+        ["Fração ideal do terreno", "**Não tem**", "**Tem**, inseparável da unidade"],
+        ["Entre os donos", "Unidades sobrepostas, **sem** condomínio", "Condomínio sobre as partes comuns"],
+        ["Despesas comuns", "Partilhadas na proporção do **contrato**", "Rateadas conforme a **convenção**"]
+      ],
+      "fala": "A comparação que a banca explora é com o apartamento. {1}No direito de laje, não há fração ideal do terreno. No condomínio edilício, há, e é inseparável da unidade. {2}Por isso, a laje não cria um condomínio: são unidades sobrepostas, com donos diferentes. {3}E as despesas com o que serve a todo o edifício, como alicerces e telhado, são partilhadas na proporção estipulada em contrato." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 176, § 9º", "ts": 46, "texto": "A instituição do direito real de laje ocorrerá por meio da **abertura de uma matrícula própria** no registro de imóveis e por meio da **averbação desse fato na matrícula da construção-base** e nas matrículas de lajes anteriores, com **remissão recíproca**.",
+      "traducao": "Dois movimentos: **abre** matrícula para a laje e **averba** na matrícula de baixo.",
+      "fala": "E no cartório? A instituição da laje se faz pela abertura de uma matrícula própria, e pela averbação desse fato na matrícula da construção-base e nas matrículas de lajes anteriores, com remissão recíproca. {1}São dois movimentos: abre-se a matrícula da laje, e averba-se na matrícula de baixo. Uma aponta para a outra." },
+    { "tipo": "matricula", "rotulo": "Na prática", "titulo": "As duas [[matrículas]]", "numero": "14.220",
+      "imovel": "**Laje superior** da construção-base situada na Rua do Sol, nº 88 (matrícula nº 6.015), com 62,00 m² de área construída. **Sem fração ideal de terreno.**",
+      "lei": { "fonte": "Na matrícula 6.015 (a de baixo)", "em": 2, "texto": "**AV-5:** instituído direito real de laje sobre a construção, objeto da matrícula nº 14.220." },
+      "atos": [
+        { "sigla": "R-1/14.220", "tipo": "Instituição da laje", "texto": "Titular: **RAFAEL**, por cessão da proprietária da construção-base, Dona Lúcia.", "em": 1, "carimbo": "REGISTRADO" },
+        { "sigla": "R-2/14.220", "tipo": "Compra e venda", "texto": "Rafael vende a laje a **SOFIA**.", "em": 3 }
+      ],
+      "fala": "Veja na prática. {1}Abre-se a matrícula da laje, em nome do Rafael, que construiu sobre a casa da mãe. A descrição avisa: sem fração ideal de terreno. {2}Na matrícula da casa de baixo, faz-se a averbação, apontando para a nova matrícula. {3}E, a partir daí, a laje circula sozinha: o Rafael pode vender para a Sofia, por exemplo." },
+    { "tipo": "fluxo", "rotulo": "Código Civil, art. 1.510-D", "titulo": "Vai vender? Tem [[preferência]]",
+      "passos": [
+        { "icone": "balao", "nome": "Aviso", "texto": "Os titulares da construção-base e da laje são cientificados **por escrito**." },
+        { "icone": "relogio", "nome": "Prazo", "tag": "30 dias", "texto": "Para exercer a preferência, em igualdade de condições com terceiros." },
+        { "icone": "forum", "nome": "Não avisou?", "tag": "180 dias", "texto": "O preterido deposita o preço e toma para si a unidade vendida." }
+      ],
+      "nota": "A ordem da lei: primeiro o titular da **construção-base**, depois o da **laje**.",
+      "fala": "Se qualquer das unidades sobrepostas for vendida, existe direito de preferência. {1}Os titulares da construção-base e da laje são cientificados por escrito. {2}Têm trinta dias para exercer a preferência, em igualdade de condições com terceiros. {3}Se não foram avisados, podem depositar o preço e ficar com a unidade, no prazo decadencial de cento e oitenta dias. {4}E a ordem da lei é: primeiro o titular da construção-base, depois o da laje." },
+    { "tipo": "alerta", "rotulo": "Caiu no 3º ENAC", "titulo": "E se houver [[várias]] lajes?", "errado": "Prefere a laje de baixo", "certo": "Primeiro as ascendentes, depois as descendentes",
+      "porque": "Havendo mais de uma laje, preferem, sucessivamente, o titular das lajes **ascendentes** e o das **descendentes**, com prioridade para a **mais próxima** da unidade vendida (art. 1.510-D, § 2º).",
+      "fala": "{1}Esta caiu no terceiro Enac. O prédio tem várias lajes, uma sobre a outra, e uma delas vai ser vendida. Entre os titulares das lajes, quem prefere? {2}Primeiro, o titular das lajes ascendentes, as de cima. Depois, o das descendentes. E, em cada grupo, tem prioridade a laje mais próxima da unidade que está sendo vendida." },
+    { "tipo": "lista", "icone": "predio", "rotulo": "Art. 1.510-A, § 6º", "titulo": "Laje sobre [[laje]]",
+      "itens": [
+        ["É possível", "O titular da laje pode ceder a superfície da **sua** construção para uma nova laje."],
+        ["Condição", "Autorização **expressa** dos titulares da construção-base e das demais lajes."],
+        ["E a prefeitura", "Devem ser respeitadas as posturas edilícias e urbanísticas."]
+      ],
+      "fala": "Pode haver laje sobre laje? {1}Pode. O titular da laje pode ceder a superfície da sua construção para a instituição de uma laje sucessiva. {2}Mas precisa de autorização expressa dos titulares da construção-base e das demais lajes. {3}E, claro, respeitadas as posturas edilícias e urbanísticas do Município." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "A casa de baixo [[desabou]]", "errado": "A laje sempre se extingue", "certo": "Extingue-se, com duas exceções",
+      "porque": "A ruína da construção-base extingue a laje, **salvo** se ela for instituída sobre o **subsolo** ou se a construção-base for **reconstruída em 5 anos** (art. 1.510-E).",
+      "fala": "{1}Pegadinha. A construção-base ruiu. O direito de laje se extingue? Em regra, sim. Mas há duas exceções. {2}Se a laje foi instituída sobre o subsolo, ela permanece. E também permanece se a construção-base for reconstruída no prazo de cinco anos." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Instituído direito real de laje sobre a casa de Vera, em favor de seu filho, é **correto** afirmar que a laje:",
+      "alternativas": ["recebe fração ideal do terreno, como no condomínio", "tem matrícula própria e é averbada na matrícula da construção-base", "é apenas averbada na matrícula da casa de Vera", "não pode ser vendida pelo filho"],
+      "fala": "Vamos treinar. Instituído direito real de laje sobre a casa da Vera, em favor do filho, o que é correto? {1}A laje recebe fração ideal do terreno? Tem matrícula própria, e é averbada na matrícula da construção-base? É apenas averbada na matrícula da casa da Vera? Ou não pode ser vendida pelo filho? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Recebe fração ideal", "Matrícula própria + averbação", "Só averbação", "Não pode ser vendida"],
+      "passos": ["A laje **não leva** fração ideal de terreno.", "Abre-se **matrícula própria**, com averbação na de baixo.", "O titular pode **usar, gozar e dispor**."],
+      "lei": "CC, art. 1.510-A; LRP, art. 176, § 9º",
+      "fala": "{1}Letra B. {2}A laje não leva fração ideal de terreno. {3}Abre-se matrícula própria, com averbação na matrícula da construção-base. {4}E o titular pode usar, gozar e dispor. {5}Artigo mil quinhentos e dez A do Código Civil, e artigo cento e setenta e seis da Lei de Registros Públicos." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Laje superior ou inferior: unidade autônoma",
+        "Sem fração ideal de terreno",
+        "Matrícula própria + averbação na construção-base",
+        "Preferência: 30 dias; 180 para o preterido",
+        "Várias lajes: ascendentes, depois descendentes"
+      ],
+      "fala": "Resumo. {1}A laje pode ser superior ou inferior, e é unidade autônoma. {2}Não tem fração ideal de terreno. {3}Tem matrícula própria, com averbação na construção-base. {4}Preferência em trinta dias, e cento e oitenta para quem foi preterido. {5}Com várias lajes, preferem as ascendentes, depois as descendentes." },
+    { "tipo": "fecho", "icone": "escudo", "titulo": "Bem de [[família]]", "ts": 170,
+      "texto": "O legal, o voluntário e o papel do registro.",
+      "fala": "Na próxima aula: bem de família. O legal, o voluntário, e por que só um deles passa pelo Registro de Imóveis." }
+  ]
+}

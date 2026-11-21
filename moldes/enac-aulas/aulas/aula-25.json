@@ -1,0 +1,85 @@
+{
+  "id": "ri-25-condominio-edilicio",
+  "n": 25,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "predio", "rotulo": "Registro de Imóveis · Aula 25", "titulo": ["Condomínio", "[[edilício]]"], "ts": 190,
+      "texto": "Código Civil, arts. 1.331 a 1.334.",
+      "fala": "Num prédio de apartamentos, você é dono sozinho da sua unidade e dono, junto com os vizinhos, do elevador, do telhado e do terreno. Essa mistura de propriedade exclusiva com propriedade comum é o condomínio edilício. E, no cartório, ele nasce de dois atos diferentes, que vão para livros diferentes." },
+    { "tipo": "compara", "rotulo": "Código Civil, art. 1.331", "titulo": "Duas propriedades no mesmo [[prédio]]", "col": 250,
+      "a": { "nome": "Parte exclusiva", "icone": "chave" }, "b": { "nome": "Parte comum", "icone": "pessoas" },
+      "linhas": [
+        ["O que é", "Apartamentos, salas, lojas: uso independente", "Solo, estrutura, telhado, redes gerais, acesso à rua"],
+        ["Pode vender?", "**Livremente**, pelo proprietário", "**Não** pode ser alienada separadamente nem dividida"],
+        ["A ligação", "Cada unidade leva uma **fração ideal**", "A fração ideal é **inseparável** da unidade"]
+      ],
+      "fala": "O artigo mil trezentos e trinta e um separa as duas propriedades. {1}As partes exclusivas são os apartamentos, as salas e as lojas. As partes comuns são o solo, a estrutura, o telhado, as redes gerais e o acesso à rua. {2}A parte exclusiva pode ser vendida livremente. A parte comum não pode ser alienada separadamente, nem dividida. {3}E o que liga as duas é a fração ideal: cada unidade leva, de forma inseparável, uma fração do solo e das partes comuns." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Posso vender minha [[vaga]] a um estranho?", "ts": 100, "errado": "Sim, a vaga é minha", "certo": "Só com autorização expressa na convenção",
+      "porque": "Os abrigos para veículos **não podem ser alienados ou alugados** a pessoas estranhas ao condomínio, salvo autorização expressa na convenção (art. 1.331, § 1º).",
+      "fala": "{1}Pegadinha um. A vaga de garagem é uma unidade minha. Posso vender ou alugar para alguém de fora do prédio? Em regra, não. {2}Os abrigos para veículos não podem ser alienados ou alugados a pessoas estranhas ao condomínio, salvo autorização expressa na convenção." },
+    { "tipo": "trio", "rotulo": "Os dois atos", "titulo": "Instituição x [[convenção]]",
+      "itens": [
+        { "icone": "carimbo", "nome": "Instituição", "apelido": "Cria o condomínio", "texto": "Divide o prédio em unidades e fixa a **fração ideal** de cada uma.", "lei": "CC, art. 1.332" },
+        { "icone": "livro", "nome": "Convenção", "apelido": "Organiza a convivência", "texto": "Regras de rateio, administração, assembleias e sanções.", "lei": "CC, arts. 1.333 e 1.334" }
+      ],
+      "nota": "A instituição diz **o que é de quem**. A convenção diz **como se convive**.",
+      "fala": "O condomínio nasce de dois atos. {1}A instituição cria o condomínio: divide o prédio em unidades e fixa a fração ideal de cada uma. {2}A convenção organiza a convivência: rateio das despesas, administração, assembleias e sanções. {3}Para guardar: a instituição diz o que é de quem. A convenção diz como se convive." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.332", "ts": 46, "texto": "Institui-se o condomínio edilício por **ato entre vivos ou testamento**, **registrado no Cartório de Registro de Imóveis**, devendo constar daquele ato (...): I - a discriminação e individualização das unidades (...); II - a determinação da **fração ideal** atribuída a cada unidade (...); III - o **fim** a que as unidades se destinam.",
+      "traducao": "Três conteúdos obrigatórios: as **unidades**, as **frações** e a **destinação**.",
+      "fala": "A instituição se faz por ato entre vivos ou por testamento, registrado no Registro de Imóveis. {1}E tem três conteúdos obrigatórios: a individualização das unidades, a fração ideal de cada uma, e o fim a que elas se destinam, se residencial ou comercial." },
+    { "tipo": "lista", "icone": "livro", "rotulo": "Código Civil, arts. 1.333 e 1.334", "titulo": "A [[convenção]] por dentro",
+      "itens": [
+        ["Quórum", "Subscrita por titulares de, no mínimo, **dois terços** das frações ideais."],
+        ["Forma", "Escritura pública **ou** instrumento particular."],
+        ["Conteúdo", "Rateio das despesas, administração, assembleias, sanções e regimento interno."],
+        ["Quem obriga", "Proprietários, possuidores e detentores das unidades."]
+      ],
+      "fala": "A convenção por dentro. {1}O quórum: ela deve ser subscrita por titulares de, no mínimo, dois terços das frações ideais. {2}A forma é livre: escritura pública ou instrumento particular. {3}O conteúdo: rateio das despesas, forma de administração, assembleias, sanções e regimento interno. {4}E ela obriga não só os proprietários, mas também quem tem a posse ou a detenção das unidades, como o inquilino." },
+    { "tipo": "compara", "rotulo": "A troca que mais cai", "titulo": "Cada ato no seu [[livro]]", "col": 250,
+      "a": { "nome": "Instituição", "icone": "carimbo" }, "b": { "nome": "Convenção", "icone": "livro" },
+      "linhas": [
+        ["Livro", "**Livro 2**, na matrícula", "**Livro 3**, Registro Auxiliar"],
+        ["Base", "LRP, art. 167, I, 17", "LRP, art. 178, III"],
+        ["Efeito do registro", "**Cria** o condomínio e as unidades", "Torna a convenção **oponível a terceiros**"]
+      ],
+      "fala": "Agora a troca que mais cai, e você já viu um pedaço dela na aula três. {1}A instituição é registrada no Livro dois, na matrícula do imóvel. A convenção, no Livro três, o Registro Auxiliar. {2}Uma está no artigo cento e sessenta e sete. A outra, no cento e setenta e oito. {3}O registro da instituição cria o condomínio e as unidades. O da convenção a torna oponível a terceiros." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2 · Súmula 260 do STJ", "titulo": "Convenção [[sem]] registro vale?", "errado": "Não produz nenhum efeito", "certo": "Vale entre os condôminos",
+      "porque": "A convenção aprovada, **ainda que sem registro**, é eficaz para regular as relações entre os condôminos. O registro serve para a oponibilidade **a terceiros** (CC, art. 1.333).",
+      "fala": "{1}Pegadinha dois. A convenção foi aprovada, mas nunca foi levada ao cartório. Ela vale? Vale entre os condôminos. {2}É a Súmula duzentos e sessenta do Superior Tribunal de Justiça: a convenção aprovada, ainda que sem registro, é eficaz para regular as relações entre eles. O registro é que a torna oponível a terceiros." },
+    { "tipo": "fluxo", "rotulo": "Do terreno aos apartamentos", "titulo": "A linha do tempo no [[cartório]]",
+      "passos": [
+        { "icone": "documento", "nome": "Incorporação", "texto": "Registro do memorial: autoriza a venda na planta." },
+        { "icone": "regua", "nome": "Construção", "texto": "Averbação da obra concluída, com o habite-se." },
+        { "icone": "carimbo", "nome": "Instituição", "texto": "Registro que cria as unidades autônomas." },
+        { "icone": "chave", "nome": "Matrículas", "texto": "Uma para cada unidade, com a sua fração ideal." }
+      ],
+      "fala": "Juntando com as aulas de incorporação, a linha do tempo fica assim. {1}Registro do memorial de incorporação, que autoriza a venda na planta. {2}Averbação da construção, com o habite-se. {3}Registro da instituição do condomínio, que cria as unidades autônomas. {4}E uma matrícula para cada unidade, com a sua fração ideal." },
+    { "tipo": "lista", "icone": "casa", "rotulo": "Art. 1.331, §§ 4º e 5º", "titulo": "Dois detalhes de [[prova]]",
+      "itens": [
+        ["Acesso à rua", "Nenhuma unidade pode ser privada do acesso ao logradouro público."],
+        ["Terraço de cobertura", "É parte **comum**, salvo disposição contrária do ato de constituição do condomínio."]
+      ],
+      "fala": "Dois detalhes que viram alternativa. {1}Nenhuma unidade pode ser privada do acesso ao logradouro público. {2}E o terraço de cobertura é parte comum, salvo disposição contrária no ato de constituição do condomínio. A cobertura só é do último andar se a instituição disser." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Concluído o Edifício Lagoa, apresentam-se ao Registro de Imóveis o **instrumento de instituição** do condomínio e a **convenção**. Os atos serão praticados, respectivamente, no:",
+      "alternativas": ["Livro 2 e Livro 3", "Livro 3 e Livro 2", "Livro 2, ambos por registro", "Livro 3, ambos por averbação"],
+      "fala": "Vamos treinar. Concluído o prédio, chegam ao cartório o instrumento de instituição do condomínio e a convenção. Em que livros são praticados os atos, nessa ordem? {1}Livro dois e Livro três. Livro três e Livro dois. Os dois no Livro dois. Ou os dois no Livro três? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 0, "titulo": "Letra [[A]]",
+      "alternativas": ["Livro 2 e Livro 3", "Livro 3 e Livro 2", "Ambos no Livro 2", "Ambos no Livro 3"],
+      "passos": ["A instituição mexe **no imóvel**: Livro 2, na matrícula.", "A convenção é regra de **convivência**: Livro 3.", "Os dois atos são de **registro**."],
+      "lei": "LRP, arts. 167, I, 17, e 178, III",
+      "fala": "{1}Letra A. {2}A instituição mexe no imóvel: vai para o Livro dois, na matrícula. {3}A convenção é regra de convivência: vai para o Livro três. {4}E os dois atos são de registro. {5}Artigos cento e sessenta e sete e cento e setenta e oito da Lei de Registros Públicos." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Parte exclusiva + fração ideal inseparável",
+        "Instituição: unidades, frações e destinação; Livro 2",
+        "Convenção: dois terços das frações; Livro 3",
+        "Sem registro, a convenção vale entre os condôminos",
+        "Vaga a estranho, só se a convenção autorizar"
+      ],
+      "fala": "Resumo. {1}Parte exclusiva, mais fração ideal inseparável. {2}A instituição traz unidades, frações e destinação, e vai para o Livro dois. {3}A convenção exige dois terços das frações, e vai para o Livro três. {4}Sem registro, ela vale entre os condôminos. {5}E vaga para estranho, só se a convenção autorizar." },
+    { "tipo": "fecho", "icone": "mapa", "titulo": "Condomínio de [[lotes]]", "ts": 140,
+      "texto": "E a diferença para o loteamento de acesso controlado.",
+      "fala": "Na próxima aula: o condomínio de lotes. E por que ele não é a mesma coisa que o loteamento fechado com portaria." }
+  ]
+}

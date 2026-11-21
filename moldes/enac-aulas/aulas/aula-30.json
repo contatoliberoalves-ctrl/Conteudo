@@ -1,0 +1,86 @@
+{
+  "id": "ri-30-indisponibilidade-e-cnib",
+  "n": 30,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "cadeado", "rotulo": "Registro de Imóveis · Aula 30", "titulo": ["[[Indisponibilidade]]", "de bens"], "ts": 150,
+      "texto": "Código Nacional de Normas do CNJ, arts. 320-A e seguintes. Caiu nas três edições do ENAC.",
+      "fala": "Um juiz, em qualquer lugar do país, decreta a indisponibilidade dos bens de um devedor. Como essa ordem chega, no mesmo dia, a todos os cartórios de imóveis do Brasil? Por uma central eletrônica. E o encontro dessa ordem com um título já protocolado caiu nas três edições do Enac." },
+    { "tipo": "trio", "rotulo": "O conceito", "titulo": "O que é a [[indisponibilidade]]",
+      "itens": [
+        { "icone": "cadeado", "nome": "Efeito", "apelido": "Trava a disposição", "texto": "O titular **não pode alienar nem onerar** o imóvel enquanto a ordem durar.", "lei": "Medida cautelar" },
+        { "icone": "forum", "nome": "Quem decreta", "apelido": "Juiz ou autoridade", "texto": "Autoridades judiciárias e **administrativas** autorizadas em lei.", "lei": "CNN, art. 320-A, § 2º" },
+        { "icone": "alvo", "nome": "Alcance", "apelido": "Um bem ou todos", "texto": "Bens **específicos** ou o **patrimônio indistinto** da pessoa.", "lei": "CNN, art. 320-A" }
+      ],
+      "fala": "Primeiro, o conceito. {1}A indisponibilidade trava o poder de dispor: enquanto a ordem durar, o titular não pode alienar nem onerar o imóvel. {2}Quem decreta são as autoridades judiciárias, e também as administrativas autorizadas em lei. {3}E ela pode atingir bens específicos, ou todo o patrimônio da pessoa, sem indicar quais." },
+    { "tipo": "lista", "icone": "globo", "rotulo": "CNN, arts. 320-A e 320-O", "titulo": "A [[CNIB]]", "tl": 40,
+      "itens": [
+        ["O que é", "A Central Nacional de Indisponibilidade de Bens."],
+        ["Para que serve", "Cadastrar as ordens de indisponibilidade **e as de cancelamento**."],
+        ["Como cadastra", "Pelo **CPF ou CNPJ**, para afastar o risco de homonímia."],
+        ["Quem opera", "O **ONR**: a CNIB é um módulo do registro eletrônico de imóveis."]
+      ],
+      "fala": "A ferramenta é a CNIB, a Central Nacional de Indisponibilidade de Bens. {1}Ela serve para cadastrar as ordens de indisponibilidade, {2}e também as ordens de cancelamento. {3}O cadastro é feito pelo CPF ou pelo CNPJ, para afastar o risco de homônimos. {4}E quem opera é o ONR, o Operador Nacional do Registro Eletrônico de Imóveis." },
+    { "tipo": "lei", "fonte": "CNN (Provimento CNJ 149/2023), art. 320-E · caiu no 2º ENAC", "ts": 44, "texto": "Todas as ordens de indisponibilidade e de cancelamento deverão ser encaminhadas aos oficiais de registro de imóveis, **exclusivamente, por intermédio da CNIB**, vedada a utilização de quaisquer outros meios, tais como **mandados, ofícios, malotes digitais e mensagens eletrônicas**.",
+      "traducao": "Um canal só. Ordem de indisponibilidade por ofício ou e-mail **não é o meio previsto**.",
+      "fala": "A regra que caiu no segundo Enac: todas as ordens de indisponibilidade e de cancelamento são encaminhadas aos registradores exclusivamente pela CNIB, vedados outros meios, como mandados, ofícios e mensagens eletrônicas. {1}Um canal só. No caso da prova, eram três imóveis em três circunscrições diferentes, e a resposta era essa: a ordem opera pela central." },
+    { "tipo": "fluxo", "rotulo": "CNN, art. 320-I", "titulo": "O que o [[registrador]] faz",
+      "passos": [
+        { "icone": "lupa", "nome": "Consulta", "tag": "Diária", "texto": "À CNIB. Dispensada para quem usa integração automática." },
+        { "icone": "senha", "nome": "Prenotação", "texto": "Das ordens sobre imóveis matriculados na serventia." },
+        { "icone": "caneta", "nome": "Averbação", "texto": "Na matrícula ou na transcrição do imóvel." }
+      ],
+      "nota": "A indisponibilidade entra na matrícula por **averbação**, depois de **prenotada**.",
+      "fala": "E o que o registrador faz? {1}Consulta a CNIB diariamente, salvo se a serventia tiver integração automática com a central. {2}Prenota as ordens relativas aos imóveis matriculados no seu cartório. {3}E averba a indisponibilidade na matrícula. {4}Guarde os dois verbos: a ordem é prenotada, e depois averbada." },
+    { "tipo": "lei", "fonte": "CNN, art. 320-I, § 3º · caiu no 1º e no 3º ENAC", "ts": 46, "texto": "A **superveniência** de ordem de indisponibilidade, salvo decisão judicial em sentido contrário, **não impede o registro de título anteriormente prenotado**, incumbindo ao registrador **comunicar ao juiz** a realização do ato de registro.",
+      "traducao": "Vale a **prioridade**: quem prenotou antes registra. E o oficial avisa o juiz.",
+      "fala": "Agora a regra que caiu no primeiro e no terceiro Enac. A superveniência de ordem de indisponibilidade, salvo decisão judicial em sentido contrário, não impede o registro de título anteriormente prenotado, cabendo ao registrador comunicar ao juiz. {1}É o princípio da prioridade, da aula cinco. Quem prenotou antes, registra. E o oficial avisa o juiz." },
+    { "tipo": "compara", "rotulo": "Para não errar", "titulo": "Depende de [[quem]] chegou primeiro", "col": 270,
+      "a": { "nome": "Título antes", "icone": "documento" }, "b": { "nome": "Ordem antes", "icone": "cadeado" },
+      "linhas": [
+        ["Situação", "Escritura prenotada na segunda; ordem chega na quarta", "Ordem prenotada na segunda; escritura chega na quarta"],
+        ["O que o oficial faz", "**Registra** o título e comunica o juiz", "**Não registra** a alienação"],
+        ["Fundamento", "Prioridade da prenotação", "A indisponibilidade trava a disposição"]
+      ],
+      "fala": "Para não errar, depende de quem chegou primeiro. {1}Se a escritura foi prenotada na segunda e a ordem chegou na quarta, {2}o oficial registra o título e comunica o juiz. Se foi o contrário, a ordem na segunda e a escritura na quarta, a alienação não é registrada. {3}Num caso, vale a prioridade da prenotação. No outro, a indisponibilidade já estava travando o imóvel." },
+    { "tipo": "trio", "rotulo": "CNN, arts. 320-D, 320-F e 320-J", "titulo": "Três regras [[rápidas]]",
+      "itens": [
+        { "icone": "caneta", "nome": "Tabelião", "apelido": "Consulta obrigatória", "texto": "A ordem **não impede a escritura**, mas as partes são cientificadas e o fato é consignado no ato.", "lei": "Art. 320-F" },
+        { "icone": "chave", "nome": "Cancelamento", "apelido": "Sem mandado", "texto": "Cadastrado na CNIB, o oficial averba o cancelamento **independentemente de mandado**.", "lei": "Art. 320-D" },
+        { "icone": "casa", "nome": "Comprou depois", "apelido": "Averba em seguida", "texto": "Se o atingido **adquire** um imóvel, a indisponibilidade é averbada logo após o registro.", "lei": "Art. 320-J" }
+      ],
+      "fala": "Três regras rápidas. {1}Para o tabelião, a consulta à CNIB é obrigatória. A existência da ordem não impede a lavratura da escritura, mas as partes são avisadas e o fato é consignado no ato. {2}No cancelamento, basta o cadastro na central: o oficial averba, independentemente de mandado judicial. {3}E, se a pessoa atingida compra um imóvel, a indisponibilidade é averbada imediatamente após o registro da aquisição." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Imóvel indisponível pode ser [[retificado]]?", "ts": 104, "errado": "Não: qualquer ato depende do juiz", "certo": "Pode, sem autorização da autoridade",
+      "porque": "Retificação, unificação, desmembramento e Reurb de imóvel com indisponibilidade averbada **independem de autorização**. A indisponibilidade é **transportada** para as novas matrículas (art. 320-H).",
+      "fala": "{1}Pegadinha. O imóvel está com indisponibilidade averbada. Dá para retificar a área, desmembrar ou unificar? Dá, e sem autorização de quem deu a ordem. {2}Esses atos não transferem o bem. A indisponibilidade é simplesmente transportada para as novas matrículas, e o oficial comunica a autoridade." },
+    { "tipo": "lista", "icone": "raio", "rotulo": "CNN, arts. 320-X a 320-AG", "titulo": "E a penhora? O [[Constrijud]]",
+      "itens": [
+        ["O que é", "A plataforma do Serp para ordens judiciais de constrição: penhora, arresto, sequestro, hipoteca judicial."],
+        ["A mesma lógica", "As ordens chegam **exclusivamente** pelo sistema; fora dele, nota devolutiva."],
+        ["O ritmo", "Verificação na abertura, no encerramento e a cada **2 horas**, no máximo."],
+        ["O prazo", "Registro, averbação ou nota devolutiva em até **10 dias úteis**."]
+      ],
+      "fala": "E a penhora? Ela tem um sistema irmão, o Constrijud. {1}É a plataforma do Serp para ordens judiciais de constrição, como penhora, arresto, sequestro e hipoteca judicial. {2}A lógica é a mesma: as ordens chegam exclusivamente pelo sistema, e o que vier por outro meio recebe nota devolutiva. {3}O oficial verifica o sistema na abertura, no encerramento, e em intervalos de no máximo duas horas. {4}E pratica o ato, ou emite a nota devolutiva, em até dez dias úteis. É norma recente, do tipo que a banca gosta." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Prenotada escritura de compra e venda na **segunda-feira**, o oficial verifica, na **quarta-feira**, ordem de indisponibilidade dos bens do vendedor na CNIB. Sem decisão judicial em contrário, ele deve:",
+      "alternativas": ["cancelar a prenotação e devolver o título", "suspender o registro até o juiz se manifestar", "registrar o título e comunicar o juiz", "averbar a indisponibilidade e recusar o registro"],
+      "fala": "Para fechar, a questão que caiu duas vezes. A escritura foi prenotada na segunda-feira. Na quarta, o oficial verifica, na CNIB, uma ordem de indisponibilidade dos bens do vendedor. Sem decisão judicial em contrário, ele deve: {1}cancelar a prenotação? Suspender o registro até o juiz se manifestar? Registrar o título e comunicar o juiz? Ou averbar a indisponibilidade e recusar o registro? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Cancelar a prenotação", "Suspender até o juiz decidir", "Registrar e comunicar o juiz", "Averbar e recusar"],
+      "passos": ["A ordem é **superveniente** à prenotação.", "Ela **não impede** o registro do título prenotado antes.", "O oficial registra e **comunica o juiz**."],
+      "lei": "CNN, art. 320-I, § 3º",
+      "fala": "{1}Letra C. {2}A ordem é superveniente à prenotação. {3}Ela não impede o registro do título prenotado antes. {4}O oficial registra, e comunica o juiz. {5}Artigo trezentos e vinte I, parágrafo terceiro, do Código Nacional de Normas." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Ordens só pela CNIB, cadastradas por CPF ou CNPJ",
+        "O oficial consulta, prenota e averba",
+        "Título prenotado antes: registra e comunica o juiz",
+        "Cancelamento cadastrado: averba sem mandado",
+        "Retificação e desmembramento não dependem de autorização"
+      ],
+      "fala": "Resumo. {1}As ordens chegam só pela CNIB, cadastradas por CPF ou CNPJ. {2}O oficial consulta, prenota e averba. {3}Título prenotado antes da ordem: registra e comunica o juiz. {4}Cancelamento cadastrado na central: averba sem mandado. {5}E retificação e desmembramento não dependem de autorização." },
+    { "tipo": "fecho", "icone": "alvo", "rotulo": "Fim do bloco", "titulo": "Trinta aulas de [[Registro de Imóveis]]", "ts": 110,
+      "texto": "Agora é revisar pelos resumos e treinar questões.",
+      "fala": "Com esta aula, você fechou trinta aulas de Registro de Imóveis: dos fundamentos às garantias, da usucapião à Reurb, dos condomínios à indisponibilidade. Agora é revisar pelos resumos e treinar questões. Bons estudos, e até a próxima." }
+  ]
+}

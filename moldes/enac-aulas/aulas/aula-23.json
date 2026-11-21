@@ -1,0 +1,89 @@
+{
+  "id": "ri-23-reurb-conceito-e-procedimento",
+  "n": 23,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "casa", "rotulo": "Registro de Imóveis · Aula 23", "titulo": ["[[Reurb]]"], "ts": 260,
+      "texto": "Parte 1: conceito, modalidades e procedimento. Lei 13.465/2017.",
+      "fala": "Milhões de casas no Brasil não têm matrícula regular. São bairros inteiros que cresceram sem loteamento aprovado, sem registro, sem escritura. Para trazer essa cidade real para dentro do cartório, a lei criou a Reurb, a Regularização Fundiária Urbana. Nesta primeira parte: conceito, modalidades e procedimento." },
+    { "tipo": "lei", "fonte": "Lei 13.465/2017, art. 9º", "ts": 44, "texto": "(...) Regularização Fundiária Urbana (Reurb), a qual abrange medidas **jurídicas, urbanísticas, ambientais e sociais** destinadas à incorporação dos **núcleos urbanos informais** ao ordenamento territorial urbano e à **titulação de seus ocupantes**.",
+      "traducao": "Dois objetivos: **integrar** o bairro à cidade formal e **dar título** a quem mora nele.",
+      "fala": "O artigo nono define a Reurb: são medidas jurídicas, urbanísticas, ambientais e sociais destinadas a incorporar os núcleos urbanos informais ao ordenamento da cidade, e a titular os seus ocupantes. {1}Dois objetivos, portanto: integrar o bairro à cidade formal, e dar título a quem mora nele." },
+    { "tipo": "trio", "rotulo": "Lei 13.465/2017, art. 11", "titulo": "O vocabulário da [[Reurb]]",
+      "itens": [
+        { "icone": "casa", "nome": "Núcleo informal", "apelido": "Clandestino ou irregular", "texto": "Ou aquele em que não foi possível **titular** os ocupantes.", "lei": "Inciso II" },
+        { "icone": "predio", "nome": "Consolidado", "apelido": "De difícil reversão", "texto": "Pelo tempo de ocupação, pelas edificações, pelas vias e pelos equipamentos públicos.", "lei": "Inciso III" },
+        { "icone": "pessoas", "nome": "Ocupante", "apelido": "Poder de fato", "texto": "Quem mantém poder de fato sobre lote ou fração de terra **pública ou privada**.", "lei": "Inciso VIII" }
+      ],
+      "fala": "Primeiro, o vocabulário. {1}Núcleo urbano informal é o clandestino, o irregular, ou aquele em que não foi possível titular os ocupantes. {2}Núcleo consolidado é o de difícil reversão, pelo tempo da ocupação, pelas edificações, pelas vias e pelos equipamentos públicos. {3}E ocupante é quem mantém poder de fato sobre um lote, em terra pública ou privada." },
+    { "tipo": "compara", "rotulo": "Lei 13.465/2017, art. 13", "titulo": "As duas [[modalidades]]", "col": 250,
+      "a": { "nome": "Reurb-S", "icone": "pessoas" }, "b": { "nome": "Reurb-E", "icone": "predio" },
+      "linhas": [
+        ["Nome", "De Interesse **Social**", "De Interesse **Específico**"],
+        ["Para quem", "Núcleos ocupados predominantemente por população de **baixa renda**", "Os **demais** núcleos"],
+        ["Quem declara", "Ato do Poder Executivo **municipal**", "É a modalidade residual"],
+        ["Custas e emolumentos", "**Isenção** dos atos de registro", "Pagos normalmente"]
+      ],
+      "fala": "São duas modalidades. {1}Reurb S, de interesse social. Reurb E, de interesse específico. {2}A primeira vale para núcleos ocupados predominantemente por população de baixa renda. A segunda, para os demais. {3}Quem declara o interesse social é o Poder Executivo municipal. {4}E a grande diferença prática: na Reurb S, os atos de registro são isentos de custas e emolumentos." },
+    { "tipo": "lista", "icone": "moeda", "rotulo": "Art. 13, § 1º", "titulo": "O que é [[isento]] na Reurb-S", "tl": 38, "gap": 16,
+      "itens": [
+        "O primeiro registro da Reurb-S",
+        "O registro da legitimação fundiária e da legitimação de posse",
+        "O registro da CRF e a abertura das matrículas",
+        "A primeira averbação de construção residencial, de até 70 m²",
+        "O primeiro registro do direito real de laje"
+      ],
+      "fala": "Entre os atos isentos na Reurb S estão: {1}o primeiro registro da regularização. {2}O registro da legitimação fundiária e da legitimação de posse. {3}O registro da certidão de regularização e a abertura das matrículas. {4}A primeira averbação de construção residencial, de até setenta metros quadrados. {5}E o primeiro registro do direito real de laje. Guarde o número: setenta metros." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "O oficial pode exigir os [[tributos]]?", "ts": 108, "errado": "Sim: sem ITBI e IPTU, não registra", "certo": "Não: é vedado exigir a comprovação",
+      "porque": "Os atos da Reurb-S **independem** da comprovação do pagamento de tributos, sendo **vedado** ao oficial exigi-la (art. 13, § 2º).",
+      "fala": "{1}Pegadinha um. Na Reurb S, o oficial pode exigir a comprovação do pagamento de tributos? Não. {2}Os atos independem dessa comprovação, e a lei proíbe expressamente o oficial de exigi-la." },
+    { "tipo": "lista", "icone": "pessoas", "rotulo": "Lei 13.465/2017, art. 14", "titulo": "Quem pode [[requerer]]", "tl": 38, "gap": 16,
+      "itens": [
+        "União, Estados, Distrito Federal e Municípios",
+        "Os beneficiários, individual ou coletivamente, ou por associações e cooperativas",
+        "Proprietários, loteadores e incorporadores",
+        "A Defensoria Pública, pelos hipossuficientes",
+        "O Ministério Público"
+      ],
+      "fala": "Quem pode requerer a Reurb? A lista é larga. {1}Os entes públicos. {2}Os próprios beneficiários, sozinhos, em grupo, ou por associações de moradores e cooperativas. {3}Os proprietários, os loteadores e os incorporadores. {4}A Defensoria Pública, em nome dos hipossuficientes. {5}E o Ministério Público." },
+    { "tipo": "fluxo", "rotulo": "Lei 13.465/2017, art. 28", "titulo": "As [[fases]] do procedimento",
+      "passos": [
+        { "icone": "caneta", "nome": "Requerimento", "texto": "E processamento, com prazo para titulares de direitos e confrontantes." },
+        { "icone": "mapa", "nome": "Projeto", "texto": "Elaboração do projeto de regularização e saneamento do processo." },
+        { "icone": "predio", "nome": "Decisão e CRF", "texto": "O **Município** decide e expede a Certidão de Regularização Fundiária." },
+        { "icone": "carimbo", "nome": "Registro", "texto": "Da CRF e do projeto, no **Registro de Imóveis**." }
+      ],
+      "fala": "O procedimento corre na prefeitura, e termina no cartório. {1}Começa com o requerimento e o processamento, com prazo para os titulares de direitos e os confrontantes se manifestarem. {2}Vem o projeto de regularização e o saneamento do processo. {3}O Município decide, e expede a Certidão de Regularização Fundiária, a CRF. {4}E a última fase é o registro da CRF e do projeto, no Registro de Imóveis." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Arts. 11, V, e 41", "titulo": "A [[CRF]] é o título", "tl": 40,
+      "itens": [
+        ["O que é", "O ato do **Município** que aprova a regularização."],
+        ["O que contém", "O projeto aprovado, o termo de compromisso e a **listagem dos ocupantes**, com os direitos reais conferidos."],
+        ["Para que serve", "É o título que o Registro de Imóveis recebe e registra."]
+      ],
+      "fala": "A CRF é a peça central. {1}Ela é o ato do Município que aprova a regularização. {2}Reúne o projeto aprovado, o termo de compromisso e a listagem dos ocupantes, com a qualificação de cada um e o direito real que recebeu. {3}E é esse o título que o Registro de Imóveis recebe e registra." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "Sem lei [[municipal]], sem Reurb?", "errado": "A Reurb depende de lei municipal específica", "certo": "A falta de lei municipal não impede",
+      "porque": "A inexistência de lei municipal específica sobre o tema **não impede** a Reurb (art. 28, parágrafo único).",
+      "fala": "{1}Pegadinha dois. O Município não tem lei própria de regularização fundiária. A Reurb fica travada? Não. {2}A inexistência de lei municipal específica não impede a Reurb. A lei federal já basta." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Em Reurb de Interesse Social, é apresentado ao Registro de Imóveis o pedido de **primeira averbação da construção** de uma casa de 60 m². O oficial deve:",
+      "alternativas": ["cobrar os emolumentos pela metade", "praticar o ato com isenção, sem exigir comprovação de tributos", "exigir a certidão negativa de tributos municipais", "recusar: a Reurb não alcança construções"],
+      "fala": "Vamos treinar. Numa Reurb de interesse social, chega o pedido da primeira averbação de construção de uma casa de sessenta metros quadrados. O que o oficial faz? {1}Cobra os emolumentos pela metade? Pratica o ato com isenção, sem exigir tributos? Exige a certidão negativa de tributos municipais? Ou recusa? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Emolumentos pela metade", "Isenção, sem exigir tributos", "Exige certidão de tributos", "Recusa o ato"],
+      "passos": ["Primeira averbação de construção residencial até **70 m²**: isenta.", "O ato **independe** da comprovação de tributos.", "E o oficial é **proibido** de exigi-la."],
+      "lei": "Lei 13.465/2017, art. 13, §§ 1º e 2º",
+      "fala": "{1}Letra B. {2}A primeira averbação de construção residencial, de até setenta metros quadrados, é isenta na Reurb S. {3}O ato independe da comprovação de tributos. {4}E o oficial é proibido de exigi-la. {5}Artigo treze, parágrafos primeiro e segundo." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Reurb integra o núcleo informal e titula os ocupantes",
+        "Reurb-S: baixa renda, com isenção de emolumentos",
+        "Reurb-E: os demais núcleos",
+        "O Município decide e expede a CRF",
+        "Não depende de lei municipal nem de prova de tributos"
+      ],
+      "fala": "Resumo. {1}A Reurb integra o núcleo informal à cidade e titula os ocupantes. {2}Reurb S: baixa renda, com isenção de emolumentos. {3}Reurb E: os demais núcleos. {4}O Município decide e expede a CRF. {5}E a Reurb não depende de lei municipal, nem, na modalidade social, de prova de tributos." },
+    { "tipo": "fecho", "icone": "chave", "titulo": "Legitimação [[fundiária]] e de posse", "ts": 118,
+      "texto": "Reurb, parte 2: os títulos e o registro.",
+      "fala": "Na próxima aula, a parte que mais cai: legitimação fundiária, legitimação de posse, e o que o registrador faz quando a CRF chega ao balcão." }
+  ]
+}

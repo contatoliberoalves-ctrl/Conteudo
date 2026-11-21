@@ -1,0 +1,76 @@
+{
+  "id": "ri-22-imovel-rural-e-estrangeiro",
+  "n": 22,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "globo", "rotulo": "Registro de Imóveis · Aula 22", "titulo": ["Imóvel rural e", "[[estrangeiro]]"], "ts": 160,
+      "texto": "Lei 5.709/71.",
+      "fala": "Um estrangeiro pode comprar um apartamento no Brasil sem nenhuma restrição especial. Mas, se ele quiser uma fazenda, a história muda. A lei impõe limites de área, exige escritura pública e coloca o Registro de Imóveis como fiscal de tudo isso. Vamos ver como." },
+    { "tipo": "lista", "icone": "pessoas", "rotulo": "Lei 5.709/71, art. 1º", "titulo": "A quem a lei se [[aplica]]",
+      "itens": [
+        ["Pessoa física estrangeira", "**Residente** no País."],
+        ["Pessoa jurídica estrangeira", "**Autorizada a funcionar** no Brasil."],
+        ["Pessoa jurídica brasileira", "Com maioria do capital nas mãos de estrangeiros que residam ou tenham sede no exterior (§ 1º)."]
+      ],
+      "fala": "A quem a lei se aplica? {1}À pessoa física estrangeira residente no País. {2}À pessoa jurídica estrangeira autorizada a funcionar no Brasil. {3}E, pelo texto da lei, também à pessoa jurídica brasileira que tenha a maioria do capital nas mãos de estrangeiros residentes ou sediados no exterior. E repare: a lei trata de imóvel rural. Imóvel urbano não entra." },
+    { "tipo": "trio", "rotulo": "Lei 5.709/71, art. 3º · pessoa física", "titulo": "Os limites por [[pessoa]]",
+      "itens": [
+        { "numero": "3", "unidade": "módulos", "apelido": "Aquisição livre", "texto": "Até esse tamanho, **independe de autorização** ou licença.", "lei": "§ 1º" },
+        { "numero": "3-50", "unidade": "módulos", "apelido": "Regulamentada", "texto": "Segue as normas baixadas pelo Poder Executivo.", "lei": "§ 2º" },
+        { "numero": "50", "unidade": "módulos", "apelido": "O teto", "texto": "De exploração indefinida, em área **contínua ou descontínua**.", "lei": "Caput" }
+      ],
+      "fala": "Para a pessoa física, três faixas. {1}Até três módulos, a aquisição é livre: não depende de autorização. {2}Entre três e cinquenta módulos, segue as normas do Poder Executivo. {3}E cinquenta módulos de exploração indefinida é o teto, em área contínua ou descontínua. Ou seja, somam-se os imóveis." },
+    { "tipo": "trio", "rotulo": "Lei 5.709/71, art. 12", "titulo": "Os limites por [[município]]",
+      "itens": [
+        { "numero": "1/4", "unidade": "do município", "apelido": "Todos os estrangeiros", "texto": "A soma das áreas rurais de estrangeiros não pode passar de um quarto da superfície do município.", "lei": "Caput" },
+        { "numero": "40%", "unidade": "desse limite", "apelido": "Mesma nacionalidade", "texto": "Pessoas da mesma nacionalidade não podem ter mais de 40% daquele um quarto.", "lei": "§ 1º" }
+      ],
+      "nota": "Quem comprova? O **Registro de Imóveis**, por certidão, com base no livro auxiliar.",
+      "fala": "E existem limites por município. {1}A soma das áreas rurais pertencentes a estrangeiros não pode ultrapassar um quarto da superfície do município. {2}E pessoas da mesma nacionalidade não podem ter mais de quarenta por cento desse limite. Fazendo a conta: dez por cento do município. {3}E quem comprova isso? O Registro de Imóveis, por certidão, com base no seu livro auxiliar." },
+    { "tipo": "lei", "fonte": "Lei 5.709/71, art. 8º", "texto": "Na aquisição de imóvel rural por pessoa estrangeira, física ou jurídica, é da **essência do ato a escritura pública**.",
+      "traducao": "Aqui não vale instrumento particular, **qualquer que seja o valor** do imóvel.",
+      "fala": "A forma. Na aquisição de imóvel rural por estrangeiro, é da essência do ato a escritura pública. {1}Não importa o valor. Mesmo que o imóvel custe menos de trinta salários mínimos, aqui o instrumento particular não serve." },
+    { "tipo": "lista", "icone": "caneta", "rotulo": "Lei 5.709/71, art. 9º", "titulo": "O que a [[escritura]] deve trazer",
+      "itens": [
+        ["Documento de identidade do adquirente", ""],
+        ["Prova de residência no território nacional", ""],
+        ["Autorização ou assentimento prévio", "Quando for o caso: área acima de 3 módulos ou em zona indispensável à segurança nacional."]
+      ],
+      "fala": "E a escritura da pessoa física estrangeira deve conter, obrigatoriamente: {1}a menção ao documento de identidade do adquirente. {2}A prova de residência no território nacional. {3}E, quando for o caso, a autorização do órgão competente, ou o assentimento prévio, se o imóvel estiver em área indispensável à segurança nacional, como a faixa de fronteira." },
+    { "tipo": "fluxo", "rotulo": "Lei 5.709/71, arts. 10 e 11", "titulo": "O papel do [[registrador]]",
+      "passos": [
+        { "icone": "livro", "nome": "Livro auxiliar", "texto": "Cadastro especial das aquisições de terras rurais por estrangeiros." },
+        { "icone": "documento", "nome": "O que anota", "texto": "Identidade das partes, memorial descritivo do imóvel e a autorização." },
+        { "icone": "calendario", "nome": "Relação", "tag": "Trimestral", "texto": "À Corregedoria da Justiça e ao Ministério da Agricultura." }
+      ],
+      "nota": "A lei prevê a **perda do cargo** para quem deixar de remeter a relação.",
+      "fala": "E qual é o papel do registrador? {1}Ele mantém um cadastro especial, em livro auxiliar, das aquisições de terras rurais por estrangeiros. É aquele livro extra que mencionamos na aula três. {2}Nele constam a identidade das partes, o memorial descritivo do imóvel e a autorização. {3}E, a cada trimestre, ele remete a relação dessas aquisições à Corregedoria da Justiça e ao Ministério da Agricultura. {4}A lei é dura: fala em perda do cargo para quem não remeter." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Comprou [[acima]] do limite", "errado": "Ato anulável, que se convalida com o tempo", "certo": "Nulo de pleno direito",
+      "porque": "A aquisição que viole a lei é **nula de pleno direito**. O tabelião que lavrou e o oficial que registrou **respondem civilmente** pelos danos (art. 15).",
+      "fala": "{1}Pegadinha um. O estrangeiro comprou acima do limite. O ato é anulável e se convalida com o tempo? Não. É nulo de pleno direito. {2}E a lei alcança os dois cartórios: o tabelião que lavrou a escritura e o oficial que a registrou respondem civilmente pelos danos causados." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "Banco estrangeiro e [[garantia]]", "errado": "Não pode receber imóvel rural em garantia", "certo": "A restrição não alcança a garantia real",
+      "porque": "As restrições **não se aplicam** à constituição de garantia real, inclusive a **propriedade fiduciária**, nem ao recebimento do imóvel em liquidação da dívida (art. 1º, § 2º).",
+      "fala": "{1}Pegadinha dois. Um banco de capital estrangeiro pode receber uma fazenda em garantia? Pode. {2}As restrições da lei não se aplicam à constituição de garantia real, inclusive à propriedade fiduciária. Nem ao recebimento do imóvel em pagamento da dívida. Foi uma abertura feita para facilitar o crédito rural." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Hans, alemão residente no Brasil, quer comprar um sítio com área de **2 módulos de exploração indefinida**, por R$ 20.000,00. Nesse caso:",
+      "alternativas": ["a aquisição é vedada a estrangeiros", "é livre, e pode ser feita por instrumento particular", "é livre de autorização, mas exige escritura pública", "depende de autorização do Incra e do Congresso Nacional"],
+      "fala": "Vamos treinar. Hans, alemão residente no Brasil, quer comprar um sítio de dois módulos, por vinte mil reais. {1}A aquisição é vedada? É livre, e pode ser feita por instrumento particular? É livre de autorização, mas exige escritura pública? Ou depende de autorização do Incra e do Congresso? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Vedada a estrangeiros", "Livre, por instrumento particular", "Livre, com escritura pública", "Autorização do Incra e do Congresso"],
+      "passos": ["Até **3 módulos**: aquisição livre de autorização.", "Mas a **escritura pública** é da essência do ato.", "O valor baixo **não dispensa** a escritura."],
+      "lei": "Lei 5.709/71, arts. 3º, § 1º, e 8º",
+      "fala": "{1}Letra C. {2}Até três módulos, a aquisição é livre de autorização. {3}Mas a escritura pública é da essência do ato. {4}E o valor baixo não dispensa a escritura, porque a regra é especial. {5}Artigos terceiro e oitavo da Lei cinco mil setecentos e nove." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "A lei alcança imóvel rural, não urbano",
+        "Pessoa física: livre até 3 módulos; teto de 50",
+        "Município: 1/4 da área; 40% disso por nacionalidade",
+        "Escritura pública é da essência do ato",
+        "Livro auxiliar e relação trimestral; violação gera nulidade"
+      ],
+      "fala": "Resumo. {1}A lei alcança o imóvel rural, não o urbano. {2}Pessoa física: livre até três módulos, com teto de cinquenta. {3}No município: um quarto da área, e quarenta por cento disso por nacionalidade. {4}A escritura pública é da essência do ato. {5}O registrador mantém livro auxiliar e envia relação trimestral. E a violação gera nulidade de pleno direito." },
+    { "tipo": "fecho", "icone": "casa", "titulo": "[[Reurb]]: regularização fundiária urbana", "ts": 112,
+      "texto": "Lei 13.465/2017: como um bairro irregular chega à matrícula.",
+      "fala": "Na próxima aula, voltamos para a cidade: a Reurb. Como um bairro inteiro, que nasceu irregular, chega à matrícula." }
+  ]
+}

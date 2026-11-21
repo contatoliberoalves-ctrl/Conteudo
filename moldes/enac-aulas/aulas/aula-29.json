@@ -1,0 +1,91 @@
+{
+  "id": "ri-29-bem-de-familia",
+  "n": 29,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "escudo", "rotulo": "Registro de Imóveis · Aula 29", "titulo": ["Bem de", "[[família]]"], "ts": 220,
+      "texto": "Lei 8.009/90, Código Civil e Lei 6.015/73. Caiu no 3º ENAC.",
+      "fala": "A casa em que a família mora não pode ser tomada por qualquer dívida. Isso quase todo mundo sabe. O que pouca gente sabe é que existem dois bens de família, com regras diferentes, e que só um deles passa pelo Registro de Imóveis. Foi esse que caiu no terceiro Enac." },
+    { "tipo": "compara", "rotulo": "O mapa do tema", "titulo": "Os [[dois]] bens de família", "col": 250, "tl": 34,
+      "a": { "nome": "Legal", "icone": "livro" }, "b": { "nome": "Voluntário", "icone": "caneta" },
+      "linhas": [
+        ["Onde está", "Lei 8.009/90", "Código Civil, arts. 1.711 a 1.722"],
+        ["Como nasce", "**Automático**: basta morar", "Por **escritura pública ou testamento**"],
+        ["Registro", "**Não** precisa", "**Constitui-se** pelo registro"],
+        ["Limite", "O imóvel residencial da família", "Até **um terço** do patrimônio líquido"]
+      ],
+      "fala": "Comece pelo mapa. {1}O bem de família legal está na Lei oito mil e nove. O voluntário, no Código Civil. {2}O legal é automático: basta a família morar no imóvel. O voluntário nasce de escritura pública ou de testamento. {3}O legal não precisa de registro. O voluntário só se constitui pelo registro. {4}E o voluntário tem um limite: um terço do patrimônio líquido de quem institui." },
+    { "tipo": "lei", "fonte": "Lei 8.009/90, art. 1º", "ts": 46, "texto": "O imóvel residencial próprio do casal, ou da entidade familiar, é **impenhorável** e não responderá por qualquer tipo de dívida civil, comercial, fiscal, previdenciária ou de outra natureza (...), **salvo nas hipóteses previstas nesta lei**.",
+      "traducao": "A proteção vem **direto da lei**. Não há ato no cartório, e nada aparece na matrícula.",
+      "fala": "O bem de família legal. O imóvel residencial próprio do casal, ou da entidade familiar, é impenhorável, salvo nas hipóteses da própria lei. {1}A proteção vem direto da lei. Não há ato nenhum no cartório, e nada aparece na matrícula." },
+    { "tipo": "lista", "icone": "balao", "rotulo": "Lei 8.009/90, art. 3º", "titulo": "Quando a casa [[responde]]", "tl": 38, "gap": 16,
+      "itens": [
+        "Financiamento para construir ou comprar o próprio imóvel",
+        "Pensão alimentícia",
+        "Impostos, taxas e contribuições do imóvel",
+        "Hipoteca oferecida pelo casal ou pela entidade familiar",
+        "Fiança em contrato de locação"
+      ],
+      "fala": "Mas a casa responde em alguns casos. Os principais: {1}a dívida do financiamento usado para construir ou comprar o próprio imóvel. {2}A pensão alimentícia. {3}Os impostos, as taxas e as contribuições do imóvel, como o IPTU e o condomínio. {4}A hipoteca oferecida pelo próprio casal. {5}E a fiança prestada em contrato de locação." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.711", "ts": 44, "texto": "Podem os cônjuges, ou a entidade familiar, mediante **escritura pública ou testamento**, destinar parte de seu patrimônio para instituir bem de família, desde que não ultrapasse **um terço do patrimônio líquido** existente ao tempo da instituição (...).",
+      "traducao": "É uma **escolha**. E tem forma solene e teto.",
+      "fala": "Agora o voluntário, o que interessa ao registrador. Os cônjuges, ou a entidade familiar, podem destinar parte do patrimônio para instituir bem de família, por escritura pública ou testamento, desde que não ultrapasse um terço do patrimônio líquido. {1}É uma escolha, com forma solene e com teto. E um terceiro também pode instituir, por testamento ou doação, se os beneficiados aceitarem." },
+    { "tipo": "trio", "rotulo": "Código Civil, arts. 1.712 a 1.716", "titulo": "Três regras do [[voluntário]]",
+      "itens": [
+        { "icone": "casa", "nome": "Objeto", "apelido": "Imóvel e renda", "texto": "Prédio residencial urbano ou rural, e pode abranger **valores mobiliários** para sustento da família.", "lei": "Art. 1.712" },
+        { "icone": "escudo", "nome": "Proteção", "apelido": "Dívidas posteriores", "texto": "Isento de execução por dívidas **posteriores** à instituição, salvo tributos do prédio e condomínio.", "lei": "Art. 1.715" },
+        { "icone": "relogio", "nome": "Duração", "apelido": "Enquanto houver família", "texto": "Enquanto viver um dos cônjuges ou até os filhos completarem a maioridade.", "lei": "Art. 1.716" }
+      ],
+      "fala": "Três regras do voluntário. {1}O objeto: o prédio residencial, urbano ou rural, e pode abranger valores mobiliários, cuja renda será aplicada no sustento da família. Esse detalhe foi a resposta do terceiro Enac. {2}A proteção: ele é isento de execução por dívidas posteriores à instituição, salvo tributos do prédio e despesas de condomínio. {3}A duração: enquanto viver um dos cônjuges, ou até os filhos completarem a maioridade." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.714", "texto": "O bem de família, quer instituído pelos cônjuges ou por terceiro, **constitui-se pelo registro** de seu título no Registro de Imóveis.",
+      "traducao": "Escritura sem registro não protege. É **registro**, não averbação (LRP, art. 167, I, 1).",
+      "fala": "E a frase que mais importa: o bem de família voluntário constitui-se pelo registro do seu título no Registro de Imóveis. {1}Escritura sem registro não protege. E o ato é de registro, não de averbação. Aliás, é o primeiro item do rol do artigo cento e sessenta e sete." },
+    { "tipo": "fluxo", "rotulo": "Lei 6.015/73, arts. 261 a 263", "titulo": "O procedimento no [[cartório]]",
+      "passos": [
+        { "icone": "documento", "nome": "Apresentação", "texto": "O instituidor leva a escritura pública ao oficial." },
+        { "icone": "globo", "nome": "Edital", "texto": "Publicação com o resumo da escritura e o aviso aos interessados." },
+        { "icone": "relogio", "nome": "Prazo", "tag": "30 dias", "texto": "Para quem se julgar prejudicado **reclamar**, por escrito, ao oficial." },
+        { "icone": "carimbo", "nome": "Registro", "texto": "Sem reclamação: transcrição no **Livro 3** e inscrição na **matrícula**." }
+      ],
+      "fala": "O procedimento é diferente de tudo o que vimos, porque tem edital. {1}O instituidor apresenta a escritura ao oficial. {2}O oficial publica um edital, com o resumo da escritura e o aviso aos interessados. {3}Quem se julgar prejudicado tem trinta dias para reclamar, por escrito, perante o oficial. {4}Sem reclamação, a escritura é transcrita integralmente no Livro três, e o bem de família é inscrito na matrícula do imóvel." },
+    { "tipo": "fluxo", "rotulo": "Lei 6.015/73, art. 264", "titulo": "E se alguém [[reclamar]]?",
+      "passos": [
+        { "icone": "balao", "nome": "Reclamação", "texto": "Um credor reclama dentro dos 30 dias." },
+        { "icone": "documento", "nome": "Suspensão", "texto": "O oficial devolve a escritura, suspende o registro e **cancela a prenotação**." },
+        { "icone": "forum", "nome": "Juiz", "texto": "O instituidor pode pedir ao juiz que **ordene o registro**, apesar da reclamação." }
+      ],
+      "nota": "Se o juiz mandar registrar, o reclamante fica com o direito de buscar a anulação ou a execução sobre o prédio.",
+      "fala": "E se alguém reclamar? {1}Um credor aparece dentro dos trinta dias. {2}O oficial entrega cópia da reclamação ao instituidor, devolve a escritura, declara suspenso o registro e cancela a prenotação. Repare: o oficial não julga a reclamação. {3}O instituidor pode, então, requerer ao juiz que ordene o registro, apesar da reclamação. {4}Se o juiz mandar registrar, o reclamante ainda pode discutir a questão em ação própria." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Posso [[vender]] o bem de família?", "errado": "Livremente, como qualquer imóvel", "certo": "Só com consentimento e ouvido o Ministério Público",
+      "porque": "O bem de família voluntário não pode ter outro destino nem ser alienado **sem o consentimento dos interessados** e de seus representantes, **ouvido o Ministério Público** (CC, art. 1.717).",
+      "fala": "{1}Pegadinha. Instituí bem de família voluntário. Posso vender o imóvel quando quiser? Não. {2}Ele não pode ter destino diverso, nem ser alienado, sem o consentimento dos interessados e de seus representantes legais, ouvido o Ministério Público." },
+    { "tipo": "lista", "icone": "casa", "rotulo": "Lei 8.009/90, art. 5º", "titulo": "Quando os dois se [[encontram]]",
+      "itens": [
+        ["A família tem várias residências", "A impenhorabilidade legal recai sobre a de **menor valor**."],
+        ["Salvo se...", "Outro imóvel tiver sido **registrado** para esse fim no Registro de Imóveis."],
+        ["Conclusão", "O voluntário serve para **escolher** qual imóvel fica protegido."]
+      ],
+      "fala": "Os dois regimes se encontram num ponto. {1}Se a família usa vários imóveis como residência, a impenhorabilidade legal recai sobre o de menor valor. {2}Salvo se outro tiver sido registrado, para esse fim, no Registro de Imóveis. {3}Ou seja: uma das utilidades do bem de família voluntário é escolher qual imóvel fica protegido." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Sobre o **bem de família voluntário**, é **correto** afirmar que:",
+      "alternativas": ["decorre da lei e dispensa registro", "pode ser instituído por instrumento particular", "pode abranger valores mobiliários e constitui-se pelo registro", "protege contra dívidas anteriores à instituição"],
+      "fala": "Vamos treinar. Sobre o bem de família voluntário, qual está correta? {1}Decorre da lei e dispensa registro. Pode ser instituído por instrumento particular. Pode abranger valores mobiliários, e constitui-se pelo registro. Ou protege contra dívidas anteriores à instituição? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Decorre da lei, sem registro", "Instrumento particular", "Valores mobiliários + registro", "Dívidas anteriores"],
+      "passos": ["Quem dispensa registro é o bem de família **legal**.", "O voluntário exige **escritura pública ou testamento**.", "E só protege contra dívidas **posteriores**."],
+      "lei": "CC, arts. 1.711, 1.712, 1.714 e 1.715",
+      "fala": "{1}Letra C. {2}Quem decorre da lei e dispensa registro é o bem de família legal. {3}O voluntário exige escritura pública ou testamento. {4}E só protege contra dívidas posteriores à instituição. {5}Artigos mil setecentos e onze a mil setecentos e quinze do Código Civil." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Legal: automático, sem registro, com exceções na lei",
+        "Voluntário: escritura pública ou testamento, até um terço",
+        "Constitui-se pelo registro; pode abranger valores mobiliários",
+        "Edital e 30 dias para reclamação; Livro 3 e matrícula",
+        "Venda: consentimento e Ministério Público"
+      ],
+      "fala": "Resumo. {1}O legal é automático, sem registro, com exceções na própria lei. {2}O voluntário exige escritura pública ou testamento, até um terço do patrimônio. {3}Constitui-se pelo registro, e pode abranger valores mobiliários. {4}Tem edital e trinta dias para reclamação, e vai para o Livro três e para a matrícula. {5}E a venda depende de consentimento, ouvido o Ministério Público." },
+    { "tipo": "fecho", "icone": "cadeado", "titulo": "[[Indisponibilidade]] de bens", "ts": 124,
+      "texto": "A central nacional e o tema que caiu nas três edições.",
+      "fala": "Na próxima aula, fechamos o bloco com um tema que caiu nas três edições do Enac: a indisponibilidade de bens e a central nacional." }
+  ]
+}
