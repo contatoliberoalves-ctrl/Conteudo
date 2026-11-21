@@ -449,6 +449,51 @@ G.append(grupo('vs1', 'Stories · Recursos VDE: 2 etapas, valores, prazos e link
         f'<div style="font-weight:500;font-size:28px;opacity:.6;">(espaço da figurinha de link)</div></div>', claro=True),
 ]))
 
+# ---------- vr10 · A mentoria que vai te aprovar na repescagem (com @pod.const) ----------
+def arrobas3(claro=False):
+    linha = '#0b1a4a' if claro else '#fff'
+    return (f'<div style="position:absolute;top:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;color:{linha};"><span><b>@libero</b>filho</span><span style="flex:1;"></span><span><b>@pod</b>.const</span></div>'
+            f'<div style="position:absolute;bottom:60px;left:78px;right:78px;display:flex;align-items:center;gap:22px;font-size:30px;color:{linha};"><span style="flex:1;"></span><span><b>@natalia</b>valenca</span></div>')
+def selos3(top=56):
+    return (f'<div style="position:absolute;top:{top}px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:700;font-size:30px;color:#0b1a4a;">'
+            f'<div style="background:#f7f400;padding:2px 12px;margin-right:140px;">@LIBERO<span style="font-weight:400;">FILHO</span></div>'
+            f'<div style="background:#e224d6;color:#fff;padding:2px 12px;">@NATALIA<span style="font-weight:400;">VALENCA</span></div>'
+            f'<div style="background:#fff;padding:2px 12px;margin-left:140px;">@POD<span style="font-weight:400;">.CONST</span></div></div>')
+def item(label, fundo, n, kicker, titulo, texto, claro=False, cor_k='#f7f400', cor_b='#f7f400', ghost='rgba(255,255,255,.06)'):
+    cor = '#0b1a4a' if claro else '#fff'
+    return tela(label, fundo, fantasma(f'{n:02d}', ghost, top=-60, left=420, px=1100) + arrobas3(claro) + bloco(
+        KICK(kicker, cor_k) + T(titulo, 160, f'color:{cor};') + P(texto, 46, f'color:{cor};max-width:840px;font-weight:500;'),
+        top=400, gap=40), claro=claro)
+G.append(grupo('vr10', 'Carrossel · A mentoria que vai te aprovar na repescagem (Método VDE, com @pod.const)', [
+    tela('vr10-01', AZUL, fantasma('VDE', 'rgba(255,255,255,.06)', top=260, left=-40, px=900) + selos3() +
+        f'<div style="position:absolute;left:0;right:0;top:420px;display:flex;flex-direction:column;align-items:center;text-align:center;">'
+        f'<div style="display:flex;align-items:center;gap:18px;font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;"><span style="margin-right:-.3em;">MÉTODO VDE · OAB 2ª FASE</span></div>'
+        f'<div style="background:#0b1a4a;font-weight:700;font-size:48px;padding:6px 20px;margin-top:40px;">A mentoria que vai</div>'
+        f'<div style="background:#e224d6;{BB}font-size:170px;line-height:.9;padding:18px 30px 2px;margin-top:10px;transform:rotate(-2deg);">TE APROVAR</div>'
+        f'<div style="background:#f7f400;color:#0b1a4a;{BB}font-size:110px;line-height:.9;padding:14px 24px 0;margin-top:10px;">NA REPESCAGEM</div>'
+        f'<div style="font-weight:700;font-size:36px;margin-top:50px;">Arrasta pro lado →</div></div>'
+        f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-120px;">{LOGO(50)}</div>'),
+    tela('vr10-02', NAVY, arrobas3() + bloco(
+        KICK('NÃO É SÓ MAIS UM CURSO') + T(f'É {MARCA("MENTORIA")}.<br>A GENTE<br>CAMINHA JUNTO.', 170) +
+        P('Na repescagem você não precisa começar do zero. Precisa de alguém olhando de perto pro seu estudo e te dizendo o que ajustar.', 46, 'max-width:840px;font-weight:500;'),
+        top=360, gap=44)),
+    item('vr10-03', MAG, 1, 'ACOMPANHAMENTO', 'MAIS PERTO<br>DE VOCÊ', 'Um acompanhamento mais aproximado, com <b>acesso direto à gente</b>: Líbero e Natália.', cor_k='#0b1a4a', cor_b='#0b1a4a', ghost='rgba(120,0,120,.16)'),
+    item('vr10-04', AZUL, 2, 'AO VIVO', f'ENCONTROS<br>{MARCA("TEMÁTICOS")}', 'Encontros ao vivo, cada um sobre um tema, em que você <b>tira as suas dúvidas</b> com a gente.', cor_b='#e224d6'),
+    item('vr10-05', CLARO, 3, 'PRA TREINAR MAIS', f'MATERIAIS E<br>{MARCA("SIMULADO", "#f7f400", "#0b1a4a")}<br>EXTRAS', '<b>Materiais de apoio extras</b> e um <b>simulado extra</b> pra você chegar na prova já tendo passado por ela.', claro=True, cor_k='#e224d6', cor_b='#e224d6', ghost='rgba(11,26,74,.06)'),
+    item('vr10-06', NAVY, 4, 'NO SEU CELULAR', f'GRUPO NO<br>{MARCA("WHATSAPP")}', 'Avisos, dúvidas e o dia a dia da mentoria num <b>grupo no WhatsApp</b>, junto com a turma.'),
+    item('vr10-07', MAG, 5, 'DEPOIS DA PROVA', f'ANÁLISE DA<br>{MARCA("PROVA", "#f7f400", "#0b1a4a")}', 'Saiu da prova? A gente faz a <b>análise da prova</b> com você, logo depois dela.', cor_k='#0b1a4a', cor_b='#0b1a4a', ghost='rgba(120,0,120,.16)'),
+    item('vr10-08', AZUL, 6, 'O QUE TE REPROVOU', f'ENTENDER O<br>ERRO E TRAÇAR<br>UM {MARCA("PLANO")}', 'Suporte pra entender <b>o que te reprovou</b> e te ajudar a montar um plano pra não repetir.', cor_b='#e224d6'),
+    tela('vr10-09', CLARO, arrobas3(True) + bloco(
+        KICK('RESUMINDO', '#e224d6') + T(f'NA MENTORIA<br>VOCÊ {MARCA("TEM", "#f7f400", "#0b1a4a")}:', 140, 'color:#0b1a4a;') +
+        lista(['Acompanhamento mais aproximado', 'Acesso a gente', 'Encontros ao vivo temáticos, com dúvidas', 'Materiais de apoio extras', 'Simulado extra', 'Grupo no WhatsApp', 'Análise da prova pós-prova', 'Suporte pra entender o que te reprovou e traçar um plano'], num=False, px=40, cor_num='#e224d6', gap=22).replace('color:#0b1a4a;display:flex', 'color:#fff;display:flex'),
+        top=200, gap=30) .replace('<span>', '<span style="color:#0b1a4a;">'), claro=True),
+    tela('vr10-10', MAG, selos3() + f'<div style="position:absolute;left:80px;right:80px;top:330px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px;">'
+        f'{T("QUER O LINK<br>DA MENTORIA?", 160)}{P("Comenta a palavra abaixo que a gente te manda o link no direct.", 40, "font-weight:500;")}' +
+        PILL('#0b1a4a', '#fff', 'Comente <span style="background:#f7f400;color:#0b1a4a;padding:0 12px;border-radius:4px;">MENTORIA</span>') +
+        f'<div style="font-weight:700;font-size:34px;">Método VDE · Repescagem</div></div>'
+        f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
+]))
+
 bloco_html = INI + '\n<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">\n' + ''.join(G) + FIM
 s = KIT.read_text()
 if INI in s:
