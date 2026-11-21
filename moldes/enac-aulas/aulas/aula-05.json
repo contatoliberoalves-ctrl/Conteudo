@@ -1,0 +1,70 @@
+{
+  "id": "ri-05-prioridade",
+  "n": 5,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "senha", "rotulo": "Registro de Imóveis · Aula 05", "titulo": ["Quem chega", "[[primeiro]]", "leva"], "ts": 180,
+      "texto": "O princípio da prioridade.",
+      "fala": "Dois títulos sobre o mesmo imóvel chegam ao cartório. Qual prevalece? Não é o mais antigo, nem o mais caro, nem o do cliente mais importante. É o que chegou primeiro. Esse é o princípio da prioridade." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 186", "texto": "O **número de ordem** determinará a prioridade do título, e esta a **preferência dos direitos reais**, ainda que apresentados pela mesma pessoa mais de um título simultaneamente.",
+      "traducao": "Número de ordem → prioridade do título → preferência do direito real.",
+      "fala": "Artigo cento e oitenta e seis: o número de ordem determina a prioridade do título, e esta a preferência dos direitos reais. {1}Guarde a sequência: número de ordem, prioridade do título, preferência do direito." },
+    { "tipo": "fluxo", "rotulo": "Como funciona", "titulo": "A fila do [[protocolo]]",
+      "passos": [
+        { "icone": "documento", "nome": "Apresentação", "texto": "O título chega ao cartório, em papel ou pelo meio eletrônico." },
+        { "icone": "senha", "nome": "Prenotação", "texto": "Lançado no Livro 1, recebe o número de ordem, na **sequência rigorosa** de chegada." },
+        { "icone": "escudo", "nome": "Lugar guardado", "tag": "20 dias úteis", "texto": "Enquanto a prenotação vale, ninguém passa na frente." }
+      ],
+      "nota": "Conta a ordem de **chegada ao cartório**. A data da escritura não importa.",
+      "fala": "Funciona como uma fila. {1}O título é apresentado. {2}É prenotado no Livro um e recebe o número de ordem, na sequência rigorosa de chegada. {3}E a prenotação guarda o lugar dele na fila por vinte dias úteis. {4}Atenção: o que conta é a chegada ao cartório. A data da escritura não importa." },
+    { "tipo": "compara", "rotulo": "Exemplo", "titulo": "Duas vendas do [[mesmo]] imóvel", "col": 300,
+      "a": { "nome": "Título de Davi", "icone": "documento" }, "b": { "nome": "Título de Eva", "icone": "documento" },
+      "linhas": [
+        ["Escritura lavrada", "1º de março", "10 de março"],
+        ["Chegou ao cartório", "15 de março · protocolo **502**", "12 de março · protocolo **498**"],
+        ["Resultado", "Fica sem o imóvel", "**Tem a prioridade** e registra"]
+      ],
+      "fala": "Um exemplo. O mesmo dono vendeu o imóvel duas vezes. {1}A escritura do Davi é de primeiro de março. A da Eva, de dez de março. {2}Mas a Eva chegou ao cartório no dia doze, e o Davi só no dia quinze. {3}Quem registra? A Eva. A escritura mais antiga perde para o protocolo mais antigo." },
+    { "tipo": "trio", "rotulo": "Títulos contraditórios no mesmo dia", "titulo": "Três regras em [[sequência]]",
+      "itens": [
+        { "nome": "Art. 190", "apelido": "Nunca no mesmo dia", "texto": "Não se registram, no mesmo dia, títulos com direitos reais **contraditórios** sobre o mesmo imóvel.", "lei": "A regra" },
+        { "nome": "Art. 191", "apelido": "Vence o número mais baixo", "texto": "O outro título espera, **pelo menos, um dia útil**.", "lei": "O desempate" },
+        { "nome": "Art. 192", "apelido": "Exceção: a hora da escritura", "texto": "Escrituras públicas da **mesma data**, apresentadas no mesmo dia, com a **hora** da lavratura: vence a lavrada primeiro.", "lei": "A exceção" }
+      ],
+      "fala": "E se os dois títulos chegam no mesmo dia? São três regras em sequência. {1}Artigo cento e noventa: títulos contraditórios não se registram no mesmo dia. {2}Cento e noventa e um: prevalece o de número de ordem mais baixo, e o outro espera, pelo menos, um dia útil. {3}Cento e noventa e dois, a exceção: escrituras públicas da mesma data, apresentadas no mesmo dia, que indiquem a hora da lavratura. Aí vence a que foi lavrada primeiro." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Segunda [[hipoteca]] chega antes", "ts": 118, "errado": "Registra na hora e ganha a preferência", "certo": "Prenota e aguarda 30 dias pela primeira",
+      "porque": "Se o título da segunda hipoteca **menciona** a anterior, o oficial espera 30 dias. Só então registra, e com preferência (art. 189).",
+      "fala": "{1}Pegadinha. Chega ao cartório uma segunda hipoteca, que menciona expressamente uma primeira, ainda não registrada. O oficial registra na hora? Não. Ele prenota e aguarda trinta dias, para que os interessados na primeira a apresentem. {2}Passado o prazo sem a primeira, a segunda é registrada e fica com a preferência." },
+    { "tipo": "alerta", "rotulo": "Já caiu no ENAC · 1ª e 3ª edições", "titulo": "Indisponibilidade depois da [[prenotação]]", "ts": 104, "errado": "A ordem de indisponibilidade barra o registro", "certo": "Registra-se o título prenotado antes",
+      "porque": "A prenotação **garante a prioridade**. O oficial registra e comunica a autoridade, salvo ordem judicial em sentido contrário.",
+      "fala": "{1}Esta caiu em duas edições do Enac. A escritura foi prenotada na segunda-feira. Na quarta, chega pela central uma ordem de indisponibilidade dos bens do vendedor. O registro fica barrado? Não. {2}A prenotação garantiu a prioridade. O oficial registra o título e comunica a autoridade, salvo ordem judicial em sentido contrário." },
+    { "tipo": "lista", "icone": "relogio", "rotulo": "Fechando o conceito", "titulo": "A prioridade tem [[prazo]]",
+      "itens": [
+        ["Ela nasce com a prenotação", "Nem exigência fiscal nem dúvida impedem o lançamento no Protocolo (art. 12)."],
+        ["Ela dura 20 dias úteis", "Se o interessado não cumprir as exigências, a prenotação perde o efeito (art. 205)."],
+        ["Perdeu o prazo, perdeu o lugar", "O título volta para o **fim da fila**, com novo número de ordem."]
+      ],
+      "fala": "Para fechar: a prioridade tem prazo. {1}Ela nasce com a prenotação, e nenhuma exigência impede esse lançamento no Protocolo. {2}Ela dura vinte dias úteis. {3}E quem perde o prazo perde o lugar: o título volta para o fim da fila." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "No mesmo dia são apresentadas duas escrituras de hipoteca sobre o mesmo imóvel, lavradas **em datas diferentes**: a do Banco X recebe o protocolo **nº 310** e a do Banco Y, o **nº 314**. O registrador deve:",
+      "alternativas": ["registrar as duas no mesmo dia, em ordem", "dar preferência à escritura de data mais antiga", "registrar a de nº 310 e adiar a outra por ao menos um dia útil", "devolver ambas, por serem contraditórias"],
+      "fala": "Vamos treinar. No mesmo dia chegam duas escrituras de hipoteca sobre o mesmo imóvel, lavradas em datas diferentes. A do Banco X recebe o protocolo trezentos e dez. A do Banco Y, o trezentos e catorze. O que o registrador faz? {1}Registra as duas no mesmo dia? Prefere a escritura mais antiga? Registra a de número trezentos e dez e adia a outra? Ou devolve as duas? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["As duas no mesmo dia", "A de data mais antiga", "A de nº 310; a outra espera", "Devolve as duas"],
+      "passos": ["Contraditórios **não** se registram no mesmo dia.", "Vence o número de ordem **mais baixo**: 310.", "As datas são diferentes: a exceção da **hora** não se aplica."],
+      "lei": "Lei 6.015/73, arts. 190 a 192",
+      "fala": "{1}Letra C. {2}Títulos contraditórios não se registram no mesmo dia. {3}Vence o número de ordem mais baixo, o trezentos e dez, e o outro espera pelo menos um dia útil. {4}E como as escrituras são de datas diferentes, a exceção da hora não se aplica. {5}Artigos cento e noventa a cento e noventa e dois." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Vale a ordem do protocolo, não a data do título",
+        "Contraditórios: nunca no mesmo dia",
+        "Número mais baixo vence; o outro espera um dia útil",
+        "Exceção: escrituras da mesma data, com hora",
+        "Prenotado antes da indisponibilidade: registra"
+      ],
+      "fala": "Resumo. {1}Vale a ordem do protocolo, não a data do título. {2}Títulos contraditórios, nunca no mesmo dia. {3}O número mais baixo vence, e o outro espera um dia útil. {4}A exceção são as escrituras da mesma data, com hora. {5}E título prenotado antes da indisponibilidade é registrado." },
+    { "tipo": "fecho", "icone": "relogio", "titulo": "Prenotação e [[prazos]]", "ts": 130,
+      "texto": "5, 10, 20 e 40 dias: qual é qual depois da Lei 14.382.",
+      "fala": "Na próxima aula: os prazos do registro. Cinco, dez, vinte e quarenta dias. Qual é qual, depois da Lei catorze mil trezentos e oitenta e dois." }
+  ]
+}

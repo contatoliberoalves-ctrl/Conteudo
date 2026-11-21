@@ -1,0 +1,218 @@
+{
+ "id": "ri-04-continuidade-e-especialidade",
+ "n": 4,
+ "tema": "navy",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "corrente",
+   "rotulo": "Registro de Imóveis · Aula 04",
+   "titulo": [
+    "Continuidade e",
+    "[[especialidade]]"
+   ],
+   "ts": 150,
+   "texto": "Os dois princípios que mais devolvem título no balcão.",
+   "fala": "Se você trabalhasse um dia num Registro de Imóveis, veria dois motivos devolvendo título o tempo todo. A corrente que quebrou, e a descrição que não bate. São os princípios da continuidade e da especialidade."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Princípio da continuidade",
+   "titulo": "A corrente não pode ter [[elo]] faltando",
+   "passos": [
+    {
+     "icone": "pessoas",
+     "nome": "Ari",
+     "tag": "Na matrícula",
+     "texto": "É o proprietário que aparece no registro."
+    },
+    {
+     "icone": "pessoas",
+     "nome": "Bia",
+     "tag": "Não registrou",
+     "ruim": true,
+     "texto": "Comprou de Ari por escritura e **guardou**."
+    },
+    {
+     "icone": "pessoas",
+     "nome": "Caio",
+     "tag": "Quer registrar",
+     "texto": "Comprou de Bia. O cartório **devolve** o título."
+    }
+   ],
+   "quebra": 1,
+   "nota": "Quem transmite precisa ser quem **está na matrícula**. Primeiro registra-se Ari → Bia; depois, Bia → Caio.",
+   "fala": "Continuidade é uma corrente. {1}Na matrícula, o dono é o Ari. {2}A Bia comprou do Ari, mas não registrou. {3}Aí o Caio compra da Bia e corre para o cartório. O título dele vai ser devolvido. {4}Por quê? Porque quem transmite precisa ser quem está na matrícula. Primeiro se registra a venda do Ari para a Bia. Só depois, a da Bia para o Caio."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 195",
+   "ts": 46,
+   "texto": "Se o imóvel não estiver matriculado ou registrado em nome do outorgante, o oficial exigirá a prévia matrícula e o **registro do título anterior, qualquer que seja a sua natureza**, para manter a continuidade do registro.",
+   "traducao": "“Qualquer que seja a sua natureza”: vale também para o **título judicial**. Reforço no art. 237.",
+   "fala": "É o artigo cento e noventa e cinco: se o imóvel não estiver registrado em nome de quem transmite, o oficial exige o registro do título anterior, qualquer que seja a sua natureza. {1}Qualquer que seja a natureza. Ou seja: vale também para título judicial. Formal de partilha e carta de arrematação também entram na fila."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha de prova",
+   "titulo": "E a [[usucapião]]?",
+   "errado": "Precisa respeitar a cadeia de donos anteriores",
+   "certo": "Aquisição originária: não depende do dono anterior",
+   "porque": "Na usucapião o direito **não vem** do antigo proprietário. Por isso a continuidade não é exigida em relação a ele.",
+   "fala": "{1}Pegadinha. E a usucapião, precisa respeitar a cadeia de donos? Não. A usucapião é aquisição originária. {2}O direito não vem do antigo proprietário, então não se exige continuidade em relação a ele.",
+   "pausa": 1.8
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Princípio da especialidade",
+   "titulo": "Tudo perfeitamente [[identificado]]",
+   "itens": [
+    {
+     "icone": "mapa",
+     "nome": "Objetiva",
+     "apelido": "O imóvel",
+     "texto": "Localização, área, confrontações. Tem de ser **aquele** imóvel, e nenhum outro.",
+     "lei": "LRP, arts. 176 e 225"
+    },
+    {
+     "icone": "pessoas",
+     "nome": "Subjetiva",
+     "apelido": "As pessoas",
+     "texto": "Nome, estado civil, profissão, domicílio, CPF ou CNPJ de quem figura no ato.",
+     "lei": "LRP, art. 176, § 1º, II, 4"
+    }
+   ],
+   "nota": "Título em que a descrição do imóvel **não coincide** com a do registro anterior é irregular (art. 225, § 2º).",
+   "fala": "Agora a especialidade. A ideia é: tudo perfeitamente identificado. {1}A especialidade objetiva cuida do imóvel: localização, área, confrontações. Tem de ser aquele imóvel, e nenhum outro. {2}A subjetiva cuida das pessoas: nome, estado civil, profissão, domicílio, CPF. {3}E se a descrição do imóvel no título não coincide com a do registro anterior, o título é irregular."
+  },
+  {
+   "tipo": "matricula",
+   "rotulo": "Na prática",
+   "titulo": "A descrição que não [[bate]]",
+   "numero": "3.077",
+   "ts": 92,
+   "imovel": "Terreno urbano com **450,00 m²**, na Rua das Flores, nº 20.",
+   "lei": {
+    "fonte": "A escritura apresentada",
+    "em": 1,
+    "texto": "Venda de um terreno de **520,00 m²** na Rua das Flores. Vendedor qualificado só como “José da Silva”, sem CPF nem estado civil."
+   },
+   "atos": [
+    {
+     "sigla": "R-1/3.077",
+     "tipo": "Compra e venda",
+     "texto": "Proprietário: **JOSÉ DA SILVA**, casado, comerciante, CPF 000.000.000-00."
+    },
+    {
+     "sigla": "Resultado",
+     "tipo": "Nota devolutiva",
+     "texto": "Área diferente da matrícula. Vendedor sem qualificação completa.",
+     "em": 2,
+     "carimbo": "DEVOLVIDO",
+     "cor": "#D8483C"
+    }
+   ],
+   "fala": "Veja o que acontece na prática. {1}Chega uma escritura de venda de um terreno de quinhentos e vinte metros quadrados. O vendedor aparece só como José da Silva, sem CPF e sem estado civil. {2}Mas a matrícula diz quatrocentos e cinquenta metros. Resultado: nota devolutiva. A área fere a especialidade objetiva, e a qualificação incompleta fere a subjetiva."
+  },
+  {
+   "tipo": "lista",
+   "icone": "casa",
+   "rotulo": "Princípio irmão",
+   "titulo": "Unitariedade [[matricial]]",
+   "itens": [
+    [
+     "Um imóvel, uma matrícula",
+     "Cada imóvel tem matrícula própria (art. 176, § 1º, I)."
+    ],
+    [
+     "Uma matrícula, um imóvel",
+     "Não se descrevem dois imóveis na mesma matrícula."
+    ],
+    [
+     "Juntou ou dividiu?",
+     "Fusão ou desmembramento: abre-se matrícula **nova** e encerra-se a anterior."
+    ]
+   ],
+   "fala": "Um princípio irmão é a unitariedade matricial. {1}Um imóvel, uma matrícula. {2}Uma matrícula, um imóvel. {3}Se o dono junta dois terrenos ou divide um, abre-se matrícula nova e a anterior é encerrada."
+  },
+  {
+   "tipo": "lista",
+   "icone": "regua",
+   "rotulo": "Outro princípio irmão",
+   "titulo": "Disponibilidade: ninguém transfere mais do que [[tem]]",
+   "ts": 80,
+   "itens": [
+    [
+     "A matrícula mostra o que resta",
+     "Área, fração ideal, direitos e ônus que pesam sobre o imóvel."
+    ],
+    [
+     "Vendeu parte? Abate do total",
+     "Quem tinha 1.000 m² e vendeu 300 só dispõe de **700**."
+    ],
+    [
+     "Tentou vender além disso?",
+     "O título é devolvido: falta **disponibilidade**."
+    ]
+   ],
+   "fala": "Outro princípio irmão é a disponibilidade: ninguém transfere mais do que tem. {1}A matrícula mostra o que resta ao dono: a área, a fração ideal e os ônus. {2}Quem tinha mil metros quadrados e vendeu trezentos só dispõe de setecentos. {3}Se ele tentar vender oitocentos, o título é devolvido, por falta de disponibilidade. O registrador faz essa conta toda vez que examina um título."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Falecido o proprietário, seu único herdeiro, **antes de registrar o formal de partilha**, vende o imóvel a Sandra por escritura pública. Apresentada só a escritura, o registrador deve:",
+   "alternativas": [
+    "registrar, pois o herdeiro já é dono desde a morte",
+    "exigir o prévio registro do formal de partilha",
+    "registrar e averbar o óbito depois",
+    "abrir nova matrícula em nome de Sandra"
+   ],
+   "fala": "Vamos treinar. O proprietário morreu. O único herdeiro, antes de registrar o formal de partilha, vende o imóvel para a Sandra. Ela apresenta só a escritura. O que o registrador faz? {1}Registra, porque o herdeiro já é dono desde a morte? Exige o registro do formal? Registra e averba o óbito depois? Ou abre nova matrícula? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 1,
+   "titulo": "Letra [[B]]",
+   "alternativas": [
+    "Registra: herdeiro já é dono",
+    "Exige o formal de partilha",
+    "Registra e averba o óbito",
+    "Abre nova matrícula"
+   ],
+   "passos": [
+    "O herdeiro é dono desde a morte, é verdade.",
+    "Mas na matrícula o dono ainda é o **falecido**.",
+    "Sem o formal registrado, a corrente tem um **elo faltando**."
+   ],
+   "lei": "Lei 6.015/73, arts. 195 e 237",
+   "fala": "{1}Letra B. {2}O herdeiro é dono desde a morte, é verdade. {3}Mas, na matrícula, o dono ainda é o falecido. {4}Sem o formal de partilha registrado, a corrente tem um elo faltando. {5}Artigos cento e noventa e cinco e duzentos e trinta e sete. Esse raciocínio já caiu no Enac, com carta de arrematação."
+  },
+  {
+   "tipo": "lista",
+   "check": true,
+   "icone": "escudo",
+   "rotulo": "Resumo da aula",
+   "titulo": "Leve para a [[prova]]",
+   "tl": 40,
+   "itens": [
+    "Continuidade: quem transmite tem de estar na matrícula",
+    "Vale para título judicial; não vale contra a usucapião",
+    "Especialidade objetiva: o imóvel",
+    "Especialidade subjetiva: as pessoas",
+    "Unitariedade: um imóvel, uma matrícula"
+   ],
+   "fala": "Resumo. {1}Continuidade: quem transmite tem de estar na matrícula. {2}Vale para título judicial, mas não se exige na usucapião. {3}Especialidade objetiva é o imóvel. {4}Subjetiva, as pessoas. {5}E unitariedade: um imóvel, uma matrícula.",
+   "pausa": 2
+  },
+  {
+   "tipo": "fecho",
+   "icone": "senha",
+   "titulo": "Princípio da [[prioridade]]",
+   "ts": 130,
+   "texto": "Dois títulos, um imóvel. Quem leva?",
+   "fala": "Na próxima aula: dois títulos disputando o mesmo imóvel. Quem leva? É o princípio da prioridade."
+  }
+ ]
+}

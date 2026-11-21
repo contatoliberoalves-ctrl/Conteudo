@@ -1,0 +1,75 @@
+{
+  "id": "ri-01-para-que-serve-o-registro",
+  "n": 1,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "chave", "rotulo": "Registro de Imóveis · Aula 01", "titulo": ["Quem não", "[[registra]]", "não é dono"], "ts": 170,
+      "texto": "Para que serve o Registro de Imóveis, afinal.",
+      "fala": "No Brasil, contrato não transfere imóvel. Você pode pagar, assinar a escritura, receber as chaves e mudar para dentro da casa. Sem o registro, o dono ainda é o outro. Nesta aula, você entende por quê." },
+    { "tipo": "fluxo", "rotulo": "A lógica do sistema", "titulo": "Título + modo = [[propriedade]]",
+      "passos": [
+        { "icone": "caneta", "nome": "Título", "tag": "A causa", "texto": "A escritura, o contrato, o formal de partilha. Cria só a **obrigação** de transferir." },
+        { "icone": "carimbo", "nome": "Modo", "tag": "O registro", "texto": "O título entra na matrícula do imóvel, no cartório da situação do bem." },
+        { "icone": "chave", "nome": "Direito real", "tag": "O resultado", "texto": "Só agora a propriedade muda de mãos e vale **contra todos**." }
+      ],
+      "nota": "Pense na transferência de um carro: o contrato é o combinado. O registro é o que muda o dono.",
+      "fala": "O nosso sistema trabalha com duas peças. {1}A primeira é o título: a escritura, o contrato. Ele só cria a obrigação de transferir. {2}A segunda é o modo: o registro desse título na matrícula do imóvel. {3}Só com as duas juntas nasce o direito real, que vale contra todo mundo. {4}É como transferir um carro: o contrato é o combinado, mas é o registro que troca o dono." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.245", "texto": "Transfere-se entre vivos a propriedade mediante o **registro do título** translativo no Registro de Imóveis.",
+      "traducao": "Enquanto o título não for registrado, quem vendeu **continua sendo o dono** (§ 1º).",
+      "fala": "Está no artigo mil duzentos e quarenta e cinco do Código Civil: transfere-se entre vivos a propriedade mediante o registro do título. {1}E o parágrafo primeiro completa: enquanto não se registrar, o alienante continua a ser havido como dono." },
+    { "tipo": "matricula", "rotulo": "Na prática", "titulo": "A escritura na [[gaveta]]", "numero": "12.345",
+      "imovel": "Apartamento 302 do Edifício Aurora, com 78,50 m² de área privativa.",
+      "lei": { "fonte": "O caso", "em": 1, "texto": "Ana comprou o apartamento do Beto, pagou tudo e assinou a escritura. Mas **guardou na gaveta**." },
+      "atos": [
+        { "sigla": "R-1/12.345", "tipo": "Compra e venda", "texto": "Adquirente e proprietário: **BETO**." },
+        { "sigla": "R-2/12.345", "tipo": "Compra e venda", "texto": "Transmitente: Beto. Adquirente: **ANA**, agora proprietária.", "em": 3, "carimbo": "REGISTRADO" }
+      ],
+      "fala": "Veja na prática. {1}A Ana comprou o apartamento do Beto, pagou tudo, assinou a escritura no tabelionato e guardou na gaveta. {2}Abra a matrícula: no registro um, o dono é o Beto. Para o mundo inteiro, o dono continua sendo o Beto. Se ele tiver uma dívida, é esse apartamento que pode ser penhorado. {3}No dia em que a Ana levar a escritura ao cartório, aí sim: registro dois, Ana proprietária." },
+    { "tipo": "trio", "rotulo": "Lei 6.015/73, art. 172", "titulo": "As três [[funções]] do registro",
+      "itens": [
+        { "icone": "chave", "nome": "Constituir", "apelido": "Faz o direito nascer", "texto": "Constitui, transfere e extingue direitos reais sobre imóveis.", "lei": "Efeito constitutivo" },
+        { "icone": "olho", "nome": "Publicar", "apelido": "Vale contra terceiros", "texto": "O que está na matrícula todo mundo pode conhecer. E não pode alegar que não sabia.", "lei": "Oponibilidade" },
+        { "icone": "corrente", "nome": "Dispor", "apelido": "Permite vender depois", "texto": "Só quem aparece como dono na matrícula consegue vender, doar ou dar em garantia.", "lei": "Disponibilidade" }
+      ],
+      "fala": "O artigo cento e setenta e dois da Lei de Registros Públicos entrega três funções ao registro. {1}Primeira: constituir. É o registro que faz o direito real nascer, mudar de dono e acabar. {2}Segunda: dar publicidade. O que está na matrícula vale contra terceiros. {3}Terceira: disponibilidade. Só quem aparece como dono na matrícula consegue vender depois." },
+    { "tipo": "compara", "rotulo": "Cuidado com a generalização", "titulo": "Nem sempre o registro [[cria]] o direito", "col": 300,
+      "a": { "nome": "Registro constitutivo", "icone": "carimbo" }, "b": { "nome": "Registro declaratório", "icone": "olho" },
+      "linhas": [
+        ["Quando", "Aquisição por ato **entre vivos**", "Aquisição que acontece **fora** do cartório"],
+        ["Exemplos", "Compra e venda, doação, permuta, hipoteca", "Usucapião, herança, acessão"],
+        ["O registro serve para", "Fazer o direito **nascer**", "Dar publicidade e permitir **dispor** do bem"]
+      ],
+      "fala": "Mas cuidado: nem sempre o registro cria o direito. {1}Nos atos entre vivos, ele é constitutivo. Em outros casos, a aquisição acontece fora do cartório. {2}Quem usucapiu já é dono quando completa os requisitos. O herdeiro já é dono no momento da morte. {3}Aí o registro é declaratório: ele não cria o direito, mas dá publicidade e permite vender." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "O registro é uma verdade [[absoluta]]?", "ts": 112, "errado": "Presunção absoluta de propriedade", "certo": "Presunção relativa: admite prova em contrário",
+      "porque": "O registro vale **enquanto não for cancelado** (CC, art. 1.245, § 2º; LRP, art. 252). Presunção absoluta, só no Registro Torrens.",
+      "fala": "{1}Pegadinha clássica. A prova diz que o registro gera presunção absoluta de propriedade. Errado. A presunção é relativa: admite prova em contrário. {2}O registro produz todos os efeitos enquanto não for cancelado. Presunção absoluta, no Brasil, só no Registro Torrens." },
+    { "tipo": "lista", "icone": "mapa", "rotulo": "Duas regras de bolso", "titulo": "Quem pede e [[onde]] pede",
+      "itens": [
+        ["Qualquer pessoa pode provocar o registro", "Não precisa ser o comprador. Quem pede paga as despesas (LRP, art. 217)."],
+        ["Cartório da situação do imóvel", "Aqui não existe livre escolha, como no tabelionato de notas (LRP, art. 169)."],
+        ["O registrador age por provocação", "É o princípio da rogação, ou instância: em regra, nada de ofício."]
+      ],
+      "fala": "Duas regras rápidas que caem muito. {1}Quem pode pedir o registro? Qualquer pessoa, pagando as despesas. {2}Onde? No cartório da situação do imóvel. Aqui não existe livre escolha, como existe no tabelionato de notas. {3}E o registrador, em regra, só age quando provocado. É o princípio da rogação." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Marta comprou uma casa de Paulo por escritura pública e **não a registrou**. Meses depois, Paulo vendeu a mesma casa a Rui, de boa-fé, que **registrou** a escritura. Diante do Registro de Imóveis, o proprietário é:",
+      "alternativas": ["Marta, porque comprou primeiro", "Rui, porque registrou o título", "Paulo, porque as duas vendas são nulas", "Marta e Rui, em condomínio"],
+      "fala": "Vamos treinar. Marta comprou uma casa de Paulo por escritura pública e não registrou. Depois, Paulo vendeu a mesma casa para Rui, que estava de boa-fé e registrou. Quem é o proprietário? {1}Marta, Rui, Paulo, ou os dois em condomínio? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Marta, que comprou primeiro", "Rui, que registrou", "Paulo: vendas nulas", "Marta e Rui, em condomínio"],
+      "passos": ["Marta tinha só o **título**: um direito pessoal contra Paulo.", "Rui tinha título **e registro**: adquiriu a propriedade.", "Para Marta, sobra cobrar **perdas e danos** de Paulo."],
+      "lei": "CC, arts. 1.227 e 1.245",
+      "fala": "{1}Letra B: Rui. {2}Marta tinha só o título, que é um direito pessoal contra Paulo. {3}Rui tinha o título e o registro. Foi ele quem adquiriu a propriedade. {4}Para Marta, sobra cobrar perdas e danos de Paulo. {5}Essa lógica já apareceu no Enac, com promessa de compra e venda não registrada." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Título + registro = propriedade (CC, art. 1.245)",
+        "Sem registro, o vendedor continua dono",
+        "Usucapião e herança: registro declaratório",
+        "Presunção relativa; absoluta só no Torrens",
+        "Cartório da situação do imóvel, a pedido de qualquer pessoa"
+      ],
+      "fala": "Resumo. {1}Título mais registro é igual a propriedade. {2}Sem registro, o vendedor continua dono. {3}Na usucapião e na herança, o registro é declaratório. {4}A presunção do registro é relativa; absoluta, só no Torrens. {5}E o registro é feito no cartório da situação do imóvel, a pedido de qualquer pessoa." },
+    { "tipo": "fecho", "icone": "documento", "titulo": "Matrícula, [[registro]] e averbação", "ts": 120,
+      "texto": "As três palavras que a prova adora trocar de lugar.",
+      "fala": "Na próxima aula: matrícula, registro e averbação. As três palavras que a prova adora trocar de lugar. Te espero lá." }
+  ]
+}

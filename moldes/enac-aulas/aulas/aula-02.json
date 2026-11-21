@@ -1,0 +1,259 @@
+{
+ "id": "ri-02-matricula-registro-averbacao",
+ "n": 2,
+ "tema": "navy",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "documento",
+   "rotulo": "Registro de Imóveis · Aula 02",
+   "titulo": [
+    "Matrícula,",
+    "[[registro]] e",
+    "averbação"
+   ],
+   "ts": 160,
+   "texto": "Três palavras que a prova adora trocar de lugar.",
+   "fala": "Matrícula, registro e averbação. Três palavras que a prova adora trocar de lugar. E quem troca, erra. Depois desta aula, você não confunde nunca mais."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "O conceito",
+   "titulo": "Cada um no seu [[lugar]]",
+   "itens": [
+    {
+     "icone": "documento",
+     "nome": "Matrícula",
+     "apelido": "O RG do imóvel",
+     "texto": "Cada imóvel tem **uma**, e só uma. Tudo o que acontece com ele vai parar ali.",
+     "lei": "LRP, art. 176, § 1º, I"
+    },
+    {
+     "icone": "carimbo",
+     "nome": "Registro",
+     "apelido": "Cria ou transfere o direito",
+     "texto": "Compra e venda, doação, hipoteca. Aqui o direito **nasce ou muda de mãos**.",
+     "lei": "LRP, art. 167, I"
+    },
+    {
+     "icone": "caneta",
+     "nome": "Averbação",
+     "apelido": "Atualiza o que já existe",
+     "texto": "O dono casou, construiu uma casa, quitou a dívida. **Altera ou extingue**.",
+     "lei": "LRP, art. 167, II"
+    }
+   ],
+   "fala": "Pense assim. {1}A matrícula é o RG do imóvel: cada imóvel tem uma, e só uma. {2}O registro é o ato que cria ou transfere o direito: compra e venda, doação, hipoteca. {3}E a averbação só atualiza o que já está lá: o dono casou, construiu uma casa, quitou a dívida."
+  },
+  {
+   "tipo": "lista",
+   "icone": "documento",
+   "rotulo": "A matrícula por dentro",
+   "titulo": "O que a matrícula [[traz]]",
+   "itens": [
+    [
+     "Número de ordem e data",
+     "O número segue ao infinito. Não recomeça."
+    ],
+    [
+     "Identificação do imóvel",
+     "Localização, área, confrontações. Se rural, o código e os dados do CCIR."
+    ],
+    [
+     "Qualificação do proprietário",
+     "Nome, domicílio, nacionalidade, estado civil, profissão, CPF ou CNPJ."
+    ],
+    [
+     "Número do registro anterior",
+     "De onde aquele imóvel veio."
+    ]
+   ],
+   "fala": "O que a matrícula traz? Está no artigo cento e setenta e seis. {1}O número de ordem, que segue ao infinito, e a data. {2}A identificação do imóvel: localização, área e confrontações. {3}A qualificação do proprietário. {4}E o número do registro anterior, que mostra de onde o imóvel veio."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 176, § 1º, I",
+   "ts": 46,
+   "texto": "Cada imóvel terá matrícula própria, que será aberta por ocasião do **primeiro ato de registro ou de averbação**, caso a transcrição possua todos os requisitos elencados para a abertura de matrícula.",
+   "traducao": "Antes, só o primeiro **registro** abria matrícula. Desde a Lei 14.382, de 2022, a primeira **averbação** também abre.",
+   "fala": "Quando a matrícula é aberta? No primeiro ato de registro ou de averbação. {1}Atenção, porque isso mudou. Antes, só o primeiro registro abria a matrícula. Desde a Lei catorze mil trezentos e oitenta e dois, de dois mil e vinte e dois, a primeira averbação também abre, se a transcrição antiga tiver todos os requisitos."
+  },
+  {
+   "tipo": "matricula",
+   "rotulo": "Na prática",
+   "titulo": "Lendo uma [[matrícula]]",
+   "numero": "8.210",
+   "imovel": "Lote 14 da quadra C do Loteamento Jardim das Acácias, com 360,00 m².",
+   "lei": {
+    "fonte": "As siglas (LRP, art. 232)",
+    "em": 1,
+    "texto": "**R** é registro. **AV** é averbação. Depois vêm o número do ato e o número da matrícula."
+   },
+   "atos": [
+    {
+     "sigla": "R-1/8.210",
+     "tipo": "Compra e venda",
+     "texto": "Adquirente: **CARLOS**, solteiro.",
+     "em": 2
+    },
+    {
+     "sigla": "AV-2/8.210",
+     "tipo": "Casamento",
+     "texto": "Carlos casou-se com Lia, em comunhão parcial de bens.",
+     "em": 3
+    },
+    {
+     "sigla": "AV-3/8.210",
+     "tipo": "Construção",
+     "texto": "Edificada uma casa de 120,00 m².",
+     "em": 4
+    },
+    {
+     "sigla": "R-4/8.210",
+     "tipo": "Hipoteca",
+     "texto": "Credor: Banco Alfa. Valor: R$ 200.000,00.",
+     "em": 5
+    }
+   ],
+   "fala": "Agora, lendo uma matrícula de verdade. {1}A letra R é registro. As letras A V são averbação. Depois vêm o número do ato e o número da matrícula. {2}Registro um: Carlos comprou o lote. {3}Averbação dois: Carlos casou. {4}Averbação três: construiu uma casa. {5}Registro quatro: deu o imóvel em hipoteca ao banco. Percebeu? A numeração é uma só, na ordem em que as coisas acontecem."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "Lado a lado",
+   "titulo": "Registro x [[averbação]]",
+   "col": 280,
+   "a": {
+    "nome": "Registro",
+    "icone": "carimbo"
+   },
+   "b": {
+    "nome": "Averbação",
+    "icone": "caneta"
+   },
+   "linhas": [
+    [
+     "Função",
+     "**Constitui ou transmite** direitos reais",
+     "**Altera ou extingue** o que já está registrado"
+    ],
+    [
+     "Exemplos",
+     "Compra e venda, doação, hipoteca, usufruto, alienação fiduciária",
+     "Construção, casamento, mudança de nome, cancelamento"
+    ],
+    [
+     "Rol da lei",
+     "Art. 167, I",
+     "Art. 167, II, mais a cláusula aberta do art. 246"
+    ]
+   ],
+   "fala": "Lado a lado. {1}O registro constitui ou transmite direitos reais. A averbação altera ou extingue o que já está registrado. {2}Exemplos de registro: compra e venda, doação, hipoteca, usufruto. De averbação: construção, casamento, cancelamento. {3}E um detalhe: o artigo duzentos e quarenta e seis abre a porta da averbação para qualquer ocorrência que altere o registro."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 1",
+   "titulo": "Quitou a [[hipoteca]]?",
+   "errado": "Registro do cancelamento",
+   "certo": "Averbação do cancelamento",
+   "porque": "Todo cancelamento se faz por **averbação** (LRP, art. 248). O mesmo vale para a construção: art. 167, II, 4.",
+   "fala": "{1}Primeira pegadinha. Quitou a hipoteca: o cancelamento é registro? Não. Todo cancelamento se faz por averbação. {2}E vale a mesma lógica para a construção: a casa não cria direito novo, só muda a descrição do imóvel. Averbação."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 2 · já caiu no ENAC",
+   "titulo": "Imissão provisória na [[posse]]",
+   "ts": 112,
+   "errado": "Averbação, porque não transfere a propriedade",
+   "certo": "Registro (art. 167, I, 36)",
+   "porque": "Na desapropriação, a imissão provisória concedida ao poder público é **registrada**, mesmo sem transferir o domínio. Quem manda é o **rol da lei**.",
+   "fala": "{1}Segunda pegadinha, e essa caiu no terceiro Enac. A imissão provisória na posse, concedida ao poder público numa desapropriação. Ela não transfere a propriedade, então seria averbação? Não. É registro. {2}Está no item trinta e seis do inciso um. A lição: a regra geral ajuda, mas quem manda é o rol da lei."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "Para gabaritar",
+   "titulo": "Quatro casos que a banca [[inverte]]",
+   "col": 300,
+   "tl": 34,
+   "pad": 20,
+   "a": {
+    "nome": "É registro",
+    "icone": "carimbo"
+   },
+   "b": {
+    "nome": "É averbação",
+    "icone": "caneta"
+   },
+   "linhas": [
+    [
+     "Locação",
+     "Com cláusula de **vigência** em caso de venda (I, 3)",
+     "Para exercer o direito de **preferência** (II, 16)"
+    ],
+    [
+     "Garantia e restrição",
+     "Alienação fiduciária de imóvel (I, 35)",
+     "Cláusula de inalienabilidade ou impenhorabilidade (II, 11)"
+    ]
+   ],
+   "fala": "Para gabaritar, quatro casos que a banca inverte. {1}Contrato de locação. Com cláusula de vigência em caso de venda, é registro. Para garantir o direito de preferência do inquilino, é averbação. {2}Alienação fiduciária de imóvel: registro. Cláusula de inalienabilidade ou de impenhorabilidade: averbação. Mesma palavra, atos diferentes. Por isso vale ler o rol do artigo cento e sessenta e sete pelo menos uma vez."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Lúcia, proprietária de um apartamento, **divorciou-se e voltou a usar o nome de solteira**. Para que a alteração conste da matrícula, o ato a ser praticado é:",
+   "alternativas": [
+    "o registro da sentença de divórcio",
+    "a averbação da alteração do nome",
+    "a abertura de nova matrícula",
+    "o registro no Livro 3, Registro Auxiliar"
+   ],
+   "fala": "Sua vez. Lúcia é dona de um apartamento. Ela se divorciou e voltou a usar o nome de solteira. Qual ato leva essa mudança para a matrícula? {1}Registro da sentença, averbação da alteração do nome, nova matrícula, ou registro no Livro três? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 1,
+   "titulo": "Letra [[B]]",
+   "alternativas": [
+    "Registro da sentença",
+    "Averbação do nome",
+    "Nova matrícula",
+    "Registro no Livro 3"
+   ],
+   "passos": [
+    "O imóvel **não mudou de dono**.",
+    "Mudou um dado da **pessoa** que já está na matrícula.",
+    "Alterou o que já existe: **averbação**."
+   ],
+   "lei": "Lei 6.015/73, art. 167, II, 5",
+   "fala": "{1}Letra B: averbação. {2}O imóvel não mudou de dono. {3}Mudou um dado da pessoa que já está na matrícula. {4}Alterou o que já existe? Averbação. {5}Artigo cento e sessenta e sete, inciso dois, item cinco."
+  },
+  {
+   "tipo": "bolso",
+   "rotulo": "Regra de bolso",
+   "ts": 96,
+   "col": 900,
+   "linhas": [
+    [
+     "Nasceu ou mudou de dono",
+     "[[registro]]"
+    ],
+    [
+     "Alterou ou extinguiu",
+     "[[averbação]]"
+    ]
+   ],
+   "frase": "Na dúvida entre os dois, confira o rol do art. 167.",
+   "fala": "Regra de bolso: {1}o direito nasceu ou mudou de dono, registro. {2}Alterou ou extinguiu o que já estava lá, averbação. {3}E, na dúvida, confira o rol do artigo cento e sessenta e sete."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "livro",
+   "titulo": "Os cinco [[livros]] do cartório",
+   "ts": 124,
+   "texto": "Onde cada ato é escrito, e a troca que a banca adora fazer.",
+   "fala": "Na próxima aula: os cinco livros do Registro de Imóveis. Onde cada ato é escrito, e a troca que a banca adora fazer. Até lá."
+  }
+ ]
+}

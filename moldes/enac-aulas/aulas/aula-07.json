@@ -1,0 +1,77 @@
+{
+  "id": "ri-07-qualificacao-e-nota-devolutiva",
+  "n": 7,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "lupa", "rotulo": "Registro de Imóveis · Aula 07", "titulo": ["Qualificação", "e nota", "[[devolutiva]]"], "ts": 160,
+      "texto": "O filtro de legalidade do Registro de Imóveis.",
+      "fala": "Nem todo título que chega ao cartório entra na matrícula. Antes, ele passa por um filtro: a qualificação registral. É ali que o registrador diz sim, ou devolve o título com uma lista de exigências. Vamos ver como esse filtro funciona." },
+    { "tipo": "fluxo", "rotulo": "O que é", "titulo": "Qualificar é examinar a [[legalidade]]",
+      "passos": [
+        { "icone": "documento", "nome": "Título prenotado", "texto": "Escritura, contrato, formal de partilha, mandado." },
+        { "icone": "lupa", "nome": "Qualificação", "texto": "O oficial confronta o título com a **lei** e com a **matrícula**." },
+        { "icone": "carimbo", "nome": "Positiva ou negativa", "texto": "Positiva: registra. Negativa: emite a **nota devolutiva**." }
+      ],
+      "nota": "É o princípio da **legalidade**. E o oficial decide com **independência** (Lei 8.935/94, art. 28).",
+      "fala": "Qualificar é examinar a legalidade do título. {1}O título é prenotado. {2}O oficial confronta esse título com a lei e com o que já está na matrícula. {3}Se a qualificação é positiva, ele registra. Se é negativa, emite a nota devolutiva. {4}Esse é o princípio da legalidade. E o oficial decide com independência, garantida pela Lei dos Notários e Registradores." },
+    { "tipo": "lista", "icone": "lupa", "rotulo": "O que o oficial confere", "titulo": "O [[roteiro]] da qualificação", "tl": 40,
+      "itens": [
+        ["O título é admitido a registro?", "Tem de ser um dos títulos do art. 221."],
+        ["A forma está correta?", "Escritura pública quando a lei exige, assinaturas, reconhecimentos."],
+        ["Bate com a matrícula?", "Continuidade, especialidade, disponibilidade."],
+        ["Há algum impedimento?", "Indisponibilidade, bloqueio, cláusula de inalienabilidade."]
+      ],
+      "fala": "O roteiro da qualificação tem quatro perguntas. {1}O título é admitido a registro? {2}A forma está correta? {3}Ele bate com a matrícula, respeitando continuidade e especialidade? {4}E há algum impedimento, como indisponibilidade ou bloqueio?" },
+    { "tipo": "trio", "rotulo": "Lei 6.015/73, art. 221", "titulo": "Os títulos que [[entram]]",
+      "itens": [
+        { "icone": "caneta", "nome": "Escritura pública", "apelido": "A regra", "texto": "Inclusive a lavrada em consulado brasileiro.", "lei": "Inciso I" },
+        { "icone": "documento", "nome": "Particular", "apelido": "Só se a lei autorizar", "texto": "Assinado pelas partes e pelas testemunhas, com firmas reconhecidas.", "lei": "Inciso II" },
+        { "icone": "forum", "nome": "Judicial", "apelido": "Do processo ao cartório", "texto": "Cartas de sentença, formais de partilha, certidões e mandados.", "lei": "Inciso IV" },
+        { "icone": "predio", "nome": "Administrativo", "apelido": "Com o poder público", "texto": "Contratos e termos de regularização fundiária e de programas habitacionais.", "lei": "Inciso V" }
+      ],
+      "fala": "Quais títulos entram? {1}A escritura pública, que é a regra. {2}O escrito particular, mas só quando a lei autoriza. {3}Os títulos judiciais: cartas de sentença, formais de partilha, certidões e mandados. {4}E os contratos e termos administrativos, assinados com o poder público. Existe ainda o ato estrangeiro, que precisa ser legalizado, traduzido e registrado no Registro de Títulos e Documentos." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Título judicial é [[qualificado]]?", "ts": 112, "errado": "Não: ordem do juiz se cumpre sem exame", "certo": "Sim, nos aspectos formais e registrais",
+      "porque": "O registrador **não revê o mérito** da decisão. Mas confere continuidade, especialidade e as formalidades do título.",
+      "fala": "{1}Pegadinha clássica. Título judicial passa pela qualificação? Passa. O que o registrador não faz é rever o mérito da decisão do juiz. {2}Mas ele confere a continuidade, a especialidade e as formalidades. Um formal de partilha com a descrição errada do imóvel também recebe nota devolutiva." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 198", "ts": 46, "texto": "Se houver exigência a ser satisfeita, ela será indicada pelo oficial **por escrito**, dentro do prazo previsto no art. 188 e **de uma só vez**, articuladamente, de forma **clara e objetiva**, com data, identificação e assinatura do oficial ou preposto responsável.",
+      "traducao": "Nada de exigência em parcelas: o oficial aponta **tudo de uma vez**, em até 10 dias úteis.",
+      "fala": "E como deve ser a nota devolutiva? O artigo cento e noventa e oito responde: por escrito, dentro do prazo, de uma só vez, de forma clara e objetiva, com data e assinatura. {1}Traduzindo: nada de exigência em parcelas. O oficial aponta tudo de uma vez só." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Os cinco requisitos", "titulo": "A nota devolutiva [[perfeita]]", "gap": 20, "tl": 40,
+      "itens": [
+        "Por escrito",
+        "No prazo do art. 188 (10 dias úteis, em regra)",
+        "De uma só vez, articuladamente",
+        "Clara e objetiva",
+        "Com data, identificação e assinatura"
+      ],
+      "fala": "São cinco requisitos para decorar. {1}Por escrito. {2}No prazo do artigo cento e oitenta e oito. {3}De uma só vez, em itens. {4}Clara e objetiva. {5}Com data, identificação e assinatura. E descumprir isso sujeita o oficial a pena disciplinar." },
+    { "tipo": "trio", "rotulo": "Recebi a nota. E agora?", "titulo": "As saídas do [[apresentante]]",
+      "itens": [
+        { "icone": "caneta", "nome": "Cumprir", "apelido": "Atende às exigências", "texto": "Reapresenta dentro da prenotação e o registro sai em **5 dias**.", "lei": "Art. 198, V" },
+        { "icone": "forum", "nome": "Discordar", "apelido": "Pede a dúvida", "texto": "Requer que o título e a declaração de dúvida sejam remetidos ao **juízo competente**.", "lei": "Art. 198, VI" },
+        { "icone": "relogio", "nome": "Não fazer nada", "apelido": "Perde a prioridade", "texto": "Em **20 dias úteis** cessam os efeitos da prenotação.", "lei": "Art. 205" }
+      ],
+      "fala": "Recebi a nota devolutiva. E agora? São três caminhos. {1}Cumprir as exigências e reapresentar o título. {2}Discordar, e pedir que o oficial suscite a dúvida ao juiz. {3}Ou não fazer nada, e perder a prioridade quando a prenotação vencer." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "O registrador devolve uma escritura com **uma** exigência. Cumprida e reapresentado o título, formula **outra exigência**, que já podia ter sido feita na primeira análise. Essa conduta:",
+      "alternativas": ["é regular, pois a qualificação é contínua", "contraria a lei: as exigências são feitas de uma só vez", "é regular, desde que observado o prazo de 10 dias", "só é vedada para títulos judiciais"],
+      "fala": "Vamos treinar. O registrador devolve uma escritura com uma exigência. O interessado cumpre e reapresenta. Aí o registrador faz outra exigência, que já podia ter feito antes. Essa conduta: {1}é regular, porque a qualificação é contínua? Contraria a lei? É regular, se respeitado o prazo? Ou só é vedada para títulos judiciais? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Regular: qualificação contínua", "Contraria a lei", "Regular, no prazo de 10 dias", "Vedada só para judiciais"],
+      "passos": ["As exigências vêm **de uma só vez**.", "Exigência em parcelas alonga o prazo e põe a **prioridade em risco**.", "A falha sujeita o oficial às penas da Lei 8.935/94."],
+      "lei": "Lei 6.015/73, art. 198, caput e § 2º",
+      "fala": "{1}Letra B: contraria a lei. {2}As exigências devem ser feitas de uma só vez. {3}Exigência em parcelas alonga o prazo e põe em risco a prioridade do título. {4}E a falha sujeita o oficial a pena disciplinar. {5}Artigo cento e noventa e oito. A regra das exigências de uma só vez já foi cobrada no Enac." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Qualificação: exame de legalidade, com independência",
+        "Só entram os títulos do art. 221",
+        "Título judicial também é qualificado, sem rever o mérito",
+        "Nota devolutiva: escrita, de uma só vez, clara e objetiva",
+        "Saídas: cumprir, pedir a dúvida ou perder a prenotação"
+      ],
+      "fala": "Resumo. {1}Qualificação é exame de legalidade, feito com independência. {2}Só entram os títulos do artigo duzentos e vinte e um. {3}Título judicial também é qualificado, sem rever o mérito. {4}A nota devolutiva é escrita, de uma só vez, clara e objetiva. {5}E o apresentante pode cumprir, pedir a dúvida, ou perder a prenotação." },
+    { "tipo": "fecho", "icone": "forum", "titulo": "Dúvida [[registral]]", "ts": 150,
+      "texto": "Quando o apresentante não concorda com a exigência.",
+      "fala": "Na próxima aula: a dúvida registral. O que acontece quando o apresentante não concorda com a exigência. Tema que caiu nas duas primeiras edições do Enac." }
+  ]
+}

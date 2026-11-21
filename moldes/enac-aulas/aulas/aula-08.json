@@ -1,0 +1,252 @@
+{
+ "id": "ri-08-duvida-registral",
+ "n": 8,
+ "tema": "navy",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "forum",
+   "rotulo": "Registro de Imóveis · Aula 08",
+   "titulo": [
+    "Dúvida",
+    "[[registral]]"
+   ],
+   "ts": 210,
+   "texto": "Lei 6.015/73, arts. 198 a 204. Caiu no 1º e no 2º ENAC.",
+   "fala": "O registrador fez uma exigência, e você acha que ele está errado. O que fazer? Existe um procedimento só para isso, e ele tem o nome mais estranho do Direito Registral: dúvida. Caiu na primeira e na segunda edição do Enac. Vamos ao passo a passo."
+  },
+  {
+   "tipo": "lista",
+   "icone": "balao",
+   "rotulo": "Começando pelo nome",
+   "titulo": "Quem tem a [[dúvida]]?",
+   "itens": [
+    [
+     "Quem pede é o interessado",
+     "Ele não se conforma com a exigência, ou não consegue cumpri-la."
+    ],
+    [
+     "Quem suscita é o oficial",
+     "Ele declara a dúvida e a remete ao juízo competente."
+    ],
+    [
+     "Quem decide é o juiz",
+     "O oficial **não julga** a própria exigência."
+    ]
+   ],
+   "fala": "Comece pelo nome, que confunde. {1}Quem pede a dúvida é o interessado, que não se conforma com a exigência. {2}Quem suscita é o oficial: é ele que declara a dúvida e manda para o juiz. {3}E quem decide é o juiz. O oficial não julga a própria exigência."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Um caso para fixar",
+   "titulo": "A escritura da [[Júlia]]",
+   "passos": [
+    {
+     "icone": "documento",
+     "nome": "O título",
+     "texto": "Júlia apresenta a escritura de compra de um terreno."
+    },
+    {
+     "icone": "lupa",
+     "nome": "A exigência",
+     "texto": "O oficial pede a retificação da área, que não bate com a matrícula."
+    },
+    {
+     "icone": "balao",
+     "nome": "A discordância",
+     "texto": "Júlia entende que a diferença é irrelevante e **requer a dúvida**."
+    },
+    {
+     "icone": "forum",
+     "nome": "A remessa",
+     "texto": "O oficial suscita a dúvida e remete tudo ao juiz corregedor."
+    }
+   ],
+   "fala": "Um caso para fixar. {1}A Júlia apresenta a escritura de compra de um terreno. {2}O oficial devolve: a área da escritura não bate com a da matrícula, e ele exige a retificação. {3}A Júlia não concorda. Ela não quer cumprir a exigência, e também não quer perder o lugar na fila. Então requer a dúvida. {4}O oficial suscita a dúvida e remete tudo ao juiz. Repare: a Júlia não processa o cartório. Ela pede que o juiz diga quem tem razão."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "No cartório · art. 198, § 1º",
+   "titulo": "Os quatro passos do [[oficial]]",
+   "passos": [
+    {
+     "nome": "Anota",
+     "texto": "No Protocolo, à margem da prenotação, a ocorrência da dúvida."
+    },
+    {
+     "nome": "Certifica",
+     "texto": "No título, a prenotação e a suscitação. Rubrica todas as folhas."
+    },
+    {
+     "nome": "Notifica",
+     "tag": "15 dias",
+     "texto": "Dá ciência ao apresentante, que pode **impugnar** perante o juízo."
+    },
+    {
+     "nome": "Remete",
+     "texto": "As razões da dúvida e o título seguem ao juízo, por **meio eletrônico**."
+    }
+   ],
+   "fala": "No cartório, são quatro passos. {1}O oficial anota a dúvida no Protocolo, à margem da prenotação. {2}Certifica no título e rubrica todas as folhas. {3}Dá ciência ao apresentante e o notifica para impugnar, no juízo, em quinze dias. {4}E remete tudo eletronicamente ao juízo competente."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "No juízo · arts. 199 a 202",
+   "titulo": "Os prazos do [[processo]]",
+   "passos": [
+    {
+     "icone": "caneta",
+     "nome": "Impugnação",
+     "tag": "15 dias",
+     "texto": "Do interessado. **Sem ela, a dúvida é julgada do mesmo jeito.**"
+    },
+    {
+     "icone": "olho",
+     "nome": "Ministério Público",
+     "tag": "10 dias",
+     "texto": "É ouvido depois da impugnação."
+    },
+    {
+     "icone": "forum",
+     "nome": "Sentença",
+     "tag": "15 dias",
+     "texto": "Se não houver diligências a cumprir."
+    },
+    {
+     "icone": "documento",
+     "nome": "Apelação",
+     "tag": "2 efeitos",
+     "texto": "Devolutivo **e suspensivo**."
+    }
+   ],
+   "fala": "No juízo, os prazos. {1}Impugnação do interessado: quinze dias. E, se ele não impugnar, a dúvida é julgada do mesmo jeito. {2}Ministério Público: dez dias. {3}Sentença: quinze dias. {4}E cabe apelação, com efeitos devolutivo e suspensivo. A banca adora trocar esses números: quinze, dez, quinze."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "O ponto que mais confunde",
+   "titulo": "Procedente ou [[improcedente]]?",
+   "col": 290,
+   "a": {
+    "nome": "Procedente",
+    "icone": "carimbo"
+   },
+   "b": {
+    "nome": "Improcedente",
+    "icone": "chave"
+   },
+   "linhas": [
+    [
+     "Quem tinha razão",
+     "O **oficial**: a exigência era correta",
+     "O **interessado**: a exigência não se sustentava"
+    ],
+    [
+     "O que acontece",
+     "Documentos devolvidos e **prenotação cancelada**",
+     "O título é **registrado**, desde logo"
+    ],
+    [
+     "Custas",
+     "Pagas pelo interessado",
+     "Não são devidas"
+    ]
+   ],
+   "fala": "Agora o ponto que mais derruba candidato. {1}Dúvida procedente quer dizer que o oficial tinha razão. Improcedente, que o interessado tinha razão. {2}Procedente: os documentos são devolvidos e a prenotação é cancelada. Improcedente: o título é registrado. {3}E as custas só são devidas quando a dúvida é julgada procedente, pagas pelo interessado."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 1",
+   "titulo": "O oficial pode [[apelar]]?",
+   "errado": "Sim, se a dúvida for improcedente",
+   "certo": "Não: só interessado, MP e terceiro prejudicado",
+   "porque": "O art. 202 lista quem apela, e o oficial **não está** na lista. Ele não é parte: só cumpre a decisão.",
+   "fala": "{1}Pegadinha um. A dúvida foi julgada improcedente. O oficial pode apelar? Não. Quem pode apelar é o interessado, o Ministério Público e o terceiro prejudicado. {2}O oficial não está na lista. Ele não é parte, apenas cumpre a decisão."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 204",
+   "texto": "A decisão da dúvida tem natureza **administrativa** e não impede o uso do processo contencioso competente.",
+   "traducao": "O juiz atua como corregedor. Perdeu na dúvida? **Ainda cabe ação judicial.**",
+   "fala": "Segunda pegadinha, direto na letra da lei: a decisão da dúvida tem natureza administrativa. {1}O juiz ali atua como corregedor do cartório. Por isso, quem perde na dúvida ainda pode entrar com uma ação judicial."
+  },
+  {
+   "tipo": "lista",
+   "icone": "balao",
+   "rotulo": "Para completar",
+   "titulo": "E a dúvida [[inversa]]?",
+   "itens": [
+    [
+     "O que é",
+     "O próprio interessado leva a questão **direto ao juiz**."
+    ],
+    [
+     "De onde vem",
+     "Da prática e da jurisprudência. **Não está** na Lei 6.015."
+    ],
+    [
+     "Para a prova",
+     "Pela letra da lei, quem suscita a dúvida é o oficial, a requerimento do interessado."
+    ]
+   ],
+   "fala": "E a tal dúvida inversa? {1}É quando o próprio interessado leva a questão direto ao juiz. {2}Ela nasceu da prática e da jurisprudência. Não está na Lei de Registros Públicos. {3}Para a prova, guarde a letra da lei: quem suscita é o oficial, a requerimento do interessado."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Suscitada dúvida a requerimento do apresentante, a sentença a julga **procedente** e transita em julgado. Nesse caso:",
+   "alternativas": [
+    "o título é registrado de imediato",
+    "os documentos são restituídos e a prenotação é cancelada",
+    "o oficial deve apelar da sentença",
+    "a prenotação é prorrogada por 20 dias"
+   ],
+   "fala": "Vamos treinar, no molde do segundo Enac. A dúvida foi julgada procedente, e a sentença transitou em julgado. O que acontece? {1}O título é registrado? Os documentos são restituídos e a prenotação é cancelada? O oficial deve apelar? Ou a prenotação é prorrogada por vinte dias? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 1,
+   "titulo": "Letra [[B]]",
+   "alternativas": [
+    "Título registrado",
+    "Documentos devolvidos, prenotação cancelada",
+    "Oficial deve apelar",
+    "Prenotação prorrogada"
+   ],
+   "passos": [
+    "Procedente = o **oficial** tinha razão.",
+    "A exigência vale: o título **não entra**.",
+    "Documentos restituídos e prenotação **cancelada**."
+   ],
+   "lei": "Lei 6.015/73, art. 203, I",
+   "fala": "{1}Letra B. {2}Procedente quer dizer que o oficial tinha razão. {3}A exigência vale, e o título não entra. {4}Os documentos são restituídos e a prenotação é cancelada. {5}Artigo duzentos e três, inciso um."
+  },
+  {
+   "tipo": "bolso",
+   "rotulo": "Regra de bolso",
+   "ts": 108,
+   "col": 640,
+   "linhas": [
+    [
+     "Procedente",
+     "ganha o [[oficial]]"
+    ],
+    [
+     "Improcedente",
+     "ganha o [[interessado]]"
+    ]
+   ],
+   "frase": "Prazos: 15 para impugnar, 10 para o MP, 15 para a sentença.",
+   "fala": "Regra de bolso: {1}procedente, ganha o oficial. {2}Improcedente, ganha o interessado. {3}E os prazos: quinze para impugnar, dez para o Ministério Público, quinze para a sentença."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "regua",
+   "titulo": "Retificação e [[bloqueio]]",
+   "ts": 130,
+   "texto": "Quando o erro está dentro da matrícula.",
+   "fala": "Na próxima aula: e quando o erro está dentro da matrícula? Retificação do registro e bloqueio da matrícula."
+  }
+ ]
+}

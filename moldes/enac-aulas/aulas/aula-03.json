@@ -1,0 +1,240 @@
+{
+ "id": "ri-03-os-cinco-livros",
+ "n": 3,
+ "tema": "navy",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "livro",
+   "rotulo": "Registro de Imóveis · Aula 03",
+   "titulo": [
+    "Os cinco",
+    "[[livros]]",
+    "do cartório"
+   ],
+   "ts": 170,
+   "texto": "Lei 6.015/73, arts. 173 a 180.",
+   "fala": "O Registro de Imóveis tem cinco livros. Parece decoreba, e é. Mas é decoreba que vale ponto, porque a banca adora trocar um livro pelo outro. Vamos organizar isso de um jeito que não sai mais da cabeça."
+  },
+  {
+   "tipo": "lista",
+   "icone": "livro",
+   "rotulo": "Lei 6.015/73, art. 173",
+   "titulo": "Os [[cinco]], em ordem",
+   "gap": 20,
+   "tl": 40,
+   "itens": [
+    [
+     "Livro 1 · Protocolo",
+     "A porta de entrada de todos os títulos."
+    ],
+    [
+     "Livro 2 · Registro Geral",
+     "Onde moram as matrículas."
+    ],
+    [
+     "Livro 3 · Registro Auxiliar",
+     "O que é do cartório, mas não é de um imóvel matriculado."
+    ],
+    [
+     "Livro 4 · Indicador Real",
+     "O índice dos imóveis."
+    ],
+    [
+     "Livro 5 · Indicador Pessoal",
+     "O índice das pessoas."
+    ]
+   ],
+   "fala": "São eles, em ordem. {1}Livro um, Protocolo: a porta de entrada de todos os títulos. {2}Livro dois, Registro Geral: onde moram as matrículas. {3}Livro três, Registro Auxiliar. {4}Livro quatro, Indicador Real: o índice dos imóveis. {5}Livro cinco, Indicador Pessoal: o índice das pessoas."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Livro 1 · Protocolo",
+   "titulo": "A [[senha]] do cartório",
+   "passos": [
+    {
+     "icone": "documento",
+     "nome": "Chegou o título",
+     "texto": "Todos os títulos apresentados no dia são apontados no Protocolo."
+    },
+    {
+     "icone": "senha",
+     "nome": "Número de ordem",
+     "texto": "Na sequência **rigorosa** da apresentação. Não se fura a fila."
+    },
+    {
+     "icone": "alvo",
+     "nome": "Prioridade",
+     "texto": "O número de ordem define quem tem preferência sobre o imóvel."
+    }
+   ],
+   "nota": "Fica de fora só o título apresentado **apenas para exame e cálculo** de emolumentos (art. 12, parágrafo único).",
+   "fala": "O Livro um funciona como a senha do cartório. {1}Chegou um título, ele é apontado no Protocolo. {2}E recebe um número de ordem, na sequência rigorosa da apresentação. {3}Esse número define a prioridade: quem chegou primeiro tem preferência. {4}Só fica de fora o título apresentado apenas para exame e cálculo de emolumentos."
+  },
+  {
+   "tipo": "lista",
+   "icone": "senha",
+   "rotulo": "Lei 6.015/73, arts. 175 e 184",
+   "titulo": "O que se anota no [[protocolo]]",
+   "tl": 40,
+   "gap": 20,
+   "itens": [
+    "O número de ordem, que segue indefinidamente",
+    "A data da apresentação",
+    "O nome do apresentante",
+    "A natureza formal do título",
+    "Os atos que ele formalizar, em resumo"
+   ],
+   "fala": "E o que se anota no Protocolo? São cinco dados. {1}O número de ordem, que segue indefinidamente. {2}A data da apresentação. {3}O nome do apresentante. {4}A natureza formal do título: se é escritura, instrumento particular, mandado. {5}E os atos que ele formaliza, em resumo. Mais um detalhe: o Protocolo é encerrado diariamente."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Livros 2 e 3",
+   "titulo": "Geral x [[auxiliar]]",
+   "itens": [
+    {
+     "icone": "casa",
+     "nome": "Livro 2",
+     "apelido": "Registro Geral",
+     "texto": "A **matrícula** de cada imóvel, com os registros e as averbações do art. 167.",
+     "lei": "LRP, art. 176"
+    },
+    {
+     "icone": "documento",
+     "nome": "Livro 3",
+     "apelido": "Registro Auxiliar",
+     "texto": "Atos atribuídos ao cartório que **não dizem respeito diretamente** a imóvel matriculado.",
+     "lei": "LRP, art. 177"
+    }
+   ],
+   "nota": "No Livro 3: convenção de condomínio, pacto antenupcial, penhor rural, cédula de crédito industrial, debêntures.",
+   "fala": "Agora o par que mais confunde. {1}O Livro dois, Registro Geral, guarda a matrícula de cada imóvel, com seus registros e averbações. {2}O Livro três, Registro Auxiliar, recebe os atos que a lei manda para o Registro de Imóveis, mas que não dizem respeito diretamente a um imóvel matriculado. {3}Exemplos do Livro três: a convenção de condomínio, o pacto antenupcial, o penhor rural, a cédula de crédito industrial e as debêntures."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha de prova",
+   "titulo": "Pacto [[antenupcial]]: onde vai?",
+   "ts": 112,
+   "errado": "Só no Livro 2, na matrícula",
+   "certo": "Registro no Livro 3 e averbação no Livro 2",
+   "porque": "O pacto é **registrado** no Livro 3 (art. 178, V) e **averbado** na matrícula de cada imóvel do casal (art. 167, II, 1).",
+   "fala": "{1}Pegadinha. O pacto antenupcial vai para qual livro? Para os dois. Ele é registrado no Livro três, e averbado no Livro dois, na matrícula de cada imóvel do casal. {2}Registro no auxiliar, averbação na matrícula. Guarde essa dupla."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "Livros 4 e 5",
+   "titulo": "Os dois [[índices]] do cartório",
+   "col": 300,
+   "a": {
+    "nome": "4 · Indicador Real",
+    "icone": "casa"
+   },
+   "b": {
+    "nome": "5 · Indicador Pessoal",
+    "icone": "pessoas"
+   },
+   "linhas": [
+    [
+     "Busca por",
+     "**Imóvel**",
+     "**Nome** da pessoa"
+    ],
+    [
+     "Contém",
+     "Todos os imóveis que figuram nos demais livros",
+     "Todas as pessoas que figuram nos demais livros"
+    ],
+    [
+     "Macete",
+     "Real vem de “res”: **coisa**",
+     "Pessoal: **gente**"
+    ]
+   ],
+   "fala": "Os livros quatro e cinco são os índices do cartório. {1}No Indicador Real, você busca pelo imóvel. No Indicador Pessoal, pelo nome da pessoa. {2}Um reúne todos os imóveis que aparecem nos outros livros. O outro, todas as pessoas. {3}O macete: real vem de res, coisa. Indicador Real é o índice das coisas, não o índice de quem é dono de verdade."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 173, parágrafo único",
+   "texto": "Os livros nºs **2, 3, 4 e 5** poderão ser substituídos por **fichas**.",
+   "traducao": "O **Livro 1 ficou de fora** da lista. E a escrituração hoje é eletrônica, integrada ao Serp.",
+   "fala": "Mais um detalhe de letra de lei. Os livros dois, três, quatro e cinco podem ser substituídos por fichas. {1}Repare: o Livro um, o Protocolo, ficou de fora dessa lista. É o tipo de detalhe que vira alternativa errada."
+  },
+  {
+   "tipo": "lista",
+   "icone": "globo",
+   "rotulo": "Para não ser surpreendido",
+   "titulo": "Existe um [[sexto]] livro?",
+   "itens": [
+    [
+     "Cadastro de estrangeiros",
+     "Livro auxiliar das aquisições de **imóvel rural** por pessoa estrangeira."
+    ],
+    [
+     "Fonte",
+     "Lei 5.709/71, art. 10. Não está na Lei 6.015."
+    ],
+    [
+     "Para a prova",
+     "A Lei de Registros Públicos lista **cinco** livros."
+    ]
+   ],
+   "fala": "E existe um sexto livro? {1}Existe um cadastro especial, em livro auxiliar, das aquisições de imóvel rural por estrangeiros. {2}Mas ele vem de outra lei, a cinco mil setecentos e nove, de setenta e um. {3}Para a prova: pela Lei de Registros Públicos, os livros são cinco."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "O síndico do Edifício Solar apresenta ao Registro de Imóveis a **convenção de condomínio** aprovada pelos condôminos. O registro da convenção será feito no:",
+   "alternativas": [
+    "Livro 1, Protocolo",
+    "Livro 2, Registro Geral",
+    "Livro 3, Registro Auxiliar",
+    "Livro 4, Indicador Real"
+   ],
+   "fala": "Vamos treinar. O síndico apresenta ao cartório a convenção de condomínio do prédio. Em que livro ela é registrada? {1}Livro um, Protocolo. Livro dois, Registro Geral. Livro três, Registro Auxiliar. Ou Livro quatro, Indicador Real? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 2,
+   "titulo": "Letra [[C]]",
+   "alternativas": [
+    "Livro 1, Protocolo",
+    "Livro 2, Registro Geral",
+    "Livro 3, Registro Auxiliar",
+    "Livro 4, Indicador Real"
+   ],
+   "passos": [
+    "A convenção passa pelo Protocolo, mas **não é registrada** nele.",
+    "Ela não cria direito real sobre um imóvel matriculado.",
+    "Vai para o **Livro 3**, Registro Auxiliar."
+   ],
+   "lei": "Lei 6.015/73, art. 178, III",
+   "fala": "{1}Letra C: Livro três. {2}A convenção passa pelo Protocolo, como todo título, mas não é registrada nele. {3}Ela não cria direito real sobre um imóvel matriculado. {4}Por isso vai para o Registro Auxiliar. {5}Artigo cento e setenta e oito, inciso três."
+  },
+  {
+   "tipo": "lista",
+   "check": true,
+   "icone": "escudo",
+   "rotulo": "Resumo da aula",
+   "titulo": "Leve para a [[prova]]",
+   "tl": 40,
+   "itens": [
+    "1 Protocolo: número de ordem e prioridade",
+    "2 Registro Geral: matrícula, registro e averbação",
+    "3 Auxiliar: convenção, pacto antenupcial, penhor rural",
+    "4 Real: imóveis · 5 Pessoal: pessoas",
+    "Fichas: só os livros 2 a 5"
+   ],
+   "fala": "Resumo. {1}Livro um: número de ordem e prioridade. {2}Livro dois: matrícula, registro e averbação. {3}Livro três: convenção de condomínio, pacto antenupcial e penhor rural. {4}Quatro é o índice dos imóveis, cinco é o das pessoas. {5}E fichas, só nos livros de dois a cinco."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "corrente",
+   "titulo": "Continuidade e [[especialidade]]",
+   "ts": 118,
+   "texto": "Os dois princípios que mais geram nota devolutiva.",
+   "fala": "Na próxima aula, começamos os princípios: continuidade e especialidade. Os dois que mais geram nota devolutiva na vida real, e questão na prova."
+  }
+ ]
+}

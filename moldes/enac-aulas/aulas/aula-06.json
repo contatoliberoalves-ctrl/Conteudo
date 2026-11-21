@@ -1,0 +1,222 @@
+{
+ "id": "ri-06-prenotacao-e-prazos",
+ "n": 6,
+ "tema": "navy",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "relogio",
+   "rotulo": "Registro de Imóveis · Aula 06",
+   "titulo": [
+    "Prenotação",
+    "e [[prazos]]"
+   ],
+   "ts": 190,
+   "texto": "5, 10, 20 e 40 dias, depois da Lei 14.382/2022.",
+   "fala": "Prazo é o jeito mais barato de a banca derrubar candidato. Basta trocar dez por quinze, ou vinte por trinta. E em dois mil e vinte e dois a Lei catorze mil trezentos e oitenta e dois mudou quase todos. Vamos arrumar isso de vez. Este tema caiu no primeiro Enac."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 9º, § 1º",
+   "ts": 46,
+   "texto": "Serão contados em **dias e horas úteis** os prazos estabelecidos para a vigência da prenotação, para os pagamentos de emolumentos e para a prática de atos pelos oficiais dos registros de imóveis (...).",
+   "traducao": "Dia útil é o dia em que **há expediente**. Só escapam os prazos contados em meses e anos e as exceções da lei.",
+   "fala": "Antes de qualquer número, a regra de contagem. No Registro de Imóveis, os prazos da prenotação e da prática dos atos são contados em dias úteis. {1}E dia útil é o dia em que há expediente. Se a alternativa falar em dias corridos, desconfie."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 6.015/73, arts. 188 e 205",
+   "titulo": "Os três prazos que [[mandam]]",
+   "itens": [
+    {
+     "numero": "10",
+     "unidade": "dias úteis",
+     "apelido": "Registrar ou devolver",
+     "texto": "Prazo geral para o registro ou para a **nota devolutiva**, contado do protocolo.",
+     "lei": "Art. 188, caput"
+    },
+    {
+     "numero": "5",
+     "unidade": "dias úteis",
+     "apelido": "Os casos simples",
+     "texto": "Sem exigências e com emolumentos pagos, nas hipóteses do § 1º.",
+     "lei": "Art. 188, § 1º"
+    },
+    {
+     "numero": "20",
+     "unidade": "dias úteis",
+     "apelido": "Vida da prenotação",
+     "texto": "Depois disso, por omissão do interessado, a prenotação **perde os efeitos**.",
+     "lei": "Art. 205"
+    }
+   ],
+   "fala": "Três prazos mandam aqui. {1}Dez dias: é o prazo geral para o oficial registrar o título ou emitir a nota devolutiva, contado do protocolo. {2}Cinco dias: é o prazo dos casos simples, quando não há exigência. {3}E vinte dias: é o tempo de vida da prenotação. Passou disso por omissão do interessado, a prenotação perde os efeitos."
+  },
+  {
+   "tipo": "lista",
+   "icone": "raio",
+   "rotulo": "Art. 188, § 1º",
+   "titulo": "Quem entra na fila de [[5 dias]]",
+   "tl": 40,
+   "itens": [
+    [
+     "Escritura de compra e venda sem cláusulas especiais",
+     "E também a averbação de construção e o cancelamento de garantias."
+    ],
+    [
+     "Documento eletrônico apresentado pelo Serp",
+     "O Sistema Eletrônico dos Registros Públicos."
+    ],
+    [
+     "Título que volta com as exigências cumpridas",
+     "Desde que reingresse dentro da vigência da prenotação."
+    ]
+   ],
+   "fala": "Quem entra na fila rápida, de cinco dias? {1}Primeiro: a escritura de compra e venda sem cláusulas especiais, a averbação de construção e o cancelamento de garantias. {2}Segundo: os documentos eletrônicos apresentados pelo Serp. {3}Terceiro: o título que volta ao cartório, dentro da prenotação, com todas as exigências cumpridas."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Linha do tempo",
+   "titulo": "A vida de um [[título]]",
+   "passos": [
+    {
+     "icone": "senha",
+     "nome": "Dia 0",
+     "tag": "Protocolo",
+     "texto": "Prenotação no Livro 1. Começa a contagem."
+    },
+    {
+     "icone": "lupa",
+     "nome": "Até o dia 10",
+     "tag": "Qualificação",
+     "texto": "O oficial registra ou emite a nota devolutiva, **de uma só vez**."
+    },
+    {
+     "icone": "caneta",
+     "nome": "Até o dia 20",
+     "tag": "Interessado",
+     "texto": "Cumpre as exigências e reapresenta o título."
+    },
+    {
+     "icone": "carimbo",
+     "nome": "Mais 5 dias",
+     "tag": "Registro",
+     "texto": "Reingresso com tudo cumprido: prazo de 5 dias."
+    }
+   ],
+   "fala": "Colocando na linha do tempo. {1}Dia zero: o título é protocolado. {2}Até o décimo dia útil, o oficial registra ou devolve com a nota de exigências, todas de uma só vez. {3}O interessado tem até o vigésimo dia para cumprir e reapresentar. {4}Reapresentou com tudo certo? O registro sai em cinco dias."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 1",
+   "titulo": "A prenotação dura [[30 dias]]?",
+   "errado": "30 dias corridos",
+   "certo": "20 dias úteis",
+   "porque": "Trinta dias era a **redação antiga** do art. 205. Exceção atual: **40 dias** na regularização fundiária de interesse social.",
+   "fala": "{1}Pegadinha um. A prenotação dura trinta dias? Não mais. Trinta era a redação antiga. Hoje são vinte dias úteis. {2}E existe uma exceção: nos procedimentos de regularização fundiária de interesse social, o prazo é de quarenta dias."
+  },
+  {
+   "tipo": "lista",
+   "icone": "moeda",
+   "rotulo": "Lei 6.015/73, art. 206-A",
+   "titulo": "E o [[pagamento]]?",
+   "itens": [
+    [
+     "Opção 1: depósito antecipado",
+     "Paga tudo no ato da apresentação."
+    ],
+    [
+     "Opção 2: só a prenotação agora",
+     "O restante em **5 dias**, contados da análise que considerar o título apto."
+    ],
+    [
+     "Não pagou no prazo?",
+     "O título é devolvido e o valor da prenotação é perdido."
+    ]
+   ],
+   "fala": "E o pagamento? A lei deu duas opções ao usuário. {1}Ou ele deposita tudo antecipadamente. {2}Ou paga só a prenotação e deposita o restante em cinco dias, contados da análise que considerar o título apto para registro. {3}Não pagou nesse prazo? O título é devolvido e ele perde o valor da prenotação."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 6.015/73, art. 12",
+   "ts": 46,
+   "texto": "**Nenhuma exigência fiscal, ou dúvida, obstará a apresentação de um título e o seu lançamento do Protocolo** com o respectivo número de ordem, nos casos em que da precedência decorra prioridade de direitos para o apresentante.",
+   "traducao": "Primeiro **prenota**, depois **exige**. Faltou imposto ou documento? Isso vai para a nota devolutiva, não para a porta do cartório.",
+   "fala": "Uma regra que protege o usuário. Está no artigo doze: nenhuma exigência fiscal, ou dúvida, impede a apresentação do título e o seu lançamento no Protocolo. {1}Traduzindo: primeiro prenota, depois exige. Faltou comprovar o imposto, faltou um documento? Isso vai para a nota devolutiva. O cartório não pode recusar o protocolo, porque é o protocolo que garante a prioridade."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 2",
+   "titulo": "Todo título é [[prenotado]]?",
+   "errado": "Sim, sem exceção",
+   "certo": "Não: exame e cálculo ficam de fora",
+   "porque": "O título apresentado **apenas para exame e cálculo** de emolumentos não vai ao Protocolo. Logo, **não gera prioridade** (art. 12, parágrafo único).",
+   "fala": "{1}Pegadinha dois. Todo título que entra no cartório é prenotado? Não. O título apresentado apenas para exame e cálculo de emolumentos não vai ao Protocolo. {2}Consequência importante: ele não gera prioridade."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "É protocolada uma **escritura pública de compra e venda sem cláusulas especiais**. Não há exigências a formular e os emolumentos estão pagos. O registro deve ser feito no prazo de:",
+   "alternativas": [
+    "5 dias úteis",
+    "10 dias úteis",
+    "15 dias corridos",
+    "20 dias úteis"
+   ],
+   "fala": "Vamos treinar, com uma questão no molde da que caiu no primeiro Enac. É protocolada uma escritura de compra e venda sem cláusulas especiais. Não há exigência, e os emolumentos estão pagos. Qual é o prazo para o registro? {1}Cinco dias úteis, dez dias úteis, quinze dias corridos, ou vinte dias úteis? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 0,
+   "titulo": "Letra [[A]]",
+   "alternativas": [
+    "5 dias úteis",
+    "10 dias úteis",
+    "15 dias corridos",
+    "20 dias úteis"
+   ],
+   "passos": [
+    "Compra e venda **sem cláusulas especiais**: fila rápida.",
+    "Dez dias é o prazo **geral**.",
+    "Vinte dias é a vida da **prenotação**."
+   ],
+   "lei": "Lei 6.015/73, art. 188, § 1º, I",
+   "fala": "{1}Letra A: cinco dias. {2}Compra e venda sem cláusulas especiais, sem exigência, está na fila rápida. {3}Dez dias é o prazo geral. {4}E vinte dias é a vida da prenotação, não o prazo do oficial. {5}Artigo cento e oitenta e oito, parágrafo primeiro."
+  },
+  {
+   "tipo": "bolso",
+   "rotulo": "Regra de bolso",
+   "ts": 104,
+   "col": 420,
+   "linhas": [
+    [
+     "5",
+     "os casos [[simples]]"
+    ],
+    [
+     "10",
+     "registrar ou [[devolver]]"
+    ],
+    [
+     "20",
+     "vida da [[prenotação]]"
+    ],
+    [
+     "40",
+     "Reurb de interesse [[social]]"
+    ]
+   ],
+   "fala": "A escadinha dos prazos: {1}cinco, os casos simples. {2}Dez, registrar ou devolver. {3}Vinte, a vida da prenotação. {4}Quarenta, a regularização fundiária de interesse social. Tudo em dias úteis."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "lupa",
+   "titulo": "Qualificação e nota [[devolutiva]]",
+   "ts": 116,
+   "texto": "O que o registrador pode, e o que não pode, exigir.",
+   "fala": "Na próxima aula: a qualificação registral e a nota devolutiva. O que o registrador pode, e o que não pode, exigir de um título."
+  }
+ ]
+}

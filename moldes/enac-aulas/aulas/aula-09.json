@@ -1,0 +1,78 @@
+{
+  "id": "ri-09-retificacao-e-bloqueio",
+  "n": 9,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "regua", "rotulo": "Registro de Imóveis · Aula 09", "titulo": ["Retificação", "e [[bloqueio]]"], "ts": 190,
+      "texto": "Lei 6.015/73, arts. 212 a 214.",
+      "fala": "A matrícula diz que o terreno tem quatrocentos metros. A trena diz quatrocentos e trinta. Ou o CPF do dono saiu com um número trocado. O registro errou, e agora? Existe um caminho para consertar, e quase sempre ele passa longe do juiz." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 212", "ts": 46, "texto": "Se o registro ou a averbação for **omissa, imprecisa ou não exprimir a verdade**, a retificação será feita pelo **Oficial do Registro de Imóveis** competente, a requerimento do interessado (...), facultado ao interessado requerer a retificação por meio de procedimento judicial.",
+      "traducao": "A via administrativa, no cartório, é a regra. A judicial é **opção** do interessado.",
+      "fala": "O artigo duzentos e doze dá as três hipóteses: registro omisso, impreciso, ou que não exprime a verdade. E diz quem conserta: o próprio oficial. {1}Ou seja, a via administrativa, no cartório, é a regra. A via judicial é uma opção do interessado." },
+    { "tipo": "compara", "rotulo": "Lei 6.015/73, art. 213", "titulo": "Os dois [[tipos]] de retificação", "col": 250, "tl": 34,
+      "a": { "nome": "Inciso I · simples", "icone": "caneta" }, "b": { "nome": "Inciso II · de área", "icone": "regua" },
+      "linhas": [
+        ["Quem inicia", "**De ofício** ou a requerimento", "**Só** a requerimento"],
+        ["Para quê", "Erro evidente, que não mexe nas divisas", "Inserir ou alterar **medida perimetral**"],
+        ["Documentos", "Documento oficial que comprove o erro", "Planta e memorial com responsabilidade técnica"],
+        ["Vizinhos", "Não participam", "**Confrontantes** assinam ou são notificados"]
+      ],
+      "fala": "O artigo duzentos e treze separa dois tipos. {1}A retificação do inciso um pode ser feita de ofício ou a requerimento. A do inciso dois, só a requerimento. {2}A primeira corrige erro evidente, que não mexe nas divisas. A segunda insere ou altera medida perimetral. {3}Uma pede só o documento que comprove o erro. A outra pede planta e memorial descritivo, assinados por profissional habilitado. {4}E só na segunda os vizinhos, os confrontantes, participam." },
+    { "tipo": "lista", "icone": "caneta", "rotulo": "Art. 213, I", "titulo": "A retificação [[simples]]", "tl": 40, "gap": 22,
+      "itens": [
+        ["Erro na transposição do título", "O cartório copiou errado um dado da escritura."],
+        ["Confrontação e nome de logradouro", "Atualização comprovada por documento oficial."],
+        ["Coordenadas e cálculo matemático", "Desde que **não alterem** as medidas perimetrais."],
+        ["Qualificação pessoal das partes", "CPF, estado civil, nome: com documentos oficiais."]
+      ],
+      "fala": "Exemplos da retificação simples. {1}Erro na transposição: o cartório copiou errado um dado do título. {2}Atualização de confrontação e de nome de rua. {3}Inserção de coordenadas ou correção de cálculo matemático, sem alterar as medidas. {4}E os dados de qualificação pessoal: CPF, estado civil, nome." },
+    { "tipo": "fluxo", "rotulo": "Art. 213, II", "titulo": "A retificação de [[área]], passo a passo",
+      "passos": [
+        { "icone": "mapa", "nome": "Pedido", "texto": "Requerimento com planta e memorial, assinados pelo técnico e pelos confrontantes." },
+        { "icone": "pessoas", "nome": "Faltou vizinho?", "tag": "15 dias", "texto": "O oficial **notifica** o confrontante que não assinou." },
+        { "icone": "relogio", "nome": "Silêncio", "tag": "Anuência", "texto": "Quem não impugna no prazo **concorda**." },
+        { "icone": "carimbo", "nome": "Averbação", "texto": "Sem impugnação, o oficial averba a retificação." }
+      ],
+      "fala": "A retificação de área, passo a passo. {1}O interessado apresenta o requerimento, com planta e memorial assinados pelo técnico e pelos confrontantes. {2}Faltou a assinatura de algum vizinho? O oficial o notifica, para se manifestar em quinze dias. {3}Ficou em silêncio? A lei presume a anuência. {4}Sem impugnação, o oficial averba a retificação." },
+    { "tipo": "fluxo", "rotulo": "Art. 213, §§ 5º e 6º", "titulo": "E se o vizinho [[impugnar]]?",
+      "passos": [
+        { "icone": "balao", "nome": "Impugnação", "tag": "Fundamentada", "texto": "Apresentada por algum confrontante." },
+        { "icone": "caneta", "nome": "Resposta", "tag": "5 dias", "texto": "O requerente e o técnico se manifestam." },
+        { "icone": "forum", "nome": "Sem acordo", "tag": "Juiz", "texto": "O oficial remete ao juiz, que decide de plano ou após instrução sumária." }
+      ],
+      "nota": "Se a briga for sobre **quem é o dono**, o juiz manda as partes para as **vias ordinárias**.",
+      "fala": "E se o vizinho impugnar? {1}Havendo impugnação fundamentada, {2}o requerente e o técnico têm cinco dias para responder. {3}Sem acordo, o oficial remete o caso ao juiz. {4}Mas, se a briga for sobre quem é o dono da área, o juiz manda as partes para as vias ordinárias." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Retificar para [[ganhar]] área?", "errado": "Retificação serve para incorporar área do vizinho", "certo": "Só corrige a descrição do que já é seu",
+      "porque": "Retificação **não é modo de adquirir** propriedade. Área alheia se adquire por compra ou por usucapião.",
+      "fala": "{1}Pegadinha. Dá para usar a retificação para ganhar um pedaço do terreno do vizinho? Não. A retificação só corrige a descrição do que já é seu. {2}Ela não é modo de adquirir propriedade. Área alheia se adquire por compra, ou por usucapião." },
+    { "tipo": "lista", "icone": "cadeado", "rotulo": "Art. 214, §§ 3º e 4º", "titulo": "Bloqueio da [[matrícula]]",
+      "itens": [
+        ["Quem determina", "O **juiz**, até de ofício e sem ouvir as partes."],
+        ["Quando", "Se novos registros puderem causar dano de difícil reparação."],
+        ["O efeito", "O oficial não pratica mais **nenhum ato**, salvo com autorização judicial."],
+        ["A exceção", "Os títulos podem ser **prenotados**, com o prazo prorrogado até o fim do bloqueio."]
+      ],
+      "fala": "Agora o bloqueio da matrícula, que já apareceu no Enac. {1}Quem determina é o juiz, até de ofício e sem ouvir as partes. {2}Quando? Se novos registros puderem causar dano de difícil reparação. {3}O efeito: o oficial não pratica mais nenhum ato naquela matrícula, salvo com autorização judicial. {4}A exceção: os títulos ainda podem ser prenotados, e o prazo fica prorrogado até a solução do bloqueio." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Em retificação de área (art. 213, II), o confrontante que não assinou a planta é notificado pelo oficial e **deixa transcorrer o prazo sem se manifestar**. Nesse caso:",
+      "alternativas": ["o pedido é indeferido por falta de anuência", "presume-se a anuência e o oficial averba a retificação", "o processo é remetido ao juiz", "o silêncio vale como impugnação"],
+      "fala": "Vamos treinar. Numa retificação de área, o vizinho que não assinou a planta é notificado, e deixa o prazo passar sem dizer nada. O que acontece? {1}O pedido é indeferido? Presume-se a anuência? O processo vai ao juiz? Ou o silêncio vale como impugnação? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Pedido indeferido", "Anuência presumida: averba", "Remessa ao juiz", "Silêncio é impugnação"],
+      "passos": ["Prazo para o confrontante: **15 dias**.", "Quem cala **consente**: a anuência é presumida.", "Só vai ao juiz se houver impugnação **sem acordo**."],
+      "lei": "Lei 6.015/73, art. 213, §§ 2º, 4º e 5º",
+      "fala": "{1}Letra B. {2}O prazo do confrontante é de quinze dias. {3}Quem cala, consente: a anuência é presumida. {4}O caso só vai ao juiz se houver impugnação fundamentada e não houver acordo. {5}Artigo duzentos e treze, parágrafos segundo, quarto e quinto." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Retificação é feita pelo oficial; a via judicial é opção",
+        "Erro evidente: de ofício ou a requerimento",
+        "Medida perimetral: só a requerimento, com planta",
+        "Confrontante: 15 dias, e o silêncio é anuência",
+        "Bloqueio: ordem do juiz; só se admite prenotação"
+      ],
+      "fala": "Resumo. {1}A retificação é feita pelo oficial, e a via judicial é opção. {2}Erro evidente: de ofício ou a requerimento. {3}Medida perimetral: só a requerimento, com planta e memorial. {4}Confrontante tem quinze dias, e o silêncio é anuência. {5}Bloqueio é ordem do juiz, e na matrícula bloqueada só se admite prenotação." },
+    { "tipo": "fecho", "icone": "casa", "titulo": "Usucapião [[extrajudicial]]", "ts": 130,
+      "texto": "O tema que caiu nas três edições do ENAC.",
+      "fala": "Na próxima aula, o tema que caiu nas três edições do Enac: a usucapião extrajudicial. Não perca." }
+  ]
+}

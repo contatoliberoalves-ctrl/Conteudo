@@ -1,0 +1,78 @@
+{
+  "id": "ri-10-usucapiao-extrajudicial",
+  "n": 10,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "casa", "rotulo": "Registro de Imóveis · Aula 10", "titulo": ["Usucapião", "[[extrajudicial]]"], "ts": 170,
+      "texto": "Lei 6.015/73, art. 216-A. Caiu nas três edições do ENAC.",
+      "fala": "Se existe um tema obrigatório de Registro de Imóveis no Enac, é este. A usucapião extrajudicial caiu na primeira, na segunda e na terceira edição. A boa notícia: a banca cobra sempre os mesmos seis ou sete pontos. Vamos a eles." },
+    { "tipo": "lista", "icone": "predio", "rotulo": "Lei 6.015/73, art. 216-A, caput", "titulo": "O [[básico]] que a banca troca",
+      "itens": [
+        ["Onde corre", "No **Registro de Imóveis** da comarca em que o imóvel está situado."],
+        ["Quem pede", "O interessado, **representado por advogado**."],
+        ["É obrigatório?", "Não. É uma opção, sem prejuízo da via judicial."]
+      ],
+      "fala": "Comece pelo básico, que a banca adora trocar. {1}Onde corre? No Registro de Imóveis da comarca em que o imóvel está situado. Não é no tabelionato, nem no Registro de Títulos e Documentos. {2}Quem pede? O interessado, representado por advogado. Advogado é obrigatório. {3}E a via extrajudicial é uma opção: não impede o caminho judicial." },
+    { "tipo": "trio", "rotulo": "Art. 216-A, incisos I a IV", "titulo": "Os quatro [[documentos]]",
+      "itens": [
+        { "icone": "caneta", "nome": "Ata notarial", "apelido": "Lavrada pelo tabelião", "texto": "Atesta o **tempo de posse** do requerente e de seus antecessores.", "lei": "Inciso I" },
+        { "icone": "mapa", "nome": "Planta", "apelido": "E memorial descritivo", "texto": "Com responsabilidade técnica e assinatura dos titulares de direitos e dos confinantes.", "lei": "Inciso II" },
+        { "icone": "forum", "nome": "Certidões", "apelido": "Negativas dos distribuidores", "texto": "Da comarca do imóvel e do domicílio do requerente.", "lei": "Inciso III" },
+        { "icone": "documento", "nome": "Justo título", "apelido": "Ou outros documentos", "texto": "Que mostrem a origem e o tempo da posse, como o pagamento de impostos.", "lei": "Inciso IV" }
+      ],
+      "fala": "O pedido vem com quatro documentos. {1}A ata notarial, lavrada pelo tabelião, atestando o tempo de posse. {2}A planta e o memorial descritivo, com responsabilidade técnica e a assinatura dos titulares de direitos e dos vizinhos. {3}As certidões negativas dos distribuidores. {4}E o justo título, ou outros documentos que mostrem a origem e o tempo da posse, como o pagamento de impostos." },
+    { "tipo": "compara", "rotulo": "A troca que mais cai", "titulo": "Tabelião x [[registrador]]", "col": 280,
+      "a": { "nome": "Tabelião de notas", "icone": "caneta" }, "b": { "nome": "Registrador de imóveis", "icone": "carimbo" },
+      "linhas": [
+        ["Faz o quê", "Lavra a **ata notarial**", "**Processa** e decide o pedido"],
+        ["Papel", "Produz uma prova da posse", "Autua, notifica, analisa e registra"],
+        ["Erro típico da banca", "“O tabelião reconhece a usucapião”", "“A ata é lavrada pelo registrador”"]
+      ],
+      "fala": "A troca que mais cai é entre o tabelião e o registrador. {1}O tabelião de notas lavra a ata notarial. O registrador de imóveis processa e decide o pedido. {2}Um produz a prova da posse. O outro autua, notifica, analisa e registra. {3}Se a alternativa disser que o tabelião reconhece a usucapião, ou que a ata é lavrada pelo registrador, está errada." },
+    { "tipo": "fluxo", "rotulo": "O procedimento", "titulo": "Do pedido ao [[registro]]",
+      "passos": [
+        { "icone": "senha", "nome": "Autuação", "texto": "O pedido é prenotado. A prenotação fica **prorrogada** até a decisão." },
+        { "icone": "pessoas", "nome": "Notificações", "tag": "15 dias", "texto": "De quem não assinou a planta e dos **entes públicos**." },
+        { "icone": "globo", "nome": "Edital", "tag": "15 dias", "texto": "Para ciência de terceiros eventualmente interessados." },
+        { "icone": "carimbo", "nome": "Decisão", "texto": "Tudo em ordem: o oficial **registra** a aquisição." }
+      ],
+      "fala": "O procedimento. {1}O pedido é autuado e prenotado, e a prenotação fica prorrogada até a decisão final. {2}O oficial notifica quem não assinou a planta, e dá ciência à União, ao Estado e ao Município. Prazo de quinze dias. {3}Publica edital para terceiros, também com quinze dias. {4}Estando tudo em ordem, registra a aquisição e, se for o caso, abre a matrícula." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "O notificado ficou em [[silêncio]]", "ts": 118, "errado": "Silêncio vale como discordância", "certo": "Silêncio vale como concordância",
+      "porque": "A discordância era a regra **antiga**. A Lei 13.465/2017 inverteu: hoje, quem cala **concorda** (art. 216-A, § 2º).",
+      "fala": "{1}Pegadinha um. O titular notificado ficou em silêncio. Vale como discordância? Não. Vale como concordância. {2}A discordância era a regra antiga. A lei de dois mil e dezessete inverteu: hoje, quem cala concorda." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2 · caiu no 1º e no 2º ENAC", "titulo": "Usucapião de [[apartamento]]", "ts": 118, "errado": "Notificar todos os condôminos", "certo": "Basta notificar o síndico",
+      "porque": "Em unidade de condomínio edilício, dispensa-se o consentimento dos confinantes: **basta o síndico** (art. 216-A, §§ 11 e 12).",
+      "fala": "{1}Pegadinha dois, que caiu no primeiro e no segundo Enac. Usucapião de apartamento: é preciso notificar todos os condôminos? Não. Basta notificar o síndico. {2}E, sim, cabe usucapião extrajudicial de unidade em condomínio edilício." },
+    { "tipo": "compara", "rotulo": "Art. 216-A, § 10 · caiu no 3º ENAC", "titulo": "Chegou uma [[impugnação]]", "col": 280,
+      "a": { "nome": "Justificada", "icone": "forum" }, "b": { "nome": "Injustificada", "icone": "lupa" },
+      "linhas": [
+        ["O que o oficial faz", "**Remete os autos ao juízo** da comarca do imóvel", "**Não admite** a impugnação e segue o procedimento"],
+        ["E depois", "O requerente emenda a inicial: vira procedimento comum", "Ao interessado cabe suscitar **dúvida**"]
+      ],
+      "fala": "E se chega uma impugnação? Caiu no terceiro Enac. {1}Se a impugnação é justificada, o oficial remete os autos ao juízo. Se é injustificada, ele próprio não a admite. {2}No primeiro caso, o requerente emenda a petição inicial e o processo segue na Justiça. No segundo, resta ao interessado suscitar dúvida." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 216-A, § 9º", "texto": "A rejeição do pedido extrajudicial **não impede** o ajuizamento de ação de usucapião.",
+      "traducao": "Sem condição nenhuma. Perdeu no cartório, a porta do Judiciário **continua aberta**.",
+      "fala": "Mais uma que caiu duas vezes. O pedido foi rejeitado no cartório. Acabou? Não. A rejeição do pedido extrajudicial não impede o ajuizamento de ação de usucapião. {1}E sem condição nenhuma. Se a alternativa inventar um requisito, um prazo de espera ou uma prova nova, está errada." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Sobre a usucapião extrajudicial, assinale a alternativa **correta**:",
+      "alternativas": ["o pedido é processado no tabelionato de notas", "é dispensada a representação por advogado", "o silêncio do titular notificado vale como concordância", "a rejeição do pedido impede a ação judicial"],
+      "fala": "Para fechar, uma questão que junta tudo. Qual alternativa está correta? {1}O pedido é processado no tabelionato de notas. É dispensado o advogado. O silêncio do titular notificado vale como concordância. Ou a rejeição do pedido impede a ação judicial? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Processada no tabelionato", "Dispensa advogado", "Silêncio é concordância", "Rejeição impede a ação"],
+      "passos": ["Corre no **Registro de Imóveis**; o tabelião só lavra a ata.", "Advogado é **obrigatório**.", "A rejeição **não impede** a ação judicial."],
+      "lei": "Lei 6.015/73, art. 216-A, caput, §§ 2º e 9º",
+      "fala": "{1}Letra C: o silêncio vale como concordância. {2}As outras: o pedido corre no Registro de Imóveis, e o tabelião só lavra a ata. {3}Advogado é obrigatório. {4}E a rejeição não impede a ação judicial. {5}Tudo no artigo duzentos e dezesseis A." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Os pontos que [[caem]]", "tl": 40, "gap": 20,
+      "itens": [
+        "Registro de Imóveis da situação do imóvel, com advogado",
+        "Ata notarial: do tabelião de notas",
+        "Notificações e edital: 15 dias",
+        "Silêncio é concordância; no condomínio, basta o síndico",
+        "Impugnação justificada vai ao juiz; rejeição não impede ação"
+      ],
+      "fala": "Os pontos que caem. {1}Registro de Imóveis da situação do imóvel, com advogado. {2}Ata notarial, do tabelião de notas. {3}Notificações e edital, quinze dias. {4}Silêncio é concordância, e no condomínio basta o síndico. {5}Impugnação justificada vai ao juiz, e a rejeição não impede a ação. Com isso, você fecha o primeiro bloco de Registro de Imóveis." },
+    { "tipo": "fecho", "icone": "chave", "titulo": "Adjudicação [[compulsória]] extrajudicial", "ts": 112,
+      "texto": "O art. 216-B e o que já caiu sobre ele.",
+      "fala": "Na sequência: a adjudicação compulsória extrajudicial, do artigo duzentos e dezesseis B. Mais um tema que a banca não larga. Te vejo lá." }
+  ]
+}
