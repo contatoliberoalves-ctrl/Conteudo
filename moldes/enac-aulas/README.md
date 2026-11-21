@@ -7,7 +7,7 @@ Aulas curtas em vídeo (1920×1080, MP4) com slides animados e narração na voz
 - `modelos.json`: as três amostras de formato (A Quadro, B Caso na matrícula, C Questão comentada). O aprovado para a série é o A, com cenas dos outros dois dentro.
 - `pesquisa-ri.md`: edital, o que já caiu no ENAC e lista de temas.
 
-Na nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node aulas.mjs aulas`. Variáveis: `PREVIEW=1` (só painel de conferência em `saida/previa/`), `SO_CONTAR=1` (conta os caracteres de fala), `MODELO_TTS` (padrão `eleven_turbo_v2_5`, o mais barato; `eleven_multilingual_v2` é o de maior qualidade), `VELOCIDADE` (padrão 0.95), `VOZ`.
+Na nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node aulas.mjs aulas`. Variáveis: `CAPAS=1` (só a capa de cada aula, em PNG, em `saida/capas/`), `PREVIEW=1` (só painel de conferência em `saida/previa/`), `SO_CONTAR=1` (conta os caracteres de fala), `MODELO_TTS` (padrão `eleven_turbo_v2_5`, o mais barato; `eleven_multilingual_v2` é o de maior qualidade), `VELOCIDADE` (padrão 0.95), `VOZ`.
 
 ## Aula
 

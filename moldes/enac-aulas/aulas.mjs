@@ -311,6 +311,12 @@ async function main() {
           return ok; };
         for (const z of [1.3, 1.25, 1.2, 1.15, 1.1, 1.05, 1]) if (cabe(z)) break; } }, total * 1000 + 5000);
     const foto = async (seg, arqv) => { await page.evaluate(ms => document.getAnimations().forEach(x => { x.pause(); x.currentTime = ms; }), seg * 1000); await page.screenshot({ path: arqv, type: 'jpeg', quality: 93 }); };
+    if (process.env.CAPAS) { // só a capa de cada aula, em PNG 1920×1080 → saida/capas/
+      const dc = path.join(out, 'capas'); fs.mkdirSync(dc, { recursive: true });
+      await page.evaluate(ms => document.getAnimations().forEach(x => { x.pause(); x.currentTime = ms; }), 4000);
+      await page.screenshot({ path: path.join(dc, `${a.id}.png`) });
+      await page.close(); console.log('capa', a.id); continue;
+    }
     if (process.env.PREVIEW) { // um quadro no fim de cada cena (tudo já na tela) e um no meio
       const pv = path.join(out, 'previa', a.id); fs.rmSync(pv, { recursive: true, force: true }); fs.mkdirSync(pv, { recursive: true });
       for (let i = 0; i < inicios.length; i++) { const f = (inicios[i + 1] ?? total) - .45; await foto(f, path.join(pv, `${String(i + 1).padStart(2, '0')}.jpg`));
