@@ -8393,7 +8393,7 @@
   },
   {
     "id": "temas-por-materia-2fase",
-    "titulo": "Quantos temas cada matéria da 2ª fase cobra? (edital do 48º)",
+    "titulo": "Quanto é preciso estudar em cada matéria? (edital do 48º)",
     "tema": "Contagem dos temas e subtemas do conteúdo programático (Anexo II) do edital do 48º Exame, por matéria, incluindo a parte processual; códigos e leis citadas",
     "fonte": "Edital do 48º Exame de Ordem, Anexo II (contagem própria de itens e subitens numerados)",
     "slides": [
@@ -8404,52 +8404,54 @@
         "selo": "2ª fase",
         "pre": "Edital do 48º Exame",
         "titulo": [
-          "Quanto estudar",
-          "em [[cada matéria]]?"
+          "Quanto é preciso",
+          "estudar em",
+          "[[cada matéria]]?"
         ],
-        "ts": 108,
-        "numero": "59",
-        "rotulo": "temas no edital de Constitucional",
+        "ts": 112,
         "barras": [
           {
-            "rotulo": "Trabalho",
+            "rotulo": "?",
             "valor": 243,
             "texto": "243",
             "destaque": false
           },
           {
-            "rotulo": "Civil",
+            "rotulo": "?",
             "valor": 166,
             "texto": "166",
             "destaque": false
           },
           {
-            "rotulo": "Penal",
+            "rotulo": "?",
             "valor": 86,
             "texto": "86",
             "destaque": false
           },
           {
-            "rotulo": "Tributário",
+            "rotulo": "?",
             "valor": 83,
             "texto": "83",
             "destaque": false
           },
           {
-            "rotulo": "Empresarial",
+            "rotulo": "?",
             "valor": 76,
             "texto": "76",
             "destaque": false
           },
           {
-            "rotulo": "Constitucional",
+            "rotulo": "?",
             "valor": 59,
             "texto": "59",
             "destaque": true
           }
         ],
-        "graficoY": 740,
-        "horizontal": true
+        "graficoY": 690,
+        "horizontal": true,
+        "colRotulo": 60,
+        "alturaBarra": 56,
+        "gapBarras": 22
       },
       {
         "tipo": "texto",
