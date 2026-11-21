@@ -1,0 +1,76 @@
+{
+  "id": "ri-18-incorporacao-imobiliaria",
+  "n": 18,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "predio", "rotulo": "Registro de Imóveis · Aula 18", "titulo": ["[[Incorporação]]", "imobiliária"], "ts": 170,
+      "texto": "Lei 4.591/64, arts. 28 a 34.",
+      "fala": "Você já viu alguém comprar apartamento na planta. A pessoa paga por uma coisa que ainda não existe: só há um terreno e um projeto. O que dá segurança a esse negócio é um registro, feito antes da primeira venda. É a incorporação imobiliária." },
+    { "tipo": "lei", "fonte": "Lei 4.591/64, art. 28, parágrafo único", "ts": 46, "texto": "Considera-se incorporação imobiliária a atividade exercida com o intuito de **promover e realizar a construção, para alienação** total ou parcial, de edificações ou conjunto de edificações compostas de **unidades autônomas**.",
+      "traducao": "É a venda, durante a obra ou antes dela, de **unidades futuras**: apartamentos, salas, casas em condomínio.",
+      "fala": "A lei define a incorporação como a atividade de promover e realizar a construção, para alienação, de edificações compostas de unidades autônomas. {1}Na prática: é a venda, durante a obra ou antes dela, de unidades que ainda vão existir. Apartamentos, salas comerciais, casas em condomínio." },
+    { "tipo": "lei", "fonte": "Lei 4.591/64, art. 32, caput", "ts": 46, "texto": "O incorporador **somente poderá alienar ou onerar** as frações ideais de terrenos e acessões que corresponderão às futuras unidades autônomas **após o registro**, no registro de imóveis competente, do **memorial de incorporação** (...).",
+      "traducao": "Primeiro registra, depois vende. Sem memorial registrado, **não há venda na planta**.",
+      "fala": "E a regra central está no artigo trinta e dois: o incorporador somente pode alienar ou onerar as futuras unidades após o registro do memorial de incorporação. {1}Primeiro registra, depois vende. Sem memorial registrado, não existe venda na planta regular." },
+    { "tipo": "trio", "rotulo": "Art. 32 · o memorial", "titulo": "O que vai no [[memorial]]",
+      "itens": [
+        { "icone": "chave", "nome": "O terreno", "apelido": "Título e histórico", "texto": "Título de propriedade ou promessa irretratável, **registrado**, e histórico de **20 anos**.", "lei": "Alíneas a e c" },
+        { "icone": "escudo", "nome": "As certidões", "apelido": "Negativas", "texto": "De impostos, protestos, ações cíveis e criminais e ônus reais.", "lei": "Alínea b" },
+        { "icone": "regua", "nome": "A obra", "apelido": "Projeto e custo", "texto": "Projeto **aprovado**, cálculo das áreas, memorial descritivo e avaliação do custo.", "lei": "Alíneas d, e, g, h" },
+        { "icone": "pessoas", "nome": "O condomínio", "apelido": "Frações e convenção", "texto": "Divisão em frações ideais e **minuta** da convenção de condomínio.", "lei": "Alíneas i e j" }
+      ],
+      "fala": "O memorial reúne quatro grupos de documentos. {1}Os do terreno: o título de propriedade, ou a promessa irretratável, devidamente registrado, e o histórico de vinte anos. {2}As certidões negativas. {3}Os da obra: projeto aprovado, cálculo das áreas, memorial descritivo e avaliação do custo. {4}E os do futuro condomínio: a divisão do terreno em frações ideais e a minuta da convenção." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Só o [[dono]] do terreno incorpora?", "ts": 108, "errado": "Sim: exige título de propriedade", "certo": "Não: basta promessa irretratável registrada",
+      "porque": "O memorial aceita **promessa irrevogável e irretratável** de compra e venda, cessão ou permuta, com imissão na posse e consentimento para demolir e construir (art. 32, a).",
+      "fala": "{1}Pegadinha um. Só o dono do terreno pode incorporar? Não. A lei aceita a promessa irrevogável e irretratável de compra e venda, de cessão ou de permuta. {2}Desde que esteja registrada, tenha cláusula de imissão na posse e traga o consentimento para demolir e construir. É assim que funciona a permuta de terreno por apartamentos." },
+    { "tipo": "matricula", "rotulo": "Na matrícula do terreno", "titulo": "Onde a incorporação [[aparece]]", "numero": "5.602",
+      "imovel": "Terreno urbano com 1.200,00 m², na Avenida Central, nº 400.",
+      "lei": { "fonte": "O ato (art. 167, I, 17)", "em": 2, "texto": "A incorporação é **registrada no Livro 2**, na matrícula do terreno. Depois, cada unidade ganha a **sua** matrícula." },
+      "atos": [
+        { "sigla": "R-2/5.602", "tipo": "Compra e venda", "texto": "Adquirente: **Construtora Horizonte Ltda.**", "em": 1 },
+        { "sigla": "R-3/5.602", "tipo": "Incorporação", "texto": "Registrado o memorial do **Edifício Horizonte**: 40 apartamentos e 40 vagas.", "em": 2, "carimbo": "REGISTRADO" },
+        { "sigla": "AV-4/5.602", "tipo": "Construção", "texto": "Averbada a conclusão da obra (habite-se).", "em": 3 }
+      ],
+      "fala": "Onde tudo isso aparece? Na matrícula do terreno. {1}Registro dois: a construtora compra o terreno. {2}Registro três: o memorial de incorporação. Repare que é ato de registro, no Livro dois. {3}Averbação quatro: concluída a obra, averba-se a construção. A partir daí, cada apartamento ganha a sua própria matrícula." },
+    { "tipo": "trio", "rotulo": "Lei 4.591/64, arts. 33 e 34", "titulo": "Dois [[prazos]] do incorporador",
+      "itens": [
+        { "numero": "180", "unidade": "dias", "apelido": "Para concretizar", "texto": "Se em 180 dias do registro nada for vendido, financiado ou iniciado, só negocia depois de **averbar a atualização** das certidões.", "lei": "Art. 33" },
+        { "icone": "relogio", "nome": "Carência", "apelido": "Para desistir", "texto": "O incorporador pode fixar prazo de carência, dentro do qual lhe é lícito **desistir** do empreendimento.", "lei": "Art. 34" }
+      ],
+      "nota": "A carência precisa estar **declarada no memorial** (art. 32, n) e não ultrapassa a validade do registro.",
+      "fala": "Dois prazos do incorporador. {1}Cento e oitenta dias. Se, nesse prazo, a incorporação não se concretizar, com alguma venda, financiamento ou início de obra, ele só pode negociar depois de averbar a atualização das certidões. {2}E o prazo de carência, dentro do qual ele pode desistir do empreendimento. {3}A carência precisa estar declarada no memorial." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2 · caiu no 3º ENAC", "titulo": "Vagas de garagem como área [[comum]]", "ts": 104, "errado": "O registro deve ser recusado", "certo": "Registra-se; mas a vaga não é vendida à parte",
+      "porque": "O memorial declara quantos veículos a garagem comporta e onde ficam (art. 32, p). Se a vaga é **área comum**, não é unidade autônoma: não pode ser **vendida separadamente**.",
+      "fala": "{1}Pegadinha dois, do terceiro Enac. O memorial trata as vagas de garagem como área comum. O oficial recusa o registro? Não. O registro é admitido. {2}A consequência é outra: como a vaga não é unidade autônoma, ela não pode ser vendida separadamente entre os condôminos." },
+    { "tipo": "compara", "rotulo": "Para não misturar", "titulo": "Incorporação x [[loteamento]]", "col": 270, "tl": 34,
+      "a": { "nome": "Incorporação", "icone": "predio" }, "b": { "nome": "Loteamento", "icone": "mapa" },
+      "linhas": [
+        ["Lei", "4.591/64", "6.766/79"],
+        ["O que se vende", "**Unidades autônomas** a construir", "**Lotes** de terreno"],
+        ["O que se registra", "Memorial de incorporação", "Projeto aprovado e documentos do art. 18"],
+        ["Antes do registro", "Não pode alienar nem onerar", "Não pode vender nem prometer vender"]
+      ],
+      "fala": "Para não misturar com a aula passada. {1}A incorporação está na Lei quatro mil quinhentos e noventa e um. O loteamento, na seis mil setecentos e sessenta e seis. {2}Numa se vendem unidades autônomas a construir. Na outra, lotes de terreno. {3}Numa se registra o memorial de incorporação. Na outra, o projeto aprovado. {4}E, nas duas, a mesma trava: antes do registro, não se vende." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "A Construtora Alfa aprovou na prefeitura o projeto de um edifício e quer **iniciar as vendas** das unidades na planta. Para isso, é indispensável:",
+      "alternativas": ["a conclusão das fundações", "o registro do memorial de incorporação", "a averbação do habite-se", "a instituição do condomínio"],
+      "fala": "Vamos treinar. A construtora aprovou o projeto de um edifício na prefeitura e quer começar a vender as unidades na planta. O que é indispensável? {1}A conclusão das fundações? O registro do memorial de incorporação? A averbação do habite-se? Ou a instituição do condomínio? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Conclusão das fundações", "Registro do memorial", "Averbação do habite-se", "Instituição do condomínio"],
+      "passos": ["Só se aliena **após o registro** do memorial.", "Habite-se e instituição do condomínio vêm no **fim** da obra.", "Aprovação do projeto é só **um** dos documentos."],
+      "lei": "Lei 4.591/64, art. 32",
+      "fala": "{1}Letra B. {2}O incorporador só pode alienar depois de registrar o memorial de incorporação. {3}O habite-se e a instituição do condomínio vêm no fim da obra. {4}E a aprovação do projeto é apenas um dos documentos do memorial. {5}Artigo trinta e dois." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Incorporar é construir para vender unidades autônomas",
+        "Só se vende depois de registrar o memorial",
+        "Vale promessa irretratável registrada sobre o terreno",
+        "É registro, no Livro 2, na matrícula do terreno",
+        "180 dias sem concretizar: atualizar as certidões"
+      ],
+      "fala": "Resumo. {1}Incorporar é construir para vender unidades autônomas. {2}Só se vende depois de registrar o memorial. {3}Vale a promessa irretratável registrada sobre o terreno. {4}A incorporação é registro, no Livro dois, na matrícula do terreno. {5}E, depois de cento e oitenta dias sem concretizar, é preciso atualizar as certidões." },
+    { "tipo": "fecho", "icone": "escudo", "titulo": "Patrimônio de [[afetação]]", "ts": 130,
+      "texto": "A blindagem do empreendimento. Caiu nas três edições.",
+      "fala": "Na próxima aula: e se a construtora quebrar no meio da obra? O patrimônio de afetação, que caiu nas três edições do Enac." }
+  ]
+}

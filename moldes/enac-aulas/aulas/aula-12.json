@@ -1,0 +1,73 @@
+{
+  "id": "ri-12-concentracao-na-matricula",
+  "n": 12,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "olho", "rotulo": "Registro de Imóveis · Aula 12", "titulo": ["Concentração", "na [[matrícula]]"], "ts": 170,
+      "texto": "Lei 13.097/2015, arts. 54 a 58.",
+      "fala": "Antes de comprar um imóvel, quanta certidão você precisa tirar? Justiça estadual, federal, trabalhista, protesto, em cada cidade em que o vendedor já morou? A lei respondeu de um jeito muito mais simples: olhe a matrícula. Esse é o princípio da concentração." },
+    { "tipo": "compara", "rotulo": "A ideia", "titulo": "Um lugar só para [[conferir]]", "col": 280,
+      "a": { "nome": "Sem concentração", "icone": "lupa" }, "b": { "nome": "Com concentração", "icone": "documento" },
+      "linhas": [
+        ["O comprador", "Caça certidões em vários órgãos e cidades", "Consulta **a matrícula**"],
+        ["O risco oculto", "Fica com quem **comprou**", "Fica com quem **não averbou**"],
+        ["Resultado", "Negócio caro, lento e inseguro", "Segurança para quem confia no registro"]
+      ],
+      "fala": "A ideia é concentrar tudo em um lugar só. {1}Sem concentração, o comprador caça certidões por todo lado. Com ela, consulta a matrícula. {2}E o risco muda de mãos. Antes, o risco do que estava escondido ficava com quem comprou. Agora, fica com quem tinha um direito contra o imóvel e não levou isso à matrícula. {3}O resultado é segurança para quem confia no registro." },
+    { "tipo": "lei", "fonte": "Lei 13.097/2015, art. 54, § 1º", "ts": 46, "texto": "**Não poderão ser opostas situações jurídicas não constantes da matrícula** no registro de imóveis, inclusive para fins de evicção, ao **terceiro de boa-fé** que adquirir ou receber em garantia direitos reais sobre o imóvel (...).",
+      "traducao": "O que não está na matrícula **não atinge** o comprador de boa-fé.",
+      "fala": "Está no parágrafo primeiro do artigo cinquenta e quatro: não podem ser opostas situações jurídicas não constantes da matrícula ao terceiro de boa-fé que adquirir, ou receber em garantia, direitos sobre o imóvel. {1}Em português claro: o que não está na matrícula não atinge o comprador de boa-fé." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Art. 54, incisos I a V", "titulo": "O que precisa [[estar]] na matrícula", "tl": 38, "gap": 16,
+      "itens": [
+        "A citação em ação real ou pessoal reipersecutória",
+        "A constrição judicial e a execução admitida pelo juiz",
+        "A restrição administrativa ou convencional e a indisponibilidade",
+        "A ação que pode levar o dono à insolvência",
+        "Qualquer constrição judicial, inclusive de improbidade"
+      ],
+      "fala": "E o que precisa estar na matrícula para atingir o comprador? São cinco grupos. {1}A citação em ação real ou reipersecutória. {2}A constrição judicial, como a penhora, e a execução admitida pelo juiz. {3}A restrição administrativa ou convencional e a indisponibilidade. {4}A ação que pode levar o proprietário à insolvência. {5}E o inciso cinco, o mais novo: qualquer constrição judicial sobre o imóvel ou sobre o patrimônio do dono, inclusive a de improbidade administrativa e a hipoteca judiciária." },
+    { "tipo": "trio", "rotulo": "Atenção ao verbo", "titulo": "Quem leva a [[informação]] ao cartório",
+      "itens": [
+        { "icone": "pessoas", "nome": "Inciso II", "apelido": "O interessado pede", "texto": "Averbação “por solicitação do interessado”: o credor leva a certidão da execução admitida.", "lei": "CPC, art. 828" },
+        { "icone": "forum", "nome": "Incisos IV e V", "apelido": "O juiz decide", "texto": "Averbação “mediante decisão judicial”.", "lei": "Lei 13.097, art. 54" }
+      ],
+      "nota": "O inciso I fala em **registro** da citação. Os demais, em **averbação**.",
+      "fala": "Atenção ao verbo de cada inciso, porque a banca troca. {1}No inciso dois, a averbação é feita por solicitação do interessado. É o credor que leva ao cartório a certidão de que a execução foi admitida. {2}Nos incisos quatro e cinco, a averbação depende de decisão judicial. {3}E mais um detalhe: o inciso um fala em registro da citação. Os outros, em averbação." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "E as certidões [[forenses]]?", "errado": "São indispensáveis para provar a boa-fé", "certo": "Não podem ser exigidas",
+      "porque": "Para a validade do negócio e para a boa-fé do adquirente, **não se exigem** certidões forenses nem de distribuidores (art. 54, § 2º).",
+      "fala": "{1}Pegadinha um. Para provar a boa-fé, o comprador precisa apresentar certidões forenses? Não. {2}O parágrafo segundo é expresso: para a validade do negócio e para caracterizar a boa-fé, não se exigem certidões forenses nem de distribuidores judiciais." },
+    { "tipo": "trio", "rotulo": "Os limites da regra", "titulo": "Três [[ressalvas]]",
+      "itens": [
+        { "icone": "balao", "nome": "Falência", "apelido": "Ineficácia e revogação", "texto": "Continuam valendo os arts. 129 e 130 da Lei 11.101/2005.", "lei": "Art. 54, § 1º" },
+        { "icone": "casa", "nome": "Sem título", "apelido": "Aquisição fora do registro", "texto": "Aquisição e extinção da propriedade que **independem** de registro, como a usucapião.", "lei": "Art. 54, § 1º" },
+        { "icone": "predio", "nome": "Imóvel público", "apelido": "Fora da lei", "texto": "A regra não se aplica ao patrimônio da União, dos Estados, do DF e dos Municípios.", "lei": "Art. 58" }
+      ],
+      "fala": "A regra tem três ressalvas. {1}Na falência, continuam valendo as regras de ineficácia e de revogação de atos do falido. {2}Também ficam de fora as aquisições que independem de registro, como a usucapião. Quem usucapiu não aparece na matrícula, e mesmo assim é dono. {3}E a regra não se aplica aos imóveis públicos." },
+    { "tipo": "lista", "icone": "escudo", "rotulo": "Na jurisprudência", "titulo": "Súmula 375 do [[STJ]]",
+      "itens": [
+        ["O que diz", "A fraude à execução depende do **registro da penhora** ou da **prova de má-fé** do adquirente."],
+        ["A mesma lógica", "Sem penhora na matrícula, presume-se a boa-fé de quem comprou."],
+        ["Quem prova a má-fé", "O **credor**, não o comprador."]
+      ],
+      "fala": "A jurisprudência já caminhava nessa direção. {1}É a Súmula trezentos e setenta e cinco do Superior Tribunal de Justiça: o reconhecimento da fraude à execução depende do registro da penhora, ou da prova de má-fé do terceiro adquirente. {2}Sem penhora na matrícula, presume-se a boa-fé de quem comprou. {3}E quem tem de provar a má-fé é o credor." },
+    { "tipo": "lei", "fonte": "Lei 13.097/2015, art. 55", "ts": 44, "texto": "A alienação ou oneração de unidades autônomas integrantes de incorporação imobiliária, parcelamento do solo ou condomínio edilício, **devidamente registrada**, não poderá ser objeto de **evicção** ou de decretação de **ineficácia**, mas eventuais credores do alienante ficam **sub-rogados no preço** (...).",
+      "traducao": "Comprou apartamento ou lote de empreendimento registrado? O imóvel fica. O credor do vendedor disputa **o dinheiro**.",
+      "fala": "E existe uma proteção extra para quem compra de incorporadora ou de loteadora. {1}Se o empreendimento está registrado, a venda da unidade não pode ser desfeita por evicção nem declarada ineficaz. O comprador fica com o imóvel, e o credor do vendedor vai disputar o preço." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Rita, de boa-fé, compra um imóvel em cuja matrícula **nada consta**. Depois, descobre que o vendedor era réu em execução, **sem penhora nem averbação** na matrícula. Nesse caso:",
+      "alternativas": ["a venda é ineficaz: bastava a ação em curso", "a execução não pode ser oposta a Rita", "Rita devia ter exigido certidões dos distribuidores", "a proteção só vale para imóveis rurais"],
+      "fala": "Vamos treinar. Rita, de boa-fé, compra um imóvel com a matrícula limpa. Depois descobre que o vendedor era réu numa execução, sem penhora e sem averbação nenhuma. E agora? {1}A venda é ineficaz? A execução não pode ser oposta a Rita? Ela devia ter exigido certidões dos distribuidores? Ou a proteção só vale para imóvel rural? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Venda ineficaz", "Não se opõe a Rita", "Devia exigir certidões", "Só imóveis rurais"],
+      "passos": ["Nada foi averbado na matrícula.", "Rita é **terceira de boa-fé**: a execução não a atinge.", "Certidões forenses **não são exigidas** para a boa-fé."],
+      "lei": "Lei 13.097/2015, art. 54, §§ 1º e 2º",
+      "fala": "{1}Letra B. {2}Nada foi averbado na matrícula. {3}Rita é terceira de boa-fé, e a execução não pode ser oposta a ela. {4}E a lei dispensa as certidões forenses para caracterizar a boa-fé. {5}Artigo cinquenta e quatro, parágrafos primeiro e segundo." },
+    { "tipo": "bolso", "rotulo": "Regra de bolso", "ts": 100, "col": 760,
+      "linhas": [["Está na matrícula", "[[atinge]] o comprador"], ["Não está na matrícula", "[[não atinge]]"]],
+      "frase": "Ressalvas: falência, aquisição sem registro e imóvel público.",
+      "fala": "Regra de bolso: {1}está na matrícula, atinge o comprador. {2}Não está, não atinge quem comprou de boa-fé. {3}Com três ressalvas: falência, aquisição que independe de registro, e imóvel público." },
+    { "tipo": "fecho", "icone": "cadeado", "titulo": "[[Hipoteca]]", "ts": 190,
+      "texto": "A garantia real mais tradicional, e o que mudou nela.",
+      "fala": "Na próxima aula, abrimos o bloco das garantias, começando pela mais tradicional: a hipoteca." }
+  ]
+}

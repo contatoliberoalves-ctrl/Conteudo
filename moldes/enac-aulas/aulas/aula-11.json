@@ -1,0 +1,81 @@
+{
+  "id": "ri-11-adjudicacao-compulsoria-extrajudicial",
+  "n": 11,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "chave", "rotulo": "Registro de Imóveis · Aula 11", "titulo": ["Adjudicação", "[[compulsória]]", "extrajudicial"], "ts": 150,
+      "texto": "Lei 6.015/73, art. 216-B. Caiu no 2º e no 3º ENAC.",
+      "fala": "Você comprou um imóvel por contrato de promessa, pagou todas as parcelas, e na hora de receber a escritura o vendedor sumiu. Ou morreu. Ou simplesmente não quer assinar. Antes, só restava ir à Justiça. Hoje, isso se resolve no cartório. É a adjudicação compulsória extrajudicial, que caiu no segundo e no terceiro Enac." },
+    { "tipo": "fluxo", "rotulo": "O problema", "titulo": "Pagou tudo e ficou sem a [[escritura]]",
+      "passos": [
+        { "icone": "caneta", "nome": "Promessa", "texto": "As partes assinam a promessa de compra e venda." },
+        { "icone": "moeda", "nome": "Quitação", "texto": "O comprador paga **todo** o preço." },
+        { "icone": "balao", "nome": "Recusa", "ruim": true, "texto": "O vendedor não outorga a escritura definitiva." },
+        { "icone": "carimbo", "nome": "Adjudicação", "texto": "O Registro de Imóveis registra o domínio **sem a escritura**." }
+      ],
+      "fala": "O roteiro é sempre o mesmo. {1}As partes assinam uma promessa de compra e venda. {2}O comprador paga todo o preço. {3}O vendedor não outorga a escritura definitiva. {4}A adjudicação compulsória supre essa falta: o Registro de Imóveis registra a propriedade em nome do comprador, sem a escritura." },
+    { "tipo": "lista", "icone": "predio", "rotulo": "Art. 216-B, caput e § 1º", "titulo": "Onde e [[quem]]",
+      "itens": [
+        ["Onde corre", "No **Registro de Imóveis** da situação do imóvel."],
+        ["Quem pode pedir", "O promitente comprador, seus cessionários e sucessores."],
+        ["E mais um", "O **promitente vendedor** também é legitimado."],
+        ["Como", "Sempre **representado por advogado**."]
+      ],
+      "fala": "Onde e quem. {1}O pedido corre no Registro de Imóveis da situação do imóvel. Não é no tabelionato. {2}Pode pedir o promitente comprador, os cessionários e os sucessores. {3}E também o promitente vendedor. Essa caiu no terceiro Enac: o vendedor que quer tirar o imóvel do próprio nome também pode pedir. {4}Em qualquer caso, com advogado." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Art. 216-B, § 1º, I a VI", "titulo": "Os seis [[documentos]]", "tl": 38, "gap": 16,
+      "itens": [
+        "A promessa de compra e venda, e as cessões, se houver",
+        "A prova do inadimplemento",
+        "A ata notarial, lavrada por tabelião de notas",
+        "As certidões dos distribuidores forenses",
+        "O comprovante de pagamento do ITBI",
+        "A procuração com poderes específicos"
+      ],
+      "fala": "São seis documentos. {1}A promessa de compra e venda. {2}A prova do inadimplemento. {3}A ata notarial, lavrada por tabelião de notas. {4}As certidões dos distribuidores, da comarca do imóvel e do domicílio do requerente. {5}O comprovante de pagamento do ITBI. {6}E a procuração com poderes específicos." },
+    { "tipo": "fluxo", "rotulo": "Art. 216-B, § 1º, II", "titulo": "Como se prova o [[inadimplemento]]",
+      "passos": [
+        { "icone": "balao", "nome": "Notificação", "texto": "Feita pelo oficial do Registro de Imóveis, que pode delegar ao Registro de Títulos e Documentos." },
+        { "icone": "relogio", "nome": "Prazo", "tag": "15 dias", "texto": "Para celebrar o título de transmissão da propriedade." },
+        { "icone": "documento", "nome": "Silêncio", "texto": "Não celebrou no prazo: o inadimplemento está **caracterizado**." }
+      ],
+      "fala": "E como se prova o inadimplemento? {1}Por uma notificação extrajudicial, feita pelo oficial do Registro de Imóveis, que pode delegar a diligência ao Registro de Títulos e Documentos. {2}O notificado tem quinze dias para celebrar o título de transmissão. {3}Não celebrou? O inadimplemento está caracterizado." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 216-B, § 2º", "texto": "O deferimento da adjudicação **independe de prévio registro** dos instrumentos de promessa de compra e venda ou de cessão e da comprovação da **regularidade fiscal** do promitente vendedor.",
+      "traducao": "Promessa de gaveta também serve. É a mesma lógica da **Súmula 239 do STJ**.",
+      "fala": "Um parágrafo que vale ouro. O deferimento independe do prévio registro da promessa, e independe da regularidade fiscal do vendedor. {1}Ou seja, promessa que nunca foi levada ao cartório também serve. É a mesma lógica da Súmula duzentos e trinta e nove do Superior Tribunal de Justiça." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1 · caiu no 2º ENAC", "titulo": "Qual [[imposto]] se comprova?", "errado": "IPTU em dia", "certo": "ITBI pago",
+      "porque": "É o imposto de **transmissão**. A banca também troca: ata do registrador (é do **tabelião**) e procuração geral (é com poderes **específicos**).",
+      "fala": "{1}Pegadinha um, do segundo Enac. Qual imposto se comprova? A banca escreveu IPTU. É ITBI, o imposto de transmissão. {2}Na mesma questão vieram outras trocas: ata lavrada pelo registrador, quando é pelo tabelião. E procuração geral, quando a lei exige poderes específicos." },
+    { "tipo": "lei", "fonte": "Lei 6.015/73, art. 216-B, § 3º", "ts": 46, "texto": "(...) o oficial do registro de imóveis (...) procederá ao **registro do domínio** em nome do promitente comprador, **servindo de título a respectiva promessa** de compra e venda ou de cessão ou o instrumento que comprove a sucessão.",
+      "traducao": "Não há sentença nem escritura. O título que entra na matrícula é a **própria promessa**.",
+      "fala": "E qual é o título que entra na matrícula? A própria promessa de compra e venda. {1}Repare: não há sentença, não há escritura. O oficial registra o domínio em nome do comprador, e o título é o contrato que ele já tinha." },
+    { "tipo": "compara", "rotulo": "Para não confundir", "titulo": "Usucapião x [[adjudicação]]", "col": 280, "tl": 34,
+      "a": { "nome": "Usucapião (216-A)", "icone": "casa" }, "b": { "nome": "Adjudicação (216-B)", "icone": "chave" },
+      "linhas": [
+        ["Fundamento", "**Posse** prolongada", "**Contrato** de promessa quitado"],
+        ["A ata notarial prova", "O tempo de posse", "O pagamento do preço e o inadimplemento"],
+        ["Aquisição", "Originária", "Derivada: paga **ITBI**"]
+      ],
+      "fala": "Para não confundir com a aula passada. {1}A usucapião se apoia na posse. A adjudicação, num contrato quitado. {2}Nas duas existe ata notarial de tabelião. Numa, ela prova o tempo de posse. Na outra, o pagamento do preço e o inadimplemento. {3}A usucapião é aquisição originária. A adjudicação é derivada, e por isso paga ITBI." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Sobre a adjudicação compulsória extrajudicial (Lei 6.015/73, art. 216-B), é **correto** afirmar que:",
+      "alternativas": ["depende do prévio registro da promessa na matrícula", "só o promitente comprador pode requerê-la", "o promitente vendedor também é legitimado, com advogado", "exige prova da regularidade fiscal do vendedor"],
+      "fala": "Vamos treinar. Sobre a adjudicação compulsória extrajudicial, qual alternativa está correta? {1}Depende do prévio registro da promessa. Só o promitente comprador pode pedir. O promitente vendedor também é legitimado, com advogado. Ou exige prova da regularidade fiscal do vendedor? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Depende do registro da promessa", "Só o comprador pode pedir", "O vendedor também é legitimado", "Exige regularidade fiscal"],
+      "passos": ["O registro prévio da promessa é **dispensado**.", "A regularidade fiscal do vendedor também.", "Legitimados: comprador, cessionários, sucessores **e vendedor**."],
+      "lei": "Lei 6.015/73, art. 216-B, §§ 1º e 2º",
+      "fala": "{1}Letra C. {2}O registro prévio da promessa é dispensado. {3}A regularidade fiscal do vendedor também. {4}E os legitimados são o comprador, os cessionários, os sucessores e o promitente vendedor. {5}Artigo duzentos e dezesseis B, parágrafos primeiro e segundo." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Registro de Imóveis da situação do imóvel, com advogado",
+        "Comprador, cessionários, sucessores e vendedor",
+        "Notificação pelo oficial: 15 dias para outorgar o título",
+        "Ata notarial de tabelião, ITBI e poderes específicos",
+        "Dispensa registro da promessa; ela mesma é o título"
+      ],
+      "fala": "Resumo. {1}Registro de Imóveis da situação do imóvel, com advogado. {2}Podem pedir o comprador, os cessionários, os sucessores e o vendedor. {3}Notificação pelo oficial, com quinze dias para outorgar o título. {4}Ata notarial de tabelião, ITBI e procuração com poderes específicos. {5}E não precisa de registro prévio da promessa: ela mesma é o título." },
+    { "tipo": "fecho", "icone": "olho", "titulo": "Concentração na [[matrícula]]", "ts": 124,
+      "texto": "O que não está na matrícula pode atingir quem comprou?",
+      "fala": "Na próxima aula: o que não está na matrícula pode atingir quem comprou o imóvel? É o princípio da concentração." }
+  ]
+}

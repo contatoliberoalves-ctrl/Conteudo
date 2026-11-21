@@ -1,0 +1,81 @@
+{
+  "id": "ri-14-alienacao-fiduciaria-conceito",
+  "n": 14,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "chave", "rotulo": "Registro de Imóveis · Aula 14", "titulo": ["Alienação", "[[fiduciária]]"], "ts": 190,
+      "texto": "Parte 1: conceito e constituição. Lei 9.514/97, arts. 22 a 25.",
+      "fala": "Quando você financia um apartamento, o imóvel fica no seu nome? Não exatamente. Enquanto você paga, o dono é o banco. Essa é a alienação fiduciária, a garantia mais usada do país e uma das campeãs de cobrança no Enac. Nesta primeira parte, o conceito e a constituição." },
+    { "tipo": "lei", "fonte": "Lei 9.514/97, art. 22", "ts": 46, "texto": "A alienação fiduciária regulada por esta Lei é o negócio jurídico pelo qual o **fiduciante**, com o escopo de garantia de obrigação própria ou de terceiro, contrata a transferência ao credor, ou **fiduciário**, da **propriedade resolúvel** de coisa imóvel.",
+      "traducao": "O devedor transfere o imóvel ao credor **só para garantir**. Pagou a dívida, a propriedade volta.",
+      "fala": "O artigo vinte e dois define: é o negócio pelo qual o fiduciante transfere ao credor, o fiduciário, a propriedade resolúvel de um imóvel, com o objetivo de garantia. {1}Traduzindo: o devedor transfere o imóvel ao credor só para garantir a dívida. Pagou tudo, a propriedade volta para ele." },
+    { "tipo": "compara", "rotulo": "Os personagens", "titulo": "Quem é [[quem]]", "col": 280,
+      "a": { "nome": "Fiduciante", "icone": "casa" }, "b": { "nome": "Fiduciário", "icone": "cadeado" },
+      "linhas": [
+        ["Quem é", "O **devedor** (ou terceiro que dá o imóvel)", "O **credor**"],
+        ["O que tem", "A posse **direta**: mora e usa", "A propriedade **resolúvel** e a posse indireta"],
+        ["Quem paga", "IPTU e condomínio", "Nada, enquanto a dívida corre"]
+      ],
+      "fala": "Dois personagens, com nomes parecidos. {1}O fiduciante é o devedor. O fiduciário é o credor. {2}O fiduciante fica com a posse direta: mora e usa o imóvel. O fiduciário fica com a propriedade resolúvel e com a posse indireta. É o desdobramento da posse. {3}E quem paga IPTU e condomínio é o fiduciante." },
+    { "tipo": "fluxo", "rotulo": "Lei 9.514/97, arts. 23 e 25", "titulo": "A vida da [[garantia]]",
+      "passos": [
+        { "icone": "caneta", "nome": "Contrato", "texto": "É o título da garantia." },
+        { "icone": "carimbo", "nome": "Registro", "texto": "No Registro de Imóveis: **constitui** a propriedade fiduciária." },
+        { "icone": "moeda", "nome": "Quitação", "tag": "30 dias", "texto": "O credor fornece o termo de quitação." },
+        { "icone": "chave", "nome": "Cancelamento", "texto": "O oficial cancela o registro: a propriedade **plena** volta ao devedor." }
+      ],
+      "fala": "A vida da garantia, quando tudo dá certo. {1}As partes assinam o contrato. {2}O contrato é registrado, e é esse registro que constitui a propriedade fiduciária. {3}Paga a dívida, o credor tem trinta dias para fornecer o termo de quitação, sob pena de multa. {4}Com o termo, o oficial cancela o registro, e a propriedade plena volta ao devedor." },
+    { "tipo": "matricula", "rotulo": "Na matrícula", "titulo": "Como isso [[aparece]]", "numero": "20.114",
+      "imovel": "Apartamento 51 do Edifício Mirante, com 64,00 m² de área privativa.",
+      "lei": { "fonte": "Repare nos atos", "em": 2, "texto": "A alienação fiduciária é **registro** (art. 167, I, 35). O cancelamento, pela quitação, é **averbação**." },
+      "atos": [
+        { "sigla": "R-3/20.114", "tipo": "Compra e venda", "texto": "Adquirente: **DANIELA**.", "em": 1 },
+        { "sigla": "R-4/20.114", "tipo": "Alienação fiduciária", "texto": "Fiduciante: Daniela. Fiduciário: **Banco Beta**. Dívida: R$ 300.000,00.", "em": 2 },
+        { "sigla": "AV-5/20.114", "tipo": "Cancelamento", "texto": "Cancelado o R-4, à vista do termo de quitação.", "em": 3, "carimbo": "QUITADO", "cor": "#1E9E62" }
+      ],
+      "fala": "Veja na matrícula. {1}Registro três: Daniela compra o apartamento. {2}Registro quatro: no mesmo dia, ela aliena fiduciariamente ao banco, em garantia do financiamento. Repare: alienação fiduciária é registro. {3}Anos depois, averbação cinco: cancelado o registro quatro, à vista do termo de quitação. E cancelamento, você já sabe, é averbação." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Só [[banco]] pode contratar?", "errado": "É privativa das instituições do SFI", "certo": "Qualquer pessoa física ou jurídica",
+      "porque": "A lei é expressa: a alienação fiduciária **não é privativa** das entidades que operam no Sistema de Financiamento Imobiliário (art. 22, § 1º).",
+      "fala": "{1}Pegadinha um. Só banco pode contratar alienação fiduciária? Não. Ela pode ser contratada por qualquer pessoa, física ou jurídica. {2}A lei diz, com todas as letras, que ela não é privativa das entidades do Sistema de Financiamento Imobiliário. Um particular pode vender um imóvel a prazo e ficar com essa garantia." },
+    { "tipo": "lista", "icone": "casa", "rotulo": "Art. 22, § 1º · caiu no 2º ENAC", "titulo": "Não é só a propriedade [[plena]]", "tl": 38, "gap": 18,
+      "itens": [
+        ["Bens enfitêuticos", "Com laudêmio, se o domínio útil se consolidar no credor."],
+        ["Direito de uso especial para fins de moradia", ""],
+        ["Direito real de uso", "Desde que suscetível de alienação."],
+        ["Propriedade superficiária", ""]
+      ],
+      "fala": "O objeto também cai. Além da propriedade plena, podem ser alienados fiduciariamente: {1}os bens enfitêuticos, com pagamento de laudêmio se o domínio útil se consolidar no credor. {2}O direito de uso especial para fins de moradia. {3}O direito real de uso, se puder ser alienado. {4}E a propriedade superficiária. Essa lista foi cobrada no segundo Enac." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Lei 9.514/97, art. 24", "titulo": "O que o [[contrato]] precisa ter", "tl": 38, "gap": 16,
+      "itens": [
+        "O valor da dívida, sua estimação ou o valor máximo",
+        "O prazo e as condições de pagamento",
+        "A taxa de juros e os encargos",
+        "A cláusula de constituição, com a descrição do imóvel",
+        "O valor do imóvel para o leilão"
+      ],
+      "fala": "O contrato precisa trazer, entre outros pontos: {1}o valor da dívida, ou o seu valor máximo. {2}O prazo e as condições de pagamento. {3}A taxa de juros e os encargos. {4}A cláusula de constituição da propriedade fiduciária, com a descrição do imóvel. {5}E o valor do imóvel para efeito de leilão. Esse último vai ser decisivo na próxima aula." },
+    { "tipo": "lei", "fonte": "Lei 9.514/97, art. 38", "texto": "Os atos e contratos referidos nesta Lei (...) poderão ser celebrados por **escritura pública** ou por **instrumento particular com efeitos de escritura pública**.",
+      "traducao": "É uma das exceções à exigência de escritura pública do art. 108 do Código Civil.",
+      "fala": "E a forma? O artigo trinta e oito permite a escritura pública ou o instrumento particular com efeitos de escritura pública. {1}É uma das exceções à regra do artigo cento e oito do Código Civil, que exige escritura para imóveis acima de trinta salários mínimos." },
+    { "tipo": "compara", "rotulo": "Lado a lado", "titulo": "Hipoteca x alienação [[fiduciária]]", "col": 280, "tl": 34,
+      "a": { "nome": "Hipoteca", "icone": "cadeado" }, "b": { "nome": "Alienação fiduciária", "icone": "chave" },
+      "linhas": [
+        ["A propriedade", "Fica com o **devedor**", "Vai para o **credor**, de forma resolúvel"],
+        ["O credor tem", "Direito real sobre coisa **alheia**", "Direito real sobre coisa **própria**"],
+        ["Quitada a dívida", "Cancela-se a hipoteca", "A propriedade plena **volta** ao devedor"]
+      ],
+      "fala": "Lado a lado com a aula passada. {1}Na hipoteca, a propriedade fica com o devedor. Na alienação fiduciária, vai para o credor. {2}Por isso, o credor hipotecário tem direito real sobre coisa alheia. O fiduciário, sobre coisa própria. {3}Quitada a dívida, numa se cancela a hipoteca, e na outra a propriedade plena volta ao devedor." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Registrado o contrato de alienação fiduciária de um apartamento em garantia de financiamento, é **correto** afirmar que:",
+      "alternativas": ["o devedor mantém a propriedade plena, gravada com ônus", "o credor recebe a propriedade resolúvel e a posse indireta", "o credor recebe a posse direta do imóvel", "a garantia se constitui com a assinatura do contrato"],
+      "fala": "Vamos treinar. Registrado o contrato de alienação fiduciária de um apartamento, o que acontece? {1}O devedor mantém a propriedade plena, com um ônus? O credor recebe a propriedade resolúvel e a posse indireta? O credor recebe a posse direta? Ou a garantia nasce com a assinatura do contrato? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Devedor: propriedade plena", "Credor: propriedade resolúvel", "Credor: posse direta", "Nasce com a assinatura"],
+      "passos": ["A propriedade **resolúvel** vai para o credor.", "A posse se desdobra: **direta** com o devedor, **indireta** com o credor.", "E tudo isso nasce com o **registro**, não com a assinatura."],
+      "lei": "Lei 9.514/97, arts. 22 e 23",
+      "fala": "{1}Letra B. {2}A propriedade resolúvel vai para o credor. {3}A posse se desdobra: direta com o devedor, indireta com o credor. {4}E tudo isso nasce com o registro, não com a assinatura do contrato. {5}Artigos vinte e dois e vinte e três da Lei nove mil quinhentos e catorze." },
+    { "tipo": "fecho", "icone": "relogio", "titulo": "E se o devedor [[não pagar]]?", "ts": 124,
+      "texto": "Intimação, consolidação da propriedade e leilões.",
+      "fala": "Na próxima aula, a parte que mais cai: e se o devedor não pagar? Intimação, consolidação da propriedade e leilões." }
+  ]
+}

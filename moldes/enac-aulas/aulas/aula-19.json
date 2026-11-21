@@ -1,0 +1,84 @@
+{
+  "id": "ri-19-patrimonio-de-afetacao",
+  "n": 19,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "escudo", "rotulo": "Registro de Imóveis · Aula 19", "titulo": ["Patrimônio", "de [[afetação]]"], "ts": 180,
+      "texto": "Lei 4.591/64, arts. 31-A a 31-F. Caiu nas três edições do ENAC.",
+      "fala": "Nos anos noventa, uma das maiores construtoras do país quebrou e deixou dezenas de milhares de famílias sem apartamento. O dinheiro de um prédio tinha ido pagar a dívida de outro. A resposta da lei foi criar uma blindagem para cada obra: o patrimônio de afetação. Caiu nas três edições do Enac." },
+    { "tipo": "compara", "rotulo": "A ideia", "titulo": "Cada obra no seu [[cofre]]", "col": 280,
+      "a": { "nome": "Sem afetação", "icone": "balao" }, "b": { "nome": "Com afetação", "icone": "escudo" },
+      "linhas": [
+        ["O dinheiro da obra", "Mistura-se ao caixa geral da empresa", "Fica **apartado**, só para aquela obra"],
+        ["Os credores da empresa", "Podem alcançar o terreno e as unidades", "**Não alcançam** o empreendimento"],
+        ["Se a empresa quebrar", "O comprador entra na fila", "A obra segue **fora** da falência"]
+      ],
+      "fala": "A ideia é pôr cada obra no seu cofre. {1}Sem afetação, o dinheiro da obra se mistura ao caixa geral da empresa. Com afetação, ele fica apartado, só para aquela obra. {2}Sem ela, os credores da empresa podem alcançar o terreno e as unidades. Com ela, não. {3}E, se a empresa quebrar, a obra afetada fica fora da falência, e os compradores podem assumir a construção." },
+    { "tipo": "lei", "fonte": "Lei 4.591/64, art. 31-A, caput", "ts": 44, "texto": "**A critério do incorporador**, a incorporação poderá ser submetida ao regime da afetação, pelo qual o terreno e as acessões (...), bem como os demais bens e direitos a ela vinculados, **manter-se-ão apartados** do patrimônio do incorporador e constituirão patrimônio de afetação, destinado à consecução da incorporação correspondente e à **entrega das unidades** imobiliárias aos respectivos adquirentes.",
+      "traducao": "É **opcional**: quem decide é o incorporador. E tem destino certo: terminar a obra e entregar as unidades.",
+      "fala": "O artigo trinta e um A começa com quatro palavras decisivas: a critério do incorporador. {1}Ou seja, o regime é opcional. E o patrimônio afetado tem destino certo: terminar a obra e entregar as unidades aos compradores." },
+    { "tipo": "trio", "rotulo": "Art. 31-A, §§ 1º a 3º · caiu no 1º ENAC", "titulo": "As três [[características]]",
+      "itens": [
+        { "icone": "cadeado", "nome": "Incomunicável", "apelido": "Não se mistura", "texto": "Não se comunica com o patrimônio geral nem com **outros** patrimônios de afetação do incorporador.", "lei": "§ 1º" },
+        { "icone": "alvo", "nome": "Vinculado", "apelido": "Só responde pela obra", "texto": "Só responde por dívidas e obrigações da **incorporação respectiva**.", "lei": "§ 1º" },
+        { "icone": "moeda", "nome": "Garantia", "apelido": "Só para financiar a obra", "texto": "Pode ser dado em garantia real, se o crédito for **integralmente** destinado à própria edificação.", "lei": "§ 3º" }
+      ],
+      "fala": "Três características, que caíram juntas no primeiro Enac. {1}É incomunicável: não se mistura com o patrimônio geral do incorporador, nem com outros patrimônios de afetação dele. {2}É vinculado: só responde por dívidas da própria incorporação. {3}E pode ser dado em garantia real, mas apenas em operação de crédito cujo produto vá integralmente para aquela obra." },
+    { "tipo": "lei", "fonte": "Lei 4.591/64, art. 31-B", "ts": 46, "texto": "Considera-se constituído o patrimônio de afetação mediante **averbação, a qualquer tempo**, no Registro de Imóveis, de **termo firmado pelo incorporador** e, quando for o caso, também pelos titulares de direitos reais de aquisição sobre o terreno.",
+      "traducao": "Três detalhes de prova: é **averbação**, pode ser feita **a qualquer tempo** e nasce de um simples **termo**.",
+      "fala": "E como ele se constitui? Mediante averbação, a qualquer tempo, de termo firmado pelo incorporador. {1}São três detalhes de prova. É averbação, não registro. Pode ser feita a qualquer tempo, inclusive com a obra em andamento. E nasce de um simples termo, sem escritura." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1 · caiu no 1º ENAC", "titulo": "O terreno já tem [[hipoteca]]", "ts": 112, "errado": "O ônus anterior impede a afetação", "certo": "Não impede a averbação",
+      "porque": "A averbação **não é obstada** por ônus reais constituídos para garantir o **preço de aquisição** do imóvel ou a **obrigação de construir** (art. 31-B, parágrafo único).",
+      "fala": "{1}Pegadinha um, do primeiro Enac. O terreno já tem um ônus real anterior. Isso impede a afetação? Não. {2}A averbação não é obstada por ônus reais constituídos para garantir o pagamento do preço do terreno, ou o cumprimento da obrigação de construir." },
+    { "tipo": "lista", "icone": "pessoas", "rotulo": "Quem cuida", "titulo": "Quem [[administra]]?",
+      "itens": [
+        ["O próprio incorporador", "Ele continua gerindo a obra e os recursos."],
+        ["Mas responde", "Pelos **prejuízos** que causar ao patrimônio de afetação (art. 31-A, § 2º)."],
+        ["E é fiscalizado", "Por uma comissão de representantes dos adquirentes e pelo financiador."]
+      ],
+      "fala": "Quem administra o patrimônio de afetação? Outra troca clássica da banca. {1}É o próprio incorporador. Não é a comissão de representantes, nem o banco. {2}Mas ele responde pelos prejuízos que causar ao patrimônio. {3}E é fiscalizado pelos adquirentes e pelo financiador da obra." },
+    { "tipo": "trio", "rotulo": "Art. 31-A, § 8º · caiu no 3º ENAC", "titulo": "O que fica de [[fora]]",
+      "itens": [
+        { "icone": "moeda", "nome": "O excedente", "apelido": "Sobrou dinheiro", "texto": "Os recursos que **excederem** o necessário para concluir a obra e quitar o financiamento da construção.", "lei": "Inciso I" },
+        { "icone": "mapa", "nome": "O terreno", "apelido": "Na empreitada ou administração", "texto": "O preço de alienação da **fração ideal de terreno** de cada unidade vendida, se a construção é contratada por empreitada ou por administração.", "lei": "Inciso II" }
+      ],
+      "fala": "Nem tudo entra no cofre. Duas exclusões, e a segunda caiu no terceiro Enac. {1}Ficam de fora os recursos que excederem o necessário para concluir a obra. {2}E fica de fora o preço de alienação da fração ideal de terreno de cada unidade vendida, quando a construção é contratada por empreitada ou por administração." },
+    { "tipo": "lista", "icone": "chave", "rotulo": "Art. 31-E", "titulo": "Como a afetação [[termina]]",
+      "itens": [
+        ["Missão cumprida", "Construção averbada, títulos registrados em nome dos adquirentes e financiador pago."],
+        ["Desistência", "Denúncia da incorporação, depois de **restituir** as quantias pagas pelos adquirentes."],
+        ["Liquidação", "Deliberada pela assembleia geral dos adquirentes."]
+      ],
+      "fala": "Como a afetação termina? {1}No caso normal: construção averbada, títulos registrados em nome dos compradores e o financiador pago. {2}Pela desistência do incorporador, depois de restituir o que os adquirentes pagaram. {3}Ou pela liquidação, deliberada em assembleia dos adquirentes." },
+    { "tipo": "compara", "rotulo": "Novidade de 2023 · caiu no 2º ENAC", "titulo": "A afetação chegou ao [[loteamento]]", "col": 260, "tl": 34,
+      "a": { "nome": "Incorporação", "icone": "predio" }, "b": { "nome": "Loteamento", "icone": "mapa" },
+      "linhas": [
+        ["Onde está", "Lei 4.591/64, art. 31-A", "Lei 6.766/79, art. 18-A"],
+        ["Quem decide", "O **incorporador**", "O **loteador**"],
+        ["Finalidade", "Concluir a obra e entregar as unidades", "Implantar a infraestrutura e entregar os lotes urbanizados"],
+        ["Quem administra", "O incorporador", "O loteador"]
+      ],
+      "fala": "E uma novidade de dois mil e vinte e três, que caiu no segundo Enac: a afetação chegou ao loteamento. {1}Ela está no artigo dezoito A da Lei seis mil setecentos e sessenta e seis. {2}Também é opcional, a critério do loteador. {3}Serve para implantar a infraestrutura e entregar os lotes urbanizados. {4}E quem administra os recursos é o próprio loteador. Mesma lógica, outro empreendimento." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Sobre o patrimônio de afetação na incorporação imobiliária, assinale a alternativa **correta**:",
+      "alternativas": ["é obrigatório em toda incorporação", "constitui-se por registro, antes do início das vendas", "constitui-se por averbação, a qualquer tempo", "é administrado pela comissão de representantes"],
+      "fala": "Vamos treinar. Sobre o patrimônio de afetação, qual está correta? {1}É obrigatório em toda incorporação. Constitui-se por registro, antes das vendas. Constitui-se por averbação, a qualquer tempo. Ou é administrado pela comissão de representantes? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["Obrigatório", "Registro, antes das vendas", "Averbação, a qualquer tempo", "Administrado pela comissão"],
+      "passos": ["É **opcional**: a critério do incorporador.", "Nasce por **averbação**, a qualquer tempo.", "Quem administra é o **incorporador**."],
+      "lei": "Lei 4.591/64, arts. 31-A e 31-B",
+      "fala": "{1}Letra C. {2}O regime é opcional, a critério do incorporador. {3}Nasce por averbação, a qualquer tempo. {4}E quem administra é o próprio incorporador. {5}Artigos trinta e um A e trinta e um B." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Opcional: a critério do incorporador ou do loteador",
+        "Averbação, a qualquer tempo, de termo do incorporador",
+        "Ônus anterior do terreno não impede",
+        "Incomunicável; garantia real só para financiar a obra",
+        "Quem administra é o incorporador"
+      ],
+      "fala": "Resumo. {1}O regime é opcional. {2}Constitui-se por averbação, a qualquer tempo, de termo do incorporador. {3}O ônus anterior do terreno não impede. {4}É incomunicável, e só pode ser dado em garantia para financiar a própria obra. {5}E quem administra é o incorporador." },
+    { "tipo": "fecho", "icone": "globo", "titulo": "Serp: o registro [[eletrônico]]", "ts": 124,
+      "texto": "Lei 14.382/2022. Pelo menos uma questão por edição.",
+      "fala": "Na próxima aula: o Serp, o Sistema Eletrônico dos Registros Públicos. Pelo menos uma questão em cada edição do Enac." }
+  ]
+}

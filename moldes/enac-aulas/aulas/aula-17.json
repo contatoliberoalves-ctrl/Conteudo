@@ -1,0 +1,88 @@
+{
+  "id": "ri-17-loteamento-e-desmembramento",
+  "n": 17,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "mapa", "rotulo": "Registro de Imóveis · Aula 17", "titulo": ["[[Loteamento]] e", "desmembramento"], "ts": 124,
+      "texto": "Lei 6.766/79. Caiu nas três edições do ENAC.",
+      "fala": "Uma fazenda na beira da cidade vira bairro. Como? Pelo parcelamento do solo urbano. E, antes de vender o primeiro lote, tudo precisa passar pelo Registro de Imóveis. A Lei seis mil setecentos e sessenta e seis caiu nas três edições do Enac, e quase sempre no mesmo artigo." },
+    { "tipo": "compara", "rotulo": "Lei 6.766/79, art. 2º", "titulo": "A diferença está na [[rua]]", "col": 270,
+      "a": { "nome": "Loteamento", "icone": "mapa" }, "b": { "nome": "Desmembramento", "icone": "regua" },
+      "linhas": [
+        ["O que é", "Subdivisão de gleba em lotes para edificação", "Subdivisão de gleba em lotes para edificação"],
+        ["Sistema viário", "**Abre** novas vias, ou prolonga e amplia as existentes", "**Aproveita** o sistema viário existente"],
+        ["Macete", "Tem rua **nova**", "**Não** tem rua nova"]
+      ],
+      "fala": "Parcelar o solo pode ser lotear ou desmembrar. {1}Os dois são a subdivisão de uma gleba em lotes destinados a edificação. {2}A diferença está na rua. O loteamento abre novas vias, ou prolonga e amplia as existentes. O desmembramento aproveita o sistema viário que já existe. {3}O macete: loteamento tem rua nova. Desmembramento, não." },
+    { "tipo": "lista", "icone": "casa", "rotulo": "Art. 2º, §§ 4º e 5º", "titulo": "O que é um [[lote]]", "tl": 40, "gap": 18,
+      "itens": [
+        ["Terreno servido de infraestrutura básica", "E com as dimensões exigidas pelo plano diretor ou pela lei municipal."],
+        ["A infraestrutura básica", "Escoamento de águas pluviais, iluminação pública, esgoto, água potável, energia elétrica e vias de circulação."],
+        ["Em zona de interesse social", "O mínimo é menor: vias, águas pluviais, rede de água e soluções para esgoto e energia domiciliar."]
+      ],
+      "fala": "E o que é um lote? {1}É o terreno servido de infraestrutura básica, com as dimensões exigidas pela lei municipal. {2}A infraestrutura básica tem seis itens: escoamento de águas pluviais, iluminação pública, esgotamento sanitário, água potável, energia elétrica e vias de circulação. {3}Nas zonas habitacionais de interesse social, a lista mínima é menor. Essa lista reduzida caiu no primeiro Enac." },
+    { "tipo": "trio", "rotulo": "Art. 4º · caiu no 3º ENAC", "titulo": "Os requisitos [[urbanísticos]]",
+      "itens": [
+        { "icone": "pessoas", "nome": "Áreas públicas", "apelido": "Proporcionais à densidade", "texto": "Circulação, equipamentos e espaços livres, conforme o plano diretor ou a lei municipal.", "lei": "Inciso I" },
+        { "numero": "125", "unidade": "m²", "apelido": "Lote mínimo", "texto": "Com frente mínima de **5 metros**, salvo urbanização específica ou habitação de interesse social.", "lei": "Inciso II" },
+        { "numero": "15", "unidade": "metros", "apelido": "Faixa não edificável", "texto": "De cada lado de rodovias e ferrovias. Nas rodovias, lei municipal pode reduzir até **5 metros**.", "lei": "Incisos III e III-A" }
+      ],
+      "fala": "Os requisitos urbanísticos mínimos caíram no terceiro Enac. {1}As áreas públicas são proporcionais à densidade de ocupação prevista no plano diretor. A lei não fixa mais um percentual. {2}O lote tem área mínima de cento e vinte e cinco metros quadrados e frente mínima de cinco metros. {3}E, ao longo de rodovias e ferrovias, há uma faixa não edificável de quinze metros de cada lado. Nas rodovias, lei municipal pode reduzir até cinco." },
+    { "tipo": "fluxo", "rotulo": "O caminho", "titulo": "Da prefeitura ao [[cartório]]",
+      "passos": [
+        { "icone": "predio", "nome": "Aprovação", "texto": "O Município aprova o projeto." },
+        { "icone": "relogio", "nome": "Prazo", "tag": "180 dias", "texto": "Para levar a registro, sob pena de **caducidade** da aprovação." },
+        { "icone": "globo", "nome": "Edital", "tag": "3 dias", "texto": "Consecutivos. Impugnação em **15 dias corridos**." },
+        { "icone": "carimbo", "nome": "Registro", "texto": "Sem impugnação, o registro é feito imediatamente." }
+      ],
+      "fala": "O caminho do loteamento. {1}O Município aprova o projeto. {2}O loteador tem cento e oitenta dias para levar ao registro, sob pena de caducidade da aprovação. {3}O oficial examina os documentos e publica edital por três dias consecutivos, com quinze dias para impugnação. Atenção: aqui a lei fala em dias corridos. {4}Sem impugnação, o registro é feito imediatamente." },
+    { "tipo": "lista", "icone": "documento", "rotulo": "Art. 18 · o mais cobrado", "titulo": "Os [[documentos]] do registro", "tl": 36, "gap": 14,
+      "itens": [
+        "Título de propriedade ou certidão da matrícula",
+        "Histórico dos títulos dos últimos 20 anos",
+        "Certidões negativas e certidões do loteador",
+        "Aprovação e cronograma de obras de até 4 anos, prorrogáveis por mais 4",
+        "Exemplar do contrato-padrão",
+        "Declaração de consentimento do cônjuge"
+      ],
+      "fala": "O artigo dezoito é o mais cobrado. O pedido vem com: {1}o título de propriedade ou a certidão da matrícula. {2}O histórico dos títulos dos últimos vinte anos. {3}As certidões. {4}A aprovação do loteamento e o cronograma de obras, de até quatro anos, prorrogáveis por mais quatro. {5}O exemplar do contrato-padrão. {6}E a declaração do cônjuge, consentindo no registro." },
+    { "tipo": "compara", "rotulo": "Art. 18, III e IV · caiu no 2º ENAC", "titulo": "As [[certidões]], sem misturar", "col": 240, "tl": 33, "pad": 18,
+      "a": { "nome": "III · negativas", "icone": "escudo" }, "b": { "nome": "IV · do loteador", "icone": "pessoas" },
+      "linhas": [
+        ["Tributos e protestos", "Tributos federais, estaduais e municipais sobre o imóvel", "Protestos: **5 anos**"],
+        ["Ações", "Ações reais sobre o imóvel: **10 anos**", "Ações cíveis: **10 anos**"],
+        ["Ações penais", "Crime contra o **patrimônio** e contra a **Administração Pública**", "Contra o loteador: **10 anos**"]
+      ],
+      "fala": "As certidões merecem um quadro, porque caíram no segundo Enac. {1}No inciso três, certidões negativas de tributos sobre o imóvel. No inciso quatro, protestos em nome do loteador, por cinco anos. {2}Ações reais sobre o imóvel, dez anos. Ações cíveis do loteador, dez anos. {3}E as penais: certidão negativa de crime contra o patrimônio e contra a Administração Pública. E ações penais contra o loteador, por dez anos." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Existe [[protesto]] ou ação. Impede?", "ts": 108, "errado": "Qualquer ação impede o registro", "certo": "Só impede se puder prejudicar os adquirentes",
+      "porque": "Protestos, ações pessoais e penais (salvo crime contra o patrimônio e a administração) **não impedem** o registro, se provado que não prejudicam os compradores (art. 18, § 2º).",
+      "fala": "{1}Pegadinha. Apareceu um protesto ou uma ação em nome do loteador. O registro está impedido? Não necessariamente. O loteador pode comprovar que aquilo não prejudicará os adquirentes dos lotes. {2}A exceção são as ações penais por crime contra o patrimônio e contra a administração. E, se o oficial achar a prova insuficiente, ele suscita dúvida." },
+    { "tipo": "lei", "fonte": "Lei 6.766/79, art. 22", "ts": 46, "texto": "**Desde a data de registro do loteamento**, passam a integrar o **domínio do Município** as vias e praças, os espaços livres e as áreas destinadas a edifícios públicos e outros equipamentos urbanos, constantes do projeto e do memorial descritivo.",
+      "traducao": "Não há escritura de doação. As ruas e praças viram bem público **pelo registro**.",
+      "fala": "Um efeito automático do registro: desde essa data, as vias, as praças e as áreas de equipamentos públicos passam ao domínio do Município. {1}Não há escritura de doação. As ruas e praças viram bem público pelo simples registro do loteamento." },
+    { "tipo": "alerta", "rotulo": "Para fechar", "titulo": "Vender lote antes do [[registro]]?", "ts": 108, "errado": "Pode, se o projeto já foi aprovado", "certo": "É vedado vender ou prometer vender",
+      "porque": "A lei **proíbe** vender ou prometer vender parcela de loteamento ou desmembramento **não registrado** (art. 37).",
+      "fala": "{1}Para fechar. O projeto já foi aprovado pela prefeitura. O loteador pode começar a vender? Não. É vedado vender, ou prometer vender, parcela de loteamento não registrado. {2}Aprovação não basta. A venda só começa depois do registro." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Aprovado pelo Município o projeto de loteamento, o loteador deve submetê-lo ao registro imobiliário, **sob pena de caducidade da aprovação**, no prazo de:",
+      "alternativas": ["90 dias", "120 dias", "180 dias", "1 ano"],
+      "fala": "Vamos treinar. Aprovado o projeto pelo Município, o loteador tem quanto tempo para levar ao registro, sob pena de caducidade? {1}Noventa dias, cento e vinte dias, cento e oitenta dias, ou um ano? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 2, "titulo": "Letra [[C]]",
+      "alternativas": ["90 dias", "120 dias", "180 dias", "1 ano"],
+      "passos": ["São **180 dias**, contados da aprovação.", "Perdeu o prazo: a aprovação **caduca**.", "Não confunda com os 15 dias do edital."],
+      "lei": "Lei 6.766/79, art. 18, caput",
+      "fala": "{1}Letra C: cento e oitenta dias. {2}Contados da aprovação do projeto. {3}Perdeu o prazo, a aprovação caduca, e é preciso aprovar de novo. {4}Não confunda com os quinze dias do edital. {5}Artigo dezoito, cabeça do artigo." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Loteamento abre via; desmembramento aproveita a existente",
+        "Lote mínimo: 125 m² e 5 m de frente",
+        "180 dias para registrar, sob pena de caducidade",
+        "Ações reais 10 anos; protestos 5; histórico de 20 anos",
+        "Registro transfere ruas e praças ao Município"
+      ],
+      "fala": "Resumo. {1}Loteamento abre via; desmembramento aproveita a existente. {2}Lote mínimo de cento e vinte e cinco metros quadrados, com cinco de frente. {3}Cento e oitenta dias para registrar. {4}Ações reais, dez anos; protestos, cinco; histórico de vinte anos. {5}E o registro transfere ruas e praças ao Município." },
+    { "tipo": "fecho", "icone": "predio", "titulo": "[[Incorporação]] imobiliária", "ts": 124,
+      "texto": "Como se vende um apartamento que ainda não existe.",
+      "fala": "Na próxima aula: como se vende um apartamento que ainda não existe. A incorporação imobiliária." }
+  ]
+}

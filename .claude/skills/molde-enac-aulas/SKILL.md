@@ -7,7 +7,7 @@ description: Gera videoaulas curtas (4 a 6 min, 16:9, MP4) do Cartório com Líb
 
 Pasta: `moldes/enac-aulas/`. Leia o `README.md` de lá (campos de cada cena) e uma aula pronta em `aulas/` antes de escrever outra.
 
-1. Tema e sequência: `pesquisa-ri.md` tem o edital, o que já caiu em cada ENAC e 36 temas em ordem didática. As aulas 1 a 10 já existem; siga dali.
+1. Tema e sequência: `pesquisa-ri.md` tem o edital, o que já caiu em cada ENAC e 36 temas em ordem didática. As aulas 1 a 20 já existem (fundamentos, procedimento, usucapião e adjudicação, concentração, garantias, loteamento, incorporação, afetação e Serp); siga dali (rural e georreferenciamento, Reurb, condomínios, indisponibilidade).
 2. Confira cada artigo, prazo e inciso na fonte oficial (Planalto, CNJ) antes de escrever. Só diga "já caiu no ENAC" para o que a pesquisa lista. Questões são autorais, com o selo "Autoral · estilo ENAC".
 3. Escreva `aulas/aula-NN.json` no modelo aprovado ("Quadro"): capa com gancho → conceito → letra da lei → exemplo (matrícula, fluxo) → comparação → pegadinhas → questão com 3 s para pensar → gabarito → resumo → próxima aula. Use ilustrações (`icone`) e a cena `matricula` sempre que ajudar.
 4. Na `fala`, escreva números e artigos por extenso ("artigo cento e oitenta e oito"), sem siglas difíceis e sem "§". Os marcadores `{1}`, `{2}`… dizem quando cada elemento entra na tela. Entre 3.300 e 4.000 caracteres de fala dão de 4 a 5 minutos.

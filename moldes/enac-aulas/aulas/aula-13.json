@@ -1,0 +1,88 @@
+{
+  "id": "ri-13-hipoteca",
+  "n": 13,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "cadeado", "rotulo": "Registro de Imóveis · Aula 13", "titulo": ["[[Hipoteca]]"], "ts": 250,
+      "texto": "Código Civil, arts. 1.473 a 1.505.",
+      "fala": "Hipoteca é a garantia real mais antiga do nosso sistema. Perdeu espaço para a alienação fiduciária, mas continua no edital, continua caindo, e ganhou vida nova com o Marco das Garantias. Em poucos minutos, você domina o que a banca cobra." },
+    { "tipo": "trio", "rotulo": "O conceito", "titulo": "Garantia sem [[entregar]] o imóvel",
+      "itens": [
+        { "icone": "casa", "nome": "O devedor", "apelido": "Continua dono", "texto": "Mantém a propriedade **e a posse**. Pode morar, alugar e até vender.", "lei": "CC, art. 1.475" },
+        { "icone": "cadeado", "nome": "O credor", "apelido": "Tem direito real", "texto": "Pode **excutir** o imóvel e **preferir** a outros credores no pagamento.", "lei": "CC, art. 1.422" },
+        { "icone": "carimbo", "nome": "O registro", "apelido": "Faz a hipoteca nascer", "texto": "No cartório do lugar do imóvel, no Livro 2.", "lei": "CC, art. 1.492" }
+      ],
+      "fala": "A hipoteca é uma garantia em que o devedor não entrega o imóvel. {1}Ele continua dono e continua na posse. Pode morar, alugar e até vender. {2}O credor ganha um direito real: se a dívida não for paga, ele pode levar o imóvel à venda e receber antes dos outros credores. {3}E é o registro, no cartório do lugar do imóvel, que faz a hipoteca nascer." },
+    { "tipo": "trio", "rotulo": "Lei 6.015/73, art. 167, I, 2", "titulo": "As três [[espécies]]",
+      "itens": [
+        { "icone": "caneta", "nome": "Convencional", "apelido": "Nasce do contrato", "texto": "As partes combinam a garantia. É a mais comum.", "lei": "Contrato" },
+        { "icone": "livro", "nome": "Legal", "apelido": "Nasce da lei", "texto": "A lei a concede a certos credores, nos casos do art. 1.489 do Código Civil.", "lei": "Lei" },
+        { "icone": "forum", "nome": "Judicial", "apelido": "Nasce da sentença", "texto": "A decisão que condena a pagar vale como título de hipoteca judiciária.", "lei": "Sentença" }
+      ],
+      "nota": "As três são levadas a **registro**, não a averbação.",
+      "fala": "São três espécies. {1}A convencional nasce do contrato, e é a mais comum. {2}A legal nasce da lei, que a concede a certos credores. {3}A judicial nasce da sentença que condena a pagar. {4}E as três são levadas a registro, não a averbação." },
+    { "tipo": "lista", "icone": "casa", "rotulo": "Código Civil, art. 1.473", "titulo": "O que pode ser [[hipotecado]]", "tl": 40, "gap": 20,
+      "itens": [
+        "Os imóveis e seus acessórios",
+        "O domínio direto e o domínio útil",
+        "O direito real de uso e a propriedade superficiária",
+        "O direito de uso especial para fins de moradia",
+        "Navios e aeronaves, por lei especial"
+      ],
+      "fala": "O que pode ser hipotecado? {1}Os imóveis e seus acessórios. {2}O domínio direto e o domínio útil. {3}O direito real de uso e a propriedade superficiária. {4}O direito de uso especial para fins de moradia. {5}E, curiosamente, navios e aeronaves, regidos por lei especial." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1", "titulo": "Imóvel hipotecado pode ser [[vendido]]?", "ts": 108, "errado": "Não: a cláusula que proíbe a venda é válida", "certo": "Sim: essa cláusula é nula",
+      "porque": "É **nula** a cláusula que proíbe alienar o imóvel hipotecado. O que se pode combinar é o **vencimento antecipado** da dívida (CC, art. 1.475).",
+      "fala": "{1}Pegadinha um. O imóvel hipotecado pode ser vendido? Pode. A cláusula que proíbe o dono de vender é nula. {2}O que as partes podem combinar é outra coisa: que a dívida vence antecipadamente se o imóvel for alienado. E a hipoteca acompanha o imóvel, na mão de quem estiver." },
+    { "tipo": "fluxo", "rotulo": "CC, arts. 1.476 e 1.493", "titulo": "Mais de uma hipoteca no [[mesmo]] imóvel",
+      "passos": [
+        { "icone": "cadeado", "nome": "1ª hipoteca", "tag": "Protocolo 210", "texto": "Banco A registra primeiro." },
+        { "icone": "cadeado", "nome": "2ª hipoteca", "tag": "Protocolo 388", "texto": "Banco B registra depois, por **novo título**." },
+        { "icone": "moeda", "nome": "Na execução", "texto": "Paga-se o Banco A. O que sobrar vai para o Banco B." }
+      ],
+      "nota": "O número de ordem determina a prioridade, e esta a **preferência entre as hipotecas**.",
+      "fala": "O dono pode dar o mesmo imóvel em hipoteca mais de uma vez, ao mesmo credor ou a outro, por novo título. {1}O Banco A registra a primeira. {2}O Banco B registra a segunda, depois. {3}Na execução, paga-se primeiro o Banco A, e o que sobrar vai para o Banco B. {4}É o princípio da prioridade aplicado às garantias: o número de ordem define a preferência entre as hipotecas." },
+    { "tipo": "lei", "fonte": "Código Civil, art. 1.487", "texto": "A hipoteca pode ser constituída para garantia de **dívida futura ou condicionada**, desde que determinado o **valor máximo** do crédito a ser garantido.",
+      "traducao": "Vale para dívida que ainda nem existe. O que não pode faltar é o **teto**. Caiu no 1º ENAC.",
+      "fala": "Esta caiu no primeiro Enac. A hipoteca pode garantir dívida futura ou condicionada, desde que determinado o valor máximo do crédito. {1}Ou seja: dá para hipotecar em garantia de uma dívida que ainda nem existe. O que não pode faltar é o teto. É a especialidade aplicada à garantia." },
+    { "tipo": "trio", "rotulo": "Código Civil, art. 1.485", "titulo": "A hipoteca tem [[validade]]",
+      "itens": [
+        { "numero": "30", "unidade": "anos", "apelido": "O limite", "texto": "Contados da data do **contrato**.", "lei": "Prazo máximo" },
+        { "icone": "caneta", "nome": "Prorrogar", "apelido": "Simples averbação", "texto": "A pedido de **ambas as partes**, até completar os 30 anos.", "lei": "Dentro do prazo" },
+        { "icone": "carimbo", "nome": "Passou?", "apelido": "Novo título e novo registro", "texto": "E a hipoteca **mantém a precedência** que tinha.", "lei": "Depois do prazo" }
+      ],
+      "fala": "A hipoteca convencional tem prazo de validade. {1}Trinta anos, contados da data do contrato. {2}Dentro desse limite, ela pode ser prorrogada por simples averbação, requerida por ambas as partes. {3}Passados os trinta anos, só com novo título e novo registro. E, nesse caso, a hipoteca mantém a precedência que tinha." },
+    { "tipo": "lista", "icone": "chave", "rotulo": "CC, art. 1.499", "titulo": "Como a hipoteca [[acaba]]", "tl": 40, "gap": 20,
+      "itens": [
+        "Extinção da obrigação principal",
+        "Perecimento da coisa ou resolução da propriedade",
+        "Renúncia do credor",
+        "Remição",
+        "Arrematação ou adjudicação"
+      ],
+      "fala": "E como a hipoteca acaba? {1}Pela extinção da obrigação principal: pagou a dívida, acabou a garantia. {2}Pelo perecimento da coisa ou pela resolução da propriedade. {3}Pela renúncia do credor. {4}Pela remição. {5}E pela arrematação ou adjudicação. Em qualquer caso, o cancelamento na matrícula se faz por averbação." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2 · Súmula 308 do STJ", "titulo": "A hipoteca da [[construtora]]", "ts": 112, "errado": "Atinge quem comprou o apartamento", "certo": "Não tem eficácia contra o adquirente",
+      "porque": "A hipoteca firmada entre a construtora e o banco, **anterior ou posterior** à promessa de compra e venda, não tem eficácia perante os adquirentes.",
+      "fala": "{1}Pegadinha dois. A construtora hipoteca o terreno ao banco para financiar a obra. Você compra um apartamento e paga tudo. A hipoteca atinge o seu apartamento? Não. {2}É a Súmula trezentos e oito do Superior Tribunal de Justiça: essa hipoteca, anterior ou posterior à promessa de compra e venda, não tem eficácia perante os adquirentes." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Uma empresa quer hipotecar seu galpão para garantir **empréstimos que ainda vai contratar** com o banco ao longo do ano. Essa hipoteca:",
+      "alternativas": ["é nula, por não existir dívida atual", "é válida, se fixado o valor máximo do crédito garantido", "é válida, mas só por averbação no Livro 3", "depende de autorização judicial"],
+      "fala": "Vamos treinar. Uma empresa quer hipotecar o galpão para garantir empréstimos que ainda vai contratar ao longo do ano. Essa hipoteca: {1}é nula, porque não existe dívida atual? É válida, se fixado o valor máximo? É válida, mas só por averbação no Livro três? Ou depende de autorização judicial? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Nula: não há dívida atual", "Válida, com valor máximo", "Averbação no Livro 3", "Autorização judicial"],
+      "passos": ["A hipoteca pode garantir dívida **futura ou condicionada**.", "Condição: determinar o **valor máximo** do crédito.", "E hipoteca é **registro**, no Livro 2."],
+      "lei": "Código Civil, art. 1.487",
+      "fala": "{1}Letra B. {2}A hipoteca pode garantir dívida futura ou condicionada. {3}A condição é determinar o valor máximo do crédito. {4}E hipoteca é ato de registro, no Livro dois. {5}Artigo mil quatrocentos e oitenta e sete do Código Civil." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "O devedor continua dono e na posse",
+        "Convencional, legal e judicial: todas são registro",
+        "Cláusula que proíbe vender é nula",
+        "Dívida futura: só com valor máximo",
+        "Prazo de 30 anos; a ordem do registro dá a preferência"
+      ],
+      "fala": "Resumo. {1}Na hipoteca, o devedor continua dono e na posse. {2}Convencional, legal e judicial: todas são registro. {3}A cláusula que proíbe vender é nula. {4}Dívida futura, só com valor máximo. {5}O prazo é de trinta anos, e a ordem do registro dá a preferência." },
+    { "tipo": "fecho", "icone": "chave", "titulo": "Alienação [[fiduciária]]", "ts": 150,
+      "texto": "A garantia em que o credor vira dono.",
+      "fala": "Na próxima aula: a garantia que tomou o lugar da hipoteca no mercado. Na alienação fiduciária, o credor vira dono." }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "ri-20-serp-registro-eletronico",
+  "n": 20,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "globo", "rotulo": "Registro de Imóveis · Aula 20", "titulo": ["Serp: o", "registro", "[[eletrônico]]"], "ts": 160,
+      "texto": "Lei 14.382/2022, arts. 1º a 7º.",
+      "fala": "Pedir certidão sem sair de casa. Mandar a escritura para registro pela internet. Consultar, num lugar só, cartórios do país inteiro. Tudo isso tem um nome: Serp, o Sistema Eletrônico dos Registros Públicos. Teve pelo menos uma questão em cada edição do Enac." },
+    { "tipo": "lista", "icone": "globo", "rotulo": "Lei 14.382/2022, art. 3º", "titulo": "Para que o Serp [[serve]]", "tl": 38, "gap": 16,
+      "itens": [
+        "Registro público eletrônico dos atos e negócios jurídicos",
+        "Interconexão das serventias e interoperabilidade das bases de dados",
+        "Atendimento remoto aos usuários, pela internet",
+        "Recepção e envio de títulos e expedição de certidões em formato eletrônico",
+        "Consulta a indisponibilidades, restrições e gravames"
+      ],
+      "fala": "Para que o Serp serve? O artigo terceiro lista os objetivos. Os principais: {1}o registro público eletrônico dos atos e negócios. {2}A interconexão das serventias e a interoperabilidade das bases de dados. {3}O atendimento remoto, pela internet. {4}A recepção e o envio de títulos, e a expedição de certidões, em formato eletrônico. {5}E a consulta a indisponibilidades de bens, restrições e gravames." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 1 · caiu no 2º ENAC", "titulo": "A lista de serviços é [[fechada]]?", "ts": 112, "errado": "Sim: rol taxativo", "certo": "Não: o CNJ pode incluir outros",
+      "porque": "O último inciso abre a porta: “outros serviços, nos termos estabelecidos pela **Corregedoria Nacional de Justiça**” (art. 3º, XI).",
+      "fala": "{1}Pegadinha um, do segundo Enac. Essa lista de serviços é fechada? Não. {2}O último inciso abre a porta para outros serviços, nos termos estabelecidos pela Corregedoria Nacional de Justiça. O rol é exemplificativo." },
+    { "tipo": "compara", "rotulo": "Art. 3º, § 1º", "titulo": "Quem [[integra]] o Serp", "col": 250,
+      "a": { "nome": "Integram", "icone": "escudo" }, "b": { "nome": "A lei não lista", "icone": "balao" },
+      "linhas": [
+        ["Quem", "Os oficiais dos **registros públicos** da Lei 6.015/73", "Tabelionatos de notas e de protesto"],
+        ["Quais são", "Registro Civil, Títulos e Documentos, Pessoas Jurídicas e **Imóveis**", "Têm centrais próprias, e **trocam** documentos com o Serp"]
+      ],
+      "fala": "Quem integra o Serp? {1}Os oficiais dos registros públicos de que trata a Lei seis mil e quinze. {2}Ou seja: registro civil das pessoas naturais, registro civil das pessoas jurídicas, títulos e documentos, e imóveis. Os tabeliães não estão nessa lista, embora troquem documentos eletrônicos com o sistema. Guarde: Serp é dos registros." },
+    { "tipo": "lei", "fonte": "Lei 14.382/2022, art. 4º, § 1º", "texto": "É **obrigatória a adesão** ao Serp dos oficiais dos registros públicos (...), ou dos **responsáveis interinos** pelo expediente.",
+      "traducao": "Ninguém fica de fora: nem o titular, nem o **interino**. Caiu no 1º e no 3º ENAC.",
+      "fala": "A adesão é opcional? Não. É obrigatória, para os oficiais e para os responsáveis interinos pelo expediente. {1}Caiu no primeiro Enac, e voltou no terceiro, justamente com a figura do interino. E quem descumpre fica sujeito às penas da Lei dos Notários e Registradores." },
+    { "tipo": "trio", "rotulo": "A estrutura", "titulo": "Quem [[opera]], quem paga, quem manda",
+      "itens": [
+        { "icone": "predio", "nome": "Operador", "apelido": "Pessoa jurídica de direito privado", "texto": "Entidade civil **sem fins lucrativos**.", "lei": "Art. 3º, § 4º" },
+        { "icone": "moeda", "nome": "Custeio", "apelido": "Um fundo dos oficiais", "texto": "O **Fics**, subvencionado pelos oficiais dos registros públicos.", "lei": "Art. 5º" },
+        { "icone": "forum", "nome": "Regulação", "apelido": "Corregedoria Nacional", "texto": "A Corregedoria Nacional de Justiça, do **CNJ**, disciplina e fiscaliza.", "lei": "Art. 7º" }
+      ],
+      "fala": "Três perguntas de prova: quem opera, quem paga e quem manda. {1}Quem opera é o operador nacional, uma pessoa jurídica de direito privado, entidade civil sem fins lucrativos. Caiu no segundo Enac. {2}Quem paga é um fundo, subvencionado pelos próprios oficiais dos registros públicos. Caiu no primeiro. {3}E quem manda é a Corregedoria Nacional de Justiça, do CNJ." },
+    { "tipo": "alerta", "rotulo": "Pegadinha 2", "titulo": "O operador do Serp é órgão [[público]]?", "ts": 104, "errado": "Autarquia vinculada ao CNJ", "certo": "Pessoa jurídica de direito privado",
+      "porque": "O operador nacional é **entidade civil sem fins lucrativos**. O CNJ **regula**; não opera nem custeia com recursos públicos.",
+      "fala": "{1}Pegadinha dois. O operador nacional do Serp é uma autarquia, um órgão público? Não. É pessoa jurídica de direito privado, sem fins lucrativos. {2}O CNJ regula e fiscaliza. Mas não opera o sistema, e o custeio vem dos próprios oficiais." },
+    { "tipo": "fluxo", "rotulo": "Lei 14.382/2022, art. 6º", "titulo": "O [[extrato]] eletrônico",
+      "passos": [
+        { "icone": "documento", "nome": "Extrato", "texto": "Um resumo eletrônico do negócio, enviado pelo Serp." },
+        { "icone": "lupa", "nome": "Qualificação", "texto": "O oficial qualifica pelos **elementos do extrato**." },
+        { "icone": "livro", "nome": "A íntegra", "texto": "Em imóveis, o contrato inteiro acompanha, em **cópia simples**." },
+        { "icone": "caneta", "nome": "Exceção", "texto": "Se quem apresenta é o **tabelião**, ele mesmo arquiva o instrumento." }
+      ],
+      "fala": "Uma novidade prática é o extrato eletrônico. {1}Em vez do contrato inteiro, o interessado envia pelo Serp um resumo estruturado do negócio. {2}E o oficial qualifica o título pelos elementos que constam do extrato. {3}Quando o extrato é de imóvel, a íntegra do contrato vai junto, em cópia simples. {4}A exceção: se quem apresenta é o tabelião de notas, ele mesmo arquiva o instrumento." },
+    { "tipo": "trio", "rotulo": "O Serp nos prazos", "titulo": "Mais [[rápido]] pelo eletrônico",
+      "itens": [
+        { "numero": "5", "unidade": "dias úteis", "apelido": "Para registrar", "texto": "Documentos eletrônicos apresentados pelo Serp, sem exigências.", "lei": "LRP, art. 188, § 1º, II" },
+        { "numero": "4", "unidade": "horas", "apelido": "Certidão de inteiro teor", "texto": "Da matrícula, pedida com o número, em meio eletrônico.", "lei": "LRP, art. 19, § 10" }
+      ],
+      "nota": "E o oficial verifica periodicamente, ao longo do expediente, se chegou título eletrônico para prenotar.",
+      "fala": "O eletrônico também encurta prazos. {1}Documento eletrônico apresentado pelo Serp, sem exigência, é registrado em cinco dias úteis, e não em dez. {2}E a certidão de inteiro teor da matrícula, pedida em meio eletrônico com o número, sai em quatro horas. {3}Do outro lado do balcão, o oficial verifica periodicamente, ao longo do expediente, se chegou título eletrônico para prenotar." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Sobre o Sistema Eletrônico dos Registros Públicos (Serp), é **correto** afirmar que:",
+      "alternativas": ["a adesão é facultativa para os interinos", "o operador nacional é pessoa jurídica de direito privado", "é custeado com recursos do orçamento do CNJ", "o rol de serviços do art. 3º é taxativo"],
+      "fala": "Vamos treinar, com uma questão que junta o que já caiu. Sobre o Serp, qual está correta? {1}A adesão é facultativa para os interinos. O operador nacional é pessoa jurídica de direito privado. É custeado pelo orçamento do CNJ. Ou o rol de serviços é taxativo? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Facultativa para interinos", "Operador de direito privado", "Custeado pelo CNJ", "Rol taxativo"],
+      "passos": ["A adesão é **obrigatória**, inclusive para o interino.", "O custeio vem de fundo **dos oficiais**.", "O rol é **aberto**: o CNJ pode incluir serviços."],
+      "lei": "Lei 14.382/2022, arts. 3º a 5º",
+      "fala": "{1}Letra B. {2}A adesão é obrigatória, inclusive para o interino. {3}O custeio vem de um fundo subvencionado pelos oficiais. {4}E o rol de serviços é aberto. {5}Artigos terceiro a quinto da Lei catorze mil trezentos e oitenta e dois." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Integram o Serp os registros públicos da Lei 6.015",
+        "Adesão obrigatória, inclusive do interino",
+        "Operador: pessoa jurídica de direito privado, sem fins lucrativos",
+        "Custeio pelos oficiais; regulação pela Corregedoria Nacional",
+        "Rol de serviços aberto; título eletrônico em 5 dias"
+      ],
+      "fala": "Resumo. {1}Integram o Serp os registros públicos da Lei seis mil e quinze. {2}A adesão é obrigatória, inclusive do interino. {3}O operador é pessoa jurídica de direito privado, sem fins lucrativos. {4}O custeio é dos oficiais, e a regulação, da Corregedoria Nacional. {5}O rol de serviços é aberto, e o título eletrônico é registrado em cinco dias." },
+    { "tipo": "fecho", "icone": "mapa", "titulo": "Imóvel [[rural]] e georreferenciamento", "ts": 116,
+      "texto": "O próximo bloco: rural, regularização fundiária e condomínios.",
+      "fala": "Com isso, você fechou vinte aulas de Registro de Imóveis. No próximo bloco: imóvel rural e georreferenciamento, regularização fundiária e condomínios. Até lá." }
+  ]
+}

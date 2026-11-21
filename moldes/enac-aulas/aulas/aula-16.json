@@ -1,0 +1,84 @@
+{
+  "id": "ri-16-marco-das-garantias",
+  "n": 16,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "raio", "rotulo": "Registro de Imóveis · Aula 16", "titulo": ["Marco das", "[[Garantias]]"], "ts": 190,
+      "texto": "Lei 14.711/2023. Caiu nas três edições do ENAC.",
+      "fala": "Imagine um apartamento de um milhão de reais garantindo uma dívida de cem mil. Antes, os outros novecentos mil ficavam travados: o imóvel não servia para mais nada. O Marco das Garantias, de dois mil e vinte e três, destravou isso. E caiu nas três edições do Enac." },
+    { "tipo": "lista", "icone": "raio", "rotulo": "Lei 14.711/2023", "titulo": "As quatro [[novidades]] que caem", "tl": 40,
+      "itens": [
+        ["Alienação fiduciária da propriedade superveniente", "A “segunda” alienação fiduciária do mesmo imóvel."],
+        ["Extensão da alienação fiduciária", "A mesma garantia para novas dívidas."],
+        ["Vários imóveis na mesma operação", "Execução conjunta ou em sequência."],
+        ["Execução extrajudicial da hipoteca", "A hipoteca ganha o rito do cartório."]
+      ],
+      "fala": "São quatro novidades que a banca cobra. {1}A alienação fiduciária da propriedade superveniente. {2}A extensão da alienação fiduciária. {3}A garantia com vários imóveis na mesma operação. {4}E a execução extrajudicial da hipoteca. Uma por vez." },
+    { "tipo": "lei", "fonte": "Lei 9.514/97, art. 22, § 3º", "ts": 46, "texto": "A alienação fiduciária da **propriedade superveniente**, adquirida pelo fiduciante, é suscetível de **registro** no registro de imóveis **desde a data de sua celebração**, tornando-se **eficaz a partir do cancelamento** da propriedade fiduciária anteriormente constituída.",
+      "traducao": "Registra-se **agora**; produz efeito **depois**, quando a primeira garantia for cancelada.",
+      "fala": "Primeira novidade. O devedor já alienou o imóvel ao Banco A. Ele pode dar o mesmo imóvel em garantia ao Banco B? Pode: ele aliena a propriedade que vai voltar para ele no futuro, a propriedade superveniente. {1}Guarde a fórmula: registra-se agora, mas só produz efeito depois, quando a primeira garantia for cancelada. Caiu no primeiro Enac." },
+    { "tipo": "trio", "rotulo": "Art. 22, §§ 4º a 6º", "titulo": "Três regras da [[superveniente]]",
+      "itens": [
+        { "icone": "senha", "nome": "Prioridade", "apelido": "As anteriores na frente", "texto": "Na excussão, a alienação fiduciária anterior tem prioridade sobre as posteriores.", "lei": "§ 4º" },
+        { "icone": "moeda", "nome": "Sub-rogação", "apelido": "O posterior vai ao preço", "texto": "Vendido o imóvel pelo primeiro credor, os demais se sub-rogam **no preço**, e seus registros são cancelados.", "lei": "§ 4º" },
+        { "icone": "raio", "nome": "Vencimento", "apelido": "Cruzado", "texto": "O atraso em **uma** dívida permite ao credor declarar vencidas as **demais** garantidas pelo mesmo imóvel.", "lei": "§ 6º" }
+      ],
+      "fala": "Três regras sobre ela. {1}Prioridade: na execução, a alienação fiduciária anterior vem na frente das posteriores. {2}Sub-rogação: se o primeiro credor vende o imóvel, os credores posteriores passam a ter direito sobre o preço, e seus registros são cancelados. {3}E o vencimento cruzado: o atraso em uma dívida permite ao credor declarar vencidas as demais que ele tenha, garantidas pelo mesmo imóvel." },
+    { "tipo": "lista", "icone": "corrente", "rotulo": "Lei 13.476/2017, arts. 9º-A e 9º-B", "titulo": "A [[extensão]] da garantia",
+      "itens": [
+        ["O que é", "A propriedade fiduciária já constituída passa a garantir operações de crédito **novas e autônomas**."],
+        ["Com quem", "Só com o **mesmo credor** titular da propriedade fiduciária."],
+        ["Condição", "Não pode haver dívida com **credor diverso** garantida pelo mesmo imóvel."],
+        ["Onde e como", "No Sistema Financeiro Nacional e com Empresas Simples de Crédito, por **averbação**."]
+      ],
+      "fala": "Segunda novidade: a extensão. {1}A mesma propriedade fiduciária passa a garantir operações de crédito novas. {2}Mas só com o mesmo credor. {3}E desde que não exista dívida com credor diferente garantida pelo mesmo imóvel. {4}Ela só pode ser contratada no âmbito do Sistema Financeiro Nacional e com Empresas Simples de Crédito, e entra na matrícula por averbação. Caiu no terceiro Enac." },
+    { "tipo": "compara", "rotulo": "O quadro que resolve a questão", "titulo": "Superveniente x [[extensão]]", "col": 250, "tl": 34,
+      "a": { "nome": "Superveniente", "icone": "senha" }, "b": { "nome": "Extensão", "icone": "corrente" },
+      "linhas": [
+        ["Credor", "Pode ser **outro** credor", "Só o **mesmo** credor"],
+        ["Ato na matrícula", "**Registro**", "**Averbação**"],
+        ["Eficácia", "Depois do cancelamento da anterior", "Aproveita a garantia que já existe"],
+        ["Onde está", "Lei 9.514, art. 22, § 3º", "Lei 13.476, art. 9º-A"]
+      ],
+      "fala": "O quadro que resolve a questão. {1}Na superveniente, o credor pode ser outro. Na extensão, só o mesmo. {2}A superveniente é registro. A extensão é averbação. {3}A superveniente só ganha eficácia depois do cancelamento da garantia anterior. A extensão aproveita a garantia que já existe. {4}E uma está na Lei nove mil quinhentos e catorze, a outra na Lei treze mil quatrocentos e setenta e seis." },
+    { "tipo": "compara", "rotulo": "Lei 9.514/97, art. 27-A · caiu no 2º ENAC", "titulo": "Vários imóveis, uma [[dívida]]", "col": 250,
+      "a": { "nome": "Ato simultâneo", "icone": "pessoas" }, "b": { "nome": "Atos sucessivos", "icone": "senha" },
+      "linhas": [
+        ["Como", "Consolidação e leilão de **todos** os imóveis em conjunto", "Um imóvel por vez, à medida do necessário"],
+        ["Quem escolhe a ordem", "Não há ordem", "O **credor**, salvo disposição contrária no contrato"]
+      ],
+      "fala": "Terceira novidade: vários imóveis garantindo a mesma dívida. Se o contrato não vincular cada imóvel a uma parcela, o credor escolhe o caminho. {1}Ou executa em ato simultâneo, levando todos a leilão em conjunto. Ou em atos sucessivos, um imóvel por vez, à medida do necessário. {2}Nos atos sucessivos, é o credor quem indica a ordem. No segundo Enac, a alternativa errada dizia que só eram possíveis atos sucessivos." },
+    { "tipo": "fluxo", "rotulo": "Lei 14.711/2023, art. 9º", "titulo": "A hipoteca vai ao [[cartório]]",
+      "passos": [
+        { "icone": "balao", "nome": "Intimação", "tag": "15 dias", "texto": "Pelo oficial do Registro de Imóveis, para purgar a mora." },
+        { "icone": "caneta", "nome": "Averbação", "tag": "15 dias", "texto": "Do início da excussão, a pedido do credor." },
+        { "icone": "pessoas", "nome": "Leilão", "tag": "60 dias", "texto": "Público, podendo ser eletrônico. O segundo, 15 dias depois." },
+        { "icone": "documento", "nome": "Ata notarial", "texto": "De arrematação, lavrada por **tabelião de notas**: é o título de transmissão." }
+      ],
+      "fala": "Quarta novidade: a hipoteca agora pode ser executada no cartório, sem processo. {1}O oficial do Registro de Imóveis intima o devedor para purgar a mora em quinze dias. {2}Sem pagamento, averba-se o início da excussão. {3}O leilão acontece em sessenta dias. {4}E, havendo arrematante, um tabelião de notas lavra a ata notarial de arrematação, que é o título de transmissão." },
+    { "tipo": "alerta", "rotulo": "Pegadinha · caiu no 3º ENAC", "titulo": "Toda hipoteca pode ir ao [[leilão]] extrajudicial?", "ts": 96, "errado": "Sim, basta estar registrada", "certo": "Só com previsão expressa no título",
+      "porque": "A previsão expressa do procedimento no título constitutivo é **requisito de validade** (art. 9º, § 15). E o rito **não se aplica** ao financiamento da atividade agropecuária (§ 13).",
+      "fala": "{1}Pegadinha, do terceiro Enac. Toda hipoteca pode ser executada no cartório? Não. Só se houver previsão expressa do procedimento no título que constituiu a hipoteca. É requisito de validade. {2}E a execução extrajudicial não se aplica ao financiamento da atividade agropecuária." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Bruno alienou fiduciariamente seu imóvel ao Banco A. Com a dívida em curso, contrata com o **Banco B** nova alienação fiduciária sobre o mesmo imóvel. Esse segundo contrato:",
+      "alternativas": ["é nulo: o imóvel já pertence ao Banco A", "é registrável desde logo e eficaz após o cancelamento da primeira", "só pode ser averbado, como extensão", "é registrável só depois de quitada a primeira dívida"],
+      "fala": "Vamos treinar. Bruno alienou fiduciariamente o imóvel ao Banco A. Com a dívida ainda em curso, ele contrata uma nova alienação fiduciária do mesmo imóvel com o Banco B. Esse segundo contrato: {1}é nulo? É registrável desde logo, e eficaz após o cancelamento da primeira? Só pode ser averbado, como extensão? Ou só é registrável depois de quitada a primeira dívida? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Nulo", "Registra já; eficaz depois", "Averbação, como extensão", "Só depois da quitação"],
+      "passos": ["É alienação fiduciária da **propriedade superveniente**.", "Registro **desde a celebração**; eficácia após o cancelamento da anterior.", "Extensão não serve: exige o **mesmo credor**."],
+      "lei": "Lei 9.514/97, art. 22, § 3º",
+      "fala": "{1}Letra B. {2}É a alienação fiduciária da propriedade superveniente. {3}Ela é registrada desde a celebração, e fica eficaz quando a primeira for cancelada. {4}A extensão não serviria, porque exige o mesmo credor. {5}Artigo vinte e dois, parágrafo terceiro." },
+    { "tipo": "lista", "check": true, "icone": "escudo", "rotulo": "Resumo da aula", "titulo": "Leve para a [[prova]]", "tl": 40,
+      "itens": [
+        "Superveniente: registra já, eficaz depois; pode ser outro credor",
+        "Extensão: averbação, mesmo credor, sem credor diverso",
+        "Atraso em uma dívida pode vencer as demais",
+        "Vários imóveis: ato simultâneo ou atos sucessivos",
+        "Hipoteca extrajudicial: só com previsão expressa no título"
+      ],
+      "fala": "Resumo. {1}Superveniente: registra já, eficaz depois, e pode ser com outro credor. {2}Extensão: averbação, mesmo credor, sem credor diverso. {3}O atraso em uma dívida pode vencer as demais. {4}Com vários imóveis, a execução é simultânea ou sucessiva. {5}E a hipoteca só vai ao leilão extrajudicial com previsão expressa no título." },
+    { "tipo": "fecho", "icone": "mapa", "titulo": "[[Loteamento]] e desmembramento", "ts": 124,
+      "texto": "Lei 6.766/79: da gleba ao lote.",
+      "fala": "Na próxima aula, mudamos de assunto: loteamento e desmembramento. Como uma gleba vira lote, e o que o cartório exige para registrar." }
+  ]
+}

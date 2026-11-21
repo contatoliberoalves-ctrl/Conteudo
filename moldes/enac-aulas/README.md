@@ -3,7 +3,7 @@
 Aulas curtas em vídeo (1920×1080, MP4) com slides animados e narração na voz clonada do Líbero (ElevenLabs). Identidade do Cartório com Líbero: navy, azul, dourado, Big Shoulders.
 
 - `aulas.mjs`: o motor. `node aulas.mjs <arquivo.json ou pasta> [id,id]` → `saida/<id>.mp4`.
-- `aulas/aula-NN.json`: um roteiro por aula (Registro de Imóveis, aulas 1 a 10).
+- `aulas/aula-NN.json`: um roteiro por aula (Registro de Imóveis, aulas 1 a 20).
 - `modelos.json`: as três amostras de formato (A Quadro, B Caso na matrícula, C Questão comentada). O aprovado para a série é o A, com cenas dos outros dois dentro.
 - `pesquisa-ri.md`: edital, o que já caiu no ENAC e lista de temas.
 

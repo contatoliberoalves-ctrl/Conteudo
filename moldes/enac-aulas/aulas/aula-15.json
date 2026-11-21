@@ -1,0 +1,76 @@
+{
+  "id": "ri-15-alienacao-fiduciaria-inadimplemento",
+  "n": 15,
+  "tema": "navy",
+  "cenas": [
+    { "tipo": "capa", "icone": "relogio", "rotulo": "Registro de Imóveis · Aula 15", "titulo": ["O devedor", "[[não pagou]]"], "ts": 180,
+      "texto": "Alienação fiduciária, parte 2. Lei 9.514/97, arts. 26 a 30.",
+      "fala": "Na aula passada, tudo deu certo: a dívida foi paga e o imóvel voltou para o devedor. Agora, o outro lado. O devedor parou de pagar. O que acontece com o imóvel? Tudo se resolve dentro do Registro de Imóveis, sem processo judicial, e cada etapa tem um prazo que a banca adora." },
+    { "tipo": "fluxo", "rotulo": "Visão geral", "titulo": "As quatro [[etapas]]",
+      "passos": [
+        { "icone": "balao", "nome": "Intimação", "tag": "15 dias", "texto": "Para o devedor purgar a mora." },
+        { "icone": "carimbo", "nome": "Consolidação", "texto": "A propriedade se consolida em nome do credor." },
+        { "icone": "pessoas", "nome": "1º leilão", "tag": "60 dias", "texto": "Contados da consolidação." },
+        { "icone": "pessoas", "nome": "2º leilão", "tag": "15 dias", "texto": "Se o primeiro não alcançar o valor do imóvel." }
+      ],
+      "fala": "São quatro etapas. {1}A intimação do devedor, que tem quinze dias para purgar a mora, isto é, pagar o atrasado. {2}Sem pagamento, a consolidação da propriedade em nome do credor. {3}O primeiro leilão, em até sessenta dias. {4}E, se necessário, o segundo leilão, nos quinze dias seguintes." },
+    { "tipo": "lista", "icone": "balao", "rotulo": "Lei 9.514/97, art. 26", "titulo": "A [[intimação]]",
+      "itens": [
+        ["Quem pede", "O credor fiduciário, depois do prazo de **carência** do contrato."],
+        ["Quem intima", "O **oficial do Registro de Imóveis**."],
+        ["Quem é intimado", "O devedor e, se houver, o terceiro fiduciante."],
+        ["Para quê", "Pagar em **15 dias** as parcelas vencidas, os encargos e as despesas."]
+      ],
+      "fala": "Primeira etapa: a intimação. {1}Quem pede é o credor, depois do prazo de carência do contrato. Se o contrato não fixar carência, ela é de quinze dias. {2}Quem intima é o oficial do Registro de Imóveis. {3}São intimados o devedor e o terceiro que deu o imóvel em garantia, se houver. {4}E o prazo para pagar o atrasado, com encargos e despesas, é de quinze dias." },
+    { "tipo": "trio", "rotulo": "Art. 26, §§ 3º a 4º", "titulo": "E se o devedor [[se esconder]]?",
+      "itens": [
+        { "icone": "pessoas", "nome": "Pessoal", "apelido": "A regra", "texto": "Pelo oficial de imóveis, pelo Registro de Títulos e Documentos ou pelo correio, com aviso de recebimento.", "lei": "§ 3º" },
+        { "icone": "relogio", "nome": "Hora certa", "apelido": "Suspeita de ocultação", "texto": "Depois de **duas** tentativas. Em condomínio, pode ser entregue na **portaria**.", "lei": "§§ 3º-A e 3º-B" },
+        { "icone": "globo", "nome": "Edital", "apelido": "Local ignorado", "texto": "Publicado por, no mínimo, **3 dias**.", "lei": "§ 4º" }
+      ],
+      "fala": "E se o devedor se esconder? {1}A regra é a intimação pessoal, feita pelo oficial de imóveis, pelo Registro de Títulos e Documentos ou pelo correio. {2}Depois de duas tentativas, com suspeita de ocultação, cabe a intimação por hora certa. E, em condomínio, ela pode ser entregue ao funcionário da portaria. {3}Se o devedor está em local ignorado, a intimação é por edital." },
+    { "tipo": "lei", "fonte": "Lei 9.514/97, art. 26, § 7º", "ts": 44, "texto": "Decorrido o prazo (...) sem a purgação da mora, o oficial do competente Registro de Imóveis, certificando esse fato, promoverá a **averbação**, na matrícula do imóvel, da **consolidação da propriedade** em nome do fiduciário, à vista da prova do pagamento por este, do **imposto de transmissão** inter vivos e, se for o caso, do laudêmio.",
+      "traducao": "Consolidação é **averbação**. E quem paga o ITBI é o **credor**.",
+      "fala": "Não pagou em quinze dias? O oficial certifica e promove a averbação da consolidação da propriedade em nome do credor. {1}Dois detalhes para a prova. Consolidação é averbação, não registro. E quem paga o imposto de transmissão, nesse momento, é o credor." },
+    { "tipo": "compara", "rotulo": "Lei 9.514/97, art. 27", "titulo": "Os dois [[leilões]]", "col": 280, "tl": 34,
+      "a": { "nome": "1º leilão", "icone": "pessoas" }, "b": { "nome": "2º leilão", "icone": "pessoas" },
+      "linhas": [
+        ["Quando", "Em **60 dias** da consolidação", "Nos **15 dias** seguintes ao primeiro"],
+        ["Lance mínimo", "O **valor do imóvel** fixado no contrato", "A **dívida** mais despesas e encargos"],
+        ["Se não alcançar", "Faz-se o segundo leilão", "O credor pode aceitar lance de, ao menos, **metade da avaliação**"]
+      ],
+      "fala": "Consolidada a propriedade, vêm os leilões. {1}O primeiro, em sessenta dias. O segundo, nos quinze dias seguintes. {2}No primeiro, o lance mínimo é o valor do imóvel fixado no contrato. No segundo, é o valor da dívida, mais despesas e encargos. {3}E, se nem isso for alcançado no segundo, o credor pode aceitar, a seu critério, lance de pelo menos metade do valor de avaliação." },
+    { "tipo": "trio", "rotulo": "O dinheiro do leilão", "titulo": "Sobrou ou [[faltou]]?",
+      "itens": [
+        { "icone": "moeda", "nome": "Sobrou", "apelido": "Devolve ao devedor", "texto": "O credor entrega o que sobejar em **5 dias**.", "lei": "Art. 27, § 4º" },
+        { "icone": "balao", "nome": "Faltou", "apelido": "A dívida continua", "texto": "O devedor responde pelo **saldo remanescente**.", "lei": "Art. 27, § 5º-A" },
+        { "icone": "casa", "nome": "Exceção", "apelido": "Casa própria", "texto": "No financiamento de imóvel **residencial do devedor**, a dívida é extinta.", "lei": "Art. 26-A, § 4º" }
+      ],
+      "fala": "E o dinheiro do leilão? {1}Se sobrar, o credor entrega a diferença ao devedor em cinco dias. {2}Se faltar, o devedor continua obrigado pelo saldo. {3}Com uma exceção importante: no financiamento para compra ou construção do imóvel residencial do devedor, se o segundo leilão não alcançar o mínimo, a dívida é considerada extinta." },
+    { "tipo": "lista", "icone": "escudo", "rotulo": "As chances do devedor", "titulo": "Ainda dá para [[salvar]] o imóvel?",
+      "itens": [
+        ["Purgar a mora", "Nos 15 dias da intimação."],
+        ["Financiamento residencial", "Pagar o atrasado **até a averbação** da consolidação, que só ocorre 30 dias depois do prazo."],
+        ["Direito de preferência", "Depois da consolidação e **até o segundo leilão**, comprar o imóvel pelo valor da dívida e das despesas."]
+      ],
+      "fala": "O devedor ainda consegue salvar o imóvel? Tem três chances. {1}Purgar a mora nos quinze dias da intimação. {2}No financiamento residencial, pagar o atrasado até a averbação da consolidação, que só acontece trinta dias depois do fim do prazo. {3}E, mesmo depois de consolidada a propriedade, ele tem direito de preferência para comprar o imóvel, até a data do segundo leilão, pelo valor da dívida e das despesas." },
+    { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "E para tirar o devedor do [[imóvel]]?", "ts": 108, "errado": "Despejo, com prazo de 30 dias", "certo": "Reintegração de posse, liminar, 60 dias",
+      "porque": "Consolidada a propriedade, o credor ou o arrematante têm **reintegração de posse** liminar, para desocupação em **60 dias** (art. 30).",
+      "fala": "{1}Pegadinha. Como o credor, ou quem arrematou, tira o antigo devedor do imóvel? Não é despejo. É reintegração de posse, concedida liminarmente, para desocupação em sessenta dias. {2}Basta comprovar a consolidação da propriedade." },
+    { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+      "enunciado": "Intimado pelo oficial do Registro de Imóveis, o devedor fiduciante **não purga a mora** no prazo legal. O ato a ser praticado na matrícula é:",
+      "alternativas": ["o registro da adjudicação ao credor", "a averbação da consolidação da propriedade, com prova do ITBI", "o cancelamento da alienação fiduciária", "a averbação da penhora do imóvel"],
+      "fala": "Vamos treinar. O devedor foi intimado pelo oficial e não purgou a mora no prazo. Qual ato é praticado na matrícula? {1}Registro da adjudicação ao credor? Averbação da consolidação da propriedade, com prova do ITBI? Cancelamento da alienação fiduciária? Ou averbação da penhora? Pense três segundos." },
+    { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+      "alternativas": ["Registro da adjudicação", "Averbação da consolidação", "Cancelamento da garantia", "Averbação da penhora"],
+      "passos": ["Sem purgação, a propriedade se **consolida** no credor.", "O ato é de **averbação**.", "E depende da prova do **ITBI** pago pelo credor."],
+      "lei": "Lei 9.514/97, art. 26, § 7º",
+      "fala": "{1}Letra B. {2}Sem purgação da mora, a propriedade se consolida em nome do credor. {3}O ato é de averbação. {4}E depende da prova do pagamento do imposto de transmissão pelo credor. {5}Artigo vinte e seis, parágrafo sétimo." },
+    { "tipo": "bolso", "rotulo": "Os números da aula", "ts": 100, "col": 420,
+      "linhas": [["15 dias", "purgar a [[mora]]"], ["60 dias", "primeiro [[leilão]]"], ["15 dias", "segundo [[leilão]]"], ["60 dias", "[[desocupar]] o imóvel"]],
+      "fala": "Os números da aula: {1}quinze dias para purgar a mora. {2}Sessenta para o primeiro leilão. {3}Quinze para o segundo. {4}E sessenta para desocupar o imóvel." },
+    { "tipo": "fecho", "icone": "raio", "titulo": "Marco das [[Garantias]]", "ts": 150,
+      "texto": "Lei 14.711/2023: o que mudou e o que já caiu.",
+      "fala": "Na próxima aula: o Marco das Garantias, de dois mil e vinte e três. Um mesmo imóvel garantindo várias dívidas. Caiu nas três edições do Enac." }
+  ]
+}
