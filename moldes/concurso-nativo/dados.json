@@ -861,5 +861,212 @@
     ]
    }
   ]
+ },
+ {
+  "id": "enam-div-320",
+  "titulo": "ENAM 2026.2: fiz 320 dicas (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "texto": "Fiz 320 dicas\npro ENAM 2026.2",
+      "y": 830,
+      "cor": "amarelo",
+      "tam": 80,
+      "estilo": "forte"
+     },
+     {
+      "texto": "No peso de cada disciplina\ndo edital. Link na bio.",
+      "y": 1050,
+      "cor": "branco",
+      "tam": 44
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-centavos",
+  "titulo": "ENAM 2026.2: menos de 16 centavos por dica (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Menos de 16 centavos\npor dica",
+      "y": 800,
+      "cor": "amarelo",
+      "tam": 74,
+      "estilo": "forte"
+     },
+     {
+      "texto": "R$ 49,99 ÷ 320 dicas.\nE todas explicadas na Parte 2.",
+      "y": 990,
+      "cor": "branco",
+      "tam": 44
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas ENAM",
+      "y": 1150
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-quiz",
+  "titulo": "ENAM 2026.2: quiz da modulação (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-mesa.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.1,
+    "elementos": [
+     {
+      "texto": "Pegadinha de ENAM:",
+      "y": 680,
+      "cor": "escuro",
+      "tam": 66,
+      "estilo": "forte"
+     },
+     {
+      "tipo": "quiz",
+      "pergunta": "Modulação de efeitos em ADI exige qual quórum?",
+      "opcoes": [
+       "Maioria absoluta",
+       "Dois terços"
+      ],
+      "certa": 1,
+      "revelar": true,
+      "y": 790,
+      "escala": 0.85
+     },
+     {
+      "texto": "Lei 9.868/1999, art. 27.\nDica 16 de 320.",
+      "y": 1210,
+      "cor": "branco",
+      "tam": 40
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-caixinha",
+  "titulo": "ENAM 2026.2: caixinha de perguntas (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-notebook.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.2,
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual disciplina mais te assusta no ENAM?",
+      "y": 800
+     },
+     {
+      "texto": "Responde nos comentários.",
+      "y": 1080,
+      "cor": "branco",
+      "tam": 46
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-ja-caiu",
+  "titulo": "ENAM 2026.2: temas que já caíram (post nativo)",
+  "slides": [
+   {
+    "foto": "libero-bracos2.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "59 dicas em temas\nque já caíram na 2026.1",
+      "y": 800,
+      "cor": "amarelo",
+      "tam": 68,
+      "estilo": "forte"
+     },
+     {
+      "texto": "Cada uma marcada com a\nquestão da prova.",
+      "y": 1000,
+      "cor": "branco",
+      "tam": 44
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas ENAM",
+      "y": 1150
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-story-centavos",
+  "titulo": "ENAM 2026.2: story 16 centavos por dica",
+  "formato": "stories",
+  "slides": [
+   {
+    "foto": "libero-paleto.jpg",
+    "fotoPos": "center 25%",
+    "escurecer": 0.25,
+    "elementos": [
+     {
+      "texto": "Menos de 16 centavos\npor dica",
+      "y": 1100,
+      "cor": "amarelo",
+      "tam": 80,
+      "estilo": "forte"
+     },
+     {
+      "texto": "320 dicas pro ENAM 2026.2\npor R$ 49,99",
+      "y": 1380,
+      "cor": "branco",
+      "tam": 48
+     },
+     {
+      "tipo": "link",
+      "texto": "Revisão em Dicas ENAM",
+      "y": 1580
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "enam-div-story-caixinha",
+  "titulo": "ENAM 2026.2: story caixinha",
+  "formato": "stories",
+  "slides": [
+   {
+    "foto": "libero-bracos.jpg",
+    "fotoPos": "center 20%",
+    "escurecer": 0.15,
+    "elementos": [
+     {
+      "tipo": "pergunta",
+      "titulo": "Qual disciplina mais te assusta no ENAM?",
+      "y": 1150
+     },
+     {
+      "texto": "Eu respondo com uma dica dela.",
+      "y": 1480,
+      "cor": "branco",
+      "tam": 46
+     }
+    ]
+   }
+  ]
  }
 ]

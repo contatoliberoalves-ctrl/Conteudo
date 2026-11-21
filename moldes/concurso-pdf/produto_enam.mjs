@@ -334,6 +334,110 @@ add('kiwify', 'checkout-topo-1320x300', 1320, 300, tela(1320, 300, `radial-gradi
   ${apostila(pg('enam2', 1), 165, 5, 'left:1105px;top:52px')}
   <div style="position:absolute;left:56px;bottom:26px;${I};font-weight:500;font-size:15px;color:rgba(185,255,241,.7)">Líbero Filho <span style="opacity:.5;margin:0 6px">|</span> Concurso com Líbero</div>`), false, 2);
 
+// ================================================ DIVULGAÇÃO · TELAS ÚNICAS (1080×1350) ===========================
+// Criativos avulsos para tráfego e feed: um gancho por peça, a regra vem das dicas do material.
+const fim = (escuro = true, txt = '1 das 320 dicas do material') => `<div style="position:absolute;left:72px;right:72px;bottom:140px;display:flex;align-items:center;justify-content:space-between;gap:30px">
+  <div><div style="${MO};font-weight:700;font-size:21px;letter-spacing:.08em;color:${escuro ? COR.menta : COR.verde2};text-transform:uppercase;margin-bottom:8px">${txt}</div>${preco(88, escuro)}</div>${cta('Link na bio', 28)}</div>${rodape(escuro)}`;
+const caixa = (t, cor, px = 64) => `<span style="flex:none;width:${px}px;height:${px}px;border-radius:${px * .26}px;background:${cor};display:grid;place-items:center">${t}</span>`;
+const vis = px => `<svg width="${px * .55}" height="${px * .55}" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const xis = px => `<svg width="${px * .5}" height="${px * .5}" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/></svg>`;
+
+// 1. Certo ou errado (PEC)
+add('divulgacao', '01-certo-ou-errado', 1080, 1350, tela(1080, 1350, COR.papel, `
+  <div style="position:absolute;left:72px;right:72px;top:80px">${rot('ENAM 2026.2 · Constitucional', false)}${titulo('Certo ou<br><span style="color:#00A651">errado?</span>', 150, false)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:440px;background:#fff;border:2px solid ${COR.linha};border-radius:34px;padding:52px 56px;box-shadow:0 30px 60px -30px rgba(6,32,28,.35)">
+    <div style="${I};font-weight:800;font-size:58px;line-height:1.18;color:${COR.tinta}">“Aprovada nas duas Casas, a PEC vai à sanção do Presidente.”</div>
+    <div style="display:flex;gap:18px;margin-top:44px">${['Certo', 'Errado'].map(t => `<span style="flex:1;text-align:center;${S};font-weight:800;font-size:34px;color:${COR.tinta};border:2.5px solid ${COR.linha};border-radius:999px;padding:20px 0">${t}</span>`).join('')}</div></div>
+  <div style="position:absolute;left:72px;right:72px;top:930px;${I};font-size:32px;line-height:1.4;color:${COR.cinza}"><b style="color:${COR.tinta}">Errado.</b> PEC não tem sanção: quem promulga são as Mesas da Câmara e do Senado (CF, art. 60, § 3º).</div>
+  ${fim(false)}`, false));
+
+// 2. Os três quóruns da ADI (dica 016)
+add('divulgacao', '02-quoruns-adi', 1080, 1350, tela(1080, 1350, FUNDO, `
+  <div style="position:absolute;left:72px;right:72px;top:96px">${rot('ENAM 2026.2 · Controle de constitucionalidade')}${titulo('ADI tem<br>3 quóruns.<br><span style="color:#B9FFF1">Não misture.</span>', 128)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:620px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+    ${[['8', 'ministros presentes', 'pra julgar'], ['6', 'votos', 'pra declarar'], ['2/3', 'dos ministros', 'pra modular (art. 27)']].map(([n, a, b]) => `<div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.16);border-radius:28px;padding:30px 26px;height:330px;display:flex;flex-direction:column;justify-content:space-between">
+      <div style="${T};font-size:150px;color:#00A651;line-height:.8">${n}</div><div><div style="${I};font-weight:800;font-size:30px;color:#fff;line-height:1.2">${a}</div><div style="${I};font-size:26px;color:rgba(255,255,255,.7);margin-top:6px">${b}</div></div></div>`).join('')}</div>
+  <div style="position:absolute;left:72px;right:72px;top:985px;${MO};font-weight:700;font-size:22px;color:rgba(185,255,241,.75)">Lei 9.868/1999, arts. 22, 23 e 27</div>
+  ${fim()}`));
+
+// 3. Mapa da prova
+const tot = mapa.reduce((s, m) => s + m.questoes, 0);
+const curto = m => m.replace('Noções Gerais de Direito e Formação Humanística', 'Noções gerais e formação humanística').replace('Direito Processual Civil', 'Processo Civil').replace('Direito ', '');
+add('divulgacao', '03-mapa-da-prova', 1080, 1350, tela(1080, 1350, COR.papel, `
+  <div style="position:absolute;left:72px;right:72px;top:90px">${rot('ENAM 2026.2 · Edital, item 8.6', false)}${titulo(`Onde estão as<br><span style="color:#00A651">${tot} questões</span>`, 116, false)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:390px;display:flex;flex-direction:column;gap:10px">
+    ${[...mapa].sort((a, b) => b.questoes - a.questoes).map(m => `<div style="display:grid;grid-template-columns:400px 1fr 70px;align-items:center;gap:20px">
+      <span style="${I};font-weight:700;font-size:27px;color:${COR.tinta};line-height:1.15">${curto(m.materia)}</span>
+      <span style="height:34px;border-radius:10px;background:${COR.linha};overflow:hidden"><span style="display:block;height:100%;width:${m.questoes / 16 * 100}%;background:#00A651;border-radius:10px"></span></span>
+      <span style="${T};font-size:52px;color:${COR.tinta};text-align:right;line-height:1">${m.questoes}</span></div>`).join('')}</div>
+  <div style="position:absolute;left:72px;right:72px;top:975px;${I};font-size:30px;line-height:1.4;color:${COR.cinza}">No material: <b style="color:${COR.tinta}">4 dicas por questão = 320 dicas</b>.</div>
+  ${fim(false, 'Revisão em Dicas ENAM 2026.2')}`, false));
+
+// 4. Temas que já caíram na 2026.1
+const comT = D1.filter(d => d.t).length;
+const mini = (n, cor) => { const d = dica(n); return `<div style="background:#fff;border-radius:24px;padding:26px 30px;box-shadow:0 24px 50px -24px rgba(0,0,0,.5)">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px"><span style="${MO};font-weight:800;font-size:19px;letter-spacing:.06em;color:${COR.petroleo2};background:#00A651;border-radius:8px;padding:5px 12px">CAIU NA 2026.1 · ${d.t}</span><span style="${MO};font-weight:700;font-size:19px;color:${COR.cinza}">dica ${tres(n)}</span></div>
+  <div style="${I};font-weight:800;font-size:31px;line-height:1.25;color:${COR.tinta}">${esc(d.d)}</div></div>`; };
+add('divulgacao', '04-ja-caiu', 1080, 1350, tela(1080, 1350, FUNDO, `
+  <div style="position:absolute;left:72px;right:72px;top:96px">${rot('ENAM 2026.2 · Revisão em dicas')}${titulo(`${comT} dicas<br>em temas que<br><span style="color:#B9FFF1">já caíram</span>`, 124)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:560px;display:flex;flex-direction:column;gap:20px">${mini(49)}${mini(276)}${mini(114)}</div>
+  ${fim(true, 'Marcadas com a questão da prova 2026.1')}`));
+
+// 5. Centavos por dica
+add('divulgacao', '05-centavos', 1080, 1350, tela(1080, 1350, FUNDO, `
+  <div style="position:absolute;left:72px;right:72px;top:110px">${rot('ENAM 2026.2 · Revisão em dicas')}
+    <div style="${S};font-weight:700;font-size:44px;color:rgba(255,255,255,.85)">Menos de</div>
+    <div style="${T};font-size:440px;color:#00A651;line-height:.82;margin-top:10px">16¢</div>
+    <div style="${T};font-size:104px;color:#fff;margin-top:6px">por dica</div></div>
+  <div style="position:absolute;left:72px;right:72px;top:860px;${I};font-size:32px;line-height:1.45;color:rgba(255,255,255,.82)">R$ 49,99 ÷ 320 dicas = R$ 0,156. Cada uma com fundamento, e todas explicadas na Parte 2.</div>
+  ${fim(true, 'Parte 1 + Parte 2')}`));
+
+// 6. Nota do iPhone
+const linhaNota = (t, feito) => `<div style="display:flex;gap:20px;align-items:flex-start;padding:22px 0"><span style="flex:none;width:46px;height:46px;border-radius:50%;margin-top:2px;${feito ? 'background:#E9A800;display:grid;place-items:center' : 'border:2.5px solid #C7C7CC'}">${feito ? `<svg width="22" height="22" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>` : ''}</span><span style="font-family:-apple-system,'Inter',sans-serif;font-size:42px;line-height:1.3;color:${feito ? '#8E8E93' : '#1C1C1E'};${feito ? 'text-decoration:line-through' : ''}">${t}</span></div>`;
+add('divulgacao', '06-nota-vespera', 1080, 1350, tela(1080, 1350, '#ECE7DA', `
+  <div style="position:absolute;left:60px;right:60px;top:70px;bottom:250px;background:#FFFFFF;border-radius:44px;box-shadow:0 40px 80px -40px rgba(0,0,0,.35);padding:44px 56px;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;font-family:-apple-system,'Inter',sans-serif;font-size:32px;color:#E9A800;font-weight:600"><span>‹ Notas</span><span>OK</span></div>
+    <div style="font-family:-apple-system,'Inter',sans-serif;font-weight:800;font-size:70px;color:#1C1C1E;margin:44px 0 6px">Véspera do ENAM</div>
+    <div style="font-family:-apple-system,'Inter',sans-serif;font-size:32px;color:#8E8E93;margin-bottom:24px">revisar o que mais cai</div>
+    ${linhaNota('PEC: 3/5, dois turnos, sem sanção', true)}${linhaNota('ADI: 8 presentes · 6 votos · 2/3', true)}${linhaNota('Imunidade (CF) x isenção (lei)', true)}${linhaNota('Tempo do crime: teoria da atividade', false)}${linhaNota('Recurso adm. sem caução (SV 21)', false)}${linhaNota('Mais 315 regras…', false)}
+  </div>
+  <div style="position:absolute;left:72px;right:72px;bottom:110px;display:flex;align-items:center;justify-content:space-between"><div>${rot('320 dicas prontas · R$ 49,99', false)}${marca(30, false)}</div>${cta('Link na bio', 28)}</div>`, false));
+
+// 7. Comentário respondido
+const avatar = (px, txt, cor) => `<span style="flex:none;width:${px}px;height:${px}px;border-radius:50%;background:${cor};display:grid;place-items:center;${S};font-weight:800;font-size:${px * .4}px;color:#fff">${txt}</span>`;
+add('divulgacao', '07-comentario', 1080, 1350, tela(1080, 1350, COR.papel, `
+  <div style="position:absolute;left:72px;right:72px;top:230px">${rot('Pergunta que mais recebo', false)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:300px;background:#fff;border-radius:34px;padding:44px 46px;box-shadow:0 30px 60px -30px rgba(6,32,28,.35)">
+    <div style="display:flex;gap:22px">${avatar(84, 'M', '#8A8F9C')}<div><div style="${I};font-size:28px;color:${COR.cinza}"><b style="color:${COR.tinta}">futura.magistrada</b> · 2 h</div>
+      <div style="${I};font-weight:600;font-size:46px;line-height:1.25;color:${COR.tinta};margin-top:10px">Dá tempo de revisar tudo pro ENAM?</div>
+      <div style="${I};font-size:26px;color:${COR.cinza};margin-top:14px">Responder</div></div></div>
+    <div style="display:flex;gap:20px;margin:40px 0 0 106px">${simbolo(70)}<div><div style="${I};font-size:26px;color:${COR.cinza}"><b style="color:${COR.tinta}">concursocomlibero</b> · autor</div>
+      <div style="${I};font-size:38px;line-height:1.35;color:${COR.tinta};margin-top:10px">Relendo lei seca, não. O que mais cai, sim: separei <b>320 dicas</b> no peso de cada disciplina do edital, com o fundamento de cada uma.</div></div></div></div>
+  ${fim(false, 'Revisão em Dicas ENAM 2026.2')}`, false));
+
+// 8. Teste de 10 segundos
+const af = [['Imunidade tributária decorre de lei.', 'E'], ['O tempo do crime segue a teoria da atividade.', 'C'], ['Lei municipal pode ser objeto de ADI no STF.', 'E']];
+add('divulgacao', '08-teste-10-segundos', 1080, 1350, tela(1080, 1350, FUNDO, `
+  <div style="position:absolute;left:72px;right:72px;top:96px">${rot('ENAM 2026.2 · Valendo')}${titulo('Teste de<br><span style="color:#B9FFF1">10 segundos</span>', 140)}
+  <div style="${I};font-size:32px;color:rgba(255,255,255,.8);margin-top:24px">Certo ou errado? Responde antes de olhar o gabarito.</div></div>
+  <div style="position:absolute;left:72px;right:72px;top:470px;display:flex;flex-direction:column;gap:16px">
+    ${af.map(([t], i) => `<div style="display:flex;gap:26px;align-items:center;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.16);border-radius:26px;padding:26px 34px"><span style="${T};font-size:76px;color:#00A651;width:50px;line-height:.9">${i + 1}</span><span style="${I};font-weight:700;font-size:37px;line-height:1.25;color:#fff">${t}</span></div>`).join('')}</div>
+  <div style="position:absolute;left:72px;right:72px;top:960px;display:flex;align-items:center;gap:16px"><span style="${MO};font-weight:800;font-size:22px;letter-spacing:.1em;color:${COR.menta}">GABARITO</span><span style="${MO};font-weight:800;font-size:26px;color:#fff;transform:rotate(180deg);display:inline-block">${af.map(([, g], i) => `${i + 1}${g}`).join(' · ')}</span></div>
+  ${fim(true, 'São 3 das 320 dicas')}`));
+
+// 9. Pra quem é
+add('divulgacao', '09-pra-quem-e', 1080, 1350, tela(1080, 1350, COR.papel, `
+  <div style="position:absolute;left:72px;right:72px;top:96px">${rot('ENAM 2026.2 · Revisão em dicas', false)}${titulo('É pra você<br><span style="color:#00A651">se…</span>', 140, false)}</div>
+  <div style="position:absolute;left:72px;right:72px;top:470px;display:flex;flex-direction:column;gap:30px">
+    ${['estudou o conteúdo e agora precisa revisar rápido;', 'não tem tempo de reler a CF e os códigos inteiros;', 'confunde prazo, quórum e exceção na hora da prova;', 'quer saber o fundamento sem abrir 10 leis;', 'gosta de ler a explicação quando fica na dúvida.'].map(t => check(t, false, 38)).join('')}</div>
+  ${fim(false, 'Parte 1 + Parte 2 · 320 dicas')}`, false));
+
+// 10. Manchete com o material
+add('divulgacao', '10-manchete', 1080, 1350, tela(1080, 1350, FUNDO, `
+  <div style="position:absolute;left:72px;right:72px;top:90px;text-align:center">${rot('ENAM 2026.2')}${titulo('A revisão da<br>prova inteira<br><span style="color:#B9FFF1">em 2 PDFs</span>', 124)}</div>
+  <div style="position:absolute;left:242px;top:480px">${mockup(340, { internas: false })}</div>
+  ${fim(true, '320 dicas · 8 disciplinas')}`));
+
 // ============================================================= SITE ========================================
 add('site', 'mockup', 875, 800, `<div class="peca" style="width:875px;height:800px">${mockup(500)}</div>`, true);
 add('site', 'og', 1200, 630, banner(1200, 630, 1));
