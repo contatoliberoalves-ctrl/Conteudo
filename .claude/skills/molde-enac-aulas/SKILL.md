@@ -14,3 +14,7 @@ Pasta: `moldes/enac-aulas/`. Leia o `README.md` de lá (campos de cada cena) e u
 5. Prévia (gera a voz e um painel por aula em `saida/previa/`, avisa o que sai da área): `PREVIEW=1 CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node aulas.mjs aulas <id>`. Olhe o painel e a duração.
 6. Vídeo final: o mesmo comando sem `PREVIEW`. Saída em `saida/<id>.mp4` (fora do git). A voz fica em cache em `build/voz/`: só o texto alterado gasta cota de novo.
 7. Envie os MP4 ao usuário e faça commit dos roteiros.
+
+## Revisões longas (15 min)
+
+Além das aulas curtas, há revisões de matéria em vídeos de cerca de 15 minutos, em `moldes/enac-aulas/revisoes/` (Tabelionato de Protesto, em 3 vídeos; pesquisa do que caiu em `pesquisa-protesto.md`). Mesmo motor e mesmas cenas: `node aulas.mjs revisoes [id]`. Cada vídeo tem de 35 a 40 cenas e de 12 a 13,5 mil caracteres de fala, dividido em partes com uma cena `capa` por parte (`rotulo: "Parte 2"`), duas ou três questões e, no último, uma revisão relâmpago dos números (`bolso`). Use `faixa` para o texto do canto superior direito ("Protesto · Revisão ENAC · Vídeo 1 de 3").

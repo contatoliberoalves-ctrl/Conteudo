@@ -194,9 +194,9 @@ const CENAS = {
           <div style="font-size:36px;line-height:1.36;color:var(--ink);margin-top:14px">${rico(s.lei.texto)}</div></div>` : ''}</div>
       <div style="background:#FFFDF7;border-radius:10px;padding:40px 48px 30px;box-shadow:0 30px 70px rgba(15,26,46,.22),0 0 0 2px rgba(15,26,46,.1);min-height:760px;${an('sobe', .7, t0 + .35)}">
         <div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:5px double #0F1A2E;padding-bottom:16px">
-          <div><div style="font-weight:700;font-size:19px;letter-spacing:.14em;white-space:nowrap;color:#6B7690">REGISTRO DE IMÓVEIS · LIVRO 2 · REGISTRO GERAL</div><div class="tit" style="font-size:66px;color:#0F1A2E;margin-top:6px">Matrícula nº ${esc(s.numero)}</div></div>
-          <div style="font-weight:700;font-size:19px;letter-spacing:.14em;white-space:nowrap;color:#6B7690">FICHA 01</div></div>
-        <div style="font-family:'Source Serif 4',serif;font-size:27px;line-height:1.35;color:#3A4660;padding:16px 0"><b>IMÓVEL:</b> <span style="--ink:#0F1A2E">${rico(s.imovel)}</span></div>
+          <div><div style="font-weight:700;font-size:19px;letter-spacing:.14em;white-space:nowrap;color:#6B7690">${esc(s.doc?.topo || 'REGISTRO DE IMÓVEIS · LIVRO 2 · REGISTRO GERAL')}</div><div class="tit" style="font-size:66px;color:#0F1A2E;margin-top:6px">${esc(s.doc?.nome || 'Matrícula nº ' + s.numero)}</div></div>
+          <div style="font-weight:700;font-size:19px;letter-spacing:.14em;white-space:nowrap;color:#6B7690">${esc(s.doc?.ficha ?? 'FICHA 01')}</div></div>
+        <div style="font-family:'Source Serif 4',serif;font-size:27px;line-height:1.35;color:#3A4660;padding:16px 0"><b>${esc(s.doc?.rotulo || 'IMÓVEL')}:</b> <span style="--ink:#0F1A2E">${rico(s.imovel)}</span></div>
         ${s.atos.map(a => ato(a, a.em ? r(a.em) : t0 + .9)).join('')}</div></div>`;
   },
   bolso(s, t0, r) {

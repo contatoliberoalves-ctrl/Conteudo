@@ -1,0 +1,584 @@
+{
+ "id": "protesto-revisao-1-do-titulo-a-intimacao",
+ "tema": "navy",
+ "faixa": "Protesto · Revisão ENAC · Vídeo 1 de 3",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "carimbo",
+   "rotulo": "Protesto · Revisão ENAC · 1 de 3",
+   "titulo": [
+    "Protesto:",
+    "do título à",
+    "[[intimação]]"
+   ],
+   "ts": 160,
+   "texto": "Lei 9.492/97 e Código Nacional de Normas do CNJ.",
+   "fala": "Esta é uma revisão de Tabelionato de Protesto para o Enac, em três vídeos de quinze minutos. Neste primeiro, você acompanha o título desde a hora em que ele chega ao cartório até a intimação do devedor. No segundo, o que acontece no prazo, a lavratura, os efeitos e o cancelamento. No terceiro, o protesto de hoje: central eletrônica, solução negocial, sentença, dívida ativa e a jurisprudência que cai. Pegue papel e caneta, e vamos começar pelo conceito."
+  },
+  {
+   "tipo": "capa",
+   "icone": "livro",
+   "rotulo": "Parte 1",
+   "titulo": [
+    "O que é",
+    "[[protesto]]"
+   ],
+   "ts": 190,
+   "texto": "Conceito, funções e competência.",
+   "fala": "Parte um: o que é o protesto, para que ele serve, e quem pode fazer."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 1º",
+   "texto": "Protesto é o **ato formal e solene** pelo qual se **prova a inadimplência e o descumprimento de obrigação** originada em **títulos e outros documentos de dívida**.",
+   "traducao": "O protesto não cobra e não executa. Ele **prova**, com fé pública, que a dívida não foi paga.",
+   "fala": "O artigo primeiro da Lei nove mil quatrocentos e noventa e dois traz a definição que você precisa saber de cor: protesto é o ato formal e solene pelo qual se prova a inadimplência e o descumprimento de obrigação originada em títulos e outros documentos de dívida. {1}Repare no verbo. O protesto não cobra e não executa. Ele prova, com fé pública, que a dívida não foi paga. Todo o resto é consequência dessa prova."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Para que serve",
+   "titulo": "As [[funções]] do protesto",
+   "itens": [
+    {
+     "icone": "documento",
+     "nome": "Provar",
+     "apelido": "A inadimplência",
+     "texto": "Ou a falta de aceite, ou a falta de devolução do título.",
+     "lei": "Função probatória"
+    },
+    {
+     "icone": "chave",
+     "nome": "Conservar",
+     "apelido": "Direitos do credor",
+     "texto": "Garante o **regresso** contra coobrigados e **interrompe a prescrição**.",
+     "lei": "Função conservatória"
+    },
+    {
+     "icone": "olho",
+     "nome": "Informar",
+     "apelido": "O mercado de crédito",
+     "texto": "Dá **publicidade** à inadimplência e estimula o pagamento.",
+     "lei": "Função informativa"
+    }
+   ],
+   "fala": "São três funções. {1}A probatória: provar a inadimplência, ou a falta de aceite, ou a falta de devolução do título. {2}A conservatória: o protesto conserva direitos do credor. Ele garante o direito de regresso contra os coobrigados, e interrompe a prescrição, conforme o artigo duzentos e dois, inciso três, do Código Civil. {3}E a informativa: o protesto dá publicidade à inadimplência, e isso estimula o devedor a pagar."
+  },
+  {
+   "tipo": "lista",
+   "icone": "carimbo",
+   "rotulo": "Lei 9.492/97, art. 3º · caiu no 1º ENAC",
+   "titulo": "Competência [[privativa]] do tabelião",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "Protocolizar o título e intimar o devedor",
+    "Acolher a devolução ou o aceite",
+    "Receber o pagamento",
+    "Lavrar e registrar o protesto, ou acatar a desistência",
+    "Averbar, informar e fornecer certidões"
+   ],
+   "fala": "Quem faz tudo isso? O artigo terceiro diz que compete privativamente ao tabelião de protesto: {1}protocolizar o título e intimar o devedor. {2}Acolher a devolução ou o aceite. {3}Receber o pagamento. {4}Lavrar e registrar o protesto, ou acatar a desistência do credor. {5}E fazer averbações, prestar informações e fornecer certidões. A palavra privativamente é a que cai: nenhum outro cartório, e nenhuma empresa de cobrança, pratica esses atos."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "O que pode ser protestado",
+   "titulo": "Não é só título de [[crédito]]",
+   "itens": [
+    {
+     "icone": "caneta",
+     "nome": "Títulos",
+     "apelido": "De crédito",
+     "texto": "Cheque, duplicata, nota promissória, letra de câmbio, cédulas.",
+     "lei": "Lei 9.492, art. 1º"
+    },
+    {
+     "icone": "documento",
+     "nome": "Documentos",
+     "apelido": "De dívida",
+     "texto": "Contratos, confissões de dívida, **sentenças**, encargos de condomínio.",
+     "lei": "Lei 9.492, art. 1º"
+    },
+    {
+     "icone": "predio",
+     "nome": "CDA",
+     "apelido": "Dívida ativa",
+     "texto": "Da União, dos Estados, do DF, dos Municípios e de suas autarquias e fundações.",
+     "lei": "Art. 1º, parágrafo único"
+    }
+   ],
+   "nota": "O filtro do CNJ: prova escrita de obrigação **pecuniária, líquida, certa e exigível** (CNN, art. 356).",
+   "fala": "E o que pode ser protestado? Desde mil novecentos e noventa e sete, não é só título de crédito. {1}Entram os títulos: cheque, duplicata, nota promissória, letra de câmbio. {2}Entram os outros documentos de dívida: contratos, confissões de dívida, sentenças. {3}E entram as certidões de dívida ativa, por expressa previsão do parágrafo único do artigo primeiro. {4}O Código Nacional de Normas dá o filtro: documento hábil a protesto é o que caracteriza prova escrita de obrigação pecuniária, líquida, certa e exigível."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha de prova · caiu no 1º ENAC",
+   "titulo": "Protestar dívida de [[imposto]] é legítimo?",
+   "ts": 100,
+   "errado": "Não: é sanção política contra o contribuinte",
+   "certo": "Sim: está na lei e foi validado pelo STF",
+   "porque": "O protesto da **certidão de dívida ativa** está no parágrafo único do art. 1º da Lei 9.492. O STF o considerou constitucional (ADI 5.135).",
+   "fala": "{1}Primeira pegadinha. Protestar dívida de imposto é legítimo, ou é uma forma de coagir o contribuinte? É legítimo. {2}O protesto da certidão de dívida ativa está na lei, e o Supremo Tribunal Federal o considerou constitucional, como mecanismo legítimo de cobrança, que não restringe de forma desproporcional os direitos do contribuinte."
+  },
+  {
+   "tipo": "capa",
+   "icone": "mapa",
+   "rotulo": "Parte 2",
+   "titulo": [
+    "[[Onde]] se",
+    "protesta"
+   ],
+   "ts": 190,
+   "texto": "Competência territorial e distribuição.",
+   "fala": "Parte dois: onde se protesta. Competência territorial e distribuição."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "CNN (Provimento CNJ 149/2023), art. 356",
+   "ts": 46,
+   "texto": "O documento hábil a protesto (...) [deve] ser lavrado e registrado no lugar da **praça de pagamento** constante das cambiais, dos títulos de crédito ou a indicada nos documentos de dívida, **facultada a opção pelo cartório da comarca do domicílio do devedor**.",
+   "traducao": "Regra: praça de pagamento. Opção do apresentante: domicílio do devedor.",
+   "fala": "A regra geral está no Código Nacional de Normas. O protesto é lavrado no lugar da praça de pagamento que consta do título, facultada a opção pelo cartório da comarca do domicílio do devedor. {1}Então guarde assim: a regra é a praça de pagamento. A opção, que é do apresentante, é o domicílio do devedor. E, se o título não indicar o lugar, o protesto é tirado no endereço do devedor."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Três regras especiais · falimentar caiu no 1º ENAC",
+   "titulo": "Os casos que [[fogem]] da regra",
+   "itens": [
+    {
+     "icone": "caneta",
+     "nome": "Cheque",
+     "apelido": "Pagamento ou emitente",
+     "texto": "No lugar do pagamento **ou** no domicílio do emitente.",
+     "lei": "Lei 9.492, art. 6º"
+    },
+    {
+     "icone": "predio",
+     "nome": "Falimentar",
+     "apelido": "Principal estabelecimento",
+     "texto": "Na comarca do **principal estabelecimento** do devedor.",
+     "lei": "CNN, art. 356-A"
+    },
+    {
+     "icone": "forum",
+     "nome": "Sentença",
+     "apelido": "Domicílio do devedor",
+     "texto": "**Sempre** no tabelionato da comarca de domicílio do devedor.",
+     "lei": "CNN, art. 356-B"
+    }
+   ],
+   "fala": "Três casos têm regra própria. {1}O cheque pode ser protestado no lugar do pagamento, ou no domicílio do emitente. {2}O protesto para fins falimentares é lavrado na comarca do principal estabelecimento do devedor. {3}E o protesto de sentença é feito sempre no tabelionato da comarca de domicílio do devedor. São três trocas fáceis para a banca fazer."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Lei 9.492/97, arts. 7º e 8º",
+   "titulo": "A [[distribuição]]",
+   "passos": [
+    {
+     "icone": "predio",
+     "nome": "Quando existe",
+     "texto": "Só onde houver **mais de um** tabelionato de protesto."
+    },
+    {
+     "icone": "pessoas",
+     "nome": "Quem faz",
+     "texto": "Serviço instalado e mantido **pelos próprios tabelionatos**."
+    },
+    {
+     "icone": "calendario",
+     "nome": "Quando",
+     "tag": "Mesma data",
+     "texto": "Recepção, distribuição e entrega no mesmo dia."
+    },
+    {
+     "icone": "regua",
+     "nome": "Critério",
+     "texto": "**Quantidade e qualidade**: divisão equilibrada."
+    }
+   ],
+   "fala": "E a distribuição? {1}Ela só é obrigatória nas localidades com mais de um tabelionato de protesto. {2}Quem faz é um serviço instalado e mantido pelos próprios tabelionatos, salvo se já existia ofício distribuidor antes da lei. {3}Os títulos são recepcionados, distribuídos e entregues na mesma data. {4}E a divisão obedece aos critérios de quantidade e qualidade, para que nenhum cartório fique só com os títulos grandes."
+  },
+  {
+   "tipo": "capa",
+   "icone": "lupa",
+   "rotulo": "Parte 3",
+   "titulo": [
+    "A [[qualificação]]",
+    "do título"
+   ],
+   "ts": 170,
+   "texto": "Protocolo, exame formal e recusa.",
+   "fala": "Parte três: o título chegou. O que o tabelião examina, e o que ele não pode examinar."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Lei 9.492/97, art. 5º",
+   "titulo": "A [[protocolização]]",
+   "passos": [
+    {
+     "icone": "documento",
+     "nome": "Apresentação",
+     "texto": "No horário regulamentar, direto ou pela distribuição."
+    },
+    {
+     "icone": "relogio",
+     "nome": "Protocolo",
+     "tag": "24 horas",
+     "texto": "Na **ordem cronológica** de entrega."
+    },
+    {
+     "icone": "senha",
+     "nome": "Recibo",
+     "texto": "Com as características do título. Os dados são de responsabilidade do **apresentante**."
+    }
+   ],
+   "nota": "O atendimento ao público é de, no mínimo, **seis horas diárias** (art. 4º).",
+   "fala": "Primeiro passo, a protocolização. {1}O título é apresentado no horário regulamentar. {2}É protocolizado dentro de vinte e quatro horas, obedecendo à ordem cronológica de entrega. {3}E o apresentante recebe um recibo, com as características essenciais do título. Os dados fornecidos são de responsabilidade dele. {4}Um detalhe que vira alternativa: o atendimento ao público é de, no mínimo, seis horas diárias."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 9º · caiu no 2º ENAC",
+   "ts": 46,
+   "texto": "Todos os títulos e documentos de dívida protocolizados serão examinados em seus **caracteres formais** e terão curso se não apresentarem vícios, **não cabendo ao Tabelião de Protesto investigar a ocorrência de prescrição ou caducidade**.",
+   "traducao": "O tabelião olha a **forma**. Não julga se a dívida existe, nem se está prescrita.",
+   "fala": "Agora o artigo mais cobrado da lei. Os títulos protocolizados são examinados em seus caracteres formais, e terão curso se não apresentarem vícios, não cabendo ao tabelião investigar a ocorrência de prescrição ou caducidade. {1}O tabelião olha a forma. Ele não julga se a dívida existe, se foi paga por fora, nem se está prescrita. Isso é assunto para o juiz."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha clássica",
+   "titulo": "O título está [[prescrito]]",
+   "errado": "O tabelião recusa de ofício",
+   "certo": "O tabelião não investiga a prescrição",
+   "porque": "A lei **proíbe** o tabelião de investigar prescrição ou caducidade (art. 9º). O que barra o protesto é o **vício formal** (parágrafo único).",
+   "fala": "{1}Daí vem a pegadinha clássica. Chega uma nota promissória visivelmente antiga. O tabelião recusa, de ofício, por prescrição? Não. A lei o proíbe de investigar prescrição ou caducidade. {2}O que barra o protesto é o vício formal: falta de assinatura, falta de valor, rasura, título sem requisito essencial. Qualquer irregularidade formal obsta o registro do protesto."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "CNN, arts. 371 e 395",
+   "titulo": "E se o título tem [[vício]]?",
+   "passos": [
+    {
+     "icone": "lupa",
+     "nome": "Vício formal",
+     "texto": "O título não tem curso."
+    },
+    {
+     "icone": "documento",
+     "nome": "Nota devolutiva",
+     "texto": "**Por escrito**, com a exposição dos fundamentos."
+    },
+    {
+     "icone": "forum",
+     "nome": "Revisão",
+     "texto": "O apresentante pode pedir a revisão ao **juiz corregedor**."
+    }
+   ],
+   "nota": "Pelo exame do título devolvido por irregularidade formal, **nenhum valor é devido**.",
+   "fala": "E quando há vício, o que acontece? {1}O título não tem curso. {2}A recusa é manifestada em nota devolutiva, por escrito, com a exposição dos fundamentos. {3}Se o apresentante não se conformar, pode pedir a revisão ao juiz corregedor permanente, em procedimento administrativo. O juiz mantém a recusa, ou manda lavrar o protesto. {4}E nenhum valor é devido pelo exame do título devolvido por irregularidade formal."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, arts. 8º e 10 · moeda estrangeira caiu no 2º ENAC",
+   "titulo": "Três formas de [[apresentar]]",
+   "itens": [
+    {
+     "icone": "raio",
+     "nome": "Por indicação",
+     "apelido": "Duplicatas",
+     "texto": "Por meio eletrônico. Os dados são de **inteira responsabilidade do apresentante**.",
+     "lei": "Art. 8º, § 1º"
+    },
+    {
+     "icone": "documento",
+     "nome": "Por extrato",
+     "apelido": "Títulos escriturais",
+     "texto": "Desde que o emitente ateste que as informações conferem com a origem.",
+     "lei": "Art. 8º, § 2º"
+    },
+    {
+     "icone": "globo",
+     "nome": "Estrangeiro",
+     "apelido": "Moeda estrangeira",
+     "texto": "Emitido fora do Brasil: com **tradução juramentada**. Paga-se em moeda nacional.",
+     "lei": "Art. 10"
+    }
+   ],
+   "fala": "Nem sempre o papel chega ao balcão. Três formas especiais de apresentação. {1}As duplicatas podem ser apresentadas por indicação, em meio eletrônico. Os dados são de inteira responsabilidade do apresentante, e ao tabelionato cabe a mera instrumentalização. {2}Os títulos escriturais podem ser recepcionados por extrato, desde que o emitente ateste que as informações conferem com a origem. {3}E o título em moeda estrangeira, emitido fora do Brasil, pode ser protestado, se vier com tradução juramentada. O pagamento é feito em moeda nacional."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Caiu no 2º ENAC · CNN, art. 355, § 1º",
+   "titulo": "Protesto por simples [[indicação]]",
+   "errado": "Vale em papel, com a declaração do credor",
+   "certo": "Só por meio eletrônico",
+   "porque": "A apresentação por simples indicação é admitida **exclusivamente por meio eletrônico**, com a declaração de que a dívida foi regularmente constituída e de que os originais estão guardados.",
+   "fala": "{1}Esta caiu no segundo Enac. O credor pode apresentar um documento de dívida por simples indicação, sem o original? Pode, mas só de um jeito: exclusivamente por meio eletrônico, com certificado digital ou outro meio seguro autorizado. {2}E com uma declaração, feita sob as penas da lei, de que a dívida foi regularmente constituída e de que ele guarda os documentos originais."
+  },
+  {
+   "tipo": "lista",
+   "icone": "caneta",
+   "rotulo": "Lei 9.492, art. 6º, e CNN, arts. 389 a 393",
+   "titulo": "As regras do [[cheque]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    [
+     "Prova de apresentação ao banco",
+     "Com o motivo da recusa, salvo se o protesto for contra o próprio banco."
+    ],
+    [
+     "Furto, roubo, extravio ou fraude",
+     "Protesto **vedado**, se o cheque não circulou por endosso nem tem aval."
+    ],
+    [
+     "Mais de um ano da emissão",
+     "O apresentante deve **comprovar o endereço** do emitente."
+    ],
+    [
+     "Suspeita de endereço incorreto",
+     "O tabelião **recusa** o protesto."
+    ]
+   ],
+   "fala": "O cheque tem regras próprias, e elas caem. {1}Ele deve trazer a prova de apresentação ao banco sacado, com o motivo da recusa. {2}É vedado o protesto de cheque devolvido por furto, roubo, extravio ou fraude, desde que não tenha circulado por endosso e não esteja garantido por aval. {3}Se o cheque for apresentado mais de um ano depois da emissão, o apresentante tem de comprovar o endereço do emitente. {4}E, havendo fundada suspeita de endereço incorreto, o tabelião recusa o protesto. A lógica é evitar o protesto feito às escondidas, com intimação por edital."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino 1",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Apresentada a protesto nota promissória **vencida há sete anos**, formalmente perfeita, o tabelião deve:",
+   "alternativas": [
+    "recusar o protesto, pela prescrição",
+    "consultar o devedor antes de protocolizar",
+    "dar curso ao título, sem investigar a prescrição",
+    "remeter o título ao juiz corregedor"
+   ],
+   "fala": "Hora de treinar. Chega ao tabelionato uma nota promissória vencida há sete anos, formalmente perfeita. O que o tabelião faz? {1}Recusa, pela prescrição? Consulta o devedor antes de protocolizar? Dá curso ao título, sem investigar a prescrição? Ou remete o título ao juiz corregedor? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 2,
+   "titulo": "Letra [[C]]",
+   "alternativas": [
+    "Recusa pela prescrição",
+    "Consulta o devedor",
+    "Dá curso ao título",
+    "Remete ao juiz"
+   ],
+   "passos": [
+    "O exame é só dos **caracteres formais**.",
+    "Prescrição e caducidade **não são investigadas**.",
+    "Sem vício formal, o título **tem curso**."
+   ],
+   "lei": "Lei 9.492/97, art. 9º",
+   "fala": "{1}Letra C. {2}O exame do tabelião se limita aos caracteres formais. {3}Prescrição e caducidade não são investigadas por ele. {4}Sem vício formal, o título tem curso. Se a dívida está prescrita, é o devedor quem vai discutir isso em juízo. {5}Artigo nono da Lei de Protesto."
+  },
+  {
+   "tipo": "capa",
+   "icone": "relogio",
+   "rotulo": "Parte 4",
+   "titulo": [
+    "Prazo e",
+    "[[intimação]]"
+   ],
+   "ts": 190,
+   "texto": "O tríduo e as formas de intimar.",
+   "fala": "Parte quatro: o prazo de três dias, e a intimação do devedor. É aqui que se concentram os números que a banca troca."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, art. 12",
+   "titulo": "O [[tríduo]]",
+   "itens": [
+    {
+     "numero": "3",
+     "unidade": "dias úteis",
+     "apelido": "Para registrar o protesto",
+     "texto": "Contados da **protocolização** do título.",
+     "lei": "Caput"
+    },
+    {
+     "icone": "calendario",
+     "nome": "Contagem",
+     "apelido": "Exclui e inclui",
+     "texto": "Exclui o dia da protocolização e **inclui o do vencimento**.",
+     "lei": "§ 1º"
+    },
+    {
+     "icone": "predio",
+     "nome": "Dia útil",
+     "apelido": "Expediente bancário",
+     "texto": "Não é útil o dia sem expediente bancário ou com **horário anormal**.",
+     "lei": "§ 2º"
+    }
+   ],
+   "fala": "O prazo central da matéria é o tríduo. {1}O protesto é registrado dentro de três dias úteis, contados da protocolização do título. Não é da intimação: é da protocolização. {2}Na contagem, exclui-se o dia da protocolização e inclui-se o do vencimento. {3}E dia útil, aqui, tem conceito próprio: não é útil o dia em que não houver expediente bancário para o público, ou em que o expediente não obedecer ao horário normal."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha de prova",
+   "titulo": "A intimação chegou no [[último]] dia",
+   "ts": 104,
+   "errado": "O prazo recomeça: mais três dias úteis",
+   "certo": "Protesto no primeiro dia útil seguinte",
+   "porque": "Se a intimação for efetivada, por força maior, no último dia do prazo ou depois dele, o protesto é tirado no **primeiro dia útil subsequente** (art. 13).",
+   "fala": "{1}Pegadinha. Por um motivo de força maior, a intimação só foi entregue no último dia do prazo. O prazo recomeça, com mais três dias úteis? Não. {2}Nesse caso, o protesto é tirado no primeiro dia útil subsequente. O devedor ganha um dia, não um novo tríduo."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 14",
+   "ts": 46,
+   "texto": "Protocolizado o título ou documento de dívida, o Tabelião de Protesto expedirá a intimação ao devedor, **no endereço fornecido pelo apresentante** (...), **considerando-se cumprida quando comprovada a sua entrega no mesmo endereço**.",
+   "traducao": "Basta a entrega **no endereço**. A lei não exige que o próprio devedor receba.",
+   "fala": "Agora a intimação. Protocolizado o título, o tabelião expede a intimação ao devedor, no endereço fornecido pelo apresentante, considerando-se cumprida quando comprovada a sua entrega no mesmo endereço. {1}Leia de novo o final. Basta a entrega no endereço. A lei não exige que o próprio devedor receba. O porteiro, a secretária ou um familiar servem."
+  },
+  {
+   "tipo": "lista",
+   "icone": "documento",
+   "rotulo": "Art. 14, §§ 1º e 2º",
+   "titulo": "Como e com que [[conteúdo]]",
+   "itens": [
+    [
+     "Por quem",
+     "Portador do próprio tabelião ou qualquer outro meio, com recebimento **comprovado**."
+    ],
+    [
+     "A prova",
+     "Protocolo, aviso de recepção ou documento equivalente."
+    ],
+    [
+     "O que deve conter",
+     "Nome e endereço do devedor, identificação do título, **prazo limite**, número do protocolo e **valor a pagar**."
+    ]
+   ],
+   "fala": "Como é feita, e o que ela contém? {1}A remessa pode ser por portador do próprio tabelião, ou por qualquer outro meio, desde que o recebimento fique assegurado e comprovado. {2}A prova é o protocolo, o aviso de recepção ou documento equivalente. {3}E a intimação traz o nome e o endereço do devedor, a identificação do título, o prazo limite para pagar no tabelionato, o número do protocolo e o valor a ser pago."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Caiu no 3º ENAC · Lei 9.492, art. 14, § 2º",
+   "titulo": "A intimação traz o endereço do [[credor]]?",
+   "ts": 100,
+   "errado": "Sim: nome e endereço do credor",
+   "certo": "Pela lei, nome e endereço do devedor",
+   "porque": "A **lei** lista: nome e endereço do **devedor**, identificação do título, prazo limite, protocolo e valor. O **Código de Normas** acrescenta os nomes do credor e do apresentante, com CPF ou CNPJ.",
+   "fala": "{1}Esta caiu no terceiro Enac, e a troca foi sutil. Segundo a Lei de Protesto, a intimação contém o nome e o endereço do credor? Não. Contém o nome e o endereço do devedor. {2}Fique atento ao comando da questão. Se ela pedir a lei, é o devedor. Já o Código Nacional de Normas manda incluir também os nomes do credor e do apresentante, com CPF ou CNPJ. Mas não o endereço deles."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Art. 14, §§ 3º a 5º · novidade de 2023 · caiu no 3º ENAC",
+   "titulo": "A intimação [[eletrônica]]",
+   "passos": [
+    {
+     "icone": "balao",
+     "nome": "Mensagem",
+     "texto": "Meio eletrônico ou aplicativo de mensagens. Vale com a **confirmação de recebimento**."
+    },
+    {
+     "icone": "relogio",
+     "nome": "Sem confirmação",
+     "tag": "3 dias úteis",
+     "texto": "Passa-se à intimação comum, por portador ou correio."
+    },
+    {
+     "icone": "globo",
+     "nome": "O aviso não voltou",
+     "tag": "7 dias úteis",
+     "texto": "Intima-se por **edital**."
+    }
+   ],
+   "fala": "A grande novidade veio com o Marco das Garantias, em dois mil e vinte e três: a intimação eletrônica. {1}O tabelião pode intimar por meio eletrônico ou por aplicativo de mensagens. A intimação se considera cumprida com a confirmação de recebimento da plataforma. {2}Passados três dias úteis da remessa sem essa comprovação, faz-se a intimação comum, por portador ou pelo correio. {3}E, se o aviso de recepção não retornar ao tabelionato em sete dias úteis, a intimação é feita por edital. Guarde a escadinha: três e sete."
+  },
+  {
+   "tipo": "lista",
+   "icone": "globo",
+   "rotulo": "Lei 9.492/97, art. 15",
+   "titulo": "Quando cabe [[edital]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "A pessoa indicada é desconhecida",
+    "A localização é incerta ou ignorada",
+    "O devedor mora fora da competência territorial do tabelionato",
+    "Ninguém se dispõe a receber a intimação no endereço"
+   ],
+   "fala": "O edital tem quatro hipóteses na lei. {1}Quando a pessoa indicada para aceitar ou pagar é desconhecida. {2}Quando a sua localização é incerta ou ignorada. {3}Quando ela reside fora da competência territorial do tabelionato. {4}E quando ninguém se dispõe a receber a intimação no endereço fornecido. O edital é afixado no tabelionato e publicado no site da central nacional dos tabeliães de protesto."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha · CNN, art. 356, § 6º · caiu no 1º ENAC",
+   "titulo": "Devedor de [[outra]] comarca",
+   "errado": "Edital direto, sem mais nada",
+   "certo": "Antes, tenta-se a via postal",
+   "porque": "O tabelião deve **esgotar os meios de localização**, com envio postal. O edital vem se, em **dez dias úteis**, o comprovante não retornar ou voltar negativo.",
+   "fala": "{1}Mas atenção à pegadinha. O devedor mora em outra comarca. O tabelião publica o edital direto? Pelo Código Nacional de Normas, não. {2}Antes do edital, ele deve esgotar os meios de localização, notadamente com o envio da intimação por via postal. O edital só vem se, em dez dias úteis, o comprovante de entrega não retornar, ou voltar negativo."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Fechando o tema",
+   "titulo": "Endereço [[errado]] de propósito",
+   "errado": "Não há consequência para o apresentante",
+   "certo": "Responde por perdas e danos",
+   "porque": "Quem fornece endereço incorreto, **agindo de má-fé**, responde por perdas e danos, sem prejuízo de sanções civis, administrativas ou **penais** (art. 15, § 2º).",
+   "fala": "{1}E se o credor informa um endereço errado de propósito, só para que o devedor seja intimado por edital e não pague? {2}Ele responde por perdas e danos, sem prejuízo de sanções civis, administrativas e penais. O endereço é fornecido pelo apresentante, e a responsabilidade por ele também."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino 2",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "O tabelião envia a intimação por **aplicativo de mensagens** e, decorridos **três dias úteis**, não há comprovação de recebimento. Ele deve:",
+   "alternativas": [
+    "lavrar o protesto de imediato",
+    "publicar edital",
+    "intimar por portador ou via postal, com comprovação",
+    "devolver o título ao apresentante"
+   ],
+   "fala": "Segunda questão. O tabelião envia a intimação por aplicativo de mensagens. Passam três dias úteis, e não há comprovação de recebimento. O que ele faz? {1}Lavra o protesto de imediato? Publica edital? Intima por portador ou via postal, com comprovação? Ou devolve o título ao apresentante? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 2,
+   "titulo": "Letra [[C]]",
+   "alternativas": [
+    "Lavra o protesto",
+    "Publica edital",
+    "Portador ou via postal",
+    "Devolve o título"
+   ],
+   "passos": [
+    "Mensagem sem confirmação em **3 dias úteis**: intimação comum.",
+    "O **edital** só vem se o aviso não voltar em **7 dias úteis**.",
+    "Sem intimação, **não há protesto**."
+   ],
+   "lei": "Lei 9.492/97, art. 14, §§ 4º e 5º",
+   "fala": "{1}Letra C. {2}Mensagem sem confirmação em três dias úteis leva à intimação comum, por portador ou pelo correio. {3}O edital só vem depois, se o aviso de recepção não retornar em sete dias úteis. {4}E lavrar o protesto sem intimação está fora de questão. {5}Artigo catorze, parágrafos quarto e quinto."
+  },
+  {
+   "tipo": "lista",
+   "check": true,
+   "icone": "escudo",
+   "rotulo": "Resumo do vídeo 1",
+   "titulo": "O que você [[revisou]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "Protesto prova a inadimplência; competência privativa do tabelião",
+    "Títulos, documentos de dívida e certidão de dívida ativa",
+    "Praça de pagamento, ou domicílio do devedor, à escolha do apresentante",
+    "Exame só formal: prescrição não é investigada",
+    "Três dias úteis da protocolização",
+    "Intimação no endereço; mensagem, correio e, por último, edital"
+   ],
+   "fala": "Vamos fechar este primeiro vídeo. {1}O protesto prova a inadimplência, e é de competência privativa do tabelião. {2}Alcança títulos, documentos de dívida e a certidão de dívida ativa. {3}É lavrado na praça de pagamento, ou no domicílio do devedor, à escolha do apresentante. {4}O exame é só formal: prescrição não é investigada. {5}O prazo é de três dias úteis, contados da protocolização. {6}E a intimação é entregue no endereço, por mensagem, por correio e, em último caso, por edital."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "carimbo",
+   "rotulo": "No vídeo 2",
+   "titulo": "Do tríduo ao [[cancelamento]]",
+   "ts": 124,
+   "texto": "Pagamento, desistência, sustação, lavratura, efeitos e certidões.",
+   "fala": "No segundo vídeo: o que pode acontecer dentro do tríduo, a lavratura do protesto, seus efeitos, o cancelamento e as certidões. Te vejo lá."
+  }
+ ]
+}

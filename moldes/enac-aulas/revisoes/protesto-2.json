@@ -1,0 +1,726 @@
+{
+ "id": "protesto-revisao-2-do-triduo-ao-cancelamento",
+ "tema": "navy",
+ "faixa": "Protesto · Revisão ENAC · Vídeo 2 de 3",
+ "cenas": [
+  {
+   "tipo": "capa",
+   "icone": "carimbo",
+   "rotulo": "Protesto · Revisão ENAC · 2 de 3",
+   "titulo": [
+    "Do tríduo ao",
+    "[[cancelamento]]"
+   ],
+   "ts": 170,
+   "texto": "Pagamento, sustação, lavratura, efeitos e certidões.",
+   "fala": "Segundo vídeo da revisão de Protesto. No primeiro, o título foi protocolizado e o devedor foi intimado. Agora o relógio está correndo: são três dias úteis. Neste vídeo, você vê tudo o que pode acontecer dentro desse prazo, como o protesto é lavrado, que efeitos ele produz, e como ele sai do nome do devedor."
+  },
+  {
+   "tipo": "lista",
+   "icone": "relogio",
+   "rotulo": "O mapa do vídeo",
+   "titulo": "Cinco [[destinos]] possíveis",
+   "tl": 40,
+   "gap": 18,
+   "itens": [
+    [
+     "Pagamento",
+     "O devedor paga no tabelionato."
+    ],
+    [
+     "Aceite ou devolução",
+     "Quando o título foi apresentado para isso."
+    ],
+    [
+     "Desistência",
+     "O apresentante retira o título."
+    ],
+    [
+     "Sustação",
+     "Um juiz manda parar."
+    ],
+    [
+     "Protesto",
+     "Nada disso aconteceu: o tabelião lavra e registra."
+    ]
+   ],
+   "fala": "Dentro do tríduo, o título tem cinco destinos possíveis. {1}O pagamento, feito no próprio tabelionato. {2}O aceite ou a devolução, quando o título foi apresentado com essa finalidade. {3}A desistência do apresentante. {4}A sustação, por ordem judicial. {5}E, se nada disso acontecer, o protesto. Vamos a cada um."
+  },
+  {
+   "tipo": "capa",
+   "icone": "moeda",
+   "rotulo": "Parte 1",
+   "titulo": [
+    "Dentro do",
+    "[[tríduo]]"
+   ],
+   "ts": 190,
+   "texto": "Pagamento, desistência e sustação.",
+   "fala": "Parte um: o que impede o protesto. Pagamento, desistência e sustação."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 19",
+   "ts": 46,
+   "texto": "O pagamento do título ou do documento de dívida apresentado para protesto será feito **diretamente no Tabelionato competente**, no **valor igual ao declarado pelo apresentante**, acrescido dos **emolumentos e demais despesas**.",
+   "traducao": "Paga-se **no cartório**, pelo valor que o apresentante declarou, mais as custas.",
+   "fala": "O pagamento. Ele é feito diretamente no tabelionato competente, no valor igual ao declarado pelo apresentante, acrescido dos emolumentos e das demais despesas. {1}Três informações numa frase: paga-se no cartório, pelo valor que o apresentante declarou, e quem arca com as custas é o devedor."
+  },
+  {
+   "tipo": "lista",
+   "icone": "moeda",
+   "rotulo": "Art. 19, §§ 1º a 4º",
+   "titulo": "Quatro regras do [[pagamento]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    [
+     "Não pode ser recusado",
+     "Se oferecido dentro do prazo, no tabelionato e no horário de funcionamento."
+    ],
+    [
+     "Quitação na hora",
+     "E o valor fica à disposição do apresentante no **primeiro dia útil** seguinte."
+    ],
+    [
+     "Pagamento em cheque",
+     "A quitação fica **condicionada à efetiva liquidação**."
+    ],
+    [
+     "Parcelas a vencer",
+     "Quitação da parcela paga **em apartado**; o original volta ao apresentante."
+    ]
+   ],
+   "fala": "Quatro regras. {1}O pagamento oferecido dentro do prazo não pode ser recusado, desde que feito no tabelionato competente e no horário de funcionamento. {2}O tabelionato dá a quitação na hora, e coloca o valor à disposição do apresentante no primeiro dia útil seguinte. {3}Se o pagamento for por cheque, a quitação fica condicionada à efetiva liquidação. {4}E, se ainda houver parcelas a vencer, a quitação da parcela paga é dada em apartado, devolvendo-se o original ao apresentante."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, arts. 10 e 11",
+   "titulo": "Quanto se [[paga]]",
+   "itens": [
+    {
+     "icone": "documento",
+     "nome": "Regra",
+     "apelido": "O valor declarado",
+     "texto": "O tabelião **não recalcula** a dívida: recebe o valor indicado pelo apresentante.",
+     "lei": "Art. 19"
+    },
+    {
+     "icone": "regua",
+     "nome": "Com correção",
+     "apelido": "Conversão do dia",
+     "texto": "Pela conversão vigorante **no dia da apresentação**.",
+     "lei": "Art. 11"
+    },
+    {
+     "icone": "globo",
+     "nome": "Moeda estrangeira",
+     "apelido": "Em reais",
+     "texto": "Pagamento em moeda nacional; a conversão cabe ao **apresentante**.",
+     "lei": "Art. 10, § 2º"
+    }
+   ],
+   "fala": "Quanto se paga? {1}A regra é o valor declarado. O tabelião não recalcula a dívida. {2}Se o título é sujeito a correção, o pagamento é feito pela conversão vigorante no dia da apresentação, no valor indicado pelo apresentante. {3}E, no título em moeda estrangeira, o pagamento é em moeda nacional, cabendo ao apresentante a conversão na data da apresentação."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 16",
+   "texto": "**Antes da lavratura do protesto**, poderá o apresentante **retirar o título** ou documento de dívida, **pagos os emolumentos e demais despesas**.",
+   "traducao": "A desistência é do **apresentante**, tem hora certa e tem custo. Pode ser pedida por meio eletrônico.",
+   "fala": "A desistência. Antes da lavratura do protesto, o apresentante pode retirar o título, pagos os emolumentos e as demais despesas. {1}Três pontos: quem desiste é o apresentante, não o devedor. Só pode ser antes da lavratura. E não é de graça. Pelo Código Nacional de Normas, a desistência pode ser formalizada por meio eletrônico."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Lei 9.492/97, art. 17 · caiu no 1º e no 3º ENAC",
+   "titulo": "A [[sustação]] judicial",
+   "passos": [
+    {
+     "icone": "forum",
+     "nome": "Ordem do juiz",
+     "texto": "Chega **antes** da lavratura do protesto."
+    },
+    {
+     "icone": "cadeado",
+     "nome": "Título retido",
+     "texto": "Fica no tabelionato, **à disposição do juízo**."
+    },
+    {
+     "icone": "balao",
+     "nome": "Travado",
+     "texto": "Só é pago, protestado ou retirado com **autorização judicial**."
+    }
+   ],
+   "nota": "Sustar é impedir o protesto **antes** que ele aconteça. Depois de lavrado, o caminho é outro.",
+   "fala": "A sustação. É a ordem judicial que impede o protesto. {1}Ela precisa chegar antes da lavratura. {2}O título sustado permanece no tabelionato, à disposição do juízo. {3}E fica travado: só pode ser pago, protestado ou retirado com autorização judicial. {4}Fixe o conceito: sustar é impedir o protesto antes que ele aconteça. Depois de lavrado, o que cabe é suspender os efeitos ou cancelar."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "Art. 17, §§ 2º e 3º · caiu no 1º ENAC",
+   "titulo": "E depois da [[sustação]]?",
+   "col": 260,
+   "a": {
+    "nome": "Ordem revogada",
+    "icone": "carimbo"
+   },
+   "b": {
+    "nome": "Ordem definitiva",
+    "icone": "forum"
+   },
+   "linhas": [
+    [
+     "O que acontece",
+     "O protesto é **lavrado**",
+     "O título **não** é protestado"
+    ],
+    [
+     "Nova intimação?",
+     "**Não precisa**",
+     "Não se aplica"
+    ],
+    [
+     "Prazo",
+     "Até o **primeiro dia útil** seguinte ao recebimento da revogação",
+     "Título vai ao juízo, se ninguém o retirar em **30 dias**"
+    ]
+   ],
+   "fala": "E depois? Depende do destino da ordem. {1}Se a ordem é revogada, o protesto é lavrado. Se ela se torna definitiva, o título não é protestado. {2}Revogada a sustação, não há necessidade de nova intimação do devedor. Essa é a pegadinha. {3}O protesto é lavrado até o primeiro dia útil seguinte ao recebimento da revogação. E, na sustação definitiva, o título é encaminhado ao juízo, se não houver determinação de entrega a uma das partes, ou se ninguém o retirar em trinta dias."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino 1",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Sustado judicialmente o protesto de uma duplicata, o juiz **revoga a liminar** meses depois. Recebida a comunicação, o tabelião deve:",
+   "alternativas": [
+    "intimar novamente o devedor e reabrir o tríduo",
+    "lavrar o protesto até o primeiro dia útil seguinte, sem nova intimação",
+    "devolver o título ao apresentante",
+    "aguardar o trânsito em julgado da ação"
+   ],
+   "fala": "Vamos treinar. O protesto de uma duplicata foi sustado por liminar. Meses depois, o juiz revoga a liminar. Recebida a comunicação, o que o tabelião faz? {1}Intima de novo o devedor e reabre o prazo? Lavra o protesto até o primeiro dia útil seguinte, sem nova intimação? Devolve o título ao apresentante? Ou aguarda o trânsito em julgado? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 1,
+   "titulo": "Letra [[B]]",
+   "alternativas": [
+    "Nova intimação",
+    "Lavra no dia útil seguinte",
+    "Devolve o título",
+    "Aguarda o trânsito"
+   ],
+   "passos": [
+    "Revogada a sustação, **não há nova intimação**.",
+    "A lavratura ocorre até o **primeiro dia útil** seguinte.",
+    "Salvo se depender de consulta ao apresentante."
+   ],
+   "lei": "Lei 9.492/97, art. 17, § 2º",
+   "fala": "{1}Letra B. {2}Revogada a ordem de sustação, não há necessidade de nova intimação do devedor. {3}A lavratura e o registro são feitos até o primeiro dia útil seguinte ao recebimento da revogação. {4}A exceção é quando o ato depende de consulta ao apresentante: aí o prazo conta da resposta. {5}Artigo dezessete, parágrafo segundo."
+  },
+  {
+   "tipo": "capa",
+   "icone": "carimbo",
+   "rotulo": "Parte 2",
+   "titulo": [
+    "A [[lavratura]]",
+    "do protesto"
+   ],
+   "ts": 180,
+   "texto": "Espécies, quem figura e o protesto falimentar.",
+   "fala": "Parte dois: o prazo acabou, e nada aconteceu. O tabelião lavra e registra o protesto, e entrega o instrumento ao apresentante."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, art. 21",
+   "titulo": "As três [[espécies]]",
+   "itens": [
+    {
+     "icone": "moeda",
+     "nome": "Pagamento",
+     "apelido": "Falta de pagamento",
+     "texto": "Depois do vencimento, o protesto é **sempre** por falta de pagamento.",
+     "lei": "§ 2º"
+    },
+    {
+     "icone": "caneta",
+     "nome": "Aceite",
+     "apelido": "Falta de aceite",
+     "texto": "Só **antes do vencimento** e depois do prazo legal para o aceite ou a devolução.",
+     "lei": "§ 1º"
+    },
+    {
+     "icone": "documento",
+     "nome": "Devolução",
+     "apelido": "Falta de devolução",
+     "texto": "O sacado **reteve** a letra ou a duplicata enviada para aceite.",
+     "lei": "§ 3º"
+    }
+   ],
+   "fala": "O protesto é tirado por três motivos. {1}Por falta de pagamento. {2}Por falta de aceite. {3}Ou por falta de devolução. E a lei amarra isso ao tempo: o protesto por falta de aceite só pode ser feito antes do vencimento da obrigação. Depois do vencimento, o protesto é sempre por falta de pagamento. Já o de falta de devolução ocorre quando o sacado retém a letra de câmbio ou a duplicata enviada para aceite."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 1",
+   "titulo": "Duplicata [[retida]] pelo comprador",
+   "errado": "Sem o título em mãos, não há protesto",
+   "certo": "Protesta-se por indicação",
+   "porque": "Retida a duplicata, o protesto se baseia nas **indicações** do título, com os mesmos requisitos lançados pelo sacador, **vedada** qualquer formalidade não prevista na Lei das Duplicatas.",
+   "fala": "{1}Pegadinha. O vendedor mandou a duplicata para aceite, e o comprador não devolveu. Sem o título em mãos, não dá para protestar? Dá. {2}O protesto é feito com base nas indicações da duplicata, que se limitam aos requisitos lançados pelo sacador na emissão. E o tabelião não pode exigir formalidade que a Lei das Duplicatas não prevê."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha 2",
+   "titulo": "Letra de câmbio [[sem]] aceite",
+   "errado": "Protesta-se o sacado por falta de pagamento",
+   "certo": "Não cabe protesto por falta de pagamento contra ele",
+   "porque": "Não se pode tirar protesto por falta de pagamento de letra de câmbio contra o **sacado não aceitante** (art. 21, § 5º). Quem não aceitou não se obrigou.",
+   "fala": "{1}Outra pegadinha. Uma letra de câmbio foi sacada contra uma pessoa que nunca a aceitou. Vencida a letra, cabe protesto por falta de pagamento contra esse sacado? Não. {2}A lei veda o protesto por falta de pagamento de letra de câmbio contra o sacado não aceitante. Quem não aceitou não se obrigou."
+  },
+  {
+   "tipo": "lista",
+   "icone": "pessoas",
+   "rotulo": "Lei 9.492/97, art. 21, § 4º",
+   "titulo": "Quem [[figura]] como devedor",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "O emitente da nota promissória e do cheque",
+    "O sacado da letra de câmbio e da duplicata",
+    "Os indicados pelo apresentante como responsáveis pela obrigação"
+   ],
+   "fala": "Quem aparece como devedor no termo de protesto? {1}O emitente, na nota promissória e no cheque. {2}O sacado, na letra de câmbio e na duplicata. {3}E os indicados pelo apresentante como responsáveis pelo cumprimento da obrigação. A lei diz que eles não podem deixar de figurar no termo. E é pelo nome deles que as certidões serão expedidas."
+  },
+  {
+   "tipo": "compara",
+   "rotulo": "Doutrina que cai · caiu no 2º ENAC",
+   "titulo": "Protesto necessário x [[facultativo]]",
+   "col": 260,
+   "a": {
+    "nome": "Necessário",
+    "icone": "cadeado"
+   },
+   "b": {
+    "nome": "Facultativo",
+    "icone": "chave"
+   },
+   "linhas": [
+    [
+     "Contra quem",
+     "**Coobrigados**: endossantes e seus avalistas",
+     "**Devedor principal** e seu avalista"
+    ],
+    [
+     "Sem protesto",
+     "O credor **perde** o direito de regresso",
+     "O credor **não perde** a ação cambial"
+    ],
+    [
+     "Para que serve",
+     "Conservar o direito",
+     "Provar a mora e dar publicidade"
+    ]
+   ],
+   "fala": "Uma distinção de doutrina que aparece em prova: protesto necessário e protesto facultativo. {1}O necessário é o que se tira para cobrar os coobrigados, como os endossantes e seus avalistas. O facultativo é o tirado contra o devedor principal e o seu avalista. {2}Sem o protesto necessário, feito no prazo, o credor perde o direito de regresso. Sem o facultativo, ele não perde a ação contra o devedor principal. {3}Um conserva o direito. O outro prova a mora e dá publicidade."
+  },
+  {
+   "tipo": "lista",
+   "icone": "documento",
+   "rotulo": "Lei 9.492/97, art. 22",
+   "titulo": "O que o [[instrumento]] contém",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "Data e número de protocolização",
+    "Nome e endereço do apresentante",
+    "Reprodução ou transcrição do documento",
+    "Certidão das intimações feitas e das respostas",
+    "Nome, documento e endereço do devedor",
+    "Data e assinatura do tabelião, substituto ou escrevente autorizado"
+   ],
+   "fala": "O registro do protesto e o seu instrumento devem conter, entre outros dados: {1}a data e o número de protocolização. {2}O nome e o endereço do apresentante. {3}A reprodução ou transcrição do documento. {4}A certidão das intimações feitas e das respostas oferecidas. {5}O nome, o documento de identificação e o endereço do devedor. {6}E a data e a assinatura do tabelião, de seu substituto ou de escrevente autorizado. Se o tabelião guarda a imagem do título, dispensa-se a transcrição literal."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492, art. 23; Lei 11.101, art. 94; CNN, art. 356-A · caiu no 1º e no 2º ENAC",
+   "titulo": "O protesto para fins [[falimentares]]",
+   "itens": [
+    {
+     "icone": "predio",
+     "nome": "Contra quem",
+     "apelido": "Só quem pode falir",
+     "texto": "Devedor **sujeito à legislação falimentar**: empresário e sociedade empresária.",
+     "lei": "Lei 9.492, art. 23, p. único"
+    },
+    {
+     "numero": "40",
+     "unidade": "salários mínimos",
+     "apelido": "O piso da falência",
+     "texto": "Soma dos títulos executivos **protestados** deve ultrapassar esse valor.",
+     "lei": "Lei 11.101, art. 94, I"
+    },
+    {
+     "icone": "pessoas",
+     "nome": "Intimação",
+     "apelido": "Quem recebeu",
+     "texto": "A notificação deve **identificar a pessoa** que a recebeu.",
+     "lei": "Súmula 361 do STJ"
+    }
+   ],
+   "fala": "O protesto especial para fins falimentares tem três marcas. {1}Só pode ser tirado contra quem está sujeito à legislação falimentar. Não se protesta para fins falimentares uma pessoa física que não é empresária. {2}Para pedir a falência por impontualidade, a soma dos títulos protestados precisa ultrapassar quarenta salários mínimos. {3}E a intimação é mais rigorosa: pela Súmula trezentos e sessenta e um do Superior Tribunal de Justiça, a notificação do protesto para falência exige a identificação da pessoa que a recebeu. Lembre: ele é lavrado na comarca do principal estabelecimento do devedor."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Caiu no 1º ENAC",
+   "titulo": "Título de valor [[baixo]] e protesto falimentar",
+   "ts": 100,
+   "errado": "O tabelião recusa: exige mais de 40 salários mínimos",
+   "certo": "O valor não é requisito do protesto",
+   "porque": "Os 40 salários mínimos são requisito do **pedido de falência**, examinado pelo **juiz**. O protesto especial é lavrado, e registrado no **livro único** de protestos (Lei 9.492, art. 23).",
+   "fala": "{1}E uma pegadinha do primeiro Enac. O credor pede protesto especial para fins falimentares de um título de valor baixo. O tabelião recusa, porque não chega a quarenta salários mínimos? Não. {2}Esse piso é requisito do pedido de falência, e quem o examina é o juiz. O valor não é requisito do protesto. E o protesto especial vai para o mesmo livro único em que se registram todos os protestos."
+  },
+  {
+   "tipo": "capa",
+   "icone": "raio",
+   "rotulo": "Parte 3",
+   "titulo": [
+    "Os [[efeitos]]",
+    "do protesto"
+   ],
+   "ts": 180,
+   "texto": "O que muda depois da lavratura.",
+   "fala": "Parte três: o protesto foi lavrado. O que muda na vida do credor e do devedor?"
+  },
+  {
+   "tipo": "lista",
+   "icone": "raio",
+   "rotulo": "Os efeitos",
+   "titulo": "O que o protesto [[produz]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    [
+     "Prova a inadimplência",
+     "Com fé pública (Lei 9.492, art. 1º)."
+    ],
+    [
+     "Interrompe a prescrição",
+     "O protesto cambial é causa interruptiva (CC, art. 202, III)."
+    ],
+    [
+     "Fixa o início dos juros",
+     "Não havendo prazo assinado, a data do registro é o termo inicial (art. 40)."
+    ],
+    [
+     "Conserva o regresso",
+     "Contra endossantes e seus avalistas."
+    ],
+    [
+     "Abre a porta da falência",
+     "Quando tirado para esse fim."
+    ]
+   ],
+   "fala": "São cinco efeitos principais. {1}O protesto prova a inadimplência, com fé pública. {2}Interrompe a prescrição: o protesto cambial é causa interruptiva, pelo artigo duzentos e dois, inciso três, do Código Civil. E lembre que a interrupção só pode ocorrer uma vez. {3}Fixa o início dos juros: não havendo prazo assinado, a data do registro do protesto é o termo inicial de juros e atualização. {4}Conserva o direito de regresso contra os coobrigados. {5}E, quando tirado para esse fim, abre a porta do pedido de falência."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Pegadinha de prova",
+   "titulo": "Recuperação judicial [[impede]] o protesto?",
+   "ts": 100,
+   "errado": "Sim: o devedor está blindado",
+   "certo": "O processamento não impede o protesto",
+   "porque": "O deferimento do processamento de concordata **não impede o protesto** (Lei 9.492, art. 24). A regra é lida hoje para a **recuperação judicial**.",
+   "fala": "{1}Pegadinha. A empresa devedora teve deferido o processamento da sua recuperação judicial. O protesto está impedido? Não. {2}A Lei de Protesto diz que o deferimento do processamento de concordata não impede o protesto, e a regra é aplicada hoje à recuperação judicial."
+  },
+  {
+   "tipo": "capa",
+   "icone": "chave",
+   "rotulo": "Parte 4",
+   "titulo": [
+    "Retificação e",
+    "[[cancelamento]]"
+   ],
+   "ts": 170,
+   "texto": "Como o protesto sai do nome do devedor.",
+   "fala": "Parte quatro: como se corrige um protesto, e como ele é cancelado. Aqui estão as regras mais práticas, e das mais cobradas."
+  },
+  {
+   "tipo": "lista",
+   "icone": "caneta",
+   "rotulo": "Lei 9.492/97, art. 25 · caiu no 3º ENAC",
+   "titulo": "A [[retificação]] de erro material",
+   "itens": [
+    [
+     "Quem inicia",
+     "De ofício **ou** a requerimento do interessado."
+    ],
+    [
+     "O que se exige",
+     "O instrumento expedido e os documentos que comprovem o erro."
+    ],
+    [
+     "Quanto custa",
+     "**Não são devidos emolumentos.**"
+    ]
+   ],
+   "fala": "A retificação. {1}O erro material do serviço pode ser corrigido por averbação, de ofício ou a requerimento do interessado, sob responsabilidade do tabelião. {2}Para isso, apresenta-se o instrumento de protesto eventualmente expedido e os documentos que comprovem o erro. {3}E não são devidos emolumentos por essa averbação. O erro foi do cartório."
+  },
+  {
+   "tipo": "fluxo",
+   "rotulo": "Lei 9.492/97, art. 26",
+   "titulo": "O [[cancelamento]] pelo pagamento",
+   "passos": [
+    {
+     "icone": "pessoas",
+     "nome": "Quem pede",
+     "texto": "**Qualquer interessado**, direto no tabelionato."
+    },
+    {
+     "icone": "documento",
+     "nome": "Com o quê",
+     "texto": "O **documento protestado** original, cuja cópia fica arquivada."
+    },
+    {
+     "icone": "caneta",
+     "nome": "Sem o original",
+     "texto": "**Declaração de anuência** do credor, com identificação e firma reconhecida."
+    }
+   ],
+   "nota": "A anuência também pode ser dada por meio **eletrônico**, pela central nacional.",
+   "fala": "O cancelamento. A dívida foi paga depois do protesto. {1}O cancelamento é pedido diretamente no tabelionato, por qualquer interessado. Não precisa de advogado, nem de juiz. {2}Basta apresentar o documento protestado, cuja cópia fica arquivada. A posse do título original pelo devedor faz presumir o pagamento. {3}Se não houver o original, exige-se a declaração de anuência do credor, com identificação e firma reconhecida. {4}E essa anuência hoje pode ser dada por meio eletrônico, pela central nacional dos tabeliães de protesto."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Art. 26, §§ 2º a 4º",
+   "titulo": "Três casos [[especiais]]",
+   "itens": [
+    {
+     "icone": "pessoas",
+     "nome": "Endosso-mandato",
+     "apelido": "Quem anui",
+     "texto": "Basta a anuência do **credor endossante**, não a do banco apresentante.",
+     "lei": "§ 2º"
+    },
+    {
+     "icone": "forum",
+     "nome": "Outro motivo",
+     "apelido": "Só pelo juiz",
+     "texto": "Se o cancelamento **não** se funda no pagamento, depende de **determinação judicial**.",
+     "lei": "§ 3º"
+    },
+    {
+     "icone": "documento",
+     "nome": "Processo",
+     "apelido": "Certidão do juízo",
+     "texto": "Com menção ao **trânsito em julgado**: substitui o título.",
+     "lei": "§ 4º"
+    }
+   ],
+   "fala": "Três casos especiais. {1}Se o apresentante era um banco, por endosso-mandato, basta a declaração de anuência do credor endossante. {2}Se o cancelamento se funda em outro motivo que não o pagamento, como a nulidade do título, ele só é feito por determinação judicial. {3}E, quando a extinção da obrigação decorre de processo judicial, o cancelamento pode ser pedido com a certidão do juízo, com menção ao trânsito em julgado, que substitui o título."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Jurisprudência do STJ",
+   "titulo": "Paguei. Quem [[cancela]]?",
+   "errado": "Sempre o credor, que protestou",
+   "certo": "Em regra, o devedor",
+   "porque": "No protesto **regular**, cabe ao **devedor**, depois de pagar, providenciar o cancelamento, salvo acordo em contrário. O credor entrega o título ou a carta de anuência.",
+   "fala": "{1}Uma pergunta que a jurisprudência respondeu. Paguei a dívida depois do protesto. Quem tem de ir ao cartório cancelar? O credor, que protestou? Em regra, não. {2}O Superior Tribunal de Justiça firmou, em recurso repetitivo, que, no protesto regular, cabe ao devedor providenciar o cancelamento, salvo acordo em contrário. Ao credor cabe entregar o título, ou a carta de anuência."
+  },
+  {
+   "tipo": "lista",
+   "icone": "casa",
+   "rotulo": "LC 123/2006, art. 73 · caiu no 1º ENAC",
+   "titulo": "Devedor [[microempresa]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    [
+     "Emolumentos sem acréscimos",
+     "Não incidem taxas, custas e contribuições; só despesas de correio, condução e edital."
+    ],
+    [
+     "Cheque",
+     "Não se pode **exigir** cheque de banco; a quitação fica condicionada à liquidação."
+    ],
+    [
+     "Cancelamento",
+     "Pelo pagamento, **independe de anuência do credor**, salvo se não houver o original."
+    ],
+    [
+     "Prova",
+     "A condição é provada por documento da Junta Comercial ou do Registro Civil das Pessoas Jurídicas."
+    ]
+   ],
+   "fala": "Um regime especial que caiu no primeiro Enac: o devedor microempresa ou empresa de pequeno porte. {1}Sobre os emolumentos não incidem acréscimos de taxas, custas e contribuições. Só se cobram as despesas de correio, condução e edital. {2}Para o pagamento em cartório, não se pode exigir cheque de emissão de banco. {3}O cancelamento, fundado no pagamento, é feito independentemente de anuência do credor, salvo se for impossível apresentar o original protestado. {4}E o devedor prova essa condição com documento da Junta Comercial ou do Registro Civil das Pessoas Jurídicas. Se pagar com cheque sem fundos, perde os benefícios por um ano."
+  },
+  {
+   "tipo": "capa",
+   "icone": "livro",
+   "rotulo": "Parte 5",
+   "titulo": [
+    "Certidões,",
+    "[[livros]] e",
+    "responsabilidade"
+   ],
+   "ts": 150,
+   "texto": "Os números que a banca troca.",
+   "fala": "Parte cinco, a última deste vídeo: certidões, livros, emolumentos e responsabilidade. É a parte dos números."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, art. 27",
+   "titulo": "As [[certidões]]",
+   "itens": [
+    {
+     "numero": "5",
+     "unidade": "dias úteis",
+     "apelido": "Para expedir",
+     "texto": "No máximo, a contar do pedido.",
+     "lei": "Caput"
+    },
+    {
+     "numero": "5",
+     "unidade": "anos",
+     "apelido": "Período mínimo",
+     "texto": "Anteriores ao pedido, salvo se a certidão for de **protesto específico**.",
+     "lei": "Caput"
+    },
+    {
+     "icone": "olho",
+     "nome": "Cancelados",
+     "apelido": "Não aparecem",
+     "texto": "Salvo requerimento escrito do **próprio devedor** ou ordem judicial.",
+     "lei": "§ 2º"
+    }
+   ],
+   "fala": "As certidões. Guarde o cinco e cinco. {1}Cinco dias úteis é o prazo máximo para expedir. {2}Cinco anos é o período mínimo que a certidão abrange, contado para trás, salvo se ela se referir a um protesto específico. {3}E os protestos cancelados não constam das certidões, salvo por requerimento escrito do próprio devedor, ou por ordem judicial."
+  },
+  {
+   "tipo": "lista",
+   "icone": "pessoas",
+   "rotulo": "Lei 9.492/97, arts. 28 a 31",
+   "titulo": "Mais três regras de [[publicidade]]",
+   "itens": [
+    [
+     "Homonímia",
+     "Se o documento de identificação a resolve, a certidão é **negativa**."
+    ],
+    [
+     "Entidades de proteção ao crédito",
+     "Recebem **certidão diária**, em forma de relação, de caráter **reservado**."
+    ],
+    [
+     "Qualquer interessado",
+     "Pode obter certidão de protestos **não cancelados**, se pedir por escrito."
+    ]
+   ],
+   "fala": "Mais três regras de publicidade. {1}Homonímia: se o confronto do número do documento de identificação mostra que são pessoas diferentes, o tabelião dá certidão negativa. {2}As entidades de proteção ao crédito podem receber certidão diária, em forma de relação, com a nota de que é informação reservada, sem publicidade pela imprensa. E só podem divulgar protestos não cancelados. {3}E qualquer interessado pode obter certidão de protestos não cancelados, desde que peça por escrito."
+  },
+  {
+   "tipo": "alerta",
+   "rotulo": "Caiu no 3º ENAC · CNN, art. 132",
+   "titulo": "Cópia dos documentos [[arquivados]]",
+   "ts": 104,
+   "errado": "Qualquer pessoa obtém cópia de tudo",
+   "certo": "Só do documento protestado, e enquanto durar o protesto",
+   "porque": "A cópia ou certidão se limita ao **documento protestado**, enquanto perdurar o protesto e no máximo por **10 anos**. Os demais documentos, só para as **partes** ou com **autorização judicial**.",
+   "fala": "{1}Esta caiu no terceiro Enac, e vem das regras de proteção de dados. Um terceiro pede cópia de todos os documentos arquivados que instruíram um protesto. O tabelião fornece? Não. {2}A cópia ou certidão se limita ao documento protestado propriamente dito, enquanto perdurar o protesto, e dentro do prazo máximo de dez anos. Os demais documentos só são fornecidos às partes, ou com autorização judicial."
+  },
+  {
+   "tipo": "trio",
+   "rotulo": "Lei 9.492/97, arts. 35 e 36 · caiu no 3º ENAC",
+   "titulo": "Os prazos de [[arquivo]]",
+   "itens": [
+    {
+     "numero": "10",
+     "unidade": "anos",
+     "apelido": "Livros de registro",
+     "texto": "De protesto, e os respectivos títulos.",
+     "lei": "Art. 36"
+    },
+    {
+     "numero": "3",
+     "unidade": "anos",
+     "apelido": "Livros de protocolo",
+     "texto": "Escrituração **diária**, com termo de encerramento.",
+     "lei": "Art. 36"
+    },
+    {
+     "numero": "1",
+     "unidade": "ano",
+     "apelido": "Intimações e editais",
+     "texto": "De documentos protestados. Seis meses, se pagos ou retirados.",
+     "lei": "Art. 35, § 1º"
+    }
+   ],
+   "fala": "Os prazos de arquivo. {1}Dez anos para os livros de registro de protesto e os respectivos títulos. {2}Três anos para os livros de protocolo. {3}Um ano para as intimações e os editais de documentos protestados, e seis meses para os de documentos pagos ou retirados. Há ainda um prazo de trinta dias, para os comprovantes de entrega de pagamento e de devolução. E os mandados de sustação são guardados até a solução definitiva do juízo."
+  },
+  {
+   "tipo": "lei",
+   "fonte": "Lei 9.492/97, art. 38",
+   "ts": 46,
+   "texto": "Os Tabeliães de Protesto de Títulos são **civilmente responsáveis** por todos os prejuízos que causarem, **por culpa ou dolo**, pessoalmente, pelos substitutos que designarem ou Escreventes que autorizarem, assegurado o **direito de regresso**.",
+   "traducao": "Responsabilidade **subjetiva**: exige culpa ou dolo. E alcança os atos dos prepostos.",
+   "fala": "Por fim, a responsabilidade. Os tabeliães de protesto são civilmente responsáveis pelos prejuízos que causarem, por culpa ou dolo, pessoalmente, ou por seus substitutos e escreventes, assegurado o direito de regresso. {1}É responsabilidade subjetiva: exige culpa ou dolo. E o tabelião responde pelos atos dos prepostos, podendo depois cobrar deles."
+  },
+  {
+   "tipo": "questao",
+   "rotulo": "Questão de treino 2",
+   "selo": "Autoral · estilo ENAC",
+   "pausa": 3.6,
+   "enunciado": "Protestada uma duplicata apresentada por banco, em **endosso-mandato**, o devedor paga a dívida ao credor e **não recebe o título original**. Para cancelar o protesto, basta:",
+   "alternativas": [
+    "ordem judicial",
+    "declaração de anuência do credor endossante",
+    "declaração de anuência do banco, com duas testemunhas",
+    "o comprovante de depósito bancário"
+   ],
+   "fala": "Segunda questão. Uma duplicata foi protestada, apresentada por um banco, em endosso-mandato. O devedor paga ao credor, mas não recebe o título original. O que basta para cancelar o protesto? {1}Ordem judicial? Declaração de anuência do credor endossante? Declaração do banco, com duas testemunhas? Ou o comprovante de depósito? Pense três segundos."
+  },
+  {
+   "tipo": "gabarito",
+   "certa": 1,
+   "titulo": "Letra [[B]]",
+   "alternativas": [
+    "Ordem judicial",
+    "Anuência do endossante",
+    "Anuência do banco",
+    "Comprovante de depósito"
+   ],
+   "passos": [
+    "Sem o original: **declaração de anuência** do credor.",
+    "No endosso-mandato, basta a do **credor endossante**.",
+    "Ordem judicial é para cancelamento por **outro motivo**."
+   ],
+   "lei": "Lei 9.492/97, art. 26, §§ 1º a 3º",
+   "fala": "{1}Letra B. {2}Sem o título original, exige-se a declaração de anuência do credor, com firma reconhecida. {3}No endosso-mandato, é suficiente a anuência do credor endossante, porque o banco era só mandatário. {4}A ordem judicial fica para o cancelamento por outro motivo que não o pagamento. {5}Artigo vinte e seis."
+  },
+  {
+   "tipo": "lista",
+   "check": true,
+   "icone": "escudo",
+   "rotulo": "Resumo do vídeo 2",
+   "titulo": "O que você [[revisou]]",
+   "tl": 38,
+   "gap": 16,
+   "itens": [
+    "Pagamento no tabelionato, pelo valor declarado mais as custas",
+    "Desistência antes da lavratura; sustação só por ordem judicial",
+    "Revogada a sustação: protesto sem nova intimação",
+    "Falta de pagamento, de aceite ou de devolução",
+    "Cancelamento: título original ou anuência; outro motivo, só o juiz",
+    "Certidão em 5 dias úteis, cobrindo 5 anos; livros por 10 e 3 anos"
+   ],
+   "fala": "Resumo do segundo vídeo. {1}O pagamento é feito no tabelionato, pelo valor declarado, mais as custas. {2}A desistência é do apresentante, antes da lavratura, e a sustação só vem por ordem judicial. {3}Revogada a sustação, lavra-se o protesto sem nova intimação. {4}As espécies são falta de pagamento, de aceite e de devolução. {5}O cancelamento exige o título original ou a anuência do credor, e, por outro motivo, só o juiz. {6}E a certidão sai em cinco dias úteis, cobrindo cinco anos, com livros guardados por dez e por três anos."
+  },
+  {
+   "tipo": "fecho",
+   "icone": "globo",
+   "rotulo": "No vídeo 3",
+   "titulo": "O protesto de [[hoje]]",
+   "ts": 150,
+   "texto": "Central eletrônica, solução negocial, sentença, dívida ativa e súmulas.",
+   "fala": "No terceiro e último vídeo: o protesto de hoje. A central eletrônica, a solução negocial prévia, o protesto de sentença e de dívida ativa, os emolumentos e as súmulas que caem. Até lá."
+  }
+ ]
+}
