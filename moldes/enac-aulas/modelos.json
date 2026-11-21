@@ -1,0 +1,67 @@
+[
+  {
+    "id": "modelo-a-quadro",
+    "tema": "navy",
+    "faixa": "Registro de Imóveis · Modelo A · Quadro",
+    "cenas": [
+      { "tipo": "capa", "rotulo": "Registro de Imóveis · Lei 6.015/73", "titulo": ["Matrícula, [[registro]]", "e averbação"], "ts": 168,
+        "texto": "Três palavras que a prova adora trocar de lugar.",
+        "fala": "Matrícula, registro e averbação. Três palavras que a prova adora trocar de lugar. Depois desta aula, você não confunde nunca mais." },
+      { "tipo": "trio", "rotulo": "O conceito", "titulo": "Cada um no seu [[lugar]]",
+        "itens": [
+          { "nome": "Matrícula", "apelido": "O RG do imóvel", "texto": "Cada imóvel tem **uma**, e só uma. Tudo o que acontece com ele vai parar ali.", "lei": "LRP, art. 176, § 1º, I" },
+          { "nome": "Registro", "apelido": "Cria ou transfere o direito", "texto": "Compra e venda, doação, hipoteca. Aqui o direito **nasce ou muda de mãos**.", "lei": "LRP, art. 167, I" },
+          { "nome": "Averbação", "apelido": "Atualiza o que já existe", "texto": "O dono casou, construiu uma casa, quitou a dívida. **Altera ou extingue**.", "lei": "LRP, art. 167, II" }
+        ],
+        "fala": "Pense assim. {1}A matrícula é o RG do imóvel: cada imóvel tem uma, e só uma. {2}O registro é o ato que cria ou transfere o direito: compra e venda, doação, hipoteca. {3}E a averbação só atualiza o que já está lá: o dono casou, construiu uma casa, quitou a dívida." },
+      { "tipo": "alerta", "rotulo": "Pegadinha de prova", "titulo": "Construiu no [[terreno]]?", "errado": "Registro da construção", "certo": "Averbação da construção",
+        "porque": "A casa não cria direito novo: só muda a **descrição do imóvel**. LRP, art. 167, II, 4.",
+        "fala": "{1}Agora, a pegadinha. Construiu no terreno? A prova vai dizer registro da construção. Errado: é averbação. {2}A casa não cria direito novo. Ela só muda a descrição do imóvel." }
+    ]
+  },
+  {
+    "id": "modelo-b-caso",
+    "tema": "papel",
+    "faixa": "Registro de Imóveis · Modelo B · Caso na matrícula",
+    "cenas": [
+      { "tipo": "historia", "rotulo": "O caso", "titulo": "A escritura na [[gaveta]]", "pergunta": "A Ana já é dona?",
+        "passos": [
+          { "ok": true, "nome": "Pagou o preço", "texto": "Ana comprou o apartamento do Beto e quitou tudo." },
+          { "ok": true, "nome": "Assinou a escritura", "texto": "Escritura pública, no tabelionato de notas." },
+          { "ok": false, "nome": "Não levou a registro", "texto": "Guardou a escritura na gaveta." }
+        ],
+        "fala": "A Ana comprou o apartamento do Beto. {1}Pagou tudo, {2}assinou a escritura no tabelionato {3}e guardou a escritura na gaveta. {4}Pergunta de prova: a Ana já é dona?" },
+      { "tipo": "matricula", "rotulo": "Olhe a matrícula", "titulo": "Quem a matrícula diz que é o [[dono]]?", "numero": "12.345",
+        "imovel": "Apartamento 302 do Edifício Aurora, com 78,50 m² de área privativa.",
+        "lei": { "fonte": "Código Civil, art. 1.245", "texto": "Transfere-se entre vivos a propriedade mediante o **registro do título** translativo no Registro de Imóveis." },
+        "atos": [
+          { "sigla": "R-1/12.345", "tipo": "Compra e venda", "texto": "Adquirente e proprietário: **BETO**." },
+          { "sigla": "R-2/12.345", "tipo": "Compra e venda", "texto": "Transmitente: Beto. Adquirente: **ANA**, agora proprietária.", "em": 3, "carimbo": "REGISTRADO" }
+        ],
+        "fala": "Olhe a matrícula. {1}No registro um, o dono é o Beto. E enquanto a escritura da Ana não entrar aqui, o dono continua sendo o Beto. {2}É o artigo mil duzentos e quarenta e cinco do Código Civil: a propriedade só se transfere com o registro do título. {3}Levou a escritura ao cartório? Aí sim. Registro dois: Ana, proprietária." },
+      { "tipo": "bolso", "ts": 118, "col": 560,
+        "linhas": [["Escritura", "é o [[título]]"], ["Registro", "é o que [[transfere]]"]],
+        "frase": "Quem não registra não é dono.",
+        "fala": "Regra de bolso: {1}a escritura é só o título. {2}O registro é o que transfere. {3}Quem não registra, não é dono." }
+    ]
+  },
+  {
+    "id": "modelo-c-questao",
+    "tema": "azul",
+    "faixa": "Registro de Imóveis · Modelo C · Questão comentada",
+    "cenas": [
+      { "tipo": "questao", "rotulo": "Questão de treino", "selo": "Autoral · estilo ENAC", "pausa": 3.6,
+        "enunciado": "Carlos construiu uma casa em terreno **já matriculado em seu nome**. Para que a construção passe a constar da matrícula, o ato a ser praticado pelo registrador é:",
+        "alternativas": ["o registro da construção", "a averbação da construção", "a abertura de nova matrícula", "apenas a prenotação do pedido"],
+        "fala": "Questão no estilo da prova. Carlos construiu uma casa num terreno que já é dele, com matrícula no nome dele. Qual é o ato para a construção constar da matrícula? {1}Registro, averbação, nova matrícula, ou só a prenotação? Pense três segundos." },
+      { "tipo": "gabarito", "certa": 1, "titulo": "Letra [[B]]",
+        "alternativas": ["Registro da construção", "Averbação da construção", "Nova matrícula", "Só a prenotação"],
+        "passos": ["**Registro** cria ou transfere o direito.", "**Averbação** altera o que já está registrado.", "A casa não mudou o dono: mudou **o imóvel**."],
+        "lei": "Lei 6.015/73, art. 167, II, 4",
+        "fala": "{1}Letra B: averbação. Por quê? {2}Registro é o ato que cria ou transfere o direito. {3}Averbação altera o que já está registrado. {4}E a casa não mudou o dono. Mudou o imóvel. {5}Artigo cento e sessenta e sete, inciso dois, da Lei de Registros Públicos." },
+      { "tipo": "bolso", "rotulo": "Leve para a prova", "ts": 96, "col": 900,
+        "linhas": [["Nasceu ou mudou de dono", "[[registro]]"], ["Alterou ou extinguiu", "[[averbação]]"]],
+        "fala": "Leve para a prova: {1}o direito nasceu ou mudou de dono, registro. {2}Alterou ou extinguiu o que já estava lá, averbação." }
+    ]
+  }
+]
