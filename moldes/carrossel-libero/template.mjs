@@ -439,7 +439,9 @@ const CAPAS = {
         <h1 data-titulo style="margin:0;${TITULO};font-size:${s.ts || 140}px;line-height:1.02;color:#fff">${lista(s.titulo).map(l => rico(l, { ...t, caixa: R })).join('<br>')}</h1>
         ${s.numero ? `<div style="display:flex;align-items:flex-end;gap:24px;margin-top:6px"><span style="${TITULO};font-size:${s.tn || 250}px;line-height:.8;color:#fff">${esc(s.numero)}</span>
           ${s.rotulo ? `<span style="font-size:34px;font-weight:700;line-height:1.15;color:#fff;max-width:330px;padding-bottom:10px">${rico(s.rotulo, t)}</span>` : ''}</div>` : ''}</div>
-      <div style="position:absolute;left:90px;right:90px;top:${gy}px;height:${gh}px;display:flex;gap:16px;align-items:stretch;border-bottom:4px solid rgba(255,255,255,.6);z-index:3">${cols}</div>
+      ${s.horizontal ? `<div style="position:absolute;left:90px;right:90px;top:${gy}px;display:flex;flex-direction:column;gap:${s.gapBarras ?? 14}px;z-index:3">${bs.map(b2 => `<div style="display:grid;grid-template-columns:${s.colRotulo || 270}px 1fr;align-items:center;gap:18px">
+          <span style="font-size:${b2.destaque ? 34 : 30}px;font-weight:800;color:${b2.destaque ? '#fff' : 'rgba(255,255,255,.8)'};text-align:right">${esc(b2.rotulo)}</span>
+          <div style="display:flex;align-items:center;gap:14px"><div style="height:${s.alturaBarra || 44}px;width:${Math.round(b2.valor / max * 80)}%;background:${b2.destaque ? R : 'rgba(255,255,255,.3)'};${b2.destaque ? 'box-shadow:0 0 0 4px #fff' : ''}"></div><span style="font-size:${b2.destaque ? 38 : 30}px;font-weight:800;color:#fff">${esc(b2.texto ?? b2.valor)}</span></div></div>`).join('')}</div>` : `<div style="position:absolute;left:90px;right:90px;top:${gy}px;height:${gh}px;display:flex;gap:16px;align-items:stretch;border-bottom:4px solid rgba(255,255,255,.6);z-index:3">${cols}</div>`}
       <div style="position:absolute;left:90px;bottom:60px;background:${COR.navyFundo};color:#fff;font-size:28px;font-weight:700;padding:8px 18px;z-index:6">${PERFIL}</div>
       <div style="position:absolute;right:90px;bottom:68px;font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;z-index:6">Arraste →</div>`;
   },
@@ -972,7 +974,9 @@ const TIPOS = {
         <div style="width:100%;height:${Math.round(i.valor / max * (gh - 110))}px;background:${i.destaque ? R : base}"></div>
         <span style="font-size:24px;font-weight:800;letter-spacing:.04em;color:${i.destaque ? R : t.txt}">${esc(i.rotulo)}</span></div>`).join('');
     return area(`${kicker(s.kicker, t)}${titulo(s, t, 110, 860)}
-      <div style="height:${gh}px;display:flex;gap:18px;align-items:stretch;border-bottom:4px solid ${t.linha};flex:none">${cols}</div>
+      ${s.horizontal ? `<div style="display:flex;flex-direction:column;gap:16px;flex:none">${its.map(i => `<div style="display:grid;grid-template-columns:${s.colRotulo || 250}px 1fr;align-items:center;gap:18px">
+          <span style="font-size:${i.destaque ? 32 : 28}px;font-weight:800;color:${i.destaque ? R : t.txt};text-align:right">${esc(i.rotulo)}</span>
+          <div style="display:flex;align-items:center;gap:14px"><div style="height:42px;width:${Math.round(i.valor / max * 78)}%;background:${i.destaque ? R : base}"></div><span style="font-size:${i.destaque ? 36 : 28}px;font-weight:800;color:${i.destaque ? R : t.txt}">${esc(i.texto ?? i.valor + '%')}</span></div></div>`).join('')}</div>` : `<div style="height:${gh}px;display:flex;gap:18px;align-items:stretch;border-bottom:4px solid ${t.linha};flex:none">${cols}</div>`}
       ${s.texto ? corpo(s, t, s.corpo || 36) : ''}`);
   },
   lei(s, t) {

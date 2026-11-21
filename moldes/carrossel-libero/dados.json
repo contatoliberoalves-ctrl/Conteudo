@@ -8409,10 +8409,10 @@
         ],
         "ts": 108,
         "numero": "59",
-        "rotulo": "temas em Constitucional",
+        "rotulo": "temas no edital de Constitucional",
         "barras": [
           {
-            "rotulo": "Trab",
+            "rotulo": "Trabalho",
             "valor": 243,
             "texto": "243",
             "destaque": false
@@ -8430,32 +8430,26 @@
             "destaque": false
           },
           {
-            "rotulo": "Trib",
+            "rotulo": "Tributário",
             "valor": 83,
             "texto": "83",
             "destaque": false
           },
           {
-            "rotulo": "Emp",
+            "rotulo": "Empresarial",
             "valor": 76,
             "texto": "76",
             "destaque": false
           },
           {
-            "rotulo": "Const",
+            "rotulo": "Constitucional",
             "valor": 59,
             "texto": "59",
             "destaque": true
-          },
-          {
-            "rotulo": "Adm",
-            "valor": 42,
-            "texto": "42",
-            "destaque": false
           }
         ],
-        "graficoY": 700,
-        "graficoH": 480
+        "graficoY": 740,
+        "horizontal": true
       },
       {
         "tipo": "texto",
@@ -8481,7 +8475,7 @@
         ],
         "itens": [
           {
-            "rotulo": "Trab",
+            "rotulo": "Trabalho",
             "valor": 243,
             "texto": "243",
             "destaque": false
@@ -8499,31 +8493,26 @@
             "destaque": false
           },
           {
-            "rotulo": "Trib",
+            "rotulo": "Tributário",
             "valor": 83,
             "texto": "83",
             "destaque": false
           },
           {
-            "rotulo": "Emp",
+            "rotulo": "Empresarial",
             "valor": 76,
             "texto": "76",
             "destaque": false
           },
           {
-            "rotulo": "Const",
+            "rotulo": "Constitucional",
             "valor": 59,
             "texto": "59",
             "destaque": true
-          },
-          {
-            "rotulo": "Adm",
-            "valor": 42,
-            "texto": "42",
-            "destaque": false
           }
         ],
-        "texto": "Trabalho lista **243** temas. Civil, **166**. Constitucional, **59**."
+        "texto": "Temas e subtemas no edital, já com a parte de processo. Administrativo fica fora da conta: veja no próximo slide.",
+        "horizontal": true
       },
       {
         "tipo": "lista",
@@ -8548,13 +8537,13 @@
         "tema": "light",
         "kicker": "E Administrativo?",
         "titulo": [
-          "Menos itens,",
-          "[[mais leis]]"
+          "Não dá pra",
+          "[[comparar]]"
         ],
         "palavra": "Adm",
         "texto": [
-          "Administrativo lista **42 temas**, menos que Constitucional. Mas muitos itens são uma lei inteira.",
-          "São **11 leis** citadas no edital: licitações, improbidade, abuso de autoridade, LGPD, estatais, anticorrupção…"
+          "O edital de Administrativo lista **42 temas**, mas não tem código: boa parte dos itens é uma **lei inteira**.",
+          "São **11 leis** citadas, como Licitações (194 artigos), Improbidade, Abuso de Autoridade, LGPD, Estatais e Anticorrupção. Contar só os itens deixaria Administrativo menor do que ele é."
         ]
       },
       {
