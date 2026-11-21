@@ -8392,127 +8392,193 @@
     ]
   },
   {
-    "id": "o-que-ja-caiu-constitucional",
-    "titulo": "O que já caiu na 2ª fase de Constitucional (7 peças em 15 provas)",
-    "tema": "Análise do Anexo II do edital do 48º Exame (leis citadas por matéria) e das peças de Constitucional dos exames 32 a 46; comparação com Civil (exames 2 a 46, análise da Eduarda)",
-    "fonte": "Edital do 48º Exame, Anexo II; gabaritos da FGV (exames 32 a 46); Análise OAB Civil 2ª Fase (exames 2 a 46)",
+    "id": "temas-por-materia-2fase",
+    "titulo": "Quantos temas cada matéria da 2ª fase cobra? (edital do 48º)",
+    "tema": "Contagem dos temas e subtemas do conteúdo programático (Anexo II) do edital do 48º Exame, por matéria, incluindo a parte processual; códigos e leis citadas",
+    "fonte": "Edital do 48º Exame de Ordem, Anexo II (contagem própria de itens e subitens numerados)",
     "slides": [
       {
         "tipo": "capa",
         "tema": "blue",
-        "estilo": "numero",
-        "numero": "7",
-        "kicker": "2ª fase · Constitucional",
+        "estilo": "queda",
+        "selo": "2ª fase",
+        "pre": "Edital do 48º Exame",
         "titulo": [
-          "peças em",
-          "[[15 provas]]"
+          "Quanto estudar",
+          "em [[cada matéria]]?"
         ],
-        "texto": "O que já caiu e por que isso facilita a sua vida"
+        "ts": 108,
+        "numero": "59",
+        "rotulo": "temas em Constitucional",
+        "barras": [
+          {
+            "rotulo": "Trab",
+            "valor": 243,
+            "texto": "243",
+            "destaque": false
+          },
+          {
+            "rotulo": "Civil",
+            "valor": 166,
+            "texto": "166",
+            "destaque": false
+          },
+          {
+            "rotulo": "Penal",
+            "valor": 86,
+            "texto": "86",
+            "destaque": false
+          },
+          {
+            "rotulo": "Trib",
+            "valor": 83,
+            "texto": "83",
+            "destaque": false
+          },
+          {
+            "rotulo": "Emp",
+            "valor": 76,
+            "texto": "76",
+            "destaque": false
+          },
+          {
+            "rotulo": "Const",
+            "valor": 59,
+            "texto": "59",
+            "destaque": true
+          },
+          {
+            "rotulo": "Adm",
+            "valor": 42,
+            "texto": "42",
+            "destaque": false
+          }
+        ],
+        "graficoY": 700,
+        "graficoH": 480
       },
       {
         "tipo": "texto",
         "tema": "light",
-        "kicker": "Primeiro, o edital",
+        "kicker": "Como eu contei",
         "titulo": [
-          "Uma Constituição",
-          "e [[8 leis]]"
+          "Direto do",
+          "[[edital]]"
         ],
         "palavra": "Edital",
         "texto": [
-          "Em Constitucional, o edital cita a **CF** e 8 leis, quase todas **curtas** e ligadas a remédios e controle:",
-          "ADI e ADC (9.868), ADPF (9.882), súmula vinculante (11.417), habeas data (9.507), MS (12.016), MI (13.300), acesso à informação (12.527) e ação popular (4.717)."
+          "Peguei o **conteúdo programático** do edital do 48º Exame (Anexo II) e contei cada tema e subtema que a FGV lista em cada matéria.",
+          "Entrou também a parte de **processo**: Civil com Processo Civil, Penal com Processo Penal, Trabalho com Processo do Trabalho."
+        ]
+      },
+      {
+        "tipo": "grafico",
+        "tema": "dark",
+        "kicker": "Temas e subtemas no edital",
+        "titulo": [
+          "Matéria por",
+          "[[matéria]]"
         ],
-        "corpo": 38
+        "itens": [
+          {
+            "rotulo": "Trab",
+            "valor": 243,
+            "texto": "243",
+            "destaque": false
+          },
+          {
+            "rotulo": "Civil",
+            "valor": 166,
+            "texto": "166",
+            "destaque": false
+          },
+          {
+            "rotulo": "Penal",
+            "valor": 86,
+            "texto": "86",
+            "destaque": false
+          },
+          {
+            "rotulo": "Trib",
+            "valor": 83,
+            "texto": "83",
+            "destaque": false
+          },
+          {
+            "rotulo": "Emp",
+            "valor": 76,
+            "texto": "76",
+            "destaque": false
+          },
+          {
+            "rotulo": "Const",
+            "valor": 59,
+            "texto": "59",
+            "destaque": true
+          },
+          {
+            "rotulo": "Adm",
+            "valor": 42,
+            "texto": "42",
+            "destaque": false
+          }
+        ],
+        "texto": "Trabalho lista **243** temas. Civil, **166**. Constitucional, **59**."
       },
       {
         "tipo": "lista",
         "tema": "blue",
-        "kicker": "E nas outras matérias?",
+        "kicker": "E a lei que vem junto",
         "titulo": [
           "O tamanho da",
           "[[base]]"
         ],
         "itens": [
-          "**Civil:** Código Civil (2.046 artigos) + CPC (1.072)",
+          "**Trabalho:** CLT (922 artigos) + 17 leis citadas",
+          "**Civil:** Código Civil (2.046) + CPC (1.072)",
           "**Penal:** Código Penal (361) + CPP (811) + LEP",
-          "**Trabalho:** CLT (922) + 17 leis citadas no edital",
-          "**Empresarial:** S.A., Falência, CPC + 16 leis citadas",
-          "**Tributário:** CTN (218) + CF tributária + execução fiscal",
+          "**Empresarial:** 18 leis e decretos citados, mais S.A. e Falência",
+          "**Tributário:** CTN (218) + CF + execução fiscal",
           "**Constitucional:** CF (250) + 8 leis curtas"
         ],
-        "corpo": 36
-      },
-      {
-        "tipo": "grafico",
-        "tema": "dark",
-        "kicker": "Exames 32 a 46",
-        "titulo": [
-          "O que",
-          "[[caiu]]"
-        ],
-        "itens": [
-          {
-            "rotulo": "MS",
-            "valor": 4,
-            "texto": "4x",
-            "destaque": true
-          },
-          {
-            "rotulo": "ADI",
-            "valor": 3,
-            "texto": "3x",
-            "destaque": true
-          },
-          {
-            "rotulo": "ADC",
-            "valor": 2,
-            "texto": "2x"
-          },
-          {
-            "rotulo": "Recl.",
-            "valor": 2,
-            "texto": "2x"
-          },
-          {
-            "rotulo": "AP",
-            "valor": 2,
-            "texto": "2x"
-          },
-          {
-            "rotulo": "MI",
-            "valor": 1,
-            "texto": "1x"
-          },
-          {
-            "rotulo": "ADPF",
-            "valor": 1,
-            "texto": "1x"
-          }
-        ],
-        "texto": "Em 15 provas, só **7 peças** diferentes. O MS conta o individual (3x) e o coletivo (1x)."
-      },
-      {
-        "tipo": "impacto",
-        "tema": "light",
-        "kicker": "A conta que importa",
-        "titulo": [
-          "10 de 15"
-        ],
-        "sub": "provas cobraram controle concentrado (ADI, ADC ou ADPF) ou mandado de segurança."
+        "corpo": 34
       },
       {
         "tipo": "texto",
-        "tema": "blue",
-        "kicker": "Compara com Civil",
+        "tema": "light",
+        "kicker": "E Administrativo?",
         "titulo": [
-          "Menos",
-          "[[surpresa]]"
+          "Menos itens,",
+          "[[mais leis]]"
         ],
-        "palavra": "Padrão",
+        "palavra": "Adm",
         "texto": [
-          "Em Civil, em 45 provas, a peça que mais se repetiu (apelação) caiu **8 vezes**: menos de 1 em cada 5.",
-          "Em Constitucional, só o controle concentrado caiu **6 vezes em 15**: 2 em cada 5."
+          "Administrativo lista **42 temas**, menos que Constitucional. Mas muitos itens são uma lei inteira.",
+          "São **11 leis** citadas no edital: licitações, improbidade, abuso de autoridade, LGPD, estatais, anticorrupção…"
         ]
+      },
+      {
+        "tipo": "texto",
+        "tema": "dark",
+        "kicker": "Constitucional",
+        "titulo": [
+          "Uma base",
+          "[[só]]"
+        ],
+        "palavra": "CF",
+        "texto": [
+          "A base é a **Constituição**, que você já estudou na 1ª fase.",
+          "As 8 leis citadas são de **remédios e controle**: ADI e ADC, ADPF, súmula vinculante, habeas data, MS, MI, acesso à informação e ação popular."
+        ]
+      },
+      {
+        "tipo": "impacto",
+        "tema": "blue",
+        "kicker": "Na comparação",
+        "titulo": [
+          "4x menos"
+        ],
+        "sub": "temas que Trabalho (59 contra 243) e quase 3x menos que Civil (166)."
       },
       {
         "tipo": "lista",
@@ -8523,9 +8589,9 @@
           "pra [[você]]"
         ],
         "itens": [
-          "**Menos peças** pra dominar: 7 caíram em 15 provas",
-          "**Leis curtas** que se repetem prova após prova",
-          "Dá pra treinar **cada peça várias vezes** até o dia da prova"
+          "**Menos temas:** dá pra revisar tudo mais vezes até a prova",
+          "**Uma base só:** a CF, que você já conhece",
+          "**Leis curtas** e ligadas às peças que caem"
         ]
       },
       {
