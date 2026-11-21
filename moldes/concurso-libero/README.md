@@ -22,6 +22,7 @@ Para chamar atenção no feed, a capa aceita `visual` (mantém o logo no topo e 
 - `trio`: título e três fichas brancas inclinadas (`fichas: [{sigla, nome}]`). Ex.: ENAC × ENAM × ENAP.
 - `versus`: título e duas metades (branca e petróleo) com o selo VS (`lados: [linhas, linhas]`).
 - `contagem`: folhinha de calendário com os dias que faltam (`dias`, `diasRotulo`, `data`) e título embaixo.
+- `pilha`: título e até 4 normas novas como folhas espalhadas com a faixa "NOVIDADE" (`folhas: [{sigla, nome}]`) e selo amarelo redondo (`selo`: linhas; `seloY`, `seloR`). Ex.: "Novidades que podem cair no ENAC".
 - `curva`: título e o gráfico da curva do esquecimento com as revisões (`rotulos`: 3 marcas do eixo).
 
 ## Tela única de material grátis (`tipo: "post"`, `visual: "pdf"`)

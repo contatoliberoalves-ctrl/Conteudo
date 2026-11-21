@@ -2729,35 +2729,59 @@
   {
     "id": "enac-novidades-amanha",
     "titulo": "Novidades que podem cair no ENAC amanhã",
-    "estilo": "claro",
+    "estilo": "ficha",
     "slides": [
       {
         "tipo": "capa",
-        "pre": "Revisão de véspera",
+        "visual": "pilha",
         "titulo": [
           "Novidades que podem",
           "cair no [[ENAC]]"
         ],
-        "sub": "A prova é amanhã, 22/11",
-        "ts": 118
+        "ts": 100,
+        "selo": [
+          "Prova",
+          "amanhã"
+        ],
+        "folhas": [
+          {
+            "sigla": "Res. 696",
+            "nome": "CNJ · 2026"
+          },
+          {
+            "sigla": "Res. 571",
+            "nome": "CNJ · 2024"
+          },
+          {
+            "sigla": "Lei 14.382",
+            "nome": "SERP · 2022"
+          },
+          {
+            "sigla": "Lei 14.711",
+            "nome": "Garantias · 2023"
+          }
+        ],
+        "seloY": 400
       },
       {
         "tipo": "texto",
+        "aba": "RES. 696/2026",
         "titulo": [
-          "Resolução CNJ",
-          "[[696/2026]]"
+          "A nova regra dos",
+          "[[concursos]]"
         ],
         "paragrafos": [
-          "Aprovada em **26/08/2026**, substituiu a antiga **Resolução 81/2009** e virou a nova regra dos concursos de cartório.",
-          "O CNJ passa a ser a **fonte única** das regras do concurso: norma local ou item de edital em conflito não vale."
+          "Aprovada em **26/08/2026**, substituiu a antiga **Resolução 81/2009**.",
+          "O CNJ passa a ser a **fonte única** das regras do concurso de cartório: norma local ou item de edital em conflito não vale."
         ],
         "destaque": "Fim do **sorteio** das serventias reservadas: agora vale a **alternância** na ordem de chamada."
       },
       {
         "tipo": "lista",
+        "aba": "RES. 696/2026",
         "titulo": [
-          "Mais da",
-          "[[696/2026]]"
+          "O que mais",
+          "[[mudou]]"
         ],
         "itens": [
           {
@@ -2780,33 +2804,94 @@
       },
       {
         "tipo": "texto",
+        "aba": "RES. 571/2024",
         "titulo": [
-          "Inventário e divórcio",
-          "com [[menor]]"
+          "Inventário com",
+          "[[menor]]"
         ],
         "paragrafos": [
-          "Desde a **Resolução CNJ 571/2024**, dá pra fazer inventário e divórcio **em cartório** mesmo com filho menor ou incapaz.",
-          "No inventário, com partilha em parte ideal e manifestação do MP. No divórcio, guarda, convivência e alimentos precisam estar resolvidos antes na Justiça."
+          "Desde a **Resolução CNJ 571/2024**, o inventário pode ser feito **em cartório** mesmo com herdeiro menor ou incapaz.",
+          "A condição: a partilha em **parte ideal** de cada bem e a manifestação favorável do **Ministério Público**."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "aba": "RES. 571/2024",
+        "titulo": [
+          "Divórcio com",
+          "[[filho menor]]"
+        ],
+        "paragrafos": [
+          "O divórcio também pode sair **por escritura**, mesmo com filho menor.",
+          "Mas guarda, convivência e alimentos precisam estar **resolvidos antes na Justiça**."
+        ],
+        "destaque": "Escritura no tabelionato de notas e averbação no registro civil."
+      },
+      {
+        "tipo": "lista",
+        "aba": "LEI 14.382/2022",
+        "titulo": [
+          "Nome direto no",
+          "[[cartório]]"
+        ],
+        "itens": [
+          {
+            "t": "Prenome",
+            "d": "Maior de 18 anos muda **uma vez**, sem dar motivo e sem juiz (art. 56 da Lei 6.015/73). Desfazer, só por sentença."
+          },
+          {
+            "t": "Sobrenome",
+            "d": "Incluir sobrenome de família, do cônjuge ou excluir o do ex depois do divórcio (art. 57)."
+          },
+          {
+            "t": "Logo depois do registro",
+            "d": "Em até 15 dias, os pais podem se opor ao nome do bebê (art. 55, § 4º)."
+          }
+        ]
+      },
+      {
+        "tipo": "texto",
+        "aba": "LEI 14.382/2022",
+        "titulo": [
+          "Adjudicação",
+          "[[sem juiz]]"
+        ],
+        "paragrafos": [
+          "Comprou, pagou e o vendedor não passa a escritura? A **adjudicação compulsória** pode ser feita no **registro de imóveis** (art. 216-B da Lei 6.015/73).",
+          "O pedido vai com **ata notarial** e é processado no próprio cartório."
+        ]
+      },
+      {
+        "tipo": "texto",
+        "aba": "LEI 14.711/2023",
+        "titulo": [
+          "Marco das",
+          "[[Garantias]]"
+        ],
+        "paragrafos": [
+          "A **hipoteca** passou a poder ser executada **fora da Justiça**, com o procedimento no registro de imóveis.",
+          "Antes, isso era comum só na **alienação fiduciária**."
         ]
       },
       {
         "tipo": "lista",
+        "aba": "PROV. 149/2023",
         "titulo": [
-          "Não esquece",
-          "[[dessas]]"
+          "A base de",
+          "[[tudo]]"
         ],
         "itens": [
           {
-            "t": "Lei 14.382/2022 (SERP)",
-            "d": "Mudança de prenome e sobrenome direto no cartório e adjudicação compulsória extrajudicial."
+            "t": "Código Nacional de Normas",
+            "d": "O Provimento CNJ 149/2023 reuniu as normas do foro extrajudicial num código só."
           },
           {
-            "t": "Lei 14.711/2023",
-            "d": "Marco Legal das Garantias: execução extrajudicial da hipoteca."
+            "t": "Atos eletrônicos",
+            "d": "Escritura por videoconferência no e-Notariado."
           },
           {
-            "t": "Provimento CNJ 149/2023",
-            "d": "Código Nacional de Normas do Foro Extrajudicial."
+            "t": "União estável no registro civil",
+            "d": "Termo declaratório feito direto no cartório de registro civil."
           }
         ]
       },

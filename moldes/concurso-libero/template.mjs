@@ -119,6 +119,21 @@ const CAPAS = {
       <div style="${T};font-size:300px;line-height:.95;color:${COR.tinta};padding-top:20px">${esc(s.dias)}</div>
       <div style="${S};font-size:34px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#D93A30;padding-bottom:34px">${esc(s.diasRotulo || 'dias')}</div></div></div>
     <div style="${T};font-size:${s.ts || 110}px;line-height:1.02;color:${t.tit};margin-top:60px">${linhas(s.titulo, t)}</div>`,
+  // Pilha: título e as normas novas como folhas espalhadas na mesa (sigla grande, órgão e ano), com o selo
+  // amarelo redondo (`selo`, linhas). Campos: titulo, ts, folhas [{sigla, nome}] (até 4), selo, pilhaH.
+  pilha: (s, t) => {
+    const pos = [[-30, 0, -9], [430, -20, 6], [-10, 250, 5], [450, 240, -7]];
+    const cores = ['#0BA457', COR.petroleo, '#078A4A', '#0BA457'];
+    return `<div style="${T};font-size:${s.ts || 120}px;line-height:1.02;color:${t.tit}">${linhas(s.titulo, t)}</div>
+    <div style="position:relative;height:${s.pilhaH || 560}px;margin:56px auto 0;width:880px;text-align:left">
+      ${lista(s.folhas).slice(0, 4).map((f, i) => `<div style="position:absolute;left:${pos[i][0] + 20}px;top:${pos[i][1] + 20}px;width:440px;background:#fff;border-radius:18px;box-shadow:0 26px 50px rgba(0,0,0,.35);transform:rotate(${pos[i][2]}deg);overflow:hidden">
+        <div style="background:${cores[i]};${S};font-size:20px;font-weight:800;letter-spacing:.2em;color:#fff;padding:12px 26px">NOVIDADE</div>
+        <div style="padding:20px 26px 26px"><div style="${T};font-size:92px;line-height:.9;color:${COR.tinta}">${esc(f.sigla)}</div>
+        <div style="${I};font-size:24px;font-weight:600;line-height:1.3;color:#1E3A35;margin-top:10px">${esc(f.nome)}</div>
+        ${[0, 1, 2].map(k => `<div style="height:8px;border-radius:4px;background:#E3ECE9;margin-top:12px;width:${[90, 70, 80][k]}%"></div>`).join('')}</div></div>`).join('')}
+      ${s.selo ? `<div style="position:absolute;right:${s.seloR ?? -50}px;top:${s.seloY ?? 430}px;width:230px;height:230px;border-radius:50%;background:#FFB511;border:8px solid #fff;box-shadow:0 20px 40px rgba(0,0,0,.35);transform:rotate(12deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;${T};font-size:52px;line-height:.92;color:${COR.tinta};z-index:3">${lista(s.selo).map(esc).join('<br>')}</div>` : ''}
+    </div>`;
+  },
   curva: (s, t) => {
     const c = t.escuro ? '#fff' : COR.tinta, a = t.escuro ? '#FFB511' : '#0BA457';
     return `<div style="${T};font-size:${s.ts || 120}px;line-height:1.02;color:${t.tit}">${linhas(s.titulo, t)}</div>
