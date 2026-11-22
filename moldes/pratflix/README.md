@@ -31,3 +31,9 @@ Gerar: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node p
 Guias e fichas A4 da biblioteca de materiais, com texto selecionável, sumário com links, marcadores e páginas numeradas (não é PDF de imagem). Capa tipográfica escura (#151515, marfim #F7F4EB, dourado #B49A5B, sem foto) e miolo marfim.
 Cada material é um `materiais/NN-*.md` (cabeçalho com `numero`, `titulo`, `destaque`, `tipo`, `arquivo`, `rodape`, `resumo`, `uso`; marcações próprias descritas no topo de `materiais/gerar.py`: `[[quebra]]`, `[[linhas N]]`, `[[caixa N]]`, blocos `::: quadro|atencao|exemplo|fala|ruim|melhor|resposta|pratica`, `- [ ]` checklist e `{.ficha}`/`{.grade}` antes de tabelas para preencher).
 Gerar: `pip install markdown pymupdf` e `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY python3 materiais/gerar.py [NN ...]` → `saida/materiais/<arquivo>.pdf`.
+
+## Casos simulados (`casos/`)
+Pastas de caso das prioridades do planejamento de produto (novembro de 2026). Cada caso tem um `casos/caso-NN.mjs` com os documentos fictícios (prints de conversa, e-mail, comprovante de banco e rastreio, montados com `casos/ui.mjs`; nenhum imita marca real e todos levam a tarja "caso fictício"), mais dois materiais em `materiais/`: a pasta do aluno e o espelho do professor.
+- Documentos (PNG de 1080 px de largura, para celular): `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node casos/documentos.mjs 01` → `saida/casos/<id>/docs/` e `envelope/` (o que só aparece se o aluno perguntar).
+- PDFs: `python3 materiais/gerar.py 09 10` (rode depois dos documentos: a pasta do aluno embute as imagens). Figuras: `<div class="docs"><figure><img src="../../saida/casos/…"><figcaption>…</figcaption></figure></div>`.
+- Caso 01 · Meu primeiro caso de consumidor ("a fritadeira que não chegou"): materiais 09 (aluno) e 10 (espelho). Pacote: `saida/entregas/PratFlix_Caso01_Consumidor.zip` (pastas `aluno/` e `professor/`).
