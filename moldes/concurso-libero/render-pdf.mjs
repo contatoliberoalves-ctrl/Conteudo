@@ -1,12 +1,14 @@
 // Gera os PDFs A4 de pdf.json: saida/<id>/<id>.pdf, 1.png … N.png (1080 px de largura) e painel.png.
-// Uso: node render-pdf.mjs [id]. Nuvem: CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render-pdf.mjs
+// Também lê kits/<kit>/*.json (um PDF por arquivo). Uso: node render-pdf.mjs [id | kit]. Nuvem: CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render-pdf.mjs
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { renderPdf, W, H } from './pdf.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
-const dados = JSON.parse(fs.readFileSync(path.join(root, 'pdf.json'), 'utf8')).filter(c => !process.argv[2] || c.id === process.argv[2]);
+const kits = fs.existsSync(path.join(root, 'kits')) ? fs.readdirSync(path.join(root, 'kits')).flatMap(k => fs.readdirSync(path.join(root, 'kits', k)).filter(f => f.endsWith('.json')).sort().map(f => ({ ...JSON.parse(fs.readFileSync(path.join(root, 'kits', k, f), 'utf8')), kit: k }))) : [];
+const alvo = process.argv[2];
+const dados = [...JSON.parse(fs.readFileSync(path.join(root, 'pdf.json'), 'utf8')), ...kits].filter(c => !alvo || c.id === alvo || c.kit === alvo);
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
 if (process.env.RENDER_PROXY) Object.assign(launch, { proxy: { server: process.env.RENDER_PROXY }, args: ['--ignore-certificate-errors'] });

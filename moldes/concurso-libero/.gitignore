@@ -1,3 +1,7 @@
 node_modules
 build/
 saida/
+# conteúdo dos kits (material pago): fica fora do git
+kits/*/*.json
+kits/*/*.dados
+kits/*/fontes/

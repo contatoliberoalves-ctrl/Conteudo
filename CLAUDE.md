@@ -10,6 +10,9 @@ Todos os moldes do perfil usam uma identidade só, em `moldes/cg-comum/identidad
 - `.claude/skills/molde-<id>/`: como gerar posts em cada molde. `.claude/skills/novo-molde/`: como cadastrar um molde novo.
 - `galeria/`: página que mostra todos os moldes e posts.
 
+## Kits de edital (materiais pagos por concurso)
+`moldes/concurso-libero/kits/<id>/` gera, para concurso com prova distante, os PDFs de análise do edital, assuntos mais cobrados, estratégia, cronogramas e apoio, na identidade do Concurso com Líbero; leia o `moldes/concurso-libero/kits/README.md`. O conteúdo fica fora do git. Primeiro kit: `unificado-ma` (Concurso Unificado do Maranhão, FCC, prova em 04/04/2027).
+
 ## Fotos
 O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os originais ficam no Google Drive dele e cada molde tem um script que recria os recortes (ex.: `moldes/estrutura-de-pecas/recortar_fotos.py`). Numa sessão nova sem as fotos, peça o link da pasta do Drive.
 

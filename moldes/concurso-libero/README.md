@@ -30,3 +30,6 @@ Fundo petróleo com grade, manchete (`manchete`, `ts`, `selo`, `sub`), capa do P
 
 ## Quiz rápido de uma página (`tipo: "post"`, `visual: "quiz"`)
 Fundo petróleo com grade, selo "Quiz rápido" (`selo`), `assunto` numa pílula, `pergunta` (linhas, `[[palavra]]` em caixa verde; `ts`), `contexto` opcional, `opcoes` (2 a 4, viram A–D em cartões brancos; `to` = px do texto), barra "Comenta a letra" (`rodape`, padrão "gabarito nos comentários") e `fonte` em letra pequena. O `gabarito` fica só no dados.json, para a legenda ou o comentário fixado. Só pergunte o que está na lei ou no edital.
+
+## Kits de edital (`kits/`)
+PDFs A4 de análise de edital, assuntos mais cobrados, estratégia, cronogramas e apoio, um kit por concurso. Leia `kits/README.md`. Gerar: `node render-pdf.mjs <kit>`. O conteúdo dos kits fica fora do git.
