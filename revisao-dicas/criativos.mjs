@@ -2,7 +2,8 @@
 // Cada layout segue um formato estático que funciona em Meta Ads e é diferente dos outros na estrutura:
 // educativo (infográfico da nota), crenca (crença x virada), postit (bilhete "feio" de urgência), faq (objeção),
 // grade (páginas do material + preço), pegadinha (certo ou errado), versus (dois jeitos de revisar),
-// pagina (uma dica real ampliada, com marca-texto) e os nativos de story: enquete, caixinha e lembrete.
+// pagina (uma dica real ampliada, com marca-texto), os nativos de story: enquete, caixinha e lembrete, e os
+// simples-* (fundo liso, uma frase e a página real do PDF: pagina, duas, capas, painel, zoom, celular).
 // Todo texto de conteúdo vem das dicas e do edital (nada de depoimento, número ou conversa inventados).
 import { FONTES, T, I, M, PERFIL, TEMAS, esc, marca, simbolo, azulejo, visto, carimbo } from './tema.mjs';
 
@@ -116,6 +117,34 @@ export function renderCriativo(cr, prod, dicas, img) {
       <div style="position:absolute;left:0;right:0;top:${topo + 20}px;text-align:center;color:#fff"><div style="${I};font-weight:600;font-size:42px;opacity:.9">domingo, 22 de novembro</div><div style="${I};font-weight:700;font-size:250px;line-height:1;letter-spacing:-.04em">21:47</div></div>
       <div style="position:absolute;left:60px;right:60px;top:${topo + 500}px;display:grid;gap:18px">${[['Calendário', 'agora', 'Prova TCE MA · Auditor', 'Domingo, 29/11, turno da manhã.', '#FF3B30'], ['Lembretes', 'há 2 min', 'Revisar as 400 dicas', 'Hoje: Direito Financeiro, dicas 166 a 205.', c.cor], ['Lembretes', 'há 2 min', 'Marcar as que errei', 'Na véspera, revisar só as marcadas.', c.cor]].map(([app, q, t, s, cor]) => `<div style="background:rgba(255,255,255,.2);backdrop-filter:blur(20px);border-radius:38px;padding:30px 34px;display:grid;grid-template-columns:84px 1fr;gap:24px;align-items:center"><div style="width:84px;height:84px;border-radius:20px;background:#fff;display:flex;align-items:center;justify-content:center"><span style="width:44px;height:44px;border-radius:${app === 'Calendário' ? 8 : 50}%;background:${cor}"></span></div><div><div style="display:flex;justify-content:space-between;${I};font-size:27px;color:rgba(255,255,255,.7)"><span>${app}</span><span>${q}</span></div><div style="${I};font-weight:700;font-size:36px;color:#fff;margin-top:2px">${t}</div><div style="${I};font-size:31px;line-height:1.3;color:rgba(255,255,255,.88);margin-top:2px">${s}</div></div></div>`).join('')}</div>
       <div style="position:absolute;left:${lado}px;right:${lado}px;bottom:${pe + 10}px;display:flex;align-items:center;justify-content:space-between">${marca(58, '#fff', c.claro, 'm' + cr.id)}<div style="text-align:right"><div style="${T};font-size:44px;line-height:1;color:#fff">Revisão em Dicas</div><div style="${M};font-size:20px;letter-spacing:.1em;color:${c.claro};margin-top:6px">TCE MA · 400 DICAS</div></div></div>`,
+
+    // ---------- Simples: pouco design, o material é a arte ----------
+    // fundo liso, uma frase em Inter e a página real do PDF
+    'simples-pagina': () => `<div style="position:absolute;inset:0;background:#ECE9E6"></div>${area(`
+      <div style="${I};font-weight:800;font-size:54px;line-height:1.12;letter-spacing:-.02em;color:#141414;white-space:nowrap">400 dicas pra revisar o TCE MA.<br>É assim por dentro:</div>
+      <div style="flex:1;min-height:0;margin-top:34px;overflow:hidden;border-radius:14px 14px 0 0;box-shadow:0 30px 70px -30px rgba(0,0,0,.45)"><img src="${img.financeiro}" style="width:100%;display:block"></div>
+      <div style="${I};font-weight:600;font-size:28px;color:#141414;padding-top:22px;display:flex;justify-content:space-between"><span>Revisão em Dicas · Auditor</span><span>PDF · Parte 1 + Parte 2</span></div>`)}`,
+    'simples-duas': () => `<div style="position:absolute;inset:0;background:#fff"></div>${area(`
+      <div style="${I};font-weight:800;font-size:${story ? 62 : 56}px;line-height:1.12;letter-spacing:-.02em;color:#141414">Ficou na dúvida na dica?<br>A Parte 2 explica.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:${story ? 70 : 40}px">${[['pagina', 'Parte 1 · a regra em uma linha'], ['explicada', 'Parte 2 · a explicação e a pegadinha']].map(([k, t]) => `<div><div style="border:2px solid #DCDCDC;border-radius:10px;overflow:hidden;height:${story ? 800 : 640}px"><img src="${img[k]}" style="width:100%;display:block"></div><div style="${I};font-weight:700;font-size:25px;line-height:1.3;color:#141414;margin-top:14px">${t}</div></div>`).join('')}</div>
+      <div style="margin-top:auto;${I};font-weight:600;font-size:28px;color:#141414">TCE MA 2026 · Revisão em Dicas · ${PERFIL}</div>`)}`,
+    'simples-capas': () => `<div style="position:absolute;inset:0;background:#F3F1EE"></div>
+      <img src="${img.capa2}" style="position:absolute;left:${story ? 470 : 480}px;top:${story ? 420 : 150}px;width:${story ? 500 : 480}px;transform:rotate(6deg);border-radius:8px;box-shadow:0 40px 70px -30px rgba(0,0,0,.5)">
+      <img src="${img.capa1}" style="position:absolute;left:${story ? 110 : 120}px;top:${story ? 470 : 190}px;width:${story ? 500 : 480}px;transform:rotate(-4deg);border-radius:8px;box-shadow:0 40px 70px -30px rgba(0,0,0,.5)">
+      <div style="position:absolute;left:${lado}px;right:${lado}px;bottom:${pe}px"><div style="${I};font-weight:800;font-size:${story ? 66 : 60}px;line-height:1.1;letter-spacing:-.02em;color:#141414">TCE MA · Auditor<br>400 dicas em 2 PDFs</div><div style="${I};font-size:32px;line-height:1.35;color:#3A3A3A;margin-top:14px">Parte 1 pra revisar rápido. Parte 2 com tudo explicado. <b style="color:#141414;white-space:nowrap">R$ ${esc(prod.preco)}</b></div></div>`,
+    'simples-painel': () => `<div style="position:absolute;inset:0;background:#ECE9E6"></div>${area(`
+      <div style="flex:1;min-height:0;overflow:hidden;border-radius:14px;box-shadow:0 30px 70px -30px rgba(0,0,0,.45);background:${c.papel}"><img src="${img.painel}" style="width:100%;display:block"></div>
+      <div style="${I};font-weight:800;font-size:${story ? 62 : 56}px;line-height:1.12;letter-spacing:-.02em;color:#141414;margin-top:34px">Pinte as dicas em que você hesitou.<br>Na véspera, revise só essas.</div>
+      <div style="${I};font-weight:600;font-size:28px;color:#3A3A3A;margin-top:16px">Painel de revisão · Revisão em Dicas TCE MA</div>`)}`,
+    'simples-zoom': () => `<div style="position:absolute;inset:0;background:${c.papel}"></div>
+      <img src="${img.financeiro}" style="position:absolute;left:-60px;top:${story ? 40 : -150}px;width:1900px;max-width:none">
+      <div style="position:absolute;left:0;right:0;bottom:0;height:${pe + 380}px;background:linear-gradient(transparent,#141414 ${story ? 24 : 50}%)"></div>
+      <div style="position:absolute;left:${lado}px;right:${lado}px;bottom:${pe}px"><div style="${I};font-weight:800;font-size:${story ? 60 : 54}px;line-height:1.12;letter-spacing:-.02em;color:#fff">Uma regra por linha.<br>400 vezes.</div><div style="${I};font-weight:600;font-size:28px;color:rgba(255,255,255,.85);margin-top:10px">Revisão em Dicas · TCE MA · Auditor</div></div>`,
+    'simples-celular': () => `<div style="position:absolute;inset:0;background:#fff"></div>${area(`
+      <div style="${I};font-weight:800;font-size:${story ? 62 : 56}px;line-height:1.12;letter-spacing:-.02em;color:#141414">Dá pra revisar no ônibus.</div>
+      <div style="${I};font-size:32px;line-height:1.35;color:#3A3A3A;margin-top:12px">PDF pra ler no celular, no tablet ou imprimir.</div>
+      <div style="flex:1;min-height:0;margin-top:34px;display:flex;justify-content:center;overflow:hidden"><div style="width:560px;border:14px solid #141414;border-bottom:0;border-radius:64px 64px 0 0;overflow:hidden;background:${c.papel};position:relative"><div style="position:absolute;left:50%;top:14px;width:150px;height:34px;margin-left:-75px;background:#141414;border-radius:20px;z-index:2"></div><img src="${img.pagina}" style="width:1040px;max-width:none;margin:36px 0 0 -40px;display:block"></div></div>
+      <div style="${I};font-weight:600;font-size:28px;color:#141414;border-top:2px solid #141414;padding-top:20px">Revisão em Dicas · TCE MA · R$ ${esc(prod.preco)}</div>`)}`,
   };
   const corpo = (L[cr.layout] || (() => { throw new Error('layout desconhecido: ' + cr.layout); }))();
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link href="${FONTES_CR}" rel="stylesheet"><style>*{box-sizing:border-box}body{margin:0}p{margin:0}</style></head><body><div id="arte" style="position:relative;width:${W}px;height:${H}px;overflow:hidden">${corpo}</div><script>document.fonts.ready.then(() => { window.__pronto = true; });</script></body></html>`;

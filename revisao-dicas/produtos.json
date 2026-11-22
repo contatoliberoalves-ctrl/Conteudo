@@ -142,6 +142,66 @@
     "id": "story-grade",
     "layout": "grade",
     "formato": "story"
+   },
+   {
+    "id": "feed-simples-pagina",
+    "layout": "simples-pagina",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-pagina",
+    "layout": "simples-pagina",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-duas",
+    "layout": "simples-duas",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-duas",
+    "layout": "simples-duas",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-capas",
+    "layout": "simples-capas",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-capas",
+    "layout": "simples-capas",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-painel",
+    "layout": "simples-painel",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-painel",
+    "layout": "simples-painel",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-zoom",
+    "layout": "simples-zoom",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-zoom",
+    "layout": "simples-zoom",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-celular",
+    "layout": "simples-celular",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-celular",
+    "layout": "simples-celular",
+    "formato": "story"
    }
   ],
   "imagens": {
@@ -168,7 +228,130 @@
    "questoes": [
     1,
     56
+   ],
+   "financeiro": [
+    1,
+    25
    ]
-  }
+  },
+  "kit": [
+   {
+    "id": "produto-capa-300x250",
+    "tipo": "capa",
+    "w": 300,
+    "h": 250
+   },
+   {
+    "id": "produto-quadrado-1080",
+    "tipo": "selo",
+    "w": 1080,
+    "h": 1080
+   },
+   {
+    "id": "checkout-banner-1200x400",
+    "tipo": "banner",
+    "w": 1200,
+    "h": 400,
+    "titulo": [
+     "400 dicas pra revisar",
+     "o [[TCE MA]]"
+    ],
+    "texto": "Parte 1 e Parte 2 em PDF, com 12 questões e 6 treinos discursivos resolvidos."
+   },
+   {
+    "id": "checkout-banner-celular-800x400",
+    "tipo": "banner",
+    "w": 800,
+    "h": 400,
+    "compacto": true,
+    "titulo": [
+     "400 dicas pra",
+     "revisar o [[TCE MA]]"
+    ],
+    "texto": "Parte 1 + Parte 2 em PDF."
+   },
+   {
+    "id": "membros-banner-1920x480",
+    "tipo": "banner",
+    "w": 1920,
+    "h": 480,
+    "titulo": [
+     "Revisão em dicas",
+     "[[TCE MA 2026]]"
+    ],
+    "texto": "Comece pela Parte 1, marque onde hesitar e abra a Parte 2 no mesmo número."
+   },
+   {
+    "id": "membros-capa-curso-1280x720",
+    "tipo": "banner",
+    "w": 1280,
+    "h": 720,
+    "alto": true,
+    "titulo": [
+     "Revisão",
+     "em dicas",
+     "[[TCE MA]]"
+    ],
+    "texto": "Auditor de Controle Externo · 400 dicas"
+   },
+   {
+    "id": "membros-modulo-1-parte-1",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "01",
+    "titulo": [
+     "Parte 1",
+     "Revisão",
+     "em dicas"
+    ],
+    "sub": "400 dicas · regra e distinção"
+   },
+   {
+    "id": "membros-modulo-2-parte-2",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "02",
+    "titulo": [
+     "Parte 2",
+     "Dicas",
+     "explicadas"
+    ],
+    "sub": "explicação, pegadinha e fundamento"
+   },
+   {
+    "id": "membros-modulo-3-treino",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "03",
+    "titulo": [
+     "Treino",
+     "Questões",
+     "e peças"
+    ],
+    "sub": "12 questões · 6 treinos resolvidos"
+   },
+   {
+    "id": "membros-modulo-4-roteiro",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "04",
+    "titulo": [
+     "Roteiro",
+     "Última",
+     "semana"
+    ],
+    "sub": "plano de 7 dias e de 2 dias"
+   },
+   {
+    "id": "mockup-pdfs-transparente",
+    "tipo": "mockup",
+    "w": 1400,
+    "h": 1200
+   }
+  ]
  }
 ]
