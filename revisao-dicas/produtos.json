@@ -41,6 +41,13 @@
     "Explicação completa",
     "Pegadinha",
     "Fundamento"
+   ],
+   "avisos": [
+    "Nas dicas de legislação do TCE MA e de História e Geografia do Maranhão, a explicação fica no conceito. Prazos, quóruns e detalhes locais devem ser conferidos no texto das normas indicadas no edital."
+   ],
+   "fecho": [
+    "Volte ao Painel de Revisão, no fim da Parte 1, e pinte os números das dicas em que você ainda hesitou depois de ler a explicação. Essas são as que merecem uma última passada na véspera, começando pelas matérias específicas, que valem 2 pontos por questão.",
+    "As explicações são autorais e sintéticas. Quando houver ressalva, requisito adicional ou controvérsia, consulte a norma completa indicada na etiqueta de cada dica e nas fontes listadas no fim da Parte 1. Material próprio de Líbero Filho, sem vínculo com o TCE MA ou com o Cebraspe."
    ]
   },
   "numeros": [
@@ -223,13 +230,13 @@
    ],
    "painel": [
     1,
-    51
+    52
    ],
    "questoes": [
     1,
-    56
+    57
    ],
-   "financeiro": [
+   "zoom": [
     1,
     25
    ]
@@ -352,6 +359,1060 @@
     "w": 1400,
     "h": 1200
    }
-  ]
+  ],
+  "faixa": "pontos",
+  "cr": {
+   "educativo": {
+    "kicker": "TCE MA 2026 · prova objetiva",
+    "titulo": [
+     "Nem toda questão",
+     "vale [[o mesmo]]"
+    ],
+    "cards": [
+     [
+      "40",
+      "questões gerais",
+      "1 ponto cada",
+      "= 40 pontos",
+      false
+     ],
+     [
+      "60",
+      "questões específicas",
+      "2 pontos cada",
+      "= 120 pontos",
+      true
+     ]
+    ],
+    "barra": [
+     75,
+     "25% dos pontos",
+     "75% dos pontos estão nas específicas"
+    ],
+    "rodape": "Na Revisão em Dicas, **280 das 400 dicas** são das matérias que valem 2 pontos."
+   },
+   "crenca": {
+    "selo": "Prova dia 29/11",
+    "riscado": [
+     "Reler tudo",
+     "de novo"
+    ],
+    "virada": [
+     "Rever só o que",
+     "[[você hesitou]]"
+    ],
+    "dicas": [
+     186,
+     320
+    ],
+    "rodape": "400 dicas com caixinha pra marcar. Na véspera, você revisa só as marcadas."
+   },
+   "postit": {
+    "linha1": [
+     "prova do TCE MA",
+     "é domingo, 29/11"
+    ],
+    "linha2": [
+     "revisar as 400 dicas",
+     "e marcar as que errei"
+    ],
+    "rotulo": "TCE MA · AUDITOR"
+   },
+   "faq": {
+    "kicker": "TCE MA · última semana",
+    "titulo": [
+     "“Ainda dá tempo",
+     "de revisar?”"
+    ],
+    "sub": "Dá. Uma frente por dia:",
+    "dias": [
+     "Financeiro e execução orçamentária",
+     "Contabilidade Pública",
+     "Auditoria e controle",
+     "Administrativo e contratações",
+     "Constitucional e demais específicas",
+     "Gerais e legislação do TCE MA",
+     "Dicas marcadas e treino de discursiva"
+    ]
+   },
+   "grade": {
+    "titulo": [
+     "400 dicas.",
+     "[[2 PDFs.]]"
+    ],
+    "itens": [
+     [
+      "capa1",
+      "Parte 1 · rápida"
+     ],
+     [
+      "pagina",
+      "Regra + distinção"
+     ],
+     [
+      "capa2",
+      "Parte 2 · explicada"
+     ],
+     [
+      "explicada",
+      "Explicação + fundamento"
+     ],
+     [
+      "painel",
+      "Painel de revisão"
+     ],
+     [
+      "questoes",
+      "12 questões e 6 discursivas"
+     ]
+    ],
+    "rotuloPreco": "PARTE 1 + PARTE 2"
+   },
+   "pegadinha": {
+    "selo": "Certo ou errado? · Controle Externo",
+    "frase": "A pretensão de ressarcimento fundada em decisão de tribunal de contas é imprescritível.",
+    "dica": "057",
+    "rodape": "Uma das 400 da Revisão em Dicas do TCE MA. Gabarito na legenda."
+   },
+   "versus": {
+    "kicker": "ÚLTIMA SEMANA",
+    "j1": [
+     "Reabrir a lei seca",
+     "e o PDF de 300 páginas"
+    ],
+    "j1itens": [
+     "Não termina até domingo",
+     "Relê o que já sabia",
+     "Chega na prova sem saber onde erra"
+    ],
+    "j2": [
+     "400 dicas com",
+     "[[caixinha pra marcar]]"
+    ],
+    "j2itens": [
+     "Uma regra por linha, por matéria",
+     "Marca só onde hesitou",
+     "Véspera: revisa as marcadas"
+    ]
+   },
+   "pagina": {
+    "kicker": "Dica 048 de 400 · Controle Externo",
+    "n": "048",
+    "frase": "Contas de governo recebem [[parecer prévio.]]",
+    "sub": "Contas de administradores são **julgadas** pelo tribunal competente. Não troque apreciação por julgamento.",
+    "nota": "a banca troca os dois ↑",
+    "rodape": "Assim, por matéria, até a 400. **Revisão em Dicas · TCE MA.**"
+   },
+   "enquete": {
+    "faixa": "quem vai fazer o TCE MA domingo?",
+    "pergunta": [
+     "uma questão específica",
+     "vale quantos pontos?"
+    ],
+    "titulo": "Sem olhar o edital:",
+    "opcoes": [
+     "1 ponto",
+     "2 pontos",
+     "depende da matéria"
+    ],
+    "rodape": "isso muda o que você revisa primeiro"
+   },
+   "caixinha": {
+    "cab": "Me pergunte sobre o TCE MA",
+    "pergunta": "o que eu reviso primeiro na última semana?",
+    "titulo": "O que vale 2 pontos:",
+    "itens": [
+     "Financeiro: despesa, receita e LRF",
+     "Contabilidade Pública: PCASP e demonstrações",
+     "Auditoria: evidências e achados",
+     "Contratações: Lei 14.133"
+    ],
+    "fecho": "Depois, as dicas que você marcou. Está tudo na **Revisão em Dicas**, link aqui embaixo."
+   },
+   "lembrete": {
+    "data": "domingo, 22 de novembro",
+    "notifs": [
+     [
+      "Calendário",
+      "agora",
+      "Prova TCE MA · Auditor",
+      "Domingo, 29/11, turno da manhã."
+     ],
+     [
+      "Lembretes",
+      "há 2 min",
+      "Revisar as 400 dicas",
+      "Hoje: Direito Financeiro, dicas 166 a 205."
+     ],
+     [
+      "Lembretes",
+      "há 2 min",
+      "Marcar as que errei",
+      "Na véspera, revisar só as marcadas."
+     ]
+    ],
+    "rotulo": "TCE MA · 400 DICAS"
+   },
+   "simples-pagina": {
+    "titulo": [
+     "400 dicas pra revisar o TCE MA.",
+     "É assim por dentro:"
+    ],
+    "px": 54,
+    "esq": "Revisão em Dicas · Auditor",
+    "dir": "PDF · Parte 1 + Parte 2"
+   },
+   "simples-duas": {
+    "titulo": [
+     "Ficou na dúvida na dica?",
+     "A Parte 2 explica."
+    ],
+    "itens": [
+     [
+      "pagina",
+      "Parte 1 · a regra em uma linha"
+     ],
+     [
+      "explicada",
+      "Parte 2 · a explicação e a pegadinha"
+     ]
+    ],
+    "rodape": "TCE MA 2026 · Revisão em Dicas · @concursocomlibero"
+   },
+   "simples-capas": {
+    "titulo": [
+     "TCE MA · Auditor",
+     "400 dicas em 2 PDFs"
+    ],
+    "sub": "Parte 1 pra revisar rápido. Parte 2 com tudo explicado."
+   },
+   "simples-painel": {
+    "titulo": [
+     "Pinte as dicas em que você hesitou.",
+     "Na véspera, revise só essas."
+    ],
+    "rodape": "Painel de revisão · Revisão em Dicas TCE MA"
+   },
+   "simples-zoom": {
+    "titulo": [
+     "Uma regra por linha.",
+     "400 vezes."
+    ],
+    "rodape": "Revisão em Dicas · TCE MA · Auditor"
+   },
+   "simples-celular": {
+    "titulo": "Dá pra revisar no ônibus.",
+    "sub": "PDF pra ler no celular, no tablet ou imprimir.",
+    "rodape": "Revisão em Dicas · TCE MA"
+   }
+  },
+  "seloKit": "TCE MA · Auditor",
+  "sigla": "TCE MA",
+  "identidade": {
+   "texto": "Identidade do material do TCE MA: a mesma estrutura da linha Revisão em Dicas, com cor, textura e selos próprios.",
+   "exemplo": "Contas de <span style=\"color:#F0553A\">governo</span>",
+   "mono": "TCE MA · 045–058",
+   "textura": "Azulejo",
+   "texturaTexto": "Textura dos sobrados de São Luís nos fundos escuros",
+   "etiquetaNome": "Etiqueta de pontos",
+   "etiquetaTexto": "Mostra o peso da matéria na objetiva",
+   "fundamento": "CF, art. 71, II",
+   "faixa": {
+    "kicker": "44 dicas · específicos de auditor",
+    "etiqueta": "vale 2 pontos",
+    "nome": "Contabilidade Pública",
+    "faixa": "297–340",
+    "n": "320",
+    "r": "Resultado orçamentário confronta receitas realizadas e despesas empenhadas.",
+    "e": "Não substitua despesa empenhada por pagamento ao calcular esse resultado."
+   }
+  }
+ },
+ {
+  "id": "tjrs",
+  "tema": "tjrs",
+  "concurso": "TJRS Cartórios",
+  "cargo": "Provimento e remoção",
+  "selo": "TJRS Cartórios 2026 · Provimento e remoção",
+  "total": 400,
+  "prova": "6 e 13/12",
+  "banca": "FGV",
+  "carimbo": {
+   "topo": "PROVA OBJETIVA",
+   "base": "FGV · TJRS",
+   "centro": "6 e 13",
+   "sub": "DEZEMBRO"
+  },
+  "faixa": "questoes",
+  "destaque": [
+   "Direito Notarial e Registral"
+  ],
+  "etiquetaForte": "maior bloco da prova",
+  "legenda": [
+   "Notarial e Registral · 28 questões",
+   "Demais disciplinas"
+  ],
+  "painelNota": "Em amarelo: dicas de Direito Notarial e Registral (28 das 100 questões)",
+  "vespera": [
+   "Revisar só as dicas pintadas",
+   "Reler Notarial e Registral",
+   "Conferir local e horário na FGV"
+  ],
+  "amostra": [
+   13,
+   18,
+   6
+  ],
+  "numeros": [
+   {
+    "n": "100",
+    "rot": "questões objetivas, com cinco alternativas"
+   },
+   {
+    "n": "0,1",
+    "rot": "ponto por acerto; o erro não desconta"
+   },
+   {
+    "n": "28",
+    "rot": "questões de Direito Notarial e Registral"
+   },
+   {
+    "n": "5 h",
+    "rot": "de prova, das 14h às 19h, sem consulta"
+   }
+  ],
+  "parte1": {
+   "arquivo": "tjrs-cartorios-revisao-em-dicas",
+   "cabecalho": "TJRS Cartórios · Revisão em Dicas",
+   "rotulo": "Volume 1 de 3",
+   "titulo": [
+    "Revisão",
+    "em dicas"
+   ],
+   "sub": "400 dicas para a objetiva de provimento e remoção, na proporção do edital: quatro por questão. Com 12 questões de fixação, temas já cobrados pela FGV e treinos de peça e discursiva.",
+   "chips": [
+    "400 dicas",
+    "9 disciplinas",
+    "12 questões",
+    "Roteiro de 14 dias"
+   ]
+  },
+  "cadernos": [
+   {
+    "nome": "discursivas",
+    "arquivo": "tjrs-cartorios-questoes-discursivas",
+    "cabecalho": "TJRS Cartórios · Questões Discursivas",
+    "rotulo": "Volume 2 de 3",
+    "vazado": "32",
+    "total": "32",
+    "item": "Caso",
+    "titulo": [
+     "Questões",
+     "discursivas"
+    ],
+    "kicker": "Antes dos casos",
+    "sub": "32 casos autorais comentados para a prova escrita e prática: resposta fundamentada, análise jurídica, variações do caso e conferência da resposta.",
+    "chips": [
+     "32 casos",
+     "8 disciplinas",
+     "Variações",
+     "Autocorreção"
+    ],
+    "amostra": [
+     {
+      "n": "01",
+      "r": "Escritura válida e quebra da continuidade"
+     },
+     {
+      "n": "05",
+      "r": "Pagamento posterior e cancelamento do protesto"
+     },
+     {
+      "n": "10",
+      "r": "Escolha de regime patrimonial após setenta anos"
+     }
+    ]
+   },
+   {
+    "nome": "pecas",
+    "arquivo": "tjrs-cartorios-caderno-de-pecas",
+    "cabecalho": "TJRS Cartórios · Caderno de Peças",
+    "rotulo": "Volume 3 de 3",
+    "vazado": "16",
+    "total": "16",
+    "item": "Peça",
+    "documento": true,
+    "titulo": [
+     "Caderno",
+     "de peças"
+    ],
+    "kicker": "Antes das peças",
+    "sub": "16 peças notariais e registrais resolvidas: o ato redigido por inteiro, o comentário de cada cláusula, as variações do caso e os erros que custam pontos.",
+    "chips": [
+     "16 peças",
+     "Notas e registros",
+     "Modelos de atos",
+     "Variações"
+    ],
+    "amostra": [
+     {
+      "n": "01",
+      "r": "Escritura pública de compra e venda de imóvel urbano"
+     },
+     {
+      "n": "10",
+      "r": "Suscitação de dúvida imobiliária pelo oficial"
+     },
+     {
+      "n": "13",
+      "r": "Assento de nascimento com reconhecimento paterno"
+     }
+    ]
+   }
+  ],
+  "preco": "49,99",
+  "imagens": {
+   "capa1": [
+    1,
+    1
+   ],
+   "pagina": [
+    1,
+    5
+   ],
+   "zoom": [
+    1,
+    5
+   ],
+   "painel": [
+    1,
+    59
+   ],
+   "questoes": [
+    1,
+    64
+   ],
+   "capaDisc": [
+    "discursivas",
+    1
+   ],
+   "caso": [
+    "discursivas",
+    11
+   ],
+   "capaPecas": [
+    "pecas",
+    1
+   ],
+   "ato": [
+    "pecas",
+    11
+   ]
+  },
+  "cr": {
+   "educativo": {
+    "kicker": "TJRS Cartórios · prova objetiva",
+    "titulo": [
+     "60 das 100 questões",
+     "vêm de [[3 matérias]]"
+    ],
+    "cards": [
+     [
+      "28",
+      "Notarial e Registral",
+      "112 dicas",
+      "28% da prova",
+      true
+     ],
+     [
+      "20",
+      "Civil",
+      "80 dicas",
+      "20% da prova",
+      false
+     ],
+     [
+      "12",
+      "Empresarial",
+      "48 dicas",
+      "12% da prova",
+      false
+     ]
+    ],
+    "barra": [
+     60,
+     "40 questões nas outras 6",
+     "60 nessas três"
+    ],
+    "rodape": "Na Revisão em Dicas são **4 dicas por questão**: o material segue o peso do edital."
+   },
+   "crenca": {
+    "selo": "Provas em 6 e 13/12",
+    "riscado": [
+     "Reler a CNNR",
+     "inteira"
+    ],
+    "virada": [
+     "Rever só o que",
+     "[[você hesitou]]"
+    ],
+    "dicas": [
+     13,
+     18
+    ],
+    "rodape": "400 dicas com caixinha pra marcar. Na véspera, você revisa só as marcadas."
+   },
+   "postit": {
+    "linha1": [
+     "remoção: 6/12",
+     "provimento: 13/12"
+    ],
+    "linha2": [
+     "revisar as 400 dicas",
+     "e treinar 1 peça por dia"
+    ],
+    "rotulo": "TJRS · CARTÓRIOS"
+   },
+   "faq": {
+    "kicker": "TJRS Cartórios · reta final",
+    "titulo": [
+     "“Ainda dá tempo",
+     "de revisar?”"
+    ],
+    "sub": "Dá. O roteiro tem 14 dias, e cabe em 7:",
+    "rotulos": [
+     "DIA 1",
+     "DIA 2",
+     "DIA 3",
+     "DIA 4",
+     "DIA 5",
+     "DIA 6",
+     "DIA 7"
+    ],
+    "dias": [
+     "Delegação, emolumentos e Registro de Imóveis",
+     "Qualificação, garantias, notas e sucessões",
+     "RCPN, RTD, RCPJ e protesto",
+     "Pessoas, obrigações, contratos e direitos reais",
+     "Família, sucessões e Empresarial",
+     "Constitucional, Administrativo e Tributário",
+     "Processo, Penal e só as dicas marcadas"
+    ]
+   },
+   "grade": {
+    "titulo": [
+     "400 dicas,",
+     "[[32 casos e 16 peças.]]"
+    ],
+    "itens": [
+     [
+      "capa1",
+      "Revisão em dicas"
+     ],
+     [
+      "pagina",
+      "Regra + distinção"
+     ],
+     [
+      "capaDisc",
+      "32 discursivas"
+     ],
+     [
+      "caso",
+      "Caso comentado"
+     ],
+     [
+      "capaPecas",
+      "16 peças"
+     ],
+     [
+      "ato",
+      "O ato redigido inteiro"
+     ]
+    ],
+    "rotuloPreco": "OS 3 CADERNOS"
+   },
+   "pegadinha": {
+    "selo": "Certo ou errado? · Notarial",
+    "frase": "A fé pública do tabelião torna o ato notarial imune a controle judicial.",
+    "dica": "002",
+    "rodape": "Uma das 400 da Revisão em Dicas do TJRS. Gabarito na legenda."
+   },
+   "versus": {
+    "kicker": "RETA FINAL",
+    "j1": [
+     "Reler a lei seca",
+     "e a CNNR inteira"
+    ],
+    "j1itens": [
+     "Não termina até a prova",
+     "Relê o que já sabia",
+     "Chega sem saber onde erra"
+    ],
+    "j2": [
+     "400 dicas com",
+     "[[caixinha pra marcar]]"
+    ],
+    "j2itens": [
+     "Quatro dicas por questão",
+     "Marca só onde hesitou",
+     "Véspera: revisa as marcadas"
+    ]
+   },
+   "pagina": {
+    "kicker": "Dica 013 de 400 · Notarial e Registral",
+    "n": "013",
+    "frase": "Escritura e registro produzem [[efeitos diferentes.]]",
+    "px": 80,
+    "sub": "A escritura documenta o negócio. Na compra entre vivos, a propriedade se transfere pelo **registro** do título.",
+    "nota": "a FGV adora isso ↑",
+    "rodape": "Assim, por disciplina, até a 400. **Revisão em Dicas · TJRS Cartórios.**"
+   },
+   "enquete": {
+    "faixa": "quem faz o TJRS em dezembro?",
+    "pergunta": [
+     "quantas das 100 questões",
+     "são de Notarial e Registral?"
+    ],
+    "titulo": "Sem olhar o edital:",
+    "opcoes": [
+     "10",
+     "20",
+     "28"
+    ],
+    "rodape": "a resposta muda o que você revisa primeiro"
+   },
+   "caixinha": {
+    "cab": "Me pergunte sobre o TJRS",
+    "pergunta": "o que eu reviso primeiro até a prova?",
+    "titulo": "Pelo peso do edital:",
+    "itens": [
+     "Notarial e Registral: 28 questões",
+     "Civil: 20 questões",
+     "Empresarial: 12 questões",
+     "CNNR/RS e as normas locais"
+    ],
+    "fecho": "Depois, as dicas que você marcou. Está tudo na **Revisão em Dicas**, link aqui embaixo."
+   },
+   "lembrete": {
+    "data": "domingo, 29 de novembro",
+    "notifs": [
+     [
+      "Calendário",
+      "agora",
+      "TJRS · prova de remoção",
+      "Domingo, 6/12, das 14h às 19h."
+     ],
+     [
+      "Calendário",
+      "agora",
+      "TJRS · prova de provimento",
+      "Domingo, 13/12, das 14h às 19h."
+     ],
+     [
+      "Lembretes",
+      "há 2 min",
+      "Revisar as 400 dicas",
+      "Hoje: Registro de Imóveis, dicas 13 a 36."
+     ]
+    ],
+    "rotulo": "TJRS · 400 DICAS"
+   },
+   "simples-pagina": {
+    "titulo": [
+     "400 dicas pra revisar o TJRS.",
+     "É assim por dentro:"
+    ],
+    "px": 54,
+    "esq": "Revisão em Dicas · Cartórios",
+    "dir": "+ 32 casos e 16 peças"
+   },
+   "simples-duas": {
+    "titulo": [
+     "Sabe redigir a escritura",
+     "que a FGV pedir?"
+    ],
+    "itens": [
+     [
+      "ato",
+      "A peça redigida por inteiro"
+     ],
+     [
+      "caso",
+      "Os casos discursivos comentados"
+     ]
+    ],
+    "rodape": "TJRS Cartórios · Caderno de Peças e Discursivas · @concursocomlibero"
+   },
+   "simples-capas": {
+    "capas": [
+     "capaPecas",
+     "capaDisc",
+     "capa1"
+    ],
+    "titulo": [
+     "TJRS Cartórios",
+     "3 cadernos de reta final"
+    ],
+    "sub": "400 dicas, 32 casos discursivos e 16 peças resolvidas."
+   },
+   "simples-painel": {
+    "titulo": [
+     "Pinte as dicas em que você hesitou.",
+     "Na véspera, revise só essas."
+    ],
+    "rodape": "Painel de revisão · Revisão em Dicas TJRS"
+   },
+   "simples-zoom": {
+    "titulo": [
+     "Quatro dicas por questão.",
+     "400 no total."
+    ],
+    "rodape": "Revisão em Dicas · TJRS Cartórios"
+   },
+   "simples-celular": {
+    "titulo": "Dá pra revisar no ônibus.",
+    "sub": "PDF pra ler no celular, no tablet ou imprimir.",
+    "rodape": "Revisão em Dicas · TJRS"
+   }
+  },
+  "criativos": [
+   {
+    "id": "feed-educativo",
+    "layout": "educativo",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-crenca",
+    "layout": "crenca",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-postit",
+    "layout": "postit",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-faq",
+    "layout": "faq",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-grade",
+    "layout": "grade",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-pegadinha",
+    "layout": "pegadinha",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-versus",
+    "layout": "versus",
+    "formato": "feed"
+   },
+   {
+    "id": "feed-pagina",
+    "layout": "pagina",
+    "formato": "feed"
+   },
+   {
+    "id": "story-enquete",
+    "layout": "enquete",
+    "formato": "story"
+   },
+   {
+    "id": "story-caixinha",
+    "layout": "caixinha",
+    "formato": "story"
+   },
+   {
+    "id": "story-lembrete",
+    "layout": "lembrete",
+    "formato": "story"
+   },
+   {
+    "id": "story-postit",
+    "layout": "postit",
+    "formato": "story"
+   },
+   {
+    "id": "story-pegadinha",
+    "layout": "pegadinha",
+    "formato": "story"
+   },
+   {
+    "id": "story-educativo",
+    "layout": "educativo",
+    "formato": "story"
+   },
+   {
+    "id": "story-crenca",
+    "layout": "crenca",
+    "formato": "story"
+   },
+   {
+    "id": "story-grade",
+    "layout": "grade",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-pagina",
+    "layout": "simples-pagina",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-pagina",
+    "layout": "simples-pagina",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-duas",
+    "layout": "simples-duas",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-duas",
+    "layout": "simples-duas",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-capas",
+    "layout": "simples-capas",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-capas",
+    "layout": "simples-capas",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-painel",
+    "layout": "simples-painel",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-painel",
+    "layout": "simples-painel",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-zoom",
+    "layout": "simples-zoom",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-zoom",
+    "layout": "simples-zoom",
+    "formato": "story"
+   },
+   {
+    "id": "feed-simples-celular",
+    "layout": "simples-celular",
+    "formato": "feed"
+   },
+   {
+    "id": "story-simples-celular",
+    "layout": "simples-celular",
+    "formato": "story"
+   }
+  ],
+  "seloKit": "TJRS · Cartórios",
+  "sigla": "TJRS",
+  "kitCapas": [
+   "capaPecas",
+   "capaDisc",
+   "capa1"
+  ],
+  "tituloKit": [
+   "Reta final",
+   "cartórios"
+  ],
+  "linhaKit": "3 CADERNOS",
+  "kit": [
+   {
+    "id": "produto-capa-300x250",
+    "tipo": "capa",
+    "w": 300,
+    "h": 250
+   },
+   {
+    "id": "produto-quadrado-1080",
+    "tipo": "selo",
+    "w": 1080,
+    "h": 1080
+   },
+   {
+    "id": "checkout-banner-1200x400",
+    "tipo": "banner",
+    "w": 1200,
+    "h": 400,
+    "titulo": [
+     "Reta final do",
+     "[[TJRS Cartórios]]"
+    ],
+    "texto": "400 dicas, 32 casos discursivos e 16 peças resolvidas, em 3 PDFs."
+   },
+   {
+    "id": "checkout-banner-celular-800x400",
+    "tipo": "banner",
+    "w": 800,
+    "h": 400,
+    "compacto": true,
+    "titulo": [
+     "Reta final do",
+     "[[TJRS Cartórios]]"
+    ],
+    "texto": "3 PDFs: dicas, discursivas e peças."
+   },
+   {
+    "id": "membros-banner-1920x480",
+    "tipo": "banner",
+    "w": 1920,
+    "h": 480,
+    "titulo": [
+     "Reta final",
+     "[[TJRS Cartórios]]"
+    ],
+    "texto": "Comece pelas dicas, marque onde hesitar e treine um caso e uma peça por dia."
+   },
+   {
+    "id": "membros-capa-curso-1280x720",
+    "tipo": "banner",
+    "w": 1280,
+    "h": 720,
+    "alto": true,
+    "titulo": [
+     "Reta final",
+     "cartórios",
+     "[[TJRS 2026]]"
+    ],
+    "texto": "Provimento e remoção · 3 cadernos"
+   },
+   {
+    "id": "membros-modulo-1-dicas",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "01",
+    "titulo": [
+     "Volume 1",
+     "Revisão",
+     "em dicas"
+    ],
+    "sub": "400 dicas · 4 por questão"
+   },
+   {
+    "id": "membros-modulo-2-discursivas",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "02",
+    "titulo": [
+     "Volume 2",
+     "Questões",
+     "discursivas"
+    ],
+    "sub": "32 casos comentados"
+   },
+   {
+    "id": "membros-modulo-3-pecas",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "03",
+    "titulo": [
+     "Volume 3",
+     "Caderno",
+     "de peças"
+    ],
+    "sub": "16 peças notariais e registrais"
+   },
+   {
+    "id": "membros-modulo-4-roteiro",
+    "tipo": "modulo",
+    "w": 600,
+    "h": 840,
+    "n": "04",
+    "titulo": [
+     "Roteiro",
+     "Reta",
+     "final"
+    ],
+    "sub": "14 dias, ou 7 se faltar tempo"
+   },
+   {
+    "id": "mockup-pdfs-transparente",
+    "tipo": "mockup",
+    "w": 1400,
+    "h": 1200
+   }
+  ],
+  "site": {
+   "arquivo": "tjrs.html",
+   "assets": {
+    "capa1": [
+     1,
+     1
+    ],
+    "capa-disc": [
+     "discursivas",
+     1
+    ],
+    "capa-pecas": [
+     "pecas",
+     1
+    ],
+    "p1": [
+     1,
+     5
+    ],
+    "p2": [
+     "discursivas",
+     11
+    ],
+    "p3": [
+     "pecas",
+     11
+    ],
+    "painel": [
+     1,
+     59
+    ]
+   }
+  },
+  "identidade": {
+   "texto": "Identidade dos cadernos do TJRS Cartórios: a mesma estrutura da linha Revisão em Dicas, em verde-mate e amarelo, com o guilhoché das certidões.",
+   "cores": [
+    "Mate",
+    "Mate 2",
+    "Amarelo",
+    "Ouro velho",
+    "Palha",
+    "Papel"
+   ],
+   "exemplo": "Escritura e <span style=\"color:#8A6A00\">registro</span>",
+   "mono": "TJRS · 001–112",
+   "textura": "Guilhoché",
+   "texturaTexto": "O fundo de segurança das certidões e selos, nos fundos escuros",
+   "carimboTexto": "As duas datas da objetiva (remoção e provimento)",
+   "etiquetas": [
+    "maior bloco da prova",
+    "28 questões"
+   ],
+   "etiquetaNome": "Etiqueta de peso",
+   "etiquetaTexto": "Marca Notarial e Registral, 28 das 100 questões",
+   "fundamento": "Lei 6.015, art. 195",
+   "faixa": {
+    "kicker": "112 dicas · 28 questões no edital",
+    "etiqueta": "maior bloco da prova",
+    "nome": "Direito Notarial e Registral",
+    "faixa": "001–112",
+    "n": "013",
+    "r": "Escritura e registro produzem efeitos diferentes.",
+    "e": "Na aquisição derivada entre vivos, a propriedade imobiliária se transfere pelo registro do título."
+   }
+  }
  }
 ]

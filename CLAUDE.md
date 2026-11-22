@@ -11,7 +11,7 @@ Todos os moldes do perfil usam uma identidade só, em `moldes/cg-comum/identidad
 - `galeria/`: página que mostra todos os moldes e posts.
 
 ## Revisão em Dicas (materiais pagos por concurso)
-`revisao-dicas/` gera, para cada concurso, os dois PDFs (Parte 1 e Parte 2), a identidade, os criativos e o site de vendas; leia o `revisao-dicas/README.md`. O conteúdo das dicas é pago e fica fora do git. Site do TCE MA: https://claude.ai/artifact/DHDmsZnPhaGRVX9fjKeeef.
+`revisao-dicas/` gera, para cada concurso, os dois PDFs (Parte 1 e Parte 2), a identidade, os criativos e o site de vendas; leia o `revisao-dicas/README.md`. O conteúdo das dicas é pago e fica fora do git. Sites: TCE MA https://claude.ai/artifact/DHDmsZnPhaGRVX9fjKeeef e TJRS Cartórios https://claude.ai/artifact/LLCPDDrEy9tanD4u6nFKRm.
 
 ## Fotos
 O repositório é **público**. Fotos pessoais do dono nunca vão para o git: os originais ficam no Google Drive dele e cada molde tem um script que recria os recortes (ex.: `moldes/estrutura-de-pecas/recortar_fotos.py`). Numa sessão nova sem as fotos, peça o link da pasta do Drive.

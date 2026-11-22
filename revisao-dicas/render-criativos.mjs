@@ -12,7 +12,7 @@ const prod = JSON.parse(fs.readFileSync(path.join(root, 'produtos.json'), 'utf8'
 const conteudo = JSON.parse(fs.readFileSync(path.join(root, 'conteudo', `${id}.json`), 'utf8'));
 const dicas = Object.fromEntries(conteudo.materias.flatMap(m => m.blocos.flatMap(b => b.dicas)).map(d => [d.n, d]));
 const out = path.join(root, 'saida', id);
-const uri = (parte, n) => { const f = path.join(out, `parte${parte}`, `${n}.png`); return fs.existsSync(f) ? 'data:image/png;base64,' + fs.readFileSync(f).toString('base64') : ''; };
+const uri = (parte, n) => { const f = path.join(out, typeof parte === 'number' ? `parte${parte}` : parte, `${n}.png`); return fs.existsSync(f) ? 'data:image/png;base64,' + fs.readFileSync(f).toString('base64') : ''; };
 const im = prod.imagens || {};
 const img = Object.fromEntries(Object.entries(im).map(([k, [p, n]]) => [k, uri(p, n)]));
 const launch = {};
