@@ -31,3 +31,13 @@ Todo concurso da linha ("Do Edital à Prova") ganha identidade própria e site d
 
 ## Kits
 - `unificado-ma`: Concurso Unificado do Maranhão, Edital nº 01/2026, FCC, prova em 04/04/2027. 8 PDFs (48 páginas). Site: https://claude.ai/artifact/6s7TV6FhQ8tDRjdqYdqV6G
+
+## Criativos de divulgação
+`node criativos-kit.mjs <id>` → `saida/kit-<id>/criativos/NN-<nome>.png` (feed 1080×1350 e stories 1080×1920), textos em `kits/criativos/<id>.json` (este vai para o git: é material de divulgação). Sem foto do autor e sem depoimento ou número inventado: tudo sai do edital e da contagem. Três famílias, misturadas na mesma leva:
+- **tema** (`manchete`, `numero`, `capas`, `ficha`, `lista`, `conta`): identidade do concurso, carimbo da prova.
+- **nativo** (`story` texto do Instagram, `notas` do iPhone, `tweet`, `enquete` e quiz, `caixinha`): parece post de gente, não de marca.
+- **trash** (`amarelo`, `seta`, `paint`, `planilha`, `bloco`, `edital` com marca-texto, `preto`, `zoom`): Arial, cor chapada, seta vermelha; o usuário pediu esses porque às vezes convertem mais.
+Nos stories, 250 px no topo e 330 no pé ficam livres. Unificado MA: 30 criativos (15 feed, 15 stories).
+
+## Drive
+Cada kit vai para `Kits de edital / <Concurso>` no Drive do dono: PDFs, identidade, criativos e o zip das fontes (o conteúdo que não vai para o git).
