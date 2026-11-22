@@ -6,7 +6,7 @@ import path from 'node:path';
 import { renderPdf, W, H } from './pdf.mjs';
 
 const root = path.dirname(new URL(import.meta.url).pathname);
-const kits = fs.existsSync(path.join(root, 'kits')) ? fs.readdirSync(path.join(root, 'kits')).flatMap(k => fs.readdirSync(path.join(root, 'kits', k)).filter(f => f.endsWith('.json')).sort().map(f => ({ ...JSON.parse(fs.readFileSync(path.join(root, 'kits', k, f), 'utf8')), kit: k }))) : [];
+const kits = fs.existsSync(path.join(root, 'kits')) ? fs.readdirSync(path.join(root, 'kits')).filter(k => fs.statSync(path.join(root, 'kits', k)).isDirectory()).flatMap(k => fs.readdirSync(path.join(root, 'kits', k)).filter(f => f.endsWith('.json')).sort().map(f => ({ ...JSON.parse(fs.readFileSync(path.join(root, 'kits', k, f), 'utf8')), kit: k }))) : [];
 const alvo = process.argv[2];
 const dados = [...JSON.parse(fs.readFileSync(path.join(root, 'pdf.json'), 'utf8')), ...kits].filter(c => !alvo || c.id === alvo || c.kit === alvo);
 const launch = {};
