@@ -1,0 +1,37 @@
+# Revisão em Dicas (Concurso com Líbero)
+
+Linha de materiais pagos de reta final, um por concurso: **Parte 1** (dicas numeradas com caixinha: regra + distinção), **Parte 2** (as mesmas dicas explicadas, com pegadinha e fundamento), identidade, criativos de anúncio e site de vendas. Os do ENAM e do ENAC foram feitos fora deste repositório (artifacts "Revisão em Dicas ENAM/ENAC"); daqui em diante, cada concurso novo é um item de `produtos.json`.
+
+Concursos com prova ainda no ano: revisão em dicas (este molde). Concursos futuros: material de análise, dados e cronograma (a fazer; o PDF de análise de banca do `moldes/concurso-libero/pdf.mjs` é o ponto de partida).
+
+## Identidade
+A estrutura é a mesma em todos (Big Shoulders Display + Inter + JetBrains Mono, fundo escuro, papel claro, cartão de dica com número e caixinha, símbolo verde da plataforma). Cada concurso tem um tema em `tema.mjs` (`TEMAS`), com cores e elementos próprios:
+- ENAM: marinho e dourado, grade de pontos.
+- **TCE MA** (`tce-ma`): bordô, coral e pêssego; textura de azulejo de São Luís; carimbo com a data da prova; etiqueta "vale 1 ponto / vale 2 pontos" por matéria; visto de auditoria no fundamento.
+
+Concurso novo: crie um tema (cor e textura que não repitam as anteriores) e um elemento ligado ao órgão ou à cidade.
+
+## Conteúdo (fora do git)
+O repositório é público e o material é pago: `conteudo/`, `saida/` e `build/` não vão para o git. O dono envia o .docx das dicas (título de matéria em Heading1, bloco em Heading2, linha "Base: …" e cada dica como `001 □ Regra em negrito. Explicação curta.`).
+
+1. `python3 extrair.py <arquivo.docx> <id>` → `conteudo/<id>.json` (confere a numeração).
+2. Parte 2: `conteudo/<id>-explicadas.json`, `{"001": {"x": [parágrafo 1, parágrafo 2], "f": "fundamento"}}`. Parágrafo 1 explica a regra; o 2 mostra a pegadinha. Só cite artigo, tema ou prazo com certeza; em legislação local e história regional, não acrescente dado que não esteja na dica.
+3. `produtos.json`: selo, data da prova, banca, números do edital, dicas da capa (`amostra`), preço, páginas usadas como imagem (`imagens`: `[parte, página]`) e a lista de criativos.
+
+## Gerar (nuvem)
+```
+ln -sfn /opt/node-tools/node_modules node_modules
+export CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY
+node render-pdf.mjs tce-ma --png=1,2,3,10,51,56   # PDFs em saida/tce-ma/ + PNGs das páginas pedidas
+node render-criativos.mjs tce-ma                   # saida/tce-ma/criativos/*.png
+node render-identidade.mjs tce-ma                  # saida/tce-ma/identidade.png
+python3 montar-site.py tce-ma                      # build/site/tce-ma/index.html + assets/
+```
+O PDF pagina sozinho: os blocos entram numa fila e o navegador distribui nas folhas (títulos não ficam sozinhos no pé; cada matéria abre folha). O render avisa se um bloco for maior que a página.
+
+## Criativos (`criativos.mjs`)
+Feed 1080×1350 e stories 1080×1920, sem foto do autor, cada layout num formato diferente: `educativo` (a conta da nota), `crenca` (crença riscada × virada), `postit` (bilhete sobre a página), `faq` (objeção "dá tempo?" com o plano de sete dias), `grade` (páginas do material + preço), `pegadinha` (certo ou errado com uma dica real), `versus`, `pagina` (uma dica ampliada com marca-texto) e os nativos de story `enquete`, `caixinha` e `lembrete`. Nos stories, 250 px no topo e 330 px no pé ficam livres. Nada de depoimento, conversa ou número inventado: o texto sai das dicas e do edital. Os layouts têm textos do TCE MA; para outro concurso, troque-os.
+
+## Site (`site/<id>.html`)
+Página única e leve (HTML + CSS + um script, 6 imagens .webp, sem biblioteca), publicada como artifact próprio. Tem contagem de dias até a prova, calculadora da nota (G + 2E), abas Parte 1/Parte 2, quiz de 3 pegadinhas, mapa das dicas, oferta e barra de compra no celular. O link do checkout é a constante `CHECKOUT` no script. `{{PRECO}}`, `{{P1}}`, `{{P2}}` e `{{BARRAS}}` são preenchidos pelo `montar-site.py`. A foto do autor (`site/assets/autor.webp`) fica fora do git.
+- TCE MA: (link do artifact no CLAUDE.md)

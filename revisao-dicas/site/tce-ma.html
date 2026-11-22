@@ -1,0 +1,586 @@
+<title>Revisão em Dicas TCE MA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="400 dicas por matéria para Auditor de Controle Externo do TCE MA 2026, com a regra em destaque, a explicação completa na Parte 2, 12 questões e 6 treinos discursivos. Por Líbero Filho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap">
+<style>
+/* Layout: bandas alternadas bordô (com azulejo de São Luís) e papel; o cartão de dica com caixinha é o personagem,
+   e a "conta da nota" (gerais valem 1, específicas valem 2) é o momento interativo da página. Visual único, escuro. */
+:root{
+  --bordo:#2A0A14; --bordo2:#3D1220; --bordo3:#561A2B; --papel:#F8F2EC; --tinta:#1F0A10;
+  --coral:#F0553A; --coral2:#C93A22; --pessego:#FFD3C4; --creme:#FFF1E8; --chip:#FDE6DC;
+  --cinza:#6F5F62; --linha:#EADCD2; --ok:#1F8A5B; --erro:#B3261E; --branco:#FFFFFF;
+  --claro-80:rgba(255,255,255,.82); --claro-60:rgba(255,255,255,.6); --borda-escura:rgba(255,211,196,.2);
+  --f-titulo:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --f-texto:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --larg:1120px; --raio:18px;
+  --azulejo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none' stroke='%23FFD3C4' stroke-opacity='.13' stroke-width='1.4'%3E%3Cpath d='M48 0A48 48 0 0 1 96 48A48 48 0 0 1 48 96A48 48 0 0 1 0 48A48 48 0 0 1 48 0Z'/%3E%3Cpath d='M0 0A48 48 0 0 0 48 48A48 48 0 0 0 96 0M0 96A48 48 0 0 1 48 48A48 48 0 0 1 96 96'/%3E%3Cpath d='M48 37L59 48L48 59L37 48Z'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='96' cy='0' r='6'/%3E%3Ccircle cx='0' cy='96' r='6'/%3E%3Ccircle cx='96' cy='96' r='6'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bordo);color:var(--branco);font-family:var(--f-texto);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--pessego);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--larg);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.banda{padding-block:clamp(60px,9vw,108px);position:relative;overflow:hidden}
+.clara{background:var(--papel);color:var(--tinta)}
+.escura{background:var(--azulejo),radial-gradient(70% 60% at 100% 0%,rgba(240,85,58,.2),transparent 70%),radial-gradient(60% 50% at 0% 100%,var(--bordo3),transparent 70%),var(--bordo)}
+h1,h2,h3{font-family:var(--f-titulo);font-weight:900;text-transform:uppercase;line-height:.9;margin:0;text-wrap:balance}
+h2{font-size:clamp(44px,7vw,86px)}
+.rot{font-family:var(--f-mono);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral2);margin:0 0 14px}
+.escura .rot,.hero .rot{color:var(--pessego)}
+.destaque{color:var(--coral)}
+.escura .destaque,.hero .destaque{color:var(--pessego)}
+.lead{font-size:clamp(18px,2vw,21px);max-width:62ch;color:var(--cinza);margin:22px 0 0}
+.escura .lead,.hero .lead{color:var(--claro-80)}
+
+/* Botões */
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--coral);color:var(--branco);text-decoration:none;font-weight:800;font-size:18px;padding:18px 28px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(240,85,58,.9);transition:transform .2s,box-shadow .2s,background .2s;position:relative;overflow:hidden}
+.cta:hover{transform:translateY(-2px);background:#F56A51}
+.cta svg{transition:transform .2s;flex:none}
+.cta:hover svg{transform:translateX(4px)}
+.cta::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:brilho 4.5s ease-in-out infinite 2s}
+@keyframes brilho{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.preco-mini{font-size:15px;color:var(--claro-80);display:flex;flex-direction:column;line-height:1.3}
+.preco-mini b{font-family:var(--f-titulo);font-size:34px;color:var(--branco)}
+
+/* Topo */
+.topo{position:absolute;top:0;left:0;right:0;z-index:5;padding-top:22px}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+.marca span{display:flex;flex-direction:column;line-height:1}
+.marca small{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;color:var(--pessego);text-transform:uppercase}
+.marca strong{font-weight:800;font-size:21px;letter-spacing:-.03em;color:var(--branco)}
+.topo a.link{font-weight:600;font-size:15px;text-decoration:none;color:var(--pessego);border:1.5px solid var(--borda-escura);padding:9px 16px;border-radius:999px}
+
+/* Hero */
+.hero{padding-top:108px;padding-bottom:64px;position:relative;overflow:hidden;background:var(--azulejo),radial-gradient(80% 60% at 100% 0%,rgba(240,85,58,.3),transparent 70%),radial-gradient(70% 55% at 0% 100%,var(--bordo3),transparent 70%),var(--bordo)}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center}
+.hero .wrap>*{min-width:0}
+.hero h1{font-size:clamp(52px,8vw,108px)}
+.selo-exame{display:inline-block;font-family:var(--f-mono);font-weight:700;font-size:13.5px;letter-spacing:.1em;background:var(--coral);color:var(--branco);padding:7px 12px;border-radius:8px;margin-bottom:18px}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:32px}
+.conta-dias{display:inline-flex;align-items:center;gap:12px;margin-top:28px;border:1.5px solid var(--borda-escura);border-radius:14px;padding:10px 16px 10px 12px;background:rgba(0,0,0,.18)}
+.conta-dias b{font-family:var(--f-titulo);font-size:40px;line-height:.9;color:var(--pessego);min-width:1.1ch;text-align:center;font-variant-numeric:tabular-nums}
+.conta-dias span{font-size:14.5px;line-height:1.3;color:var(--claro-80)}
+.conta-dias i{width:10px;height:10px;border-radius:50%;background:var(--coral);animation:pulsa 1.6s ease-in-out infinite}
+@keyframes pulsa{0%,100%{box-shadow:0 0 0 0 rgba(240,85,58,.7)}60%{box-shadow:0 0 0 10px rgba(240,85,58,0)}}
+.palco{position:relative;aspect-ratio:1/1.08;max-width:520px;width:100%;margin-inline:auto}
+.vazado{position:absolute;font-family:var(--f-titulo);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(255,211,196,.16);line-height:.8;pointer-events:none;user-select:none}
+.palco .capa{position:absolute;width:62%;border-radius:10px;box-shadow:0 40px 70px -24px rgba(0,0,0,.7)}
+.palco .c2{right:2%;top:2%;transform:rotate(7deg)}
+.palco .c1{left:4%;top:9%;transform:rotate(-5deg)}
+.flutua{position:absolute;background:var(--branco);color:var(--tinta);border-radius:14px;padding:11px 15px 11px 0;display:grid;grid-template-columns:62px 1fr;align-items:center;box-shadow:0 24px 40px -16px rgba(0,0,0,.6);max-width:300px;font-weight:800;font-size:13.5px;line-height:1.28;animation:flutua 6s ease-in-out infinite}
+.flutua b{font-family:var(--f-titulo);font-size:28px;color:var(--coral2);line-height:1;text-align:center;border-right:1.5px solid var(--linha);margin-right:12px;padding-block:4px}
+.flutua.f1{left:-4%;bottom:20%}
+.flutua.f2{right:-2%;bottom:3%;animation-delay:-3s}
+@keyframes flutua{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+.entra{animation:entra .8s cubic-bezier(.2,.7,.2,1) both}
+.entra.d1{animation-delay:.08s}.entra.d2{animation-delay:.16s}.entra.d3{animation-delay:.24s}.entra.d4{animation-delay:.32s}
+@keyframes entra{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* Faixa de matérias */
+.faixa{background:var(--coral);color:var(--branco);overflow:hidden;white-space:nowrap;padding-block:14px;font-family:var(--f-mono);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.faixa div{display:inline-flex;gap:38px;padding-right:38px;animation:rola 44s linear infinite}
+.faixa span::before{content:"✓ ";opacity:.7}
+@keyframes rola{to{transform:translateX(-50%)}}
+
+/* Números */
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.num{background:var(--branco);border:1.5px solid var(--linha);border-radius:var(--raio);padding:26px}
+.num b{display:block;font-family:var(--f-titulo);font-size:clamp(64px,8vw,92px);line-height:.85;color:var(--coral)}
+.num p{margin:12px 0 0;font-size:16px;color:var(--tinta)}
+.num small{display:block;font-family:var(--f-mono);font-size:12px;color:var(--cinza);margin-top:10px}
+
+/* Conta da nota */
+.conta{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:44px}
+.conta>*{min-width:0}
+.calc{background:var(--branco);color:var(--tinta);border-radius:26px;padding:clamp(22px,3.4vw,34px);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.calc label{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;font-size:16px;gap:12px}
+.calc label span{font-family:var(--f-mono);font-size:13px;color:var(--cinza);font-weight:700}
+.calc output{font-family:var(--f-titulo);font-size:34px;color:var(--coral2);font-variant-numeric:tabular-nums}
+.calc input[type=range]{width:100%;margin:10px 0 22px;accent-color:var(--coral);height:28px}
+.total{border-top:1.5px dashed var(--linha);padding-top:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.total b{font-family:var(--f-titulo);font-size:clamp(72px,10vw,104px);line-height:.82;font-variant-numeric:tabular-nums}
+.total small{font-family:var(--f-mono);font-size:12.5px;color:var(--cinza);display:block;margin-bottom:6px}
+.regua{position:relative;height:14px;border-radius:999px;background:var(--chip);margin-top:20px;overflow:hidden}
+.regua i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--bordo3) var(--g,25%),var(--coral) var(--g,25%));border-radius:999px;width:var(--w,50%);transition:width .25s}
+.minimo{position:relative;height:22px;font-family:var(--f-mono);font-size:11.5px;color:var(--cinza)}
+.minimo::before{content:"";position:absolute;left:40%;top:-16px;height:20px;border-left:2px dashed var(--tinta)}
+.minimo span{position:absolute;left:40%;top:6px;transform:translateX(-50%);white-space:nowrap}
+.veredito{margin:16px 0 0;font-weight:600;font-size:15.5px;line-height:1.45}
+
+/* Cartão de dica */
+.dica{background:var(--branco);color:var(--tinta);border:1.5px solid var(--linha);border-radius:var(--raio);padding:20px 24px 20px 0;display:grid;grid-template-columns:86px minmax(0,1fr);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.dica .n{font-family:var(--f-titulo);font-size:44px;line-height:.9;color:var(--coral2);text-align:center;border-right:1.5px solid var(--linha);margin-right:20px}
+.dica .n i{display:block;width:22px;height:22px;border:2.5px solid var(--tinta);border-radius:6px;margin:10px auto 0}
+.dica .r{font-weight:800;font-size:19px;line-height:1.3}
+.dica .e{color:var(--cinza);margin:8px 0 0;font-size:16px}
+.dica .x{color:#4A3B3F;margin:10px 0 0;font-size:15.5px;line-height:1.6}
+.chip{display:inline-block;margin-top:12px;font-family:var(--f-mono);font-weight:700;font-size:13px;color:var(--coral2);background:var(--chip);border-radius:8px;padding:5px 10px}
+.dentro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-top:44px}
+.dentro>*{min-width:0}
+.abas{display:inline-flex;background:rgba(255,255,255,.08);border:1.5px solid var(--borda-escura);border-radius:999px;padding:5px;margin-bottom:18px}
+.abas button{font-weight:700;font-size:15px;border:0;background:transparent;color:var(--claro-80);padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.abas button[aria-selected="true"]{background:var(--coral);color:var(--branco)}
+.aba-texto{color:var(--claro-80);margin:18px 0 0;max-width:52ch}
+.paginas{position:relative;aspect-ratio:1/1.12}
+.paginas img{position:absolute;width:64%;border-radius:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.paginas .p1{left:0;top:0}
+.paginas .p2{right:0;top:9%}
+.paginas[data-parte="1"] .p1{z-index:2;transform:rotate(-2deg) scale(1.03)}
+.paginas[data-parte="1"] .p2{opacity:.55;transform:rotate(8deg) scale(.94)}
+.paginas[data-parte="2"] .p2{z-index:2;transform:rotate(2deg) scale(1.03)}
+.paginas[data-parte="2"] .p1{opacity:.55;transform:rotate(-8deg) scale(.94)}
+
+/* Quiz */
+.quiz{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.q{background:var(--branco);border:1.5px solid var(--linha);border-radius:var(--raio);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.q .rot{margin:0}
+.q h3{font-family:var(--f-texto);text-transform:none;font-weight:800;font-size:20px;line-height:1.3}
+.q .ops{display:grid;gap:10px;margin-top:auto}
+.q button{font-weight:700;font-size:16px;text-align:left;border:1.5px solid var(--linha);background:var(--papel);color:var(--tinta);border-radius:12px;padding:13px 16px;cursor:pointer;transition:border-color .2s,transform .15s}
+.q button:hover:not(:disabled){border-color:var(--coral);transform:translateY(-1px)}
+.q button.certa{background:var(--ok);border-color:var(--ok);color:var(--branco)}
+.q button.errada{background:#FBE9E7;border-color:var(--erro);color:var(--erro);text-decoration:line-through}
+.q button:disabled{cursor:default}
+.q .gab{font-size:15px;color:#4A3B3F;border-top:1.5px dashed var(--linha);padding-top:12px;margin:0;animation:entra .4s both}
+.placar{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--bordo);color:var(--branco);border-radius:var(--raio);padding:24px 28px}
+.placar p{margin:0;font-weight:600;font-size:18px}
+.placar strong{font-family:var(--f-titulo);font-size:40px;color:var(--pessego);margin-right:8px}
+
+/* Mapa */
+.mapa{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.mapa>*{min-width:0}
+.barras{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.barras li{display:grid;grid-template-columns:minmax(0,200px) 1fr 34px;align-items:center;gap:14px;font-size:14.5px;font-weight:600}
+.barras .t{height:12px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.barras .t i{display:block;height:100%;border-radius:999px;background:var(--coral);width:var(--w);transform-origin:left}
+.barras li.g .t i{background:var(--pessego);opacity:.55}
+.barras em{font-style:normal;font-family:var(--f-mono);font-weight:700;font-size:13px;color:var(--pessego);text-align:right;font-variant-numeric:tabular-nums}
+.legenda{display:flex;flex-wrap:wrap;gap:8px 22px;font-family:var(--f-mono);font-size:12px;color:var(--claro-60);margin-top:18px}
+.legenda i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;background:var(--coral)}
+.legenda span+span i{background:var(--pessego);opacity:.55}
+.gigante{font-family:var(--f-titulo);font-size:clamp(150px,20vw,240px);line-height:.8;color:var(--pessego)}
+
+/* Bônus */
+.bonus{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.bonus article{background:var(--branco);border:1.5px solid var(--linha);border-radius:var(--raio);padding:26px;min-width:0}
+.bonus b{font-family:var(--f-titulo);font-size:64px;line-height:.85;color:var(--coral);display:block}
+.bonus h3{font-family:var(--f-texto);text-transform:none;font-size:20px;line-height:1.3;margin:12px 0 6px}
+.bonus p{margin:0;color:var(--cinza);font-size:16px}
+
+/* Método */
+.passos{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;margin-top:44px}
+.passos>*{min-width:0}
+.passos ol{list-style:none;margin:0;padding:0;display:grid;gap:26px}
+.passos li{display:grid;grid-template-columns:86px minmax(0,1fr);gap:18px;align-items:start}
+.passos li b{font-family:var(--f-titulo);font-size:64px;line-height:.85;color:var(--pessego)}
+.passos li h3{font-family:var(--f-texto);text-transform:none;font-size:21px;line-height:1.3;margin-bottom:6px}
+.passos li p{margin:0;color:var(--claro-80)}
+.passos img{border-radius:10px;box-shadow:0 30px 60px -25px rgba(0,0,0,.6);transform:rotate(3deg)}
+
+/* Oferta */
+.oferta{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.oferta>*{min-width:0}
+.pilha{position:relative;aspect-ratio:1/.92;margin-top:30px}
+.pilha img{position:absolute;width:56%;border-radius:8px;box-shadow:0 34px 60px -24px rgba(0,0,0,.4)}
+.pilha img:first-child{left:6%;top:4%;transform:rotate(-5deg);z-index:1}
+.pilha img:last-child{right:6%;top:10%;transform:rotate(6deg)}
+.caixa{background:var(--bordo);color:var(--branco);border-radius:26px;padding:clamp(24px,4vw,40px);box-shadow:0 40px 80px -30px rgba(42,10,20,.7);position:relative;background-image:var(--azulejo)}
+.caixa ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:14px}
+.caixa li{display:grid;grid-template-columns:26px 1fr;gap:12px;font-weight:600;line-height:1.4}
+.caixa li small{display:block;font-weight:400;color:var(--claro-80);font-size:14.5px}
+.valor{display:flex;align-items:baseline;gap:8px;border-top:1.5px dashed var(--borda-escura);padding-top:22px}
+.valor span{font-weight:800;font-size:24px}
+.valor b{font-family:var(--f-titulo);font-size:clamp(84px,11vw,120px);line-height:.85}
+.valor em{font-style:normal;font-size:14.5px;color:var(--claro-80);margin-left:8px}
+.caixa .cta{width:100%;justify-content:center;margin-top:22px;font-size:19px}
+.seguro{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 0;font-size:14px;color:var(--claro-80);text-align:center}
+
+/* Autor */
+.autor{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.autor>*{min-width:0}
+.autor img{border-radius:26px;aspect-ratio:4/5;object-fit:cover;width:100%;max-width:440px}
+.autor p{color:var(--claro-80);max-width:58ch}
+
+/* FAQ */
+.faq{max-width:820px;margin:40px auto 0;display:grid;gap:12px}
+.faq details{background:var(--branco);border:1.5px solid var(--linha);border-radius:16px;padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;font-weight:800;font-size:18px;padding:20px 30px 20px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:0;top:50%;width:14px;height:14px;margin-top:-9px;border-right:2.5px solid var(--coral);border-bottom:2.5px solid var(--coral);transform:rotate(45deg);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg);margin-top:-2px}
+.faq details p{margin:0 0 20px;color:var(--cinza)}
+
+/* Final e rodapé */
+.final{text-align:center}
+.final h2{font-size:clamp(52px,9vw,120px)}
+.final .acoes{justify-content:center}
+.final .vazado{font-size:clamp(300px,50vw,620px);left:50%;top:50%;transform:translate(-50%,-50%)}
+footer{background:var(--bordo2);padding-block:34px calc(34px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--claro-60)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:center}
+
+/* Barra fixa no celular */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(42,10,20,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--borda-escura);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .35s}
+.barra.ver{transform:none}
+.barra .cta{padding:14px 20px;font-size:16px}
+
+/* Aparece ao rolar (só onde o navegador anima pela rolagem; sem suporte, tudo já está visível) */
+@supports (animation-timeline: view()){
+  .surge{animation:entra linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  .barras .t i{animation:cresce linear both;animation-timeline:view();animation-range:entry 10% entry 80%}
+  @keyframes cresce{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+@media (max-width:900px){
+  .hero .wrap,.conta,.dentro,.mapa,.passos,.oferta,.autor{grid-template-columns:minmax(0,1fr)}
+  .hero{padding-top:96px}
+  .quiz,.numeros,.bonus{grid-template-columns:minmax(0,1fr)}
+  .passos img{max-width:360px;margin:0 auto}
+  .autor img{max-width:360px}
+  .barra{display:flex}
+  footer{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+  .flutua{max-width:230px;font-size:12.5px}
+  .mapa{gap:36px}
+}
+@media (max-width:520px){
+  .topo a.link{display:none}
+  .barras li{grid-template-columns:minmax(0,1fr) 34px;row-gap:5px}
+  .barras .t{grid-column:1/-1;grid-row:2}
+  .dica{grid-template-columns:62px minmax(0,1fr);padding-right:16px}
+  .dica .n{font-size:32px;margin-right:14px}
+  .passos li{grid-template-columns:58px minmax(0,1fr);gap:12px}
+  .passos li b{font-size:50px}
+  .cta{padding:16px 22px;font-size:17px}
+  .flutua{max-width:200px;font-size:11.5px;grid-template-columns:50px 1fr}
+  .flutua b{font-size:22px}
+  .flutua.f1{left:0}.flutua.f2{right:0}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gsim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient>
+    <symbol id="simbolo" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#gsim)"/><path d="M32 22 V70 H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46 l9 9 l18 -20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ok" viewBox="0 0 24 24"><rect width="24" height="24" rx="7" fill="#F0553A"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="seta" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Concurso com Líbero"><svg width="40" height="40"><use href="#simbolo"/></svg><span><small>Concurso com</small><strong>Líbero</strong></span></a>
+    <a class="link" href="#oferta">R$ {{PRECO}} · ver o que vem</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="selo-exame entra">TCE MA 2026 · AUDITOR DE CONTROLE EXTERNO</span>
+      <h1 class="entra d1"><span id="contador">400</span> dicas pra revisar o TCE MA <span class="destaque">até domingo</span></h1>
+      <p class="lead entra d2">Uma regra por linha, com a distinção que muda a alternativa. Marque a caixinha onde hesitar e, na véspera, revise só as marcadas. A Parte 2 explica cada uma das 400.</p>
+      <div class="acoes entra d3">
+        <a class="cta" data-checkout href="#oferta">Quero as 400 dicas <svg width="20" height="20"><use href="#seta"/></svg></a>
+        <div class="preco-mini"><b>R$ {{PRECO}}</b>Parte 1 + Parte 2, em PDF</div>
+      </div>
+      <div class="conta-dias entra d4" id="conta-dias"><i aria-hidden="true"></i><b id="dias">7</b><span id="dias-texto">dias até a prova objetiva<br>domingo, 29/11, pela manhã</span></div>
+    </div>
+    <div class="palco entra d2" aria-hidden="true">
+      <div class="vazado" style="font-size:clamp(200px,28vw,400px);right:-30px;top:-50px">400</div>
+      <img class="capa c2" src="assets/capa2.webp" width="640" height="905" alt="" fetchpriority="high">
+      <img class="capa c1" src="assets/capa1.webp" width="640" height="905" alt="" fetchpriority="high">
+      <div class="flutua f1"><b>048</b>Contas de governo recebem parecer prévio.</div>
+      <div class="flutua f2"><b>186</b>Restos a pagar são despesas empenhadas e não pagas até 31 de dezembro.</div>
+    </div>
+  </div>
+</section>
+
+<div class="faixa" aria-hidden="true"><div>
+  <span>Direito Financeiro</span><span>Contabilidade Pública</span><span>Auditoria do Setor Público</span><span>Lei 14.133/2021</span><span>LRF</span><span>Lei 4.320/1964</span><span>MCASP 11ª edição</span><span>Controle Externo</span><span>Legislação do TCE MA</span><span>História e Geografia do Maranhão</span><span>NBASP</span><span>Constitucional</span>
+  <span>Direito Financeiro</span><span>Contabilidade Pública</span><span>Auditoria do Setor Público</span><span>Lei 14.133/2021</span><span>LRF</span><span>Lei 4.320/1964</span><span>MCASP 11ª edição</span><span>Controle Externo</span><span>Legislação do TCE MA</span><span>História e Geografia do Maranhão</span><span>NBASP</span><span>Constitucional</span>
+</div></div>
+
+<section class="banda clara">
+  <div class="wrap">
+    <p class="rot">A última semana</p>
+    <h2 class="surge">19 matérias, <span class="destaque">sete dias</span></h2>
+    <p class="lead surge">Não dá pra reabrir a Lei 14.133, o MCASP, a LRF e o Regimento do tribunal até domingo. Dá pra passar pelas regras que mais se conectam em objetiva, peça e questões, uma linha de cada vez.</p>
+    <div class="numeros">
+      <div class="num surge"><b>19</b><p>matérias no programa do cargo, de Português a Auditoria do Setor Público.</p><small>Edital TCE MA, cargo 12</small></div>
+      <div class="num surge"><b>75%</b><p>dos pontos da objetiva estão nas 60 questões específicas, que valem 2 cada.</p><small>Edital TCE MA, itens 7 a 9</small></div>
+      <div class="num surge"><b>280</b><p>das 400 dicas são das matérias específicas. O material segue o peso dos blocos.</p><small>Distribuição editorial das dicas</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura" id="conta">
+  <div class="wrap">
+    <p class="rot">Faça a conta</p>
+    <h2 class="surge">Sua nota é <span class="destaque">G + 2E</span></h2>
+    <div class="conta">
+      <div>
+        <p class="lead" style="margin-top:0">A objetiva tem 40 questões gerais, de 1 ponto, e 60 específicas, de 2 pontos. Mexa nos acertos e veja de onde vem a sua nota.</p>
+        <p style="color:var(--claro-80);max-width:56ch">O mínimo é 64 pontos no conjunto, mas alcançá-lo não garante a correção da discursiva: há limite de classificação por cargo. E como o erro não desconta acerto, nenhuma questão deve ficar em branco.</p>
+        <a class="cta" data-checkout href="#oferta" style="margin-top:14px">Revisar o que vale 2 pontos <svg width="20" height="20"><use href="#seta"/></svg></a>
+      </div>
+      <div class="calc surge">
+        <label for="ger">Acertos nas gerais <span>40 questões · 1 ponto</span><output id="ger-o" for="ger">28</output></label>
+        <input type="range" id="ger" min="0" max="40" value="28">
+        <label for="esp">Acertos nas específicas <span>60 questões · 2 pontos</span><output id="esp-o" for="esp">38</output></label>
+        <input type="range" id="esp" min="0" max="60" value="38">
+        <div class="total"><div><small>Nota na objetiva</small><b id="nota">104</b></div><div style="font-family:var(--f-mono);font-size:13px;color:var(--cinza);text-align:right">de 160 pontos<br><span id="fatia">73% vêm das específicas</span></div></div>
+        <div class="regua" aria-hidden="true"><i id="regua"></i></div>
+        <div class="minimo" aria-hidden="true"><span>mínimo: 64</span></div>
+        <p class="veredito" id="veredito" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banda clara">
+  <div class="wrap">
+    <p class="rot">Como é por dentro</p>
+    <h2 class="surge">A mesma dica, <span class="destaque">duas leituras</span></h2>
+    <div class="dentro">
+      <div>
+        <div class="abas" role="tablist" aria-label="Escolha a parte" style="background:var(--bordo)">
+          <button id="aba1" role="tab" aria-selected="true" aria-controls="painel-dica" data-parte="1">Parte 1 · rápida</button>
+          <button id="aba2" role="tab" aria-selected="false" aria-controls="painel-dica" data-parte="2">Parte 2 · explicada</button>
+        </div>
+        <div id="painel-dica" role="tabpanel" aria-live="polite">
+          <article class="dica">
+            <div class="n">048<i></i></div>
+            <div>
+              <div class="r">Contas de governo recebem parecer prévio.</div>
+              <p class="e" data-so="1">Contas de administradores são julgadas pelo tribunal competente; não troque apreciação por julgamento no modelo constitucional.</p>
+              <p class="x" data-so="2" hidden>O modelo constitucional separa dois regimes. Nas contas de governo, prestadas anualmente pelo chefe do Poder Executivo, o tribunal de contas aprecia e emite parecer prévio, e o julgamento cabe ao Poder Legislativo. Nas contas de gestão, dos administradores e demais responsáveis por dinheiros, bens e valores públicos, o próprio tribunal julga.</p>
+              <p class="x" data-so="2" hidden>O jogo de verbos é a pegadinha: a alternativa diz que o tribunal julga as contas do governador, ou que apenas aprecia as contas dos administradores. Ligue cada verbo ao seu inciso: apreciar mediante parecer prévio está no inciso I, e julgar, no inciso II.</p>
+              <span class="chip" data-so="2" hidden>✓ CF, art. 71, I e II; art. 75</span>
+            </div>
+          </article>
+        </div>
+        <p class="aba-texto" id="aba-texto" style="color:var(--cinza)"></p>
+      </div>
+      <div class="paginas" id="paginas" data-parte="1" aria-hidden="true">
+        <img class="p1" src="assets/p1.webp" width="640" height="905" alt="" loading="lazy">
+        <img class="p2" src="assets/p2.webp" width="640" height="905" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura" id="teste">
+  <div class="wrap">
+    <p class="rot">Teste rápido</p>
+    <h2 class="surge">3 pegadinhas. <span class="destaque">Quantas você acerta?</span></h2>
+    <p class="lead">Escolha uma resposta em cada cartão. As três estão entre as 400 dicas do material.</p>
+    <div class="quiz" id="quiz"></div>
+    <div class="placar" id="placar" hidden style="background:var(--branco);color:var(--tinta)">
+      <p><strong id="pontos" style="color:var(--coral2)">0/3</strong><span id="placar-texto"></span></p>
+      <a class="cta" data-checkout href="#oferta">Ver as outras 397 <svg width="20" height="20"><use href="#seta"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="banda clara">
+  <div class="wrap">
+    <p class="rot">Além das dicas</p>
+    <h2 class="surge">Treino pra objetiva <span class="destaque">e pra discursiva</span></h2>
+    <div class="bonus">
+      <article class="surge"><b>12</b><h3>Questões autorais comentadas</h3><p>Múltipla escolha com cinco alternativas, no formato da prova, e gabarito comentado.</p></article>
+      <article class="surge"><b>6</b><h3>Treinos discursivos resolvidos</h3><p>Peça técnica e questões de Auditor, com resposta de referência e lista de conferência.</p></article>
+      <article class="surge"><b>7</b><h3>Dias de revisão no roteiro</h3><p>Uma frente por dia até a prova, mais um plano curto se você só tiver dois dias.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura">
+  <div class="wrap">
+    <div class="mapa">
+      <div>
+        <p class="rot">Mapa das dicas</p>
+        <h2 class="surge">Mais dicas <span class="destaque">onde vale 2</span></h2>
+        <div class="gigante surge" aria-hidden="true">124</div>
+        <p style="margin:6px 0 0;color:var(--claro-80)">dicas só de Financeiro, Contabilidade Pública e Auditoria: despesa e receita, LRF, PCASP, demonstrações, evidências e achados.</p>
+      </div>
+      <div>
+        <ul class="barras" id="barras"></ul>
+        <p class="legenda"><span><i></i>Específicas · 2 pontos por questão</span><span><i></i>Gerais e estratégia</span></p>
+        <p style="font-family:var(--f-mono);font-size:12px;color:var(--claro-60);margin:10px 0 0">Número de dicas por matéria. A divisão é editorial: o edital não fixa quantidade de questões por disciplina.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura" style="border-top:1px solid var(--borda-escura)">
+  <div class="wrap">
+    <p class="rot">Como usar</p>
+    <h2 class="surge">Três leituras <span class="destaque">e um painel</span></h2>
+    <div class="passos">
+      <ol>
+        <li class="surge"><b>1ª</b><div><h3>Leia só o negrito</h3><p>Passe pelas 400 regras. Não conseguiu explicar alguma sem ler? Marque a caixinha ao lado do número.</p></div></li>
+        <li class="surge"><b>2ª</b><div><h3>Volte às marcadas</h3><p>Leia a distinção logo abaixo. Se ainda ficar dúvida, abra a Parte 2 no mesmo número.</p></div></li>
+        <li class="surge"><b>3ª</b><div><h3>Na véspera, só o painel</h3><p>O painel tem as 400 dicas numeradas, com as de 2 pontos em coral. Revise apenas o que ficou pintado.</p></div></li>
+      </ol>
+      <img class="surge" src="assets/painel.webp" width="640" height="905" alt="Página do painel de revisão, com os números de 1 a 400" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="banda clara" id="oferta">
+  <div class="wrap">
+    <div class="oferta">
+      <div>
+        <p class="rot">O que você recebe</p>
+        <h2 class="surge">Revisão em Dicas <span class="destaque">TCE MA 2026</span></h2>
+        <div class="pilha surge" aria-hidden="true"><img src="assets/capa1.webp" width="640" height="905" alt="" loading="lazy"><img src="assets/capa2.webp" width="640" height="905" alt="" loading="lazy"></div>
+      </div>
+      <div class="caixa surge">
+        <ul>
+          <li><svg width="26" height="26"><use href="#ok"/></svg><span>Parte 1: Revisão em Dicas<small>400 dicas em {{P1}} páginas, com a regra e a distinção que muda a alternativa</small></span></li>
+          <li><svg width="26" height="26"><use href="#ok"/></svg><span>Parte 2: Dicas Explicadas<small>as mesmas 400, explicadas em {{P2}} páginas, com pegadinha e fundamento</small></span></li>
+          <li><svg width="26" height="26"><use href="#ok"/></svg><span>12 questões e 6 treinos discursivos<small>com gabarito comentado e resposta de referência</small></span></li>
+          <li><svg width="26" height="26"><use href="#ok"/></svg><span>Roteiro da última semana<small>plano de sete dias, plano de dois dias e simulação do tempo de prova</small></span></li>
+          <li><svg width="26" height="26"><use href="#ok"/></svg><span>Painel de revisão de 1 a 400<small>pra revisar só o que ficou pendente na véspera</small></span></li>
+        </ul>
+        <div class="valor"><span>R$</span><b>{{PRECO}}</b><em>pagamento único</em></div>
+        <a class="cta" data-checkout href="#oferta">Quero as 400 dicas <svg width="20" height="20"><use href="#seta"/></svg></a>
+        <p class="seguro"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 10V8a6 6 0 1 1 12 0v2M5 10h14v11H5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>Pagamento pela Kiwify · acesso enviado ao seu e-mail</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura">
+  <div class="wrap">
+    <div class="autor">
+      <img src="assets/autor.webp" width="880" height="1100" alt="Líbero Filho, autor do material" loading="lazy">
+      <div>
+        <p class="rot">Quem fez</p>
+        <h2 class="surge">Líbero <span class="destaque">Filho</span></h2>
+        <p class="lead">Professor e criador do Concurso com Líbero. Montou este material a partir do edital do TCE MA, da retificação de julho e da convocação de novembro.</p>
+        <p>Cada dica foi escrita pra caber numa linha e indica a base legal do bloco, pra você conferir na norma. É material próprio, pensado pra revisão final, quando o tempo é curto e cada página precisa render.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banda clara">
+  <div class="wrap">
+    <p class="rot" style="text-align:center">Dúvidas</p>
+    <h2 style="text-align:center">Perguntas <span class="destaque">frequentes</span></h2>
+    <div class="faq">
+      <details><summary>Ainda dá tempo de usar antes da prova?</summary><p>O material foi feito pra última semana. A Parte 1 se lê em poucas sessões, e o roteiro traz um plano de sete dias e outro pra quem só tem dois.</p></details>
+      <details><summary>Serve pra qual cargo?</summary><p>A edição foi organizada para Auditor Estadual de Controle Externo, especialidade Controle Externo (cargo 12). Há um roteiro de aproveitamento para Técnico (cargo 16), com fichas e treinos próprios. Não cobre os conhecimentos específicos de Engenharia, Medicina, TI, Atuária e das demais especialidades.</p></details>
+      <details><summary>Qual a diferença entre a Parte 1 e a Parte 2?</summary><p>A Parte 1 é a revisão rápida: a regra em uma linha e a distinção que muda a alternativa. A Parte 2 traz as mesmas 400 dicas, na mesma ordem, cada uma explicada, com a pegadinha e o fundamento. As duas vêm juntas.</p></details>
+      <details><summary>Em que formato vem e como recebo?</summary><p>Dois PDFs, pra ler no celular, no tablet ou no computador, ou imprimir. A compra é feita pela Kiwify e o acesso chega no e-mail informado no checkout assim que o pagamento é aprovado.</p></details>
+      <details><summary>As dicas substituem o estudo do edital?</summary><p>Não. A revisão por dicas é seletiva: serve pra fixar e encontrar pontos fracos. Ela não substitui o programa completo nem a leitura da legislação do TCE MA indicada no edital.</p></details>
+      <details><summary>É material oficial do concurso?</summary><p>Não. É material próprio de Líbero Filho, sem vínculo com o TCE MA ou com o Cebraspe. As questões e os treinos são autorais, e as regras de prova vêm do edital publicado.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="banda escura final">
+  <div class="vazado" aria-hidden="true">400</div>
+  <div class="wrap" style="position:relative">
+    <p class="rot">TCE MA 2026 · prova em 29/11</p>
+    <h2 class="surge">Chegue sabendo <span class="destaque">onde você erra</span></h2>
+    <p class="lead" style="margin-left:auto;margin-right:auto">400 dicas, 19 matérias e um painel pra véspera. Parte 1 e Parte 2 por R$ {{PRECO}}.</p>
+    <div class="acoes"><a class="cta" data-checkout href="#oferta">Quero as 400 dicas <svg width="20" height="20"><use href="#seta"/></svg></a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Concurso com Líbero"><svg width="30" height="30"><use href="#simbolo"/></svg><span><small>Concurso com</small><strong style="font-size:17px">Líbero</strong></span></a>
+    <span>@concursocomlibero · Material próprio de Líbero Filho. Sem vínculo com o TCE MA ou com o Cebraspe.</span>
+  </div>
+</footer>
+
+<div class="barra" id="barra" aria-hidden="true">
+  <div class="preco-mini"><b style="font-size:28px">R$ {{PRECO}}</b>Parte 1 + Parte 2</div>
+  <a class="cta" data-checkout href="#oferta" tabindex="-1">Quero as dicas <svg width="18" height="18"><use href="#seta"/></svg></a>
+</div>
+
+<script>
+// Link do checkout da Kiwify: cole aqui e todos os botões passam a levar pra ele.
+const CHECKOUT = '';
+
+(() => {
+  if (CHECKOUT) document.querySelectorAll('[data-checkout]').forEach(a => { a.href = CHECKOUT; a.rel = 'noopener'; });
+  const $ = id => document.getElementById(id);
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Contador do título: sobe até 400 ao abrir (o número final já está no HTML).
+  if (!calmo) { const c = $('contador'); let t0; const passo = t => { t0 ??= t; const p = Math.min(1, (t - t0) / 1100); c.textContent = Math.round(400 * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(passo); }; requestAnimationFrame(passo); }
+
+  // Dias até a prova (29/11/2026, horário de São Luís). Depois da prova, a caixa some.
+  const hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Fortaleza' })); hoje.setHours(0, 0, 0, 0);
+  const dias = Math.round((new Date(2026, 10, 29) - hoje) / 864e5);
+  if (dias > 1) $('dias').textContent = dias;
+  else if (dias === 1) { $('dias').textContent = '1'; $('dias-texto').innerHTML = 'dia até a prova objetiva<br>é amanhã, pela manhã'; }
+  else if (dias === 0) { $('dias').textContent = '0'; $('dias-texto').innerHTML = 'A prova é hoje.<br>Boa prova!'; }
+  else $('conta-dias').hidden = true;
+
+  // Conta da nota: G + 2E.
+  const ger = $('ger'), esp = $('esp');
+  const conta = () => {
+    const g = +ger.value, e = +esp.value, n = g + 2 * e;
+    $('ger-o').textContent = g; $('esp-o').textContent = e; $('nota').textContent = n;
+    $('fatia').textContent = n ? Math.round(2 * e / n * 100) + '% vêm das específicas' : 'nenhum ponto ainda';
+    $('regua').style.setProperty('--w', n / 160 * 100 + '%'); $('regua').style.setProperty('--g', n ? g / n * 100 + '%' : '0%');
+    $('veredito').textContent = n < 64 ? `Faltam ${64 - n} pontos pro mínimo. Cada específica a mais vale por duas gerais.` : `Acima do mínimo de 64. Trocar 5 erros por acertos nas específicas leva você a ${Math.min(160, n + 10)} pontos.`;
+  };
+  ger.addEventListener('input', conta); esp.addEventListener('input', conta); conta();
+
+  // Abas Parte 1 / Parte 2.
+  const textos = { '1': 'Parte 1: 400 dicas em {{P1}} páginas. Leia o negrito; se hesitar, a distinção está logo abaixo.', '2': 'Parte 2: as mesmas 400 dicas em {{P2}} páginas, cada uma com a explicação, a pegadinha e o fundamento.' };
+  const troca = p => { document.querySelectorAll('.abas button').forEach(x => x.setAttribute('aria-selected', String(x.dataset.parte === p))); document.querySelectorAll('[data-so]').forEach(e => { e.hidden = e.dataset.so !== p; }); $('paginas').dataset.parte = p; $('aba-texto').textContent = textos[p]; };
+  document.querySelectorAll('.abas button').forEach(b => b.addEventListener('click', () => troca(b.dataset.parte))); troca('1');
+
+  // Quiz de pegadinhas.
+  const Q = [
+    { m: 'Estratégia de prova', p: 'Nesta objetiva, uma resposta errada anula uma certa?', o: ['Anula', 'Não anula'], c: 1, g: 'Dica 381: aqui o erro não anula acerto. São cinco alternativas e uma correta; resposta errada vale zero. (Edital TCE MA)' },
+    { m: 'Controle Externo', p: 'O tribunal de contas julga as contas anuais do governador?', o: ['Julga', 'Emite parecer prévio'], c: 1, g: 'Dica 048: contas de governo recebem parecer prévio; o julgamento é do Legislativo. O tribunal julga as contas dos administradores. (CF, arts. 71, I e II, e 75)' },
+    { m: 'Controle Externo', p: 'O ressarcimento fundado em decisão de tribunal de contas é imprescritível?', o: ['É imprescritível', 'É prescritível'], c: 1, g: 'Dica 057: é prescritível. Não confunda com a tese do ato doloso de improbidade. (STF, Tema 899)' },
+  ];
+  const quiz = $('quiz'); let feitas = 0, acertos = 0;
+  Q.forEach((q, i) => {
+    const el = document.createElement('article'); el.className = 'q surge'; el.style.color = 'var(--tinta)';
+    el.innerHTML = `<p class="rot" style="color:var(--coral2)">${i + 1} de 3 · ${q.m}</p><h3>${q.p}</h3><div class="ops">${q.o.map((o, k) => `<button type="button" id="q${i}o${k}" data-k="${k}">${o}</button>`).join('')}</div>`;
+    el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      const k = +b.dataset.k; el.querySelectorAll('button').forEach(x => { x.disabled = true; if (+x.dataset.k === q.c) x.classList.add('certa'); });
+      if (k !== q.c) b.classList.add('errada'); else acertos++;
+      const g = document.createElement('p'); g.className = 'gab'; g.textContent = q.g; el.appendChild(g);
+      if (++feitas === Q.length) { $('pontos').textContent = `${acertos}/3`; $('placar-texto').textContent = acertos === 3 ? 'Mandou bem. Ainda faltam 397 dicas pra revisar.' : 'É esse tipo de detalhe que a prova cobra. Faltam 397.'; $('placar').hidden = false; }
+    }));
+    quiz.appendChild(el);
+  });
+
+  // Barras do mapa das dicas: [matéria, dicas, específica?].
+  const M = {{BARRAS}};
+  const max = Math.max(...M.map(m => m[1]));
+  $('barras').innerHTML = M.map(([n, q, e]) => `<li class="${e ? '' : 'g'}"><span>${n}</span><span class="t"><i style="--w:${q / max * 100}%"></i></span><em>${q}</em></li>`).join('');
+
+  // Barra de compra no celular: aparece depois do topo e some na oferta.
+  const barra = $('barra'), hero = document.querySelector('.hero'), oferta = $('oferta');
+  if ('IntersectionObserver' in window) {
+    let passou = false, naOferta = false;
+    const atualiza = () => barra.classList.toggle('ver', passou && !naOferta);
+    new IntersectionObserver(([e]) => { passou = !e.isIntersecting; atualiza(); }).observe(hero);
+    new IntersectionObserver(([e]) => { naOferta = e.isIntersecting; atualiza(); }, { threshold: .2 }).observe(oferta);
+  }
+})();
+</script>
