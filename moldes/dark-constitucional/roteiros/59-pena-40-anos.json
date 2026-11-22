@@ -1,0 +1,91 @@
+{
+  "pauta": 59,
+  "serie": "O que está escrito",
+  "titulo": "Condenado a 300 anos no Brasil. Quanto tempo ele fica preso?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Condenado a\n300 anos.\nQuanto tempo\n**fica preso?**",
+      "imagem": {
+        "arquivo": "imagens/relogio.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "No Brasil, quem é condenado a trezentos anos de prisão não fica preso trezentos anos. Nem perto disso."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Código Penal · art. 75",
+      "pergunta": "Condenado a 300 anos. Quanto tempo, no máximo, ele cumpre?",
+      "opcoes": [
+        "300 anos",
+        "40 anos",
+        "30 anos"
+      ],
+      "vencedor": 1,
+      "fala": "Então quanto? Trezentos anos, quarenta ou trinta? Escolhe antes da resposta."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XLVII",
+        "texto": "Não haverá penas: (...) b) **de caráter perpétuo**;"
+      },
+      "b": {
+        "cabecalho": "Código Penal · art. 75",
+        "texto": "O tempo de cumprimento das penas privativas de liberdade não pode ser superior a **40 (quarenta) anos.**"
+      },
+      "ponte": "Por isso",
+      "segundoEm": "Código",
+      "fala": "Quarenta anos. A Constituição proíbe pena de caráter perpétuo. E o Código Penal põe o teto no artigo setenta e cinco: o cumprimento não pode passar de quarenta anos."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "Até 2019",
+          "texto": "Teto de 30 anos"
+        },
+        {
+          "data": "Dez/2019",
+          "texto": "Pacote Anticrime (Lei 13.964)"
+        },
+        {
+          "data": "Jan/2020",
+          "texto": "Teto sobe para **40 anos**"
+        }
+      ],
+      "fala": "Até dois mil e dezenove, o teto era de trinta anos. Então veio o Pacote Anticrime, e desde janeiro de dois mil e vinte o limite é quarenta."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Então pra que\ncondenar a\n**300 anos?**",
+      "fala": "Mas se ninguém cumpre mais de quarenta, pra que condenar alguém a trezentos?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "A pena total\nainda **conta.**",
+      "nota": "Benefícios como a progressão de regime são calculados sobre a pena da condenação, não sobre o teto.",
+      "fala": "Porque a pena total ainda conta. Benefícios como a progressão de regime são calculados sobre ela, e não sobre o teto."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "40 anos é pouco\nou **muito?**",
+      "fala": "E pra você: quarenta anos é pouco ou é muito? Comenta."
+    }
+  ],
+  "legenda": "Condenado a 300 anos no Brasil. Quanto tempo ele fica preso?\n\nNo máximo 40. A Constituição proíbe penas de caráter perpétuo (art. 5º, XLVII, b), e o Código Penal limita o tempo de cumprimento a 40 anos (art. 75). Até o Pacote Anticrime (Lei 13.964/2019, em vigor desde janeiro de 2020), o limite era de 30 anos. Mas a pena total continua contando: benefícios como a progressão de regime são calculados sobre ela, não sobre o teto.\n\n40 anos é pouco ou muito?",
+  "fontes": [
+    "CF/88, art. 5º, XLVII, b",
+    "Código Penal, art. 75 (redação da Lei 13.964/2019)",
+    "STF · Súmula 715"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "direitopenal",
+    "pacoteanticrime",
+    "oab",
+    "concursos"
+  ]
+}

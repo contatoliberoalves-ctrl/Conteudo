@@ -1,0 +1,77 @@
+{
+  "pauta": 55,
+  "serie": "Quem manda na lei?",
+  "titulo": "Condenado pelo STF. Perdoado pelo presidente no dia seguinte. Valeu?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Condenado pelo\nSTF. Perdoado\npelo presidente\n**no dia seguinte.**",
+      "imagem": {
+        "arquivo": "imagens/caneta-tinteiro.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "60% 50%"
+      },
+      "fala": "Um deputado foi condenado pelo Supremo. No dia seguinte, o presidente da República perdoou a pena dele. Esse perdão valeu?"
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STF · 20 de abril de 2022",
+      "a": 10,
+      "b": 1,
+      "rotuloA": "Pela condenação",
+      "rotuloB": "Contra",
+      "carimbo": "Condenado",
+      "fala": "Vinte de abril de dois mil e vinte e dois. O Supremo condenou o deputado Daniel Silveira a oito anos e nove meses de prisão. Dez votos a um."
+    },
+    {
+      "tipo": "frase",
+      "data": "21 de abril de 2022",
+      "texto": "Decreto de\n**graça.**",
+      "nota": "Graça é o perdão individual da pena.",
+      "fala": "No dia seguinte, o presidente Jair Bolsonaro assinou um decreto de graça: o perdão individual da pena."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 84, XII",
+        "texto": "Compete privativamente ao Presidente da República: [...] **conceder indulto e comutar penas**, com audiência, se necessário, dos órgãos instituídos em lei;"
+      },
+      "b": {
+        "cabecalho": "STF · maio de 2023 (resumo)",
+        "texto": "Decreto de graça anulado por 8 a 2, por **desvio de finalidade**."
+      },
+      "ponte": "Mas",
+      "segundoEm": "Mas",
+      "fala": "E a Constituição dá esse poder ao presidente: conceder indulto e comutar penas. Mas em maio de dois mil e vinte e três, o Supremo anulou o decreto, por oito a dois."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Se o poder existe,\npor que **anular?**",
+      "fala": "Se o poder está na Constituição, por que anular?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "**Desvio** de\nfinalidade.",
+      "nota": "Para a maioria do STF, o perdão não foi usado para o fim que a Constituição prevê.",
+      "fala": "Pra maioria do Supremo, houve desvio de finalidade. O poder existe, mas foi usado pra um fim diferente do previsto. E a pena voltou a valer."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Presidente deveria\npoder **perdoar?**",
+      "fala": "E você: o presidente deveria poder perdoar um condenado? Sim ou não?"
+    }
+  ],
+  "legenda": "Condenado pelo STF. Perdoado pelo presidente no dia seguinte. Valeu?\n\nEm 20 de abril de 2022, o STF condenou o deputado Daniel Silveira a 8 anos e 9 meses, por 10 a 1. Em 21 de abril, o presidente Jair Bolsonaro concedeu a ele graça, o perdão individual da pena, com base no poder de conceder indulto (art. 84, XII, da Constituição). Em maio de 2023, o STF anulou o decreto por 8 a 2, por entender que houve desvio de finalidade.\n\nPresidente deveria poder perdoar?",
+  "fontes": [
+    "CF/88, art. 84, XII",
+    "STF · AP 1044 (abril de 2022)",
+    "STF · anulação do decreto de graça (maio de 2023)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "separacaodospoderes",
+    "oab",
+    "concursos"
+  ]
+}

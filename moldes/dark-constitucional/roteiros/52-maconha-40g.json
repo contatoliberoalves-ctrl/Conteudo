@@ -1,0 +1,91 @@
+{
+  "pauta": 52,
+  "serie": "O STF decidiu",
+  "titulo": "No Brasil, porte de maconha não é mais crime. Mas continua proibido.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Porte de maconha\nnão é mais crime.\nMas continua\n**proibido.**",
+      "imagem": {
+        "arquivo": "imagens/cannabis.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Porte de maconha pra uso próprio não é mais crime no Brasil. Mas continua proibido. Como assim?"
+    },
+    {
+      "tipo": "frase",
+      "data": "2009 · São Paulo",
+      "texto": "Três gramas\nnuma **cela.**",
+      "nota": "Um preso foi flagrado com maconha dentro do presídio. O caso chegou ao STF.",
+      "fala": "Tudo começou em dois mil e nove, em São Paulo. Um preso foi flagrado com três gramas de maconha dentro da cela. E o caso foi parar no Supremo."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Lei 11.343/2006 · art. 28 (resumo)",
+        "texto": "Quem adquirir, guardar ou trouxer consigo droga **para consumo pessoal** será submetido a advertência, prestação de serviços à comunidade ou medida educativa."
+      },
+      "b": {
+        "cabecalho": "STF · RE 635.659 · Tema 506 (resumo)",
+        "texto": "Porte de maconha para consumo próprio **não é crime**: é ilícito administrativo, sem efeito penal."
+      },
+      "ponte": "2024 · STF",
+      "segundoEm": "junho",
+      "fala": "A Lei de Drogas não manda o usuário pra prisão. Mas o porte ainda era crime. Em junho de dois mil e vinte e quatro, o Supremo mudou isso para a maconha."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Quanto é uso próprio?",
+      "pergunta": "Até quantos gramas de maconha a pessoa é presumida usuária?",
+      "opcoes": [
+        "10 g",
+        "25 g",
+        "40 g"
+      ],
+      "vencedor": 2,
+      "fala": "Só que faltava uma resposta: quanto é uso próprio? Chuta antes de eu contar: até quantos gramas a pessoa é presumida usuária?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "40 gramas",
+          "sub": "de maconha",
+          "marcada": true
+        },
+        {
+          "titulo": "6 plantas",
+          "sub": "fêmeas",
+          "marcada": true
+        }
+      ],
+      "dono": "Presume-se usuário",
+      "marcaEm": "quarenta",
+      "fala": "O Supremo fixou: até quarenta gramas ou seis plantas fêmeas, presume-se que é usuário. Mas é presunção. Com indício de venda, pode ser tráfico mesmo com menos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Não é crime.\nMas é **proibido.**",
+      "nota": "Ilícito administrativo: advertência e medida educativa, sem efeito penal.",
+      "fala": "Então não liberou. Continua proibido: a pessoa recebe advertência e medida educativa. Só que sem nenhum efeito penal."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "O STF **acertou**\nou errou?",
+      "fala": "E você: o Supremo acertou ou errou? Comenta."
+    }
+  ],
+  "legenda": "Porte de maconha para uso próprio não é mais crime no Brasil. Mas continua proibido.\n\nEm junho de 2024, no RE 635.659 (Tema 506), o STF decidiu que portar maconha para consumo pessoal (Lei 11.343/2006, art. 28) não é crime: é ilícito administrativo, com advertência e medida educativa, sem efeito penal. Presume-se usuário quem tem até 40 gramas ou seis plantas fêmeas; a presunção cede quando há indícios de tráfico. O caso começou com um preso flagrado com 3 gramas numa cela em São Paulo, em 2009.\n\nO STF acertou ou errou?",
+  "fontes": [
+    "Lei 11.343/2006, art. 28",
+    "STF · RE 635.659, Tema 506 (junho de 2024)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "direitopenal",
+    "oab",
+    "concursos"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "pauta": 64,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "O deputado que disse ter ganho na loteria dezenas de vezes",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ele ganhou\nna loteria\n**dezenas de vezes.**",
+      "imagem": {
+        "arquivo": "imagens/moedas-antigas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Um deputado brasileiro explicou a própria fortuna assim: ganhei na loteria. Dezenas de vezes."
+    },
+    {
+      "tipo": "frase",
+      "data": "1993",
+      "texto": "CPI do\n**Orçamento.**",
+      "nota": "Desvio de emendas e propina de empreiteiras.",
+      "fala": "Mil novecentos e noventa e três. A CPI do Orçamento investiga parlamentares da Comissão de Orçamento do Congresso. A acusação: desviavam emendas e recebiam propina de empreiteiras."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Os anões\ndo **Orçamento.**",
+      "nota": "O apelido veio da baixa estatura de alguns deles.",
+      "fala": "Ficaram conhecidos como os anões do Orçamento, pela baixa estatura de alguns. Um dos principais era o deputado João Alves."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Como explicar\no **patrimônio?**",
+      "fala": "Então veio a pergunta: como explicar o patrimônio?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Loteria.\n**Dezenas** de vezes.",
+      "nota": "Foi a justificativa de João Alves.",
+      "fala": "A resposta de João Alves: tinha ganho na loteria. Dezenas de vezes."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "CPI do Orçamento · 1993",
+      "pergunta": "A CPI pediu a cassação de 18 parlamentares. Quantos foram cassados?",
+      "opcoes": [
+        "18",
+        "6",
+        "Nenhum"
+      ],
+      "vencedor": 1,
+      "fala": "No fim, a CPI pediu a cassação de dezoito parlamentares. Quantos você acha que foram cassados?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "6 cassados",
+          "sub": "perderam o mandato",
+          "marcada": true
+        },
+        {
+          "titulo": "4 renúncias",
+          "sub": "saíram antes, como João Alves"
+        },
+        {
+          "titulo": "8 absolvidos",
+          "sub": "ficaram no cargo"
+        }
+      ],
+      "marcaEm": "Seis",
+      "fala": "Seis. Quatro renunciaram antes da votação, entre eles João Alves. E oito foram absolvidos."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "A punição foi\n**suficiente?**",
+      "fala": "E pra você: a punição foi suficiente? Responde sim ou não."
+    }
+  ],
+  "legenda": "O deputado que disse ter ganho na loteria dezenas de vezes.\n\nEm 1993, a CPI do Orçamento investigou parlamentares da Comissão de Orçamento acusados de desviar emendas e receber propina de empreiteiras: os \"anões do Orçamento\", apelido que veio da baixa estatura de alguns. O deputado João Alves, um dos principais, justificou o patrimônio dizendo que tinha ganho na loteria dezenas de vezes. A CPI pediu a cassação de 18 parlamentares: 6 foram cassados, 4 renunciaram antes (entre eles João Alves) e 8 foram absolvidos.\n\nA punição foi suficiente?",
+  "fontes": [
+    "Congresso Nacional · CPI mista do Orçamento (1993–1994), relatório final",
+    "Câmara dos Deputados · processos de cassação de 1994"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "cpi",
+    "historiadobrasil",
+    "oab",
+    "concursos"
+  ]
+}

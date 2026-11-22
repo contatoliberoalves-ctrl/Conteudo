@@ -1,0 +1,77 @@
+{
+  "pauta": 50,
+  "serie": "O que está escrito",
+  "titulo": "No Brasil, o presidente não pode ser preso. Nem em flagrante.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "No Brasil, o\npresidente não\npode ser preso.\nNem em **flagrante.**",
+      "imagem": {
+        "arquivo": "imagens/celas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "35% 50%"
+      },
+      "fala": "No Brasil, o presidente da República não pode ser preso. Nem em flagrante. E isso está escrito, com todas as letras, na Constituição."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 86, § 3º",
+        "texto": "Enquanto não sobrevier sentença condenatória, nas infrações comuns, o Presidente da República **não estará sujeito a prisão**."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 86, § 4º",
+        "texto": "O Presidente da República, na vigência de seu mandato, **não pode ser responsabilizado** por atos estranhos ao exercício de suas funções."
+      },
+      "ponte": "E mais",
+      "segundoEm": "quarto",
+      "fala": "Artigo oitenta e seis, parágrafo terceiro: sem sentença condenatória, o presidente não está sujeito a prisão. E o parágrafo quarto: durante o mandato, ele não responde por atos estranhos ao exercício das funções."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Então ele não\npode ser **processado?**",
+      "fala": "Então o presidente não pode ser processado por crime nenhum?"
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "1º",
+          "texto": "Câmara autoriza por 2/3: 342 deputados"
+        },
+        {
+          "data": "2º",
+          "texto": "STF recebe a denúncia"
+        },
+        {
+          "data": "3º",
+          "texto": "Presidente **afastado** do cargo"
+        }
+      ],
+      "fala": "Pode, se o crime tiver ligação com o cargo. Primeiro, dois terços da Câmara autorizam: trezentos e quarenta e dois deputados. Depois, o Supremo julga. Se o Supremo receber a denúncia, o presidente fica afastado."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Prisão, só depois\nda **condenação.**",
+      "nota": "Sem sentença condenatória, nem em flagrante. CF/88, art. 86, § 3º.",
+      "fala": "E a prisão? Só depois da sentença condenatória. Antes disso, nem em flagrante."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Justo ou\n**privilégio?**",
+      "fala": "E pra você, essa proteção do cargo é justa ou é privilégio? Responde numa palavra."
+    }
+  ],
+  "legenda": "No Brasil, o presidente não pode ser preso. Nem em flagrante.\n\nArt. 86, § 3º: \"Enquanto não sobrevier sentença condenatória, nas infrações comuns, o Presidente da República não estará sujeito a prisão.\" E o § 4º: durante o mandato, ele não pode ser responsabilizado por atos estranhos ao exercício de suas funções. Para crime comum ligado ao cargo, a Câmara precisa autorizar por 2/3 (342 deputados), o STF julga e, recebida a denúncia, o presidente fica afastado (art. 86, caput e § 1º, I).\n\nJusto ou privilégio?",
+  "fontes": [
+    "CF/88, art. 86, caput, § 1º, I, § 3º e § 4º"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "constituicao",
+    "presidente",
+    "oab",
+    "concursos"
+  ]
+}

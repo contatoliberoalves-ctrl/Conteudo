@@ -1,0 +1,95 @@
+{
+  "pauta": 48,
+  "serie": "Casos que viraram direito",
+  "titulo": "A polícia tem mandado. E mesmo assim não pode entrar.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A polícia tem\nmandado. E não\npode **entrar.**",
+      "imagem": {
+        "arquivo": "imagens/relogio.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "A polícia tem mandado do juiz pra entrar na sua casa. E mesmo assim não pode entrar. O problema é o relógio."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, XI",
+        "texto": "A casa é asilo inviolável do indivíduo… salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, **durante o dia**, por determinação judicial."
+      },
+      "b": {
+        "cabecalho": "Lei 13.869/2019 · art. 22, § 1º, III (resumo)",
+        "texto": "É crime cumprir mandado de busca e apreensão domiciliar **após as 21h** ou antes das 5h."
+      },
+      "ponte": "E o que é dia?",
+      "segundoEm": "Lei",
+      "fala": "Artigo quinto, inciso onze: com ordem judicial, a polícia só entra durante o dia. E a Lei de Abuso de Autoridade fechou a conta: cumprir mandado de busca em casa depois das vinte e uma horas ou antes das cinco é crime."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Então, de noite,\nninguém **entra?**",
+      "fala": "Então, de noite, a casa fica fechada pra todo mundo?"
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "23h",
+      "pergunta": "O que deixa a polícia entrar numa casa à noite?",
+      "opcoes": [
+        "Mandado do juiz",
+        "Flagrante"
+      ],
+      "vencedor": 1,
+      "fala": "Vinte e três horas. O que deixa a polícia entrar numa casa: um mandado do juiz ou um flagrante? Escolhe."
+    },
+    {
+      "tipo": "cartas",
+      "dono": "À noite",
+      "cartas": [
+        {
+          "titulo": "Flagrante",
+          "sub": "crime acontecendo",
+          "marcada": true
+        },
+        {
+          "titulo": "Desastre",
+          "sub": "incêndio, desabamento"
+        },
+        {
+          "titulo": "Socorro",
+          "sub": "alguém precisa de ajuda"
+        },
+        {
+          "titulo": "Permissão",
+          "sub": "consentimento do morador"
+        }
+      ],
+      "marcaEm": "flagrante",
+      "fala": "O flagrante. À noite, a porta só abre em quatro casos: flagrante, desastre, pra prestar socorro ou com o consentimento do morador."
+    },
+    {
+      "tipo": "frase",
+      "texto": "O mandado\n**espera** o dia.",
+      "nota": "Com ordem judicial, a busca na casa acontece entre 5h e 21h.",
+      "fala": "Com mandado, a polícia espera. A partir das cinco da manhã, a busca pode começar."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Essa regra protege\nou **atrapalha?**",
+      "fala": "E pra você: essa regra protege o morador ou atrapalha a investigação? Responde numa palavra."
+    }
+  ],
+  "legenda": "A polícia tem mandado. E mesmo assim não pode entrar.\n\nA Constituição diz que a casa é asilo inviolável e que, com ordem judicial, a entrada só pode acontecer durante o dia (art. 5º, XI). A Lei de Abuso de Autoridade (Lei 13.869/2019, art. 22, § 1º, III) tornou crime cumprir mandado de busca e apreensão domiciliar depois das 21h ou antes das 5h. À noite, a entrada só é permitida em flagrante delito, desastre, para prestar socorro ou com o consentimento do morador.\n\nEssa regra protege ou atrapalha?",
+  "fontes": [
+    "CF/88, art. 5º, XI",
+    "Lei 13.869/2019 (Abuso de Autoridade), art. 22, § 1º, III"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "direitopenal",
+    "processopenal",
+    "oab",
+    "concursos"
+  ]
+}

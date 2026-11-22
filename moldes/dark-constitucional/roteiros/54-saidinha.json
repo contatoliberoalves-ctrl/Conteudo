@@ -1,0 +1,82 @@
+{
+  "pauta": 54,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "No Brasil, preso saía no Natal pra ver a família. Acabou.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "No Brasil, preso\nsaía no Natal pra\nver a família.\n**Acabou.**",
+      "imagem": {
+        "arquivo": "imagens/celas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Preso do semiaberto podia passar o Natal em casa, com a família. Em dois mil e vinte e quatro, o Congresso acabou com isso."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Lei de Execução Penal (resumo)",
+        "texto": "Preso do semiaberto pode ter saída temporária para **visita à família**, estudo ou atividades de convívio social."
+      },
+      "b": {
+        "cabecalho": "LEP · prazo (resumo)",
+        "texto": "Até **7 dias** por saída, até 5 vezes por ano."
+      },
+      "ponte": "Por quanto tempo",
+      "segundoEm": "sete",
+      "fala": "A Lei de Execução Penal permitia a saída temporária pro preso do semiaberto. Até sete dias, até cinco vezes por ano. Inclusive pra visitar a família, em datas como Natal e Dia das Mães."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Congresso · 2024",
+      "pergunta": "A saída temporária para visitar a família deve acabar?",
+      "opcoes": [
+        "Sim",
+        "Não"
+      ],
+      "vencedor": 0,
+      "fala": "Em dois mil e vinte e quatro, o Congresso votou uma lei pra acabar com a saída pra visitar a família. Antes de eu contar, vota: deveria acabar?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Presidente",
+          "sub": "vetou o fim da visita à família"
+        },
+        {
+          "titulo": "Congresso",
+          "sub": "derrubou o veto em maio de 2024",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "derrubou",
+      "fala": "O Congresso aprovou. Mas o presidente vetou essa parte, e a visita continuou. Só que veto volta pro Congresso. E em maio, o Congresso derrubou o veto."
+    },
+    {
+      "tipo": "frase",
+      "data": "Lei 14.843/2024",
+      "texto": "Ficou só a saída\npara **estudo.**",
+      "nota": "A saída para visitar a família acabou.",
+      "fala": "Então a visita à família acabou de vez. A saída temporária ficou só pra quem estuda: curso profissionalizante, ensino médio ou superior."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "O Congresso\n**acertou?**",
+      "fala": "E você: o Congresso acertou? Comenta sim ou não."
+    }
+  ],
+  "legenda": "No Brasil, preso do semiaberto podia sair no Natal para ver a família. Acabou.\n\nA Lei de Execução Penal previa a saída temporária de até 7 dias, até 5 vezes por ano, inclusive para visita à família. Em 2024, o Congresso aprovou a Lei 14.843, que acabou com a saída para visitar a família. O presidente vetou essa parte, mas em maio de 2024 o Congresso derrubou o veto. A saída temporária ficou só para estudo.\n\nO Congresso acertou?",
+  "fontes": [
+    "Lei 7.210/1984 (LEP), arts. 122 a 124",
+    "Lei 14.843/2024 e derrubada do veto (maio de 2024)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "direitopenal",
+    "execucaopenal",
+    "oab",
+    "concursos"
+  ]
+}

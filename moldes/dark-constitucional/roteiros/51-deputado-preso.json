@@ -1,0 +1,87 @@
+{
+  "pauta": 51,
+  "serie": "Quem manda na lei?",
+  "titulo": "Deputado preso pelo STF. E a Câmara vota se ele fica preso.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Preso pelo STF.\nE a Câmara vota\nse ele **fica preso.**",
+      "imagem": {
+        "arquivo": "imagens/martelo-plenario.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "55% 50%"
+      },
+      "fala": "No Brasil, quando um deputado é preso, quem decide se ele continua preso não é só o juiz. São os colegas dele, no voto."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 53, § 2º",
+        "texto": "Desde a expedição do diploma, os membros do Congresso Nacional não poderão ser presos, **salvo em flagrante de crime inafiançável**."
+      },
+      "b": {
+        "cabecalho": "Art. 53, § 2º (continuação)",
+        "texto": "Nesse caso, os autos serão remetidos dentro de vinte e quatro horas à Casa respectiva, para que, pelo voto da maioria de seus membros, **resolva sobre a prisão**."
+      },
+      "ponte": "E então",
+      "segundoEm": "Casa",
+      "fala": "Artigo cinquenta e três: desde a diplomação, deputado e senador só podem ser presos em flagrante de crime inafiançável. E em vinte e quatro horas, a Casa decide, pela maioria dos seus membros, se a prisão continua."
+    },
+    {
+      "tipo": "frase",
+      "data": "Fevereiro de 2021",
+      "texto": "Deputado preso por\nordem do **STF.**",
+      "nota": "O plenário do STF confirmou a prisão por 11 a 0.",
+      "fala": "Fevereiro de dois mil e vinte e um. O deputado Daniel Silveira é preso por ordem do Supremo. O plenário confirma, onze a zero. Aí o caso vai pra Câmara."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Câmara · 2021",
+      "pergunta": "Os colegas mantiveram a prisão ou soltaram o deputado?",
+      "opcoes": [
+        "Manteve",
+        "Soltou"
+      ],
+      "vencedor": 0,
+      "fala": "E agora você: os colegas mantiveram a prisão ou soltaram o deputado?"
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara dos Deputados · 2021",
+      "a": 364,
+      "b": 130,
+      "rotuloA": "Manter",
+      "rotuloB": "Contra",
+      "linha": 257,
+      "rotuloLinha": "Mínimo: 257",
+      "linhaEm": "duzentos",
+      "carimbo": "Mantida",
+      "fala": "Pra manter, precisava da maioria da Câmara: duzentos e cinquenta e sete votos. Deu trezentos e sessenta e quatro a cento e trinta. A prisão foi mantida."
+    },
+    {
+      "tipo": "frase",
+      "data": "2015",
+      "texto": "O Senado já\ntinha feito o **mesmo.**",
+      "nota": "Manteve a prisão do senador Delcídio do Amaral por 59 a 13.",
+      "fala": "Não foi a primeira vez. Em dois mil e quinze, o Senado manteve a prisão do senador Delcídio do Amaral, por cinquenta e nove a treze."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Deputado deveria\nter essa **proteção?**",
+      "fala": "E pra você: deputado deveria ter essa proteção? Sim ou não?"
+    }
+  ],
+  "legenda": "Deputado preso pelo STF. E a Câmara vota se ele fica preso.\n\nPela Constituição (art. 53, § 2º), desde a diplomação deputados e senadores só podem ser presos em flagrante de crime inafiançável, e a Casa decide em 24 horas, pelo voto da maioria de seus membros, se mantém a prisão. Em fevereiro de 2021, o deputado Daniel Silveira foi preso por ordem do STF (confirmada pelo plenário por 11 a 0), e a Câmara manteve a prisão por 364 a 130. Em 2015, o Senado manteve a prisão do senador Delcídio do Amaral por 59 a 13.\n\nDeputado deveria ter essa proteção?",
+  "fontes": [
+    "CF/88, art. 53, § 2º",
+    "Câmara dos Deputados · votação de 19/02/2021",
+    "Senado Federal · votação de 25/11/2015"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "congresso",
+    "oab",
+    "concursos"
+  ]
+}

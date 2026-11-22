@@ -1,0 +1,87 @@
+{
+  "pauta": 62,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "Condenado e preso, ele continuou deputado. Como?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Preso na Papuda.\nE continuou\n**deputado.**",
+      "imagem": {
+        "arquivo": "imagens/celas.jpg",
+        "credito": "Foto: rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Um deputado federal foi condenado pelo Supremo e preso na Papuda. E a Câmara decidiu que ele continuava deputado."
+    },
+    {
+      "tipo": "frase",
+      "data": "Junho de 2013",
+      "texto": "Condenado pelo\n**Supremo.**",
+      "nota": "Natan Donadon · peculato e formação de quadrilha.",
+      "fala": "Junho de dois mil e treze. Natan Donadon, deputado federal, condenado pelo Supremo por peculato e formação de quadrilha, vai pra Papuda. Mas o mandato não acaba sozinho. Quem vota a cassação é a Câmara."
+    },
+    {
+      "tipo": "frase",
+      "data": "28 de agosto de 2013",
+      "texto": "Votação\n**secreta.**",
+      "nota": "Ninguém saberia como cada deputado votou.",
+      "fala": "Vinte e oito de agosto. A votação foi secreta. Ninguém ia saber como cada deputado votou."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara · cassação de Donadon",
+      "a": 233,
+      "b": 131,
+      "rotuloA": "Cassar",
+      "rotuloB": "Contra",
+      "linha": 257,
+      "rotuloLinha": "Mínimo: 257",
+      "linhaEm": "absoluta",
+      "carimbo": "Não cassado",
+      "fala": "Duzentos e trinta e três votaram pela cassação. Cento e trinta e um, contra. Quarenta e um se abstiveram. Só que cassar exigia maioria absoluta: duzentos e cinquenta e sete votos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Preso. E\n**deputado.**",
+      "nota": "Faltaram 24 votos.",
+      "fala": "Faltaram vinte e quatro. Então ele continuou deputado, de dentro da cadeia."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "Ago. 2013",
+          "texto": "Câmara não cassa, em voto secreto"
+        },
+        {
+          "data": "Nov. 2013",
+          "texto": "**Emenda 76** acaba com o voto secreto na cassação"
+        },
+        {
+          "data": "Fev. 2014",
+          "texto": "Em voto aberto, Donadon é cassado"
+        }
+      ],
+      "fala": "A repercussão foi tanta que, em novembro, a Emenda Constitucional setenta e seis acabou com o voto secreto na cassação de mandato. Em fevereiro de dois mil e catorze, com voto aberto, Donadon foi cassado."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Voto de deputado\ndeveria ser sempre\n**aberto?**",
+      "fala": "E pra você: voto de deputado deveria ser sempre aberto? Responde sim ou não."
+    }
+  ],
+  "legenda": "Condenado pelo STF e preso na Papuda, ele continuou deputado.\n\nEm junho de 2013, o deputado federal Natan Donadon foi preso após condenação no STF por peculato e formação de quadrilha. Em 28 de agosto de 2013, em votação secreta, a Câmara não cassou o mandato: 233 votos pela cassação, quando eram precisos 257 (maioria absoluta); 131 contra e 41 abstenções. A repercussão levou à Emenda Constitucional 76, de novembro de 2013, que acabou com o voto secreto na cassação de mandato. Em fevereiro de 2014, em votação aberta, ele foi cassado.\n\nVoto de deputado deveria ser sempre aberto?",
+  "fontes": [
+    "Câmara dos Deputados · votação de 28/8/2013 e cassação de fevereiro de 2014",
+    "Emenda Constitucional 76/2013",
+    "STF · condenação de Natan Donadon"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "camaradosdeputados",
+    "stf",
+    "oab",
+    "concursos"
+  ]
+}

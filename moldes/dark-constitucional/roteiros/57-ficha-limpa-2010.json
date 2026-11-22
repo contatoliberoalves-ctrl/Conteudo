@@ -1,0 +1,103 @@
+{
+  "pauta": 57,
+  "serie": "Na urna",
+  "titulo": "O Brasil aprovou a Ficha Limpa em 2010. E ela não valeu em 2010.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ficha Limpa:\naprovada em 2010.\nE **não valeu.**",
+      "imagem": {
+        "arquivo": "imagens/urnas-senado-1929.jpg",
+        "credito": "Urnas no Senado dos EUA, 1929 · Library of Congress (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "Mais de um milhão de brasileiros assinaram a Lei da Ficha Limpa. Ela foi aprovada em dois mil e dez. E não valeu na eleição de dois mil e dez."
+    },
+    {
+      "tipo": "frase",
+      "data": "Junho de 2010",
+      "texto": "Lei Complementar 135:\ncondenado fora da **urna.**",
+      "nota": "Lei de iniciativa popular. Condenação por órgão colegiado já basta, mesmo sem o fim dos recursos.",
+      "fala": "Junho de dois mil e dez. A lei nasceu de iniciativa popular e tirava da disputa quem tinha certas condenações por órgão colegiado, mesmo sem o fim dos recursos."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Ela já valia\npara a eleição\nde **outubro?**",
+      "fala": "Só que a eleição era em outubro, quatro meses depois. Então a pergunta chegou ao Supremo: a lei já valia pra dois mil e dez?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 16",
+        "texto": "A lei que alterar o processo eleitoral entrará em vigor na data de sua publicação, **não se aplicando à eleição que ocorra até um ano** da data de sua vigência."
+      },
+      "b": {
+        "cabecalho": "STF · RE 633.703 (resumo)",
+        "texto": "A Lei da Ficha Limpa **altera o processo eleitoral**. Por isso, não se aplica às eleições de 2010."
+      },
+      "ponte": "Março de 2011",
+      "segundoEm": "março",
+      "fala": "A Constituição tem uma trava no artigo dezesseis: lei que altera o processo eleitoral não vale pra eleição que ocorra até um ano depois. Em março de dois mil e onze, o Supremo julgou."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "STF · março de 2011",
+      "pergunta": "A Lei da Ficha Limpa vale para a eleição de 2010?",
+      "opcoes": [
+        "Sim",
+        "Não"
+      ],
+      "vencedor": 1,
+      "resultados": [
+        "5 votos",
+        "6 votos"
+      ],
+      "fala": "No lugar dos ministros, o que você decidiria? A lei valia pra dois mil e dez? Vota."
+    },
+    {
+      "tipo": "frase",
+      "texto": "6 a 5.\n**Não valeu.**",
+      "nota": "O desempate foi do ministro Luiz Fux, recém-chegado ao STF.",
+      "fala": "Seis a cinco: não valeu. O voto que desempatou foi do ministro Luiz Fux, recém-chegado ao Supremo."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "Jun/2010",
+          "texto": "Ficha Limpa aprovada"
+        },
+        {
+          "data": "Mar/2011",
+          "texto": "STF: não vale para 2010"
+        },
+        {
+          "data": "2012",
+          "texto": "STF declara a lei **constitucional**"
+        }
+      ],
+      "fala": "Mas a lei não morreu. Em dois mil e doze, o Supremo declarou a Ficha Limpa constitucional, e ela passou a valer a partir das eleições daquele ano."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Regra é regra\nou deveria ter **valido?**",
+      "fala": "E pra você: regra é regra, ou a lei deveria ter valido já em dois mil e dez? Comenta."
+    }
+  ],
+  "legenda": "O Brasil aprovou a Ficha Limpa em 2010. E ela não valeu em 2010.\n\nA Lei Complementar 135, de junho de 2010, nasceu de iniciativa popular, com mais de 1 milhão de assinaturas. Mas o art. 16 da Constituição diz que a lei que alterar o processo eleitoral não se aplica à eleição que ocorra até um ano da data de sua vigência. Em março de 2011 (RE 633.703), o STF decidiu por 6 a 5 que a lei não valia para 2010; o desempate foi do ministro Luiz Fux. Em 2012, o STF declarou a lei constitucional, e ela passou a valer a partir das eleições de 2012.\n\nRegra é regra ou deveria ter valido?",
+  "fontes": [
+    "Lei Complementar 135/2010",
+    "CF/88, art. 16",
+    "STF · RE 633.703 (2011)",
+    "STF · ADCs 29 e 30 e ADI 4578 (2012)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "fichalimpa",
+    "eleicoes",
+    "stf",
+    "oab",
+    "concursos"
+  ]
+}

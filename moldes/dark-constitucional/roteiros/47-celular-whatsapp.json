@@ -1,0 +1,90 @@
+{
+  "pauta": 47,
+  "serie": "Casos que viraram direito",
+  "titulo": "A polícia pode ler o seu WhatsApp sem ordem do juiz?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "A polícia pode\nler seu WhatsApp\nsem **ordem do juiz?**",
+      "imagem": {
+        "arquivo": "imagens/celular.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Preso em flagrante, o celular vai pra mão da polícia. E o policial abre o WhatsApp e lê as conversas, sem ordem do juiz. Isso pode?"
+    },
+    {
+      "tipo": "frase",
+      "data": "O caso",
+      "texto": "Preso em flagrante.\nCelular **apreendido.**",
+      "nota": "As conversas do WhatsApp foram lidas sem autorização judicial.",
+      "fala": "Foi exatamente isso que chegou ao Superior Tribunal de Justiça. Um homem preso em flagrante teve o celular apreendido. E a polícia leu as conversas sem pedir autorização a um juiz."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, X",
+        "texto": "São invioláveis a **intimidade**, a vida privada, a honra e a imagem das pessoas…"
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 5º, XII",
+        "texto": "É inviolável o sigilo da correspondência e das comunicações telegráficas, **de dados** e das comunicações telefônicas…"
+      },
+      "ponte": "E",
+      "segundoEm": "sigilo",
+      "fala": "A Constituição protege a intimidade e a vida privada. E garante o sigilo das comunicações e dos dados."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "STJ · 2016",
+      "pergunta": "A leitura do WhatsApp sem ordem do juiz vale como prova?",
+      "opcoes": [
+        "Vale",
+        "Não vale"
+      ],
+      "vencedor": 1,
+      "fala": "Agora você julga. A leitura do WhatsApp sem ordem do juiz vale como prova?"
+    },
+    {
+      "tipo": "frase",
+      "data": "2016 · STJ · 6ª Turma",
+      "texto": "Prova **ilícita.**",
+      "nota": "RHC 51.531: ler as conversas do celular apreendido exige autorização judicial.",
+      "fala": "Em dois mil e dezesseis, a Sexta Turma decidiu: a prova é ilícita. Pra ler as conversas do celular apreendido, a polícia precisa de autorização judicial."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Celular",
+          "sub": "pode ser apreendido no flagrante"
+        },
+        {
+          "titulo": "Conversas",
+          "sub": "só com ordem do juiz",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "conversas",
+      "fala": "Repara na diferença. Apreender o aparelho, pode. Abrir as conversas, só com ordem do juiz."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "A polícia deveria\npoder **ler?**",
+      "fala": "E pra você: a polícia deveria poder ler o celular sem ordem do juiz? Sim ou não?"
+    }
+  ],
+  "legenda": "A polícia pode ler o seu WhatsApp sem ordem do juiz?\n\nNo RHC 51.531 (2016), a 6ª Turma do STJ julgou o caso de um homem preso em flagrante que teve o celular apreendido e as conversas do WhatsApp lidas pela polícia sem autorização judicial. A decisão: a prova é ilícita. Apreender o aparelho no flagrante pode; acessar as conversas exige ordem do juiz. A base é a proteção da intimidade e da vida privada e o sigilo das comunicações e dos dados (CF, art. 5º, X e XII).\n\nA polícia deveria poder ler?",
+  "fontes": [
+    "CF/88, art. 5º, X e XII",
+    "STJ · 6ª Turma · RHC 51.531 (2016)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stj",
+    "direitopenal",
+    "processopenal",
+    "oab",
+    "concursos"
+  ]
+}

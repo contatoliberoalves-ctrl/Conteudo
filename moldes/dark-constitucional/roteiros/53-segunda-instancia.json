@@ -1,0 +1,85 @@
+{
+  "pauta": 53,
+  "serie": "O STF decidiu",
+  "titulo": "No Brasil, condenado duas vezes ainda não cumpre pena. Por 6 a 5.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "No Brasil,\ncondenado duas\nvezes ainda não\n**cumpre pena.**",
+      "imagem": {
+        "arquivo": "imagens/stf-plenario.jpg",
+        "credito": "Plenário do STF · foto acmoraes/Flickr (CC BY 2.0)",
+        "foco": "50% 50%"
+      },
+      "fala": "Condenado pelo juiz. Condenado de novo pelo tribunal. E a pena ainda não começa. O Supremo decidiu assim por seis a cinco."
+    },
+    {
+      "tipo": "linha",
+      "virada": 1,
+      "marcos": [
+        {
+          "data": "2016",
+          "texto": "STF permite prender após a condenação em 2ª instância"
+        },
+        {
+          "data": "2019",
+          "texto": "STF muda: só após o **trânsito em julgado**"
+        }
+      ],
+      "fala": "De dois mil e dezesseis a dois mil e dezenove, o Supremo deixava prender depois da condenação em segunda instância. Mas em novembro de dois mil e dezenove, mudou de posição."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, LVII",
+        "texto": "Ninguém será considerado culpado **até o trânsito em julgado** de sentença penal condenatória;"
+      },
+      "b": {
+        "cabecalho": "CPP · art. 283 (resumo)",
+        "texto": "Ninguém poderá ser preso senão em flagrante ou por ordem judicial, por prisão cautelar ou por **condenação transitada em julgado**."
+      },
+      "ponte": "E o Código",
+      "segundoEm": "Código",
+      "fala": "A Constituição diz que ninguém será considerado culpado até o trânsito em julgado, quando acabam todos os recursos. E o Código de Processo Penal segue a mesma linha."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Dá pra cumprir pena\nantes do fim dos\n**recursos?**",
+      "fala": "Então a pergunta era: dá pra começar a cumprir a pena antes do fim dos recursos?"
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STF · ADCs 43, 44 e 54 · 2019",
+      "a": 6,
+      "b": 5,
+      "rotuloA": "Só após o trânsito",
+      "rotuloB": "Após a 2ª instância",
+      "carimbo": "Desempate",
+      "fala": "Deu cinco a cinco. O desempate veio do presidente da Corte, Dias Toffoli. Seis a cinco: pena, só depois do trânsito em julgado."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Preso antes disso?\nSó com **preventiva.**",
+      "nota": "Flagrante e prisão cautelar fundamentada continuam possíveis.",
+      "fala": "Isso quer dizer que ninguém fica preso antes? Fica, mas por prisão preventiva, com motivo concreto. Não como cumprimento de pena."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "A prisão em 2ª\ninstância deveria\n**voltar?**",
+      "fala": "E você: a prisão depois da segunda instância deveria voltar? Sim ou não?"
+    }
+  ],
+  "legenda": "Condenado pelo juiz e de novo pelo tribunal. E a pena ainda não começa.\n\nEntre 2016 e 2019, o STF permitia a prisão após a condenação em 2ª instância. Em novembro de 2019, nas ADCs 43, 44 e 54, decidiu por 6 a 5, com desempate do presidente Dias Toffoli, que a pena só pode começar a ser cumprida depois do trânsito em julgado, com base no art. 5º, LVII, da Constituição (\"ninguém será considerado culpado até o trânsito em julgado de sentença penal condenatória\") e no art. 283 do CPP. Prisão antes disso, só a cautelar, como a preventiva, com fundamento.\n\nA prisão em 2ª instância deveria voltar?",
+  "fontes": [
+    "CF/88, art. 5º, LVII",
+    "CPP, art. 283",
+    "STF · ADCs 43, 44 e 54 (novembro de 2019)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stf",
+    "processopenal",
+    "oab",
+    "concursos"
+  ]
+}

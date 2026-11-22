@@ -1,0 +1,88 @@
+{
+  "pauta": 58,
+  "serie": "O que está escrito",
+  "titulo": "Você pode recusar o bafômetro. Mas vai pagar por isso.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Pode recusar\no bafômetro.\nMas **vai pagar.**",
+      "imagem": {
+        "arquivo": "imagens/viatura.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "30% 50%"
+      },
+      "fala": "No Brasil, ninguém é obrigado a soprar o bafômetro. Mas quem recusa paga. E paga caro."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, LXIII",
+        "texto": "O preso será informado de seus direitos, entre os quais **o de permanecer calado**, sendo-lhe assegurada a assistência da família e de advogado;"
+      },
+      "b": {
+        "cabecalho": "CTB · art. 165-A (resumo)",
+        "texto": "Recusar o teste do bafômetro: infração **gravíssima**. Multa multiplicada por dez e suspensão do direito de dirigir por 12 meses."
+      },
+      "ponte": "Mas",
+      "segundoEm": "Código",
+      "fala": "A Constituição garante ao preso o direito de ficar calado. Daí vem a regra: ninguém é obrigado a produzir prova contra si mesmo. Mas o Código de Trânsito tem o artigo cento e sessenta e cinco A."
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Crime?",
+          "sub": "Não. Recusar não é crime"
+        },
+        {
+          "titulo": "Infração",
+          "sub": "gravíssima: multa ×10 e 12 meses sem dirigir",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "infração",
+      "fala": "Recusar não é crime. Mas é infração gravíssima: multa multiplicada por dez e doze meses sem poder dirigir."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Punir a recusa\nnão é punir quem\n**ficou calado?**",
+      "fala": "Aí veio a pergunta: punir quem recusa não é punir quem só exerceu o direito de não produzir prova contra si?"
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "STF · maio de 2022",
+      "pergunta": "A punição por recusar o bafômetro é constitucional?",
+      "opcoes": [
+        "Sim",
+        "Não"
+      ],
+      "vencedor": 0,
+      "fala": "Em maio de dois mil e vinte e dois, o Supremo julgou. O que você acha que ele decidiu? Vota."
+    },
+    {
+      "tipo": "frase",
+      "texto": "**Constitucional.**",
+      "nota": "STF · Tema 1.079. Ninguém é forçado a soprar; a recusa tem punição administrativa, não penal.",
+      "fala": "Constitucional. Ninguém é forçado a soprar. Mas a recusa tem consequência, e ela é administrativa, não penal."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Punir quem recusa\né **justo?**",
+      "fala": "E pra você: punir quem recusa o bafômetro é justo ou injusto? Comenta."
+    }
+  ],
+  "legenda": "Você pode recusar o bafômetro. Mas vai pagar por isso.\n\nNinguém é obrigado a produzir prova contra si: a Constituição garante ao preso o direito de permanecer calado (art. 5º, LXIII). Mas o Código de Trânsito, no art. 165-A (incluído pela Lei 13.281/2016), pune a recusa ao teste como infração gravíssima: multa multiplicada por dez e suspensão do direito de dirigir por 12 meses. Recusar não é crime; é infração administrativa. Em maio de 2022, o STF julgou essa punição constitucional (Tema 1.079).\n\nJusto ou injusto?",
+  "fontes": [
+    "CF/88, art. 5º, LXIII",
+    "Código de Trânsito Brasileiro, art. 165-A (Lei 13.281/2016)",
+    "STF · Tema 1.079 (2022)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "bafometro",
+    "leiseca",
+    "stf",
+    "oab",
+    "concursos"
+  ]
+}

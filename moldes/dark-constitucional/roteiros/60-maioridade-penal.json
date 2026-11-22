@@ -1,0 +1,102 @@
+{
+  "pauta": 60,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "A Câmara rejeitou a redução da maioridade penal. No dia seguinte, aprovou.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Maioridade penal:\nrejeitada num dia,\naprovada no\n**dia seguinte.**",
+      "imagem": {
+        "arquivo": "imagens/policial.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "62% 50%"
+      },
+      "fala": "A Câmara rejeitou a redução da maioridade penal. No dia seguinte, votou de novo e aprovou."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 228",
+        "texto": "São penalmente inimputáveis os **menores de dezoito anos**, sujeitos às normas da legislação especial."
+      },
+      "b": {
+        "cabecalho": "PEC 171/1993 (resumo)",
+        "texto": "Reduz a maioridade penal para **16 anos** nos crimes graves."
+      },
+      "ponte": "A proposta",
+      "segundoEm": "proposta",
+      "fala": "Pela Constituição, quem tem menos de dezoito anos não responde penalmente; segue a legislação especial. A proposta de emenda queria baixar pra dezesseis nos crimes graves."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Câmara · 1º/7/2015",
+      "a": 303,
+      "b": 184,
+      "rotuloA": "Sim",
+      "rotuloB": "Não",
+      "linha": 308,
+      "rotuloLinha": "Mínimo: 308",
+      "linhaEm": "quintos",
+      "carimbo": "Rejeitada",
+      "fala": "Primeiro de julho de dois mil e quinze. Trezentos e três votos a favor. Parece muito. Mas emenda à Constituição precisa de três quintos: trezentos e oito."
+    },
+    {
+      "tipo": "frase",
+      "data": "2 de julho de 2015",
+      "texto": "Texto alterado.\nNova votação.\n**323 votos.**",
+      "nota": "Uma emenda aglutinativa mudou o texto, e a PEC foi aprovada em 1º turno.",
+      "fala": "Faltaram cinco. Então, no dia seguinte, um texto alterado, a chamada emenda aglutinativa, foi à votação. Trezentos e vinte e três votos. Aprovada."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Dá pra votar de novo\no que acabou de ser\n**rejeitado?**",
+      "fala": "Dá pra votar de novo, no dia seguinte, o que acabou de ser rejeitado?"
+    },
+    {
+      "tipo": "frase",
+      "texto": "Proposta rejeitada\nnão volta na mesma\n**sessão legislativa.**",
+      "nota": "CF/88, art. 60, § 5º. A Câmara entendeu que o texto alterado não era proposta nova.",
+      "fala": "A Constituição proíbe nova proposta de emenda rejeitada na mesma sessão legislativa. Mas a Câmara entendeu que o texto alterado não era proposta nova."
+    },
+    {
+      "tipo": "linha",
+      "virada": 3,
+      "marcos": [
+        {
+          "data": "1º/7/2015",
+          "texto": "Rejeitada: 303 votos"
+        },
+        {
+          "data": "2/7/2015",
+          "texto": "Aprovada: 323 votos"
+        },
+        {
+          "data": "Ago/2015",
+          "texto": "Aprovada no 2º turno"
+        },
+        {
+          "data": "Senado",
+          "texto": "**Não foi aprovada**"
+        }
+      ],
+      "fala": "Em agosto, passou no segundo turno e foi pro Senado. Lá, não foi aprovada."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "A maioridade penal\ndeveria **baixar?**",
+      "fala": "E pra você: a maioridade penal deveria baixar? Sim ou não? Comenta."
+    }
+  ],
+  "legenda": "A Câmara rejeitou a redução da maioridade penal. No dia seguinte, aprovou.\n\nA Constituição diz que os menores de 18 anos são penalmente inimputáveis (art. 228). A PEC 171/1993 queria reduzir para 16 nos crimes graves. Em 1º de julho de 2015, teve 303 votos a favor; precisava de 308 (três quintos) e foi rejeitada. No dia seguinte, um texto alterado (emenda aglutinativa) foi votado e aprovado com 323 votos. O art. 60, § 5º, proíbe nova proposta de emenda rejeitada na mesma sessão legislativa; a Câmara entendeu que o texto alterado não era proposta nova. Em agosto, a PEC passou no 2º turno e foi ao Senado, onde não foi aprovada.\n\nA maioridade penal deveria baixar?",
+  "fontes": [
+    "CF/88, art. 228 e art. 60, § 5º",
+    "Câmara dos Deputados · PEC 171/1993, votações de 1º e 2 de julho de 2015"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "maioridadepenal",
+    "camaradosdeputados",
+    "oab",
+    "concursos"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "pauta": 49,
+  "serie": "Casos que viraram direito",
+  "titulo": "Ficou nervoso perto da polícia. Pode levar revista?",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Ficou nervoso\nperto da polícia.\nPode levar\n**revista?**",
+      "imagem": {
+        "arquivo": "imagens/policial.jpg",
+        "credito": "Foto ilustrativa · rawpixel (CC0)",
+        "foco": "62% 50%"
+      },
+      "fala": "Você vê a viatura, fica nervoso, e o policial manda encostar na parede. Ficar nervoso é motivo pra revista? E se ele achar alguma coisa, a prova vale?"
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CPP · art. 244",
+        "texto": "A busca pessoal independerá de mandado […] quando houver **fundada suspeita** de que a pessoa esteja na posse de arma proibida ou de objetos ou papéis que constituam corpo de delito…"
+      },
+      "b": {
+        "cabecalho": "STJ · RHC 158.580 (resumo)",
+        "texto": "A fundada suspeita exige **elementos concretos e objetivos**. Impressão subjetiva, \"atitude suspeita\" ou nervosismo não bastam."
+      },
+      "ponte": "2022 · STJ",
+      "segundoEm": "Superior",
+      "fala": "O Código de Processo Penal deixa revistar sem mandado quando há fundada suspeita. Mas o que é fundada suspeita? Em dois mil e vinte e dois, o Superior Tribunal de Justiça respondeu."
+    },
+    {
+      "tipo": "cedula",
+      "titulo": "Vale a revista?",
+      "pergunta": "O policial achou a pessoa nervosa e revistou. Isso é fundada suspeita?",
+      "opcoes": [
+        "É",
+        "Não é"
+      ],
+      "vencedor": 1,
+      "fala": "Agora você julga. O policial achou a pessoa nervosa e fez a revista. Isso é fundada suspeita?"
+    },
+    {
+      "tipo": "cartas",
+      "cartas": [
+        {
+          "titulo": "Nervosismo",
+          "sub": "não basta"
+        },
+        {
+          "titulo": "Impressão",
+          "sub": "\"atitude suspeita\" não basta"
+        },
+        {
+          "titulo": "Fato",
+          "sub": "concreto e objetivo: justifica a busca",
+          "marcada": true
+        }
+      ],
+      "marcaEm": "concreto",
+      "fala": "Não é. Pra Sexta Turma do STJ, nervosismo, impressão do policial ou a tal atitude suspeita não bastam. Precisa de um elemento concreto e objetivo, que dê pra descrever."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Prova achada assim\né **ilícita.**",
+      "nota": "O que a revista encontra depois não justifica a busca feita antes. STJ, RHC 158.580.",
+      "fala": "E se a revista achar droga? A prova obtida assim é ilícita. O que se encontrou depois não justifica a busca que veio antes."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Nervosismo é\n**motivo?**",
+      "fala": "E pra você: nervosismo é motivo pra revista? Sim ou não?"
+    }
+  ],
+  "legenda": "Ficou nervoso perto da polícia. Pode levar revista?\n\nO CPP (art. 244) permite a busca pessoal sem mandado quando há fundada suspeita. Em 2022, no RHC 158.580 (relator Rogerio Schietti), a 6ª Turma do STJ decidiu que a fundada suspeita exige elementos concretos e objetivos: impressão subjetiva, \"atitude suspeita\" ou nervosismo não bastam. A prova obtida numa revista feita sem isso é ilícita.\n\nNervosismo é motivo?",
+  "fontes": [
+    "CPP, art. 244",
+    "STJ · 6ª Turma · RHC 158.580 (2022), rel. Rogerio Schietti"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "stj",
+    "processopenal",
+    "direitopenal",
+    "oab",
+    "concursos"
+  ]
+}

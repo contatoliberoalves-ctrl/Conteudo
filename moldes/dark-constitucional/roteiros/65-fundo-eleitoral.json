@@ -1,0 +1,86 @@
+{
+  "pauta": 65,
+  "serie": "Na urna",
+  "titulo": "Quem paga a campanha eleitoral no Brasil agora é você",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Quem paga a\ncampanha agora\né **você.**",
+      "imagem": {
+        "arquivo": "imagens/urnas-senado-1929.jpg",
+        "credito": "Urnas no Senado dos EUA, 1929 · Library of Congress (domínio público)",
+        "foco": "50% 50%"
+      },
+      "fala": "Quem paga a campanha eleitoral no Brasil agora é você. São bilhões de reais de dinheiro público a cada eleição."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STF · ADI 4650 · 2015",
+      "a": 8,
+      "b": 3,
+      "rotuloA": "Proibir",
+      "rotuloB": "Manter",
+      "carimbo": "Proibido",
+      "fala": "Até dois mil e quinze, empresas podiam bancar campanhas. Mas em setembro daquele ano o Supremo proibiu as doações de empresas, por oito votos a três."
+    },
+    {
+      "tipo": "pausa",
+      "texto": "Então quem paga\na **campanha?**",
+      "fala": "Então ficou a pergunta: sem o dinheiro das empresas, quem paga a campanha?"
+    },
+    {
+      "tipo": "frase",
+      "data": "2017",
+      "texto": "Nasce o\n**Fundo Eleitoral.**",
+      "nota": "Fundo Especial de Financiamento de Campanha · Lei 13.487/2017.",
+      "fala": "Em dois mil e dezessete, o Congresso respondeu. Criou o Fundo Especial de Financiamento de Campanha, o Fundo Eleitoral. Dinheiro público."
+    },
+    {
+      "tipo": "linha",
+      "virada": 2,
+      "marcos": [
+        {
+          "data": "2018",
+          "texto": "Cerca de R$ 1,7 bilhão"
+        },
+        {
+          "data": "2020",
+          "texto": "R$ 2 bilhões"
+        },
+        {
+          "data": "2022",
+          "texto": "**R$ 4,9 bilhões**"
+        },
+        {
+          "data": "2024",
+          "texto": "De novo, R$ 4,9 bilhões"
+        }
+      ],
+      "fala": "Na primeira eleição, em dois mil e dezoito, foram cerca de um vírgula sete bilhão de reais. Em dois mil e vinte, dois bilhões. Em vinte e dois, o valor mais que dobrou: quatro vírgula nove bilhões. E em vinte e quatro, de novo, quatro vírgula nove."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Dinheiro\n**público.**",
+      "nota": "Recursos do Orçamento da União, repassados aos partidos.",
+      "fala": "É dinheiro público, do Orçamento da União, repassado aos partidos pra bancar as campanhas."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Campanha deveria\nser paga com dinheiro\n**público?**",
+      "fala": "E pra você: campanha deveria ser paga com dinheiro público? Responde sim ou não."
+    }
+  ],
+  "legenda": "Quem paga a campanha eleitoral no Brasil agora é você.\n\nEm setembro de 2015, na ADI 4650, o STF proibiu as doações de empresas para campanhas, por 8 a 3. Em 2017, o Congresso criou o Fundo Especial de Financiamento de Campanha (Lei 13.487/2017), com dinheiro público. Foram cerca de R$ 1,7 bilhão em 2018, R$ 2 bilhões em 2020, R$ 4,9 bilhões em 2022 e de novo R$ 4,9 bilhões em 2024.\n\nCampanha deveria ser paga com dinheiro público?",
+  "fontes": [
+    "STF · ADI 4650 (2015)",
+    "Lei 13.487/2017",
+    "TSE · valores do Fundo Especial de Financiamento de Campanha (2018–2024)"
+  ],
+  "hashtags": [
+    "direitoconstitucional",
+    "eleicoes",
+    "fundoeleitoral",
+    "oab",
+    "concursos"
+  ]
+}
