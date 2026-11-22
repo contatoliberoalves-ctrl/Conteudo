@@ -40,4 +40,4 @@ Todo concurso da linha ("Do Edital à Prova") ganha identidade própria e site d
 Nos stories, 250 px no topo e 330 no pé ficam livres. Unificado MA: 30 criativos (15 feed, 15 stories).
 
 ## Drive
-Cada kit vai para `Kits de edital / <Concurso>` no Drive do dono: PDFs, identidade, criativos e o zip das fontes (o conteúdo que não vai para o git).
+Cada kit vai para `Kits de edital / <Concurso>` no Drive do dono (https://drive.google.com/drive/folders/10nY6pL_6MqUXoXnu9VoA9c3TgkKek9pG), em três subpastas (`1. PDFs do kit`, `2. Criativos`, `3. Identidade e fontes`) e um LEIA-ME com o link do site e as pendências. O zip das fontes é o conteúdo que não vai para o git. Unificado MA: https://drive.google.com/drive/folders/1uc3UB2GQBEwpnmvrHQEeYBX7BfEhEGNA
