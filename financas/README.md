@@ -5,6 +5,9 @@ https://claude.ai/artifact/Mezp5WMFxdHpCEmBoUvkvf
 
 - O repositório é público: aqui fica **só o código**. Nomes, valores e lançamentos ficam no banco da página (capacidade `db`), nunca no git.
 - Coleções do banco: `config/geral` (nomes, divisão padrão, regime dos cartórios), `config/openfinance` (estado da conexão), `contas` (contas e cartões), `fixas` (contas fixas), `lanc` (lançamentos) e `metas`. Espaços: `casa`, `c1`, `c2`.
+- Compra parcelada: cada parcela é um documento de `lanc` com `parc: "2/6"`, `grp` (o mesmo em todas as parcelas da compra) e `d0` (data da compra, usada para achar a fatura de cada parcela). Lançamentos antigos sem `grp`/`d0` continuam valendo.
+- A divisão do casal fica gravada como percentual em cada lançamento (`div`); mudar o padrão em Ajustes vale só para os próximos.
+- A página confere cada documento ao ler (valor em texto, data vazia, mapa ausente) e lista em Lançamentos os que estão sem data ou sem painel válido.
 - Para atualizar: edite `index.html` e publique com o Artifact tool usando `url` acima e `capabilities: {db: {}, downloads: true, assets: {}}`.
 - Anexos (boleto, comprovante): arquivos enviados pela página com a capacidade `assets`; o lançamento guarda `anexos: [{id, nome, tipo}]` e a conta fixa guarda `anexosMes: {<mês>: [...]}`.
 
