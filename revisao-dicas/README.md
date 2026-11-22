@@ -34,4 +34,4 @@ Feed 1080×1350 e stories 1080×1920, sem foto do autor, cada layout num formato
 
 ## Site (`site/<id>.html`)
 Página única e leve (HTML + CSS + um script, 6 imagens .webp, sem biblioteca), publicada como artifact próprio. Tem contagem de dias até a prova, calculadora da nota (G + 2E), abas Parte 1/Parte 2, quiz de 3 pegadinhas, mapa das dicas, oferta e barra de compra no celular. O link do checkout é a constante `CHECKOUT` no script. `{{PRECO}}`, `{{P1}}`, `{{P2}}` e `{{BARRAS}}` são preenchidos pelo `montar-site.py`. A foto do autor (`site/assets/autor.webp`) fica fora do git.
-- TCE MA: (link do artifact no CLAUDE.md)
+- TCE MA: https://claude.ai/artifact/DHDmsZnPhaGRVX9fjKeeef (atualize sempre este link, com `root: build/site/tce-ma` e `files` = os 6 `assets/*.webp`)
