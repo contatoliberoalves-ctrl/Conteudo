@@ -4,6 +4,14 @@ Materiais para concurso com prova distante: análise do edital, assuntos mais co
 
 Cada kit é uma pasta `kits/<id>/` com um `.json` por PDF, no formato do `pdf.json` (capa + páginas com blocos). O conteúdo (`*.json`, `*.dados`, `fontes/`) fica **fora do git**: o repositório é público e o material é pago. Gerar: `node render-pdf.mjs <id do kit>` (ou o id de um PDF). Saída em `saida/<id do pdf>/`.
 
+## Identidade e site de cada concurso
+Todo concurso da linha ("Do Edital à Prova") ganha identidade própria e site de vendas, como na Revisão em Dicas:
+1. **Tema** em `kits/tema.mjs` (`TEMAS[<id>]`): cores, textura e carimbo com a data da prova. Não repita cor nem textura de outro concurso (Revisão em Dicas: ENAM marinho e dourado; TCE MA bordô e coral com azulejo; TJRS verde-mate e amarelo com guilhoché). Escolha um elemento do lugar ou do órgão. `unificado-ma`: azul de lagoa, turquesa e areia, dunas dos Lençóis, carimbo cor de sol.
+2. **PDFs no tema**: cada `.json` do kit leva `"tema": "<id>"` e `"capaKit": {linha, vazado, peca, carimbo}`; a capa vira a escura com textura, carimbo e número da peça vazado, e as páginas trocam o verde pela paleta do tema. Sem `tema`, o PDF sai no verde da plataforma (como o `pdf.json`).
+3. **Prancha da identidade**: `node render-identidade-kit.mjs <id>` → `saida/kit-<id>/identidade.png` (paleta, tipografia, elementos e página de dados). Textos em `kits/produtos.json > identidade`.
+4. **Site de vendas**: `kits/site/<id>.html` (página única, sem biblioteca; preço e checkout vêm de `kits/produtos.json`; `{{PRECO}}` e `{{CHECKOUT}}`). `python3 kits/montar-site.py <id>` monta `build/site/<id>/` com as imagens das páginas (`produtos.json > site.assets`). Publique `build/site/<id>/index.html` com `root` nessa pasta e `files` = os `assets/*.webp`, sempre no mesmo link. A foto do autor (`kits/site/assets/autor.webp`) fica fora do git: baixe de um site já publicado (Artifact `read` com `path: assets/autor.webp`).
+   O site abre com a ficha do cargo (o visitante escolhe o cargo e vê vagas, fila de correção e taxa) e a conta da nota; a amostra mostra só parte da contagem. Nada de depoimento ou número inventado.
+
 ## Peças de um kit
 1. **Raio-X do edital**: vagas por cargo, como a nota é formada (valor de cada questão), fila de correção da discursiva por cargo, grade da redação, turnos, isenção, cotas e os pontos em aberto ou com erro no edital.
 2. **O que a banca mais cobra**: contagem em provas reais, por item do edital, com os comandos que se repetem.
@@ -22,4 +30,4 @@ Cada kit é uma pasta `kits/<id>/` com um `.json` por PDF, no formato do `pdf.js
 `tabela` (cab, linhas, larguras, destaque, num, px, pad, nota; `\n` quebra linha), `ranking` (itens {rot, obs, n, pct, forte, fora}), `check` (itens {m, t} + colunas de marcar), `fichas` (itens {tag, origem, t, d, nota}), `destaque` (rotulo, titulo, paragrafos, claro) e `linhas` (n, alt, numerar).
 
 ## Kits
-- `unificado-ma`: Concurso Unificado do Maranhão, Edital nº 01/2026, FCC, prova em 04/04/2027. 8 PDFs (48 páginas).
+- `unificado-ma`: Concurso Unificado do Maranhão, Edital nº 01/2026, FCC, prova em 04/04/2027. 8 PDFs (48 páginas). Site: https://claude.ai/artifact/6s7TV6FhQ8tDRjdqYdqV6G
