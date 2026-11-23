@@ -60,6 +60,14 @@ const LAYOUTS = {
       <div style="position:absolute;left:80px;right:80px;bottom:130px">${chamada(t.cta, t.ctaSub)}</div>
       ${pe(1262, t.fonte)}`);
   },
+  // foto de perfil: símbolo e nome dentro do círculo que o Instagram recorta
+  perfil(t) {
+    const b = (h) => `<i style="width:112px;height:${h}px;background:${C.lima}"></i>`;
+    return pagina(1080, 1080, `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <div style="display:flex;align-items:flex-end;gap:38px;height:330px">${b(140)}${b(232)}${b(330)}</div>
+      <div class="tit" style="font-size:${t.semNome ? 0 : 190}px;line-height:.9;margin-top:54px">ENAC</div>
+      <div class="mono" style="font-size:${t.semNome ? 0 : 50}px;letter-spacing:.3em;color:${C.lima};margin-top:20px;padding-left:.3em">em dados</div></div>`);
+  },
   marca() {
     const cores = [['Tinta', C.tinta, 'fundo'], ['Grafite', C.grafite, 'cartões'], ['Osso', C.osso, 'texto'], ['Lima', C.lima, 'o dado'], ['Coral', C.coral, 'alerta'], ['Azul', C.azul, '3ª série'], ['Cinza', C.cinza, 'apoio']];
     return pagina(1080, 1350, `<div style="position:absolute;left:80px;right:80px;top:80px">

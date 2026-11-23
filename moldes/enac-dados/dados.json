@@ -1,24 +1,191 @@
 [
-  { "id": "identidade", "titulo": "Identidade visual · ENAC em dados", "telas": [ { "layout": "marca" }, { "layout": "elementos" } ] },
-  { "id": "capa-video-1-raio-x", "titulo": "Capa do vídeo 1 · Raio-x da prova", "video": "enac-2026-2-raio-x",
-    "telas": [ { "layout": "capa", "rotulo": "Vídeo 01 · Raio-x da prova", "numero": "60", "titulo": "questões de [[uma matéria só]]", "sub": "Como o ENAC 2026.2 se dividiu, questão por questão.",
-      "grupos": [ { "n": 60, "cor": "lima" }, { "n": 14, "cor": "osso" }, { "n": 8, "cor": "azul" }, { "n": 18, "cor": "cinza" } ] } ] },
-  { "id": "capa-video-2-divergencias", "titulo": "Capa do vídeo 2 · Onde os gabaritos não batem", "video": "enac-2026-2-divergencias",
-    "telas": [ { "layout": "capa", "cor": "coral", "rotulo": "Vídeo 02 · Gabaritos extraoficiais", "numero": "4", "tn": 520, "titulo": "questões em que os gabaritos {{não batem}}", "ts": 96, "sub": "Dois gabaritos extraoficiais comparados, resposta por resposta.",
-      "grupos": [ { "n": 96, "cor": "lima" }, { "n": 4, "cor": "coral" } ] } ] },
-  { "id": "capa-video-3-notarial", "titulo": "Capa do vídeo 3 · Dentro das 60 de Notarial e Registral", "video": "enac-2026-2-notarial",
-    "telas": [ { "layout": "capa", "rotulo": "Vídeo 03 · Dentro das 60", "numero": "24", "de": "/60", "titulo": "só de [[Registro de Imóveis]]", "sub": "O que caiu em Notarial e Registral, por especialidade." } ] },
-  { "id": "post-nota", "titulo": "Post · Qual foi a sua nota?",
-    "telas": [ { "layout": "pergunta", "rotulo": "Pergunta 01 · Pra quem fez a prova", "titulo": "Qual foi a sua [[nota]] no ENAC?", "sub": "Pelo gabarito extraoficial, sem julgamento. Aqui é só dado.",
-      "visual": { "tipo": "regua", "corte": 60, "rotulo": ["acertos para habilitar", "(50 nas vagas reservadas)"] },
-      "cta": "Comenta a sua nota.", "ctaSub": "Com as respostas a gente monta a curva de notas da prova.", "fonte": "ENAC 2026.2" } ] },
-  { "id": "post-recurso", "titulo": "Post · Qual questão você quer ver anulada?",
-    "telas": [ { "layout": "pergunta", "cor": "coral", "rotulo": "Pergunta 02 · Recursos", "titulo": "Qual questão você quer ver {{anulada}}?", "ts": 92,
-      "visual": { "tipo": "alerta", "numero": "16", "legenda": "questões com base para recurso, segundo um dos gabaritos extraoficiais", "titulo": "3 com argumento para anulação",
-        "itens": [ "Extrato eletrônico: até onde vai a qualificação", "Cancelamento do protesto e baixa da negativação", "Alienação fiduciária: intimação por RTD de outra comarca" ] },
-      "cta": "Comenta o tema da sua.", "ctaSub": "Ou o tipo de prova e o número da questão.", "fonte": "Fonte: gabarito extraoficial" } ] },
-  { "id": "post-materia", "titulo": "Post · Qual matéria te derrubou?",
-    "telas": [ { "layout": "pergunta", "rotulo": "Pergunta 03 · Enquete", "titulo": "Qual matéria te [[derrubou]]?", "ts": 100,
-      "visual": { "tipo": "opcoes", "itens": [ { "letra": "A", "nome": "Notarial e Registral", "v": 60 }, { "letra": "B", "nome": "Direito Civil", "v": 14 }, { "letra": "C", "nome": "Constitucional", "v": 8 }, { "letra": "D", "nome": "As outras 8 matérias", "v": 18 } ] },
-      "cta": "Comenta a letra.", "ctaSub": "A, B, C ou D. Vale explicar o motivo.", "fonte": "ENAC 2026.2 · 100 questões" } ] }
+  {
+    "id": "identidade",
+    "titulo": "Identidade visual · ENAC em dados",
+    "telas": [
+      {
+        "layout": "marca"
+      },
+      {
+        "layout": "elementos"
+      }
+    ]
+  },
+  {
+    "id": "foto-de-perfil",
+    "titulo": "Foto de perfil",
+    "telas": [
+      {
+        "layout": "perfil"
+      },
+      {
+        "layout": "perfil",
+        "semNome": true
+      }
+    ]
+  },
+  {
+    "id": "capa-video-1-raio-x",
+    "titulo": "Capa do vídeo 1 · Raio-x da prova",
+    "video": "enac-2026-2-raio-x",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 01 · Raio-x da prova",
+        "numero": "60",
+        "titulo": "questões de [[uma matéria só]]",
+        "sub": "Como o ENAC 2026.2 se dividiu, questão por questão.",
+        "grupos": [
+          {
+            "n": 60,
+            "cor": "lima"
+          },
+          {
+            "n": 14,
+            "cor": "osso"
+          },
+          {
+            "n": 8,
+            "cor": "azul"
+          },
+          {
+            "n": 18,
+            "cor": "cinza"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "capa-video-2-divergencias",
+    "titulo": "Capa do vídeo 2 · Onde os gabaritos não batem",
+    "video": "enac-2026-2-divergencias",
+    "telas": [
+      {
+        "layout": "capa",
+        "cor": "coral",
+        "rotulo": "Vídeo 02 · Gabaritos extraoficiais",
+        "numero": "4",
+        "tn": 520,
+        "titulo": "questões em que os gabaritos {{não batem}}",
+        "ts": 96,
+        "sub": "Dois gabaritos extraoficiais comparados, resposta por resposta.",
+        "grupos": [
+          {
+            "n": 96,
+            "cor": "lima"
+          },
+          {
+            "n": 4,
+            "cor": "coral"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "capa-video-3-notarial",
+    "titulo": "Capa do vídeo 3 · Dentro das 60 de Notarial e Registral",
+    "video": "enac-2026-2-notarial",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 03 · Dentro das 60",
+        "numero": "24",
+        "de": "/60",
+        "titulo": "só de [[Registro de Imóveis]]",
+        "sub": "O que caiu em Notarial e Registral, por especialidade."
+      }
+    ]
+  },
+  {
+    "id": "post-nota",
+    "titulo": "Post · Qual foi a sua nota?",
+    "telas": [
+      {
+        "layout": "pergunta",
+        "rotulo": "Pergunta 01 · Pra quem fez a prova",
+        "titulo": "Qual foi a sua [[nota]] no ENAC?",
+        "sub": "Pelo gabarito extraoficial, sem julgamento. Aqui é só dado.",
+        "visual": {
+          "tipo": "regua",
+          "corte": 60,
+          "rotulo": [
+            "acertos para habilitar",
+            "(50 nas vagas reservadas)"
+          ]
+        },
+        "cta": "Comenta a sua nota.",
+        "ctaSub": "Com as respostas a gente monta a curva de notas da prova.",
+        "fonte": "ENAC 2026.2"
+      }
+    ]
+  },
+  {
+    "id": "post-recurso",
+    "titulo": "Post · Qual questão você quer ver anulada?",
+    "telas": [
+      {
+        "layout": "pergunta",
+        "cor": "coral",
+        "rotulo": "Pergunta 02 · Recursos",
+        "titulo": "Qual questão você quer ver {{anulada}}?",
+        "ts": 92,
+        "visual": {
+          "tipo": "alerta",
+          "numero": "16",
+          "legenda": "questões com base para recurso, segundo um dos gabaritos extraoficiais",
+          "titulo": "3 com argumento para anulação",
+          "itens": [
+            "Extrato eletrônico: até onde vai a qualificação",
+            "Cancelamento do protesto e baixa da negativação",
+            "Alienação fiduciária: intimação por RTD de outra comarca"
+          ]
+        },
+        "cta": "Comenta o tema da sua.",
+        "ctaSub": "Ou o tipo de prova e o número da questão.",
+        "fonte": "Fonte: gabarito extraoficial"
+      }
+    ]
+  },
+  {
+    "id": "post-materia",
+    "titulo": "Post · Qual matéria te derrubou?",
+    "telas": [
+      {
+        "layout": "pergunta",
+        "rotulo": "Pergunta 03 · Enquete",
+        "titulo": "Qual matéria te [[derrubou]]?",
+        "ts": 100,
+        "visual": {
+          "tipo": "opcoes",
+          "itens": [
+            {
+              "letra": "A",
+              "nome": "Notarial e Registral",
+              "v": 60
+            },
+            {
+              "letra": "B",
+              "nome": "Direito Civil",
+              "v": 14
+            },
+            {
+              "letra": "C",
+              "nome": "Constitucional",
+              "v": 8
+            },
+            {
+              "letra": "D",
+              "nome": "As outras 8 matérias",
+              "v": 18
+            }
+          ]
+        },
+        "cta": "Comenta a letra.",
+        "ctaSub": "A, B, C ou D. Vale explicar o motivo.",
+        "fonte": "ENAC 2026.2 · 100 questões"
+      }
+    ]
+  }
 ]
