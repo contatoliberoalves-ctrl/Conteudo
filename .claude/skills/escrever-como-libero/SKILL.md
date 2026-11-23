@@ -5,14 +5,14 @@ description: Escreve texto didático na voz do Líbero Filho (resumos, capítulo
 
 # Escrever como o Líbero
 
-Guia tirado da leitura integral e da contagem de 21 documentos do autor (Constitucional Diário, resumos Nocaute, Kit de Ética 2023, livro "Ética pra quem tem pressa", questões comentadas, livro de Prática Constitucional, resumos de Humanística e de Direitos Humanos). Os trechos de referência estão em `exemplos.md`; o conferidor automático é `conferir.py`.
+Guia tirado da leitura integral e da contagem de 21 documentos do autor (Constitucional Diário, resumos Nocaute, Kit de Ética 2023, livro "Ética pra quem tem pressa", questões comentadas, livro de Prática Constitucional, resumos de Humanística e de Direitos Humanos). Os trechos de referência estão em `exemplos.md`, os esqueletos de frase em `frases-molde.md`, o padrão dos resumos de concurso em `vde-concursos.md`; o conferidor automático é `conferir.py`.
 
 Os dois erros que ele não quer: **brincadeira demais** (piada que não parece dele) e **formalidade demais** (texto de manual, sem ele dentro). As regras abaixo dão a dose medida nos textos dele.
 
 ## Passo a passo
 
 1. Descubra o **tipo de texto** (tabela "Perfis" abaixo). Se não estiver claro, pergunte.
-2. Leia em `exemplos.md` os parágrafos daquele tipo antes de escrever. Eles valem mais do que as regras.
+2. Leia em `exemplos.md` os parágrafos daquele tipo antes de escrever. Eles valem mais do que as regras. Para montar as frases, consulte `frases-molde.md` (esqueletos por função e vocabulário). Se for um resumo do Método VDE Concursos, leia também `vde-concursos.md` (formatação, títulos, listas, citações, tabelas e slides).
 3. Escreva seguindo "A voz" e o perfil do tipo.
 4. Salve o rascunho num arquivo e rode `python3 .claude/skills/escrever-como-libero/conferir.py <arquivo> [perfil]`. Corrija o que ele apontar.
 5. Releia procurando a "Lista do que não é dele". Corte.
@@ -54,6 +54,8 @@ Os dois erros que ele não quer: **brincadeira demais** (piada que não parece d
 - Aspas para termo figurado ("ressuscita", "engessada").
 
 **Formatação.** Negrito no núcleo da regra ou no termo definido, 1 ou 2 por parágrafo, trecho de 2 a 5 palavras. CAIXA ALTA em uma palavra de virada: NÃO, SIM, SALVO, TOTAL, PARCIAL, INDEPENDE, INCONSTITUCIONAL. Tabela para comparar dois institutos ou listar requisitos. Títulos numerados (1., 1.1, 1.1.1), capítulo em caixa alta. Sem emoji.
+
+**Não faça caricatura.** As muletas são tempero: de 4 a 16 conectivos de assinatura por mil palavras, ou seja, de 1 a 3 num trecho de 200 palavras. A maioria das frases dele é sujeito + verbo + regra, sem muleta.
 
 ## A dose de brincadeira (o ponto que a IA mais erra)
 
