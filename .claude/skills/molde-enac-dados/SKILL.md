@@ -13,6 +13,7 @@ Pasta: `moldes/enac-dados/` (campos e layouts no `README.md` de lá; identidade 
 - A fonte do dado fica no rodapé ("Fonte: gabaritos extraoficiais"). Não cite o nome de cursos de terceiros nas peças.
 - Gabarito extraoficial é provisório: diga isso na legenda e não trate nota como definitiva.
 - Lima é o dado, coral só para dúvida, divergência e recurso. Um número grande por tela. Sem emoji e sem pílulas.
+- A narração usa um locutor da biblioteca da ElevenLabs (padrão "Paulo Radames"). Não use a voz clonada do Líbero neste perfil: ele pediu assim.
 - Toda peça termina numa pergunta para quem fez a prova comentar.
 - A numeração das questões muda conforme o tipo de prova (as letras não): cite o tema e o número em cada tipo.
 

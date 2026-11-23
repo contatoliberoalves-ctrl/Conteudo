@@ -15,7 +15,7 @@ Cada post tem `id`, `titulo` e `telas`. Layouts:
 
 ## Vídeos (`videos.mjs`)
 
-`node videos.mjs [id,id]` gera `saida/videos/<id>.mp4` (com narração) e `<id>-sem-voz.mp4` (só trilha). As cenas ficam no objeto `VIDEOS` do arquivo: `numero` (número gigante com contagem), `grade` (100 quadrados por grupo), `barras` (ou `blocos: true`, um quadrado por questão), `duelo` (duas letras em disputa), `lista` (norma + contagem), `frase` e `cta`. O campo `fala` de cada cena é narrado na ElevenLabs (voz `ENAC_VOZ`, padrão "Líbero Filho") e a cena dura o tempo da fala. `PREVIEW=3,10 node videos.mjs id` tira só quadros soltos, sem gastar narração. A trilha é sintetizada em `trilha.py` (precisa de `numpy` e `scipy`).
+`node videos.mjs [id,id]` gera `saida/videos/<id>.mp4` (com narração) e `<id>-sem-voz.mp4` (só trilha). As cenas ficam no objeto `VIDEOS` do arquivo: `numero` (número gigante com contagem), `grade` (100 quadrados por grupo), `barras` (ou `blocos: true`, um quadrado por questão), `duelo` (duas letras em disputa), `lista` (norma + contagem), `frase` e `cta`. O campo `fala` de cada cena é narrado na ElevenLabs (voz `ENAC_VOZ`, padrão "Paulo Radames", locutor da biblioteca; não usar a voz do Líbero neste perfil) e a cena dura o tempo da fala. `PREVIEW=3,10 node videos.mjs id` tira só quadros soltos, sem gastar narração. A trilha é sintetizada em `trilha.py` (precisa de `numpy` e `scipy`).
 
 Legendas e hashtags: `legendas.md`.
 

@@ -17,7 +17,7 @@ const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire(path.join(root, 'package.json'))('playwright');
 
 const W = 1080, H = 1920, FPS = 30;
-const VOZ = process.env.ENAC_VOZ || 'Líbero Filho';
+const VOZ = process.env.ENAC_VOZ || 'Paulo Radames';
 const EASE = 'cubic-bezier(.2,.8,.2,1)';
 const an = (nome, dur, t, extra = '') => `animation:${nome} ${dur}s ${EASE} ${t.toFixed(3)}s both${extra}`;
 
