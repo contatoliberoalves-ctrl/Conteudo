@@ -1,0 +1,193 @@
+<title>Arquivo no YouTube</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: arquivo à noite. Chave no topo troca todas as fichas entre Reels (9:16) e YouTube (16:9). Visual escuro de propósito (é a identidade do perfil). */
+:root{
+  --fundo:#0f0e0c; --painel:#1a1814; --linha:#33302b;
+  --papel:#e9dfc8; --texto:#efe6d2; --apagado:#9a917f; --lacre:#c2453a; --lacre-escuro:#9e342b;
+  --titulo:"Old Standard TT","Times New Roman",serif;
+  --cond:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+body{background:var(--fundo);color:var(--texto);font-family:var(--cond);font-size:16px;line-height:1.45}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:36px 72px;display:flex;flex-direction:column;gap:24px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px;border-bottom:1px solid var(--linha);padding-bottom:22px}
+.marca{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--apagado)}
+h1{font-family:var(--titulo);font-weight:700;font-size:clamp(36px,6vw,64px);line-height:1;margin:8px 0 0;text-wrap:balance}
+h1 span{color:var(--lacre)}
+.resumo{font-family:var(--mono);font-size:13px;color:var(--apagado);display:flex;gap:18px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.resumo b{color:var(--texto);font-weight:500}
+.barra{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.chave{display:inline-flex;border:1px solid var(--linha)}
+.chave button{border:0;background:transparent;color:var(--apagado);padding:10px 18px;font-weight:700;font-size:15px;letter-spacing:.02em}
+.chave button[aria-pressed="true"]{background:var(--papel);color:var(--fundo)}
+.chave button small{font-family:var(--mono);font-weight:500;font-size:11px;margin-left:6px;opacity:.75}
+.aviso{font-size:14px;color:var(--apagado);max-width:70ch;margin:0}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--min,340px),1fr));gap:22px}
+.modo-reel .grade{--min:230px}
+.ficha{background:var(--painel);border:1px solid var(--linha);display:flex;flex-direction:column;min-width:0}
+.quadro{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.modo-reel .quadro{aspect-ratio:9/16}
+.quadro img,.quadro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.play{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.play span{width:58px;height:58px;border-radius:50%;background:rgba(15,14,12,.72);border:1px solid rgba(233,223,200,.4);display:grid;place-items:center;transition:transform .15s}
+.play span::before{content:"";border-left:16px solid var(--papel);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.play:hover span,.play:focus-visible span{transform:scale(1.08)}
+.dur,.num{position:absolute;top:8px;font-family:var(--mono);font-size:12px;background:rgba(15,14,12,.8);padding:2px 7px;color:var(--papel)}
+.dur{right:8px}.num{left:8px}
+.novo{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;background:var(--lacre);color:#fff7ea;padding:2px 7px}
+.info{padding:12px 14px 6px;display:flex;flex-direction:column;gap:4px}
+.serie{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--apagado)}
+.titulo{font-weight:700;font-size:18px;line-height:1.2;margin:0;text-wrap:balance}
+.acoes{padding:10px 14px 14px;display:flex;flex-direction:column;gap:8px;margin-top:auto}
+button{font:inherit;cursor:pointer}
+.btn{border:1px solid var(--linha);background:transparent;color:var(--texto);padding:9px 12px;font-weight:600;font-size:15px;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.btn small{font-family:var(--mono);font-weight:500;font-size:11px;color:var(--apagado)}
+.btn.principal{background:var(--lacre);border-color:var(--lacre);color:#fff7ea}
+.btn.principal small{color:#f5d9cf}
+.btn:hover{border-color:var(--papel)}
+.btn.principal:hover{background:var(--lacre-escuro)}
+.btn:disabled{opacity:.6;cursor:progress}
+.btn:focus-visible,.play:focus-visible,.chave button:focus-visible{outline:2px solid var(--papel);outline-offset:2px}
+.linha-btn{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.status{font-family:var(--mono);font-size:12px;color:var(--apagado);min-height:1.2em}
+.sem-download .so-download{display:none}
+@media (prefers-reduced-motion:reduce){.play span{transition:none}}
+</style>
+
+<div class="wrap" id="app">
+  <header>
+    <div>
+      <div class="marca">Perfil dark · Direito Constitucional</div>
+      <h1>Arquivo no <span>YouTube</span> e nos Reels</h1>
+    </div>
+    <div class="resumo" id="resumo"></div>
+  </header>
+  <div class="barra">
+    <div class="chave" role="group" aria-label="Formato">
+      <button type="button" data-modo="reel" aria-pressed="true">Reels / TikTok <small>9:16</small></button>
+      <button type="button" data-modo="yt" aria-pressed="false">YouTube <small>16:9</small></button>
+    </div>
+    <p class="aviso" id="aviso"></p>
+  </div>
+  <section class="grade" id="grade" aria-label="Vídeos"></section>
+</div>
+
+<script>
+const VIDEOS = __DADOS__;
+const $ = (s, el = document) => el.querySelector(s);
+const fmt = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const MAIOR = Math.max(...VIDEOS.map(v => v.n));
+const AVISOS = {
+  reel: "Vídeo 1080×1920 para Reels, TikTok e Shorts. A capa sai em JPG, e a legenda vem com fontes, pergunta final e hashtags.",
+  yt: "Vídeo 1920×1080 para subir como vídeo normal no YouTube, com miniatura e descrição prontas."
+};
+let modo = "reel";
+try { modo = localStorage.getItem("arquivo-modo") || "reel"; } catch {}
+if (!AVISOS[modo]) modo = "reel";
+
+$("#resumo").innerHTML = `<span><b>${VIDEOS.length}</b> vídeos</span><span><b>${fmt(VIDEOS.reduce((a, v) => a + v.seg, 0))}</b> no total</span>`;
+
+let downloads = null;
+function desenhar() {
+  document.body.classList.toggle("modo-reel", modo === "reel");
+  for (const b of document.querySelectorAll(".chave button")) b.setAttribute("aria-pressed", String(b.dataset.modo === modo));
+  $("#aviso").textContent = downloads ? AVISOS[modo] : "Para baixar, abra esta página no claude.ai. Aqui dá para assistir e copiar os textos.";
+  const grade = $("#grade");
+  grade.replaceChildren();
+  for (const v of VIDEOS) {
+    const capa = `capa-${modo}/${v.id}.jpg`;
+    const f = document.createElement("article");
+    f.className = "ficha";
+    f.innerHTML = `
+      <div class="quadro">
+        <img src="${capa}" alt="" loading="lazy">
+        <button class="play" aria-label="Assistir: ${esc(v.titulo)}"><span></span></button>
+        <span class="num">${String(v.n).padStart(2, "0")}</span>
+        <span class="dur">${fmt(v.seg)}</span>
+        ${v.n > MAIOR - 20 ? '<span class="novo">NOVO</span>' : ""}
+      </div>
+      <div class="info"><span class="serie"></span><p class="titulo"></p></div>
+      <div class="acoes">
+        <button class="btn principal so-download" data-acao="video">Baixar vídeo <small>MP4 · ${modo === "reel" ? v.mb_reel : v.mb_yt} MB</small></button>
+        <div class="linha-btn">
+          <button class="btn so-download" data-acao="capa">${modo === "reel" ? "Baixar capa" : "Baixar miniatura"}</button>
+          <button class="btn" data-acao="texto">${modo === "reel" ? "Copiar legenda" : "Copiar descrição"}</button>
+        </div>
+        <button class="btn" data-acao="titulo">Copiar título</button>
+        <span class="status" role="status"></span>
+      </div>`;
+    $(".serie", f).textContent = v.serie;
+    $(".titulo", f).textContent = v.titulo;
+    $(".play", f).addEventListener("click", () => {
+      const q = $(".quadro", f);
+      const vid = document.createElement("video");
+      vid.src = v["url_" + modo]; vid.controls = true; vid.autoplay = true; vid.playsInline = true; vid.poster = capa;
+      q.replaceChildren(vid);
+    });
+    f.addEventListener("click", e => {
+      const b = e.target.closest("[data-acao]");
+      if (b) acao(b, v, $(".status", f));
+    });
+    grade.appendChild(f);
+  }
+}
+for (const b of document.querySelectorAll(".chave button")) b.addEventListener("click", () => {
+  modo = b.dataset.modo;
+  try { localStorage.setItem("arquivo-modo", modo); } catch {}
+  desenhar();
+});
+
+document.body.classList.add("sem-download");
+desenhar();
+(async () => {
+  try { downloads = await window.claude?.use?.("downloads"); } catch { downloads = null; }
+  if (downloads) document.body.classList.remove("sem-download");
+  $("#aviso").textContent = downloads ? AVISOS[modo] : "Para baixar, abra esta página no claude.ai. Aqui dá para assistir e copiar os textos.";
+})();
+
+async function copiar(txt) {
+  try { await navigator.clipboard.writeText(txt); return true; }
+  catch {
+    const t = document.createElement("textarea");
+    t.value = txt; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch {}
+    t.remove(); return ok;
+  }
+}
+
+async function acao(btn, v, status) {
+  const tipo = btn.dataset.acao;
+  if (tipo === "texto" || tipo === "titulo") {
+    const txt = tipo === "titulo" ? v.titulo : (modo === "reel" ? v.legenda : (v.descricao || v.legenda));
+    status.textContent = (await copiar(txt)) ? "Copiado." : "Não deu para copiar aqui. Abra a página no navegador.";
+    return;
+  }
+  if (!downloads) return;
+  const n = String(v.n).padStart(2, "0");
+  const url = tipo === "video" ? v["url_" + modo] : `capa-${modo}/${v.id}.jpg`;
+  const sufixo = modo === "reel" ? "reels" : "youtube";
+  const nome = tipo === "video" ? `${n}-${v.id}-${sufixo}.mp4` : `${n}-${v.id}-${modo === "reel" ? "capa" : "miniatura"}.jpg`;
+  btn.disabled = true;
+  status.textContent = "Preparando o arquivo…";
+  try {
+    const r = await fetch(url);
+    if (!r.ok) throw { code: "fetch" };
+    const blob = await r.blob();
+    status.textContent = "Confirme o download na janela.";
+    await downloads.save({ filename: nome, data: blob });
+    status.textContent = "Download iniciado.";
+  } catch (e) {
+    const c = e && e.code;
+    status.textContent = c === "declined" ? "Download cancelado."
+      : c === "rate_limited" ? "Já tem uma janela de download aberta. Termine aquela e tente de novo."
+      : c === "fetch" ? "Não consegui carregar o arquivo. Recarregue a página."
+      : "Download indisponível nesta tela.";
+  } finally { btn.disabled = false; }
+}
+</script>
