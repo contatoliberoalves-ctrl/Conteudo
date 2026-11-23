@@ -41,7 +41,7 @@ const L = {
       ${d.fonte ? `<div style="${S};font-weight:600;font-size:21px;color:${c.suave};margin-top:24px">${r(d.fonte)}</div>` : ''}</div>${cta(d.cta, 72, st ? 360 : 72)}`,
   capas: (d, W, H, st) => { const y = st ? 980 : 600; return `${fundo(W, H)}${topo(W, st ? 250 : 64)}
     <div style="position:absolute;left:72px;right:72px;top:${st ? 470 : 250}px"><div style="${T};font-size:${d.ts || 104}px;line-height:.92;color:#fff">${r(d.titulo)}</div>${d.sub ? `<div style="${I};font-size:32px;line-height:1.4;color:rgba(255,255,255,.86);margin-top:18px">${r(d.sub, c.claro, '#fff')}</div>` : ''}</div>
-    ${[['estrategia', 1, 60, 30, -9], ['cronograma-2h', 1, 600, 10, 8], ['o-que-a-fcc-cobra', 1, 140, 70, -3], ['raio-x-do-edital', 1, 400, 50, 4]].map(([p, n, x, dy, g]) => `<img src="${img(p, n)}" style="position:absolute;left:${x}px;top:${y + dy}px;width:420px;border-radius:10px;transform:rotate(${g}deg);box-shadow:0 24px 50px rgba(0,0,0,.5)">`).join('')}
+    ${[[prod.pecas[2][0], 1, 60, 30, -9], [prod.pecas[3][0], 1, 600, 10, 8], [prod.pecas[1][0], 1, 140, 70, -3], [prod.pecas[0][0], 1, 400, 50, 4]].map(([p, n, x, dy, g]) => `<img src="${img(p, n)}" style="position:absolute;left:${x}px;top:${y + dy}px;width:420px;border-radius:10px;transform:rotate(${g}deg);box-shadow:0 24px 50px rgba(0,0,0,.5)">`).join('')}
     ${cta(d.cta, 72, st ? 360 : 60)}`; },
   ficha: (d, W, H, st) => `${fundo(W, H)}${topo(W, st ? 250 : 64)}
     <div style="position:absolute;left:72px;right:72px;top:${st ? 520 : 290}px">

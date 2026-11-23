@@ -1,0 +1,289 @@
+
+<title>Do Edital à Prova PC PE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Oito materiais em PDF para Agente e Escrivão da Polícia Civil de Pernambuco (Cebraspe, prova em 07/03/2027): raio-x do edital, o que o Cebraspe mais cobra, estratégia, três cronogramas, edital verticalizado e a legislação de PE que já caiu. Por Líbero Filho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;600;800&family=Sora:wght@600;700&display=swap">
+<style>
+/* Layout: bandas alternadas de carvão (com cortes de xilogravura) e papel de cordel. O momento interativo é a conta
+   da nota: o visitante move P1, P2 e redação e compara com os cortes reais de 2023 do próprio cargo.
+   Visual único (não troca com o tema do leitor): todas as cores vêm dos tokens abaixo. */
+:root{
+  --lagoa:#141518; --lagoa2:#1D1F24; --lagoa3:#2E3038; --areia:#F6F0E4; --tinta:#141518;
+  --turq:#D42A3C; --turq2:#A3192B; --espuma:#F1DFC2; --sol:#F1DFC2; --branco:#FFFFFF;
+  --cinza:#6B6660; --corpo:#2F2B28; --borda:#E4D8C2; --trilho:#EDE3D1; --realce:#F9E1E3;
+  --claro-85:rgba(255,255,255,.86); --claro-60:rgba(255,255,255,.62); --claro-20:rgba(255,255,255,.2); --claro-08:rgba(255,255,255,.08);
+  --titulo:'Big Shoulders Display','Arial Narrow',Impact,sans-serif; --texto:'Inter',system-ui,sans-serif; --rotulo:'Sora','Inter',system-ui,sans-serif;
+  --dunas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='82' viewBox='0 0 110 82' fill='none' stroke='%23F1DFC2' stroke-opacity='.14' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M0 33l12-16M22 33l12-16M44 33l12-16M66 33l12-16M88 33l12-16M11 66l12-16M33 66l12-16M55 66l12-16M77 66l12-16M99 66l12-16'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--areia);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.55;padding-bottom:76px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--lagoa)}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.banda{padding-block:64px}
+.escura{background:var(--lagoa) var(--dunas);color:var(--branco)}
+.rot{font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--turq2);margin:0 0 10px}
+.escura .rot{color:var(--espuma)}
+h1,h2{font-family:var(--titulo);font-weight:900;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,8.4vw,96px)} h2{font-size:clamp(34px,5.4vw,60px)}
+h1 em,h2 em{font-style:normal;color:var(--turq2)} .escura h1 em,.escura h2 em{color:var(--espuma)}
+h3{font-family:var(--texto);font-weight:800;font-size:17px;margin:0;line-height:1.3}
+.lead{font-size:18px;max-width:60ch;margin:16px 0 0;color:var(--corpo)} .escura .lead{color:var(--claro-85)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--turq);color:var(--branco);font-weight:800;font-size:17px;text-decoration:none;padding:15px 24px;border-radius:10px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.06)} .btn:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sol);outline-offset:3px}
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--lagoa);border-bottom:1px solid var(--claro-20)}
+.topo .in{display:flex;justify-content:space-between;align-items:center;padding-block:10px;gap:12px}
+.marca{display:flex;align-items:center;gap:9px;color:var(--branco);text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.marca small{display:block;font-family:var(--rotulo);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--espuma)}
+.topo a.preco{font-family:var(--rotulo);font-weight:700;font-size:13px;color:var(--branco);background:var(--turq);padding:8px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.hero{padding-block:48px 56px}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.selo{display:inline-block;font-family:var(--rotulo);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--turq);color:var(--branco);padding:7px 12px;border-radius:6px;margin-bottom:18px}
+.compra{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:26px}
+.compra p{margin:0;font-size:14px;color:var(--claro-85)} .compra b{font-family:var(--titulo);font-size:34px;color:var(--branco);display:block;line-height:1}
+.dias{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--claro-20);max-width:420px}
+.dias strong{font-family:var(--titulo);font-size:56px;line-height:.9;color:var(--espuma)} .dias span{font-size:14px;color:var(--claro-85)}
+.capas{position:relative;aspect-ratio:1/1.16;max-width:100%}
+.capas img{position:absolute;width:56%;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.42);border:1px solid var(--claro-20)}
+.capas img:nth-child(1){left:0;top:10%;transform:rotate(-7deg)} .capas img:nth-child(2){right:0;top:0;transform:rotate(6deg)} .capas img:nth-child(3){left:22%;top:22%;transform:rotate(-1deg)}
+.fatos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.fatos div{padding:22px 18px;border-left:1px solid var(--borda)} .fatos div:first-child{border-left:0;padding-left:0}
+.fatos b{font-family:var(--titulo);font-size:46px;line-height:1;color:var(--turq2);display:block;font-variant-numeric:tabular-nums}
+.fatos span{font-size:14px;color:var(--corpo)} .fatos small{display:block;font-family:var(--rotulo);font-weight:600;font-size:10px;letter-spacing:.08em;color:var(--cinza);margin-top:6px}
+.duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+.cartao{background:var(--branco);color:var(--tinta);border:1px solid var(--borda);border-radius:14px;padding:22px}
+label.campo{display:block;font-family:var(--rotulo);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);margin-bottom:6px}
+select{width:100%;font:600 16px var(--texto);color:var(--tinta);background:var(--areia);border:1.5px solid var(--borda);border-radius:9px;padding:12px}
+.ficha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:16px;border-top:1px solid var(--borda)}
+.ficha div{padding:13px 0;border-bottom:1px solid var(--borda)} .ficha div:nth-child(odd){padding-right:12px}
+.ficha dt{font-family:var(--rotulo);font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+.ficha dd{margin:2px 0 0;font-family:var(--titulo);font-size:30px;line-height:1.05;color:var(--tinta);font-variant-numeric:tabular-nums}
+.ficha dd small{font-family:var(--texto);font-weight:600;font-size:13px;color:var(--cinza)}
+.leitura{margin:14px 0 0;font-size:15px;color:var(--corpo);background:var(--realce);border-radius:10px;padding:12px 14px}
+.regua{margin-bottom:18px} .regua output{font-family:var(--titulo);font-size:28px;float:right;line-height:1;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--turq);margin-top:8px}
+.nota{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+.nota div{background:var(--areia);border-radius:10px;padding:14px} .nota b{font-family:var(--titulo);font-size:44px;line-height:1;display:block;font-variant-numeric:tabular-nums} .nota span{font-size:13px;color:var(--cinza)}
+.barra{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 62px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20)}
+.barra:first-of-type{border-top:0} .barra span{font-weight:600;font-size:15px} .barra i{display:block;height:13px;border-radius:7px;background:var(--claro-08);overflow:hidden}
+.barra i::after{content:"";display:block;height:100%;width:var(--w);background:var(--turq);border-radius:7px} .barra b{font-family:var(--titulo);font-size:26px;text-align:right;font-variant-numeric:tabular-nums}
+.barra.oculta span{color:var(--claro-60)} .barra.oculta i::after{background:var(--claro-20)} .barra.oculta b{color:var(--claro-60)}
+.pecas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:30px}
+.peca img{display:block;width:100%;aspect-ratio:794/1123;object-fit:cover;border-radius:8px;border:1px solid var(--borda);box-shadow:0 8px 18px rgba(7,30,48,.14)}
+.peca h3{margin-top:12px} .peca p{margin:4px 0 0;font-size:14px;color:var(--corpo)} .peca small{font-family:var(--rotulo);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--turq2)}
+.dentro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.dentro figure{margin:0} .dentro img{display:block;width:100%;border-radius:8px;border:1px solid var(--claro-20)} .dentro figcaption{font-size:13px;color:var(--claro-85);margin-top:8px}
+.planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.planos b{font-family:var(--titulo);font-size:40px;line-height:1;color:var(--turq2);display:block} .planos p{margin:6px 0 0;font-size:14.5px;color:var(--corpo)}
+.oferta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center;margin-top:28px}
+.oferta ul{list-style:none;margin:0;padding:0} .oferta li{padding:11px 0 11px 30px;border-top:1px solid var(--claro-20);position:relative;font-size:15.5px;color:var(--claro-85)} .oferta li b{color:var(--branco)}
+.oferta li::before{content:"";position:absolute;left:4px;top:17px;width:12px;height:7px;border-left:2.5px solid var(--sol);border-bottom:2.5px solid var(--sol);transform:rotate(-45deg)}
+.caixa{background:var(--areia);color:var(--tinta);border-radius:16px;padding:26px;text-align:center}
+.caixa b{font-family:var(--titulo);font-size:72px;line-height:1;display:block} .caixa p{margin:4px 0 16px;color:var(--corpo);font-size:14px} .caixa .btn{width:100%} .caixa small{display:block;margin-top:12px;font-size:12.5px;color:var(--cinza)}
+.autor{display:grid;grid-template-columns:150px minmax(0,1fr);gap:26px;align-items:center;margin-top:8px}
+.autor img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--turq)} .autor p{margin:8px 0 0;color:var(--corpo);max-width:62ch}
+details{border-top:1px solid var(--borda);padding:14px 0} details:last-of-type{border-bottom:1px solid var(--borda)}
+summary{font-weight:800;font-size:16.5px;cursor:pointer} details p{margin:8px 0 0;color:var(--corpo);max-width:70ch}
+.rodape{font-size:12.5px;color:var(--cinza);padding-block:26px}
+.fixa{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--lagoa);border-top:1px solid var(--claro-20);padding-bottom:env(safe-area-inset-bottom,0px)}
+.fixa .in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.fixa span{color:var(--claro-85);font-size:13.5px} .fixa span b{color:var(--branco);font-size:16px} .fixa .btn{padding:11px 18px;font-size:15px}
+@media (max-width:820px){
+  .hero .in,.duas,.oferta{grid-template-columns:minmax(0,1fr)} .capas{max-width:420px;margin:0 auto;width:100%}
+  .fatos{grid-template-columns:repeat(2,minmax(0,1fr))} .fatos div{border-left:0;padding-left:0;border-top:1px solid var(--borda)} .fatos div:nth-child(-n+2){border-top:0}
+  .pecas,.dentro{grid-template-columns:repeat(2,minmax(0,1fr))} .planos{grid-template-columns:minmax(0,1fr)}
+  .banda{padding-block:48px} .barra{grid-template-columns:minmax(0,1fr) 62px} .barra i{grid-column:1/-1;grid-row:2}
+  .autor{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){.capas img{transition:transform .5s} .capas:hover img:nth-child(3){transform:rotate(0) translateY(-6px)}}
+</style>
+<style>
+.corte{position:relative;height:16px;border-radius:8px;background:var(--trilho);margin:34px 0 30px}
+.corte i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--turq);width:var(--w)}
+.corte b{position:absolute;top:-6px;width:3px;height:28px;background:var(--tinta)}
+#m-med span{top:-22px!important}
+.corte b span{position:absolute;top:30px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--rotulo);font-weight:700;font-size:10.5px;color:var(--cinza)}
+.abas{display:flex;gap:8px;margin-bottom:16px}.abas button{flex:1;font:700 15px var(--texto);padding:11px;border-radius:9px;border:1.5px solid var(--borda);background:var(--areia);color:var(--tinta);cursor:pointer}
+.abas button[aria-pressed="true"]{background:var(--tinta);color:var(--branco);border-color:var(--tinta)}
+.p1{display:grid;grid-template-columns:70px minmax(0,1fr) 60px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20);font-size:15px}
+.p1 b{font-family:var(--titulo);font-size:22px;color:var(--espuma)} .p1 em{font-style:normal;font-family:var(--titulo);font-size:22px;text-align:right}
+</style>
+
+<header class="topo"><div class="in">
+  <a class="marca" href="#inicio"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient></defs><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#g)"/><path d="M32 22V70H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46l9 9l18-20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><small>Concurso com</small>Líbero</span></a>
+  <a class="preco" href="#oferta">R$ {{PRECO}} · ver o kit</a>
+</div></header>
+
+<section class="banda escura hero" id="inicio"><div class="in">
+  <div>
+    <span class="selo">Polícia Civil de Pernambuco · Agente e Escrivão · Cebraspe</span>
+    <h1>Do edital <em>à prova</em> em 8 materiais</h1>
+    <p class="lead">O Edital nº 1/2026 lido linha a linha, as notas de corte reais de 2023, 479 questões do Cebraspe classificadas por assunto e três cronogramas até 07/03/2027. Para Agente e para Escrivão.</p>
+    <div class="compra"><a class="btn" data-checkout href="#oferta">Quero o kit</a><p><b>R$ {{PRECO}}</b>8 PDFs, 50 páginas</p></div>
+    <div class="dias" id="conta-dias"><strong id="dias">104</strong><span id="dias-texto">dias até a prova<br>domingo, 07/03/2027</span></div>
+  </div>
+  <div class="capas" aria-hidden="true"><img src="assets/c4.webp" alt=""><img src="assets/c2.webp" alt=""><img src="assets/c1.webp" alt=""></div>
+</div></section>
+
+<section class="in" aria-label="Números do concurso"><div class="fatos">
+  <div><b>1.270</b><span>vagas de Agente e Escrivão, mais 45 de Delegado</span><small>Edital nº 1, item 4.1</small></div>
+  <div><b>30 de 90</b><span>pontos vêm da redação: um terço da nota</span><small>Edital, itens 8.1 e 9.1</small></div>
+  <div><b>42</b><span>foi o corte da objetiva de Agente em 2023, de 60</span><small>Resultado oficial de 2023</small></div>
+  <div><b>1 a 4</b><span>as primeiras questões da P1 foram de lei de PE em 2023</span><small>Cadernos de 2023</small></div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Faça a conta</p>
+  <h2>Sua nota contra o <em>corte de 2023</em></h2>
+  <p class="lead">Cada questão vale 1 ponto e o erro não desconta. Escolha o cargo, mexa nos acertos e na redação e veja onde você ficaria no concurso anterior, que teve a mesma estrutura.</p>
+  <div class="duas">
+    <div class="cartao">
+      <div class="abas" role="group" aria-label="Cargo"><button type="button" id="b-ag" aria-pressed="true">Agente</button><button type="button" id="b-es" aria-pressed="false">Escrivão</button></div>
+      <div class="regua"><label class="campo" for="p1">P1 · Noções de Direito (de 20) <output id="p1-o" for="p1">16</output></label><input type="range" id="p1" min="0" max="20" value="16"></div>
+      <div class="regua"><label class="campo" for="p2">P2 · Conhecimentos Específicos (de 40) <output id="p2-o" for="p2">28</output></label><input type="range" id="p2" min="0" max="40" value="28"></div>
+      <div class="regua"><label class="campo" for="red">Redação (de 30) <output id="red-o" for="red">24</output></label><input type="range" id="red" min="0" max="30" step="0.5" value="24"></div>
+      <div class="corte" id="barra"><i></i><b id="m-corte"><span>corte 2023</span></b><b id="m-med"><span>mediana 2023</span></b></div>
+      <div class="nota"><div><b id="n-obj">44</b><span>objetiva, de 60 (mínimo 30)</span></div><div><b id="n-fin">68</b><span>total, de 90</span></div></div>
+      <p class="leitura" id="veredito"></p>
+    </div>
+    <div>
+      <h3>O que 2023 mostra</h3>
+      <p style="color:var(--corpo);margin:8px 0 0">Em Agente, só teve a redação corrigida quem fez 42 ou mais na objetiva (ampla concorrência). Em Escrivão, 37 ou mais. A mediana da redação ficou em 24,3 e 24,7, de 30.</p>
+      <p style="color:var(--corpo)">Em 2026 a fila mudou: Agente terá 4.680 redações corrigidas na ampla, mais de três vezes as 1.441 de 2023. Escrivão terá 270, contra 1.020. O corte de Agente tende a cair e o de Escrivão a subir. O Raio-X do edital explica a conta.</p>
+      <p style="font-size:13px;color:var(--cinza)">Fontes: Edital nº 1 – PCPE 2026, itens 8.11 e 9.8; Edital nº 5 – PCPE 2023 (resultado das objetivas). Estatística calculada sobre as notas publicadas.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">A P1 de 2023</p>
+  <h2>Vinte questões <em>em ordem fixa</em></h2>
+  <p class="lead">Nos dois cargos, Noções de Direito veio na mesma sequência. A matéria de 2026 é a mesma.</p>
+  <div style="margin-top:22px;max-width:760px">
+    <div class="p1"><b>1 a 4</b><span>Legislação de Pernambuco, uma lei por questão</span><em>4</em></div>
+    <div class="p1"><b>5 a 7</b><span>Direito Constitucional</span><em>3</em></div>
+    <div class="p1"><b>8 a 10</b><span>Direito Administrativo</span><em>3</em></div>
+    <div class="p1"><b>11 a 15</b><span>Direito Penal e leis especiais</span><em>5</em></div>
+    <div class="p1"><b>16 a 20</b><span>Processo Penal</span><em>5</em></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:14px;max-width:70ch">Em Escrivão, a questão 7 também foi da Constituição de PE. A peça 8 do kit traz as nove questões de lei estadual com a resposta da banca, incluindo a que foi anulada.</p>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">O que vem no kit</p>
+  <h2>Oito peças, <em>uma sequência</em></h2>
+  <p class="lead">Primeiro entender o edital e o concurso anterior, depois saber o que cai, decidir a ordem de estudo e seguir um calendário.</p>
+  <div class="pecas">
+    <article class="peca"><img src="assets/c1.webp" alt="Capa do Raio-X do edital"><small>Peça 1 · 9 páginas</small><h3>Raio-X do edital</h3><p>Vagas e cotas, fila de correção, a conta da redação, o que 2023 ensina e o teste físico.</p></article>
+    <article class="peca"><img src="assets/c2.webp" alt="Capa de O que o Cebraspe mais cobra"><small>Peça 2 · 9 páginas</small><h3>O que o Cebraspe mais cobra</h3><p>479 questões de PC PE, PC PB e PC RO, por assunto e por formato de pergunta.</p></article>
+    <article class="peca"><img src="assets/c3.webp" alt="Capa da Estratégia"><small>Peça 3 · 7 páginas</small><h3>Estratégia</h3><p>Ordem de estudo, metas por cargo, redação pela grade do Cebraspe e as 4 horas de prova.</p></article>
+    <article class="peca"><img src="assets/c4.webp" alt="Capa do Cronograma A"><small>Peça 4 · 5 páginas</small><h3>Cronograma A · 2 h por dia</h3><p>15 semanas para quem trabalha, com folha de controle.</p></article>
+    <article class="peca"><img src="assets/c5.webp" alt="Capa do Cronograma B"><small>Peça 5 · 5 páginas</small><h3>Cronograma B · 4 h por dia</h3><p>15 semanas, uma redação por semana.</p></article>
+    <article class="peca"><img src="assets/c6.webp" alt="Capa do Cronograma C"><small>Peça 6 · 3 páginas</small><h3>Cronograma C · reta final</h3><p>6 semanas a partir de 25/01, com os cortes que a contagem permite.</p></article>
+    <article class="peca"><img src="assets/c7.webp" alt="Capa do Edital verticalizado"><small>Peça 7 · 6 páginas</small><h3>Edital verticalizado</h3><p>P1 e P2 de Agente e Escrivão, na ordem de cobrança, com caixas para marcar.</p></article>
+    <article class="peca"><img src="assets/c8.webp" alt="Capa de Pernambuco que o Cebraspe já cobrou"><small>Peça 8 · 6 páginas</small><h3>Pernambuco que o Cebraspe já cobrou</h3><p>As questões de lei estadual de 2023 e o mapa da P1 dos dois cargos.</p></article>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">Amostra da contagem</p>
+  <h2>Penal e Processo Penal: <em>metade da P1</em></h2>
+  <p class="lead">Nos três concursos de polícia civil do Cebraspe analisados, leis especiais e inquérito policial lideram. Os demais assuntos, com os comandos que se repetem, estão na peça 2.</p>
+  <div style="margin-top:26px;max-width:760px">
+    <div class="barra" style="--w:100%"><span>Leis penais especiais</span><i></i><b>24</b></div>
+    <div class="barra" style="--w:79%"><span>Inquérito policial e investigação</span><i></i><b>19</b></div>
+    <div class="barra" style="--w:58%"><span>Parte geral do Direito Penal</span><i></i><b>14</b></div>
+    <div class="barra" style="--w:54%"><span>Provas no processo penal</span><i></i><b>13</b></div>
+    <div class="barra oculta" style="--w:100%"><span>Demais assuntos de Penal e Processo</span><i></i><b>38</b></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:16px;max-width:70ch">Limite da contagem: PC PE 2023 é a referência principal (mesma banca, mesma estrutura). PC PB 2021 e PC RO 2022 ampliam a amostra, mas tinham provas maiores e outras disciplinas. Os materiais dizem isso em cada página.</p>
+  <div class="dentro">
+    <figure><img src="assets/p1.webp" alt="Página do Raio-X com o que 2023 ensina" loading="lazy"><figcaption>Raio-X: o que 2023 ensina</figcaption></figure>
+    <figure><img src="assets/p2.webp" alt="Página com a P1 de 2023 em ordem fixa" loading="lazy"><figcaption>Cebraspe: a P1 de 2023</figcaption></figure>
+    <figure><img src="assets/p3.webp" alt="Página do cronograma" loading="lazy"><figcaption>Cronograma A: como usar</figcaption></figure>
+    <figure><img src="assets/p4.webp" alt="Página com fichas de legislação de PE" loading="lazy"><figcaption>Fichas de lei de PE</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Três calendários</p>
+  <h2>Escolha pelas <em>horas que você tem</em></h2>
+  <div class="planos">
+    <div class="cartao"><b>2 h por dia</b><h3>Cronograma A · 15 semanas</h3><p>12 horas por semana. Direito com 4 horas, redação quinzenal até janeiro e semanal depois.</p></div>
+    <div class="cartao"><b>4 h por dia</b><h3>Cronograma B · 15 semanas</h3><p>24 horas por semana. 14 redações até a prova e a matéria do cargo fechada inteira.</p></div>
+    <div class="cartao"><b>6 semanas</b><h3>Cronograma C · reta final</h3><p>Para quem começa em 25/01. 18 horas por semana, um simulado e os cortes explicados.</p></div>
+  </div>
+  <p style="font-size:14px;color:var(--cinza);margin-top:16px;max-width:75ch">Os três servem para Agente e Escrivão: a coluna da matéria do cargo traz Contabilidade e Arquivologia lado a lado. Quem vai fazer os dois cargos no mesmo dia segue as duas.</p>
+</div></section>
+
+<section class="banda escura" id="oferta"><div class="in">
+  <p class="rot">O que você recebe</p>
+  <h2>Do Edital à Prova · <em>PC PE</em></h2>
+  <div class="oferta">
+    <ul>
+      <li><b>Raio-X do edital</b>, com vagas, cotas, a conta da redação e o teste físico</li>
+      <li><b>O que o Cebraspe mais cobra</b>, com 479 questões classificadas</li>
+      <li><b>Estratégia</b>, com metas por cargo e folha de treino de redação</li>
+      <li><b>Três cronogramas</b> com folha de controle: 2 h, 4 h e reta final</li>
+      <li><b>Edital verticalizado</b> de Agente e Escrivão, na ordem de cobrança</li>
+      <li><b>Pernambuco que o Cebraspe já cobrou</b>, com o mapa da P1 de 2023</li>
+    </ul>
+    <div class="caixa"><b>R$ {{PRECO}}</b><p>pagamento único · 8 PDFs · 50 páginas</p><a class="btn" data-checkout href="#oferta">Quero o kit</a><small>Pagamento pela Kiwify · acesso enviado ao seu e-mail</small></div>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Quem fez</p>
+  <div class="autor"><img src="assets/autor.webp" alt="Líbero Filho" loading="lazy"><div><h2>Líbero Filho</h2><p>Professor e criador do Concurso com Líbero, em Pernambuco. Este kit foi montado a partir do edital oficial publicado pelo Cebraspe, dos resultados oficiais do concurso de 2023 e dos cadernos de prova de três concursos de polícia civil da banca, com cada questão classificada pelo edital de 2026.</p><p>É material próprio, sem vínculo com a Polícia Civil de Pernambuco ou com o Cebraspe. Cada página indica o item do edital ou o documento de onde o número saiu.</p></div></div>
+</div></section>
+
+<section class="banda" style="padding-top:0"><div class="in">
+  <p class="rot">Dúvidas</p>
+  <h2>Perguntas frequentes</h2>
+  <div style="margin-top:22px">
+  <details><summary>Serve para Agente e para Escrivão?</summary><p>Sim. A P1 é igual nos dois cargos, e a P2 só muda em uma matéria: Contabilidade para Agente, Arquivologia para Escrivão. Todos os materiais tratam os dois cargos.</p></details>
+  <details><summary>E para Delegado?</summary><p>Não. A prova de Delegado é outra (100 questões, peça prática e prova oral) e não está neste kit.</p></details>
+  <details><summary>Traz o conteúdo das matérias?</summary><p>Não é curso nem apostila. É o planejamento: o que o edital pede, o que o Cebraspe cobra, em que ordem estudar e quando. A exceção é a legislação de PE de 2023, que vem com a resposta da banca.</p></details>
+  <details><summary>As notas de corte são oficiais?</summary><p>As de 2023 foram calculadas sobre o resultado oficial publicado pelo Cebraspe (Edital nº 5 – PCPE 2023). Para 2026 não existe nota de corte antecipada: as metas do material são referência de treino.</p></details>
+  <details><summary>Em que formato vem e como recebo?</summary><p>Oito PDFs em A4, para ler no celular, no computador ou imprimir. A compra é pela Kiwify e o acesso chega no e-mail informado no checkout.</p></details>
+  <details><summary>Ainda dá para se inscrever?</summary><p>As inscrições vão até as 18h de 16/12/2026, no site do Cebraspe, com pagamento até 18/12. A isenção de taxa já foi encerrada.</p></details>
+  </div>
+  <p class="rodape">Concurso com Líbero · @concursocomlibero. Dados do Edital nº 1 – PCPE, de 2/10/2026, versão consolidada até o Edital nº 3, banca Cebraspe.</p>
+</div></section>
+
+<div class="fixa"><div class="in"><span><b>R$ {{PRECO}}</b> · 8 PDFs da PC PE</span><a class="btn" data-checkout href="#oferta">Quero o kit</a></div></div>
+
+<script>
+const CHECKOUT = '{{CHECKOUT}}';
+(() => {
+  if (CHECKOUT) document.querySelectorAll('[data-checkout]').forEach(a => { a.href = CHECKOUT; a.rel = 'noopener'; a.target = '_blank'; });
+  const $ = id => document.getElementById(id);
+  const br = (n, d = 0) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Recife' })); hoje.setHours(0, 0, 0, 0);
+  const dias = Math.round((new Date(2027, 2, 7) - hoje) / 864e5);
+  if (dias > 1) $('dias').textContent = dias;
+  else if (dias === 1) { $('dias').textContent = '1'; $('dias-texto').innerHTML = 'dia até a prova<br>é amanhã'; }
+  else if (dias === 0) { $('dias').textContent = '0'; $('dias-texto').innerHTML = 'A prova é hoje.<br>Boa prova!'; }
+  else $('conta-dias').hidden = true;
+  // Cortes de 2023 (ampla concorrência): objetiva mínima para ter a redação corrigida, mediana da objetiva e mediana do total.
+  const C = { ag: { corte: 42, med: 44, total: 68.4, fila: 'Agente terá 4.680 redações corrigidas na ampla em 2026, contra 1.441 em 2023.' }, es: { corte: 37, med: 39, total: 63.5, fila: 'Escrivão terá 270 redações corrigidas na ampla em 2026, contra 1.020 em 2023: o corte deve subir.' } };
+  let cargo = 'ag';
+  const conta = () => {
+    const a = +$('p1').value, b = +$('p2').value, r = +$('red').value, obj = a + b, c = C[cargo];
+    $('p1-o').textContent = a; $('p2-o').textContent = b; $('red-o').textContent = br(r, r % 1 ? 1 : 0);
+    $('n-obj').textContent = obj; $('n-fin').textContent = br(obj + r, r % 1 ? 1 : 0);
+    $('barra').querySelector('i').style.setProperty('--w', obj / 60 * 100 + '%');
+    $('m-corte').style.left = c.corte / 60 * 100 + '%'; $('m-med').style.left = c.med / 60 * 100 + '%';
+    $('veredito').textContent = obj < 30 ? `Abaixo do mínimo do edital (30). Faltam ${30 - obj} acertos só para não ser eliminado.`
+      : obj < c.corte ? `Passa do mínimo, mas em 2023 ficaria fora da fila de correção da redação (corte ${c.corte}). ${c.fila}`
+      : r < 15 ? 'Objetiva dentro da fila de 2023, mas a redação abaixo de 15 elimina.'
+      : obj + r >= c.total ? `Acima da mediana do total de 2023 (${br(c.total, 1)} de 90) entre os corrigidos da ampla.` : `Dentro da fila de 2023, abaixo da mediana do total (${br(c.total, 1)}). Cada ponto na redação vale uma questão.`;
+  };
+  const troca = k => { cargo = k; $('b-ag').setAttribute('aria-pressed', k === 'ag'); $('b-es').setAttribute('aria-pressed', k === 'es'); conta(); };
+  $('b-ag').addEventListener('click', () => troca('ag')); $('b-es').addEventListener('click', () => troca('es'));
+  ['p1', 'p2', 'red'].forEach(x => $(x).addEventListener('input', conta)); conta();
+})();
+</script>

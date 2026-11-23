@@ -1,16 +1,329 @@
 [
-  {
-    "id": "unificado-ma", "tema": "unificado-ma", "linha": "Do Edital à Prova", "concurso": "Concurso Unificado do Maranhão", "sigla": "Unificado MA",
-    "selo": "Unificado MA 2026 · FCC · 41 cargos", "preco": "49,99", "checkout": "",
-    "carimbo": { "topo": "PROVA OBJETIVA", "base": "FCC · MARANHÃO", "centro": "04/04", "sub": "DOMINGO" },
-    "identidade": {
-      "texto": "Oito materiais para o Concurso Unificado do Maranhão: o edital lido linha a linha, o que a FCC mais cobra, a estratégia e três cronogramas até 04/04/2027.",
-      "cores": ["Lagoa funda", "Lagoa", "Turquesa", "Turquesa forte", "Espuma", "Areia"],
-      "texturaTexto": "Dunas dos Lençóis Maranhenses, vistas de cima, nas capas e faixas escuras",
-      "carimboTexto": "Cor de sol, com a data da prova, em capas, criativos e site",
-      "etiquetas": ["peso 2 · específicos", "peso 1 · gerais"], "etiquetaTexto": "Os dois pesos da objetiva, sempre com a cor cheia no que vale mais",
-      "reguaTexto": "As 19 semanas até a prova, com a semana atual marcada"
-    },
-    "site": { "assets": { "c1": ["raio-x-do-edital", 1], "c2": ["o-que-a-fcc-cobra", 1], "c3": ["estrategia", 1], "c4": ["cronograma-2h", 1], "c5": ["cronograma-4h", 1], "c6": ["cronograma-reta-final", 1], "c7": ["edital-verticalizado", 1], "c8": ["maranhao-que-a-fcc-cobrou", 1], "p1": ["raio-x-do-edital", 5], "p2": ["o-que-a-fcc-cobra", 3], "p3": ["cronograma-2h", 3], "p4": ["maranhao-que-a-fcc-cobrou", 5] } }
+ {
+  "id": "unificado-ma",
+  "tema": "unificado-ma",
+  "linha": "Do Edital à Prova",
+  "concurso": "Concurso Unificado do Maranhão",
+  "sigla": "Unificado MA",
+  "selo": "Unificado MA 2026 · FCC · 41 cargos",
+  "preco": "49,99",
+  "checkout": "",
+  "carimbo": {
+   "topo": "PROVA OBJETIVA",
+   "base": "FCC · MARANHÃO",
+   "centro": "04/04",
+   "sub": "DOMINGO"
+  },
+  "identidade": {
+   "texto": "Oito materiais para o Concurso Unificado do Maranhão: o edital lido linha a linha, o que a FCC mais cobra, a estratégia e três cronogramas até 04/04/2027.",
+   "cores": [
+    "Lagoa funda",
+    "Lagoa",
+    "Turquesa",
+    "Turquesa forte",
+    "Espuma",
+    "Areia"
+   ],
+   "texturaTexto": "Dunas dos Lençóis Maranhenses, vistas de cima, nas capas e faixas escuras",
+   "carimboTexto": "Cor de sol, com a data da prova, em capas, criativos e site",
+   "etiquetas": [
+    "peso 2 · específicos",
+    "peso 1 · gerais"
+   ],
+   "etiquetaTexto": "Os dois pesos da objetiva, sempre com a cor cheia no que vale mais",
+   "reguaTexto": "As 19 semanas até a prova, com a semana atual marcada",
+   "texturaNome": "Dunas",
+   "vazado": "08",
+   "exemplo": "2.317 vagas",
+   "barras": [
+    [
+     "Interpretação do texto",
+     "173",
+     100,
+     true
+    ],
+    [
+     "Reescrita e \"frase clara e correta\"",
+     "70",
+     40,
+     true
+    ],
+    [
+     "Sentido de palavra ou de trecho",
+     "59",
+     34,
+     false
+    ]
+   ],
+   "notaFinal": "Objetiva + Discursiva + Títulos",
+   "chips": [
+    "peso 2",
+    "peso 1"
+   ],
+   "semanas": 19
+  },
+  "site": {
+   "assets": {
+    "c1": [
+     "raio-x-do-edital",
+     1
+    ],
+    "c2": [
+     "o-que-a-fcc-cobra",
+     1
+    ],
+    "c3": [
+     "estrategia",
+     1
+    ],
+    "c4": [
+     "cronograma-2h",
+     1
+    ],
+    "c5": [
+     "cronograma-4h",
+     1
+    ],
+    "c6": [
+     "cronograma-reta-final",
+     1
+    ],
+    "c7": [
+     "edital-verticalizado",
+     1
+    ],
+    "c8": [
+     "maranhao-que-a-fcc-cobrou",
+     1
+    ],
+    "p1": [
+     "raio-x-do-edital",
+     5
+    ],
+    "p2": [
+     "o-que-a-fcc-cobra",
+     3
+    ],
+    "p3": [
+     "cronograma-2h",
+     3
+    ],
+    "p4": [
+     "maranhao-que-a-fcc-cobrou",
+     5
+    ]
+   }
+  },
+  "pecas": [
+   [
+    "raio-x-do-edital",
+    "Raio-X do edital"
+   ],
+   [
+    "o-que-a-fcc-cobra",
+    "O que a FCC mais cobra"
+   ],
+   [
+    "estrategia",
+    "Estratégia de prova"
+   ],
+   [
+    "cronograma-2h",
+    "Cronograma A · 2 h por dia"
+   ],
+   [
+    "cronograma-4h",
+    "Cronograma B · 4 h por dia"
+   ],
+   [
+    "cronograma-reta-final",
+    "Cronograma C · reta final"
+   ],
+   [
+    "edital-verticalizado",
+    "Edital verticalizado"
+   ],
+   [
+    "maranhao-que-a-fcc-cobrou",
+    "O Maranhão que a FCC já cobrou"
+   ]
+  ],
+  "produto": {
+   "titulo": [
+    "Do edital",
+    "à prova"
+   ],
+   "sub": "Concurso Unificado do Maranhão · 8 PDFs",
+   "chips": [
+    "Raio-X do edital",
+    "991 questões da FCC",
+    "3 cronogramas"
+   ]
   }
+ },
+ {
+  "id": "pc-pe",
+  "tema": "pc-pe",
+  "linha": "Do Edital à Prova",
+  "concurso": "Polícia Civil de Pernambuco",
+  "sigla": "PC PE",
+  "selo": "PC PE 2026 · Agente e Escrivão · Cebraspe",
+  "preco": "49,99",
+  "checkout": "",
+  "carimbo": {
+   "topo": "PROVA OBJETIVA",
+   "base": "CEBRASPE · PCPE",
+   "centro": "07/03",
+   "sub": "DOMINGO"
+  },
+  "identidade": {
+   "texto": "Oito materiais para Agente e Escrivão da Polícia Civil de Pernambuco: o edital lido linha a linha, o que o Cebraspe mais cobra, a estratégia, três cronogramas e a legislação de PE que já caiu.",
+   "cores": [
+    "Carvão",
+    "Grafite",
+    "Vermelho",
+    "Vermelho fundo",
+    "Papel de cordel",
+    "Papel"
+   ],
+   "texturaNome": "Xilogravura",
+   "texturaTexto": "Cortes de goiva da gravura de cordel, nas capas e faixas escuras",
+   "carimboTexto": "Cor de papel, com a data da prova, em capas, criativos e site",
+   "etiquetas": [
+    "P1 · Noções de Direito",
+    "P2 · Específicos"
+   ],
+   "etiquetaNome": "Etiqueta de prova",
+   "etiquetaTexto": "As duas provas objetivas; a cor cheia marca a P1, que tem ordem fixa",
+   "reguaTexto": "As 15 semanas até 07/03, com a semana atual marcada",
+   "semanas": 15,
+   "vazado": "08",
+   "exemplo": "1.315 vagas",
+   "barras": [
+    [
+     "Leis penais especiais",
+     "24",
+     100,
+     true
+    ],
+    [
+     "Inquérito policial e investigação",
+     "19",
+     79,
+     true
+    ],
+    [
+     "Parte geral do Direito Penal",
+     "14",
+     58,
+     false
+    ]
+   ],
+   "notaFinal": "Objetivas 60 + Redação 30",
+   "chips": [
+    "P1 20",
+    "P2 40"
+   ],
+   "carimboCor": "#A3192B",
+   "mono": "Peça 1 de 8 · item 9.8.5"
+  },
+  "pecas": [
+   [
+    "raio-x-do-edital",
+    "Raio-X do edital"
+   ],
+   [
+    "o-que-o-cebraspe-cobra",
+    "O que o Cebraspe mais cobra"
+   ],
+   [
+    "estrategia",
+    "Estratégia de prova"
+   ],
+   [
+    "cronograma-2h",
+    "Cronograma A · 2 h por dia"
+   ],
+   [
+    "cronograma-4h",
+    "Cronograma B · 4 h por dia"
+   ],
+   [
+    "cronograma-reta-final",
+    "Cronograma C · reta final"
+   ],
+   [
+    "edital-verticalizado",
+    "Edital verticalizado"
+   ],
+   [
+    "pernambuco-que-o-cebraspe-cobrou",
+    "Pernambuco que o Cebraspe já cobrou"
+   ]
+  ],
+  "produto": {
+   "titulo": [
+    "Do edital",
+    "à prova"
+   ],
+   "sub": "PC PE · Agente e Escrivão · 8 PDFs",
+   "chips": [
+    "Raio-X do edital",
+    "479 questões do Cebraspe",
+    "3 cronogramas"
+   ]
+  },
+  "site": {
+   "assets": {
+    "c1": [
+     "raio-x-do-edital",
+     1
+    ],
+    "c2": [
+     "o-que-o-cebraspe-cobra",
+     1
+    ],
+    "c3": [
+     "estrategia",
+     1
+    ],
+    "c4": [
+     "cronograma-2h",
+     1
+    ],
+    "c5": [
+     "cronograma-4h",
+     1
+    ],
+    "c6": [
+     "cronograma-reta-final",
+     1
+    ],
+    "c7": [
+     "edital-verticalizado",
+     1
+    ],
+    "c8": [
+     "pernambuco-que-o-cebraspe-cobrou",
+     1
+    ],
+    "p1": [
+     "raio-x-do-edital",
+     6
+    ],
+    "p2": [
+     "o-que-o-cebraspe-cobra",
+     3
+    ],
+    "p3": [
+     "cronograma-2h",
+     2
+    ],
+    "p4": [
+     "pernambuco-que-o-cebraspe-cobrou",
+     3
+    ]
+   }
+  }
+ }
 ]
