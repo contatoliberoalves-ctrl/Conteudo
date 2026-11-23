@@ -277,10 +277,10 @@ async function main() {
     fs.writeFileSync(path.join(tmp, 'eventos.json'), JSON.stringify(ev));
     execFileSync('python3', [path.join(root, 'trilha.py'), path.join(tmp, 'eventos.json'), path.join(tmp, 'trilha.wav')], { stdio: 'inherit' });
     const base = ['-y', '-loglevel', 'error', '-framerate', String(FPS), '-i', path.join(tmp, '%05d.jpg'), '-i', path.join(tmp, 'trilha.wav')];
-    const fim = ['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'medium', '-c:a', 'aac', '-b:a', '192k', '-t', total.toFixed(3), '-movflags', '+faststart'];
+    const fim = ['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'medium', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', total.toFixed(3), '-movflags', '+faststart'];
     execFileSync('ffmpeg', [...base, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', ...fim, path.join(out, `${id}${vozes.length ? '-sem-voz' : ''}.mp4`)]);
     if (vozes.length) { // trilha baixa por baixo da narração
-      const filtro = `[1:a]volume=0.2[m];${vozes.map((z, i) => `[${i + 2}:a]adelay=${Math.round(z.t * 1000)}:all=1,volume=1.6[v${i}]`).join(';')};[m]${vozes.map((_, i) => `[v${i}]`).join('')}amix=inputs=${vozes.length + 1}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]`;
+      const filtro = `[1:a]volume=0.13[m];${vozes.map((z, i) => `[${i + 2}:a]adelay=${Math.round(z.t * 1000)}:all=1,volume=2[v${i}]`).join(';')};[m]${vozes.map((_, i) => `[v${i}]`).join('')}amix=inputs=${vozes.length + 1}:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]`;
       execFileSync('ffmpeg', [...base, ...vozes.flatMap(z => ['-i', z.f]), '-filter_complex', filtro, '-map', '0:v', '-map', '[a]', ...fim, path.join(out, `${id}.mp4`)]);
     }
     fs.rmSync(tmp, { recursive: true, force: true });
