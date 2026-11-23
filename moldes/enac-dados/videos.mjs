@@ -118,6 +118,20 @@ const CENAS = {
           <div style="text-align:right;${an('escala', .4, t + .3)}"><div class="tit" style="font-size:78px;color:${C.lima}">${it.n}</div><div class="mono" style="font-size:20px;color:${C.cinza}">${it.n > 1 ? 'questões' : 'questão'}</div></div></div>`;
       }).join('')}</div></div>`;
   },
+  // temas: lista numerada do que cada questão cobrou (até 8 por cena)
+  temas(s, t0, ev, d) {
+    const n = s.itens.length, passo = (d - 2) / n, f = n <= 3 ? 46 : n <= 5 ? 42 : n <= 7 ? 38 : 35, c = cor(s.cor);
+    return `<div class="area">
+      <div style="${an('desce', .5, t0 + .1)}">${etiqueta(s.rotulo, s.cor)}</div>
+      <div class="tit" style="font-size:${s.ts || 82}px;margin-top:30px;${an('sobe', .6, t0 + .25)}">${tit(s.titulo)}</div>
+      <div style="display:flex;flex-direction:column;gap:${n <= 5 ? 20 : 14}px;margin-top:46px">
+      ${s.itens.map((it, i) => {
+        const t = t0 + .9 + i * passo; ev.tick.push(t + .15);
+        return `<div style="display:flex;align-items:center;gap:24px;background:${C.grafite};border:2px solid ${C.linha};padding:${n <= 5 ? 24 : 16}px 24px;${an('entra', .45, t)}">
+          <span class="mono" style="flex:none;width:62px;height:62px;display:grid;place-items:center;font-size:26px;letter-spacing:0;background:${c};color:${C.tinta}">${String((s.de || 1) + i).padStart(2, '0')}</span>
+          <span style="font:600 ${f}px/1.14 'Space Grotesk';letter-spacing:-.02em">${tit(it)}</span></div>`;
+      }).join('')}</div></div>`;
+  },
   frase(s, t0, ev, d) {
     const p = s.texto.split(' '), passo = Math.min(.16, (d - 1.6) / p.length);
     ev.impacto.push(t0 + .3);
@@ -196,6 +210,51 @@ const VIDEOS = {
     { tipo: 'cta', titulo: 'Qual especialidade [[te pegou]]?', texto: 'Comenta a que mais tirou ponto seu.', digita: 'Registro de Imóveis',
       fala: 'Qual especialidade te pegou? Comenta.' },
   ] },
+  'enac-2026-2-civil-heranca': { n: '04', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Direito Civil', n: 7, de: '/14', titulo: 'questões de Civil com [[herança]] no meio', texto: 'Metade da matéria.',
+      fala: 'Sete das catorze questões de Civil do ENAC tinham herança no meio.' },
+    { tipo: 'temas', rotulo: 'Os temas de herança', titulo: 'O que [[caiu]]', itens: ['Comoriência entre pai e filha', 'Herança jacente e sobrinho-neto', 'Testamento de menor emancipado', 'Renúncia a herança de pessoa viva', 'Partilha desigual como doação', 'Sub-rogação da inalienabilidade', 'Impenhorabilidade sem justa causa'],
+      fala: 'Comoriência, herança jacente, testamento de menor emancipado, herança de pessoa viva, partilha desigual e as cláusulas de inalienabilidade e impenhorabilidade.' },
+    { tipo: 'temas', cor: 'osso', de: 8, rotulo: 'As outras 7 de Civil', titulo: 'E o [[resto]]', itens: ['Exclusão de associado', 'Reforma de estatuto de fundação', 'Locação built to suit no registro', 'Alienação fiduciária em garantia de mútuo', 'Sentença arbitral no registro de imóveis', 'Cancelamento do protesto e negativação', 'Protesto de cheque e cônjuge'],
+      fala: 'As outras sete: associação, fundação, locação built to suit, alienação fiduciária, sentença arbitral e duas de protesto.' },
+    { tipo: 'cta', titulo: 'Qual dessas [[te pegou]]?', texto: 'Comenta o tema de Civil que tirou ponto seu.', digita: 'Herança jacente',
+      fala: 'Qual dessas te pegou? Comenta.' },
+  ] },
+  'enac-2026-2-constitucional': { n: '05', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Constitucional', n: 4, de: '/8', titulo: 'questões de Constitucional sobre [[cartório]]', texto: 'Metade da matéria.',
+      fala: 'Metade de Constitucional no ENAC foi sobre cartório.' },
+    { tipo: 'temas', rotulo: 'Constitucional de cartório', titulo: 'As 4 [[da casa]]', itens: ['Desacumulação de serventia só na vacância', 'Lei estadual sobre registros públicos', 'Fundo de apoio ao Registro Civil', 'Responsabilidade civil de notários (Tema 777)'],
+      fala: 'Desacumulação de serventia, lei estadual sobre registros públicos, fundo de apoio ao Registro Civil e responsabilidade civil de notários.' },
+    { tipo: 'temas', cor: 'osso', de: 5, rotulo: 'Constitucional puro', titulo: 'As outras [[4]]', itens: ['Colisão de direitos fundamentais', 'Recepção de lei tributária anterior a 1988', 'PEC: iniciativa, quórum e limites', 'Marco Civil da Internet (Temas 987 e 533)'],
+      fala: 'As outras quatro: colisão de direitos fundamentais, recepção de lei anterior a oitenta e oito, PEC e Marco Civil da Internet.' },
+    { tipo: 'frase', ts: 104, texto: 'Constitucional puro foi só metade. O resto era [[cartório com outro nome.]]',
+      fala: 'Quem estudou Constitucional pensando em cartório saiu na frente.' },
+    { tipo: 'cta', titulo: 'Acertou quantas das [[8]]?', texto: 'Comenta o seu placar em Constitucional.', digita: '6 de 8',
+      fala: 'Acertou quantas das oito? Comenta.' },
+  ] },
+  'enac-2026-2-protesto': { n: '06', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Protesto', n: 8, titulo: 'questões de [[protesto]] na prova', texto: 'E 2 delas estavam escondidas em Direito Civil.',
+      fala: 'Protesto apareceu em oito questões do ENAC. Duas estavam escondidas em Civil.' },
+    { tipo: 'temas', rotulo: 'As 6 de Notarial e Registral', titulo: 'O que [[caiu]]', itens: ['Duplicata fora do prazo e regresso', 'Título prescrito e responsabilidade', 'Cédula de crédito bancário com planilha', 'Protesto falimentar', 'Central Nacional de Protesto', 'Certidão de protesto e proteção de dados'],
+      fala: 'Nas de Notarial: duplicata fora do prazo, título prescrito, cédula de crédito bancário, protesto falimentar, Central Nacional de Protesto e certidão com proteção de dados.' },
+    { tipo: 'temas', cor: 'coral', de: 7, rotulo: 'As 2 escondidas em Civil', titulo: 'As que vieram {{disfarçadas}}', itens: ['Cancelamento do protesto e baixa da negativação', 'Protesto de cheque contra cônjuge que não assinou'],
+      fala: 'Em Civil: cancelamento do protesto com baixa da negativação e cheque de cônjuge que não assinou.' },
+    { tipo: 'cta', titulo: 'Qual dessas você [[errou]]?', texto: 'Comenta o tema de protesto que te derrubou.', digita: 'Título prescrito',
+      fala: 'Qual dessas você errou? Comenta.' },
+  ] },
+  'enac-2026-2-anulacao-extrato': { n: '07', fonte: 'Fonte: gabarito extraoficial', cenas: [
+    { tipo: 'frase', ts: 112, texto: 'Uma palavra pode anular esta questão: {{exclusivamente.}}',
+      fala: 'Uma palavra pode derrubar uma questão do ENAC: exclusivamente.' },
+    { tipo: 'duelo', rotulo: 'Extrato eletrônico', titulo: 'Dois gabaritos, {{duas respostas}}', itens: [
+      { tema: 'Extrato eletrônico: limite da qualificação registral', ref: 'Tipo 2 · Q3  |  Tipo 3 · Q32', a: 'D', b: 'E' }],
+      fala: 'É a do extrato eletrônico. Um gabarito extraoficial marcou D, o outro marcou E.' },
+    { tipo: 'temas', cor: 'coral', rotulo: 'O argumento do recurso', titulo: 'Onde está o {{problema}}', itens: ['A alternativa D diz que o oficial qualifica {{exclusivamente}} pelo extrato', 'O art. 210-I do Código Nacional de Normas deixa exigir o contrato quando o oficial achar necessário', 'Com isso, o “exclusivamente” não fecha com a norma'],
+      fala: 'A alternativa D diz que o oficial qualifica o título exclusivamente pelo extrato. Mas o Código Nacional de Normas deixa exigir o contrato quando ele achar necessário.' },
+    { tipo: 'frase', ts: 104, texto: 'Se nenhuma alternativa fica inteiramente certa, cabe pedir {{anulação.}}',
+      fala: 'Se nenhuma alternativa fica inteiramente certa, cabe pedir anulação.' },
+    { tipo: 'cta', titulo: 'Você marcou [[D]] ou {{E}}?', texto: 'Comenta a sua resposta e se vai recorrer.', digita: 'Marquei D, vou recorrer',
+      fala: 'Você marcou D ou E? Comenta.' },
+  ] },
 };
 
 // ---------- narração ----------
@@ -238,9 +297,9 @@ function montar(id, v, estimar) {
       <div class="cena" style="animation:c${i} ${c.dur}s linear ${t}s both">${CENAS[c.tipo](c, t, ev, c.dur)}</div>`);
     t += c.dur;
   });
-  const fixo = `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:flex-end;z-index:5">${logo(64)}<span class="mono" style="font-size:22px;color:${C.cinza}">ENAC 2026.2 · ${v.n}/03</span></div>
+  const fixo = `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:flex-end;z-index:5">${logo(64)}<span class="mono" style="font-size:22px;color:${C.cinza}">ENAC 2026.2 · Nº ${v.n}</span></div>
     <div style="position:absolute;left:90px;right:90px;top:250px;height:4px;background:${C.linha};z-index:5"><div style="height:100%;background:${C.lima};transform-origin:left;animation:barra ${total}s linear 0s both"></div></div>
-    <div class="mono" style="position:absolute;left:90px;right:90px;bottom:330px;display:flex;justify-content:space-between;font-size:22px;color:${C.cinza};z-index:5"><span>${PERFIL}</span><span>${FONTE}</span></div>`;
+    <div class="mono" style="position:absolute;left:90px;right:90px;bottom:330px;display:flex;justify-content:space-between;font-size:22px;color:${C.cinza};z-index:5"><span>${PERFIL}</span><span>${v.fonte || FONTE}</span></div>`;
   const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${css}</style></head><body><div class="tela v">${fundo()}${partes.join('')}${fixo}</div></body></html>`;
   return { html, total, ev, vozes };
 }

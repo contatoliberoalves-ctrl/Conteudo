@@ -187,5 +187,72 @@
         "fonte": "ENAC 2026.2 · 100 questões"
       }
     ]
+  },
+  {
+    "id": "capa-video-4-civil",
+    "titulo": "Capa do vídeo 4 · Metade de Civil foi herança",
+    "video": "enac-2026-2-civil-heranca",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 04 · Direito Civil",
+        "numero": "7",
+        "de": "/14",
+        "tn": 520,
+        "titulo": "Metade de Civil foi [[herança]]",
+        "sub": "Os 14 temas que a banca cobrou, um por um."
+      }
+    ]
+  },
+  {
+    "id": "capa-video-5-constitucional",
+    "titulo": "Capa do vídeo 5 · Constitucional com cara de cartório",
+    "video": "enac-2026-2-constitucional",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 05 · Constitucional",
+        "numero": "4",
+        "de": "/8",
+        "tn": 520,
+        "titulo": "Constitucional com cara de [[cartório]]",
+        "ts": 96,
+        "sub": "Os 8 temas cobrados, e por que metade não era Constitucional puro."
+      }
+    ]
+  },
+  {
+    "id": "capa-video-6-protesto",
+    "titulo": "Capa do vídeo 6 · Protesto caiu 8 vezes",
+    "video": "enac-2026-2-protesto",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 06 · Protesto",
+        "numero": "8",
+        "tn": 520,
+        "titulo": "Protesto caiu 8 vezes. [[2 estavam escondidas]]",
+        "ts": 92,
+        "sub": "Os temas cobrados, inclusive os que vieram dentro de Civil."
+      }
+    ]
+  },
+  {
+    "id": "capa-video-7-anulacao-extrato",
+    "titulo": "Capa do vídeo 7 · Uma palavra pode anular esta questão",
+    "video": "enac-2026-2-anulacao-extrato",
+    "telas": [
+      {
+        "layout": "capa",
+        "cor": "coral",
+        "rotulo": "Vídeo 07 · Recurso",
+        "numero": "D ou E",
+        "tn": 250,
+        "titulo": "Uma palavra pode {{anular}} esta questão",
+        "ts": 100,
+        "sub": "Extrato eletrônico: dois gabaritos, duas respostas.",
+        "fonte": "Fonte: gabarito extraoficial"
+      }
+    ]
   }
 ]

@@ -91,3 +91,78 @@ D) As outras 8 matérias (18)
 Comenta a letra. Vale explicar o motivo.
 
 #enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #direitonotarial #direitoregistral #direitocivil #direitoconstitucional #concursopublico #enacemdados
+
+## Vídeo 4 · Metade de Civil foi herança (`enac-2026-2-civil-heranca`)
+
+Metade de Direito Civil no ENAC 2026.2 tinha herança no meio: 7 das 14 questões.
+
+Os temas de herança:
+▪ Comoriência entre pai e filha
+▪ Herança jacente e sobrinho-neto
+▪ Testamento de menor emancipado
+▪ Renúncia a herança de pessoa viva
+▪ Partilha desigual como doação
+▪ Sub-rogação da inalienabilidade
+▪ Impenhorabilidade sem justa causa
+
+As outras 7: exclusão de associado, reforma de estatuto de fundação, locação built to suit, alienação fiduciária em garantia de mútuo, sentença arbitral no registro de imóveis, cancelamento do protesto e protesto de cheque contra cônjuge.
+
+Qual desses temas te pegou? Comenta.
+
+Agrupamento nosso, a partir dos temas do gabarito extraoficial comentado.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #direitocivil #sucessoes #heranca #testamento #direitonotarial #direitoregistral #gabaritoextraoficial #enacemdados
+
+## Vídeo 5 · Constitucional com cara de cartório (`enac-2026-2-constitucional`)
+
+Das 8 questões de Constitucional do ENAC 2026.2, 4 eram sobre cartório.
+
+Constitucional de cartório:
+▪ Desacumulação de serventia só na vacância
+▪ Lei estadual sobre registros públicos
+▪ Fundo de apoio ao Registro Civil
+▪ Responsabilidade civil de notários (Tema 777 do STF)
+
+Constitucional puro:
+▪ Colisão de direitos fundamentais
+▪ Recepção de lei tributária anterior a 1988
+▪ PEC: iniciativa, quórum e limites
+▪ Marco Civil da Internet (Temas 987 e 533 do STF)
+
+Acertou quantas das 8? Comenta o seu placar.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #direitoconstitucional #stf #tema777 #marcocivil #direitonotarial #direitoregistral #gabaritoextraoficial #enacemdados
+
+## Vídeo 6 · Protesto caiu 8 vezes (`enac-2026-2-protesto`)
+
+Protesto apareceu em 8 questões do ENAC 2026.2. Seis em Notarial e Registral e duas escondidas em Direito Civil.
+
+Em Notarial e Registral:
+▪ Duplicata fora do prazo e regresso
+▪ Título prescrito e responsabilidade
+▪ Cédula de crédito bancário com planilha
+▪ Protesto falimentar
+▪ Central Nacional de Protesto
+▪ Certidão de protesto e proteção de dados
+
+Dentro de Civil:
+▪ Cancelamento do protesto e baixa da negativação
+▪ Protesto de cheque contra cônjuge que não assinou
+
+Qual dessas você errou? Comenta.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #protesto #tabelionatodeprotesto #lei9492 #titulosdecredito #direitonotarial #direitoregistral #gabaritoextraoficial #enacemdados
+
+## Vídeo 7 · Uma palavra pode anular esta questão (`enac-2026-2-anulacao-extrato`)
+
+A questão do extrato eletrônico do ENAC 2026.2 (Tipo 2: Q3 · Tipo 3: Q32) dividiu os gabaritos extraoficiais: um marcou D, o outro marcou E.
+
+O problema está numa palavra. A alternativa D diz que o oficial qualifica o título exclusivamente pelo extrato. Só que o art. 210-I do Código Nacional de Normas (Prov. CNJ 228/2026) deixa o oficial exigir o instrumento de origem sempre que achar necessário.
+
+Se nenhuma alternativa fica inteiramente certa, cabe pedir anulação. O recurso abre depois do gabarito preliminar da FGV.
+
+Você marcou D ou E? Comenta a sua resposta e se vai recorrer.
+
+Análise a partir de gabarito extraoficial. Confira o enunciado no seu caderno antes de recorrer.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #recursoenac #anulacao #extratoeletronico #registrodeimoveis #codigonacionaldenormas #direitonotarial #direitoregistral #enacemdados

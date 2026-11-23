@@ -48,7 +48,7 @@ const LAYOUTS = {
         ${t.sub ? `<div class="txt" style="font-size:40px;color:${C.cinza};margin-top:28px">${tit(t.sub)}</div>` : ''}</div>
       ${t.grupos ? `<div style="position:absolute;right:80px;top:610px">${grade(t.grupos, 280)}</div>` : ''}
       <div style="position:absolute;left:80px;top:1480px;display:flex;align-items:center;gap:18px"><svg width="46" height="46" viewBox="0 0 46 46"><rect width="46" height="46" fill="${C.lima}"/><path d="M17 12l16 11-16 11z" fill="${C.tinta}"/></svg><span class="mono" style="font-size:24px">${esc(t.chamada || 'Assista até o fim')}</span></div>
-      ${pe(1580)}`);
+      ${pe(1580, t.fonte)}`);
   },
   pergunta(t) {
     return pagina(1080, 1350, `${topo(70, t.dir || 'ENAC 2026.2')}
