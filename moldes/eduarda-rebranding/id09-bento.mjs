@@ -120,7 +120,7 @@ const c2 = C.c2;
 const ERROS = [['pin', 'pes', 'Endereçamento'], ['pessoas', 'men', 'Qualificação'], ['alvo', 'ceu', 'Pedido'], ['moeda', 'lil', 'Valor da causa']];
 const c2_1 = pg(`<div class="c lil" style="flex:1;padding:0">
     <div class="h" style="position:absolute;left:30px;top:-40px;font-size:620px;line-height:1;color:#fff">4</div>
-    <img src="${recorte('joinha')}" style="position:absolute;right:-30px;top:70px;width:640px">
+    <img src="${recorte('surpresa')}" style="position:absolute;right:10px;top:230px;width:760px">
     <span class="chip" style="position:absolute;left:40px;bottom:40px">${ic('capelo', { s: 34 })}${esc(c2.sub)}</span>
   </div>
   <div class="c" style="flex:none;padding:44px 48px;margin-top:-60px">
@@ -154,7 +154,7 @@ const opc = (txt, cor, icone, estado = '') => `<div class="c ${cor}" style="disp
 const c3_1 = pg(`<div style="display:flex;align-items:center;gap:18px"><span class="chip dk">${ic('pergunta', { s: 32 })}Certo ou errado?</span>
     <div style="flex:1;height:18px;border-radius:9px;background:#fff;box-shadow:inset 0 0 0 2px rgba(42,44,50,.06)"><div style="width:35%;height:100%;border-radius:9px;background:var(--lil)"></div></div></div>
   <div style="flex:1;display:flex;flex-direction:column;min-height:0">
-    <div class="c pes" style="flex:1;padding:0"><img src="${recorte('surpresa')}" style="position:absolute;left:50%;transform:translateX(-46%);top:28px;width:640px"></div>
+    <div class="c pes" style="flex:1;padding:0"><img src="${recorte('empolgada')}" style="position:absolute;left:50%;transform:translateX(-52%);top:0;width:580px"></div>
     <div class="c" style="flex:none;margin:-110px 0 0;padding:44px 48px">
       <div style="font-size:28px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)">Pensão alimentícia</div>
       <div class="h" style="font-size:70px;margin-top:14px">${esc(c3.pergunta)}</div></div>
@@ -174,7 +174,7 @@ const c3_2 = pg(`<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px
 
 const c3_3 = pg(`<div class="grid" style="grid-template-rows:1fr auto auto">
   <div class="c lil" style="padding:48px;display:flex;flex-direction:column;justify-content:flex-end">
-    <img src="${recorte('empolgada')}" style="position:absolute;right:-50px;top:80px;width:560px">
+    <div class="ph" style="position:absolute;right:0;top:0;bottom:0;width:470px;${ph('joinha', '260%', '40% 40%')}"></div>
     <div class="h" style="font-size:108px;position:relative">Acertou?</div>
     <div style="font-size:38px;font-weight:600;margin-top:14px;position:relative;max-width:500px">Comenta e marca quem precisa saber disso.</div></div>
   <div class="c" style="display:flex;flex-direction:column;gap:24px;padding:40px 44px">

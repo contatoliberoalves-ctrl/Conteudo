@@ -140,7 +140,7 @@ add('c1-3', pg(K.salvia, `
   ${blob(-120, 150, 1000, 760, K.off, 4, { amp: .08 })}
   <div class="abs se" style="left:90px;top:300px;width:700px;font-size:120px;line-height:1">Salva pra <span class="it" style="color:${K.terra}">revisar</span></div>
   <div class="abs" style="left:90px;top:560px;width:560px;font-size:42px;font-weight:600;line-height:1.3">e manda pra quem vai fazer a OAB.</div>
-  ${rec('joinha', { x: 500, corte: 1352, h: 640 })}
+  ${rec('empolgada', { x: 470, corte: 1352, h: 880 })}
   ${pag(3)}`));
 
 // ───────────── C2 lista (fundo musgo, número em blob e foto em círculo; interna em cápsulas) ─────────────
@@ -231,7 +231,7 @@ add('c4-3', pg(K.musgo, `
   ${marca(K.off)}
   <div class="abs se" style="left:72px;top:180px;font-size:104px;width:940px;color:${K.off}">Quer mais mito ou verdade de <span class="it" style="color:${K.pessego}">ECA?</span></div>
   ${blob(40, 600, 560, 420, K.pessego, 15, { inner: `<div><div style="font-size:36px;font-weight:700">comenta</div><div class="se" style="font-size:150px;line-height:1">ECA</div></div>` })}
-  ${rec('joinha', { x: 500, corte: 1352, h: 720 })}
+  ${rec('surpresa', { x: 360, corte: 1352, h: 780 })}
   ${pag(3, K.clara)}`));
 
 // ───────────── C5 apresentação (arco gigante com foto; blobs com os assuntos; recorte) ─────────────
@@ -252,7 +252,7 @@ add('c5-3', pg(K.areia, `
   ${marca()}
   <div class="abs se" style="left:72px;top:180px;font-size:118px;width:940px">Me segue pra estudar <span class="it" style="color:${K.terra}">Civil comigo</span></div>
   ${blob(480, 640, 640, 720, K.salvia, 25)}
-  ${rec('joinha', { x: 460, corte: 1352, h: 760 })}
+  ${rec('empolgada', { x: 480, corte: 1352, h: 800 })}
   <div class="abs pill" style="left:72px;top:760px;background:${K.off};padding:16px 32px;font-size:38px">${PERFIL.arroba}</div>
   <div class="abs pill" style="left:72px;top:870px;background:${K.musgo};color:${K.off};padding:14px 34px;font-size:34px">Seguir</div>
   ${pag(3)}`));

@@ -106,7 +106,7 @@ add('c1-2', `
 `);
 add('c1-3', `
   <div class="abs parede" style="inset:0"></div>
-  <img class="abs" src="${recorte('joinha')}" style="right:-60px;bottom:-140px;width:620px">
+  <img class="abs" src="${recorte('empolgada')}" style="right:-90px;top:795px;width:680px">
   <div class="abs" style="left:60px;top:150px;width:700px;background:var(--noite);border-radius:40px;padding:56px 50px 60px;box-shadow:0 30px 80px #3a0f0055">
     <div class="n" style="font-size:96px;line-height:1.02">Salva</div>
     <div class="n" style="font-size:96px;line-height:1.02">pra revisar</div>
@@ -120,7 +120,7 @@ const c2 = C.c2;
 add('c2-1', `
   <div class="abs" style="inset:0;background:var(--noite)"></div>
   <div class="abs ripa" style="left:0;right:0;bottom:0;height:300px"></div>
-  <img class="abs" src="${recorte('joinha')}" style="right:-30px;bottom:-60px;width:600px">
+  <img class="abs" src="${recorte('surpresa')}" style="right:-20px;top:880px;width:560px">
   ${marca()}${tag('OAB · 2ª fase')}
   <div class="abs na" style="left:30px;top:110px;font-size:760px;line-height:1">4</div>
   <div class="abs" style="left:470px;top:200px;right:50px">
@@ -191,7 +191,7 @@ add('c3-2', `
 `);
 add('c3-3', `
   <div class="abs cortina" style="inset:0"></div>
-  <img class="abs" src="${recorte('joinha')}" style="left:240px;top:520px;width:860px">
+  <img class="abs" src="${recorte('empolgada')}" style="left:260px;top:450px;width:820px">
   <div class="abs" style="left:60px;top:90px;right:60px">
     <div class="n" style="font-size:150px;line-height:1">Acertou?</div>
     <div style="font-size:52px;font-weight:700;line-height:1.15;margin-top:24px;width:820px">Comenta <span class="pill" style="background:var(--ambar);color:var(--noite);font-size:48px;padding:6px 28px">acertei</span> e marca quem precisa saber disso.</div>
@@ -224,9 +224,9 @@ add('c4-2', `
   </div>`).join('')}
 `);
 add('c4-3', `
-  <div class="abs parede" style="inset:0"></div>
-  <img class="abs" src="${recorte('empolgada')}" style="right:-80px;top:380px;width:640px">
-  <div class="abs" style="left:60px;top:120px;width:620px;background:var(--noite);border-radius:40px;padding:50px 46px">
+  <div class="abs" style="inset:0;background:var(--lav)"></div>
+  <div class="abs ph" style="right:60px;top:120px;width:420px;height:930px;border-radius:210px 210px 40px 40px;${ph('explicando', '62% 40%')};background-size:auto 1500px"></div>
+  <div class="abs" style="left:60px;top:330px;width:620px;background:var(--noite);border-radius:40px;padding:50px 46px">
     <div class="h" style="font-size:72px">Quer mais mito ou verdade de <span style="color:var(--ambar)">ECA?</span></div>
     <div style="font-size:40px;font-weight:500;margin-top:30px;color:var(--lav)">Comenta a palavra:</div>
     <div class="na" style="font-size:170px;line-height:1;margin-top:10px">ECA</div>
@@ -314,7 +314,7 @@ add('s1', `
   <div class="abs cortina" style="inset:0"></div>
   ${marca()}
   <div class="abs n" style="left:60px;right:60px;top:180px;text-align:center;font-size:110px;line-height:1">caixinha aberta</div>
-  <img class="abs" src="${recorte('joinha')}" style="left:60px;top:380px;width:1000px">
+  <img class="abs" src="${recorte('empolgada')}" style="left:30px;top:500px;width:900px">
   <div class="abs" style="left:90px;right:90px;top:1260px;background:#fff;border-radius:44px;overflow:hidden;color:var(--noite);box-shadow:0 30px 80px #0006">
     <div style="background:var(--roxo);padding:40px 44px;text-align:center"><div style="font-size:58px;font-weight:800;line-height:1.1;color:#fff">Me pergunta qualquer coisa sobre <span class="na" style="font-weight:400">ECA</span></div></div>
     <div style="padding:34px 44px 40px"><div style="background:#efe9ff;border-radius:24px;padding:30px;text-align:center;font-size:34px;color:#6b5aa6">Digite sua pergunta</div></div>

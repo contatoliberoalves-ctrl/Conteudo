@@ -32,7 +32,7 @@ body{background:#fff;color:var(--k);font-family:Jost,sans-serif}
 const FIT = `<script>document.fonts.ready.then(()=>{document.querySelectorAll('[data-fit]').forEach(e=>{const w=+e.dataset.fit;let f=parseFloat(getComputedStyle(e).fontSize);for(let i=0;i<4;i++){f=f*w/e.scrollWidth;e.style.fontSize=f+'px'}})})</script>`;
 
 const mast = (w, extra = '', txt = 'EDUARDA') => `<div class="mast" data-fit="${w}" style="font-size:200px;${extra}">${txt}</div>`;
-const xmark = (s = 72, cor = '#fff') => `<span class="xm" style="width:${s}px;height:${s}px"><svg width="${s * .5}" height="${s * .5}" viewBox="0 0 10 10"><path d="M1 1l8 8M9 1L1 9" stroke="${cor}" stroke-width="1.6"/></svg></span>`;
+const xmark = (s = 72, cor = '#fff', bg = 'var(--k)') => `<span class="xm" style="width:${s}px;height:${s}px;background:${bg}"><svg width="${s * .5}" height="${s * .5}" viewBox="0 0 10 10"><path d="M1 1l8 8M9 1L1 9" stroke="${cor}" stroke-width="1.6"/></svg></span>`;
 const folio = (pag, cor = 'var(--k)') => `<div class="folio" style="color:${cor}"><span>Eduarda · Civil &amp; ECA</span><span>${pag}</span></div>`;
 const bgf = (n, size, pos) => `background-image:url('${foto(n)}');background-size:${size};background-position:${pos}`;
 const pg = (inner, cls = '', st = '') => `<div class="pg ${cls}" style="${st}">${inner}</div>${FIT}`;
@@ -51,7 +51,7 @@ const c1_1 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('su
   </div>${folio('1/3', '#fff')}`);
 
 const sec = (it, n) => `<div style="display:flex;gap:36px">
-  <div class="b i pk" style="font-size:150px;width:130px;flex:none;line-height:.85">${n}</div>
+  <div class="b pk" style="font-size:130px;font-weight:500;width:150px;flex:none;line-height:.85">${n}</div>
   <div><div class="b" style="font-size:88px;font-weight:600">${esc(it.nome)}</div>
   <div class="b i" style="font-size:44px;line-height:1.2;margin-top:18px">${esc(it.txt)}</div>
   <div class="t" style="margin-top:18px">${esc(it.det)}</div>
@@ -60,7 +60,7 @@ const c1_2 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:fle
   <div><div class="k pk">O guia</div><div class="b i" style="font-size:64px;margin-top:14px">Prescrição x decadência</div></div>
   ${sec(c1.itens[0], 'I')}${sec(c1.itens[1], 'II')}</div>${folio('2/3')}`);
 
-const c1_3 = pg(`<div class="b pk" style="position:absolute;left:44px;top:-10px;font-size:420px;line-height:1">“</div>
+const c1_3 = pg(`<div class="b pk" style="position:absolute;left:44px;top:30px;font-size:360px;line-height:1">“</div>
   <div style="position:absolute;left:64px;right:64px;top:330px">
     <div class="b i" style="font-size:96px;line-height:1.06">Salva pra revisar e manda pra quem vai fazer a OAB.</div>
     <div style="display:flex;flex-direction:column;gap:14px;margin-top:70px">
@@ -73,13 +73,13 @@ const c1_3 = pg(`<div class="b pk" style="position:absolute;left:44px;top:-10px;
 const c2 = C.c2;
 const LBL = ['Endereçamento', 'Qualificação', 'Pedido', 'Valor da causa'];
 const c2_1 = pg(`<div style="position:absolute;left:40px;top:44px">${mast(1000)}</div>
-  <div class="b pk" style="position:absolute;left:-30px;top:170px;font-size:1080px;font-weight:500;line-height:1">4</div>
-  <img class="gray" src="${recorte('joinha')}" style="position:absolute;left:250px;top:330px;width:860px">
+  <div class="b pk" style="position:absolute;left:-20px;top:190px;font-size:1000px;font-weight:900;font-variation-settings:'opsz' 18;line-height:1">4</div>
+  <img class="gray" src="${recorte('surpresa')}" style="position:absolute;left:250px;top:227px;width:820px">
   <div style="position:absolute;left:0;right:0;bottom:0;height:400px;background:#fff;padding:44px 56px 0">
-    <div class="k pk">${esc(c2.sub)}</div>
+    <div style="display:flex;justify-content:space-between"><div class="k pk">${esc(c2.sub)}</div><div class="k">Especial peça prática</div></div>
     <div class="b" style="font-size:100px;font-weight:500;margin-top:18px"><span class="i">erros</span> que derrubam a peça de Civil</div>
   </div>
-  <div class="k" style="position:absolute;right:56px;top:262px;text-align:right;line-height:1.5">Especial<br>peça prática</div>`);
+  `);
 
 const c2_2 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:flex;flex-direction:column">
   <div class="k pk">Sumário</div><div class="b i" style="font-size:100px;margin-top:10px">Os 4 erros</div>
@@ -103,7 +103,7 @@ const c3_1 = pg(`<div class="ph gray" style="position:absolute;right:0;top:0;wid
   <div style="position:absolute;left:0;top:0;width:580px;height:1350px;padding:56px 48px 56px 56px;display:flex;flex-direction:column">
     ${mast(476)}
     <div class="k pk" style="margin-top:60px">Certo ou errado?</div>
-    <div class="b i" style="font-size:80px;line-height:1.06;margin-top:28px">${esc(c3.pergunta)}</div>
+    <div class="b i" style="font-size:62px;line-height:1.1;margin-top:28px">${esc(c3.pergunta)}</div>
     <div style="margin-top:auto;display:flex;align-items:baseline;gap:22px"><span class="k" style="font-size:34px">Certo</span><span class="b i pk" style="font-size:52px">ou</span><span class="k" style="font-size:34px">Errado</span></div>
     <div style="font-size:28px;font-weight:300;margin-top:22px;opacity:.8">Resposta no próximo slide</div>
   </div>`, 'bk');
@@ -128,11 +128,11 @@ const c3_3 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('ex
 const c4 = C.c4;
 const c4_1 = pg(`<div class="bk" style="position:absolute;left:0;right:0;top:0;height:675px"></div>
   <div style="position:absolute;left:56px;top:60px;color:#fff"><div class="k pk">ECA · Adoção</div><div class="b i" style="font-size:140px;margin-top:18px">Adoção:</div></div>
-  <div style="position:absolute;left:40px;top:430px;color:#fff">${mast(1000, '', 'MITO')}</div>
-  <div style="position:absolute;left:40px;top:715px">${mast(1000, '', 'VERDADE')}</div>
-  <div class="stamp" style="width:200px;height:200px;right:70px;top:575px"><span class="b i" style="font-size:100px;line-height:.8">ou</span></div>
+  <div style="position:absolute;left:40px;bottom:712px;color:#fff">${mast(800, '', 'MITO')}</div>
+  <div style="position:absolute;left:40px;top:718px">${mast(1000, '', 'VERDADE')}</div>
+  <div class="stamp" style="width:180px;height:180px;right:56px;top:470px"><span class="b i" style="font-size:100px;line-height:.8">ou</span></div>
   <div style="position:absolute;left:56px;right:56px;bottom:56px;display:flex;justify-content:space-between;align-items:flex-end">
-    <div class="b i" style="font-size:52px;line-height:1.1">2 frases que todo<br>mundo repete.</div><div class="k" style="text-align:right">Arrasta<br>e confere</div></div>`);
+    <div class="b i" style="font-size:64px;line-height:1.08">2 frases que todo<br>mundo repete.</div><div class="k" style="text-align:right">Arrasta<br>e confere</div></div>`);
 
 const c4_2 = pg(`<div style="position:absolute;left:0;right:0;top:0;height:675px;padding:60px 64px">
     <div style="display:flex;align-items:baseline;gap:24px"><div class="b pk" style="font-size:180px;font-weight:600;line-height:.8">IN</div><div class="k">Verdade</div></div>
@@ -140,7 +140,7 @@ const c4_2 = pg(`<div style="position:absolute;left:0;right:0;top:0;height:675px
     <div class="t" style="margin-top:20px">${esc(c4.itens[0].txt)}</div>
     <div class="k pk" style="margin-top:20px;font-size:26px">${esc(c4.itens[0].base)}</div></div>
   <div class="bk" style="position:absolute;left:0;right:0;bottom:0;height:675px;padding:60px 64px">
-    <div style="display:flex;align-items:center;gap:24px"><div class="b" style="font-size:180px;font-weight:600;line-height:.8">OUT</div>${xmark(90, P.k).replace('background:var(--k)', '')}<div class="k">Mito</div></div>
+    <div style="display:flex;align-items:center;gap:24px"><div class="b" style="font-size:180px;font-weight:600;line-height:.8">OUT</div>${xmark(90, P.k, '#fff')}<div class="k">Mito</div></div>
     <div class="b" style="font-size:66px;font-weight:500;margin-top:34px"><s style="text-decoration-thickness:4px">${esc(c4.itens[1].frase)}</s></div>
     <div class="t" style="margin-top:20px;font-weight:300">${esc(c4.itens[1].txt)}</div>
     <div class="k pk" style="margin-top:20px;font-size:26px">${esc(c4.itens[1].base)}</div></div>
@@ -164,10 +164,10 @@ const c5_1 = pg(`<div style="position:absolute;left:40px;top:50px">${mast(1000)}
     <div class="b i" style="font-size:44px;line-height:1.05"><span class="pk">ECA</span> sem juridiquês</div>
     <div class="b i" style="font-size:44px;line-height:1.05"><span class="pk">Bastidores</span> das aulas</div></div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:450px;background:#fff;padding:40px 56px 0">
-    <div class="b i pk" style="font-size:150px;font-weight:500">Prazer, Eduarda</div>
+    <div class="b i pk" style="font-size:118px;font-weight:500">Prazer, Eduarda</div>
     <div class="t" style="margin-top:26px;font-size:38px">${esc(c5.sub)}</div></div>`);
 
-const c5_2 = pg(`<div class="ph gray" style="position:absolute;left:0;top:0;width:540px;height:1350px;${bgf('joinha', 'auto 100%', '40% 50%')}"></div>
+const c5_2 = pg(`<div class="ph gray" style="position:absolute;left:0;top:0;width:540px;height:1350px;${bgf('joinha', 'auto 140%', '36% 47%')}"></div>
   <div style="position:absolute;left:600px;right:56px;top:70px;bottom:110px;display:flex;flex-direction:column">
     <div class="k pk">Nesta edição</div>
     <div class="b i" style="font-size:76px;margin-top:16px;line-height:1.02">O que você encontra aqui</div>
@@ -176,7 +176,7 @@ const c5_2 = pg(`<div class="ph gray" style="position:absolute;left:0;top:0;widt
   </div>${folio('2/3').replace('left:56px', 'left:600px')}`);
 
 const c5_3 = pg(`<div style="position:absolute;left:0;right:0;top:110px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 70px">
-    <div class="ph gray" style="width:360px;height:360px;border-radius:50%;${bgf('empolgada', '300% auto', '60% 22%')}"></div>
+    <div class="ph gray" style="width:360px;height:360px;border-radius:50%;${bgf('empolgada', '300% auto', '53% 36%')}"></div>
     <div class="k pk" style="margin-top:56px">Assine</div>
     <div class="b i" style="font-size:104px;line-height:1.04;margin-top:26px">Me segue pra estudar Civil comigo.</div>
     <div style="margin-top:60px;background:#fff;color:var(--k);border-radius:999px;padding:30px 120px" class="k">Seguir</div>
@@ -204,13 +204,13 @@ const p3 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:flex;
   <div class="b" style="font-size:96px;font-weight:500;margin-top:18px">Ordem da <span class="i">vocação hereditária</span></div>
   <div style="display:flex;flex-direction:column;justify-content:space-around;flex:1;margin-top:20px">
   ${p3c.itens.map((t, i) => { const [a, b] = t.split(' ('); return `<div style="display:flex;gap:36px;align-items:center">
-    <div class="b i pk" style="font-size:120px;width:110px;flex:none;text-align:center">${i + 1}</div>
+    <div class="b pk" style="font-size:120px;font-weight:500;width:110px;flex:none;text-align:center">${i + 1}</div>
     <div><div class="b" style="font-size:50px;line-height:1.1">${esc(a)}</div>${b ? `<div class="t" style="font-size:30px;color:var(--cinza);margin-top:8px">${esc(b.replace(/\)$/, ''))}</div>` : ''}</div></div>`; }).join('')}
   </div><div class="k pk" style="font-size:26px">${esc(p3c.base)}</div></div>${folio('Guia de bolso')}`);
 
 // ---------- Stories ----------
 const s1 = pg(`<div style="position:absolute;left:40px;top:210px">${mast(1000)}</div>
-  <img class="gray" src="${recorte('joinha')}" style="position:absolute;left:150px;top:400px;width:920px">
+  <img class="gray" src="${recorte('empolgada')}" style="position:absolute;left:60px;top:242px;width:920px">
   <div class="bk" style="position:absolute;left:56px;right:56px;top:1060px;padding:56px 52px">
     <div class="k pk">Caixinha de perguntas</div>
     <div class="b i" style="font-size:88px;line-height:1.04;margin-top:24px">Me pergunta qualquer coisa sobre ECA</div>

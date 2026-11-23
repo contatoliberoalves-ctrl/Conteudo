@@ -92,7 +92,7 @@ add('00-identidade', pg(K.creme, `
     <div class="abs" style="left:0;top:116px">${check(104)}</div>
     <div class="abs" style="left:126px;top:116px">${xis(104)}</div>
     <div class="abs" style="left:0;top:240px;font-size:28px;font-weight:600;width:250px;line-height:1.25">certo em rosa, errado com X preto</div>
-    <img class="abs fig" src="${recorte('joinha')}" style="left:262px;top:${Math.round(364 - .66 * 230)}px;height:230px">
+    <img class="abs fig" src="${recorte('empolgada')}" style="left:262px;top:${Math.round(364 - .6 * 230)}px;height:230px">
   </div>
   <div class="abs" style="left:0;bottom:0;width:1080px;height:150px;background:${K.tinta};color:${K.creme};padding:30px 64px">
     <div class="an" style="font-size:34px;color:${K.chiclete}">Tom de voz</div>
@@ -130,7 +130,7 @@ add('c1-3', pg(K.chiclete, `
   ${marca(K.tinta)}
   <div class="abs an" style="left:58px;top:160px;font-size:210px;color:${K.tinta}">Salva</div>
   <div class="abs an" style="left:58px;top:355px;font-size:210px;color:${K.cereja}">esse post</div>
-  ${recB('joinha', { x: 470, corte: 1352, h: 780 })}
+  ${recB('empolgada', { x: 480, corte: 1352, h: 780 })}
   <div class="abs card" style="left:64px;top:620px;width:600px;background:${K.creme};padding:40px 44px;transform:rotate(-2deg)">
     <div style="font-size:42px;font-weight:800;line-height:1.2">${esc(C.c1.fim)}</div>
   </div>
@@ -233,7 +233,7 @@ add('c4-3', pg(K.creme, `
     <div class="an" style="font-size:110px">Comenta</div>
     <div class="stk" style="background:${K.cereja};color:${K.creme};padding:6px 40px;font-family:Anton;font-weight:400;font-size:120px;border-radius:40px;transform:rotate(-4deg)">ECA</div>
   </div>
-  ${recB('joinha', { x: 440, corte: 1352, h: 700 })}
+  ${recB('surpresa', { x: 400, corte: 1352, h: 740 })}
   ${pag(3, K.chiclete)}`));
 
 // ───────────── C5 apresentação (foto cheia + nome gigante; grade de adesivos; recorte) ─────────────
@@ -259,7 +259,7 @@ add('c5-3', pg(K.chiclete, `
   <div class="abs an" style="left:58px;top:110px;font-size:170px;width:980px">Me segue pra estudar <span style="color:${K.cereja}">Civil comigo</span></div>
   <div class="abs stk" style="left:64px;top:690px;background:${K.creme};padding:16px 34px;font-size:44px;transform:rotate(-3deg)">${PERFIL.arroba}</div>
   <div class="abs stk" style="left:64px;top:820px;background:${K.cereja};color:${K.creme};padding:14px 34px;font-size:36px;transform:rotate(2deg)">+ Seguir</div>
-  ${recB('joinha', { x: 470, corte: 1352, h: 720 })}
+  ${recB('empolgada', { x: 500, corte: 1352, h: 760 })}
   ${pag(3)}`));
 
 // ───────────── Posts únicos ─────────────
