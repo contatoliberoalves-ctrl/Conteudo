@@ -1,0 +1,294 @@
+
+<title>Do Edital à Prova TJPB</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Oito materiais em PDF para Analista Judiciário do TJPB, Área Judiciária (FGV, prova em 24/01/2027): raio-x do edital, o que a FGV cobra nos TJs, estratégia, três cronogramas, edital verticalizado e a discursiva de estudo de caso com espelho. Por Líbero Filho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;600;800&family=Sora:wght@600;700&display=swap">
+<style>
+/* Layout: bandas alternadas de índigo (com os meios-sóis da Ponta do Seixas) e papel. O momento interativo é a conta
+   da nota: o visitante escolhe ampla ou cotas, move gerais, específicas e discursiva e compara com a régua real do TJDFT 2022 (FGV).
+   Visual único (não troca com o tema do leitor): todas as cores vêm dos tokens abaixo. */
+:root{
+  --lagoa:#1C1838; --lagoa2:#252046; --lagoa3:#363062; --areia:#F6F3EC; --tinta:#17142E;
+  --turq:#F2B230; --turq2:#B57A0C; --espuma:#D9CFF6; --sol:#F2B230; --branco:#FFFFFF;
+  --cinza:#686478; --corpo:#2A2640; --borda:#E2DDD0; --trilho:#EBE7DD; --realce:#FBEFCF;
+  --claro-85:rgba(255,255,255,.86); --claro-60:rgba(255,255,255,.62); --claro-20:rgba(255,255,255,.2); --claro-08:rgba(255,255,255,.08);
+  --titulo:'Big Shoulders Display','Arial Narrow',Impact,sans-serif; --texto:'Inter',system-ui,sans-serif; --rotulo:'Sora','Inter',system-ui,sans-serif;
+  --dunas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='58' viewBox='0 0 96 58' fill='none' stroke='%23D9CFF6' stroke-opacity='.13' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M5 26a19 19 0 0 1 38 0M14 26a10 10 0 0 1 20 0M53 58a19 19 0 0 1 38 0M62 58a10 10 0 0 1 20 0'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--areia);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.55;padding-bottom:76px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--lagoa)}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.banda{padding-block:64px}
+.escura{background:var(--lagoa) var(--dunas);color:var(--branco)}
+.rot{font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--turq2);margin:0 0 10px}
+.escura .rot{color:var(--espuma)}
+h1,h2{font-family:var(--titulo);font-weight:900;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,8.4vw,96px)} h2{font-size:clamp(34px,5.4vw,60px)}
+h1 em,h2 em{font-style:normal;color:var(--turq2)} .escura h1 em,.escura h2 em{color:var(--espuma)}
+h3{font-family:var(--texto);font-weight:800;font-size:17px;margin:0;line-height:1.3}
+.lead{font-size:18px;max-width:60ch;margin:16px 0 0;color:var(--corpo)} .escura .lead{color:var(--claro-85)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--turq);color:var(--branco);font-weight:800;font-size:17px;text-decoration:none;padding:15px 24px;border-radius:10px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.06)} .btn:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sol);outline-offset:3px}
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--lagoa);border-bottom:1px solid var(--claro-20)}
+.topo .in{display:flex;justify-content:space-between;align-items:center;padding-block:10px;gap:12px}
+.marca{display:flex;align-items:center;gap:9px;color:var(--branco);text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.marca small{display:block;font-family:var(--rotulo);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--espuma)}
+.topo a.preco{font-family:var(--rotulo);font-weight:700;font-size:13px;color:var(--branco);background:var(--turq);padding:8px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.hero{padding-block:48px 56px}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.selo{display:inline-block;font-family:var(--rotulo);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--turq);color:var(--branco);padding:7px 12px;border-radius:6px;margin-bottom:18px}
+.compra{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:26px}
+.compra p{margin:0;font-size:14px;color:var(--claro-85)} .compra b{font-family:var(--titulo);font-size:34px;color:var(--branco);display:block;line-height:1}
+.dias{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--claro-20);max-width:420px}
+.dias strong{font-family:var(--titulo);font-size:56px;line-height:.9;color:var(--espuma)} .dias span{font-size:14px;color:var(--claro-85)}
+.capas{position:relative;aspect-ratio:1/1.16;max-width:100%}
+.capas img{position:absolute;width:56%;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.42);border:1px solid var(--claro-20)}
+.capas img:nth-child(1){left:0;top:10%;transform:rotate(-7deg)} .capas img:nth-child(2){right:0;top:0;transform:rotate(6deg)} .capas img:nth-child(3){left:22%;top:22%;transform:rotate(-1deg)}
+.fatos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.fatos div{padding:22px 18px;border-left:1px solid var(--borda)} .fatos div:first-child{border-left:0;padding-left:0}
+.fatos b{font-family:var(--titulo);font-size:46px;line-height:1;color:var(--turq2);display:block;font-variant-numeric:tabular-nums}
+.fatos span{font-size:14px;color:var(--corpo)} .fatos small{display:block;font-family:var(--rotulo);font-weight:600;font-size:10px;letter-spacing:.08em;color:var(--cinza);margin-top:6px}
+.duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+.cartao{background:var(--branco);color:var(--tinta);border:1px solid var(--borda);border-radius:14px;padding:22px}
+label.campo{display:block;font-family:var(--rotulo);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);margin-bottom:6px}
+select{width:100%;font:600 16px var(--texto);color:var(--tinta);background:var(--areia);border:1.5px solid var(--borda);border-radius:9px;padding:12px}
+.ficha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:16px;border-top:1px solid var(--borda)}
+.ficha div{padding:13px 0;border-bottom:1px solid var(--borda)} .ficha div:nth-child(odd){padding-right:12px}
+.ficha dt{font-family:var(--rotulo);font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+.ficha dd{margin:2px 0 0;font-family:var(--titulo);font-size:30px;line-height:1.05;color:var(--tinta);font-variant-numeric:tabular-nums}
+.ficha dd small{font-family:var(--texto);font-weight:600;font-size:13px;color:var(--cinza)}
+.leitura{margin:14px 0 0;font-size:15px;color:var(--corpo);background:var(--realce);border-radius:10px;padding:12px 14px}
+.regua{margin-bottom:18px} .regua output{font-family:var(--titulo);font-size:28px;float:right;line-height:1;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--turq);margin-top:8px}
+.nota{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+.nota div{background:var(--areia);border-radius:10px;padding:14px} .nota b{font-family:var(--titulo);font-size:44px;line-height:1;display:block;font-variant-numeric:tabular-nums} .nota span{font-size:13px;color:var(--cinza)}
+.barra{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 62px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20)}
+.barra:first-of-type{border-top:0} .barra span{font-weight:600;font-size:15px} .barra i{display:block;height:13px;border-radius:7px;background:var(--claro-08);overflow:hidden}
+.barra i::after{content:"";display:block;height:100%;width:var(--w);background:var(--turq);border-radius:7px} .barra b{font-family:var(--titulo);font-size:26px;text-align:right;font-variant-numeric:tabular-nums}
+.barra.oculta span{color:var(--claro-60)} .barra.oculta i::after{background:var(--claro-20)} .barra.oculta b{color:var(--claro-60)}
+.pecas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:30px}
+.peca img{display:block;width:100%;aspect-ratio:794/1123;object-fit:cover;border-radius:8px;border:1px solid var(--borda);box-shadow:0 8px 18px rgba(7,30,48,.14)}
+.peca h3{margin-top:12px} .peca p{margin:4px 0 0;font-size:14px;color:var(--corpo)} .peca small{font-family:var(--rotulo);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--turq2)}
+.dentro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.dentro figure{margin:0} .dentro img{display:block;width:100%;border-radius:8px;border:1px solid var(--claro-20)} .dentro figcaption{font-size:13px;color:var(--claro-85);margin-top:8px}
+.planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.planos b{font-family:var(--titulo);font-size:40px;line-height:1;color:var(--turq2);display:block} .planos p{margin:6px 0 0;font-size:14.5px;color:var(--corpo)}
+.oferta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center;margin-top:28px}
+.oferta ul{list-style:none;margin:0;padding:0} .oferta li{padding:11px 0 11px 30px;border-top:1px solid var(--claro-20);position:relative;font-size:15.5px;color:var(--claro-85)} .oferta li b{color:var(--branco)}
+.oferta li::before{content:"";position:absolute;left:4px;top:17px;width:12px;height:7px;border-left:2.5px solid var(--sol);border-bottom:2.5px solid var(--sol);transform:rotate(-45deg)}
+.caixa{background:var(--areia);color:var(--tinta);border-radius:16px;padding:26px;text-align:center}
+.caixa b{font-family:var(--titulo);font-size:72px;line-height:1;display:block} .caixa p{margin:4px 0 16px;color:var(--corpo);font-size:14px} .caixa .btn{width:100%} .caixa small{display:block;margin-top:12px;font-size:12.5px;color:var(--cinza)}
+.autor{display:grid;grid-template-columns:150px minmax(0,1fr);gap:26px;align-items:center;margin-top:8px}
+.autor img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--turq)} .autor p{margin:8px 0 0;color:var(--corpo);max-width:62ch}
+details{border-top:1px solid var(--borda);padding:14px 0} details:last-of-type{border-bottom:1px solid var(--borda)}
+summary{font-weight:800;font-size:16.5px;cursor:pointer} details p{margin:8px 0 0;color:var(--corpo);max-width:70ch}
+.rodape{font-size:12.5px;color:var(--cinza);padding-block:26px}
+.fixa{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--lagoa);border-top:1px solid var(--claro-20);padding-bottom:env(safe-area-inset-bottom,0px)}
+.fixa .in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.fixa span{color:var(--claro-85);font-size:13.5px} .fixa span b{color:var(--branco);font-size:16px} .fixa .btn{padding:11px 18px;font-size:15px}
+@media (max-width:820px){
+  .hero .in,.duas,.oferta{grid-template-columns:minmax(0,1fr)} .capas{max-width:420px;margin:0 auto;width:100%}
+  .fatos{grid-template-columns:repeat(2,minmax(0,1fr))} .fatos div{border-left:0;padding-left:0;border-top:1px solid var(--borda)} .fatos div:nth-child(-n+2){border-top:0}
+  .pecas,.dentro{grid-template-columns:repeat(2,minmax(0,1fr))} .planos{grid-template-columns:minmax(0,1fr)}
+  .banda{padding-block:48px} .barra{grid-template-columns:minmax(0,1fr) 62px} .barra i{grid-column:1/-1;grid-row:2}
+  .autor{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){.capas img{transition:transform .5s} .capas:hover img:nth-child(3){transform:rotate(0) translateY(-6px)}}
+</style>
+<style>
+.corte{position:relative;height:16px;border-radius:8px;background:var(--trilho);margin:34px 0 30px}
+.corte i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--turq);width:var(--w)}
+.corte b{position:absolute;top:-6px;width:3px;height:28px;background:var(--tinta)}
+#m-med span{top:-22px!important}
+.corte b span{position:absolute;top:30px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--rotulo);font-weight:700;font-size:10.5px;color:var(--cinza)}
+.abas{display:flex;gap:8px;margin-bottom:16px}.abas button{flex:1;font:700 15px var(--texto);padding:11px;border-radius:9px;border:1.5px solid var(--borda);background:var(--areia);color:var(--tinta);cursor:pointer}
+.abas button[aria-pressed="true"]{background:var(--tinta);color:var(--branco);border-color:var(--tinta)}
+.p1{display:grid;grid-template-columns:70px minmax(0,1fr) 60px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20);font-size:15px}
+.p1 b{font-family:var(--titulo);font-size:22px;color:var(--espuma)} .p1 em{font-style:normal;font-family:var(--titulo);font-size:22px;text-align:right}
+</style>
+
+<style>
+/* Amarelo de sol pede texto escuro: botões, selo e preço ficam em índigo. */
+.btn,.topo a.preco,.selo{color:var(--tinta)} .escura h1 em,.escura h2 em{color:var(--turq)}
+</style>
+<header class="topo"><div class="in">
+  <a class="marca" href="#inicio"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient></defs><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#g)"/><path d="M32 22V70H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46l9 9l18-20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><small>Concurso com</small>Líbero</span></a>
+  <a class="preco" href="#oferta">R$ {{PRECO}} · ver o kit</a>
+</div></header>
+
+<section class="banda escura hero" id="inicio"><div class="in">
+  <div>
+    <span class="selo">TJPB · Analista Judiciário · Área Judiciária · FGV</span>
+    <h1>Do edital <em>à prova</em> em 8 materiais</h1>
+    <p class="lead">O Edital nº 01/2026 lido linha a linha, 120 questões de Analista Judiciário da FGV em outros TJs classificadas por assunto, a discursiva de estudo de caso com espelho e três cronogramas até 24/01/2027.</p>
+    <div class="compra"><a class="btn" data-checkout href="#oferta">Quero o kit</a><p><b>R$ {{PRECO}}</b>8 PDFs, 51 páginas</p></div>
+    <div class="dias" id="conta-dias"><strong id="dias">62</strong><span id="dias-texto">dias até a prova<br>domingo, 24/01/2027, 13h</span></div>
+  </div>
+  <div class="capas" aria-hidden="true"><img src="assets/c8.webp" alt=""><img src="assets/c2.webp" alt=""><img src="assets/c1.webp" alt=""></div>
+</div></section>
+
+<section class="in" aria-label="Números do concurso"><div class="fatos">
+  <div><b>25</b><span>vagas na Área Judiciária, mais cadastro de reserva; R$ 11.526 por mês</span><small>Edital nº 01/2026, item 3.1</small></div>
+  <div><b>40 de 100</b><span>pontos vêm da discursiva de estudo de caso</span><small>Edital, itens 10.7 e 12.1</small></div>
+  <div><b>300</b><span>discursivas corrigidas: 12 por vaga. O resto sai mesmo com 36</span><small>Edital, item 10.13</small></div>
+  <div><b>58 de 80</b><span>específicas da FGV nos TJs foram de Civil, Processo Civil, Penal e Processo Penal</span><small>TJDFT 2022 e TJMS 2024</small></div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Faça a conta</p>
+  <h2>Sua nota contra a <em>régua da FGV</em></h2>
+  <p class="lead">Cada questão vale 1 ponto e o erro não desconta. Mexa nos acertos e na discursiva e compare com o TJDFT de 2022, a prova mais parecida da FGV: 60 questões, Analista da Área Judiciária e discursiva.</p>
+  <div class="duas">
+    <div class="cartao">
+      <div class="abas" role="group" aria-label="Concorrência"><button type="button" id="b-ag" aria-pressed="true">Ampla</button><button type="button" id="b-es" aria-pressed="false">Cotas</button></div>
+      <div class="regua"><label class="campo" for="p1">Gerais: Português, Ética, Informática (de 20) <output id="p1-o" for="p1">14</output></label><input type="range" id="p1" min="0" max="20" value="14"></div>
+      <div class="regua"><label class="campo" for="p2">Conhecimentos Específicos (de 40) <output id="p2-o" for="p2">26</output></label><input type="range" id="p2" min="0" max="40" value="26"></div>
+      <div class="regua"><label class="campo" for="red">Discursiva (de 40) <output id="red-o" for="red">28</output></label><input type="range" id="red" min="0" max="40" step="0.5" value="28"></div>
+      <div class="corte" id="barra"><i></i><b id="m-corte"><span>mínimo TJPB</span></b><b id="m-med"><span>última corrigida TJDFT</span></b></div>
+      <div class="nota"><div><b id="n-obj">40</b><span>objetiva, de 60</span></div><div><b id="n-fin">68</b><span>total, de 100</span></div></div>
+      <p class="leitura" id="veredito"></p>
+    </div>
+    <div>
+      <h3>O que a régua mostra</h3>
+      <p style="color:var(--corpo);margin:8px 0 0">No TJPB, a objetiva elimina abaixo de 36 (60%) e só os 300 primeiros da Área Judiciária têm a discursiva corrigida. No TJDFT de 2022, com a FGV, a última nota da ampla que ainda teve a discursiva corrigida foi 39, e a mediana dos corrigidos, 41.</p>
+      <p style="color:var(--corpo)">Cotistas são aprovados com 20% a menos (28,8 na objetiva e 19,2 na discursiva) e têm a discursiva sempre corrigida. O Raio-X do edital explica a conta e as projeções.</p>
+      <p style="font-size:13px;color:var(--cinza)">Fontes: Edital nº 01/2026 do TJPB, itens 10.12 e 10.13; TJDFT, Edital nº 01/2022 (resultado definitivo da objetiva e relação de discursivas corrigidas, FGV). Estatística calculada sobre as notas publicadas.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">As 40 específicas</p>
+  <h2>Sete disciplinas, <em>uma conta só</em></h2>
+  <p class="lead">O edital do TJPB não divide as 40 específicas. Nas provas da FGV no TJDFT e no TJMS, a divisão foi parecida.</p>
+  <div style="margin-top:22px;max-width:760px">
+    <div class="p1"><b>15</b><span>Direito Civil e do Consumidor</span><em>de 80</em></div>
+    <div class="p1"><b>15</b><span>Processo Penal</span><em>de 80</em></div>
+    <div class="p1"><b>14</b><span>Processo Civil (7 só de recursos)</span><em>de 80</em></div>
+    <div class="p1"><b>14</b><span>Direito Penal e leis penais</span><em>de 80</em></div>
+    <div class="p1"><b>18</b><span>Constitucional, Administrativo e Direitos Humanos</span><em>de 80</em></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:14px;max-width:70ch">Três das 80 foram de temas fora do edital do TJPB (tributário, empresarial e lei de MS). Dois em cada três itens eram casos com nomes, e 13 dependiam de jurisprudência do STF ou do STJ: a lista está na peça 2.</p>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">O que vem no kit</p>
+  <h2>Oito peças, <em>uma sequência</em></h2>
+  <p class="lead">Primeiro entender o edital e a régua da FGV, depois saber o que cai, decidir a ordem de estudo, treinar a discursiva e seguir um calendário.</p>
+  <div class="pecas">
+    <article class="peca"><img src="assets/c1.webp" alt="Capa do Raio-X do edital"><small>Peça 1 · 8 páginas</small><h3>Raio-X do edital</h3><p>Vagas, a conta da nota, quem tem a discursiva corrigida e o que outros TJs da FGV mostram.</p></article>
+    <article class="peca"><img src="assets/c2.webp" alt="Capa de O que a FGV cobra"><small>Peça 2 · 9 páginas</small><h3>O que a FGV cobra</h3><p>120 questões de Analista no TJDFT e no TJMS, por disciplina, assunto, jurisprudência e formato.</p></article>
+    <article class="peca"><img src="assets/c3.webp" alt="Capa da Estratégia"><small>Peça 3 · 7 páginas</small><h3>Estratégia</h3><p>Ordem de estudo, metas, discursiva por quesitos, as 5 horas de prova e o que cortar.</p></article>
+    <article class="peca"><img src="assets/c4.webp" alt="Capa do Cronograma A"><small>Peça 4 · 5 páginas</small><h3>Cronograma A · 2 h por dia</h3><p>9 semanas para quem trabalha, com um estudo de caso por semana.</p></article>
+    <article class="peca"><img src="assets/c5.webp" alt="Capa do Cronograma B"><small>Peça 5 · 5 páginas</small><h3>Cronograma B · 4 h por dia</h3><p>9 semanas, o edital inteiro.</p></article>
+    <article class="peca"><img src="assets/c6.webp" alt="Capa do Cronograma C"><small>Peça 6 · 3 páginas</small><h3>Cronograma C · reta final</h3><p>4 semanas a partir de 28/12, com os cortes explicados.</p></article>
+    <article class="peca"><img src="assets/c7.webp" alt="Capa do Edital verticalizado"><small>Peça 7 · 5 páginas</small><h3>Edital verticalizado</h3><p>As 10 disciplinas, item por item, na ordem do que a FGV mais cobrou.</p></article>
+    <article class="peca"><img src="assets/c8.webp" alt="Capa da Discursiva: estudo de caso"><small>Peça 8 · 9 páginas</small><h3>Discursiva: estudo de caso</h3><p>Os espelhos do TJDFT e quatro casos de treino com espelho de 40 pontos.</p></article>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">A discursiva</p>
+  <h2>40 pontos, <em>corrigidos por pedaço</em></h2>
+  <p class="lead">No TJDFT, a FGV deu 3 pontos para quem escreveu "há dolo" e mais 2 para quem disse sobre o quê. Cada pergunta do caso é um quesito.</p>
+  <div style="margin-top:26px;max-width:760px">
+    <div class="p1"><b>1º</b><span>Análise crítica do contexto: partes, fatos, pergunta jurídica</span><em>10.7.2</em></div>
+    <div class="p1"><b>2º</b><span>Identificação dos problemas: um quesito por pergunta</span><em>10.7.2</em></div>
+    <div class="p1"><b>3º</b><span>Aplicação da norma: artigo, súmula ou tema em cada resposta</span><em>10.7.2</em></div>
+    <div class="p1"><b>4º</b><span>Proposição de solução: o que fazer e contra quem</span><em>10.7.2</em></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:16px;max-width:70ch">As quatro exigências do estudo de caso no item 10.7.2 do edital. A peça 8 mostra como viraram pontos nos espelhos da FGV e traz quatro casos de treino nos assuntos que mais caem.</p>
+  <div class="dentro">
+    <figure><img src="assets/p1.webp" alt="Página do Raio-X sobre a correção da discursiva" loading="lazy"><figcaption>Raio-X: quem tem a discursiva corrigida</figcaption></figure>
+    <figure><img src="assets/p2.webp" alt="Página com a divisão das 40 específicas" loading="lazy"><figcaption>FGV: como as 40 se dividiram</figcaption></figure>
+    <figure><img src="assets/p3.webp" alt="Página do cronograma" loading="lazy"><figcaption>Cronograma A: semanas 1 a 5</figcaption></figure>
+    <figure><img src="assets/p4.webp" alt="Página com caso de treino e espelho" loading="lazy"><figcaption>Caso de treino com espelho</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Três calendários</p>
+  <h2>Escolha pelas <em>horas que você tem</em></h2>
+  <div class="planos">
+    <div class="cartao"><b>2 h por dia</b><h3>Cronograma A · 9 semanas</h3><p>12 horas por semana, um estudo de caso por semana e as provas da FGV na semana 8.</p></div>
+    <div class="cartao"><b>4 h por dia</b><h3>Cronograma B · 9 semanas</h3><p>24 horas por semana, o edital inteiro e a discursiva toda semana.</p></div>
+    <div class="cartao"><b>4 semanas</b><h3>Cronograma C · reta final</h3><p>Para quem começa em 28/12. 18 horas por semana e dois casos por semana.</p></div>
+  </div>
+  <p style="font-size:14px;color:var(--cinza);margin-top:16px;max-width:75ch">Natal e Ano-Novo estão nas semanas 5 e 6. Os cronogramas dizem o que cortar primeiro se você perder dias.</p>
+</div></section>
+
+<section class="banda escura" id="oferta"><div class="in">
+  <p class="rot">O que você recebe</p>
+  <h2>Do Edital à Prova · <em>TJPB</em></h2>
+  <div class="oferta">
+    <ul>
+      <li><b>Raio-X do edital</b>, com a conta da nota, a fila de 300 e a régua da FGV</li>
+      <li><b>O que a FGV cobra</b>, com 120 questões classificadas e a jurisprudência cobrada</li>
+      <li><b>Estratégia</b>, com metas, discursiva por quesitos e as 5 horas de prova</li>
+      <li><b>Três cronogramas</b> com folha de controle: 2 h, 4 h e reta final</li>
+      <li><b>Edital verticalizado</b>, na ordem de cobrança</li>
+      <li><b>Discursiva: estudo de caso</b>, com 6 casos e espelho</li>
+    </ul>
+    <div class="caixa"><b>R$ {{PRECO}}</b><p>pagamento único · 8 PDFs · 51 páginas</p><a class="btn" data-checkout href="#oferta">Quero o kit</a><small>Pagamento pela Kiwify · acesso enviado ao seu e-mail</small></div>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Quem fez</p>
+  <div class="autor"><img src="assets/autor.webp" alt="Líbero Filho" loading="lazy"><div><h2>Líbero Filho</h2><p>Professor e criador do Concurso com Líbero. Este kit foi montado a partir do edital oficial publicado pela FGV, dos resultados oficiais e dos cadernos de prova de Analista Judiciário da banca no TJDFT (2022) e no TJMS (2024), com cada questão classificada pelo edital do TJPB de 2026.</p><p>É material próprio, sem vínculo com o Tribunal de Justiça da Paraíba ou com a FGV. Cada página indica o item do edital ou o documento de onde o número saiu.</p></div></div>
+</div></section>
+
+<section class="banda" style="padding-top:0"><div class="in">
+  <p class="rot">Dúvidas</p>
+  <h2>Perguntas frequentes</h2>
+  <div style="margin-top:22px">
+  <details><summary>Serve para TI e Contabilidade?</summary><p>Não. O kit é da Área Judiciária. TI e Contabilidade têm Raciocínio Lógico no lugar de Ética e outro módulo específico; só Português e Informática são iguais.</p></details>
+  <details><summary>Traz o conteúdo das matérias?</summary><p>Não é curso nem apostila. É o planejamento: o que o edital pede, o que a FGV cobra, em que ordem estudar e quando. A exceção é a discursiva, que vem com seis casos e espelho.</p></details>
+  <details><summary>As notas de corte são oficiais?</summary><p>O TJPB nunca fez concurso de servidor com a FGV. A régua vem do resultado oficial do TJDFT 2022 (FGV). Para o TJPB não existe corte antecipado: as metas do material são referência de treino.</p></details>
+  <details><summary>Ainda dá para se inscrever?</summary><p>Não. As inscrições terminaram em 18/11/2026. O kit é para quem já está inscrito e faz a prova em 24/01/2027.</p></details>
+  <details><summary>Em que formato vem e como recebo?</summary><p>Oito PDFs em A4, para ler no celular, no computador ou imprimir. A compra é pela Kiwify e o acesso chega no e-mail informado no checkout.</p></details>
+  </div>
+  <p class="rodape">Concurso com Líbero · @concursocomlibero. Dados do Edital nº 01/2026 do TJPB, retificado em 29/10/2026, banca FGV.</p>
+</div></section>
+
+<div class="fixa"><div class="in"><span><b>R$ {{PRECO}}</b> · 8 PDFs do TJPB</span><a class="btn" data-checkout href="#oferta">Quero o kit</a></div></div>
+
+<script>
+const CHECKOUT = '{{CHECKOUT}}';
+(() => {
+  if (CHECKOUT) document.querySelectorAll('[data-checkout]').forEach(a => { a.href = CHECKOUT; a.rel = 'noopener'; a.target = '_blank'; });
+  const $ = id => document.getElementById(id);
+  const br = (n, d = 0) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Fortaleza' })); hoje.setHours(0, 0, 0, 0);
+  const dias = Math.round((new Date(2027, 0, 24) - hoje) / 864e5);
+  if (dias > 1) $('dias').textContent = dias;
+  else if (dias === 1) { $('dias').textContent = '1'; $('dias-texto').innerHTML = 'dia até a prova<br>é amanhã, às 13h'; }
+  else if (dias === 0) { $('dias').textContent = '0'; $('dias-texto').innerHTML = 'A prova é hoje, às 13h.<br>Boa prova!'; }
+  else $('conta-dias').hidden = true;
+  // Mínimos do edital do TJPB (ampla 60%; cotas 20% menor) e régua do TJDFT 2022 (FGV): última objetiva com discursiva corrigida (ampla) e mediana dos corrigidos.
+  const C = { ag: { min: 36, dmin: 24, nome: 'ampla' }, es: { min: 28.8, dmin: 19.2, nome: 'cotas' } };
+  const ULT = 39, MED = 41, META = 42;
+  let lista = 'ag';
+  const conta = () => {
+    const a = +$('p1').value, b = +$('p2').value, r = +$('red').value, obj = a + b, c = C[lista];
+    $('p1-o').textContent = a; $('p2-o').textContent = b; $('red-o').textContent = br(r, r % 1 ? 1 : 0);
+    $('n-obj').textContent = obj; $('n-fin').textContent = br(obj + r, r % 1 ? 1 : 0);
+    $('barra').querySelector('i').style.setProperty('--w', obj / 60 * 100 + '%');
+    $('m-corte').style.left = c.min / 60 * 100 + '%'; $('m-med').style.left = ULT / 60 * 100 + '%';
+    $('veredito').textContent = obj < c.min ? `Abaixo do mínimo da ${c.nome} (${br(c.min, c.min % 1 ? 1 : 0)}): eliminado na objetiva.`
+      : r < c.dmin ? `Objetiva aprovada, mas a discursiva abaixo de ${br(c.dmin, c.dmin % 1 ? 1 : 0)} elimina. Ela vale 40 dos 100 pontos.`
+      : lista === 'es' ? 'Aprovado nos mínimos das cotas, com a discursiva garantida na correção. A classificação é na lista das cotas, pela nota final.'
+      : obj < ULT ? `Passa do mínimo, mas no TJDFT de 2022 ficaria fora da correção da discursiva (última nota corrigida: ${ULT}). No TJPB, só os 300 primeiros são corrigidos.`
+      : obj < META ? `Dentro da régua do TJDFT (${ULT}); a mediana dos corrigidos lá foi ${MED}. A meta do kit é ${META}.`
+      : `Na meta do kit (${META} ou mais): acima da mediana dos corrigidos do TJDFT (${MED}). Agora quem decide é a discursiva.`;
+  };
+  const troca = k => { lista = k; $('b-ag').setAttribute('aria-pressed', k === 'ag'); $('b-es').setAttribute('aria-pressed', k === 'es'); conta(); };
+  $('b-ag').addEventListener('click', () => troca('ag')); $('b-es').addEventListener('click', () => troca('es'));
+  ['p1', 'p2', 'red'].forEach(x => $(x).addEventListener('input', conta)); conta();
+})();
+</script>
