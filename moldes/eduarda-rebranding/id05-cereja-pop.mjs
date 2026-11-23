@@ -121,7 +121,7 @@ const metade = (it, bg, top, cor = K.tinta, sel) => `
     <div class="stk" style="margin-top:28px;background:${K.creme};color:${K.tinta};padding:8px 24px;font-size:28px;box-shadow:6px 6px 0 ${K.tinta}">${esc(it.base)}</div>
   </div>`;
 add('c1-2', pg(K.creme, `
-  ${metade(C.c1.itens[0], K.creme, 0, K.tinta, selo(150, K.chiclete, 'Perde a<br>ação', { fs: 34, cor2: K.tinta, rot: 10 }))}
+  ${metade(C.c1.itens[0], K.creme, 0, K.tinta, selo(170, K.chiclete, 'Perde a<br>pretensão', { fs: 27, cor2: K.tinta, rot: 10 }))}
   ${metade(C.c1.itens[1], K.cereja, 675, K.creme, selo(150, K.creme, 'Perde o<br>direito', { fs: 34, cor2: K.cereja, rot: -10 }))}
   <div class="abs" style="left:470px;top:627px">${selo(140, K.tinta, 'x', { fs: 90, cor2: K.chiclete, rot: 0, borda: false })}</div>
   ${pag(2)}`));

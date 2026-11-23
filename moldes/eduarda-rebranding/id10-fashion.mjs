@@ -52,11 +52,11 @@ const c1_1 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('jo
 
 const sec = (it, n) => `<div style="display:flex;gap:36px">
   <div class="b pk" style="font-size:130px;font-weight:500;width:150px;flex:none;line-height:.85">${n}</div>
-  <div><div class="b" style="font-size:88px;font-weight:600">${esc(it.nome)}</div>
-  <div class="b i" style="font-size:44px;line-height:1.2;margin-top:18px">${esc(it.txt)}</div>
-  <div class="t" style="margin-top:18px">${esc(it.det)}</div>
+  <div><div class="b" style="font-size:100px;font-weight:600">${esc(it.nome)}</div>
+  <div class="b i" style="font-size:52px;line-height:1.18;margin-top:22px">${esc(it.txt)}</div>
+  <div class="t" style="margin-top:22px;font-size:37px">${esc(it.det)}</div>
   <div class="k pk" style="margin-top:20px;font-size:26px">${esc(it.base)}</div></div></div>`;
-const c1_2 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:flex;flex-direction:column;gap:54px">
+const c1_2 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:flex;flex-direction:column;gap:72px">
   <div><div class="k pk">O guia</div><div class="b i" style="font-size:64px;margin-top:14px">Prescrição x decadência</div></div>
   ${sec(c1.itens[0], 'I')}${sec(c1.itens[1], 'II')}</div>${folio('2/3')}`);
 
