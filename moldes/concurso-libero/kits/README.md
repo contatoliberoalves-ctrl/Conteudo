@@ -33,6 +33,7 @@ Todo concurso da linha ("Do Edital à Prova") ganha identidade própria e site d
 `tabela` (cab, linhas, larguras, destaque, num, px, pad, nota; `\n` quebra linha), `ranking` (itens {rot, obs, n, pct, forte, fora}), `check` (itens {m, t} + colunas de marcar), `fichas` (itens {tag, origem, t, d, nota}), `destaque` (rotulo, titulo, paragrafos, claro) e `linhas` (n, alt, numerar).
 
 ## Kits
+- `pp-pe`: Polícia Penal de Pernambuco, Policial Penal, Edital nº 1 – SAD-SEAP/PE 2026, Cebraspe, prova em 21/03/2027. 8 PDFs (55 páginas), tema "Muralha e sinal" (grafite, laranja de sinalização, concreto; muralha de blocos). Corpus: SERES/PE 2017 e 2021 (120 questões do mesmo cargo, com justificativas de 2021 e notas oficiais dos dois anos). Listas masculina e feminina separadas. Site: https://claude.ai/artifact/D4uhVquiUrLtvrjioiiR4u
 - `pc-pe`: Polícia Civil de Pernambuco, Agente e Escrivão, Edital nº 1/2026, Cebraspe, prova em 07/03/2027. 8 PDFs (50 páginas), tema "Cordel e distintivo" (carvão, vermelho, papel; xilogravura). Corpus: PC PE 2023 com justificativas e notas oficiais, PC PB 2021, PC RO 2022 (479 questões). Site: https://claude.ai/artifact/FHo5eVVRjGcgLhhzufRk4h
 - `unificado-ma`: Concurso Unificado do Maranhão, Edital nº 01/2026, FCC, prova em 04/04/2027. 8 PDFs (48 páginas). Site: https://claude.ai/artifact/6s7TV6FhQ8tDRjdqYdqV6G
 
@@ -41,7 +42,7 @@ Todo concurso da linha ("Do Edital à Prova") ganha identidade própria e site d
 - **tema** (`manchete`, `numero`, `capas`, `ficha`, `lista`, `conta`): identidade do concurso, carimbo da prova.
 - **nativo** (`story` texto do Instagram, `notas` do iPhone, `tweet`, `enquete` e quiz, `caixinha`): parece post de gente, não de marca.
 - **trash** (`amarelo`, `seta`, `paint`, `planilha`, `bloco`, `edital` com marca-texto, `preto`, `zoom`): Arial, cor chapada, seta vermelha; o usuário pediu esses porque às vezes convertem mais.
-Nos stories, 250 px no topo e 330 no pé ficam livres. Unificado MA e PC PE: 30 criativos cada (15 feed, 15 stories).
+Nos stories, 250 px no topo e 330 no pé ficam livres. Unificado MA, PC PE e Polícia Penal PE: 30 criativos cada (15 feed, 15 stories).
 
 ## Drive
 Cada kit vai para `Kits de edital / <Concurso>` no Drive do dono (https://drive.google.com/drive/folders/10nY6pL_6MqUXoXnu9VoA9c3TgkKek9pG), em três subpastas (`1. PDFs do kit`, `2. Criativos`, `3. Identidade e fontes`) e um LEIA-ME com o link do site e as pendências. O zip das fontes é o conteúdo que não vai para o git. Unificado MA: https://drive.google.com/drive/folders/1uc3UB2GQBEwpnmvrHQEeYBX7BfEhEGNA
