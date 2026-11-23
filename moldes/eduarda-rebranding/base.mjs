@@ -68,7 +68,10 @@ export async function render(id, pecas, { fontes = '', css = '', filtro = proces
   for (const p of pecas) {
     if (filtro && !p.nome.includes(filtro)) continue;
     const page = await browser.newPage({ viewport: { width: p.w, height: p.h } });
-    await page.setContent(`<!doctype html><html><head><meta charset="utf-8">${fontes ? `<link href="${fontes}" rel="stylesheet">` : ''}<style>*{box-sizing:border-box;margin:0;padding:0}body{width:${p.w}px;height:${p.h}px;overflow:hidden}${css}</style></head><body>${p.html}</body></html>`, { waitUntil: 'networkidle' });
+    // Página salva em arquivo e aberta por file:// (senão o navegador bloqueia as fotos locais).
+    const hp = path.join(saida, `.${p.nome}.html`);
+    fs.writeFileSync(hp, `<!doctype html><html><head><meta charset="utf-8">${fontes ? `<link href="${fontes}" rel="stylesheet">` : ''}<style>*{box-sizing:border-box;margin:0;padding:0}body{width:${p.w}px;height:${p.h}px;overflow:hidden}${css}</style></head><body>${p.html}</body></html>`);
+    await page.goto('file://' + hp, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(250);
     const largos = await page.evaluate(() => [...document.querySelectorAll('body *')].filter(e => e.children.length === 0 && e.textContent.trim() && (e.scrollWidth > e.clientWidth + 2 && getComputedStyle(e).overflow === 'visible')).map(e => e.textContent.trim().slice(0, 30)));
     const fora = await page.evaluate(([w, h]) => [...document.querySelectorAll('body *')].filter(e => { if (!e.textContent.trim() || e.children.length) return false; const r = e.getBoundingClientRect(); return r.width && (r.right > w + 1 || r.bottom > h + 1 || r.left < -1 || r.top < -1); }).map(e => e.textContent.trim().slice(0, 30)), [p.w, p.h]);
