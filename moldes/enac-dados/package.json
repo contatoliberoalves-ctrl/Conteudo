@@ -1,0 +1,13 @@
+{
+  "name": "enac-dados",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium",
+    "gerar": "node render.mjs",
+    "videos": "node videos.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
