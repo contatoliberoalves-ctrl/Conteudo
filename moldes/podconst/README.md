@@ -45,3 +45,7 @@ Fotos: `"fotos": {"capa": "...", "recorte": "PNG sem fundo", "libero": "...", "n
 - `calmo.mjs`: linha menos chamativa (grupos 4a–4c), fundo claro, padrão geométrico do material original só em faixa e logo oficial em PNG.
 - `marca/` (fora do git): logos oficiais (`1-POD.png`… azul, amarelo, magenta), arco, microfone e fundos do material original do PodConst. Pasta no Drive: https://drive.google.com/drive/folders/1RjDRrXqPgO8t_2Z5cEivm13LmWWojs8- . Sem eles, entra o logo em CSS.
 - Fotos da dupla (`fotos/dupla_-0039.jpg`…, fora do git): https://drive.google.com/drive/folders/1vNqvGj4w3AnHqYDSQCCFAzmaPrHdNV8X . As de mais de ~5 MB não descem pela ferramenta do Drive. `_-0305` e `_-0525` têm os óculos de meme: só para posts de humor.
+
+## Capas de vídeo do YouTube (`capas-youtube.mjs`)
+
+`node capas-youtube.mjs [id]` gera `saida/youtube/<id>.png` e `.jpg` (1280×720) com a dupla recortada (`fotos/rec-dupla-0039.png`, fora do git: baixe `_-0039.jpg` da pasta das fotos da dupla no Drive, reduza para 1400 px de altura e rode `python3 ../carrossel-libero/recortar_pessoa.py`; o rembg apaga um pedaço da manga da Natália, então confira o recorte). Cada capa é um item de `CAPAS` no próprio script: fundo (azul, magenta, navy), título em Bebas Neue com tarja amarela ou magenta e o logo PODCONST.
