@@ -233,7 +233,7 @@ add('c4-3', pg(K.creme, `
     <div class="an" style="font-size:110px">Comenta</div>
     <div class="stk" style="background:${K.cereja};color:${K.creme};padding:6px 40px;font-family:Anton;font-weight:400;font-size:120px;border-radius:40px;transform:rotate(-4deg)">ECA</div>
   </div>
-  ${recB('surpresa', { x: 400, corte: 1352, h: 740 })}
+  ${recB('surpresa', { x: 340, corte: 1352, h: 880 })}
   ${pag(3, K.chiclete)}`));
 
 // ───────────── C5 apresentação (foto cheia + nome gigante; grade de adesivos; recorte) ─────────────
@@ -259,7 +259,7 @@ add('c5-3', pg(K.chiclete, `
   <div class="abs an" style="left:58px;top:110px;font-size:170px;width:980px">Me segue pra estudar <span style="color:${K.cereja}">Civil comigo</span></div>
   <div class="abs stk" style="left:64px;top:690px;background:${K.creme};padding:16px 34px;font-size:44px;transform:rotate(-3deg)">${PERFIL.arroba}</div>
   <div class="abs stk" style="left:64px;top:820px;background:${K.cereja};color:${K.creme};padding:14px 34px;font-size:36px;transform:rotate(2deg)">+ Seguir</div>
-  ${recB('empolgada', { x: 500, corte: 1352, h: 760 })}
+  ${recB('empolgada', { x: 460, corte: 1352, h: 880 })}
   ${pag(3)}`));
 
 // ───────────── Posts únicos ─────────────

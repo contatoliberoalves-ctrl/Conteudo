@@ -39,7 +39,7 @@ const pg = (inner, cls = '', st = '') => `<div class="pg ${cls}" style="${st}">$
 
 // ---------- C1 · explicativo (capa: foto sangrada) ----------
 const c1 = C.c1;
-const c1_1 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('surpresa', '100% auto', '50% 22%')}"></div>
+const c1_1 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('joinha', '100% auto', '50% 36%')}"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 46%,rgba(0,0,0,.88) 78%)"></div>
   <div style="position:absolute;left:40px;top:44px;color:#fff">${mast(1000)}</div>
   <div style="position:absolute;left:46px;top:262px;color:#fff;display:flex;gap:28px" class="k"><span>Nº 01</span><span class="pk" style="color:#fff">Edição OAB 2ª fase</span></div>
@@ -99,11 +99,11 @@ const c2_3 = pg(`<div style="position:absolute;inset:80px 64px 100px;display:fle
 
 // ---------- C3 · questão (capa: entrevista em tela dividida) ----------
 const c3 = C.c3;
-const c3_1 = pg(`<div class="ph gray" style="position:absolute;right:0;top:0;width:500px;height:1350px;${bgf('pensando', 'auto 100%', '17% 50%')}"></div>
+const c3_1 = pg(`<div class="ph gray" style="position:absolute;right:0;top:0;width:500px;height:1350px;${bgf('pensando', 'auto 150%', '29% 55%')}"></div>
   <div style="position:absolute;left:0;top:0;width:580px;height:1350px;padding:56px 48px 56px 56px;display:flex;flex-direction:column">
     ${mast(476)}
     <div class="k pk" style="margin-top:60px">Certo ou errado?</div>
-    <div class="b i" style="font-size:62px;line-height:1.1;margin-top:28px">${esc(c3.pergunta)}</div>
+    <div class="b i" style="font-size:58px;line-height:1.1;margin-top:28px">${esc(c3.pergunta)}</div>
     <div style="margin-top:auto;display:flex;align-items:baseline;gap:22px"><span class="k" style="font-size:34px">Certo</span><span class="b i pk" style="font-size:52px">ou</span><span class="k" style="font-size:34px">Errado</span></div>
     <div style="font-size:28px;font-weight:300;margin-top:22px;opacity:.8">Resposta no próximo slide</div>
   </div>`, 'bk');
@@ -117,7 +117,7 @@ const c3_2 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:fle
     <div class="b i" style="font-size:36px;line-height:1.3;margin-top:18px;color:#333">“O cancelamento de pensão alimentícia de filho que atingiu a maioridade está sujeito à decisão judicial, mediante contraditório, ainda que nos próprios autos.”</div>
   </div></div></div>${folio('2/3')}`);
 
-const c3_3 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('explicando', '112% auto', '58% 30%')}"></div>
+const c3_3 = pg(`<div class="ph gray" style="position:absolute;inset:0;${bgf('explicando', '112% auto', '0% 30%')}"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.9) 80%)"></div>
   <div style="position:absolute;left:56px;right:56px;bottom:100px;color:#fff">
     <div class="b i" style="font-size:190px;font-weight:500">Acertou?</div>
@@ -167,7 +167,7 @@ const c5_1 = pg(`<div style="position:absolute;left:40px;top:50px">${mast(1000)}
     <div class="b i pk" style="font-size:118px;font-weight:500">Prazer, Eduarda</div>
     <div class="t" style="margin-top:26px;font-size:38px">${esc(c5.sub)}</div></div>`);
 
-const c5_2 = pg(`<div class="ph gray" style="position:absolute;left:0;top:0;width:540px;height:1350px;${bgf('joinha', 'auto 140%', '36% 47%')}"></div>
+const c5_2 = pg(`<div class="ph gray" style="position:absolute;left:0;top:0;width:540px;height:1350px;${bgf('empolgada', 'auto 140%', '53% 45%')}"></div>
   <div style="position:absolute;left:600px;right:56px;top:70px;bottom:110px;display:flex;flex-direction:column">
     <div class="k pk">Nesta edição</div>
     <div class="b i" style="font-size:76px;margin-top:16px;line-height:1.02">O que você encontra aqui</div>
