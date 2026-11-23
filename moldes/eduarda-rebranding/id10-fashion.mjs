@@ -201,7 +201,7 @@ const p2 = pg(`<img class="gray" src="${recorte('surpresa')}" style="position:ab
 const p3c = C.p3;
 const p3 = pg(`<div style="position:absolute;inset:64px 64px 100px;display:flex;flex-direction:column">
   <div class="k pk">A lista · Sucessões</div>
-  <div class="b" style="font-size:96px;font-weight:500;margin-top:18px">Ordem da <span class="i">vocação hereditária</span></div>
+  <div class="b" style="font-size:96px;font-weight:500;margin-top:18px">Ordem da vocação <span class="i">hereditária</span></div>
   <div style="display:flex;flex-direction:column;justify-content:space-around;flex:1;margin-top:20px">
   ${p3c.itens.map((t, i) => { const [a, b] = t.split(' ('); return `<div style="display:flex;gap:36px;align-items:center">
     <div class="b pk" style="font-size:120px;font-weight:500;width:110px;flex:none;text-align:center">${i + 1}</div>
@@ -254,7 +254,9 @@ const ident = pg(`<div style="position:absolute;inset:48px 56px 48px;display:fle
     <div style="font-size:28px;font-weight:300;line-height:1.4;margin-top:12px">Títulos curtos como chamada de capa. Pink como único acento: é o rosa dela e deixa o vermelho livre para o erro.</div></div>
 </div>`);
 
-const F = (nome, html, h = 1350) => ({ nome, w: 1080, h, html });
+// Na Bodoni, o "4" pequeno tem a haste fina demais e parece "1": algarismos em Bodoni abaixo de 130px saem em Jost.
+const NUMS = `<script>document.fonts.ready.then(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const ns=[];while(w.nextNode())ns.push(w.currentNode);for(const n of ns){const el=n.parentElement;if(!el||!/\\d/.test(n.textContent))continue;const cs=getComputedStyle(el);if(!/Bodoni/.test(cs.fontFamily)||parseFloat(cs.fontSize)>=130)continue;const sp=document.createElement('span');sp.innerHTML=n.textContent.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])).replace(/(\\d+)/g,'<span style="font-family:Jost,sans-serif;font-style:normal;font-weight:400;font-size:.92em">$1</span>');n.replaceWith(...sp.childNodes);}});</script>`;
+const F = (nome, html, h = 1350) => ({ nome, w: 1080, h, html: html + NUMS });
 await render(ID, [
   F('00-identidade', ident),
   F('c1-1', c1_1), F('c1-2', c1_2), F('c1-3', c1_3),
