@@ -4,6 +4,7 @@
 // (ENAM marinho e dourado; TCE MA bordô e coral com azulejo; TJRS verde-mate e amarelo com guilhoché).
 // unificado-ma = azul de lagoa, turquesa e areia, com as dunas dos Lençóis Maranhenses e carimbo cor de sol.
 // pp-pe = grafite azulado, laranja de sinalização e concreto, com a muralha de blocos da unidade prisional e carimbo laranja.
+// tj-pb = índigo, amarelo de sol e lilás, com o sol nascente da Ponta do Seixas (onde o sol nasce primeiro nas Américas) e carimbo amarelo.
 // pc-pe = carvão, vermelho e papel de cordel, com cortes de xilogravura (a gravura do cordel nordestino) e carimbo creme.
 export const TEMAS = {
   'unificado-ma': {
@@ -30,6 +31,14 @@ export const TEMAS = {
     realce: '#FCE6D6', zebra: '#F8F7F3', sobre: '#FFF5EE', caixa: '#98A1AA', pauta: '#CFC9BE', fora: '#C2C4C4', neutro: '#E8E5DE',
     vazado: 'rgba(246,210,180,.20)', brilho: 'rgba(232,116,42,.26)',
   },
+  'tj-pb': {
+    nome: 'Sol nascente', textura: 'sol',
+    escuro: '#1C1838', escuro2: '#252046', escuro3: '#363062', papel: '#F6F3EC', tinta: '#17142E',
+    cor: '#F2B230', corForte: '#B57A0C', claro: '#D9CFF6', areia: '#F1E4C4', carimbo: '#F2B230',
+    cinza: '#686478', corpo: '#2A2640', borda: '#E2DDD0', fio: '#ECE8DE', trilho: '#EBE7DD', suave: '#F5CE7A',
+    realce: '#FBEFCF', zebra: '#F9F7F1', sobre: '#FFF8E8', caixa: '#9893AA', pauta: '#D3CDBF', fora: '#C6C3C8', neutro: '#EAE6DC',
+    vazado: 'rgba(217,207,246,.22)', brilho: 'rgba(242,178,48,.24)',
+  },
 };
 // Tema padrão (sem `tema` no JSON): o verde da plataforma, como no pdf.json.
 export const PADRAO = { escuro: '#04312C', papel: '#F3F7F5', tinta: '#06201C', cor: '#0BA457', corForte: '#078A4A', claro: '#B9FFF1', cinza: '#5E7A74', corpo: '#1E3A35', borda: '#D7E6E2', fio: '#E1ECE8', trilho: '#E7F1EE', suave: '#9CC9B8', realce: '#DDF3E7', zebra: '#F6FAF8', sobre: '#EFFFF6', caixa: '#7FA59A', pauta: '#C9DAD5', fora: '#B9C9C4', neutro: '#E7EEEB' };
@@ -53,7 +62,12 @@ export const muralha = (cor, op = .14, lado = 96) => {
   for (let f = 0; f < 2; f++) for (let x = f ? -w / 4 : 0; x < w; x += w / 2) b.push(`<rect x='${(x + 3).toFixed(1)}' y='${(f * h / 2 + 3).toFixed(1)}' width='${(w / 2 - 6).toFixed(1)}' height='${(h / 2 - 6).toFixed(1)}' rx='1.5'/>`);
   return uri(`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}' fill='none' stroke='${cor}' stroke-opacity='${op}' stroke-width='1.6'>${b.join('')}</svg>`);
 };
-export const tex = (c, cor, op, lado) => ({ dunas, xilo, muralha }[c.textura] || dunas)(cor, op, lado);
+// Sol: meios-sóis nascendo, com dois arcos, em fileiras desencontradas.
+export const sol = (cor, op = .14, lado = 96) => {
+  const w = lado, h = lado * .6, s = (x, y) => `<path d='M${x - w * .2} ${y}a${w * .2} ${w * .2} 0 0 1 ${w * .4} 0'/><path d='M${x - w * .11} ${y}a${w * .11} ${w * .11} 0 0 1 ${w * .22} 0' stroke-opacity='${op * .6}'/>`;
+  return uri(`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}' fill='none' stroke='${cor}' stroke-opacity='${op}' stroke-width='1.6' stroke-linecap='round'>${s(w / 4, h * .45)}${s(w * .75, h)}${s(-w / 4, h)}${s(w * 1.25, h * .45)}</svg>`);
+};
+export const tex = (c, cor, op, lado) => ({ dunas, xilo, muralha, sol }[c.textura] || dunas)(cor, op, lado);
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Carimbo redondo com a data da prova (mesmo desenho da Revisão em Dicas).
 export const carimbo = ({ px = 150, cor, topo, base, centro, sub, giro = -12, id = 'c' }) => `<svg width="${px}" height="${px}" viewBox="0 0 200 200" style="display:block;transform:rotate(${giro}deg)"><defs><path id="${id}a" d="M100 100m-74 0a74 74 0 1 1 148 0"/><path id="${id}b" d="M100 100m-82 0a82 82 0 0 0 164 0"/></defs><circle cx="100" cy="100" r="95" fill="none" stroke="${cor}" stroke-width="5"/><circle cx="100" cy="100" r="60" fill="none" stroke="${cor}" stroke-width="2.5"/><text font-family="Sora,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="${cor}"><textPath href="#${id}a" startOffset="50%" text-anchor="middle">${esc(topo)}</textPath></text><text font-family="Sora,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="${cor}"><textPath href="#${id}b" startOffset="50%" text-anchor="middle">${esc(base)}</textPath></text><text x="100" y="${sub ? 108 : 116}" text-anchor="middle" font-family="Big Shoulders Display,sans-serif" font-weight="900" font-size="50" fill="${cor}">${esc(centro)}</text>${sub ? `<text x="100" y="130" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="12.5" letter-spacing="2" fill="${cor}">${esc(sub)}</text>` : ''}</svg>`;
