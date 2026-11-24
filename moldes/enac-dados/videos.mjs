@@ -333,6 +333,18 @@ const VIDEOS = {
     { tipo: 'cta', titulo: 'Você está em [[algum]]?', texto: 'Comenta o concurso que você está esperando voltar.', digita: 'TJMG, desde abril',
       fala: 'Você está em algum deles? Comenta.' },
   ] },
+  'cartorio-concursos-vao-mudar': { n: '14', selo: 'Concurso de cartório', fonte: 'Fonte: CNJ', cenas: [
+    { tipo: 'frase', ts: 150, texto: 'Os concursos de cartório vão [[MUDAR.]]',
+      fala: 'Os concursos de cartório vão mudar. O CNJ trocou a regra que valia há dezessete anos.' },
+    { tipo: 'numero', rotulo: 'A regra antiga', n: 17, de: 'anos', titulo: 'durou a [[Resolução 81]]', texto: 'De 2009. Foi substituída por uma norma nacional nova.',
+      fala: 'A Resolução oitenta e um, de dois mil e nove, saiu de cena.' },
+    { tipo: 'temas', rotulo: 'A nova regra do CNJ', titulo: 'O que [[muda]]', itens: ['Banca especializada passa a ser obrigatória', 'A Corregedoria Nacional fiscaliza todas as etapas', 'Acaba o sorteio das vagas reservadas: lista única', 'Mudança na lista de serventias não trava mais o concurso'],
+      fala: 'Banca especializada vira obrigatória. A Corregedoria Nacional fiscaliza todas as etapas. Acaba o sorteio das vagas reservadas. E mudar a lista de serventias não trava mais o concurso.' },
+    { tipo: 'temas', cor: 'osso', rotulo: 'Segurança da prova', titulo: 'Contra [[fraude]]', itens: ['Biometria dos candidatos', 'Provas corrigidas sem identificação', 'Arquivos criptografados', 'Registro de quem acessa a prova'],
+      fala: 'Contra fraude: biometria, prova sem identificação e arquivos criptografados.' },
+    { tipo: 'cta', titulo: 'Mudou pra [[melhor]]?', texto: 'Comenta o que você achou da regra nova.', digita: 'Finalmente',
+      fala: 'Mudou pra melhor? Comenta.' },
+  ] },
 };
 
 // ---------- narração ----------

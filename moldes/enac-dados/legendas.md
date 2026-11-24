@@ -313,3 +313,21 @@ Você está em algum deles? Comenta.
 Situação em novembro de 2026, segundo portais especializados. Confira no site do tribunal.
 
 #concursodecartorio #cartorio #enac #cnj #tjmg #tjpa #tjpb #tjce #concursopublico #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 14 · Os concursos de cartório vão MUDAR (`cartorio-concursos-vao-mudar`)
+
+Os concursos de cartório vão mudar. O CNJ aprovou uma norma nacional nova, que substitui a Resolução 81/2009 depois de 17 anos.
+
+O que muda:
+▪ Banca especializada passa a ser obrigatória
+▪ A Corregedoria Nacional de Justiça fiscaliza todas as etapas
+▪ Acaba o sorteio das vagas reservadas: a escolha das serventias sai de uma lista única
+▪ Mudança na lista de serventias vagas não suspende mais o concurso sozinha
+
+Contra fraude: biometria dos candidatos, provas sem identificação, arquivos criptografados e registro de quem acessa a prova.
+
+Mudou pra melhor? Comenta.
+
+Fonte: Agência CNJ de Notícias.
+
+#concursodecartorio #cartorio #cnj #enac #resolucaocnj #direitonotarial #direitoregistral #concursopublico #tabeliao #registrador #enacemdados
