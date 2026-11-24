@@ -91,7 +91,7 @@
       {
         "layout": "capa",
         "rotulo": "Vídeo 03 · Dentro das 60",
-        "numero": "24",
+        "numero": "23",
         "de": "/60",
         "titulo": "só de [[Registro de Imóveis]]",
         "sub": "O que caiu em Notarial e Registral, por especialidade."
@@ -252,6 +252,162 @@
         "ts": 100,
         "sub": "Extrato eletrônico: dois gabaritos, duas respostas.",
         "fonte": "Fonte: gabarito extraoficial"
+      }
+    ]
+  },
+  {
+    "id": "capa-video-8-tamanho",
+    "titulo": "Capa do vídeo 8 · Você leu um livro em 5 horas",
+    "video": "enac-2026-2-tamanho",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 08 · O tamanho da prova",
+        "numero": "26",
+        "de": "mil",
+        "tn": 520,
+        "titulo": "Você leu um [[livro]] em 5 horas",
+        "sub": "Quase 26 mil palavras, 3 minutos por questão.",
+        "fonte": "Fonte: caderno de prova, Tipo 3"
+      }
+    ]
+  },
+  {
+    "id": "capa-video-9-marco-civil",
+    "titulo": "Capa do vídeo 9 · A questão de 523 palavras em 30 segundos",
+    "video": "enac-2026-2-marco-civil",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 09 · A maior questão",
+        "numero": "523",
+        "tn": 400,
+        "titulo": "A questão de 523 palavras, em [[30 segundos]]",
+        "ts": 92,
+        "sub": "Marco Civil da Internet: o caso e a resposta.",
+        "fonte": "Fonte: caderno de prova, Tipo 3"
+      }
+    ]
+  },
+  {
+    "id": "capa-video-10-registro-de-imoveis",
+    "titulo": "Capa do vídeo 10 · Tudo o que caiu em Registro de Imóveis",
+    "video": "enac-2026-2-registro-de-imoveis",
+    "telas": [
+      {
+        "layout": "capa",
+        "rotulo": "Vídeo 10 · Registro de Imóveis",
+        "numero": "23",
+        "de": "temas",
+        "tn": 520,
+        "titulo": "Tudo o que caiu em [[Registro de Imóveis]]",
+        "ts": 92,
+        "sub": "Os 23 temas da especialidade que mais pesou."
+      }
+    ]
+  },
+  {
+    "id": "post-26-mil-palavras",
+    "titulo": "Post · Você leu 26 mil palavras em 5 horas",
+    "telas": [
+      {
+        "layout": "pergunta",
+        "rotulo": "Pergunta 04 · O relógio",
+        "titulo": "Você leu [[26 mil palavras]] em 5 horas",
+        "ts": 100,
+        "sub": "É um livro curto. Com cinco alternativas no fim de cada página.",
+        "visual": {
+          "tipo": "numeros",
+          "itens": [
+            {
+              "n": "25.963",
+              "t": "palavras na prova"
+            },
+            {
+              "n": "53",
+              "t": "páginas de caderno"
+            },
+            {
+              "n": "3 min",
+              "t": "por questão, para ler e marcar"
+            }
+          ]
+        },
+        "cta": "Deu tempo?",
+        "ctaSub": "Comenta SIM ou NÃO, e quantas ficaram para o chute.",
+        "fonte": "Fonte: caderno de prova, Tipo 3"
+      }
+    ]
+  },
+  {
+    "id": "meme-joao",
+    "titulo": "Meme · Quem tá mais cansado: eu ou o João",
+    "telas": [
+      {
+        "layout": "meme",
+        "titulo": "Não sei quem tá mais cansado: eu ou o [[João]], que nessa prova…",
+        "itens": [
+          [
+            "Q10",
+            "teve o carro apreendido"
+          ],
+          [
+            "Q13",
+            "casou na Itália"
+          ],
+          [
+            "Q16",
+            "adotou o enteado"
+          ],
+          [
+            "Q23",
+            "morreu e deixou 3 filhos"
+          ],
+          [
+            "Q38",
+            "pediu usucapião do apartamento"
+          ],
+          [
+            "Q44",
+            "perdeu o carro de novo"
+          ],
+          [
+            "Q47",
+            "se divorciou da Maria"
+          ],
+          [
+            "Q56",
+            "virou tabelião de protesto"
+          ],
+          [
+            "Q69",
+            "era dono de um rancho"
+          ],
+          [
+            "Q71",
+            "tentou usucapir bem público"
+          ],
+          [
+            "Q72",
+            "falsificou uma escritura"
+          ],
+          [
+            "Q78",
+            "morreu de novo, de avião"
+          ],
+          [
+            "Q84",
+            "passou cheque sem fundo"
+          ],
+          [
+            "Q92",
+            "largou a Maria outra vez"
+          ]
+        ],
+        "numero": "37",
+        "legenda": "vezes o nome João em 14 questões",
+        "cta": "Marca aqui o João da sua turma.",
+        "fonte": "Fonte: caderno de prova, Tipo 3"
       }
     ]
   }

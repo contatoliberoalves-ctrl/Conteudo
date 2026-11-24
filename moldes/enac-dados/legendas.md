@@ -42,12 +42,12 @@ Qual letra você marcou na do extrato eletrônico? Comenta.
 
 O que caiu nas 60 questões de Notarial e Registral do ENAC 2026.2:
 
-▪ Registro de Imóveis: 24
+▪ Registro de Imóveis: 23
 ▪ Tabelionato de Notas: 12
 ▪ Parte geral e regime da atividade: 7
 ▪ Protesto: 6
 ▪ Registro Civil das Pessoas Naturais: 6
-▪ Títulos e Documentos e Pessoas Jurídicas: 5
+▪ Títulos e Documentos e Pessoas Jurídicas: 6
 
 E foi prova de atualização: 21 das 60 têm fundamento em lei, provimento ou decisão de 2023 pra cá. Só o Marco das Garantias (Lei 14.711/2023) apareceu em 5. Depois vêm o SIG-RI (Prov. 195/2025), a busca e apreensão extrajudicial (Prov. 196/2025) e o extrato eletrônico (Prov. 228/2026), com 2 cada.
 
@@ -166,3 +166,93 @@ Você marcou D ou E? Comenta a sua resposta e se vai recorrer.
 Análise a partir de gabarito extraoficial. Confira o enunciado no seu caderno antes de recorrer.
 
 #enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #recursoenac #anulacao #extratoeletronico #registrodeimoveis #codigonacionaldenormas #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 8 · Você leu um livro em 5 horas (`enac-2026-2-tamanho`)
+
+A prova do ENAC 2026.2 teve 25.963 palavras em 53 páginas. É um livro curto, lido em 5 horas.
+
+▪ 260 palavras por questão, em média
+▪ 3 minutos por questão, para ler, pensar e marcar
+▪ Enunciados mais longos: Constitucional (297 palavras em média)
+▪ Mais curtos: Processo Civil (204)
+▪ Maior questão: Marco Civil da Internet, 523 palavras
+▪ Menor: sentença arbitral no registro, 85 palavras
+
+Deu tempo de ler tudo? Comenta.
+
+Contagem feita no caderno Tipo 3.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #fgv #provadoenac #gestaodetempo #concursopublico #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 9 · A questão de 523 palavras, em 30 segundos (`enac-2026-2-marco-civil`)
+
+A maior questão do ENAC 2026.2 teve 523 palavras: Marco Civil da Internet, em Constitucional (Tipo 3: Q66).
+
+O caso: uma rede social com quatro problemas ao mesmo tempo.
+▪ Ofensa à honra mantida no ar depois da notificação
+▪ Induzimento ao suicídio e aliciamento de adolescentes, sem nenhum filtro
+▪ Anúncio pago com golpe financeiro
+▪ Cópias de um conteúdo já julgado ofensivo
+
+O que o STF decidiu nos Temas 987 e 533: o art. 19 não caiu inteiro, foi declarado parcialmente inconstitucional. Na honra, o provedor responde depois de ordem judicial. Nos crimes graves do rol, responde por falha sistêmica, mesmo sem notificação. No anúncio pago, a responsabilidade é presumida.
+
+Você leu até o fim ou foi direto para as alternativas? Comenta.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #marcocivildainternet #stf #tema987 #direitoconstitucional #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 10 · Tudo o que caiu em Registro de Imóveis (`enac-2026-2-registro-de-imoveis`)
+
+Registro de Imóveis foi a especialidade que mais pesou no ENAC 2026.2: 23 das 60 questões de Notarial e Registral. Os temas:
+
+Usucapião, regularização e solo
+▪ Usucapião extrajudicial: quem notificar
+▪ Usucapião de unidade em condomínio
+▪ Reurb e a certidão de regularização
+▪ Retificação de área com impugnação
+▪ Terra indígena: averbação da demarcação
+▪ Desdobro de lote urbano
+▪ Loteamento em duas circunscrições
+▪ Adjudicação compulsória extrajudicial
+
+Título, qualificação e procedimento
+▪ Dúvida sem impugnação do interessado
+▪ Natureza administrativa da dúvida
+▪ Base de cálculo do ITBI na qualificação
+▪ Extrato eletrônico de instituição financeira
+▪ Extrato eletrônico: limite da qualificação
+▪ DOI: obrigação do registrador
+▪ Transcrição com dois lotes e matrícula
+▪ Cancelamento de registro
+
+Garantias, restrições e o resto
+▪ Bem de família em alienação fiduciária
+▪ Indisponibilidade x arrematação trabalhista
+▪ Cancelamento de compromisso de compra e venda
+▪ Imóvel rural e empresa estrangeira
+▪ Imóvel rural e capital estrangeiro
+▪ SIG-RI: coordenadas e o papel do registrador
+▪ História do registro imobiliário
+
+Qual desses você não tinha estudado? Comenta.
+
+Classificação nossa, a partir do caderno e dos gabaritos extraoficiais.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #registrodeimoveis #usucapiaoextrajudicial #reurb #lei6015 #direitoregistral #direitonotarial #enacemdados
+
+## Post · Você leu 26 mil palavras em 5 horas (`post-26-mil-palavras`)
+
+25.963 palavras, 53 páginas, 100 questões. Dá 3 minutos para cada uma: ler, pensar e marcar.
+
+Deu tempo? Comenta SIM ou NÃO, e quantas ficaram para o chute.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #fgv #provadoenac #concursopublico #direitonotarial #direitoregistral #enacemdados
+
+## Meme · Quem tá mais cansado: eu ou o João (`meme-joao`)
+
+O nome João apareceu 37 vezes em 14 questões do ENAC 2026.2. Ele casou na Itália, se divorciou, adotou, perdeu o carro duas vezes, falsificou escritura, virou tabelião e morreu duas vezes.
+
+Marca aqui o João da sua turma.
+
+Números das questões do caderno Tipo 3.
+
+#enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #fgv #memesjuridicos #concurseiro #direitonotarial #direitoregistral #enacemdados

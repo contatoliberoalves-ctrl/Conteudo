@@ -195,12 +195,12 @@ const VIDEOS = {
       fala: 'Qual letra você marcou na do extrato eletrônico? Comenta.' },
   ] },
   'enac-2026-2-notarial': { n: '03', cenas: [
-    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Dentro das 60', n: 24, de: '/60', titulo: 'questões de [[Registro de Imóveis]]', texto: 'A especialidade que mais caiu em Notarial e Registral.',
-      fala: 'Das sessenta questões de Notarial e Registral do ENAC, vinte e quatro foram de Registro de Imóveis.' },
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Dentro das 60', n: 23, de: '/60', titulo: 'questões de [[Registro de Imóveis]]', texto: 'A especialidade que mais caiu em Notarial e Registral.',
+      fala: 'Das sessenta questões de Notarial e Registral do ENAC, vinte e três foram de Registro de Imóveis.' },
     { tipo: 'barras', rotulo: 'Notarial e Registral por especialidade', titulo: 'O que caiu nas [[60]]', itens: [
-      { nome: 'Registro de Imóveis', v: 24 }, { nome: 'Tabelionato de Notas', v: 12, cor: 'osso' }, { nome: 'Parte geral e regime da atividade', v: 7, cor: 'osso' },
-      { nome: 'Protesto', v: 6, cor: 'osso' }, { nome: 'Registro Civil das Pessoas Naturais', v: 6, cor: 'osso' }, { nome: 'Títulos e Documentos e Pessoas Jurídicas', v: 5, cor: 'osso' }],
-      fala: 'Notas veio em segundo, com doze. Parte geral, sete. Protesto e Registro Civil, seis cada. Títulos e Documentos com Pessoas Jurídicas, cinco.' },
+      { nome: 'Registro de Imóveis', v: 23 }, { nome: 'Tabelionato de Notas', v: 12, cor: 'osso' }, { nome: 'Parte geral e regime da atividade', v: 7, cor: 'osso' },
+      { nome: 'Protesto', v: 6, cor: 'osso' }, { nome: 'Registro Civil das Pessoas Naturais', v: 6, cor: 'osso' }, { nome: 'Títulos e Documentos e Pessoas Jurídicas', v: 6, cor: 'osso' }],
+      fala: 'Notas veio em segundo, com doze. Parte geral, sete. Protesto, Registro Civil e Títulos e Documentos com Pessoas Jurídicas, seis cada.' },
     { tipo: 'numero', rotulo: 'Prova de atualização', n: 21, de: '/60', ts: 84, titulo: 'com norma ou decisão de [[2023 pra cá]]', texto: 'Uma em cada três questões da matéria.',
       fala: 'E a prova cobrou norma nova: vinte e uma das sessenta têm fundamento em lei, provimento ou decisão de dois mil e vinte e três pra cá.' },
     { tipo: 'lista', rotulo: 'As novidades mais cobradas', titulo: 'O que [[mais apareceu]]', itens: [
@@ -254,6 +254,45 @@ const VIDEOS = {
       fala: 'Se nenhuma alternativa fica inteiramente certa, cabe pedir anulação.' },
     { tipo: 'cta', titulo: 'Você marcou [[D]] ou {{E}}?', texto: 'Comenta a sua resposta e se vai recorrer.', digita: 'Marquei D, vou recorrer',
       fala: 'Você marcou D ou E? Comenta.' },
+  ] },
+  'enac-2026-2-tamanho': { n: '08', fonte: 'Fonte: caderno de prova, Tipo 3', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · O tamanho da prova', n: 26, de: 'mil', titulo: 'palavras numa [[prova só]]', texto: '25.963, para ser exato, em 53 páginas.',
+      fala: 'A prova do ENAC teve quase vinte e seis mil palavras. É um livro curto, lido em cinco horas.' },
+    { tipo: 'numero', rotulo: 'A conta do tempo', n: 3, de: 'min', titulo: 'por questão, para [[ler e responder]]', texto: 'Cada questão tem 260 palavras, em média.',
+      fala: 'Dá três minutos por questão, pra ler duzentas e sessenta palavras, pensar e marcar.' },
+    { tipo: 'barras', rotulo: 'Média de palavras por questão', titulo: 'Onde o texto [[pesou]]', gap: 20, tl: 32, itens: [
+      { nome: 'Constitucional', v: 297 }, { nome: 'Notarial e Registral', v: 275, cor: 'osso' }, { nome: 'Empresarial', v: 230, cor: 'osso' }, { nome: 'Tributário', v: 226, cor: 'osso' },
+      { nome: 'Civil', v: 216, cor: 'osso' }, { nome: 'Administrativo', v: 214, cor: 'osso' }, { nome: 'Processo Civil', v: 204, cor: 'osso' }],
+      fala: 'Os enunciados mais longos foram os de Constitucional. Os mais curtos, os de Processo Civil.' },
+    { tipo: 'barras', rotulo: 'Os extremos', titulo: 'A maior e a [[menor]]', gap: 44, itens: [
+      { nome: 'Marco Civil da Internet (Q66)', v: 523 }, { nome: 'Sentença arbitral no registro (Q82)', v: 85, cor: 'osso' }],
+      fala: 'A maior questão teve quinhentas e vinte e três palavras. A menor, oitenta e cinco.' },
+    { tipo: 'cta', titulo: 'Deu tempo de [[ler tudo]]?', texto: 'Comenta como foi a sua prova contra o relógio.', digita: 'Chutei as 10 últimas',
+      fala: 'Deu tempo de ler tudo? Comenta.' },
+  ] },
+  'enac-2026-2-marco-civil': { n: '09', fonte: 'Fonte: caderno Tipo 3 e gabaritos extraoficiais', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · A maior questão', n: 523, tn: 400, titulo: 'palavras numa [[questão só]]', texto: 'Marco Civil da Internet, em Constitucional (Tipo 3: Q66).',
+      fala: 'A maior questão do ENAC teve quinhentas e vinte e três palavras. Dá pra resumir em trinta segundos.' },
+    { tipo: 'temas', rotulo: 'O caso', titulo: 'Uma rede social, [[4 problemas]]', itens: ['Ofensa à honra mantida no ar depois da notificação', 'Suicídio e aliciamento de adolescentes, sem nenhum filtro', 'Anúncio pago com golpe financeiro', 'Cópias de um conteúdo já julgado ofensivo'],
+      fala: 'Uma rede social com quatro problemas: ofensa à honra, conteúdo de suicídio e aliciamento, anúncio pago com golpe e cópias de conteúdo já condenado.' },
+    { tipo: 'temas', cor: 'osso', rotulo: 'O que o STF decidiu (Temas 987 e 533)', titulo: 'Cada caso, [[uma regra]]', itens: ['Honra: o provedor responde depois de ordem judicial', 'Crimes graves do rol: falha sistêmica, mesmo sem notificação', 'Anúncio pago: responsabilidade presumida', 'Cópia de conteúdo já julgado ilícito: tem de remover'],
+      fala: 'A resposta separa os casos. Na honra, vale a ordem judicial. Nos crimes graves, o provedor responde por falha sistêmica, mesmo sem notificação.' },
+    { tipo: 'frase', ts: 104, texto: 'O art. 19 [[não caiu inteiro.]] O STF o declarou parcialmente inconstitucional.',
+      fala: 'O artigo dezenove não caiu inteiro: o Supremo o declarou parcialmente inconstitucional.' },
+    { tipo: 'cta', titulo: 'Você leu até o [[fim]]?', texto: 'Comenta se leu tudo ou foi direto para as alternativas.', digita: 'Li e acertei',
+      fala: 'Você leu até o fim? Comenta.' },
+  ] },
+  'enac-2026-2-registro-de-imoveis': { n: '10', cenas: [
+    { tipo: 'numero', rotulo: 'ENAC 2026.2 · Registro de Imóveis', n: 23, de: '/60', titulo: 'questões de [[Registro de Imóveis]]', texto: 'Os 23 temas, um por um.',
+      fala: 'Vinte e três das sessenta questões de Notarial do ENAC foram de Registro de Imóveis. Olha os temas.' },
+    { tipo: 'temas', rotulo: 'Usucapião, regularização e solo', titulo: 'Parte [[1]]', itens: ['Usucapião extrajudicial: quem notificar', 'Usucapião de unidade em condomínio', 'Reurb e a certidão de regularização', 'Retificação de área com impugnação', 'Terra indígena: averbação da demarcação', 'Desdobro de lote urbano', 'Loteamento em duas circunscrições', 'Adjudicação compulsória extrajudicial'],
+      fala: 'Usucapião extrajudicial duas vezes, Reurb, retificação de área, terra indígena, desdobro, loteamento e adjudicação compulsória.' },
+    { tipo: 'temas', cor: 'osso', de: 9, rotulo: 'Título, qualificação e procedimento', titulo: 'Parte [[2]]', itens: ['Dúvida sem impugnação do interessado', 'Natureza administrativa da dúvida', 'Base de cálculo do ITBI na qualificação', 'Extrato eletrônico de instituição financeira', 'Extrato eletrônico: limite da qualificação', 'DOI: obrigação do registrador', 'Transcrição com dois lotes e matrícula', 'Cancelamento de registro'],
+      fala: 'Dúvida registral duas vezes, ITBI, extrato eletrônico também duas, DOI, transcrição e cancelamento de registro.' },
+    { tipo: 'temas', de: 17, rotulo: 'Garantias, restrições e o resto', titulo: 'Parte [[3]]', itens: ['Bem de família em alienação fiduciária', 'Indisponibilidade x arrematação trabalhista', 'Cancelamento de compromisso de compra e venda', 'Imóvel rural e empresa estrangeira', 'Imóvel rural e capital estrangeiro', 'SIG-RI: coordenadas e o papel do registrador', 'História do registro imobiliário'],
+      fala: 'E ainda: bem de família, indisponibilidade, compromisso de compra e venda, imóvel rural com estrangeiro, SIG-RI e história do registro.' },
+    { tipo: 'cta', titulo: 'Qual você [[não estudou]]?', texto: 'Comenta o tema de Registro de Imóveis que te surpreendeu.', digita: 'Terra indígena',
+      fala: 'Qual desses você não tinha estudado? Comenta.' },
   ] },
 };
 

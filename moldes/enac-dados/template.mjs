@@ -38,7 +38,22 @@ const VISUAL = {
   },
 };
 
+// três números lado a lado
+VISUAL.numeros = (v) => `<div style="display:grid;grid-template-columns:repeat(${v.itens.length},1fr);gap:16px">${v.itens.map((it, i) => `<div style="background:${C.grafite};border:2px solid ${C.linha};border-top:8px solid ${i ? C.osso : C.lima};padding:26px 22px">
+  <div class="tit" style="font-size:92px;line-height:.9;color:${i ? C.osso : C.lima}">${esc(it.n)}</div><div class="mono" style="font-size:20px;line-height:1.4;color:${C.cinza};margin-top:16px">${esc(it.t)}</div></div>`).join('')}</div>`;
+
 const LAYOUTS = {
+  // meme de dados: frase, lista do que o personagem fez (com a questão) e o número no fim
+  meme(t) {
+    return pagina(1080, 1350, `${topo(70, t.dir || 'ENAC 2026.2')}
+      <div style="position:absolute;left:80px;right:80px;top:216px">
+        <div class="tit" style="font-size:${t.ts || 66}px;line-height:1.02">${tit(t.titulo)}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:34px">${t.itens.map(([q, x]) => `<div style="display:flex;align-items:center;gap:14px;background:${C.grafite};border:2px solid ${C.linha};padding:12px 14px">
+          <span class="mono" style="flex:none;font-size:17px;letter-spacing:.02em;background:${C.lima};color:${C.tinta};padding:6px 8px">${esc(q)}</span><span style="font:600 26px/1.12 'Space Grotesk';letter-spacing:-.01em">${esc(x)}</span></div>`).join('')}</div></div>
+      <div style="position:absolute;left:80px;right:80px;bottom:130px;display:flex;align-items:center;gap:30px;background:${C.lima};color:${C.tinta};padding:22px 34px">
+        <span class="tit" style="font-size:130px;line-height:.85">${esc(t.numero)}</span><div><div class="tit" style="font-size:40px;line-height:1.05;letter-spacing:-.03em">${esc(t.legenda)}</div><div style="font:500 26px/1.25 'Space Grotesk';margin-top:8px">${esc(t.cta)}</div></div></div>
+      ${pe(1262, t.fonte)}`);
+  },
   capa(t) {
     return pagina(1080, 1920, `${topo(330, t.dir || 'ENAC 2026.2')}
       <div style="position:absolute;left:80px;right:80px;top:500px">
