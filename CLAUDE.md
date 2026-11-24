@@ -6,6 +6,7 @@ Posts e carrosséis de Instagram gerados por código a partir de moldes. Idioma 
 - `moldes/<id>/`: um molde por pasta (`template.mjs` visual, `render.mjs` gera PNGs, `dados.json` conteúdo, `molde.json` dados para a galeria, `fotos/`, `assets/`). Saída em `moldes/<id>/saida/` (fora do git).
 - `.claude/skills/molde-<id>/`: como gerar posts em cada molde. `.claude/skills/novo-molde/`: como cadastrar um molde novo.
 - `galeria/`: página que mostra todos os moldes e posts.
+- `modelos-3d/<nome>/gerar.py`: modelos para impressão 3D feitos por código (ex.: `cachorro-caramelo`, escultura por campos de distância); `python3 gerar.py` gera o STL (uma cor), o 3MF (uma parte por cor) e a imagem em `saida/` (fora do git, assim como a foto de referência).
 - `automacoes/canal-promocoes/`: robô do canal de promoções (Telegram + botão do WhatsApp) que roda no Supabase (Edge Function `promo-bot`, schema `promo`, `pg_cron`). Como configurar, testar e publicar está no `README.md` dele; o código de ativação e os tokens nunca vão para o git.
 
 ## Fotos
