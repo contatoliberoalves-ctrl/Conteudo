@@ -4,7 +4,7 @@ Carrossel do perfil pessoal do autor. Os slides têm 1080×1350 e usam os fundos
 
 - `template.mjs`: visual. Não mexa para gerar posts.
 - `render.mjs`: gera `saida/<id>/1.png … N.png` e `painel.png`. Diminui título e corpo até caberem e avisa quando o texto passa da área, encosta na foto, nos anéis ou no rodapé, ou quando há 3 fundos iguais seguidos.
-- `dados.json`: um objeto por carrossel (`id`, `titulo`, `tema`, `slides`, e opcionais `pontes` e `inspiracao`, o post antigo que serviu de base).
+- `dados.json`: um objeto por carrossel (`id`, `titulo`, `tema`, `slides`, e opcionais `pontes`, `inspiracao` e `paleta` (troca as cores só naquele carrossel, para diferenciar um assunto: chaves de `COR_PADRAO` em `template.mjs`, ex.: `azul`, `azulFundo`, `off`, `navy`, `navyFundo`, `azulClaro`, `vermelho`; o post `lc-239-ajuste-fiscal` usa verde e âmbar), o post antigo que serviu de base).
 - `fotos/`: fotos do molde, fora do git. Sem a foto aqui, o render procura em `../carrossel-explicativo/fotos/`.
 
 Gerar: `node render.mjs [id]`. No ambiente em nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`.

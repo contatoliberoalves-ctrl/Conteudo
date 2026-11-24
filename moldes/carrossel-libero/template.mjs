@@ -2,15 +2,25 @@
 // textura granulada, Big Shoulders Display nos títulos e Schibsted Grotesk no texto.
 // renderCarrossel(c) devolve { html, total }; o render.mjs fotografa cada slide.
 
-const COR = {
+const COR_PADRAO = {
   azul: '#0B4FD8', azulFundo: '#0839A8', off: '#EFF0F2', navy: '#14213A', navyFundo: '#121A27',
   azulClaro: '#8FB0FF', vermelho: '#FF2D55',
+  // tons derivados (fundo do tema escuro e texto repetido ao fundo)
+  brilhoDark: '#1d3566', fundoBlue: '#0A46C2', fundoDark: '#1B2638', fundoLight: '#E4E6EA', linhaLight: '#C9CFDB',
 };
-const TEMAS = {
-  blue: { bg: `linear-gradient(170deg,${COR.azul} 0%,${COR.azulFundo} 100%)`, tit: '#fff', txt: '#fff', acento: '#fff', kicker: COR.off, caixa: COR.navyFundo, linha: 'rgba(255,255,255,.28)', num: '#fff', fundoTexto: '#0A46C2', escuro: true },
-  light: { bg: COR.off, tit: COR.azul, txt: COR.navy, acento: COR.azul, kicker: COR.azul, caixa: COR.azul, linha: '#C9CFDB', num: COR.azul, fundoTexto: '#E4E6EA', escuro: false },
-  dark: { bg: `radial-gradient(120% 90% at 100% 0%,#1d3566 0%,${COR.navyFundo} 60%)`, tit: '#fff', txt: '#E4E8F0', acento: COR.azul, kicker: COR.azulClaro, caixa: COR.azul, linha: 'rgba(255,255,255,.28)', num: COR.azulClaro, fundoTexto: '#1B2638', escuro: true },
-};
+const COR = { ...COR_PADRAO };
+const montarTemas = () => ({
+  blue: { bg: `linear-gradient(170deg,${COR.azul} 0%,${COR.azulFundo} 100%)`, tit: '#fff', txt: '#fff', acento: '#fff', kicker: COR.off, caixa: COR.navyFundo, linha: 'rgba(255,255,255,.28)', num: '#fff', fundoTexto: COR.fundoBlue, escuro: true },
+  light: { bg: COR.off, tit: COR.azul, txt: COR.navy, acento: COR.azul, kicker: COR.azul, caixa: COR.azul, linha: COR.linhaLight, num: COR.azul, fundoTexto: COR.fundoLight, escuro: false },
+  dark: { bg: `radial-gradient(120% 90% at 100% 0%,${COR.brilhoDark} 0%,${COR.navyFundo} 60%)`, tit: '#fff', txt: '#E4E8F0', acento: COR.azul, kicker: COR.azulClaro, caixa: COR.azul, linha: 'rgba(255,255,255,.28)', num: COR.azulClaro, fundoTexto: COR.fundoDark, escuro: true },
+});
+const TEMAS = montarTemas();
+// "paleta" no post troca as cores do molde só naquele carrossel (mesmas chaves de COR_PADRAO).
+function aplicarPaleta(p) {
+  Object.keys(COR).forEach(k => delete COR[k]);
+  Object.assign(COR, COR_PADRAO, p || {});
+  Object.assign(TEMAS, montarTemas());
+}
 const PERFIL = '@liberofilho';
 const TITULO = "font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase";
 const RUIDO = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
@@ -563,6 +573,7 @@ const TIPOS = {
 };
 
 export function renderCarrossel(c) {
+  aplicarPaleta(c.paleta);
   const slides = lista(c.slides);
   const n = slides.length;
   const avisos = [];
