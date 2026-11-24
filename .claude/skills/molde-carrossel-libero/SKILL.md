@@ -11,7 +11,7 @@ Pasta: `moldes/carrossel-libero/`. O visual está em `template.mjs` e **não dev
 
 1. Leia `moldes/carrossel-libero/README.md` (tipos de slide e campos) e um carrossel de `dados.json` como exemplo.
 2. Acrescente um objeto em `dados.json` com 6 a 10 slides, nesta estrutura:
-   1. `capa`: pergunta ou tema provocativo (tipográfica, ou com `foto`). Use um `estilo` de capa conforme o tipo de post, para o seguidor perceber que é outro assunto: `teses` (série "Teses que caíram na <peça>"), `numero` (listas), `versus` (comparações), `pergunta` (quiz) ou `manchete` (dados e rankings). Veja "Estilos de capa" no README. Não repita a diagramação da capa de `lei-inconstitucional-praga` (o autor achou que o texto não ornou);
+   1. `capa`: pergunta ou tema provocativo (tipográfica, ou com `foto`). Use um `estilo` de capa conforme o tipo de post, para o seguidor perceber que é outro assunto: `teses` (série "Teses que caíram na <peça>"), `numero` (listas), `versus` (comparações), `pergunta` (quiz). **Não use `manchete`** (jornal "O Libero"): o autor não gosta. Capa é enxuta, só o título (e no máximo uma linha), sem data, etiqueta e linha fina juntas. Para diferenciar um assunto, troque só a cor com `paleta` (só os tons de azul: `azul`, `azulFundo`, `azulClaro`, `fundoBlue`, `brilhoDark`) e mantenha a diagramação de sempre. Veja "Estilos de capa" no README. Não repita a diagramação da capa de `lei-inconstitucional-praga` (o autor achou que o texto não ornou);
    2. gancho: uma analogia ou situação do dia a dia (`texto`, quase sempre com `palavra` vertical);
    3. explicação: conceito, `lei` com tradução, `lista`, `impacto`, `frases` ou `balao`;
    4. `cta`: pergunta para comentar, seguir ou enviar, com `botao` e, se houver, `foto` (polaroide).

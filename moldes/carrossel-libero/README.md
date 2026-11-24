@@ -4,7 +4,7 @@ Carrossel do perfil pessoal do autor. Os slides têm 1080×1350 e usam os fundos
 
 - `template.mjs`: visual. Não mexa para gerar posts.
 - `render.mjs`: gera `saida/<id>/1.png … N.png` e `painel.png`. Diminui título e corpo até caberem e avisa quando o texto passa da área, encosta na foto, nos anéis ou no rodapé, ou quando há 3 fundos iguais seguidos.
-- `dados.json`: um objeto por carrossel (`id`, `titulo`, `tema`, `slides`, e opcionais `pontes`, `inspiracao` e `paleta` (troca as cores só naquele carrossel, para diferenciar um assunto: chaves de `COR_PADRAO` em `template.mjs`, ex.: `azul`, `azulFundo`, `off`, `navy`, `navyFundo`, `azulClaro`, `vermelho`; o post `lc-239-ajuste-fiscal` usa verde e âmbar), o post antigo que serviu de base).
+- `dados.json`: um objeto por carrossel (`id`, `titulo`, `tema`, `slides`, e opcionais `pontes`, `inspiracao` e `paleta` (troca as cores só naquele carrossel, para diferenciar um assunto: chaves de `COR_PADRAO` em `template.mjs`, troque só os tons de azul, `azul`, `azulFundo`, `azulClaro`, `fundoBlue`, `brilhoDark`, e mantenha o resto da identidade; o post `lc-239-ajuste-fiscal` usa verde), o post antigo que serviu de base).
 - `fotos/`: fotos do molde, fora do git. Sem a foto aqui, o render procura em `../carrossel-explicativo/fotos/`.
 
 Gerar: `node render.mjs [id]`. No ambiente em nuvem: `CHROMIUM_PATH=/opt/pw-browsers/chromium RENDER_PROXY=$HTTPS_PROXY node render.mjs [id]`.
@@ -39,7 +39,7 @@ Para cada tipo de post ter cara própria, a `capa` aceita `"estilo"` (sem estilo
 | `numero` | listas ("3 erros…") | `numero` (vazado gigante), `kicker`, `titulo`, `texto`, `tn` (px do número) |
 | `versus` | comparações | `lados` (2 textos; aceita `[[caixa]]`), `kicker`, `texto` |
 | `pergunta` | quiz, verdadeiro ou falso | `kicker`, `titulo`, `texto`, `opcoes` (botões, ex.: `["Sim", "Não"]`) |
-| `manchete` | dados, notícias, rankings | `edicao`, `secao` (cabeçalho do jornal "O Libero"), `kicker`, `titulo`, `texto` (linha fina) |
+| `manchete` | **não usar** (o autor não gosta do jornal "O Libero") | `edicao`, `secao` (cabeçalho do jornal "O Libero"), `kicker`, `titulo`, `texto` (linha fina) |
 | `cantos` | comparação sobre uma foto em tela cheia (montagem de IA) | `imagem` ou `foto`, `cima` (linhas no alto à esquerda), `pre` (etiqueta branca logo abaixo), `selo` (bola vermelha, ex.: "x"; `seloPos` [x, y]), `baixo` (linhas embaixo à esquerda), `tc`/`tb` (px), `base` (distância do rodapé). Deixe o rosto livre à direita |
 | `ringue` | treta entre duas pessoas e um terceiro no meio (eleições, disputas) | `pre` (etiqueta), `titulo` (curto, no alto), `esquerda`/`direita` (`{img, h, x, y}`: recortes PNG sem fundo em `fotos/`, `h` = altura em px), `centro` (`{img, x, y, tam}`: círculo PB), `carimbo` (texto vermelho sob o círculo). Para recortar: `rembg` (sessão `u2net_human_seg`) |
 | `apuracao` | eleições e resultados (placar de TV) | `pre` (com bolinha vermelha "ao vivo"), `titulo`, `meta` (% da marca vermelha nas barras, padrão 50), `metaTexto`, `max` (% da barra cheia, padrão 60), `candidatos` (`[{foto, nome, partido, pct, anulado, carimbo, carimboX}]`: fotos quadradas do rosto em `fotos/`), `placarY` |

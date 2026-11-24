@@ -5971,16 +5971,9 @@
     "paleta": {
       "azul": "#0B8A57",
       "azulFundo": "#06663F",
-      "off": "#F3F0E7",
-      "navy": "#0F2A20",
-      "navyFundo": "#0C1D16",
       "azulClaro": "#86E3B5",
-      "vermelho": "#FFB000",
-      "brilhoDark": "#15503A",
-      "fundoBlue": "#0A7C4E",
-      "fundoDark": "#163227",
-      "fundoLight": "#E7E3D7",
-      "linhaLight": "#D3CDBD"
+      "brilhoDark": "#14423A",
+      "fundoBlue": "#0A7C4E"
     },
     "pontes": [
       {
@@ -6001,24 +5994,20 @@
     "slides": [
       {
         "tipo": "capa",
-        "estilo": "manchete",
-        "tema": "light",
-        "edicao": "Terça, 24 de novembro de 2026",
-        "secao": "Finanças públicas",
-        "kicker": "Lei Complementar 239/2026",
+        "tema": "blue",
         "titulo": [
           "Presidente Lula",
           "sanciona o",
           "[[ajuste fiscal]]"
         ],
-        "texto": "Ganho estimado de **R$ 45,1 bi a R$ 56,1 bi** em 2027. Arrasta que eu te explico em números.",
         "objeto": {
           "img": "money_bag.png",
-          "x": 810,
-          "y": 345,
-          "tam": 190,
+          "x": 700,
+          "y": 90,
+          "tam": 300,
           "rot": -10
-        }
+        },
+        "ts": 132
       },
       {
         "tipo": "impacto",
