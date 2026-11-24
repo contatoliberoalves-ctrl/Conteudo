@@ -5994,20 +5994,31 @@
     "slides": [
       {
         "tipo": "capa",
+        "estilo": "produto",
         "tema": "blue",
+        "pre": "Saiu hoje",
         "titulo": [
           "Presidente Lula",
           "sanciona o",
           "[[ajuste fiscal]]"
         ],
-        "objeto": {
-          "img": "money_bag.png",
-          "x": 700,
-          "y": 90,
-          "tam": 300,
-          "rot": -10
+        "ts": 150,
+        "largura": 880,
+        "produto": {
+          "img": "lula-sanciona.png",
+          "h": 960,
+          "x": 390,
+          "y": 470,
+          "rot": 0
         },
-        "ts": 132
+        "selo": [
+          "Sem",
+          "vetos"
+        ],
+        "seloX": 120,
+        "seloY": 640,
+        "fotoCredito": "Marcelo Camargo/Agência Brasil (19/11/2026, cerimônia da escala 5x2)",
+        "semArraste": true
       },
       {
         "tipo": "impacto",
