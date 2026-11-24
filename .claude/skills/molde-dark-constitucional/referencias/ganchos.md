@@ -70,3 +70,5 @@ Adaptado de `viral-hooks` (artemnovitckii/content-skills, MIT, © 2026 Artem Nov
 - "Entrou sem mandado, achou droga. A prova vale?" teve 1.991 visualizações; pena de morte, 680; 4 Poderes, 402. História pura do Império e da ditadura ficou entre 140 e 260.
 - Funciona: polícia, crime e direitos do dia a dia de quem assiste; escândalos e manobras do Congresso (voto vendido, fraude, votação refeita); decisões polêmicas do STF. Título em forma de pergunta ou de afirmação que revolta.
 - Os 3 a 5 primeiros segundos entregam o conflito. O fim pede a opinião em uma palavra ("justo ou injusto?", "deveria mudar?").
+
+- **Famosos com foto na capa** (pedido do dono, nov. 2026): o nome conhecido no gancho ("Xuxa processou o Google. E perdeu.", "Silvio Santos foi candidato a presidente") e o rosto na capa seguram mais que objeto ilustrativo.

@@ -1,0 +1,72 @@
+{
+  "pauta": 77,
+  "serie": "Casos que viraram direito",
+  "titulo": "O Brasil não extradita brasileiro. Mas Robinho foi preso aqui.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "O Brasil não\nextradita. Mas\n**prendeu.**",
+      "imagem": {
+        "arquivo": "imagens/robinho.jpg",
+        "credito": "Robinho, Copa de 2010 · Marcello Casal Jr./Agência Brasil (CC BY)",
+        "foco": "50% 40%"
+      },
+      "fala": "A Constituição proíbe o Brasil de entregar um brasileiro nato pra ser preso em outro país. Mesmo assim, Robinho foi condenado na Itália e preso aqui."
+    },
+    {
+      "tipo": "frase",
+      "data": "Janeiro de 2022",
+      "texto": "Condenado\nna **Itália.**",
+      "nota": "Nove anos por violência sexual em grupo, num caso de 2013 em Milão. Decisão definitiva.",
+      "fala": "Em dois mil e vinte e dois, a Justiça italiana confirmou, em última instância, a condenação de Robinho a nove anos de prisão por violência sexual em grupo, num caso de dois mil e treze em Milão."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 5º, LI",
+        "texto": "**Nenhum brasileiro será extraditado**, salvo o naturalizado..."
+      },
+      "b": {
+        "cabecalho": "Lei de Migração · art. 100",
+        "texto": "...a autoridade competente poderá solicitar ou autorizar a **transferência de execução da pena**..."
+      },
+      "ponte": "E então?",
+      "fala": "Ele estava no Brasil, e brasileiro nato não é extraditado. Mas a Lei de Migração prevê outra saída: transferir a execução da pena."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "STJ · 20/3/2024",
+      "a": 9,
+      "b": 2,
+      "rotuloA": "Cumpre aqui",
+      "rotuloB": "Contra",
+      "carimbo": "Preso",
+      "fala": "A Itália pediu que a pena fosse cumprida aqui. Em março de dois mil e vinte e quatro, o Superior Tribunal de Justiça aceitou, por nove a dois. No dia seguinte, Robinho foi preso em Santos."
+    },
+    {
+      "tipo": "frase",
+      "texto": "Não é extradição.\nÉ **transferência.**",
+      "nota": "Ele cumpre no Brasil a pena da Itália. O STF manteve a prisão.",
+      "fala": "Ele não foi mandado pra Itália. A pena italiana passou a ser cumprida no Brasil. E o Supremo manteve a prisão."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "A pena tinha que\nser cumprida\n**aqui?**",
+      "fala": "E pra você: a pena tinha que ser cumprida aqui? Responde sim ou não."
+    }
+  ],
+  "legenda": "O Brasil não extradita brasileiro. Mas Robinho foi preso aqui.\n\nEm janeiro de 2022, a Justiça italiana confirmou em definitivo a condenação de Robinho a nove anos de prisão por violência sexual em grupo, num caso de 2013 em Milão. Como a Constituição proíbe a extradição de brasileiro nato (art. 5º, LI), a Itália pediu a transferência da execução da pena, prevista no art. 100 da Lei de Migração (Lei 13.445/2017). Em 20 de março de 2024, a Corte Especial do STJ homologou a sentença por 9 votos a 2, e Robinho foi preso em Santos no dia seguinte. O STF manteve a prisão.\n\nA pena tinha que ser cumprida aqui?",
+  "fontes": [
+    "CF/88, art. 5º, LI",
+    "Lei 13.445/2017, art. 100",
+    "STJ · HDE 7.986 (2024)"
+  ],
+  "hashtags": [
+    "robinho",
+    "stj",
+    "extradicao",
+    "direitopenal",
+    "direitoconstitucional",
+    "oab"
+  ]
+}

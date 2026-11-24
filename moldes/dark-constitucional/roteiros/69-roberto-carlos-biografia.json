@@ -1,0 +1,70 @@
+{
+  "pauta": 69,
+  "serie": "O STF decidiu",
+  "titulo": "Roberto Carlos tirou um livro sobre ele das lojas do Brasil",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Roberto Carlos\ntirou um livro\ndas **lojas.**",
+      "imagem": {
+        "arquivo": "imagens/roberto-carlos.jpg",
+        "credito": "Roberto Carlos · Teca Lamboglia (CC BY)",
+        "foco": "50% 25%"
+      },
+      "fala": "Um livro sobre a vida de Roberto Carlos sumiu das livrarias do Brasil. E quem pediu foi o próprio Rei."
+    },
+    {
+      "tipo": "frase",
+      "data": "Dezembro de 2006",
+      "texto": "Roberto Carlos\nem **Detalhes.**",
+      "nota": "Biografia do historiador Paulo César de Araújo, sem autorização do cantor.",
+      "fala": "Dois mil e seis. O historiador Paulo César de Araújo lança Roberto Carlos em Detalhes, depois de anos de pesquisa. Sem autorização do cantor."
+    },
+    {
+      "tipo": "frase",
+      "data": "Abril de 2007",
+      "texto": "Acordo.\nLivro **recolhido.**",
+      "nota": "A editora parou de vender e entregou os exemplares.",
+      "fala": "Roberto foi à Justiça alegando violação da privacidade. Em abril de dois mil e sete, num acordo, a editora parou de vender o livro e entregou os exemplares que tinha."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "Código Civil · art. 20",
+        "texto": "A divulgação de escritos ou a exposição da imagem de uma pessoa poderão ser proibidas, **a seu requerimento**..."
+      },
+      "b": {
+        "cabecalho": "CF/88 · art. 5º, IX",
+        "texto": "É livre a expressão da atividade intelectual, artística, científica e de comunicação, **independentemente de censura ou licença**."
+      },
+      "ponte": "Quem vence?",
+      "fala": "De um lado, o Código Civil, que deixava a pessoa proibir a divulgação. Do outro, a Constituição: expressão livre, sem censura ou licença."
+    },
+    {
+      "tipo": "frase",
+      "data": "Junho de 2015",
+      "texto": "STF: biografia\nsem **autorização.**",
+      "nota": "ADI 4815 · unanimidade. Abuso se resolve depois, com indenização.",
+      "fala": "Em dois mil e quinze, o Supremo decidiu, por unanimidade: biografia não precisa de autorização. Se houver abuso, cabe indenização depois. Censura antes, não."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "Famoso devia\npoder vetar a\n**biografia?**",
+      "fala": "E pra você: famoso devia poder vetar a própria biografia? Responde sim ou não."
+    }
+  ],
+  "legenda": "Roberto Carlos tirou um livro sobre ele das lojas do Brasil.\n\nEm 2006, o historiador Paulo César de Araújo lançou \"Roberto Carlos em Detalhes\", sem autorização do cantor. Roberto foi à Justiça alegando violação da privacidade, e em 2007, num acordo, a editora suspendeu as vendas e entregou os exemplares. Em 2015, na ADI 4815, o STF decidiu por unanimidade que não é necessária autorização prévia do biografado para biografias, dando interpretação conforme a Constituição aos arts. 20 e 21 do Código Civil. Abusos são resolvidos depois, com indenização.\n\nFamoso devia poder vetar a própria biografia?",
+  "fontes": [
+    "STF · ADI 4815 (2015)",
+    "Código Civil, arts. 20 e 21",
+    "CF/88, art. 5º, IV, IX e X"
+  ],
+  "hashtags": [
+    "robertocarlos",
+    "biografia",
+    "liberdadedeexpressao",
+    "stf",
+    "direitoconstitucional",
+    "oab"
+  ]
+}

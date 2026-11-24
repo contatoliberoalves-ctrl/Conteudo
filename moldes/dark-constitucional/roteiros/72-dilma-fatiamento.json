@@ -1,0 +1,77 @@
+{
+  "pauta": 72,
+  "serie": "Golpes, manobras e viradas",
+  "titulo": "Dilma perdeu a Presidência do Brasil. Mas não perdeu os direitos políticos.",
+  "cenas": [
+    {
+      "tipo": "gancho",
+      "texto": "Perdeu o cargo.\nMas não os\n**direitos.**",
+      "imagem": {
+        "arquivo": "imagens/dilma.jpg",
+        "credito": "Dilma Rousseff · Vice-Presidência da República (CC BY)",
+        "foco": "50% 12%",
+        "zoom": 1.5
+      },
+      "fala": "Dilma Rousseff perdeu a Presidência do Brasil no impeachment. Mas, no mesmo dia, o Senado deixou ela continuar podendo ser candidata."
+    },
+    {
+      "tipo": "frase",
+      "data": "31 de agosto de 2016",
+      "texto": "61 a 20:\n**afastada.**",
+      "nota": "Perda definitiva do cargo de presidente.",
+      "fala": "Trinta e um de agosto de dois mil e dezesseis. Por sessenta e um a vinte, o Senado tirou Dilma da Presidência."
+    },
+    {
+      "tipo": "documentos",
+      "a": {
+        "cabecalho": "CF/88 · art. 52, parágrafo único",
+        "texto": "...perda do cargo, **com inabilitação, por oito anos**, para o exercício de função pública..."
+      },
+      "b": {
+        "cabecalho": "Senado · 31/8/2016",
+        "texto": "Votação 1: perda do cargo.\n**Votação 2: inabilitação.**"
+      },
+      "ponte": "Uma pena ou duas?",
+      "fala": "A Constituição fala em perda do cargo com inabilitação por oito anos. Mas o Senado fatiou: uma votação pro cargo, outra pra inabilitação."
+    },
+    {
+      "tipo": "placar",
+      "titulo": "Senado · inabilitação",
+      "a": 42,
+      "b": 36,
+      "rotuloA": "Inabilitar",
+      "rotuloB": "Contra",
+      "linha": 54,
+      "rotuloLinha": "Mínimo: 54",
+      "linhaEm": "cinquenta",
+      "carimbo": "Direitos mantidos",
+      "fala": "Na segunda votação, quarenta e dois senadores votaram pra deixar Dilma inelegível. Trinta e seis, contra. Precisava de cinquenta e quatro, dois terços do Senado."
+    },
+    {
+      "tipo": "frase",
+      "data": "Collor, 1992",
+      "texto": "Inabilitado.\nDilma, **não.**",
+      "nota": "Em 2018, Dilma foi candidata ao Senado por Minas Gerais e não se elegeu.",
+      "fala": "Com Collor, em noventa e dois, a inabilitação veio junto. Com Dilma, não. Em dois mil e dezoito, ela foi candidata ao Senado por Minas Gerais e não se elegeu."
+    },
+    {
+      "tipo": "pergunta",
+      "texto": "O Senado podia\nfatiar a\n**pena?**",
+      "fala": "E pra você: o Senado podia fatiar a pena? Responde sim ou não."
+    }
+  ],
+  "legenda": "Dilma perdeu a Presidência do Brasil. Mas não perdeu os direitos políticos.\n\nEm 31 de agosto de 2016, o Senado aprovou o impeachment de Dilma Rousseff por 61 votos a 20. A Constituição prevê a perda do cargo com inabilitação, por oito anos, para o exercício de função pública (art. 52, parágrafo único), mas o Senado votou as duas coisas separadamente. Na segunda votação, 42 senadores votaram pela inabilitação e 36 contra, abaixo dos 54 votos (dois terços) exigidos. Em 1992, Collor recebeu a inabilitação. Em 2018, Dilma foi candidata ao Senado por Minas Gerais e não se elegeu.\n\nO Senado podia fatiar a pena?",
+  "fontes": [
+    "CF/88, art. 52, parágrafo único",
+    "Senado Federal · sessão de 31/8/2016",
+    "TSE · Eleições de 2018"
+  ],
+  "hashtags": [
+    "impeachment",
+    "dilma",
+    "senado",
+    "historiadobrasil",
+    "direitoconstitucional",
+    "oab"
+  ]
+}
