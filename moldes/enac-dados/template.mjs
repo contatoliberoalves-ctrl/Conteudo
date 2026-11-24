@@ -55,7 +55,8 @@ function direto(t) {
   const m = s => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="${k.hl};box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`);
   const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${CSS}</style></head><body>
     <div class="tela" style="width:1080px;height:1350px;background:${k.bg};color:${k.fg}">
-      <div style="position:absolute;left:84px;right:84px;top:96px;bottom:250px;display:flex;flex-direction:column;justify-content:center">
+      <div class="mono" style="position:absolute;left:84px;top:84px;font-size:30px;letter-spacing:.1em;border:3px solid ${k.fg};padding:10px 18px">${esc(t.selo || 'ENAC 2026.2')}</div>
+      <div style="position:absolute;left:84px;right:84px;top:170px;bottom:250px;display:flex;flex-direction:column;justify-content:center">
         ${t.numero ? `<div class="tit" style="font-size:${t.tn || 330}px;line-height:.8;margin-bottom:36px">${m(t.numero)}</div>` : ''}
         <div class="tit" style="font-size:${t.ts || 132}px;line-height:1.14">${t.titulo.map(m).join('<br>')}</div>
         ${t.linhas ? `<div style="margin-top:44px;font:600 ${t.tl || 50}px/1.28 'Space Grotesk';letter-spacing:-.02em">${t.linhas.map(m).join('<br>')}</div>` : ''}
