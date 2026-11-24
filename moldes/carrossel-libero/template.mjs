@@ -70,7 +70,7 @@ function palavraVertical(s, t) {
   const maior = Math.max(...palavras.map(p => p.length));
   const px = Math.min(300, Math.floor(1300 / (maior * 0.5)));
   const lado = s.palavraLado === 'direita' ? 'right' : 'left';
-  const cor = t.escuro ? 'rgba(255,255,255,.14)' : 'rgba(11,79,216,.12)';
+  const cor = t.escuro ? 'rgba(255,255,255,.14)' : `${COR.azul}1F`;
   return [`<div data-palavra style="position:absolute;${lado}:-18px;top:0;bottom:0;display:flex;flex-direction:row;justify-content:center;${TITULO};font-size:${px}px;line-height:.86;color:${cor}">${palavras.map(p => `<div style="writing-mode:vertical-rl;transform:rotate(180deg);text-align:center">${esc(p)}</div>`).join('')}</div>`, Math.round(px * 0.88 * palavras.length) + 40, lado];
 }
 // Foto: arquivo resolvido pelo render (c._fotos[nome] = caminho).
@@ -427,7 +427,65 @@ const printCta = (src, d) => `<div data-print style="position:relative;align-sel
   <img src="${src}" style="display:block;width:100%;border-radius:26px">
   ${d ? `<div style="position:absolute;left:${d[0]}%;top:${d[1]}%;width:${d[2]}%;height:${d[3]}%;border:8px solid ${COR.vermelho};border-radius:999px;transform:scale(1.18)"></div>` : ''}</div>`;
 
+
+// Gráficos (tipo "grafico", campo "modo"): barras, colunas, faixas (intervalos num eixo), placar
+// (votação empilhada) e rosca (percentual). Campos comuns: kicker, titulo, texto (abaixo), fonte (pé).
+function grafico(s, t) {
+  const cheio = t === TEMAS.light ? COR.azul : t === TEMAS.blue ? '#fff' : COR.azulClaro;
+  const vazio = t.escuro ? 'rgba(255,255,255,.16)' : COR.linhaLight;
+  const forte = COR.vermelho;
+  const cor = it => it.destaque ? forte : it.apagado ? vazio : cheio;
+  const num = (v, px, c = t.tit) => `<span style="${TITULO};font-size:${px}px;line-height:.9;color:${c}">${rico(String(v), t)}</span>`;
+  const rot = (v, px = 30, extra = '') => `<span data-corpo style="font-size:${px}px;font-weight:700;line-height:1.2;color:${t.txt}${extra}">${rico(String(v), t)}</span>`;
+  const itens = lista(s.itens);
+  let g = '';
+  if (s.modo === 'barras') {
+    const max = s.max || Math.max(...itens.map(i => +i.valor), 1);
+    g = `<div style="display:flex;flex-direction:column;gap:30px">${itens.map(i => `<div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">${rot(i.rotulo, 32)}${num(i.texto ?? i.valor, 72, i.destaque ? forte : t.tit)}</div>
+      <div style="height:46px;background:${vazio};position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:${(+i.valor / max) * 100}%;background:${cor(i)}"></div></div>
+      ${i.nota ? rot(i.nota, 26, ';font-weight:500;opacity:.8') : ''}</div>`).join('')}</div>`;
+  } else if (s.modo === 'colunas') {
+    const max = s.max || Math.max(...itens.map(i => +i.valor), 1), h = s.altura || 460;
+    g = `<div style="display:flex;align-items:flex-end;justify-content:center;gap:${s.gap || 90}px;height:${h + 150}px;border-bottom:4px solid ${t.txt}">${itens.map(i => `<div style="display:flex;flex-direction:column;align-items:center;gap:16px;width:${s.largCol || 230}px">
+      ${num(i.texto ?? i.valor, 110, i.destaque ? forte : t.tit)}
+      <div style="width:100%;height:${Math.round((+i.valor / max) * h)}px;background:${cor(i)}"></div></div>`).join('')}</div>
+      <div style="display:flex;justify-content:center;gap:${s.gap || 90}px;margin-top:-14px">${itens.map(i => `<div style="width:${s.largCol || 230}px;text-align:center">${rot(i.rotulo, 30)}</div>`).join('')}</div>`;
+  } else if (s.modo === 'faixas') {
+    const [a, b] = s.eixo || [0, 100], pos = v => ((v - a) / (b - a)) * 100;
+    const marcas = lista(s.marcas || [a, b]);
+    g = `<div style="display:flex;flex-direction:column;gap:22px;padding:0 36px">${itens.map(i => `<div style="display:flex;flex-direction:column;gap:14px">
+      <div style="padding:0 0">${rot(i.rotulo, 32)}</div>
+      <div style="position:relative;height:104px">
+        <div style="position:absolute;left:0;right:0;top:64px;height:4px;background:${vazio}"></div>
+        <div style="position:absolute;left:${pos(i.de)}%;width:${pos(i.ate) - pos(i.de)}%;top:44px;height:44px;background:${cor(i)}"></div>
+        <div style="position:absolute;left:${pos(i.de)}%;top:-10px;transform:translateX(-50%)">${num(i.textoDe ?? i.de, 50, i.destaque ? forte : t.tit)}</div>
+        <div style="position:absolute;left:${pos(i.ate)}%;top:-10px;transform:translateX(-50%)">${num(i.textoAte ?? i.ate, 50, i.destaque ? forte : t.tit)}</div>
+      </div></div>`).join('')}
+      <div style="position:relative;height:40px;border-top:3px solid ${t.txt}">${marcas.map(m => `<div style="position:absolute;left:${pos(m)}%;top:-14px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:3px;height:22px;background:${t.txt}"></span>${rot(m, 24, ';font-weight:600')}</div>`).join('')}</div>
+      ${s.unidade ? rot(s.unidade, 26, ';font-weight:500;opacity:.8;text-align:right') : ''}</div>`;
+  } else if (s.modo === 'placar') {
+    g = `<div style="display:flex;flex-direction:column;gap:48px">${itens.map(i => {
+      const tot = (+i.sim) + (+i.nao) + (+(i.abst || 0));
+      return `<div style="display:flex;flex-direction:column;gap:14px">${rot(i.rotulo, 32)}
+        <div style="display:flex;height:70px">
+          <div style="width:${i.sim / tot * 100}%;background:${cheio};display:flex;align-items:center;padding-left:20px">${num(i.sim, 56, t === TEMAS.light ? '#fff' : t === TEMAS.blue ? COR.azul : COR.navyFundo)}</div>
+          <div style="width:${i.nao / tot * 100}%;background:${forte};display:flex;align-items:center;justify-content:flex-end;padding-right:20px">${num(i.nao, 56, '#fff')}</div>
+          ${i.abst ? `<div style="width:${i.abst / tot * 100}%;background:${vazio}"></div>` : ''}</div>
+        <div style="display:flex;justify-content:space-between">${rot('Sim', 26, ';font-weight:600')}${rot(i.abst ? `Não · ${i.abst} abstenções` : 'Não', 26, ';font-weight:600')}</div></div>`;
+    }).join('')}</div>`;
+  } else if (s.modo === 'rosca') {
+    const v = +s.valor, d = s.diametro || 440;
+    g = `<div style="display:flex;align-items:center;gap:56px">
+      <div style="flex:none;width:${d}px;height:${d}px;border-radius:50%;background:conic-gradient(${forte} 0 ${v}%, ${vazio} ${v}% 100%);display:flex;align-items:center;justify-content:center">
+        <div style="width:${d * .62}px;height:${d * .62}px;border-radius:50%;background:${t.escuro ? COR.navyFundo : COR.off};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">${num(s.centro ?? `${v}%`, d * .24)}${s.centroSub ? rot(s.centroSub, 24, ';font-weight:600;text-align:center') : ''}</div></div>
+      <div style="display:flex;flex-direction:column;gap:26px">${itens.map(i => `<div style="display:flex;flex-direction:column;gap:4px">${num(i.valor, 70, i.destaque ? forte : t.tit)}${rot(i.rotulo, 28, ';font-weight:500')}</div>`).join('')}</div></div>`;
+  }
+  return area(`${kicker(s.kicker, t)}${titulo(s, t, 110, 860)}${g}${s.texto ? corpo(s, t, s.corpo || 32) : ''}${s.fonte ? `<div style="font-size:22px;font-weight:500;color:${t.txt};opacity:.7">Fonte: ${esc(s.fonte)}</div>` : ''}`);
+}
+
 const TIPOS = {
+  grafico,
   // Uma opção da votação: a imagem grande ("img", em fotos/) com o número numa bola vermelha.
   opcao(s, t, c) {
     const h = s.h || 900, w = Math.round(h * (s.proporcao || 17 / 24));

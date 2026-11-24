@@ -27,6 +27,7 @@ Todos têm `tipo` e `tema` (`blue`, `light` ou `dark`; nunca 3 iguais seguidos).
 | `gabarito` | `kicker`, `titulo`, `itens: [{tema, letra, texto, artigo}]` (uma linha por pergunta, com a letra certa) |
 | `retratos` | `titulo`, `pessoas` (`[{foto, nome, nota, fotoPos}]`, 2 a 4 fotos redondas do rosto em `fotos/`), `texto`, `corpo`, `fonte` (crédito pequeno no pé). Para mostrar quem ocupa um cargo |
 | `balao` | `titulo` (opcional), `texto` (card de mensagem com três bolinhas) |
+| `grafico` | `modo` + `kicker`, `titulo`, `texto` (abaixo, ~32px), `fonte` (pé). `barras`: `itens` `[{rotulo, valor, texto, destaque, apagado, nota}]`, `max`. `colunas`: `itens` iguais, `altura` (px), `largCol`, `gap`. `faixas` (intervalos num eixo): `itens` `[{rotulo, de, ate, textoDe, textoAte}]`, `eixo` `[min, max]`, `marcas`, `unidade`. `placar` (votação): `itens` `[{rotulo, sim, nao, abst}]`. `rosca`: `valor` (%), `centro`, `centroSub`, `diametro`, `itens` `[{valor, rotulo, destaque}]` ao lado. `destaque` pinta de vermelho; `apagado`, de cinza |
 | `cta` | `titulo`, `texto`, `botao` (ex.: "Comente #DICA", "Seguir @liberofilho"), `foto` (opcional: polaroide à direita; `fotoFit: "contain"` para foto de produto, como o livro), `print` (opcional: print de tela em `fotos/`, ex.: o botão "Assinar" do perfil) e `destaque` (`[x, y, largura, altura]` em % do print: anel vermelho em volta do ponto) e `centro` (`true`: título, texto e botão centralizados, sem foto) |
 
 ## Estilos de capa

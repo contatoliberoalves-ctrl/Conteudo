@@ -5964,9 +5964,12 @@
     "titulo": "Presidente Lula sanciona o ajuste fiscal",
     "tema": "LC 239/2026: pacote de ajuste fiscal sancionado em 24/11/2026, explicado em dados",
     "fontes": [
-      "gpsbrasilia.com.br/lula-sanciona-lei-complementar-do-ajuste-fiscal/",
-      "canalrural.com.br/economia/lula-sanciona-sem-vetos-lei-complementar-do-ajuste-fiscal/",
-      "gynnoticias.com.br/politica/lula-sanciona-pacote-de-ajuste-fiscal-entenda-o-que-muda/6001"
+      "agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-sanciona-ajuste-fiscal-aprovado-no-congresso",
+      "agenciabrasil.ebc.com.br/politica/noticia/2026-11/camara-aprova-texto-base-do-projeto-de-ajuste-fiscal",
+      "agenciabrasil.ebc.com.br/politica/noticia/2026-11/senado-rejeita-mudancas-no-texto-e-aprova-ajuste-fiscal-do-governo",
+      "agenciabrasil.ebc.com.br/politica/noticia/2026-11/senado-aprova-texto-base-de-pacote-que-preve-economia-de-ate-r-60-bi",
+      "agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-anuncia-medidas-de-ajuste-para-economia-de-ate-r-60-bilhoes",
+      "agenciabrasil.ebc.com.br/economia/noticia/2026-11/projeto-quer-retirar-r-105-bi-em-subsidios-ao-diesel-da-meta-fiscal"
     ],
     "paleta": {
       "azul": "#0B8A57",
@@ -5977,17 +5980,17 @@
     },
     "pontes": [
       {
-        "img": "abacus.png",
-        "entre": 2,
-        "y": 800,
-        "tam": 300,
+        "img": "ballot_box_with_ballot.png",
+        "entre": 8,
+        "y": 170,
+        "tam": 260,
         "rot": -8
       },
       {
         "img": "classical_building.png",
-        "entre": 5,
-        "y": 250,
-        "tam": 300,
+        "entre": 10,
+        "y": 200,
+        "tam": 280,
         "rot": 6
       }
     ],
@@ -6021,36 +6024,139 @@
         "semArraste": true
       },
       {
-        "tipo": "impacto",
-        "tema": "blue",
-        "kicker": "O número da lei",
+        "tipo": "grafico",
+        "modo": "faixas",
+        "tema": "light",
+        "kicker": "Quanto rende",
         "titulo": [
-          "R$ 45,1 bi",
-          "a R$ 56,1 bi"
+          "Economia",
+          "[[em 2027]]"
         ],
-        "sub": "de ganho fiscal estimado em 2027",
-        "ts": 128
+        "itens": [
+          {
+            "rotulo": "Proposta do governo (11/11)",
+            "de": 50,
+            "ate": 60,
+            "apagado": true
+          },
+          {
+            "rotulo": "Texto aprovado e sancionado",
+            "de": 45.1,
+            "ate": 56.1,
+            "textoDe": "45,1",
+            "textoAte": "56,1"
+          }
+        ],
+        "eixo": [
+          40,
+          65
+        ],
+        "marcas": [
+          40,
+          45,
+          50,
+          55,
+          60,
+          65
+        ],
+        "unidade": "em R$ bilhões",
+        "texto": "É o efeito no **resultado primário**: o que o governo arrecada menos o que gasta, sem contar os juros.",
+        "fonte": "Agência Brasil"
+      },
+      {
+        "tipo": "grafico",
+        "modo": "colunas",
+        "tema": "dark",
+        "kicker": "Trava nos gastos",
+        "titulo": [
+          "O limite",
+          "[[aperta]]"
+        ],
+        "itens": [
+          {
+            "rotulo": "Regra atual",
+            "valor": 2.5,
+            "texto": "2,5%",
+            "apagado": true
+          },
+          {
+            "rotulo": "Com o ajuste",
+            "valor": 2,
+            "texto": "2%",
+            "destaque": true
+          }
+        ],
+        "altura": 320,
+        "texto": "Crescimento real máximo da despesa nos anos de contenção. Bloqueio extra estimado: **R$ 12,8 bi**.",
+        "fonte": "Ministério do Planejamento, via Agência Brasil"
+      },
+      {
+        "tipo": "texto",
+        "tema": "blue",
+        "kicker": "Benefícios fiscais",
+        "titulo": [
+          "Corte de",
+          "[[10%]] a mais"
+        ],
+        "texto": [
+          "Redução linear adicional de **10%** nas isenções e incentivos tributários. Somada ao corte do fim de 2025, chega a **20%** dos valores originais.",
+          "Ficam de fora: folha de pagamentos, tecnologia da informação, semicondutores e carros para pessoas com deficiência e autistas."
+        ],
+        "corpo": 38
+      },
+      {
+        "tipo": "grafico",
+        "modo": "barras",
+        "tema": "light",
+        "kicker": "Lei Kandir",
+        "titulo": [
+          "Repasse aos",
+          "[[estados]]"
+        ],
+        "itens": [
+          {
+            "rotulo": "Hoje (LC 176/2020)",
+            "valor": 4,
+            "texto": "R$ 4 bi",
+            "apagado": true
+          },
+          {
+            "rotulo": "Proposta original",
+            "valor": 1,
+            "texto": "R$ 1 bi",
+            "apagado": true
+          },
+          {
+            "rotulo": "Texto aprovado (acordo no Senado)",
+            "valor": 2,
+            "texto": "R$ 2 bi",
+            "destaque": true
+          }
+        ],
+        "max": 4,
+        "texto": "Valor por ano, de **2028 a 2030**. O restante do repasse fica adiado.",
+        "fonte": "Agência Brasil"
       },
       {
         "tipo": "lista",
         "tema": "dark",
-        "kicker": "O que muda",
+        "kicker": "E tem mais",
         "titulo": [
-          "4 mudanças",
-          "em [[dados]]"
+          "Outras",
+          "[[mudanças]]"
         ],
         "marcador": "num",
+        "corpo": 33,
         "itens": [
-          "**Gastos:** o crescimento real máximo da despesa cai de **2,5% para 2%** ao ano, nas condições de ajuste",
-          "**Compensação cruzada:** fica mais restrito usar créditos de PIS/Cofins para pagar IR e contribuição previdenciária",
-          "**Previdência de estados e municípios:** a União repassa no máximo **R$ 3 bi por ano** aos regimes próprios (2027 a 2030)",
-          "**Penduricalhos:** o Congresso tem **60 dias** para votar o projeto das verbas acima do teto"
-        ],
-        "corpo": 34
+          "**Créditos tributários:** uso restrito para pagar impostos quando houver bloqueio de gastos",
+          "**Meta fiscal:** o governo pode contingenciar para cumprir o **centro** da meta",
+          "**Piso da saúde:** receitas extraordinárias do petróleo ficam fora do cálculo até 2030",
+          "**Supersalários:** o Congresso tem **120 dias** para regulamentar o que passa do teto de R$ 46,3 mil"
+        ]
       },
       {
         "tipo": "texto",
-        "tema": "light",
+        "tema": "blue",
         "kicker": "E em 2026?",
         "titulo": [
           "O diesel fica",
@@ -6059,9 +6165,64 @@
         "palavra": "2026",
         "palavraLado": "direita",
         "texto": [
-          "Até **R$ 10,5 bilhões** da subvenção ao diesel (MP 1.391/2026) podem ser descontados da meta de resultado primário deste ano.",
-          "A maior parte das mudanças só vale a partir de **2027**."
+          "Até **R$ 10,5 bilhões** de subsídio ao diesel saem do cálculo da meta fiscal de 2026.",
+          "Não é economia: o dinheiro continua sendo gasto e pesa na dívida. Só não conta para a meta."
         ]
+      },
+      {
+        "tipo": "grafico",
+        "modo": "placar",
+        "tema": "light",
+        "kicker": "Votação",
+        "titulo": [
+          "Placar no",
+          "[[Congresso]]"
+        ],
+        "itens": [
+          {
+            "rotulo": "Senado · texto-base (12/11)",
+            "sim": 45,
+            "nao": 31
+          },
+          {
+            "rotulo": "Câmara · texto-base (23/11)",
+            "sim": 353,
+            "nao": 128,
+            "abst": 5
+          }
+        ],
+        "texto": "Lei complementar exige **maioria absoluta**: 41 dos 81 senadores e 257 dos 513 deputados (art. 69 da CF).",
+        "fonte": "Agência Brasil"
+      },
+      {
+        "tipo": "grafico",
+        "modo": "rosca",
+        "tema": "dark",
+        "kicker": "Por que ajustar?",
+        "titulo": [
+          "A dívida",
+          "[[pesa]]"
+        ],
+        "valor": 83,
+        "centro": "83%",
+        "centroSub": "do PIB",
+        "diametro": 380,
+        "itens": [
+          {
+            "valor": "R$ 11,1 tri",
+            "rotulo": "dívida pública"
+          },
+          {
+            "valor": "0,5% do PIB",
+            "rotulo": "meta de superávit em 2027 (R$ 73,2 bi)",
+            "destaque": true
+          },
+          {
+            "valor": "1,5% do PIB",
+            "rotulo": "meta do governo para 2030"
+          }
+        ],
+        "fonte": "Agência Brasil"
       },
       {
         "tipo": "lei",
@@ -6072,7 +6233,7 @@
           "[[complementar]]?"
         ],
         "citacao": "Art. 163. Lei complementar disporá sobre: I - finanças públicas;",
-        "traducao": "Regra de finanças públicas exige lei complementar, aprovada por **maioria absoluta** (art. 69 da CF). O arcabouço fiscal também é lei complementar (LC 200/2023)."
+        "traducao": "Regra de finanças públicas vem em lei complementar, aprovada por **maioria absoluta** (art. 69). O próprio arcabouço fiscal é a LC 200/2023."
       },
       {
         "tipo": "cta",
