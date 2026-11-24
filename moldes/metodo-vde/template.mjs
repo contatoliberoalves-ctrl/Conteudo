@@ -47,11 +47,40 @@ const par = (v, t) => lista(v).map(p => `<p style="margin:0 0 .7em;${FONTE};font
 const faixa = t => t.escuro ? '' : `<div style="position:absolute;left:0;right:0;top:0;height:12px;background:${DEG_H};z-index:4"></div>`;
 // Arcos finos concêntricos saindo de um canto (o detalhe da capa do caderno).
 function arcos(t, lado = 'direita', y = 540, n = 6) {
-  if (MARCA.deco === 'seta') return seta(t);
-  if (MARCA.deco === 'malha') return malha(t);
+  if (MARCA.deco === 'seta') return selo(t, 'lupa');
+  if (MARCA.deco === 'malha') return selo(t, 'hack');
   const cor = t.escuro ? 'rgba(201,184,255,.28)' : 'rgba(46,5,117,.10)';
   const cx = lado === 'direita' ? W + 260 : -260;
   return `<svg width="${W}" height="${H}" style="position:absolute;inset:0;z-index:1;pointer-events:none">${Array.from({ length: n }, (_, k) => `<circle cx="${cx}" cy="${y}" r="${420 + k * 46}" fill="none" stroke="${cor}" stroke-width="2"/>`).join('')}</svg>`;
+}
+// Selos dos cursos (os mesmos da divulgação): anel com o nome no arco de cima, complemento no de baixo, ícone e
+// MÉTODO VDE no centro. Na capa: selo grande inclinado, um eco menor saindo pelo canto e brilhos de quatro pontas.
+const ICONES = {
+  lupa: '<circle cx="42" cy="42" r="24" fill="none" stroke="#fff" stroke-width="10"/><line x1="60" y1="60" x2="82" y2="82" stroke="#fff" stroke-width="13" stroke-linecap="round"/><path d="M42 30v24M30 42h24" stroke="#fff" stroke-width="8" stroke-linecap="round"/>',
+  hack: '<rect x="12" y="20" width="76" height="60" rx="12" fill="none" stroke="#fff" stroke-width="8"/><polyline points="28,40 42,50 28,60" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="62" x2="70" y2="62" stroke="#fff" stroke-width="8" stroke-linecap="round"/>',
+};
+let _selo = 0;
+function emblema(tipo, px, rot = 0, opac = 1) {
+  const i = ++_selo, anel = COR.lavanda;
+  const [cima, baixo] = tipo === 'lupa' ? ['APROFUNDAMENTO', 'NA REPESCAGEM'] : ['HACKEANDO', 'A OAB'];
+  return `<svg viewBox="0 0 300 300" width="${px}" height="${px}" style="display:block;overflow:visible;transform:rotate(${rot}deg);opacity:${opac};filter:drop-shadow(0 30px 50px rgba(10,0,40,.45))">
+    <defs><path id="sc${i}" d="M 40,150 A 110,110 0 0,1 260,150"/><path id="sb${i}" d="M 22,150 A 128,128 0 0,0 278,150"/>
+      <linearGradient id="sg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${tipo === 'lupa' ? '#5B3FE0' : '#7B3FE4'}"/><stop offset="1" stop-color="${COR.roxo}"/></linearGradient></defs>
+    <circle cx="150" cy="150" r="146" fill="url(#sg${i})"/><circle cx="150" cy="150" r="140" fill="none" stroke="${anel}" stroke-width="4"/><circle cx="150" cy="150" r="90" fill="none" stroke="${anel}" stroke-width="2.5"/>
+    <text font-family="Poppins" font-weight="800" font-size="${cima.length > 10 ? 27 : 34}" letter-spacing="${cima.length > 10 ? 1 : 3}" fill="#fff" text-anchor="middle"><textPath href="#sc${i}" startOffset="50%">${cima}</textPath></text>
+    <text font-family="Poppins" font-weight="700" font-size="18" letter-spacing="4" fill="${anel}" text-anchor="middle"><textPath href="#sb${i}" startOffset="50%">${baixo}</textPath></text>
+    <text x="26" y="157" font-size="20" fill="${anel}" text-anchor="middle">★</text><text x="274" y="157" font-size="20" fill="${anel}" text-anchor="middle">★</text>
+    <g transform="translate(112,88) scale(.76)">${ICONES[tipo]}</g>
+    <text x="150" y="202" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="17" letter-spacing="4" fill="${anel}">MÉTODO VDE</text></svg>`;
+}
+const brilho = (x, y, px, cor, op = 1) => `<svg width="${px}" height="${px}" viewBox="0 0 24 24" style="position:absolute;left:${x}px;top:${y}px;opacity:${op}"><path d="M12 0c.8 6.4 5.6 11.2 12 12-6.4.8-11.2 5.6-12 12-.8-6.4-5.6-11.2-12-12C6.4 11.2 11.2 6.4 12 0z" fill="${cor}"/></svg>`;
+function selo(t, tipo) {
+  if (!t.escuro) return `<div style="position:absolute;right:-120px;bottom:-140px;z-index:1;pointer-events:none">${emblema(tipo, 520, -10, .07)}</div>`;
+  return `<div style="position:absolute;inset:0;z-index:1;pointer-events:none">
+    <div style="position:absolute;left:1350px;top:200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(201,184,255,.28),rgba(201,184,255,0) 65%)"></div>
+    <div style="position:absolute;right:-110px;top:-120px">${emblema(tipo, 300, 14, .22)}</div>
+    <div style="position:absolute;left:1450px;top:300px">${emblema(tipo, 440, -9)}</div>
+    ${brilho(1360, 230, 54, COR.lavanda)}${brilho(1830, 760, 40, '#fff', .85)}${brilho(1300, 820, 28, COR.lavanda, .7)}${brilho(1760, 170, 22, '#fff', .6)}</div>`;
 }
 // Repescagem: arco grande com ponta de seta (nova tentativa) saindo pela direita.
 function seta(t) {
