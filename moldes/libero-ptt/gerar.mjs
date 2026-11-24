@@ -33,6 +33,18 @@ const cabeca = (titulo, sub, kicker) => `<div style="position:absolute;left:${M}
   <div style="${P};font-size:26px;color:${CINZA};margin-top:16px">${sub}</div></div>`;
 
 const S = [];
+// 0 · Capa, no molde da capa da defesa: centralizada, UNICAP no alto, nome e orientação embaixo
+S.push(tela(GRAD, `
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff">
+    <div style="display:flex;align-items:center;gap:30px">${logo(78)}<span style="width:1px;height:60px;background:rgba(255,255,255,.35)"></span>
+      <span style="${P};font-size:20px;line-height:1.5;color:rgba(255,255,255,.85);text-align:left">PPGDI<br>Mestrado Profissional em Direito e Inovação</span></div>
+    <div style="margin-top:90px">${kick('Produto técnico-tecnológico', 'rgba(255,255,255,.75)')}</div>
+    <div style="${T};font-size:128px;line-height:1.04;margin-top:30px">Cidadania digital<br>e acessibilidade</div>
+    <div style="width:90px;height:2px;background:rgba(255,255,255,.5);margin:44px 0 36px"></div>
+    <div style="${T};font-weight:500;font-style:italic;font-size:36px;color:rgba(255,255,255,.9)">Análise do aplicativo Cidadão PE a partir do modelo MAAD</div>
+    <div style="${P};font-weight:600;font-size:30px;margin-top:90px">Líbero Alves Rodrigues Filho</div>
+    <div style="${P};font-size:22px;color:rgba(255,255,255,.75);margin-top:12px">Orientação: Profa. Dra. Paloma Mendes Saldanha</div>
+    <div style="${P};font-size:20px;color:rgba(255,255,255,.6);margin-top:8px">Linha de pesquisa: Instituições, Inovações de Mercado e Tecnologia</div></div>`));
 // 1 · Resumo do produto
 S.push(tela('#fff', `
   <div style="position:absolute;left:${M}px;top:96px;right:${M}px;display:flex;justify-content:space-between;align-items:flex-start">
@@ -72,7 +84,7 @@ S.push(tela(OFF, `${cabeca('Como o MAAD transforma testes em notas', 'Modelo de 
   <div style="position:absolute;left:${M}px;right:${M}px;top:790px;background:${CLARO};border-radius:24px;padding:36px 44px;display:flex;align-items:center;gap:40px">
     <div style="${T};font-size:46px;color:${AZUL};white-space:nowrap">32 critérios em 6 dimensões</div>
     <div style="${P};font-size:23px;line-height:1.45;color:${NAVY}">Referências da matriz: WCAG 2.2, eMAG 3.1 e Lei Brasileira de Inclusão, entre outras.</div></div>
-  ${rodape(3)}`));
+  ${rodape(4)}`));
 
 // 4 · Resultado
 const dims = [['Perceptiva', 2, 15], ['Operacional', 10, 15], ['Cognitiva', 9, 15], ['Informacional', 10, 18], ['Cidadania digital', 8, 18], ['Conformidade jurídica', 7, 15]];
@@ -89,7 +101,7 @@ S.push(tela('#fff', `${cabeca('Resultado da avaliação do Cidadão PE', 'Índic
       <span style="height:18px;border-radius:9px;background:${OFF};overflow:hidden"><span style="display:block;height:100%;width:${v / m * 100}%;background:${v === 2 ? ALERTA : AZUL};border-radius:9px"></span></span>
       <span style="${P};font-weight:600;font-size:24px;color:${NAVY};text-align:right">${v} / ${m}</span></div>`).join('')}</div>
   <div style="position:absolute;left:${M}px;right:${M}px;bottom:120px;${P};font-size:19px;color:${CINZA}">As barras usam o máximo de cada dimensão. A versão auditada é o recorte do estudo.</div>
-  ${rodape(4)}`));
+  ${rodape(5)}`));
 
 // 5 · Barreiras
 const barreiras = [['Leitura de ícones', 'O VoiceOver ignorava ícones sem descrição ou anunciava um rótulo genérico.', 'A pessoa pode ouvir um elemento sem saber qual ação ele executa.'],
@@ -102,7 +114,7 @@ S.push(tela(OFF, `${cabeca('Onde a navegação perde autonomia', 'Três barreira
       <div style="display:flex;gap:22px;align-items:center">${num(['i', 'ii', 'iii'][i], 48)}<span style="${T};font-size:32px;color:${NAVY}">${e}</span></div>
       <span style="${P};font-size:23px;line-height:1.5;color:${NAVY}">${o}</span><span style="${P};font-size:23px;line-height:1.5;color:${CINZA}">${f}</span></div>`).join('')}</div></div>
   <div style="position:absolute;left:${M}px;right:${M}px;bottom:120px;${P};font-size:19px;color:${CINZA}">Em boa parte dos fluxos, o leitor de tela conseguia identificar textos, botões e campos.</div>
-  ${rodape(5)}`));
+  ${rodape(6)}`));
 
 // 6 · Aplicação na advocacia
 const passos = [['Ocorrência', 'Ícone de ação em um fluxo de serviço, sem nome que indique sua função ao leitor de tela.'],
@@ -115,7 +127,7 @@ S.push(tela('#fff', `${cabeca('Aplicação na advocacia', 'Como documentar uma b
       <div style="${T};font-size:42px;color:${i === 2 ? '#fff' : NAVY};margin-top:22px">${t}</div>
       <div style="${P};font-size:24px;line-height:1.5;color:${i === 2 ? 'rgba(255,255,255,.9)' : CINZA};margin-top:18px">${s}</div></div>`).join('')}</div>
   <div style="position:absolute;left:${M}px;right:${M}px;bottom:120px;${P};font-size:21px;color:${NAVY}">O registro pode instruir um parecer, um pedido de adequação ou o acompanhamento da correção.</div>
-  ${rodape(6)}`));
+  ${rodape(7)}`));
 
 // 7 · Plano de adequação progressiva
 S.push(tela(GRAD, `
@@ -127,7 +139,7 @@ S.push(tela(GRAD, `
       <div style="${T};font-size:170px;line-height:.95;color:#fff;margin-top:18px">${n}</div>
       <div style="${P};font-size:27px;line-height:1.45;color:rgba(255,255,255,.9);margin-top:20px">${t}</div></div>`).join('')}</div>
   <div style="position:absolute;left:${M}px;right:${M}px;top:870px;${P};font-size:24px;color:#fff"><b style="font-weight:600">Prioridades:</b> descrever ícones, orientar em caso de erro e avisar antes de abrir um site externo.</div>
-  ${rodape(7, true)}`));
+  ${rodape(8, true)}`));
 
 const launch = {};
 if (process.env.CHROMIUM_PATH) launch.executablePath = process.env.CHROMIUM_PATH;
