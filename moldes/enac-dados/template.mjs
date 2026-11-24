@@ -46,8 +46,8 @@ VISUAL.numeros = (v) => `<div style="display:grid;grid-template-columns:repeat($
 // fundo: tinta, lima ou osso (alternar no feed). [[trecho]] vira o destaque do fundo escolhido.
 const DIRETO = {
   tinta: { bg: C.tinta, fg: C.osso, apoio: C.cinza, hl: `color:${C.lima}`, barra: C.lima, cta: C.lima },
-  lima: { bg: C.lima, fg: C.tinta, apoio: '#33410a', hl: `background:${C.tinta};color:${C.lima};padding:0 .12em`, barra: C.tinta, cta: C.tinta },
-  osso: { bg: C.osso, fg: C.tinta, apoio: '#6a6f78', hl: `background:${C.lima};padding:0 .12em`, barra: C.tinta, cta: C.tinta },
+  lima: { bg: C.lima, fg: C.tinta, apoio: '#33410a', hl: `background:${C.tinta};color:${C.lima};padding:0 .12em;display:inline-block;line-height:1.08;margin-top:.14em`, barra: C.tinta, cta: C.tinta },
+  osso: { bg: C.osso, fg: C.tinta, apoio: '#6a6f78', hl: `background:${C.lima};padding:0 .12em;display:inline-block;line-height:1.08;margin-top:.14em`, barra: C.tinta, cta: C.tinta },
   coral: { bg: C.tinta, fg: C.osso, apoio: C.cinza, hl: `color:${C.coral}`, barra: C.coral, cta: C.coral },
 };
 function direto(t) {
