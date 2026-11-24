@@ -259,8 +259,9 @@ def cena(Pw):
 LIMITES = (np.array([-90.0, -76.0, -1.37]), np.array([88.0, 30.0, 102.0]))  # já com o Y espelhado; z = 0 cai entre dois planos
 
 
-def grade(h):
-    lo, hi = LIMITES
+def grade(h, cena_fn=None, limites=None):
+    cena_fn = cena_fn or cena
+    lo, hi = limites or LIMITES
     n = np.ceil((hi - lo) / h).astype(int) + 1
     xs, ys, zs = (lo[i] + h * np.arange(n[i]) for i in range(3))
     G = np.empty(n, np.float32)
@@ -274,7 +275,7 @@ def grade(h):
         P = np.empty((len(bloco) * len(yz), 3), np.float32)
         P[:, 0] = np.repeat(bloco, len(yz))
         P[:, 1:] = np.tile(yz, (len(bloco), 1))
-        d, zw, zb = cena(P)
+        d, zw, zb = cena_fn(P)
         forma = (len(bloco), n[1], n[2])
         G[i : i + passo], ZW[i : i + passo], ZB[i : i + passo] = d.reshape(forma), zw.reshape(forma), zb.reshape(forma)
     return G, ZW, ZB, lo.copy()
@@ -289,16 +290,19 @@ def amostra(G, o, h, p):
 
 # ---------------------------------------------------------------- imagem (traçado de raios na grade)
 LUZ = unit((-0.40, -0.55, 0.73))
+CHAO_CENTRO = np.array([0.0, -20.0])  # centro da mancha de chão na imagem
 
 
 def _sombra(G, o, h, p):
+    """Sombra suave na direção da luz (passos curtos: sem faixas na penumbra)."""
     res = np.ones(len(p))
     t = np.full(len(p), 0.9)
-    for _ in range(40):
+    for _ in range(90):
         d = amostra(G, o, h, p + LUZ * t[:, None])
         res = np.minimum(res, 9 * d / t)
-        t += np.clip(d, 0.6, 5.0)
-    return np.clip(res, 0, 1)
+        t += np.clip(0.5 * d, 0.3, 2.5)
+    res = np.clip(res, 0, 1)
+    return res * res * (3 - 2 * res)
 
 
 def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0):
@@ -339,7 +343,7 @@ def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0):
         pg = olho + D[chao] * tg[chao, None]
         s = _sombra(G, o, h, pg + np.array([0, 0, 0.3]))
         ao = 0.5 + 0.5 * np.clip(amostra(G, o, h, pg + np.array([0, 0, 3.0])) / 3.0, 0, 1)
-        dist = np.sqrt(((pg[:, :2] - np.array([0, -20])) ** 2).sum(1))
+        dist = np.sqrt(((pg[:, :2] - CHAO_CENTRO) ** 2).sum(1))
         base = np.array([226, 223, 218]) * (0.62 + 0.38 * s)[:, None] * ao[:, None]
         k = np.clip((dist - 150) / 160, 0, 1)[:, None]
         cor[chao] = base * (1 - k) + cor[chao] * k
@@ -360,7 +364,8 @@ def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0):
         hv = unit(LUZ - f)
         spec = np.clip(nrm @ hv, 0, 1) ** 30 * s
         luz = 0.46 * (0.62 + 0.38 * nrm[:, 2]) * ao + 0.74 * dif
-        cor[idx] = alb * luz[:, None] + 255 * 0.07 * spec[:, None]
+        escuro = (alb < 70).all(1)  # olhos e nariz: brilho de coisa molhada
+        cor[idx] = alb * luz[:, None] + 255 * (0.07 * spec + 0.55 * escuro * np.clip(nrm @ hv, 0, 1) ** 140 * s)[:, None]
     return np.clip(cor, 0, 255).astype(np.uint8).reshape(Ht, W, 3)
 
 
@@ -509,8 +514,8 @@ def conferir(nome, v, f):
     return m
 
 
-def simular(G, o, h, avanco=1.6):
-    """Regiões de cada camada a mais de `avanco` voxels da camada de baixo (inclinação acima de ~58°)."""
+def simular(G, o, h, avanco=1.7):
+    """Regiões de cada camada a mais de `avanco` voxels da camada de baixo (inclinação acima de ~50°)."""
     from scipy import ndimage as ndi
 
     dentro = G < 0
@@ -539,15 +544,62 @@ def simular(G, o, h, avanco=1.6):
         print("    camadas: nada no ar")
 
 
+def tapar_vazios(G, h):
+    """Preenche bolhas fechadas dentro do sólido (sobram onde várias formas redondas se encostam)."""
+    from scipy import ndimage as ndi
+
+    solido = G < 0
+    bolhas = ndi.binary_fill_holes(solido) & ~solido
+    if bolhas.any():
+        G = G.copy()
+        G[bolhas] = -0.3 * h
+    return G, int(bolhas.sum())
+
+
+def autoapoiar(G, h, k0, avanco=1.05, sub=4):
+    """Tira o que ficaria no ar: cada camada só pode avançar `avanco` voxels (~45°) sobre a de baixo.
+    Só remove material (chanfra por baixo o que ia precisar de suporte); não cria pontes.
+    A borda da camada de baixo é medida numa grade `sub` vezes mais fina, para o chanfro sair liso."""
+    from scipy import ndimage as ndi
+
+    G = G.copy()
+    nx, ny = G.shape[:2]
+    fator = (((nx - 1) * sub + 1) / nx, ((ny - 1) * sub + 1) / ny)
+    for k in range(k0 + 1, G.shape[2]):
+        if not (G[:, :, k] < 0).any():
+            continue
+        fino = ndi.zoom(G[:, :, k - 1], fator, order=1, mode="nearest") < 0
+        if not fino.any():
+            G[:, :, k] = np.maximum(G[:, :, k], h)
+            continue
+        dist = (ndi.distance_transform_edt(~fino) - ndi.distance_transform_edt(fino))[::sub, ::sub] / sub
+        camada = G[:, :, k]  # só mexe no que é sólido: o espaço vazio continua com a distância original
+        G[:, :, k] = np.where(camada < 0, np.maximum(camada, (dist - avanco) * h), camada)
+    return G
+
+
+def campo_imagem(F, G0, h):
+    """Campo só para desenhar a imagem depois do chanfro: distância segura até o que sobrou do sólido
+    (sem isso, a luz e a sombra "enxergam" a casca do material que foi tirado)."""
+    from scipy import ndimage as ndi
+
+    tirado = (G0 < 0) & (F > 0)
+    if not tirado.any():
+        return F
+    ate_solido = ndi.distance_transform_edt(F >= 0) * h - 0.9 * h  # folga: nunca passa da distância real
+    return np.where(F > 0, np.maximum(np.where(tirado, 0.7 * F, F), ate_solido), F).astype(np.float32)
+
+
 def simplificar(v, f, alvo):
     """Reduz os triângulos (a superfície é lisa, não perde forma). Só vale se a malha continuar fechada."""
     import fast_simplification
     import trimesh
 
-    v2, f2 = fast_simplification.simplify(v.astype(np.float32), f.astype(np.int32), target_count=alvo, agg=3)
-    m = trimesh.Trimesh(v2, f2, process=True, validate=True)
-    if m.is_watertight and m.is_winding_consistent and len(m.split(only_watertight=False)) == 1 and m.volume > 0:
-        return np.asarray(m.vertices, float), np.asarray(m.faces)
+    for n, agg in ((alvo, 3), (alvo, 1), (int(alvo * 1.4), 2), (int(alvo * 1.4), 1)):
+        v2, f2 = fast_simplification.simplify(v.astype(np.float32), f.astype(np.int32), target_count=n, agg=agg)
+        m = trimesh.Trimesh(v2, f2, process=True, validate=True)
+        if m.is_watertight and m.is_winding_consistent and len(m.split(only_watertight=False)) == 1 and m.volume > 0:
+            return np.asarray(m.vertices, float), np.asarray(m.faces)
     print("    (simplificação descartada: a malha não ficaria fechada)")
     return v, f
 
