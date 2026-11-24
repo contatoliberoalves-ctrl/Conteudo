@@ -6,14 +6,31 @@ export const C = {
   tinta: '#0B0D10', grafite: '#161A20', linha: '#2B313B', osso: '#F3F1EA',
   lima: '#C6FF3D', coral: '#FF5C39', azul: '#6FA3FF', cinza: '#8A93A3', apagado: '#3A414D',
 };
+// Variações de tema, para os vídeos e capas não parecerem todos iguais no feed. Mesma paleta, papéis trocados:
+// noite (padrão: fundo tinta), papel (fundo osso, dado em tinta, destaque em marca-texto lima) e lima (fundo lima).
+const BASE = { ...C };
+const T = { hl: `color:${BASE.lima}`, brilho: BASE.lima + '1f', ponto: '#ffffff1c' };
+export const TEMAS = {
+  noite: {},
+  papel: { tinta: '#F3F1EA', osso: '#0B0D10', grafite: '#E8E4D7', linha: '#CBC6B6', cinza: '#5B616B', lima: '#0B0D10', apagado: '#D5D0C2', coral: '#D93A17', azul: '#2D5BE3',
+    hl: 'background:#C6FF3D;color:#0B0D10;padding:0 .1em', brilho: '#C6FF3D66', ponto: '#0000001c' },
+  lima: { tinta: '#C6FF3D', osso: '#0B0D10', grafite: '#B6EC30', linha: '#8FBF1F', cinza: '#3B4A12', lima: '#0B0D10', apagado: '#A6DB26', coral: '#B3240A', azul: '#1D3FAE',
+    hl: 'background:#0B0D10;color:#C6FF3D;padding:0 .1em', brilho: '#ffffff66', ponto: '#00000020' },
+};
+export function aplicarTema(nome = 'noite') {
+  const { hl, brilho, ponto, ...cores } = TEMAS[nome] || {};
+  Object.assign(C, BASE, cores);
+  Object.assign(T, { hl: hl || `color:${BASE.lima}`, brilho: brilho || BASE.lima + '1f', ponto: ponto || '#ffffff1c' });
+}
+export const destaque = () => T.hl;
 export const PERFIL = '@enacemdados';
 export const FONTES = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap';
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // [[trecho]] em lima; {{trecho}} em coral
-export const tit = s => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="color:${C.lima}">$1</span>`).replace(/\{\{(.+?)\}\}/g, `<span style="color:${C.coral}">$1</span>`);
+export const tit = s => esc(s).replace(/\[\[(.+?)\]\]/g, (_, x) => `<span style="${T.hl};box-decoration-break:clone;-webkit-box-decoration-break:clone">${x}</span>`).replace(/\{\{(.+?)\}\}/g, (_, x) => `<span style="color:${C.coral}">${x}</span>`);
 export const cor = c => C[c] || c || C.lima;
 
-export const CSS = `
+export const cssBase = () => `
 *{box-sizing:border-box;margin:0}
 body{background:${C.tinta}}
 .tela{position:relative;overflow:hidden;background:${C.tinta};color:${C.osso};font-family:'Space Grotesk',sans-serif}
@@ -24,8 +41,8 @@ body{background:${C.tinta}}
 .etq i{width:14px;height:14px;background:${C.lima};flex:none}
 `;
 // fundo: tinta com malha de pontos e um clarão de lima no canto
-export const fundo = () => `<div style="position:absolute;inset:0;background:radial-gradient(60% 40% at 88% 4%,${C.lima}1f 0%,transparent 70%),${C.tinta}"></div>
-<div style="position:absolute;inset:0;background-image:radial-gradient(#ffffff1c 2px,transparent 2.4px);background-size:45px 45px;background-position:22px 22px"></div>`;
+export const fundo = () => `<div style="position:absolute;inset:0;background:radial-gradient(60% 40% at 88% 4%,${T.brilho} 0%,transparent 70%),${C.tinta}"></div>
+<div style="position:absolute;inset:0;background-image:radial-gradient(${T.ponto} 2px,transparent 2.4px);background-size:45px 45px;background-position:22px 22px"></div>`;
 export const etiqueta = (t, c = 'lima') => `<span class="etq"><i style="background:${cor(c)}"></i>${esc(t)}</span>`;
 // marca: três barras subindo + ENAC / em dados
 export const logo = (px = 44, clara = false) => {

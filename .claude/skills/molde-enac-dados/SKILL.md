@@ -15,6 +15,7 @@ Pasta: `moldes/enac-dados/` (campos e layouts no `README.md` de lá; identidade 
 - Lima é o dado, coral só para dúvida, divergência e recurso. Um número grande por tela. Sem emoji e sem pílulas.
 - A narração usa um locutor da biblioteca da ElevenLabs (padrão "Paulo Radames"). Não use a voz clonada do Líbero neste perfil: ele pediu assim.
 - Posts de tela única usam o layout `direto`: uma frase gigante, no máximo um número e uma linha de chamada, alternando o fundo (tinta, lima, osso). Sem etiqueta, subtítulo, cartões ou lista longa: o Líbero achou a versão cheia de texto "com cara de IA". O detalhe vai na legenda.
+- Vídeos e capas seguidos não usam o mesmo tema: alterne `noite`, `papel` e `lima` (campo `tema`), porque o Líbero achou que pareciam o mesmo vídeo.
 - Toda peça termina numa pergunta para quem fez a prova comentar.
 - A numeração das questões muda conforme o tipo de prova (as letras não): cite o tema e o número em cada tipo.
 

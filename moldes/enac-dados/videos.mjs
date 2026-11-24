@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { C, CSS, FONTES, PERFIL, esc, tit, cor, fundo, etiqueta, logo, grade } from './identidade.mjs';
+import { C, cssBase, aplicarTema, destaque, FONTES, PERFIL, esc, tit, cor, fundo, etiqueta, logo, grade } from './identidade.mjs';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire(path.join(root, 'package.json'))('playwright');
 
@@ -21,7 +21,7 @@ const VOZ = process.env.ENAC_VOZ || 'Paulo Radames';
 const EASE = 'cubic-bezier(.2,.8,.2,1)';
 const an = (nome, dur, t, extra = '') => `animation:${nome} ${dur}s ${EASE} ${t.toFixed(3)}s both${extra}`;
 
-const css = `${CSS}
+const css = () => `${cssBase()}
 .v{width:${W}px;height:${H}px}
 .cena{position:absolute;inset:0}
 .area{position:absolute;left:90px;right:90px;top:330px}
@@ -115,7 +115,7 @@ const CENAS = {
         return `<div style="display:flex;align-items:center;gap:26px;background:${C.grafite};border:2px solid ${C.linha};border-left:8px solid ${C.lima};padding:26px 28px;${an('entra', .5, t)}">
           <div style="flex:1"><div class="mono" style="font-size:25px;color:${C.lima}">${esc(it.k)}</div>
             <div style="font:700 42px/1.12 'Space Grotesk';letter-spacing:-.02em;margin-top:12px">${esc(it.t)}</div></div>
-          <div style="text-align:right;${an('escala', .4, t + .3)}"><div class="tit" style="font-size:78px;color:${C.lima}">${it.n}</div><div class="mono" style="font-size:20px;color:${C.cinza}">${it.n > 1 ? 'questões' : 'questão'}</div></div></div>`;
+          ${it.n == null ? '' : `<div style="text-align:right;${an('escala', .4, t + .3)}"><div class="tit" style="font-size:${String(it.n).length > 3 ? 62 : 78}px;color:${C.lima}">${it.n}</div><div class="mono" style="font-size:20px;color:${C.cinza}">${s.unidade ?? (it.n > 1 ? 'questões' : 'questão')}</div></div>`}</div>`;
       }).join('')}</div></div>`;
   },
   // temas: lista numerada do que cada questão cobrou (até 8 por cena)
@@ -139,8 +139,8 @@ const CENAS = {
     let c = null;
     return `<div style="position:absolute;left:90px;right:90px;top:300px;bottom:400px;display:flex;flex-wrap:wrap;align-content:center;gap:6px 24px">
       ${p.map((w, i) => {
-        if (w.startsWith('[[')) c = C.lima; if (w.startsWith('{{')) c = C.coral;
-        const h = `<span class="tit" style="font-size:${s.ts || 112}px;line-height:1.02;${c ? `color:${c};` : ''}${an('sobe', .45, t0 + .2 + i * passo)}">${esc(w.replace(/\[\[|\]\]|\{\{|\}\}/g, ''))}</span>`;
+        if (w.startsWith('[[')) c = destaque(); if (w.startsWith('{{')) c = `color:${C.coral}`;
+        const h = `<span class="tit" style="font-size:${s.ts || 112}px;line-height:1.02;${c ? c + ';' : ''}${an('sobe', .45, t0 + .2 + i * passo)}">${esc(w.replace(/\[\[|\]\]|\{\{|\}\}/g, ''))}</span>`;
         if (/\]\]|\}\}/.test(w)) c = null;
         return h;
       }).join('')}</div>`;
@@ -294,6 +294,45 @@ const VIDEOS = {
     { tipo: 'cta', titulo: 'Qual você [[não estudou]]?', texto: 'Comenta o tema de Registro de Imóveis que te surpreendeu.', digita: 'Terra indígena',
       fala: 'Qual desses você não tinha estudado? Comenta.' },
   ] },
+  'enac-pular-primeira-fase': { n: '11', tema: 'lima', selo: 'Concurso de cartório', fonte: 'Fonte: nova resolução do CNJ (ago/2026)', cenas: [
+    { tipo: 'frase', ts: 118, texto: 'Passou no ENAC? Você pode [[pular a 1ª fase]] do concurso.',
+      fala: 'Quem passa no ENAC pode pular a primeira fase do concurso de cartório.' },
+    { tipo: 'temas', rotulo: 'A nova regra do CNJ', titulo: 'O que [[mudou]]', itens: ['O tribunal pode trocar a prova objetiva pelo ENAC', 'Quem tem ENAC válido vai direto para a discursiva', 'Só vale se estiver no edital de abertura'],
+      fala: 'A nova regra do CNJ deixa o tribunal trocar a prova objetiva pelo ENAC. Aí, quem tem o exame válido vai direto pra discursiva. Mas precisa estar no edital.' },
+    { tipo: 'temas', rotulo: 'O que continua igual', titulo: 'O ENAC [[não classifica]]', itens: ['Ele só habilita para a inscrição', 'A nota não entra na classificação', 'Também não serve de desempate', 'A habilitação vale por 6 anos'],
+      fala: 'O resto continua igual: o ENAC só habilita. A nota não classifica nem desempata.' },
+    { tipo: 'numero', rotulo: 'Outra novidade', n: 365, tn: 400, de: 'dias', titulo: 'é o prazo máximo de um [[concurso de cartório]]', ts: 84, texto: 'Contados da publicação do edital.',
+      fala: 'E o concurso agora tem prazo: trezentos e sessenta e cinco dias, do edital ao fim.' },
+    { tipo: 'cta', titulo: 'Seu estado vai [[adotar]]?', texto: 'Comenta o tribunal que você está esperando.', digita: 'TJSP',
+      fala: 'Seu estado vai adotar? Comenta o tribunal que você espera.' },
+  ] },
+  'cartorio-concursos-previstos': { n: '12', tema: 'papel', selo: 'Concurso de cartório', fonte: 'Situação em nov/2026', cenas: [
+    { tipo: 'numero', rotulo: 'Radar dos concursos de cartório', n: 6, titulo: 'concursos de cartório [[pra sair]]', texto: 'Nenhum tem edital ainda. Todos já saíram do zero.',
+      fala: 'Seis concursos de cartório estão pra sair. Nenhum tem edital ainda, mas todos já andaram.' },
+    { tipo: 'lista', unidade: 'serventias', rotulo: 'Os mais adiantados', titulo: 'Já têm [[comissão]]', itens: [
+      { k: 'TJSP · 14º concurso', t: 'Autorizado, comissão formada', n: '190+' }, { k: 'TJAL', t: 'Comissão reunida, falta a banca', n: 68 }, { k: 'TJRJ', t: 'Comissão e regulamento publicados' }],
+      fala: 'São Paulo autorizou o décimo quarto concurso, com mais de cento e noventa serventias vagas. Alagoas tem sessenta e oito. E o Rio já formou a comissão.' },
+    { tipo: 'lista', rotulo: 'No começo do caminho', titulo: 'Entraram no [[radar]]', itens: [
+      { k: 'TJRO · 8º concurso', t: 'Em preparação, comissão formada' }, { k: 'TJPI', t: 'Previsto no orçamento de 2027' }, { k: 'TJTO', t: 'O CNJ mandou fazer um novo concurso' }],
+      fala: 'Rondônia prepara o oitavo concurso. O Piauí pôs no orçamento de dois mil e vinte e sete. E no Tocantins, o CNJ mandou fazer.' },
+    { tipo: 'frase', ts: 108, texto: 'Sem [[ENAC]] válido, você não se inscreve em nenhum deles.',
+      fala: 'E sem ENAC válido, você não se inscreve em nenhum deles.' },
+    { tipo: 'cta', titulo: 'Qual você [[vai fazer]]?', texto: 'Comenta o estado que está no seu plano.', digita: 'São Paulo',
+      fala: 'Qual você vai fazer? Comenta o estado.' },
+  ] },
+  'cartorio-concursos-parados': { n: '13', selo: 'Concurso de cartório', fonte: 'Situação em nov/2026', cenas: [
+    { tipo: 'numero', cor: 'coral', rotulo: 'Concursos suspensos', n: 656, tn: 400, titulo: 'cartórios em concursos {{parados}}', texto: 'Quatro editais suspensos por decisão do CNJ.',
+      fala: 'Seiscentos e cinquenta e seis cartórios estão em concursos parados por decisão do CNJ.' },
+    { tipo: 'barras', cor: 'coral', rotulo: 'Serventias em cada concurso suspenso', titulo: 'Onde está {{travado}}', gap: 40, itens: [
+      { nome: 'Minas Gerais (TJMG)', v: 460, cor: 'coral' }, { nome: 'Pará (TJPA)', v: 92, cor: 'osso' }, { nome: 'Paraíba (TJPB)', v: 60, cor: 'osso' }, { nome: 'Ceará (TJCE)', v: 44, cor: 'osso' }],
+      fala: 'Minas Gerais sozinha tem quatrocentos e sessenta. Depois vêm Pará, com noventa e dois, Paraíba, com sessenta, e Ceará, com quarenta e quatro.' },
+    { tipo: 'temas', cor: 'coral', rotulo: 'O que falta em cada um', titulo: 'Por que {{parou}}', itens: ['Minas: parou depois da objetiva, por dúvidas nas cotas', 'Pará: parou antes da prova escrita', 'Paraíba: vai republicar o edital', 'Ceará: cautelar do CNJ, sem data'],
+      fala: 'Minas parou depois da objetiva. O Pará, antes da prova escrita. A Paraíba vai republicar o edital. E o Ceará segue sem data.' },
+    { tipo: 'frase', ts: 108, texto: 'Quando destravar, quem tiver [[ENAC]] na mão sai na frente.',
+      fala: 'Quando destravar, quem estiver com o ENAC na mão sai na frente.' },
+    { tipo: 'cta', titulo: 'Você está em [[algum]]?', texto: 'Comenta o concurso que você está esperando voltar.', digita: 'TJMG, desde abril',
+      fala: 'Você está em algum deles? Comenta.' },
+  ] },
 };
 
 // ---------- narração ----------
@@ -319,6 +358,7 @@ function fala(texto, estimar) {
 }
 
 function montar(id, v, estimar) {
+  aplicarTema(v.tema);
   const ev = { whoosh: [], tick: [], impacto: [] }, vozes = [];
   const semVoz = !!process.env.SEM_VOZ;
   for (const c of v.cenas) {
@@ -336,10 +376,10 @@ function montar(id, v, estimar) {
       <div class="cena" style="animation:c${i} ${c.dur}s linear ${t}s both">${CENAS[c.tipo](c, t, ev, c.dur)}</div>`);
     t += c.dur;
   });
-  const fixo = `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:flex-end;z-index:5">${logo(64)}<span class="mono" style="font-size:22px;color:${C.cinza}">ENAC 2026.2 · Nº ${v.n}</span></div>
+  const fixo = `<div style="position:absolute;left:90px;right:90px;top:150px;display:flex;justify-content:space-between;align-items:flex-end;z-index:5">${logo(64)}<span class="mono" style="font-size:22px;color:${C.cinza}">${v.selo || 'ENAC 2026.2'} · Nº ${v.n}</span></div>
     <div style="position:absolute;left:90px;right:90px;top:250px;height:4px;background:${C.linha};z-index:5"><div style="height:100%;background:${C.lima};transform-origin:left;animation:barra ${total}s linear 0s both"></div></div>
     <div class="mono" style="position:absolute;left:90px;right:90px;bottom:330px;display:flex;justify-content:space-between;font-size:22px;color:${C.cinza};z-index:5"><span>${PERFIL}</span><span>${v.fonte || FONTE}</span></div>`;
-  const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${css}</style></head><body><div class="tela v">${fundo()}${partes.join('')}${fixo}</div></body></html>`;
+  const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${css()}</style></head><body><div class="tela v">${fundo()}${partes.join('')}${fixo}</div></body></html>`;
   return { html, total, ev, vozes };
 }
 

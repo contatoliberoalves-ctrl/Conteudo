@@ -1,8 +1,8 @@
 // Telas estáticas do ENAC em dados: capas dos vídeos (1080×1920, tudo dentro do miolo 4:5 que aparece na grade),
 // posts de pergunta (1080×1350) e as pranchas da identidade.
-import { C, CSS, FONTES, PERFIL, esc, tit, cor, fundo, etiqueta, logo, grade } from './identidade.mjs';
+import { C, cssBase, aplicarTema, FONTES, PERFIL, esc, tit, cor, fundo, etiqueta, logo, grade } from './identidade.mjs';
 
-const pagina = (w, h, miolo) => ({ w, h, html: `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${CSS}</style></head><body><div class="tela" style="width:${w}px;height:${h}px">${fundo()}${miolo}</div></body></html>` });
+const pagina = (w, h, miolo) => ({ w, h, html: `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${cssBase()}</style></head><body><div class="tela" style="width:${w}px;height:${h}px">${fundo()}${miolo}</div></body></html>` });
 const topo = (y, dir) => `<div style="position:absolute;left:80px;right:80px;top:${y}px;display:flex;justify-content:space-between;align-items:flex-end">${logo(64)}<span class="mono" style="font-size:22px;color:${C.cinza}">${esc(dir)}</span></div>
   <div style="position:absolute;left:80px;right:80px;top:${y + 92}px;height:4px;background:${C.linha}"><div style="width:22%;height:100%;background:${C.lima}"></div></div>`;
 const pe = (y, fonte) => `<div class="mono" style="position:absolute;left:80px;right:80px;top:${y}px;display:flex;justify-content:space-between;font-size:21px;color:${C.cinza}"><span>${PERFIL}</span><span>${esc(fonte || 'Fonte: gabaritos extraoficiais')}</span></div>`;
@@ -53,7 +53,7 @@ const DIRETO = {
 function direto(t) {
   const k = DIRETO[t.fundo || 'tinta'], b = h => `<i style="width:11px;height:${h}px;background:${k.barra}"></i>`;
   const m = s => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="${k.hl};box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`);
-  const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${CSS}</style></head><body>
+  const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${cssBase()}</style></head><body>
     <div class="tela" style="width:1080px;height:1350px;background:${k.bg};color:${k.fg}">
       <div class="mono" style="position:absolute;left:84px;top:84px;font-size:30px;letter-spacing:.1em;border:3px solid ${k.fg};padding:10px 18px">${esc(t.selo || 'ENAC 2026.2')}</div>
       <div style="position:absolute;left:84px;right:84px;top:170px;bottom:250px;display:flex;flex-direction:column;justify-content:center">
@@ -85,8 +85,8 @@ const LAYOUTS = {
     return pagina(1080, 1920, `${topo(330, t.dir || 'ENAC 2026.2')}
       <div style="position:absolute;left:80px;right:80px;top:500px">
         ${etiqueta(t.rotulo, t.cor)}
-        <div style="display:flex;align-items:flex-end;gap:18px;margin-top:44px"><span class="tit" style="font-size:${t.tn || 470}px;line-height:.78;color:${cor(t.cor)}">${esc(t.numero)}</span>${t.de ? `<span class="mono" style="font-size:50px;color:${C.cinza};padding-bottom:22px">${esc(t.de)}</span>` : ''}</div>
-        <div class="tit" style="font-size:${t.ts || 104}px;margin-top:56px">${tit(t.titulo)}</div>
+${t.numero ? `<div style="display:flex;align-items:flex-end;gap:18px;margin-top:44px"><span class="tit" style="font-size:${t.tn || 470}px;line-height:.78;color:${cor(t.cor)}">${esc(t.numero)}</span>${t.de ? `<span class="mono" style="font-size:50px;color:${C.cinza};padding-bottom:22px">${esc(t.de)}</span>` : ''}</div>` : ''}
+        <div class="tit" style="font-size:${t.ts || 104}px;margin-top:56px;line-height:${t.tema && t.tema !== 'noite' ? 1.16 : .98}">${tit(t.titulo)}</div>
         ${t.sub ? `<div class="txt" style="font-size:40px;color:${C.cinza};margin-top:28px">${tit(t.sub)}</div>` : ''}</div>
       ${t.grupos ? `<div style="position:absolute;right:80px;top:610px">${grade(t.grupos, 280)}</div>` : ''}
       <div style="position:absolute;left:80px;top:1480px;display:flex;align-items:center;gap:18px"><svg width="46" height="46" viewBox="0 0 46 46"><rect width="46" height="46" fill="${C.lima}"/><path d="M17 12l16 11-16 11z" fill="${C.tinta}"/></svg><span class="mono" style="font-size:24px">${esc(t.chamada || 'Assista até o fim')}</span></div>
@@ -138,4 +138,4 @@ const LAYOUTS = {
         ${regra('Cantos retos. Nada de pílula, sombra ou emoji.')}${regra('Lima é o dado. Coral, só para dúvida e recurso.')}${regra('Um número por tela, o maior que couber.')}${regra('A fonte do dado sempre no rodapé.')}</div></div>${pe(1262, 'Manual da identidade')}`);
   },
 };
-export const renderTela = t => LAYOUTS[t.layout](t);
+export const renderTela = t => { aplicarTema(t.tema); try { return LAYOUTS[t.layout](t); } finally { aplicarTema(); } };

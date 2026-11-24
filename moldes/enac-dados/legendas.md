@@ -256,3 +256,60 @@ Marca aqui o João da sua turma.
 Números das questões do caderno Tipo 3.
 
 #enac #enac2026 #examenacionaldoscartorios #concursodecartorio #cartorio #fgv #memesjuridicos #concurseiro #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 11 · Passou no ENAC? Você pode pular a 1ª fase (`enac-pular-primeira-fase`)
+
+O CNJ trocou a regra dos concursos de cartório em agosto de 2026, e o ENAC ganhou um papel novo.
+
+O que mudou:
+▪ O tribunal pode usar o ENAC no lugar da prova objetiva do concurso
+▪ Nesse caso, quem tem ENAC válido vai direto para a discursiva
+▪ Só vale se o edital de abertura previr
+
+O que continua igual:
+▪ O ENAC só habilita: a nota não classifica nem desempata
+▪ A habilitação vale por 6 anos
+
+E mais: o concurso passa a ter prazo máximo de 365 dias, contados do edital.
+
+Seu estado vai adotar? Comenta o tribunal que você está esperando.
+
+Fonte: nova resolução do CNJ sobre concursos de cartório, que substituiu a Resolução 81/2009.
+
+#enac #enac2027 #concursodecartorio #cartorio #cnj #examenacionaldoscartorios #direitonotarial #direitoregistral #concursopublico #tabeliao #registrador #enacemdados
+
+## Vídeo 12 · 6 concursos de cartório pra sair (`cartorio-concursos-previstos`)
+
+Seis concursos de cartório estão a caminho. Nenhum tem edital ainda, mas todos já andaram:
+
+▪ São Paulo (TJSP): 14º concurso autorizado, comissão formada, mais de 190 serventias vagas
+▪ Alagoas (TJAL): comissão reunida, 68 serventias, falta contratar a banca
+▪ Rio de Janeiro (TJRJ): comissão formada e regulamento publicado
+▪ Rondônia (TJRO): 8º concurso em preparação
+▪ Piauí (TJPI): previsto na proposta orçamentária de 2027
+▪ Tocantins (TJTO): o CNJ determinou novo concurso
+
+Sem ENAC válido, não dá para se inscrever em nenhum.
+
+Qual você vai fazer? Comenta o estado.
+
+Situação em novembro de 2026, segundo os tribunais e portais especializados. Confira no site do tribunal antes de se planejar.
+
+#concursodecartorio #cartorio #enac #tjsp #tjal #tjrj #tjro #tjpi #tjto #concursopublico #direitonotarial #direitoregistral #enacemdados
+
+## Vídeo 13 · 656 cartórios em concursos parados (`cartorio-concursos-parados`)
+
+Quatro concursos de cartório estão suspensos por decisão do CNJ. Somados, são 656 serventias esperando:
+
+▪ Minas Gerais (TJMG): 460, parou depois da prova objetiva
+▪ Pará (TJPA): 92, parou antes da prova escrita e prática
+▪ Paraíba (TJPB): 60, aguarda a republicação do edital
+▪ Ceará (TJCE): 44, suspenso por cautelar, sem data
+
+Quando destravar, quem estiver com o ENAC válido sai na frente.
+
+Você está em algum deles? Comenta.
+
+Situação em novembro de 2026, segundo portais especializados. Confira no site do tribunal.
+
+#concursodecartorio #cartorio #enac #cnj #tjmg #tjpa #tjpb #tjce #concursopublico #direitonotarial #direitoregistral #enacemdados
