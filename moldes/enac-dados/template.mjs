@@ -42,7 +42,33 @@ const VISUAL = {
 VISUAL.numeros = (v) => `<div style="display:grid;grid-template-columns:repeat(${v.itens.length},1fr);gap:16px">${v.itens.map((it, i) => `<div style="background:${C.grafite};border:2px solid ${C.linha};border-top:8px solid ${i ? C.osso : C.lima};padding:26px 22px">
   <div class="tit" style="font-size:92px;line-height:.9;color:${i ? C.osso : C.lima}">${esc(it.n)}</div><div class="mono" style="font-size:20px;line-height:1.4;color:${C.cinza};margin-top:16px">${esc(it.t)}</div></div>`).join('')}</div>`;
 
+// post direto: uma frase gigante, no máximo um número e uma linha de chamada. Sem etiqueta, sem subtítulo, sem caixa.
+// fundo: tinta, lima ou osso (alternar no feed). [[trecho]] vira o destaque do fundo escolhido.
+const DIRETO = {
+  tinta: { bg: C.tinta, fg: C.osso, apoio: C.cinza, hl: `color:${C.lima}`, barra: C.lima, cta: C.lima },
+  lima: { bg: C.lima, fg: C.tinta, apoio: '#33410a', hl: `background:${C.tinta};color:${C.lima};padding:0 .12em`, barra: C.tinta, cta: C.tinta },
+  osso: { bg: C.osso, fg: C.tinta, apoio: '#6a6f78', hl: `background:${C.lima};padding:0 .12em`, barra: C.tinta, cta: C.tinta },
+  coral: { bg: C.tinta, fg: C.osso, apoio: C.cinza, hl: `color:${C.coral}`, barra: C.coral, cta: C.coral },
+};
+function direto(t) {
+  const k = DIRETO[t.fundo || 'tinta'], b = h => `<i style="width:11px;height:${h}px;background:${k.barra}"></i>`;
+  const m = s => esc(s).replace(/\[\[(.+?)\]\]/g, `<span style="${k.hl};box-decoration-break:clone;-webkit-box-decoration-break:clone">$1</span>`);
+  const html = `<!doctype html><html><head><meta charset="utf-8"><link href="${FONTES}" rel="stylesheet"><style>${CSS}</style></head><body>
+    <div class="tela" style="width:1080px;height:1350px;background:${k.bg};color:${k.fg}">
+      <div style="position:absolute;left:84px;right:84px;top:96px;bottom:250px;display:flex;flex-direction:column;justify-content:center">
+        ${t.numero ? `<div class="tit" style="font-size:${t.tn || 330}px;line-height:.8;margin-bottom:36px">${m(t.numero)}</div>` : ''}
+        <div class="tit" style="font-size:${t.ts || 132}px;line-height:1.14">${t.titulo.map(m).join('<br>')}</div>
+        ${t.linhas ? `<div style="margin-top:44px;font:600 ${t.tl || 50}px/1.28 'Space Grotesk';letter-spacing:-.02em">${t.linhas.map(m).join('<br>')}</div>` : ''}
+      </div>
+      <div style="position:absolute;left:84px;right:84px;bottom:92px;display:flex;justify-content:space-between;align-items:flex-end">
+        <div class="tit" style="font-size:${t.tc || 58}px;letter-spacing:-.03em;color:${k.cta}">${m(t.cta || '')}</div>
+        <div style="display:flex;align-items:flex-end;gap:12px"><div style="display:flex;align-items:flex-end;gap:5px">${b(17)}${b(28)}${b(40)}</div><span class="mono" style="font-size:20px;color:${k.apoio}">${PERFIL}</span></div></div>
+    </div></body></html>`;
+  return { w: 1080, h: 1350, html };
+}
+
 const LAYOUTS = {
+  direto,
   // meme de dados: frase, lista do que o personagem fez (com a questão) e o número no fim
   meme(t) {
     return pagina(1080, 1350, `${topo(70, t.dir || 'ENAC 2026.2')}

@@ -103,21 +103,15 @@
     "titulo": "Post · Qual foi a sua nota?",
     "telas": [
       {
-        "layout": "pergunta",
-        "rotulo": "Pergunta 01 · Pra quem fez a prova",
-        "titulo": "Qual foi a sua [[nota]] no ENAC?",
-        "sub": "Pelo gabarito extraoficial, sem julgamento. Aqui é só dado.",
-        "visual": {
-          "tipo": "regua",
-          "corte": 60,
-          "rotulo": [
-            "acertos para habilitar",
-            "(50 nas vagas reservadas)"
-          ]
-        },
-        "cta": "Comenta a sua nota.",
-        "ctaSub": "Com as respostas a gente monta a curva de notas da prova.",
-        "fonte": "ENAC 2026.2"
+        "layout": "direto",
+        "fundo": "tinta",
+        "titulo": [
+          "Qual foi",
+          "a sua [[nota]]",
+          "no ENAC?"
+        ],
+        "ts": 150,
+        "cta": "Comenta. 60 habilita."
       }
     ]
   },
@@ -126,25 +120,15 @@
     "titulo": "Post · Qual questão você quer ver anulada?",
     "telas": [
       {
-        "layout": "pergunta",
-        "cor": "coral",
-        "rotulo": "Pergunta 02 · Recursos",
-        "titulo": "Qual questão você quer ver {{anulada}}?",
-        "ts": 92,
-        "visual": {
-          "tipo": "alerta",
-          "numero": "16",
-          "legenda": "questões com base para recurso, segundo um dos gabaritos extraoficiais",
-          "titulo": "3 com argumento para anulação",
-          "itens": [
-            "Extrato eletrônico: até onde vai a qualificação",
-            "Cancelamento do protesto e baixa da negativação",
-            "Alienação fiduciária: intimação por RTD de outra comarca"
-          ]
-        },
-        "cta": "Comenta o tema da sua.",
-        "ctaSub": "Ou o tipo de prova e o número da questão.",
-        "fonte": "Fonte: gabarito extraoficial"
+        "layout": "direto",
+        "fundo": "coral",
+        "titulo": [
+          "Qual questão",
+          "você quer",
+          "ver [[anulada]]?"
+        ],
+        "ts": 138,
+        "cta": "Comenta o tema."
       }
     ]
   },
@@ -153,38 +137,21 @@
     "titulo": "Post · Qual matéria te derrubou?",
     "telas": [
       {
-        "layout": "pergunta",
-        "rotulo": "Pergunta 03 · Enquete",
-        "titulo": "Qual matéria te [[derrubou]]?",
-        "ts": 100,
-        "visual": {
-          "tipo": "opcoes",
-          "itens": [
-            {
-              "letra": "A",
-              "nome": "Notarial e Registral",
-              "v": 60
-            },
-            {
-              "letra": "B",
-              "nome": "Direito Civil",
-              "v": 14
-            },
-            {
-              "letra": "C",
-              "nome": "Constitucional",
-              "v": 8
-            },
-            {
-              "letra": "D",
-              "nome": "As outras 8 matérias",
-              "v": 18
-            }
-          ]
-        },
-        "cta": "Comenta a letra.",
-        "ctaSub": "A, B, C ou D. Vale explicar o motivo.",
-        "fonte": "ENAC 2026.2 · 100 questões"
+        "layout": "direto",
+        "fundo": "osso",
+        "titulo": [
+          "Qual matéria",
+          "te [[derrubou]]?"
+        ],
+        "ts": 132,
+        "linhas": [
+          "A · Notarial e Registral",
+          "B · Civil",
+          "C · Constitucional",
+          "D · O resto"
+        ],
+        "tl": 54,
+        "cta": "Comenta a letra."
       }
     ]
   },
@@ -311,31 +278,16 @@
     "titulo": "Post · Você leu 26 mil palavras em 5 horas",
     "telas": [
       {
-        "layout": "pergunta",
-        "rotulo": "Pergunta 04 · O relógio",
-        "titulo": "Você leu [[26 mil palavras]] em 5 horas",
-        "ts": 100,
-        "sub": "É um livro curto. Com cinco alternativas no fim de cada página.",
-        "visual": {
-          "tipo": "numeros",
-          "itens": [
-            {
-              "n": "25.963",
-              "t": "palavras na prova"
-            },
-            {
-              "n": "53",
-              "t": "páginas de caderno"
-            },
-            {
-              "n": "3 min",
-              "t": "por questão, para ler e marcar"
-            }
-          ]
-        },
-        "cta": "Deu tempo?",
-        "ctaSub": "Comenta SIM ou NÃO, e quantas ficaram para o chute.",
-        "fonte": "Fonte: caderno de prova, Tipo 3"
+        "layout": "direto",
+        "fundo": "lima",
+        "numero": "26 mil",
+        "tn": 250,
+        "titulo": [
+          "palavras.",
+          "[[5 horas.]]"
+        ],
+        "ts": 150,
+        "cta": "Deu tempo?"
       }
     ]
   },
@@ -344,70 +296,24 @@
     "titulo": "Meme · Quem tá mais cansado: eu ou o João",
     "telas": [
       {
-        "layout": "meme",
-        "titulo": "Não sei quem tá mais cansado: eu ou o [[João]], que nessa prova…",
-        "itens": [
-          [
-            "Q10",
-            "teve o carro apreendido"
-          ],
-          [
-            "Q13",
-            "casou na Itália"
-          ],
-          [
-            "Q16",
-            "adotou o enteado"
-          ],
-          [
-            "Q23",
-            "morreu e deixou 3 filhos"
-          ],
-          [
-            "Q38",
-            "pediu usucapião do apartamento"
-          ],
-          [
-            "Q44",
-            "perdeu o carro de novo"
-          ],
-          [
-            "Q47",
-            "se divorciou da Maria"
-          ],
-          [
-            "Q56",
-            "virou tabelião de protesto"
-          ],
-          [
-            "Q69",
-            "era dono de um rancho"
-          ],
-          [
-            "Q71",
-            "tentou usucapir bem público"
-          ],
-          [
-            "Q72",
-            "falsificou uma escritura"
-          ],
-          [
-            "Q78",
-            "morreu de novo, de avião"
-          ],
-          [
-            "Q84",
-            "passou cheque sem fundo"
-          ],
-          [
-            "Q92",
-            "largou a Maria outra vez"
-          ]
+        "layout": "direto",
+        "fundo": "osso",
+        "titulo": [
+          "Não sei quem tá",
+          "mais cansado:",
+          "eu ou o [[João]]."
         ],
-        "numero": "37",
-        "legenda": "vezes o nome João em 14 questões",
-        "cta": "Marca aqui o João da sua turma.",
-        "fonte": "Fonte: caderno de prova, Tipo 3"
+        "ts": 96,
+        "linhas": [
+          "Casou na Itália. Se divorciou.",
+          "Perdeu o carro duas vezes.",
+          "Falsificou uma escritura.",
+          "Virou tabelião.",
+          "Morreu duas vezes."
+        ],
+        "tl": 46,
+        "cta": "37 aparições na prova.",
+        "tc": 50
       }
     ]
   }

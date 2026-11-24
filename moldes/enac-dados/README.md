@@ -11,6 +11,7 @@ Cada post tem `id`, `titulo` e `telas`. Layouts:
   - `{tipo: "regua", corte, rotulo: [linha, linha]}`: régua de 0 a 100 com a linha de corte;
   - `{tipo: "opcoes", itens: [{letra, nome, v}]}`: enquete com barras (até 4);
   - `{tipo: "alerta", numero, legenda, titulo, itens: [até 3 frases]}`.
+- `direto` (1080×1350, o padrão dos posts): `fundo` (`tinta`, `lima`, `osso` ou `coral`), `titulo` (lista de linhas, `[[destaque]]`), `ts`, `numero` e `tn` (opcional), `linhas` (até 5 linhas curtas) e `cta`.
 - `marca` e `elementos`: pranchas do manual da identidade.
 
 ## Vídeos (`videos.mjs`)
