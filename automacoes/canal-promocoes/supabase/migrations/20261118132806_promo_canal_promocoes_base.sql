@@ -1,7 +1,14 @@
 -- Canal de promoções: robô que coleta ofertas, filtra desconto real e publica no Telegram.
 -- Tudo fica no schema "promo", fora da API pública (só as Edge Functions acessam, pela conexão direta).
 
-create extension if not exists pg_cron with schema pg_catalog;
+-- Só cria o pg_cron se ele ainda não existir: recriar dispara o gatilho de permissões do Supabase, que falha
+-- ("dependent privileges exist") em projetos onde o pg_cron já está em uso.
+do $$
+begin
+  if not exists (select 1 from pg_extension where extname = 'pg_cron') then
+    create extension pg_cron with schema pg_catalog;
+  end if;
+end $$;
 create extension if not exists pg_net with schema extensions;
 
 create schema if not exists promo;
