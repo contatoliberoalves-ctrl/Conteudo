@@ -1321,5 +1321,268 @@
         "texto": "👇"
       }
     ]
+  },
+  {
+    "id": "recursos-civeis-capa",
+    "titulo": "Como recorrer do resultado da 2ª fase · trend com capa de foto",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaFoto",
+        "foto": "eduarda-oculos-rindo.png",
+        "fotoPos": "center",
+        "y": 880,
+        "fonte": "serif",
+        "kicker": "2ª fase da OAB",
+        "titulo": "Como recorrer\n*do resultado*"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "O prazo é curto:",
+        "titulo": "==3 dias== pra recorrer",
+        "caixa": "Depois do **resultado preliminar**, o edital dá **3 dias** para o recurso, só pelo **Sistema Eletrônico de Interposição de Recursos**, no site da FGV. Confira o horário exato no edital do seu exame.",
+        "tc": 36
+      },
+      {
+        "tipo": "lista",
+        "kicker": "Antes de escrever:",
+        "titulo": "Passo a ==passo==",
+        "subtitulo": "O que fazer primeiro:",
+        "itens": [
+          "Baixe a **imagem da sua prova** e o **espelho de correção**",
+          "Compare item por item com o **padrão de resposta**",
+          "Marque onde você **escreveu** e **não pontuou**",
+          "Recorra só do que tem **fundamento**"
+        ]
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Como montar",
+        "titulo": "Um recurso por ==questão==",
+        "caixa": "É **um recurso para a peça** e **um para cada questão**, com o limite de caracteres do edital. Seja clara e objetiva: diga o **item**, o **trecho da sua resposta** e o que você pede.",
+        "tc": 36
+      },
+      {
+        "tipo": "texto",
+        "kicker": "O segredo",
+        "titulo": "Mostre ==onde está==",
+        "caixa": "Não basta dizer que merece a nota. Aponte a **página e as linhas** em que você escreveu o que o padrão pede e explique por que sua resposta **equivale** a ele.",
+        "tc": 36
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Cuidado",
+        "titulo": "O que ==não fazer==",
+        "caixa": "Não se identifique no texto, não ataque a banca e não perca o **prazo**. Recurso **fora do prazo** ou **sem fundamento** é indeferido de cara.",
+        "tc": 36,
+        "destaque": true
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Quer ajuda com o seu?",
+        "titulo": "Submeta sua prova pra ==análise do Método VDE==",
+        "texto": "Clica no link da bio.",
+        "botao": "Link na bio ✦"
+      }
+    ]
+  },
+  {
+    "id": "vde-civil-motivos",
+    "titulo": "Motivos pra entrar no VDE Civil (repescagem)",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaDiario",
+        "layout": "recorte",
+        "foto": "eduarda-comemorando-recorte.png",
+        "fantasma": "6",
+        "kicker": "Repescagem OAB 48 · Civil",
+        "pre": "6 motivos pra entrar no",
+        "titulo": [
+          "VDE",
+          "Civil"
+        ],
+        "ts": 200,
+        "fotoH": 1260,
+        "fotoY": 110
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Sua segunda chance",
+        "titulo": "Você já ==passou== na 1ª fase",
+        "caixa": "Na repescagem, quem passou na 1ª fase do 47º faz **só a 2ª fase** do 48º, em **28/02/2027**. Agora é hora de estudar Civil **com método**, não de recomeçar do zero.",
+        "tc": 36
+      },
+      {
+        "tipo": "item",
+        "titulo": "Cronograma completo",
+        "texto": "Todo o conteúdo **previsto no edital**, organizado semana a semana até a prova.",
+        "tags": [
+          "Edital completo"
+        ]
+      },
+      {
+        "tipo": "item",
+        "titulo": "10 simulados inéditos",
+        "texto": "Treino no formato da prova, sendo **5 com correção individual**.",
+        "tags": [
+          "5 com correção"
+        ]
+      },
+      {
+        "tipo": "item",
+        "titulo": "Videoaulas objetivas",
+        "texto": "Aulas diretas ao ponto e **atualizadas conforme o edital**."
+      },
+      {
+        "tipo": "item",
+        "titulo": "Treino extra",
+        "texto": "Atividades de treino de **TODO o conteúdo do edital**, pra fixar de verdade."
+      },
+      {
+        "tipo": "item",
+        "titulo": "Suporte integral",
+        "texto": "Dúvida não fica parada: **suporte na plataforma** durante toda a preparação."
+      },
+      {
+        "tipo": "item",
+        "titulo": "Aulas ao vivo",
+        "texto": "Encontros **exclusivos para alunos da Repescagem**.",
+        "tags": [
+          "Exclusivo"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Ainda dá tempo",
+        "titulo": "Entre no ==VDE Repescagem Civil==",
+        "texto": "Clica no link da bio e garanta sua vaga.",
+        "botao": "Link na bio ✦"
+      }
+    ]
+  },
+  {
+    "id": "repescagem-mito-verdade",
+    "titulo": "Repescagem OAB 48: mito ou verdade?",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaDiario",
+        "layout": "quadro",
+        "foto": "eduarda-surpresa.jpg",
+        "fotoPos": "center",
+        "fantasma": "?",
+        "kicker": "Repescagem OAB 48",
+        "pre": "6 frases sobre a repescagem:",
+        "titulo": [
+          "Mito ou",
+          "verdade?"
+        ],
+        "ts": 150,
+        "zoom": 1.45,
+        "zoomOrigem": "57% 42%"
+      },
+      {
+        "tipo": "item",
+        "fala": "Na repescagem eu faço só a 2ª fase.",
+        "titulo": "==Verdade==",
+        "texto": "Quem passou na 1ª fase do 47º **reaproveita** essa aprovação e faz só a prova prático-profissional do 48º."
+      },
+      {
+        "tipo": "item",
+        "fala": "Tenho que fazer a prova na mesma cidade do 47º.",
+        "titulo": "==Mito==",
+        "texto": "A prova é na **seccional que você escolher**, e a cidade também é escolhida de novo na inscrição."
+      },
+      {
+        "tipo": "item",
+        "fala": "Posso trocar de matéria.",
+        "titulo": "==Verdade==",
+        "texto": "A área é escolhida **na inscrição**. Mas atenção: depois de enviar o requerimento, ela **não muda mais**."
+      },
+      {
+        "tipo": "item",
+        "fala": "Dá pra esperar o resultado final do 47º pra me inscrever.",
+        "titulo": "==Mito==",
+        "texto": "A inscrição vai de **23 a 30/11** (até 17h) e o resultado final do 47º sai em **03/12**. Recorreu? Inscreva-se assim mesmo."
+      },
+      {
+        "tipo": "item",
+        "fala": "A repescagem é de graça.",
+        "titulo": "==Mito==",
+        "texto": "A taxa é de **R$ 175**. Quem está no **CadÚnico** pode pedir isenção no mesmo período da inscrição."
+      },
+      {
+        "tipo": "item",
+        "fala": "Ainda dá tempo de me preparar.",
+        "titulo": "==Verdade==",
+        "texto": "A prova é em **28/02/2027**, das 13h às 18h. São **mais de 3 meses**: dá tempo, com plano."
+      },
+      {
+        "tipo": "cta",
+        "kicker": "E pra se preparar em Civil",
+        "titulo": "Vem pro ==VDE Repescagem Civil==",
+        "texto": "Cronograma completo, 10 simulados inéditos (5 com correção individual), videoaulas, treino extra, suporte e aulas ao vivo. Link na bio.",
+        "botao": "Link na bio ✦"
+      }
+    ]
+  },
+  {
+    "id": "repescagem-calendario-civil",
+    "titulo": "Calendário da repescagem (OAB 48) + VDE Civil",
+    "estilo": "trend",
+    "slides": [
+      {
+        "tipo": "capaDiario",
+        "layout": "bloco",
+        "foto": "eduarda-apontando.jpg",
+        "fotoPos": "60% 100%",
+        "kicker": "Salva esse post",
+        "pre": "Todas as datas da",
+        "titulo": [
+          "Repescagem",
+          "OAB 48"
+        ],
+        "ts": 110,
+        "extra": "Prova: 28/02, às 13h",
+        "zoom": 1.18,
+        "zoomOrigem": "65% 100%"
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Faz as contas",
+        "titulo": "Até a prova: ==mais de 14 semanas==",
+        "caixa": "Dá tempo de estudar **Civil inteiro**, com cronograma, treino e simulados. O que não dá é estudar **sem plano**.",
+        "tc": 36
+      },
+      {
+        "tipo": "texto",
+        "kicker": "Atenção na inscrição",
+        "titulo": "A área ==não muda== depois",
+        "caixa": "Na inscrição você escolhe a **área**, a **seccional** e a **cidade**. Depois de enviar o requerimento, nada disso muda. Vai de Civil? Confira antes de enviar.",
+        "tc": 36,
+        "destaque": true
+      },
+      {
+        "tipo": "lista",
+        "kicker": "No VDE Repescagem Civil",
+        "titulo": "O que você ==recebe==",
+        "subtitulo": "Tudo pra chegar pronta(o) em 28/02:",
+        "itens": [
+          "**Cronograma completo** com todo o conteúdo do edital",
+          "**10 simulados inéditos**, 5 com correção individual",
+          "**Videoaulas** objetivas e atualizadas",
+          "**Treino extra** de todo o conteúdo",
+          "**Suporte** na plataforma e **aulas ao vivo** exclusivas"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "kicker": "Ainda dá tempo",
+        "titulo": "Entre no ==VDE Repescagem Civil==",
+        "texto": "Clica no link da bio e garanta sua vaga.",
+        "botao": "Link na bio ✦"
+      }
+    ]
   }
 ]
