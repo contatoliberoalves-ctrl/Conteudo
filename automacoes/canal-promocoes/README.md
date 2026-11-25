@@ -40,7 +40,11 @@ pública) e um agendamento do `pg_cron` a cada 5 minutos.
    para vê-lo: `select valor from promo.config where chave = 'codigo_admin';`
 5. Crie o canal (ou grupo) e adicione o robô como **administrador** com permissão de publicar mensagens.
    O robô avisa no seu privado quando o canal estiver conectado.
-6. Para a busca automática, cadastre-se nos programas de afiliados e crie os segredos abaixo.
+6. Para a busca automática, cadastre-se nos programas de afiliados e mande as chaves para o robô, no privado:
+   `/shopee APP_ID SENHA`, `/aliexpress APP_KEY APP_SECRET TRACKING_ID` e `/amazon sua-etiqueta-20`. Ele guarda
+   no Vault do banco (nomes em minúsculas, ex.: `shopee_secret`), apaga a sua mensagem e testa a busca na hora;
+   `/chaves` mostra o que já está cadastrado. Também valem os segredos abaixo nas Edge Functions (eles vencem
+   os do Vault).
 
 | Segredo | Para quê |
 | --- | --- |
@@ -60,7 +64,7 @@ O Supabase já entrega `SUPABASE_URL` e `SUPABASE_DB_URL` para a função. O seg
 
 `/status` situação · `/revisao` e `/automatico` modo · `/pausar` e `/retomar` ofertas automáticas ·
 `/desconto 35` desconto mínimo · `/buscas`, `/addbusca termo`, `/delbusca termo` lista de buscas ·
-`/teste` exemplo de post · `/ajuda`
+`/teste` exemplo de post · `/chaves`, `/shopee`, `/aliexpress`, `/amazon` chaves de afiliado · `/ajuda`
 
 ## Estrutura
 

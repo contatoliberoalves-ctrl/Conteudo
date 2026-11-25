@@ -1,5 +1,6 @@
 // AliExpress: API do Portals (programa de afiliados). Chaves em portals.aliexpress.com → API.
 // Segredos: ALIEXPRESS_APP_KEY, ALIEXPRESS_APP_SECRET e ALIEXPRESS_TRACKING_ID.
+import { credencial } from "../credenciais.ts";
 import { hmacSha256hex } from "../seguranca.ts";
 import { type Achado, centavos, type Fonte, inteiro, numero, texto } from "./tipos.ts";
 
@@ -20,9 +21,9 @@ const CAMPOS = [
 ].join(",");
 
 const chaves = () => {
-  const appKey = Deno.env.get("ALIEXPRESS_APP_KEY")?.trim();
-  const segredo = Deno.env.get("ALIEXPRESS_APP_SECRET")?.trim();
-  const tracking = Deno.env.get("ALIEXPRESS_TRACKING_ID")?.trim();
+  const appKey = credencial("ALIEXPRESS_APP_KEY");
+  const segredo = credencial("ALIEXPRESS_APP_SECRET");
+  const tracking = credencial("ALIEXPRESS_TRACKING_ID");
   return appKey && segredo && tracking ? { appKey, segredo, tracking } : null;
 };
 

@@ -50,6 +50,18 @@ export const numeroOuNulo = (v: unknown): number | null => {
   return Number.isFinite(n) ? n : null;
 };
 
+export async function lerVaultVarios(nomes: string[]): Promise<Record<string, string>> {
+  const linhas = await sql()`select name, decrypted_secret from vault.decrypted_secrets where name in ${sql()(nomes)}`;
+  return Object.fromEntries(linhas.filter((l) => l.decrypted_secret).map((l) => [String(l.name), String(l.decrypted_secret)]));
+}
+
+// Cria ou troca um segredo do Vault (criptografado no banco).
+export async function gravarVault(nome: string, valor: string): Promise<void> {
+  const [l] = await sql()`select id from vault.decrypted_secrets where name = ${nome}`;
+  if (l) await sql()`select vault.update_secret(${l.id}::uuid, ${valor})`;
+  else await sql()`select vault.create_secret(${valor}, ${nome}, 'Canal de promoções: chave de afiliado')`;
+}
+
 export async function lerVault(nome: string): Promise<string | null> {
   const [l] = await sql()`select decrypted_secret from vault.decrypted_secrets where name = ${nome}`;
   return l?.decrypted_secret ? String(l.decrypted_secret) : null;

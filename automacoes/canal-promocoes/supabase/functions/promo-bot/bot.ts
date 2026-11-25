@@ -2,6 +2,7 @@
 // - /start CÓDIGO no privado faz de você o administrador (uma vez só).
 // - Adicionar o robô como administrador de um canal conecta esse canal.
 // - Link de oferta no privado vira post com os botões Publicar, WhatsApp e Descartar.
+import { credencial, type NomeCredencial, salvarCredenciais } from "../_shared/credenciais.ts";
 import { type Config, evento, gravarConfig, lerConfig, numeroOuNulo, segredoWebhook, sql } from "../_shared/db.ts";
 import { FONTES } from "../_shared/fontes/index.ts";
 import { html, type Oferta } from "../_shared/formatar.ts";
@@ -61,7 +62,8 @@ de 399,90 por 199,90
 cupom JBL10</code>
 Eu monto o post e mostro antes. Aí é só tocar em <b>Publicar no canal</b>.
 • <b>Mandar no WhatsApp</b> abre o WhatsApp com a mensagem pronta: você escolhe o grupo e envia.
-• Shopee e AliExpress: eu procuro ofertas sozinho a cada 5 minutos (quando as chaves de afiliado estiverem configuradas).
+• Shopee e AliExpress: eu procuro ofertas sozinho a cada 5 minutos, já com o seu link de afiliado (cadastre as chaves com /chaves).
+• Mercado Livre: mande o link meli.la que você gera como afiliado, com o nome, o preço e a foto (ou encaminhe o post da oferta).
 
 <b>Comandos</b>
 /status: situação do robô
@@ -70,7 +72,8 @@ Eu monto o post e mostro antes. Aí é só tocar em <b>Publicar no canal</b>.
 /pausar e /retomar: param e voltam as ofertas automáticas
 /desconto 35: muda o desconto mínimo
 /buscas: lista o que eu procuro (/addbusca e /delbusca mudam a lista)
-/teste: mostra um exemplo de post`;
+/teste: mostra um exemplo de post
+/chaves: chaves de afiliado (Shopee, AliExpress e Amazon)`;
 
 const vistos = new Set<number>();
 
@@ -133,7 +136,7 @@ async function tratarMensagem(m: Mensagem, cfg: Config) {
     return;
   }
   const cmd = texto.match(/^\/([a-z_]+)(?:@\w+)?(?:\s+([\s\S]*))?$/i);
-  if (cmd) return await comando(cmd[1].toLowerCase(), (cmd[2] ?? "").trim(), m.chat.id, cfg);
+  if (cmd) return await comando(cmd[1].toLowerCase(), (cmd[2] ?? "").trim(), m.chat.id, cfg, m.message_id);
   await receberOferta(m, texto, cfg);
 }
 
@@ -168,12 +171,19 @@ async function reivindicar(m: Mensagem, texto: string, cfg: Config) {
   await responder(m.chat.id, `🎉 Pronto${de.first_name ? `, ${html(de.first_name)}` : ""}! Você é o administrador deste robô.${canal}\n\n${AJUDA}`);
 }
 
-async function comando(nome: string, arg: string, chat: number, cfg: Config) {
+async function comando(nome: string, arg: string, chat: number, cfg: Config, msgId?: number) {
   switch (nome) {
     case "start":
     case "ajuda":
     case "help":
+      await tg("setMyCommands", { commands: COMANDOS, scope: { type: "chat", chat_id: chat } }).catch(() => {});
       return await responder(chat, AJUDA);
+    case "chaves":
+      return await responder(chat, textoChaves());
+    case "shopee":
+    case "aliexpress":
+    case "amazon":
+      return await cadastrarChaves(nome, arg, chat, msgId);
     case "status":
       return await responder(chat, await situacao(cfg));
     case "pausar":
@@ -237,6 +247,60 @@ async function comando(nome: string, arg: string, chat: number, cfg: Config) {
   }
 }
 
+const COMO_CADASTRAR = {
+  shopee: "/shopee APP_ID SENHA",
+  aliexpress: "/aliexpress APP_KEY APP_SECRET TRACKING_ID",
+  amazon: "/amazon sua-etiqueta-20",
+};
+
+function textoChaves(): string {
+  const tem = (...n: NomeCredencial[]) => (n.every((x) => credencial(x)) ? "✅" : "❌");
+  return [
+    "🔑 <b>Chaves de afiliado</b>",
+    `Shopee ${tem("SHOPEE_APP_ID", "SHOPEE_SECRET")} <code>${COMO_CADASTRAR.shopee}</code>`,
+    "   (affiliate.shopee.com.br → Open API)",
+    `AliExpress ${tem("ALIEXPRESS_APP_KEY", "ALIEXPRESS_APP_SECRET", "ALIEXPRESS_TRACKING_ID")} <code>${COMO_CADASTRAR.aliexpress}</code>`,
+    "   (portals.aliexpress.com)",
+    `Amazon ${tem("AMAZON_TAG")} <code>${COMO_CADASTRAR.amazon}</code>`,
+    "   (associados.amazon.com.br: a etiqueta vai nos links que você mandar)",
+    "",
+    "Mande o comando com as chaves aqui no privado: eu guardo no cofre do banco e apago a sua mensagem.",
+    "Mercado Livre não tem API para afiliados: mande o link meli.la que você gera no app.",
+  ].join("\n");
+}
+
+async function cadastrarChaves(loja: "shopee" | "aliexpress" | "amazon", arg: string, chat: number, msgId?: number) {
+  const p = arg.split(/\s+/).filter(Boolean);
+  // A mensagem tem chave secreta: some do chat (o robô pode apagar mensagens recebidas no privado).
+  if (p.length && msgId) await tg("deleteMessage", { chat_id: chat, message_id: msgId }).catch(() => {});
+  const codigo = /^\d{4,20}$/;
+  const segredoOk = /^[A-Za-z0-9]{10,128}$/;
+  let valores: Partial<Record<NomeCredencial, string>> | null = null;
+  if (loja === "shopee" && p.length === 2 && codigo.test(p[0]) && segredoOk.test(p[1])) {
+    valores = { SHOPEE_APP_ID: p[0], SHOPEE_SECRET: p[1] };
+  } else if (loja === "aliexpress" && p.length === 3 && codigo.test(p[0]) && segredoOk.test(p[1]) && /^[\w-]{2,64}$/.test(p[2])) {
+    valores = { ALIEXPRESS_APP_KEY: p[0], ALIEXPRESS_APP_SECRET: p[1], ALIEXPRESS_TRACKING_ID: p[2] };
+  } else if (loja === "amazon" && p.length === 1 && /^[a-z0-9][a-z0-9-]{1,40}-2\d$/i.test(p[0])) {
+    valores = { AMAZON_TAG: p[0].toLowerCase() };
+  }
+  if (!valores) {
+    return await responder(chat, `${p.length ? "Não entendi as chaves. " : ""}Mande assim:\n<code>${COMO_CADASTRAR[loja]}</code>\n\nEu guardo no cofre do banco e apago a sua mensagem. /chaves mostra o que já está cadastrado.`);
+  }
+  await salvarCredenciais(valores);
+  await evento("chaves", { loja }); // só a loja: os valores nunca vão para o registro
+  if (loja === "amazon") {
+    return await responder(chat, `✅ Etiqueta da Amazon salva: <code>${html(valores.AMAZON_TAG!)}</code>. Todo link completo da Amazon que você mandar sai com ela. (Apaguei a sua mensagem.)`);
+  }
+  // Testa as chaves na hora com uma busca de verdade.
+  const fonte = FONTES.find((f) => f.loja === loja)!;
+  try {
+    const achados = await fonte.buscar("fone bluetooth");
+    return await responder(chat, `✅ Chaves da ${fonte.nome} salvas no cofre (apaguei a sua mensagem).\nTeste: achei ${achados.length} produtos para "fone bluetooth", já com o seu link de afiliado. Agora eu procuro ofertas sozinho a cada 5 minutos.`);
+  } catch (e) {
+    return await responder(chat, `⚠️ Salvei as chaves da ${fonte.nome} (apaguei a sua mensagem), mas o teste falhou:\n<code>${html(semToken(mensagem(e)).slice(0, 300))}</code>\nConfira se copiou certo e mande de novo.`);
+  }
+}
+
 const buscas = (cfg: Config): string[] => (Array.isArray(cfg.buscas) ? cfg.buscas.map(String).filter(Boolean) : []);
 
 const hora = (d: Date) =>
@@ -251,13 +315,13 @@ async function situacao(cfg: Config): Promise<string> {
       (select count(*) from promo.produtos)::int as produtos,
       (select max(em) from promo.eventos where tipo = 'ciclo') as ultimo_ciclo`;
   const s = cfg.silencio as { inicio: number; fim: number } | null;
-  const fontes = FONTES.map((f) => `${f.nome} ${f.ativa() ? "✅" : "❌ (faltam as chaves)"}`).join(" · ");
+  const fontes = FONTES.map((f) => `${f.nome} ${f.ativa() ? "✅" : "❌ (veja /chaves)"}`).join(" · ");
   const linhas = [
     "📊 <b>Situação do robô</b>",
     `Modo: ${cfg.modo === "automatico" ? "automático (publico sozinho)" : "revisão (você aprova)"}${cfg.pausado === true ? " · ⏸️ pausado" : ""}`,
     `Canal: ${cfg.canal_id != null ? `<b>${html(String(cfg.canal_titulo ?? cfg.canal_id))}</b>` : "nenhum ainda (adicione o robô como administrador do canal)"}`,
     `Busca automática: ${fontes}`,
-    `Amazon: ${Deno.env.get("AMAZON_TAG")?.trim() ? "etiqueta de associado configurada ✅" : "sem etiqueta (AMAZON_TAG) ❌"}`,
+    `Amazon: ${credencial("AMAZON_TAG") ? "etiqueta de associado configurada ✅" : "sem etiqueta ❌ (veja /chaves)"}`,
     `Desconto mínimo: ${cfg.desconto_minimo}% (${cfg.desconto_minimo_sem_historico}% sem histórico de preço)`,
   ];
   if (s) linhas.push(`Silêncio: das ${s.inicio}h às ${s.fim}h`);
@@ -279,7 +343,7 @@ async function receberOferta(m: Mensagem, texto: string, cfg: Config) {
     return await responder(m.chat.id, "Não achei nenhum link nessa mensagem. Mande o link da oferta (pode vir junto com o nome, o preço e o cupom). /ajuda");
   }
   const { faltaTitulo, ...oferta } = lida;
-  oferta.link = prepararLinkAmazon(oferta.link, Deno.env.get("AMAZON_TAG"));
+  oferta.link = prepararLinkAmazon(oferta.link, credencial("AMAZON_TAG"));
   let semNome = faltaTitulo;
   if (faltaTitulo || !oferta.imagem || oferta.preco == null || oferta.loja === "outra") {
     const p = await lerPagina(oferta.link);

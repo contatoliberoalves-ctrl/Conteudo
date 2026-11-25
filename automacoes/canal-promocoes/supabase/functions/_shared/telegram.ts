@@ -131,6 +131,7 @@ export const COMANDOS = [
   { command: "addbusca", description: "Procurar mais um produto (ex.: /addbusca air fryer)" },
   { command: "delbusca", description: "Parar de procurar um produto" },
   { command: "teste", description: "Ver um exemplo de post" },
+  { command: "chaves", description: "Chaves de afiliado (Shopee, AliExpress, Amazon)" },
   { command: "ajuda", description: "Como usar" },
 ];
 

@@ -1,5 +1,6 @@
 // Shopee: API de Afiliados (GraphQL). Chaves em affiliate.shopee.com.br → Open API.
 // Segredos: SHOPEE_APP_ID e SHOPEE_SECRET.
+import { credencial } from "../credenciais.ts";
 import { sha256hex } from "../seguranca.ts";
 import { type Achado, centavos, type Fonte, inteiro, numero, texto } from "./tipos.ts";
 
@@ -21,8 +22,8 @@ const CAMPOS = [
 let campos = [...CAMPOS];
 
 const chaves = () => {
-  const appId = Deno.env.get("SHOPEE_APP_ID")?.trim();
-  const segredo = Deno.env.get("SHOPEE_SECRET")?.trim();
+  const appId = credencial("SHOPEE_APP_ID");
+  const segredo = credencial("SHOPEE_SECRET");
   return appId && segredo ? { appId, segredo } : null;
 };
 

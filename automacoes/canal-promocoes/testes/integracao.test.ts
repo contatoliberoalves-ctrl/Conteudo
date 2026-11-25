@@ -117,9 +117,11 @@ Deno.test({
       create schema if not exists extensions;
       create extension if not exists pgcrypto with schema extensions;
       create schema vault;
-      create table vault.decrypted_secrets (name text primary key, decrypted_secret text, description text);
-      create function vault.create_secret(s text, n text, d text) returns uuid language sql
-        as $f$ insert into vault.decrypted_secrets values (n, s, d) returning gen_random_uuid() $f$;`);
+      create table vault.decrypted_secrets (id uuid primary key default gen_random_uuid(), name text unique, decrypted_secret text, description text);
+      create function vault.create_secret(s text, n text, d text default null) returns uuid language sql
+        as $f$ insert into vault.decrypted_secrets (name, decrypted_secret, description) values (n, s, d) returning id $f$;
+      create function vault.update_secret(i uuid, s text) returns void language sql
+        as $f$ update vault.decrypted_secrets set decrypted_secret = s where id = i $f$;`);
     const pasta = new URL("../supabase/migrations/", import.meta.url);
     const arquivos = [...Deno.readDirSync(pasta)].map((e) => e.name).filter((n) => n.endsWith(".sql") && !n.includes("agendar")).sort(); // o agendamento (pg_cron) só existe no Supabase
     for (const arq of arquivos) {
@@ -345,6 +347,28 @@ Deno.test({
       assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "(exemplo)");
       await msg(ADMIN, "/xyz");
       assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "Não conheço");
+    });
+
+    await t.step("chaves de afiliado pelo robô: guarda no cofre, apaga a mensagem e testa", async () => {
+      shopee.push(respostaShopee(produtoShopee(901, "Fone Teste", "49.90", 40)));
+      await msg(ADMIN, "/shopee 18312340051 ABCDEFGHIJKLMNOPQRSTUV0123456789");
+      assertEquals(ultima("deleteMessage")?.corpo.chat_id, ADMIN);
+      const lerVault = async (nome: string) =>
+        (await sql`select decrypted_secret from vault.decrypted_secrets where name = ${nome}`).map((r) => r.decrypted_secret);
+      assertEquals(await lerVault("shopee_secret"), ["ABCDEFGHIJKLMNOPQRSTUV0123456789"]);
+      assertEquals(await lerVault("shopee_app_id"), ["18312340051"]);
+      assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "achei 1 produtos");
+      shopee.push(respostaShopee(produtoShopee(902, "Fone Teste 2", "49.90", 40)));
+      await msg(ADMIN, "/shopee 18312340051 ZZZZZZZZZZZZZZZZ");
+      assertEquals(await lerVault("shopee_secret"), ["ZZZZZZZZZZZZZZZZ"]);
+      await msg(ADMIN, "/amazon Minha-Loja-20");
+      assertEquals(await lerVault("amazon_tag"), ["minha-loja-20"]);
+      await msg(ADMIN, "/aliexpress 123 curto");
+      assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "Não entendi as chaves");
+      await msg(ADMIN, "/chaves");
+      assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "Shopee ✅");
+      const eventos = await sql`select detalhe::text as d from promo.eventos where tipo = 'chaves'`;
+      assert(eventos.length === 3 && eventos.every((e) => !e.d.includes("ZZZZ") && !e.d.includes("minha-loja")));
     });
 
     await t.step("ciclo sem o segredo: 401", async () => {
