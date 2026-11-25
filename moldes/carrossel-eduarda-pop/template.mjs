@@ -443,7 +443,7 @@ function capaFoto(s, ctx, c) {
     ${topo('#fff', 52).replace('z-index:6', 'z-index:6;text-shadow:0 1px 8px rgba(0,0,0,.35)')}
     <div data-area style="position:absolute;left:90px;right:90px;${lugar};display:flex;justify-content:center;z-index:3">
       <div style="background:rgba(255,255,255,.96);border-radius:6px;padding:42px 54px 46px;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:${al};box-shadow:0 18px 40px rgba(0,0,0,.18)">
-        ${s.kicker ? `<div style="${TIGHT};font-weight:700;font-size:22px;letter-spacing:.24em;text-transform:uppercase;color:${t.bg}">${esc(s.kicker)}</div><div style="width:70px;height:2px;background:${t.bg}"></div>` : ''}
+        ${s.kicker ? `<div style="${TIGHT};font-weight:700;font-size:22px;letter-spacing:.24em;text-transform:uppercase;color:${t.bg}">${esc(s.kicker)}</div>` : ''}
         <div data-titulo style="${SERIF};font-size:${s.ts || 92}px;line-height:1.02;letter-spacing:-.02em;color:${t.dark}">${fmt(s.titulo || '', { i: t.bg, cursiva: 1.15 })}</div>
         ${s.texto ? `<div data-corpo style="${TIGHT};font-weight:500;font-size:28px;line-height:1.3;color:${t.dark}">${fmt(s.texto, { i: t.bg })}</div>` : ''}
       </div></div></div>`;
