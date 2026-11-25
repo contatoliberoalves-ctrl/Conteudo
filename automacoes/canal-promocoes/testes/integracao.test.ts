@@ -124,7 +124,11 @@ Deno.test({
     const arquivos = [...Deno.readDirSync(pasta)].map((e) => e.name).filter((n) => n.endsWith(".sql") && !n.includes("agendar")).sort(); // o agendamento (pg_cron) só existe no Supabase
     for (const arq of arquivos) {
       const texto = await Deno.readTextFile(new URL(arq, pasta));
-      await sql.unsafe(texto.replace(/^create extension if not exists pg_(cron|net).*$/gm, ""));
+      await sql.unsafe(
+        texto
+          .replace(/^do \$\$\s*begin\s*if not exists \(select 1 from pg_extension where extname = 'pg_cron'\)[\s\S]*?^end \$\$;$/gm, "")
+          .replace(/^create extension if not exists pg_(cron|net).*$/gm, ""),
+      );
     }
     await sql`update promo.config set valor = 'null'::jsonb where chave = 'silencio'`;
     const [{ decrypted_secret: segredo }] = await sql`select decrypted_secret from vault.decrypted_secrets`;
@@ -220,7 +224,7 @@ Deno.test({
       const foto = ultima("sendPhoto", ADMIN)!;
       assertEquals(foto.corpo.photo, "https://m.media-amazon.com/images/I/fone.jpg");
       assertStringIncludes(foto.corpo.caption, "Fone JBL Tune 520BT");
-      assertStringIncludes(foto.corpo.caption, "De <s>R$ 399,90</s> por <b>R$ 199,90</b>");
+      assertStringIncludes(foto.corpo.caption, "❌ De: <s>R$ 399,90</s>\n✅ <b>Por: R$ 199,90</b>");
       assertStringIncludes(foto.corpo.caption, "<code>JBL10</code>");
       const teclado = foto.corpo.reply_markup.inline_keyboard;
       assertMatch(teclado[0][0].callback_data, /^pub:\d+$/);
@@ -259,8 +263,8 @@ Deno.test({
       await msg(ADMIN, "https://meli.la/abc");
       const m = ultima("sendMessage", ADMIN)!;
       assertStringIncludes(m.corpo.text, "Air Fryer Mondial 4L");
-      assertStringIncludes(m.corpo.text, "Por <b>R$ 299,90</b>");
-      assertStringIncludes(m.corpo.text, "🏪 Mercado Livre");
+      assertStringIncludes(m.corpo.text, "✅ <b>Por: R$ 299,90</b>");
+      assertStringIncludes(m.corpo.text, "#MercadoLivre");
       assertEquals(m.corpo.link_preview_options.url, "https://meli.la/abc");
       idMeli = Number(m.corpo.reply_markup.inline_keyboard[0][0].callback_data.split(":")[1]);
     });
@@ -274,10 +278,42 @@ Deno.test({
       assertEquals(ultima("answerCallbackQuery")?.corpo.text, "Essa oferta foi descartada.");
     });
 
+    await t.step("loja que barra robôs: pede os dados em vez de postar sem nome", async () => {
+      paginas["https://meli.la/bloq"] = {
+        urlFinal: "https://www.mercadolivre.com.br/gz/account-verification?go=x",
+        html: "<title>Mercado Libre</title>",
+      };
+      const [{ n: antes }] = await sql`select count(*)::int as n from promo.postagens`;
+      await msg(ADMIN, "https://meli.la/bloq");
+      assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "Não consegui ler o produto");
+      const [{ n: depois }] = await sql`select count(*)::int as n from promo.postagens`;
+      assertEquals(depois, antes);
+    });
+
+    await t.step("post encaminhado com foto: monta no padrão do canal e guarda PIX e regras do cupom", async () => {
+      await msg(ADMIN, "", {
+        text: undefined,
+        photo: [{ file_id: "miniatura" }, { file_id: "foto-grande" }],
+        caption: "#MercadoLivre\nAnycubic Kobra X\n\nPor: R$ 2.789 - No PIX\n\n🏷️ Cupom: MENOSPRATECH\nR$300 OFF acima de R$2699\n\n🔗Link do produto:\nhttps://meli.la/1NsBRvM",
+      });
+      const foto = ultima("sendPhoto", ADMIN)!;
+      assertEquals(foto.corpo.photo, "foto-grande");
+      for (const trecho of ["#MercadoLivre", "🔥 <b>Anycubic Kobra X</b>", "✅ <b>Por: R$ 2.789 no PIX</b>", "<code>MENOSPRATECH</code>", "<i>R$300 OFF acima de R$2699</i>", ">https://meli.la/1NsBRvM</a>"]) {
+        assertStringIncludes(foto.corpo.caption, trecho);
+      }
+      const id = Number(foto.corpo.reply_markup.inline_keyboard[0][0].callback_data.split(":")[1]);
+      const [p] = await sql`select pix, detalhes, preco from promo.postagens where id = ${id}`;
+      assertEquals([p.pix, p.detalhes, Number(p.preco)], [true, ["R$300 OFF acima de R$2699"], 2789]);
+      await botao(`pub:${id}`);
+      const noCanal = ultima("sendPhoto", CANAL)!;
+      assertStringIncludes(noCanal.corpo.caption, "<i>R$300 OFF acima de R$2699</i>");
+      assertStringIncludes(noCanal.corpo.caption, "no PIX");
+    });
+
     await t.step("link encaminhado escondido no texto e mensagem sem link", async () => {
       await msg(ADMIN, "Clique aqui 🔥 Mochila Executiva", { entities: [{ type: "text_link", offset: 0, length: 11, url: "https://s.shopee.com.br/mochila" }] });
       const ofertas = [...enviadas("sendMessage", ADMIN), ...enviadas("sendPhoto", ADMIN)];
-      assert(ofertas.some((c) => textoDe(c).includes("🏪 Shopee")));
+      assert(ofertas.some((c) => textoDe(c).includes("#Shopee") && textoDe(c).includes("<b>Mochila Executiva</b>")));
       await msg(ADMIN, "bom dia");
       assertStringIncludes(textoDe(ultima("sendMessage", ADMIN)), "Não achei nenhum link");
     });
@@ -288,7 +324,7 @@ Deno.test({
       assertStringIncludes(s, "Situação do robô");
       assertStringIncludes(s, "Shopee ✅");
       assertStringIncludes(s, "Promoções &lt;Top&gt;");
-      assertStringIncludes(s, "Hoje: 1 publicadas");
+      assertStringIncludes(s, "Hoje: 2 publicadas"); // a do Publicar e a do post encaminhado
       await msg(ADMIN, "/desconto 35%");
       assertEquals([await cfg("desconto_minimo"), await cfg("desconto_minimo_sem_historico")], [35, 45]);
       await msg(ADMIN, "/desconto 200");

@@ -31,30 +31,57 @@ Deno.test("encurtarTitulo corta em palavra inteira", () => {
   assertEquals(encurtarTitulo("  Fone   JBL  "), "Fone JBL");
 });
 
-Deno.test("texto do Telegram escapa HTML e mostra o preço riscado", () => {
+Deno.test("texto do Telegram no padrão dos canais de oferta", () => {
   const t = textoTelegram({
     loja: "amazon",
     titulo: "Kit <2> pilhas & carregador",
-    link: "https://www.amazon.com.br/dp/B000000000?tag=a&x=1",
+    link: "https://amzn.to/3abc?x=1&y=2",
     preco: 199.9,
-    precoDe: 399.9,
+    precoDe: 400,
     cupom: "ABC10",
+    pix: true,
+    detalhes: ["R$ 30 OFF acima de R$ 199"],
   });
-  assertStringIncludes(t, "Kit &lt;2&gt; pilhas &amp; carregador");
-  assertStringIncludes(t, "De <s>R$ 399,90</s> por <b>R$ 199,90</b> · <b>-50%</b>");
-  assertStringIncludes(t, '<a href="https://www.amazon.com.br/dp/B000000000?tag=a&amp;x=1">');
-  assertStringIncludes(t, "<code>ABC10</code>");
-  assertStringIncludes(t, "🏪 Amazon");
+  assert(t.startsWith("#Amazon\n"));
+  assertStringIncludes(t, "🔥 <b>Kit &lt;2&gt; pilhas &amp; carregador</b>");
+  assertStringIncludes(t, "❌ De: <s>R$ 400</s>");
+  assertStringIncludes(t, "✅ <b>Por: R$ 199,90 no PIX</b>  📉 <b>-50%</b>");
+  assertStringIncludes(t, "🏷️ <b>Cupom:</b> <code>ABC10</code>");
+  assertStringIncludes(t, "<i>R$ 30 OFF acima de R$ 199</i>");
+  assertStringIncludes(t, '🔗 <b>Link do produto:</b>\n<a href="https://amzn.to/3abc?x=1&amp;y=2">https://amzn.to/3abc?x=1&amp;y=2</a>');
+  const longo = textoTelegram({ loja: "mercadolivre", titulo: "Celular", link: "https://www.mercadolivre.com.br/p/MLB1027172673?pdp_filters=item_id:MLB4509857198" });
+  assertStringIncludes(longo, ">mercadolivre.com.br/…</a>");
+  assert(!longo.includes("Por:"));
 });
 
 Deno.test("texto do WhatsApp usa a formatação do WhatsApp", () => {
   const t = textoWhatsApp({ loja: "shopee", titulo: "Fone *top* _novo_", link: "https://s.shopee.com.br/x", preco: 50, precoDe: 100 });
   assertStringIncludes(t, "🔥 *Fone top novo*");
-  assertStringIncludes(t, "De ~R$ 100,00~ por *R$ 50,00* (-50%)");
-  assertStringIncludes(t, "👉 https://s.shopee.com.br/x");
+  assertStringIncludes(t, "❌ De: ~R$ 100~\n✅ *Por: R$ 50* (-50%)");
+  assertStringIncludes(t, "🔗 Link do produto:\nhttps://s.shopee.com.br/x");
   const url = linkWhatsApp({ loja: "shopee", titulo: "Fone", link: "https://s.shopee.com.br/x", preco: 50 });
   assert(url?.startsWith("https://wa.me/?text="));
   assertEquals(linkWhatsApp({ loja: "outra", titulo: "X", link: "https://exemplo.com/" + "a".repeat(2000) }), null);
+});
+
+Deno.test("post encaminhado de outro canal (foto + legenda)", () => {
+  const a = lerOfertaManual(
+    "#MercadoLivre\nAnycubic Kobra X\n\nPor: R$ 2.789 - No PIX\n\n🏷️ Cupom: MENOSPRATECH\nR$300 OFF acima de R$2699\n\n🔗Link do produto:\nhttps://meli.la/1NsBRvM",
+  );
+  assertEquals([a?.titulo, a?.preco, a?.precoDe, a?.pix, a?.cupom, a?.loja, a?.link], [
+    "Anycubic Kobra X", 2789, null, true, "MENOSPRATECH", "mercadolivre", "https://meli.la/1NsBRvM",
+  ]);
+  assertEquals(a?.detalhes, ["R$300 OFF acima de R$2699"]);
+  const b = lerOfertaManual("🔥Cupom Mercado Livre\n\n🎟️ 10% OFF acima de R$ 199, Limite de R$ 200 OFF: LIVREOFF\n\nResgate aqui\nhttps://meli.la/17ikiKP");
+  assertEquals([b?.titulo, b?.preco, b?.cupom, b?.faltaTitulo], ["Cupom Mercado Livre", null, "LIVREOFF", false]);
+  assertEquals(b?.detalhes, ["10% OFF acima de R$ 199, Limite de R$ 200 OFF"]);
+  const c = lerOfertaManual("#Magalu\nSmart TV 50\nDe: R$ 2.999\nPor: R$ 2.199\nhttps://bit.ly/x");
+  assertEquals([c?.loja, c?.titulo, c?.preco, c?.precoDe, c?.pix], ["magalu", "Smart TV 50", 2199, 2999, false]);
+});
+
+Deno.test("página de verificação da loja não vira título", () => {
+  const html = '<html><head><title>Mercado Libre</title></head><body>verificando</body></html>';
+  assertEquals(extrairDados(html, "https://www.mercadolivre.com.br/x").titulo, null);
 });
 
 Deno.test("loja pelo link e pelo nome", () => {

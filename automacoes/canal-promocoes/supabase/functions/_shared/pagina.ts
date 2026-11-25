@@ -7,7 +7,12 @@ export interface DadosPagina {
   titulo: string | null;
   imagem: string | null;
   preco: number | null;
+  barrada?: boolean; // a loja mandou para verificação/captcha em vez da página do produto
 }
+
+// Lojas que barram robôs mandam para uma página de verificação, com o nome da loja no título.
+const BARRADA = /account-verification|captcha|validatecaptcha|\/challenge\b/i;
+const SO_LOJA = /^(?:mercado\s*l[ií]bre|mercado\s*livre|amazon(?:\.com(?:\.br)?)?|magalu|magazine\s*luiza|kabum!?|shopee(?:\s*brasil)?|aliexpress)$/i;
 
 const UA = "Mozilla/5.0 (compatible; CanalPromocoesBot/1.0; link preview)";
 const ENTIDADES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
@@ -69,6 +74,7 @@ export function extrairDados(html: string, urlFinal: string): DadosPagina {
     }
   }
   titulo = titulo ? limparTitulo(titulo) : null;
+  if (titulo && SO_LOJA.test(titulo)) titulo = null;
   return { urlFinal, titulo: titulo || null, imagem, preco };
 }
 
@@ -103,6 +109,10 @@ export async function lerPagina(link: string): Promise<DadosPagina | null> {
       headers: { "user-agent": UA, accept: "text/html,application/xhtml+xml", "accept-language": "pt-BR,pt;q=0.9" },
     });
     const urlFinal = r.url || link;
+    if (BARRADA.test(urlFinal)) {
+      await r.body?.cancel().catch(() => {});
+      return { urlFinal, titulo: null, imagem: null, preco: null, barrada: true };
+    }
     if (!r.ok || !(r.headers.get("content-type") ?? "").includes("html")) {
       await r.body?.cancel().catch(() => {});
       return { urlFinal, titulo: null, imagem: null, preco: null };

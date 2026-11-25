@@ -4,7 +4,7 @@
 // - Link de oferta no privado vira post com os botões Publicar, WhatsApp e Descartar.
 import { type Config, evento, gravarConfig, lerConfig, numeroOuNulo, segredoWebhook, sql } from "../_shared/db.ts";
 import { FONTES } from "../_shared/fontes/index.ts";
-import { html, NOME_LOJA, type Oferta } from "../_shared/formatar.ts";
+import { html, type Oferta } from "../_shared/formatar.ts";
 import { lojaDoLink, prepararLinkAmazon } from "../_shared/loja.ts";
 import { lerOfertaManual } from "../_shared/oferta_manual.ts";
 import { lerPagina } from "../_shared/pagina.ts";
@@ -226,6 +226,8 @@ async function comando(nome: string, arg: string, chat: number, cfg: Config) {
         preco: 89.9,
         precoDe: 199.9,
         cupom: "EXEMPLO10",
+        pix: true,
+        detalhes: ["R$ 10 OFF acima de R$ 79"],
       };
       await responder(chat, "Assim os posts aparecem no canal (este é só um exemplo, não foi publicado):");
       return await enviarOferta(chat, exemplo, [[{ text: "🛒 Ver oferta", url: exemplo.link }]]);
@@ -278,14 +280,29 @@ async function receberOferta(m: Mensagem, texto: string, cfg: Config) {
   }
   const { faltaTitulo, ...oferta } = lida;
   oferta.link = prepararLinkAmazon(oferta.link, Deno.env.get("AMAZON_TAG"));
+  let semNome = faltaTitulo;
   if (faltaTitulo || !oferta.imagem || oferta.preco == null || oferta.loja === "outra") {
     const p = await lerPagina(oferta.link);
     if (p) {
       if (oferta.loja === "outra") oferta.loja = lojaDoLink(p.urlFinal);
-      if (faltaTitulo) oferta.titulo = p.titulo ?? `Oferta ${NOME_LOJA[oferta.loja]}`;
+      if (faltaTitulo && p.titulo) {
+        oferta.titulo = p.titulo;
+        semNome = false;
+      }
       if (!oferta.imagem && p.imagem) oferta.imagem = p.imagem;
       if (oferta.preco == null && p.preco != null && (oferta.precoDe == null || p.preco < oferta.precoDe)) oferta.preco = p.preco;
     }
+  }
+  // Sem o nome do produto o post fica sem graça: melhor pedir os dados do que publicar "Oferta Mercado Livre".
+  if (semNome) {
+    return await responder(m.chat.id, [
+      "⚠️ Não consegui ler o produto nesse link: a loja não deixa robôs abrirem a página.",
+      "",
+      "Mande de novo com o nome, o preço e uma foto, por exemplo:",
+      "<code>Fone JBL Tune 520BT\nde 399,90 por 199,90\ncupom JBL10\nhttps://meli.la/xxxx</code>",
+      "",
+      "Ou encaminhe para cá o post da oferta (com a foto) e eu monto no padrão do canal.",
+    ].join("\n"));
   }
   const id = await criarPostagem(oferta, "manual", null);
   await enviarOferta(m.chat.id, oferta, tecladoRevisao(id, oferta, false));

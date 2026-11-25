@@ -14,6 +14,8 @@ export interface Postagem {
   preco: number | null;
   precoDe: number | null;
   cupom: string | null;
+  pix: boolean;
+  detalhes: string[] | null;
   status: string;
 }
 
@@ -29,6 +31,8 @@ function paraPostagem(r: Record<string, unknown>): Postagem {
     preco: numeroOuNulo(r.preco),
     precoDe: numeroOuNulo(r.preco_de),
     cupom: (r.cupom as string | null) ?? null,
+    pix: r.pix === true,
+    detalhes: Array.isArray(r.detalhes) && r.detalhes.length ? (r.detalhes as string[]) : null,
     status: String(r.status),
   };
 }
@@ -41,6 +45,8 @@ export const ofertaDe = (p: Postagem): Oferta => ({
   precoDe: p.precoDe,
   cupom: p.cupom,
   imagem: p.imagem,
+  pix: p.pix,
+  detalhes: p.detalhes,
 });
 
 export async function criarPostagem(
@@ -52,10 +58,12 @@ export async function criarPostagem(
 ): Promise<number> {
   const [r] = await sql()`
     insert into promo.postagens
-      (produto_id, origem, loja, titulo, link, imagem, preco, preco_de, desconto, cupom, status, telegram_msg_id, publicado_em)
+      (produto_id, origem, loja, titulo, link, imagem, preco, preco_de, desconto, cupom, pix, detalhes, status,
+       telegram_msg_id, publicado_em)
     values
       (${produtoId}, ${origem}, ${o.loja}, ${o.titulo}, ${o.link}, ${o.imagem ?? null}, ${o.preco ?? null},
-       ${o.precoDe ?? null}, ${desconto(o)}, ${o.cupom ?? null}, ${status}, ${msgId},
+       ${o.precoDe ?? null}, ${desconto(o)}, ${o.cupom ?? null}, ${o.pix === true}, ${o.detalhes?.length ? o.detalhes : null},
+       ${status}, ${msgId},
        case when ${status}::text = 'publicada' then now() end)
     returning id`;
   return Number(r.id);
