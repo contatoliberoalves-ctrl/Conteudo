@@ -494,6 +494,60 @@ G.append(grupo('vr10', 'Carrossel · A mentoria que vai te aprovar na repescagem
         f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
 ]))
 
+# ---------- vr11 · Aprovados na Mentoria do VDE 2ª fase (depoimentos reais + fotos das provas; CTA da repescagem) ----------
+# Fotos e prints em fotos/aprovados/ (fora do git: são de alunos). Prints sem a foto de perfil; provas sem nome.
+FA = '../fotos/aprovados/'
+def polaroid(src, w, h, x, y, rot, pos='center', z=2):
+    return (f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;background:#fff;padding:14px 14px 18px;transform:rotate({rot}deg);'
+            f'box-shadow:0 26px 50px rgba(5,10,40,.45);z-index:{z};"><img src="{FA}{src}" style="display:block;width:100%;height:{h}px;object-fit:cover;object-position:{pos};"></div>')
+def zap(src, w, y0, y1, x, y, rot=0, z=3):
+    k = w / 988
+    return (f'<div style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{(y1 - y0) * k:.0f}px;overflow:hidden;border-radius:30px;'
+            f'transform:rotate({rot}deg);box-shadow:0 30px 60px rgba(5,10,40,.5);z-index:{z};background:#202224;">'
+            f'<img src="{FA}{src}" style="display:block;width:{w}px;margin-top:{-y0 * k:.0f}px;"></div>')
+def aspas(txt, px=96, cor='#fff', w=640):
+    return (f'<div style="position:absolute;left:110px;top:150px;width:{w}px;z-index:4;">'
+            f'<div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;margin-bottom:18px;">DEPOIMENTO · OAB 47</div>'
+            f'<div style="{BB}font-size:{px}px;line-height:.95;color:{cor};">“{txt}”</div></div>')
+def dep(label, fundo, quote, zapo, foto, px=96, cor='#fff'):
+    return tela(label, fundo, arrobas3() + aspas(quote, px, cor) + foto + zapo)
+G.append(grupo('vr11', 'Carrossel · Aprovados na Mentoria do VDE 2ª fase (depoimentos + provas; CTA repescagem)', [
+    tela('vr11-01', AZUL, fantasma('OAB 47', 'rgba(255,255,255,.06)', top=200, left=-40, px=640) + selos3() +
+        f'<div style="position:absolute;left:0;right:0;top:300px;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:4;">'
+        f'<div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#f7f400;margin-right:-.3em;">47º EXAME · OAB 2ª FASE</div>'
+        f'<div style="background:#0b1a4a;font-weight:700;font-size:52px;padding:6px 20px;margin-top:34px;">Aprovados na</div>'
+        f'<div style="background:#e224d6;{BB}font-size:190px;line-height:.9;padding:18px 30px 2px;margin-top:10px;transform:rotate(-2deg);">MENTORIA</div>'
+        f'<div style="background:#f7f400;color:#0b1a4a;{BB}font-size:100px;line-height:.9;padding:14px 24px 0;margin-top:10px;">DO VDE 2ª FASE</div></div>' +
+        polaroid('prova1.jpg', 330, 400, 40, 900, -9, 'center 40%') + polaroid('prova6.jpg', 330, 400, 375, 960, 3, 'center 20%', 3) + polaroid('prova5.jpg', 330, 400, 710, 900, 10, 'center 10%')),
+    dep('vr11-02', NAVY, 'Lembrei de tudo o que vocês ensinaram', zap('dep-finalmente.png', 860, 1120, 1902, 110, 560, -1.5),
+        polaroid('prova3.jpg', 250, 300, 790, 120, 8, 'center 70%')),
+    dep('vr11-03', MAG, 'Não precisava de uma prova perfeita', zap('dep-preparacao.png', 760, 600, 1585, 160, 490, 1.5),
+        polaroid('prova4.jpg', 250, 300, 790, 110, 8, 'left 30%')),
+    dep('vr11-04', AZUL, 'E o resultado? Aprovada!', zap('dep-simulados.png', 860, 690, 1490, 110, 540, -1.5),
+        polaroid('prova2.jpg', 250, 300, 790, 120, 8, 'center 60%')),
+    tela('vr11-05', CLARO, arrobas3(True) +
+        f'<div style="position:absolute;left:110px;right:110px;top:150px;z-index:4;"><div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#e224d6;">47º EXAME</div>'
+        f'<div style="{BB}font-size:130px;line-height:.9;color:#0b1a4a;margin-top:14px;">AS PROVAS<br>{MARCA("FALAM POR SI")}</div></div>' +
+        polaroid('prova1.jpg', 290, 330, 70, 520, -6, 'center 40%') + polaroid('prova3.jpg', 290, 330, 395, 500, 3, 'center 70%') + polaroid('prova5.jpg', 290, 330, 720, 520, 7, 'center 10%') +
+        polaroid('prova6.jpg', 290, 330, 90, 880, 5, 'center 20%', 3) + polaroid('prova2.jpg', 290, 330, 400, 890, -4, 'center 60%', 3) + polaroid('prova4.jpg', 290, 330, 710, 880, -8, 'left 30%', 3), claro=True),
+    dep('vr11-06', NAVY, 'Um espaço de acolhimento', zap('dep-encontros.png', 860, 1060, 1600, 110, 500, -1.5) + zap('dep-acreditar.png', 700, 0, 300, 270, 1010, 2, 4),
+        polaroid('prova5.jpg', 250, 300, 790, 120, 8, 'center 10%')),
+    tela('vr11-07', MAG, arrobas3() + aspas('A mentoria acaba se tornando uma família', 96) +
+        zap('dep-familia.png', 680, 0, 257, 240, 530, -2) + zap('dep-assertiva.png', 620, 0, 795, 230, 722, 1.5)),
+    dep('vr11-08', AZUL, 'O que pensei impossível, em tão pouco tempo, se tornou uma realidade', zap('dep-agradecer.png', 760, 0, 800, 160, 590, -1.5),
+        polaroid('prova6.jpg', 250, 300, 790, 120, 8, 'center 20%'), px=76),
+    tela('vr11-09', CLARO, arrobas3(True) + bloco(
+        KICK('NA REPESCAGEM', '#e224d6') + T(f'POR QUE A<br>MENTORIA FAZ<br>{MARCA("DIFERENÇA")}', 130, 'color:#0b1a4a;') +
+        P('Os aprovados contaram o mesmo: alguém olhando de perto, método e confiança pra prova.', 38, 'color:#0b1a4a;font-weight:500;max-width:840px;') +
+        lista(['Acompanhamento de perto, com acesso direto à gente', 'Encontros ao vivo temáticos, com dúvidas', 'Materiais de apoio e simulado extras', 'Grupo no WhatsApp com a turma', 'Análise da prova logo depois dela', 'Um plano a partir do que te reprovou'], num=False, px=36, cor_num='#e224d6', gap=18),
+        top=180, gap=30).replace('<span>', '<span style="color:#0b1a4a;">'), claro=True),
+    tela('vr11-10', MAG, selos3() + f'<div style="position:absolute;left:80px;right:80px;top:330px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px;">'
+        f'{T("O PRÓXIMO<br>APROVADO<br>PODE SER VOCÊ", 150)}{P("Quer entrar na Mentoria do VDE 2ª fase pra repescagem? Comenta a palavra abaixo que a gente te manda o link no direct.", 40, "font-weight:500;")}' +
+        PILL('#0b1a4a', '#fff', 'Comente <span style="background:#f7f400;color:#0b1a4a;padding:0 12px;border-radius:4px;">MENTORIA</span>') +
+        f'<div style="font-weight:700;font-size:34px;">Método VDE · Repescagem</div></div>'
+        f'<div style="position:absolute;bottom:70px;left:50%;margin-left:-110px;">{LOGO(46)}</div>'),
+]))
+
 bloco_html = INI + '\n<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">\n' + ''.join(G) + FIM
 s = KIT.read_text()
 if INI in s:
