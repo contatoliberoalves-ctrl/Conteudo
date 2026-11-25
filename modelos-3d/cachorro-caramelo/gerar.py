@@ -19,7 +19,7 @@ from scipy.ndimage import map_coordinates
 AQUI = Path(__file__).resolve().parent
 SAIDA = AQUI / "saida"
 COMPRIMENTO = 150.0  # mm, do rabo à ponta da pata da frente
-CORES = {"caramelo": (205, 134, 62), "branco": (246, 243, 236), "preto": (36, 32, 31)}
+CORES = {"caramelo": (205, 134, 62), "branco": (246, 243, 236), "preto": (36, 32, 31), "bege": (226, 190, 150)}
 
 
 # ---------------------------------------------------------------- primitivas
@@ -305,8 +305,11 @@ def _sombra(G, o, h, p):
     return res * res * (3 - 2 * res)
 
 
-def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0):
-    G, ZW, ZB = grades
+def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0, cores=None):
+    """grades: (G, ZW, ZB) ou (G, ZW, ZB, ZBE): sólido e zonas branca, preta e bege (negativo = dentro)."""
+    G, ZW, ZB = grades[:3]
+    ZBE = grades[3] if len(grades) > 3 else None
+    cores = cores or CORES
     olho, alvo = np.asarray(olho, float), np.asarray(alvo, float)
     f = unit(alvo - olho)
     r = unit(np.cross(f, [0, 0, 1]))
@@ -355,9 +358,11 @@ def render(grades, o, h, olho, alvo, W=420, Ht=330, fov=28.0):
         nrm = np.stack([amostra(G, o, h, p + dv) - amostra(G, o, h, p - dv) for dv in np.eye(3) * e], 1)
         nrm /= np.maximum(np.linalg.norm(nrm, axis=1, keepdims=True), 1e-9)
         alb = np.empty((len(idx), 3))
-        alb[:] = CORES["caramelo"]
-        alb[amostra(ZW, o, h, p) < 0] = CORES["branco"]
-        alb[amostra(ZB, o, h, p) < 0] = CORES["preto"]
+        alb[:] = cores["caramelo"]
+        if ZBE is not None:
+            alb[amostra(ZBE, o, h, p) < 0] = cores["bege"]
+        alb[amostra(ZW, o, h, p) < 0] = cores["branco"]
+        alb[amostra(ZB, o, h, p) < 0] = cores["preto"]
         ao = 1 - 0.85 * np.mean([np.clip((hh - amostra(G, o, h, p + nrm * hh)) / hh, 0, 1) for hh in (1.5, 4.0, 8.0)], 0)
         s = _sombra(G, o, h, p + nrm * 0.7)
         dif = np.clip(nrm @ LUZ, 0, 1) * s
