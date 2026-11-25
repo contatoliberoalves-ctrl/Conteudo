@@ -525,6 +525,8 @@ G.append(grupo('vr11', 'Carrossel · Aprovados na Mentoria do VDE 2ª fase (depo
         polaroid('prova4.jpg', 250, 300, 790, 110, 8, 'left 30%')),
     dep('vr11-04', AZUL, 'E o resultado? Aprovada!', zap('dep-simulados.png', 860, 690, 1490, 110, 540, -1.5),
         polaroid('prova2.jpg', 250, 300, 790, 120, 8, 'center 60%')),
+    dep('vr11-04b', MAG, 'A mentoria foi a cereja do bolo', zap('dep-cereja.png', 860, 585, 1240, 110, 560, -1.5),
+        polaroid('prova1.jpg', 250, 300, 790, 120, 8, 'center 40%')),
     tela('vr11-05', CLARO, arrobas3(True) +
         f'<div style="position:absolute;left:110px;right:110px;top:150px;z-index:4;"><div style="font-weight:700;font-size:28px;letter-spacing:.3em;color:#e224d6;">47º EXAME</div>'
         f'<div style="{BB}font-size:130px;line-height:.9;color:#0b1a4a;margin-top:14px;">AS PROVAS<br>{MARCA("FALAM POR SI")}</div></div>' +
@@ -532,6 +534,8 @@ G.append(grupo('vr11', 'Carrossel · Aprovados na Mentoria do VDE 2ª fase (depo
         polaroid('prova6.jpg', 290, 330, 90, 880, 5, 'center 20%', 3) + polaroid('prova2.jpg', 290, 330, 400, 890, -4, 'center 60%', 3) + polaroid('prova4.jpg', 290, 330, 710, 880, -8, 'left 30%', 3), claro=True),
     dep('vr11-06', NAVY, 'Um espaço de acolhimento', zap('dep-encontros.png', 860, 1060, 1600, 110, 500, -1.5) + zap('dep-acreditar.png', 700, 0, 300, 270, 1010, 2, 4),
         polaroid('prova5.jpg', 250, 300, 790, 120, 8, 'center 10%')),
+    dep('vr11-06b', AZUL, 'São extremamente humanos', zap('dep-humanos.png', 860, 0, 795, 110, 530, -1.5),
+        polaroid('prova4.jpg', 250, 300, 790, 120, 8, 'left 30%')),
     tela('vr11-07', MAG, arrobas3() + aspas('A mentoria acaba se tornando uma família', 96) +
         zap('dep-familia.png', 680, 0, 257, 240, 530, -2) + zap('dep-assertiva.png', 620, 0, 795, 230, 722, 1.5)),
     dep('vr11-08', AZUL, 'O que pensei impossível, em tão pouco tempo, se tornou uma realidade', zap('dep-agradecer.png', 760, 0, 800, 160, 590, -1.5),
