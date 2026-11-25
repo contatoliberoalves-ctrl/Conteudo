@@ -8597,5 +8597,66 @@
         "botao": "Seguir @liberofilho"
       }
     ]
+  },
+  {
+    "id": "contrato-compromisso-oab",
+    "titulo": "Contrato de compromisso para passar na OAB",
+    "tema": "Motivação · compromisso com a aprovação no Exame de Ordem",
+    "inspiracao": "Contrato de compromisso para libertação do vício (página de livro enviada pelo autor), adaptado para a OAB.",
+    "slides": [
+      {
+        "tipo": "capa",
+        "tema": "blue",
+        "pre": "Antes da próxima prova, assine:",
+        "titulo": [
+          "Contrato de",
+          "[[compromisso]]",
+          "pra passar",
+          "na OAB"
+        ],
+        "texto": "Leia as cláusulas e assine nos comentários.",
+        "objeto": {
+          "img": "scroll.png",
+          "onde": "canto",
+          "tam": 380,
+          "rot": -10
+        }
+      },
+      {
+        "tipo": "enunciado",
+        "tema": "dark",
+        "kicker": "Contrato de compromisso · OAB",
+        "corpo": 27,
+        "texto": [
+          "**Partes.** De um lado, eu, composto(a) por café, sono atrasado e muita vontade de passar. De outro, a minha carteira da OAB, doravante chamada de **Vermelhinha**.",
+          "**Objeto.** Eu me comprometo a fazer todo o esforço possível para ser aprovado(a) no Exame de Ordem.",
+          "**Minhas obrigações**",
+          "1. Estudar todos os dias, nem que seja 1 hora.",
+          "2. Resolver questões desde o primeiro dia.",
+          "3. Revisar o que errei, sem drama.",
+          "4. Deixar o celular em outro cômodo na hora de estudar.",
+          "5. Dormir, comer e me mexer: cérebro cansado não passa.",
+          "6. Não desistir no primeiro simulado ruim.",
+          "**Obrigações da Vermelhinha.** Ficar na minha carteira pelo resto da vida profissional.",
+          "**Prazo.** Até o meu nome sair na lista de aprovados.",
+          "**Foro.** A minha mesa de estudos.",
+          "Assinatura: ________________________"
+        ]
+      },
+      {
+        "tipo": "cta",
+        "tema": "light",
+        "centro": true,
+        "titulo": "Leu e concordou?",
+        "texto": "Então assine: comente **ASSINADO** aqui embaixo. Compromisso feito em público pesa mais. E marque quem precisa assinar com você.",
+        "botao": "Comente ASSINADO",
+        "objeto": {
+          "img": "pencil.png",
+          "onde": "canto",
+          "tam": 300,
+          "rot": -20
+        }
+      }
+    ]
   }
 ]
