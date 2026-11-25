@@ -1,5 +1,5 @@
 // Conversa com a Bot API do Telegram.
-import { gravarConfig, lerConfig, segredo, segredoWebhook } from "./db.ts";
+import { gravarConfig, lerConfig, lerVault, segredo, segredoWebhook } from "./db.ts";
 import { linkWhatsApp, type Oferta, textoTelegram } from "./formatar.ts";
 import { mensagem, sha256hex } from "./seguranca.ts";
 
@@ -9,7 +9,18 @@ export class ErroTelegram extends Error {
   }
 }
 
-const token = () => Deno.env.get("TELEGRAM_BOT_TOKEN")?.trim() || null;
+// O token vem do segredo TELEGRAM_BOT_TOKEN das Edge Functions ou, se ele não existir, do Vault do banco
+// (nome telegram_bot_token). prepararToken() roda no começo de cada requisição.
+let tokenVault: string | null = null;
+export async function prepararToken(): Promise<void> {
+  if (Deno.env.get("TELEGRAM_BOT_TOKEN")?.trim() || tokenVault) return;
+  try {
+    tokenVault = (await lerVault("telegram_bot_token"))?.trim() || null;
+  } catch (e) {
+    console.error("token no Vault", mensagem(e));
+  }
+}
+const token = () => Deno.env.get("TELEGRAM_BOT_TOKEN")?.trim() || tokenVault || null;
 export const temToken = () => token() != null;
 
 // Erros do fetch trazem a URL inteira, com o token: nada vai para o log sem passar por aqui.

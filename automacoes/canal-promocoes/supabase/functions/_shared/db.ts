@@ -50,6 +50,11 @@ export const numeroOuNulo = (v: unknown): number | null => {
   return Number.isFinite(n) ? n : null;
 };
 
+export async function lerVault(nome: string): Promise<string | null> {
+  const [l] = await sql()`select decrypted_secret from vault.decrypted_secrets where name = ${nome}`;
+  return l?.decrypted_secret ? String(l.decrypted_secret) : null;
+}
+
 // Segredo guardado no Vault: protege o ciclo de busca e o webhook do Telegram.
 let segredoGuardado: string | null = null;
 export async function segredo(): Promise<string> {

@@ -49,6 +49,10 @@ pública) e um agendamento do `pg_cron` a cada 5 minutos.
 | `ALIEXPRESS_APP_KEY`, `ALIEXPRESS_APP_SECRET`, `ALIEXPRESS_TRACKING_ID` | API do AliExpress Portals |
 | `AMAZON_TAG` | Sua etiqueta de Associado da Amazon (ex.: `seunome-20`) |
 
+Se não der para criar o segredo pelo painel, o token também pode ficar no Vault do banco, com o nome
+`telegram_bot_token` (`select vault.create_secret('<token>', 'telegram_bot_token');`); o segredo das
+Edge Functions, quando existe, vale no lugar dele.
+
 O Supabase já entrega `SUPABASE_URL` e `SUPABASE_DB_URL` para a função. O segredo interno `promo_segredo`
 (protege o webhook e o ciclo) fica no Vault do banco.
 

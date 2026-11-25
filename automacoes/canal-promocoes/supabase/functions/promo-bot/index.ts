@@ -2,5 +2,9 @@
 // e ciclo de busca de ofertas (POST do pg_cron com o cabeçalho x-promo-segredo).
 import { tratarRequisicao as bot } from "./bot.ts";
 import { tratarRequisicao as ciclo } from "./ciclo.ts";
+import { prepararToken } from "../_shared/telegram.ts";
 
-Deno.serve((req) => (req.headers.has("x-promo-segredo") ? ciclo(req) : bot(req)));
+Deno.serve(async (req) => {
+  await prepararToken();
+  return req.headers.has("x-promo-segredo") ? ciclo(req) : bot(req);
+});
