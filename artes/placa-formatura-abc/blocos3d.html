@@ -1,0 +1,115 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}</style>
+<link rel="stylesheet" href="fontes/fontes.css">
+<script type="importmap">{"imports":{"three":"/three/build/three.module.min.js","three/addons/":"/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// Cubinhos de madeira com as letras A, B e C (brinquedo de alfabetização), renderizados com fundo
+// transparente e sombra de contato. Cada arranjo fica em window.__sprites[nome] para o Node gravar.
+import * as THREE from "three";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const fonte = new FontFace("Alfa Slab One", "url(fontes/AlfaSlabOne-400.woff2)");
+document.fonts.add(await fonte.load());
+const TAM = 1100, SS = 2;
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(TAM * SS, TAM * SS, false);
+renderer.setClearColor(0x000000, 0);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NoToneMapping;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const pmrem = new THREE.PMREMGenerator(renderer);
+const ambiente = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+// Madeira clara com veios, moldura pintada e letra em relevo pintada.
+function face(letra, corMoldura, corLetra, semente) {
+  const N = 1024, c = document.createElement("canvas");
+  c.width = c.height = N;
+  const g = c.getContext("2d");
+  let s = semente * 9301 + 49297;
+  const rnd = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+  const fundo = g.createLinearGradient(0, 0, N, N);
+  fundo.addColorStop(0, "#e8c48c"); fundo.addColorStop(.5, "#ddb171"); fundo.addColorStop(1, "#cf9e5a");
+  g.fillStyle = fundo; g.fillRect(0, 0, N, N);
+  for (let i = 0; i < 90; i++) { // veios
+    const y = rnd() * N, a = 0.07 + rnd() * 0.13;
+    g.strokeStyle = `rgba(120,70,25,${a})`; g.lineWidth = 1 + rnd() * 4;
+    g.beginPath(); g.moveTo(0, y);
+    for (let x = 0; x <= N; x += 64) g.lineTo(x, y + Math.sin(x / 140 + i) * 9 + (rnd() - .5) * 5);
+    g.stroke();
+  }
+  const m = 70, w = 62; // moldura colorida
+  g.strokeStyle = corMoldura; g.lineWidth = w;
+  g.beginPath(); g.roundRect(m + w / 2, m + w / 2, N - 2 * m - w, N - 2 * m - w, 46); g.stroke();
+  g.strokeStyle = "rgba(255,255,255,.35)"; g.lineWidth = 6;
+  g.beginPath(); g.roundRect(m + 6, m + 6, N - 2 * m - 12, N - 2 * m - 12, 50); g.stroke();
+  g.font = "400 600px 'Alfa Slab One'"; g.textAlign = "center"; g.textBaseline = "middle";
+  g.fillStyle = "rgba(60,30,5,.35)"; g.fillText(letra, N / 2 + 14, N / 2 + 64); // sombra do relevo
+  g.fillStyle = corLetra; g.fillText(letra, N / 2, N / 2 + 46);
+  g.fillStyle = "rgba(255,255,255,.28)"; g.fillText(letra, N / 2 - 6, N / 2 + 38); // brilho da tinta
+  g.fillStyle = corLetra; g.fillText(letra, N / 2, N / 2 + 46);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  return t;
+}
+
+const CORES = { A: ["#d8161b", "#e01f1f"], B: ["#f29d00", "#f08a00"], C: ["#0f5bd0", "#1662dc"], D: ["#14913c", "#169a40"], E: ["#7426c8", "#7a2ad0"] };
+const OUTRAS = { A: ["B", "C", "D"], B: ["C", "D", "E"], C: ["A", "E", "D"] };
+function bloco(letra, sem) {
+  const geo = new RoundedBoxGeometry(1, 1, 1, 6, 0.09);
+  const mat = (l, i) => {
+    const [moldura, cor] = CORES[l];
+    return new THREE.MeshStandardMaterial({ map: face(l, moldura, cor, sem * 10 + i), roughness: 0.62, metalness: 0, envMapIntensity: 0.3 });
+  };
+  const o = OUTRAS[letra];
+  // ordem das faces do BoxGeometry: +x, -x, +y, -y, +z (frente), -z
+  const mats = [mat(o[0], 1), mat(o[1], 2), mat(o[2], 3), mat(o[2], 4), mat(letra, 5), mat(o[0], 6)];
+  const m = new THREE.Mesh(geo, mats);
+  m.castShadow = true; m.receiveShadow = true;
+  return m;
+}
+
+function cena(arranjo) {
+  const s = new THREE.Scene();
+  s.environment = ambiente;
+  s.add(new THREE.HemisphereLight(0xfff6e6, 0x5a7a3a, 0.75));
+  const sol = new THREE.DirectionalLight(0xfff1d6, 1.9);
+  sol.position.set(-2.6, 5, 4.2); sol.castShadow = true;
+  sol.shadow.mapSize.set(4096, 4096); sol.shadow.radius = 6; sol.shadow.bias = -0.0004;
+  Object.assign(sol.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 0.5, far: 20 });
+  s.add(sol);
+  const chao = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.ShadowMaterial({ opacity: 0.45 }));
+  chao.rotation.x = -Math.PI / 2; chao.receiveShadow = true; s.add(chao);
+  for (const [letra, x, y, z, giro] of arranjo) {
+    const b = bloco(letra, x * 7 + z);
+    b.position.set(x, y + 0.5, z); b.rotation.y = giro * Math.PI / 180;
+    s.add(b);
+  }
+  return s;
+}
+
+const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
+function render(arranjo, alvo, dist = 7.2, elev = 0.34) {
+  const s = cena(arranjo);
+  camera.position.set(alvo[0] + dist * 0.18, alvo[1] + dist * Math.sin(elev), alvo[2] + dist * Math.cos(elev));
+  camera.lookAt(...alvo);
+  renderer.render(s, camera);
+  const out = document.createElement("canvas");
+  out.width = out.height = TAM;
+  out.getContext("2d").drawImage(renderer.domElement, 0, 0, TAM, TAM);
+  return out;
+}
+
+window.__sprites = {
+  // pirâmide: A e B embaixo, C em cima (como os cubos da foto da turma)
+  pilha: render([["A", -0.56, 0, 0.05, 12], ["B", 0.56, 0, -0.02, -9], ["C", 0.02, 1, 0.02, 6]], [0, 0.95, 0]),
+  // fileira de três
+  fila: render([["A", -1.12, 0, 0.08, 14], ["B", 0, 0, -0.05, -4], ["C", 1.12, 0, 0.1, -16]], [0, 0.5, 0], 9.6, 0.3),
+};
+window.__pronto = true;
+</script>
+</body></html>
