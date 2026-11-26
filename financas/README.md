@@ -8,6 +8,8 @@ https://claude.ai/artifact/Mezp5WMFxdHpCEmBoUvkvf
 - Compra parcelada: cada parcela é um documento de `lanc` com `parc: "2/6"`, `grp` (o mesmo em todas as parcelas da compra) e `d0` (data da compra, usada para achar a fatura de cada parcela). Lançamentos antigos sem `grp`/`d0` continuam valendo.
 - A divisão do casal fica gravada como percentual em cada lançamento (`div`); mudar o padrão em Ajustes vale só para os próximos.
 - A página confere cada documento ao ler (valor em texto, data vazia, mapa ausente) e lista em Lançamentos os que estão sem data ou sem painel válido.
+- Categorias próprias ficam em `config/geral`: `catsExtra: {casa:{desp:[],rec:[]}, cart:{desp:[[nome, grupo]], rec:[]}}` (grupo `rep`, `ded`, `nd` ou `ret`) e `catsOcultas: [nomes]`. As categorias que vêm com a página não mudam de nome (os cálculos dependem delas), só podem ser ocultadas.
+- A Visão geral abre com o bloco "Hoje" (sempre pela data real); cada cartório tem as abas Mês (lista de fechamento), Livro caixa e Histórico; lançamento novo usa a folha rápida (`rapido`), edição usa o formulário completo.
 - Para atualizar: edite `index.html` e publique com o Artifact tool usando `url` acima e `capabilities: {db: {}, downloads: true, assets: {}}`.
 - Anexos (boleto, comprovante): arquivos enviados pela página com a capacidade `assets`; o lançamento guarda `anexos: [{id, nome, tipo}]` e a conta fixa guarda `anexosMes: {<mês>: [...]}`.
 
