@@ -10,7 +10,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo
+from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo, video
 
 raiz = Path(__file__).resolve().parent
 # Uma pasta por galeria (galerias.json); dist/ é a principal (e a do editor de capa).
@@ -70,7 +70,7 @@ def editor(pasta, c, saida):
 moldes = []
 for pasta in sorted((raiz.parent / 'moldes').iterdir()):
     meta_arq = pasta / 'molde.json'
-    if not meta_arq.exists():
+    if not meta_arq.exists() or not (pasta / 'dados.json').exists():  # molde sem dados.json (ex.: só PDF) fica de fora
         continue
     meta = json.loads(meta_arq.read_text('utf8'))
     meta['id'] = pasta.name
@@ -101,6 +101,7 @@ for pasta in sorted((raiz.parent / 'moldes').iterdir()):
             'tira': f'{base}-slides.webp',
             'n': len(slides), 'w': larg, 'h': alt, 'por': por,
             'editor': editor(pasta, c, saida),
+            'video': video(pasta, c, dg),
         })
     meta['posts'] = posts[::-1]  # o mais novo (último do dados.json) aparece primeiro
     moldes.append(meta)

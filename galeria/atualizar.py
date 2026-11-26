@@ -15,7 +15,7 @@ from PIL import Image
 raiz = Path(__file__).resolve().parent
 molde, pedidos = sys.argv[1], set(sys.argv[2:])
 pasta = raiz.parent / 'moldes' / molde
-from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo
+from gerar_util import GALERIAS, galeria_de, jpeg, nativo, pagina, tamanho_tira, salvar_tira, titulo, video
 # Cada molde fica numa galeria (galerias.json): a principal (dist/) ou a do Líbero (dist-libero/).
 galeria = galeria_de(molde)
 dist = raiz / GALERIAS[galeria]['dist']
@@ -53,7 +53,9 @@ for c in json.loads((pasta / 'dados.json').read_text('utf8')):
     else:
         larg, alt, por = velho.get('w', 1080), velho.get('h', 1350), velho.get('por', n)
     posts.append({'id': c['id'], 'titulo': titulo(c), 'tema': c.get('tema', ''), 'nativo': nativo(c), 'topicos': len(c.get('topicos', [])),
-                  'painel': f'{base}-painel.jpg' if n > 3 else f'{base}-slides.webp', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'por': por, 'editor': editores.get(c['id'])})
+                  'painel': f'{base}-painel.jpg' if n > 3 else f'{base}-slides.webp', 'tira': f'{base}-slides.webp', 'n': n, 'w': larg, 'h': alt, 'por': por, 'editor': editores.get(c['id']), 'video': video(pasta, c, dist) or velho.get('video')})
+    if posts[-1]['video'] and (refeito or not velho.get('video')):
+        publicar.append(posts[-1]['video'])
 meta['posts'] = posts[::-1]  # o mais novo (último do dados.json) aparece primeiro
 if antigo:
     moldes[moldes.index(antigo)] = meta

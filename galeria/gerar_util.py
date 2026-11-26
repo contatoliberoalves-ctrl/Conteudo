@@ -68,3 +68,16 @@ def nativo(c):
     """Post com foto na capa (a galeria junta os moldes da Eduarda em Carrosséis, Nativos e Telas únicas)."""
     s = (c.get('slides') or [{}])[0]
     return bool(s.get('foto') or s.get('tipo') in ('capaFoto', 'legenda'))
+
+
+def video(pasta, c, dist):
+    """Post com vídeo (campo "video" do dados.json, gerado em saida/videos/<video>.mp4): copia o .mp4 para
+    <dist>/video/ e devolve o caminho publicado; None se o post não tem vídeo ou o arquivo não foi gerado."""
+    nome = c.get('video')
+    origem = pasta / 'saida' / 'videos' / f'{nome}.mp4' if nome else None
+    if not origem or not origem.exists():
+        return None
+    destino = dist / 'video' / f'{nome}.mp4'
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_bytes(origem.read_bytes())
+    return f'video/{nome}.mp4'

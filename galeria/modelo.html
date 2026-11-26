@@ -123,6 +123,7 @@ dialog::backdrop{background:rgba(12,13,12,.92)}
 .slides .mini{cursor:pointer;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600;border:1px solid rgba(238,240,234,.28);background:rgba(238,240,234,.06);color:#EEF0EA}
 .slides .mini:hover{background:rgba(238,240,234,.16)}
 .slides.sem-dl .mini,.slides.sem-dl .sel input{display:none}
+.slides .filme{display:block;width:100%;border-radius:8px;background:#000}
 .slides figure.marcado .quadro{outline:3px solid var(--lima);outline-offset:3px}
 /* Comentários nos slides: clique num ponto do slide, escreva o pedido; o Claude lê a coleção "pedidos". */
 .slides .quadro.comentavel{position:relative;cursor:crosshair}
@@ -454,7 +455,9 @@ function abrir(i) {
   $('#v-titulo').textContent = p.titulo;
   fecharEditor(); $('#v-status').textContent = ''; atualizarFerramentas();
   // Cada slide é um recorte da tira com todos os slides do post.
-  $('#v-slides').innerHTML = Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};${fundoSlide(p, k)}"></div><figcaption><label class="sel"><input type="checkbox" data-sel="${k}" aria-label="Selecionar o slide ${k + 1}">Slide ${k + 1}</label><button class="mini" data-baixar="${k}" aria-label="Baixar o slide ${k + 1}">Baixar</button>${(p.w || 1080) > (p.h || 1350) ? `<button class="mini" data-yt="${k}" aria-label="Baixar o slide ${k + 1} como miniatura do YouTube">Miniatura YouTube</button>` : ''}</figcaption></figure>`).join('');
+  // Post com vídeo (p.video): o player vem antes dos slides (a capa), com botão para baixar o .mp4.
+  const filme = p.video ? `<figure><video class="filme" controls playsinline preload="metadata" src="${esc(p.video)}" style="aspect-ratio:9/16"></video><figcaption>Vídeo <button class="mini" data-video aria-label="Baixar o vídeo">Baixar vídeo</button></figcaption></figure>` : '';
+  $('#v-slides').innerHTML = filme + Array.from({ length: p.n }, (_, k) => `<figure><div class="quadro" role="img" aria-label="${esc(p.titulo)}, slide ${k + 1}" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};${fundoSlide(p, k)}"></div><figcaption><label class="sel"><input type="checkbox" data-sel="${k}" aria-label="Selecionar o slide ${k + 1}">Slide ${k + 1}</label><button class="mini" data-baixar="${k}" aria-label="Baixar o slide ${k + 1}">Baixar</button>${(p.w || 1080) > (p.h || 1350) ? `<button class="mini" data-yt="${k}" aria-label="Baixar o slide ${k + 1} como miniatura do YouTube">Miniatura YouTube</button>` : ''}</figcaption></figure>`).join('');
   $('#v-slides').scrollLeft = 0;
   SEL.clear(); atualizarSelecao();
   fecharFormPedido(); desenharPedidos();
@@ -640,6 +643,13 @@ async function baixarSlides(quais, st, bt) {
 }
 $('#v-sel').onclick = ev => baixarSlides([...SEL].sort((a, b) => a - b), $('#v-status'), ev.currentTarget);
 $('#v-slides').addEventListener('click', async e => {
+  const v = e.target.closest('[data-video]');
+  if (v && DL) {
+    e.stopPropagation(); v.disabled = true;
+    try { const p = postAtual(); $('#v-status').textContent = 'Preparando o vídeo…'; await salvarArquivo(p.video.split('/').pop(), await (await fetch(p.video)).blob(), $('#v-status')); }
+    catch (err) { $('#v-status').textContent = 'Não deu para baixar o vídeo. Tente de novo.'; }
+    v.disabled = false; return;
+  }
   const b = e.target.closest('[data-baixar],[data-yt]'); if (!b || !DL) return;
   e.stopPropagation();
   const st = $('#v-status');
