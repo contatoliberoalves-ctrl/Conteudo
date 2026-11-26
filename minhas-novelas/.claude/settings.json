@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/novelinha/scripts/trava-sim.sh\""}]}],
+    "PreToolUse": [{"matcher": ".*[Aa]vatrix.*generate_(image|video)", "hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/novelinha/scripts/trava-sim.sh\""}]}]
+  }
+}

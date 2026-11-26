@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/fabrica-de-reels/scripts/trava-sim.sh\""}]}],
+    "PreToolUse": [{"matcher": ".*[Aa]vatrix.*(generate_(image|video|voice|influencer|batch)|change_voice|download_social|send_message|confirm_card|edit_image|enhance_image|transfer_motion|cut_video)", "hooks": [{"type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/fabrica-de-reels/scripts/trava-sim.sh\""}]}]
+  },
+  "permissions": {
+    "ask": ["mcp__avatrix__republish_post", "mcp__avatrix__send_dm", "mcp__avatrix__reply_comment"]
+  }
+}
