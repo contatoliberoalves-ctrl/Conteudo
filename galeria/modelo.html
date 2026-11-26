@@ -90,15 +90,19 @@ h1 span{color:var(--lima)}
 .contagem{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
 
 /* Grade de posts */
-.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px}
-@media (max-width:420px){.grade{grid-template-columns:1fr}}
-.post{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:12px}
-.post .thumb{position:relative;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:12/5;background:var(--chip)}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px 14px}
+@media (max-width:420px){.grade{grid-template-columns:repeat(2,1fr)}}
+.mais{align-self:center;cursor:pointer;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:10px 22px;font-size:14px;font-weight:600}
+.mais:hover{border-color:var(--lima)}
+.sel-tema,.ordem{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font:13px var(--body);max-width:260px}
+.post{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:8px;min-width:0}
+.post .thumb{position:relative;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;background-color:var(--chip);background-repeat:no-repeat;max-width:100%}
+.post .thumb .n{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;font-weight:600;border-radius:999px;padding:2px 8px}
 .post img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
 .post:hover img,.post:focus-visible img{transform:scale(1.025)}
 .post .thumb.tres::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 33.2%,rgba(0,0,0,.25) 33.3%,transparent 33.5%,transparent 66.5%,rgba(0,0,0,.25) 66.6%,transparent 66.8%)}
-.post .info{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.post strong{font-family:var(--display);font-weight:400;font-size:26px;line-height:1}
+.post .info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.post strong{font-family:var(--body);font-weight:600;font-size:13px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .post small{font-size:12px;color:var(--muted);white-space:nowrap}
 .vazio{padding:40px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:18px}
 
@@ -307,7 +311,7 @@ const projetosVisiveis = () => [...PROJETOS, OUTROS].filter(p => MOLDES.some(m =
 const moldesDe = p => MOLDES.filter(m => projetoDe(m) === p);
 let projeto = projetosVisiveis().find(p => p.id === ler('projeto')) || null;
 let ativo = projeto ? (moldesDe(projeto).find(m => m.id === ler('molde')) || moldesDe(projeto)[0]) : null;
-let filtroTema = 'todos', termo = '', lista = [], atual = 0;
+let filtroTema = 'todos', termo = '', lista = [], atual = 0, mostrar = 30, ordem = 'novos';
 
 const totalPosts = MOLDES.reduce((n, m) => n + m.posts.length, 0);
 const totalSlides = MOLDES.reduce((n, m) => n + m.posts.reduce((k, p) => k + p.n, 0), 0);
@@ -363,7 +367,8 @@ function desenharMoldes() {
 function desenharMolde() {
   const m = ativo;
   if (!m) { $('#molde').innerHTML = '<div class="vazio">Nenhum molde encontrado.</div>'; return; }
-  const temas = [...new Set(m.posts.map(p => p.tema).filter(Boolean))];
+  const conta = {}; m.posts.forEach(p => p.tema && (conta[p.tema] = (conta[p.tema] || 0) + 1));
+  const temas = Object.keys(conta).filter(t => conta[t] > 1 && t.length <= 60);
   $('#molde').innerHTML = `
     <div class="molde-cab">
       <div>
@@ -379,20 +384,20 @@ function desenharMolde() {
     </div>
     <div class="barra">
       <label class="busca"><span aria-hidden="true">⌕</span><input id="busca" type="search" placeholder="Buscar post…" aria-label="Buscar post" value="${esc(termo)}"></label>
-      ${temas.length > 1 ? `<div class="filtros" role="group" aria-label="Filtrar por tema">${['todos', ...temas].map(t =>
-        `<button data-tema="${esc(t)}" aria-pressed="${t === filtroTema}">${t === 'todos' ? 'Todos' : (/^\d/.test(t) ? 'Tema ' : '') + esc(t)}</button>`).join('')}</div>` : ''}
+      ${temas.length > 1 ? `<select class="sel-tema" id="sel-tema" aria-label="Filtrar por tema">${['todos', ...temas].map(t =>
+        `<option value="${esc(t)}" ${t === filtroTema ? 'selected' : ''}>${t === 'todos' ? 'Todos os temas' : (/^\d/.test(t) ? 'Tema ' : '') + esc(t)}</option>`).join('')}</select>` : ''}
+      <select class="ordem" id="ordem" aria-label="Ordem"><option value="novos" ${ordem === 'novos' ? 'selected' : ''}>Mais novos primeiro</option><option value="antigos" ${ordem === 'antigos' ? 'selected' : ''}>Mais antigos primeiro</option></select>
       <span class="contagem" id="contagem"></span>
       <button id="baixar-todos" hidden>Baixar todos (.zip)</button>
       <button id="enviar-todos" hidden>Enviar todos pro Drive</button>
       <span class="contagem" id="st-molde" role="status"></span>
     </div>
-    <div class="grade" id="grade"></div>`;
-  $('#busca').oninput = e => { termo = e.target.value; desenharGrade(); };
-  document.querySelectorAll('[data-tema]').forEach(b => b.onclick = () => {
-    filtroTema = b.dataset.tema;
-    document.querySelectorAll('[data-tema]').forEach(x => x.setAttribute('aria-pressed', x === b));
-    desenharGrade();
-  });
+    <div class="grade" id="grade"></div>
+    <button class="mais" id="mais" hidden></button>`;
+  $('#busca').oninput = e => { termo = e.target.value; mostrar = 30; desenharGrade(); };
+  $('#mais').onclick = () => { mostrar += 30; desenharGrade(); };
+  if ($('#sel-tema')) $('#sel-tema').onchange = e => { filtroTema = e.target.value; mostrar = 30; desenharGrade(); };
+  $('#ordem').onchange = e => { ordem = e.target.value; mostrar = 30; desenharGrade(); };
   $('#copiar').onclick = async e => {
     const txt = $('#pedido-txt').textContent;
     try { await navigator.clipboard.writeText(txt); e.target.textContent = 'Copiado'; }
@@ -431,12 +436,16 @@ function desenharGrade() {
   if (!ativo || !$('#grade')) return;
   const q = semAcento(termo.trim());
   lista = ativo.posts.filter(p => (filtroTema === 'todos' || p.tema === filtroTema) && (!q || semAcento(p.titulo + ' ' + p.id).includes(q)));
-  $('#contagem').textContent = `${lista.length} de ${ativo.posts.length} posts`;
-  $('#grade').innerHTML = lista.length ? lista.map((p, i) => `
+  if (ordem === 'antigos') lista = lista.slice().reverse();
+  const vis = lista.slice(0, mostrar);
+  $('#contagem').textContent = `${Math.min(mostrar, lista.length)} de ${lista.length} posts`;
+  $('#grade').innerHTML = vis.length ? vis.map((p, i) => `
     <button class="post" data-i="${i}" aria-label="Abrir ${esc(p.titulo)}">
-      <div class="thumb${p.n >= 3 ? ' tres' : ''}" style="aspect-ratio:${Math.min(p.n, 3) * (p.w || 1080)}/${p.h || 1350}"><img src="${esc(p.painel)}" alt="" loading="lazy"></div>
-      <div class="info"><strong>${esc(p.titulo)}${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}${nPedidos(p) ? `<span class="chip pedido-chip">${nPedidos(p)} ${nPedidos(p) === 1 ? 'pedido' : 'pedidos'}</span>` : ''}</strong><small>${p.n} slides${p.topicos ? ' · ' + p.topicos + ' tópicos' : ''}</small></div>
+      <div class="thumb" style="aspect-ratio:${p.w || 1080}/${p.h || 1350};${capaDe(p)}"><span class="n">${p.n}</span></div>
+      <div class="info"><strong>${esc(p.titulo)}</strong>${AJ[chave(p)] || nPedidos(p) ? `<small>${AJ[chave(p)] ? '<span class="chip">ajuste salvo</span>' : ''}${nPedidos(p) ? `<span class="chip pedido-chip">${nPedidos(p)} ${nPedidos(p) === 1 ? 'pedido' : 'pedidos'}</span>` : ''}</small>` : ''}</div>
     </button>`).join('') : '<div class="vazio">Nenhum post com esse nome.</div>';
+  const resta = lista.length - vis.length;
+  $('#mais').hidden = resta <= 0; $('#mais').textContent = `Mostrar mais ${Math.min(30, resta)} (faltam ${resta})`;
   document.querySelectorAll('.post').forEach(b => b.onclick = () => abrir(+b.dataset.i));
 }
 
@@ -446,6 +455,8 @@ function trecho(p, k) {
   const por = p.por || p.n, parte = Math.floor(k / por), nParte = Math.min(por, p.n - parte * por);
   return { src: parte ? p.tira.replace(/-slides\.webp$/, `-slides-${parte + 1}.webp`) : p.tira, i: k - parte * por, nParte };
 }
+// Capa na grade: recorte do painel (leve), que tem os 3 primeiros slides, ou da própria tira nos posts curtos.
+const capaDe = p => `background-image:url('${esc(p.painel)}');background-size:${(p.painel === p.tira ? Math.min(p.n, p.por || p.n) : 3) * 100}% 100%;background-position:0 0`;
 const fundoSlide = (p, k) => { const t = trecho(p, k); return `background-image:url('${esc(t.src)}');background-size:${t.nParte * 100}% 100%;background-position:${t.nParte > 1 ? (t.i / (t.nParte - 1)) * 100 : 0}% 0`; };
 function abrir(i) {
   atual = (i + lista.length) % lista.length;
