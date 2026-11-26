@@ -106,8 +106,7 @@ function capa(parte){const el=slide('papel');
 }
 function item(i){
   const [nome,a,b,cc,nota]=ITENS[i];const el=slide(FUNDOS2[i%5]);const esq=i%2===0;
-  el.innerHTML=`<div class="num" style="left:60px;top:70px;font-size:200px;transform:rotate(-8deg)">${i+1}</div>
-  <div class="tit" style="left:${i+1>=10?330:250}px;top:110px;width:720px;font-size:56px">Você é um estudante<br><span class="bolha preta"><b>${nome}</b></span> se:</div>
+  el.innerHTML=`<div class="tit" style="left:80px;top:100px;width:920px;font-size:64px">Você é um estudante<br><span class="bolha preta"><b>${nome}</b></span> se:</div>
   <div class="lista" style="left:90px;right:90px;top:900px;font-size:50px;gap:18px">${[a,b,cc].map(t=>`<div><i style="width:42px;height:42px"></i><span>${t}</span></div>`).join('')}</div>
   <div class="nota" style="${esq?'right:80px':'left:80px'};top:${esq?380:420}px;font-size:50px;color:#0B4FD8;transform:rotate(${esq?6:-6}deg);max-width:300px;overflow-wrap:anywhere">${nota.replace(/_/g,'_<wbr>')}</div>
   <div class="handle">@liberofilho</div>`;
@@ -117,8 +116,8 @@ function item(i){
 }
 function cta(){const el=slide('papel');
  el.innerHTML=`<div style="position:absolute;left:70px;right:70px;top:170px;font:900 92px/1.12 Inter;letter-spacing:-.02em"><span class="bolha preta">E aí, qual</span><br><span class="bolha preta">é você?</span></div>
- <div style="position:absolute;left:70px;right:70px;top:470px;font:700 46px/1.5 Inter"><span class="bolha">Comenta o número</span><br><span class="bolha">e marca aquele amigo guaxinim</span></div>
- <div class="nota" style="left:640px;top:700px;font-size:48px;transform:rotate(-8deg)">eu sou o 4, confesso</div>
+ <div style="position:absolute;left:70px;right:70px;top:470px;font:700 46px/1.5 Inter"><span class="bolha">Comenta qual você é</span><br><span class="bolha">e marca aquele amigo guaxinim</span></div>
+ <div class="nota" style="left:560px;top:660px;font-size:48px;transform:rotate(-6deg)">eu sou a coruja, confesso</div>
  <div class="handle">@liberofilho</div>`;
  el.appendChild(desenho('guaxinim',120,760,360,-8));el.appendChild(desenho('coruja',600,800,330,8));
  const c=camada(el);rabisco(c,r=>r.path('M700 760 Q690 800 650 830',o({strokeWidth:4})));
