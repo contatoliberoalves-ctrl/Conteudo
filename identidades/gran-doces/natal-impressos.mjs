@@ -11,7 +11,7 @@ const { chromium } = createRequire(path.join(root, '../../moldes/treino-de-pecas
 const OUT = path.join(root, 'saida', 'natal-impressos'), BUILD = path.join(root, 'build');
 fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(BUILD, { recursive: true });
 
-import { C, ARROBA, HEAD, gd, marca, estrela, arroba, corte, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, rep, V, G, K, O, MSG, extra } from './natal-pecas.mjs';
+import { C, ARROBA, HEAD, gd, marca, estrela, arroba, corte, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, rep, V, G, K, O, MSG, extra, bordo, B } from './natal-pecas.mjs';
 // Folhas A4 (margem 10 mm, peças com 5 mm de intervalo).
 const FOLHAS = {
   '01-brownie-redondo-5cm': ['Brownie · adesivo redondo 5 cm (embalagem chique)', [
@@ -45,6 +45,17 @@ const FOLHAS = {
   '15-sacola-horizontal-e-oval': ['Sacola: etiqueta 12 × 6 cm e oval 8 × 5,5 cm', [
     extra.sacolaH(120, 60, V, K, O, 'Feito à mão pro seu Natal'), extra.sacolaH(120, 60, K, V, G, 'Feito à mão pro seu Natal'),
     rep(2, extra.oval(80, 55, K, V, G, 'Panetone')), rep(2, extra.oval(80, 55, G, K, O, 'Feliz Natal'))]],
+  '16-torta-premium-9cm': ['Torta · adesivo bordô 9 cm (tampa do acrílico) e etiqueta de sabor', [
+    rep(2, bordo.premium(90)), rep(2, bordo.festone(90, 'Torta')), rep(4, sabor(70, 25, K, B.bordo, B.ouro))]],
+  '17-bordo-redondos-5cm': ['Linha bordô · redondos 5 cm (brownie)', [
+    rep(3, bordo.mono(50)), rep(3, bordo.nome(50, 'Brownie')), rep(3, bordo.natal(50)), rep(3, bordo.arco(50))]],
+  '18-bordo-redondos-6cm': ['Linha bordô · redondos 6 cm (panetone, biscoitos)', [
+    rep(3, bordo.festone(60, 'Panetone')), rep(3, bordo.nome(60, 'Panetone')), rep(3, bordo.mono(60)), rep(3, bordo.nome(60, 'Biscoitos'))]],
+  '19-bordo-quadrados-e-tags': ['Linha bordô · quadrado 6 cm e tags 5,5 × 8,5 cm', [
+    rep(3, bordo.quad(60, 'Biscoitos')), rep(3, bordo.tag(55, 85)), rep(3, bordo.tag(55, 85, 'Boas Festas'))]],
+  '20-bordo-lacres-e-cartoes': ['Linha bordô · lacres 12 × 2,5 cm e cartões 9 × 5 cm', [
+    rep(4, bordo.lacre(120, 25)), rep(2, bordo.cartao(90, 50)), rep(2, bordo.cartao(90, 50, 'Boas Festas'))]],
+  '21-bordo-sacola-9x12': ['Linha bordô · sacola 9 × 12 cm', [rep(4, bordo.sacola(90, 120))]],
 };
 
 const launch = {};

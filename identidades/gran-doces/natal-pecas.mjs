@@ -43,7 +43,7 @@ const quad = (w, h, bg, cor, dest, nome, linha = 'FEITO À MÃO') => `<div style
   <div style="font-weight:700;font-size:${w * .045}mm;letter-spacing:.28em;margin-right:-.28em;color:${dest}">${linha}</div>${arroba(w * .05, cor)}</div>`;
 // Etiqueta de sacola (retângulo em pé).
 const sacola = (w, h, bg, cor, dest, frase) => `<div style="width:${w}mm;height:${h}mm;border-radius:${w * .06}mm;background:${bg};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:${h * .03}mm;flex:none;text-align:center;padding:${w * .08}mm;${bg === C.creme ? `box-shadow:${corte}` : ''}">
-  ${gd(w * .2, cor, dest)}${marca(w * .14, cor)}
+  ${gd(w * .2, cor, dest)}${marca(w * .14, cor, false)}
   <div class="s" style="font-size:${w * .17}mm;line-height:1.05;color:${dest};margin-top:${h * .02}mm">Feliz Natal</div>
   <div class="f" style="font-weight:500;font-size:${w * .065}mm;line-height:1.3;color:${cor}">${frase}</div>${arroba(w * .055, cor)}</div>`;
 // Lacre (fita que fecha a caixa ou a sacola dobrada por cima).
@@ -114,8 +114,7 @@ const extra = {
       ${gd(h * .3, C.vermelho, C.verde)}<span class="s" style="font-size:${h * .34}mm;line-height:1;color:${C.verde}">Feliz Natal</span><span style="font-weight:700;font-size:${h * .13}mm;color:${C.vermelho};letter-spacing:.06em">${ARROBA}</span></div></div>`,
   // Lacre de segurança do delivery.
   lacrado: (w, h, bg = C.vermelho, cor = C.creme, dest = C.ouro) => `<div style="width:${w}mm;height:${h}mm;border-radius:${h * .2}mm;background:${bg};display:flex;align-items:center;justify-content:center;gap:${h * .35}mm;flex:none">
-    ${gd(h * .36, cor, dest)}<div style="display:flex;flex-direction:column;line-height:1.1"><span class="s" style="font-size:${h * .32}mm;color:${dest}">Lacrado com carinho</span>
-    <span style="font-weight:700;font-size:${h * .12}mm;letter-spacing:.12em;color:${cor}">SE ESTIVER ROMPIDO, AVISE A GENTE · ${ARROBA.toUpperCase()}</span></div></div>`,
+    ${gd(h * .36, cor, dest)}<div style="display:flex;flex-direction:column;line-height:1.1"><span class="s" style="font-size:${h * .4}mm;color:${dest}">Lacrado com carinho</span></div></div>`,
   // Tag kraft.
   tagKraft: (w, h, titulo = 'Feliz Natal', linha = '') => `<div style="width:${w}mm;height:${h}mm;border-radius:${w * .08}mm;background:${C.kraft};position:relative;flex:none;display:flex;flex-direction:column;align-items:center;padding:${h * .15}mm ${w * .1}mm ${w * .08}mm">
     <div style="position:absolute;top:${h * .045}mm;left:50%;transform:translateX(-50%);width:${w * .11}mm;height:${w * .11}mm;border-radius:50%;background:#fff;box-shadow:0 0 0 .25mm ${C.cacau}"></div>
@@ -137,4 +136,73 @@ const extra = {
     <div class="s" style="font-size:${h * .125}mm;line-height:1.05;color:${dest};white-space:nowrap">${frase}</div>${arroba(h * .07, cor)}</div></div>`,
 };
 
-export { C, ARROBA, HEAD, gd, marca, estrela, arroba, corte, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, rep, V, G, K, O, MSG, extra };
+// ---------- Linha bordô (chique, pouco texto, letras douradas ou brancas) ----------
+const B = { bordo: '#5A1022', bordoEsc: '#3E0A17', ouro: '#D8B66A', ouroClaro: '#EED9A4', branco: '#FFF8EF' };
+const OUROG = `linear-gradient(120deg,#a8813d 0%,#e9cf8e 35%,#fff0c8 48%,#c9a35b 62%,#9c7533 100%)`;
+const ouroTxt = `background:${OUROG};-webkit-background-clip:text;background-clip:text;color:transparent`;
+// borda recortada (festonê) em SVG
+const festone = (n, cor, aro) => { let d = ''; const R = 200, r = 186, k = n * 2;
+  for (let i = 0; i <= k; i++) { const a = i / k * Math.PI * 2, rr = i % 2 ? R : r; d += `${i ? 'L' : 'M'}${(200 + rr * Math.cos(a)).toFixed(1)},${(200 + rr * Math.sin(a)).toFixed(1)}`; }
+  return `<svg viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%"><path d="${d}Z" fill="${cor}" stroke="${aro}" stroke-width="3" stroke-linejoin="round"/></svg>`; };
+const arco = (txt, cor, tam = 24, raio = 140, esp = 0) => { const id = 'a' + Math.random().toString(36).slice(2, 8);
+  return `<svg viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%"><defs><path id="${id}" d="M${200 - raio},200 A${raio},${raio} 0 0,1 ${200 + raio},200"/></defs>
+    <text fill="${cor}" font-family="DM Sans" font-weight="700" font-size="${tam}" letter-spacing="${esp}" text-anchor="middle"><textPath href="#${id}" startOffset="50%">${txt}</textPath></text></svg>`; };
+const bordo = {
+  // Só o monograma, aro duplo dourado.
+  mono: (d, letra = B.ouro) => `<div style="width:${d}mm;height:${d}mm;border-radius:50%;background:${B.bordo};position:relative;display:grid;place-items:center;flex:none">
+    <div style="position:absolute;inset:${d * .045}mm;border-radius:50%;border:${d * .012}mm solid ${B.ouro}"></div><div style="position:absolute;inset:${d * .075}mm;border-radius:50%;border:${d * .005}mm solid ${B.ouro};opacity:.7"></div>
+    <span class="f" style="font-weight:800;font-size:${d * .34}mm;line-height:1;letter-spacing:-.04em;${letra === B.ouro ? ouroTxt : `color:${letra}`}">GD</span></div>`,
+  // Nome do produto em itálico + Gran Doces pequeno.
+  nome: (d, nome, letra = B.branco) => `<div style="width:${d}mm;height:${d}mm;border-radius:50%;background:${B.bordo};position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none">
+    <div style="position:absolute;inset:${d * .05}mm;border-radius:50%;border:${d * .008}mm solid ${B.ouro}"></div>
+    <div class="f" style="font-style:italic;font-weight:500;font-size:${d * (nome.length > 8 ? .15 : .19)}mm;line-height:1;color:${letra}">${nome}</div>
+    <div style="font-weight:700;font-size:${d * .05}mm;letter-spacing:.32em;margin:${d * .04}mm -.32em 0 0;color:${B.ouro}">GRAN DOCES</div></div>`,
+  // Só "Feliz Natal" dourado.
+  natal: (d) => `<div style="width:${d}mm;height:${d}mm;border-radius:50%;background:${B.bordo};position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none">
+    <div class="s" style="font-size:${d * .2}mm;line-height:1.4;${ouroTxt};white-space:nowrap;padding:0 1.5mm;margin:-.6em 0 -.4em">Feliz Natal</div>
+    <span class="f" style="font-weight:800;font-size:${d * .08}mm;color:${B.branco};margin-top:${d * .03}mm;letter-spacing:-.02em">GD</span></div>`,
+  // Arco com o nome em cima, GD no meio.
+  arco: (d, txt = 'GRAN DOCES', letra = B.ouro) => `<div style="width:${d}mm;height:${d}mm;border-radius:50%;background:${B.bordo};position:relative;flex:none">
+    ${arco(txt, letra, 30, 128, 9)}<div style="position:absolute;inset:0;display:grid;place-items:center"><span class="f" style="font-weight:800;font-size:${d * .27}mm;line-height:1;letter-spacing:-.04em;color:${B.branco};margin-top:${d * .08}mm">G<i style="font-weight:600;${ouroTxt}">D</i></span></div></div>`,
+  // Festonê (borda recortada) com nome e roseta.
+  festone: (d, nome, sub = 'de Natal') => `<div style="width:${d}mm;height:${d}mm;position:relative;flex:none">${festone(24, B.bordo, B.ouro)}
+    <div style="position:absolute;inset:${d * .1}mm;border-radius:50%;border:${d * .006}mm solid ${B.ouro};opacity:.8"></div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <div style="font-weight:700;font-size:${d * .045}mm;letter-spacing:.34em;margin-right:-.34em;color:${B.ouro}">GRAN DOCES</div>
+      <div class="f" style="font-style:italic;font-weight:500;font-size:${d * (nome.length > 8 ? .14 : .18)}mm;line-height:1.05;color:${B.branco};margin-top:${d * .02}mm">${nome}</div>
+      <div class="s" style="font-size:${d * .11}mm;line-height:1.4;${ouroTxt};padding:0 1.5mm;margin:-.25em 0 -.2em">${sub}</div></div></div>`,
+  // Torta premium (9 cm): arco "Gran Doces · Confeitaria", nome grande, aro duplo.
+  premium: (d, nome = 'Torta', sub = 'de Natal') => `<div style="width:${d}mm;height:${d}mm;border-radius:50%;background:radial-gradient(circle at 50% 35%,#6c1428 0%,${B.bordo} 55%,${B.bordoEsc} 100%);position:relative;flex:none">
+    <div style="position:absolute;inset:${d * .035}mm;border-radius:50%;border:${d * .01}mm solid ${B.ouro}"></div><div style="position:absolute;inset:${d * .2}mm;border-radius:50%;border:${d * .004}mm solid ${B.ouro};opacity:.6"></div>
+    ${arco('GRAN DOCES · CONFEITARIA', B.ouro, 19, 150, 6)}
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      ${estrela(d * .06, B.ouro)}<div class="f" style="font-style:italic;font-weight:500;font-size:${d * .2}mm;line-height:1;color:${B.branco};margin-top:${d * .015}mm">${nome}</div>
+      <div class="s" style="font-size:${d * .12}mm;line-height:1.4;${ouroTxt};padding:0 1.5mm;margin:-.25em 0 -.2em">${sub}</div></div></div>`,
+  // Quadrado com cantos arredondados.
+  quad: (w, nome, letra = B.branco) => `<div style="width:${w}mm;height:${w}mm;border-radius:${w * .12}mm;background:${B.bordo};position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none">
+    <div style="position:absolute;inset:${w * .05}mm;border-radius:${w * .08}mm;border:${w * .007}mm solid ${B.ouro}"></div>
+    <span class="f" style="font-weight:800;font-size:${w * .24}mm;line-height:1;letter-spacing:-.04em;${ouroTxt}">GD</span>
+    <div class="f" style="font-style:italic;font-weight:500;font-size:${w * .14}mm;line-height:1.1;color:${letra};margin-top:${w * .03}mm">${nome}</div></div>`,
+  // Lacre bordô.
+  lacre: (w, h) => `<div style="width:${w}mm;height:${h}mm;border-radius:${h * .2}mm;background:${B.bordo};display:flex;align-items:center;justify-content:center;gap:${h * .5}mm;flex:none;box-shadow:inset 0 0 0 ${h * .05}mm ${B.ouro}">
+    <span class="f" style="font-weight:800;font-size:${h * .36}mm;${ouroTxt}">GD</span><span class="s" style="font-size:${h * .42}mm;line-height:1;color:${B.branco}">Feliz Natal</span></div>`,
+  // Tag bordô (furo), só GD e Feliz Natal.
+  tag: (w, h, titulo = 'Feliz Natal') => `<div style="width:${w}mm;height:${h}mm;border-radius:${w * .08}mm;background:${B.bordo};position:relative;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:${h * .03}mm">
+    <div style="position:absolute;top:${h * .05}mm;left:50%;transform:translateX(-50%);width:${w * .11}mm;height:${w * .11}mm;border-radius:50%;background:#fff;box-shadow:0 0 0 .3mm ${B.ouro}"></div>
+    <div style="position:absolute;inset:${w * .06}mm;top:${h * .14}mm;border-radius:${w * .05}mm;border:${w * .007}mm solid ${B.ouro};opacity:.8"></div>
+    <span class="f" style="font-weight:800;font-size:${w * .3}mm;line-height:1;letter-spacing:-.04em;${ouroTxt};margin-top:${h * .06}mm">GD</span>
+    <div class="s" style="font-size:${w * .19}mm;line-height:1.1;color:${B.branco};white-space:nowrap">${titulo}</div></div>`,
+  // Cartão bordô curto.
+  cartao: (w, h, txt = 'Feliz Natal') => `<div style="width:${w}mm;height:${h}mm;border-radius:${h * .06}mm;background:${B.bordo};position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none">
+    <div style="position:absolute;inset:${h * .07}mm;border-radius:${h * .04}mm;border:${h * .01}mm solid ${B.ouro};opacity:.85"></div>
+    <div class="s" style="font-size:${h * .3}mm;line-height:1.4;${ouroTxt};padding:0 1.5mm;margin:-.2em 0">${txt}</div>
+    <div style="font-weight:700;font-size:${h * .07}mm;letter-spacing:.34em;margin:${h * .07}mm -.34em 0 0;color:${B.branco}">GRAN DOCES</div></div>`,
+  // Etiqueta de sacola bordô, pouco texto.
+  sacola: (w, h) => `<div style="width:${w}mm;height:${h}mm;border-radius:${w * .06}mm;background:${B.bordo};position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:${h * .04}mm;flex:none">
+    <div style="position:absolute;inset:${w * .05}mm;border-radius:${w * .04}mm;border:${w * .006}mm solid ${B.ouro};opacity:.85"></div>
+    <span class="f" style="font-weight:800;font-size:${w * .26}mm;line-height:1;letter-spacing:-.04em;${ouroTxt}">GD</span>
+    <div class="f" style="font-weight:900;font-size:${w * .13}mm;letter-spacing:-.03em;color:${B.branco};line-height:1">Gran Doces</div>
+    <div class="s" style="font-size:${w * .15}mm;line-height:1.4;${ouroTxt};padding:0 1.5mm;margin:-.2em 0">Feliz Natal</div></div>`,
+};
+
+export { C, ARROBA, HEAD, gd, marca, estrela, arroba, corte, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, rep, V, G, K, O, MSG, extra, bordo, B };

@@ -5,7 +5,7 @@
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
-import { C, HEAD, gd, marca, estrela, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, V, G, K, O, MSG, extra } from './natal-pecas.mjs';
+import { C, HEAD, gd, marca, estrela, r, quad, sacola, lacre, sabor, tag, cartao, obrigado, V, G, K, O, MSG, extra, bordo, B } from './natal-pecas.mjs';
 const root = path.dirname(new URL(import.meta.url).pathname);
 const { chromium } = createRequire(path.join(root, '../../moldes/treino-de-pecas/package.json'))('playwright');
 const OUT = path.join(root, 'saida', 'natal-impressos'), PREV = path.join(OUT, 'catalogo'), BUILD = path.join(root, 'build');
@@ -61,13 +61,22 @@ const PAGINAS = [
     [r.produto(60, V, K, O, 'Panetone'), 'Panetone de Natal vermelho', '6 cm · folha 03', .7], [r.produto(60, K, V, G, 'Panetone'), 'Panetone de Natal creme', '6 cm · folha 03', .7], [r.selo(60, G, O, K), 'Selo verde', '6 cm · folha 03', .7],
     [r.feliz(60, V, K, O), 'Feliz Natal vermelho', '6 cm · folha 03', .7], [extra.listras(60, 'Panetone'), 'Bengala doce', '6 cm · folha 11', .7], [extra.kraft(60, 'Panetone'), 'Kraft feito à mão', '6 cm · folha 11', .7],
     [extra.oval(80, 55, K, V, G, 'Panetone'), 'Oval creme', '8 × 5,5 cm · folha 15', .7], [extra.oval(80, 55, G, K, O, 'Feliz Natal'), 'Oval verde', '8 × 5,5 cm · folha 15', .7], [extra.estrelado(60, C.vinho), 'Céu estrelado vinho', '6 cm · folha 11', .7]]),
-  pagina('Torta', 'caixa de acrílico', 'Adesivo de 7 cm no centro da tampa, combinando com o laço vermelho. A etiqueta de sabor vai na lateral, para escrever à mão (uma só serve para todas as tortas).', [
-    [r.produto(70, K, V, G, 'Torta'), 'Torta de Natal creme', '7 cm · folha 08', .7], [r.selo(70, V, O, K), 'Selo vermelho', '7 cm · folha 08', .7], [r.feliz(70, K, G, V), 'Feliz Natal creme', '7 cm · folha 08', .7],
-    [extra.listras(70, 'Torta'), 'Bengala doce', '7 cm', .7], [extra.estrelado(70), 'Céu estrelado', '7 cm', .7], [extra.minimal(70, C.creme, C.verde), 'Minimalista verde', '7 cm', .7],
-    [sabor(70, 25, K, V, G), 'Etiqueta de sabor', '7 × 2,5 cm · folha 08']]),
+  pagina('Torta', 'caixa de acrílico', 'O destaque da tampa: adesivo bordô de 9 cm, com letras douradas, combinando com o laço vermelho. Se a tampa for menor, as versões de 7 cm estão na página seguinte. A etiqueta de sabor vai na lateral, para escrever à mão.', [
+    [bordo.premium(90), 'Torta de Natal bordô', '9 cm · folha 16', .78], [bordo.festone(90, 'Torta'), 'Festonê bordô', '9 cm · folha 16', .78],
+    [sabor(70, 25, K, B.bordo, B.ouro), 'Sabor bordô', '7 × 2,5 cm · folha 16'], [sabor(70, 25, K, V, G), 'Sabor vermelho', '7 × 2,5 cm · folha 08']], { cols: 2, gap: 10 }),
+  pagina('Torta', 'versões de 7 cm', 'Para tampas menores ou para variar a vitrine.', [
+    [r.produto(70, K, V, G, 'Torta'), 'Torta de Natal creme', '7 cm · folha 08', .7], [r.selo(70, V, O, K), 'Selo vermelho', '7 cm · folha 08', .7], [bordo.mono(70), 'Monograma bordô', '7 cm', .7],
+    [extra.listras(70, 'Torta'), 'Bengala doce', '7 cm', .7], [extra.estrelado(70), 'Céu estrelado', '7 cm', .7], [bordo.nome(70, 'Torta'), 'Nome bordô', '7 cm', .7]]),
   pagina('Biscoitos', 'caixas brancas', 'Na caixa branca, o adesivo quadrado de 6 cm vai na tampa. Com o cordão marrom, pendure uma tag kraft (página de tags): fica com cara de presente feito em casa.', [
     [quad(60, 60, V, K, O, 'Biscoitos'), 'Quadrado vermelho', '6 cm · folha 09', .85], [quad(60, 60, G, K, O, 'Biscoitos'), 'Quadrado verde', '6 cm · folha 09', .85], [quad(60, 60, K, V, G, 'Biscoitos'), 'Quadrado creme', '6 cm · folha 09', .85],
     [quad(60, 60, C.cacau, K, O, 'Biscoitos', 'AMANTEIGADOS'), 'Quadrado chocolate', '6 cm · folha 09', .85], [extra.kraft(60, 'Biscoitos', 'AMANTEIGADOS'), 'Kraft redondo', '6 cm · folha 11', .7], [extra.tagKraft(55, 85, 'Boas Festas', 'BISCOITOS AMANTEIGADOS'), 'Tag kraft no cordão', '5,5 × 8,5 cm · folha 13', .75]]),
+  pagina('Linha bordô', 'adesivos redondos', 'A versão mais chique da coleção: bordô com letras douradas ou brancas e pouco texto. Funciona em qualquer produto; combine com os lacres e as tags da página seguinte.', [
+    [bordo.mono(50), 'Monograma', '5 ou 6 cm · folhas 17 e 18'], [bordo.nome(50, 'Brownie'), 'Nome · Brownie', '5 cm · folha 17'], [bordo.natal(50), 'Feliz Natal', '5 cm · folha 17'],
+    [bordo.arco(50), 'Arco Gran Doces', '5 cm · folha 17'], [bordo.festone(60, 'Panetone'), 'Festonê · Panetone', '6 cm · folha 18', .85], [bordo.nome(60, 'Panetone'), 'Nome · Panetone', '6 cm · folha 18', .85],
+    [bordo.nome(60, 'Biscoitos'), 'Nome · Biscoitos', '6 cm · folha 18', .85], [bordo.quad(60, 'Biscoitos'), 'Quadrado · Biscoitos', '6 cm · folha 19', .85], [bordo.premium(90, 'Panetone'), 'Premium · Panetone', '9 cm', .55]]),
+  pagina('Linha bordô', 'tags, lacres e cartões', 'O mesmo acabamento bordô e dourado para fechar caixas e sacolas, pendurar no cordão e acompanhar o presente.', [
+    [bordo.tag(55, 85), 'Tag Feliz Natal', '5,5 × 8,5 cm · folha 19', .8], [bordo.tag(55, 85, 'Boas Festas'), 'Tag Boas Festas', '5,5 × 8,5 cm · folha 19', .8], [bordo.sacola(90, 120), 'Sacola', '9 × 12 cm · folha 21', .55],
+    [bordo.cartao(90, 50), 'Cartão Feliz Natal', '9 × 5 cm · folha 20', .62], [bordo.cartao(90, 50, 'Boas Festas'), 'Cartão Boas Festas', '9 × 5 cm · folha 20', .62], [bordo.lacre(120, 25), 'Lacre', '12 × 2,5 cm · folha 20', .48]]),
   pagina('Sacola', 'do delivery', 'Etiqueta na frente da sacola kraft (23 × 30 cm ou 30 × 30 cm). A grande, de 9 × 12 cm, aparece bem de longe; a horizontal, de 12 × 6 cm, é mais discreta. Feche a boca da sacola com um lacre.', [
     [sacola(90, 120, V, K, O, 'Feito à mão, com carinho, para o seu Natal.'), 'Vermelha', '9 × 12 cm · folha 07', .55], [sacola(90, 120, K, V, G, 'Feito à mão, com carinho, para o seu Natal.'), 'Creme', '9 × 12 cm · folha 07', .55],
     [sacola(90, 120, G, K, O, 'Seu pedido chegou! Bom apetite e Feliz Natal.'), 'Verde · pedido chegou', '9 × 12 cm · folha 07', .55], [sacola(90, 120, K, G, V, 'Seu pedido chegou! Bom apetite e Feliz Natal.'), 'Creme · pedido chegou', '9 × 12 cm · folha 07', .55],
@@ -90,7 +99,7 @@ const imprimir = folha(PAPEL, `
     <div style="display:flex;align-items:baseline;gap:4mm"><div class="f" style="font-weight:900;font-size:13mm;line-height:1;letter-spacing:-.03em;color:${C.vermelho}">Como imprimir</div><div class="s" style="font-size:10mm;color:${C.verde}">sem erro</div></div>
     <div style="font-size:3.6mm;line-height:1.5;color:${C.cacau};margin-top:3mm">Cada peça tem uma folha A4 pronta (PDF), com o número indicado nas páginas anteriores. Leve o PDF da folha para a gráfica ou imprima em casa em tamanho real (100%, sem "ajustar à página").</div>
     <div style="margin-top:8mm">
-      ${item('Adesivos e lacres', 'Papel adesivo couché (brilho ou fosco). Para a caixa de acrílico e para a geladeira, o vinil adesivo branco aguenta melhor a umidade.')}
+      ${item('Adesivos e lacres', 'Papel adesivo couché (brilho ou fosco). Na linha bordô, o dourado sai como amarelo-ouro impresso; se quiserem brilho de verdade, peçam hot stamping dourado na gráfica. Para a caixa de acrílico e para a geladeira, o vinil adesivo branco aguenta melhor a umidade.')}
       ${item('Tags e cartões', 'Papel couché ou kraft de 240 a 300 g. Fure as tags com furador de 6 mm, no círculo marcado.')}
       ${item('Corte', 'Na gráfica, peça corte especial (meio-corte para os adesivos). Em casa: tesoura para os retângulos e furador de círculo de 4, 5, 6 ou 7 cm para os redondos.')}
       ${item('Peças claras', 'As peças creme têm um fio bem fino em volta só para guiar o corte.')}
@@ -98,7 +107,7 @@ const imprimir = folha(PAPEL, `
     </div>
     <div style="margin-top:10mm;font-weight:700;font-size:3.4mm;letter-spacing:.18em;color:${C.verde}">FOLHAS A4 PARA IMPRIMIR</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5mm 8mm;margin-top:3mm;font-size:3.2mm;line-height:1.4;color:${C.cacau}">
-      ${['01 · Brownie redondo 5 cm', '02 · Brownie redondo 4 cm', '03 · Panetone redondo 6 cm', '04 · Lacres', '05 · Cartões 9 × 5 cm', '06 · Tags 5,5 × 8,5 cm', '07 · Sacola 9 × 12 cm', '08 · Torta 7 cm e sabor', '09 · Biscoitos quadrado 6 cm', '10 · Redondos extras 5 cm', '11 · Redondos extras 6 cm', '12 · Lacres extras', '13 · Tags kraft e vinho', '14 · Cartão postal 15 × 10 cm', '15 · Sacola horizontal e oval'].map(t => `<div>${t}</div>`).join('')}</div></div>${rodape(C.cacau)}`);
+      ${['01 · Brownie redondo 5 cm', '02 · Brownie redondo 4 cm', '03 · Panetone redondo 6 cm', '04 · Lacres', '05 · Cartões 9 × 5 cm', '06 · Tags 5,5 × 8,5 cm', '07 · Sacola 9 × 12 cm', '08 · Torta 7 cm e sabor', '09 · Biscoitos quadrado 6 cm', '10 · Redondos extras 5 cm', '11 · Redondos extras 6 cm', '12 · Lacres extras', '13 · Tags kraft e vinho', '14 · Cartão postal 15 × 10 cm', '15 · Sacola horizontal e oval', '16 · Torta bordô 9 cm', '17 · Bordô redondos 5 cm', '18 · Bordô redondos 6 cm', '19 · Bordô quadrado e tags', '20 · Bordô lacres e cartões', '21 · Bordô sacola 9 × 12 cm'].map(t => `<div>${t}</div>`).join('')}</div></div>${rodape(C.cacau)}`);
 
 const fim = folha(C.verde, `${ceu(60, C.ouro, 21)}
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
