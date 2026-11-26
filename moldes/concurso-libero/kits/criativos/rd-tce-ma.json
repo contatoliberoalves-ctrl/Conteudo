@@ -1,0 +1,248 @@
+[
+ {
+  "nome": "produto",
+  "formato": "feed",
+  "layout": "produto",
+  "selo": "TCE MA 2026 · Auditor",
+  "titulo": "Revisão em Dicas",
+  "itens": [
+   "400 dicas, por matéria",
+   "Parte 1 rápida + Parte 2 explicada",
+   "12 questões e 6 treinos discursivos",
+   "Painel de revisão de 1 a 400"
+  ],
+  "preco": "49,99",
+  "cta": "PDF na hora"
+ },
+ {
+  "nome": "faltam-3-dias",
+  "formato": "story",
+  "layout": "regua",
+  "n": "3",
+  "titulo": "dias",
+  "sub": "até a prova objetiva do TCE MA: domingo, 29/11, pela manhã.",
+  "extra": "Não dá pra reabrir a LRF, a Lei 14.133 e o MCASP. Dá pra passar pelas 400 regras que mais se conectam, uma linha de cada vez.",
+  "cta": "R$ 49,99 · PDF na hora"
+ },
+ {
+  "nome": "dica-048",
+  "formato": "feed",
+  "layout": "dica",
+  "n": "048",
+  "materia": "Controle Externo",
+  "regra": "Contas de governo recebem parecer prévio.",
+  "explica": "Contas de administradores são julgadas pelo tribunal. Não troque apreciação por julgamento.",
+  "fonte": "CF, art. 71, I e II; art. 75",
+  "cta": "Mais 399 assim"
+ },
+ {
+  "nome": "75-por-cento",
+  "formato": "story",
+  "layout": "rosca",
+  "pct": 75,
+  "titulo": "da objetiva vem das [[específicas]]",
+  "sub": "60 questões valem 2 pontos cada. Por isso 280 das 400 dicas são das específicas.",
+  "fonte": "Edital TCE MA, itens 7 a 9",
+  "cta": "R$ 49,99 · PDF na hora"
+ },
+ {
+  "nome": "parecer-julgamento",
+  "formato": "feed",
+  "layout": "versus",
+  "pre": "Não confunda · Controle Externo",
+  "a": [
+   "Parecer prévio",
+   "o que cabe às contas do governador"
+  ],
+  "b": [
+   "Julgamento",
+   "o que cabe às contas dos administradores"
+  ],
+  "pega": "Apreciar mediante parecer prévio (inciso I) x julgar (inciso II) do art. 71 da CF.",
+  "n": "Dica 048",
+  "cta": "400 dicas · R$ 49,99"
+ },
+ {
+  "nome": "4-pegadinhas",
+  "formato": "story",
+  "layout": "lista",
+  "titulo": "4 pegadinhas do [[TCE MA]]",
+  "itens": [
+   [
+    "Parecer prévio x julgamento",
+    "048"
+   ],
+   [
+    "Ressarcimento ao erário: prescritível",
+    "057"
+   ],
+   [
+    "Restos a pagar: empenhadas e não pagas",
+    "186"
+   ],
+   [
+    "Aqui o erro não anula acerto",
+    "381"
+   ]
+  ],
+  "sub": "Cada uma resolvida em uma linha, com o fundamento.",
+  "cta": "R$ 49,99 · PDF na hora"
+ },
+ {
+  "nome": "recibo",
+  "formato": "feed",
+  "layout": "recibo",
+  "itens": [
+   [
+    "Parte 1 · Revisão em Dicas",
+    "68 p."
+   ],
+   [
+    "Parte 2 · Dicas Explicadas",
+    "131 p."
+   ],
+   [
+    "Dicas",
+    "400"
+   ],
+   [
+    "Questões comentadas",
+    "12"
+   ],
+   [
+    "Treinos discursivos",
+    "6"
+   ],
+   [
+    "Roteiro de 7 e de 2 dias",
+    "sim"
+   ],
+   [
+    "Reler a LRF inteira",
+    "não"
+   ]
+  ],
+  "total": "49,99",
+  "cta": "PDF na hora"
+ },
+ {
+  "nome": "flashcard-contas",
+  "formato": "story",
+  "layout": "flashcard",
+  "frente": "O tribunal de contas julga as contas anuais do governador?",
+  "verso": "Não. Emite parecer prévio; quem julga é o Legislativo.",
+  "obs": "O tribunal julga as contas dos administradores (CF, art. 71, I e II).",
+  "n": "Dica 048",
+  "cta": "400 dicas · R$ 49,99"
+ },
+ {
+  "nome": "checklist",
+  "formato": "feed",
+  "layout": "checklist",
+  "titulo": "Plano até domingo",
+  "riscados": [
+   "Reler a Lei 14.133",
+   "Reler o MCASP",
+   "Reler a LRF",
+   "Reler o Regimento"
+  ],
+  "feitos": [
+   "400 dicas, uma linha cada",
+   "Marcar o que travou",
+   "Sábado: só o painel"
+  ],
+  "cta": "Revisão em Dicas · R$ 49,99"
+ },
+ {
+  "nome": "lacuna-restos",
+  "formato": "story",
+  "layout": "lacuna",
+  "frase": "Restos a pagar são despesas ____ e não ____ até 31 de ____.",
+  "resp": [
+   "empenhadas",
+   "pagas",
+   "dezembro"
+  ],
+  "n": "Dica 186 · Direito Financeiro",
+  "cta": "Acertou? Faltam 399"
+ },
+ {
+  "nome": "pergunta",
+  "formato": "feed",
+  "layout": "pergunta",
+  "titulo": "Vai reabrir a [[Lei 14.133]] até domingo?",
+  "sub": "Ou vai revisar as 400 regras que mais caem, uma linha de cada vez?",
+  "cta": "Revisão em Dicas TCE MA · R$ 49,99"
+ },
+ {
+  "nome": "notificacao",
+  "formato": "story",
+  "layout": "lockscreen",
+  "hora": "07:30",
+  "data": "sexta-feira",
+  "notifs": [
+   [
+    "Lembretes",
+    "Hoje: Financeiro e Contabilidade Pública",
+    "agora"
+   ],
+   [
+    "Lembretes",
+    "Marcar no painel as dicas que travaram",
+    "agora"
+   ],
+   [
+    "Lembretes",
+    "Domingo: prova objetiva, pela manhã",
+    "agora"
+   ]
+  ],
+  "titulo": "Revisão até [[domingo]]",
+  "cta": "R$ 49,99 · PDF na hora"
+ },
+ {
+  "nome": "amostra",
+  "formato": "feed",
+  "layout": "amostra",
+  "titulo": "Teste antes: [[3 dicas]] do material",
+  "dicas": [
+   [
+    "048",
+    "Contas de governo recebem parecer prévio."
+   ],
+   [
+    "057",
+    "O ressarcimento fundado em decisão de tribunal de contas é prescritível."
+   ],
+   [
+    "186",
+    "Restos a pagar são despesas empenhadas e não pagas até 31 de dezembro."
+   ]
+  ],
+  "sub": "Gostou do formato? São 400 assim.",
+  "cta": "R$ 49,99 · PDF na hora"
+ },
+ {
+  "nome": "faq-da-tempo",
+  "formato": "story",
+  "layout": "faq",
+  "pergunta": "Ainda dá tempo de usar antes da prova?",
+  "resposta": "Foi feito pra última semana. A Parte 1 se lê em poucas sessões, e o roteiro tem um plano de 7 dias e outro pra quem só tem 2.",
+  "extra": [
+   "2 PDFs: 68 + 131 páginas",
+   "PDF na hora, no seu e-mail",
+   "Material próprio, sem vínculo com o TCE MA ou com o Cebraspe"
+  ],
+  "cta": "R$ 49,99"
+ },
+ {
+  "nome": "amanha-e-a-prova",
+  "formato": "story",
+  "layout": "regua",
+  "n": "1",
+  "titulo": "dia",
+  "sub": "A prova do TCE MA é amanhã, pela manhã.",
+  "extra": "Se só der tempo de uma coisa hoje: passe pelo negrito das 400 dicas e revise as que travar. Use no sábado.",
+  "cta": "R$ 49,99 · PDF na hora"
+ }
+]

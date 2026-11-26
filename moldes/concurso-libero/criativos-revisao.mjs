@@ -17,7 +17,12 @@ mkdirSync(SAIDA, { recursive: true });
 const img = (n) => { const f = resolve(ASSETS, n + '.webp'); return existsSync(f) ? pathToFileURL(f).href : ''; };
 
 // Identidade do material (a mesma da página de vendas do ENAM)
-const C = { navy: '#0B1633', navy2: '#12224A', ouro: '#C9A227', ouro2: '#8E6B10', creme: '#F2DE9E', papel: '#F6F3EC', tinta: '#101935', cinza: '#6A6E80', linha: '#E4DCC8' };
+const TEMAS = {
+  'rd-enam': { navy: '#0B1633', navy2: '#12224A', ouro: '#C9A227', ouro2: '#8E6B10', creme: '#F2DE9E', papel: '#F6F3EC', tinta: '#101935', cinza: '#6A6E80', linha: '#E4DCC8', g1: 'rgba(227,190,92,.26)', g2: 'rgba(201,162,39,.3)', chip: '#F5ECD0', rot: 'REVISÃO EM DICAS · ENAM 2026.2', selo: 'ENAM 2026.2', total: 320 },
+  // TCE MA: bordô, coral e pêssego (a página de vendas do TCE MA)
+  'rd-tce-ma': { navy: '#2A0A14', navy2: '#3D1220', ouro: '#F0553A', ouro2: '#C93A22', creme: '#FFD3C4', papel: '#F8F2EC', tinta: '#1F0A10', cinza: '#6F5F62', linha: '#EADCD2', g1: 'rgba(240,85,58,.28)', g2: 'rgba(86,26,43,.9)', chip: '#FDE6DC', rot: 'REVISÃO EM DICAS · TCE MA 2026', selo: 'TCE MA 2026', total: 400 },
+};
+const C = TEMAS[ID] || TEMAS['rd-enam'];
 const FONTES = 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@600;700&family=Kalam:wght@400;700&display=swap';
 const T = "font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.005em";
 const MONO = "font-family:'JetBrains Mono',monospace";
@@ -28,7 +33,7 @@ const SIMB = `<svg viewBox="0 0 100 100" width="100%" height="100%"><defs><linea
 const marca = (escuro = true, tam = 52) => `<div style="display:flex;align-items:center;gap:14px"><div style="width:${tam}px;height:${tam}px">${SIMB}</div><div style="line-height:1"><div style="${MONO};font-size:${tam * .26}px;letter-spacing:.2em;color:${escuro ? C.creme : C.ouro2};text-transform:uppercase">Concurso com</div><div style="font-family:Inter;font-weight:800;font-size:${tam * .52}px;letter-spacing:-.03em;color:${escuro ? '#fff' : C.tinta}">Líbero</div></div></div>`;
 const cta = (t, fundo = C.ouro, cor = C.navy) => `<div style="display:inline-flex;align-items:center;gap:14px;background:${fundo};color:${cor};font-family:Inter;font-weight:800;font-size:36px;padding:22px 34px;border-radius:999px">${esc(t)}<svg width="30" height="30" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
 const selo = (t, fundo = C.ouro, cor = C.navy) => `<span style="display:inline-block;white-space:nowrap;${MONO};font-weight:700;font-size:26px;letter-spacing:.1em;background:${fundo};color:${cor};padding:10px 18px;border-radius:10px;text-transform:uppercase">${esc(t)}</span>`;
-const fundoNavy = `background:radial-gradient(80% 55% at 100% 0%,rgba(227,190,92,.26),transparent 70%),radial-gradient(70% 50% at 0% 100%,rgba(201,162,39,.3),transparent 70%),${C.navy};color:#fff`;
+const fundoNavy = `background:radial-gradient(80% 55% at 100% 0%,${C.g1},transparent 70%),radial-gradient(70% 50% at 0% 100%,${C.g2},transparent 70%),${C.navy};color:#fff`;
 const area = (H) => H > 1500 ? { top: 260, bot: 340 } : { top: 80, bot: 80 };
 const caixa = (H, css, html) => { const a = area(H); return `<div style="position:absolute;left:80px;right:80px;top:${a.top}px;bottom:${a.bot}px;display:flex;flex-direction:column;${css}">${html}</div>`; };
 const rodape = (d, escuro = true) => `<div style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:20px">${marca(escuro)}${cta(d.cta)}</div>`;
@@ -55,7 +60,7 @@ const L = {
   recibo: (d, W, H) => `<div style="position:absolute;inset:0;background:${C.navy}"></div>
     <div style="position:absolute;left:150px;right:150px;top:70px;bottom:250px;background:#FBFAF5;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(-1.5deg);padding:56px 60px;${MONO};color:#222;display:flex;flex-direction:column;gap:16px;font-size:28px;-webkit-mask:radial-gradient(14px at 50% 100%,#0000 98%,#000) 0 0/32px 100% repeat-x">
       <div style="text-align:center;font-weight:700;font-size:34px">CONCURSO COM LÍBERO</div>
-      <div style="text-align:center;font-size:24px;color:#555">REVISÃO EM DICAS · ENAM 2026.2</div>
+      <div style="text-align:center;font-size:24px;color:#555">${C.rot}</div>
       <div style="border-top:3px dashed #999;margin:10px 0"></div>
       ${d.itens.map(([a, b]) => `<div style="display:flex;justify-content:space-between;gap:20px"><span>${esc(a)}</span><b style="${b === 'não' ? 'color:#C0392B' : ''}">${esc(b)}</b></div>`).join('')}
       <div style="border-top:3px dashed #999;margin:10px 0"></div>
@@ -79,14 +84,14 @@ const L = {
     <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">${marca(true)}${cta(d.cta)}</div>`),
 
   dica: (d, W, H) => `<div style="position:absolute;inset:0;background:${C.papel}"></div>` + caixa(H, 'gap:36px', `
-    <div style="display:flex;justify-content:space-between;align-items:center">${selo('Dica ' + d.n + ' de 320')}<span style="font-family:Inter;font-weight:600;font-size:28px;color:${C.cinza}">${esc(d.materia)}</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">${selo('Dica ' + d.n + ' de ' + C.total)}<span style="font-family:Inter;font-weight:600;font-size:28px;color:${C.cinza}">${esc(d.materia)}</span></div>
     <div style="background:#fff;border:3px solid ${C.linha};border-radius:36px;padding:56px;box-shadow:0 40px 70px -40px rgba(11,22,51,.5);display:grid;grid-template-columns:auto 1fr;gap:36px">
       <div style="${T};font-size:150px;color:${C.ouro}">${esc(d.n)}</div>
       <div><div style="font-family:Inter;font-weight:800;font-size:54px;line-height:1.22;color:${C.tinta}">${esc(d.regra)}</div>
       <div style="font-family:Inter;font-size:36px;line-height:1.45;color:${C.cinza};margin-top:26px">${esc(d.explica)}</div>
-      <div style="display:inline-block;margin-top:28px;${MONO};font-weight:700;font-size:28px;color:${C.ouro2};background:#F5ECD0;border-radius:10px;padding:10px 16px">§ ${esc(d.fonte)}</div></div>
+      <div style="display:inline-block;margin-top:28px;${MONO};font-weight:700;font-size:28px;color:${C.ouro2};background:${C.chip};border-radius:10px;padding:10px 16px">§ ${esc(d.fonte)}</div></div>
     </div>
-    <div style="${T};font-size:96px;color:${C.navy}">Cabe numa linha. <span style="color:${C.ouro2}">Cai na prova.</span></div>
+    <div style="${T};font-size:96px;color:${C.navy}">Uma linha. <span style="color:${C.ouro2}">Com o fundamento.</span></div>
     <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">${marca(false)}${cta(d.cta, C.navy, '#fff')}</div>`),
 
   versus: (d, W, H) => `<div style="position:absolute;inset:0;background:#fff"></div><div style="position:absolute;left:0;right:0;top:0;height:640px;background:${C.navy}"></div>
@@ -129,7 +134,7 @@ const L = {
     <div style="margin-top:auto;display:flex;flex-direction:column;gap:30px;align-items:flex-start">${cta(d.cta)}${marca(true)}</div>`); },
 
   agenda: (d, W, H) => `<div style="position:absolute;inset:0;background:#fff"></div>` + caixa(H, 'gap:30px', `
-    <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="${T};font-size:130px;color:${C.navy}">${esc(d.titulo)}</div>${selo('ENAM 2026.2')}</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="${T};font-size:130px;color:${C.navy}">${esc(d.titulo)}</div>${selo(C.selo)}</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">${d.dias.map(([n, m, q]) => `<div style="border:3px solid ${C.linha};border-radius:26px;overflow:hidden;font-family:Inter"><div style="background:${C.navy};color:${C.creme};${MONO};font-weight:700;font-size:26px;padding:12px 20px">DIA ${n}</div><div style="padding:22px 20px;min-height:190px;display:flex;flex-direction:column"><div style="font-weight:800;font-size:23px;line-height:1.15;color:${C.tinta}">${esc(m)}</div><div style="margin-top:auto;${T};font-size:76px;color:${C.ouro}">${q}<span style="font-family:Inter;font-weight:600;font-size:24px;color:${C.cinza};text-transform:none;margin-left:8px">dicas</span></div></div></div>`).join('')}</div>
     <div style="font-family:Inter;font-weight:600;font-size:36px;line-height:1.4;color:${C.tinta}">${esc(d.rodape)}</div>
     <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">${marca(false)}${cta(d.cta, C.navy, '#fff')}</div>`),
@@ -146,7 +151,7 @@ const L = {
     <div style="${T};font-size:150px;margin-top:20px">${esc(d.titulo)}</div>
     <div style="display:grid;grid-template-columns:440px 1fr;gap:20px;align-items:center;flex:1">
       <div style="display:grid;gap:22px">${d.itens.map((t) => `<div style="display:flex;gap:16px;font-family:Inter;font-weight:600;font-size:34px;line-height:1.25"><span style="color:${C.ouro}">✔</span>${esc(t)}</div>`).join('')}</div>
-      <img src="${img('mockup')}" style="width:520px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.5))"></div>
+      ${img('mockup') ? `<img src="${img('mockup')}" style="width:520px;filter:drop-shadow(0 40px 60px rgba(0,0,0,.5))">` : `<div style="position:relative;height:560px"><img src="${img('capa2')}" style="position:absolute;right:0;top:20px;width:300px;border-radius:10px;transform:rotate(7deg);box-shadow:0 30px 60px rgba(0,0,0,.5)"><img src="${img('capa1')}" style="position:absolute;left:10px;top:0;width:320px;border-radius:10px;transform:rotate(-5deg);box-shadow:0 30px 60px rgba(0,0,0,.5)"></div>`}</div>
     <div style="display:flex;align-items:flex-end;justify-content:space-between"><div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:Inter;font-weight:800;font-size:44px">R$</span><span style="${T};font-size:170px;color:${C.creme}">${esc(d.preco)}</span></div>${cta(d.cta)}</div>`),
 
   painel: (d, W, H) => `<div style="position:absolute;inset:0;background:${C.papel}"></div>
@@ -183,7 +188,7 @@ const L = {
     </div>
     <div style="position:absolute;left:80px;right:80px;bottom:80px;display:flex;justify-content:space-between;align-items:center"><div style="font-family:Inter;font-weight:700;font-size:34px;color:${C.navy}">Revisão em Dicas · ENAM 2026.2</div>${cta(d.cta, C.navy, '#fff')}</div>`,
 
-  lockscreen: (d, W, H) => `<div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 20%,#3A4F8A,transparent 70%),radial-gradient(80% 60% at 90% 80%,#8E6B10,transparent 70%),#0B1633"></div>
+  lockscreen: (d, W, H) => `<div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 30% 20%,${C.navy2},transparent 70%),radial-gradient(80% 60% at 90% 80%,${C.ouro2},transparent 70%),${C.navy}"></div>
     <div style="position:absolute;left:0;right:0;top:260px;text-align:center;color:#fff;font-family:Inter"><div style="font-size:40px;font-weight:600;opacity:.85">${esc(d.data)}</div><div style="font-size:230px;font-weight:700;letter-spacing:-.04em;line-height:1">${esc(d.hora)}</div></div>
     <div style="position:absolute;left:60px;right:60px;top:640px;display:grid;gap:20px">${d.notifs.map(([a, t, h]) => `<div style="background:rgba(255,255,255,.78);backdrop-filter:blur(20px);border-radius:36px;padding:28px 32px;display:grid;grid-template-columns:76px 1fr;gap:22px;align-items:center;font-family:Inter;color:#111"><div style="width:76px;height:76px;border-radius:18px;background:#fff;display:grid;place-items:center;font-size:44px">✅</div><div><div style="display:flex;justify-content:space-between;font-size:28px;color:#555"><b>${esc(a)}</b><span>${esc(h)}</span></div><div style="font-size:36px;line-height:1.3;margin-top:6px;font-weight:600">${esc(t)}</div></div></div>`).join('')}</div>
     <div style="position:absolute;left:80px;right:80px;top:1190px;${T};font-size:104px;color:#fff">${hl(d.titulo, C.creme)}</div>
@@ -224,7 +229,7 @@ const L = {
 
   lista: (d, W, H) => `<div style="position:absolute;inset:0;background:${C.papel}"></div>` + caixa(H, 'gap:26px', `
     <div style="${T};font-size:130px;color:${C.navy}">${hl(d.titulo, '#C0392B')}</div>
-    ${d.itens.map(([t, n], i) => `<div style="display:grid;grid-template-columns:90px 1fr auto;gap:22px;align-items:center;background:#fff;border:3px solid ${C.linha};border-radius:28px;padding:26px 30px"><div style="${T};font-size:84px;color:${C.ouro}">${i + 1}</div><div style="font-family:Inter;font-weight:800;font-size:40px;line-height:1.2;color:${C.tinta}">${esc(t)}</div><div style="${MONO};font-size:24px;color:${C.ouro2};background:#F5ECD0;border-radius:10px;padding:8px 12px">dica ${esc(n)}</div></div>`).join('')}
+    ${d.itens.map(([t, n], i) => `<div style="display:grid;grid-template-columns:90px 1fr auto;gap:22px;align-items:center;background:#fff;border:3px solid ${C.linha};border-radius:28px;padding:26px 30px"><div style="${T};font-size:84px;color:${C.ouro}">${i + 1}</div><div style="font-family:Inter;font-weight:800;font-size:40px;line-height:1.2;color:${C.tinta}">${esc(t)}</div><div style="${MONO};font-size:24px;color:${C.ouro2};background:${C.chip};border-radius:10px;padding:8px 12px">dica ${esc(n)}</div></div>`).join('')}
     <div style="font-family:Inter;font-weight:600;font-size:38px;color:${C.tinta}">${esc(d.sub)}</div>
     <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">${marca(false)}${cta(d.cta, C.navy, '#fff')}</div>`),
 
@@ -249,7 +254,7 @@ const L = {
     <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">${marca(false)}${cta(d.cta, C.navy, '#fff')}</div>`),
 
   sumario: (d, W, H) => `<div style="position:absolute;inset:0;background:#FBF8F0"></div><div style="position:absolute;left:0;top:0;bottom:0;width:40px;background:${C.navy}"></div>` + caixa(H, 'gap:0', `
-    <div style="${MONO};font-size:28px;letter-spacing:.14em;color:${C.ouro2}">REVISÃO EM DICAS · ENAM 2026.2</div>
+    <div style="${MONO};font-size:28px;letter-spacing:.14em;color:${C.ouro2}">${C.rot}</div>
     <div style="font-family:Georgia,serif;font-style:italic;font-size:140px;color:${C.navy};margin:20px 0 30px">${esc(d.titulo)}</div>
     ${d.linhas.map(([m, n], i) => `<div style="display:flex;align-items:baseline;gap:16px;padding:18px 0;font-family:Inter;font-size:44px;color:${C.tinta};${i === d.linhas.length - 1 ? 'font-weight:800' : ''}"><span>${esc(m)}</span><span style="flex:1;border-bottom:4px dotted #B9B2A0;transform:translateY(-10px)"></span><span style="${MONO};font-weight:700;color:${C.ouro2}">${esc(n)}</span></div>`).join('')}
     <div style="font-family:Inter;font-size:36px;color:${C.cinza};margin-top:24px">${esc(d.sub)}</div>
