@@ -14,11 +14,11 @@ body{background:#888;font-family:Inter,sans-serif}
 .ceu{background:#d7ecff}
 .handle{position:absolute;bottom:36px;left:0;right:0;text-align:center;font:700 26px Inter;color:#111;opacity:.75}
 .bolha{display:inline;background:#fff;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:4px 18px;border-radius:14px;line-height:1.55}
-.bolha.preta{background:#111;color:#fff}
+.bolha.preta{background:#0B4FD8;color:#fff}
 .mao{font-family:'Gochi Hand',cursive}
 .marker{font-family:'Permanent Marker',cursive}
 .item{position:absolute;left:0;right:0;height:640px}
-.num{position:absolute;font:400 150px/1 'Permanent Marker';color:#111}
+.num{position:absolute;font:400 150px/1 'Permanent Marker';color:#0B4FD8}
 .tit{position:absolute;font:900 46px/1.15 Inter;letter-spacing:-.01em}
 .tit b{font-weight:900;text-transform:uppercase}
 .lista{position:absolute;display:flex;flex-direction:column;gap:12px;font:500 34px/1.25 'Gochi Hand',cursive}
@@ -70,14 +70,14 @@ const D={
  'peixe-dourado'(r){return[r.ellipse(140,170,180,110,f('#f6922a')),r.polygon([[225,170],[285,120],[280,220]],s('#f6922a')),r.circle(90,155,26,s('#fff')),r.circle(92,155,9,s(K)),r.path('M60 190 Q72 196 82 188',o()),r.circle(70,90,28,o()),r.circle(100,50,20,o()),r.circle(130,20,14,o())]},
  'pavão'(r){const a=[];for(let i=0;i<9;i++){const t=Math.PI*(1.05+i*0.11);const x=150+125*Math.cos(t),y=210+125*Math.sin(t);a.push(r.line(150,210,x,y,o({strokeWidth:2,stroke:'#2a7f62'})),r.circle(x,y,40,s(['#25a07a','#2b7fd6','#f2c94c'][i%3])),r.circle(x,y,14,s('#1d3f8f')))}a.push(r.ellipse(150,230,70,110,s('#2b6fd6')),r.circle(150,165,44,s('#2b6fd6')),r.polygon([[170,162],[192,168],[170,175]],s('#f2a41c')),r.circle(155,160,7,s(K)));return a},
  cachorro(r){return[r.circle(150,150,180,s('#d9a066')),r.ellipse(68,140,50,120,s('#8a5a30')),r.ellipse(232,140,50,120,s('#8a5a30')),r.circle(118,130,18,s(K)),r.circle(182,130,18,s(K)),r.ellipse(150,175,40,28,s(K)),r.path('M150 190 L150 205 M128 205 Q150 222 172 205',o()),r.ellipse(150,228,30,40,s('#f06292')),r.path('M60 270 L240 270',o({strokeWidth:12,stroke:'#fff'})),r.circle(55,262,22,s('#fff')),r.circle(55,282,22,s('#fff')),r.circle(245,262,22,s('#fff')),r.circle(245,282,22,s('#fff'))]},
- morcego(r){return[r.path('M150 150 Q110 80 20 110 Q50 140 40 175 Q80 160 95 190 Q120 165 150 185Z',s('#3a2a55')),r.path('M150 150 Q190 80 280 110 Q250 140 260 175 Q220 160 205 190 Q180 165 150 185Z',s('#3a2a55')),r.circle(150,150,70,s('#4b3870')),r.polygon([[125,125],[130,85],[145,118]],s('#4b3870')),r.polygon([[175,125],[170,85],[155,118]],s('#4b3870')),r.circle(137,148,10,s('#fff')),r.circle(163,148,10,s('#fff')),r.circle(250,50,50,s('#f5d76e')),r.line(225,25,275,75,o({strokeWidth:8,stroke:'#e53935'})),r.line(275,25,225,75,o({strokeWidth:8,stroke:'#e53935'}))]},
+ morcego(r){return[r.path('M150 150 Q110 80 20 110 Q50 140 40 175 Q80 160 95 190 Q120 165 150 185Z',s('#3a2a55')),r.path('M150 150 Q190 80 280 110 Q250 140 260 175 Q220 160 205 190 Q180 165 150 185Z',s('#3a2a55')),r.circle(150,150,70,s('#4b3870')),r.polygon([[125,125],[130,85],[145,118]],s('#4b3870')),r.polygon([[175,125],[170,85],[155,118]],s('#4b3870')),r.circle(137,148,10,s('#fff')),r.circle(163,148,10,s('#fff')),r.circle(250,50,50,s('#f5d76e')),r.line(225,25,275,75,o({strokeWidth:8,stroke:'#0B4FD8'})),r.line(275,25,225,75,o({strokeWidth:8,stroke:'#0B4FD8'}))]},
  avestruz(r){return[r.path('M20 250 Q150 200 280 250 L280 290 L20 290Z',f('#e3c27a')),r.ellipse(110,150,150,100,f('#5a4a3a')),r.path('M120 120 Q90 100 70 130',o({strokeWidth:4})),r.path('M165 150 Q220 120 235 230',o({strokeWidth:12,stroke:'#e8b4a0'})),r.line(95,195,85,250,o({strokeWidth:6})),r.line(130,195,140,250,o({strokeWidth:6})),r.rectangle(30,40,80,60,s('#fff')),r.line(40,58,100,58,o({strokeWidth:2})),r.line(40,72,90,72,o({strokeWidth:2})),r.line(40,86,95,86,o({strokeWidth:2}))]},
- tartaruga(r){return[r.rectangle(80,30,140,34,s('#e53935')),r.rectangle(90,64,120,34,s('#1e88e5')),r.rectangle(70,98,160,36,s('#fbc02d')),r.path('M50 230 Q60 130 150 130 Q240 130 250 230Z',f('#3f9a4a')),r.circle(268,215,52,s('#8bc34a')),r.circle(278,208,7,s(K)),r.ellipse(80,245,40,30,s('#8bc34a')),r.ellipse(220,245,40,30,s('#8bc34a')),r.line(40,232,260,232,o())]},
- esquilo(r){return[r.path('M180 230 Q300 200 260 100 Q230 30 190 80 Q240 110 210 170Z',f('#c9733a')),r.ellipse(130,200,110,120,s('#d9884a')),r.circle(115,120,80,s('#d9884a')),r.polygon([[85,90],[90,55],[110,85]],s('#d9884a')),r.circle(100,115,10,s(K)),r.rectangle(20,190,70,88,s('#fff')),r.line(32,215,78,215,o({strokeWidth:2})),r.line(32,230,70,230,o({strokeWidth:2})),r.rectangle(30,140,70,40,s('#e53935',{strokeWidth:2}))]},
- impressora(r){return[r.rectangle(70,30,160,70,s('#fff')),r.rectangle(30,90,240,120,s('#cfd3d8')),r.rectangle(70,180,160,90,s('#fff')),r.path('M90 200 L130 230 L105 250 L150 265',o({strokeWidth:3})),r.circle(240,120,14,s('#e53935')),r.line(50,150,120,150,o({strokeWidth:4}))]},
- 'Wi-Fi'(r){return[r.arc(150,240,240,240,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12,stroke:'#999'})),r.arc(150,240,160,160,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12,stroke:'#999'})),r.arc(150,240,80,80,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12})),r.circle(150,240,22,s(K)),r.line(200,60,280,140,o({strokeWidth:12,stroke:'#e53935'})),r.line(280,60,200,140,o({strokeWidth:12,stroke:'#e53935'}))]},
- navegador(r){const a=[r.rectangle(20,60,260,200,s('#fff'))];for(let i=0;i<10;i++)a.push(r.rectangle(24+i*25,40,25,24,s(i%2?'#dfe6ff':'#fff',{strokeWidth:2})));a.push(r.line(20,100,280,100,o()),r.circle(40,82,8,s('#e53935')),r.rectangle(50,130,200,14,f('#bbb')),r.rectangle(50,160,160,14,f('#bbb')),r.path('M200 210 l0 -40 l30 -8 l0 40',o({strokeWidth:5})),r.circle(194,212,12,s(K)),r.circle(224,204,12,s(K)));return a},
- 'celular velho'(r){return[r.rectangle(80,20,140,260,s('#333')),r.rectangle(92,50,116,190,s('#cfe8ff')),r.rectangle(115,110,64,34,o({strokeWidth:4})),r.rectangle(179,120,8,14,s(K)),r.rectangle(119,114,10,26,s('#e53935')),r.path('M100 70 L200 230',o({strokeWidth:2})),r.path('M180 60 L120 200',o({strokeWidth:2})),r.circle(150,262,12,s('#555'))]},
+ tartaruga(r){return[r.rectangle(80,30,140,34,s('#0B4FD8')),r.rectangle(90,64,120,34,s('#1e88e5')),r.rectangle(70,98,160,36,s('#fbc02d')),r.path('M50 230 Q60 130 150 130 Q240 130 250 230Z',f('#3f9a4a')),r.circle(268,215,52,s('#8bc34a')),r.circle(278,208,7,s(K)),r.ellipse(80,245,40,30,s('#8bc34a')),r.ellipse(220,245,40,30,s('#8bc34a')),r.line(40,232,260,232,o())]},
+ esquilo(r){return[r.path('M180 230 Q300 200 260 100 Q230 30 190 80 Q240 110 210 170Z',f('#c9733a')),r.ellipse(130,200,110,120,s('#d9884a')),r.circle(115,120,80,s('#d9884a')),r.polygon([[85,90],[90,55],[110,85]],s('#d9884a')),r.circle(100,115,10,s(K)),r.rectangle(20,190,70,88,s('#fff')),r.line(32,215,78,215,o({strokeWidth:2})),r.line(32,230,70,230,o({strokeWidth:2})),r.rectangle(30,140,70,40,s('#0B4FD8',{strokeWidth:2}))]},
+ impressora(r){return[r.rectangle(70,30,160,70,s('#fff')),r.rectangle(30,90,240,120,s('#cfd3d8')),r.rectangle(70,180,160,90,s('#fff')),r.path('M90 200 L130 230 L105 250 L150 265',o({strokeWidth:3})),r.circle(240,120,14,s('#0B4FD8')),r.line(50,150,120,150,o({strokeWidth:4}))]},
+ 'Wi-Fi'(r){return[r.arc(150,240,240,240,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12,stroke:'#999'})),r.arc(150,240,160,160,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12,stroke:'#999'})),r.arc(150,240,80,80,Math.PI*1.15,Math.PI*1.85,false,o({strokeWidth:12})),r.circle(150,240,22,s(K)),r.line(200,60,280,140,o({strokeWidth:12,stroke:'#0B4FD8'})),r.line(280,60,200,140,o({strokeWidth:12,stroke:'#0B4FD8'}))]},
+ navegador(r){const a=[r.rectangle(20,60,260,200,s('#fff'))];for(let i=0;i<10;i++)a.push(r.rectangle(24+i*25,40,25,24,s(i%2?'#dfe6ff':'#fff',{strokeWidth:2})));a.push(r.line(20,100,280,100,o()),r.circle(40,82,8,s('#0B4FD8')),r.rectangle(50,130,200,14,f('#bbb')),r.rectangle(50,160,160,14,f('#bbb')),r.path('M200 210 l0 -40 l30 -8 l0 40',o({strokeWidth:5})),r.circle(194,212,12,s(K)),r.circle(224,204,12,s(K)));return a},
+ 'celular velho'(r){return[r.rectangle(80,20,140,260,s('#333')),r.rectangle(92,50,116,190,s('#cfe8ff')),r.rectangle(115,110,64,34,o({strokeWidth:4})),r.rectangle(179,120,8,14,s(K)),r.rectangle(119,114,10,26,s('#0B4FD8')),r.path('M100 70 L200 230',o({strokeWidth:2})),r.path('M180 60 L120 200',o({strokeWidth:2})),r.circle(150,262,12,s('#555'))]},
  'micro-ondas'(r){return[r.rectangle(20,60,260,170,s('#e9ecef')),r.rectangle(40,80,160,130,s('#2b2f36')),r.ellipse(120,180,110,26,s('#ffd54f')),r.ellipse(120,165,70,30,s('#ff8a65')),r.rectangle(215,85,50,26,s('#111')),r.circle(240,150,14,o()),r.circle(240,190,14,o()),r.line(60,240,80,280,o()),r.line(240,240,220,280,o())]},
 };
 function desenho(nome,x,y,tam,rot=0){
@@ -92,11 +92,11 @@ const raiz=document.getElementById('raiz');
 function slide(cls){const d=document.createElement('div');d.className='s '+cls;raiz.appendChild(d);return d}
 function camada(el){const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 1080 1350');s.style.cssText='position:absolute;inset:0;width:1080px;height:1350px;pointer-events:none';el.appendChild(s);return s}
 
-const FUNDOS2=['papel','pautado','postit','rosa','ceu'];
+const FUNDOS2=['papel','papel','papel','papel','papel'];
 function capa(parte){const el=slide('papel');
  el.innerHTML=`<div style="position:absolute;left:70px;right:70px;top:110px;font:900 96px/1.1 Inter;letter-spacing:-.02em"><span class="bolha preta">Que tipo de</span><br><span class="bolha preta">estudante</span><br><span class="bolha preta">você é?</span></div>
  <div class="nota" style="left:640px;top:150px;font-size:46px;transform:rotate(8deg)">seja sincero</div>
- <div class="marker" style="position:absolute;right:70px;top:400px;font-size:40px;transform:rotate(-4deg);color:#e53935">parte ${parte} de 2</div>
+ <div class="marker" style="position:absolute;right:70px;top:400px;font-size:40px;transform:rotate(-4deg);color:#0B4FD8">parte ${parte} de 2</div>
  <div class="handle">@liberofilho</div>
  <div class="marker" style="position:absolute;left:0;right:0;bottom:90px;text-align:right;padding-right:80px;font-size:52px;transform:rotate(-3deg)">arrasta →</div>`;
  const sel=parte===1?[['panda',50,580,300,-8],['guaxinim',390,560,290,6],['coruja',730,580,290,-4],['polvo',80,880,280,5],['hamster',400,890,270,-6],['peixe-dourado',730,880,290,8]]
@@ -107,15 +107,15 @@ function capa(parte){const el=slide('papel');
 function item(i){
   const [nome,a,b,cc,nota]=ITENS[i];const el=slide(FUNDOS2[i%5]);const esq=i%2===0;
   el.innerHTML=`<div class="num" style="left:60px;top:70px;font-size:200px;transform:rotate(-8deg)">${i+1}</div>
-  <div class="tit" style="left:${i+1>=10?330:250}px;top:110px;width:720px;font-size:56px">Você é um estudante<br><span class="bolha preta"><b>${nome}</b></span></div>
+  <div class="tit" style="left:${i+1>=10?330:250}px;top:110px;width:720px;font-size:56px">Você é um estudante<br><span class="bolha preta"><b>${nome}</b></span> se:</div>
   <div class="lista" style="left:90px;right:90px;top:900px;font-size:50px;gap:18px">${[a,b,cc].map(t=>`<div><i style="width:42px;height:42px"></i><span>${t}</span></div>`).join('')}</div>
-  <div class="nota" style="${esq?'right:80px':'left:80px'};top:${esq?380:420}px;font-size:50px;color:#e53935;transform:rotate(${esq?6:-6}deg);max-width:300px;overflow-wrap:anywhere">${nota.replace(/_/g,'_<wbr>')}</div>
+  <div class="nota" style="${esq?'right:80px':'left:80px'};top:${esq?380:420}px;font-size:50px;color:#0B4FD8;transform:rotate(${esq?6:-6}deg);max-width:300px;overflow-wrap:anywhere">${nota.replace(/_/g,'_<wbr>')}</div>
   <div class="handle">@liberofilho</div>`;
   el.appendChild(desenho(nome,esq?110:430,320,540,esq?-5:5));
-  el.querySelectorAll('.lista i').forEach(ic=>{const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 30 30');s.style.cssText='width:42px;height:42px';const r=rough.svg(s);s.appendChild(r.rectangle(3,3,24,24,o({strokeWidth:2.4})));s.appendChild(r.path('M6 15 L13 22 L28 2',o({stroke:'#e53935',strokeWidth:3.4})));ic.appendChild(s)});
-  const c=camada(el);rabisco(c,r=>r.path(`M${esq?640:440} ${esq?470:510} Q${esq?620:470} 540 ${esq?600:500} 560`,o({strokeWidth:4,stroke:'#e53935'})));
+  el.querySelectorAll('.lista i').forEach(ic=>{const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 30 30');s.style.cssText='width:42px;height:42px';const r=rough.svg(s);s.appendChild(r.rectangle(3,3,24,24,o({strokeWidth:2.4})));s.appendChild(r.path('M6 15 L13 22 L28 2',o({stroke:'#0B4FD8',strokeWidth:3.4})));ic.appendChild(s)});
+  const c=camada(el);rabisco(c,r=>r.path(`M${esq?640:440} ${esq?470:510} Q${esq?620:470} 540 ${esq?600:500} 560`,o({strokeWidth:4,stroke:'#0B4FD8'})));
 }
-function cta(){const el=slide('postit');
+function cta(){const el=slide('papel');
  el.innerHTML=`<div style="position:absolute;left:70px;right:70px;top:170px;font:900 92px/1.12 Inter;letter-spacing:-.02em"><span class="bolha preta">E aí, qual</span><br><span class="bolha preta">é você?</span></div>
  <div style="position:absolute;left:70px;right:70px;top:470px;font:700 46px/1.5 Inter"><span class="bolha">Comenta o número</span><br><span class="bolha">e marca aquele amigo guaxinim</span></div>
  <div class="nota" style="left:640px;top:700px;font-size:48px;transform:rotate(-8deg)">eu sou o 4, confesso</div>
