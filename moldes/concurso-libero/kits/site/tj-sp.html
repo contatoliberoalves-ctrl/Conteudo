@@ -1,0 +1,330 @@
+
+<title>Do Edital à Prova TJSP</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Oito materiais em PDF para Escrevente Técnico Judiciário do TJSP no interior e no litoral (2ª a 10ª RAJ, Vunesp, prova em 14/03/2027): raio-x do edital, o que a Vunesp cobra, estratégia, três cronogramas, edital verticalizado e as normas do TJSP que já caíram. Por Líbero Filho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;600;800&family=Sora:wght@600;700&display=swap">
+<style>
+/* Layout: bandas alternadas de café torrado (com o mosaico da calçada paulista) e papel. O momento interativo é a ficha da
+   Circunscrição (o visitante escolhe a CJ e vê a fila da redação e o corte de 2024) e a conta da nota de 0 a 10.
+   Visual único (não troca com o tema do leitor): todas as cores vêm dos tokens abaixo. */
+:root{
+  --lagoa:#2A1B15; --lagoa2:#36241C; --lagoa3:#54372A; --areia:#F6F2EC; --tinta:#1E1511;
+  --turq:#2F62D9; --turq2:#1D45A8; --espuma:#C9D8FA; --sol:#E9B77F; --branco:#FFFFFF;
+  --cinza:#6E655F; --corpo:#2E2520; --borda:#E3DCD2; --trilho:#ECE6DD; --realce:#E1E9FC;
+  --claro-85:rgba(255,255,255,.86); --claro-60:rgba(255,255,255,.62); --claro-20:rgba(255,255,255,.2); --claro-08:rgba(255,255,255,.08);
+  --titulo:'Big Shoulders Display','Arial Narrow',Impact,sans-serif; --texto:'Inter',system-ui,sans-serif; --rotulo:'Sora','Inter',system-ui,sans-serif;
+  --dunas:url(data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2796%27%20height%3D%2759.519999999999996%27%20viewBox%3D%270%200%2096%2059.519999999999996%27%20fill%3D%27none%27%20stroke%3D%27%23C9D8FA%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%271.5%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M3.8%2010.7L12.3%206.5L19.0%202.9L28.3%200.8L36.8%201.8L42.7%205.5L46.1%209.7L41.9%2012.8L35.1%2016.0L28.3%2020.1L23.3%2017.5L16.5%2014.9L8.9%2013.3Z%27%2F%3E%3Cpath%20d%3D%27M51.8%2040.5L60.3%2036.3L67.0%2032.6L76.3%2030.5L84.8%2031.6L90.7%2035.2L94.1%2039.4L89.9%2042.6L83.1%2045.7L76.3%2049.9L71.3%2047.3L64.5%2044.7L56.9%2043.1Z%27%2F%3E%3Cpath%20d%3D%27M-44.2%2040.5L-35.7%2036.3L-29.0%2032.6L-19.7%2030.5L-11.2%2031.6L-5.3%2035.2L-1.9%2039.4L-6.1%2042.6L-12.9%2045.7L-19.7%2049.9L-24.7%2047.3L-31.5%2044.7L-39.1%2043.1Z%27%2F%3E%3Ccircle%20cx%3D%2774.88%27%20cy%3D%2711.904%27%20r%3D%271.5%27%20fill%3D%27%23C9D8FA%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%3Ccircle%20cx%3D%2726.880000000000003%27%20cy%3D%2742.8544%27%20r%3D%271.5%27%20fill%3D%27%23C9D8FA%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--areia);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.55;padding-bottom:76px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--lagoa)}
+a{color:inherit}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.banda{padding-block:64px}
+.escura{background:var(--lagoa) var(--dunas);color:var(--branco)}
+.rot{font-family:var(--rotulo);font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--turq2);margin:0 0 10px}
+.escura .rot{color:var(--espuma)}
+h1,h2{font-family:var(--titulo);font-weight:900;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,8.4vw,96px)} h2{font-size:clamp(34px,5.4vw,60px)}
+h1 em,h2 em{font-style:normal;color:var(--turq2)} .escura h1 em,.escura h2 em{color:var(--espuma)}
+h3{font-family:var(--texto);font-weight:800;font-size:17px;margin:0;line-height:1.3}
+.lead{font-size:18px;max-width:60ch;margin:16px 0 0;color:var(--corpo)} .escura .lead{color:var(--claro-85)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--turq);color:var(--branco);font-weight:800;font-size:17px;text-decoration:none;padding:15px 24px;border-radius:10px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.06)} .btn:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sol);outline-offset:3px}
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--lagoa);border-bottom:1px solid var(--claro-20)}
+.topo .in{display:flex;justify-content:space-between;align-items:center;padding-block:10px;gap:12px}
+.marca{display:flex;align-items:center;gap:9px;color:var(--branco);text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.marca small{display:block;font-family:var(--rotulo);font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--espuma)}
+.topo a.preco{font-family:var(--rotulo);font-weight:700;font-size:13px;color:var(--branco);background:var(--turq);padding:8px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.hero{padding-block:48px 56px}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.selo{display:inline-block;font-family:var(--rotulo);font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;background:var(--turq);color:var(--branco);padding:7px 12px;border-radius:6px;margin-bottom:18px}
+.compra{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:26px}
+.compra p{margin:0;font-size:14px;color:var(--claro-85)} .compra b{font-family:var(--titulo);font-size:34px;color:var(--branco);display:block;line-height:1}
+.dias{display:flex;align-items:center;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--claro-20);max-width:420px}
+.dias strong{font-family:var(--titulo);font-size:56px;line-height:.9;color:var(--espuma)} .dias span{font-size:14px;color:var(--claro-85)}
+.capas{position:relative;aspect-ratio:1/1.16;max-width:100%}
+.capas img{position:absolute;width:56%;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.42);border:1px solid var(--claro-20)}
+.capas img:nth-child(1){left:0;top:10%;transform:rotate(-7deg)} .capas img:nth-child(2){right:0;top:0;transform:rotate(6deg)} .capas img:nth-child(3){left:22%;top:22%;transform:rotate(-1deg)}
+.fatos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.fatos div{padding:22px 18px;border-left:1px solid var(--borda)} .fatos div:first-child{border-left:0;padding-left:0}
+.fatos b{font-family:var(--titulo);font-size:46px;line-height:1;color:var(--turq2);display:block;font-variant-numeric:tabular-nums}
+.fatos span{font-size:14px;color:var(--corpo)} .fatos small{display:block;font-family:var(--rotulo);font-weight:600;font-size:10px;letter-spacing:.08em;color:var(--cinza);margin-top:6px}
+.duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px}
+.cartao{background:var(--branco);color:var(--tinta);border:1px solid var(--borda);border-radius:14px;padding:22px}
+label.campo{display:block;font-family:var(--rotulo);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);margin-bottom:6px}
+select{width:100%;font:600 16px var(--texto);color:var(--tinta);background:var(--areia);border:1.5px solid var(--borda);border-radius:9px;padding:12px}
+.ficha{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:16px;border-top:1px solid var(--borda)}
+.ficha div{padding:13px 0;border-bottom:1px solid var(--borda)} .ficha div:nth-child(odd){padding-right:12px}
+.ficha dt{font-family:var(--rotulo);font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+.ficha dd{margin:2px 0 0;font-family:var(--titulo);font-size:30px;line-height:1.05;color:var(--tinta);font-variant-numeric:tabular-nums}
+.ficha dd small{font-family:var(--texto);font-weight:600;font-size:13px;color:var(--cinza)}
+.leitura{margin:14px 0 0;font-size:15px;color:var(--corpo);background:var(--realce);border-radius:10px;padding:12px 14px}
+.regua{margin-bottom:18px} .regua output{font-family:var(--titulo);font-size:28px;float:right;line-height:1;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--turq);margin-top:8px}
+.nota{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+.nota div{background:var(--areia);border-radius:10px;padding:14px} .nota b{font-family:var(--titulo);font-size:44px;line-height:1;display:block;font-variant-numeric:tabular-nums} .nota span{font-size:13px;color:var(--cinza)}
+.barra{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 62px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20)}
+.barra:first-of-type{border-top:0} .barra span{font-weight:600;font-size:15px} .barra i{display:block;height:13px;border-radius:7px;background:var(--claro-08);overflow:hidden}
+.barra i::after{content:"";display:block;height:100%;width:var(--w);background:var(--turq);border-radius:7px} .barra b{font-family:var(--titulo);font-size:26px;text-align:right;font-variant-numeric:tabular-nums}
+.barra.oculta span{color:var(--claro-60)} .barra.oculta i::after{background:var(--claro-20)} .barra.oculta b{color:var(--claro-60)}
+.pecas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:30px}
+.peca img{display:block;width:100%;aspect-ratio:794/1123;object-fit:cover;border-radius:8px;border:1px solid var(--borda);box-shadow:0 8px 18px rgba(7,30,48,.14)}
+.peca h3{margin-top:12px} .peca p{margin:4px 0 0;font-size:14px;color:var(--corpo)} .peca small{font-family:var(--rotulo);font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--turq2)}
+.dentro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.dentro figure{margin:0} .dentro img{display:block;width:100%;border-radius:8px;border:1px solid var(--claro-20)} .dentro figcaption{font-size:13px;color:var(--claro-85);margin-top:8px}
+.planos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.planos b{font-family:var(--titulo);font-size:40px;line-height:1;color:var(--turq2);display:block} .planos p{margin:6px 0 0;font-size:14.5px;color:var(--corpo)}
+.oferta{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center;margin-top:28px}
+.oferta ul{list-style:none;margin:0;padding:0} .oferta li{padding:11px 0 11px 30px;border-top:1px solid var(--claro-20);position:relative;font-size:15.5px;color:var(--claro-85)} .oferta li b{color:var(--branco)}
+.oferta li::before{content:"";position:absolute;left:4px;top:17px;width:12px;height:7px;border-left:2.5px solid var(--sol);border-bottom:2.5px solid var(--sol);transform:rotate(-45deg)}
+.caixa{background:var(--areia);color:var(--tinta);border-radius:16px;padding:26px;text-align:center}
+.caixa b{font-family:var(--titulo);font-size:72px;line-height:1;display:block} .caixa p{margin:4px 0 16px;color:var(--corpo);font-size:14px} .caixa .btn{width:100%} .caixa small{display:block;margin-top:12px;font-size:12.5px;color:var(--cinza)}
+.autor{display:grid;grid-template-columns:150px minmax(0,1fr);gap:26px;align-items:center;margin-top:8px}
+.autor img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--turq)} .autor p{margin:8px 0 0;color:var(--corpo);max-width:62ch}
+details{border-top:1px solid var(--borda);padding:14px 0} details:last-of-type{border-bottom:1px solid var(--borda)}
+summary{font-weight:800;font-size:16.5px;cursor:pointer} details p{margin:8px 0 0;color:var(--corpo);max-width:70ch}
+.rodape{font-size:12.5px;color:var(--cinza);padding-block:26px}
+.fixa{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--lagoa);border-top:1px solid var(--claro-20);padding-bottom:env(safe-area-inset-bottom,0px)}
+.fixa .in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.fixa span{color:var(--claro-85);font-size:13.5px} .fixa span b{color:var(--branco);font-size:16px} .fixa .btn{padding:11px 18px;font-size:15px}
+@media (max-width:820px){
+  .hero .in,.duas,.oferta{grid-template-columns:minmax(0,1fr)} .capas{max-width:420px;margin:0 auto;width:100%}
+  .fatos{grid-template-columns:repeat(2,minmax(0,1fr))} .fatos div{border-left:0;padding-left:0;border-top:1px solid var(--borda)} .fatos div:nth-child(-n+2){border-top:0}
+  .pecas,.dentro{grid-template-columns:repeat(2,minmax(0,1fr))} .planos{grid-template-columns:minmax(0,1fr)}
+  .banda{padding-block:48px} .barra{grid-template-columns:minmax(0,1fr) 62px} .barra i{grid-column:1/-1;grid-row:2}
+  .autor{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){.capas img{transition:transform .5s} .capas:hover img:nth-child(3){transform:rotate(0) translateY(-6px)}}
+</style>
+<style>
+.corte{position:relative;height:16px;border-radius:8px;background:var(--trilho);margin:34px 0 30px}
+.corte i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--turq);width:var(--w)}
+.corte b{position:absolute;top:-6px;width:3px;height:28px;background:var(--tinta)}
+#m-med span{top:-22px!important}
+.corte b span{position:absolute;top:30px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--rotulo);font-weight:700;font-size:10.5px;color:var(--cinza)}
+.abas{display:flex;gap:8px;margin-bottom:16px}.abas button{flex:1;font:700 15px var(--texto);padding:11px;border-radius:9px;border:1.5px solid var(--borda);background:var(--areia);color:var(--tinta);cursor:pointer}
+.abas button[aria-pressed="true"]{background:var(--tinta);color:var(--branco);border-color:var(--tinta)}
+.p1{display:grid;grid-template-columns:70px minmax(0,1fr) 60px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--claro-20);font-size:15px}
+.p1 b{font-family:var(--titulo);font-size:22px;color:var(--espuma)} .p1 em{font-style:normal;font-family:var(--titulo);font-size:22px;text-align:right}
+</style>
+
+<style>
+/* Cobalto aceita texto branco; o carimbo caramelo marca os destaques nas bandas escuras. */
+.escura h1 em,.escura h2 em{color:var(--espuma)} .dias strong{color:var(--sol)}
+</style>
+<header class="topo"><div class="in">
+  <a class="marca" href="#inicio"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient></defs><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#g)"/><path d="M32 22V70H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46l9 9l18-20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><small>Concurso com</small>Líbero</span></a>
+  <a class="preco" href="#oferta">R$ {{PRECO}} · ver o kit</a>
+</div></header>
+
+<section class="banda escura hero" id="inicio"><div class="in">
+  <div>
+    <span class="selo">TJSP · Escrevente Técnico Judiciário · 2ª a 10ª RAJ · Vunesp</span>
+    <h1>Do edital <em>à prova</em> em 8 materiais</h1>
+    <p class="lead">O Edital nº 02/2026 lido linha a linha, as 270 questões de Escrevente da Vunesp no TJSP em 2025 e 2024 classificadas por assunto, as normas do TJSP que já caíram e três cronogramas até 14/03/2027.</p>
+    <div class="compra"><a class="btn" data-checkout href="#oferta">Quero o kit</a><p><b>R$ {{PRECO}}</b>8 PDFs, 53 páginas</p></div>
+    <div class="dias" id="conta-dias"><strong id="dias">108</strong><span id="dias-texto">dias até a prova<br>domingo, 14/03/2027, à tarde</span></div>
+  </div>
+  <div class="capas" aria-hidden="true"><img src="assets/c8.webp" alt=""><img src="assets/c2.webp" alt=""><img src="assets/c1.webp" alt=""></div>
+</div></section>
+
+<section class="in" aria-label="Números do concurso"><div class="fatos">
+  <div><b>50</b><span>Circunscrições do interior e do litoral, cadastro de reserva; R$ 6.782,54 por mês</span><small>Edital nº 02/2026, Capítulo I</small></div>
+  <div><b>10/12</b><span>último dia de inscrição; boleto de R$ 81 até 11/12</span><small>Edital, Capítulo II</small></div>
+  <div><b>2.044</b><span>redações corrigidas na lista geral. Quem fica fora da fila sai do concurso</span><small>Edital, Capítulo XI</small></div>
+  <div><b>24 de 40</b><span>é o novo mínimo da redação. Em 2025 era 20</span><small>Edital, Capítulo XI, item 4</small></div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Escolha a sua CJ</p>
+  <h2>Cada Circunscrição é <em>um concurso</em></h2>
+  <p class="lead">Lista, fila da redação e nota de corte próprias. Escolha a CJ e veja quantos têm a redação corrigida em 2026 e como ela fechou em 2024, a última prova das mesmas 50 CJs.</p>
+  <div class="duas">
+    <div class="cartao">
+      <label class="campo" for="cj">Circunscrição Judiciária</label>
+      <select id="cj"></select>
+      <dl class="ficha">
+        <div><dt>Redações corrigidas em 2026</dt><dd id="f-red">110</dd></div>
+        <div><dt>Prova na sede da RAJ</dt><dd id="f-raj" style="font-size:24px">7ª · Santos</dd></div>
+        <div><dt>Inscritos em 2024</dt><dd id="f-ins">7.715</dd></div>
+        <div><dt>Corte 2024 (lista geral)</dt><dd id="f-corte">7,3 <small>de 10</small></dd></div>
+      </dl>
+      <p class="leitura" id="f-leitura"></p>
+    </div>
+    <div>
+      <h3>Como ler a ficha</h3>
+      <p style="color:var(--corpo);margin:8px 0 0">Só os primeiros da lista geral de cada CJ têm a redação corrigida, mais os empatados na última posição; cotistas habilitados têm a redação sempre corrigida. Inscrição em mais de uma CJ obriga a escolher uma: as provas são no mesmo dia e horário.</p>
+      <p style="color:var(--corpo)">O corte de 2024 é de uma prova de 100 questões, na mesma escala de 0 a 10. Em 2025, já no formato de 2026, os cortes da lista geral nas seis CJs da Grande São Paulo ficaram entre 6,29 e 7,00.</p>
+      <p style="font-size:13px;color:var(--cinza)">Fontes: Edital nº 02/2026 do TJSP, Capítulos II e XI; Vunesp, estatística de inscritos e notas de corte do TJSP2401 (2024) e do TJSP2503 (2025).</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in" style="padding-top:0">
+  <p class="rot">Faça a conta</p>
+  <h2>Sua nota contra <em>a régua de 2025</em></h2>
+  <p class="lead">70 questões com o mesmo peso, nota de 0 a 10, sem desconto por erro. Mexa nos acertos e compare com os mínimos do edital e com os cortes de 2025, a prova com o mesmo conteúdo de 2026.</p>
+  <div class="duas">
+    <div class="cartao">
+      <div class="regua"><label class="campo" for="pt">Língua Portuguesa (de 16) <output id="pt-o" for="pt">13</output></label><input type="range" id="pt" min="0" max="16" value="13"></div>
+      <div class="regua"><label class="campo" for="di">Conhecimentos em Direito (de 30) <output id="di-o" for="di">21</output></label><input type="range" id="di" min="0" max="30" value="21"></div>
+      <div class="regua"><label class="campo" for="b3">Bloco III: Atualidades, Matemática, Informática, Raciocínio (de 24) <output id="b3-o" for="b3">13</output></label><input type="range" id="b3" min="0" max="24" value="13"></div>
+      <div class="corte" id="barra"><i></i><b id="m-corte"><span>mínimo 35</span></b><b id="m-med"><span>maior corte 2025</span></b></div>
+      <div class="nota"><div><b id="n-ac">47</b><span>acertos, de 70</span></div><div><b id="n-fin">6,71</b><span>nota, de 10</span></div></div>
+      <p class="leitura" id="veredito"></p>
+    </div>
+    <div>
+      <h3>O que a régua mostra</h3>
+      <p style="color:var(--corpo);margin:8px 0 0">Elimina quem acerta menos de 8 em Português, menos de 15 em Direito ou menos de 35 no total. O Bloco III não tem mínimo, mas conta na nota. Em 2025, a lista geral fechou entre 44 e 49 acertos e a mediana dos 754 aprovados foi 14 em Português e 23 em Direito.</p>
+      <p style="color:var(--corpo)">A meta do kit é 50 acertos (nota 7,14). A redação vale de 0 a 40 e só elimina: 24 na ampla e 19,2 nas cotas.</p>
+      <p style="font-size:13px;color:var(--cinza)">Fontes: Edital nº 02/2026 do TJSP, Capítulos IX a XI; Vunesp, notas de corte e classificação final do TJSP2503. Estatística sobre os dados publicados, sem nomes.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">As 30 de Direito</p>
+  <h2>A Vunesp <em>repete a divisão</em></h2>
+  <p class="lead">O conteúdo do edital de 2026 é o mesmo de 2025, palavra por palavra. Na prova de 2025, as 30 questões de Direito se dividiram assim:</p>
+  <div style="margin-top:22px;max-width:760px">
+    <div class="p1"><b>6</b><span>Administrativo: 3 do Estatuto de SP e 3 de Improbidade</span><em>de 30</em></div>
+    <div class="p1"><b>5</b><span>Normas do TJSP: Corregedoria, eproc, teletrabalho, LC 1.111 e Regimento</span><em>de 30</em></div>
+    <div class="p1"><b>5</b><span>Processo Penal (1 de Juizado Criminal)</span><em>de 30</em></div>
+    <div class="p1"><b>5</b><span>Processo Civil (2 de Juizados)</span><em>de 30</em></div>
+    <div class="p1"><b>5</b><span>Constitucional</span><em>de 30</em></div>
+    <div class="p1"><b>4</b><span>Penal (crimes contra a fé pública e a administração)</span><em>de 30</em></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:14px;max-width:70ch">Nas duas provas de 2024, com 40 questões de Direito, a proporção foi parecida (8, 5, 7, 7, 7 e 6, na mesma ordem). O Estatuto dos Funcionários de SP é a lei mais cobrada (13 questões em 110) e os Juizados caíram 3 vezes em cada prova: a contagem completa está na peça 2.</p>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">O que vem no kit</p>
+  <h2>Oito peças, <em>uma sequência</em></h2>
+  <p class="lead">Primeiro entender o edital e a régua das notas de corte, depois saber o que cai, decidir a ordem de estudo e seguir um calendário até 14/03.</p>
+  <div class="pecas">
+    <article class="peca"><img src="assets/c1.webp" alt="Capa do Raio-X do edital"><small>Peça 1 · 9 páginas</small><h3>Raio-X do edital</h3><p>As 50 CJs, a conta da nota, a fila da redação por CJ e as notas de corte de 2024 e 2025.</p></article>
+    <article class="peca"><img src="assets/c2.webp" alt="Capa de O que a Vunesp cobra"><small>Peça 2 · 10 páginas</small><h3>O que a Vunesp cobra</h3><p>270 questões de Escrevente de 2025 e 2024, por disciplina, artigo e formato.</p></article>
+    <article class="peca"><img src="assets/c3.webp" alt="Capa da Estratégia"><small>Peça 3 · 7 páginas</small><h3>Estratégia</h3><p>Ordem de estudo, metas por bloco, redação pela grade, as 5 horas de prova e o que cortar.</p></article>
+    <article class="peca"><img src="assets/c4.webp" alt="Capa do Cronograma A"><small>Peça 4 · 6 páginas</small><h3>Cronograma A · 2 h por dia</h3><p>15 semanas para quem trabalha, com uma redação por semana.</p></article>
+    <article class="peca"><img src="assets/c5.webp" alt="Capa do Cronograma B"><small>Peça 5 · 6 páginas</small><h3>Cronograma B · 4 h por dia</h3><p>15 semanas, o edital inteiro com uma camada extra de questões.</p></article>
+    <article class="peca"><img src="assets/c6.webp" alt="Capa do Cronograma C"><small>Peça 6 · 3 páginas</small><h3>Cronograma C · reta final</h3><p>4 semanas a partir de 15/02, depois do Carnaval.</p></article>
+    <article class="peca"><img src="assets/c7.webp" alt="Capa do Edital verticalizado"><small>Peça 7 · 5 páginas</small><h3>Edital verticalizado</h3><p>O Anexo VIII, artigo por artigo, na ordem do que a Vunesp mais cobrou.</p></article>
+    <article class="peca"><img src="assets/c8.webp" alt="Capa de As normas do TJSP que já caíram"><small>Peça 8 · 7 páginas</small><h3>As normas do TJSP que já caíram</h3><p>As 15 questões de normas internas em fichas, com a resposta da banca, e o mapa das 30 de Direito de 2025.</p></article>
+  </div>
+</div></section>
+
+<section class="banda escura"><div class="in">
+  <p class="rot">A redação</p>
+  <h2>Elimina abaixo de 24, <em>e o mínimo subiu</em></h2>
+  <p class="lead">Em 2025 bastavam 20 pontos. Das 4.467 redações corrigidas na 1ª RAJ, 35 ficaram abaixo de 24: com a régua de 2026, teriam eliminado.</p>
+  <div style="margin-top:26px;max-width:760px">
+    <div class="p1"><b>a</b><span>Tema: fuga total ao tema zera a redação</span><em>7.1</em></div>
+    <div class="p1"><b>b</b><span>Estrutura e coerência: tese clara, sem 1ª pessoa, sem citar "o texto I"</span><em>7.1</em></div>
+    <div class="p1"><b>c</b><span>Língua: norma-padrão e vocabulário preciso</span><em>7.1</em></div>
+    <div class="p1"><b>d</b><span>Coesão: conectivos e parágrafos bem divididos</span><em>7.1</em></div>
+  </div>
+  <p style="font-size:13px;color:var(--claro-60);margin-top:16px;max-width:70ch">Os quatro critérios do item 7.1 do Capítulo XI. Com 20 linhas ou menos, língua e coesão não chegam à nota máxima; a estratégia traz um molde de 5 parágrafos e a folha de treino.</p>
+  <div class="dentro">
+    <figure><img src="assets/p1.webp" alt="Página do Raio-X com as notas de corte de 2024 e 2025" loading="lazy"><figcaption>Raio-X: o que 2024 e 2025 mostram</figcaption></figure>
+    <figure><img src="assets/p2.webp" alt="Página com a divisão das 30 de Direito" loading="lazy"><figcaption>Vunesp: como as 30 de Direito se dividem</figcaption></figure>
+    <figure><img src="assets/p3.webp" alt="Página do cronograma" loading="lazy"><figcaption>Cronograma A: semanas 1 a 5</figcaption></figure>
+    <figure><img src="assets/p4.webp" alt="Página com fichas de questões das normas do TJSP" loading="lazy"><figcaption>Normas do TJSP: fichas com a resposta</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Três calendários</p>
+  <h2>Escolha pelas <em>horas que você tem</em></h2>
+  <div class="planos">
+    <div class="cartao"><b>2 h por dia</b><h3>Cronograma A · 15 semanas</h3><p>12 horas por semana, uma redação por semana e as provas da Vunesp nas semanas 12 a 14.</p></div>
+    <div class="cartao"><b>4 h por dia</b><h3>Cronograma B · 15 semanas</h3><p>24 horas por semana, o edital inteiro com questões extras em cada célula.</p></div>
+    <div class="cartao"><b>4 semanas</b><h3>Cronograma C · reta final</h3><p>Para quem começa em 15/02. 18 horas por semana e duas redações por semana.</p></div>
+  </div>
+  <p style="font-size:14px;color:var(--cinza);margin-top:16px;max-width:75ch">Natal, Ano-Novo e Carnaval estão nas semanas 4, 5 e 11. Os cronogramas dizem o que cortar primeiro se você perder dias.</p>
+</div></section>
+
+<section class="banda escura" id="oferta"><div class="in">
+  <p class="rot">O que você recebe</p>
+  <h2>Do Edital à Prova · <em>TJSP</em></h2>
+  <div class="oferta">
+    <ul>
+      <li><b>Raio-X do edital</b>, com a conta da nota, a fila da redação nas 50 CJs e as notas de corte oficiais</li>
+      <li><b>O que a Vunesp cobra</b>, com 270 questões classificadas pelo edital</li>
+      <li><b>Estratégia</b>, com metas por bloco, a redação pela grade e as 5 horas de prova</li>
+      <li><b>Três cronogramas</b> com folha de controle: 2 h, 4 h e reta final</li>
+      <li><b>Edital verticalizado</b>, na ordem de cobrança</li>
+      <li><b>As normas do TJSP que já caíram</b>, em 15 fichas com a resposta da banca</li>
+    </ul>
+    <div class="caixa"><b>R$ {{PRECO}}</b><p>pagamento único · 8 PDFs · 53 páginas</p><a class="btn" data-checkout href="#oferta">Quero o kit</a><small>Pagamento pela Kiwify · acesso enviado ao seu e-mail</small></div>
+  </div>
+</div></section>
+
+<section class="banda"><div class="in">
+  <p class="rot">Quem fez</p>
+  <div class="autor"><img src="assets/autor.webp" alt="Líbero Filho" loading="lazy"><div><h2>Líbero Filho</h2><p>Professor e criador do Concurso com Líbero. Este kit foi montado a partir do edital oficial publicado pela Vunesp, dos resultados oficiais e dos cadernos de prova de Escrevente Técnico Judiciário do TJSP de 2025 e 2024, com cada questão classificada pelo edital de 2026.</p><p>É material próprio, sem vínculo com o Tribunal de Justiça de São Paulo ou com a Vunesp. Cada página indica o item do edital ou o documento de onde o número saiu.</p></div></div>
+</div></section>
+
+<section class="banda" style="padding-top:0"><div class="in">
+  <p class="rot">Dúvidas</p>
+  <h2>Perguntas frequentes</h2>
+  <div style="margin-top:22px">
+  <details><summary>Serve para a Capital e a Grande São Paulo?</summary><p>O kit é do Edital nº 02/2026, das CJs da 2ª a 10ª RAJ (interior e litoral). O conteúdo da prova é o mesmo da Capital, mas a fila da redação, as CJs e as notas de corte do material são as do interior.</p></details>
+  <details><summary>Traz o conteúdo das matérias?</summary><p>Não é curso nem apostila. É o planejamento: o que o edital pede, o que a Vunesp cobra, em que ordem estudar e quando, com as questões das normas do TJSP já cobradas e a resposta da banca.</p></details>
+  <details><summary>As notas de corte são oficiais?</summary><p>As de 2024 e 2025 são as publicadas pela Vunesp. Para 2026 não existe corte antecipado: as metas do material são referência de treino.</p></details>
+  <details><summary>Ainda dá para se inscrever?</summary><p>Até 10/12/2026, no site da Vunesp, com boleto de R$ 81 pago até 11/12. Uma CJ só por candidato.</p></details>
+  <details><summary>Em que formato vem e como recebo?</summary><p>Oito PDFs em A4, para ler no celular, no computador ou imprimir. A compra é pela Kiwify e o acesso chega no e-mail informado no checkout.</p></details>
+  </div>
+  <p class="rodape">Concurso com Líbero · @concursocomlibero. Dados do Edital de Abertura nº 02/2026 do TJSP (Escrevente Técnico Judiciário, 2ª a 10ª RAJ), retificado em 23/11/2026, banca Vunesp.</p>
+</div></section>
+
+<div class="fixa"><div class="in"><span><b>R$ {{PRECO}}</b> · 8 PDFs do TJSP</span><a class="btn" data-checkout href="#oferta">Quero o kit</a></div></div>
+
+<script>
+const CHECKOUT = '{{CHECKOUT}}';
+// [CJ, RAJ, sede, redações corrigidas em 2026 (Cap. XI), inscritos em 2024 (Vunesp, TJSP2401), corte da lista geral em 2024]
+const CJS = [[1, 7, "Santos", 110, 7715, 7.3], [5, 4, "Jundiaí", 100, 3831, 7.2], [6, 4, "Bragança Paulista", 30, 1335, 7.3], [7, 4, "Mogi Mirim", 45, 1225, 6.9], [8, 4, "Campinas", 140, 5987, 7.4], [9, 4, "Rio Claro", 40, 1043, 7.3], [10, 4, "Limeira", 40, 1324, 7.1], [11, 4, "Pirassununga", 30, 927, 6.7], [12, 6, "São Carlos", 22, 610, 6.7], [13, 6, "Araraquara", 35, 1421, 7.3], [14, 8, "Barretos", 30, 1303, 7.3], [15, 8, "Catanduva", 20, 461, 7.3], [16, 8, "São José do Rio Preto", 65, 5069, 7.7], [17, 8, "Votuporanga", 15, 434, 6.7], [18, 8, "Fernandópolis", 25, 751, 7.2], [19, 10, "Sorocaba", 75, 4364, 7.3], [20, 10, "Itu", 45, 1488, 7.2], [21, 7, "Registro", 30, 1075, 6.8], [22, 10, "Itapetininga", 45, 1733, 6.9], [23, 3, "Botucatu", 25, 1171, 7.1], [24, 3, "Avaré", 15, 547, 7.2], [25, 3, "Ourinhos", 25, 1137, 7.6], [26, 5, "Assis", 30, 1014, 7.2], [27, 5, "Presidente Prudente", 50, 3549, 7.5], [28, 5, "Presidente Venceslau", 25, 951, 7.0], [29, 5, "Dracena", 15, 497, 6.8], [30, 5, "Tupã", 30, 1140, 7.1], [31, 5, "Marília", 25, 1420, 7.4], [32, 3, "Bauru", 60, 3806, 7.4], [33, 3, "Jaú", 25, 693, 7.1], [34, 4, "Piracicaba", 60, 1653, 7.2], [35, 2, "Lins", 30, 794, 6.9], [36, 2, "Araçatuba", 50, 2241, 7.3], [37, 2, "Andradina", 30, 929, 7.1], [38, 6, "Franca", 40, 1917, 7.4], [39, 6, "Batatais", 15, 552, 7.1], [40, 6, "Ituverava", 25, 739, 7.2], [41, 6, "Ribeirão Preto", 110, 6416, 7.6], [42, 6, "Jaboticabal", 35, 731, 6.9], [43, 6, "Casa Branca", 16, 455, 7.2], [46, 9, "São José dos Campos", 70, 4943, 7.5], [47, 9, "Taubaté", 55, 2403, 7.3], [48, 9, "Guaratinguetá", 35, 1760, 7.5], [49, 10, "Itapeva", 20, 598, 6.8], [50, 4, "São João da Boa Vista", 16, 771, 7.3], [51, 9, "Caraguatatuba", 30, 1316, 7.0], [53, 4, "Americana", 60, 2380, 7.3], [54, 4, "Amparo", 25, 783, 7.1], [55, 2, "Jales", 35, 1067, 7.5], [56, 7, "Itanhaém", 20, 1641, 7.2]];
+const SEDES = { 2: 'Araçatuba', 3: 'Bauru', 4: 'Campinas', 5: 'Pres. Prudente', 6: 'Ribeirão Preto', 7: 'Santos', 8: 'S. J. do Rio Preto', 9: 'S. J. dos Campos', 10: 'Sorocaba' };
+(() => {
+  if (CHECKOUT) document.querySelectorAll('[data-checkout]').forEach(a => { a.href = CHECKOUT; a.rel = 'noopener'; a.target = '_blank'; });
+  const $ = id => document.getElementById(id);
+  const br = (n, d = 0) => n.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })); hoje.setHours(0, 0, 0, 0);
+  const dias = Math.round((new Date(2027, 2, 14) - hoje) / 864e5);
+  if (dias > 1) $('dias').textContent = dias;
+  else if (dias === 1) { $('dias').textContent = '1'; $('dias-texto').innerHTML = 'dia até a prova<br>é amanhã, à tarde'; }
+  else if (dias === 0) { $('dias').textContent = '0'; $('dias-texto').innerHTML = 'A prova é hoje, à tarde.<br>Boa prova!'; }
+  else $('conta-dias').hidden = true;
+  const sel = $('cj');
+  sel.innerHTML = [...CJS].sort((a, b) => a[2].localeCompare(b[2], 'pt')).map(c => `<option value="${c[0]}">${c[2]} (${c[0]}ª CJ)</option>`).join('');
+  let guardada = null; try { guardada = localStorage.getItem('tjsp-cj'); } catch (e) {}
+  sel.value = guardada && CJS.some(c => String(c[0]) === guardada) ? guardada : '8';
+  const ficha = () => {
+    const c = CJS.find(x => String(x[0]) === sel.value); if (!c) return;
+    try { localStorage.setItem('tjsp-cj', sel.value); } catch (e) {}
+    const por = Math.round(c[4] / c[3]);
+    $('f-red').textContent = br(c[3]); $('f-raj').textContent = `${c[1]}ª · ${SEDES[c[1]]}`; $('f-ins').textContent = br(c[4]);
+    $('f-corte').innerHTML = `${br(c[5], 1)} <small>de 10</small>`;
+    $('f-leitura').textContent = `${c[2]}: ${br(c[3])} redações corrigidas na lista geral. Em 2024 a CJ teve ${br(c[4])} inscritos, cerca de ${por} por redação de 2026, e a lista geral fechou em ${br(c[5], 1)}, o equivalente a ${Math.round(c[5] * 7)} acertos numa prova de 70.`;
+  };
+  sel.addEventListener('change', ficha); ficha();
+  const MIN = 35, MAX25 = 49, META = 50;
+  const conta = () => {
+    const a = +$('pt').value, b = +$('di').value, c = +$('b3').value, t = a + b + c;
+    $('pt-o').textContent = a; $('di-o').textContent = b; $('b3-o').textContent = c;
+    $('n-ac').textContent = t; $('n-fin').textContent = br(t * 10 / 70, 2);
+    $('barra').querySelector('i').style.setProperty('--w', t / 70 * 100 + '%');
+    $('m-corte').style.left = MIN / 70 * 100 + '%'; $('m-med').style.left = MAX25 / 70 * 100 + '%';
+    $('veredito').textContent = a < 8 ? 'Menos de 8 em Português: eliminado, mesmo com o resto alto.'
+      : b < 15 ? 'Menos de 15 em Direito: eliminado. Direito tem 43% da prova.'
+      : t < MIN ? `Abaixo de ${MIN} acertos no total: eliminado na objetiva.`
+      : t < 44 ? 'Passa dos mínimos, mas abaixo do menor corte de 2025 (44). A redação provavelmente não seria corrigida.'
+      : t <= MAX25 ? `Dentro da faixa dos cortes de 2025 (44 a ${MAX25}). Depende da CJ: a meta do kit é ${META}.`
+      : `Na meta do kit (${META} ou mais): acima de todos os cortes de 2025. Agora é garantir 24 na redação.`;
+  };
+  ['pt', 'di', 'b3'].forEach(x => $(x).addEventListener('input', conta)); conta();
+})();
+</script>
