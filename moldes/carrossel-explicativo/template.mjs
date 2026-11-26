@@ -65,7 +65,7 @@ const tamanho = (linhas, max, min, largura, altura) => Math.max(min, Math.min(ca
 // ——— Capas ——— (campo "capa": A, B, C, D ou F; todas usam os mesmos campos: etiqueta, apoio, destaque, subtitulo, elemento)
 
 // Capas novas (sem marca-texto, sem fita, sem página de jornal; fotos sem filtro colorido).
-const kick = (t, cor) => t ? `<div style="display:flex;align-items:center;gap:16px;font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:${cor}"><i style="display:block;width:44px;height:4px;background:${cor}"></i>${esc(t)}</div>` : '';
+const kick = (t, cor) => t ? `<div style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${cor}">${esc(t)}</div>` : '';
 const numeroDe = c => (String(c.etiqueta || '').match(/dia\s*(\d+)/i) || [])[1] || '';
 
 // A · Editorial: foto em tela cheia, escurecimento neutro embaixo e o título grande solto, sem caixas.
@@ -209,8 +209,8 @@ function conteudo(s, k, estilo) {
   ${s.figura ? `<img src="${esc(s.figura)}" style="position:absolute;${direita ? 'left:-60px' : 'right:-60px'};bottom:80px;height:560px;object-fit:contain">` : ''}
   ${handle(T.handle, 'top:64px')}
   <div data-bloco style="position:absolute;left:96px;right:96px;top:${cp ? 130 : 150}px;bottom:${cp ? 110 : 130}px;display:flex;flex-direction:column;justify-content:center;gap:${cp ? 28 : 40}px;${alinhar}">
-    ${s.barra === false ? '' : `<span style="width:80px;height:6px;background:${T.acento};flex:0 0 auto"></span>`}
-    ${titulo.length ? `<div style="${bebas};font-size:${caber(titulo, cp ? 150 : 200, 110)}px;line-height:.88;color:${T.tit}">${titulo.map(l => T.grifo ? `<span style="background:linear-gradient(transparent 60%,${T.grifo} 60%);padding:0 8px">${esc(l)}</span>` : esc(l)).join('<br>')}</div>` : ''}
+    ${s.barra === true ? `<span style="width:80px;height:6px;background:${T.acento};flex:0 0 auto"></span>` : ''}
+    ${titulo.length ? `<div style="${bebas};font-size:${caber(titulo, cp ? 150 : 200, 110)}px;line-height:.96;color:${T.tit}">${titulo.map(l => T.grifo ? `<span style="background:linear-gradient(transparent 60%,${T.grifo} 60%);padding:0 8px">${esc(l)}</span>` : esc(l)).join('<br>')}</div>` : ''}
     ${paragrafos(lista(s.texto))}
     ${s.lista ? itens(s.lista, quadrado) : ''}
     ${s.numerada ? itens(s.numerada, numero) : ''}
@@ -245,12 +245,10 @@ const ICONE = {
 function cta(c) {
   const acoes = [['comentar', c.acao1 || 'Comente'], ['salvar', 'Salve'], ['enviar', 'Envie pra alguém']];
   return `
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:90px 90px"></div>
   <div data-bloco style="position:absolute;left:96px;right:96px;top:120px;bottom:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;text-align:center">
-    <span style="display:inline-flex;align-items:center;gap:16px;font-size:24px;font-weight:700;letter-spacing:5px;color:${COR.claro}"><i style="display:block;width:48px;height:4px;background:${COR.claro}"></i>${esc(c.rotulo || 'ANTES DE SAIR')}<i style="display:block;width:48px;height:4px;background:${COR.claro}"></i></span>
+    ${c.rotulo ? `<span style="font-size:24px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${COR.claro}">${esc(c.rotulo)}</span>` : ''}
     <div style="${bebas};font-size:${caber([c.pergunta || ''], 170, 110, 860)}px;line-height:.95;color:#fff;text-wrap:balance">${esc((c.pergunta || 'Gostou da explicação?').toUpperCase())}</div>
     <div style="font-size:40px;font-weight:600;line-height:1.3;color:${CG.nevoa};text-wrap:balance;max-width:820px">${esc(c.chamada || 'Salva pra revisar depois')}</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:100%;margin-top:10px">${acoes.map(([ic, t]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px 10px;background:rgba(11,38,25,.45);border-top:4px solid ${COR.claro}"><svg viewBox="0 0 48 48" width="84" height="84" fill="none" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">${ICONE[ic]}</svg><span style="font-size:30px;font-weight:600;color:#fff">${esc(t)}</span></div>`).join('')}</div>
   </div>
   ${handle('rgba(255,255,255,.85)', 'bottom:64px')}`;
 }
