@@ -6,6 +6,7 @@
 // pp-pe = grafite azulado, laranja de sinalização e concreto, com a muralha de blocos da unidade prisional e carimbo laranja.
 // tj-pb = índigo, amarelo de sol e lilás, com o sol nascente da Ponta do Seixas (onde o sol nasce primeiro nas Américas) e carimbo amarelo.
 // pc-pe = carvão, vermelho e papel de cordel, com cortes de xilogravura (a gravura do cordel nordestino) e carimbo creme.
+// tj-sp = café torrado, azul cobalto e pedra, com o mosaico da calçada paulista (o mapa do estado em pedra portuguesa, de Mirthes Bernardes) e carimbo caramelo.
 export const TEMAS = {
   'unificado-ma': {
     nome: 'Lagoa e areia', textura: 'dunas',
@@ -39,6 +40,14 @@ export const TEMAS = {
     realce: '#FBEFCF', zebra: '#F9F7F1', sobre: '#FFF8E8', caixa: '#9893AA', pauta: '#D3CDBF', fora: '#C6C3C8', neutro: '#EAE6DC',
     vazado: 'rgba(217,207,246,.22)', brilho: 'rgba(242,178,48,.24)',
   },
+  'tj-sp': {
+    nome: 'Mosaico paulista', textura: 'mosaico',
+    escuro: '#2A1B15', escuro2: '#36241C', escuro3: '#54372A', papel: '#F6F2EC', tinta: '#1E1511',
+    cor: '#2F62D9', corForte: '#1D45A8', claro: '#C9D8FA', areia: '#EBD6BC', carimbo: '#E9B77F',
+    cinza: '#6E655F', corpo: '#2E2520', borda: '#E3DCD2', fio: '#EDE7DE', trilho: '#ECE6DD', suave: '#93AEF0',
+    realce: '#E1E9FC', zebra: '#FAF8F4', sobre: '#F4F7FF', caixa: '#A0968D', pauta: '#D6CDC0', fora: '#C7C2BE', neutro: '#EBE5DC',
+    vazado: 'rgba(201,216,250,.20)', brilho: 'rgba(47,98,217,.26)',
+  },
 };
 // Tema padrão (sem `tema` no JSON): o verde da plataforma, como no pdf.json.
 export const PADRAO = { escuro: '#04312C', papel: '#F3F7F5', tinta: '#06201C', cor: '#0BA457', corForte: '#078A4A', claro: '#B9FFF1', cinza: '#5E7A74', corpo: '#1E3A35', borda: '#D7E6E2', fio: '#E1ECE8', trilho: '#E7F1EE', suave: '#9CC9B8', realce: '#DDF3E7', zebra: '#F6FAF8', sobre: '#EFFFF6', caixa: '#7FA59A', pauta: '#C9DAD5', fora: '#B9C9C4', neutro: '#E7EEEB' };
@@ -67,7 +76,14 @@ export const sol = (cor, op = .14, lado = 96) => {
   const w = lado, h = lado * .6, s = (x, y) => `<path d='M${x - w * .2} ${y}a${w * .2} ${w * .2} 0 0 1 ${w * .4} 0'/><path d='M${x - w * .11} ${y}a${w * .11} ${w * .11} 0 0 1 ${w * .22} 0' stroke-opacity='${op * .6}'/>`;
   return uri(`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}' fill='none' stroke='${cor}' stroke-opacity='${op}' stroke-width='1.6' stroke-linecap='round'>${s(w / 4, h * .45)}${s(w * .75, h)}${s(-w / 4, h)}${s(w * 1.25, h * .45)}</svg>`);
 };
-export const tex = (c, cor, op, lado) => ({ dunas, xilo, muralha, sol }[c.textura] || dunas)(cor, op, lado);
+// Mosaico paulista: o contorno do estado de São Paulo repetido em fileiras desencontradas, como a calçada de pedra portuguesa.
+export const mosaico = (cor, op = .14, lado = 96) => {
+  const w = lado, h = lado * .62;
+  const P = [[0, .5], [.2, .34], [.36, .2], [.58, .12], [.78, .16], [.92, .3], [1, .46], [.9, .58], [.74, .7], [.58, .86], [.46, .76], [.3, .66], [.12, .6]];
+  const sp = (x, y, k) => `<path d='M${P.map(([a, b]) => `${(x + a * w * k).toFixed(1)} ${(y + b * h * k).toFixed(1)}`).join('L')}Z'/>`;
+  return uri(`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}' fill='none' stroke='${cor}' stroke-opacity='${op}' stroke-width='1.5' stroke-linejoin='round'>${sp(w * .04, -h * .04, .44)}${sp(w * .54, h * .46, .44)}${sp(-w * .46, h * .46, .44)}<circle cx='${w * .78}' cy='${h * .2}' r='1.5' fill='${cor}' fill-opacity='${op}' stroke='none'/><circle cx='${w * .28}' cy='${h * .72}' r='1.5' fill='${cor}' fill-opacity='${op}' stroke='none'/></svg>`);
+};
+export const tex = (c, cor, op, lado) => ({ dunas, xilo, muralha, sol, mosaico }[c.textura] || dunas)(cor, op, lado);
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 // Carimbo redondo com a data da prova (mesmo desenho da Revisão em Dicas).
 export const carimbo = ({ px = 150, cor, topo, base, centro, sub, giro = -12, id = 'c' }) => `<svg width="${px}" height="${px}" viewBox="0 0 200 200" style="display:block;transform:rotate(${giro}deg)"><defs><path id="${id}a" d="M100 100m-74 0a74 74 0 1 1 148 0"/><path id="${id}b" d="M100 100m-82 0a82 82 0 0 0 164 0"/></defs><circle cx="100" cy="100" r="95" fill="none" stroke="${cor}" stroke-width="5"/><circle cx="100" cy="100" r="60" fill="none" stroke="${cor}" stroke-width="2.5"/><text font-family="Sora,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="${cor}"><textPath href="#${id}a" startOffset="50%" text-anchor="middle">${esc(topo)}</textPath></text><text font-family="Sora,sans-serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="${cor}"><textPath href="#${id}b" startOffset="50%" text-anchor="middle">${esc(base)}</textPath></text><text x="100" y="${sub ? 108 : 116}" text-anchor="middle" font-family="Big Shoulders Display,sans-serif" font-weight="900" font-size="50" fill="${cor}">${esc(centro)}</text>${sub ? `<text x="100" y="130" text-anchor="middle" font-family="Sora,sans-serif" font-weight="700" font-size="12.5" letter-spacing="2" fill="${cor}">${esc(sub)}</text>` : ''}</svg>`;
