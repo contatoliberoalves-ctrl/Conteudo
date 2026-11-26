@@ -64,10 +64,34 @@ function v2(t) {
   if (g) h += `<div style="position:absolute;left:80px;right:80px;top:1520px;display:flex;justify-content:center"><div style="background:rgba(43,14,0,.82);border-radius:26px;padding:22px 32px;text-align:center;font-family:Inter;font-weight:700;font-size:52px;line-height:1.25;color:#fff">${g.palavras.map(p => pal(p, `color:${C.laranja}`)).join(' ')}</div></div>`;
   return h;
 }
-// v3/v4 (com a plataforma): o vídeo dele encolhe num quadro no alto e a tela da plataforma aparece embaixo.
-// Precisa de videos/plataforma.mp4 (gravação de tela). Sem ela, não gera.
+// v3/v4 (com a plataforma): a maquete do site redesenhado (verbum_site.mjs) rolando no ritmo da fala
+// (verbum_tela.py gera saida/verbum/tela-v3.mp4 e tela-v4.mp4). v3: ele no alto e o site embaixo;
+// v4: o site em tela cheia e ele num círculo.
+const legenda = (t, top, px = 46) => { const g = grupos(7).find(g => t >= g.ini && t < g.fim);
+  return g ? `<div style="position:absolute;left:60px;right:60px;top:${top}px;display:flex;justify-content:center"><div style="background:rgba(43,14,0,.9);border-radius:24px;padding:18px 28px;text-align:center;font-family:Inter;font-weight:700;font-size:${px}px;line-height:1.25;color:#fff;box-shadow:0 14px 36px rgba(0,0,0,.35)">${g.palavras.map(p => pal(p, `color:${C.laranja}`)).join(' ')}</div></div>` : ''; };
+const introTopo = top => `<div style="position:absolute;left:0;right:0;top:${top}px;display:flex;flex-direction:column;align-items:center;gap:16px">
+  <span style="background:${C.carvao};color:${C.creme};font-family:Inter;font-weight:700;font-size:30px;letter-spacing:.16em;padding:12px 26px;border-radius:999px">INSCRIÇÕES ABERTAS</span>
+  <span style="background:${G};color:#fff;${T};font-size:80px;line-height:1;padding:16px 30px 12px;border-radius:20px;box-shadow:0 20px 50px rgba(43,14,0,.35)">Ponto do Verbum</span></div>`;
+function v3(t) {
+  let h = `<div style="position:absolute;left:0;right:0;top:772px;height:10px;background:${G}"></div>`;
+  if (t >= .6 && t < 4) h += introTopo(90);
+  if (t >= CTA_INI) return h + cta().replace('top:1400px', 'top:1600px');
+  return h + legenda(t, 600, 44);
+}
+function v4(t) {
+  let h = `<div style="position:absolute;left:656px;top:1166px;width:388px;height:388px;border-radius:50%;box-shadow:0 0 0 8px ${C.brasa},0 20px 50px rgba(0,0,0,.4)"></div>`;
+  if (t >= CTA_INI) return h + cta().replace('top:1400px', 'top:1575px');
+  return h + legenda(t, 1600, 44);
+}
+const COMPOE = {
+  v3: ['-i', path.join(OUT, 'tela-v3.mp4'), '-filter_complex',
+    'color=c=0x2B0E00:s=1080x1920:r=25[bg];[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,crop=1080:780:0:640,setsar=1[eu];[bg][eu]overlay=0:0:shortest=1[a];[a][2:v]overlay=0:780[b];[b][1:v]overlay=0:0:eof_action=pass,format=yuv420p[v]'],
+  v4: ['-i', path.join(OUT, 'tela-v4.mp4'), '-i', path.join(OUT, 'mascara.png'), '-filter_complex',
+    '[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,crop=640:640:220:720,scale=380:380,format=rgba[eu];[3:v]format=gray,scale=380:380[m];[eu][m]alphamerge[circ];[2:v][circ]overlay=660:1170[b];[b][1:v]overlay=0:0:eof_action=pass,format=yuv420p[v]'],
+};
+if (!fs.existsSync(path.join(OUT, 'mascara.png'))) execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=c=black:s=760x760', '-vf', "format=gray,geq=lum='if(lt(hypot(X-380,Y-380),378),255,0)'", '-frames:v', '1', path.join(OUT, 'mascara.png')]);
 
-const VERSOES = { v1, v2 };
+const VERSOES = { v1, v2, v3, v4 };
 const pedidas = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(VERSOES);
 
 const launch = {};
@@ -103,8 +127,8 @@ for (const nome of pedidas) {
   fs.writeFileSync(path.join(dir, 'lista.txt'), lista);
   const trilha = path.join(dir, 'trilha.mov');
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', path.join(dir, 'lista.txt'), '-vf', 'fps=25,format=rgba', '-c:v', 'qtrle', trilha]);
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', VIDEO, '-i', trilha, '-filter_complex',
-    '[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[b];[b][1:v]overlay=0:0:shortest=0:eof_action=pass,format=yuv420p[v]',
+  const filtro = COMPOE[nome] || ['-filter_complex', '[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[b];[b][1:v]overlay=0:0:shortest=0:eof_action=pass,format=yuv420p[v]'];
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', VIDEO, '-i', trilha, ...filtro,
     '-map', '[v]', '-map', '0:a', '-c:v', 'libx264', '-crf', '27', '-preset', 'medium', '-maxrate', '2500k', '-bufsize', '5000k', '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-t', String(FIM), path.join(OUT, `${nome}.mp4`)]);
   console.log('✓', nome);
 }
