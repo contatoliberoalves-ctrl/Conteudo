@@ -1,4 +1,4 @@
-# Arena ao vivo · Método VDE
+# Jogos da Ordem · Arena ao vivo do Método VDE
 
 Sistema de aula interativa: o professor apresenta os desafios numa tela 16:9 (transmitida pelo StreamYard), os alunos respondem pelo celular com nome + e-mail do VDE, e ao revelar o gabarito cada aluno vê na hora o que acertou, quanto acertou, os pontos e o ranking.
 
@@ -15,7 +15,15 @@ Site estático (sem etapa de build): Preact + htm, Supabase (banco, tempo real e
 | `/#/admin/sala/CODIGO` | professor | controle remoto (bom no celular) e resultados da sala |
 | `/#/indice` | todos | Índice Remissivo Virtual (1.361 verbetes) |
 
-Atalhos na tela de transmissão: **espaço / →** avança (abrir respostas → encerrar tempo → revelar → placar → próxima), **T** +15 s, **F** tela cheia, **L** volta à sala de espera. O tempo fecha sozinho quando acaba ou quando todos respondem.
+Atalhos na tela de transmissão: **espaço / →** avança (abrir respostas → encerrar tempo → revelar → placar → próxima), **T** +15 s, **V** vinheta de abertura, **S** sons, **F** tela cheia, **L** volta à sala de espera. O tempo fecha sozinho quando acaba ou quando todos respondem.
+
+## Jogos da Ordem (camada de jogo)
+
+Temática autoral: o aluno é **convocado** pela sua **Seccional** (as 27 da OAB), enfrenta **provas** na arena e sobe de **patente** a cada prova gabaritada (Inscrito(a) → Examinando(a) → Aprovado(a) na 1ª fase → Combatente da 2ª fase → Advogado(a) da Ordem → Conselheiro(a) Seccional → Lenda da Ordem). Sequência de acertos = "em brasa". O placar traz a **Disputa das Seccionais** (média de pontos por examinando) e o pódio final anuncia a campeã ou campeão. Emblema próprio (balança com chama, `js/jogos.js`), brasas animadas nas telas escuras e o lema "Que o artigo certo esteja sempre ao seu alcance."
+
+Sons (`sons/`, compostos por síntese para o projeto, `vinheta.mp3` 7 s e `revelar.mp3`):
+- **Convocação**: na primeira entrada de cada aluno numa sala, a vinheta toca inteira (não dá para pular) com a cena "A Seccional X convoca: NOME". Liga/desliga por aula no editor.
+- **Tela de transmissão**: V toca a abertura "Que comecem os Jogos da Ordem" (para a live, compartilhe a guia com áudio no StreamYard); o som de revelação toca a cada gabarito; S liga/desliga.
 
 ## Tipos de desafio
 

@@ -51,7 +51,7 @@ export function Admin({ rota, ir }) {
 
 function Painel({ ir, aba }) {
   return html`<div class="admin-corpo">
-    <div class="hero"><span class="sobrelinha" style="opacity:.85">Método VDE · aulas interativas</span><h1>Arena ao vivo</h1>
+    <div class="hero"><span class="sobrelinha" style="opacity:.85">Método VDE · aulas interativas</span><h1>Jogos da Ordem</h1>
       <p>Monte desafios, transmita a tela no StreamYard e libere o gabarito para a turma em tempo real.</p></div>
     <div class="abas" style="margin-top:22px">
       ${[['aulas', 'Aulas e desafios'], ['salas', 'Salas e resultados'], ['alunos', 'Alunos VDE'], ['ajuda', 'Como usar']].map(([k, t]) => html`<button class=${aba === k ? 'on' : ''} onClick=${() => ir(`#/admin/${k}`)}>${t}</button>`)}
@@ -77,7 +77,7 @@ function Aulas({ ir }) {
   };
   const duplicar = async (a) => {
     const { data: qs } = await sb.from('aovivo_perguntas').select('*').eq('aula_id', a.id).order('ordem');
-    const { data: n, error } = await sb.from('aovivo_aulas').insert({ titulo: a.titulo + ' (cópia)', descricao: a.descricao, modo: a.modo, permitir_indice: a.permitir_indice }).select().single();
+    const { data: n, error } = await sb.from('aovivo_aulas').insert({ titulo: a.titulo + ' (cópia)', descricao: a.descricao, modo: a.modo, permitir_indice: a.permitir_indice, vinheta: a.vinheta }).select().single();
     if (error) return mostrar(mensagemErro(error));
     if (qs?.length) await sb.from('aovivo_perguntas').insert(qs.map(({ id, aula_id, ...q }) => ({ ...q, aula_id: n.id })));
     mostrar('Aula duplicada'); carregar();
@@ -129,7 +129,7 @@ function IniciarSala({ aula, fechar, ir }) {
     const { count } = await sb.from('aovivo_perguntas').select('id', { count: 'exact', head: true }).eq('aula_id', aula.id);
     let sala, erro;
     for (let k = 0; k < 4 && !sala; k++) {
-      const { data, error } = await sb.from('aovivo_salas').insert({ codigo: gerarCodigo(), aula_id: aula.id, titulo: aula.titulo, modo: aula.modo, permitir_indice: aula.permitir_indice, exigir_lista: exigir, total: count || 0 }).select().single();
+      const { data, error } = await sb.from('aovivo_salas').insert({ codigo: gerarCodigo(), aula_id: aula.id, titulo: aula.titulo, modo: aula.modo, permitir_indice: aula.permitir_indice, vinheta: aula.vinheta !== false, exigir_lista: exigir, total: count || 0 }).select().single();
       sala = data; erro = error;
     }
     setIndo(false);
@@ -171,7 +171,7 @@ function EditorAula({ id, ir }) {
   const salvar = async () => {
     setSalvando(true);
     try {
-      const { error: e1 } = await sb.from('aovivo_aulas').update({ titulo: aula.titulo, descricao: aula.descricao, modo: aula.modo, permitir_indice: aula.permitir_indice, atualizado_em: new Date().toISOString() }).eq('id', id);
+      const { error: e1 } = await sb.from('aovivo_aulas').update({ titulo: aula.titulo, descricao: aula.descricao, modo: aula.modo, permitir_indice: aula.permitir_indice, vinheta: aula.vinheta !== false, atualizado_em: new Date().toISOString() }).eq('id', id);
       if (e1) throw e1;
       const { data: antigos } = await sb.from('aovivo_perguntas').select('id').eq('aula_id', id);
       const manter = new Set(qs.filter((q) => q.id).map((q) => q.id));
@@ -207,6 +207,7 @@ function EditorAula({ id, ir }) {
       </div>
       <label class="campo"><span>Descrição (só você vê)</span><input class="inp" value=${aula.descricao || ''} onInput=${(e) => mudaAula('descricao', e.target.value)} /></label>
       <label class="linha-flex" style="cursor:pointer"><input type="checkbox" checked=${aula.permitir_indice} onChange=${(e) => mudaAula('permitir_indice', e.target.checked)} /> Liberar o Índice Remissivo para os alunos durante a aula</label>
+      <label class="linha-flex" style="cursor:pointer;margin-top:8px"><input type="checkbox" checked=${aula.vinheta !== false} onChange=${(e) => mudaAula('vinheta', e.target.checked)} /> Vinheta de convocação (7 s, toca obrigatoriamente na primeira entrada de cada aluno)</label>
     </div>
     <div class="editor-grid">
       <div>
@@ -417,7 +418,8 @@ function Ajuda() {
   const passos = [
     ['Monte a aula', 'Em Aulas e desafios, crie uma aula pelo tipo (quiz relâmpago, construção do raciocínio, peça, caça ao artigo ou mista) e adicione os desafios. Use “Prévia do aluno” para ver como fica no celular.'],
     ['Inicie ao vivo', '“Iniciar ao vivo” cria a sala com código e abre a tela de transmissão numa janela nova. No StreamYard, compartilhe essa janela (Compartilhar tela → Janela). Aperte F para tela cheia.'],
-    ['Os alunos entram', 'Pelo QR code ou pelo link: nome + e-mail do VDE. Os nomes vão aparecendo na tela.'],
+    ['Os alunos são convocados', 'Pelo QR code ou pelo link: nome, e-mail do VDE e Seccional. Na primeira entrada toca a vinheta de convocação (7 s). Na tela, V toca a vinheta de abertura para a live e S liga/desliga os sons.'],
+    ['Patentes e Seccionais', 'Cada prova gabaritada sobe a patente do aluno (Examinando(a) → … → Lenda da Ordem). O placar mostra a Disputa das Seccionais: média de pontos por examinando de cada estado.'],
     ['Conduza com o espaço', 'Cada toque na barra de espaço (ou →) avança: abrir respostas → encerrar o tempo → revelar o gabarito → ranking → próxima pergunta. O tempo fecha sozinho quando acaba ou quando todos respondem. T dá +15 segundos.'],
     ['Controle pelo celular', 'Se preferir não mexer na janela transmitida, abra a página de Controle (no celular ou em outra janela) e conduza por lá.'],
     ['Resultados', 'Em Salas e resultados você vê a nota de cada aluno por pergunta e baixa a planilha.'],

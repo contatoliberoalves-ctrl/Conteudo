@@ -1,6 +1,7 @@
 import { html, useState, useEffect, useRef, useCallback, useMemo } from '../vendor/preact-htm.mjs';
 import { sb, mensagemErro, sincronizarRelogio, agoraServidor, corrigir, calcularPontos, notasEtapas, textoGabarito, TIPOS, MODOS, LETRAS, corDoNome, iniciais, fmt } from './core.js';
 import { Icone, Marca, confete, Contador } from './ui.js';
+import { NOME_JOGO, LEMA, Brasas, Emblema, Convocacao, tocar, preCarregar, patente, nomeSeccional } from './jogos.js';
 
 // ---------- sessão do professor ----------
 export function useSessao() {
@@ -61,7 +62,7 @@ export function useSalaProf(codigo) {
       if (error || !sala) { setD((x) => ({ ...x, erro: error ? mensagemErro(error) : 'Sala não encontrada.' })); return; }
       const [pq, pa, re] = await Promise.all([
         sb.from('aovivo_perguntas').select('*').eq('aula_id', sala.aula_id).order('ordem').order('id'),
-        sb.from('aovivo_participantes').select('id,nome,email,pontos,acertos,sequencia,melhor_sequencia,criado_em').eq('sala_id', sala.id).order('criado_em'),
+        sb.from('aovivo_participantes').select('id,nome,email,seccional,pontos,acertos,sequencia,melhor_sequencia,criado_em').eq('sala_id', sala.id).order('criado_em'),
         sb.from('aovivo_respostas').select('id,pergunta_id,participante_id,resposta,ms,fracao,pontos,enviada_em').eq('sala_id', sala.id),
       ]);
       setD({ sala, perguntas: pq.data || [], participantes: pa.data || [], respostas: re.data || [], erro: '' });
@@ -155,7 +156,18 @@ export function Tela({ codigo }) {
   const { sala, pergunta, participantes, respAtual, perguntas } = st;
   const [escala, setEscala] = useState(1);
   const [dock, setDock] = useState(true);
+  const [abertura, setAbertura] = useState(false);
+  const [somLigado, setSom] = useState(true);
   const tDock = useRef();
+  useEffect(() => { preCarregar(); }, []);
+  const vinheta = () => { tocar('vinheta'); setAbertura(true); };
+  // som de revelação
+  const ultimaFase = useRef('');
+  useEffect(() => {
+    const k = `${sala?.pergunta_id}-${sala?.fase}-${sala?.status}`;
+    if (ultimaFase.current && k !== ultimaFase.current && somLigado && (sala?.fase === 'revelada' || sala?.status === 'encerrada')) tocar('revelar', .8);
+    ultimaFase.current = k;
+  }, [sala?.pergunta_id, sala?.fase, sala?.status]);
   useEffect(() => {
     const f = () => setEscala(Math.min(innerWidth / 1920, innerHeight / 1080));
     f(); addEventListener('resize', f); return () => removeEventListener('resize', f);
@@ -172,6 +184,8 @@ export function Tela({ codigo }) {
       else if (e.key === 't' || e.key === 'T') st.controlar('mais_tempo');
       else if (e.key === 'f' || e.key === 'F') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.();
       else if (e.key === 'l' || e.key === 'L') st.controlar('lobby');
+      else if (e.key === 'v' || e.key === 'V') vinheta();
+      else if (e.key === 's' || e.key === 'S') setSom((x) => !x);
     };
     addEventListener('keydown', k); return () => removeEventListener('keydown', k);
   });
@@ -191,20 +205,23 @@ export function Tela({ codigo }) {
   return html`
     <div class="palco-fora">
       <div class=${`palco ${claro ? 'p-claro' : ''}`} style=${{ transform: `translate(-50%,-50%) scale(${escala})` }}>
-        ${!claro && html`<div class="fundo-grad"></div><div class="marca-d">VDE</div>`}
+        ${!claro && html`<div class="fundo-grad"></div><${Brasas} qtd=${110} /><div class="marca-d">VDE</div>`}
         ${claro && html`<div class="p-pergunta"><div class="faixa"></div></div>`}
-        <div class="p-topo"><${Marca} claro titulo=${sala.titulo || 'Arena ao vivo'} />
+        <div class="p-topo"><${Marca} claro titulo=${NOME_JOGO} />
           <div class="p-codigo"><span>Entre em</span><b>${sala.codigo}</b><span style="opacity:.75">· ${participantes.length} <${Icone} n="pessoas" t="22" /></span></div></div>
         ${encerrada ? html`<${Podio} participantes=${participantes} final />`
           : sala.status === 'lobby' || !pergunta ? html`<${Lobby} sala=${sala} participantes=${participantes} />`
           : sala.fase === 'aguardando' ? html`<${Intro} key=${pergunta.id} sala=${sala} pergunta=${pergunta} total=${perguntas.length} />`
           : sala.fase === 'ranking' ? html`<${RankingTela} key=${'r' + pergunta.id} participantes=${participantes} sala=${sala} total=${perguntas.length} />`
           : html`<${PerguntaTela} key=${pergunta.id + sala.fase} st=${st} rest=${rest} />`}
+        ${abertura && html`<${Convocacao} modo="tela" titulo=${sala.titulo} jaTocando aoFim=${() => setAbertura(false)} />`}
       </div>
       <div class=${`dock ${dock ? '' : 'oculto'}`}>
         <span class="info">${rotuloFase(sala, pergunta, perguntas)}</span>
         <button class="btn btn-p" onClick=${st.avancar} disabled=${encerrada}>${st.proximoRotulo()} <kbd>espaço</kbd></button>
         ${sala.fase === 'aberta' && html`<button class="btn btn-s" onClick=${() => st.controlar('mais_tempo')}>+15s <kbd>T</kbd></button>`}
+        <button class="btn btn-s" onClick=${vinheta}>Vinheta <kbd>V</kbd></button>
+        <button class="btn btn-s" onClick=${() => setSom(!somLigado)}>${somLigado ? 'Som ligado' : 'Som desligado'} <kbd>S</kbd></button>
         <button class="btn btn-s" onClick=${() => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.()}>Tela cheia <kbd>F</kbd></button>
         <a class="btn btn-s" href=${`#/admin/sala/${sala.codigo}`} target="_blank">Controle</a>
       </div>
@@ -215,7 +232,7 @@ export function rotuloFase(sala, pergunta, perguntas) {
   if (sala.status === 'encerrada') return 'Encerrada';
   if (sala.status === 'lobby' || !pergunta) return 'Sala de espera';
   const f = { aguardando: 'preparando', aberta: 'respostas abertas', fechada: 'tempo encerrado', revelada: 'gabarito revelado', ranking: 'ranking' }[sala.fase];
-  return `Pergunta ${sala.indice + 1}/${perguntas.length} · ${f}`;
+  return `Prova ${sala.indice + 1}/${perguntas.length} · ${f}`;
 }
 
 function Lobby({ sala, participantes }) {
@@ -224,24 +241,26 @@ function Lobby({ sala, participantes }) {
   return html`
     <div class="lobby">
       <div class="esq">
-        <span class="chip branco" style="font-size:24px;padding:10px 22px">${MODOS[sala.modo]?.nome || 'Aula ao vivo'}</span>
+        <div class="linha-flex" style="gap:22px"><${Emblema} t=${110} /><div><div class="sobrelinha" style="color:#FFE29A;font-size:22px">Convocação aberta</div><div style="font-size:28px;opacity:.9">${MODOS[sala.modo]?.nome || 'Aula ao vivo'}</div></div></div>
         <h1>${sala.titulo}</h1>
         <div class="passos">
           <div><i>1</i>Aponte a câmera para o QR code</div>
-          <div><i>2</i>Digite seu nome e o e-mail do VDE</div>
-          <div><i>3</i>Responda e veja na hora quanto acertou</div>
+          <div><i>2</i>Escolha sua Seccional e se apresente</div>
+          <div><i>3</i>Vença as provas e suba no placar</div>
         </div>
+        <div style="margin-top:30px;font-style:italic;color:#FFE29A;font-size:28px">${LEMA}</div>
       </div>
       <div class="qr"><${QR} texto=${url} /><div class="cod">${sala.codigo}</div><div class="url">${url.replace(/^https?:\/\//, '').replace(/#\/entrar\/.*$/, '')}</div></div>
-      <div class="contador"><b><${Contador} valor=${participantes.length} /></b>${participantes.length === 1 ? 'aluno conectado' : 'alunos conectados'}</div>
-      <div class="nomes">${ultimos.map((p) => html`<div class="nome" key=${p.id}><span class="av" style=${{ background: corDoNome(p.nome) }}>${iniciais(p.nome)}</span>${p.nome.split(' ').slice(0, 2).join(' ')}</div>`)}</div>
+      <div class="contador"><b><${Contador} valor=${participantes.length} /></b>${participantes.length === 1 ? 'examinando convocado' : 'examinandos convocados'}</div>
+      <div class="nomes">${ultimos.map((p) => html`<div class="nome" key=${p.id}><span class="av" style=${{ background: corDoNome(p.nome) }}>${iniciais(p.nome)}</span>${p.nome.split(' ').slice(0, 2).join(' ')}${p.seccional && html`<span class="sec">${p.seccional}</span>`}</div>`)}</div>
     </div>`;
 }
 
 function Intro({ sala, pergunta, total }) {
   return html`
     <div class="p-intro" style="animation:surge .6s">
-      <div class="num-q">Pergunta ${sala.indice + 1} de ${total}</div>
+      <div class="emb-fundo"><${Emblema} t=${420} /></div>
+      <div class="prova">Prova ${sala.indice + 1} de ${total}</div>
       <h1>${pergunta.titulo || TIPOS[pergunta.tipo]?.nome}</h1>
       <div class="linha-flex" style="gap:16px">
         <span class="chip branco" style="font-size:26px;padding:10px 24px">${TIPOS[pergunta.tipo]?.nome}</span>
@@ -336,13 +355,16 @@ function Relogio({ rest, tempo, fase }) {
 function RankingTela({ participantes, sala, total }) {
   const ord = [...participantes].sort((a, b) => b.pontos - a.pontos).slice(0, 7);
   const max = Math.max(1, ...ord.map((p) => p.pontos));
+  const secs = disputaSeccionais(participantes);
   return html`
     <div class="ranking-p">
-      <h2 style="top:160px">Placar · pergunta ${sala.indice + 1} de ${total}</h2>
-      <div class="lista-rank" style="top:290px">${ord.map((p, i) => html`<div class="lin" key=${p.id} style=${{ animationDelay: `${i * 90}ms` }}>
+      <h2 style="top:160px">Placar da arena · prova ${sala.indice + 1} de ${total}</h2>
+      ${secs.length > 0 && html`<${CaixaSeccionais} secs=${secs} />`}
+      <div class=${`lista-rank ${secs.length ? 'com-secc' : ''}`} style="top:290px">${ord.map((p, i) => html`<div class="lin" key=${p.id} style=${{ animationDelay: `${i * 90}ms` }}>
         <span class="pos" style=${i === 0 ? 'color:#c58f00' : ''}>${i + 1}º</span>
         <span class="av" style=${{ background: corDoNome(p.nome) }}>${iniciais(p.nome)}</span>
         <span class="nm">${p.nome}</span>
+        ${p.seccional && html`<span class="sec">${p.seccional}</span>`}
         ${p.sequencia >= 2 && html`<span class="fogo"><${Icone} n="fogo" />${p.sequencia}</span>`}
         <span class="pt"><${Contador} valor=${p.pontos} /></span>
         <span class="barra" style=${{ width: `${(p.pontos / max) * 100}%` }}></span></div>`)}
@@ -356,11 +378,23 @@ export function Podio({ participantes, final }) {
   const col = (p, k) => p && html`<div class=${`col p${k}`}>
     ${k === 1 && html`<div class="coroa"><${Icone} n="coroa" t="70" c="1.5" /></div>`}
     <div class="av" style=${{ background: `linear-gradient(150deg, ${corDoNome(p.nome)}, #8B2BE2)` }}>${iniciais(p.nome)}</div>
-    <div class="nm">${p.nome}</div><div class="pt">${fmt(p.pontos)} pts · ${p.acertos} acertos</div><div class="bloco-p">${k}º</div></div>`;
+    ${p.seccional && html`<div class="sec">OAB/${p.seccional}</div>`}<div class="nm">${p.nome}</div><div class="pt">${fmt(p.pontos)} pts · ${p.acertos} ${p.acertos === 1 ? 'acerto' : 'acertos'}</div><div class="bloco-p">${k}º</div></div>`;
   return html`
     <div class="ranking-p">
-      <h2>${final ? 'Pódio da aula' : 'Pódio'}</h2>
+      <h2>${final ? NOME_JOGO : 'Pódio'}</h2>
+      ${final && ord[0] && html`<div class="campeao">Campeã(o): ${ord[0].nome}${ord[0].seccional ? ` · Seccional ${nomeSeccional(ord[0].seccional)}` : ''}</div>`}
+      ${final && disputaSeccionais(participantes).length > 1 && html`<${CaixaSeccionais} secs=${disputaSeccionais(participantes)} topo=${330} />`}
       <div class="podio">${col(ord[1], 2)}${col(ord[0], 1)}${col(ord[2], 3)}</div>
       ${!ord.length && html`<p style="position:absolute;top:500px;width:100%;text-align:center">Ninguém participou.</p>`}
     </div>`;
+}
+
+export function disputaSeccionais(participantes) {
+  const g = {};
+  for (const p of participantes) if (p.seccional) { (g[p.seccional] ||= { uf: p.seccional, soma: 0, n: 0 }); g[p.seccional].soma += p.pontos; g[p.seccional].n++; }
+  return Object.values(g).map((x) => ({ ...x, media: Math.round(x.soma / x.n) })).sort((a, b) => b.media - a.media).slice(0, 5);
+}
+function CaixaSeccionais({ secs, topo }) {
+  return html`<div class="secc-box" style=${topo ? { top: `${topo}px`, width: '330px' } : null}><h3>Seccionais</h3>
+    ${secs.map((x, i) => html`<div class="l"><b style="margin:0;width:34px;color:#FFE29A">${i + 1}º</b><span class="selo-sec" style="font-size:18px">${x.uf}</span><span style="font-size:20px;opacity:.85">${x.n}</span><b>${fmt(x.media)}</b></div>`)}</div>`;
 }
