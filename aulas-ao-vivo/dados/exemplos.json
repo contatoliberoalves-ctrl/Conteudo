@@ -1,0 +1,90 @@
+[
+  {
+    "titulo": "Quiz relâmpago · OAB 47 (2ª fase)",
+    "descricao": "Certo ou errado com as teses cobradas no 47º Exame.",
+    "modo": "quiz",
+    "permitir_indice": true,
+    "perguntas": [
+      { "tipo": "ce", "titulo": "Ação popular", "tempo": 20, "r": { "afirmacao": "Qualquer cidadão é parte legítima para propor ação popular que vise anular ato lesivo ao patrimônio público, e a prova da cidadania se faz com o título de eleitor.", "certo": true, "comentario": "Art. 5º, LXXIII, da CF e art. 1º, caput e § 3º, da Lei 4.717/65. Na OAB 47, a juntada dos títulos de eleitor valeu ponto no fechamento." } },
+      { "tipo": "ce", "titulo": "Subsídio de vereador", "tempo": 20, "r": { "afirmacao": "O subsídio dos Vereadores pode ser fixado numa legislatura para valer já no exercício financeiro seguinte, dentro da mesma legislatura.", "certo": false, "comentario": "Errado. O art. 29, VI, da CF exige fixação em uma legislatura para valer na SUBSEQUENTE." } },
+      { "tipo": "ce", "titulo": "Município de 8 mil habitantes", "tempo": 25, "r": { "afirmacao": "Em Município de até 10 mil habitantes, o subsídio máximo dos Vereadores corresponde a 20% do subsídio dos Deputados Estaduais.", "certo": true, "comentario": "Art. 29, VI, a, da CF. Na peça da OAB 47, o ato fixou 25%: acima do teto." } },
+      { "tipo": "ce", "titulo": "MP e competência delegada", "tempo": 20, "r": { "afirmacao": "Medida provisória pode autorizar os Estados a legislar sobre questões específicas de matéria de competência privativa da União.", "certo": false, "comentario": "Errado. A delegação do art. 22, parágrafo único, exige lei complementar, e o art. 62, § 1º, III, veda MP sobre matéria reservada a lei complementar." } },
+      { "tipo": "ce", "titulo": "Controle de MP", "tempo": 20, "r": { "afirmacao": "Medida provisória, por ter força de lei, pode ser objeto de ADI no STF.", "certo": true, "comentario": "Art. 102, I, a, da CF. MP é ato normativo federal com força de lei." } },
+      { "tipo": "ce", "titulo": "Recursos minerais", "tempo": 20, "r": { "afirmacao": "A jazida de calcário encontrada numa fazenda pertence ao dono do solo, que só precisa de licença ambiental para pesquisá-la.", "certo": false, "comentario": "Errado. Recursos minerais são bens da União (art. 20, IX, e art. 176, caput) e a pesquisa depende de autorização da União (art. 176, § 1º)." } },
+      { "tipo": "ce", "titulo": "Descumprimento de ADI", "tempo": 25, "r": { "afirmacao": "Se um Estado continua aplicando lei declarada inconstitucional pelo STF em ADI, cabe reclamação para garantir a autoridade da decisão.", "certo": true, "comentario": "Art. 102, I, l, da CF ou art. 988, III, do CPC. E pode haver intervenção federal para prover a execução de decisão judicial (art. 34, VI)." } }
+    ]
+  },
+  {
+    "titulo": "Construção do raciocínio · OAB 47, Questão 1",
+    "descricao": "MP autorizando Estado a legislar sobre populações indígenas.",
+    "modo": "raciocinio",
+    "permitir_indice": true,
+    "perguntas": [
+      {
+        "tipo": "etapas", "titulo": "OAB 47 · Questão 1 (item A)", "tempo": 240, "pontos": 1500,
+        "r": {
+          "enunciado": "A população indígena do Estado Alfa, alinhada com autoridades estaduais, defende que tem peculiaridades geográficas, demográficas e antropológicas que tornam inadequadas certas normas nacionais. Pediu-se ao Presidente da República que o Estado Alfa seja autorizado a legislar sobre as matérias afetas à população indígena.\n\nA) Pode ser editada medida provisória autorizando que o Estado Alfa legisle sobre a matéria?",
+          "comentario": "Não. Populações indígenas são competência legislativa privativa da União (art. 22, XIV). A delegação aos Estados exige lei complementar (art. 22, parágrafo único), e MP não pode tratar de matéria reservada a lei complementar (art. 62, § 1º, III).",
+          "etapas": [
+            { "titulo": "De quem é a competência para legislar sobre populações indígenas?", "tipo": "multipla", "enunciado": "", "alternativas": ["Privativa da União", "Concorrente (União, Estados e DF)", "Comum de todos os entes", "Dos Estados, por ser competência residual"], "correta": 0, "comentario": "Art. 22, XIV, da CF." },
+            { "titulo": "Ache o artigo da competência", "tipo": "artigo", "enunciado": "Pesquise no Índice Remissivo: competência privativa da União sobre populações indígenas.", "dica": "procure “indígenas” ou “competência privativa”", "aceitas": ["22 XIV"], "resposta": "Art. 22, XIV, da CF/88", "comentario": "" },
+            { "titulo": "Que instrumento autoriza o Estado a legislar sobre questões específicas?", "tipo": "multipla", "enunciado": "", "alternativas": ["Lei ordinária federal", "Lei complementar federal", "Medida provisória", "Decreto presidencial", "Emenda à Constituição Estadual"], "correta": 1, "comentario": "Art. 22, parágrafo único: lei complementar." },
+            { "titulo": "Por que a MP não serve aqui? Ache o dispositivo", "tipo": "artigo", "enunciado": "Qual dispositivo veda MP sobre matéria reservada a lei complementar?", "dica": "limites materiais da medida provisória", "aceitas": ["62 §1 III", "62, § 1º, III"], "resposta": "Art. 62, § 1º, III, da CF/88", "comentario": "" },
+            { "titulo": "Conclusão: pode ser editada a MP?", "tipo": "multipla", "enunciado": "", "alternativas": ["Sim", "Não"], "correta": 1, "comentario": "" },
+            { "titulo": "Escreva a tese em uma frase", "tipo": "texto", "enunciado": "Responda como na prova: conclusão + fundamento.", "palavras": ["nao|não", "privativa", "lei complementar", "medida provisoria|medida provisória|MP"], "modelo": "Não. A matéria é de competência legislativa privativa da União (art. 22, XIV), cuja delegação aos Estados exige lei complementar (art. 22, parágrafo único), o que impede a medida provisória (art. 62, § 1º, III).", "comentario": "" }
+          ]
+        }
+      },
+      {
+        "tipo": "etapas", "titulo": "OAB 47 · Questão 1 (item B)", "tempo": 150, "pontos": 1000,
+        "r": {
+          "enunciado": "B) A medida provisória que venha a ser editada pode ser objeto de controle concentrado de constitucionalidade?",
+          "comentario": "Sim. A MP tem força de lei (é ato normativo federal), o que permite o controle concentrado no STF (art. 102, I, a).",
+          "etapas": [
+            { "titulo": "Qual a natureza da MP?", "tipo": "multipla", "enunciado": "", "alternativas": ["Ato administrativo de efeitos concretos", "Ato normativo federal com força de lei", "Projeto de lei ainda sem eficácia", "Decreto regulamentar"], "correta": 1, "comentario": "Art. 62, caput: força de lei." },
+            { "titulo": "Qual ação e qual dispositivo?", "tipo": "artigo", "enunciado": "Ache o dispositivo da competência do STF para a ADI de lei ou ato normativo federal.", "dica": "ação direta de inconstitucionalidade", "aceitas": ["102 I a", "102, I, alínea a"], "resposta": "Art. 102, I, a, da CF/88", "comentario": "" },
+            { "titulo": "Conclusão", "tipo": "multipla", "enunciado": "", "alternativas": ["Sim, cabe controle concentrado", "Não, MP só admite controle difuso", "Só depois de convertida em lei"], "correta": 0, "comentario": "" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "titulo": "Identificação e estruturação da peça · OAB 47",
+    "descricao": "Ação popular contra o subsídio dos vereadores do Município Beta.",
+    "modo": "peca",
+    "permitir_indice": true,
+    "perguntas": [
+      {
+        "tipo": "etapas", "titulo": "OAB 47 · Peça prático-profissional", "tempo": 420, "pontos": 2000,
+        "r": {
+          "enunciado": "Em 2025, a Câmara de Vereadores do Município Beta (8 mil habitantes), por um voto, alterou a remuneração dos Vereadores: vencimento-base + verba de representação + adicional por ano de exercício. O vencimento-base corresponderia a 25% do subsídio dos Deputados Estaduais. A deliberação foi no primeiro mês após a posse, para valer no exercício seguinte, na mesma legislatura.\n\nEm 2026, E, Presidente da Câmara, implementou a nova sistemática. Os Vereadores A, B, C e D devolvem mês a mês a diferença que entendem indevida; E, F, G, H e I ficam com os valores. A, B, C e D, como cidadãos, querem a ação constitucional cabível para cessar o ato lesivo e reparar os danos.",
+          "comentario": "Ação popular (art. 5º, LXXIII; Lei 4.717/65), com liminar, inconstitucionalidade reconhecida de forma incidental, nulidade dos pagamentos e devolução das diferenças.",
+          "etapas": [
+            { "titulo": "Qual é a peça?", "tipo": "multipla", "enunciado": "", "alternativas": ["Ação Popular", "Ação Civil Pública", "Mandado de Segurança Coletivo", "ADI no Tribunal de Justiça", "ADPF", "Mandado de Segurança Individual"], "correta": 0, "comentario": "Cidadãos + ato lesivo ao patrimônio público = ação popular." },
+            { "titulo": "Endereçamento", "tipo": "multipla", "enunciado": "", "alternativas": ["Juízo Cível ou da Fazenda Pública da Comarca X", "Tribunal de Justiça do Estado", "Supremo Tribunal Federal", "Juízo Federal da Seção Judiciária"], "correta": 0, "comentario": "Ação popular contra ato municipal: 1º grau da Justiça Estadual." },
+            { "titulo": "Fundamento da legitimidade ativa", "tipo": "artigo", "enunciado": "A, B, C e D são legitimados porque são cidadãos. Ache o dispositivo constitucional.", "dica": "pesquise “ação popular”", "aceitas": ["5 LXXIII", "Lei 4.717 1"], "resposta": "Art. 5º, LXXIII, da CF/88 (ou art. 1º da Lei 4.717/65)", "comentario": "" },
+            { "titulo": "Quem fica no polo passivo?", "tipo": "multi", "enunciado": "Marque todos.", "opcoes": ["E, Presidente da Câmara, que autorizou os pagamentos", "F, G, H e I, beneficiários dos valores", "O Município Beta", "A, B, C e D", "O Estado onde fica o Município", "A Câmara de Vereadores, como pessoa jurídica"], "corretas": [0, 1, 2], "comentario": "Art. 6º, caput, da Lei 4.717/65." },
+            { "titulo": "Quais teses de mérito entram?", "tipo": "multi", "enunciado": "Marque as afrontas à Constituição.", "opcoes": ["Vereador deve ser remunerado por subsídio em parcela única (art. 29, VI, e art. 39, § 4º)", "O teto para Município de até 10 mil habitantes é 20% do subsídio do Deputado Estadual (art. 29, VI, a)", "O subsídio é fixado numa legislatura para a subsequente (art. 29, VI)", "Violação à anterioridade tributária", "A deliberação exigia maioria de 2/3"], "corretas": [0, 1, 2], "comentario": "Itens 10, 11 e 12 do espelho: 0,50 + 0,50 + 0,40." },
+            { "titulo": "Monte a estrutura da peça", "tipo": "ordenar", "enunciado": "Coloque na ordem.", "itens": ["Endereçamento", "Qualificação dos autores e dos réus", "Dos fatos", "Da legitimidade e do cabimento", "Do mérito (inconstitucionalidade incidental)", "Da liminar", "Dos pedidos", "Valor da causa e juntada dos títulos de eleitor", "Local, data, advogado e OAB"], "comentario": "" },
+            { "titulo": "Pedidos que não podem faltar", "tipo": "multi", "enunciado": "", "opcoes": ["Liminar para cessar os pagamentos acima do limite constitucional", "Declaração de nulidade dos pagamentos que superem o limite", "Devolução das diferenças recebidas indevidamente", "Reconhecimento incidental da inconstitucionalidade do ato normativo", "Declaração de inconstitucionalidade com efeito erga omnes", "Cassação do mandato dos vereadores"], "corretas": [0, 1, 2, 3], "comentario": "A inconstitucionalidade é só incidental: ação popular não é controle concentrado." },
+            { "titulo": "Fumus e periculum: escreva em uma frase", "tipo": "texto", "enunciado": "Justifique a liminar.", "palavras": ["fumus|fumaça", "periculum|perigo", "mes a mes|mês a mês|continuo|contínuo|novos danos", "patrimonio publico|patrimônio público|cofres"], "modelo": "O fumus boni iuris decorre da flagrante ofensa ao art. 29, VI, da CF; o periculum in mora, dos novos danos causados mês a mês ao patrimônio público, com valores de difícil recuperação.", "comentario": "" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "titulo": "Caça ao artigo · Questões 2, 3 e 4 da OAB 47",
+    "descricao": "Ache o dispositivo no Índice Remissivo.",
+    "modo": "artigo",
+    "permitir_indice": true,
+    "perguntas": [
+      { "tipo": "artigo", "titulo": "Calcário na fazenda", "tempo": 90, "r": { "enunciado": "João achou uma acumulação natural de calcário na fazenda dele. Qual dispositivo diz que os recursos minerais são bens da União?", "dica": "recursos minerais", "aceitas": ["20 IX", "176"], "resposta": "Art. 20, IX (ou art. 176, caput), da CF/88", "comentario": "O calcário não pertence a João, e sim à União." } },
+      { "tipo": "artigo", "titulo": "Pesquisa mineral", "tempo": 90, "r": { "enunciado": "Para pesquisar o calcário, João precisa de autorização de quem? Ache o dispositivo.", "dica": "pesquisa e lavra", "aceitas": ["176 §1"], "resposta": "Art. 176, § 1º, da CF/88: autorização da União", "comentario": "" } },
+      { "tipo": "artigo", "titulo": "Mandado de injunção: extensão dos efeitos", "tempo": 120, "r": { "enunciado": "Joana está na mesma situação de Maria, que ganhou um mandado de injunção. Qual dispositivo permite estender os efeitos da decisão, após o trânsito em julgado, por decisão monocrática do relator?", "dica": "Lei 13.300/2016", "aceitas": ["9 §2", "Lei 13.300 9 §2"], "resposta": "Art. 9º, § 2º, da Lei 13.300/2016", "comentario": "" } },
+      { "tipo": "artigo", "titulo": "Descumprimento de decisão do STF", "tempo": 90, "r": { "enunciado": "O Estado Alfa segue aplicando lei declarada inconstitucional em ADI. Qual dispositivo da CF prevê a reclamação para garantir a autoridade das decisões do STF?", "dica": "reclamação", "aceitas": ["102 I alínea l", "102 I l", "988 III"], "resposta": "Art. 102, I, l, da CF/88 (ou art. 988, III, do CPC)", "comentario": "" } },
+      { "tipo": "multipla", "titulo": "E a intervenção federal?", "tempo": 40, "r": { "enunciado": "O descumprimento pode levar à intervenção federal no Estado Alfa?", "alternativas": ["Sim, para prover a execução de decisão judicial (art. 34, VI)", "Não, a intervenção só cabe por guerra ou invasão", "Sim, para manter a integridade nacional (art. 34, I)", "Não, porque cabe só reclamação"], "correta": 0, "comentario": "Art. 34, VI, da CF." } }
+    ]
+  }
+]
