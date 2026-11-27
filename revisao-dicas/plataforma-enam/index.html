@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Treino ENAM · Concurso com Líbero</title>
+<meta name="description" content="Plataforma bônus da Revisão em Dicas ENAM 2026.2: dicas rápidas, flashcards e quiz de certo ou errado.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B1633">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Treino ENAM: a identidade da Revisão em Dicas ENAM 2026.2 (marinho, dourado, papel; Big Shoulders + Inter + JetBrains
+   Mono) virada aplicativo. Fundo marinho com grade de pontos; o cartão de dica, o flashcard que gira e o quiz de
+   certo ou errado são as três telas de treino; o admin libera os cadastros. */
+:root{
+  --marinho:#0B1633; --marinho2:#12224A; --marinho3:#1B2E5E; --papel:#F6F3EC; --tinta:#101935;
+  --ouro:#C9A227; --ouro2:#8E6B10; --palha:#F2DE9E; --ouro-claro:#E3BE5C;
+  --cinza:#6A6E80; --linha:#E4DCC8; --ok:#1F9D63; --erro:#E5484D; --branco:#fff;
+  --claro-80:rgba(255,255,255,.8); --claro-60:rgba(255,255,255,.6); --claro-12:rgba(255,255,255,.12); --borda:rgba(242,222,158,.18);
+  --f-titulo:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --f-texto:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --raio:18px; --larg:1080px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{min-height:100%}
+body{margin:0;background:var(--marinho);color:var(--branco);font-family:var(--f-texto);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(242,222,158,.09) 1.2px,transparent 1.3px),radial-gradient(80% 50% at 100% 0%,rgba(227,190,92,.16),transparent 70%),radial-gradient(70% 50% at 0% 100%,rgba(201,162,39,.16),transparent 70%);
+  background-size:26px 26px,auto,auto;background-attachment:fixed}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ouro-claro);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--larg);margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-titulo);font-weight:900;text-transform:uppercase;line-height:.92;margin:0;letter-spacing:.005em;text-wrap:balance}
+.rot{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--palha)}
+.ouro{color:var(--ouro-claro)}
+.muted{color:var(--claro-60)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:14px 22px;font-weight:800;font-size:16px;transition:transform .15s,background .2s,box-shadow .2s;text-decoration:none}
+.btn:active{transform:scale(.97)}
+.btn-ouro{background:var(--ouro);color:var(--marinho);box-shadow:0 14px 30px -14px rgba(201,162,39,.9)}
+.btn-ouro:hover{background:#D9B23C}
+.btn-vidro{background:var(--claro-12);color:var(--branco);border:1.5px solid var(--borda)}
+.btn-vidro:hover{background:rgba(255,255,255,.18)}
+.btn-pequeno{padding:9px 14px;font-size:14px}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* topo */
+.topo{position:sticky;top:0;z-index:20;background:rgba(11,22,51,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--borda);padding-top:env(safe-area-inset-top,0px)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:64px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;background:none;border:0;padding:0}
+.marca span{display:flex;flex-direction:column;line-height:1;text-align:left}
+.marca small{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.2em;color:var(--palha);text-transform:uppercase}
+.marca strong{font-weight:800;font-size:19px;letter-spacing:-.03em}
+.topo-dir{display:flex;align-items:center;gap:10px}
+.relogio{font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--marinho);background:var(--palha);padding:6px 10px;border-radius:8px;white-space:nowrap}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--marinho3);border:1.5px solid var(--borda);display:grid;place-items:center;font-weight:800;color:var(--palha)}
+.menu{position:absolute;right:max(18px,env(safe-area-inset-right,0px));top:calc(60px + env(safe-area-inset-top,0px));background:var(--marinho2);border:1px solid var(--borda);border-radius:14px;padding:8px;min-width:220px;box-shadow:0 24px 50px -20px rgba(0,0,0,.7)}
+.menu p{margin:6px 10px 10px;font-size:13px;color:var(--claro-60);word-break:break-all}
+.menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:10px;border-radius:9px;font-weight:600}
+.menu button:hover{background:var(--claro-12)}
+
+/* entrada */
+.entrada{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:40px}
+.entrada>*{min-width:0}
+.entrada h1{font-size:clamp(56px,9vw,120px);margin-top:18px}
+.entrada .lead{font-size:clamp(17px,2vw,20px);color:var(--claro-80);max-width:46ch;margin:20px 0 0}
+.selo{display:inline-block;font-family:var(--f-mono);font-weight:700;font-size:13px;letter-spacing:.1em;background:var(--ouro);color:var(--marinho);padding:7px 12px;border-radius:8px}
+.mini-cards{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;padding:0;list-style:none}
+.mini-cards li{display:flex;align-items:center;gap:10px;background:var(--claro-12);border:1px solid var(--borda);border-radius:14px;padding:10px 14px;font-weight:700;font-size:14px}
+.mini-cards b{font-family:var(--f-titulo);font-size:26px;color:var(--palha);line-height:1}
+.contagem{display:flex;gap:10px;margin-top:26px}
+.contagem div{background:rgba(0,0,0,.2);border:1px solid var(--borda);border-radius:14px;padding:10px 14px;min-width:78px;text-align:center}
+.contagem b{display:block;font-family:var(--f-titulo);font-size:40px;line-height:.9;color:var(--palha);font-variant-numeric:tabular-nums}
+.contagem span{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--claro-60)}
+.painel{background:var(--papel);color:var(--tinta);border-radius:26px;padding:clamp(22px,4vw,34px);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.abas{display:flex;background:#ECE6D6;border-radius:999px;padding:5px;margin-bottom:22px}
+.abas button{flex:1;border:0;background:transparent;padding:10px;border-radius:999px;font-weight:800;color:var(--cinza)}
+.abas button[aria-selected="true"]{background:var(--marinho);color:var(--branco)}
+.campo{display:grid;gap:6px;margin-bottom:14px}
+.campo label{font-weight:700;font-size:14px}
+.campo input,.campo textarea{border:1.5px solid var(--linha);background:#fff;border-radius:12px;padding:13px 14px;color:var(--tinta);width:100%}
+.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--ouro)}
+.painel .btn-ouro{width:100%;margin-top:6px}
+.aviso{border-radius:12px;padding:12px 14px;font-size:14px;margin:0 0 14px;font-weight:600}
+.aviso.erro{background:#FDECEC;color:#9B1C20}
+.aviso.ok{background:#E6F5EC;color:#14653F}
+.link{background:none;border:0;color:var(--ouro2);font-weight:700;padding:0;text-decoration:underline;font-size:14px}
+.nota{font-size:13px;color:var(--cinza);margin:14px 0 0;text-align:center}
+
+/* espera */
+.espera{min-height:calc(100vh - 64px);display:grid;place-items:center;text-align:center;padding-block:40px}
+.espera .caixa{max-width:560px}
+.espera h1{font-size:clamp(46px,8vw,80px);margin:22px 0 14px}
+.espera p{color:var(--claro-80)}
+.relogio-areia{width:86px;height:86px;margin:0 auto;border-radius:50%;border:3px solid var(--borda);border-top-color:var(--ouro);animation:gira 1.4s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+
+/* app */
+main.app{padding-block:28px 90px}
+.saudacao{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.saudacao h1{font-size:clamp(44px,7vw,78px)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.stat{background:var(--claro-12);border:1px solid var(--borda);border-radius:var(--raio);padding:16px 18px;display:flex;align-items:center;gap:14px;min-width:0}
+.stat svg{flex:none}
+.stat b{display:block;font-family:var(--f-titulo);font-size:34px;line-height:.9;color:var(--palha);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--claro-80);line-height:1.3}
+.modos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.modo{position:relative;text-align:left;border:1px solid var(--borda);border-radius:24px;padding:24px;background:linear-gradient(160deg,var(--marinho3),var(--marinho2));color:var(--branco);overflow:hidden;min-height:220px;display:flex;flex-direction:column;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
+.modo:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);border-color:rgba(242,222,158,.45)}
+.modo .num{position:absolute;right:-6px;top:-18px;font-family:var(--f-titulo);font-weight:900;font-size:130px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(242,222,158,.16)}
+.modo h2{font-size:40px;margin-top:auto}
+.modo p{margin:8px 0 0;color:var(--claro-80);font-size:14.5px;max-width:30ch}
+.modo .ico{width:52px;height:52px;border-radius:16px;background:var(--ouro);color:var(--marinho);display:grid;place-items:center}
+.modo.claro{background:var(--papel);color:var(--tinta)}
+.modo.claro p{color:var(--cinza)}
+.modo.claro .num{-webkit-text-stroke-color:rgba(16,25,53,.1)}
+.filtro{margin-top:30px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid var(--borda);background:transparent;color:var(--claro-80);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13.5px;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--palha);color:var(--marinho);border-color:var(--palha)}
+.materias{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin-top:18px}
+.mat{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;font-size:14px}
+.mat .barra{grid-column:1/-1;height:8px;border-radius:99px;background:var(--claro-12);overflow:hidden}
+.mat .barra i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--ouro),var(--ouro-claro));width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.mat em{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--palha)}
+
+/* treino (tela comum) */
+.treino-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.voltar{background:none;border:0;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--claro-80);padding:8px 0}
+.progresso{height:6px;border-radius:99px;background:var(--claro-12);overflow:hidden;margin-bottom:22px}
+.progresso i{display:block;height:100%;background:var(--ouro);border-radius:99px;transition:width .35s}
+.contador{font-family:var(--f-mono);font-size:13px;font-weight:700;color:var(--palha)}
+.palco{max-width:760px;margin:0 auto}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+.dica-card{background:var(--papel);color:var(--tinta);border-radius:26px;padding:clamp(22px,4vw,36px);box-shadow:0 40px 70px -34px rgba(0,0,0,.75);position:relative;min-height:340px;display:flex;flex-direction:column}
+.dica-card .meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.dica-card .n{font-family:var(--f-titulo);font-weight:900;font-size:64px;line-height:.85;color:var(--ouro)}
+.dica-card .bloco{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ouro2);text-align:right;max-width:60%}
+.dica-card .regra{font-weight:800;font-size:clamp(21px,2.8vw,28px);line-height:1.28;margin:22px 0 0;letter-spacing:-.01em}
+.dica-card .exp{color:#454B5E;font-size:17px;margin:14px 0 0}
+.tag{display:inline-block;margin-top:16px;font-family:var(--f-mono);font-weight:700;font-size:11.5px;letter-spacing:.08em;background:var(--marinho);color:var(--palha);padding:5px 10px;border-radius:7px;align-self:flex-start}
+.estrela{position:absolute;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--linha);background:#fff;display:grid;place-items:center;color:var(--cinza);transition:transform .2s,background .2s,color .2s}
+.estrela[aria-pressed="true"]{background:var(--ouro);border-color:var(--ouro);color:var(--marinho);animation:pulo .4s}
+@keyframes pulo{40%{transform:scale(1.25) rotate(-10deg)}}
+.entra-dir{animation:entraDir .45s cubic-bezier(.2,.7,.2,1) both}
+.entra-esq{animation:entraEsq .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes entraDir{from{opacity:0;transform:translateX(40px) rotate(1.5deg)}to{opacity:1;transform:none}}
+@keyframes entraEsq{from{opacity:0;transform:translateX(-40px) rotate(-1.5deg)}to{opacity:1;transform:none}}
+
+/* flashcard */
+.flip{perspective:1400px;cursor:pointer;border:0;background:none;padding:0;width:100%;display:block;text-align:left}
+.flip-in{position:relative;min-height:360px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.4,.4,1)}
+.flip.virado .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:26px;padding:clamp(24px,4vw,38px);display:flex;flex-direction:column;box-shadow:0 40px 70px -34px rgba(0,0,0,.75)}
+.face.frente{background:linear-gradient(160deg,var(--marinho3),var(--marinho2));border:1px solid var(--borda);color:#fff}
+.face.verso{background:var(--papel);color:var(--tinta);transform:rotateY(180deg)}
+.face .pergunta{font-weight:800;font-size:clamp(23px,3vw,31px);line-height:1.25;margin:auto 0;letter-spacing:-.01em}
+.face .resposta{font-weight:800;font-size:clamp(21px,2.7vw,27px);line-height:1.3;margin:22px 0 0}
+.face .fonte{margin-top:auto;padding-top:18px;border-top:1.5px dashed var(--linha);font-size:14.5px;color:#454B5E}
+.face .fonte b{font-family:var(--f-mono);color:var(--ouro2);font-size:12px;letter-spacing:.06em}
+.dica-toque{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--palha);display:flex;align-items:center;gap:8px}
+.notas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.nota-btn{border:0;border-radius:16px;padding:14px 10px;font-weight:800;font-size:15px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nota-btn small{font-weight:600;font-size:12px;opacity:.75}
+.n-errei{background:#3B1D2A;color:#FFB4B6;border:1.5px solid rgba(229,72,77,.4)}
+.n-quase{background:#3A3215;color:var(--palha);border:1.5px solid rgba(242,222,158,.35)}
+.n-sei{background:#123A2C;color:#9EF0C6;border:1.5px solid rgba(31,157,99,.45)}
+.caixas{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.caixas span{font-family:var(--f-mono);font-size:11px;color:var(--claro-60);border:1px solid var(--borda);border-radius:8px;padding:4px 8px}
+.caixas b{color:var(--palha)}
+
+/* quiz */
+.quiz-card{background:var(--papel);color:var(--tinta);border-radius:26px;padding:clamp(22px,4vw,36px);box-shadow:0 40px 70px -34px rgba(0,0,0,.75)}
+.quiz-card .afirm{font-weight:800;font-size:clamp(21px,2.8vw,27px);line-height:1.3;margin:16px 0 0}
+.ce{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.ce button{border:2px solid var(--tinta);background:#fff;color:var(--tinta);border-radius:16px;padding:18px;font-family:var(--f-titulo);font-weight:900;font-size:30px;letter-spacing:.02em;transition:transform .15s,background .2s,color .2s,border-color .2s}
+.ce button:hover:not(:disabled){transform:translateY(-2px)}
+.ce button.certa{background:var(--ok);border-color:var(--ok);color:#fff}
+.ce button.errada{background:var(--erro);border-color:var(--erro);color:#fff}
+.ce button:disabled{cursor:default}
+.treme{animation:treme .4s}
+@keyframes treme{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.gab{margin-top:20px;border-radius:16px;padding:16px 18px;font-size:16px;animation:entraDir .35s both}
+.gab.ok{background:#E6F5EC;color:#14653F}
+.gab.no{background:#FDECEC;color:#8A1C20}
+.gab b{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.gab .regra-ref{display:block;margin-top:8px;color:var(--tinta);font-size:14.5px}
+.sequencia{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-weight:700;font-size:13px;color:var(--marinho);background:var(--palha);padding:5px 10px;border-radius:8px}
+.sequencia.fogo{animation:pulo .5s}
+
+/* resultado */
+.resultado{text-align:center;max-width:560px;margin:0 auto;padding-top:20px}
+.anel{width:200px;height:200px;margin:0 auto;position:relative}
+.anel svg{transform:rotate(-90deg)}
+.anel circle{fill:none;stroke-width:14}
+.anel .fundo{stroke:var(--claro-12)}
+.anel .valor{stroke:var(--ouro);stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1)}
+.anel div{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-titulo);font-weight:900;font-size:64px;color:var(--palha)}
+.resultado h2{font-size:clamp(40px,6vw,60px);margin:24px 0 10px}
+.resultado p{color:var(--claro-80)}
+
+/* admin */
+.adm-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.adm-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.adm-barra input[type=search]{flex:1;min-width:200px;border:1.5px solid var(--borda);background:var(--claro-12);border-radius:12px;padding:11px 14px;color:#fff}
+.tabela{margin-top:14px;border:1px solid var(--borda);border-radius:var(--raio);overflow:hidden;background:rgba(0,0,0,.16)}
+.linha{display:grid;grid-template-columns:34px minmax(0,1.4fr) minmax(0,1fr) 110px 120px auto;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--borda);font-size:14px}
+.linha:first-child{border-top:0}
+.linha.cab{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--palha);background:rgba(0,0,0,.2)}
+.linha .email{font-weight:700;word-break:break-all}
+.linha .sub{display:block;font-size:12.5px;color:var(--claro-60);font-weight:500}
+.status{display:inline-block;font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:7px}
+.st-pendente{background:#3A3215;color:var(--palha)}
+.st-liberado{background:#123A2C;color:#9EF0C6}
+.st-bloqueado{background:#3B1D2A;color:#FFB4B6}
+.linha .acts{display:flex;gap:6px;justify-content:flex-end}
+.vazio{padding:30px;text-align:center;color:var(--claro-60)}
+.prelib{margin-top:28px;background:var(--claro-12);border:1px solid var(--borda);border-radius:var(--raio);padding:20px}
+.prelib textarea{width:100%;min-height:110px;border:1.5px solid var(--borda);background:rgba(0,0,0,.2);border-radius:12px;padding:12px;color:#fff;margin:10px 0}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--ouro)}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);opacity:0;background:var(--palha);color:var(--marinho);font-weight:800;padding:12px 18px;border-radius:12px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6);transition:opacity .25s,transform .25s;z-index:50;pointer-events:none;max-width:calc(100% - 32px)}
+.toast.ver{opacity:1;transform:translateX(-50%)}
+#confete{position:fixed;inset:0;pointer-events:none;z-index:40}
+.carregando{min-height:60vh;display:grid;place-items:center}
+.surge{animation:surge .55s cubic-bezier(.2,.7,.2,1) both}
+.surge.d1{animation-delay:.06s}.surge.d2{animation-delay:.12s}.surge.d3{animation-delay:.18s}.surge.d4{animation-delay:.24s}
+@keyframes surge{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media (max-width:860px){
+  .entrada{grid-template-columns:minmax(0,1fr);min-height:auto}
+  .stats,.adm-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modos{grid-template-columns:minmax(0,1fr)}
+  .modo{min-height:170px}
+  .materias{grid-template-columns:minmax(0,1fr)}
+  .linha{grid-template-columns:28px minmax(0,1fr) auto;row-gap:6px}
+  .linha .col-nome,.linha .col-data{display:none}
+  .linha.cab{display:none}
+  .linha .acts{grid-column:2/-1;justify-content:flex-start}
+}
+@media (max-width:460px){
+  .topo .relogio{display:none}
+  .stat{padding:12px}
+  .stat b{font-size:28px}
+  .ce button{font-size:24px;padding:14px}
+  .nota-btn{font-size:14px;padding:12px 6px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gsim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00B85A"/><stop offset=".55" stop-color="#009A8C"/><stop offset="1" stop-color="#14E6DA"/></linearGradient>
+  <symbol id="simbolo" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="28" fill="url(#gsim)"/><path d="M32 22 V70 H70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 46 l9 9 l18 -20" fill="none" stroke="#B9FFF1" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-dica" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-flash" viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M7 3h11a3 3 0 0 1 3 3v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-quiz" viewBox="0 0 24 24"><path d="M4 12.5l4.5 4.5L20 5.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" fill="currentColor"/></symbol>
+  <symbol id="i-volta" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fogo" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.8 7-7 0-4-3-6.5-4-10-2 2-3 4-3 6-1-1-2-2-2-4-3 3-5 5.5-5 8.5C5 19.2 8 22 12 22z" fill="currentColor"/></symbol>
+  <symbol id="i-gira" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<div id="raiz"><div class="carregando"><div class="relogio-areia" aria-label="Carregando"></div></div></div>
+<canvas id="confete" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+// ===== Configuração =====
+const SUPABASE_URL = 'https://iuudfvybeawlqpgvuyeq.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_AVbcdQzuXOANYUQqj74iqA_dkLQqjPL';   // chave pública (publishable): o que protege o conteúdo são as regras do banco
+const PROVA = new Date('2026-11-29T13:00:00-03:00');                     // ENAM 2026.2 (confira o horário no cartão de confirmação)
+const MATERIAS = ['Direito Constitucional', 'Direito Administrativo', 'Noções Gerais de Direito e Formação Humanística', 'Direitos Humanos', 'Direito Processual Civil', 'Direito Civil', 'Direito Empresarial', 'Direito Penal'];
+const CURTO = { 'Noções Gerais de Direito e Formação Humanística': 'Formação Humanística', 'Direito Processual Civil': 'Processo Civil' };
+const curto = m => CURTO[m] || m.replace(/^Direito /, '');
+
+// ===== Estado =====
+const S = { sessao: null, perfil: null, status: null, conteudo: [], prog: { flash: {}, quiz: {}, marcadas: {}, vistas: {} }, filtro: 'Todas', tela: 'inicio', adm: { alunos: [], prelib: [], busca: '', filtro: 'pendente', sel: new Set() } };
+const DEMO = window.ENAM_DEMO || null;   // pré-visualização sem banco (artifact)
+const sb = DEMO ? null : window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, autoRefreshToken: true } });
+const $ = s => document.querySelector(s);
+const raiz = $('#raiz');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const n3 = n => String(n).padStart(3, '0');
+const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('ver'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('ver'), 2600); }
+const marcaHtml = `<span class="marca"><svg width="36" height="36"><use href="#simbolo"/></svg><span><small>Concurso com</small><strong>Líbero</strong></span></span>`;
+function faltam() { const ms = PROVA - Date.now(); if (ms <= 0) return null; const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4); return { d, h, m }; }
+function relogioTxt() { const f = faltam(); return f ? `${f.d}d ${String(f.h).padStart(2, '0')}h ${String(f.m).padStart(2, '0')}min até a prova` : 'Dia de prova. Boa prova!'; }
+
+// ===== Confete =====
+function confete(qtd = 140) {
+  if (calmo) return;
+  const cv = $('#confete'), ctx = cv.getContext('2d'); cv.width = innerWidth * devicePixelRatio; cv.height = innerHeight * devicePixelRatio; ctx.scale(devicePixelRatio, devicePixelRatio);
+  const cores = ['#C9A227', '#F2DE9E', '#E3BE5C', '#FFFFFF', '#14E6DA'];
+  const ps = Array.from({ length: qtd }, () => ({ x: innerWidth / 2 + (Math.random() - .5) * 200, y: innerHeight * .35, vx: (Math.random() - .5) * 14, vy: -Math.random() * 14 - 4, r: Math.random() * 6 + 4, c: cores[Math.random() * cores.length | 0], g: Math.random() * Math.PI, vg: (Math.random() - .5) * .3 }));
+  let t0 = performance.now();
+  (function quadro(t) { ctx.clearRect(0, 0, innerWidth, innerHeight); ps.forEach(p => { p.vy += .35; p.x += p.vx; p.y += p.vy; p.g += p.vg; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.g); ctx.fillStyle = p.c; ctx.fillRect(-p.r / 2, -p.r / 4, p.r, p.r / 2); ctx.restore(); }); if (t - t0 < 2600) requestAnimationFrame(quadro); else ctx.clearRect(0, 0, innerWidth, innerHeight); })(t0);
+}
+
+// ===== Progresso (salvo no banco, com atraso para juntar cliques) =====
+const pendentes = new Set();
+function salvar(chave) { pendentes.add(chave); clearTimeout(salvar.t); salvar.t = setTimeout(enviar, 1200); }
+async function enviar() {
+  if (DEMO || !S.sessao) { pendentes.clear(); return; }
+  const linhas = [...pendentes].map(k => ({ user_id: S.sessao.user.id, chave: k, dados: S.prog[k], atualizado_em: new Date().toISOString() })); pendentes.clear();
+  const { error } = await sb.from('enam_progresso').upsert(linhas);
+  if (error) toast('Não salvou o progresso. Confira a internet.');
+}
+addEventListener('pagehide', () => { if (pendentes.size) enviar(); });
+
+// ===== Entrada, cadastro e espera =====
+function telaEntrada(aba = 'entrar', msg = null) {
+  const f = faltam();
+  raiz.innerHTML = `<div class="wrap entrada">
+    <div class="surge">
+      ${marcaHtml}
+      <div style="margin-top:34px"><span class="selo">ENAM 2026.2 · BÔNUS DA REVISÃO EM DICAS</span></div>
+      <h1>Treine as <span class="ouro">320 dicas</span> até a prova</h1>
+      <p class="lead">Dicas rápidas, flashcards que giram e um quiz de certo ou errado com as pegadinhas do material. Seu progresso fica salvo na sua conta.</p>
+      <ul class="mini-cards"><li><b>320</b> dicas rápidas</li><li><b>320</b> flashcards</li><li><b>320</b> questões C/E</li></ul>
+      ${f ? `<div class="contagem" aria-label="Contagem até a prova"><div><b>${f.d}</b><span>dias</span></div><div><b>${f.h}</b><span>horas</span></div><div><b>${f.m}</b><span>min</span></div></div>` : ''}
+    </div>
+    <div class="painel surge d2">
+      <div class="abas" role="tablist"><button role="tab" id="aba-entrar" aria-selected="${aba === 'entrar'}">Entrar</button><button role="tab" id="aba-criar" aria-selected="${aba === 'criar'}">Criar conta</button></div>
+      ${msg ? `<p class="aviso ${msg[0]}">${esc(msg[1])}</p>` : ''}
+      <form id="form-acesso" novalidate>
+        ${aba === 'criar' ? `<div class="campo"><label for="f-nome">Nome</label><input id="f-nome" autocomplete="name" required></div>
+        <div class="campo"><label for="f-tel">WhatsApp <span style="font-weight:500;color:var(--cinza)">(opcional)</span></label><input id="f-tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000"></div>` : ''}
+        <div class="campo"><label for="f-email">E-mail</label><input id="f-email" type="email" autocomplete="email" required placeholder="o mesmo da compra"></div>
+        <div class="campo"><label for="f-senha">Senha</label><input id="f-senha" type="password" autocomplete="${aba === 'criar' ? 'new-password' : 'current-password'}" required minlength="6" placeholder="${aba === 'criar' ? 'mínimo de 6 caracteres' : ''}"></div>
+        <button class="btn btn-ouro" type="submit" id="f-enviar">${aba === 'criar' ? 'Criar minha conta' : 'Entrar'}</button>
+      </form>
+      ${aba === 'entrar' ? `<p class="nota"><button class="link" id="f-esqueci" type="button">Esqueci minha senha</button></p>` : `<p class="nota">Use o e-mail da compra: é por ele que o seu acesso é liberado.</p>`}
+    </div></div>`;
+  $('#aba-entrar').onclick = () => telaEntrada('entrar');
+  $('#aba-criar').onclick = () => telaEntrada('criar');
+  $('#f-esqueci') && ($('#f-esqueci').onclick = async () => {
+    const email = $('#f-email').value.trim(); if (!email) return telaEntrada('entrar', ['erro', 'Digite seu e-mail e clique de novo em "Esqueci minha senha".']);
+    const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + location.pathname });
+    telaEntrada('entrar', error ? ['erro', 'Não deu para enviar agora. Tente de novo em alguns minutos.'] : ['ok', 'Se esse e-mail tiver conta, chega um link para criar uma senha nova.']);
+  });
+  $('#form-acesso').onsubmit = async e => {
+    e.preventDefault();
+    const email = $('#f-email').value.trim().toLowerCase(), senha = $('#f-senha').value, bt = $('#f-enviar');
+    if (!email.includes('@') || senha.length < 6) return telaEntrada(aba, ['erro', 'Confira o e-mail e use uma senha com pelo menos 6 caracteres.']);
+    bt.disabled = true; bt.textContent = 'Aguarde…';
+    if (aba === 'criar') {
+      const nome = $('#f-nome').value.trim(), tel = $('#f-tel').value.trim();
+      if (!nome) { bt.disabled = false; return telaEntrada('criar', ['erro', 'Digite seu nome.']); }
+      const { data, error } = await sb.auth.signUp({ email, password: senha, options: { data: { produto: 'enam', nome, telefone: tel }, emailRedirectTo: location.origin + location.pathname } });
+      if (error) return telaEntrada('criar', ['erro', /registered|exists/i.test(error.message) ? 'Esse e-mail já tem conta. Use "Entrar" com a sua senha.' : 'Não deu para criar a conta: ' + error.message]);
+      if (!data.session) return telaEntrada('entrar', ['ok', 'Conta criada. Confirme pelo link que chegou no seu e-mail e depois entre aqui.']);
+      S.cadastro = { nome, tel };
+    } else {
+      const { error } = await sb.auth.signInWithPassword({ email, password: senha });
+      if (error) return telaEntrada('entrar', ['erro', /confirm/i.test(error.message) ? 'Confirme seu e-mail pelo link que enviamos e tente de novo.' : 'E-mail ou senha não conferem.']);
+    }
+  };
+}
+
+function telaEspera(status) {
+  const bloqueado = status === 'bloqueado';
+  raiz.innerHTML = `${topo(false)}<div class="wrap espera"><div class="caixa surge">
+    ${bloqueado ? '' : '<div class="relogio-areia" aria-hidden="true"></div>'}
+    <h1>${bloqueado ? 'Acesso <span class="ouro">não liberado</span>' : 'Cadastro <span class="ouro">recebido</span>'}</h1>
+    <p>${bloqueado ? 'Seu acesso a este bônus não está liberado. Se você comprou a Revisão em Dicas ENAM, fale com a gente pelo Instagram @concursocomlibero informando o e-mail da compra.' : 'Agora é só aguardar a liberação, que é feita pelo e-mail da compra. Esta tela confere sozinha a cada 30 segundos e abre a plataforma assim que o acesso for liberado.'}</p>
+    <p class="muted" style="font-size:14px">${esc(S.sessao.user.email)}</p>
+    <div class="acoes"><button class="btn btn-vidro" id="ver-de-novo"><svg width="18" height="18"><use href="#i-gira"/></svg>Verificar agora</button></div>
+  </div></div>`;
+  ligarTopo();
+  $('#ver-de-novo').onclick = () => entrar();
+  clearInterval(telaEspera.t); if (!bloqueado) telaEspera.t = setInterval(() => entrar(true), 30000);
+}
+
+// ===== Topo =====
+function topo(comRelogio = true) {
+  const ini = (S.perfil?.nome || S.sessao?.user?.email || '?').trim()[0].toUpperCase();
+  return `<header class="topo"><div class="wrap"><button class="marca" id="t-inicio" aria-label="Início">${marcaHtml.replace('<span class="marca">', '').replace(/<\/span>$/, '')}</button>
+    <div class="topo-dir">${comRelogio ? `<span class="relogio" id="relogio">${relogioTxt()}</span>` : ''}${S.status === 'admin' ? `<button class="btn btn-vidro btn-pequeno" id="t-admin">Alunos</button>` : ''}<button class="avatar" id="t-conta" aria-haspopup="true" aria-expanded="false" aria-label="Conta">${esc(ini)}</button></div></div>
+    <div class="menu" id="menu" hidden><p>${esc(S.sessao?.user?.email || '')}</p><button id="m-zerar">Zerar meu progresso</button><button id="m-sair">Sair</button></div></header>`;
+}
+function ligarTopo() {
+  $('#t-inicio') && ($('#t-inicio').onclick = () => { S.tela = 'inicio'; render(); });
+  $('#t-admin') && ($('#t-admin').onclick = () => { S.tela = 'admin'; render(); });
+  const menu = $('#menu'), bt = $('#t-conta');
+  bt.onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; bt.setAttribute('aria-expanded', String(!menu.hidden)); };
+  document.onclick = e => { if (!menu.hidden && !menu.contains(e.target)) { menu.hidden = true; bt.setAttribute('aria-expanded', 'false'); } };
+  $('#m-sair').onclick = async () => { await enviar(); if (!DEMO) await sb.auth.signOut(); else location.reload(); };
+  $('#m-zerar').onclick = () => {
+    if (!$('#m-zerar').dataset.ok) { $('#m-zerar').dataset.ok = 1; $('#m-zerar').textContent = 'Toque de novo para confirmar'; return; }
+    S.prog = { flash: {}, quiz: {}, marcadas: {}, vistas: {} }; ['flash', 'quiz', 'marcadas', 'vistas'].forEach(salvar); menu.hidden = true; toast('Progresso zerado.'); render();
+  };
+}
+setInterval(() => { const r = $('#relogio'); if (r) r.textContent = relogioTxt(); }, 30000);
+
+// ===== Dados =====
+const lista = () => S.conteudo.filter(x => S.filtro === 'Todas' || (S.filtro === 'Marcadas' ? S.prog.marcadas[x.n] : x.materia === S.filtro));
+const embaralha = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0;[a[i], a[j]] = [a[j], a[i]]; } return a; };
+function numeros() {
+  const p = S.prog, vistas = Object.keys(p.vistas).length, dominados = Object.values(p.flash).filter(b => b >= 3).length;
+  const q = Object.values(p.quiz), tent = q.reduce((s, v) => s + v[1], 0), ac = q.reduce((s, v) => s + v[0], 0);
+  return { vistas, dominados, pct: tent ? Math.round(ac / tent * 100) : null, tent, marcadas: Object.keys(p.marcadas).length };
+}
+const anel = (v, cor = 'var(--ouro)') => { const r = 20, c = 2 * Math.PI * r; return `<svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="${r}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/><circle cx="26" cy="26" r="${r}" fill="none" stroke="${cor}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - Math.min(1, v))}" transform="rotate(-90 26 26)"/></svg>`; };
+
+// ===== Início =====
+function telaInicio() {
+  const k = numeros(), nome = (S.perfil?.nome || '').split(' ')[0];
+  const chips = ['Todas', ...MATERIAS, ...(k.marcadas ? ['Marcadas'] : [])];
+  raiz.innerHTML = `${topo()}<main class="app wrap">
+    <div class="saudacao surge"><div><p class="rot">ENAM 2026.2 · Treino</p><h1>${nome ? `Bora, <span class="ouro">${esc(nome)}</span>` : 'Bora <span class="ouro">treinar</span>'}</h1></div></div>
+    <div class="stats">
+      <div class="stat surge d1">${anel(k.vistas / 320)}<div><b>${k.vistas}</b><span>de 320 dicas vistas</span></div></div>
+      <div class="stat surge d2">${anel(k.dominados / 320, '#9EF0C6')}<div><b>${k.dominados}</b><span>flashcards dominados</span></div></div>
+      <div class="stat surge d3">${anel((k.pct || 0) / 100, '#14E6DA')}<div><b>${k.pct === null ? '–' : k.pct + '%'}</b><span>de acerto no quiz${k.tent ? ` (${k.tent})` : ''}</span></div></div>
+      <div class="stat surge d4">${anel(k.marcadas / 40, '#FFB4B6')}<div><b>${k.marcadas}</b><span>dicas marcadas pra revisar</span></div></div>
+    </div>
+    <div class="filtro surge d2"><p class="rot">Escolha o recorte</p><div class="chips" role="group" aria-label="Filtrar por matéria">${chips.map(c => `<button class="chip" aria-pressed="${S.filtro === c}" data-f="${esc(c)}">${esc(c === 'Todas' ? 'Todas as matérias' : c === 'Marcadas' ? '★ Marcadas' : curto(c))}</button>`).join('')}</div></div>
+    <div class="modos">
+      <button class="modo claro surge d2" data-modo="dicas"><span class="num">01</span><span class="ico"><svg width="26" height="26"><use href="#i-dica"/></svg></span><h2>Dicas rápidas</h2><p>Uma regra por vez, com a explicação. Marque com a estrela o que precisa voltar.</p></button>
+      <button class="modo surge d3" data-modo="flash"><span class="num">02</span><span class="ico"><svg width="26" height="26"><use href="#i-flash"/></svg></span><h2>Flashcards</h2><p>Pergunta na frente, resposta no verso. Os que você erra voltam mais vezes.</p></button>
+      <button class="modo surge d4" data-modo="quiz"><span class="num">03</span><span class="ico"><svg width="26" height="26"><use href="#i-quiz"/></svg></span><h2>Quiz C/E</h2><p>Rodadas de 10 afirmações, certo ou errado, com o comentário de cada uma.</p></button>
+    </div>
+    <div class="filtro surge d3"><p class="rot">Seu avanço por matéria</p><div class="materias">${MATERIAS.map(m => { const it = S.conteudo.filter(x => x.materia === m), v = it.filter(x => S.prog.vistas[x.n]).length; return `<div class="mat"><span>${esc(curto(m))}</span><em>${v}/${it.length}</em><span class="barra"><i data-w="${it.length ? v / it.length * 100 : 0}"></i></span></div>`; }).join('')}</div></div>
+  </main>`;
+  ligarTopo();
+  requestAnimationFrame(() => document.querySelectorAll('.mat .barra i').forEach(i => i.style.width = i.dataset.w + '%'));
+  document.querySelectorAll('.chip').forEach(b => b.onclick = () => { S.filtro = b.dataset.f; telaInicio(); });
+  document.querySelectorAll('.modo').forEach(b => b.onclick = () => { if (!lista().length) return toast('Nenhuma dica nesse recorte.'); S.tela = b.dataset.modo; render(); });
+}
+const topoTreino = (titulo, cont) => `<div class="treino-topo"><button class="voltar" id="voltar"><svg width="20" height="20"><use href="#i-volta"/></svg>Início</button><span class="rot">${esc(titulo)}</span><span class="contador" id="contador">${cont}</span></div>`;
+
+// ===== Dicas rápidas =====
+function telaDicas() {
+  const itens = lista(); let i = Math.max(0, itens.findIndex(x => !S.prog.vistas[x.n])); let dir = 'dir';
+  raiz.innerHTML = `${topo()}<main class="app wrap"><div class="palco">${topoTreino(S.filtro === 'Todas' ? 'Dicas rápidas' : curto(S.filtro), '')}<div class="progresso"><i id="barra"></i></div><div id="cartao"></div>
+    <div class="acoes"><button class="btn btn-vidro" id="ant"><svg width="18" height="18" style="transform:scaleX(-1)"><use href="#i-seta"/></svg>Anterior</button><button class="btn btn-ouro" id="prox">Próxima<svg width="18" height="18"><use href="#i-seta"/></svg></button></div>
+    <p class="muted" style="text-align:center;font-size:13px;margin-top:14px">Dica: use as setas do teclado ou arraste o cartão para os lados.</p></div></main>`;
+  ligarTopo(); $('#voltar').onclick = () => { S.tela = 'inicio'; render(); };
+  const mostra = () => {
+    const x = itens[i]; S.prog.vistas[x.n] = 1; salvar('vistas');
+    $('#contador').textContent = `${i + 1}/${itens.length}`; $('#barra').style.width = ((i + 1) / itens.length * 100) + '%';
+    const marcada = !!S.prog.marcadas[x.n];
+    $('#cartao').innerHTML = `<article class="dica-card entra-${dir}"><div class="meta"><span class="n">${n3(x.n)}</span><span class="bloco">${esc(curto(x.materia))}<br>${esc(x.bloco.toLowerCase())}</span></div>
+      <p class="regra">${esc(x.regra)}</p>${x.explicacao ? `<p class="exp">${esc(x.explicacao)}</p>` : ''}${x.tema ? `<span class="tag">${esc(x.tema)}</span>` : ''}
+      <button class="estrela" id="estrela" aria-pressed="${marcada}" aria-label="${marcada ? 'Desmarcar' : 'Marcar para revisar'}"><svg width="22" height="22"><use href="#i-estrela"/></svg></button></article>`;
+    $('#estrela').onclick = () => { if (S.prog.marcadas[x.n]) delete S.prog.marcadas[x.n]; else S.prog.marcadas[x.n] = 1; salvar('marcadas'); const b = $('#estrela'), m = !!S.prog.marcadas[x.n]; b.setAttribute('aria-pressed', m); toast(m ? 'Marcada pra revisar.' : 'Desmarcada.'); };
+    $('#ant').disabled = i === 0; $('#prox').innerHTML = i === itens.length - 1 ? 'Concluir' : 'Próxima<svg width="18" height="18"><use href="#i-seta"/></svg>';
+  };
+  const vai = d => { if (d > 0 && i === itens.length - 1) { confete(90); S.tela = 'inicio'; toast('Recorte concluído!'); return render(); } i = Math.min(itens.length - 1, Math.max(0, i + d)); dir = d > 0 ? 'dir' : 'esq'; mostra(); };
+  $('#ant').onclick = () => vai(-1); $('#prox').onclick = () => vai(1);
+  document.onkeydown = e => { if (S.tela !== 'dicas') return; if (e.key === 'ArrowRight') vai(1); if (e.key === 'ArrowLeft') vai(-1); };
+  let x0 = null; const c = $('#cartao');
+  c.addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive: true });
+  c.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 60) vai(dx < 0 ? 1 : -1); x0 = null; });
+  mostra();
+}
+
+// ===== Flashcards (caixas de Leitner: 0 errei, 1 quase, 2-3 sei) =====
+function telaFlash() {
+  const base = lista(), caixa = x => S.prog.flash[x.n] ?? -1;
+  const ordem = embaralha(base).sort((a, b) => caixa(a) - caixa(b)).slice(0, 20);
+  let i = 0; const placar = { sei: 0, quase: 0, errei: 0 };
+  raiz.innerHTML = `${topo()}<main class="app wrap"><div class="palco">${topoTreino('Flashcards', '')}<div class="progresso"><i id="barra"></i></div><div id="cartao"></div><div id="notas"></div></div></main>`;
+  ligarTopo(); $('#voltar').onclick = () => { S.tela = 'inicio'; render(); };
+  const contaCaixas = () => { const v = base.map(caixa); return [v.filter(b => b < 0).length, v.filter(b => b === 0).length, v.filter(b => b === 1).length, v.filter(b => b >= 2).length]; };
+  const mostra = () => {
+    if (i >= ordem.length) return fim();
+    const x = ordem[i]; $('#contador').textContent = `${i + 1}/${ordem.length}`; $('#barra').style.width = (i / ordem.length * 100) + '%';
+    $('#cartao').innerHTML = `<button class="flip entra-dir" id="flip" aria-label="Virar o cartão"><div class="flip-in">
+      <div class="face frente"><div class="meta" style="display:flex;justify-content:space-between"><span class="rot">${esc(curto(x.materia))}</span><span class="rot">${n3(x.n)}</span></div><p class="pergunta">${esc(x.fq)}</p><span class="dica-toque"><svg width="16" height="16"><use href="#i-gira"/></svg>Toque para ver a resposta</span></div>
+      <div class="face verso"><span class="rot" style="color:var(--ouro2)">Resposta</span><p class="resposta">${esc(x.fa)}</p><p class="fonte"><b>DICA ${n3(x.n)}</b><br>${esc(x.regra)}</p></div>
+    </div></button>`;
+    $('#notas').innerHTML = `<div class="notas" id="botoes" style="visibility:hidden"><button class="nota-btn n-errei" data-v="0">Errei<small>volta logo</small></button><button class="nota-btn n-quase" data-v="1">Quase<small>revisar</small></button><button class="nota-btn n-sei" data-v="2">Sabia<small>avança</small></button></div>
+      <div class="caixas">${['Novos', 'Errei', 'Quase', 'Sabia'].map((t, k) => `<span>${t} <b>${contaCaixas()[k]}</b></span>`).join('')}</div>`;
+    const vira = () => { $('#flip').classList.toggle('virado'); $('#botoes').style.visibility = 'visible'; };
+    $('#flip').onclick = vira;
+    document.querySelectorAll('.nota-btn').forEach(b => b.onclick = () => avalia(+b.dataset.v));
+    document.onkeydown = e => { if (S.tela !== 'flash') return; if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); vira(); } if ($('#botoes')?.style.visibility === 'visible' && ['1', '2', '3'].includes(e.key)) avalia(+e.key - 1); };
+  };
+  const avalia = v => {
+    const x = ordem[i], atual = Math.max(0, caixa(x));
+    S.prog.flash[x.n] = v === 0 ? 0 : v === 1 ? Math.min(atual, 1) || 1 : Math.min(3, atual + 1 + (atual >= 2 ? 0 : 1));
+    salvar('flash'); placar[['errei', 'quase', 'sei'][v]]++;
+    if (v === 0) ordem.push(x);
+    i++; mostra();
+  };
+  const fim = () => {
+    const tot = placar.sei + placar.quase + placar.errei, pct = tot ? Math.round(placar.sei / tot * 100) : 0; if (pct >= 60) confete();
+    resultado('Rodada de flashcards', pct, `${placar.sei} sabia · ${placar.quase} quase · ${placar.errei} errei`, pct >= 80 ? 'Memória afiada.' : pct >= 50 ? 'Bom ritmo. Os que você errou voltam primeiro na próxima.' : 'É assim que fixa: os errados voltam primeiro na próxima rodada.', () => telaFlash());
+  };
+  mostra();
+}
+
+// ===== Quiz certo ou errado =====
+function telaQuiz(soErradas = false) {
+  const base = lista(); let pool = base;
+  if (soErradas) pool = base.filter(x => { const q = S.prog.quiz[x.n]; return q && q[0] < q[1]; });
+  if (!pool.length) { toast('Nenhuma questão errada nesse recorte.'); pool = base; }
+  const nunca = pool.filter(x => !S.prog.quiz[x.n]);
+  const ordem = (nunca.length >= 10 ? embaralha(nunca) : [...embaralha(nunca), ...embaralha(pool.filter(x => S.prog.quiz[x.n]))]).slice(0, 10);
+  let i = 0, acertos = 0, seq = 0, melhor = 0; const t0 = Date.now(), erradas = [];
+  raiz.innerHTML = `${topo()}<main class="app wrap"><div class="palco">${topoTreino('Quiz certo ou errado', '')}<div class="progresso"><i id="barra"></i></div><div id="cartao"></div><div class="acoes" id="seguir" hidden><button class="btn btn-ouro" id="prox">Próxima<svg width="18" height="18"><use href="#i-seta"/></svg></button></div></div></main>`;
+  ligarTopo(); $('#voltar').onclick = () => { S.tela = 'inicio'; render(); };
+  const mostra = () => {
+    if (i >= ordem.length) return fim();
+    const x = ordem[i]; $('#contador').textContent = `${i + 1}/${ordem.length}`; $('#barra').style.width = (i / ordem.length * 100) + '%'; $('#seguir').hidden = true;
+    $('#cartao').innerHTML = `<article class="quiz-card entra-dir" id="qc"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span class="rot" style="color:var(--ouro2)">${esc(curto(x.materia))}</span>${seq >= 2 ? `<span class="sequencia fogo"><svg width="14" height="14"><use href="#i-fogo"/></svg>${seq} seguidas</span>` : ''}</div>
+      <p class="afirm">${esc(x.q)}</p><div class="ce"><button id="b-c" data-v="1">Certo</button><button id="b-e" data-v="0">Errado</button></div><div id="gab"></div></article>`;
+    const responde = v => {
+      if ($('#b-c').disabled) return;
+      const ok = (v === 1) === !!x.c; $('#b-c').disabled = $('#b-e').disabled = true;
+      $(x.c ? '#b-c' : '#b-e').classList.add('certa'); if (!ok) { $(v ? '#b-c' : '#b-e').classList.add('errada'); $('#qc').classList.add('treme'); erradas.push(x); }
+      const r = S.prog.quiz[x.n] || [0, 0]; S.prog.quiz[x.n] = [r[0] + (ok ? 1 : 0), r[1] + 1]; salvar('quiz');
+      if (ok) { acertos++; seq++; melhor = Math.max(melhor, seq); if (seq === 5) confete(70); } else seq = 0;
+      $('#gab').innerHTML = `<div class="gab ${ok ? 'ok' : 'no'}"><b>${ok ? 'Acertou' : 'Errou'} · a afirmação está ${x.c ? 'certa' : 'errada'}</b>${esc(x.g)}<span class="regra-ref"><strong>Dica ${n3(x.n)}:</strong> ${esc(x.regra)}</span></div>`;
+      $('#seguir').hidden = false; $('#prox').focus({ preventScroll: true });
+    };
+    $('#b-c').onclick = () => responde(1); $('#b-e').onclick = () => responde(0);
+    document.onkeydown = e => { if (S.tela !== 'quiz') return; if (e.key.toLowerCase() === 'c') responde(1); if (e.key.toLowerCase() === 'e') responde(0); };
+  };
+  $('#prox').onclick = () => { i++; mostra(); };
+  const fim = () => {
+    const pct = Math.round(acertos / ordem.length * 100), seg = Math.round((Date.now() - t0) / 1000); if (pct >= 70) confete();
+    resultado('Rodada do quiz', pct, `${acertos} de ${ordem.length} · melhor sequência ${melhor} · ${Math.floor(seg / 60)}min ${seg % 60}s`, pct >= 90 ? 'Nível prova. Segue nesse ritmo.' : pct >= 70 ? 'Muito bom. Revise os comentários das que errou.' : 'As pegadinhas que você errou agora são as que não vão te pegar no domingo.', () => telaQuiz(), erradas.length ? () => telaQuiz(true) : null);
+  };
+  mostra();
+}
+
+function resultado(titulo, pct, linha, frase, deNovo, soErradas) {
+  const c = 2 * Math.PI * 86;
+  $('#cartao').innerHTML = ''; ['#notas', '#seguir'].forEach(s => $(s) && ($(s).hidden = true)); $('#barra').style.width = '100%';
+  $('#cartao').insertAdjacentHTML('beforeend', `<div class="resultado surge"><p class="rot">${esc(titulo)}</p><div class="anel"><svg width="200" height="200" viewBox="0 0 200 200"><circle class="fundo" cx="100" cy="100" r="86"/><circle class="valor" id="anel-v" cx="100" cy="100" r="86" stroke-dasharray="${c}" stroke-dashoffset="${c}"/></svg><div id="anel-n">0%</div></div>
+    <h2>${pct >= 70 ? 'Mandou <span class="ouro">bem</span>' : 'Rodada <span class="ouro">concluída</span>'}</h2><p style="font-family:var(--f-mono);font-size:13px;color:var(--palha)">${esc(linha)}</p><p>${esc(frase)}</p>
+    <div class="acoes"><button class="btn btn-ouro" id="r-denovo">Nova rodada</button>${soErradas ? '<button class="btn btn-vidro" id="r-erradas">Só as que errei</button>' : ''}<button class="btn btn-vidro" id="r-inicio">Início</button></div></div>`);
+  requestAnimationFrame(() => { $('#anel-v').style.strokeDashoffset = c * (1 - pct / 100); });
+  if (!calmo) { let t0; const passo = t => { t0 ??= t; const p = Math.min(1, (t - t0) / 1200); $('#anel-n') && ($('#anel-n').textContent = Math.round(pct * (1 - Math.pow(1 - p, 3))) + '%'); if (p < 1) requestAnimationFrame(passo); }; requestAnimationFrame(passo); } else $('#anel-n').textContent = pct + '%';
+  $('#r-denovo').onclick = deNovo; $('#r-inicio').onclick = () => { S.tela = 'inicio'; render(); };
+  $('#r-erradas') && ($('#r-erradas').onclick = soErradas);
+}
+
+// ===== Admin: cadastros e liberação =====
+async function carregaAdmin() {
+  if (DEMO) return;
+  const [a, p] = await Promise.all([sb.from('enam_alunos').select('*').order('criado_em', { ascending: false }), sb.from('enam_prelib').select('*').order('criado_em', { ascending: false })]);
+  if (a.error) return toast('Não deu para carregar os alunos.');
+  S.adm.alunos = a.data; S.adm.prelib = p.data || [];
+}
+function telaAdmin() {
+  const A = S.adm, tot = A.alunos.length, por = s => A.alunos.filter(x => x.status === s).length;
+  const filtrados = A.alunos.filter(x => (A.filtro === 'todos' || x.status === A.filtro) && (!A.busca || (x.email + ' ' + (x.nome || '') + ' ' + (x.telefone || '')).toLowerCase().includes(A.busca.toLowerCase())));
+  const data = d => d ? new Date(d).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '';
+  raiz.innerHTML = `${topo()}<main class="app wrap">
+    <div class="saudacao surge"><div><p class="rot">Painel do professor</p><h1>Alunos do <span class="ouro">bônus</span></h1></div><button class="btn btn-vidro btn-pequeno" id="adm-atualiza"><svg width="16" height="16"><use href="#i-gira"/></svg>Atualizar</button></div>
+    <div class="adm-stats">${[['todos', tot, 'cadastros'], ['pendente', por('pendente'), 'aguardando'], ['liberado', por('liberado'), 'liberados'], ['bloqueado', por('bloqueado'), 'bloqueados']].map(([f, n, t]) => `<button class="stat" data-f="${f}" style="text-align:left;${A.filtro === f ? 'border-color:var(--palha)' : ''}"><div><b>${n}</b><span>${t}</span></div></button>`).join('')}</div>
+    <div class="adm-barra"><input type="search" id="adm-busca" placeholder="Buscar por e-mail, nome ou WhatsApp" value="${esc(A.busca)}" aria-label="Buscar aluno">
+      <button class="btn btn-ouro btn-pequeno" id="adm-lib" ${A.sel.size ? '' : 'disabled'}>Liberar selecionados</button><button class="btn btn-vidro btn-pequeno" id="adm-blq" ${A.sel.size ? '' : 'disabled'}>Bloquear</button><button class="btn btn-vidro btn-pequeno" id="adm-csv">Baixar lista</button></div>
+    <div class="tabela" role="table"><div class="linha cab" role="row"><input type="checkbox" id="adm-todos" aria-label="Selecionar todos"><span>Aluno</span><span class="col-nome">WhatsApp</span><span class="col-data">Cadastro</span><span>Status</span><span></span></div>
+      ${filtrados.length ? filtrados.map(x => `<div class="linha" role="row"><input type="checkbox" data-id="${x.user_id}" ${A.sel.has(x.user_id) ? 'checked' : ''} aria-label="Selecionar ${esc(x.email)}"><span><span class="email">${esc(x.email)}</span><span class="sub">${esc(x.nome || 'sem nome')}</span></span><span class="col-nome">${esc(x.telefone || '')}</span><span class="col-data">${data(x.criado_em)}</span><span><span class="status st-${x.status}">${x.status}</span></span>
+        <span class="acts">${x.status !== 'liberado' ? `<button class="btn btn-ouro btn-pequeno" data-acao="liberado" data-id="${x.user_id}">Liberar</button>` : ''}${x.status !== 'bloqueado' ? `<button class="btn btn-vidro btn-pequeno" data-acao="bloqueado" data-id="${x.user_id}">Bloquear</button>` : `<button class="btn btn-vidro btn-pequeno" data-acao="pendente" data-id="${x.user_id}">Voltar a pendente</button>`}</span></div>`).join('') : `<div class="vazio">${tot ? 'Ninguém nesse filtro.' : 'Ainda não há cadastros. Mande o link da plataforma para os alunos.'}</div>`}
+    </div>
+    <div class="prelib"><p class="rot">Liberar por e-mail da compra</p><p class="muted" style="margin:6px 0 0;font-size:14px">Cole os e-mails dos compradores (um por linha ou separados por vírgula). Quem já se cadastrou é liberado na hora; quem ainda vai se cadastrar entra já liberado.</p>
+      <textarea id="prelib-txt" placeholder="aluno1@email.com&#10;aluno2@email.com" aria-label="E-mails para pré-liberar"></textarea><button class="btn btn-ouro btn-pequeno" id="prelib-ok">Pré-liberar e-mails</button>
+      ${A.prelib.length ? `<p class="muted" style="font-size:13px;margin:14px 0 0">${A.prelib.length} e-mail(s) na lista de pré-liberação.</p>` : ''}</div>
+  </main>`;
+  ligarTopo();
+  const recarrega = async () => { await carregaAdmin(); telaAdmin(); };
+  $('#adm-atualiza').onclick = recarrega;
+  document.querySelectorAll('.adm-stats .stat').forEach(b => b.onclick = () => { A.filtro = b.dataset.f; A.sel.clear(); telaAdmin(); });
+  $('#adm-busca').oninput = e => { A.busca = e.target.value; clearTimeout(telaAdmin.t); telaAdmin.t = setTimeout(() => { telaAdmin(); const s = $('#adm-busca'); s.focus(); s.setSelectionRange(s.value.length, s.value.length); }, 250); };
+  document.querySelectorAll('.linha input[data-id]').forEach(c => c.onchange = () => { c.checked ? A.sel.add(c.dataset.id) : A.sel.delete(c.dataset.id); $('#adm-lib').disabled = $('#adm-blq').disabled = !A.sel.size; });
+  $('#adm-todos').onchange = e => { filtrados.forEach(x => e.target.checked ? A.sel.add(x.user_id) : A.sel.delete(x.user_id)); telaAdmin(); };
+  const muda = async (ids, st) => { const { data, error } = await sb.rpc('enam_definir_status', { p_ids: ids, p_status: st }); if (error) return toast('Não deu: ' + error.message); toast(`${data} aluno(s) ${st === 'liberado' ? 'liberado(s)' : st === 'bloqueado' ? 'bloqueado(s)' : 'de volta a pendente'}.`); if (st === 'liberado') confete(60); A.sel.clear(); recarrega(); };
+  document.querySelectorAll('[data-acao]').forEach(b => b.onclick = () => muda([b.dataset.id], b.dataset.acao));
+  $('#adm-lib').onclick = () => muda([...A.sel], 'liberado'); $('#adm-blq').onclick = () => muda([...A.sel], 'bloqueado');
+  $('#adm-csv').onclick = () => { const linhas = [['email', 'nome', 'whatsapp', 'status', 'cadastro'], ...A.alunos.map(x => [x.email, x.nome || '', x.telefone || '', x.status, x.criado_em])]; const csv = linhas.map(l => l.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';')).join('\n'); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['﻿' + csv], { type: 'text/csv' })); a.download = 'alunos-treino-enam.csv'; a.click(); };
+  $('#prelib-ok').onclick = async () => { const emails = $('#prelib-txt').value.split(/[\s,;]+/).filter(e => e.includes('@')); if (!emails.length) return toast('Cole pelo menos um e-mail.'); const { data, error } = await sb.rpc('enam_prelib_adicionar', { p_emails: emails }); if (error) return toast('Não deu: ' + error.message); toast(`${emails.length} e-mail(s) pré-liberado(s); ${data} cadastro(s) liberado(s) agora.`); recarrega(); };
+}
+
+// ===== Roteamento =====
+function render() {
+  document.onkeydown = null; clearInterval(telaEspera.t);
+  if (!S.sessao) return telaEntrada();
+  if (S.status !== 'liberado' && S.status !== 'admin') return telaEspera(S.status);
+  if (S.tela === 'admin' && S.status === 'admin') return telaAdmin();
+  ({ inicio: telaInicio, dicas: telaDicas, flash: telaFlash, quiz: telaQuiz }[S.tela] || telaInicio)();
+  scrollTo({ top: 0, behavior: calmo ? 'auto' : 'smooth' });
+}
+
+async function entrar(silencioso = false) {
+  if (DEMO) { S.sessao = { user: { id: 'demo', email: 'aluno@exemplo.com' } }; S.status = 'liberado'; S.perfil = { nome: 'Aluna' }; S.conteudo = DEMO; return render(); }
+  const { data: st, error } = await sb.rpc('enam_entrar', { p_nome: S.cadastro?.nome || null, p_telefone: S.cadastro?.tel || null });
+  if (error) { if (!silencioso) toast('Não deu para conferir o acesso agora.'); return; }
+  const anterior = S.status; S.status = st;
+  const { data: perfil } = await sb.from('enam_alunos').select('nome,email,status').eq('user_id', S.sessao.user.id).maybeSingle(); S.perfil = perfil;
+  if (st === 'liberado' || st === 'admin') {
+    if (!S.conteudo.length) {
+      const [c, p] = await Promise.all([sb.from('enam_conteudo').select('*').order('n'), sb.from('enam_progresso').select('chave,dados')]);
+      if (c.error) return toast('Não deu para carregar o conteúdo.');
+      S.conteudo = c.data; (p.data || []).forEach(r => S.prog[r.chave] = r.dados || {});
+    }
+    if (st === 'admin') await carregaAdmin();
+    if (anterior && anterior !== st) { confete(); toast('Acesso liberado. Bons estudos!'); }
+  }
+  if (silencioso && anterior === st) return;
+  render();
+}
+
+if (DEMO) entrar();
+else sb.auth.onAuthStateChange((evento, sessao) => {
+  const tinha = !!S.sessao; S.sessao = sessao;
+  if (evento === 'PASSWORD_RECOVERY') return trocaSenha();
+  if (!sessao) { S.status = null; S.conteudo = []; S.prog = { flash: {}, quiz: {}, marcadas: {}, vistas: {} }; return telaEntrada(); }
+  if (!tinha || evento === 'SIGNED_IN') setTimeout(() => entrar(), 0);
+});
+function trocaSenha() {
+  raiz.innerHTML = `<div class="wrap entrada"><div class="painel surge" style="max-width:440px;margin:0 auto;grid-column:1/-1"><h2 style="font-size:40px;margin-bottom:16px">Nova senha</h2><form id="f-nova"><div class="campo"><label for="f-nova-s">Senha nova</label><input id="f-nova-s" type="password" minlength="6" autocomplete="new-password" required></div><button class="btn btn-ouro" type="submit">Salvar senha</button></form></div></div>`;
+  $('#f-nova').onsubmit = async e => { e.preventDefault(); const { error } = await sb.auth.updateUser({ password: $('#f-nova-s').value }); if (error) return toast('Não deu: ' + error.message); toast('Senha alterada.'); entrar(); };
+}
+</script>
+</body>
+</html>
