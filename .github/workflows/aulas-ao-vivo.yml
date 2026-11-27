@@ -1,0 +1,28 @@
+# Publica a Arena ao vivo (pasta aulas-ao-vivo) no GitHub Pages a cada mudança nela.
+name: Publicar Arena ao vivo
+on:
+  push:
+    branches: [claude/new-session-ods64f]
+    paths: ['aulas-ao-vivo/**', '.github/workflows/aulas-ao-vivo.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: aulas-ao-vivo
+      - id: deploy
+        uses: actions/deploy-pages@v4
